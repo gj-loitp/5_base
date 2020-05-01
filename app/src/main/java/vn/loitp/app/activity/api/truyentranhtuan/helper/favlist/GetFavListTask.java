@@ -6,7 +6,7 @@ import android.os.AsyncTask;
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
 import com.google.gson.reflect.TypeToken;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
 
     private Activity mActivity;
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     private List<Comic> comicList = new ArrayList<>();
 
@@ -29,15 +29,15 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetFavListTask(Activity activity, LAVLoadingIndicatorView avi, Callback callback) {
+    public GetFavListTask(Activity activity, AVLoadingIndicatorView avLoadingIndicatorView, Callback callback) {
         this.mActivity = activity;
-        this.avi = avi;
+        this.avLoadingIndicatorView = avLoadingIndicatorView;
         this.callback = callback;
     }
 
     @Override
     protected void onPreExecute() {
-        avi.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         super.onPreExecute();
     }
 
@@ -57,7 +57,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        avi.smoothToHide();
+        avLoadingIndicatorView.smoothToHide();
         if (callback != null) {
             callback.onSuccess(comicList);
         }

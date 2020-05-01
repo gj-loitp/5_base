@@ -21,9 +21,9 @@ import com.restapi.flickr.model.photosetgetlist.Photoset
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.layout.floatdraglayout.DisplayUtil
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
+import com.wang.avi.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_gallery_core_album.*
@@ -34,7 +34,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     private val photosetList = ArrayList<Photoset>()
     private var removeAlbumList: ArrayList<String>? = null
     private var bkgRootView: Int = 0
-    private var LAVLoadingIndicatorView: LAVLoadingIndicatorView? = null
+    private var avLoadingIndicatorView: AVLoadingIndicatorView? = null
     private var adView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +42,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         isShowAdWhenExit = false
         setTransparentStatusNavigationBar()
         removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
-        LAVLoadingIndicatorView = findViewById(R.id.av)
+        avLoadingIndicatorView = findViewById(R.id.av)
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("admobBannerUnitId $admobBannerUnitId")
         val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
@@ -124,7 +124,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     }
 
     private fun photosetsGetList() {
-        LAVLoadingIndicatorView?.smoothToShow()
+        avLoadingIndicatorView?.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -167,10 +167,10 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
                     })
                     updateAllViews()
-                    LAVLoadingIndicatorView?.smoothToHide()
+                    avLoadingIndicatorView?.smoothToHide()
                 }, { throwable ->
                     handleException(throwable)
-                    LAVLoadingIndicatorView?.smoothToHide()
+                    avLoadingIndicatorView?.smoothToHide()
                 }))
     }
 

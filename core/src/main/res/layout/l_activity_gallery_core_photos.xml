@@ -35,7 +35,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/txt_20" />
 
-        <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+        <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/av"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="@dimen/w_40"

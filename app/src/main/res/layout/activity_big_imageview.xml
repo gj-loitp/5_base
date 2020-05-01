@@ -16,7 +16,7 @@
         app:optimizeDisplay="true"
         app:thumbnailScaleType="centerCrop" />
 
-    <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+    <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView"
         android:layout_width="@dimen/w_50"

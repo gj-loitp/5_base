@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallPulseIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallGridPulseIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallClipRotatePulseIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="SquareSpinIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallPulseRiseIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallRotateIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,7 +125,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallZigZagIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -133,7 +133,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallZigZagDeflectIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -148,7 +148,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallClipRotateMultipleIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -164,7 +164,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineScalePartyIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -195,7 +195,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleMultipleIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallBeatIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -226,7 +226,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineScalePulseOutIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -241,7 +241,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -249,7 +249,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleRippleIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -257,7 +257,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleRippleMultipleIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -271,7 +271,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -279,7 +279,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineSpinFadeLoaderIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -287,7 +287,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="TriangleSkewSpinIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -301,7 +301,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -309,7 +309,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallGridBeatIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -317,7 +317,7 @@
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="SemiCircleSpinIndicator" />
 
-                <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+                <com.wang.avi.AVLoadingIndicatorView
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -49,7 +49,7 @@
         style="@style/TextMenu"
         android:text="Test xóa truyện" />
 
-    <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+    <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/avi"
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"

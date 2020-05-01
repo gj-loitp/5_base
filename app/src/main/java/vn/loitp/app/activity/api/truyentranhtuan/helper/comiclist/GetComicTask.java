@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import com.core.utilities.LLog;
 import com.core.utilities.LStoreUtil;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -30,7 +30,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
     private boolean getComicSuccess = false;
     private String link;
     private List<Comic> comicList = new ArrayList<>();
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
     private Activity activity;
 
     public interface Callback {
@@ -41,17 +41,17 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetComicTask(Activity activity, String link, LAVLoadingIndicatorView avi, Callback callback) {
+    public GetComicTask(Activity activity, String link, AVLoadingIndicatorView avLoadingIndicatorView, Callback callback) {
         this.activity = activity;
         this.link = link;
-        this.avi = avi;
+        this.avLoadingIndicatorView = avLoadingIndicatorView;
         this.callback = callback;
     }
 
     @Override
     protected void onPreExecute() {
         LLog.d(TAG, "GetComicTask onPreExecute");
-        avi.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         super.onPreExecute();
     }
 
@@ -141,7 +141,7 @@ public class GetComicTask extends AsyncTask<Void, Void, Void> {
                 callback.onError();
             }
         }
-        avi.smoothToHide();
+        avLoadingIndicatorView.smoothToHide();
         super.onPostExecute(aVoid);
     }
 

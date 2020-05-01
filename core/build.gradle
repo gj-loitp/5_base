@@ -183,4 +183,7 @@ dependencies {
 
     //https://github.com/tplloi/ShineButton
     api 'com.sackcentury:shinebutton:1.0.0'
+
+    //https://github.com/81813780/AVLoadingIndicatorView
+    api 'com.wang.avi:library:2.1.3'
 }

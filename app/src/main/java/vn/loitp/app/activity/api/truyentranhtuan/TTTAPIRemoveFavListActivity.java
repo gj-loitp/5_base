@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.views.LToast;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -14,18 +14,16 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.RemoveComicFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 
-;
-
 public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
     private TextView tv;
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv = findViewById(R.id.tv);
-        avi = findViewById(R.id.avi);
-        avi.hide();
+        avLoadingIndicatorView = findViewById(R.id.avi);
+        avLoadingIndicatorView.hide();
 
         findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(v -> {
             Comic comic = new Comic();
@@ -66,26 +64,26 @@ public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
     }
 
     private void removeComic(Comic comic) {
-        avi.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         new RemoveComicFavListTask(getActivity(), comic, new RemoveComicFavListTask.Callback() {
             @Override
             public void onRemoveComicSuccess(Comic mComic, List<Comic> comicList) {
                 LToast.showShort(activity, "onRemoveComicSuccess");
                 LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
-                avi.smoothToHide();
+                avLoadingIndicatorView.smoothToHide();
             }
 
             @Override
             public void onComicIsNotExist(Comic mComic, List<Comic> comicList) {
                 LToast.showShort(activity, "onComicIsNotExist");
                 LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
-                avi.smoothToHide();
+                avLoadingIndicatorView.smoothToHide();
             }
 
             @Override
             public void onRemoveComicError() {
                 LToast.showShort(activity, "onRemoveComicError");
-                avi.smoothToHide();
+                avLoadingIndicatorView.smoothToHide();
             }
         }).execute();
     }

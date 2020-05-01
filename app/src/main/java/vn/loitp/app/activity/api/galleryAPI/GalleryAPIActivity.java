@@ -16,7 +16,7 @@ import com.restapi.flickr.model.photosetgetlist.Photoset;
 import com.restapi.flickr.model.photosetgetlist.WrapperPhotosetGetlist;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -26,7 +26,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
 public class GalleryAPIActivity extends BaseFontActivity {
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
     private TextView tv;
     private Button bt2;
     private WrapperPhotosetGetlist mWrapperPhotosetGetlist;
@@ -34,8 +34,8 @@ public class GalleryAPIActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        avi = findViewById(R.id.avi);
-        avi.smoothToHide();
+        avLoadingIndicatorView = findViewById(R.id.avi);
+        avLoadingIndicatorView.smoothToHide();
         tv = findViewById(R.id.tv);
         final Button bt1 = findViewById(R.id.bt_1);
         bt2 = findViewById(R.id.bt_2);
@@ -59,7 +59,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
     }
 
     private void photosetsGetList() {
-        avi.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         final FlickrService service = RestClient.createService(FlickrService.class);
         final String method = FlickrConst.METHOD_PHOTOSETS_GETLIST;
         final String apiKey = FlickrConst.API_KEY;
@@ -77,11 +77,11 @@ public class GalleryAPIActivity extends BaseFontActivity {
                     LLog.d(getTAG(), "onSuccess " + LApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                     mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
                     LUIUtil.INSTANCE.printBeautyJson(wrapperPhotosetGetlist, tv);
-                    avi.smoothToHide();
+                    avLoadingIndicatorView.smoothToHide();
                     bt2.setVisibility(View.VISIBLE);
                 }, e -> {
                     handleException(e);
-                    avi.smoothToHide();
+                    avLoadingIndicatorView.smoothToHide();
                 }));
     }
 
@@ -106,7 +106,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
 
     private void photosetsGetPhotos(@NonNull final String photosetID) {
         tv.setText("");
-        avi.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         final FlickrService service = RestClient.createService(FlickrService.class);
         final String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
         final String apiKey = FlickrConst.API_KEY;
@@ -123,11 +123,11 @@ public class GalleryAPIActivity extends BaseFontActivity {
                 .subscribe(wrapperPhotosetGetlist -> {
                     LLog.d(getTAG(), "onSuccess " + LApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                     LUIUtil.INSTANCE.printBeautyJson(wrapperPhotosetGetlist, tv);
-                    avi.smoothToHide();
+                    avLoadingIndicatorView.smoothToHide();
                     bt2.setVisibility(View.VISIBLE);
                 }, e -> {
                     handleException(e);
-                    avi.smoothToHide();
+                    avLoadingIndicatorView.smoothToHide();
                 }));
     }
 }

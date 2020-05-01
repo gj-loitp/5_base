@@ -33,13 +33,13 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.layout.floatdraglayout.DisplayUtil
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView
+import com.wang.avi.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_gallery_core_photos_only.*
 
 class GalleryMemberActivity : BaseFontActivity() {
-    private lateinit var LAVLoadingIndicatorView: LAVLoadingIndicatorView
+    private lateinit var avLoadingIndicatorView: AVLoadingIndicatorView
     private lateinit var tvTitle: TextView
 
     private var currentPage = 0
@@ -84,7 +84,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         tvTitle = findViewById(R.id.tv_title)
         LUIUtil.setTextShadow(tvTitle, Color.WHITE)
-        LAVLoadingIndicatorView = findViewById(R.id.av)
+        avLoadingIndicatorView = findViewById(R.id.av)
 
         photosetID = Constants.FLICKR_ID_MEMBERS
         if (photosetID?.isEmpty() == true) {
@@ -179,7 +179,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun photosetsGetList() {
-        LAVLoadingIndicatorView.smoothToShow()
+        avLoadingIndicatorView.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -205,7 +205,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                 }, { e ->
                     logE("photosetsGetList onFail $e")
                     handleException(e)
-                    LAVLoadingIndicatorView.smoothToHide()
+                    avLoadingIndicatorView.smoothToHide()
                 }))
     }
 
@@ -216,7 +216,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         }
         logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        LAVLoadingIndicatorView.smoothToShow()
+        avLoadingIndicatorView.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -224,7 +224,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         if (currentPage <= 0) {
             logD("currentPage <= 0 -> return")
             currentPage = 0
-            LAVLoadingIndicatorView.smoothToHide()
+            avLoadingIndicatorView.smoothToHide()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -243,13 +243,13 @@ class GalleryMemberActivity : BaseFontActivity() {
                     PhotosDataCore.getInstance().addPhoto(photoList)
                     updateAllViews()
 
-                    LAVLoadingIndicatorView.smoothToHide()
+                    avLoadingIndicatorView.smoothToHide()
                     isLoading = false
                     currentPage--
                 }, { e ->
                     logE("photosetsGetPhotos onFail $e")
                     handleException(e)
-                    LAVLoadingIndicatorView.smoothToHide()
+                    avLoadingIndicatorView.smoothToHide()
                     isLoading = true
                 }))
     }

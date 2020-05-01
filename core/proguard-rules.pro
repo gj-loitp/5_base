@@ -18,9 +18,6 @@
 
 -ignorewarnings
 
-#core
--keep class vn.puresolutions.livestar.core.** { *; }
-
 #google
 -keep public class com.google.** {*;}
 
@@ -120,8 +117,8 @@
 #for realm
 
 ##for loading view
--keep class com.views.progressloadingview.avl.** { *; }
--keep class com.views.progressloadingview.av.indicators.** { *; }
+-keep class com.wang.avi.** { *; }
+-keep class com.wang.avi.indicators.** { *; }
 ##for loading view
 
 ##glide

@@ -24,7 +24,7 @@ import com.bumptech.glide.request.target.Target
 import com.core.common.Constants
 import com.utils.util.FileUtils
 import com.views.imageview.pinchtozoom.ImageMatrixTouchHandler
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView
+import com.wang.avi.AVLoadingIndicatorView
 import java.io.File
 import java.util.*
 import kotlin.math.min
@@ -181,7 +181,7 @@ object LImageUtil {
     @SuppressLint("ResourceType")
     @JvmOverloads
     fun load(context: Context?, url: String?, imageView: ImageView?,
-             LAVLoadingIndicatorView: LAVLoadingIndicatorView?, resPlaceHolder:
+             avLoadingIndicatorView: AVLoadingIndicatorView?, resPlaceHolder:
              Int = Color.TRANSPARENT, resError: Int = Color.TRANSPARENT) {
         if (context == null || url.isNullOrEmpty() || imageView == null) {
             return
@@ -196,12 +196,12 @@ object LImageUtil {
                 )
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
-                        LAVLoadingIndicatorView?.hide()
+                        avLoadingIndicatorView?.hide()
                         return false
                     }
 
                     override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
-                        LAVLoadingIndicatorView?.hide()
+                        avLoadingIndicatorView?.hide()
                         return false
                     }
                 })

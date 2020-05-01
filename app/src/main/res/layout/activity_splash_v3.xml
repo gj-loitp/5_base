@@ -20,7 +20,7 @@
         android:layout_margin="60dp"
         android:background="@color/colorPrimary" />
 
-    <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+    <com.wang.avi.AVLoadingIndicatorView
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
