@@ -38,6 +38,7 @@
                 android:id="@+id/btGenAboutMe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:text="Gen About Me"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
@@ -75,6 +76,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:text="Add About Me at last"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btRemoveAdapterListUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="Remove adapter list user"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
         </LinearLayout>

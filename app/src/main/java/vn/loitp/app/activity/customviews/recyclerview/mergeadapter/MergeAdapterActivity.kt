@@ -98,5 +98,10 @@ class MergeAdapterActivity : BaseFontActivity() {
             newAboutMeAdapter.setData(listAboutMe)
             mergeAdapter?.addAdapter(newAboutMeAdapter)
         }
+        btRemoveAdapterListUser.setSafeOnClickListener {
+            usersAdapter?.let { ua ->
+                mergeAdapter?.removeAdapter(ua)
+            }
+        }
     }
 }
