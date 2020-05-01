@@ -27,6 +27,14 @@
             android:paddingEnd="@dimen/padding_medium">
 
             <Button
+                android:id="@+id/btClearAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clear All"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
                 android:id="@+id/btGenAboutMe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -58,6 +66,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:text="Add Banner at 0"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/btAddAboutMeAtLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="Add About Me at last"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
         </LinearLayout>

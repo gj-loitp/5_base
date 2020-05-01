@@ -65,9 +65,14 @@ class MergeAdapterActivity : BaseFontActivity() {
 
             override fun onBottom() {
                 logD("onBottom")
+                showShort("onBottom")
             }
         })
 
+        btClearAll.setSafeOnClickListener {
+            //TODO
+            //mergeAdapter?.removeAdapter()
+        }
         btGenAboutMe.setSafeOnClickListener {
             val aboutMe = AboutMe(1, "Loitp93", "I'm a developer.")
             val listAboutMe = ArrayList<AboutMe>()
@@ -84,6 +89,14 @@ class MergeAdapterActivity : BaseFontActivity() {
             val newBannerAdapter = BannerAdapter(ArrayList())
             newBannerAdapter.setData(DataSource.getBanner())
             mergeAdapter?.addAdapter(0, newBannerAdapter)
+        }
+        btAddAboutMeAtLast.setSafeOnClickListener {
+            val newAboutMeAdapter = AboutMeAdapter(ArrayList())
+            val aboutMe = AboutMe(1, "Loitp ^^!", "Hello world!!!")
+            val listAboutMe = ArrayList<AboutMe>()
+            listAboutMe.add(aboutMe)
+            newAboutMeAdapter.setData(listAboutMe)
+            mergeAdapter?.addAdapter(newAboutMeAdapter)
         }
     }
 }
