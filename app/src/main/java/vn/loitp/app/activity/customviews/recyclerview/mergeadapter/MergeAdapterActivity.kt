@@ -70,8 +70,13 @@ class MergeAdapterActivity : BaseFontActivity() {
         })
 
         btClearAll.setSafeOnClickListener {
-            //TODO
-            //mergeAdapter?.removeAdapter()
+            mergeAdapter?.let { a ->
+                a.adapters.let { list ->
+                    list.forEach { childAdapter ->
+                        a.removeAdapter(childAdapter)
+                    }
+                }
+            }
         }
         btGenAboutMe.setSafeOnClickListener {
             val aboutMe = AboutMe(1, "Loitp93", "I'm a developer.")
