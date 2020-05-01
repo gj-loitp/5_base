@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.view_row_item_layout_about_me.view.*
+import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
 
@@ -32,7 +32,7 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             DataViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_item_layout_about_me, parent,
+                    R.layout.view_row_item_about_me, parent,
                     false
             ))
 

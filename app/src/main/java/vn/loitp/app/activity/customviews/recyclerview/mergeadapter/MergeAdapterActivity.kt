@@ -11,10 +11,7 @@ import com.interfaces.RecyclerViewCallback
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recyclerview_merge_adapter.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.AboutMeAdapter
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.BannerAdapter
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.NewsAdapter
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.UsersAdapter
+import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.*
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.DataSource
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.News
@@ -26,6 +23,7 @@ class MergeAdapterActivity : BaseFontActivity() {
     private var usersAdapter: UsersAdapter? = null
     private var bannerAdapter: BannerAdapter? = null
     private var newsAdapter: NewsAdapter? = null
+    private val loadingAdapter = LoadingAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -141,16 +139,37 @@ class MergeAdapterActivity : BaseFontActivity() {
         genNewsData()
     }
 
-    private fun genNewsData() {
-        val listNews = ArrayList<News>()
-        for (i in 0..4) {
-            val news = News(
-                    id = System.currentTimeMillis(),
-                    title = "Title " + System.currentTimeMillis(),
-                    image = Constants.URL_IMG_10
-            )
-            listNews.add(news)
+    private fun isLoading(): Boolean {
+        mergeAdapter?.let {
+            it.adapters.forEach { childAdapter ->
+                if (childAdapter == loadingAdapter) {
+                    return true
+                }
+            }
         }
-        newsAdapter?.addData(listNews)
+        return false
+    }
+
+    private fun genNewsData() {
+        if (!isLoading()) {
+            mergeAdapter?.addAdapter(loadingAdapter)
+            mergeAdapter?.itemCount?.let {
+                recyclerView.scrollToPosition(it - 1)
+            }
+
+            LUIUtil.setDelay(2000, Runnable {
+                val listNews = ArrayList<News>()
+                for (i in 0..4) {
+                    val news = News(
+                            id = System.currentTimeMillis(),
+                            title = "Title " + System.currentTimeMillis(),
+                            image = Constants.URL_IMG_10
+                    )
+                    listNews.add(news)
+                }
+                mergeAdapter?.removeAdapter(loadingAdapter)
+                newsAdapter?.addData(listNews)
+            })
+        }
     }
 }
