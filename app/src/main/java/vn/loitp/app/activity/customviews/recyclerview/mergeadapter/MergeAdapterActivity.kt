@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.core.base.BaseFontActivity
+import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import com.interfaces.RecyclerViewCallback
 import com.views.setSafeOnClickListener
@@ -51,6 +52,14 @@ class MergeAdapterActivity : BaseFontActivity() {
             ama.onClickRootListener = { aboutMe, position ->
                 aboutMe.name = System.currentTimeMillis().toString()
                 ama.notifyItemChanged(position)
+            }
+        }
+
+        usersAdapter?.let { ua ->
+            ua.onClickRootListener = { user, position ->
+                user.avatar = Constants.URL_IMG_1
+                user.name = System.currentTimeMillis().toString()
+                ua.notifyItemChanged(position)
             }
         }
 

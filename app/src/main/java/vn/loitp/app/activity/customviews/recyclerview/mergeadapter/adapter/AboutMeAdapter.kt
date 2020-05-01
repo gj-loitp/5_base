@@ -25,7 +25,7 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView
             itemView.textViewAboutMe.text = aboutMe.aboutMe
 
             itemView.layoutRoot.setSafeOnClickListener {
-                onClickRootListener?.invoke(aboutMe, absoluteAdapterPosition)
+                onClickRootListener?.invoke(aboutMe, bindingAdapterPosition)
             }
         }
     }
