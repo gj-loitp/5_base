@@ -80,5 +80,10 @@ class MergeAdapterActivity : BaseFontActivity() {
         btGenBanner.setSafeOnClickListener {
             bannerAdapter?.setData(DataSource.getBanner())
         }
+        btAddBannerAt0.setSafeOnClickListener {
+            val newBannerAdapter = BannerAdapter(ArrayList())
+            newBannerAdapter.setData(DataSource.getBanner())
+            mergeAdapter?.addAdapter(0, newBannerAdapter)
+        }
     }
 }
