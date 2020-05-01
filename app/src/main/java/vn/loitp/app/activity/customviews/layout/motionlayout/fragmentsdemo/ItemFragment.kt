@@ -32,7 +32,7 @@ class ItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.item_layout, container, false)
+        return inflater.inflate(R.layout.view_row_item_layout, container, false)
     }
 
     private lateinit var myHolder: CustomAdapter.ViewHolder

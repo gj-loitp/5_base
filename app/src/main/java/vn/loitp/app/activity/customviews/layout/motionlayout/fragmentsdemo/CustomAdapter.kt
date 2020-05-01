@@ -48,7 +48,7 @@ class CustomAdapter(private val userList: ArrayList<User>) : RecyclerView.Adapte
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_layout, parent, false)
         return ViewHolder(v)
     }
 

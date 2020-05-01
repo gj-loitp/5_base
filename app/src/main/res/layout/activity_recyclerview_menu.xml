@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,7 +16,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="vertical"
             android:paddingTop="@dimen/padding_medium"
             android:paddingBottom="@dimen/padding_medium">
@@ -76,7 +75,7 @@
                 style="@style/ButtonMenu"
                 android:text="Recycler Tab Layout" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
