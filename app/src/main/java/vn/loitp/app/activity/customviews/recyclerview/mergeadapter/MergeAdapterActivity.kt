@@ -45,7 +45,7 @@ class MergeAdapterActivity : BaseFontActivity() {
 
         aboutMeAdapter = AboutMeAdapter(ArrayList())
         usersAdapter = UsersAdapter(ArrayList())
-        bannerAdapter = BannerAdapter(DataSource.getBanner())
+        bannerAdapter = BannerAdapter(ArrayList())
 
         aboutMeAdapter?.let { ama ->
             usersAdapter?.let { ua ->
@@ -76,6 +76,9 @@ class MergeAdapterActivity : BaseFontActivity() {
         }
         btGenListUser.setSafeOnClickListener {
             usersAdapter?.setData(DataSource.getListUser())
+        }
+        btGenBanner.setSafeOnClickListener {
+            bannerAdapter?.setData(DataSource.getBanner())
         }
     }
 }

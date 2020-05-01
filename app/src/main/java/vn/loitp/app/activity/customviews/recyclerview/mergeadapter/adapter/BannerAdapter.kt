@@ -10,8 +10,14 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Banner
 
 class BannerAdapter(
-        private val banner: Banner
+        private val listBanner: ArrayList<Banner>
 ) : RecyclerView.Adapter<BannerAdapter.DataViewHolder>() {
+
+    fun setData(listBanner: ArrayList<Banner>) {
+        this.listBanner.clear()
+        this.listBanner.addAll(listBanner)
+        notifyDataSetChanged()
+    }
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: Banner) {
@@ -24,10 +30,10 @@ class BannerAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             DataViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_layout_banner, parent, false))
 
-    override fun getItemCount(): Int = 1
+    override fun getItemCount(): Int = listBanner.size
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        holder.bind(banner)
+        holder.bind(listBanner[position])
     }
 
 }

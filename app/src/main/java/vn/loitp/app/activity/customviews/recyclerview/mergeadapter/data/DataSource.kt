@@ -13,5 +13,7 @@ object DataSource {
         }
     }
 
-    fun getBanner() = Banner(R.drawable.loitp)
+    fun getBanner() = ArrayList<Banner>().apply {
+        add(Banner(bannerImage = R.drawable.loitp))
+    }
 }
