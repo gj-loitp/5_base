@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.interfaces.RecyclerViewCallback
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recyclerview_merge_adapter.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.AboutMeAdapter
@@ -43,7 +44,7 @@ class MergeAdapterActivity : BaseFontActivity() {
     private fun setupDataInRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        usersAdapter = UsersAdapter(DataSource.getListUser())
+        usersAdapter = UsersAdapter(ArrayList())
         bannerAdapter = BannerAdapter(DataSource.getBanner())
         aboutMeAdapter = AboutMeAdapter(aboutMe)
 
@@ -67,5 +68,9 @@ class MergeAdapterActivity : BaseFontActivity() {
                 logD("onBottom")
             }
         })
+
+        btGenListUser.setSafeOnClickListener {
+            usersAdapter?.setData(DataSource.getListUser())
+        }
     }
 }

@@ -13,6 +13,12 @@ class UsersAdapter(
         private val listUser: ArrayList<User>
 ) : RecyclerView.Adapter<UsersAdapter.DataViewHolder>() {
 
+    fun setData(listUser: ArrayList<User>) {
+        this.listUser.clear()
+        this.listUser.addAll(listUser)
+        notifyDataSetChanged()
+    }
+
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User) {
             itemView.textViewUserName.text = user.name
