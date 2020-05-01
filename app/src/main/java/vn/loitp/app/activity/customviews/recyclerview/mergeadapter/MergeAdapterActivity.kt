@@ -13,9 +13,11 @@ import kotlinx.android.synthetic.main.activity_recyclerview_merge_adapter.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.AboutMeAdapter
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.BannerAdapter
+import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.NewsAdapter
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.UsersAdapter
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.DataSource
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
+import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.News
 
 //https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial
 class MergeAdapterActivity : BaseFontActivity() {
@@ -23,6 +25,7 @@ class MergeAdapterActivity : BaseFontActivity() {
     private var aboutMeAdapter: AboutMeAdapter? = null
     private var usersAdapter: UsersAdapter? = null
     private var bannerAdapter: BannerAdapter? = null
+    private var newsAdapter: NewsAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +50,7 @@ class MergeAdapterActivity : BaseFontActivity() {
         aboutMeAdapter = AboutMeAdapter(ArrayList())
         usersAdapter = UsersAdapter(ArrayList())
         bannerAdapter = BannerAdapter(ArrayList())
+        newsAdapter = NewsAdapter(ArrayList())
 
         aboutMeAdapter?.let { ama ->
             ama.onClickRootListener = { aboutMe, position ->
@@ -63,11 +67,19 @@ class MergeAdapterActivity : BaseFontActivity() {
             }
         }
 
+        newsAdapter?.let { na ->
+            na.onClickRootListener = { _, position ->
+                showShort("Click position $position")
+            }
+        }
+
         aboutMeAdapter?.let { ama ->
             usersAdapter?.let { ua ->
                 bannerAdapter?.let { ba ->
-                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(ama, ua, ba)
-                    mergeAdapter = MergeAdapter(listOfAdapters)
+                    newsAdapter?.let { na ->
+                        val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(ama, ua, ba, na)
+                        mergeAdapter = MergeAdapter(listOfAdapters)
+                    }
                 }
             }
         }
@@ -82,6 +94,7 @@ class MergeAdapterActivity : BaseFontActivity() {
             override fun onBottom() {
                 logD("onBottom")
                 showShort("onBottom")
+                genNewsData()
             }
         })
 
@@ -124,5 +137,20 @@ class MergeAdapterActivity : BaseFontActivity() {
                 mergeAdapter?.removeAdapter(ua)
             }
         }
+
+        genNewsData()
+    }
+
+    private fun genNewsData() {
+        val listNews = ArrayList<News>()
+        for (i in 0..4) {
+            val news = News(
+                    id = System.currentTimeMillis(),
+                    title = "Title " + System.currentTimeMillis(),
+                    image = Constants.URL_IMG_10
+            )
+            listNews.add(news)
+        }
+        newsAdapter?.addData(listNews)
     }
 }
