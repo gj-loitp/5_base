@@ -11,6 +11,7 @@ import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity
+import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.MergeAdapterActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity
@@ -32,6 +33,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         btBookView.setOnClickListener(this)
         btDiffUtil.setOnClickListener(this)
         btRecyclerTabLayout.setOnClickListener(this)
+        btMergeAdapter.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -59,6 +61,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btBookView -> intent = Intent(activity, BookViewActivity::class.java)
             btDiffUtil -> intent = Intent(activity, DiffUtilActivity::class.java)
             btRecyclerTabLayout -> intent = Intent(activity, RecyclerTabLayoutMenuActivity::class.java)
+            btMergeAdapter -> intent = Intent(activity, MergeAdapterActivity::class.java)
         }
         intent?.let {
             startActivity(it)
