@@ -22,7 +22,6 @@ class MergeAdapterActivity : BaseFontActivity() {
     private var aboutMeAdapter: AboutMeAdapter? = null
     private var usersAdapter: UsersAdapter? = null
     private var bannerAdapter: BannerAdapter? = null
-    private val aboutMe = AboutMe(1, "Loitp93", "I'm a developer.")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +43,9 @@ class MergeAdapterActivity : BaseFontActivity() {
     private fun setupDataInRecyclerView() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        aboutMeAdapter = AboutMeAdapter(ArrayList())
         usersAdapter = UsersAdapter(ArrayList())
         bannerAdapter = BannerAdapter(DataSource.getBanner())
-        aboutMeAdapter = AboutMeAdapter(aboutMe)
 
         aboutMeAdapter?.let { ama ->
             usersAdapter?.let { ua ->
@@ -69,6 +68,12 @@ class MergeAdapterActivity : BaseFontActivity() {
             }
         })
 
+        btGenAboutMe.setSafeOnClickListener {
+            val aboutMe = AboutMe(1, "Loitp93", "I'm a developer.")
+            val listAboutMe = ArrayList<AboutMe>()
+            listAboutMe.add(aboutMe)
+            aboutMeAdapter?.setData(listAboutMe)
+        }
         btGenListUser.setSafeOnClickListener {
             usersAdapter?.setData(DataSource.getListUser())
         }

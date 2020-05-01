@@ -26,9 +26,18 @@
             android:paddingEnd="@dimen/padding_medium">
 
             <Button
+                android:id="@+id/btGenAboutMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gen About Me"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
                 android:id="@+id/btGenListUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:text="Gen List User"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />
