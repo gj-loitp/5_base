@@ -14,7 +14,7 @@ class AnimatedExpandableEditTextActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animated_expandale_editext
+        return R.layout.activity_editext_animated_expandale
     }
 
 }

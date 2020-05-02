@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,12 +17,12 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_animated_expandable_edit_text"
+                android:id="@+id/btAnimatedExpandableEditText"
                 style="@style/ButtonMenu"
                 android:text="@string/animatedexpandableedittextactivity" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_auto_resize_edit_text"
+                android:id="@+id/btAutoResizeEditText"
                 style="@style/ButtonMenu"
                 android:text="@string/autoresizeedittext" />
 
@@ -33,12 +32,12 @@
                 android:text="@string/autosuggestedittext" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_biu_edit_text"
+                android:id="@+id/btBiuEditText"
                 style="@style/ButtonMenu"
                 android:text="@string/biuedittext" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_material_text_field"
+                android:id="@+id/btMaterialTextField"
                 style="@style/ButtonMenu"
                 android:text="@string/materialtextfield" />
 
@@ -53,11 +52,10 @@
                 android:text="Text Watcher" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_edittext" />
 </RelativeLayout>
-

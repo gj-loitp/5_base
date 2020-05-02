@@ -18,6 +18,6 @@ class AutoResizeEditTextActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_autoresize_editext
+        return R.layout.activity_editext_autoresize
     }
 }

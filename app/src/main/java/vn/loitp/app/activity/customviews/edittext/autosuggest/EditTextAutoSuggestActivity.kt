@@ -28,7 +28,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet0.setColorProgressBar(Color.RED)
         aet0.setBackgroundResource(R.drawable.bkg_et)
         aet0.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
-            LToast.show(activity, "Text ${aet0.et.text}")
+            LToast.show(activity, "Text ${aet0.editText.text}")
         })
         aet0.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
@@ -42,10 +42,11 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet1.horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT
         aet1.setHintText("3/4 screen")
         aet1.setHinTextColor(Color.WHITE)
-        aet1.setColorProgressBar(Color.BLUE)
+        aet1.editText.setTextColor(Color.WHITE)
+        aet1.setColorProgressBar(Color.WHITE)
         aet1.setBackgroundResource(R.drawable.l_bkg_horizontal)
         aet1.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
-            LToast.show(activity, "Text ${aet1.et.text}")
+            LToast.show(activity, "Text ${aet1.editText.text}")
         })
         aet1.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {

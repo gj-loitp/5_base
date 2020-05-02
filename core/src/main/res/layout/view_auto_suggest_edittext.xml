@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    android:paddingStart="@dimen/padding_8"
-    android:paddingTop="@dimen/padding_3"
-    android:paddingEnd="@dimen/padding_8"
-    android:paddingBottom="@dimen/padding_3">
+    android:paddingStart="@dimen/padding_medium"
+    android:paddingTop="@dimen/padding_small"
+    android:paddingEnd="@dimen/padding_medium"
+    android:paddingBottom="@dimen/padding_small">
 
     <EditText
-        android:id="@+id/et"
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
@@ -18,7 +18,7 @@
         android:textCursorDrawable="@null" />
 
     <ProgressBar
-        android:id="@+id/pb"
+        android:id="@+id/progressBar"
         android:layout_width="@dimen/w_30"
         android:layout_height="@dimen/w_30"
         android:layout_alignParentEnd="true"

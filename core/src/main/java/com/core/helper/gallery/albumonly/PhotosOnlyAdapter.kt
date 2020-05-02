@@ -71,7 +71,7 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
         private val btShare: FloatingActionButton = v.findViewById(R.id.bt_share)
         private val btReport: FloatingActionButton = v.findViewById(R.id.bt_report)
         private val btCmt: FloatingActionButton = v.findViewById(R.id.bt_cmt)
-        private val pb: ProgressBar? = v.findViewById(R.id.pb)
+        private val pb: ProgressBar? = v.findViewById(R.id.progressBar)
         private var photo: Photo? = null
 
         init {
