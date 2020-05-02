@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.zoomimageview
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.imageview.zoom.ColorGridDrawable
-import kotlinx.android.synthetic.main.activity_zoomimageview.*
+import kotlinx.android.synthetic.main.activity_imageview_zoom.*
 import vn.loitp.app.R
 
 class ZoomImageViewActivity : BaseFontActivity() {
@@ -17,7 +17,7 @@ class ZoomImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_zoomimageview
+        return R.layout.activity_imageview_zoom
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

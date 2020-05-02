@@ -17,10 +17,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15"
+        android:padding="@dimen/padding_medium"
         android:text="An imageView can auto scroll with device rotating: Vertical or Horizontal"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_14"
+        android:textSize="@dimen/text_medium"
         android:textStyle="bold" />
 
 </RelativeLayout>

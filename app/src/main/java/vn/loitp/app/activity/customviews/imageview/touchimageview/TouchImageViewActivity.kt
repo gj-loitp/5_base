@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.touchimageview
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.activity_touch_imageview.*
+import kotlinx.android.synthetic.main.activity_imageview_touch.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
@@ -25,6 +25,6 @@ class TouchImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_touch_imageview
+        return R.layout.activity_imageview_touch
     }
 }

@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ImageView
-        android:id="@+id/iv"
+    <com.views.imageview.pinchtozoom.view.ImageViewPager
+        android:id="@+id/vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name" />
+        android:layout_height="match_parent" />
 </RelativeLayout>

@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.imageview.panorama.GyroscopeObserver
 import com.views.imageview.panorama.LPanoramaImageView
-import kotlinx.android.synthetic.main.activity_panorama_imageview.*
+import kotlinx.android.synthetic.main.activity_imageview_panorama.*
 import vn.loitp.app.R
 
 //https://github.com/gjiazhe/PanoramaImageView
@@ -20,7 +20,7 @@ class PanoramaImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_panorama_imageview
+        return R.layout.activity_imageview_panorama
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

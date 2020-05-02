@@ -18,14 +18,14 @@ class FrmIvPinchToZoom : Fragment() {
     private var urlIv: String? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_iv_pinch_to_zoom, container, false)
+        return inflater.inflate(R.layout.fragment_imageview_pinch_to_zoom, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         urlIv = arguments?.getString(KEY_URL)
         urlIv?.let { u ->
-            LImageUtil.load(view.context, u, iv)
+            LImageUtil.load(context = view.context, url = u, imageView = iv)
             LImageUtil.setImageViewZoom(iv)
         }
     }

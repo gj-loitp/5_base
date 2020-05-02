@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,32 +19,32 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_big_imageview"
+                android:id="@+id/btBigImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/big_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_big_imageview_with_scroll_view"
+                android:id="@+id/btBigImageViewWithScrollView"
                 style="@style/ButtonMenu"
                 android:text="@string/big_imageview_with_scrollview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_blur_imageview"
+                android:id="@+id/btBlurImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/blur_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_cirle_imageview"
+                android:id="@+id/btCirleImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/circle_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_continuous_scrollable_imageview"
+                android:id="@+id/btContinuousScrollableImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/continuous_scrollable_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_fidgetspinner"
+                android:id="@+id/btFidgetSpinner"
                 style="@style/ButtonMenu"
                 android:text="@string/fidgetspinner_imageview" />
 
@@ -55,7 +54,7 @@
                 android:text="Kenburn view" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_panorama_imageview"
+                android:id="@+id/btPanoramaImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/panorama_imageview" />
 
@@ -70,26 +69,26 @@
                 android:text="Pinch to zoom with ViewPager" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_scroll_parallax_imageview"
+                android:id="@+id/btScrollParallaxImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/scroll_parallax_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_touch_imageview"
+                android:id="@+id/btTouchImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/touch_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_stretchy_imageview"
+                android:id="@+id/btStretchyImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/stretchy_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_zoom_imageview"
+                android:id="@+id/btZoomImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/zoomimageview" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"

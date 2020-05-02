@@ -37,6 +37,6 @@ class ContinuousScrollableImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_continuousscrollable_imageview
+        return R.layout.activity_imageview_continuousscrollable
     }
 }
