@@ -27,7 +27,7 @@ public class SensorActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LLog.INSTANCE.d(getTAG(), "onCreate");
-        LRotateLayout = (LRotateLayout) findViewById(R.id.rotate_layout);
+        LRotateLayout = (LRotateLayout) findViewById(R.id.rotateLayout);
         tv = (TextView) findViewById(R.id.tv);
         iv = (ImageView) findViewById(R.id.iv);
         LImageUtil.INSTANCE.load(getActivity(), Constants.INSTANCE.getURL_IMG(), iv);

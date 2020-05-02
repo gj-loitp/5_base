@@ -1,12 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.rotatelayout
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDeviceUtil
-import com.views.layout.rotatelayout.LRotateLayout
-import kotlinx.android.synthetic.main.activity_rotate_layout.*
-
+import kotlinx.android.synthetic.main.activity_layout_rotate.*
 import vn.loitp.app.R
 
 class RotateLayoutActivity : BaseFontActivity() {
@@ -14,11 +11,9 @@ class RotateLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val lRotateLayout = findViewById<LRotateLayout>(R.id.rotate_layout)
-
-        bt.setOnClickListener { _ ->
+        btRandomRotate.setOnClickListener {
             val angle = LDeviceUtil.getRandomNumber(360)
-            lRotateLayout.angle = angle
+            rotateLayout.angle = angle
         }
     }
 
@@ -31,6 +26,6 @@ class RotateLayoutActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rotate_layout
+        return R.layout.activity_layout_rotate
     }
 }

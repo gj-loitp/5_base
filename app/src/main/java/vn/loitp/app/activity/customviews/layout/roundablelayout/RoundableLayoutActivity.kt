@@ -20,6 +20,6 @@ class RoundableLayoutActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_roundable_layout
+        return R.layout.activity_layout_roundable
     }
 }

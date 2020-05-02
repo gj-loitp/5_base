@@ -6,7 +6,7 @@
     android:background="@color/whiteSmoke">
 
     <com.views.scrollview.TwoDScrollView
-        android:id="@+id/sv"
+        android:id="@+id/twoDScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_15"
                 android:text="@string/large_text"
-                android:textSize="@dimen/txt_22"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_medium"
                 tools:ignore="SpUsage" />
         </LinearLayout>
     </com.views.scrollview.TwoDScrollView>
