@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,13 +21,13 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_blur_view_red"
+                    android:id="@+id/btBlurViewRed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/blur_view_red" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_blur_view_green"
+                    android:id="@+id/btBlurViewGreen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/blur_view_green" />
@@ -40,25 +39,25 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_count_1"
+                    android:id="@+id/btCount1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_count_3"
+                    android:id="@+id/btCount3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_count_5"
+                    android:id="@+id/btCount5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_count_6"
+                    android:id="@+id/btCount6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6" />
@@ -109,13 +108,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_70" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <com.views.bottombar.LBottomBar
-        android:id="@+id/bottom_bar"
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
-
