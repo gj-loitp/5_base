@@ -13,7 +13,7 @@ class FrmDummy : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tv = view.findViewById<TextView>(R.id.tv)
+        val tv = view.findViewById<TextView>(R.id.textView)
         tv.text = "DUMMYYYYYYYYYYYYYYYYYYY"
     }
 

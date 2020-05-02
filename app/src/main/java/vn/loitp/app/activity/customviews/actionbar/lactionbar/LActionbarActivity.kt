@@ -29,7 +29,7 @@ class LActionbarActivity : BaseFontActivity() {
     }
 
     private fun setupActionBar() {
-        tv.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar)
+        textView.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar)
 
         lActionBar.setOnClickBack(object : LActionBar.Callback {
             override fun onClickBack(view: View) {

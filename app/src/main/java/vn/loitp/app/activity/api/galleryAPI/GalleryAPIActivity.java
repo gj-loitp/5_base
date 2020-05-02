@@ -36,7 +36,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         avLoadingIndicatorView = findViewById(R.id.indicatorView);
         avLoadingIndicatorView.smoothToHide();
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         final Button bt1 = findViewById(R.id.bt1);
         bt2 = findViewById(R.id.bt2);
         bt1.setOnClickListener(v -> photosetsGetList());

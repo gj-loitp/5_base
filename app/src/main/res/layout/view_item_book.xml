@@ -19,7 +19,7 @@
 		android:scaleType="centerCrop" />
 
 	<TextView
-		android:id="@+id/tv"
+		android:id="@+id/textView"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_alignParentBottom="true"

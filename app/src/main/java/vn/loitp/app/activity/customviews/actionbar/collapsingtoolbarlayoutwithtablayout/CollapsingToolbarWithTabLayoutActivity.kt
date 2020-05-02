@@ -94,7 +94,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
 
         override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
             val rootView = inflater.inflate(R.layout.frm_text, container, false)
-            val textView = rootView.findViewById<TextView>(R.id.tv)
+            val textView = rootView.findViewById<TextView>(R.id.textView)
             textView.setText(R.string.large_text)
             return rootView
         }

@@ -19,7 +19,7 @@ class BiuEditTextActivity : BaseActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_biu_editext
+        return R.layout.activity_editext_biu
     }
 
 }

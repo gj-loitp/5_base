@@ -53,7 +53,7 @@
             android:text="@string/app_name" />
 
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bt"
@@ -62,7 +62,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tv"
+            android:layout_below="@+id/textView"
             android:src="@drawable/logo" />
     </RelativeLayout>
 

@@ -25,7 +25,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/iv"
+                android:id="@+id/imageView"
                 android:layout_width="@dimen/w_200"
                 android:layout_height="@dimen/w_200"
                 android:layout_gravity="center"
@@ -33,7 +33,7 @@
                 tools:src="@color/colorPrimary" />
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"

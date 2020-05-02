@@ -52,7 +52,7 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
     }
 
     private void initializeView() {
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         findViewById(R.id.notify_me).setOnClickListener(view -> {
             LToast.show(getActivity(), "onClick TestService");
             tv.setText("");

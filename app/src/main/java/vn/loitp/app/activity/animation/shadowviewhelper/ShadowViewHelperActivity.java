@@ -59,7 +59,7 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
                 .setShadowRadius(LDisplayUtil.INSTANCE.dip2px(this, 3))
                 .setShadowSide(ShadowProperty.Companion.getRIGHT() | ShadowProperty.Companion.getBOTTOM());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.TRANSPARENT, 0, 0);
-        ImageView iv = findViewById(R.id.iv);
+        ImageView iv = findViewById(R.id.imageView);
         ViewCompat.setBackground(iv, sd);
         ViewCompat.setLayerType(iv, ViewCompat.LAYER_TYPE_SOFTWARE, null);
     }

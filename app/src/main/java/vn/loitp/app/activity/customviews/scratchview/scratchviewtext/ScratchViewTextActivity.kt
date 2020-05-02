@@ -10,7 +10,7 @@ class ScratchViewTextActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val textView = findViewById<TextView>(R.id.tv)
+        val textView = findViewById<TextView>(R.id.textView)
         val scratchTextView = findViewById<LScratchTextView>(R.id.scratchview)
         scratchTextView.setRevealListener(object : LScratchTextView.IRevealListener {
             override fun onRevealed(tv: LScratchTextView) {

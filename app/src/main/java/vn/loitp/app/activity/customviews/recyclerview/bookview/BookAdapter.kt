@@ -49,7 +49,7 @@ class BookAdapter(private val context: Context,
     }
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var tv: TextView = view.findViewById(R.id.tv)
+        var tv: TextView = view.findViewById(R.id.textView)
         var iv: ImageView = view.findViewById(R.id.imageView)
         var bkg: ImageView = view.findViewById(R.id.bkg)
         var rootView: RelativeLayout = view.findViewById(R.id.root_view)

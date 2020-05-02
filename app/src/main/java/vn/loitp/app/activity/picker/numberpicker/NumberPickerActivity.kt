@@ -26,7 +26,7 @@ class NumberPickerActivity : BaseFontActivity() {
 
         lnb.setCallback(object : LNumberPicker.Callback {
             override fun onValueChangedNumberPicker(h: String, m: String, s: String) {
-                tv.text = "$h : $m : $s"
+                textView.text = "$h : $m : $s"
             }
         })
 

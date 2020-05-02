@@ -18,7 +18,7 @@
         android:layout_centerInParent="true" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/animationViewGift"

@@ -22,7 +22,7 @@ class LSlideAdapter(private val mContext: Context, private val stringList: List<
     override fun instantiateItem(collection: ViewGroup, position: Int): Any {
         val inflater = LayoutInflater.from(mContext)
         val layout = inflater.inflate(R.layout.l_frm_image_slide, collection, false) as ViewGroup
-        val iv = layout.findViewById<ImageView>(R.id.iv)
+        val iv = layout.findViewById<ImageView>(R.id.imageView)
         val ivClose = layout.findViewById<ImageView>(R.id.ivClose)
         ivClose.visibility = if (isShowIconClose) View.VISIBLE else View.INVISIBLE
         //int sizeW = screenW * 3 / 5;

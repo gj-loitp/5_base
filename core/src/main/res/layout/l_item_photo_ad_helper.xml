@@ -11,7 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="@dimen/w_150"
         android:layout_height="@dimen/w_150"
-        android:layout_above="@+id/tv"
+        android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_5"
         android:contentDescription="@string/app_name"
@@ -19,7 +19,7 @@
         tools:src="@drawable/ic_launcher" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -33,7 +33,7 @@
         android:id="@+id/tvMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:padding="@dimen/padding_5"

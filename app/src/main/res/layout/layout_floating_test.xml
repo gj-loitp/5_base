@@ -21,7 +21,7 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/close_btn"
@@ -32,7 +32,7 @@
             android:id="@+id/bt0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv"
+            android:layout_below="@+id/textView"
             android:text="Send msg to activity" />
 
     </RelativeLayout>

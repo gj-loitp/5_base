@@ -17,7 +17,7 @@ class BottomBarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val tv = findViewById<TextView>(R.id.tv)
+        val tv = findViewById<TextView>(R.id.textView)
         tv.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp)
         val lBottomBar = findViewById<LBottomBar>(R.id.bottom_bar)
         with(lBottomBar) {

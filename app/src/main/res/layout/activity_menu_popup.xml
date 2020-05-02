@@ -7,7 +7,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv"
+        android:layout_below="@+id/textView"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -53,7 +53,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         style="@style/TextMenu"
         android:text="Popup Menu" />
 </RelativeLayout>

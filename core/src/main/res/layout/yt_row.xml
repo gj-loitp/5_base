@@ -19,7 +19,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/iv"
+            android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
@@ -29,7 +29,7 @@
             android:id="@id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iv"
+            android:layout_below="@+id/imageView"
             android:maxLines="2"
             android:padding="@dimen/padding_5"
             android:textColor="@color/black"

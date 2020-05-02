@@ -11,7 +11,7 @@ class ScratchViewImageActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val scratchImageView = findViewById<LScratchImageView>(R.id.sample_image)
-        val textView = findViewById<TextView>(R.id.tv)
+        val textView = findViewById<TextView>(R.id.textView)
         scratchImageView.setRevealListener(object : LScratchImageView.IRevealListener {
             override fun onRevealed(tv: LScratchImageView) {
                 textView.text = "onRevealed"

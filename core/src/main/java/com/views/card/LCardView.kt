@@ -40,8 +40,8 @@ class LCardView : RelativeLayout {
     private fun init() {
         View.inflate(context, R.layout.view_l_card_view, this)
         cardView = findViewById(R.id.card_view)
-        tv = findViewById(R.id.tv)
-        iv = findViewById(R.id.iv)
+        tv = findViewById(R.id.textView)
+        iv = findViewById(R.id.imageView)
 
         cardView.setOnClickListener { v ->
             callback?.onClickRoot(v)

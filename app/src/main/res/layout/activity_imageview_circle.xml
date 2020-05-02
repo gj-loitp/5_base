@@ -28,7 +28,7 @@
                 app:civ_border_width="@dimen/w_10" />
 
             <ImageView
-                android:id="@+id/iv"
+                android:id="@+id/imageView"
                 android:layout_width="@dimen/w_350"
                 android:layout_height="@dimen/w_350"
                 android:layout_marginTop="@dimen/margin_30"

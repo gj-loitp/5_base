@@ -37,7 +37,7 @@ public class FrmRefresh extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        tv = view.findViewById(R.id.tv);
+        tv = view.findViewById(R.id.textView);
         avLoadingIndicatorView = view.findViewById(R.id.avl);
         if (isVisibleToUser && (!isLoaded)) {
             loadData();

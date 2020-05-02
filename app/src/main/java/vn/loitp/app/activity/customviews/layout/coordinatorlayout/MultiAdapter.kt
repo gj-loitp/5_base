@@ -43,7 +43,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     inner class BottomView(view: View) : RecyclerView.ViewHolder(view) {
-        var tv: TextView = view.findViewById(R.id.tv)
+        var tv: TextView = view.findViewById(R.id.textView)
 
         fun bind(movie: Movie) {
             tv.text = movie.title

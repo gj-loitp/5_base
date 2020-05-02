@@ -13,7 +13,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
 import com.core.utilities.LScreenUtil
 import com.views.edittext.leditext.LEditText
-import kotlinx.android.synthetic.main.activity_l_edit_text.*
+import kotlinx.android.synthetic.main.activity_editext_l_edit_text.*
 import vn.loitp.app.R
 
 class LEditTextActivity : BaseFontActivity() {
@@ -141,6 +141,6 @@ class LEditTextActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_edit_text
+        return R.layout.activity_editext_l_edit_text
     }
 }

@@ -29,6 +29,6 @@ class NetworkActivity : BaseFontActivity() {
         logD("onNetworkChange: " + event.isConnected)
         val networkInfo = "isConnected ${event.isConnected}\nisConnectedFast: ${event.isConnectedFast}\n" +
                 "isConnectedMobile: ${event.isConnectedMobile}\nisConnectedWifi: ${event.isConnectedWifi}"
-        tv.text = networkInfo
+        textView.text = networkInfo
     }
 }

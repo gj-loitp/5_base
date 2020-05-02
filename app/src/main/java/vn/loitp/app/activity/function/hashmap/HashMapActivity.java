@@ -20,7 +20,7 @@ public class HashMapActivity extends BaseFontActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = (TextView) findViewById(R.id.tv);
+        tv = (TextView) findViewById(R.id.textView);
         findViewById(R.id.bt_add).setOnClickListener(this);
         findViewById(R.id.bt_get_key_0).setOnClickListener(this);
         findViewById(R.id.bt_remove_key_0).setOnClickListener(this);

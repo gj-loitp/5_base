@@ -18,7 +18,7 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bv = findViewById<LBoxedVertical>(R.id.boxed_vertical)
-        tv = findViewById(R.id.tv)
+        tv = findViewById(R.id.textView)
 
         bv.setOnBoxedPointsChangeListener(object : LBoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: LBoxedVertical, value: Int) {

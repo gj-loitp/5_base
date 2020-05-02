@@ -198,7 +198,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
                 imageView.setImageResource(R.drawable.logo);
             }
 
-            TextView tv = layout.findViewById(R.id.tv);
+            TextView tv = layout.findViewById(R.id.textView);
             tv.setText(position + "/" + resList.size());
 
             collection.addView(layout);

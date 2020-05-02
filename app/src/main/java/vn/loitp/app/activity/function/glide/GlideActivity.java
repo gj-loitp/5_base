@@ -15,7 +15,7 @@ public class GlideActivity extends BaseFontActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        iv = (ImageView) findViewById(R.id.iv);
+        iv = (ImageView) findViewById(R.id.imageView);
         findViewById(R.id.bt0).setOnClickListener(this);
         findViewById(R.id.bt1).setOnClickListener(this);
         findViewById(R.id.bt2).setOnClickListener(this);

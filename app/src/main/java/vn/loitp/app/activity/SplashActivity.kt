@@ -33,7 +33,7 @@ class SplashActivity : BaseFontActivity() {
             isAnimDone = true
             goToHome()
         })
-        val tv = findViewById<TextView>(R.id.tv)
+        val tv = findViewById<TextView>(R.id.textView)
         tv.text = "Version ${BuildConfig.VERSION_NAME}"
 
         val tvPolicy = findViewById<TextView>(R.id.tvPolicy)

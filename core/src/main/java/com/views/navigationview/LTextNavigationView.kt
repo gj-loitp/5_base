@@ -43,7 +43,7 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
 
     private fun init() {
         View.inflate(context, R.layout.view_navigation_text, this)
-        tv = findViewById(R.id.tv)
+        tv = findViewById(R.id.textView)
         tvPrev = findViewById(R.id.tvPrev)
         tvNext = findViewById(R.id.tvNext)
 

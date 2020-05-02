@@ -5,7 +5,7 @@
     android:background="@color/darkViolet">
 
     <ImageView
-        android:id="@+id/iv"
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_350"
         android:contentDescription="@string/app_name"
@@ -13,11 +13,11 @@
         android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bt"
-        android:layout_below="@+id/iv"
+        android:layout_below="@+id/imageView"
         android:gravity="center"
         android:text="Screen 2"
         android:textColor="@color/white"

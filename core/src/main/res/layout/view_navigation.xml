@@ -15,7 +15,7 @@
         android:src="@drawable/l_baseline_keyboard_arrow_left_black_48dp" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

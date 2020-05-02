@@ -16,7 +16,7 @@ class AdmobInterstitialActivity : BaseFontActivity() {
         isShowAdWhenExit = false//remove show duplicate ads in BaseActivity
         interstitialAd = LUIUtil.createAdFull(activity)
         val s = LStoreUtil.readTxtFromRawFolder(activity, R.raw.ad_full)
-        tv.text = s
+        textView.text = s
     }
 
     override fun setFullScreen(): Boolean {

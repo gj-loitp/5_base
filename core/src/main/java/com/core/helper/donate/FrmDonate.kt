@@ -41,7 +41,7 @@ class FrmDonate : BaseFragment() {
                 "Những đóng góp của mọi người là động lực và trách nhiệm để mình có thể cho ra nhiều ứng dụng hay hơn nữa. Chân thành cảm ơn!"
 
         LTextDecorator
-                .decorate(tv, text)
+                .decorate(textView, text)
                 .setTextColor(R.color.colorPrimary, "❤", "Trần Phú Lợi", "0371000106443", "166210585", "164205468", "0764088864")
                 //.setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
                 //.strikethrough("Duis", "Praesent")

@@ -97,7 +97,7 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
     }
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val iv: ImageView = v.findViewById(R.id.iv)
+        val iv: ImageView = v.findViewById(R.id.imageView)
         val tvLabel: TextView = v.findViewById(R.id.tv_label)
         val tvUpdate: TextView = v.findViewById(R.id.tv_update)
         val tvNumber: TextView = v.findViewById(R.id.tv_number)

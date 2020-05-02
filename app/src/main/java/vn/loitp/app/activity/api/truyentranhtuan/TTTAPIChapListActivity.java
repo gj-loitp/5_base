@@ -23,7 +23,7 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         btSelect = findViewById(R.id.bt_select);
         tvTitle = findViewById(R.id.tv_title);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         avLoadingIndicatorView = findViewById(R.id.indicatorView);
 
         String urlComic = "http://truyentranhtuan.com/one-piece/";

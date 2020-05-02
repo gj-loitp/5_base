@@ -26,7 +26,7 @@ public class FrmTestBottom extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageView iv = view.findViewById(R.id.iv);
+        ImageView iv = view.findViewById(R.id.imageView);
         iv.setImageResource(R.drawable.iv);
     }
 }

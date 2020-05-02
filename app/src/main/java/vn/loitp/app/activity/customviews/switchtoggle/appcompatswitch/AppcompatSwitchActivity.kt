@@ -10,7 +10,7 @@ class AppcompatSwitchActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tv.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lswitch)
+        textView.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lswitch)
     }
 
     override fun setFullScreen(): Boolean {

@@ -70,7 +70,7 @@ public class TestService extends Service {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mFloatingView, params);
 
-        tv = (TextView) mFloatingView.findViewById(R.id.tv);
+        tv = (TextView) mFloatingView.findViewById(R.id.textView);
         ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override

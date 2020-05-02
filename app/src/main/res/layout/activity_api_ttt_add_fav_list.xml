@@ -34,7 +34,7 @@
                 android:text="Thêm truyện Black Haze" />
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/padding_15"

@@ -45,7 +45,7 @@ class LNavigationView : RelativeLayout, View.OnClickListener {
 
         ivPrev = findViewById(R.id.ivPrev)
         ivNext = findViewById(R.id.ivNext)
-        tv = findViewById(R.id.tv)
+        tv = findViewById(R.id.textView)
 
         ivPrev?.setOnClickListener(this)
         ivNext?.setOnClickListener(this)

@@ -12,9 +12,9 @@ class EditTextTextWatcherActivity : BaseActivity() {
 
         var text = ""
 
-        LUIUtil.addTextChangedListener(et, 1000, afterTextChanged = { s ->
+        LUIUtil.addTextChangedListener(editText, 1000, afterTextChanged = { s ->
             text += s + "\n"
-            tv.text = text
+            textView.text = text
         })
     }
 

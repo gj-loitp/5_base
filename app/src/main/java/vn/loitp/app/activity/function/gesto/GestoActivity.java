@@ -14,8 +14,8 @@ public class GestoActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ImageView iv = (ImageView) findViewById(R.id.iv);
-        TextView tv = (TextView) findViewById(R.id.tv);
+        ImageView iv = (ImageView) findViewById(R.id.imageView);
+        TextView tv = (TextView) findViewById(R.id.textView);
         iv.setOnTouchListener(new OnGestureListener(this) {
                                   @Override
                                   public void onSwipeRight() {

@@ -6,7 +6,7 @@
     android:background="@color/white">
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_10"
@@ -14,7 +14,7 @@
 
     <LinearLayout
         android:id="@+id/ll"
-        android:layout_below="@+id/tv"
+        android:layout_below="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

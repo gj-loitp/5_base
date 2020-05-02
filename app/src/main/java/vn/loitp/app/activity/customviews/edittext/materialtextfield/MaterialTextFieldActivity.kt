@@ -19,7 +19,7 @@ class MaterialTextFieldActivity : BaseActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_material_textfield
+        return R.layout.activity_editext_material_textfield
     }
 
 }

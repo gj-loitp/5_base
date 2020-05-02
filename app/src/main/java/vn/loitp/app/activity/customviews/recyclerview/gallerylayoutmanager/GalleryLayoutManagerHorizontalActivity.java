@@ -26,7 +26,7 @@ public class GalleryLayoutManagerHorizontalActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         RecyclerView recyclerView = findViewById(R.id.rv);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
 
         mAdapter = new GalleryAdapter(getActivity(), DummyData.Companion.getInstance().getMovieList(), new GalleryAdapter.Callback() {
             @Override

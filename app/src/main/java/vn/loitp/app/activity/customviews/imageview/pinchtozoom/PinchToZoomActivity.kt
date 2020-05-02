@@ -11,8 +11,8 @@ class PinchToZoomActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LImageUtil.load(context = activity, url = Constants.URL_IMG, imageView = iv)
-        LImageUtil.setImageViewZoom(iv)
+        LImageUtil.load(context = activity, url = Constants.URL_IMG, imageView = imageView)
+        LImageUtil.setImageViewZoom(imageView)
     }
 
     override fun setFullScreen(): Boolean {

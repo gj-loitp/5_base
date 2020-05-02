@@ -30,7 +30,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
 
         Button btSelect = findViewById(R.id.bt_select);
         tvTitle = findViewById(R.id.tv_title);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         avLoadingIndicatorView = findViewById(R.id.indicatorView);
         avLoadingIndicatorView.hide();
 

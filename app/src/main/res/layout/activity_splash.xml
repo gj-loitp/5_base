@@ -31,7 +31,7 @@
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
-        android:layout_above="@+id/tv"
+        android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_10"
@@ -39,7 +39,7 @@
         app:indicatorName="PacmanIndicator" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tvPolicy"

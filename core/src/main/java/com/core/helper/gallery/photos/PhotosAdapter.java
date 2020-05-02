@@ -110,7 +110,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
         public ViewHolder(View v) {
             super(v);
-            iv = v.findViewById(R.id.iv);
+            iv = v.findViewById(R.id.imageView);
             tvSize = v.findViewById(R.id.tv_size);
             //progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
             rootView = v.findViewById(R.id.root_view);

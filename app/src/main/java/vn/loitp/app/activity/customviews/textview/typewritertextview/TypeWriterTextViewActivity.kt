@@ -10,7 +10,7 @@ class TypeWriterTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val btn = findViewById<Button>(R.id.btn)
-        val tv = findViewById<LTypeWriterTextView>(R.id.tv)
+        val tv = findViewById<LTypeWriterTextView>(R.id.textView)
         btn.setOnClickListener { _ ->
             tv.text = ""
             tv.setCharacterDelay(150)

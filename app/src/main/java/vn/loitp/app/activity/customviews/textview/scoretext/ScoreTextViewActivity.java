@@ -20,7 +20,7 @@ public class ScoreTextViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         bt = findViewById(R.id.bt);
 
         tv.setText("" + currentScore);

@@ -50,7 +50,7 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         findViewById(R.id.bt0).setOnClickListener(this);
         findViewById(R.id.bt1).setOnClickListener(this);
         findViewById(R.id.bt2).setOnClickListener(this);

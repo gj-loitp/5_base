@@ -14,7 +14,7 @@ class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, Reposi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tv = findViewById<TextView>(R.id.tv)
+        tv = findViewById<TextView>(R.id.textView)
 
         mUserDataRepository = UserDataRepository.getInstance()
         mUserDataRepository!!.registerObserver(this)

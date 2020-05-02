@@ -29,7 +29,7 @@ public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         recyclerView = findViewById(R.id.rv);
         recyclerView1 = findViewById(R.id.rv_1);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
 
         mAdapter = new GalleryAdapterVertical(getActivity(), DummyData.Companion.getInstance().getMovieList(), new GalleryAdapterVertical.Callback() {
             @Override

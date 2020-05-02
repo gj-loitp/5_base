@@ -140,7 +140,7 @@ class AdHelperActivity : BaseFontActivity() {
             val layout = inflater.inflate(R.layout.l_item_photo_ad_helper, collection, false) as ViewGroup
 
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
-            val tv = layout.findViewById<TextView>(R.id.tv)
+            val tv = layout.findViewById<TextView>(R.id.textView)
             val tvMsg = layout.findViewById<TextView>(R.id.tvMsg)
             val btOkay = layout.findViewById<RoundedButton>(R.id.btOkay)
 

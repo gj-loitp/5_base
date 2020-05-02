@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@color/whiteSmoke">
 
     <ImageView
-        android:id="@+id/iv"
+        android:id="@+id/imageView"
         android:layout_width="@dimen/w_120"
         android:layout_height="@dimen/w_120"
         android:layout_centerHorizontal="true"
@@ -16,10 +15,10 @@
         android:src="@drawable/logo" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/iv"
+        android:layout_below="@+id/imageView"
         android:layout_marginStart="@dimen/margin_20"
         android:layout_marginEnd="@dimen/margin_20"
         android:text="@string/login"
@@ -30,7 +29,7 @@
         android:id="@+id/tvDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv"
+        android:layout_below="@+id/textView"
         android:layout_marginStart="@dimen/margin_20"
         android:layout_marginEnd="@dimen/margin_20"
         android:text="Id: loitp\nPw: 123456789"
@@ -62,4 +61,3 @@
         android:text="@string/login" />
 
 </RelativeLayout>
-

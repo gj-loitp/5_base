@@ -17,7 +17,7 @@ class BasicTransition1Activity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val iv = findViewById<ImageView>(R.id.imageview_item)
-        val tv = findViewById<TextView>(R.id.tv)
+        val tv = findViewById<TextView>(R.id.textView)
         LImageUtil.load(activity, Constants.URL_IMG_2, iv)
         ViewCompat.setTransitionName(iv, IV)
         ViewCompat.setTransitionName(tv, TV)

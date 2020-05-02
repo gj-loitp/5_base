@@ -25,7 +25,7 @@ class CircleImageViewActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         val resPlaceHolder = R.color.colorPrimary
-        LImageUtil.loadRound(url = "https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg", imageView = iv, roundingRadius = 45, resPlaceHolder = resPlaceHolder)
+        LImageUtil.loadRound(url = "https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg", imageView = imageView, roundingRadius = 45, resPlaceHolder = resPlaceHolder)
         LImageUtil.loadCircle(url = "https://kenh14cdn.com/2019/2/25/2-1551076391040835580731.jpg", imageView = iv1)
         LImageUtil.loadCircle(url = Constants.URL_IMG_LARGE, imageView = iv2, resPlaceHolder = R.color.red, resError = R.drawable.l_error_404)
     }

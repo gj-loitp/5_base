@@ -23,7 +23,7 @@ class BasicTransition0Activity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         iv = findViewById(R.id.imageview_item)
-        tv = findViewById(R.id.tv)
+        tv = findViewById(R.id.textView)
         LImageUtil.load(activity, Constants.URL_IMG_2, iv!!)
         findViewById<View>(R.id.imageview_item).setOnClickListener { onClickIv() }
     }

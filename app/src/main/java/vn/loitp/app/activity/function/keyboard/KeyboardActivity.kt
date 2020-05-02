@@ -19,7 +19,7 @@ class KeyboardActivity : BaseFontActivity() {
         TedRxKeyboardObserver(this)
                 .listen()
                 .subscribe({ isShow ->
-                    tv.text = "isShow $isShow"
+                    textView.text = "isShow $isShow"
                 }, { throwable -> throwable.printStackTrace() })
 
         btShow.setSafeOnClickListener {

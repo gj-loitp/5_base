@@ -35,13 +35,13 @@ class ViewModelActivity : BaseFontActivity() {
         defUser.email = "www.muathu@gmail.com"
         val factory = UserViewModel.CustomViewModelFactory(defUser)
         userViewModel = ViewModelProvider(this, factory).get(UserViewModel::class.java)
-        tv.text = LApplication.gson.toJson(userViewModel.mUser)
+        textView.text = LApplication.gson.toJson(userViewModel.mUser)
         btChangeUser.setOnClickListener {
             val user = User()
             user.fullName = "Loitp" + System.currentTimeMillis()
             user.email = "www.muathu@gmail.com" + System.currentTimeMillis()
             userViewModel.mUser = user
-            tv.text = LApplication.gson.toJson(userViewModel.mUser)
+            textView.text = LApplication.gson.toJson(userViewModel.mUser)
         }
 
         timeChangerViewModel = ViewModelProvider(this).get(TimeChangerViewModel::class.java)

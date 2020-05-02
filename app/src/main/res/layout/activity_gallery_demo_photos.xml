@@ -7,7 +7,7 @@
     android:background="@color/grey">
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -20,7 +20,7 @@
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv"
+        android:layout_below="@+id/textView"
         android:padding="@dimen/padding_5"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_20" />

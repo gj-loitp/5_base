@@ -33,8 +33,8 @@ class GoodViewActivity : BaseFontActivity() {
                 it.show(v)
             }
         }
-        iv.setOnClickListener { v: View? ->
-            iv.setColorFilter(Color.TRANSPARENT)
+        imageView.setOnClickListener { v: View? ->
+            imageView.setColorFilter(Color.TRANSPARENT)
             lGoodView?.let {
                 it.setImage(R.mipmap.ic_launcher)
                 //it.setDistance(1000)

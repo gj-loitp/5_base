@@ -20,7 +20,7 @@ class AdmobBannerActivity : BaseFontActivity() {
         LUIUtil.createAdBanner(adView!!)
 
         val poem = LStoreUtil.readTxtFromRawFolder(activity, R.raw.loitp)
-        tv.text = poem
+        textView.text = poem
     }
 
     override fun setFullScreen(): Boolean {

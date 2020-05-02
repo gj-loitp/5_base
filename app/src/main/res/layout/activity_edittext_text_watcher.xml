@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,13 +18,13 @@
             android:padding="@dimen/padding_10">
 
             <EditText
-                android:id="@+id/et"
+                android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/type_something" />
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_15"
@@ -39,4 +38,3 @@
         style="@style/TextMenu"
         android:text="@string/menu_edittext" />
 </RelativeLayout>
-

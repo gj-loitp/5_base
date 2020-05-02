@@ -31,7 +31,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mService = ApiUtils.getSOService();
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_answers);
-        tv = (TextView) findViewById(R.id.tv);
+        tv = (TextView) findViewById(R.id.textView);
         mAdapter = new AnswersAdapter(this, new ArrayList<Item>(0), id -> Toast.makeText(getActivity(), "Post id is" + id, Toast.LENGTH_SHORT).show());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);

@@ -25,7 +25,7 @@ class ReadSqliteAssetActivity : BaseFontActivity() {
         val vocabularyList = ArrayList(vocabularyManager.allVocabulary)
         logD("size: " + vocabularyList.size)
 
-        val tv = findViewById<TextView>(R.id.tv)
+        val tv = findViewById<TextView>(R.id.textView)
         LUIUtil.printBeautyJson(vocabularyList[0], tv)
     }
 

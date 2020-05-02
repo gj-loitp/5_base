@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Fragment"
@@ -15,5 +15,5 @@
         android:id="@+id/fl_container_photo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv" />
+        android:layout_below="@+id/textView" />
 </RelativeLayout>

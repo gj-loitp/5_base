@@ -26,8 +26,8 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tv.setText(R.string.loading)
-        LUIUtil.setTextShadow(tv)
+        textView.setText(R.string.loading)
+        LUIUtil.setTextShadow(textView)
 
         animationView.setAnimation("lottie/gradient_animated_background.json")
         //lottieAnimationView.useHardwareAcceleration();
@@ -72,7 +72,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     private fun loadRewardedVideoAd() {
         //LLog.d(TAG, "loadRewardedVideoAd");
         //avLoadingIndicatorView.smoothToShow();
-        tv.setText(R.string.loading)
+        textView.setText(R.string.loading)
         mAd?.loadAd(strReward, AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
@@ -118,7 +118,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
 
     override fun onRewardedVideoAdLoaded() {
         logD("onRewardedVideoAdLoaded")
-        tv.setText(R.string.open_gift)
+        textView.setText(R.string.open_gift)
         LAnimationUtil.play(rootView, Techniques.Pulse)
         animationViewGift.playAnimation()
     }
