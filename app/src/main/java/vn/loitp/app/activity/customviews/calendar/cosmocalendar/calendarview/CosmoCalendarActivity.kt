@@ -64,9 +64,9 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     }
 
     private fun initViews() {
-        (findViewById<RadioGroup>(R.id.rgShowHideFlBottomSelectionBar)).setOnCheckedChangeListener(this)
-        (findViewById<RadioGroup>(R.id.rg_orientation)).setOnCheckedChangeListener(this)
-        (findViewById<RadioGroup>(R.id.rg_selection_type)).setOnCheckedChangeListener(this)
+        rgShowHideFlBottomSelectionBar.setOnCheckedChangeListener(this)
+        rgOrientation.setOnCheckedChangeListener(this)
+        rgSelectionType.setOnCheckedChangeListener(this)
     }
 
     private fun createCriterias() {
@@ -80,26 +80,26 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_calendar_cosmo, menu)
-        menuFridays = menu.findItem(R.id.select_all_fridays)
-        menuThreeMonth = menu.findItem(R.id.select_three_months)
+        menuFridays = menu.findItem(R.id.itemSelectAllFridays)
+        menuThreeMonth = menu.findItem(R.id.itemSelectThreeMonths)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.select_all_fridays -> {
+            R.id.itemSelectAllFridays -> {
                 fridayMenuClick()
                 return true
             }
-            R.id.select_three_months -> {
+            R.id.itemSelectThreeMonths -> {
                 threeMonthsMenuClick()
                 return true
             }
-            R.id.clear_selections -> {
+            R.id.itemClearSelections -> {
                 clearSelectionsMenuClick()
                 return true
             }
-            R.id.log_selected_days -> {
+            R.id.itemLogSelectedDays -> {
                 logSelectedDaysMenuClick()
                 return true
             }
@@ -180,28 +180,28 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
             R.id.rbHideFlBottomSelectionBar -> {
                 calendarView.isShowFlBottomSelectionBar = false
             }
-            R.id.rb_horizontal -> {
+            R.id.rbHorizontal -> {
                 calendarView.calendarOrientation = OrientationHelper.HORIZONTAL
             }
-            R.id.rb_vertical -> calendarView.calendarOrientation = OrientationHelper.VERTICAL
-            R.id.rb_single -> {
+            R.id.rbVertical -> calendarView.calendarOrientation = OrientationHelper.VERTICAL
+            R.id.rbSingle -> {
                 calendarView.selectionType = SelectionType.SINGLE
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false
             }
-            R.id.rb_multiple -> {
+            R.id.rbMultiple -> {
                 calendarView.selectionType = SelectionType.MULTIPLE
                 menuFridays.isVisible = true
                 menuThreeMonth.isVisible = true
             }
-            R.id.rb_range -> {
+            R.id.rbRange -> {
                 calendarView.selectionType = SelectionType.RANGE
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false
 
                 addDefaultRange()
             }
-            R.id.rb_none -> {
+            R.id.rbNone -> {
                 calendarView.selectionType = SelectionType.NONE
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false

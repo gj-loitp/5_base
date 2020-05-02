@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/whiteSmoke"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -14,11 +15,11 @@
         android:id="@+id/calendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ll_settings"
+        android:layout_above="@+id/hsvSettings"
         android:layout_below="@id/toolbar" />
 
     <HorizontalScrollView
-        android:id="@+id/ll_settings"
+        android:id="@+id/hsvSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
@@ -48,19 +49,19 @@
             </RadioGroup>
 
             <RadioGroup
-                android:id="@+id/rg_orientation"
+                android:id="@+id/rgOrientation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkedButton="@+id/rb_vertical">
+                android:checkedButton="@+id/rbVertical">
 
                 <RadioButton
-                    android:id="@+id/rb_horizontal"
+                    android:id="@+id/rbHorizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="horizontal" />
 
                 <RadioButton
-                    android:id="@+id/rb_vertical"
+                    android:id="@+id/rbVertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="vertical" />
@@ -68,31 +69,31 @@
             </RadioGroup>
 
             <RadioGroup
-                android:id="@+id/rg_selection_type"
+                android:id="@+id/rgSelectionType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkedButton="@+id/rb_single">
+                android:checkedButton="@+id/rbSingle">
 
                 <RadioButton
-                    android:id="@+id/rb_single"
+                    android:id="@+id/rbSingle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="single" />
 
                 <RadioButton
-                    android:id="@+id/rb_multiple"
+                    android:id="@+id/rbMultiple"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="multiple" />
 
                 <RadioButton
-                    android:id="@+id/rb_range"
+                    android:id="@+id/rbRange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="range" />
 
                 <RadioButton
-                    android:id="@+id/rb_none"
+                    android:id="@+id/rbNone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="none" />
