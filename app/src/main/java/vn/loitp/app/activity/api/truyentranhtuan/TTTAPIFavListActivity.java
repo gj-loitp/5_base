@@ -21,7 +21,7 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         tv = findViewById(R.id.tv);
         tvTitle = findViewById(R.id.tv_title);
-        avLoadingIndicatorView = findViewById(R.id.avi);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
         avLoadingIndicatorView.hide();
 
         getFavList();

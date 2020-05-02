@@ -58,7 +58,7 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
             tv.setText("");
             startService(new Intent(getActivity(), TestService.class));
         });
-        Button button0 = findViewById(R.id.bt_0);
+        Button button0 = findViewById(R.id.bt0);
         button0.setOnClickListener(v -> ComunicateMng.postFromActivity(new ComunicateMng.MsgFromActivity(button0.getText().toString())));
     }
 

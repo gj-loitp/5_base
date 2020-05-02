@@ -55,7 +55,7 @@ public class FloatingWidgetActivity extends BaseFontActivity {
                 onBackPressed();
             }
         });
-        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LToast.show(getActivity(), "onClick");

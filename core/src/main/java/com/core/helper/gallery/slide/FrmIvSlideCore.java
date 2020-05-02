@@ -44,7 +44,7 @@ public class FrmIvSlideCore extends Fragment {
         int position = bundle.getInt(Constants.INSTANCE.getSK_PHOTO_PISITION());
         final Photo photo = PhotosDataCore.getInstance().getPhoto(position);
 
-        final AVLoadingIndicatorView avLoadingIndicatorView = view.findViewById(R.id.avi);
+        final AVLoadingIndicatorView avLoadingIndicatorView = view.findViewById(R.id.indicatorView);
         final BigImageView bigImageView = view.findViewById(R.id.biv);
         final TextView tvProgress = view.findViewById(R.id.tv_progress);
         LUIUtil.INSTANCE.setTextShadow(tvProgress);

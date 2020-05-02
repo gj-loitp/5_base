@@ -27,22 +27,22 @@
                 android:text="AsyncTask and Rx" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_0"
+                android:id="@+id/bt0"
                 style="@style/ButtonMenu"
                 android:text="DisposableExampleActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_1"
+                android:id="@+id/bt1"
                 style="@style/ButtonMenu"
                 android:text="FlowableExampleActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_2"
+                android:id="@+id/bt2"
                 style="@style/ButtonMenu"
                 android:text="IntervalExampleActivity " />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_3"
+                android:id="@+id/bt3"
                 style="@style/ButtonMenu"
                 android:text="SingleObserverExampleActivity " />
 

@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.circleimageview
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.activity_circle_imageview.*
+import kotlinx.android.synthetic.main.activity_imageview_circle.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
@@ -18,7 +18,7 @@ class CircleImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circle_imageview
+        return R.layout.activity_imageview_circle
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

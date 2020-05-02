@@ -29,7 +29,7 @@
             android:textSize="@dimen/txt_18" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_0"
+            android:id="@+id/bt0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv"

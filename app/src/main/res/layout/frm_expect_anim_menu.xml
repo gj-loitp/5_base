@@ -17,12 +17,12 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_0"
+                android:id="@+id/bt0"
                 style="@style/ButtonMenu"
                 android:text="Scroll" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_1"
+                android:id="@+id/bt1"
                 style="@style/ButtonMenu"
                 android:text="Sample" />
         </LinearLayout>

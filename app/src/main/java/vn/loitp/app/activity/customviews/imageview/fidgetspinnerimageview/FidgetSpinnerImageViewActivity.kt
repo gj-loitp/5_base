@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_fidgetspinner_imageview.*
+import kotlinx.android.synthetic.main.activity_imageview_fidget_spinner.*
 import vn.loitp.app.R
 
 class FidgetSpinnerImageViewActivity : BaseFontActivity() {
@@ -21,6 +21,6 @@ class FidgetSpinnerImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fidgetspinner_imageview
+        return R.layout.activity_imageview_fidget_spinner
     }
 }

@@ -24,7 +24,7 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
         btSelect = findViewById(R.id.bt_select);
         tvTitle = findViewById(R.id.tv_title);
         tv = findViewById(R.id.tv);
-        avLoadingIndicatorView = findViewById(R.id.avi);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
 
         String urlComic = "http://truyentranhtuan.com/one-piece/";
         new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {

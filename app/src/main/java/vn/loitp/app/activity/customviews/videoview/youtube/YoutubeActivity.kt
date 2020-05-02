@@ -12,8 +12,8 @@ class YoutubeActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_0).setOnClickListener { _ -> LUIUtil.playYoutube(activity, "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender") }
-        findViewById<View>(R.id.bt_1).setOnClickListener { _ -> LUIUtil.playYoutubeWithId(activity, "YE7VzlLtp-4") }
+        findViewById<View>(R.id.bt0).setOnClickListener { _ -> LUIUtil.playYoutube(activity, "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender") }
+        findViewById<View>(R.id.bt1).setOnClickListener { _ -> LUIUtil.playYoutubeWithId(activity, "YE7VzlLtp-4") }
     }
 
     override fun setFullScreen(): Boolean {

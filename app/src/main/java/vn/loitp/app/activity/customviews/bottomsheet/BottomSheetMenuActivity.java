@@ -44,7 +44,7 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
     }
 
     private void click0() {
-        bt0 = findViewById(R.id.bt_0);
+        bt0 = findViewById(R.id.bt0);
         LinearLayout layoutBottomSheet = findViewById(R.id.bottom_sheet);
         layoutBottomSheet.findViewById(R.id.bt_payment).setOnClickListener(v -> LToast.show(getActivity(), "Click layoutBottomSheet R.id.bt_payment"));
 
@@ -93,7 +93,7 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
     }
 
     private void click1() {
-        final Button bt1 = findViewById(R.id.bt_1);
+        final Button bt1 = findViewById(R.id.bt1);
         bt1.setOnClickListener(v -> {
             @SuppressLint("InflateParams") View view = getLayoutInflater().inflate(R.layout.fragment_bottom_sheet_dialog, null);
             BottomSheetDialog dialog = new BottomSheetDialog(getActivity());
@@ -103,7 +103,7 @@ public class BottomSheetMenuActivity extends BaseFontActivity {
     }
 
     private void click2() {
-        final Button bt2 = findViewById(R.id.bt_2);
+        final Button bt2 = findViewById(R.id.bt2);
         bt2.setOnClickListener(v -> {
             BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
             bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());

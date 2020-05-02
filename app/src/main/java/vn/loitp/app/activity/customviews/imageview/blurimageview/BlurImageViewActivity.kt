@@ -5,7 +5,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants.URL_IMG_5
 import com.core.utilities.LImageUtil
 import com.views.imageview.blur.LBlurImageView
-import kotlinx.android.synthetic.main.activity_blur_imageview.*
+import kotlinx.android.synthetic.main.activity_imageview_blur.*
 import vn.loitp.app.R
 
 class BlurImageViewActivity : BaseFontActivity() {
@@ -19,7 +19,7 @@ class BlurImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_blur_imageview
+        return R.layout.activity_imageview_blur
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class BlurImageViewActivity : BaseFontActivity() {
                 .Async(true)
                 .into(imageView)
 
-        LImageUtil.load(activity, URL_IMG_5, imageView2)
+        LImageUtil.load(context = activity, url = URL_IMG_5, imageView = imageView2)
 
 //        method (load) :- load(int resource), load(Bitmap bitmap)
 //

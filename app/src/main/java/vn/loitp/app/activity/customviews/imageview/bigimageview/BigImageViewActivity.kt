@@ -2,25 +2,20 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview
 
 import android.net.Uri
 import android.os.Bundle
-import android.view.View
 import com.core.base.BaseFontActivity
 import com.github.piasy.biv.loader.ImageLoader
-import com.github.piasy.biv.view.BigImageView
 import com.github.piasy.biv.view.GlideImageViewFactory
-import com.wang.avi.AVLoadingIndicatorView
+import kotlinx.android.synthetic.main.activity_imageview_big.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 import java.io.File
 
 //https://github.com/Piasy/BigImageViewer
 class BigImageViewActivity : BaseFontActivity() {
-    private lateinit var avLoadingIndicatorView: AVLoadingIndicatorView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        avLoadingIndicatorView = findViewById(R.id.avi)
-        avLoadingIndicatorView.hide()
-        val bigImageView = findViewById<BigImageView>(R.id.mBigImage)
+        indicatorView.hide()
         bigImageView.setImageViewFactory(GlideImageViewFactory())
         bigImageView.setImageLoaderCallback(object : ImageLoader.Callback {
             override fun onCacheHit(imageType: Int, image: File) {}
@@ -28,7 +23,7 @@ class BigImageViewActivity : BaseFontActivity() {
             override fun onCacheMiss(imageType: Int, image: File) {}
 
             override fun onStart() {
-                avLoadingIndicatorView.smoothToShow()
+                indicatorView.smoothToShow()
             }
 
             override fun onProgress(progress: Int) {
@@ -40,25 +35,23 @@ class BigImageViewActivity : BaseFontActivity() {
             override fun onSuccess(image: File) {
                 logD("onSuccess")
                 val ssiv = bigImageView.ssiv
-                if (ssiv != null) {
-                    ssiv.isZoomEnabled = true
-                }
-                avLoadingIndicatorView.smoothToHide()
+                ssiv?.isZoomEnabled = true
+                indicatorView.smoothToHide()
             }
 
             override fun onFail(error: Exception) {}
         })
 
-        findViewById<View>(R.id.bt_0).setOnClickListener {
+        bt0.setOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_LAND_S), Uri.parse(Constants.URL_IMG_LARGE_LAND_O))
         }
-        findViewById<View>(R.id.bt_1).setOnClickListener {
+        bt1.setOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S), Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O))
         }
-        findViewById<View>(R.id.bt_2).setOnClickListener {
+        bt2.setOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_LONG))
         }
-        findViewById<View>(R.id.bt_3).setOnClickListener {
+        bt3.setOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_GIFT))
         }
     }
@@ -72,6 +65,6 @@ class BigImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_big_imageview
+        return R.layout.activity_imageview_big
     }
 }

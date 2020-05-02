@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -18,7 +17,7 @@
             android:orientation="vertical">
 
             <com.github.piasy.biv.view.BigImageView
-                android:id="@+id/biv_0"
+                android:id="@+id/biv0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:failureImage="@drawable/l_error_404"
@@ -28,7 +27,7 @@
                 app:thumbnailScaleType="centerCrop" />
 
             <com.github.piasy.biv.view.BigImageView
-                android:id="@+id/biv_1"
+                android:id="@+id/biv1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:failureImage="@drawable/l_error_404"
@@ -38,7 +37,7 @@
                 app:thumbnailScaleType="centerCrop" />
 
             <com.github.piasy.biv.view.BigImageView
-                android:id="@+id/biv_2"
+                android:id="@+id/biv2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:failureImage="@drawable/l_error_404"
@@ -48,7 +47,7 @@
                 app:thumbnailScaleType="centerCrop" />
 
             <com.github.piasy.biv.view.BigImageView
-                android:id="@+id/biv_3"
+                android:id="@+id/biv3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:failureImage="@drawable/l_error_404"
@@ -59,4 +58,3 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
-

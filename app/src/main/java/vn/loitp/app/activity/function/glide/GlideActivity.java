@@ -16,9 +16,9 @@ public class GlideActivity extends BaseFontActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         iv = (ImageView) findViewById(R.id.iv);
-        findViewById(R.id.bt_0).setOnClickListener(this);
-        findViewById(R.id.bt_1).setOnClickListener(this);
-        findViewById(R.id.bt_2).setOnClickListener(this);
+        findViewById(R.id.bt0).setOnClickListener(this);
+        findViewById(R.id.bt1).setOnClickListener(this);
+        findViewById(R.id.bt2).setOnClickListener(this);
     }
 
     @Override
@@ -43,13 +43,13 @@ public class GlideActivity extends BaseFontActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_0:
+            case R.id.bt0:
                 LImageUtil.INSTANCE.loadNoAmin(getActivity(), urlLow, urlLow, iv, null);
                 break;
-            case R.id.bt_1:
+            case R.id.bt1:
                 LImageUtil.INSTANCE.loadNoAmin(getActivity(), urlMedium, urlLow, iv, null);
                 break;
-            case R.id.bt_2:
+            case R.id.bt2:
                 LImageUtil.INSTANCE.loadNoAmin(getActivity(), urlHigh, urlLow, iv, null);
                 break;
         }

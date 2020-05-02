@@ -32,13 +32,13 @@
                 android:src="@drawable/logo" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_1"
+                android:id="@+id/bt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="View hierarchy" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_2"
+                android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Image View" />

@@ -22,8 +22,8 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
         super.onCreate(savedInstanceState);
         findViewById(R.id.bt_exoplayer2).setOnClickListener(this);
         findViewById(R.id.bt_exoplayer2_ima).setOnClickListener(this);
-        findViewById(R.id.bt_2).setOnClickListener(this);
-        findViewById(R.id.bt_3).setOnClickListener(this);
+        findViewById(R.id.bt2).setOnClickListener(this);
+        findViewById(R.id.bt3).setOnClickListener(this);
         findViewById(R.id.bt_youtube).setOnClickListener(this);
     }
 
@@ -55,10 +55,10 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
                 intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
                 intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD(), getString(R.string.ad_tag_url));
                 break;
-            case R.id.bt_2:
+            case R.id.bt2:
                 intent = new Intent(getActivity(), ExoPlayerActivity2.class);
                 break;
-            case R.id.bt_3:
+            case R.id.bt3:
                 intent = new Intent(getActivity(), ExoPlayerActivity3.class);
                 break;
             case R.id.bt_youtube:

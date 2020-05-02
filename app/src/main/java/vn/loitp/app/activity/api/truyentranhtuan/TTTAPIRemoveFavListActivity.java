@@ -22,7 +22,7 @@ public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv = findViewById(R.id.tv);
-        avLoadingIndicatorView = findViewById(R.id.avi);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
         avLoadingIndicatorView.hide();
 
         findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(v -> {

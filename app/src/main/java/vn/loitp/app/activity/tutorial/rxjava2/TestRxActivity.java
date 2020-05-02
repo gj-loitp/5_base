@@ -51,10 +51,10 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv = findViewById(R.id.tv);
-        findViewById(R.id.bt_0).setOnClickListener(this);
-        findViewById(R.id.bt_1).setOnClickListener(this);
-        findViewById(R.id.bt_2).setOnClickListener(this);
-        findViewById(R.id.bt_3).setOnClickListener(this);
+        findViewById(R.id.bt0).setOnClickListener(this);
+        findViewById(R.id.bt1).setOnClickListener(this);
+        findViewById(R.id.bt2).setOnClickListener(this);
+        findViewById(R.id.bt3).setOnClickListener(this);
         findViewById(R.id.bt_4).setOnClickListener(this);
         findViewById(R.id.bt_5).setOnClickListener(this);
     }
@@ -62,16 +62,16 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.bt_0:
+            case R.id.bt0:
                 test0();
                 break;
-            case R.id.bt_1:
+            case R.id.bt1:
                 test1();
                 break;
-            case R.id.bt_2:
+            case R.id.bt2:
                 test2();
                 break;
-            case R.id.bt_3:
+            case R.id.bt3:
                 test3();
                 break;
             case R.id.bt_4:

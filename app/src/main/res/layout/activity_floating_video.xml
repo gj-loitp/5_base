@@ -18,7 +18,7 @@
             android:text="Show" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_1"
+            android:id="@+id/bt1"
             style="@style/ButtonMenu"
             android:text="Edge" />
     </LinearLayout>

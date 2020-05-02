@@ -15,8 +15,8 @@ public class ZoomLayoutActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        findViewById(R.id.bt_1).setOnClickListener(v -> showShort("Click button bt_1"));
-        findViewById(R.id.bt_2).setOnClickListener(v -> showShort("Click button bt_2"));
+        findViewById(R.id.bt1).setOnClickListener(v -> showShort("Click button bt_1"));
+        findViewById(R.id.bt2).setOnClickListener(v -> showShort("Click button bt_2"));
 
         /*zoomLayout.getEngine().panTo(x, y, true);
         zoomLayout.getEngine().panBy(deltaX, deltaY, true);

@@ -67,7 +67,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_0"
+                android:id="@+id/bt0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
@@ -75,30 +75,30 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_1"
+                android:id="@+id/bt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="1"
-                app:layout_constraintLeft_toRightOf="@id/bt_0"
+                app:layout_constraintLeft_toRightOf="@id/bt0"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_2"
+                android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="2"
-                app:layout_constraintLeft_toRightOf="@id/bt_1"
+                app:layout_constraintLeft_toRightOf="@id/bt1"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_3"
+                android:id="@+id/bt3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="3"
-                app:layout_constraintLeft_toRightOf="@id/bt_2"
+                app:layout_constraintLeft_toRightOf="@id/bt2"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="4"
-                app:layout_constraintLeft_toRightOf="@id/bt_3"
+                app:layout_constraintLeft_toRightOf="@id/bt3"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

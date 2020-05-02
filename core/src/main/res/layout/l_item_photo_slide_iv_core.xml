@@ -24,7 +24,7 @@
         android:orientation="vertical">
 
         <com.wang.avi.AVLoadingIndicatorView
-            android:id="@+id/avi"
+            android:id="@+id/indicatorView"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"

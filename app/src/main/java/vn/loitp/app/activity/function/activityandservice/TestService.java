@@ -85,7 +85,7 @@ public class TestService extends Service {
 
         tv.setText("This is floating view");
 
-        mFloatingView.findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
+        mFloatingView.findViewById(R.id.bt0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ComunicateMng.postFromService(new ComunicateMng.MsgFromService("Send msg to activity"));

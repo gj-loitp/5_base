@@ -22,17 +22,17 @@
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_0"
+                    android:id="@+id/bt0"
                     style="@style/ButtonMenu"
                     android:text="Show bottom sheet" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_1"
+                    android:id="@+id/bt1"
                     style="@style/ButtonMenu"
                     android:text="Show bottom sheet dialog" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_2"
+                    android:id="@+id/bt2"
                     style="@style/ButtonMenu"
                     android:text="Show bottom sheet dialog fragment" />
             </LinearLayout>

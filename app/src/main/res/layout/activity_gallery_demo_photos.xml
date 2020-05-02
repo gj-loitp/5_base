@@ -33,7 +33,7 @@
         android:scrollbars="vertical" />
 
     <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avi"
+        android:id="@+id/indicatorView"
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"

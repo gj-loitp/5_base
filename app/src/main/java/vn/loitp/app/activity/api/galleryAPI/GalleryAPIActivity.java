@@ -34,11 +34,11 @@ public class GalleryAPIActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        avLoadingIndicatorView = findViewById(R.id.avi);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
         avLoadingIndicatorView.smoothToHide();
         tv = findViewById(R.id.tv);
-        final Button bt1 = findViewById(R.id.bt_1);
-        bt2 = findViewById(R.id.bt_2);
+        final Button bt1 = findViewById(R.id.bt1);
+        bt2 = findViewById(R.id.bt2);
         bt1.setOnClickListener(v -> photosetsGetList());
         bt2.setOnClickListener(v -> showDialogSelectPhotoset());
     }

@@ -15,10 +15,10 @@ public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        findViewById(R.id.bt_0).setOnClickListener(this);
-        findViewById(R.id.bt_1).setOnClickListener(this);
-        findViewById(R.id.bt_2).setOnClickListener(this);
-        findViewById(R.id.bt_3).setOnClickListener(this);
+        findViewById(R.id.bt0).setOnClickListener(this);
+        findViewById(R.id.bt1).setOnClickListener(this);
+        findViewById(R.id.bt2).setOnClickListener(this);
+        findViewById(R.id.bt3).setOnClickListener(this);
         findViewById(R.id.bt_4).setOnClickListener(this);
         findViewById(R.id.bt_5).setOnClickListener(this);
         findViewById(R.id.bt_00).setOnClickListener(this);
@@ -44,16 +44,16 @@ public class MenuRxJava2Activity extends BaseFontActivity implements View.OnClic
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
-            case R.id.bt_0:
+            case R.id.bt0:
                 intent = new Intent(getActivity(), DisposableExampleActivity.class);
                 break;
-            case R.id.bt_1:
+            case R.id.bt1:
                 intent = new Intent(getActivity(), FlowableExampleActivity.class);
                 break;
-            case R.id.bt_2:
+            case R.id.bt2:
                 intent = new Intent(getActivity(), IntervalExampleActivity.class);
                 break;
-            case R.id.bt_3:
+            case R.id.bt3:
                 intent = new Intent(getActivity(), SingleObserverExampleActivity.class);
                 break;
             case R.id.bt_4:

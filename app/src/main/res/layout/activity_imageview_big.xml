@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
     <com.github.piasy.biv.view.BigImageView
-        android:id="@+id/mBigImage"
+        android:id="@+id/bigImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:failureImage="@drawable/l_error_404"
@@ -17,7 +16,7 @@
         app:thumbnailScaleType="centerCrop" />
 
     <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avi"
+        android:id="@+id/indicatorView"
         style="@style/AVLoadingIndicatorView"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
@@ -33,32 +32,31 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_0"
+            android:id="@+id/bt0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/load_0" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_1"
+            android:id="@+id/bt1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/load_1" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_2"
+            android:id="@+id/bt2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/load_2" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_3"
+            android:id="@+id/bt3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/gif" />
     </LinearLayout>
 </RelativeLayout>
-
