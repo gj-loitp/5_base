@@ -7,7 +7,7 @@
     android:background="@color/whiteSmoke">
 
     <LinearLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -15,14 +15,14 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_gen_line"
+            android:id="@+id/btGenLine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Line"
             android:textColor="@color/black" />
 
         <TextView
-            android:id="@+id/tv_info"
+            android:id="@+id/tvInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
@@ -34,10 +34,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_control">
+        android:layout_below="@+id/layoutControl">
 
         <LinearLayout
-            android:id="@+id/vg_1"
+            android:id="@+id/vg1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/lightCyan"
@@ -53,16 +53,16 @@
         </LinearLayout>
 
         <com.views.scrollview.LHorizontalScrollView
-            android:id="@+id/vg_2"
+            android:id="@+id/vg2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/vg_1"
+            android:layout_toEndOf="@+id/vg1"
             android:background="@color/lightPink"
             android:overScrollMode="never"
             android:scrollbars="none">
 
             <LinearLayout
-                android:id="@+id/ll_2"
+                android:id="@+id/ll2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@color/lightCyan"
@@ -70,31 +70,31 @@
         </com.views.scrollview.LHorizontalScrollView>
 
         <com.views.scrollview.LScrollView
-            android:id="@+id/vg_3"
+            android:id="@+id/vg3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_below="@+id/vg_1"
+            android:layout_below="@+id/vg1"
             android:background="@color/lightSeaGreen"
             android:overScrollMode="never"
             android:scrollbars="none">
 
             <LinearLayout
-                android:id="@+id/ll_3"
+                android:id="@+id/ll3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" />
         </com.views.scrollview.LScrollView>
 
         <com.views.scrollview.TwoDScrollView
-            android:id="@+id/vg_4"
+            android:id="@+id/vg4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/vg_2"
-            android:layout_toEndOf="@+id/vg_3"
+            android:layout_below="@+id/vg2"
+            android:layout_toEndOf="@+id/vg3"
             android:background="@color/lightGrey">
 
             <RelativeLayout
-                android:id="@+id/rl_4"
+                android:id="@+id/rl4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </com.views.scrollview.TwoDScrollView>

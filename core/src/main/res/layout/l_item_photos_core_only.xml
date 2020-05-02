@@ -41,7 +41,7 @@
         app:thumbnailScaleType="fitCenter" />
 
     <LinearLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

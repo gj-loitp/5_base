@@ -10,7 +10,7 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_control" />
+        android:layout_below="@+id/layoutControl" />
 
     <LinearLayout
         android:id="@+id/ll"
@@ -36,7 +36,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll"

@@ -8,7 +8,7 @@
     android:background="@color/white">
 
     <LinearLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -62,7 +62,7 @@
         android:id="@+id/v_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_1"
-        android:layout_below="@+id/ll_control"
+        android:layout_below="@+id/layoutControl"
         android:background="@color/whiteSmoke" />
 
     <androidx.viewpager.widget.ViewPager

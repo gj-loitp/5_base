@@ -28,7 +28,7 @@
         android:tint="@color/colorPrimary" />
 
     <RelativeLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_50"
         android:layout_alignParentBottom="true"
@@ -75,6 +75,6 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ll_control"
+        android:layout_above="@+id/layoutControl"
         android:layout_below="@+id/btBack" />
 </RelativeLayout>
