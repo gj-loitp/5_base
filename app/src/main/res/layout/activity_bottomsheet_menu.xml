@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
         <RelativeLayout
-            android:id="@+id/root_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -19,7 +18,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/tvMenu"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/padding_medium"
+                android:paddingBottom="@dimen/padding_medium">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/bt0"
@@ -42,7 +43,7 @@
                 style="@style/TextMenu"
                 android:text="Menu BottomSheet" />
         </RelativeLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <!-- Adding bottom sheet after main content -->
     <include layout="@layout/bottom_sheet_0" />
