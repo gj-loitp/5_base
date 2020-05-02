@@ -5,7 +5,7 @@
     android:background="@color/whiteSmoke">
 
     <com.views.layout.splitpanellayout.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/layout"
+        android:id="@+id/splitPaneLayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         spl:splitterBackground="@drawable/bkg_et"
