@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical">
 
     <View
-        android:id="@+id/view_space_top"
+        android:id="@+id/viewSpaceTop"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_25" />
 
@@ -72,7 +72,7 @@
     </RelativeLayout>
 
     <View
-        android:id="@+id/view_space_bottom"
+        android:id="@+id/viewSpaceBottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_60" />
 </LinearLayout>

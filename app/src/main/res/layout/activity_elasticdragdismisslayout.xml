@@ -28,7 +28,7 @@
         android:layout_height="wrap_content">
 
         <RelativeLayout
-            android:id="@+id/root_view"
+            android:id="@+id/rootView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_15">

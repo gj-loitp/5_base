@@ -39,7 +39,7 @@ public class GalleryAdapterVertical extends RecyclerView.Adapter<GalleryAdapterV
         MovieViewHolder(View view) {
             super(view);
             textView = view.findViewById(R.id.textView);
-            rootView = view.findViewById(R.id.root_view);
+            rootView = view.findViewById(R.id.rootView);
         }
     }
 

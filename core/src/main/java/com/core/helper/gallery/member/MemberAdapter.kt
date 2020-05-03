@@ -92,8 +92,8 @@ class MemberAdapter(private val context: Context, numCount: Int, private val cal
         val fl: FrameLayout = v.findViewById(R.id.fl)
         val tvTitle: TextView = v.findViewById(R.id.tv_title)
         val imageView: ImageView = v.findViewById(R.id.image_view)
-        val viewSpaceTop: View = v.findViewById(R.id.view_space_top)
-        val viewSpaceBottom: View = v.findViewById(R.id.view_space_bottom)
+        val viewSpaceTop: View = v.findViewById(R.id.viewSpaceTop)
+        val viewSpaceBottom: View = v.findViewById(R.id.viewSpaceBottom)
 
     }
 

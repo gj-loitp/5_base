@@ -41,7 +41,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MovieVie
         MovieViewHolder(View view) {
             super(view);
             imageView = view.findViewById(R.id.imageView);
-            rootView = view.findViewById(R.id.root_view);
+            rootView = view.findViewById(R.id.rootView);
         }
     }
 

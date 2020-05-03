@@ -50,7 +50,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
             rootView.setBackgroundResource(bkgRootView);
         }
 
-        final TextView tvSize = findViewById(R.id.tv_size);
+        final TextView tvSize = findViewById(R.id.tvSize);
 
         //final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
         //final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);

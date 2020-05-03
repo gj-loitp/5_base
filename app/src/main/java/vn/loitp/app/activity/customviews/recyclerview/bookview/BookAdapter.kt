@@ -52,7 +52,7 @@ class BookAdapter(private val context: Context,
         var tv: TextView = view.findViewById(R.id.textView)
         var iv: ImageView = view.findViewById(R.id.imageView)
         var bkg: ImageView = view.findViewById(R.id.bkg)
-        var rootView: RelativeLayout = view.findViewById(R.id.root_view)
+        var rootView: RelativeLayout = view.findViewById(R.id.rootView)
 
         fun bind(movie: Movie) {
             rootView.layoutParams.width = sizeW

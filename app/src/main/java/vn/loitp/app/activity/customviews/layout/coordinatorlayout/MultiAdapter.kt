@@ -33,7 +33,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         var title: TextView = view.findViewById(R.id.title)
         var year: TextView = view.findViewById(R.id.year)
         var genre: TextView = view.findViewById(R.id.genre)
-        var rootView: LinearLayout = view.findViewById(R.id.root_view)
+        var rootView: LinearLayout = view.findViewById(R.id.rootView)
 
         fun bind(movie: Movie) {
             title.text = movie.title

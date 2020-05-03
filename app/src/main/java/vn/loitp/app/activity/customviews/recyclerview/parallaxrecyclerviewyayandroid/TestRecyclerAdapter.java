@@ -88,7 +88,7 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
             super(v);
 
             textView = v.findViewById(R.id.label);
-            rootView = v.findViewById(R.id.root_view);
+            rootView = v.findViewById(R.id.rootView);
         }
 
         @Override

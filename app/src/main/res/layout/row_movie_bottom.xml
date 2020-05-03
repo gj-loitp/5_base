@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="@dimen/w_300"
     android:background="@color/red50"

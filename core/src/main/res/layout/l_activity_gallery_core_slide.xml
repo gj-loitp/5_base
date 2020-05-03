@@ -31,7 +31,7 @@
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/tv_size"
+        android:id="@+id/tvSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_15"

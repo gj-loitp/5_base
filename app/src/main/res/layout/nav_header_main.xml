@@ -6,20 +6,21 @@
     android:background="@drawable/side_nav_bar"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:padding="@dimen/padding_5"
+    android:padding="@dimen/padding_medium"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
+        android:contentDescription="@string/app_name"
+        android:paddingTop="@dimen/padding_medium"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="16dp"
+        android:paddingTop="@dimen/padding_medium"
         android:text="Android Studio"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 

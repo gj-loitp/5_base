@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_navigation_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.navigation.arcnavigationview.ArcNavigationViewActivity
 
@@ -12,7 +13,7 @@ class NavigationMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_arc_navigation).setOnClickListener(this)
+        btArcNavigation.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -29,11 +30,11 @@ class NavigationMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_arc_navigation -> intent = Intent(activity, ArcNavigationViewActivity::class.java)
+        when (v) {
+            btArcNavigation -> intent = Intent(activity, ArcNavigationViewActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

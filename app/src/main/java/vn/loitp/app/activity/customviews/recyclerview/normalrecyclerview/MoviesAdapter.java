@@ -40,7 +40,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             title = view.findViewById(R.id.title);
             genre = view.findViewById(R.id.genre);
             year = view.findViewById(R.id.year);
-            rootView = view.findViewById(R.id.root_view);
+            rootView = view.findViewById(R.id.rootView);
         }
     }
 
