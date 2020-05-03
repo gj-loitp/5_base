@@ -6,7 +6,7 @@ import com.core.utilities.LLog
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup.OnCheckedStateChangeListener
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup
-import kotlinx.android.synthetic.main.activity_tbg_custom_button.*
+import kotlinx.android.synthetic.main.activity_switch_tbg_custom_button.*
 import vn.loitp.app.R
 
 class TBGCustomButtonActivity : BaseFontActivity() {
@@ -19,7 +19,7 @@ class TBGCustomButtonActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_tbg_custom_button
+        return R.layout.activity_switch_tbg_custom_button
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

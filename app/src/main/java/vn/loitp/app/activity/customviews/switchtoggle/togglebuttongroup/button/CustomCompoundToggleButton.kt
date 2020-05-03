@@ -9,9 +9,11 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import com.nex3z.togglebuttongroup.button.CompoundToggleButton
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundToggleButton
 
-class CustomCompoundToggleButton @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : CompoundToggleButton(context, attrs) {
+class CustomCompoundToggleButton @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null
+) : CompoundToggleButton(context, attrs) {
     private val mIvFront: ImageView
     private val mIvBack: ImageView
     private val mFlipOut: AnimatorSet
@@ -58,15 +60,11 @@ class CustomCompoundToggleButton @JvmOverloads constructor(context: Context, att
         }
     }
 
-    companion object {
-        private val LOG_TAG = CustomCompoundToggleButton::class.java.simpleName
-    }
-
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.view_custom_compound_toggle_button, this, true)
-        mIvFront = findViewById(R.id.iv_front)
-        mIvBack = findViewById(R.id.iv_back)
+        mIvFront = findViewById(R.id.ivFront)
+        mIvBack = findViewById(R.id.ivBack)
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.CustomCompoundToggleButton, 0, 0)
         try {
             val front = a.getDrawable(R.styleable.CustomCompoundToggleButton_tbgFrontImage)

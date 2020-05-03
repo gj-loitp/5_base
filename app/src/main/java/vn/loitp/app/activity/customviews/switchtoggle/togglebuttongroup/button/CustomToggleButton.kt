@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button
 
-import android.R
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
@@ -8,7 +7,10 @@ import androidx.appcompat.widget.AppCompatButton
 import com.nex3z.togglebuttongroup.button.OnCheckedChangeListener
 import com.nex3z.togglebuttongroup.button.ToggleButton
 
-class CustomToggleButton @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null) : AppCompatButton(context, attrs), ToggleButton {
+class CustomToggleButton @JvmOverloads constructor(
+        context: Context?,
+        attrs: AttributeSet? = null
+) : AppCompatButton(context, attrs), ToggleButton {
     private var mChecked = false
     private var mOnCheckedChangeListener: OnCheckedChangeListener? = null
     private var mBroadcasting = false
@@ -52,6 +54,6 @@ class CustomToggleButton @JvmOverloads constructor(context: Context?, attrs: Att
     }
 
     companion object {
-        private val CHECKED_STATE_SET = intArrayOf(R.attr.state_checked)
+        private val CHECKED_STATE_SET = intArrayOf(android.R.attr.state_checked)
     }
 }

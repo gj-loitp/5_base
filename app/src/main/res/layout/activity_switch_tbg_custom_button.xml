@@ -14,13 +14,14 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         android:text="SingleSelectToggleGroup with RadioButton" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
         android:id="@+id/groupSingleRadioButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15"
+        android:padding="@dimen/padding_medium"
         app:tbgChildSpacing="8dp">
 
         <RadioButton
@@ -29,10 +30,7 @@
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
+            android:padding="@dimen/padding_medium"
             android:text="lorem"
             android:textColor="@color/selector_text_radio_button" />
 
@@ -42,10 +40,7 @@
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
+            android:padding="@dimen/padding_medium"
             android:text="ipsum"
             android:textColor="@color/selector_text_radio_button" />
 
@@ -55,10 +50,7 @@
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
+            android:padding="@dimen/padding_medium"
             android:text="dolor"
             android:textColor="@color/selector_text_radio_button" />
 
@@ -67,40 +59,32 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         android:text="MultiSelectToggleGroup with CustomCompoundButton extending CompoundButton" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
         android:id="@+id/groupMultiCustomCompoundButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15"
+        android:padding="@dimen/padding_medium"
         app:tbgChildSpacing="8dp">
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
+            android:padding="@dimen/padding_medium"
             android:text="lorem" />
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
+            android:padding="@dimen/padding_medium"
             android:text="ipsum" />
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
+            android:padding="@dimen/padding_medium"
             android:text="dolor" />
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
@@ -108,6 +92,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         android:text="MultiSelectToggleGroup with CustomToggleButton implementing ToggleButton" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
@@ -146,6 +131,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         android:text="SingleSelectToggleGroup with CustomCompoundToggleButton extending CompoundToggleButton" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup

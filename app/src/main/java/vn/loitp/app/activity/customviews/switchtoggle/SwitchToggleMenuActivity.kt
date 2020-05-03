@@ -6,7 +6,7 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_switch_toggle.*
+import kotlinx.android.synthetic.main.activity_switch_menu.*
 
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity
@@ -33,7 +33,7 @@ class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_switch_toggle
+        return R.layout.activity_switch_menu
     }
 
     override fun onClick(v: View) {

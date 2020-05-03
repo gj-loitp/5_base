@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_tbg_menu.*
+import kotlinx.android.synthetic.main.activity_switch_tbg_menu.*
 import vn.loitp.app.R
 
 //https://github.com/nex3z/ToggleButtonGroup
@@ -18,7 +18,7 @@ class TBGMenuActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_tbg_menu
+        return R.layout.activity_switch_tbg_menu
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

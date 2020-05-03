@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="@dimen/padding_5">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke"
+    android:padding="@dimen/padding_medium">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -18,19 +19,19 @@
             android:orientation="vertical">
 
             <com.views.switchtoggle.toggle.LabeledSwitch
-                android:id="@+id/ls"
+                android:id="@+id/labeledSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textSize="14sp"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/txt_medium"
                 app:colorBorder="@color/deepPink"
                 app:on="false" />
 
             <com.views.switchtoggle.toggle.LabeledSwitch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textSize="14sp"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/txt_medium"
                 app:colorBorder="@color/darkCyan"
                 app:colorDisabled="@color/gray"
                 app:colorOff="@color/black"
@@ -40,13 +41,12 @@
             <com.views.switchtoggle.toggle.LabeledSwitch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:textSize="14sp"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/txt_medium"
                 app:colorBorder="@color/blue"
                 app:on="false" />
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </RelativeLayout>
-

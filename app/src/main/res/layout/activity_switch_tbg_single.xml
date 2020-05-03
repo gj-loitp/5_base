@@ -15,7 +15,7 @@
         android:id="@+id/groupChoices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15"
+        android:padding="@dimen/padding_medium"
         app:tbgCheckedButton="@+id/choiceA">
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
@@ -23,28 +23,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="A"
-            android:textSize="16sp" />
+            android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:id="@+id/choiceB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="B"
-            android:textSize="16sp" />
+            android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:id="@+id/choiceC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="C"
-            android:textSize="16sp" />
+            android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
             android:id="@+id/choiceD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="D"
-            android:textSize="16sp" />
+            android:textSize="@dimen/txt_medium" />
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 

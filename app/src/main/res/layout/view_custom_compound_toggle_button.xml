@@ -3,21 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:id="@+id/iv_back"
+        android:id="@+id/ivBack"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
         android:scaleType="fitCenter"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        tools:src="@drawable/card_a"/>
+        tools:src="@drawable/card_a" />
 
     <ImageView
-        android:id="@+id/iv_front"
+        android:id="@+id/ivFront"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
         android:scaleType="fitCenter"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
-        android:src="@drawable/card_a"/>
+        android:src="@drawable/card_a" />
 
 </merge>
