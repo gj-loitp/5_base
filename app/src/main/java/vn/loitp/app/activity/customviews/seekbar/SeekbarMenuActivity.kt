@@ -20,7 +20,7 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_boxed_vertical_seekbar).setOnClickListener(this)
         findViewById<View>(R.id.bt_circularseekbar_seekbar).setOnClickListener(this)
         findViewById<View>(R.id.bt_vertical_seekbar).setOnClickListener(this)
-        findViewById<View>(R.id.bt_seekbar).setOnClickListener(this)
+        findViewById<View>(R.id.btSeekBar).setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -41,7 +41,7 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_boxed_vertical_seekbar -> intent = Intent(activity, BoxedVerticalSeekBarActivity::class.java)
             R.id.bt_circularseekbar_seekbar -> intent = Intent(activity, CircularSeekbarActivity::class.java)
             R.id.bt_vertical_seekbar -> intent = Intent(activity, VerticalSeekbarActivity::class.java)
-            R.id.bt_seekbar -> intent = Intent(activity, SeekbarActivity::class.java)
+            R.id.btSeekBar -> intent = Intent(activity, SeekbarActivity::class.java)
         }
         if (intent != null) {
             startActivity(intent)

@@ -6,7 +6,7 @@
     android:background="@color/whiteSmoke">
 
     <ScrollView xmlns:autofit="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

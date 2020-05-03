@@ -37,7 +37,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun setupViews() {
         LUIUtil.setTextShadow(tvPolicy)
-        tvPolicy.setOnClickListener { LSocialUtil.openUrlInBrowser(activity, Constants.URL_POLICY) }
+        tvPolicy.setOnClickListener { LSocialUtil.openUrlInBrowser(context = activity, url = Constants.URL_POLICY) }
 
         btApi.setOnClickListener(this)
         btAnimation.setOnClickListener(this)

@@ -17,7 +17,7 @@ public class FloatDragWindowModeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        containerWindows = findViewById(R.id.fl_windows);
+        containerWindows = findViewById(R.id.flWindows);
         FloatDragLayout floatDragLayout = new FloatDragLayout(this);
         floatDragLayout.setBackgroundResource(R.mipmap.ic_launcher);
         int size = DisplayUtil.dp2px(this, 45);

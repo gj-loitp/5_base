@@ -33,8 +33,8 @@ class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
         when (v.id) {
             R.id.bt0 -> intent = Intent(activity, SimpleEncryptDecryptStringActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

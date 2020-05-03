@@ -6,7 +6,7 @@
     android:background="@drawable/l_bkg_horizontal">
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

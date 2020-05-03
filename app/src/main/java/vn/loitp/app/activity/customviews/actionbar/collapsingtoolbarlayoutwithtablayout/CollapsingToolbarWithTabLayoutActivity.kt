@@ -82,7 +82,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         when (v.id) {
             R.id.fab -> Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            R.id.bt_menu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
+            R.id.btMenu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
                 override fun clickOnItem(menuItem: MenuItem) {
                     LToast.show(activity, menuItem.title.toString())
                 }

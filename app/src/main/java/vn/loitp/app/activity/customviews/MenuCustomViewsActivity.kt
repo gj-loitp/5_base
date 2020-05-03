@@ -6,7 +6,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_custom_view.*
+import kotlinx.android.synthetic.main.activity_custom_view_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
 import vn.loitp.app.activity.customviews.answerview.AnswerViewActivity
@@ -44,36 +44,36 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_view_pager).setOnClickListener(this)
-        findViewById<View>(R.id.bt_button).setOnClickListener(this)
-        findViewById<View>(R.id.bt_progress_loading).setOnClickListener(this)
-        findViewById<View>(R.id.bt_switch).setOnClickListener(this)
-        findViewById<View>(R.id.bt_action_bar).setOnClickListener(this)
-        findViewById<View>(R.id.bt_imageview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_textview).setOnClickListener(this)
-        findViewById<View>(R.id.btBottomBarBlur).setOnClickListener(this)
-        findViewById<View>(R.id.bt_sticker).setOnClickListener(this)
-        findViewById<View>(R.id.bt_layout).setOnClickListener(this)
-        findViewById<View>(R.id.bt_edit_text).setOnClickListener(this)
-        findViewById<View>(R.id.bt_videoview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_seekbar).setOnClickListener(this)
-        findViewById<View>(R.id.bt_recyclerview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_dialog).setOnClickListener(this)
-        findViewById<View>(R.id.bt_popup_menu).setOnClickListener(this)
-        findViewById<View>(R.id.bt_scratchview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_navigation).setOnClickListener(this)
-        findViewById<View>(R.id.bt_treeview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_draggable_flipview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_answer_view).setOnClickListener(this)
-        findViewById<View>(R.id.bt_bottom_sheet).setOnClickListener(this)
-        findViewById<View>(R.id.bt_compas).setOnClickListener(this)
-        findViewById<View>(R.id.bt_scrollable_panel).setOnClickListener(this)
-        findViewById<View>(R.id.bt_fb_cmt).setOnClickListener(this)
-        findViewById<View>(R.id.bt_wwl_music).setOnClickListener(this)
-        findViewById<View>(R.id.bt_wwl_video).setOnClickListener(this)
-        findViewById<View>(R.id.bt_ldebugview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_menu).setOnClickListener(this)
-        findViewById<View>(R.id.bt_l_card_view).setOnClickListener(this)
+        btViewPager.setOnClickListener(this)
+        btButton.setOnClickListener(this)
+        btProgressLoading.setOnClickListener(this)
+        btSwitch.setOnClickListener(this)
+        btActionBar.setOnClickListener(this)
+        btImageView.setOnClickListener(this)
+        btTextView.setOnClickListener(this)
+        btBottomBarBlur.setOnClickListener(this)
+        btSticker.setOnClickListener(this)
+        btLayout.setOnClickListener(this)
+        btEditText.setOnClickListener(this)
+        btVideoView.setOnClickListener(this)
+        btSeekBar.setOnClickListener(this)
+        btRecyclerView.setOnClickListener(this)
+        btDialog.setOnClickListener(this)
+        btPopupMenu.setOnClickListener(this)
+        btScratchView.setOnClickListener(this)
+        btNavigation.setOnClickListener(this)
+        btTreeView.setOnClickListener(this)
+        btDraggableFlipView.setOnClickListener(this)
+        btAnswerView.setOnClickListener(this)
+        btBottomSheet.setOnClickListener(this)
+        btCompass.setOnClickListener(this)
+        btScrollablePanel.setOnClickListener(this)
+        btFbCmt.setOnClickListener(this)
+        btWwlMusic.setOnClickListener(this)
+        btWwlVideo.setOnClickListener(this)
+        btLDebugView.setOnClickListener(this)
+        btMenu.setOnClickListener(this)
+        btLCardView.setOnClickListener(this)
         btCalendar.setOnClickListener(this)
     }
 
@@ -86,46 +86,46 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_custom_view
+        return R.layout.activity_custom_view_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_view_pager -> intent = Intent(activity, ViewPagerMenuActivity::class.java)
-            R.id.bt_button -> intent = Intent(activity, ButtonMenuActivity::class.java)
-            R.id.bt_progress_loading -> intent = Intent(activity, MenuProgressLoadingViewsActivity::class.java)
-            R.id.bt_switch -> intent = Intent(activity, SwitchToggleMenuActivity::class.java)
-            R.id.bt_action_bar -> intent = Intent(activity, ActionbarMenuActivity::class.java)
-            R.id.bt_imageview -> intent = Intent(activity, ImageViewMenuActivity::class.java)
-            R.id.bt_textview -> intent = Intent(activity, TextViewMenuActivity::class.java)
-            R.id.btBottomBarBlur -> intent = Intent(activity, BottomNavigationMenuActivity::class.java)
-            R.id.bt_sticker -> intent = Intent(activity, StickerActivity::class.java)
-            R.id.bt_edit_text -> intent = Intent(activity, EditTextMenuActivity::class.java)
-            R.id.bt_layout -> intent = Intent(activity, LayoutMenuActivity::class.java)
-            R.id.bt_videoview -> intent = Intent(activity, VideoViewMenuActivity::class.java)
-            R.id.bt_seekbar -> intent = Intent(activity, SeekbarMenuActivity::class.java)
-            R.id.bt_recyclerview -> intent = Intent(activity, RecyclerViewMenuActivity::class.java)
-            R.id.bt_dialog -> intent = Intent(activity, DialogMenuActivity::class.java)
-            R.id.bt_popup_menu -> intent = Intent(activity, PopupMenuActivity::class.java)
-            R.id.bt_scratchview -> intent = Intent(activity, ScratchViewMenuActivity::class.java)
-            R.id.bt_navigation -> intent = Intent(activity, NavigationMenuActivity::class.java)
-            R.id.bt_treeview -> intent = Intent(activity, TreeViewActivity::class.java)
-            R.id.bt_draggable_flipview -> intent = Intent(activity, DraggableFlipViewActivity::class.java)
-            R.id.bt_answer_view -> intent = Intent(activity, AnswerViewActivity::class.java)
-            R.id.bt_bottom_sheet -> intent = Intent(activity, BottomSheetMenuActivity::class.java)
-            R.id.bt_compas -> intent = Intent(activity, CompasActivity::class.java)
-            R.id.bt_scrollable_panel -> intent = Intent(activity, ScrollablePanelActivity::class.java)
-            R.id.bt_fb_cmt -> intent = Intent(activity, FacebookCommentActivity::class.java)
-            R.id.bt_wwl_music -> intent = Intent(activity, WWLActivityMusic::class.java)
-            R.id.bt_wwl_video -> intent = Intent(activity, WWLVideoActivity::class.java)
-            R.id.bt_ldebugview -> intent = Intent(activity, LDebugViewActivity::class.java)
-            R.id.bt_menu -> intent = Intent(activity, MenuMenuActivity::class.java)
-            R.id.bt_l_card_view -> intent = Intent(activity, LCardViewActivity::class.java)
-            R.id.btCalendar -> intent = Intent(activity, CalendarMenuActivity::class.java)
+        when (v) {
+            btViewPager -> intent = Intent(activity, ViewPagerMenuActivity::class.java)
+            btButton -> intent = Intent(activity, ButtonMenuActivity::class.java)
+            btProgressLoading -> intent = Intent(activity, MenuProgressLoadingViewsActivity::class.java)
+            btSwitch -> intent = Intent(activity, SwitchToggleMenuActivity::class.java)
+            btActionBar -> intent = Intent(activity, ActionbarMenuActivity::class.java)
+            btImageView -> intent = Intent(activity, ImageViewMenuActivity::class.java)
+            btTextView -> intent = Intent(activity, TextViewMenuActivity::class.java)
+            btBottomBarBlur -> intent = Intent(activity, BottomNavigationMenuActivity::class.java)
+            btSticker -> intent = Intent(activity, StickerActivity::class.java)
+            btEditText -> intent = Intent(activity, EditTextMenuActivity::class.java)
+            btLayout -> intent = Intent(activity, LayoutMenuActivity::class.java)
+            btVideoView -> intent = Intent(activity, VideoViewMenuActivity::class.java)
+            btSeekBar -> intent = Intent(activity, SeekbarMenuActivity::class.java)
+            btRecyclerView -> intent = Intent(activity, RecyclerViewMenuActivity::class.java)
+            btDialog -> intent = Intent(activity, DialogMenuActivity::class.java)
+            btPopupMenu -> intent = Intent(activity, PopupMenuActivity::class.java)
+            btScratchView -> intent = Intent(activity, ScratchViewMenuActivity::class.java)
+            btNavigation -> intent = Intent(activity, NavigationMenuActivity::class.java)
+            btTreeView -> intent = Intent(activity, TreeViewActivity::class.java)
+            btDraggableFlipView -> intent = Intent(activity, DraggableFlipViewActivity::class.java)
+            btAnswerView -> intent = Intent(activity, AnswerViewActivity::class.java)
+            btBottomSheet -> intent = Intent(activity, BottomSheetMenuActivity::class.java)
+            btCompass -> intent = Intent(activity, CompasActivity::class.java)
+            btScrollablePanel -> intent = Intent(activity, ScrollablePanelActivity::class.java)
+            btFbCmt -> intent = Intent(activity, FacebookCommentActivity::class.java)
+            btWwlMusic -> intent = Intent(activity, WWLActivityMusic::class.java)
+            btWwlVideo -> intent = Intent(activity, WWLVideoActivity::class.java)
+            btLDebugView -> intent = Intent(activity, LDebugViewActivity::class.java)
+            btMenu -> intent = Intent(activity, MenuMenuActivity::class.java)
+            btLCardView -> intent = Intent(activity, LCardViewActivity::class.java)
+            btCalendar -> intent = Intent(activity, CalendarMenuActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

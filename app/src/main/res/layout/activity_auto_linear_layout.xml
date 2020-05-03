@@ -8,13 +8,13 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scroll_view"
+        android:layout_below="@+id/scrollView"
         android:layout_alignParentBottom="true"
         android:padding="@dimen/padding_15"
         android:text="@string/i_love_you" />
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,7 +28,7 @@
                 android:text="circularseekbar seekbar" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_seekbar"
+                android:id="@+id/btSeekBar"
                 style="@style/ButtonMenu"
                 android:text="seekbar" />
 

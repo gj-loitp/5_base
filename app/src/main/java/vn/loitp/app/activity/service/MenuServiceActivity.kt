@@ -33,12 +33,12 @@ class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.btDemoService -> intent = Intent(activity, DemoServiceActivity::class.java)
-            R.id.btEndlessService -> intent = Intent(activity, EndlessServiceActivity::class.java)
+        when (v) {
+            btDemoService -> intent = Intent(activity, DemoServiceActivity::class.java)
+            btEndlessService -> intent = Intent(activity, EndlessServiceActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }
