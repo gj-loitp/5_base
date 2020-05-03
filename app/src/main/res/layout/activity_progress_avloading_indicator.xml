@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,7 +27,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallPulseIndicator" />
 
@@ -36,7 +35,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallGridPulseIndicator" />
 
@@ -44,7 +43,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallClipRotateIndicator" />
 
@@ -59,7 +58,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallClipRotatePulseIndicator" />
 
@@ -67,7 +66,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="SquareSpinIndicator" />
 
@@ -75,7 +74,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallClipRotateMultipleIndicator" />
 
@@ -90,7 +89,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallPulseRiseIndicator" />
 
@@ -98,7 +97,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallRotateIndicator" />
 
@@ -106,7 +105,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="CubeTransitionIndicator" />
 
@@ -121,7 +120,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallZigZagIndicator" />
 
@@ -129,7 +128,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallZigZagDeflectIndicator" />
 
@@ -137,7 +136,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallTrianglePathIndicator" />
 
@@ -152,7 +151,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallClipRotateMultipleIndicator" />
 
@@ -160,7 +159,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleIndicator" />
 
@@ -168,7 +167,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineScaleIndicator" />
 
@@ -183,7 +182,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineScalePartyIndicator" />
 
@@ -191,7 +190,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleMultipleIndicator" />
 
@@ -199,7 +198,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallPulseSyncIndicator" />
 
@@ -214,7 +213,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallBeatIndicator" />
 
@@ -222,7 +221,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineScalePulseOutIndicator" />
 
@@ -230,7 +229,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineScalePulseOutRapidIndicator" />
 
@@ -245,7 +244,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleRippleIndicator" />
 
@@ -253,7 +252,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallScaleRippleMultipleIndicator" />
 
@@ -261,7 +260,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallSpinFadeLoaderIndicator" />
             </LinearLayout>
@@ -275,7 +274,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="LineSpinFadeLoaderIndicator" />
 
@@ -283,7 +282,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="TriangleSkewSpinIndicator" />
 
@@ -291,7 +290,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="PacmanIndicator" />
             </LinearLayout>
@@ -305,7 +304,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="BallGridBeatIndicator" />
 
@@ -313,7 +312,7 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="SemiCircleSpinIndicator" />
 
@@ -321,11 +320,10 @@
                     style="@style/AVLoadingIndicatorView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_10"
+                    android:layout_margin="@dimen/margin_medium"
                     app:indicatorColor="@color/colorPrimary"
                     app:indicatorName="MyCustomIndicator" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
-

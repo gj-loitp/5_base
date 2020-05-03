@@ -21,6 +21,6 @@ class AVLoadingIndicatorActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_avloading_indicator
+        return R.layout.activity_progress_avloading_indicator
     }
 }

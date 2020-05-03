@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +19,7 @@
             android:orientation="vertical">
 
             <com.views.progressloadingview.circular.LCircularProgressBar
-                android:id="@+id/progress_bar"
+                android:id="@+id/progressBar"
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
                 app:animateProgress="false"
@@ -76,6 +75,5 @@
                 app:progressAnimationDuration="200"
                 app:startAngle="270" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
-

@@ -23,45 +23,45 @@ class ColorPickerDialogFragment : BottomSheetDialogFragment() {
     private var onColorSelectedListener: OnColorSelectedListener? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.dialog_color_picker, container, false)
+        val rootView = inflater.inflate(R.layout.frm_dialog_color_picker, container, false)
 
-        val red = rootView.findViewById<SeekBar>(R.id.sb_red)
-        val green = rootView.findViewById<SeekBar>(R.id.sb_green)
-        val blue = rootView.findViewById<SeekBar>(R.id.sb_blue)
+        val sbRed = rootView.findViewById<SeekBar>(R.id.sbRed)
+        val sbGreen = rootView.findViewById<SeekBar>(R.id.sbGreen)
+        val sbBlue = rootView.findViewById<SeekBar>(R.id.sbBlue)
 
         val mode = PorterDuff.Mode.SRC_ATOP
 
-        red.progressDrawable.setColorFilter(Color.rgb(red.progress, 0, 0), mode)
-        green.progressDrawable.setColorFilter(Color.rgb(0, green.progress, 0), mode)
-        blue.progressDrawable.setColorFilter(Color.rgb(0, 0, blue.progress), mode)
+        sbRed.progressDrawable.setColorFilter(Color.rgb(sbRed.progress, 0, 0), mode)
+        sbGreen.progressDrawable.setColorFilter(Color.rgb(0, sbGreen.progress, 0), mode)
+        sbBlue.progressDrawable.setColorFilter(Color.rgb(0, 0, sbBlue.progress), mode)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            red.thumb.setColorFilter(Color.rgb(red.progress, 0, 0), mode)
-            green.thumb.setColorFilter(Color.rgb(0, green.progress, 0), mode)
-            blue.thumb.setColorFilter(Color.rgb(0, 0, blue.progress), mode)
+            sbRed.thumb.setColorFilter(Color.rgb(sbRed.progress, 0, 0), mode)
+            sbGreen.thumb.setColorFilter(Color.rgb(0, sbGreen.progress, 0), mode)
+            sbBlue.thumb.setColorFilter(Color.rgb(0, 0, sbBlue.progress), mode)
         }
 
-        val colorResult = rootView.findViewById<View>(R.id.color_result)
-        val selectColor = rootView.findViewById<Button>(R.id.btn_select_color_result)
+        val viewColorResult = rootView.findViewById<View>(R.id.viewColorResult)
+        val btSelectColorResult = rootView.findViewById<Button>(R.id.btSelectColorResult)
 
         val seekBarChangeListener = object : DefaultSeekbarChangeListener() {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val redProgress = red.progress
-                val greenProgress = green.progress
-                val blueProgress = blue.progress
+                val redProgress = sbRed.progress
+                val greenProgress = sbGreen.progress
+                val blueProgress = sbBlue.progress
 
-                colorResult.setBackgroundColor(Color.rgb(redProgress, greenProgress, blueProgress))
+                viewColorResult.setBackgroundColor(Color.rgb(redProgress, greenProgress, blueProgress))
 
                 when (seekBar.id) {
-                    R.id.sb_red -> {
+                    R.id.sbRed -> {
                         seekBar.progressDrawable.setColorFilter(Color.rgb(redProgress, 0, 0), mode)
                         seekBar.thumb.setColorFilter(Color.rgb(redProgress, 0, 0), mode)
                     }
-                    R.id.sb_green -> {
+                    R.id.sbGreen -> {
                         seekBar.progressDrawable.setColorFilter(Color.rgb(0, greenProgress, 0), mode)
                         seekBar.thumb.setColorFilter(Color.rgb(0, greenProgress, 0), mode)
                     }
-                    R.id.sb_blue -> {
+                    R.id.sbBlue -> {
                         seekBar.progressDrawable.setColorFilter(Color.rgb(0, 0, blueProgress), mode)
                         seekBar.thumb.setColorFilter(Color.rgb(0, 0, blueProgress), mode)
                     }
@@ -69,13 +69,13 @@ class ColorPickerDialogFragment : BottomSheetDialogFragment() {
             }
         }
 
-        red.setOnSeekBarChangeListener(seekBarChangeListener)
-        green.setOnSeekBarChangeListener(seekBarChangeListener)
-        blue.setOnSeekBarChangeListener(seekBarChangeListener)
+        sbRed.setOnSeekBarChangeListener(seekBarChangeListener)
+        sbGreen.setOnSeekBarChangeListener(seekBarChangeListener)
+        sbBlue.setOnSeekBarChangeListener(seekBarChangeListener)
 
-        selectColor.setOnClickListener {
-            onColorSelectedListener!!.onColorChosen(this@ColorPickerDialogFragment,
-                    red.progress, green.progress, blue.progress)
+        btSelectColorResult.setOnClickListener {
+            onColorSelectedListener?.onColorChosen(dialog = this@ColorPickerDialogFragment,
+                    r = sbRed.progress, g = sbGreen.progress, b = sbBlue.progress)
             dismiss()
         }
 
