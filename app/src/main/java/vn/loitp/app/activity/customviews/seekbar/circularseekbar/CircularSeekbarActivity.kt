@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.google.android.material.snackbar.Snackbar
 import com.views.seekbar.circular.LCircularSeekBar
+import kotlinx.android.synthetic.main.activity_seekbar_circular.*
 import vn.loitp.app.R
 import java.text.DecimalFormat
 
@@ -14,16 +15,15 @@ class CircularSeekbarActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val seekBar = findViewById<LCircularSeekBar>(R.id.seekbar)
-        seekBar.progressTextFormat = DecimalFormat("###,###,###,##0.00")
-        seekBar.progress = 0f
-        seekBar.ringColor = Color.DKGRAY
+        seekbar.progressTextFormat = DecimalFormat("###,###,###,##0.00")
+        seekbar.progress = 0f
+        seekbar.ringColor = Color.DKGRAY
 
-        seekBar.setOnCenterClickedListener { seekBar1, progress ->
-            Snackbar.make(seekBar1, "Reset progress $progress", Snackbar.LENGTH_SHORT).show()
-            seekBar1.progress = 0f
+        seekbar.setOnCenterClickedListener { sb, progress ->
+            Snackbar.make(sb, "Reset progress $progress", Snackbar.LENGTH_SHORT).show()
+            sb.progress = 0f
         }
-        seekBar.setOnCircularSeekBarChangeListener(object : LCircularSeekBar.OnCircularSeekBarChangeListener {
+        seekbar.setOnCircularSeekBarChangeListener(object : LCircularSeekBar.OnCircularSeekBarChangeListener {
             override fun onProgressChanged(seekBar: LCircularSeekBar, progress: Float, fromUser: Boolean) {
                 when {
                     progress < 20 -> seekBar.ringColor = Color.GRAY
@@ -53,6 +53,6 @@ class CircularSeekbarActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circular_seekbar
+        return R.layout.activity_seekbar_circular
     }
 }

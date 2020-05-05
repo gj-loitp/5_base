@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <ScrollView
-        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,27 +14,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_boxed_vertical_seekbar"
+                android:id="@+id/btBoxedVerticalSeekbar"
                 style="@style/ButtonMenu"
                 android:text="Boxed Vertical SeekBar" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_circularseekbar_seekbar"
+                android:id="@+id/btCircularSeekbar"
                 style="@style/ButtonMenu"
-                android:text="circularseekbar seekbar" />
+                android:text="Circularseekbar seekbar" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSeekBar"
                 style="@style/ButtonMenu"
-                android:text="seekbar" />
+                android:text="Seekbar" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_vertical_seekbar"
+                android:id="@+id/btVerticalSeekBar"
                 style="@style/ButtonMenu"
-                android:text="vertical seekbar" />
+                android:text="Vertical seekbar" />
 
         </LinearLayout>
     </ScrollView>
@@ -45,4 +46,3 @@
         style="@style/TextMenu"
         android:text="Seekbar Menu" />
 </RelativeLayout>
-

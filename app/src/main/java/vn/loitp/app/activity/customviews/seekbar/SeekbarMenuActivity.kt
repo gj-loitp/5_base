@@ -6,6 +6,7 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_seekbar_menu.*
 
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity
@@ -17,10 +18,10 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_boxed_vertical_seekbar).setOnClickListener(this)
-        findViewById<View>(R.id.bt_circularseekbar_seekbar).setOnClickListener(this)
-        findViewById<View>(R.id.bt_vertical_seekbar).setOnClickListener(this)
-        findViewById<View>(R.id.btSeekBar).setOnClickListener(this)
+        btBoxedVerticalSeekbar.setOnClickListener(this)
+        btCircularSeekbar.setOnClickListener(this)
+        btVerticalSeekBar.setOnClickListener(this)
+        btSeekBar.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -32,19 +33,19 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_seekbar
+        return R.layout.activity_seekbar_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_boxed_vertical_seekbar -> intent = Intent(activity, BoxedVerticalSeekBarActivity::class.java)
-            R.id.bt_circularseekbar_seekbar -> intent = Intent(activity, CircularSeekbarActivity::class.java)
-            R.id.bt_vertical_seekbar -> intent = Intent(activity, VerticalSeekbarActivity::class.java)
-            R.id.btSeekBar -> intent = Intent(activity, SeekbarActivity::class.java)
+        when (v) {
+            btBoxedVerticalSeekbar -> intent = Intent(activity, BoxedVerticalSeekBarActivity::class.java)
+            btCircularSeekbar -> intent = Intent(activity, CircularSeekbarActivity::class.java)
+            btVerticalSeekBar -> intent = Intent(activity, VerticalSeekbarActivity::class.java)
+            btSeekBar -> intent = Intent(activity, SeekbarActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

@@ -1,10 +1,9 @@
 package vn.loitp.app.activity.customviews.seekbar.verticalseekbar
 
 import android.os.Bundle
-import android.view.View
 import android.widget.SeekBar
 import com.core.base.BaseFontActivity
-import com.views.seekbar.vertical.LVerticalSeekBar
+import kotlinx.android.synthetic.main.activity_seekbar_vertical.*
 import vn.loitp.app.R
 
 //https://github.com/h6ah4i/android-verticalseekbar
@@ -12,7 +11,6 @@ class VerticalSeekbarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val seekBar1 = findViewById<LVerticalSeekBar>(R.id.seekBar1)
         seekBar1.max = 100
         seekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
@@ -27,7 +25,7 @@ class VerticalSeekbarActivity : BaseFontActivity() {
                 logD("onStopTrackingTouch")
             }
         })
-        findViewById<View>(R.id.bt).setOnClickListener { _ -> seekBar1.progress = 30 }
+        btSetProgress.setOnClickListener { _ -> seekBar1.progress = 30 }
     }
 
     override fun setFullScreen(): Boolean {
@@ -39,6 +37,6 @@ class VerticalSeekbarActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_vertical_seekbar
+        return R.layout.activity_seekbar_vertical
     }
 }

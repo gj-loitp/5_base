@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -11,7 +10,7 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/padding_15">
+        android:padding="@dimen/padding_medium">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -20,7 +19,7 @@
             android:gravity="center">
 
             <com.views.seekbar.boxedvertical.LBoxedVertical
-                android:id="@+id/boxed_vertical"
+                android:id="@+id/boxedVertical"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -49,7 +48,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_10" />
+                android:layout_marginStart="@dimen/margin_medium" />
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>
