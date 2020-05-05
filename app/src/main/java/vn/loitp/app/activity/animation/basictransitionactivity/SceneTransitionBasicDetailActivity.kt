@@ -5,20 +5,13 @@ import android.os.Build
 import android.os.Bundle
 import android.transition.Transition
 import android.widget.ImageView
-import android.widget.TextView
-
 import androidx.core.view.ViewCompat
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-
+import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic_details.*
 import vn.loitp.app.R
 
 class SceneTransitionBasicDetailActivity : BaseFontActivity() {
-
-    private lateinit var mHeaderImageView: ImageView
-    private lateinit var mHeaderTitle: TextView
-
     private var mItem: Item? = null
 
     override fun setFullScreen(): Boolean {
@@ -30,25 +23,22 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scene_transition_basic_details
+        return R.layout.activity_animation_scene_transition_basic_details
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mItem = Item.getItem(intent.getIntExtra(EXTRA_PARAM_ID, 0))
 
-        mHeaderImageView = findViewById(R.id.imageview_header)
-        mHeaderTitle = findViewById(R.id.textview_title)
-
-        ViewCompat.setTransitionName(mHeaderImageView, VIEW_NAME_HEADER_IMAGE)
-        ViewCompat.setTransitionName(mHeaderTitle, VIEW_NAME_HEADER_TITLE)
+        ViewCompat.setTransitionName(imageViewHeader, VIEW_NAME_HEADER_IMAGE)
+        ViewCompat.setTransitionName(textViewTitle, VIEW_NAME_HEADER_TITLE)
 
         loadItem()
     }
 
     private fun loadItem() {
 
-        mHeaderTitle.text = getString(R.string.image_header, mItem?.name, mItem?.author)
+        textViewTitle.text = getString(R.string.image_header, mItem?.name, mItem?.author)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && addTransitionListener()) {
             // If we're running on Lollipop and we have added a listener to the shared element
@@ -66,7 +56,7 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      */
     private fun loadThumbnail() {
         mItem?.photoUrl?.let {
-            LImageUtil.loadNoAmin(activity, it, mHeaderImageView)
+            LImageUtil.loadNoAmin(activity, it, imageViewHeader)
         }
     }
 
@@ -75,7 +65,7 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      */
     private fun loadFullSizeImage() {
         mItem?.photoUrl?.let {
-            LImageUtil.loadNoAmin(activity, it, mHeaderImageView)
+            LImageUtil.loadNoAmin(activity, it, imageViewHeader)
         }
     }
 
@@ -87,11 +77,10 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      * @return true if we were successful in adding a listener to the enter transition
      */
     private fun addTransitionListener(): Boolean {
-        val transition: Transition?
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             return false
         }
-        transition = window.sharedElementEnterTransition
+        val transition = window.sharedElementEnterTransition
         if (transition != null) {
             // There is an entering shared element transition so add a listener to it
             transition.addListener(@TargetApi(Build.VERSION_CODES.KITKAT)

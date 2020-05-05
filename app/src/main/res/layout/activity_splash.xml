@@ -32,7 +32,7 @@
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
-        android:layout_above="@+id/textView"
+        android:layout_above="@+id/textViewVersion"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_medium"
