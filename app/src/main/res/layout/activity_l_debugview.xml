@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_start"
+                android:id="@+id/btStart"
                 style="@style/ButtonMenu"
                 android:text="Start" />
 

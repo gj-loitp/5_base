@@ -1,37 +1,32 @@
 package vn.loitp.app.activity.customviews.textview.countdown
 
 import android.os.Bundle
-import android.widget.Button
 import com.core.base.BaseFontActivity
 import com.views.textview.countdown.LCountDownView
+import kotlinx.android.synthetic.main.activity_textview_count_down.*
 import vn.loitp.app.R
 
 class CountDownActivity : BaseFontActivity() {
 
-    private lateinit var btStart: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btStart = findViewById(R.id.bt_start)
-
-        val lCountDownView = findViewById<LCountDownView>(R.id.l_countdown)
-        lCountDownView.setShowOrHide(false)
-        lCountDownView.setCallback(object : LCountDownView.Callback {
+        countDownView.setShowOrHide(false)
+        countDownView.setCallback(object : LCountDownView.Callback {
             override fun onTick() {
                 //do sth here
             }
 
             override fun onEnd() {
                 btStart.isEnabled = true
-                lCountDownView.setShowOrHide(false)
+                countDownView.setShowOrHide(false)
             }
         })
 
         btStart.setOnClickListener { _ ->
             btStart.isEnabled = false
-            lCountDownView.setShowOrHide(true)
-            lCountDownView.start(5)
+            countDownView.setShowOrHide(true)
+            countDownView.start(5)
         }
     }
 
@@ -44,6 +39,6 @@ class CountDownActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_count_down_textview
+        return R.layout.activity_textview_count_down
     }
 }

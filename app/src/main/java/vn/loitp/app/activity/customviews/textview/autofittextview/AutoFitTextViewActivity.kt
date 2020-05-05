@@ -3,30 +3,22 @@ package vn.loitp.app.activity.customviews.textview.autofittextview
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.EditText
-import android.widget.TextView
-
 import com.core.base.BaseFontActivity
-
+import kotlinx.android.synthetic.main.activity_textview_autofit.*
 import vn.loitp.app.R
 
 class AutoFitTextViewActivity : BaseFontActivity() {
-    private var mOutput: TextView? = null
-    private var mAutofitOutput: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mOutput = findViewById(R.id.output)
-        mAutofitOutput = findViewById(R.id.output_autofit)
-
-        (findViewById<EditText>(R.id.input)).addTextChangedListener(object : TextWatcher {
+        et.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {
                 // do nothing
             }
 
             override fun onTextChanged(charSequence: CharSequence, i: Int, i2: Int, i3: Int) {
-                mOutput!!.text = charSequence
-                mAutofitOutput!!.text = charSequence
+                tvOutput.text = charSequence
+                textViewAutoFit.text = charSequence
             }
 
             override fun afterTextChanged(editable: Editable) {
@@ -44,7 +36,7 @@ class AutoFitTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_autofit_textview
+        return R.layout.activity_textview_autofit
     }
 
 }

@@ -2,21 +2,17 @@ package vn.loitp.app.activity.customviews.textview.circletextview
 
 import android.os.Bundle
 import android.text.SpannableStringBuilder
-
 import com.core.base.BaseFontActivity
-import com.views.textview.circle.LCircleTextView
-
+import kotlinx.android.synthetic.main.activity_textview_circle.*
 import vn.loitp.app.R
 
 class CircleTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val textView = findViewById<LCircleTextView>(R.id.circle_text_view)
-        textView.setTextSize(R.dimen.txt_18)
-
+        tvCircle.setTextSize(R.dimen.txt_medium)
         val builder = SpannableStringBuilder(resources.getString(R.string.hello_world))
-        textView.setText(builder)
+        tvCircle.setText(builder)
     }
 
     override fun setFullScreen(): Boolean {
@@ -28,7 +24,7 @@ class CircleTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circle_textview
+        return R.layout.activity_textview_circle
     }
 
 }

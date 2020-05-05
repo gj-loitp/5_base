@@ -32,7 +32,7 @@ Easy link with Gradle."
 				android:textSize="@dimen/txt_14" />
 
 			<androidx.appcompat.widget.AppCompatButton
-				android:id="@+id/bt_start"
+				android:id="@+id/btStart"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="Start" />

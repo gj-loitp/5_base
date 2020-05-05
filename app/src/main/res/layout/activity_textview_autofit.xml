@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView xmlns:autofit="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView xmlns:autofit="http://schemas.android.com/apk/res-auto"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,10 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_15">
+            android:padding="@dimen/padding_medium">
 
             <EditText
-                android:id="@+id/input"
+                android:id="@+id/et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_hint"
@@ -31,7 +29,7 @@
                 android:text="@string/label_normal" />
 
             <TextView
-                android:id="@+id/output"
+                android:id="@+id/tvOutput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -44,7 +42,7 @@
                 android:text="@string/label_autofit" />
 
             <com.views.textview.autofit.LAutofitTextView
-                android:id="@+id/output_autofit"
+                android:id="@+id/textViewAutoFit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -53,6 +51,5 @@
                 android:textSize="50sp"
                 autofit:minTextSizeTv="8sp" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
-

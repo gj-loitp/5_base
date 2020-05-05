@@ -25,7 +25,7 @@ class ColorTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_color_textview
+        return R.layout.activity_textview_color
     }
 
 }
