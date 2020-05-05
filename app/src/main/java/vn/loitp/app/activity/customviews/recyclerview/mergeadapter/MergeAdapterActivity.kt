@@ -159,7 +159,7 @@ class MergeAdapterActivity : BaseFontActivity() {
 
             LUIUtil.setDelay(2000, Runnable {
                 val listNews = ArrayList<News>()
-                for (i in 0..4) {
+                for (i in 0..10) {
                     val news = News(
                             id = System.currentTimeMillis(),
                             title = "Title " + System.currentTimeMillis(),

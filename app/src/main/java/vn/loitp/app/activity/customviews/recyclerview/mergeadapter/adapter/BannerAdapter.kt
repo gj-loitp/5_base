@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LImageUtil
+import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.view_row_item_banner.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Banner
@@ -12,6 +13,7 @@ import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Ba
 class BannerAdapter(
         private val listBanner: ArrayList<Banner>
 ) : RecyclerView.Adapter<BannerAdapter.DataViewHolder>() {
+    private val TAG = "loitpp" + javaClass.simpleName
 
     fun setData(listBanner: ArrayList<Banner>) {
         this.listBanner.clear()
@@ -19,8 +21,9 @@ class BannerAdapter(
         notifyDataSetChanged()
     }
 
-    class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: Banner) {
+            LLog.d(TAG, "bind $bindingAdapterPosition")
             LImageUtil.load(context = itemView.imageViewBanner.context,
                     drawableRes = user.bannerImage,
                     imageView = itemView.imageViewBanner)

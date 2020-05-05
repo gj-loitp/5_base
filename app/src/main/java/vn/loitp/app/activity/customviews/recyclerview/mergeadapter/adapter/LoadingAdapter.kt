@@ -4,12 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.core.utilities.LLog
 import vn.loitp.app.R
 
 class LoadingAdapter() : RecyclerView.Adapter<LoadingAdapter.DataViewHolder>() {
+    private val TAG = "loitpp" + javaClass.simpleName
 
-    class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
+            LLog.d(TAG, "bind $bindingAdapterPosition")
         }
     }
 

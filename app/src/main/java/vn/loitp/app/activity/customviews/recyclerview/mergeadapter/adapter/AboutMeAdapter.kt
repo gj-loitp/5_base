@@ -4,13 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.core.utilities.LLog
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
 
 class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView.Adapter<AboutMeAdapter.DataViewHolder>() {
-
+    private val TAG = "loitpp" + javaClass.simpleName
     var onClickRootListener: ((AboutMe, Int) -> Unit)? = null
 
     fun setData(aboutMe: ArrayList<AboutMe>) {
@@ -21,6 +22,7 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(aboutMe: AboutMe) {
+            LLog.d(TAG, "bind $bindingAdapterPosition")
             itemView.textViewUser.text = aboutMe.name
             itemView.textViewAboutMe.text = aboutMe.aboutMe
 
