@@ -290,8 +290,8 @@ object LDialogUtil {
             viewPager.currentItem = index
         }
         LUIUtil.setPullLikeIOSHorizontal(viewPager);
-        val ivNext = dialog.findViewById<ImageView>(R.id.iv_next)
-        val ivPrev = dialog.findViewById<ImageView>(R.id.iv_prev)
+        val ivNext = dialog.findViewById<ImageView>(R.id.ivNext)
+        val ivPrev = dialog.findViewById<ImageView>(R.id.ivPrev)
         if (isShowController) {
             ivNext.visibility = View.VISIBLE
             ivPrev.visibility = View.VISIBLE

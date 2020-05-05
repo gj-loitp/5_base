@@ -14,17 +14,18 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_300"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_y"
+            android:id="@+id/btYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="YES" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_n"
+            android:id="@+id/btNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NO" />

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,7 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCustomDialog"
@@ -23,22 +24,22 @@
                 android:text="Custom dialog" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_custom_progress_dialog"
+                android:id="@+id/btCustomProgressDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/custom_progress_dialog" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_ios_dialog"
+                android:id="@+id/btIosDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/ios_dialog" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_original_dialog"
+                android:id="@+id/btOriginalDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/original_dialog" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_pretty_dialog"
+                android:id="@+id/btPrettyDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/pretty_dialog" />
 
@@ -48,15 +49,14 @@
                 android:text="@string/slide_images" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_swipe_away_dialog"
+                android:id="@+id/btSwipeAwayDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/swipe_away_dialog" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_dialog" />
 </RelativeLayout>
-

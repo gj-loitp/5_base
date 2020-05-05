@@ -12,7 +12,7 @@
         android:text="@string/toggle_fullscreen" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/anchorView"
+        android:id="@+id/btAnchorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -101,4 +101,3 @@
         </LinearLayout>
     </HorizontalScrollView>
 </RelativeLayout>
-

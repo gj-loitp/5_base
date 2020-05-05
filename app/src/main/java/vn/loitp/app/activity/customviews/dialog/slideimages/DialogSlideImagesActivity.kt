@@ -28,13 +28,13 @@ class DialogSlideImagesActivity : BaseFontActivity() {
         LImageUtil.load(activity, url2, iv2)
 
         iv0.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(activity, 0, imageList, 0.5f, isShowController = true, isShowIconClose = true)
+            LDialogUtil.showDialogSlide(context = activity, index = 0, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
         }
         iv1.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(activity, 1, imageList, 0.5f, isShowController = true, isShowIconClose = true)
+            LDialogUtil.showDialogSlide(context = activity, index = 1, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
         }
         iv2.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(activity, 2, imageList, 0.5f, isShowController = true, isShowIconClose = true)
+            LDialogUtil.showDialogSlide(context = activity, index = 2, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
         }
     }
 

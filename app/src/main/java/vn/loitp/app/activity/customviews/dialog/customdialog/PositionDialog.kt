@@ -15,7 +15,7 @@ import com.core.utilities.LLog
 import vn.loitp.app.R
 
 class PositionDialog : DialogFragment() {
-    private val TAG = "TAG" + javaClass.simpleName
+    private val TAG = javaClass.simpleName
     private var anchorView: View? = null
 
     enum class Position {

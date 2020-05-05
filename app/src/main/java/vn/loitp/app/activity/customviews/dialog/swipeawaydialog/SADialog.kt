@@ -16,7 +16,7 @@ import com.views.LToast
 import com.views.dialog.swipeawaydialog.support.SwipeAwayDialogFragment
 import vn.loitp.app.R
 
-class SADilog : SwipeAwayDialogFragment() {
+class SADialog : SwipeAwayDialogFragment() {
     private val TAG = javaClass.simpleName
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -38,10 +38,13 @@ class SADilog : SwipeAwayDialogFragment() {
     }
 
     private fun show1(): AlertDialog {
-        return LDialogUtil.showDialog1(context!!, "Title", "Msg", "Button 1",
-                object : LDialogUtil.Callback1 {
+        return LDialogUtil.showDialog1(context = context!!,
+                title = "Title",
+                msg = "Msg",
+                button1 = "Button 1",
+                callback1 = object : LDialogUtil.Callback1 {
                     override fun onClick1() {
-                        LToast.show(context!!, "Click 1", R.drawable.l_bkg_horizontal)
+                        LToast.show(context!!, R.drawable.l_bkg_horizontal)
                     }
                 })
     }
@@ -130,11 +133,15 @@ class SADilog : SwipeAwayDialogFragment() {
         val inflater = activity!!.layoutInflater
         val view = inflater.inflate(R.layout.dlg_swipe_away_custom, null)
 
-        val btY = view.findViewById<Button>(R.id.bt_y)
-        btY.setOnClickListener { LToast.show(activity!!, "Click yes") }
+        val btY = view.findViewById<Button>(R.id.btYes)
+        btY.setOnClickListener {
+            LToast.show(activity!!, "Click yes")
+        }
 
-        val btN = view.findViewById<Button>(R.id.bt_n)
-        btN.setOnClickListener { LToast.show(activity!!, "Click no") }
+        val btN = view.findViewById<Button>(R.id.btNo)
+        btN.setOnClickListener {
+            LToast.show(activity!!, "Click no")
+        }
 
         builder.setView(view)
         val dialog = builder.create()

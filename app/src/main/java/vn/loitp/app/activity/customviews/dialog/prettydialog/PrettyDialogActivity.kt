@@ -6,8 +6,8 @@ import android.util.TypedValue
 import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
-import com.views.LToast
 import com.views.dialog.prettydialog.PrettyDialog
+import kotlinx.android.synthetic.main.activity_dialog_pretty.*
 import vn.loitp.app.R
 
 //https://github.com/mjn1369/PrettyDialog
@@ -16,10 +16,10 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_show_1).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_2).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_3).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_4).setOnClickListener(this)
+        btShow1.setOnClickListener(this)
+        btShow2.setOnClickListener(this)
+        btShow3.setOnClickListener(this)
+        btShow4.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -35,11 +35,11 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.bt_show_1 -> show1()
-            R.id.bt_show_2 -> show2()
-            R.id.bt_show_3 -> show3()
-            R.id.bt_show_4 -> show4()
+        when (v) {
+            btShow1 -> show1()
+            btShow2 -> show2()
+            btShow3 -> show3()
+            btShow4 -> show4()
         }
     }
 
@@ -56,7 +56,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setIcon(R.drawable.pdlg_icon_info)
                     .setIconTint(R.color.green)
                     .setIconCallback(Runnable {
-                        LToast.show(activity, "onClick setIconCallback")
+                        showShort("onClick setIconCallback")
                         prettyDialog?.cancel()
                     })
                     .show()
@@ -71,14 +71,16 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setMessage("PrettyDialog Message")
                     .setIcon(R.drawable.pdlg_icon_info)
                     .setIconTint(R.color.green)
-                    .setIconCallback(Runnable { LToast.show(activity, "onClick setIconCallback") })
+                    .setIconCallback(Runnable {
+                        showShort("onClick setIconCallback")
+                    })
                     // OK button
                     .addButton(
                             "OK", // button text
                             R.color.white,
                             R.color.green,
                             Runnable {
-                                LToast.show(activity, "onClick OK")
+                                showShort("onClick OK")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -88,7 +90,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.red,
                             Runnable {
-                                LToast.show(activity, "onClick Cancel")
+                                showShort("onClick Cancel")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -98,7 +100,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.black,
                             R.color.gray,
                             Runnable {
-                                LToast.show(activity, "onClick Option 3")
+                                showShort("onClick Option 3")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -120,7 +122,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setTextSizeTitle(TypedValue.COMPLEX_UNIT_DIP, 22)
                     .setTextSizeMsg(TypedValue.COMPLEX_UNIT_DIP, 18)
                     .setIconCallback(Runnable {
-                        LToast.show(activity, "onClick setIconCallback")
+                        showShort("onClick setIconCallback")
                     })
                     // OK button
                     .addButton(
@@ -128,7 +130,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.green,
                             Runnable {
-                                LToast.show(activity, "onClick OK")
+                                showShort("onClick OK")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -138,7 +140,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.red,
                             Runnable {
-                                LToast.show(activity, "onClick Cancel")
+                                showShort("onClick Cancel")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -148,7 +150,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.black,
                             R.color.gray,
                             Runnable {
-                                LToast.show(activity, "onClick Option 3")
+                                showShort("onClick Option 3")
                                 prettyDialog?.cancel()
                             }
                     )
