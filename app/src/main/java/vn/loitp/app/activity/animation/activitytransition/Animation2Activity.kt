@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_animation_2.*
 import vn.loitp.app.R
 
 class Animation2Activity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
-        findViewById<View>(R.id.tv_exit).setOnClickListener(this)
+
+        tvExit.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -26,8 +27,8 @@ class Animation2Activity : BaseFontActivity(), OnClickListener {
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.tv_exit -> onBackPressed()
+        when (v) {
+            tvExit -> onBackPressed()
         }
     }
 }
