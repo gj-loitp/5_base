@@ -43,7 +43,7 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
 
                 // Now we provide a list of Pair items which contain the view we can transitioning
                 // from, and the name of the view it is transitioning to, in the launched activity
-                Pair(view.findViewById(R.id.imageview_item),
+                Pair(view.findViewById(R.id.imageViewItem),
                         SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_IMAGE),
                 Pair(view.findViewById(R.id.textview_name),
                         SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_TITLE))
@@ -76,7 +76,7 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
             val item = getItem(position)
 
             // Load the thumbnail image
-            val image = view!!.findViewById<ImageView>(R.id.imageview_item)
+            val image = view!!.findViewById<ImageView>(R.id.imageViewItem)
             LImageUtil.load(activity, item.photoUrl, image)
 
             // Set the TextView's contents

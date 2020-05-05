@@ -3,35 +3,29 @@ package vn.loitp.app.activity.animation.basictransition
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
-
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LImageUtil
-
+import kotlinx.android.synthetic.main.activity_animation_basic_transition_0.*
 import vn.loitp.app.R
 
 class BasicTransition0Activity : BaseFontActivity() {
-    private var tv: TextView? = null
-    private var iv: ImageView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        iv = findViewById(R.id.imageview_item)
-        tv = findViewById(R.id.textView)
-        LImageUtil.load(activity, Constants.URL_IMG_2, iv!!)
-        findViewById<View>(R.id.imageview_item).setOnClickListener { onClickIv() }
+        LImageUtil.load(context = activity, url = Constants.URL_IMG_2, imageView = imageViewItem)
+        imageViewItem.setOnClickListener {
+            onClickIv()
+        }
     }
 
     private fun onClickIv() {
         val intent = Intent(activity, BasicTransition1Activity::class.java)
-        val pair1 = Pair<View, String>(iv, BasicTransition1Activity.IV)
-        val pair2 = Pair<View, String>(tv, BasicTransition1Activity.TV)
+        val pair1 = Pair<View, String>(imageViewItem, BasicTransition1Activity.IV)
+        val pair2 = Pair<View, String>(textView, BasicTransition1Activity.TV)
         val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, pair1, pair2)
         ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
     }
@@ -45,6 +39,6 @@ class BasicTransition0Activity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_basic_transition_0
+        return R.layout.activity_animation_basic_transition_0
     }
 }

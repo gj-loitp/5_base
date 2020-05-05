@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <TextView
-        android:id="@+id/tv_dummy"
+        android:id="@+id/tvDummy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
         android:text="@string/activity_0"
-        android:textSize="@dimen/txt_32" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
 
     <com.views.layout.squarelayout.LSquareFrameLayout
         android:layout_width="@dimen/w_150"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_dummy">
+        android:layout_below="@+id/tvDummy">
 
         <ImageView
-            android:id="@+id/imageview_item"
+            android:id="@+id/imageViewItem"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
@@ -31,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:padding="@dimen/padding_medium"
         android:text="@string/loitp"
-        android:textSize="@dimen/txt_32" />
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt_large" />
 </RelativeLayout>
-
