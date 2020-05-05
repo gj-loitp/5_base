@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -10,14 +9,14 @@
         android:id="@+id/stv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15"
+        android:padding="@dimen/padding_medium"
         android:text="@string/app_name"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_25"
+        android:textSize="@dimen/txt_large"
         app:strokeColor="@color/black"
         app:strokeThickness="3dp" />
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,11 +25,11 @@
         <com.views.textview.stroked.LStrokedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_15"
+            android:padding="@dimen/padding_medium"
             android:text="@string/large_text"
             android:textColor="@color/yellow"
-            android:textSize="@dimen/txt_18"
+            android:textSize="@dimen/txt_medium"
             app:strokeColor="@color/darkCyan"
             app:strokeThickness="1dp" />
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

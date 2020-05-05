@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
         <LinearLayout
@@ -19,15 +17,14 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <com.views.textview.scrollnumber.MultiScrollNumber
-                android:id="@+id/scroll_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tvContent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:textColor="@color/black"
+                tools:text="Hello World!" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-    <TextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="Scroll number" />
 </RelativeLayout>

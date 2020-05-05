@@ -22,6 +22,6 @@ class StrokedTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_stroked_text_view
+        return R.layout.activity_textview_stroked
     }
 }
