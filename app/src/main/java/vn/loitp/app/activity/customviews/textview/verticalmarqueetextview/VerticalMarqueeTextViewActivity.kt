@@ -21,7 +21,7 @@ class VerticalMarqueeTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_vertical_marque_textview
+        return R.layout.activity_textview_vertical_marque
     }
 
 }

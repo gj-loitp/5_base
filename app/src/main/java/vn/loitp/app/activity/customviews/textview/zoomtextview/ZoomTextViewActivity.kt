@@ -21,7 +21,7 @@ class ZoomTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_zoom_textview
+        return R.layout.activity_textview_zoom
     }
 
 }

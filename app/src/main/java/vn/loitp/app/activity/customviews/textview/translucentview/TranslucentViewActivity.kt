@@ -21,7 +21,7 @@ class TranslucentViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_translucent_view
+        return R.layout.activity_textview_translucent_view
     }
 
 }
