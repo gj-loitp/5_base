@@ -40,25 +40,6 @@ abstract class WordRoomDatabase : RoomDatabase() {
         private class WordDatabaseCallback(
                 private val scope: CoroutineScope
         ) : RoomDatabase.Callback()
-
-        /**
-         * Populate the database in a new coroutine.
-         * If you want to start with more words, just add them.
-         */
-        /*suspend fun populateDatabase(wordDao: WordDao) {
-            // Start the app with a clean database every time.
-            // Not needed if you only populate on creation.
-
-            //wordDao.deleteAll()
-
-            var word = Word()
-            word.word = "Hello world!"
-            wordDao.insert(word)
-
-            word = Word()
-            word.word = "Hello Room!"
-            wordDao.insert(word)
-        }*/
     }
 
 }

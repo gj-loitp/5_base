@@ -21,6 +21,7 @@ class WordActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setupViews()
         setupViewModels()
+        genFirstData()
     }
 
     override fun setFullScreen(): Boolean {
@@ -58,8 +59,8 @@ class WordActivity : BaseFontActivity() {
     private fun setupViewModels() {
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         wordViewModel?.let { vm ->
-            vm.allWords.observe(this, Observer { words ->
-                words?.let {
+            vm.allWords.observe(this, Observer { allWords ->
+                allWords?.let {
                     wordListAdapter?.setWords(it)
                 }
             })
@@ -83,5 +84,9 @@ class WordActivity : BaseFontActivity() {
         val word = Word()
         word.word = "Add " + System.currentTimeMillis()
         wordViewModel?.insert(word)
+    }
+
+    private fun genFirstData(){
+        wordViewModel?.genFirstData()
     }
 }
