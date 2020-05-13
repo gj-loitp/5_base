@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_room_work.*
+import kotlinx.android.synthetic.main.activity_database_room_work.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
@@ -14,39 +14,13 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
 //https://codinginfinite.com/android-room-persistent-rxjava/
 //https://codinginfinite.com/android-room-persistence-livedata-example/
 class WordActivity : BaseFontActivity() {
-    private lateinit var wordViewModel: WordViewModel
+    private var wordViewModel: WordViewModel? = null
+    private var wordListAdapter: WordListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
-
-        val adapter = WordListAdapter(object : WordListAdapter.Callback {
-            override fun onUpdate(word: Word) {
-                word.word = "Update " + System.currentTimeMillis()
-                wordViewModel.update(word)
-            }
-
-            override fun onDelete(word: Word) {
-                wordViewModel.delete(word)
-            }
-        })
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        wordViewModel.allWords.observe(this, Observer { words ->
-            words?.let { adapter.setWords(it) }
-        })
-
-        btAdd.setOnClickListener {
-            val word = Word()
-            word.word = "Add " + System.currentTimeMillis()
-            wordViewModel.insert(word)
-        }
-
-        btDeleteAll.setOnClickListener {
-            wordViewModel.deleteAll()
-        }
+        setupViews()
+        setupViewModels()
     }
 
     override fun setFullScreen(): Boolean {
@@ -58,6 +32,56 @@ class WordActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_room_work
+        return R.layout.activity_database_room_work
+    }
+
+    private fun setupViews() {
+        wordListAdapter = WordListAdapter(object : WordListAdapter.Callback {
+            override fun onUpdate(word: Word) {
+                handleUpdate(word = word)
+            }
+
+            override fun onDelete(word: Word) {
+                handleDelete(word)
+            }
+        })
+        recyclerView.adapter = wordListAdapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        btAdd.setOnClickListener {
+            handleInsert()
+        }
+        btDeleteAll.setOnClickListener {
+            handleDeleteAll()
+        }
+    }
+
+    private fun setupViewModels() {
+        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
+        wordViewModel?.let { vm ->
+            vm.allWords.observe(this, Observer { words ->
+                words?.let {
+                    wordListAdapter?.setWords(it)
+                }
+            })
+        }
+    }
+
+    private fun handleUpdate(word: Word) {
+        word.word = "Update " + System.currentTimeMillis()
+        wordViewModel?.update(word)
+    }
+
+    private fun handleDelete(word: Word) {
+        wordViewModel?.delete(word)
+    }
+
+    private fun handleDeleteAll() {
+        wordViewModel?.deleteAll()
+    }
+
+    private fun handleInsert() {
+        val word = Word()
+        word.word = "Add " + System.currentTimeMillis()
+        wordViewModel?.insert(word)
     }
 }
