@@ -22,7 +22,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun genFirstData() {
-        Log.d(TAG, "genFirstData " + LApplication.gson.toJson(allWords.value))
+        //Log.d(TAG, "genFirstData " + LApplication.gson.toJson(allWords.value))
         if (allWords.value.isNullOrEmpty()) {
             val word = Word()
             word.word = "Loitp (First data if list null)"

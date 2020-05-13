@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_database_room_work.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
+import vn.loitp.app.app.LApplication
 
 //https://codinginfinite.com/android-room-tutorial-persistence/
 //https://codinginfinite.com/android-room-persistent-rxjava/
@@ -21,7 +22,6 @@ class WordActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setupViews()
         setupViewModels()
-        genFirstData()
     }
 
     override fun setFullScreen(): Boolean {
@@ -29,7 +29,7 @@ class WordActivity : BaseFontActivity() {
     }
 
     override fun setTag(): String? {
-        return javaClass.simpleName
+        return "loitpp" + javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
@@ -60,9 +60,11 @@ class WordActivity : BaseFontActivity() {
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         wordViewModel?.let { vm ->
             vm.allWords.observe(this, Observer { allWords ->
+                logD("allWords observe " + LApplication.gson.toJson(allWords))
                 allWords?.let {
                     wordListAdapter?.setWords(it)
                 }
+                genFirstData()
             })
         }
     }
@@ -86,7 +88,12 @@ class WordActivity : BaseFontActivity() {
         wordViewModel?.insert(word)
     }
 
-    private fun genFirstData(){
-        wordViewModel?.genFirstData()
+    private var isGenFirstDataDone = false
+    private fun genFirstData() {
+        if (!isGenFirstDataDone) {
+            showShort("genFirstData")
+            wordViewModel?.genFirstData()
+            isGenFirstDataDone = true
+        }
     }
 }
