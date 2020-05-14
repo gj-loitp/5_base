@@ -14,11 +14,12 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     private val TAG = "loitpp" + javaClass.simpleName
     private val repository: WordRepository
     val allWords: LiveData<List<Word>>
+    var wordFind: LiveData<Word>? = null
 
     init {
         val wordsDao = WordRoomDatabase.getDatabase(application, viewModelScope).wordDao()
         repository = WordRepository(wordsDao)
-        allWords = repository.allWords
+        allWords = repository.listWord
     }
 
     fun genFirstData() {
@@ -46,4 +47,10 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     fun update(word: Word) = viewModelScope.launch {
         repository.update(word)
     }
+
+//    fun findWord(id: String) = viewModelScope.launch {
+//        val value = repository.findWord(id)
+//        Log.d(TAG, ">>>findWord id $id")
+//        Log.d(TAG, "<<<findWord value ${value.value}")
+//    }
 }

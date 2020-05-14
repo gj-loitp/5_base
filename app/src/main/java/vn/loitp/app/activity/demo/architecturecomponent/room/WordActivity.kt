@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFontActivity
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_database_room_work.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
@@ -48,11 +49,14 @@ class WordActivity : BaseFontActivity() {
         })
         recyclerView.adapter = wordListAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
-        btAdd.setOnClickListener {
+        btAdd.setSafeOnClickListener {
             handleInsert()
         }
-        btDeleteAll.setOnClickListener {
+        btDeleteAll.setSafeOnClickListener {
             handleDeleteAll()
+        }
+        btFindWord.setSafeOnClickListener {
+            handleFindWord()
         }
     }
 
@@ -95,5 +99,9 @@ class WordActivity : BaseFontActivity() {
             wordViewModel?.genFirstData()
             isGenFirstDataDone = true
         }
+    }
+
+    private fun handleFindWord() {
+        //wordViewModel?.findWord(id = "1")
     }
 }
