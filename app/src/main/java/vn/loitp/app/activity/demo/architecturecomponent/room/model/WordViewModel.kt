@@ -13,18 +13,18 @@ import vn.loitp.app.app.LApplication
 class WordViewModel(application: Application) : AndroidViewModel(application) {
     private val TAG = "loitpp" + javaClass.simpleName
     private val repository: WordRepository
-    val allWords: LiveData<List<Word>>
+    val listWord: LiveData<List<Word>>
     var wordFind: LiveData<Word>? = null
 
     init {
         val wordsDao = WordRoomDatabase.getDatabase(application, viewModelScope).wordDao()
         repository = WordRepository(wordsDao)
-        allWords = repository.listWord
+        listWord = repository.getAlphabetizedWords()
     }
 
     fun genFirstData() {
         //Log.d(TAG, "genFirstData " + LApplication.gson.toJson(allWords.value))
-        if (allWords.value.isNullOrEmpty()) {
+        if (listWord.value.isNullOrEmpty()) {
             val word = Word()
             word.word = "Loitp (First data if list null)"
             insert(word)
