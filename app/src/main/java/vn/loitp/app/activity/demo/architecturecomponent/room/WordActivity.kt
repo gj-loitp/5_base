@@ -70,6 +70,9 @@ class WordActivity : BaseFontActivity() {
                 }
                 genFirstData()
             })
+            vm.wordFind?.observe(this, Observer {
+                logD("wordFind observe " + LApplication.gson.toJson(it))
+            })
         }
     }
 
@@ -102,6 +105,6 @@ class WordActivity : BaseFontActivity() {
     }
 
     private fun handleFindWord() {
-        //wordViewModel?.findWord(id = "1")
+        wordViewModel?.findWord(id = "1")
     }
 }

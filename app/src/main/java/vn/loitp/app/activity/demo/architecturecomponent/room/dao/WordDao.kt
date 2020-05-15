@@ -15,6 +15,6 @@ interface WordDao : BaseDao<Word> {
     @Query("DELETE FROM ${Word.TABLE_WORD}")
     suspend fun deleteAll()
 
-    //@Query("SELECT * FROM ${Word.TABLE_WORD} WHERE ${Word.COL_ID}")
-    //fun findWord(id: String): LiveData<Word>
+    @Query("SELECT * FROM ${Word.TABLE_WORD} WHERE ${Word.COL_ID}=:id")
+    fun findWord(id: String): LiveData<Word>
 }

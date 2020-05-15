@@ -26,7 +26,7 @@ class WordRepository(private val wordDao: WordDao) {
         wordDao.update(word)
     }
 
-//    fun findWord(id: String): LiveData<Word> {
-//        return wordDao.findWord(id)
-//    }
+    fun findWord(id: String): LiveData<Word> {
+        return wordDao.findWord(id)
+    }
 }

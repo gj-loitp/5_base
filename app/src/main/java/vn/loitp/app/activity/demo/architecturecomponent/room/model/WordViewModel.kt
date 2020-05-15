@@ -48,9 +48,8 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         repository.update(word)
     }
 
-//    fun findWord(id: String) = viewModelScope.launch {
-//        val value = repository.findWord(id)
-//        Log.d(TAG, ">>>findWord id $id")
-//        Log.d(TAG, "<<<findWord value ${value.value}")
-//    }
+    fun findWord(id: String) = viewModelScope.launch {
+        Log.d(TAG, "findWord id $id")
+        wordFind = repository.findWord(id)
+    }
 }
