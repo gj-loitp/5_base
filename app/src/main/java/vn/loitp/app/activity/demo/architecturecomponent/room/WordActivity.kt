@@ -63,7 +63,7 @@ class WordActivity : BaseFontActivity() {
     private fun setupViewModels() {
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         wordViewModel?.let { vm ->
-            vm.listWord.observe(this, Observer { allWords ->
+            vm.listWord?.observe(this, Observer { allWords ->
                 logD("allWords observe " + LApplication.gson.toJson(allWords))
                 allWords?.let {
                     wordListAdapter?.setWords(it)
