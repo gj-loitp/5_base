@@ -53,7 +53,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
                     .setMessage("PrettyDialog Message")
-                    .setIcon(R.drawable.pdlg_icon_info)
+                    .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
                     .setIconCallback(Runnable {
                         showShort("onClick setIconCallback")
@@ -69,7 +69,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
                     .setMessage("PrettyDialog Message")
-                    .setIcon(R.drawable.pdlg_icon_info)
+                    .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
                     .setIconCallback(Runnable {
                         showShort("onClick setIconCallback")
@@ -117,7 +117,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setMessageColor(R.color.gray)
                     .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/android_font.TTF"))
                     .setAnimationEnabled(true)
-                    .setIcon(R.drawable.pdlg_icon_info)
+                    .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
                     .setTextSizeTitle(TypedValue.COMPLEX_UNIT_DIP, 22)
                     .setTextSizeMsg(TypedValue.COMPLEX_UNIT_DIP, 18)

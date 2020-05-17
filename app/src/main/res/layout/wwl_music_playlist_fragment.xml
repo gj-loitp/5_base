@@ -29,7 +29,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:padding="12.0dip"
-                android:src="@drawable/overflow_menu" />
+                android:src="@drawable/ic_more_vert_black_48dp" />
 
             <FrameLayout
                 android:layout_width="fill_parent"

@@ -60,7 +60,7 @@
             android:contentDescription="@string/app_name"
             android:foreground="?actionBarItemBackground"
             android:scaleType="centerInside"
-            android:src="@drawable/sel_btn_crop_rotation" />
+            android:src="@drawable/ic_rotate_left_black_48dp" />
 
         <ImageButton
             android:id="@+id/btn_crop"
@@ -71,7 +71,7 @@
             android:contentDescription="@string/app_name"
             android:foreground="?actionBarItemBackground"
             android:scaleType="centerInside"
-            android:src="@drawable/sel_btn_crop_cut" />
+            android:src="@drawable/ic_crop_black_48dp" />
 
         <ImageButton
             android:id="@+id/btn_cancel"
@@ -81,7 +81,7 @@
             android:contentDescription="@string/app_name"
             android:foreground="?actionBarItemBackground"
             android:scaleType="centerInside"
-            android:src="@drawable/sel_btn_crop_close"
+            android:src="@drawable/ic_close_black_48dp"
             android:visibility="gone" />
 
         <ImageButton
@@ -93,7 +93,7 @@
             android:contentDescription="@string/app_name"
             android:foreground="?actionBarItemBackground"
             android:scaleType="centerInside"
-            android:src="@drawable/sel_btn_crop_confirm"
+            android:src="@drawable/ic_done_black_48dp"
             android:visibility="gone"
             aandroid:layout_width="@dimen/w_50" />
     </LinearLayout>

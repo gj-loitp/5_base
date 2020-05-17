@@ -26,7 +26,7 @@ class LEditTextActivity : BaseFontActivity() {
             colorUnfocus = ContextCompat.getColor(activity, R.color.blue)
             colorError = ContextCompat.getColor(activity, R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
-            ivRight.setImageResource(R.drawable.remove)
+            ivRight.setImageResource(R.drawable.ic_close_black_48dp)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)

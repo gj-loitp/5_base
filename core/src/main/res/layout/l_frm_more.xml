@@ -62,7 +62,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/rating" />
+                    android:src="@drawable/ic_rate_review_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_gift" />
+                    android:src="@drawable/ic_card_giftcard_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/share" />
+                    android:src="@drawable/ic_share_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -146,7 +146,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_facebook" />
+                    android:src="@drawable/ic_favorite_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"

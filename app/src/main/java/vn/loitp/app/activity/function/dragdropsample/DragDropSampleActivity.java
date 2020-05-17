@@ -25,7 +25,7 @@ public class DragDropSampleActivity extends BaseFontActivity {
 
         trash.setOnDragListener(new TrashDragListener(
                 R.mipmap.ic_launcher,
-                R.drawable.search_color));
+                R.drawable.ic_search_black_48dp));
 
         trash.setOnClickListener(new View.OnClickListener() {
             @Override

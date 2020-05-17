@@ -157,7 +157,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
 
     @SuppressLint("ClickableViewAccessibility")
     fun setIcon(icon: Int?): PrettyDialog {
-        ivIcon?.setImageResource(icon ?: R.drawable.pdlg_icon_close)
+        ivIcon?.setImageResource(icon ?: R.drawable.ic_close_black_48dp)
         iconAnimation = false
         ivIcon?.setOnTouchListener(null)
         return this
@@ -195,7 +195,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     fun setIcon(icon: Int?, iconTint: Int?, callback: Runnable?): PrettyDialog {
         iconAnimation = false
         ivIcon?.let {
-            it.setImageResource(icon ?: R.drawable.pdlg_icon_close)
+            it.setImageResource(icon ?: R.drawable.ic_close_black_48dp)
             it.setColorFilter(ContextCompat.getColor(context, iconTint
                     ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
             it.setOnTouchListener(null)
