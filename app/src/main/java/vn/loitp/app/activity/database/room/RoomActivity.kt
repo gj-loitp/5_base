@@ -2,6 +2,7 @@ package vn.loitp.app.activity.database.room
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
@@ -37,6 +38,7 @@ class RoomActivity : BaseFontActivity() {
         floorPlanAdapter?.onClickRootView = {
 
         }
+        rvFloorPlan.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         rvFloorPlan.layoutManager = LinearLayoutManager(activity)
         rvFloorPlan.adapter = floorPlanAdapter
 

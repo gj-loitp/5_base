@@ -22,14 +22,14 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             val floorPlan = FloorPlan()
 
             floorPlan.id = i.toString()
-            floorPlan.name = "Name$i"
+            floorPlan.name = "Name $i"
 
             val listArea = ArrayList<Area>()
             for (j in fromId..toId) {
                 val area = Area()
 
                 area.id = "$j"
-                area.name = "Name$j"
+                area.name = "Name $j"
 
                 val listTable = ArrayList<Table>()
 
@@ -37,7 +37,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                     val table = Table()
 
                     table.id = "$u"
-                    table.name = "Name$u"
+                    table.name = "Name $u"
 
                     listTable.add(table)
                 }
