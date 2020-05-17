@@ -1,8 +1,9 @@
-package vn.loitp.app.activity.database.room
+package vn.loitp.app.activity.database.room.model
 
 import androidx.annotation.Keep
 import androidx.room.*
 import com.squareup.moshi.Json
+import vn.loitp.app.activity.database.room.converter.AreaConverter
 import java.io.Serializable
 
 @Keep

@@ -4,32 +4,37 @@
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <androidx.core.widget.NestedScrollView
-        style="@style/ScrollVertical"
+    <HorizontalScrollView
+        android:id="@+id/hsv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMenu">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium">
+            android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSaveList"
-                style="@style/ButtonMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Save List" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetList"
-                style="@style/ButtonMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Get List" />
-
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFloorPlan"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/hsv" />
 
     <TextView
         android:id="@+id/tvMenu"

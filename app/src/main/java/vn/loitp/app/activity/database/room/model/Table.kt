@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.database.room
+package vn.loitp.app.activity.database.room.model
 
 import androidx.annotation.Keep
 import com.squareup.moshi.Json
