@@ -10,7 +10,7 @@ public class AutoLabelUISettings implements Parcelable {
     public static final boolean DEFAULT_SHOW_CROSS = true;
     public static final boolean DEFAULT_LABELS_CLICKABLES = false;
     public static final int DEFAULT_MAX_LABELS = -1;
-    public static final int DEFAULT_ICON_CROSS = R.drawable.l_cross;
+    public static final int DEFAULT_ICON_CROSS = R.drawable.ic_close_black_48dp;
 
     private int mMaxLabels;
     private boolean mShowCross;

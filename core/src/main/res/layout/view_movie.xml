@@ -58,7 +58,7 @@
         android:layout_toEndOf="@id/toggle"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/fast_forward"
-        android:src="@drawable/l_ic_fast_forward_64dp"
+        android:src="@drawable/ic_fast_forward_black_48dp"
         android:visibility="invisible" />
 
     <ImageButton
