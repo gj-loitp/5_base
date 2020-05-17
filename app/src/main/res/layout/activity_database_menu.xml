@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,15 +14,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_sqlite_asset"
+                android:id="@+id/btSqliteAsset"
                 style="@style/ButtonMenu"
                 android:text="@string/read_sqlite_asset" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_realm"
+                android:id="@+id/btRealm"
                 style="@style/ButtonMenu"
                 android:text="@string/realm" />
 
@@ -43,7 +44,7 @@
                 android:text="@string/sharedprefsencryption" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_sqlite"
+                android:id="@+id/btSqlite"
                 style="@style/ButtonMenu"
                 android:text="@string/sqlite" />
 
@@ -62,7 +63,7 @@
                 style="@style/ButtonMenu"
                 android:text="@string/sqlite_multi_table_advance" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"

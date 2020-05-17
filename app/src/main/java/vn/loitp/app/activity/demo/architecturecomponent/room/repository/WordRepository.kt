@@ -6,7 +6,9 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 
 class WordRepository(private val wordDao: WordDao) {
 
-    val allWords: LiveData<List<Word>> = wordDao.getAlphabetizedWords()
+    fun getAlphabetizedWords(): LiveData<List<Word>> {
+        return wordDao.getAlphabetizedWords()
+    }
 
     suspend fun insert(word: Word) {
         wordDao.insert(word)
@@ -22,5 +24,9 @@ class WordRepository(private val wordDao: WordDao) {
 
     suspend fun update(word: Word) {
         wordDao.update(word)
+    }
+
+    fun findWord(id: String): LiveData<Word> {
+        return wordDao.findWord(id)
     }
 }

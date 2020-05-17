@@ -2,6 +2,7 @@ package vn.loitp.app.activity.network
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
+import com.core.utilities.LConnectivityUtil
 import com.data.EventBusData
 import kotlinx.android.synthetic.main.frm_text.*
 import vn.loitp.app.R
@@ -10,6 +11,7 @@ class NetworkActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        showStatus(LConnectivityUtil.isConnected(activity))
     }
 
     override fun setFullScreen(): Boolean {
@@ -27,8 +29,10 @@ class NetworkActivity : BaseFontActivity() {
     override fun onNetworkChange(event: EventBusData.ConnectEvent) {
         super.onNetworkChange(event)
         logD("onNetworkChange: " + event.isConnected)
-        val networkInfo = "isConnected ${event.isConnected}\nisConnectedFast: ${event.isConnectedFast}\n" +
-                "isConnectedMobile: ${event.isConnectedMobile}\nisConnectedWifi: ${event.isConnectedWifi}"
-        textView.text = networkInfo
+        showStatus(event.isConnected)
+    }
+
+    private fun showStatus(isConnected: Boolean) {
+        textView.text = "isConnected: $isConnected"
     }
 }
