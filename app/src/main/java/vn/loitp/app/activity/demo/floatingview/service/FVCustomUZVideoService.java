@@ -59,7 +59,7 @@ public class FVCustomUZVideoService extends Service implements FloatingViewListe
         //uzVideo = (UZVideo) relativeLayout.findViewById(R.id.uz_video);
         //uzVideo.playUrl("https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
         mFloatingViewManager = new FloatingViewManager(this, this);
-        mFloatingViewManager.setFixedTrashIconImage(R.drawable.l_ic_trash_fixed);
+        mFloatingViewManager.setFixedTrashIconImage(R.drawable.ic_close_black_48dp);
         mFloatingViewManager.setActionTrashIconImage(R.drawable.l_ic_trash_action);
         mFloatingViewManager.setSafeInsetRect(intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
         // Setting Options(you can change options at any time)

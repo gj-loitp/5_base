@@ -38,7 +38,7 @@ public class FVChatHeadService extends Service implements FloatingViewListener {
         final RelativeLayout relativeLayout = (RelativeLayout) inflater.inflate(R.layout.fv_widget_chathead, null, false);
         relativeLayout.setOnClickListener(v -> LToast.show(getBaseContext(), getString(R.string.chathead_click_message)));
         mFloatingViewManager = new FloatingViewManager(this, this);
-        mFloatingViewManager.setFixedTrashIconImage(R.drawable.l_ic_trash_fixed);
+        mFloatingViewManager.setFixedTrashIconImage(R.drawable.ic_close_black_48dp);
         mFloatingViewManager.setActionTrashIconImage(R.drawable.l_ic_trash_action);
         mFloatingViewManager.setSafeInsetRect(intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
         final FloatingViewManager.Options options = new FloatingViewManager.Options();

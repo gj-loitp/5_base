@@ -103,9 +103,9 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
                 // Determine if the current user has liked this post and set UI accordingly
                 if (model.stars.containsKey(getUid())) {
-                    viewHolder.starView.setImageResource(R.drawable.l_ic_thumb_up_black_48dp);
+                    viewHolder.starView.setImageResource(R.drawable.ic_thumb_up_alt_black_48dp);
                 } else {
-                    viewHolder.starView.setImageResource(R.drawable.l_ic_thumb_down_black_48dp);
+                    viewHolder.starView.setImageResource(R.drawable.ic_thumb_down_alt_black_48dp);
                 }
 
                 // Bind Post to ViewHolder, setting OnClickListener for the star button

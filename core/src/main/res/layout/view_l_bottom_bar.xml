@@ -35,7 +35,7 @@
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                tools:src="@drawable/l_ic_settings_black_48dp" />
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_0"
@@ -67,7 +67,7 @@
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                tools:src="@drawable/l_ic_settings_black_48dp" />
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_1"
@@ -99,7 +99,7 @@
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                tools:src="@drawable/l_ic_settings_black_48dp" />
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_2"
@@ -131,7 +131,7 @@
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                tools:src="@drawable/l_ic_settings_black_48dp" />
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_3"
@@ -164,7 +164,7 @@
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                tools:src="@drawable/l_ic_settings_black_48dp" />
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_4"
@@ -196,7 +196,7 @@
                 android:clickable="false"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
-                tools:src="@drawable/l_ic_settings_black_48dp" />
+                tools:src="@drawable/ic_settings_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_icon_5"
