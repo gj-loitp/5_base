@@ -34,6 +34,11 @@
                 android:text="Room" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRoom2"
+                style="@style/ButtonMenu"
+                android:text="Room 2" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSharedPrefs"
                 style="@style/ButtonMenu"
                 android:text="@string/sharedprefs" />

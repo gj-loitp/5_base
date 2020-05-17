@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_database_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
+import vn.loitp.app.activity.database.room.RoomActivity
 import vn.loitp.app.activity.database.sharedprefs.SharedPrefsActivity
 import vn.loitp.app.activity.database.sharedprefsencryption.EnctyptionSharedPrefsActivity
 import vn.loitp.app.activity.database.sqlite.SqliteActivity
@@ -33,6 +34,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
         btSqliteMultiTable.setOnClickListener(this)
         btSqliteMultiTableAdvance.setOnClickListener(this)
         btRoom.setOnClickListener(this)
+        btRoom2.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -59,6 +61,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
             btSqliteMultiTable -> intent = Intent(activity, SqliteMultiTableActivity::class.java)
             btSqliteMultiTableAdvance -> intent = Intent(activity, SqliteMultiTableAdvanceActivity::class.java)
             btRoom -> intent = Intent(activity, WordActivity::class.java)
+            btRoom2 -> intent = Intent(activity, RoomActivity::class.java)
         }
         intent?.let{
             startActivity(it)
