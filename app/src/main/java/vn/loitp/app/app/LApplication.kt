@@ -14,6 +14,7 @@ import com.utils.util.Utils
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.R
+import vn.loitp.app.activity.database.room.FNBDatabase
 
 //build release de check
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
@@ -71,5 +72,8 @@ class LApplication : MultiDexApplication() {
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
         LConnectivityUtil.initOnNetworkChange(applicationContext)
+
+        //room database
+        FNBDatabase.getInstance(this)
     }
 }

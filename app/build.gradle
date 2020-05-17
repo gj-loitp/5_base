@@ -109,6 +109,7 @@ dependencies {
     //api 'com.github.tplloi:basemaster:4.3.3'
 
     //region database
+    api "com.squareup.retrofit2:converter-moshi:2.7.2"
 
     //realm
     api 'io.realm:realm-android:0.82.1'
