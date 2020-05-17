@@ -18,6 +18,16 @@
             android:paddingTop="@dimen/padding_medium"
             android:paddingBottom="@dimen/padding_medium">
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSaveList"
+                style="@style/ButtonMenu"
+                android:text="Save List" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGetList"
+                style="@style/ButtonMenu"
+                android:text="Get List" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

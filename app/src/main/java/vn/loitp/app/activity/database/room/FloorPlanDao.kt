@@ -12,9 +12,9 @@ interface FloorPlanDao {
     fun getAllFloorPlan(): List<FloorPlan>
 
     @Insert
-    fun insertListFloorPlan(list: List<FloorPlan>)
+    fun insertListFloorPlan(list: ArrayList<FloorPlan>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertListFloorPlanConflict(list: List<FloorPlan>)
+    fun insertListFloorPlanConflict(list: ArrayList<FloorPlan>)
 
 }

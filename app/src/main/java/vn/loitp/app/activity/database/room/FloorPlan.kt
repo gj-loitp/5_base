@@ -19,18 +19,10 @@ data class FloorPlan(
         @ColumnInfo(name = "name")
         var name: String? = null,
 
-        @Json(name = "status")
-        @ColumnInfo(name = "status")
-        var status: Int? = null,
-
-        @Json(name = "outletId")
-        @ColumnInfo(name = "outletId")
-        var outletId: String? = null,
-
         @Json(name = "areas")
         var areas: List<Area>? = null,
 
-        @Ignore
+        @Ignore //wont save to room
         var isCheck: Boolean = false
 
 ) : Serializable

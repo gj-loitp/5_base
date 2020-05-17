@@ -7,20 +7,11 @@ import java.io.Serializable
 @Keep
 data class Area(
         @Json(name = "id")
-        val id: String? = null,
+        var id: String? = null,
 
         @Json(name = "name")
-        val name: String? = null,
-
-        @Json(name = "status")
-        val status: Int? = null,
-
-        @Json(name = "outletId")
-        val outletId: String? = null,
-
-        @Json(name = "floorPlanId")
-        val floorPlanId: String? = null,
+        var name: String? = null,
 
         @Json(name = "tables")
-        val tables: List<Table>? = null
+        var tables: List<Table>? = null
 ) : Serializable
