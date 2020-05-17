@@ -58,7 +58,7 @@ class BookAdapter(private val context: Context,
             rootView.layoutParams.width = sizeW
             rootView.layoutParams.height = sizeH
             rootView.invalidate()
-            val indexEachColumn = adapterPosition % column
+            val indexEachColumn = bindingAdapterPosition % column
             tv.text = movie.title
             tv.visibility = View.VISIBLE
             when (indexEachColumn) {
@@ -81,20 +81,20 @@ class BookAdapter(private val context: Context,
                 tv.visibility = View.INVISIBLE
             }
             rootView.setOnClickListener { v: View? ->
-                callback?.onClick(movie, adapterPosition)
+                callback?.onClick(movie, bindingAdapterPosition)
             }
             rootView.setOnLongClickListener { v: View? ->
-                callback?.onLongClick(movie, adapterPosition)
+                callback?.onLongClick(movie, bindingAdapterPosition)
                 true
             }
-            if (adapterPosition == moviesList.size - 1) {
+            if (bindingAdapterPosition == moviesList.size - 1) {
                 callback?.onLoadMore()
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_item_book, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_book, parent, false)
         return MovieViewHolder(itemView)
     }
 
