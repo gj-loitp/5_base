@@ -175,7 +175,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         int disabledDayTextColor = typedArray.getColor(R.styleable.CalendarView_disabledDayTextColor, ContextCompat.getColor(getContext(), R.color.default_disabled_day_text_color));
         int selectionBarMonthTextColor = typedArray.getColor(R.styleable.CalendarView_selectionBarMonthTextColor, ContextCompat.getColor(getContext(), R.color.default_selection_bar_month_title_text_color));
         int previousMonthIconRes = typedArray.getResourceId(R.styleable.CalendarView_previousMonthIconRes, R.drawable.ic_chevron_left_gray);
-        int nextMonthIconRes = typedArray.getResourceId(R.styleable.CalendarView_nextMonthIconRes, R.drawable.ic_chevron_right_gray);
+        int nextMonthIconRes = typedArray.getResourceId(R.styleable.CalendarView_nextMonthIconRes, R.drawable.ic_chevron_right_black_48dp);
 
         setBackgroundColor(calendarBackgroundColor);
         settingsManager.setCalendarBackgroundColor(calendarBackgroundColor);

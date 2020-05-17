@@ -21,6 +21,6 @@
         android:layout_gravity="right|center_vertical"
         android:paddingLeft="@dimen/space_2x"
         android:paddingRight="@dimen/space_2x"
-        android:src="@drawable/ic_chevron_right_gray" />
+        android:src="@drawable/ic_chevron_right_black_48dp" />
 
 </FrameLayout>
