@@ -23,7 +23,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:src="@drawable/l_ic_more_vert_white_48dp"
+        android:src="@drawable/ic_more_vert_black_48dp"
+        android:tint="@color/white"
         app:backgroundTint="@color/colorPrimary"
         app:elevation="4dp" />
 

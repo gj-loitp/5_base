@@ -29,7 +29,7 @@
             android:layout_centerVertical="true"
             android:contentDescription="@string/large_text"
             android:padding="@dimen/item_small_spacing"
-            android:src="@drawable/l_ic_play_arrow_white_36"
+            android:src="@drawable/ic_play_arrow_black_48dp"
             android:visibility="invisible" />
 
         <ImageView
@@ -41,7 +41,7 @@
             android:layout_centerVertical="true"
             android:contentDescription="@string/app_name"
             android:padding="@dimen/item_small_spacing"
-            android:src="@drawable/l_ic_pause_white_36"
+            android:src="@drawable/ic_pause_black_48dp"
             android:visibility="visible" />
 
         <LinearLayout

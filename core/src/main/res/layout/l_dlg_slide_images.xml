@@ -15,7 +15,7 @@
         android:layout_height="@dimen/w_50"
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
+        android:src="@drawable/ic_chevron_left_black_48dp"
         android:tint="@color/white" />
 
     <ImageView

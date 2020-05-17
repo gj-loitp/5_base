@@ -36,6 +36,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:src="@drawable/l_ic_play_arrow_64dp" />
+        android:src="@drawable/ic_play_arrow_black_48dp" />
 
 </RelativeLayout>

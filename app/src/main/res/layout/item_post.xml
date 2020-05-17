@@ -33,7 +33,7 @@
 				android:layout_marginLeft="10dp"
 				android:layout_marginRight="5dp"
 				android:background="?attr/selectableItemBackground"
-				android:src="@drawable/l_ic_play_arrow_black_48dp" />
+				android:src="@drawable/ic_play_arrow_black_48dp" />
 
 			<TextView
 				android:id="@+id/post_num_stars"
