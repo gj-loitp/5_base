@@ -20,7 +20,7 @@
             android:paddingLeft="20dp"
             android:paddingRight="@dimen/space_1x"
             android:paddingTop="@dimen/space_1x"
-            android:src="@drawable/ic_close_gray" />
+            android:src="@drawable/ic_close_black_48dp" />
 
         <ImageView
             android:id="@+id/iv_done"
@@ -31,7 +31,7 @@
             android:paddingLeft="@dimen/space_1x"
             android:paddingRight="20dp"
             android:paddingTop="@dimen/space_1x"
-            android:src="@drawable/ic_done_gray" />
+            android:src="@drawable/ic_done_black_48dp" />
 
     </FrameLayout>
 
