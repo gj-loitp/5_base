@@ -56,7 +56,7 @@
             android:layout_marginEnd="@dimen/margin_10"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/l_baseline_bug_report_black_48"
+            android:src="@drawable/ic_bug_report_black_48dp"
             android:tint="@color/black"
             app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"

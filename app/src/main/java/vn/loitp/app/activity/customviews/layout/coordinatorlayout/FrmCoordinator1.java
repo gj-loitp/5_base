@@ -23,9 +23,9 @@ public class FrmCoordinator1 extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout = view.findViewById(R.id.tl);
         // Add five tabs.  Three have icons and two have text titles
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.l_baseline_add_black_48));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.l_baseline_bug_report_black_48));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.l_baseline_chat_black_48dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_add_black_48dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_bug_report_black_48dp));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_chat_black_48dp));
         tabLayout.addTab(tabLayout.newTab().setText("Send"));
         tabLayout.addTab(tabLayout.newTab().setText("Send & Post"));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

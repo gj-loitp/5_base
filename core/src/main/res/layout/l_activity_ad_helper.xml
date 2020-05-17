@@ -24,7 +24,7 @@
         android:background="?selectableItemBackgroundBorderless"
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
-        android:src="@drawable/l_baseline_clear_black_48"
+        android:src="@drawable/ic_close_black_48dp"
         android:tint="@color/colorPrimary" />
 
     <RelativeLayout

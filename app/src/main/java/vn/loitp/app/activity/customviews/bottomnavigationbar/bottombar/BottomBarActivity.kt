@@ -22,10 +22,10 @@ class BottomBarActivity : BaseFontActivity() {
             colorIvOn = R.color.red
             colorIvOff = R.color.pink
             setTextMarginBottom(context.resources.getDimension(R.dimen.margin_5).toInt())
-            setItem0(R.drawable.l_baseline_bug_report_black_48, "Bug report")
-            setItem1(R.drawable.l_baseline_add_black_48, "Add")
-            setItem2(R.drawable.l_baseline_chat_black_48dp, "Chat")
-            setItem3(R.drawable.l_baseline_clear_black_48, "Clear")
+            setItem0(R.drawable.ic_bug_report_black_48dp, "Bug report")
+            setItem1(R.drawable.ic_add_black_48dp, "Add")
+            setItem2(R.drawable.ic_chat_black_48dp, "Chat")
+            setItem3(R.drawable.ic_close_black_48dp, "Clear")
             setItem4(R.drawable.l_baseline_cloud_download_black_48, "Cloud")
             setItem5(R.drawable.l_baseline_picture_in_picture_alt_white_48dp, "Picture")
             setTechniques(Techniques.Pulse)

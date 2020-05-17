@@ -23,7 +23,7 @@
                 android:layout_width="@dimen/w_50"
                 android:layout_height="@dimen/w_50"
                 android:layout_marginTop="@dimen/margin_5"
-                android:src="@drawable/l_baseline_bug_report_black_48"
+                android:src="@drawable/ic_bug_report_black_48dp"
                 tools:ignore="ContentDescription" />
 
             <!--Close button-->
