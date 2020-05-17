@@ -54,7 +54,7 @@
             android:contentDescription="@string/app_name"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
-            android:src="@drawable/l_baseline_remove_black_48"
+            android:src="@drawable/ic_remove_black_48dp"
             android:tint="@color/black" />
     </LinearLayout>
 

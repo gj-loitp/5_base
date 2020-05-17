@@ -12,7 +12,7 @@
         android:contentDescription="@string/app_name"
         android:foreground="?actionBarItemBackground"
         android:scaleType="centerInside"
-        android:src="@drawable/l_baseline_keyboard_arrow_left_black_48dp" />
+        android:src="@drawable/ic_chevron_left_black_48dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -29,5 +29,5 @@
         android:contentDescription="@string/app_name"
         android:foreground="?actionBarItemBackground"
         android:scaleType="centerInside"
-        android:src="@drawable/l_baseline_keyboard_arrow_right_black_48dp" />
+        android:src="@drawable/ic_chevron_right_black_48dp" />
 </LinearLayout>

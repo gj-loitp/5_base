@@ -26,8 +26,8 @@ class BottomBarActivity : BaseFontActivity() {
             setItem1(R.drawable.ic_add_black_48dp, "Add")
             setItem2(R.drawable.ic_chat_black_48dp, "Chat")
             setItem3(R.drawable.ic_close_black_48dp, "Clear")
-            setItem4(R.drawable.l_baseline_cloud_download_black_48, "Cloud")
-            setItem5(R.drawable.l_baseline_picture_in_picture_alt_white_48dp, "Picture")
+            setItem4(R.drawable.ic_cloud_download_black_48dp, "Cloud")
+            setItem5(R.drawable.ic_picture_in_picture_alt_black_48dp, "Picture")
             setTechniques(Techniques.Pulse)
             setOnItemClick(object : LBottomBar.Callback {
                 override fun onClickItem(position: Int) {

@@ -37,6 +37,6 @@
             android:layout_height="@dimen/w_40"
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/l_baseline_remove_black_48" />
+            android:src="@drawable/ic_remove_black_48dp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
