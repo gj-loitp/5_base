@@ -40,8 +40,11 @@ class RoomActivity : BaseFontActivity() {
         rvFloorPlan.layoutManager = LinearLayoutManager(activity)
         rvFloorPlan.adapter = floorPlanAdapter
 
-        btSaveList.setSafeOnClickListener {
-            handleSaveList()
+        btSaveListFrom0To10.setSafeOnClickListener {
+            handleSaveListFrom0To10()
+        }
+        btSaveListFrom10To20.setSafeOnClickListener {
+            handleSaveListFrom10To20()
         }
         btGetList.setSafeOnClickListener {
             handleGetList()
@@ -68,8 +71,12 @@ class RoomActivity : BaseFontActivity() {
         }
     }
 
-    private fun handleSaveList() {
-        homeViewModel?.saveList()
+    private fun handleSaveListFrom0To10() {
+        homeViewModel?.saveListFrom0To10()
+    }
+
+    private fun handleSaveListFrom10To20() {
+        homeViewModel?.saveListFrom10To20()
     }
 
     private fun handleGetList() {

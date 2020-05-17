@@ -16,10 +16,16 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btSaveList"
+                android:id="@+id/btSaveListFrom0To10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save List" />
+                android:text="Save List id 0 -> 10" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSaveListFrom10To20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save List id 10 -> 20" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetList"
