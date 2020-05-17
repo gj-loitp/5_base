@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.database.room
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -57,15 +58,28 @@ class RoomActivity : BaseFontActivity() {
         homeViewModel = getViewModel(HomeViewModel::class.java)
         homeViewModel?.let { hvm ->
             hvm.saveFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                val data = actionData.data
-                data?.let {
+                actionData.isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                actionData.data?.let {
                     logD("floorPlanActionLiveData observe " + LApplication.gson.toJson(it))
+
                 }
             })
 
             hvm.getFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                val listFloorPlan = actionData.data
-                listFloorPlan?.let {
+                actionData.isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                actionData.data?.let {
                     logD("getFloorPlanActionLiveData observe " + LApplication.gson.toJson(it))
                     floorPlanAdapter?.setListFloorPlan(it)
                 }
