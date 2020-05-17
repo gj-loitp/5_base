@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.views.setSafeOnClickListener
@@ -24,8 +24,8 @@ class FloorPlanAdapter : RecyclerView.Adapter<FloorPlanAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvFloorPlan: TextView = view.findViewById(R.id.tvFloorPlan)
-        val rootView: RelativeLayout = view.findViewById(R.id.rootView)
+        private val tvFloorPlan: TextView = view.findViewById(R.id.tvFloorPlan)
+        private val rootView: LinearLayout = view.findViewById(R.id.rootView)
 
         @SuppressLint("SetTextI18n")
         fun bind(floorPlan: FloorPlan) {
