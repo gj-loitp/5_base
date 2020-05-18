@@ -33,6 +33,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Get List" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDeleteAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete All" />
         </LinearLayout>
     </HorizontalScrollView>
 

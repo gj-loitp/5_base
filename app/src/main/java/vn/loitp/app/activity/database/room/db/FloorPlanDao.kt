@@ -19,4 +19,6 @@ interface FloorPlanDao : BaseDao<FloorPlan> {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertListFloorPlanConflict(list: ArrayList<FloorPlan>)
 
+    @Query("DELETE FROM floorPlan")
+    suspend fun deleteAll()
 }

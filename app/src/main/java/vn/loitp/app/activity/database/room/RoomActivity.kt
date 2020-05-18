@@ -62,6 +62,9 @@ class RoomActivity : BaseFontActivity() {
         btGetList.setSafeOnClickListener {
             handleGetList()
         }
+        btDeleteAll.setSafeOnClickListener {
+            handleDeleteAll()
+        }
     }
 
     private fun setupViewModels() {
@@ -77,7 +80,7 @@ class RoomActivity : BaseFontActivity() {
                 }
                 actionData.data?.let {
                     logD("floorPlanActionLiveData observe " + LApplication.gson.toJson(it))
-
+                    handleGetList()
                 }
             })
 
@@ -120,6 +123,21 @@ class RoomActivity : BaseFontActivity() {
                     handleGetList()
                 }
             })
+
+            hvm.deleteAllFloorPlanActionLiveData.observe(this, Observer { actionData ->
+                actionData.isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                actionData.data?.let {
+                    if (it) {
+                        handleGetList()
+                    }
+                }
+            })
         }
     }
 
@@ -142,6 +160,10 @@ class RoomActivity : BaseFontActivity() {
     private fun handleUpdate(floorPlan: FloorPlan) {
         floorPlan.name = "Update Name " + System.currentTimeMillis()
         homeViewModel?.updateFloorPlan(floorPlan)
+    }
+
+    private fun handleDeleteAll() {
+        homeViewModel?.deleteAll()
     }
 
 }
