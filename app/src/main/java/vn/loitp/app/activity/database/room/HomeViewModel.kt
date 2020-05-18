@@ -14,6 +14,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     private val TAG = "loitpp" + javaClass.simpleName
     val saveFloorPlanActionLiveData: ActionLiveData<ActionData<ArrayList<FloorPlan>>> = ActionLiveData()
     val getFloorPlanActionLiveData: ActionLiveData<ActionData<List<FloorPlan>>> = ActionLiveData()
+    val deleteFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
 
     private fun genListFloorPlan(fromId: Int, toId: Int): ArrayList<FloorPlan> {
         val listFloorPlan = ArrayList<FloorPlan>()
@@ -111,6 +112,14 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
                             data = listFloorPlan
                     )
             )
+        }
+    }
+
+    fun deleteFloorPlan(floorPlan: FloorPlan) {
+        ioScope.launch {
+            deleteFloorPlanActionLiveData.post(ActionData(isDoing = true))
+            FNBDatabase.instance?.floorPlanDao()?.delete(floorPlan)
+            deleteFloorPlanActionLiveData.post(ActionData(isDoing = false, data = floorPlan))
         }
     }
 }

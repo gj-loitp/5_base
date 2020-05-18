@@ -9,6 +9,7 @@ import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_database_room2.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.database.room.model.FloorPlan
 import vn.loitp.app.app.LApplication
 
 class RoomActivity : BaseFontActivity() {
@@ -42,10 +43,10 @@ class RoomActivity : BaseFontActivity() {
                 showShort(LApplication.gson.toJson(it))
             }
             onClickUpDate = {
-
+                handleUpdate(it)
             }
             onClickDelete = {
-
+                handleDelete(it)
             }
         }
         rvFloorPlan.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
@@ -93,6 +94,19 @@ class RoomActivity : BaseFontActivity() {
                     floorPlanAdapter?.setListFloorPlan(it)
                 }
             })
+
+            hvm.deleteFloorPlanActionLiveData.observe(this, Observer { actionData ->
+                actionData.isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                actionData.data?.let {
+                    handleGetList()
+                }
+            })
         }
     }
 
@@ -106,6 +120,14 @@ class RoomActivity : BaseFontActivity() {
 
     private fun handleGetList() {
         homeViewModel?.getList()
+    }
+
+    private fun handleDelete(floorPlan: FloorPlan) {
+        homeViewModel?.deleteFloorPlan(floorPlan)
+    }
+
+    private fun handleUpdate(floorPlan: FloorPlan) {
+
     }
 
 }

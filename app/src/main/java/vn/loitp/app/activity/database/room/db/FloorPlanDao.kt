@@ -5,9 +5,10 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import vn.loitp.app.activity.database.room.model.FloorPlan
+import vn.loitp.app.activity.demo.architecturecomponent.room.dao.BaseDao
 
 @Dao
-interface FloorPlanDao {
+interface FloorPlanDao : BaseDao<FloorPlan> {
 
     @Query("Select * from floorPlan")
     fun getAllFloorPlan(): List<FloorPlan>
