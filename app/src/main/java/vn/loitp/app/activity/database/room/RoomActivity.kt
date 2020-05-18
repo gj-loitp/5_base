@@ -38,13 +38,14 @@ class RoomActivity : BaseFontActivity() {
         floorPlanAdapter = FloorPlanAdapter()
         floorPlanAdapter?.apply {
             onClickRootView = {
-
+                logD(LApplication.gson.toJson(it))
+                showShort(LApplication.gson.toJson(it))
             }
             onClickUpDate = {
 
             }
             onClickDelete = {
-                
+
             }
         }
         rvFloorPlan.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
