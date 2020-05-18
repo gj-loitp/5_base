@@ -107,6 +107,19 @@ class RoomActivity : BaseFontActivity() {
                     handleGetList()
                 }
             })
+
+            hvm.updateFloorPlanActionLiveData.observe(this, Observer { actionData ->
+                actionData.isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                actionData.data?.let {
+                    handleGetList()
+                }
+            })
         }
     }
 
@@ -127,7 +140,8 @@ class RoomActivity : BaseFontActivity() {
     }
 
     private fun handleUpdate(floorPlan: FloorPlan) {
-
+        floorPlan.name = "Update Name " + System.currentTimeMillis()
+        homeViewModel?.updateFloorPlan(floorPlan)
     }
 
 }
