@@ -36,8 +36,16 @@ class RoomActivity : BaseFontActivity() {
 
     private fun setupView() {
         floorPlanAdapter = FloorPlanAdapter()
-        floorPlanAdapter?.onClickRootView = {
+        floorPlanAdapter?.apply {
+            onClickRootView = {
 
+            }
+            onClickUpDate = {
+
+            }
+            onClickDelete = {
+                
+            }
         }
         rvFloorPlan.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL))
         rvFloorPlan.layoutManager = LinearLayoutManager(activity)
