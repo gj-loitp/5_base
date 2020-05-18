@@ -13,6 +13,9 @@ interface FloorPlanDao : BaseDao<FloorPlan> {
     @Query("SELECT * FROM floorPlan")
     fun getAllFloorPlan(): List<FloorPlan>
 
+    @Query("SELECT * FROM floorPlan LIMIT :fromIndex,:offset")
+    fun getListFloorPlanByIndex(fromIndex: Int, offset: Int): List<FloorPlan>
+
     @Insert
     fun insertListFloorPlan(list: ArrayList<FloorPlan>)
 

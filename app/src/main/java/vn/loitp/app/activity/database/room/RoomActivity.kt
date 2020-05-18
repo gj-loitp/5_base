@@ -65,6 +65,9 @@ class RoomActivity : BaseFontActivity() {
         btGetList.setSafeOnClickListener {
             handleGetList()
         }
+        btGetListFrom3To5.setSafeOnClickListener {
+            handleGetListFrom3To5()
+        }
         btDeleteAll.setSafeOnClickListener {
             handleDeleteAll()
         }
@@ -101,6 +104,20 @@ class RoomActivity : BaseFontActivity() {
                 actionData.data?.let {
                     logD("getFloorPlanActionLiveData observe " + LApplication.gson.toJson(it))
                     floorPlanAdapter?.setListFloorPlan(it)
+                }
+            })
+
+            hvm.getByIndexFloorPlanActionLiveData.observe(this, Observer { actionData ->
+                actionData.isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                actionData.data?.let {
+                    logD("getByIndexFloorPlanActionLiveData observe " + LApplication.gson.toJson(it))
+                    showShort("getByIndexFloorPlanActionLiveData:\n" + LApplication.gson.toJson(it))
                 }
             })
 
@@ -189,6 +206,10 @@ class RoomActivity : BaseFontActivity() {
 
     private fun handleGetList() {
         homeViewModel?.getList()
+    }
+
+    private fun handleGetListFrom3To5() {
+        homeViewModel?.getListByIndex(fromIndex = 3, toIndex = 5)
     }
 
     private fun handleDelete(floorPlan: FloorPlan) {
