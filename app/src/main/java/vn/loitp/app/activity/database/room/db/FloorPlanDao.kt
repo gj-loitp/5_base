@@ -10,7 +10,7 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.dao.BaseDao
 @Dao
 interface FloorPlanDao : BaseDao<FloorPlan> {
 
-    @Query("Select * from floorPlan")
+    @Query("SELECT * FROM floorPlan")
     fun getAllFloorPlan(): List<FloorPlan>
 
     @Insert
@@ -21,4 +21,7 @@ interface FloorPlanDao : BaseDao<FloorPlan> {
 
     @Query("DELETE FROM floorPlan")
     suspend fun deleteAll()
+
+    @Query("SELECT * FROM floorPlan WHERE id=:id")
+    fun find(id: String): FloorPlan?
 }

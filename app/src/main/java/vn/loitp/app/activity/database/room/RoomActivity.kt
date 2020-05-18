@@ -68,6 +68,9 @@ class RoomActivity : BaseFontActivity() {
         btDeleteAll.setSafeOnClickListener {
             handleDeleteAll()
         }
+        btFind1.setSafeOnClickListener {
+            handleFind1()
+        }
     }
 
     private fun setupViewModels() {
@@ -154,6 +157,21 @@ class RoomActivity : BaseFontActivity() {
                     handleGetList()
                 }
             })
+
+            hvm.findFloorPlanActionLiveData.observe(this, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                val data = actionData.data
+                if (isDoing == false) {
+                    showShort("findFloorPlanActionLiveData observe " + LApplication.gson.toJson(actionData.data))
+                }
+            })
         }
     }
 
@@ -184,6 +202,10 @@ class RoomActivity : BaseFontActivity() {
 
     private fun handleDeleteAll() {
         homeViewModel?.deleteAll()
+    }
+
+    private fun handleFind1() {
+        homeViewModel?.findId(id = "1")
     }
 
 }

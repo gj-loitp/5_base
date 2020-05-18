@@ -18,7 +18,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     val updateFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
     val deleteAllFloorPlanActionLiveData: ActionLiveData<ActionData<Boolean>> = ActionLiveData()
     val insertFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
-
+    val findFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
 
     private fun genFloorPlan(id: String, name: String): FloorPlan {
         val floorPlan = FloorPlan()
@@ -153,6 +153,14 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             val floorPlan = genFloorPlan(id = id.toString(), name = "Name $id")
             FNBDatabase.instance?.floorPlanDao()?.insert(floorPlan)
             insertFloorPlanActionLiveData.post(ActionData(isDoing = false, data = floorPlan))
+        }
+    }
+
+    fun findId(id: String) {
+        ioScope.launch {
+            findFloorPlanActionLiveData.post(ActionData(isDoing = true))
+            val floorPlan = FNBDatabase.instance?.floorPlanDao()?.find(id = id)
+            findFloorPlanActionLiveData.post(ActionData(isDoing = false, data = floorPlan))
         }
     }
 }
