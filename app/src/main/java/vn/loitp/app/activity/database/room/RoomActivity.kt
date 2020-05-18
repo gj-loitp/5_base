@@ -53,6 +53,9 @@ class RoomActivity : BaseFontActivity() {
         rvFloorPlan.layoutManager = LinearLayoutManager(activity)
         rvFloorPlan.adapter = floorPlanAdapter
 
+        btInsert.setSafeOnClickListener {
+            handleInsert()
+        }
         btSaveListFrom0To10.setSafeOnClickListener {
             handleSaveListFrom0To10()
         }
@@ -138,7 +141,24 @@ class RoomActivity : BaseFontActivity() {
                     }
                 }
             })
+
+            hvm.insertFloorPlanActionLiveData.observe(this, Observer { actionData ->
+                actionData.isDoing?.let {
+                    if (it) {
+                        progressBar.visibility = View.VISIBLE
+                    } else {
+                        progressBar.visibility = View.GONE
+                    }
+                }
+                actionData.data?.let {
+                    handleGetList()
+                }
+            })
         }
+    }
+
+    private fun handleInsert() {
+        homeViewModel?.insertFloorPlan()
     }
 
     private fun handleSaveListFrom0To10() {

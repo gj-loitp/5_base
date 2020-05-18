@@ -29,6 +29,12 @@
                 android:text="Save List id 10 -> 20" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btInsert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insert" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGetList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

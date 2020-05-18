@@ -17,42 +17,47 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
     val deleteFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
     val updateFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
     val deleteAllFloorPlanActionLiveData: ActionLiveData<ActionData<Boolean>> = ActionLiveData()
+    val insertFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
+
+
+    private fun genFloorPlan(id: String, name: String): FloorPlan {
+        val floorPlan = FloorPlan()
+
+        floorPlan.id = id
+        floorPlan.name = name
+
+        val listArea = ArrayList<Area>()
+        for (j in 0..1) {
+            val area = Area()
+
+            area.id = "$j"
+            area.name = "Name $j"
+
+            val listTable = ArrayList<Table>()
+
+            for (u in 0..1) {
+                val table = Table()
+
+                table.id = "$u"
+                table.name = "Name $u"
+
+                listTable.add(table)
+            }
+
+            area.tables = listTable
+
+            listArea.add(area)
+        }
+
+        floorPlan.areas = listArea
+
+        return floorPlan
+    }
 
     private fun genListFloorPlan(fromId: Int, toId: Int): ArrayList<FloorPlan> {
         val listFloorPlan = ArrayList<FloorPlan>()
-
-        for (i in fromId..toId) {
-            val floorPlan = FloorPlan()
-
-            floorPlan.id = i.toString()
-            floorPlan.name = "Name $i"
-
-            val listArea = ArrayList<Area>()
-            for (j in 0..1) {
-                val area = Area()
-
-                area.id = "$j"
-                area.name = "Name $j"
-
-                val listTable = ArrayList<Table>()
-
-                for (u in 0..1) {
-                    val table = Table()
-
-                    table.id = "$u"
-                    table.name = "Name $u"
-
-                    listTable.add(table)
-                }
-
-                area.tables = listTable
-
-                listArea.add(area)
-            }
-
-            floorPlan.areas = listArea
-
-            listFloorPlan.add(floorPlan)
+        for (i in fromId until toId) {
+            listFloorPlan.add(genFloorPlan(id = "$i", name = "Name $i"))
         }
         return listFloorPlan
     }
@@ -138,6 +143,16 @@ class HomeViewModel(application: Application) : BaseViewModel(application) {
             deleteAllFloorPlanActionLiveData.post(ActionData(isDoing = true))
             FNBDatabase.instance?.floorPlanDao()?.deleteAll()
             deleteAllFloorPlanActionLiveData.post(ActionData(isDoing = false, data = true))
+        }
+    }
+
+    fun insertFloorPlan() {
+        ioScope.launch {
+            insertFloorPlanActionLiveData.post(ActionData(isDoing = true))
+            val id = System.currentTimeMillis()
+            val floorPlan = genFloorPlan(id = id.toString(), name = "Name $id")
+            FNBDatabase.instance?.floorPlanDao()?.insert(floorPlan)
+            insertFloorPlanActionLiveData.post(ActionData(isDoing = false, data = floorPlan))
         }
     }
 }
