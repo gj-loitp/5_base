@@ -1,44 +1,37 @@
-package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.tabonscreenlimit
+package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.tabscrolldisabled
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
-import androidx.viewpager.widget.ViewPager
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
+import kotlinx.android.synthetic.main.activity_recycler_tablayout_demo_tab_scroll_disabled.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColorPagerAdapter
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData
+import java.util.*
 
-class DemoTabOnScreenLimitActivity : BaseFontActivity() {
-
-    protected lateinit var mRecyclerTabLayout: RecyclerTabLayout
+class RvTabScrollDisabledActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val demo = Demo.valueOf(intent.getStringExtra(KEY_DEMO))
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setTitle(demo.titleResId)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val items = DemoData.loadDemoColorItems(this)
-        items.sortedWith(Comparator { lhs, rhs -> lhs.name!!.compareTo(rhs.name!!) })
+        items.sortedWith(Comparator { lhs, rhs -> lhs.name.compareTo(rhs.name) })
 
-        val adapter = DemoColorPagerAdapter()
-        adapter.addAll(items)
+        val demoColorPagerAdapter = DemoColorPagerAdapter()
+        demoColorPagerAdapter.addAll(items)
+        viewPager.adapter = demoColorPagerAdapter
 
-        val viewPager = findViewById<ViewPager>(R.id.view_pager)
-        viewPager.adapter = adapter
-
-        mRecyclerTabLayout = findViewById(R.id.recycler_tab_layout)
-        mRecyclerTabLayout.setUpWithViewPager(viewPager)
+        recyclerTabLayout.setUpWithViewPager(viewPager)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -58,15 +51,15 @@ class DemoTabOnScreenLimitActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout_demo_tab_on_screen_limit
+        return R.layout.activity_recycler_tablayout_demo_tab_scroll_disabled
     }
 
     companion object {
 
-        private val KEY_DEMO = "demo"
+        private const val KEY_DEMO = "demo"
 
         fun startActivity(context: Context, demo: Demo) {
-            val intent = Intent(context, DemoTabOnScreenLimitActivity::class.java)
+            val intent = Intent(context, RvTabScrollDisabledActivity::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
             LActivityUtil.tranIn(context)

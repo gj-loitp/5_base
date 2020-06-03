@@ -4,21 +4,18 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
+import kotlinx.android.synthetic.main.activity_recycler_tablayout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 
-open class DemoImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChangeListener {
+open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChangeListener {
 
     private var mScrollState: Int = 0
-    private lateinit var mAdapter: DemoImitationLoopPagerAdapter
-    private lateinit var mViewPager: ViewPager
+    private lateinit var mAdapterTab: RvTabImitationLoopPagerAdapter
     private var mItems = ArrayList<String>()
-
 
     override fun setFullScreen(): Boolean {
         return false
@@ -29,7 +26,7 @@ open class DemoImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChang
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recyler_tablayout_demo_basic
+        return R.layout.activity_recycler_tablayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +34,6 @@ open class DemoImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChang
 
         val demo = Demo.valueOf(intent.getStringExtra(KEY_DEMO))
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setTitle(demo.titleResId)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -47,16 +43,14 @@ open class DemoImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChang
             mItems.add(i.toString())
         }
 
-        mAdapter = DemoImitationLoopPagerAdapter()
-        mAdapter.addAll(mItems)
+        mAdapterTab = RvTabImitationLoopPagerAdapter()
+        mAdapterTab.addAll(mItems)
 
-        mViewPager = findViewById(R.id.view_pager)
-        mViewPager.adapter = mAdapter
-        mViewPager.currentItem = mAdapter.getCenterPosition(0)
-        mViewPager.addOnPageChangeListener(this)
+        viewPager.adapter = mAdapterTab
+        viewPager.currentItem = mAdapterTab.getCenterPosition(0)
+        viewPager.addOnPageChangeListener(this)
 
-        val recyclerTabLayout = findViewById<RecyclerTabLayout>(R.id.recycler_tab_layout)
-        recyclerTabLayout.setUpWithViewPager(mViewPager)
+        recyclerTabLayout.setUpWithViewPager(viewPager)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -74,9 +68,9 @@ open class DemoImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChang
     override fun onPageSelected(position: Int) {
         //got to center
         val nearLeftEdge = position <= mItems.size
-        val nearRightEdge = position >= mAdapter.count - mItems.size
+        val nearRightEdge = position >= mAdapterTab.count - mItems.size
         if (nearLeftEdge || nearRightEdge) {
-            mViewPager.setCurrentItem(mAdapter.getCenterPosition(0), false)
+            viewPager.setCurrentItem(mAdapterTab.getCenterPosition(0), false)
         }
     }
 
@@ -89,7 +83,7 @@ open class DemoImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChang
         protected const val KEY_DEMO = "demo"
 
         fun startActivity(context: Context, demo: Demo) {
-            val intent = Intent(context, DemoImitationLoopActivity::class.java)
+            val intent = Intent(context, RvTabImitationLoopActivity::class.java)
             intent.putExtra(KEY_DEMO, demo.name)
             context.startActivity(intent)
             LActivityUtil.tranIn(context)

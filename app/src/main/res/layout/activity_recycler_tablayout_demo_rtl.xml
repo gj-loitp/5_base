@@ -6,7 +6,7 @@
     android:layoutDirection="rtl">
 
     <LinearLayout
-        android:id="@+id/header"
+        android:id="@+id/layoutHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -21,18 +21,20 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <com.views.recyclerview.recyclertablayout.RecyclerTabLayout
-            android:id="@+id/recycler_tab_layout"
+            android:id="@+id/recyclerTabLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/tab_height"
-            android:background="@color/colorPrimary"
+            android:background="@color/pink"
+            app:rtl_tabBackground="@color/red"
+            app:rtl_tabIndicatorColor="@color/green"
             app:rtl_tabMaxWidth="@dimen/tab_width"
             app:rtl_tabSelectedTextColor="@android:color/white" />
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/header" />
+        android:layout_below="@id/layoutHeader" />
 
 </RelativeLayout>

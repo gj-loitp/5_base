@@ -18,17 +18,17 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImag
 /**
  * Created by Shinichi Nishimura on 2015/07/22.
  */
-class DemoCustomView02Adapter internal constructor(viewPager: ViewPager) : RecyclerTabLayout.Adapter<DemoCustomView02Adapter.ViewHolder>(viewPager) {
+class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) : RecyclerTabLayout.Adapter<RvTabCustomView02Adapter.ViewHolder>(viewPager) {
 
-    private val mAdapater: DemoImagePagerAdapter = mViewPager.adapter as DemoImagePagerAdapter
+    private val mAdapter: DemoImagePagerAdapter = mViewPager.adapter as DemoImagePagerAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_custom_view02_tab, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_layout_custom_view02_tab, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val drawable = loadIconWithTint(holder.imageView.context, mAdapater.getImageResourceId(position))
+        val drawable = loadIconWithTint(holder.imageView.context, mAdapter.getImageResourceId(position))
 
         holder.imageView.setImageDrawable(drawable)
         holder.imageView.isSelected = position == currentIndicatorPosition
@@ -36,23 +36,22 @@ class DemoCustomView02Adapter internal constructor(viewPager: ViewPager) : Recyc
 
     private fun loadIconWithTint(context: Context, @DrawableRes resourceId: Int): Drawable {
         var icon = ContextCompat.getDrawable(context, resourceId)
-        val colorStateList = ContextCompat
-                .getColorStateList(context, R.color.custom_view02_tint)
+        val colorStateList = ContextCompat.getColorStateList(context, R.color.custom_view02_tint)
         icon = DrawableCompat.wrap(icon!!)
-        DrawableCompat.setTintList(icon!!, colorStateList)
+        DrawableCompat.setTintList(icon, colorStateList)
         return icon
     }
 
     override fun getItemCount(): Int {
-        return mAdapater.count
+        return mAdapter.count
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        var imageView: ImageView = itemView.findViewById(R.id.image)
+        var imageView: ImageView = itemView.findViewById(R.id.imageView)
 
         init {
-            itemView.setOnClickListener { v -> viewPager.currentItem = adapterPosition }
+            itemView.setOnClickListener { v -> viewPager.currentItem = bindingAdapterPosition }
         }
     }
 }

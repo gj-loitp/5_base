@@ -8,16 +8,15 @@ import androidx.viewpager.widget.PagerAdapter
 import vn.loitp.app.R
 import java.util.*
 
-class DemoYearsPagerAdapter : PagerAdapter() {
+class YearsPagerAdapter : PagerAdapter() {
 
     private var mItems: List<String> = ArrayList()
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(container.context)
-                .inflate(R.layout.item_recycler_tablayout_page, container, false)
+        val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
-        val textView = view.findViewById<TextView>(R.id.title)
-        textView.text = "Page: " + mItems[position]
+        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+        tvTitle.text = "Page: " + mItems[position]
         container.addView(view)
 
         return view

@@ -13,41 +13,37 @@ import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColorPagerAdapter
 
-/**
- * Created by Shinichi Nishimura on 2015/07/22.
- */
-class DemoCustomView01Adapter internal constructor(viewPager: ViewPager) : RecyclerTabLayout.Adapter<DemoCustomView01Adapter.ViewHolder>(viewPager) {
+class RvTabCustomView01Adapter internal constructor(viewPager: ViewPager) : RecyclerTabLayout.Adapter<RvTabCustomView01Adapter.ViewHolder>(viewPager) {
 
-    private val mAdapater: DemoColorPagerAdapter? = mViewPager.adapter as DemoColorPagerAdapter?
+    private val mAdapter: DemoColorPagerAdapter? = mViewPager.adapter as DemoColorPagerAdapter?
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.layout_custom_view01_tab, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_rv_tab_view01_tab, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val colorItem = mAdapater?.getColorItem(position)
-        holder.title.text = colorItem?.name
+        val colorItem = mAdapter?.getColorItem(position)
+        holder.tvTitle.text = colorItem?.name
         holder.color.setBackgroundColor(colorItem?.color ?: 0)
 
         val name = SpannableString(colorItem?.name)
         if (position == currentIndicatorPosition) {
             name.setSpan(StyleSpan(Typeface.BOLD), 0, name.length, 0)
         }
-        holder.title.text = name
+        holder.tvTitle.text = name
     }
 
     override fun getItemCount(): Int {
-        return mAdapater?.count ?: 0
+        return mAdapter?.count ?: 0
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var color: View
-        var title: TextView = itemView.findViewById(R.id.title)
+        var color: View = itemView.findViewById(R.id.color)
+        var tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
 
         init {
-            color = itemView.findViewById(R.id.color)
-            itemView.setOnClickListener { v -> viewPager.currentItem = adapterPosition }
+            itemView.setOnClickListener { _ -> viewPager.currentItem = bindingAdapterPosition }
         }
     }
 }
