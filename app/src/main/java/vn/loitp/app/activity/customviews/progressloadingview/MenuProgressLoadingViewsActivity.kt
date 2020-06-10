@@ -6,7 +6,7 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_progress_loading.*
+import kotlinx.android.synthetic.main.activity_progress_loading_menu.*
 
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity
@@ -18,6 +18,7 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btAvloadingIndicatorView.setOnClickListener(this)
         btCircularProgressBar.setOnClickListener(this)
         btCircularProgressIndicator.setOnClickListener(this)
@@ -33,7 +34,7 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_progress_loading
+        return R.layout.activity_progress_loading_menu
     }
 
     override fun onClick(v: View?) {

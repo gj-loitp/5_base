@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -40,11 +39,10 @@
                 style="@style/ButtonMenu"
                 android:text="Window progress" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_progress_loading_view" />
 </RelativeLayout>
-

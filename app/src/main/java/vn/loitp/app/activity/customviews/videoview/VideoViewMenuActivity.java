@@ -39,7 +39,7 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_menu_video_view;
+        return R.layout.activity_video_menu;
     }
 
     @Override

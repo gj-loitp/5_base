@@ -9,11 +9,20 @@ class WindowProgressActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         wp10progressBar.setIndicatorRadius(5)
-        showWP7Btn.setOnClickListener { wp7progressBar.showProgressBar() }
-        hideWP7Btn.setOnClickListener { wp7progressBar.hideProgressBar() }
-        showWP10Btn.setOnClickListener { wp10progressBar.showProgressBar() }
-        hideWP10Btn.setOnClickListener { wp10progressBar.hideProgressBar() }
+        showWP7Btn.setOnClickListener {
+            wp7progressBar.showProgressBar()
+        }
+        hideWP7Btn.setOnClickListener {
+            wp7progressBar.hideProgressBar()
+        }
+        showWP10Btn.setOnClickListener {
+            wp10progressBar.showProgressBar()
+        }
+        hideWP10Btn.setOnClickListener {
+            wp10progressBar.hideProgressBar()
+        }
     }
 
     override fun setFullScreen(): Boolean {
