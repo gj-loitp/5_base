@@ -20,11 +20,11 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        findViewById(R.id.bt_exoplayer2).setOnClickListener(this);
-        findViewById(R.id.bt_exoplayer2_ima).setOnClickListener(this);
+        findViewById(R.id.btExoPlayer2).setOnClickListener(this);
+        findViewById(R.id.btExoPlayer2IMA).setOnClickListener(this);
         findViewById(R.id.bt2).setOnClickListener(this);
         findViewById(R.id.bt3).setOnClickListener(this);
-        findViewById(R.id.bt_youtube).setOnClickListener(this);
+        findViewById(R.id.btYoutube).setOnClickListener(this);
     }
 
     @Override
@@ -46,11 +46,11 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
     public void onClick(View v) {
         Intent intent = null;
         switch (v.getId()) {
-            case R.id.bt_exoplayer2:
+            case R.id.btExoPlayer2:
                 intent = new Intent(getActivity(), ExoPlayerActivity.class);
                 intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
                 break;
-            case R.id.bt_exoplayer2_ima:
+            case R.id.btExoPlayer2IMA:
                 intent = new Intent(getActivity(), ExoPlayerActivity.class);
                 intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY(), "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd");
                 intent.putExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD(), getString(R.string.ad_tag_url));
@@ -61,7 +61,7 @@ public class VideoViewMenuActivity extends BaseFontActivity implements OnClickLi
             case R.id.bt3:
                 intent = new Intent(getActivity(), ExoPlayerActivity3.class);
                 break;
-            case R.id.bt_youtube:
+            case R.id.btYoutube:
                 intent = new Intent(getActivity(), YoutubeActivity.class);
                 break;
         }

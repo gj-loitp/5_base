@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,12 +17,12 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_exoplayer2"
+                android:id="@+id/btExoPlayer2"
                 style="@style/ButtonMenu"
                 android:text="ExoPlayer2" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_exoplayer2_ima"
+                android:id="@+id/btExoPlayer2IMA"
                 style="@style/ButtonMenu"
                 android:text="ExoPlayer2 IMA Ad" />
 
@@ -38,15 +37,14 @@
                 android:text="Switch target view" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_youtube"
+                android:id="@+id/btYoutube"
                 style="@style/ButtonMenu"
                 android:text="Youtube" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu Video View" />
 </RelativeLayout>
-
