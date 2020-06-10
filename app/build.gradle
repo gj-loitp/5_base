@@ -106,7 +106,7 @@ repositories {
 
 dependencies {
     api project(':core')
-    //api 'com.github.tplloi:basemaster:4.3.3'
+    //api 'com.github.tplloi:basemaster:4.3.4'
 
     //region database
     api "com.squareup.retrofit2:converter-moshi:2.7.2"
