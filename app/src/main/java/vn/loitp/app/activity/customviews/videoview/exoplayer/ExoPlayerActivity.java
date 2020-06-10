@@ -24,7 +24,7 @@ public class ExoPlayerActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playerView = findViewById(R.id.player_view);
+        playerView = findViewById(R.id.playerView);
         exoFullscreen = findViewById(R.id.exo_fullscreen);
         linkPlay = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_PLAY());
         final String linkIMAAd = getIntent().getStringExtra(Constants.INSTANCE.getKEY_VIDEO_LINK_IMA_AD());
@@ -49,7 +49,7 @@ public class ExoPlayerActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_exo_player;
+        return R.layout.activity_video_exo_player;
     }
 
     @Override

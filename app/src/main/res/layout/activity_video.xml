@@ -16,7 +16,7 @@
         android:textSize="@dimen/txt_14" />
 
     <com.google.android.exoplayer2.ui.SimpleExoPlayerView
-        android:id="@+id/player_view"
+        android:id="@+id/playerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/resolution_textView"

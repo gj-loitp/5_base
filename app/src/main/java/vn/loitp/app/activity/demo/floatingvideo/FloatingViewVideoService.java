@@ -101,7 +101,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
             }
         });
 
-        simpleExoPlayerView = mFloatingView.findViewById(R.id.player_view);
+        simpleExoPlayerView = mFloatingView.findViewById(R.id.playerView);
         playVideo();
 
         //Drag and move floating view using user's touch action.

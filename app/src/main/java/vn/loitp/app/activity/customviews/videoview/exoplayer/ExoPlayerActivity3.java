@@ -17,8 +17,8 @@ public class ExoPlayerActivity3 extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        playerView0 = findViewById(R.id.player_view_0);
-        playerView1 = findViewById(R.id.player_view_1);
+        playerView0 = findViewById(R.id.playerView0);
+        playerView1 = findViewById(R.id.playerView1);
         final String linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd";
         playerManager = new PlayerManager(getActivity());
         playerManager.init(this, playerView0, linkPlay);
@@ -34,12 +34,12 @@ public class ExoPlayerActivity3 extends BaseFontActivity {
 
     @Override
     protected String setTag() {
-        return "TAG" + getClass().getSimpleName();
+        return getClass().getSimpleName();
     }
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_exo_player3;
+        return R.layout.activity_video_exo_player3;
     }
 
     @Override

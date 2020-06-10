@@ -45,7 +45,7 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
         super.onCreate(savedInstanceState);
 
         resolutionTextView = findViewById(R.id.resolution_textView);
-        simpleExoPlayerView = findViewById(R.id.player_view);
+        simpleExoPlayerView = findViewById(R.id.playerView);
 
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);

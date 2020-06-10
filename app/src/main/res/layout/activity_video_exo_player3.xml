@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkCyan">
@@ -24,12 +23,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_5"
+            android:padding="@dimen/padding_medium"
             android:text="PlayerView 0"
             android:textColor="@color/white" />
 
         <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/player_view_0"
+            android:id="@+id/playerView0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:keepScreenOn="true"
@@ -38,16 +37,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_5"
+            android:padding="@dimen/padding_medium"
             android:text="PlayerView 1"
             android:textColor="@color/white" />
 
         <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/player_view_1"
+            android:id="@+id/playerView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:keepScreenOn="true"
             app:auto_show="false" />
     </LinearLayout>
 </RelativeLayout>
-
