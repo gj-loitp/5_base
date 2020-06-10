@@ -1,19 +1,22 @@
 package vn.loitp.app.activity.customviews.videoview.youtube
 
 import android.os.Bundle
-import android.view.View
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-
+import kotlinx.android.synthetic.main.activity_video_youtube.*
 import vn.loitp.app.R
 
 class YoutubeActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt0).setOnClickListener { _ -> LUIUtil.playYoutube(activity, "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender") }
-        findViewById<View>(R.id.bt1).setOnClickListener { _ -> LUIUtil.playYoutubeWithId(activity, "YE7VzlLtp-4") }
+
+        bt0.setOnClickListener {
+            LUIUtil.playYoutube(activity = activity, url = "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender")
+        }
+        bt1.setOnClickListener {
+            LUIUtil.playYoutubeWithId(activity = activity, id = "YE7VzlLtp-4")
+        }
     }
 
     override fun setFullScreen(): Boolean {
@@ -25,6 +28,6 @@ class YoutubeActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_youtube
+        return R.layout.activity_video_youtube
     }
 }
