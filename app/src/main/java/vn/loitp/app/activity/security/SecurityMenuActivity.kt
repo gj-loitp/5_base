@@ -30,8 +30,8 @@ class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt0 -> intent = Intent(activity, SimpleEncryptDecryptStringActivity::class.java)
+        when (v) {
+            bt0 -> intent = Intent(activity, SimpleEncryptDecryptStringActivity::class.java)
         }
         intent?.let {
             startActivity(it)
