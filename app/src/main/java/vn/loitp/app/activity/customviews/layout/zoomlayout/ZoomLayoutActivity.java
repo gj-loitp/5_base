@@ -38,6 +38,6 @@ public class ZoomLayoutActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_zoom_layout;
+        return R.layout.activity_layout_zoom;
     }
 }

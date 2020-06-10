@@ -36,7 +36,7 @@
                     android:padding="16dp"
                     android:text="16 : 9"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/txt_medium" />
 
             </com.takwolf.android.aspectratio.AspectRatioLayout>
 
@@ -59,7 +59,7 @@
                     android:padding="16dp"
                     android:text="4 : 3"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/txt_medium" />
 
             </com.takwolf.android.aspectratio.AspectRatioLayout>
         </LinearLayout>
@@ -70,4 +70,3 @@
         style="@style/TextMenu"
         android:text="AspectRatioLayout" />
 </RelativeLayout>
-

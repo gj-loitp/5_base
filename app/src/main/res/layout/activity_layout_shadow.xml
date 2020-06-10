@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:padding="@dimen/padding_15">
+        android:padding="@dimen/padding_medium">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,8 +28,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 app:shadowColor="#FE3311F3"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
@@ -62,8 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 app:shadowColor="#EE000000"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
@@ -79,7 +79,7 @@
                     android:padding="48dp"
                     android:text="Rectangle shadow"
                     android:textColor="@android:color/white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>
 
             <TextView
@@ -93,8 +93,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 app:shadowColor="#EE000000"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
@@ -110,7 +110,7 @@
                     android:padding="48dp"
                     android:text="Radius shadow"
                     android:textColor="@android:color/white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

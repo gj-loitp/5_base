@@ -13,6 +13,7 @@ import vn.loitp.app.R
 class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         tvChangeOval.setOnClickListener(this)
         tvChangeRadius.setOnClickListener(this)
         tvChangeRectangle.setOnClickListener(this)

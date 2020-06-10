@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -15,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:padding="@dimen/padding_5">
+            android:padding="@dimen/padding_medium">
 
             <TextView
                 android:layout_width="match_parent"
@@ -23,7 +22,7 @@
                 android:gravity="center"
                 android:text="Zoom Layout Textview"
                 android:textColor="@color/black"
-                android:textSize="@dimen/txt_20" />
+                android:textSize="@dimen/txt_medium" />
 
             <ImageView
                 android:layout_width="match_parent"
@@ -44,39 +43,4 @@
                 android:text="Image View" />
         </LinearLayout>
     </com.views.layout.zoomlayout.ZoomLayout>
-
-    <!--<ScrollView
-        android:id="@+id/scroll_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:hasClickableChildren="false"
-                app:maxZoom="3f"
-                app:maxZoomType="zoom"
-                app:minZoom="0.7f"
-                app:minZoomType="zoom"
-                app:overPinchable="true"
-                app:overScrollHorizontal="true"
-                app:overScrollVertical="true">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/logo" />
-
-            </vn.loitp.app.activity.customviews.layout.zoomlayout.lib.ZoomLayout>
-        </LinearLayout>
-    </ScrollView>-->
 </RelativeLayout>
-

@@ -5,7 +5,7 @@ import com.views.layout.circularview.SimpleCircularViewAdapter
 
 import vn.loitp.app.R
 
-class MySimpleCircularViewAdapter : SimpleCircularViewAdapter() {
+class SimpleCircularViewAdapter : SimpleCircularViewAdapter() {
     override fun getCount(): Int {
         // This count will tell the circular view how many markers to use.
         return 10
