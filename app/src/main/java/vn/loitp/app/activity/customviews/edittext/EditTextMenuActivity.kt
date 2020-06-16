@@ -11,6 +11,7 @@ import vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.Ani
 import vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.autosuggest.EditTextAutoSuggestActivity
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity
+import vn.loitp.app.activity.customviews.edittext.currencyedittext.CurrencyEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.ledittext.LEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity
 import vn.loitp.app.activity.customviews.edittext.textwatcher.EditTextTextWatcherActivity
@@ -26,6 +27,7 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
         btAutoSuggestEditText.setOnClickListener(this)
         btLEditText.setOnClickListener(this)
         btEditextTextWatcher.setOnClickListener(this)
+        btCurrencyEditText.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -50,6 +52,7 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
             btAutoSuggestEditText -> intent = Intent(activity, EditTextAutoSuggestActivity::class.java)
             btLEditText -> intent = Intent(activity, LEditTextActivity::class.java)
             btEditextTextWatcher -> intent = Intent(activity, EditTextTextWatcherActivity::class.java)
+            btCurrencyEditText -> intent = Intent(activity, CurrencyEditTextActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

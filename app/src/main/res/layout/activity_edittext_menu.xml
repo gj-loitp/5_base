@@ -37,6 +37,11 @@
                 android:text="@string/biuedittext" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCurrencyEditText"
+                style="@style/ButtonMenu"
+                android:text="Currency EditText" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMaterialTextField"
                 style="@style/ButtonMenu"
                 android:text="@string/materialtextfield" />
