@@ -9,7 +9,7 @@ import com.core.helper.gallery.GalleryCoreSplashActivity
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_demo.*
+import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
@@ -22,6 +22,7 @@ import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
 import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
+import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
@@ -68,6 +69,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFragmentFlow.setOnClickListener(this)
         btDeepLinks.setOnClickListener(this)
         btArchitectureComponent.setOnClickListener(this)
+        btNFC.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -79,7 +81,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_demo
+        return R.layout.activity_demo_menu
     }
 
     override fun onClick(v: View) {
@@ -131,6 +133,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
             btGalleryCoreAlbumFrm -> intent = Intent(activity, GalleryCoreAlbumFrmActivity::class.java)
             btArchitectureComponent -> intent = Intent(activity, MenuAndroidArchitectureComponentActivity::class.java)
+            btNFC -> intent = Intent(activity, NFCActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

@@ -92,6 +92,11 @@
                 android:text="@string/gallery_member" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNFC"
+                style="@style/ButtonMenu"
+                android:text="NFC" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPdf"
                 style="@style/ButtonMenu"
                 android:text="@string/pdf" />

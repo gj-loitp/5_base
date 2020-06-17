@@ -14,6 +14,6 @@ class NFCActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_demo
+        return R.layout.activity_demo_nfc
     }
 }
