@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.edittext.currencyedittext
+package com.views.edittext.currency
 
 import android.content.Context
 import android.graphics.Rect
@@ -10,7 +10,7 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
-import vn.loitp.app.R
+import com.R
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormat
