@@ -16,7 +16,23 @@
             android:paddingTop="@dimen/padding_medium"
             android:paddingBottom="@dimen/padding_medium">
 
+            <TextView
+                android:id="@+id/currentTagView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan a tag"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/tvResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Result"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
