@@ -18,6 +18,7 @@
             android:padding="@dimen/padding_medium">
 
             <com.views.edittext.currency.CurrencyEditText
+                android:id="@+id/currencyEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 

@@ -34,6 +34,10 @@ class CurrencyEditText @JvmOverloads constructor(context: Context?, attrs: Attri
         this.filters = arrayOf<InputFilter>(LengthFilter(MAX_LENGTH))
     }
 
+    fun setText(text: String) {
+        currencyTextWatcher.format(text)
+    }
+
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
         if (focused) {
@@ -72,7 +76,10 @@ class CurrencyEditText @JvmOverloads constructor(context: Context?, attrs: Attri
         }
 
         override fun afterTextChanged(editable: Editable) {
-            val str = editable.toString()
+            format(editable.toString())
+        }
+
+        fun format(str: String) {
             if (str.length < prefix.length) {
                 editText.setText(prefix)
                 editText.setSelection(prefix.length)

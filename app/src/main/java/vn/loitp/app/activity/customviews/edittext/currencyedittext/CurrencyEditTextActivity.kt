@@ -16,4 +16,5 @@ class CurrencyEditTextActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_edittext_currency
     }
+
 }
