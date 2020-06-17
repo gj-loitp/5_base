@@ -2,7 +2,6 @@ package vn.loitp.app.activity.demo.nfc;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 
 import java.text.DateFormat;
@@ -13,7 +12,7 @@ import java.util.TimeZone;
 final class Utils {
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
-    public final static String bytesToHex(byte[] bytes) {
+    public static String bytesToHex(byte[] bytes) {
         if (bytes == null) return null;
 
         char[] hexChars = new char[bytes.length * 2];
@@ -25,13 +24,13 @@ final class Utils {
         return "0x" + new String(hexChars);
     }
 
-    public final static String bytesToHexAndString(byte[] bytes) {
+    public static String bytesToHexAndString(byte[] bytes) {
         if (bytes == null) return null;
 
         return bytesToHex(bytes) + " (" + new String(bytes) + ")";
     }
 
-    public final static String now() {
+    public static String now() {
         TimeZone tz = TimeZone.getTimeZone("UTC");
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         df.setTimeZone(tz);
@@ -43,16 +42,10 @@ final class Utils {
         new AlertDialog.Builder(app)
                 .setTitle("NFC is disabled")
                 .setMessage("You must enable NFC to use this app.")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        app.startActivity(new Intent(android.provider.Settings.ACTION_NFC_SETTINGS));
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        app.finish();
-                    }
-                })
+                .setPositiveButton(android.R.string.yes, (dialog, which) ->
+                        app.startActivity(new Intent(android.provider.Settings.ACTION_NFC_SETTINGS)))
+                .setNegativeButton(android.R.string.no, (dialog, which) ->
+                        app.finish())
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }

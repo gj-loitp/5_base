@@ -47,14 +47,14 @@ class NFCActivity : BaseFontActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (adapter != null && !adapter!!.isEnabled) {
+        if (adapter?.isEnabled == false) {
             Utils.showNfcSettingsDialog(this)
             return
         }
         if (pendingIntent == null) {
             pendingIntent = PendingIntent.getActivity(this, 0,
                     Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
-            currentTagView!!.text = "Scan a tag"
+            currentTagView.text = "Scan a tag"
         }
         adapter?.enableForegroundDispatch(this, pendingIntent, null, null)
     }
