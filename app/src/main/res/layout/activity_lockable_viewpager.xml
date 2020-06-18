@@ -7,7 +7,7 @@
     android:background="@color/whiteSmoke">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/sliding_tabs"
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed" />
@@ -16,7 +16,7 @@
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/sliding_tabs" />
+        android:layout_below="@+id/tabLayout" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -25,7 +25,7 @@ public class LockableViewPagerActivity extends BaseFontActivity {
         viewPager = findViewById(R.id.vp);
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         //LUIUtil.setPullLikeIOSHorizontal(viewPager);
-        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
 

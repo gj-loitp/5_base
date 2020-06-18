@@ -7,7 +7,7 @@
     android:background="@color/colorPrimary">
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/sliding_tabs"
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/sb"
-        android:layout_below="@+id/sliding_tabs" />
+        android:layout_below="@+id/tabLayout" />
 
     <SeekBar
         android:id="@+id/sb"

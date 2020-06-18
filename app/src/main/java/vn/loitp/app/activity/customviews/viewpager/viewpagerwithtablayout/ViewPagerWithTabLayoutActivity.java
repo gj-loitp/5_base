@@ -57,7 +57,7 @@ public class ViewPagerWithTabLayoutActivity extends BaseFontActivity {
         }
         viewPager.setAdapter(new SlidePagerAdapter());
 
-        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
 

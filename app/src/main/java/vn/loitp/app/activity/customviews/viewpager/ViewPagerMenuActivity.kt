@@ -6,7 +6,7 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_view_pager.*
+import kotlinx.android.synthetic.main.activity_view_pager_menu.*
 
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity
@@ -40,7 +40,7 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_view_pager
+        return R.layout.activity_view_pager_menu
     }
 
     override fun onClick(v: View) {
