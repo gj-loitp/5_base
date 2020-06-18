@@ -18,7 +18,7 @@ public class AutoViewPagerActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LAutoViewPager viewPager = findViewById(R.id.view_pager);
+        LAutoViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         //viewPager.setIndeterminate(true);
         viewPager.setAutoScrollEnabled(true);

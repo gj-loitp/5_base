@@ -31,7 +31,7 @@ public class MenuLottieActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = findViewById(R.id.view_pager);
+        viewPager = findViewById(R.id.viewPager);
         sb = findViewById(R.id.sb);
         slidePagerAdapter = new SlidePagerAdapter();
         viewPager.setAdapter(slidePagerAdapter);

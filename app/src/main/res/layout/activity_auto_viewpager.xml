@@ -13,7 +13,7 @@
         app:tabMode="fixed" />
 
     <com.views.viewpager.auto.LAutoViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tabLayout"

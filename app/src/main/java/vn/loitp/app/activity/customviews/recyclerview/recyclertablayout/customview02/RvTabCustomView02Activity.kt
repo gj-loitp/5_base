@@ -44,7 +44,7 @@ class RvTabCustomView02Activity : BaseFontActivity() {
         val adapter = DemoImagePagerAdapter()
         adapter.addAll(DemoData.loadImageResourceList())
 
-        val viewPager = findViewById<ViewPager>(R.id.view_pager)
+        val viewPager = findViewById<ViewPager>(R.id.viewPager)
         viewPager.adapter = adapter
 
         val recyclerTabLayout = findViewById<RecyclerTabLayout>(R.id.recycler_tab_layout)

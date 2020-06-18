@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -13,13 +12,13 @@
         app:tabMode="scrollable" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tabLayout" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_anim"
+        android:id="@+id/btAnim"
         style="@style/ButtonMenu"
         android:layout_centerInParent="true"
         android:text="ANIMATION" />
