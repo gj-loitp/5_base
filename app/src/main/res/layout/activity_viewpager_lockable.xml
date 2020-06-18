@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -25,15 +24,14 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_enable"
+            android:id="@+id/btEnable"
             style="@style/ButtonMenu"
             android:text="Enable" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_disable"
+            android:id="@+id/btDisable"
             style="@style/ButtonMenu"
             android:text="Disable" />
     </LinearLayout>
 
 </RelativeLayout>
-
