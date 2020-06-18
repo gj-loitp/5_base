@@ -1,62 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMenu">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_auto_viewpager"
+                android:id="@+id/btAutoViewPager"
                 style="@style/ButtonMenu"
                 android:text="Auto ViewPager" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_detect_viewpager_swipe_out"
+                android:id="@+id/btDetectViewPagerSwipeOut"
                 style="@style/ButtonMenu"
                 android:text="Detect ViewPager SwipeOut" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_detect_viewpager_swipe_out_2"
+                android:id="@+id/btDetectViewPagerSwipeOut2"
                 style="@style/ButtonMenu"
                 android:text="Detect ViewPager SwipeOut 2 (Nice)" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_lockable_viewpager"
+                android:id="@+id/btLockableViewPager"
                 style="@style/ButtonMenu"
                 android:text="LockableViewPager" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_parallax_viewpager"
+                android:id="@+id/btParallaxViewPager"
                 style="@style/ButtonMenu"
                 android:text="Parallax ViewPager" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_refresh_viewpager"
+                android:id="@+id/btRefreshViewPager"
                 style="@style/ButtonMenu"
                 android:text="Refresh ViewPager" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_view_pager_tablayout"
+                android:id="@+id/btViewPagerTabLayout"
                 style="@style/ButtonMenu"
                 android:text="ViewPager With Tablayout + transformers" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="View Pager Menu" />
 </RelativeLayout>
-
