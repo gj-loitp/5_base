@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -7,9 +8,8 @@
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMenu">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,8 +20,16 @@
             <com.views.edittext.currency.CurrencyEditText
                 android:id="@+id/currencyEditText"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:numberLength="19" />
 
+            <TextView
+                android:id="@+id/tvCurrency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_medium" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

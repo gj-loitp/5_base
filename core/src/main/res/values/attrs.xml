@@ -780,4 +780,8 @@
         <attr name="splitterPanelSizeMin" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="CurrencyEditText">
+        <attr name="numberLength" format="integer" />
+    </declare-styleable>
+
 </resources>

@@ -9,33 +9,43 @@ import android.text.InputType
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.widget.EditText
-import androidx.appcompat.widget.AppCompatEditText
 import com.R
+import com.google.android.material.textfield.TextInputEditText
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
 import java.util.*
 
-class CurrencyEditText @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = R.attr.editTextStyle)
-    : AppCompatEditText(context, attrs, defStyleAttr) {
+class CurrencyEditText @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = R.attr.editTextStyle)
+    : TextInputEditText(context, attrs, defStyleAttr) {
+
+    //private const val prefix = "VND "
+    private var prefix = ""
+    private var numberLength = 19
+    private var decimalDigit = 3
 
     private val currencyTextWatcher = CurrencyTextWatcher(editText = this, prefix = prefix)
 
-    companion object {
-        private const val prefix = "VND "
-        private const val MAX_LENGTH = 20
-        private const val MAX_DECIMAL_DIGIT = 3
-    }
+    var onTextChanged: ((String, String) -> Unit)? = null
 
     init {
-        this.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CurrencyEditText)
+        numberLength = typedArray.getInt(R.styleable.CurrencyEditText_numberLength, 19)
+        typedArray.recycle()
+
+        //this.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+        this.inputType = InputType.TYPE_CLASS_NUMBER
         this.hint = prefix
-        this.filters = arrayOf<InputFilter>(LengthFilter(MAX_LENGTH))
+        this.filters = arrayOf<InputFilter>(LengthFilter(numberLength))
     }
 
     fun setText(text: String) {
         currencyTextWatcher.format(text)
+    }
+
+    fun getTextNumber(): String {
+        return this.text.toString().trim().replace(oldValue = ",", newValue = "")
     }
 
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
@@ -65,9 +75,9 @@ class CurrencyEditText @JvmOverloads constructor(context: Context?, attrs: Attri
         }
     }
 
-    private class CurrencyTextWatcher internal constructor(private val editText: EditText, private val prefix: String) : TextWatcher {
+    inner class CurrencyTextWatcher internal constructor(private val editText: EditText, private val prefix: String) : TextWatcher {
         private var previousNumber: String? = null
-        var integerFormatter: DecimalFormat = DecimalFormat("#,###.###", DecimalFormatSymbols(Locale.US))
+        private var integerFormatter: DecimalFormat = DecimalFormat("#,###.###", DecimalFormatSymbols(Locale.US))
 
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) { // do nothing
         }
@@ -98,6 +108,7 @@ class CurrencyEditText @JvmOverloads constructor(context: Context?, attrs: Attri
             val formattedString = prefix + formatNumber(number)
             editText.removeTextChangedListener(this) // Remove listener
             editText.setText(formattedString)
+            onTextChanged?.invoke(formattedString, getTextNumber())
             handleSelection()
             editText.addTextChangedListener(this) // Add back the listener
         }
@@ -133,7 +144,7 @@ class CurrencyEditText @JvmOverloads constructor(context: Context?, attrs: Attri
             val decimalCount = str.length - str.indexOf(".") - 1
             val decimalPattern = StringBuilder()
             var i = 0
-            while (i < decimalCount && i < MAX_DECIMAL_DIGIT) {
+            while (i < decimalCount && i < decimalDigit) {
                 decimalPattern.append("0")
                 i++
             }
@@ -141,10 +152,10 @@ class CurrencyEditText @JvmOverloads constructor(context: Context?, attrs: Attri
         }
 
         private fun handleSelection() {
-            if (editText.text.length <= MAX_LENGTH) {
+            if (editText.text.length <= numberLength) {
                 editText.setSelection(editText.text.length)
             } else {
-                editText.setSelection(MAX_LENGTH)
+                editText.setSelection(numberLength)
             }
         }
 
