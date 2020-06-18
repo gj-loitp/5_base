@@ -55,7 +55,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         //final ImageView ivBkg1 = (ImageView) findViewById(R.id.iv_bkg_1);
         //final ImageView ivBkg2 = (ImageView) findViewById(R.id.iv_bkg_2);
 
-        final ViewPager viewPager = findViewById(R.id.viewpager);
+        final ViewPager viewPager = findViewById(R.id.viewPager);
         final SlidePagerAdapter slidePagerAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(slidePagerAdapter);
         LUIUtil.INSTANCE.setPullLikeIOSHorizontal(viewPager);

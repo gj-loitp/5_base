@@ -72,9 +72,9 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
 
         val mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
 
-        viewpager.adapter = mSectionsPagerAdapter
+        viewPager.adapter = mSectionsPagerAdapter
 
-        tabs.setupWithViewPager(viewpager)
+        tabs.setupWithViewPager(viewPager)
         LUIUtil.changeTabsFont(tabLayout = tabs, fontName = Constants.FONT_PATH)
     }
 

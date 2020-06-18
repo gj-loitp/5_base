@@ -6,7 +6,7 @@
     android:background="@color/grey">
 
     <com.views.viewpager.parrallax.LParallaxViewPager
-        android:id="@+id/viewpager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

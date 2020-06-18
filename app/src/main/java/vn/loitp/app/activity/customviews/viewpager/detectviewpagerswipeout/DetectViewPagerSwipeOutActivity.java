@@ -26,7 +26,7 @@ public class DetectViewPagerSwipeOutActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewPager viewPager = findViewById(R.id.viewpager);
+        ViewPager viewPager = findViewById(R.id.viewPager);
 
         int max = 3;
         for (int i = 0; i < max; i++) {

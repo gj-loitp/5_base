@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
     <com.views.viewpager.parrallax.LParallaxViewPager
-        android:id="@+id/viewpager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -16,8 +15,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/black85"
         android:gravity="center"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_medium"
         android:text="Choose one: Mode.RIGHT_OVERLAY|LEFT_OVERLAY"
         android:textColor="@color/white" />
 </RelativeLayout>
-
