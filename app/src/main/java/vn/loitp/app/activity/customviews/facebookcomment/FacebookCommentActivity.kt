@@ -1,11 +1,9 @@
 package vn.loitp.app.activity.customviews.facebookcomment
 
 import android.os.Bundle
-import android.view.View
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
-
+import kotlinx.android.synthetic.main.activity_fb_cmt.*
 import vn.loitp.app.R
 
 class FacebookCommentActivity : BaseFontActivity() {
@@ -14,7 +12,9 @@ class FacebookCommentActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        findViewById<View>(R.id.bt).setOnClickListener { _ -> LSocialUtil.openFacebookComment(activity, "http://truyentranhtuan.com/one-piece-chuong-907/", getString(R.string.str_b)) }
+        bt.setOnClickListener { _ ->
+            LSocialUtil.openFacebookComment(context = activity, url = "http://truyentranhtuan.com/one-piece-chuong-907/", adUnitId = getString(R.string.str_b))
+        }
     }
 
     override fun setFullScreen(): Boolean {
