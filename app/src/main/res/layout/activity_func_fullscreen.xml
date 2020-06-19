@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,12 +16,13 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_toggle_fullscreen"
+                android:id="@+id/btToggleFullScreen"
                 style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:text="@string/toggle_fullscreen" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_show_dialog"
+                android:id="@+id/btShowDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/show_dialog_without_show_system_bar_if_fullscreen" />
 
@@ -30,11 +30,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:padding="@dimen/padding_15"
+                android:padding="@dimen/padding_medium"
                 android:text="@string/large_text"
                 android:textColor="@color/black"
-                android:textSize="@dimen/txt_18" />
+                android:textSize="@dimen/txt_medium" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
-
