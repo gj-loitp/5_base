@@ -6,20 +6,21 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_coordinator_layout.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_0).setOnClickListener(this)
-        findViewById<View>(R.id.bt_1).setOnClickListener(this)
-        findViewById<View>(R.id.bt_2).setOnClickListener(this)
-        findViewById<View>(R.id.bt_3).setOnClickListener(this)
+        findViewById<View>(R.id.bt0).setOnClickListener(this)
+        findViewById<View>(R.id.bt1).setOnClickListener(this)
+        findViewById<View>(R.id.bt2).setOnClickListener(this)
+        findViewById<View>(R.id.bt3).setOnClickListener(this)
         findViewById<View>(R.id.bt_4).setOnClickListener(this)
-
+        bt5.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -37,16 +38,16 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v.id) {
-            R.id.bt_0 -> intent = Intent(activity, CoordinatorLayoutWithImageViewActivity::class.java)
-            R.id.bt_1 -> {
+            R.id.bt0 -> intent = Intent(activity, CoordinatorLayoutWithImageViewActivity::class.java)
+            R.id.bt1 -> {
                 intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_0)
             }
-            R.id.bt_2 -> {
+            R.id.bt2 -> {
                 intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_1)
             }
-            R.id.bt_3 -> {
+            R.id.bt3 -> {
                 intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_2)
             }
@@ -54,9 +55,13 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
                 intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_3)
             }
+            R.id.bt5 -> {
+                intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
+                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_4)
+            }
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

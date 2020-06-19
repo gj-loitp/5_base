@@ -14,7 +14,7 @@ import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 import com.views.layout.rotatelayout.LRotateLayout;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
 public class SensorActivity extends BaseFontActivity {
@@ -27,9 +27,9 @@ public class SensorActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         LLog.INSTANCE.d(getTAG(), "onCreate");
-        LRotateLayout = (LRotateLayout) findViewById(R.id.rotate_layout);
-        tv = (TextView) findViewById(R.id.tv);
-        iv = (ImageView) findViewById(R.id.iv);
+        LRotateLayout = (LRotateLayout) findViewById(R.id.rotateLayout);
+        tv = (TextView) findViewById(R.id.textView);
+        iv = (ImageView) findViewById(R.id.imageView);
         LImageUtil.INSTANCE.load(getActivity(), Constants.INSTANCE.getURL_IMG(), iv);
 
         /*iv.setOnClickListener(new View.OnClickListener() {

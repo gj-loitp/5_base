@@ -1,18 +1,14 @@
 package vn.loitp.app.activity.demo.firebase
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LLog
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_menu_firebase.*
-
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity
 import vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity
@@ -30,7 +26,7 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_admob).setOnClickListener(this)
         findViewById<View>(R.id.bt_auth).setOnClickListener(this)
         findViewById<View>(R.id.bt_config).setOnClickListener(this)
-        findViewById<View>(R.id.bt_database).setOnClickListener(this)
+        findViewById<View>(R.id.btDatabase).setOnClickListener(this)
         findViewById<View>(R.id.bt_invite).setOnClickListener(this)
         findViewById<View>(R.id.bt_database_simple).setOnClickListener(this)
         findViewById<View>(R.id.bt_fcm).setOnClickListener(this)
@@ -56,12 +52,12 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_admob -> intent = Intent(activity, FirebaseAdmobActivity::class.java)
             R.id.bt_auth -> intent = Intent(activity, AuthFirebaseMenuActivity::class.java)
             R.id.bt_config -> intent = Intent(activity, ConfigFirebaseActivity::class.java)
-            R.id.bt_database -> intent = Intent(activity, DatabaseFirebaseSignInActivity::class.java)
+            R.id.btDatabase -> intent = Intent(activity, DatabaseFirebaseSignInActivity::class.java)
             R.id.bt_invite -> intent = Intent(activity, InviteFirebaseActivity::class.java)
             R.id.bt_database_simple -> intent = Intent(activity, DatabaseSimpleFirebaseActivity::class.java)
             R.id.bt_fcm -> intent = Intent(activity, FCMFirebaseActivity::class.java)
             R.id.btGetFCMToken -> {
-                getFCMToken(activity)
+                getFCMToken()
             }
             R.id.btResetInstanceId -> {
                 resetInstanceId()
@@ -73,14 +69,14 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
         }
     }
 
-    private fun getFCMToken(context: Context) {
+    private fun getFCMToken() {
         FirebaseInstanceId.getInstance().instanceId
                 .addOnCompleteListener(OnCompleteListener { task ->
                     if (!task.isSuccessful) {
                         return@OnCompleteListener
                     }
                     val fcmToken = task.result?.token
-                    LLog.d(TAG, "FCM token: $fcmToken")
+                    logD("FCM token: $fcmToken")
                     showDialogMsg("getFCMToken fcmToken: $fcmToken")
                 })
     }
@@ -90,10 +86,12 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
             try {
                 FirebaseInstanceId.getInstance().deleteInstanceId()
                 FirebaseInstanceId.getInstance().instanceId
-                LLog.d(TAG, "InstanceId removed and regenerated.")
-                showDialogMsg("resetInstanceId success")
+                logD("InstanceId removed and regenerated.")
+                runOnUiThread {
+                    showDialogMsg("resetInstanceId success")
+                }
             } catch (e: IOException) {
-                e.printStackTrace()
+                logE("resetInstanceId $e")
                 showDialogError("resetInstanceId failed: $e")
             }
         }).start()

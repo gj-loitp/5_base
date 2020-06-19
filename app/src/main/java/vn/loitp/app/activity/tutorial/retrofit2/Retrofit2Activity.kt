@@ -4,13 +4,12 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.restapi.restclient.RestClient2
 import com.views.LToast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit_2.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 import java.util.*
 
@@ -31,22 +30,22 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
 
     private fun initRecyclerView() {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        cryptocurrency_list.layoutManager = layoutManager
+        rv.layoutManager = layoutManager
     }
 
     private fun loadData() {
-        LLog.d(TAG, "loadData")
+        logD("loadData")
         compositeDisposable.add(sampleService.getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    LLog.d(TAG, "loadData success " + LApplication.gson.toJson(it))
+                    logD("loadData success " + LApplication.gson.toJson(it))
                     retroCryptoArrayList.clear()
                     retroCryptoArrayList.addAll(it)
                     retrofit2Adapter = Retrofit2Adapter(retroCryptoArrayList, this)
-                    cryptocurrency_list.adapter = retrofit2Adapter
+                    rv.adapter = retrofit2Adapter
                 }, {
-                    LLog.e(TAG, "loadData error $it")
+                    logE("loadData error $it")
                     LToast.show(activity, it.toString(), R.drawable.l_bkg_horizontal)
                 }))
     }

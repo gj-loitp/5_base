@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FrmTestBottom extends Fragment {
     public static FrmTestBottom newInstance() {
@@ -26,7 +26,7 @@ public class FrmTestBottom extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageView iv = view.findViewById(R.id.iv);
+        ImageView iv = view.findViewById(R.id.imageView);
         iv.setImageResource(R.drawable.iv);
     }
 }

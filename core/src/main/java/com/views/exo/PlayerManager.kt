@@ -34,13 +34,10 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     private var adsLoader: ImaAdsLoader? = null
     private var dataSourceFactory: DataSource.Factory? = null
     var player: SimpleExoPlayer? = null
-        private set
     private var screenW: Int = 0
 
     var videoW = 0
-        private set
     var videoH = 0
-        private set
 
     val contentPosition: Long
         get() = player?.contentPosition ?: 0
@@ -70,6 +67,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         }
         playerView.controllerShowTimeoutMs = 8000
         playerView.controllerHideOnTouch = true
+
         // Create a default track selector.
         val videoTrackSelectionFactory = AdaptiveTrackSelection.Factory()
         val trackSelector = DefaultTrackSelector(videoTrackSelectionFactory)
@@ -145,8 +143,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             })
 
             it.addVideoListener(object : VideoListener {
-                override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int,
-                                                pixelWidthHeightRatio: Float) {
+                override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
                     videoW = width
                     videoH = height
                 }

@@ -79,7 +79,7 @@
             android:maxLines="2"
             android:paddingBottom="2.0dip"
             android:text="Title"
-            android:textColor="@color/white_text_primary"
+            android:textColor="@color/white"
             android:textSize="16.0sp" />
 
         <TextView
@@ -93,7 +93,7 @@
             android:includeFontPadding="false"
             android:paddingTop="2.0dip"
             android:text="LOLTube"
-            android:textColor="@color/white_text_secondary"
+            android:textColor="@color/white"
             android:textSize="14.0sp" />
     </RelativeLayout>
 

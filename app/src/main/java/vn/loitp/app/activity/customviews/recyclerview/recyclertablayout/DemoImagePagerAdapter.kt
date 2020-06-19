@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.viewpager.widget.PagerAdapter
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class DemoImagePagerAdapter : PagerAdapter() {
@@ -14,11 +14,10 @@ class DemoImagePagerAdapter : PagerAdapter() {
     private var mItems: List<Int> = ArrayList()
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(container.context)
-                .inflate(R.layout.item_recycler_tablayout_page, container, false)
+        val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
-        val textView = view.findViewById<TextView>(R.id.title)
-        textView.text = "Page: $position"
+        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+        tvTitle.text = "Page: $position"
         container.addView(view)
 
         return view

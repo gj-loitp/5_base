@@ -16,7 +16,7 @@ import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;

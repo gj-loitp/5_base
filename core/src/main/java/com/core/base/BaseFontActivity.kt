@@ -11,7 +11,6 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper
 abstract class BaseFontActivity : BaseActivity() {
 
     override fun attachBaseContext(newBase: Context) {
-        //super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase))
     }
 }

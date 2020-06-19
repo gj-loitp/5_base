@@ -1,26 +1,20 @@
 package vn.loitp.app.activity.animation.basictransition
 
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
-
 import androidx.core.view.ViewCompat
-
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LImageUtil
-
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_animation_basic_transition_1.*
+import vn.loitp.app.R
 
 class BasicTransition1Activity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val iv = findViewById<ImageView>(R.id.imageview_item)
-        val tv = findViewById<TextView>(R.id.tv)
-        LImageUtil.load(activity, Constants.URL_IMG_2, iv)
-        ViewCompat.setTransitionName(iv, IV)
-        ViewCompat.setTransitionName(tv, TV)
+        LImageUtil.load(context = activity, url = Constants.URL_IMG_2, imageView = imageViewItem)
+        ViewCompat.setTransitionName(imageViewItem, IV)
+        ViewCompat.setTransitionName(textView, TV)
     }
 
     override fun setFullScreen(): Boolean {
@@ -32,7 +26,7 @@ class BasicTransition1Activity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_basic_transition_1
+        return R.layout.activity_animation_basic_transition_1
     }
 
     companion object {

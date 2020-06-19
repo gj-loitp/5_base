@@ -13,7 +13,7 @@ import com.core.base.BaseFragment;
 
 import java.util.ArrayList;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * User: special

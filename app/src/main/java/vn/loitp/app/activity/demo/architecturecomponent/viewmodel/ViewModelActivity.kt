@@ -6,9 +6,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
-import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.activity_view_model.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
 import java.util.*
@@ -22,7 +21,6 @@ class ViewModelActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LLog.d(TAG, "onCreate")
 
         colorChangerViewModel = ViewModelProvider(this).get(ColorChangerViewModel::class.java)
         colorChangerViewModel.colorResource.observe(this, Observer {
@@ -37,22 +35,22 @@ class ViewModelActivity : BaseFontActivity() {
         defUser.email = "www.muathu@gmail.com"
         val factory = UserViewModel.CustomViewModelFactory(defUser)
         userViewModel = ViewModelProvider(this, factory).get(UserViewModel::class.java)
-        tv.text = LApplication.gson.toJson(userViewModel.mUser)
+        textView.text = LApplication.gson.toJson(userViewModel.mUser)
         btChangeUser.setOnClickListener {
             val user = User()
             user.fullName = "Loitp" + System.currentTimeMillis()
             user.email = "www.muathu@gmail.com" + System.currentTimeMillis()
             userViewModel.mUser = user
-            tv.text = LApplication.gson.toJson(userViewModel.mUser)
+            textView.text = LApplication.gson.toJson(userViewModel.mUser)
         }
 
         timeChangerViewModel = ViewModelProvider(this).get(TimeChangerViewModel::class.java)
         var countToStop = 0
         timeChangerViewModel.timerValue.observe(this, Observer {
             countToStop++
-            LLog.d(TAG, "countToStop $countToStop")
+            logD("countToStop $countToStop")
             if (countToStop >= 15) {
-                LLog.d(TAG, "countToStop $countToStop -> STOP")
+                logD("countToStop $countToStop -> STOP")
                 tvTime.text = "countToStop: $countToStop -> STOP"
                 timeChangerViewModel.timerValue.removeObservers(this)
                 return@Observer

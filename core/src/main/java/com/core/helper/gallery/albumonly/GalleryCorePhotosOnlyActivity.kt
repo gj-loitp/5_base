@@ -15,7 +15,6 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LDialogUtil
-import com.core.utilities.LLog
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
@@ -33,13 +32,14 @@ import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.task.AsyncTaskDownloadImage
 import com.views.layout.floatdraglayout.DisplayUtil
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView
+import com.wang.avi.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.l_activity_gallery_core_photos_only.*
 
 class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var tvTitle: TextView? = null
-    private var LAVLoadingIndicatorView: LAVLoadingIndicatorView? = null
+    private var avLoadingIndicatorView: AVLoadingIndicatorView? = null
     private var currentPage = 0
     private var totalPage = 1
     private val PER_PAGE_SIZE = 100
@@ -58,12 +58,12 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         PhotosDataCore.getInstance().clearData()
 
         val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary)
-        rootView?.setBackgroundResource(resBkgRootView)
+        rootView.setBackgroundResource(resBkgRootView)
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        LLog.d(TAG, "adUnitId $adUnitId")
+        logD("adUnitId $adUnitId")
         val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
-        if (adUnitId.isEmpty()) {
+        if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {
             adView = AdView(activity)
@@ -81,7 +81,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         tvTitle?.let {
             LUIUtil.setTextShadow(it)
         }
-        LAVLoadingIndicatorView = findViewById(R.id.av)
+        avLoadingIndicatorView = findViewById(R.id.av)
         btPage = findViewById(R.id.bt_page)
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
@@ -89,9 +89,9 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             handleException(Exception(getString(R.string.err_unknow)))
             return
         }
-        LLog.d(TAG, "photosetID $photosetID")
+        logD("photosetID $photosetID")
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
-        LLog.d(TAG, "photosSize $photosSize")
+        logD("photosSize $photosSize")
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
@@ -130,7 +130,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
 
             override fun onClickCmt(photo: Photo, pos: Int) {
-                LSocialUtil.openFacebookComment(activity, photo.urlO, adUnitId)
+                LSocialUtil.openFacebookComment(context = activity, url = photo.urlO, adUnitId = adUnitId)
             }
         })
         recyclerView.adapter = photosOnlyAdapter
@@ -169,7 +169,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         LDialogUtil.showDialogList(activity, "Select page", arr, object : LDialogUtil.CallbackList {
             override fun onClick(position: Int) {
                 currentPage = totalPage - position
-                LLog.d(TAG, "showDialogList onClick position $position, -> currentPage: $currentPage")
                 PhotosDataCore.getInstance().clearData()
                 updateAllViews()
                 photosetsGetPhotos(photosetID!!)
@@ -199,8 +198,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun init() {
-        LLog.d(TAG, "init photosSize $photosSize")
-
         totalPage = if (photosSize % PER_PAGE_SIZE == 0) {
             photosSize / PER_PAGE_SIZE
         } else {
@@ -215,7 +212,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun photosetsGetList() {
-        LAVLoadingIndicatorView?.smoothToShow()
+        avLoadingIndicatorView?.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -239,28 +236,28 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                         }
                     }
                 }, { e ->
-                    LLog.e(TAG, "photosetsGetList onFail $e")
+                    logE("photosetsGetList onFail $e")
                     handleException(e)
-                    LAVLoadingIndicatorView?.smoothToHide()
+                    avLoadingIndicatorView?.smoothToHide()
                 }))
     }
 
     private fun photosetsGetPhotos(photosetID: String) {
         if (isLoading) {
-            LLog.d(TAG, "photosetsGetList isLoading true -> return")
+            logD("photosetsGetList isLoading true -> return")
             return
         }
-        LLog.d(TAG, "is calling photosetsGetPhotos $currentPage/$totalPage")
+        logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        LAVLoadingIndicatorView?.smoothToShow()
+        avLoadingIndicatorView?.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
         val userID = FlickrConst.USER_KEY
         if (currentPage <= 0) {
-            LLog.d(TAG, "currentPage <= 0 -> return")
+            logD("currentPage <= 0 -> return")
             currentPage = 0
-            LAVLoadingIndicatorView?.smoothToHide()
+            avLoadingIndicatorView?.smoothToHide()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -271,8 +268,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
-                    LLog.d(TAG, "photosetsGetPhotos onSuccess " + Gson().toJson(wrapperPhotosetGetPhotos))
-                    //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
+                    logD("photosetsGetPhotos onSuccess " + Gson().toJson(wrapperPhotosetGetPhotos))
 
                     val s = wrapperPhotosetGetPhotos.photoset.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle?.text = s
@@ -280,14 +276,14 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     PhotosDataCore.getInstance().addPhoto(photoList)
                     updateAllViews()
 
-                    LAVLoadingIndicatorView?.smoothToHide()
+                    avLoadingIndicatorView?.smoothToHide()
                     btPage?.visibility = View.VISIBLE
                     isLoading = false
                     currentPage--
                 }, { e ->
-                    LLog.e(TAG, "photosetsGetPhotos onFail $e")
+                    logE("photosetsGetPhotos onFail $e")
                     handleException(e)
-                    LAVLoadingIndicatorView?.smoothToHide()
+                    avLoadingIndicatorView?.smoothToHide()
                     isLoading = true
                 }))
     }
@@ -325,23 +321,23 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(TAG, "onPermissionsChecked do you work now")
+                            logD("onPermissionsChecked do you work now")
                             goToHome()
                         } else {
-                            LLog.d(TAG, "!areAllPermissionsGranted")
+                            logD("!areAllPermissionsGranted")
                             showShouldAcceptPermission()
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied) {
-                            LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings")
+                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
                             showSettingsDialog()
                         }
                         isShowDialogCheck = true
                     }
 
                     override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
-                        LLog.d(TAG, "onPermissionRationaleShouldBeShown")
+                        logD("onPermissionRationaleShouldBeShown")
                         token.continuePermissionRequest()
                     }
                 })

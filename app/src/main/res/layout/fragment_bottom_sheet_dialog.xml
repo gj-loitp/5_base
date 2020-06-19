@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:padding="@dimen/padding_medium">
 
     <!-- NOTE: This list should be displayed in a list
     instead of nested layouts -->
@@ -16,10 +15,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingTop="8dp"
-        android:paddingRight="@dimen/padding_5"
-        android:paddingBottom="8dp">
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium">
 
         <ImageView
             android:layout_width="24dp"
@@ -46,10 +45,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingTop="8dp"
-        android:paddingRight="@dimen/padding_5"
-        android:paddingBottom="8dp">
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium">
 
         <ImageView
             android:layout_width="24dp"
@@ -76,10 +75,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingTop="8dp"
-        android:paddingRight="@dimen/padding_5"
-        android:paddingBottom="8dp">
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium">
 
         <ImageView
             android:layout_width="24dp"
@@ -106,10 +105,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingTop="8dp"
-        android:paddingRight="@dimen/padding_5"
-        android:paddingBottom="8dp">
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium">
 
         <ImageView
             android:layout_width="24dp"
@@ -136,10 +135,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_5"
-        android:paddingTop="8dp"
-        android:paddingRight="@dimen/padding_5"
-        android:paddingBottom="8dp">
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium">
 
         <ImageView
             android:layout_width="24dp"

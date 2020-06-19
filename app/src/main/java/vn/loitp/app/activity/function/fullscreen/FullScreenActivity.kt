@@ -2,11 +2,10 @@ package vn.loitp.app.activity.function.fullscreen
 
 import android.os.Bundle
 import android.view.View
-import com.core.base.BaseActivity
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import com.views.dialog.imersivedialog.ImmersiveDialogFragment
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
 

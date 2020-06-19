@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@color/white">
@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <ScrollView
-            android:id="@+id/scroll_view"
+            android:id="@+id/scrollView"
             android:layout_width="fill_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -23,14 +23,16 @@
                 android:padding="8sp">
 
                 <TextView
-                    style="@style/widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Title" />
 
                 <EditText
                     android:id="@+id/title"
-                    style="@style/widget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:textColor="@color/Black" />
+                    android:textColor="@color/black" />
 
                 <LinearLayout
                     android:layout_width="fill_parent"
@@ -61,7 +63,7 @@
                     android:orientation="horizontal"
                     android:paddingTop="8sp">
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/date_button"
                         android:layout_width="0sp"
                         android:layout_height="wrap_content"
@@ -69,7 +71,7 @@
                         android:layout_weight="2"
                         android:onClick="onDateClick" />
 
-                    <Button
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/time_button"
                         android:layout_width="0sp"
                         android:layout_height="wrap_content"
@@ -86,16 +88,18 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="8sp">
 
-            <Button
-                style="@style/edit_button"
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:onClick="onDoneClick"
                 android:text="Done" />
 
-            <Button
-                style="@style/edit_button"
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:onClick="onCancelClick"
                 android:text="Cancel" />
 

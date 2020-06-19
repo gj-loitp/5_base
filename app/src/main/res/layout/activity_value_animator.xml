@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,18 +8,18 @@
         android:id="@+id/view"
         android:layout_width="@dimen/w_60"
         android:layout_height="@dimen/w_60"
-        android:background="@color/RedTrans" />
+        android:background="@color/red50" />
 
     <TextView
         android:id="@+id/tv_debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/bt_start"
+        android:layout_above="@+id/btStart"
         android:padding="@dimen/padding_5"
-        android:textColor="@color/Black" />
+        android:textColor="@color/black" />
 
-    <Button
-        android:id="@+id/bt_start"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btStart"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

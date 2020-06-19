@@ -2,7 +2,6 @@ package com.core.utilities
 
 import android.content.Context
 import com.core.common.Constants
-import com.function.youtubeparser.models.utubechannel.UtubeChannel
 import com.google.gson.Gson
 import com.model.App
 import com.utils.util.AppUtils
@@ -28,13 +27,9 @@ object LPrefUtil {
     var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
     val INDEX = "INDEX"
     val PASS_CODE = "PASS_CODE"
-    val UZVIDEO_WIDTH = "UZVIDEO_WIDTH"
-    val UZVIDEO_HEIGHT = "UZVIDEO_HEIGHT"
     val GG_APP_SETTING = "GG_APP_SETTING"
     val GG_APP_MSG = "GG_APP_MSG"
     val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
-    val YOUTUBE_CHANNEL_LIST = "YOUTUBE_CHANNEL_LIST"
-    val TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS = "TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS"
 
     //region object
     fun getGGAppSetting(context: Context): App {
@@ -45,20 +40,6 @@ object LPrefUtil {
     fun setGGAppSetting(context: Context, user: App) {
         val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
         editor.putString(GG_APP_SETTING, Gson().toJson(user))
-        editor.apply()
-    }
-
-    fun getYoutubeChannelList(context: Context): UtubeChannel? {
-        val pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-        val json = pref.getString(YOUTUBE_CHANNEL_LIST, "")
-        return if (json.isNullOrEmpty()) {
-            null
-        } else Gson().fromJson(json, UtubeChannel::class.java)
-    }
-
-    fun setYoutubeChannelList(context: Context, utubeChannel: UtubeChannel) {
-        val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-        editor.putString(YOUTUBE_CHANNEL_LIST, Gson().toJson(utubeChannel))
         editor.apply()
     }
     //endregion
@@ -111,19 +92,6 @@ object LPrefUtil {
     }
     //endregion
 
-    //region long
-    fun getTimeGetYoutubeChannelListSuccess(context: Context): Long {
-        val prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-        return prefs.getLong(TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS, 0)
-    }
-
-    fun setTimeGetYoutubeChannelListSuccess(context: Context, value: Long) {
-        val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-        editor.putLong(TIME_GET_YOUTUBE_CHANNEL_LIST_SUCCESS, value)
-        editor.apply()
-    }
-    //endregion
-
     //region int
     fun getIndex(context: Context): Int {
         val prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
@@ -144,28 +112,6 @@ object LPrefUtil {
     fun setTextSizeEpub(context: Context, value: Int) {
         val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
         editor.putInt(TEXT_SIZE_EPUB, value)
-        editor.apply()
-    }
-
-    fun getUZvideoWidth(context: Context): Int {
-        val prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-        return prefs.getInt(UZVIDEO_WIDTH, 16)
-    }
-
-    fun setUZvideoWidth(context: Context, value: Int) {
-        val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-        editor.putInt(UZVIDEO_WIDTH, value)
-        editor.apply()
-    }
-
-    fun getUzvideoHeight(context: Context): Int {
-        val prefs = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-        return prefs.getInt(UZVIDEO_HEIGHT, 9)
-    }
-
-    fun setUzvideoHeight(context: Context, value: Int) {
-        val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-        editor.putInt(UZVIDEO_HEIGHT, value)
         editor.apply()
     }
     //endregion

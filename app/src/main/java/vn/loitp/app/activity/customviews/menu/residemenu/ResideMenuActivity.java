@@ -15,7 +15,7 @@ import com.views.LToast;
 import com.views.menu.residemenu.ResideMenu;
 import com.views.menu.residemenu.ResideMenuItem;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {
     private ResideMenu resideMenu;
@@ -57,8 +57,8 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private void setUpMenu() {
         // attach to current activity;
         resideMenu = new ResideMenu(this);
-        resideMenu.getLRealtimeBlurView().setBlurRadius(50);
-        resideMenu.getLRealtimeBlurView().setOverlayColor(ContextCompat.getColor(getActivity(), R.color.black_65));
+        resideMenu.getRealtimeBlurView().setBlurRadius(50);
+        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(getActivity(), R.color.black65));
         resideMenu.setUse3D(true);
         resideMenu.setBackground(R.drawable.iv);
         resideMenu.attachToActivity(this);

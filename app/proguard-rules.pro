@@ -120,8 +120,8 @@
 #for realm
 
 ##for loading view
--keep class com.views.progressloadingview.avl.** { *; }
--keep class com.views.progressloadingview.av.indicators.** { *; }
+-keep class com.wang.avi.** { *; }
+-keep class com.wang.avi.indicators.** { *; }
 ##for loading view
 
 # Basic ProGuard rules for Firebase Android SDK 2.0.0+
@@ -135,3 +135,14 @@
 
 ##pdf view
 -keep class com.shockwave.**
+
+#renderscript
+-dontwarn androidx.renderscript.*
+-keepclassmembers class androidx.renderscript.RenderScript {
+  native *** rsn*(...);
+  native *** n*(...);
+}
+
+#https://github.com/mmin18/RealtimeBlurView
+-keep class android.support.v8.renderscript.** { *; }
+-keep class androidx.renderscript.** { *; }

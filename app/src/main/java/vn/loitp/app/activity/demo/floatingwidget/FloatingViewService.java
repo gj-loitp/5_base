@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by LENOVO on 3/27/2018.

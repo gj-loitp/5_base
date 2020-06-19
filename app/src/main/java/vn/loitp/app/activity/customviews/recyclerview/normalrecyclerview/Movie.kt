@@ -9,6 +9,7 @@ class Movie {
     var genre: String? = null
     var year: String? = null
     var cover: String? = null
+    var isBottom: Boolean = false
 
     constructor() {}
 

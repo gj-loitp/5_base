@@ -29,7 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
 //https://github.com/firebase/quickstart-android
@@ -136,7 +136,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                         } else {
                             // If sign in fails, display a message to the user.
                             LLog.d(getTAG(), "signInWithCredential:failure " + task.getException());
-                            Snackbar.make(findViewById(R.id.root_view), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(findViewById(R.id.rootView), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
 

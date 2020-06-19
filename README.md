@@ -19,6 +19,31 @@ In order to keep modules independent, we decoupled the behavior required for eac
 - Skype: www.muathu@gmail.com
 - Phone: +84 76408 8864 
 
+
+
+
+**Git**
+
+https://github.com/zladnrms/RoundableLayout
+
+https://github.com/gongwen/SwipeBackLayout
+
+https://github.com/Cutta/ContinuousScrollableImageView
+
+https://github.com/gjiazhe/PanoramaImageView
+
+https://github.com/gjiazhe/ScrollParallaxImageView
+
+https://github.com/flavioarfaria/KenBurnsView
+
+https://github.com/hoang8f/android-flat-button
+
+https://github.com/venshine/GoodView
+
+https://github.com/ApplikeySolutions/CosmoCalendar
+
+https://github.com/ParkSangGwon/TedImagePicker
+
 **License**
 ```
 Copyright 2019 Loitp93

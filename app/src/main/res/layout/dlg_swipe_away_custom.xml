@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,17 +14,18 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_300"
+            android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
 
-        <Button
-            android:id="@+id/bt_y"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="YES" />
 
-        <Button
-            android:id="@+id/bt_n"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NO" />

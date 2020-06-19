@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/whiteSmoke"
     android:orientation="vertical">
 
     <com.views.navigationview.LTextNavigationView
         android:id="@+id/nv"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize" />
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/white" />
 
     <TextView
-        android:id="@+id/tv_msg"
+        android:id="@+id/tvMsg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_10"
         android:gravity="center"
         android:padding="@dimen/padding_10"
-        android:textSize="@dimen/txt_18" />
+        android:textSize="@dimen/txt_18"
+        tools:visibility="visible" />
 
-    <Button
-        android:id="@+id/bt_0"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt0"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_first" />
 
-    <Button
-        android:id="@+id/bt_1"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt1"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_last" />
 
-    <Button
-        android:id="@+id/bt_2"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt2"
         style="@style/ButtonMenu"
         android:text="@string/scroll_to_2" />
 </LinearLayout>
-

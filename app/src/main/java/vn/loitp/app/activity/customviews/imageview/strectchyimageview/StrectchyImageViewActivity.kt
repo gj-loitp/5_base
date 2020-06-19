@@ -1,21 +1,17 @@
 package vn.loitp.app.activity.customviews.imageview.strectchyimageview
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import com.views.imageview.strectchy.LStretchyImageView
-
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_imageview_strectchy.*
+import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
 class StrectchyImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val lStretchyImageView = findViewById<LStretchyImageView>(R.id.iv)
-        LImageUtil.load(activity, Constants.URL_IMG_LONG, lStretchyImageView)
+        LImageUtil.load(context = activity, url = Constants.URL_IMG_LONG, imageView = lStretchyImageView)
     }
 
     override fun setFullScreen(): Boolean {
@@ -27,6 +23,6 @@ class StrectchyImageViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_strectchy_imageview
+        return R.layout.activity_imageview_strectchy
     }
 }

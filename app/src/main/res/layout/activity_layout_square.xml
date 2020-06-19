@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.views.layout.squarelayout.LSquareFrameLayout
+                android:layout_width="@dimen/w_50"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@color/blue" />
+
+            <com.views.layout.squarelayout.LSquareFrameLayout
+                android:layout_width="@dimen/w_250"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@color/green" />
+
+            <com.views.layout.squarelayout.LSquareFrameLayout
+                android:layout_width="@dimen/w_80"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@color/red" />
+
+            <com.views.layout.squarelayout.LSquareFrameLayout
+                android:layout_width="@dimen/w_100"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@color/pink" />
+
+            <com.views.layout.squarelayout.LSquareFrameLayout
+                android:layout_width="@dimen/w_250"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@color/purple" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

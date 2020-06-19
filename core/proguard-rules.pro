@@ -18,9 +18,6 @@
 
 -ignorewarnings
 
-#core
--keep class vn.puresolutions.livestar.core.** { *; }
-
 #google
 -keep public class com.google.** {*;}
 
@@ -120,8 +117,8 @@
 #for realm
 
 ##for loading view
--keep class com.views.progressloadingview.avl.** { *; }
--keep class com.views.progressloadingview.av.indicators.** { *; }
+-keep class com.wang.avi.** { *; }
+-keep class com.wang.avi.indicators.** { *; }
 ##for loading view
 
 ##glide
@@ -160,3 +157,7 @@ public *;
 -dontwarn com.yalantis.ucrop**
 -keep class com.yalantis.ucrop** { *; }
 -keep interface com.yalantis.ucrop** { *; }
+
+#https://github.com/mmin18/RealtimeBlurView
+-keep class android.support.v8.renderscript.** { *; }
+-keep class androidx.renderscript.** { *; }

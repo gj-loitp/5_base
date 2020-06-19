@@ -2,10 +2,6 @@ package vn.loitp.app.activity.customviews.progressloadingview.circularprogressin
 
 import android.widget.SeekBar
 
-/**
- * Created by Anton on 13.03.2018.
- */
-
 open class DefaultSeekbarChangeListener : SeekBar.OnSeekBarChangeListener {
 
     override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {

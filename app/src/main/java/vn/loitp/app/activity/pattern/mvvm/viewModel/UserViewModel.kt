@@ -3,7 +3,7 @@ package vn.loitp.app.activity.pattern.mvvm.viewModel
 import android.view.View
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
-import loitp.basemaster.BR
+import androidx.databinding.library.baseAdapters.BR
 import vn.loitp.app.activity.pattern.mvvm.model.User
 import java.util.*
 

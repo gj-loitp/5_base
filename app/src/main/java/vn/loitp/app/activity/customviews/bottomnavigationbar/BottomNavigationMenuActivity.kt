@@ -2,17 +2,17 @@ package vn.loitp.app.activity.customviews.bottomnavigationbar
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_bottom_navigation_bar_menu.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar.BottomBarActivity
 
 class BottomNavigationMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_bottom_bar).setOnClickListener {
+        btBottomBarBlur.setOnClickListener {
             val intent = Intent(activity, BottomBarActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
@@ -28,6 +28,6 @@ class BottomNavigationMenuActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_bottom_navigation_bar
+        return R.layout.activity_bottom_navigation_bar_menu
     }
 }

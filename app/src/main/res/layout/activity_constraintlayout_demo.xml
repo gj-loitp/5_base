@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke"
+    android:background="@color/whiteSmoke"
     tools:context="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,13 +14,13 @@
         android:orientation="vertical">
 
         <RelativeLayout
-            android:id="@+id/root_view"
+            android:id="@+id/rootView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
         </RelativeLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,55 +59,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:background="@color/LightYellow"
+            android:background="@color/lightYellow"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
-            <Button
-                android:id="@+id/bt_0"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="0"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/bt_1"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="1"
-                app:layout_constraintLeft_toRightOf="@id/bt_0"
+                app:layout_constraintLeft_toRightOf="@id/bt0"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/bt_2"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="2"
-                app:layout_constraintLeft_toRightOf="@id/bt_1"
+                app:layout_constraintLeft_toRightOf="@id/bt1"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/bt_3"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="3"
-                app:layout_constraintLeft_toRightOf="@id/bt_2"
+                app:layout_constraintLeft_toRightOf="@id/bt2"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@mipmap/ic_launcher"
                 android:text="4"
-                app:layout_constraintLeft_toRightOf="@id/bt_3"
+                app:layout_constraintLeft_toRightOf="@id/bt3"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

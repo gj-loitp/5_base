@@ -19,7 +19,7 @@ import androidx.annotation.Nullable;
 import com.core.base.BaseFragment;
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusicControlsOverlay;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
@@ -43,7 +43,7 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mPlayerView = getFrmRootView().findViewById(R.id.player_view);
+        this.mPlayerView = getFrmRootView().findViewById(R.id.playerView);
         this.mPlayerView.requestFocus();
         this.mPlayerView.setSurfaceTextureListener(this);
         this.mPlayerWWLMusicControlsOverlay = new WWLMusicControlsOverlay(getContext());

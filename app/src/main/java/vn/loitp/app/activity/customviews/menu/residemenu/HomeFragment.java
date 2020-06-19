@@ -10,14 +10,8 @@ import androidx.annotation.Nullable;
 import com.core.base.BaseFragment;
 import com.views.menu.residemenu.ResideMenu;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
-/**
- * User: special
- * Date: 13-12-22
- * Time: 下午1:33
- * Mail: specialcyci@gmail.com
- */
 public class HomeFragment extends BaseFragment {
     private ResideMenu resideMenu;
 

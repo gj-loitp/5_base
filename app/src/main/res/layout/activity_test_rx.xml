@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,38 +14,38 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/bt_0"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt0"
                 style="@style/ButtonMenu"
                 android:text="Test From" />
 
-            <Button
-                android:id="@+id/bt_1"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt1"
                 style="@style/ButtonMenu"
                 android:text="Test Just" />
 
-            <Button
-                android:id="@+id/bt_2"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2"
                 style="@style/ButtonMenu"
                 android:text="Test Defer" />
 
-            <Button
-                android:id="@+id/bt_3"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt3"
                 style="@style/ButtonMenu"
                 android:text="Test Interval" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_4"
                 style="@style/ButtonMenu"
                 android:text="Test Create" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_5"
                 style="@style/ButtonMenu"
                 android:text="Test Map" />
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_15" />

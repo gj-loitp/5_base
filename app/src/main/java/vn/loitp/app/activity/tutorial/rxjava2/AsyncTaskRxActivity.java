@@ -20,7 +20,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import kotlin.Unit;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike;
 
 public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClickListener {
@@ -34,7 +34,7 @@ public class AsyncTaskRxActivity extends BaseFontActivity implements View.OnClic
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         findViewById(R.id.bt_async_task).setOnClickListener(this);
         findViewById(R.id.bt_rx_1).setOnClickListener(this);
         findViewById(R.id.bt_rx_2).setOnClickListener(this);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -19,7 +19,7 @@
         app:realtimeOverlayColor="@color/black_35" />-->
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/ln_adview"
@@ -37,11 +37,11 @@
                 android:layout_marginTop="@dimen/margin_55"
                 android:gravity="center"
                 android:text="@string/copyright"
-                android:textColor="@color/White"
+                android:textColor="@color/white"
                 android:textSize="@dimen/txt_14" />
 
-            <com.views.progressloadingview.avl.LAVLoadingIndicatorView
-                android:id="@+id/avi"
+            <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/indicatorView"
                 style="@style/AVLoadingIndicatorView"
                 android:layout_width="@dimen/w_40"
                 android:layout_height="@dimen/w_40"
@@ -49,7 +49,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/margin_10"
                 android:layout_marginBottom="@dimen/margin_55"
-                app:indicatorColor="@color/White"
+                app:indicatorColor="@color/white"
                 app:indicatorName="LineScalePulseOutRapidIndicator" />
 
             <TextView
@@ -60,7 +60,7 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_5"
                 android:text="@string/lgallery"
-                android:textColor="@color/White"
+                android:textColor="@color/white"
                 android:textSize="@dimen/txt_50" />
         </RelativeLayout>
     </ScrollView>

@@ -10,21 +10,21 @@
         android:layout_centerInParent="true" />
 
     <ImageView
-        android:id="@+id/iv_prev"
+        android:id="@+id/ivPrev"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
-        android:tint="@color/White" />
+        android:src="@drawable/ic_chevron_left_black_48dp"
+        android:tint="@color/white" />
 
     <ImageView
-        android:id="@+id/iv_next"
+        android:id="@+id/ivNext"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/l_baseline_keyboard_arrow_right_black_48dp"
-        android:tint="@color/White" />
+        android:src="@drawable/ic_chevron_right_black_48dp"
+        android:tint="@color/white" />
 </RelativeLayout>

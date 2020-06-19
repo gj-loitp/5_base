@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <ScrollView
         style="@style/ScrollVertical"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/iv_fan_art"
-            android:background="@color/White">
+            android:background="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:layout_width="fill_parent"
             android:layout_height="@dimen/w_200"
             android:layout_alignParentTop="true"
-            android:background="@color/White"
+            android:background="@color/white"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/loitp" />

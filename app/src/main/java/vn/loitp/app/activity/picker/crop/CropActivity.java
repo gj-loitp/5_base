@@ -27,7 +27,7 @@ import com.yalantis.ucrop.util.FileUtils;
 
 import java.io.File;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
@@ -37,7 +37,7 @@ public class CropActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        iv = findViewById(R.id.iv);
+        iv = findViewById(R.id.imageView);
         findViewById(R.id.bt_crop_oval).setOnClickListener(view -> {
             isOvalOption = true;
             crop();

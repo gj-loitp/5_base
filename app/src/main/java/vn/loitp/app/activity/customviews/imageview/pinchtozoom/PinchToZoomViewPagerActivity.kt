@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_pinch_to_zoom_vp.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_imageview_pinch_to_zoom_vp.*
+import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 import java.util.*
 
@@ -36,17 +36,17 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pinch_to_zoom_vp
+        return R.layout.activity_imageview_pinch_to_zoom_vp
     }
 
     private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
-            val f = FrmIvPinchToZoom()
+            val frmIvPinchToZoom = FrmIvPinchToZoom()
             val bundle = Bundle()
             bundle.putString(FrmIvPinchToZoom.KEY_URL, list[position])
-            f.arguments = bundle
-            return f
+            frmIvPinchToZoom.arguments = bundle
+            return frmIvPinchToZoom
         }
 
         override fun getCount(): Int {

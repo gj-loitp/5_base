@@ -7,7 +7,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/firebase/quickstart-android
 class AuthFirebaseMenuActivity : BaseFontActivity(), View.OnClickListener {

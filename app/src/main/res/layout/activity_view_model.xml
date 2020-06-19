@@ -10,20 +10,20 @@
         style="@style/TextMenu"
         android:text="View model" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btChangeColor"
         style="@style/ButtonMenu"
         android:text="Change color" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="@dimen/padding_10"
         android:textSize="@dimen/txt_18" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btChangeUser"
         style="@style/ButtonMenu"
         android:text="Change user" />

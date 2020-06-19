@@ -8,7 +8,7 @@ import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.constraintlayout.constraintset.ConstraintSetActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior.CustomBehaviorActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity
@@ -20,7 +20,7 @@ class ConstraintlayoutMenuActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         findViewById<View>(R.id.bt_constraint_set).setOnClickListener(this)
-        findViewById<View>(R.id.bt_demo).setOnClickListener(this)
+        findViewById<View>(R.id.btDemo).setOnClickListener(this)
         findViewById<View>(R.id.bt_fab_n_snackbar).setOnClickListener(this)
         findViewById<View>(R.id.bt_fab_follow_widget).setOnClickListener(this)
         findViewById<View>(R.id.bt_custom_behavior).setOnClickListener(this)
@@ -41,7 +41,7 @@ class ConstraintlayoutMenuActivity : BaseFontActivity(), OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v.id) {
-            R.id.bt_demo -> intent = Intent(activity, ConstraintlayoutDemoActivity::class.java)
+            R.id.btDemo -> intent = Intent(activity, ConstraintlayoutDemoActivity::class.java)
             R.id.bt_fab_n_snackbar -> intent = Intent(activity, FabAndSnackbarActivity::class.java)
             R.id.bt_fab_follow_widget -> intent = Intent(activity, FabFollowWidgetActivity::class.java)
             R.id.bt_custom_behavior -> intent = Intent(activity, CustomBehaviorActivity::class.java)

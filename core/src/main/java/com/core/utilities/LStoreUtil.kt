@@ -150,7 +150,7 @@ object LStoreUtil {
             //LLog.d(TAG, "writeToFile myFileExist: $myFileExist")
             if (!myFileExist) {
                 val isSuccess = myFile.createNewFile()
-                //LLog.d(TAG, "writeToFile isSuccess: $isSuccess")
+                LLog.d(TAG, "writeToFile isSuccess: $isSuccess")
             }
             fos = FileOutputStream(myFile)
             fos.write(body.toByteArray())
@@ -164,7 +164,7 @@ object LStoreUtil {
     }
 
     fun writeToFile(activity: Activity, folder: String, fileName: String, body: String, callbackWriteFile: CallbackWriteFile?) {
-        //TODO convert to rx
+        //TODO convert to coroutine
         object : AsyncTask<Void, Void, Void>() {
             var isSuccess: Boolean = false
 

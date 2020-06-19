@@ -1,17 +1,14 @@
 package vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
-import com.views.progressloadingview.circular.LCircularProgressBar
-
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_progress_circular_progress_bar.*
+import vn.loitp.app.R
 
 class CircularProgressBarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val progressBar = findViewById<LCircularProgressBar>(R.id.progress_bar)
         progressBar.progress = 30f
         progressBar.configure().animateProgress(true).maximum(40f).progress(30f).apply()
     }
@@ -25,6 +22,6 @@ class CircularProgressBarActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circular_progress_bar
+        return R.layout.activity_progress_circular_progress_bar
     }
 }

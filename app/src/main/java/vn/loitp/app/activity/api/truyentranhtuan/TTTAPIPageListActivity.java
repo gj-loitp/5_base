@@ -5,27 +5,27 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist.GetReadImgTask;
 
 public class TTTAPIPageListActivity extends BaseFontActivity {
     private TextView tv;
     private TextView tvTitle;
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         tvTitle = findViewById(R.id.tv_title);
-        avi = findViewById(R.id.avi);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
 
         String currentLink = "http://truyentranhtuan.com/one-piece-chuong-69/";
-        new GetReadImgTask(currentLink, avi, new GetReadImgTask.Callback() {
+        new GetReadImgTask(currentLink, avLoadingIndicatorView, new GetReadImgTask.Callback() {
             @Override
             public void onSuccess(List<String> imagesListOfOneChap) {
                 LUIUtil.INSTANCE.printBeautyJson(imagesListOfOneChap, tv);

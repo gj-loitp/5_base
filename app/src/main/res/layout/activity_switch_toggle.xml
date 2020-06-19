@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke"
+    android:padding="@dimen/padding_medium">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.views.switchtoggle.toggle.LabeledSwitch
+                android:id="@+id/labeledSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/txt_medium"
+                app:colorBorder="@color/deepPink"
+                app:on="false" />
+
+            <com.views.switchtoggle.toggle.LabeledSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/txt_medium"
+                app:colorBorder="@color/darkCyan"
+                app:colorDisabled="@color/gray"
+                app:colorOff="@color/black"
+                app:colorOn="@color/red"
+                app:on="true" />
+
+            <com.views.switchtoggle.toggle.LabeledSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:textSize="@dimen/txt_medium"
+                app:colorBorder="@color/blue"
+                app:on="false" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

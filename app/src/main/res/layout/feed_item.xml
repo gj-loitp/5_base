@@ -39,7 +39,7 @@
 				android:id="@+id/titleTxt"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:textColor="@color/White"
+				android:textColor="@color/white"
 				android:textSize="@dimen/txt_14" />
 
 			<TextView
@@ -56,7 +56,7 @@
 				android:layout_height="wrap_content"
 				android:layout_gravity="right"
 				android:layout_marginTop="@dimen/margin_10"
-				android:textColor="@color/White"
+				android:textColor="@color/white"
 				android:textSize="@dimen/txt_10" />
 		</LinearLayout>
 	</LinearLayout>
@@ -66,5 +66,5 @@
 		android:layout_height="@dimen/w_1"
 		android:layout_marginLeft="@dimen/margin_55"
 		android:layout_marginRight="@dimen/margin_55"
-		android:background="@color/White" />
+		android:background="@color/white" />
 </LinearLayout>

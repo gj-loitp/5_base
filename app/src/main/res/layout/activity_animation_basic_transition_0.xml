@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <TextView
+        android:id="@+id/tvDummy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:text="@string/activity_0"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
+
+    <com.views.layout.squarelayout.LSquareFrameLayout
+        android:layout_width="@dimen/w_150"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvDummy">
+
+        <ImageView
+            android:id="@+id/imageViewItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop" />
+
+    </com.views.layout.squarelayout.LSquareFrameLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/loitp"
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt_large" />
+</RelativeLayout>

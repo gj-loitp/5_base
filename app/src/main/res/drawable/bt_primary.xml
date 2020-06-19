@@ -12,7 +12,7 @@
     <item>
         <shape>
             <gradient android:angle="270" android:endColor="@color/transparent" android:startColor="@color/transparent" />
-            <stroke android:width="@dimen/w_1" android:color="@color/LightGrey" />
+            <stroke android:width="@dimen/w_1" android:color="@color/lightGrey" />
             <corners android:radius="@dimen/round_5" />
             <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_10" android:right="@dimen/padding_10" android:top="@dimen/padding_5" />
         </shape>

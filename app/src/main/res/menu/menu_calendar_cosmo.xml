@@ -2,24 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/select_all_fridays"
+        android:id="@+id/itemSelectAllFridays"
         android:title="@string/select_all_fridays"
         android:visible="false"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/select_three_months"
+        android:id="@+id/itemSelectThreeMonths"
         android:title="@string/select_three_months"
         android:visible="false"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/clear_selections"
+        android:id="@+id/itemClearSelections"
         android:title="@string/clear_selections"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/log_selected_days"
+        android:id="@+id/itemLogSelectedDays"
         android:title="@string/log_selected_days"
         app:showAsAction="never" />
 

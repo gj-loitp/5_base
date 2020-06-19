@@ -11,12 +11,12 @@
         android:adjustViewBounds="true"
         android:scaleType="centerCrop" />
 
-    <com.views.realtimeblurview.LRealtimeBlurView
+    <com.github.mmin18.widget.RealtimeBlurView
         android:id="@+id/real_time_blur_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_50"
-        app:realtimeOverlayColor="@color/WhiteTrans99" />
+        app:realtimeOverlayColor="@color/whiteTrans99" />
 
     <ImageView
         android:id="@+id/iv_shadow"

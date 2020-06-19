@@ -14,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class SwipeRevealLayoutRecyclerActivity extends BaseFontActivity {
     private RecyclerView recyclerView;

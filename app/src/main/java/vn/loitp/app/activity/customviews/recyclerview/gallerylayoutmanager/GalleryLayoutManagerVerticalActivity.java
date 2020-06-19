@@ -12,7 +12,7 @@ import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.recyclerview.gallery.GalleryLayoutManager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData;
 import vn.loitp.app.common.Constants;
@@ -29,7 +29,7 @@ public class GalleryLayoutManagerVerticalActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         recyclerView = findViewById(R.id.rv);
         recyclerView1 = findViewById(R.id.rv_1);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
 
         mAdapter = new GalleryAdapterVertical(getActivity(), DummyData.Companion.getInstance().getMovieList(), new GalleryAdapterVertical.Callback() {
             @Override

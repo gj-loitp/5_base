@@ -7,9 +7,10 @@ import android.view.View.OnClickListener
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_button_menu.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity
@@ -22,12 +23,15 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_shine_button).setOnClickListener(this)
-        findViewById<View>(R.id.bt_circular_image_click).setOnClickListener(this)
-        findViewById<View>(R.id.bt_goodview).setOnClickListener(this)
-        findViewById<View>(R.id.bt_l_button).setOnClickListener(this)
-        findViewById<View>(R.id.bt_auto_size_button).setOnClickListener(this)
-        findViewById<View>(R.id.bt_rounded_button).setOnClickListener(this)
+
+        LUIUtil.setPullLikeIOSVertical(nestedScrollView)
+
+        btShineButton.setOnClickListener(this)
+        btCircularImageClick.setOnClickListener(this)
+        btGoodView.setOnClickListener(this)
+        btlButton.setOnClickListener(this)
+        btAutoSizeButton.setOnClickListener(this)
+        btRoundedButton.setOnClickListener(this)
         btQButton.setOnClickListener(this)
     }
 
@@ -45,17 +49,17 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_shine_button -> intent = Intent(activity, ShineButtonActivity::class.java)
-            R.id.bt_circular_image_click -> intent = Intent(activity, CircularImageClickActivity::class.java)
-            R.id.bt_goodview -> intent = Intent(activity, GoodViewActivity::class.java)
-            R.id.bt_l_button -> intent = Intent(activity, LButtonActivity::class.java)
-            R.id.bt_auto_size_button -> intent = Intent(activity, AutoSizeButtonActivity::class.java)
-            R.id.bt_rounded_button -> intent = Intent(activity, RoundedButtonActivity::class.java)
-            R.id.btQButton -> intent = Intent(activity, QButtonActivity::class.java)
+        when (v) {
+            btShineButton -> intent = Intent(activity, ShineButtonActivity::class.java)
+            btCircularImageClick -> intent = Intent(activity, CircularImageClickActivity::class.java)
+            btGoodView -> intent = Intent(activity, GoodViewActivity::class.java)
+            btlButton -> intent = Intent(activity, LButtonActivity::class.java)
+            btAutoSizeButton -> intent = Intent(activity, AutoSizeButtonActivity::class.java)
+            btRoundedButton -> intent = Intent(activity, RoundedButtonActivity::class.java)
+            btQButton -> intent = Intent(activity, QButtonActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

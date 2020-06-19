@@ -7,8 +7,11 @@ import com.R
  */
 object Constants {
     var IS_DEBUG = false
+
     @JvmStatic
-    val NOT_FOUND = -6969
+    val NOT_FOUND = -404
+
+    //region url img
     val URL_IMG_THUMBNAIL = "https://c1.staticflickr.com/1/584/31506863796_53a3f24062_n.jpg"
     val URL_IMG = "https://c1.staticflickr.com/9/8438/28818520263_c7ea1b3e3f_b.jpg"
     val URL_IMG_1 = "https://c1.staticflickr.com/5/4564/38746630932_93b5b54925_h.jpg"
@@ -24,28 +27,43 @@ object Constants {
     val URL_IMG_11 = "https://c2.staticflickr.com/6/5542/30333782080_ef19d1b037_b.jpg"
     val URL_IMG_12 = "https://c2.staticflickr.com/6/5491/30597322996_f317c58a31_h.jpg"
     val URL_IMG_LONG = "https://c2.staticflickr.com/6/5476/29412311793_8067369e64_b.jpg"
+    val URL_IMG_ANDROID = "https://live.staticflickr.com/4501/37154024293_0c1c0ea3ce.jpg"
+    //endregion
+
     val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen"
+
     @JvmStatic
     val TEST_0 = "6E0762FF2B272D5BCE89FEBAAB872E34"
+
     @JvmStatic
     val TEST_1 = "8FA8E91902B43DCB235ED2F6BBA9CAE0"
+
     @JvmStatic
     val TEST_2 = "58844B2E50AF6E33DC818387CC50E593"
+
     @JvmStatic
     val TEST_3 = "179198315EB7B069037C5BE8DEF8319A"
+
     @JvmStatic
     val TEST_4 = "7DA8A5B216E868636B382A7B9756A4E6"
+
     @JvmStatic
     val TEST_5 = "A1EC01C33BD69CD589C2AF605778C2E6"
+
     @JvmStatic
     val TEST_6 = "13308851AEDCA44443112D80A8D182CA"
+
     @JvmStatic
     val TEST_7 = "E3876538025DFE31EE38DC997F860C83"
+
     @JvmStatic
     val TEST_8 = "263712DA42399656FF39E197148C935A"
+
     @JvmStatic
     val TEST_9 = "462FEA8E9EF7A8BBC6E2D24CC4945511"
     val LOITP = "LoitpDebug"
+
+    //region activity transition
     var TYPE_ACTIVITY_TRANSITION_NO_ANIM = -1
     var TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT = 0
     var TYPE_ACTIVITY_TRANSITION_SLIDELEFT = 1
@@ -57,12 +75,17 @@ object Constants {
     var TYPE_ACTIVITY_TRANSITION_WINDMILL = 7
     var TYPE_ACTIVITY_TRANSITION_DIAGONAL = 8
     var TYPE_ACTIVITY_TRANSITION_SPIN = 9
+    //endregion
+
     val PREFIXS = "https://"
     val PREFIXS_SHORT = "https:"
     val FCM_TOPIC = "/topics/loitp"
     val URL_POLICY = "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/"
+
+    //region flickr
     @JvmStatic
     val SK_PHOTOSET_ID = "SK_PHOTOSET_ID"
+
     @JvmStatic
     val SK_PHOTOSET_SIZE = "SK_PHOTOSET_SIZE"
     val SK_PHOTO_ID = "SK_PHOTO_ID"
@@ -151,11 +174,16 @@ object Constants {
     val FLICKR_ID_VN_DOCDAOTHUVI = "72157672326565186"
     val FLICKR_ID_VN_ANHCHESACHGIAOKHOA = "72157670443622896"
     val FLICKR_ID_VN_ANHTHEOTEN = "72157670868460705"
+
     @JvmStatic
     val KEY_REMOVE_ALBUM_FLICKR_LIST = "KEY_REMOVE_ALBUM_FLICKR_LIST"
+    //end region
+
     val AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE"
+
     @JvmStatic
     val AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER"
+
     @JvmStatic
     val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"
     val BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN"

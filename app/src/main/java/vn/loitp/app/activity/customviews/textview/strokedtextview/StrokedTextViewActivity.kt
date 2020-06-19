@@ -4,7 +4,7 @@ import android.os.Bundle
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/melihaksoy/StrokedTextView
 class StrokedTextViewActivity : BaseFontActivity() {
@@ -22,6 +22,6 @@ class StrokedTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_stroked_text_view
+        return R.layout.activity_textview_stroked
     }
 }

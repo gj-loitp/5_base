@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="start"
         android:text="Home"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_22"
         android:textStyle="bold" />
 

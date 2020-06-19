@@ -10,7 +10,7 @@
         android:layout_height="0.0dip">
 
         <TextureView
-            android:id="@+id/player_view"
+            android:id="@+id/playerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>
@@ -29,7 +29,7 @@
             android:layout_centerVertical="true"
             android:contentDescription="@string/large_text"
             android:padding="@dimen/item_small_spacing"
-            android:src="@drawable/l_ic_play_arrow_white_36"
+            android:src="@drawable/ic_play_arrow_black_48dp"
             android:visibility="invisible" />
 
         <ImageView
@@ -41,7 +41,7 @@
             android:layout_centerVertical="true"
             android:contentDescription="@string/app_name"
             android:padding="@dimen/item_small_spacing"
-            android:src="@drawable/l_ic_pause_white_36"
+            android:src="@drawable/ic_pause_black_48dp"
             android:visibility="visible" />
 
         <LinearLayout
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="Title"
-                android:textColor="@color/Blue"
+                android:textColor="@color/blue"
                 android:textSize="@dimen/medium_font_size"
                 android:textStyle="bold" />
 
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="Subtitle"
-                android:textColor="@color/Blue"
+                android:textColor="@color/blue"
                 android:textSize="@dimen/small_font_size" />
         </LinearLayout>
     </RelativeLayout>

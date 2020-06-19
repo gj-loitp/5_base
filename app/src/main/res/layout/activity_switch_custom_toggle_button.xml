@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke"
+    android:padding="@dimen/padding_medium">
+
+    <com.views.switchtoggle.customtogglebutton.LCustomToggle
+        android:id="@+id/toggleXml1"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        app:ctg_addAnimationType="extra_animation"
+        app:ctg_addLeftIcon="@drawable/ic_play_arrow"
+        app:ctg_addMagnification="8"
+        app:ctg_addRightIcon="@drawable/ic_play_arrow"
+        app:ctg_addSlideBackgroundColor="#6c817a"
+        app:ctg_addSlideColor="#ff67" />
+
+    <com.views.switchtoggle.customtogglebutton.LCustomToggle
+        android:id="@+id/toggleXml2"
+        android:layout_width="500dp"
+        android:layout_height="125dp"
+        android:layout_below="@+id/toggleXml1"
+        android:layout_marginTop="@dimen/margin_10"
+        app:ctg_addAnimationType="jack_animation"
+        app:ctg_addLeftIcon="@drawable/ic_play_arrow"
+        app:ctg_addMagnification="5"
+        app:ctg_addRightIcon="@drawable/ic_play_arrow"
+        app:ctg_addSlideBackgroundColor="@color/colorPrimary"
+        app:ctg_addSlideColor="@color/red" />
+
+    <com.views.switchtoggle.customtogglebutton.LCustomToggle
+        android:id="@+id/toggleXml3"
+        android:layout_width="300dp"
+        android:layout_height="105dp"
+        android:layout_below="@+id/toggleXml2"
+        android:layout_marginTop="@dimen/margin_10"
+        app:ctg_addAnimationType="phantom_animation"
+        app:ctg_addLeftIcon="@drawable/ic_play_arrow"
+        app:ctg_addMagnification="10"
+        app:ctg_addRightIcon="@drawable/ic_play_arrow"
+        app:ctg_addSlideBackgroundColor="@color/grey"
+        app:ctg_addSlideColor="@color/blue" />
+
+</RelativeLayout>

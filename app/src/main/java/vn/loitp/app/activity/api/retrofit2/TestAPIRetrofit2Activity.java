@@ -15,10 +15,10 @@ import com.core.utilities.LUIUtil;
 
 import java.util.ArrayList;
 
-import loitp.basemaster.R;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import vn.loitp.app.R;
 
 public class TestAPIRetrofit2Activity extends BaseFontActivity {
     private RecyclerView mRecyclerView;
@@ -31,7 +31,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mService = ApiUtils.getSOService();
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_answers);
-        tv = (TextView) findViewById(R.id.tv);
+        tv = (TextView) findViewById(R.id.textView);
         mAdapter = new AnswersAdapter(this, new ArrayList<Item>(0), id -> Toast.makeText(getActivity(), "Post id is" + id, Toast.LENGTH_SHORT).show());
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);

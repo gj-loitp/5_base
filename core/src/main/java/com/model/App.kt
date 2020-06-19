@@ -8,6 +8,7 @@ class App {
     @SerializedName("pkg")
     @Expose
     var pkg: String? = null
+
     @SerializedName("config")
     @Expose
     var config: Config? = null

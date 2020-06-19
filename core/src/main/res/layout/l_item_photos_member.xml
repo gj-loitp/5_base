@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <View
-        android:id="@+id/view_space_top"
+        android:id="@+id/viewSpaceTop"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_80" />
 
@@ -31,12 +31,12 @@
             android:layout_gravity="bottom"
             android:gravity="center"
             android:singleLine="true"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_14" />
     </FrameLayout>
 
     <View
-        android:id="@+id/view_space_bottom"
+        android:id="@+id/viewSpaceBottom"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_150" />
 

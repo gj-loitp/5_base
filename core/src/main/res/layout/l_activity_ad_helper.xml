@@ -2,11 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/White">
+    android:background="@color/white">
 
     <com.views.imageview.continuousscrollable.LContinuousScrollableImageView
         android:layout_width="match_parent"
@@ -18,25 +17,25 @@
         app:scaleType="centerCrop" />
 
     <ImageButton
-        android:id="@+id/bt_back"
+        android:id="@+id/btBack"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
         android:layout_margin="@dimen/margin_5"
         android:background="?selectableItemBackgroundBorderless"
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
-        android:src="@drawable/l_baseline_clear_black_48"
+        android:src="@drawable/ic_close_black_48dp"
         android:tint="@color/colorPrimary" />
 
     <RelativeLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_50"
         android:layout_alignParentBottom="true"
-        android:background="@color/White">
+        android:background="@color/white">
 
         <ImageButton
-            android:id="@+id/bt_prev_screen"
+            android:id="@+id/btPrevScreen"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:layout_centerVertical="true"
@@ -44,11 +43,11 @@
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
+            android:src="@drawable/ic_chevron_left_black_48dp"
             android:tint="@color/colorPrimary" />
 
         <TextView
-            android:id="@+id/tv_page"
+            android:id="@+id/tvPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -58,7 +57,7 @@
             tools:ignore="RelativeOverlap" />
 
         <ImageButton
-            android:id="@+id/bt_next_screen"
+            android:id="@+id/btNextScreen"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:layout_alignParentEnd="true"
@@ -68,14 +67,14 @@
             android:contentDescription="@string/app_name"
             android:rotation="180"
             android:scaleType="centerInside"
-            android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
+            android:src="@drawable/ic_chevron_left_black_48dp"
             android:tint="@color/colorPrimary" />
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ll_control"
-        android:layout_below="@+id/bt_back" />
+        android:layout_above="@+id/layoutControl"
+        android:layout_below="@+id/btBack" />
 </RelativeLayout>

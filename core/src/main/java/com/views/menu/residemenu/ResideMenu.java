@@ -19,12 +19,12 @@ import android.widget.ScrollView;
 
 import com.R;
 import com.core.utilities.LUIUtil;
+import com.github.mmin18.widget.RealtimeBlurView;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
 import com.views.layout.floatdraglayout.DisplayUtil;
-import com.views.realtimeblurview.LRealtimeBlurView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,7 @@ public class ResideMenu extends FrameLayout {
     private static final int PRESSED_DONE = 4;
     private static final int PRESSED_MOVE_VERTICAL = 5;
 
-    private LRealtimeBlurView LRealtimeBlurView;
+    private RealtimeBlurView realtimeBlurView;
     private ImageView imageViewShadow;
     private ImageView imageViewBackground;
     private LinearLayout layoutLeftMenu;
@@ -103,19 +103,19 @@ public class ResideMenu extends FrameLayout {
             scrollViewLeftMenu = inflater.inflate(customLeftMenuId, this, false);
         } else {
             scrollViewLeftMenu = inflater.inflate(R.layout.residemenu_custom_left_scrollview, this, false);
-            layoutLeftMenu = (LinearLayout) scrollViewLeftMenu.findViewById(R.id.layout_left_menu);
+            layoutLeftMenu = scrollViewLeftMenu.findViewById(R.id.layout_left_menu);
         }
 
         if (customRightMenuId >= 0) {
             scrollViewRightMenu = inflater.inflate(customRightMenuId, this, false);
         } else {
             scrollViewRightMenu = inflater.inflate(R.layout.residemenu_custom_right_scrollview, this, false);
-            layoutRightMenu = (LinearLayout) scrollViewRightMenu.findViewById(R.id.layout_right_menu);
+            layoutRightMenu = scrollViewRightMenu.findViewById(R.id.layout_right_menu);
         }
 
-        LRealtimeBlurView = (LRealtimeBlurView) findViewById(R.id.real_time_blur_view);
-        imageViewShadow = (ImageView) findViewById(R.id.iv_shadow);
-        imageViewBackground = (ImageView) findViewById(R.id.iv_background);
+        realtimeBlurView = findViewById(R.id.real_time_blur_view);
+        imageViewShadow = findViewById(R.id.iv_shadow);
+        imageViewBackground = findViewById(R.id.iv_background);
 
         ScrollView svLeft = scrollViewLeftMenu.findViewById(R.id.sv_left_menu);
         ScrollView svRight = scrollViewRightMenu.findViewById(R.id.sv_right_menu);
@@ -123,7 +123,7 @@ public class ResideMenu extends FrameLayout {
         LUIUtil.INSTANCE.setPullLikeIOSVertical(svLeft);
         LUIUtil.INSTANCE.setPullLikeIOSVertical(svRight);
 
-        RelativeLayout menuHolder = (RelativeLayout) findViewById(R.id.sv_menu_holder);
+        RelativeLayout menuHolder = findViewById(R.id.sv_menu_holder);
         menuHolder.addView(scrollViewLeftMenu);
         menuHolder.addView(scrollViewRightMenu);
     }
@@ -692,12 +692,12 @@ public class ResideMenu extends FrameLayout {
         /**
          * This method will be called at the finished time of opening menu animations.
          */
-        public void openMenu();
+        void openMenu();
 
         /**
          * This method will be called at the finished time of closing menu animations.
          */
-        public void closeMenu();
+        void closeMenu();
     }
 
     private void showScrollViewMenu(View scrollViewMenu) {
@@ -712,15 +712,15 @@ public class ResideMenu extends FrameLayout {
         }
     }
 
-    public LRealtimeBlurView getLRealtimeBlurView() {
-        return LRealtimeBlurView;
+    public RealtimeBlurView getRealtimeBlurView() {
+        return realtimeBlurView;
     }
 
     public void showBlurView() {
-        LRealtimeBlurView.setVisibility(VISIBLE);
+        realtimeBlurView.setVisibility(VISIBLE);
     }
 
     public void hideBlurView() {
-        LRealtimeBlurView.setVisibility(GONE);
+        realtimeBlurView.setVisibility(GONE);
     }
 }

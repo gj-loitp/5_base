@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,12 +16,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_toggle_fullscreen"
                 style="@style/ButtonMenu"
                 android:text="@string/toggle_fullscreen" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_show_dialog"
                 style="@style/ButtonMenu"
                 android:text="@string/show_dialog_without_show_system_bar_if_fullscreen" />
@@ -32,7 +32,7 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_15"
                 android:text="@string/large_text"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_18" />
         </LinearLayout>
     </ScrollView>

@@ -3,30 +3,29 @@ package vn.loitp.app.activity.customviews.textview.extratextview
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.textview.extra.LToggleLExtraTextView
-import kotlinx.android.synthetic.main.activity_extra_textview.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_textview_extra.*
+import vn.loitp.app.R
 
 //https://github.com/chuross/extra-textview
 class ExtraTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val toggleText = findViewById<LToggleLExtraTextView>(R.id.toggle_txt)
-        toggleText.setOnClickListener { toggleText.toggle() }
+        toggleTxt.setOnClickListener { toggleTxt.toggle() }
 
-        waitingBtn.setOnClickListener {
-            if (toggleText.getState() == LToggleLExtraTextView.State.WAITING) {
-                toggleText.setState(LToggleLExtraTextView.State.IDLE)
+        btWaiting.setOnClickListener {
+            if (toggleTxt.getState() == LToggleLExtraTextView.State.WAITING) {
+                toggleTxt.setState(LToggleLExtraTextView.State.IDLE)
             } else {
-                toggleText.setState(LToggleLExtraTextView.State.WAITING)
+                toggleTxt.setState(LToggleLExtraTextView.State.WAITING)
             }
         }
 
-        activeBtn.setOnClickListener {
-            if (toggleText.getState() == LToggleLExtraTextView.State.ACTIVE) {
-                toggleText.setState(LToggleLExtraTextView.State.IDLE)
+        btActive.setOnClickListener {
+            if (toggleTxt.getState() == LToggleLExtraTextView.State.ACTIVE) {
+                toggleTxt.setState(LToggleLExtraTextView.State.IDLE)
             } else {
-                toggleText.setState(LToggleLExtraTextView.State.ACTIVE)
+                toggleTxt.setState(LToggleLExtraTextView.State.ACTIVE)
             }
         }
     }
@@ -40,6 +39,6 @@ class ExtraTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_extra_textview
+        return R.layout.activity_textview_extra
     }
 }

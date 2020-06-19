@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class DragDropSampleActivity extends BaseFontActivity {
     private ImageView paper;
@@ -25,7 +25,7 @@ public class DragDropSampleActivity extends BaseFontActivity {
 
         trash.setOnDragListener(new TrashDragListener(
                 R.mipmap.ic_launcher,
-                R.drawable.search_color));
+                R.drawable.ic_search_black_48dp));
 
         trash.setOnClickListener(new View.OnClickListener() {
             @Override

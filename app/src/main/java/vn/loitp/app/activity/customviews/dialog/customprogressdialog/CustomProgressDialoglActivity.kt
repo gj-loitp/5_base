@@ -1,19 +1,20 @@
 package vn.loitp.app.activity.customviews.dialog.customprogressdialog
 
 import android.os.Bundle
-import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_dialog_custom_progress.*
+import vn.loitp.app.R
 
 class CustomProgressDialoglActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_0).setOnClickListener {
+
+        bt0.setOnClickListener {
             val alertDialog = LDialogUtil.showCustomProgressDialog(activity, 0.1f)
-            LUIUtil.setDelay(3000, Runnable {
+            LUIUtil.setDelay(mls = 3000, runnable = Runnable {
                 alertDialog?.dismiss()
             })
         }
@@ -28,6 +29,6 @@ class CustomProgressDialoglActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_custom_progress_dialog
+        return R.layout.activity_dialog_custom_progress
     }
 }

@@ -1,14 +1,15 @@
 package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.jetbrains.annotations.NotNull;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ParallaxAdapter extends RecyclerView.Adapter {
 

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.picker.number.LNumberPicker
+                android:id="@+id/lnb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_18" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSet"
+                style="@style/ButtonMenu"
+                android:text="Set" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMin"
+                style="@style/ButtonMenu"
+                android:text="Min" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMax"
+                style="@style/ButtonMenu"
+                android:text="Max" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btReset"
+                style="@style/ButtonMenu"
+                android:text="Reset" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Number Picker" />
+</RelativeLayout>

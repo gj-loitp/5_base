@@ -5,8 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
-import android.widget.TextView
-import com.amitshekhar.DebugDB
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.GGSettingCallback
@@ -16,10 +14,10 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.model.App
-import com.views.LToast
-import loitp.basemaster.BuildConfig
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.*
+import vn.loitp.app.BuildConfig
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 import java.io.IOException
 
@@ -34,23 +32,23 @@ class SplashActivity : BaseFontActivity() {
             isAnimDone = true
             goToHome()
         })
-        val tv = findViewById<TextView>(R.id.tv)
-        tv.text = "Version ${BuildConfig.VERSION_NAME}"
+        textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
 
-        val tvPolicy = findViewById<TextView>(R.id.tv_policy)
-        LUIUtil.setTextShadow(tvPolicy)
-        tvPolicy.setOnClickListener { LSocialUtil.openBrowserPolicy(activity) }
+        LUIUtil.setTextShadow(textView = tvPolicy)
+        tvPolicy.setOnClickListener {
+            LSocialUtil.openBrowserPolicy(context = activity)
+        }
 
         getSettingFromGGDrive()
 
         startIdleTimeHandler(10 * 1000)
-        val getAddressLog = DebugDB.getAddressLog()
-        LLog.d(TAG, "getAddressLog $getAddressLog")
+        //val getAddressLog = DebugDB.getAddressLog()
+        //LLog.d(TAG, "getAddressLog $getAddressLog")
     }
 
     override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
         super.onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
-        LToast.showLong(activity, "onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime: $isIdleTime")
+        showShort("onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
 
     override fun onResume() {
@@ -73,7 +71,6 @@ class SplashActivity : BaseFontActivity() {
                         override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                             // check if all permissions are granted
                             if (report.areAllPermissionsGranted()) {
-                                LLog.d(TAG, "onPermissionsChecked do you work now")
                                 val isNeedCheckReady = false
                                 if (isNeedCheckReady) {
                                     checkReady()
@@ -82,20 +79,17 @@ class SplashActivity : BaseFontActivity() {
                                     goToHome()
                                 }
                             } else {
-                                LLog.d(TAG, "!areAllPermissionsGranted")
                                 showShouldAcceptPermission()
                             }
 
                             // check for permanent denial of any permission
                             if (report.isAnyPermissionPermanentlyDenied) {
-                                LLog.d(TAG, "onPermissionsChecked permission is denied permenantly, navigate user to app settings")
                                 showSettingsDialog()
                             }
                             isShowDialogCheck = true
                         }
 
                         override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
-                            LLog.d(TAG, "onPermissionRationaleShouldBeShown")
                             token.continuePermissionRequest()
                         }
                     })
@@ -156,13 +150,12 @@ class SplashActivity : BaseFontActivity() {
             goToHome()
             return
         }
-        LLog.d(TAG, "checkReady")
         val LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
         val request = Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build()
         val okHttpClient = OkHttpClient()
         okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
-                LLog.d(TAG, "onFailure $e")
+                logE("onFailure $e")
                 showDialogNotReady()
             }
 
@@ -171,7 +164,7 @@ class SplashActivity : BaseFontActivity() {
                 if (response.isSuccessful) {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     val versionServer = Integer.parseInt(response.body()!!.string())
-                    LLog.d(TAG, "onResponse $versionServer")
+                    logD("onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true
                         LPrefUtil.setCheckAppReady(activity, true)
@@ -180,7 +173,7 @@ class SplashActivity : BaseFontActivity() {
                         showDialogNotReady()
                     }
                 } else {
-                    LLog.d(TAG, "onResponse !isSuccessful: $response")
+                    logD("onResponse !isSuccessful: $response")
                     showDialogNotReady()
                 }
             }
@@ -200,45 +193,57 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", object : LDialogUtil.Callback2 {
-            override fun onClick1() {
-                isShowDialogCheck = false
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                val uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                startActivityForResult(intent, 101)
-            }
+        val alertDialog = LDialogUtil.showDialog2(
+                context = activity,
+                title = "Need Permissions",
+                msg = "This app needs permission to use this feature. You can grant them in app settings.",
+                button1 = "GOTO SETTINGS",
+                button2 = "Cancel",
+                callback2 = object : LDialogUtil.Callback2 {
+                    override fun onClick1() {
+                        isShowDialogCheck = false
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                        val uri = Uri.fromParts("package", packageName, null)
+                        intent.data = uri
+                        startActivityForResult(intent, 101)
+                    }
 
-            override fun onClick2() {
-                onBackPressed()
-            }
-        })
+                    override fun onClick2() {
+                        onBackPressed()
+                    }
+                })
         alertDialog.setCancelable(false)
     }
 
     private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", object : LDialogUtil.Callback2 {
-            override fun onClick1() {
-                checkPermission()
-            }
+        val alertDialog = LDialogUtil.showDialog2(
+                context = activity, title = "Need Permissions",
+                msg = "This app needs permission to use this feature.",
+                button1 = "Okay", button2 = "Cancel",
+                callback2 = object : LDialogUtil.Callback2 {
+                    override fun onClick1() {
+                        checkPermission()
+                    }
 
-            override fun onClick2() {
-                onBackPressed()
-            }
-        })
+                    override fun onClick2() {
+                        onBackPressed()
+                    }
+                })
         alertDialog.setCancelable(false)
     }
 
     private fun getSettingFromGGDrive() {
         val linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
-        LStoreUtil.getSettingFromGGDrive(activity, linkGGDriveConfigSetting, object : GGSettingCallback {
-            override fun onGGFailure(call: Call, e: IOException) {
-            }
+        LStoreUtil.getSettingFromGGDrive(
+                context = activity,
+                linkGGDriveSetting = linkGGDriveConfigSetting,
+                ggSettingCallback = object : GGSettingCallback {
+                    override fun onGGFailure(call: Call, e: IOException) {
+                    }
 
-            override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
-                LLog.d(TAG, "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
-                //LPrefUtil.setGGAppSetting(activity, app);
-            }
-        })
+                    override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
+                        logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
+                    }
+                })
     }
 }

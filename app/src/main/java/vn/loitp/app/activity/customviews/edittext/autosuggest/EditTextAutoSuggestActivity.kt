@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.LToast
 import com.views.edittext.autosuggest.LAutoSuggestEditText
@@ -14,8 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_editext_auto_suggest.*
-import loitp.basemaster.R
-import vn.loitp.app.app.LApplication
+import vn.loitp.app.R
 
 class EditTextAutoSuggestActivity : BaseFontActivity() {
     private var disposableSearch: Disposable? = null
@@ -30,7 +28,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet0.setColorProgressBar(Color.RED)
         aet0.setBackgroundResource(R.drawable.bkg_et)
         aet0.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
-            LToast.show(activity, "Text ${aet0.et.text}")
+            LToast.show(activity, "Text ${aet0.editText.text}")
         })
         aet0.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
@@ -44,10 +42,11 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet1.horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT
         aet1.setHintText("3/4 screen")
         aet1.setHinTextColor(Color.WHITE)
-        aet1.setColorProgressBar(Color.BLUE)
+        aet1.editText.setTextColor(Color.WHITE)
+        aet1.setColorProgressBar(Color.WHITE)
         aet1.setBackgroundResource(R.drawable.l_bkg_horizontal)
         aet1.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
-            LToast.show(activity, "Text ${aet1.et.text}")
+            LToast.show(activity, "Text ${aet1.editText.text}")
         })
         aet1.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
@@ -69,7 +68,6 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     }
 
     private fun fakeCallAPI0(text: String) {
-        LLog.d(TAG, "fakeCallAPI0 $text")
         disposableSearch?.dispose()
         if (text.isEmpty()) {
             return
@@ -87,22 +85,19 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnDispose {
-                    LLog.d(TAG, "doOnDispose")
+                    logD("doOnDispose")
                 }
                 .subscribe(
                         {
-                            LLog.d(TAG, "fakeCallAPI0 " + LApplication.gson.toJson(it))
                             aet0.setResultList(it)
                         },
                         {
-                            LLog.e(TAG, "fakeCallAPI0 $it")
                             aet0.clearResultList()
                         }
                 )
     }
 
     private fun fakeCallAPI1(text: String) {
-        LLog.d(TAG, "fakeCallAPI0 $text")
         disposableSearch?.dispose()
         if (text.isEmpty()) {
             return
@@ -120,15 +115,13 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnDispose {
-                    LLog.d(TAG, "doOnDispose")
+                    logD("doOnDispose")
                 }
                 .subscribe(
                         {
-                            LLog.d(TAG, "fakeCallAPI0 " + LApplication.gson.toJson(it))
                             aet1.setResultList(it)
                         },
                         {
-                            LLog.e(TAG, "fakeCallAPI0 $it")
                             aet1.clearResultList()
                         }
                 )

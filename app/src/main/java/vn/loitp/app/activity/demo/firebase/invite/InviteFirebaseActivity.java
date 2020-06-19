@@ -13,14 +13,11 @@ import com.core.base.BaseFontActivity;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.appinvite.FirebaseAppInvite;
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
-import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
 public class InviteFirebaseActivity extends BaseFontActivity implements

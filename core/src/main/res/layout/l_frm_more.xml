@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/sv"
+        android:id="@+id/nestedScrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/bt_ad_helper"
+                android:id="@+id/btAdHelper"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -34,7 +34,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_help_4" />
+                    android:src="@drawable/ic_help_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -46,7 +46,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bt_rate_app"
+                android:id="@+id/btRateApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -62,7 +62,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/rating" />
+                    android:src="@drawable/ic_rate_review_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -74,7 +74,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bt_more_app"
+                android:id="@+id/btMoreApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -90,7 +90,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_gift" />
+                    android:src="@drawable/ic_card_giftcard_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -102,7 +102,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bt_share_app"
+                android:id="@+id/btShareApp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -118,7 +118,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/share" />
+                    android:src="@drawable/ic_share_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -130,7 +130,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bt_like_fb_fanpage"
+                android:id="@+id/btLikeFbFanpage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -146,7 +146,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_facebook" />
+                    android:src="@drawable/ic_favorite_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -158,7 +158,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/bt_support"
+                android:id="@+id/btSupport"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
@@ -174,7 +174,7 @@
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/l_ic_help" />
+                    android:src="@drawable/ic_live_help_black_48dp" />
 
                 <TextView
                     android:layout_width="match_parent"

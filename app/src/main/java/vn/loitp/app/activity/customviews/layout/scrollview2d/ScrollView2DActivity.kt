@@ -1,20 +1,18 @@
 package vn.loitp.app.activity.customviews.layout.scrollview2d
 
 import android.os.Bundle
-
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
-import com.views.scrollview.TwoDScrollView
-
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_layout_scrollview_2d.*
+import vn.loitp.app.R
 
 class ScrollView2DActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val twoDScrollView = findViewById<TwoDScrollView>(R.id.sv)
-        twoDScrollView.setScrollChangeListner { view, x, y, oldx, oldy -> LLog.d(TAG, "setScrollChangeListner $x - $y") }
+        twoDScrollView.setScrollChangeListner { _, x, y, oldx, oldy ->
+            logD("setScrollChangeListner $x - $y - $oldx - $oldy")
+        }
         LUIUtil.setDelay(2000, Runnable {
             twoDScrollView.smoothScrollTo(300, 300)
         })
@@ -29,6 +27,6 @@ class ScrollView2DActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scrollview_2d
+        return R.layout.activity_layout_scrollview_2d
     }
 }

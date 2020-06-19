@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,22 +10,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btRealm"
             style="@style/ButtonMenu"
             android:text="@string/demo_ebook_app_with_realm" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
             android:text="@string/clear_all" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAdd"
             style="@style/ButtonMenu"
             android:text="@string/add_dummy_mybook" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btSearchById"
             style="@style/ButtonMenu"
             android:text="@string/search_book_by_id" />
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/demo_realm_nclick_to_edit_long_click_to_delete"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_20" />
         </LinearLayout>
     </ScrollView>

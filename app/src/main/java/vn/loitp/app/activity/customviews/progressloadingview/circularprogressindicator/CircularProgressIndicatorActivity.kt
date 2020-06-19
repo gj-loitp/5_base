@@ -9,8 +9,8 @@ import android.widget.SeekBar
 import android.widget.SimpleAdapter
 import com.core.base.BaseFontActivity
 import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator
-import kotlinx.android.synthetic.main.activity_circular_progress_indicator.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_progress_circular_progress_indicator.*
+import vn.loitp.app.R
 import java.util.*
 
 class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListener,
@@ -32,49 +32,49 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
         textSize.setOnSeekBarChangeListener(this)
         dotWidth.setOnSeekBarChangeListener(this)
 
-        drawDot.setOnCheckedChangeListener { buttonView, isChecked ->
+        drawDot.setOnCheckedChangeListener { _, isChecked ->
             circularProgress.setShouldDrawDot(isChecked)
             dotWidth.isEnabled = isChecked
             dotColor.isEnabled = isChecked
         }
-        useCustomTextAdapter.setOnCheckedChangeListener { buttonView, isChecked -> circularProgress.setProgressTextAdapter(if (isChecked) TIME_TEXT_ADAPTER else null) }
-        fillBackground.setOnCheckedChangeListener { buttonView, isChecked -> circularProgress.isFillBackgroundEnabled = isChecked }
+        useCustomTextAdapter.setOnCheckedChangeListener { _, isChecked -> circularProgress.setProgressTextAdapter(if (isChecked) TIME_TEXT_ADAPTER else null) }
+        fillBackground.setOnCheckedChangeListener { _, isChecked -> circularProgress.isFillBackgroundEnabled = isChecked }
 
-        progressCap.setOnCheckedChangeListener { group, checkedId ->
+        progressCap.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
-                R.id.rb_cap_butt -> circularProgress.progressStrokeCap = CircularProgressIndicator.CAP_BUTT
-                R.id.rb_cap_round -> circularProgress.progressStrokeCap = CircularProgressIndicator.CAP_ROUND
+                R.id.rbCapButt -> circularProgress.progressStrokeCap = CircularProgressIndicator.CAP_BUTT
+                R.id.rbCapRound -> circularProgress.progressStrokeCap = CircularProgressIndicator.CAP_ROUND
             }
         }
 
         circularProgress.onProgressChangeListener = CircularProgressIndicator.OnProgressChangeListener { progress, maxProgress -> Log.d("PROGRESS", String.format("Current: %1$.0f, max: %2$.0f", progress, maxProgress)) }
 
-        animationSwitch.setOnCheckedChangeListener { buttonView, isChecked -> circularProgress.isAnimationEnabled = isChecked }
+        animationSwitch.setOnCheckedChangeListener { _, isChecked -> circularProgress.isAnimationEnabled = isChecked }
 
-        val gradients = ArrayList<HashMap<String, String>>()
+        val listGradient = ArrayList<HashMap<String, String>>()
         var gradient = HashMap<String, String>()
         gradient["type"] = "No gradient"
         gradient["value"] = "0"
-        gradients.add(gradient)
+        listGradient.add(gradient)
 
         gradient = HashMap()
         gradient["type"] = "Linear"
         gradient["value"] = "1"
-        gradients.add(gradient)
+        listGradient.add(gradient)
 
         gradient = HashMap()
         gradient["type"] = "Radial"
         gradient["value"] = "2"
-        gradients.add(gradient)
+        listGradient.add(gradient)
 
         gradient = HashMap()
         gradient["type"] = "Sweep"
         gradient["value"] = "3"
-        gradients.add(gradient)
+        listGradient.add(gradient)
 
         gradientType.adapter = SimpleAdapter(
                 this,
-                gradients,
+                listGradient,
                 android.R.layout.simple_dropdown_item_1line,
                 arrayOf("type"),
                 intArrayOf(android.R.id.text1)
@@ -82,7 +82,7 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
 
         gradientType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                gradients[position]["value"]?.let { v ->
+                listGradient[position]["value"]?.let { v ->
                     circularProgress.setGradient(Integer.parseInt(v), Color.MAGENTA)
                 }
             }
@@ -100,7 +100,7 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_circular_progress_indicator
+        return R.layout.activity_progress_circular_progress_indicator
     }
 
     override fun onClick(v: View) {

@@ -72,7 +72,6 @@ class LToggleLExtraTextView : LExtraTextView {
                 isEnabled = true
                 requestLayout()
             }
-            else -> throw IllegalStateException("state is not found.")
         }
     }
 

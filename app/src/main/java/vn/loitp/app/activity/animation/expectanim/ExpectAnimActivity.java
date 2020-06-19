@@ -6,7 +6,7 @@ import com.core.base.BaseFontActivity;
 import com.core.base.BaseFragment;
 import com.core.utilities.LScreenUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/florent37/ExpectAnim/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5335
 public class ExpectAnimActivity extends BaseFontActivity {

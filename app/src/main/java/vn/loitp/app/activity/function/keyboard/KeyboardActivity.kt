@@ -2,13 +2,12 @@ package vn.loitp.app.activity.function.keyboard
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
-import com.views.OnSingleClickListener
+import com.views.setSafeOnClickListener
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 import kotlinx.android.synthetic.main.activity_keyboard.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/ParkSangGwon/TedKeyboardObserver
 class KeyboardActivity : BaseFontActivity() {
@@ -20,19 +19,15 @@ class KeyboardActivity : BaseFontActivity() {
         TedRxKeyboardObserver(this)
                 .listen()
                 .subscribe({ isShow ->
-                    tv.text = "isShow $isShow"
+                    textView.text = "isShow $isShow"
                 }, { throwable -> throwable.printStackTrace() })
 
-        btShow.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                LKeyBoardUtil.show(activity)
-            }
-        })
-        btHide.setOnClickListener(object : OnSingleClickListener() {
-            override fun onSingleClick(v: View) {
-                LKeyBoardUtil.hide(activity)
-            }
-        })
+        btShow.setSafeOnClickListener {
+            LKeyBoardUtil.show(activity)
+        }
+        btHide.setSafeOnClickListener {
+            LKeyBoardUtil.hide(activity)
+        }
     }
 
     override fun setFullScreen(): Boolean {

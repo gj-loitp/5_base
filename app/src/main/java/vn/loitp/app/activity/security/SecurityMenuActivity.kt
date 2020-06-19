@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_security_menu.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.security.simple.SimpleEncryptDecryptStringActivity
 
 class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
@@ -30,11 +30,11 @@ class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt0 -> intent = Intent(activity, SimpleEncryptDecryptStringActivity::class.java)
+        when (v) {
+            bt0 -> intent = Intent(activity, SimpleEncryptDecryptStringActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

@@ -97,13 +97,13 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
     }
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val iv: ImageView = v.findViewById(R.id.iv)
+        val iv: ImageView = v.findViewById(R.id.imageView)
         val tvLabel: TextView = v.findViewById(R.id.tv_label)
         val tvUpdate: TextView = v.findViewById(R.id.tv_update)
         val tvNumber: TextView = v.findViewById(R.id.tv_number)
-        val rootView: LinearLayout = v.findViewById(R.id.root_view)
-        val viewSpaceTop: View = v.findViewById(R.id.view_space_top)
-        val viewSpaceBottom: View = v.findViewById(R.id.view_space_bottom)
+        val rootView: LinearLayout = v.findViewById(R.id.rootView)
+        val viewSpaceTop: View = v.findViewById(R.id.viewSpaceTop)
+        val viewSpaceBottom: View = v.findViewById(R.id.viewSpaceBottom)
     }
 
     interface Callback {

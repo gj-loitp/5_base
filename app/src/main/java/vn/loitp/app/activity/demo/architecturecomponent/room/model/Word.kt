@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = Word.TABLE_WORD)
 class Word {
     companion object {
-        const val DB_NAME_WORD = "word_database"
-        const val TABLE_WORD = "word_table"
+        const val DB_NAME_WORD = "database_word"
+        const val TABLE_WORD = "table_word"
         const val COL_ID = "id"
         const val COL_WORD = "word"
     }

@@ -1,10 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
-/**
- * Created by a13088 on 2015/07/21.
- */
 enum class Demo(var titleResId: Int) {
 
     BASIC(R.string.title_basic),

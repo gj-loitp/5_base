@@ -12,7 +12,7 @@ import com.core.base.BaseFragment;
 import com.function.expectanim.ExpectAnim;
 import com.utils.util.ConvertUtils;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 import static com.function.expectanim.core.Expectations.alpha;
 import static com.function.expectanim.core.Expectations.height;

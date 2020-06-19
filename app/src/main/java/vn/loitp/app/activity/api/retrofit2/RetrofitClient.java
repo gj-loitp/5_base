@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.api.retrofit2;
 
-/**
- * Created by LENOVO on 2/23/2018.
- */
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

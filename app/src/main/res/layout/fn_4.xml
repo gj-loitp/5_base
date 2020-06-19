@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/DeepPink"
+    android:background="@color/deepPink"
     android:orientation="vertical">
 
     <TextView
         style="@style/TextMenu"
         android:text="@string/fn3" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         style="@style/ButtonMenu"
         android:text="@string/app_name" />
 
@@ -18,7 +18,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:text="fn 4"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_50"
         android:textStyle="bold" />
 

@@ -33,7 +33,7 @@ import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class VideoActivity extends BaseFontActivity implements VideoRendererEventListener {
     private SimpleExoPlayerView simpleExoPlayerView;
@@ -45,7 +45,7 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
         super.onCreate(savedInstanceState);
 
         resolutionTextView = findViewById(R.id.resolution_textView);
-        simpleExoPlayerView = findViewById(R.id.player_view);
+        simpleExoPlayerView = findViewById(R.id.playerView);
 
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
         TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveTrackSelection.Factory(bandwidthMeter);

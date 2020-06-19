@@ -10,7 +10,7 @@ import com.core.base.BaseFontActivity;
 import com.views.ldebugview.LComunicateDebug;
 import com.views.ldebugview.LDebug;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
@@ -24,7 +24,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        btStart = findViewById(R.id.bt_start);
+        btStart = findViewById(R.id.btStart);
         btStop = findViewById(R.id.bt_stop);
         btSendD = findViewById(R.id.bt_send_d);
         btSendI = findViewById(R.id.bt_send_i);
@@ -62,7 +62,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_start:
+            case R.id.btStart:
                 LDebug.init(getActivity());
                 btStop.setEnabled(true);
                 btSendD.setEnabled(true);

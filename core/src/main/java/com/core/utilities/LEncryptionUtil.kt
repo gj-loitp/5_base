@@ -24,10 +24,9 @@ object LEncryptionUtil {
         if (plaintext == null) {
             return null
         }
-        val salt = generateSalt()
-        val key = deriveKey(password, salt)
-
         try {
+            val salt = generateSalt()
+            val key = deriveKey(password, salt)
             val cipher = Cipher.getInstance(CIPHER_ALGORITHM)
             val iv = generateIv(cipher.blockSize)
             val ivParams = IvParameterSpec(iv)
@@ -46,33 +45,41 @@ object LEncryptionUtil {
                     DELIMITER,
                     toBase64(cipherText))
 
-        } catch (e: GeneralSecurityException) {
-            throw RuntimeException(e)
         }
-
+        /*catch (e: GeneralSecurityException) {
+            throw RuntimeException(e)
+        }*/
+        catch (e: Exception) {
+            e.printStackTrace()
+            return null
+        }
     }
 
     fun decrypt(cipherText: String?, password: String): String? {
         if (cipherText == null) {
             return null
         }
-        val fields = cipherText.split(DELIMITER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        if (fields.size != 3) {
-            throw IllegalArgumentException("Invalid encypted text format")
-        }
-        val salt = fromBase64(fields[0])
-        val iv = fromBase64(fields[1])
-        val cipherBytes = fromBase64(fields[2])
-        val key = deriveKey(password, salt)
-
         try {
+            val fields = cipherText.split(DELIMITER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            if (fields.size != 3) {
+                throw IllegalArgumentException("Invalid encypted text format")
+            }
+            val salt = fromBase64(fields[0])
+            val iv = fromBase64(fields[1])
+            val cipherBytes = fromBase64(fields[2])
+            val key = deriveKey(password, salt)
             val cipher = Cipher.getInstance(CIPHER_ALGORITHM)
             val ivParams = IvParameterSpec(iv)
             cipher.init(Cipher.DECRYPT_MODE, key, ivParams)
             val plaintext = cipher.doFinal(cipherBytes)
             return String(plaintext, StandardCharsets.UTF_8)
-        } catch (e: GeneralSecurityException) {
+        }
+        /*catch (e: GeneralSecurityException) {
             throw RuntimeException(e)
+        }*/
+        catch (e: Exception) {
+            e.printStackTrace()
+            return null
         }
     }
 

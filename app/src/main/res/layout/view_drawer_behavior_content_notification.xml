@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.legacy.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="12dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_notifications_none_white_24dp"
+        android:drawablePadding="6dp"
+        android:text="@string/loitp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium" />
+
+    <androidx.legacy.widget.Space
+        android:layout_width="wrap_content"
+        android:layout_height="12dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#6fff" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Chiều ngày 14/3, UBND TP. HCM vừa có công văn khẩn yêu cầu tạm ngừng hoạt động của các rạp chiếu phim, quán bar, game online, điểm massage, karaoke, vũ trường, sân khấu kể từ 18h ngày 15/3.
+Văn bản chỉ đạo trên được chuyển khẩn đến các Sở ngành và UBND 24 quận/huyện trên địa bàn thành phố.
+
+Chỉ đạo trên được xét theo đề xuất của Sở Văn hóa và Thể thao Thành phố nhằm hạn chế tụ tập đông người, hạn chế nguy cơ dịch bệnh Covid-19 bùng phát trên Thành phố. Theo đó, UBND chỉ đạo tạm ngừng các hoạt động kinh doanh các dịch vụ rạp chiếu phim, quán bar, game online, điểm massage, karaoke, vũ trường, sân khấu. Việc ngừng hoạt động bắt đầu từ 18 giờ ngày 15/3/2020 đến hết ngày 31/3/2020.
+
+UBND TP. HCM giao Sở Văn hóa – Thể thao, Sở Y tế và các sở ngành liên quan, UBND các quận/huyện theo dõi, kiểm tra và chịu trách nhiệm triển khai thực hiện quyết định trên.
+
+TP.HCM tạm ngừng hoạt động các rạp chiếu phim, quán bar... từ 18h ngày mai - Ảnh 1.
+Ảnh minh hoạ
+
+Trước đó, chiều 14/3, UBND Quận 1 cũng đã có văn bản chỉ đạo về việc tạm ngưng các hoạt động giải trí vui chơi tập trung đông người để phòng dịch Covid-19.
+
+Theo đó, từ 18 giờ tối nay (14/3), UBND Quận 1 đề nghị các cơ sở kinh doanh dịch vụ rạp chiếu phim, massage, karaoke, quán bar, beerclub, vũ trường hoạt động riêng lẻ và các nhà hàng khách sạn có kinh doanh loại hình dịch vụ trên tạm ngưng hoạt động.
+
+"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

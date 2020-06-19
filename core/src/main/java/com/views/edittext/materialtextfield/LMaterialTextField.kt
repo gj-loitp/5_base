@@ -239,7 +239,7 @@ open class LMaterialTextField : FrameLayout {
         ViewCompat.setAlpha(editText, 0f)
         editText?.setBackgroundColor(Color.TRANSPARENT)
 
-        labelTopMargin = FrameLayout.LayoutParams::class.java.cast(label?.layoutParams)!!.topMargin
+        labelTopMargin = LayoutParams::class.java.cast(label?.layoutParams)!!.topMargin
 
         customizeFromAttributes()
 

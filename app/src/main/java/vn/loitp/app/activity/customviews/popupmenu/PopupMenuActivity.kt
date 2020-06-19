@@ -6,17 +6,18 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.views.LToast
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_menu_popup.*
+import vn.loitp.app.R
 
 class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_show_1).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_2).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_3).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_4).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_5).setOnClickListener(this)
+        btShow1.setOnClickListener(this)
+        btShow2.setOnClickListener(this)
+        btShow3.setOnClickListener(this)
+        btShow4.setOnClickListener(this)
+        btShow5.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -28,16 +29,16 @@ class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_popup_menu
+        return R.layout.activity_menu_popup
     }
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.bt_show_1,
-            R.id.bt_show_2,
-            R.id.bt_show_3,
-            R.id.bt_show_4,
-            R.id.bt_show_5 -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
+            R.id.btShow1,
+            R.id.btShow2,
+            R.id.btShow3,
+            R.id.btShow4,
+            R.id.btShow5 -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
                 override fun clickOnItem(menuItem: MenuItem) {
                     LToast.show(activity, menuItem.getTitle().toString())
                 }

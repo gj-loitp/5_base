@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_item_diff_util.view.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import kotlin.properties.Delegates
 
 class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUpdatableAdapter {
-    val TAG: String = "TAG" + javaClass.simpleName
+    val TAG: String = javaClass.simpleName
 
     var items: List<Content> by Delegates.observable(emptyList()) { _, old, new ->
         autoNotify(old, new) { o, n -> o.id == n.id }

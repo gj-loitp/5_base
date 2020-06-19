@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:background="@color/LightYellow"
+    android:background="@color/lightYellow"
     android:clickable="true"
     android:focusable="true"
     android:gravity="center"
@@ -13,7 +13,7 @@
         android:id="@+id/guest_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/Black"
+        android:textColor="@color/black"
         android:textSize="12sp" />
 
     <TextView

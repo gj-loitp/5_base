@@ -1,18 +1,19 @@
 package vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager;
 
 import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 
 public class GalleryAdapterVertical extends RecyclerView.Adapter<GalleryAdapterVertical.MovieViewHolder> {
@@ -37,8 +38,8 @@ public class GalleryAdapterVertical extends RecyclerView.Adapter<GalleryAdapterV
 
         MovieViewHolder(View view) {
             super(view);
-            textView = view.findViewById(R.id.tv);
-            rootView = view.findViewById(R.id.root_view);
+            textView = view.findViewById(R.id.textView);
+            rootView = view.findViewById(R.id.rootView);
         }
     }
 

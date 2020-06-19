@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.function.simplefingergestures.SimpleFingerGestures;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class SimpleFingerGesturesActivity extends BaseFontActivity {
     private SimpleFingerGestures mySfg = new SimpleFingerGestures();
@@ -18,7 +18,7 @@ public class SimpleFingerGesturesActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ImageView mv = (ImageView) findViewById(R.id.myview);
-        final TextView grtv = (TextView) findViewById(R.id.tv);
+        final TextView grtv = (TextView) findViewById(R.id.textView);
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);

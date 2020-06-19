@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <ImageView
         android:layout_width="match_parent"
@@ -13,11 +13,11 @@
         android:scaleType="centerCrop"
         android:src="@drawable/logo" />
 
-    <com.views.realtimeblurview.LRealtimeBlurView
+    <com.github.mmin18.widget.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_5"
-        app:realtimeOverlayColor="@color/black_35" />
+        app:realtimeOverlayColor="@color/black35" />
 
     <ImageView
         android:layout_width="@dimen/w_250"
@@ -27,36 +27,36 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
-    <com.views.progressloadingview.avl.LAVLoadingIndicatorView
-        android:id="@+id/avi"
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/indicatorView"
         style="@style/AVLoadingIndicatorView.Large"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
-        android:layout_above="@+id/tv"
+        android:layout_above="@+id/textViewVersion"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/margin_10"
-        app:indicatorColor="@color/White"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:indicatorColor="@color/white"
         app:indicatorName="PacmanIndicator" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textViewVersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_policy"
+        android:layout_above="@+id/tvPolicy"
         android:gravity="center"
-        android:textColor="@color/White"
-        android:textSize="@dimen/txt_18"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_policy"
+        android:id="@+id/tvPolicy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_medium"
         android:text="@string/policy"
         android:textColor="@drawable/text_white_black"
-        android:textSize="@dimen/txt_10" />
+        android:textSize="@dimen/txt_medium" />
 </RelativeLayout>

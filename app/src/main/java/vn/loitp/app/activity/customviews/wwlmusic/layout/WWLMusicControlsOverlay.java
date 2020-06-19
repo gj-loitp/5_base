@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by thangn on 2/26/17.

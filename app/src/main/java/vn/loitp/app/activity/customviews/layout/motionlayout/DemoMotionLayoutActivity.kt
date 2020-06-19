@@ -7,8 +7,7 @@ import android.widget.ImageView
 import androidx.annotation.RequiresApi
 import androidx.constraintlayout.motion.widget.MotionLayout
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP) // for View#clipToOutline
 class DemoMotionLayoutActivity : BaseFontActivity() {
@@ -29,7 +28,6 @@ class DemoMotionLayoutActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LLog.d(TAG, "onCreate")
         //val layout = intent.getIntExtra("layout_file_id", R.layout.motion_01_basic)
         //setContentView(layout)
         container = findViewById(R.id.motionLayout)

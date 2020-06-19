@@ -6,14 +6,14 @@ import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class OverScrollActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val tv = findViewById(R.id.tv) as TextView
+        val tv = findViewById(R.id.textView) as TextView
         tv.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.overscroll)
     }
 

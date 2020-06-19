@@ -57,7 +57,7 @@ class LEditText : RelativeLayout {
         ll = findViewById(R.id.ll)
         rootView = findViewById(R.id.rootView)
 
-        editText.setOnFocusChangeListener { view, isFocus ->
+        editText.setOnFocusChangeListener { _, isFocus ->
             if (isFocus) {
                 mcv.strokeColor = colorFocus
             } else {

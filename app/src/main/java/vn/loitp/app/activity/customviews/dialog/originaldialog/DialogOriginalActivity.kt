@@ -12,19 +12,19 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.views.LToast
 import kotlinx.android.synthetic.main.activity_dialog_original.*
-
+import vn.loitp.app.R
 
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private var testRun: TestRun? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(loitp.basemaster.R.id.bt_show_1).setOnClickListener(this)
-        findViewById<View>(loitp.basemaster.R.id.bt_show_2).setOnClickListener(this)
-        findViewById<View>(loitp.basemaster.R.id.bt_show_3).setOnClickListener(this)
-        findViewById<View>(loitp.basemaster.R.id.bt_show_list).setOnClickListener(this)
-        findViewById<View>(loitp.basemaster.R.id.bt_progress_dialog).setOnClickListener(this)
-        btInputDialog.setOnClickListener { showInputDialog() }
+        btShow1.setOnClickListener(this)
+        btShow2.setOnClickListener(this)
+        btShow3.setOnClickListener(this)
+        btShowList.setOnClickListener(this)
+        btProgressDialog.setOnClickListener(this)
+        btInputDialog.setOnClickListener(this)
     }
 
     override fun onDestroy() {
@@ -41,54 +41,71 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return loitp.basemaster.R.layout.activity_dialog_original
+        return R.layout.activity_dialog_original
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            loitp.basemaster.R.id.bt_show_1 -> show1()
-            loitp.basemaster.R.id.bt_show_2 -> show2()
-            loitp.basemaster.R.id.bt_show_3 -> show3()
-            loitp.basemaster.R.id.bt_show_list -> showList()
-            loitp.basemaster.R.id.bt_progress_dialog -> showProgress()
+        when (v) {
+            btShow1 -> show1()
+            btShow2 -> show2()
+            btShow3 -> show3()
+            btShowList -> showList()
+            btProgressDialog -> showProgress()
+            btInputDialog -> {
+                showInputDialog()
+            }
         }
     }
 
     private fun show1() {
-        LDialogUtil.showDialog1(activity, "Title", "Msg", "Button 1"
-                , object : LDialogUtil.Callback1 {
+        LDialogUtil.showDialog1(context = activity,
+                title = "Title",
+                msg = "Msg",
+                button1 = "Button 1"
+                , callback1 = object : LDialogUtil.Callback1 {
             override fun onClick1() {
-                LToast.show(activity, "Click 1", loitp.basemaster.R.drawable.l_bkg_horizontal)
+                showShort("Click 1")
             }
         })
     }
 
     private fun show2() {
-        LDialogUtil.showDialog2(activity, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
-            override fun onClick1() {
-                LToast.showShort(activity, "Click 1", loitp.basemaster.R.drawable.l_bkg_horizontal)
-            }
+        LDialogUtil.showDialog2(context = activity,
+                title = "Title",
+                msg = "Msg",
+                button1 = "Button 1",
+                button2 = "Button 2",
+                callback2 = object : LDialogUtil.Callback2 {
+                    override fun onClick1() {
+                        showShort("Click 1")
+                    }
 
-            override fun onClick2() {
-                LToast.showShort(activity, "Click 2", loitp.basemaster.R.drawable.l_bkg_horizontal)
-            }
-        })
+                    override fun onClick2() {
+                        showShort("Click 2")
+                    }
+                })
     }
 
     private fun show3() {
-        LDialogUtil.showDialog3(activity, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
-            override fun onClick1() {
-                LToast.showShort(activity, "Click 1", loitp.basemaster.R.drawable.l_bkg_horizontal)
-            }
+        LDialogUtil.showDialog3(context = activity,
+                title = "Title",
+                msg = "Msg",
+                button1 = "Button 1",
+                button2 = "Button 2",
+                button3 = "Button 3",
+                callback3 = object : LDialogUtil.Callback3 {
+                    override fun onClick1() {
+                        showShort("Click 1")
+                    }
 
-            override fun onClick2() {
-                LToast.showShort(activity, "Click 2", loitp.basemaster.R.drawable.l_bkg_horizontal)
-            }
+                    override fun onClick2() {
+                        showShort("Click 2")
+                    }
 
-            override fun onClick3() {
-                LToast.showShort(activity, "Click 3", loitp.basemaster.R.drawable.l_bkg_horizontal)
-            }
-        })
+                    override fun onClick3() {
+                        showShort("Click 3")
+                    }
+                })
     }
 
     private fun showList() {
@@ -97,11 +114,14 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        LDialogUtil.showDialogList(activity, "Title", arr, object : LDialogUtil.CallbackList {
-            override fun onClick(position: Int) {
-                LToast.show(activity, "Click position " + position + ", item: " + arr[position], loitp.basemaster.R.drawable.l_bkg_horizontal)
-            }
-        })
+        LDialogUtil.showDialogList(context = activity,
+                title = "Title",
+                arr = arr,
+                callbackList = object : LDialogUtil.CallbackList {
+                    override fun onClick(position: Int) {
+                        showShort("Click position " + position + ", item: " + arr[position])
+                    }
+                })
     }
 
     private fun showProgress() {
@@ -115,8 +135,14 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
         override fun onPreExecute() {
             super.onPreExecute()
-            progressDialog = LDialogUtil.showProgressDialog(context, 100, "Title",
-                    "Message", false, ProgressDialog.STYLE_HORIZONTAL, null, null)
+            progressDialog = LDialogUtil.showProgressDialog(context = context,
+                    max = 100,
+                    title = "Title",
+                    msg = "Message",
+                    isCancelAble = false,
+                    style = ProgressDialog.STYLE_HORIZONTAL,
+                    buttonTitle = null,
+                    callback1 = null)
         }
 
         override fun doInBackground(vararg voids: Void): Void? {
@@ -155,11 +181,11 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)
 
-        builder.setPositiveButton("OK") { dialog, which ->
+        builder.setPositiveButton("OK") { _, which ->
             val text = input.text.toString()
             LToast.show(activity, "Text $text")
         }
-        builder.setNegativeButton("Cancel") { dialog, which -> dialog.cancel() }
+        builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
 
         val dialog = builder.create()
         dialog.show()

@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.edittext.materialtextfield
 
 import android.os.Bundle
 import com.core.base.BaseActivity
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //guide https://github.com/florent37/MaterialTextField
 class MaterialTextFieldActivity : BaseActivity() {
@@ -19,7 +19,7 @@ class MaterialTextFieldActivity : BaseActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_material_textfield
+        return R.layout.activity_editext_material_textfield
     }
 
 }

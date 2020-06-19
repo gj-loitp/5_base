@@ -17,12 +17,12 @@
 package vn.loitp.app.activity.customviews.layout.motionlayout.fragmentsdemo
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import loitp.basemaster.R
+import androidx.fragment.app.Fragment
+import vn.loitp.app.R
 
 class ItemFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class ItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.item_layout, container, false)
+        return inflater.inflate(R.layout.view_row_item_layout, container, false)
     }
 
     private lateinit var myHolder: CustomAdapter.ViewHolder

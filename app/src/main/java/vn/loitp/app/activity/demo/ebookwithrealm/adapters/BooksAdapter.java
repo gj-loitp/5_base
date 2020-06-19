@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.core.utilities.LUIUtil;
 
 import io.realm.Realm;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 

@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.core.base.BaseFragment;
 import com.function.expectanim.ExpectAnim;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 import static com.function.expectanim.core.Expectations.aboveOf;
 import static com.function.expectanim.core.Expectations.atItsOriginalPosition;

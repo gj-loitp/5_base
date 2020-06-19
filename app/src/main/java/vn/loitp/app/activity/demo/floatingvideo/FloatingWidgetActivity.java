@@ -10,7 +10,7 @@ import android.view.View;
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FloatingWidgetActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
@@ -55,7 +55,7 @@ public class FloatingWidgetActivity extends BaseFontActivity {
                 onBackPressed();
             }
         });
-        findViewById(R.id.bt_1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.bt1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LToast.show(getActivity(), "onClick");

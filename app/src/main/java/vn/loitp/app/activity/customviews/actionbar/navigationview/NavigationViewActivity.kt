@@ -3,46 +3,15 @@ package vn.loitp.app.activity.customviews.actionbar.navigationview
 import android.graphics.Color
 import android.os.Bundle
 import android.util.TypedValue
-import android.view.View
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.views.navigationview.LNavigationView
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_navigation_view.*
+import vn.loitp.app.R
 import java.util.*
 
 class NavigationViewActivity : BaseFontActivity() {
-    private var nv: LNavigationView? = null
-    private var tvMsg: TextView? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        nv = findViewById(R.id.nv)
-        tvMsg = findViewById(R.id.tv_msg)
-
-        nv?.let {
-            it.colorOn = ContextCompat.getColor(activity, R.color.Red)
-            it.colorOff = ContextCompat.getColor(activity, R.color.Gray)
-            it.tv.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(it.tv, TypedValue.COMPLEX_UNIT_DIP, 20)//20dp
-        }
-
-        val stringList = ArrayList<String>()
-        for (i in 0..9) {
-            stringList.add("Item $i")
-        }
-
-        nv?.stringList = stringList
-        nv?.setNVCallback { index, s ->
-            LLog.d(TAG, "onIndexChange $index -> $s")
-            tvMsg?.text = "$index -> $s"
-        }
-        findViewById<View>(R.id.bt_0).setOnClickListener { nv?.currenIndex = 0 }
-        findViewById<View>(R.id.bt_1).setOnClickListener { nv?.currenIndex = stringList.size - 1 }
-        findViewById<View>(R.id.bt_2).setOnClickListener { nv?.currenIndex = 2 }
-    }
 
     override fun setFullScreen(): Boolean {
         return false
@@ -56,4 +25,30 @@ class NavigationViewActivity : BaseFontActivity() {
         return R.layout.activity_navigation_view
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        nv.apply {
+            colorOn = ContextCompat.getColor(activity, R.color.red)
+            colorOff = ContextCompat.getColor(activity, R.color.gray)
+            tv?.setTextColor(Color.BLACK)
+            LUIUtil.setTextSize(textView = this.tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = 20)//20dp
+        }
+
+        val stringList = ArrayList<String>()
+        for (i in 0..9) {
+            stringList.add("Item $i")
+        }
+
+        nv.setStringList(stringList)
+        nv.setNVCallback(nvCallback = object : LNavigationView.NVCallback {
+            override fun onIndexChange(index: Int, s: String?) {
+                logD("onIndexChange $index -> $s")
+                tvMsg?.text = "$index -> $s"
+            }
+        })
+        bt0.setOnClickListener { nv.setCurrenIndex(0) }
+        bt1.setOnClickListener { nv.setCurrenIndex(stringList.size - 1) }
+        bt2.setOnClickListener { nv.setCurrenIndex(2) }
+    }
 }

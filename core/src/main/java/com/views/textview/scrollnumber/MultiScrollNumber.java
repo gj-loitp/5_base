@@ -29,7 +29,7 @@ public class MultiScrollNumber extends LinearLayout {
     private List<ScrollNumber> mScrollNumbers = new ArrayList<>();
     private int mTextSize = 130;
 
-    private int[] mTextColors = new int[]{R.color.purple01};
+    private int[] mTextColors = new int[]{R.color.purple};
     private Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
     private String mFontFileName;
     private int mVelocity = 15;

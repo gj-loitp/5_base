@@ -1,13 +1,9 @@
 package com.core.helper.admobrewardedvideo
 
 import android.os.Bundle
-import android.widget.TextView
 import com.R
-
-import com.airbnb.lottie.LottieAnimationView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.google.android.gms.ads.AdRequest
@@ -16,36 +12,34 @@ import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.views.LToast
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.l_activity_admob_rewarded_video.*
 
 class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     private var mAd: RewardedVideoAd? = null
-    private var tv: TextView? = null
     private var strReward: String? = null
-    private var lottieAnimationViewGift: LottieAnimationView? = null
+
+    companion object {
+        const val APP_ID = "APP_ID"
+        const val ID_REWARD = "ID_REWARD"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
-        tv = findViewById(R.id.tv)
-        tv?.let {
-            it.setText(R.string.loading)
-            LUIUtil.setTextShadow(it)
-        }
-        //avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
+        textView.setText(R.string.loading)
+        LUIUtil.setTextShadow(textView)
 
-        val lottieAnimationView = findViewById<LottieAnimationView>(R.id.animation_view)
-        lottieAnimationView.setAnimation("lottie/gradient_animated_background.json")
+        animationView.setAnimation("lottie/gradient_animated_background.json")
         //lottieAnimationView.useHardwareAcceleration();
         //lottieAnimationView.setScale(0.3f);
-        lottieAnimationView.playAnimation()
-        lottieAnimationView.loop(true)
+        animationView.playAnimation()
+        animationView.loop(true)
 
-        lottieAnimationViewGift = findViewById(R.id.animation_view_gift)
-        lottieAnimationViewGift?.setAnimation("lottie/happy_gift.json")
-        //lottieAnimationViewGift.useHardwareAcceleration();
-        //lottieAnimationView.setScale(0.3f);
-        //lottieAnimationViewGift.playAnimation();
-        lottieAnimationViewGift?.loop(true)
+        animationViewGift.setAnimation("lottie/happy_gift.json")
+        //animationViewGift.useHardwareAcceleration();
+        //animationViewGift.setScale(0.3f);
+        //animationViewGift.playAnimation();
+        animationViewGift.loop(true)
 
         val strAppId = intent.getStringExtra(APP_ID)
         strReward = intent.getStringExtra(ID_REWARD)
@@ -60,7 +54,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
         mAd?.rewardedVideoAdListener = this
         loadRewardedVideoAd()
 
-        rootView?.setOnClickListener { displayRewardAd() }
+        rootView.setSafeOnClickListener { displayRewardAd() }
     }
 
     override fun setFullScreen(): Boolean {
@@ -78,7 +72,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     private fun loadRewardedVideoAd() {
         //LLog.d(TAG, "loadRewardedVideoAd");
         //avLoadingIndicatorView.smoothToShow();
-        tv?.setText(R.string.loading)
+        textView.setText(R.string.loading)
         mAd?.loadAd(strReward, AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("6E0762FF2B272D5BCE89FEBAAB872E34")
@@ -92,7 +86,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     }
 
     private fun displayRewardAd() {
-        LLog.d(TAG, "displayRewardAd isLoaded: " + mAd?.isLoaded)
+        logD("displayRewardAd isLoaded: " + mAd?.isLoaded)
         if (mAd?.isLoaded == true) {
             mAd?.show()
         } else {
@@ -101,46 +95,39 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     }
 
     override fun onRewarded(reward: RewardItem) {
-        LLog.d(TAG, "onRewarded")
+        logD("onRewarded")
         onBackPressed()
     }
 
     override fun onRewardedVideoAdLeftApplication() {
-        LLog.d(TAG, "onRewardedVideoAdLeftApplication")
+        logD("onRewardedVideoAdLeftApplication")
     }
 
     override fun onRewardedVideoAdClosed() {
-        LLog.d(TAG, "onRewardedVideoAdClosed")
+        logD("onRewardedVideoAdClosed")
     }
 
     override fun onRewardedVideoAdFailedToLoad(errorCode: Int) {
-        LLog.d(TAG, "onRewardedVideoAdFailedToLoad $errorCode")
+        logD("onRewardedVideoAdFailedToLoad $errorCode")
         onBackPressed()
     }
 
     override fun onRewardedVideoCompleted() {
-        LLog.d(TAG, "onRewardedVideoCompleted")
+        logD("onRewardedVideoCompleted")
     }
 
     override fun onRewardedVideoAdLoaded() {
-        LLog.d(TAG, "onRewardedVideoAdLoaded")
-        //avLoadingIndicatorView.smoothToHide();
-        tv?.setText(R.string.open_gift)
+        logD("onRewardedVideoAdLoaded")
+        textView.setText(R.string.open_gift)
         LAnimationUtil.play(rootView, Techniques.Pulse)
-        lottieAnimationViewGift?.playAnimation()
+        animationViewGift.playAnimation()
     }
 
     override fun onRewardedVideoAdOpened() {
-        LLog.d(TAG, "onRewardedVideoAdOpened")
+        logD("onRewardedVideoAdOpened")
     }
 
     override fun onRewardedVideoStarted() {
-        LLog.d(TAG, "onRewardedVideoStarted")
-    }
-
-    companion object {
-        //private AVLoadingIndicatorView avLoadingIndicatorView;
-        const val APP_ID = "APP_ID"
-        const val ID_REWARD = "ID_REWARD"
+        logD("onRewardedVideoStarted")
     }
 }

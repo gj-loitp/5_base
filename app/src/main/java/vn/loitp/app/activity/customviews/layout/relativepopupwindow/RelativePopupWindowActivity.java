@@ -10,7 +10,7 @@ import android.widget.Spinner;
 import com.core.base.BaseFontActivity;
 import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class RelativePopupWindowActivity extends BaseFontActivity {
 

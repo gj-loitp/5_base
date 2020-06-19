@@ -9,12 +9,12 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
 
-        <com.views.realtimeblurview.LRealtimeBlurView
+        <com.github.mmin18.widget.RealtimeBlurView
             android:id="@+id/blur_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:realtimeBlurRadius="@dimen/round_15"
-            app:realtimeOverlayColor="@color/WhiteTrans" />
+            app:realtimeOverlayColor="@color/whiteTrans" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,7 +29,7 @@
                 android:contentDescription="@string/app_name"
                 android:foreground="?selectableItemBackgroundBorderless"
                 android:scaleType="centerInside"
-                android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp" />
+                android:src="@drawable/ic_chevron_left_black_48dp" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -39,7 +39,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:singleLine="true"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_18" />
 
             <ImageView

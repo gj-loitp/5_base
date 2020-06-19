@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,69 +14,70 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
-            <Button
-                android:id="@+id/bt_no_anim"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNoAnim"
                 style="@style/ButtonMenu"
                 android:text="@string/no_animation" />
 
-            <Button
-                android:id="@+id/bt_system_default"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSystemDefault"
                 style="@style/ButtonMenu"
                 android:text="@string/system_default" />
 
-            <Button
-                android:id="@+id/bt_slide_left"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSlideLeft"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_left" />
 
-            <Button
-                android:id="@+id/bt_slide_right"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSlideRight"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_right" />
 
-            <Button
-                android:id="@+id/bt_slide_down"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSlideDown"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_down" />
 
-            <Button
-                android:id="@+id/bt_slide_up"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSlideUp"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_up" />
 
-            <Button
-                android:id="@+id/bt_fade"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFade"
                 style="@style/ButtonMenu"
                 android:text="@string/fade" />
 
-            <Button
-                android:id="@+id/bt_zoom"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btZoom"
                 style="@style/ButtonMenu"
                 android:text="@string/zoom" />
 
-            <Button
-                android:id="@+id/bt_windmill"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btWindMill"
                 style="@style/ButtonMenu"
                 android:text="@string/windmill" />
 
-            <Button
-                android:id="@+id/bt_diagonal"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDiagonal"
                 style="@style/ButtonMenu"
                 android:text="@string/diagonal" />
 
-            <Button
-                android:id="@+id/bt_spin"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSpin"
                 style="@style/ButtonMenu"
                 android:text="@string/spin" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_activity_transition" />
 </RelativeLayout>
-

@@ -5,15 +5,15 @@ import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.views.LToast
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_dialog_ios.*
+import vn.loitp.app.R
 
 class DialogIOSActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_show_1).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_2).setOnClickListener(this)
+        btShow1.setOnClickListener(this)
+        btShow2.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -29,30 +29,40 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.bt_show_1 -> show1()
-            R.id.bt_show_2 -> show2()
+        when (v) {
+            btShow1 -> show1()
+            btShow2 -> show2()
         }
     }
 
     private fun show1() {
-        LDialogUtil.showIOSDialog1(activity, "Allow \"Calendar\" to access your location while you use the app?",
-                "This is a subtitle", "Allow", false, object : LDialogUtil.Callback1 {
-            override fun onClick1() {
-                LToast.show(activity, "onClick1", R.drawable.l_bkg_horizontal)
-            }
-        })
+        LDialogUtil.showIOSDialog1(activity = activity,
+                title = "Allow \"Calendar\" to access your location while you use the app?",
+                subtitle = "This is a subtitle",
+                label1 = "Allow",
+                isBold = false,
+                callback1 = object : LDialogUtil.Callback1 {
+                    override fun onClick1() {
+                        showShort("onClick1")
+                    }
+                })
     }
 
     private fun show2() {
-        LDialogUtil.showIOSDialog2(activity, "Allow \"Calendar\" to access your location while you use the app?", "This is a subtitle", "Don't Allow", "Allow", true, object : LDialogUtil.Callback2 {
-            override fun onClick1() {
-                LToast.show(activity, "onClick1")
-            }
+        LDialogUtil.showIOSDialog2(activity = this.activity,
+                title = "Allow \"Calendar\" to access your location while you use the app?",
+                subtitle = "This is a subtitle",
+                label1 = "Don't Allow",
+                label2 = "Allow",
+                isBold = true,
+                callback2 = object : LDialogUtil.Callback2 {
+                    override fun onClick1() {
+                        showShort("onClick1")
+                    }
 
-            override fun onClick2() {
-                LToast.show(activity, "onClick2")
-            }
-        })
+                    override fun onClick2() {
+                        showShort("onClick2")
+                    }
+                })
     }
 }

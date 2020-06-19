@@ -2,7 +2,7 @@ package vn.loitp.app.activity.animation.basictransitionfrm
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/googlesamples/android-BasicTransition/#readme
 class BasicTransitionActivity : BaseFontActivity() {

@@ -4,13 +4,13 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.helper.more.FrmMore
 import com.core.utilities.LScreenUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class MoreActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LScreenUtil.addFragment(activity, R.id.fl_container, FrmMore(), false)
+        LScreenUtil.addFragment(activity, R.id.flContainer, FrmMore(), false)
     }
 
     override fun setFullScreen(): Boolean {

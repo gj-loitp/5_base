@@ -5,25 +5,29 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_edittext.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_edittext_menu.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.edittext.animatedexpandableedittext.AnimatedExpandableEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.autoresizeedittext.AutoResizeEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.autosuggest.EditTextAutoSuggestActivity
 import vn.loitp.app.activity.customviews.edittext.biuedittext.BiuEditTextActivity
+import vn.loitp.app.activity.customviews.edittext.currencyedittext.CurrencyEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.ledittext.LEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity
+import vn.loitp.app.activity.customviews.edittext.textwatcher.EditTextTextWatcherActivity
 
 class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_animated_expandable_edit_text).setOnClickListener(this)
-        findViewById<View>(R.id.bt_auto_resize_edit_text).setOnClickListener(this)
-        findViewById<View>(R.id.bt_material_text_field).setOnClickListener(this)
-        findViewById<View>(R.id.bt_biu_edit_text).setOnClickListener(this)
+        btAnimatedExpandableEditText.setOnClickListener(this)
+        btAutoResizeEditText.setOnClickListener(this)
+        btMaterialTextField.setOnClickListener(this)
+        btBiuEditText.setOnClickListener(this)
         btAutoSuggestEditText.setOnClickListener(this)
         btLEditText.setOnClickListener(this)
+        btEditextTextWatcher.setOnClickListener(this)
+        btCurrencyEditText.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -35,18 +39,20 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_edittext
+        return R.layout.activity_edittext_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_animated_expandable_edit_text -> intent = Intent(activity, AnimatedExpandableEditTextActivity::class.java)
-            R.id.bt_auto_resize_edit_text -> intent = Intent(activity, AutoResizeEditTextActivity::class.java)
-            R.id.bt_material_text_field -> intent = Intent(activity, MaterialTextFieldActivity::class.java)
-            R.id.bt_biu_edit_text -> intent = Intent(activity, BiuEditTextActivity::class.java)
-            R.id.btAutoSuggestEditText -> intent = Intent(activity, EditTextAutoSuggestActivity::class.java)
-            R.id.btLEditText -> intent = Intent(activity, LEditTextActivity::class.java)
+        when (v) {
+            btAnimatedExpandableEditText -> intent = Intent(activity, AnimatedExpandableEditTextActivity::class.java)
+            btAutoResizeEditText -> intent = Intent(activity, AutoResizeEditTextActivity::class.java)
+            btMaterialTextField -> intent = Intent(activity, MaterialTextFieldActivity::class.java)
+            btBiuEditText -> intent = Intent(activity, BiuEditTextActivity::class.java)
+            btAutoSuggestEditText -> intent = Intent(activity, EditTextAutoSuggestActivity::class.java)
+            btLEditText -> intent = Intent(activity, LEditTextActivity::class.java)
+            btEditextTextWatcher -> intent = Intent(activity, EditTextTextWatcherActivity::class.java)
+            btCurrencyEditText -> intent = Intent(activity, CurrencyEditTextActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

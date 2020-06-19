@@ -1,9 +1,5 @@
 package com.views.layout.ripplelayout;
 
-/**
- * Created by www.muathu@gmail.com on 11/4/2017.
- */
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

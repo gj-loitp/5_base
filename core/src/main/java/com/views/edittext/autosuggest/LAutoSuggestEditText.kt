@@ -15,8 +15,8 @@ import com.views.layout.relativepopupwindow.LRelativePopupWindow
 class LAutoSuggestEditText : RelativeLayout {
     private val TAG = javaClass.simpleName
 
-    lateinit var et: EditText
-    lateinit var pb: ProgressBar
+    lateinit var editText: EditText
+    lateinit var progressBar: ProgressBar
 
     private var resultList = ArrayList<String>()
     private var popupSuggestPopupView: LSuggestPopupView? = null
@@ -42,10 +42,10 @@ class LAutoSuggestEditText : RelativeLayout {
 
     private fun init() {
         View.inflate(context, R.layout.view_auto_suggest_edittext, this)
-        et = findViewById(R.id.et)
-        pb = findViewById(R.id.pb)
+        editText = findViewById(R.id.editText)
+        progressBar = findViewById(R.id.progressBar)
 
-        et.addTextChangedListener(object : TextWatcher {
+        editText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
@@ -65,27 +65,27 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     fun showProgress() {
-        pb.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
     }
 
     fun hideProgress() {
-        pb.visibility = View.INVISIBLE
+        progressBar.visibility = View.INVISIBLE
     }
 
     fun setColorProgressBar(color: Int) {
-        LUIUtil.setColorProgressBar(pb, color)
+        LUIUtil.setColorProgressBar(progressBar, color)
     }
 
     fun setLastCursorEditText() {
-        LUIUtil.setLastCursorEditText(et)
+        LUIUtil.setLastCursorEditText(editText)
     }
 
     fun setHintText(hinText: String) {
-        et.hint = hinText
+        editText.hint = hinText
     }
 
     fun setHinTextColor(color: Int) {
-        et.setHintTextColor(color)
+        editText.setHintTextColor(color)
     }
 
     fun clearResultList() {
@@ -93,7 +93,7 @@ class LAutoSuggestEditText : RelativeLayout {
     }
 
     fun setImeiAction(imeOptions: Int, runnable: Runnable?) {
-        LUIUtil.setImeiActionEditText(et, imeOptions, runnable)
+        LUIUtil.setImeiActionEditText(editText, imeOptions, runnable)
     }
 
     fun setResultList(resultList: ArrayList<String>) {
@@ -108,8 +108,8 @@ class LAutoSuggestEditText : RelativeLayout {
             popupSuggestPopupView = LSuggestPopupView(context, false, object : LSuggestPopupView.Callback {
                 override fun onClick(s: String) {
                     hideSuggestPopup()
-                    et.setText(s)
-                    LUIUtil.setLastCursorEditText(et)
+                    editText.setText(s)
+                    LUIUtil.setLastCursorEditText(editText)
                 }
             })
             popupSuggestPopupView?.let {

@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <TextView
-        android:id="@+id/tv_guide"
+        android:id="@+id/tvGuide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/animation_will_appear_after_1s"
         android:textColor="@color/grey"
-        android:textSize="@dimen/txt_14"
+        android:textSize="@dimen/txt_medium"
         android:visibility="gone" />
 
     <TextView
-        android:id="@+id/tv_anim"
+        android:id="@+id/tvAnim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/animation_none"
-        android:textColor="@color/Blue"
-        android:textSize="@dimen/txt_30"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/txt_large"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/bt_select_anim"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btSelectAnim"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_medium"
         android:text="@string/select_animation" />
 
 </RelativeLayout>
-

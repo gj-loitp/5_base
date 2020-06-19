@@ -62,8 +62,8 @@ public abstract class StickerView extends FrameLayout {
         this.iv_delete = new ImageView(context);
         this.iv_flip = new ImageView(context);
 
-        this.iv_scale.setImageResource(R.drawable.zoominout);
-        this.iv_delete.setImageResource(R.drawable.remove);
+        this.iv_scale.setImageResource(R.drawable.ic_zoom_out_map_black_48dp);
+        this.iv_delete.setImageResource(R.drawable.ic_close_black_48dp);
         this.iv_flip.setImageResource(R.drawable.l_flip);
 
         this.setTag("DraggableViewGroup");

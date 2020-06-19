@@ -12,7 +12,7 @@ import android.view.WindowManager;
 
 import org.greenrobot.eventbus.EventBus;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FloatingViewService extends Service {
     private final String TAG = getClass().getSimpleName();

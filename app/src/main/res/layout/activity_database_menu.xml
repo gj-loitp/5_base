@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSqliteAsset"
+                style="@style/ButtonMenu"
+                android:text="@string/read_sqlite_asset" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRealm"
+                style="@style/ButtonMenu"
+                android:text="@string/realm" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRoom"
+                style="@style/ButtonMenu"
+                android:text="Room" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRoom2"
+                style="@style/ButtonMenu"
+                android:text="Room 2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSharedPrefs"
+                style="@style/ButtonMenu"
+                android:text="@string/sharedprefs" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSharedPrefsEncryption"
+                style="@style/ButtonMenu"
+                android:text="@string/sharedprefsencryption" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSqlite"
+                style="@style/ButtonMenu"
+                android:text="@string/sqlite" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSqliteEncryption"
+                style="@style/ButtonMenu"
+                android:text="@string/sqlite_encryption" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSqliteMultiTable"
+                style="@style/ButtonMenu"
+                android:text="@string/sqlite_multi_table" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSqliteMultiTableAdvance"
+                style="@style/ButtonMenu"
+                android:text="@string/sqlite_multi_table_advance" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/menu_databse" />
+</RelativeLayout>

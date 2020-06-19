@@ -85,7 +85,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         expandedView.requestLayout();
 
         llRootTv = mFloatingView.findViewById(R.id.ll_root_tv);
-        scrollView = mFloatingView.findViewById(R.id.scroll_view);
+        scrollView = mFloatingView.findViewById(R.id.scrollView);
 
         //Set the close button
         ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.close_btn);

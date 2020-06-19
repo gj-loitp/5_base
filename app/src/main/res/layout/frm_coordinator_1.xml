@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll"
             app:title="@string/app_name"
-            app:titleTextColor="@color/White" />
+            app:titleTextColor="@color/white" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl"
@@ -23,12 +23,12 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="enterAlways|snap"
             app:tabGravity="fill"
-            app:tabIconTint="@color/White"
-            app:tabIndicatorColor="@color/White"
+            app:tabIconTint="@color/white"
+            app:tabIndicatorColor="@color/white"
             app:tabIndicatorHeight="@dimen/w_3"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/White"
-            app:tabTextColor="@color/Gray" />
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/gray" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView

@@ -11,11 +11,10 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
-import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.views.edittext.leditext.LEditText
-import kotlinx.android.synthetic.main.activity_l_edit_text.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_editext_l_edit_text.*
+import vn.loitp.app.R
 
 class LEditTextActivity : BaseFontActivity() {
 
@@ -23,11 +22,11 @@ class LEditTextActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         lEditTextId.apply {
-            colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Blue)
-            colorError = ContextCompat.getColor(activity, R.color.Red)
+            colorFocus = ContextCompat.getColor(activity, R.color.black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.blue)
+            colorError = ContextCompat.getColor(activity, R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
-            ivRight.setImageResource(R.drawable.remove)
+            ivRight.setImageResource(R.drawable.ic_close_black_48dp)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
@@ -48,7 +47,6 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun onTextChanged(s: String) {
-                    LLog.d(TAG, "onTextChanged s: $s")
                     if (s.isEmpty()) {
                         ivRight.visibility = View.GONE
                     } else {
@@ -58,18 +56,18 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun setOnFocusChangeListener(isFocus: Boolean) {
-                    LLog.d(TAG, "setOnFocusChangeListener isFocus: $isFocus")
+                    logD("setOnFocusChangeListener isFocus: $isFocus")
                 }
 
             }
         }
         var isShowPw = false
         lEditTextPw.apply {
-            colorFocus = ContextCompat.getColor(activity, R.color.Black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.Blue)
-            colorError = ContextCompat.getColor(activity, R.color.Red)
+            colorFocus = ContextCompat.getColor(activity, R.color.black)
+            colorUnfocus = ContextCompat.getColor(activity, R.color.blue)
+            colorError = ContextCompat.getColor(activity, R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
-            ivRight.setImageResource(R.drawable.l_baseline_visibility_black_48dp)
+            ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
             setStrokeWidth(5)
             setCardElevation(15f)
             setCardBackgroundColor(Color.WHITE)
@@ -84,12 +82,12 @@ class LEditTextActivity : BaseFontActivity() {
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
                     if (isShowPw) {
-                        ivRight.setImageResource(R.drawable.l_baseline_visibility_black_48dp)
+                        ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
                         editText.transformationMethod = PasswordTransformationMethod.getInstance()
                         setLastCursorEditText()
                         isShowPw = false
                     } else {
-                        ivRight.setImageResource(R.drawable.l_baseline_visibility_off_black_48dp)
+                        ivRight.setImageResource(R.drawable.ic_visibility_off_black_48dp)
                         editText.transformationMethod = HideReturnsTransformationMethod.getInstance()
                         setLastCursorEditText()
                         isShowPw = true
@@ -97,7 +95,6 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun onTextChanged(s: String) {
-                    LLog.d(TAG, "onTextChanged s: $s")
                     if (s.isEmpty()) {
                         ivRight.visibility = View.GONE
                     } else {
@@ -107,7 +104,7 @@ class LEditTextActivity : BaseFontActivity() {
                 }
 
                 override fun setOnFocusChangeListener(isFocus: Boolean) {
-                    LLog.d(TAG, "setOnFocusChangeListener isFocus: $isFocus")
+                    logD("setOnFocusChangeListener isFocus: $isFocus")
                 }
 
             }
@@ -144,6 +141,6 @@ class LEditTextActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_edit_text
+        return R.layout.activity_editext_l_edit_text
     }
 }

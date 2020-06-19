@@ -1,15 +1,11 @@
 package vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior
 
 import android.os.Bundle
-import android.view.View
-
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-
 import com.core.base.BaseFontActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class CustomBehaviorActivity : BaseFontActivity() {
     private var mShowFabButton: FloatingActionButton? = null
@@ -20,7 +16,7 @@ class CustomBehaviorActivity : BaseFontActivity() {
         mCoordinatorLayout = findViewById(R.id.coordinatorLayout)
 
         mShowFabButton = findViewById(R.id.fab)
-        mShowFabButton!!.setOnClickListener { view ->
+        mShowFabButton!!.setOnClickListener { _ ->
             Snackbar.make(mCoordinatorLayout!!,
                     "This is a simple Snackbar", Snackbar.LENGTH_LONG)
                     .setAction("CLOSE") { v ->

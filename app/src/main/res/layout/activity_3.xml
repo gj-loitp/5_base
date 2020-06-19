@@ -8,18 +8,18 @@
         style="@style/TextMenu"
         android:text="Activity3" />
 
-    <Button
-        android:id="@+id/bt_go_to_1"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btGoTo1"
         style="@style/ButtonMenu"
         android:text="go to Activity1" />
 
-    <Button
-        android:id="@+id/bt_go_to_2"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btGoTo2"
         style="@style/ButtonMenu"
         android:text="go to Activity2" />
 
-    <Button
-        android:id="@+id/bt_go_to_float"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btGoToFloat"
         style="@style/ButtonMenu"
         android:text="go to Float" />
 </LinearLayout>

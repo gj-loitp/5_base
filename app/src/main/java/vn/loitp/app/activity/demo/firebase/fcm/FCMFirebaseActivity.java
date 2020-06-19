@@ -8,7 +8,7 @@ import com.core.common.Constants;
 import com.core.utilities.LDialogUtil;
 import com.core.utilities.LFCMUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://docs.google.com/document/d/1LIkZgTWQB7FWVHUrc-ZrQaMVJkm6lbuMwirr1XCPwcA/edit
 public class FCMFirebaseActivity extends BaseFontActivity {

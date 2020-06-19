@@ -8,7 +8,7 @@
     tools:context="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity">
 
     <com.views.LAppBarLayout
-        android:id="@+id/app_bar"
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_300"
         android:fitsSystemWindows="true"
@@ -38,10 +38,10 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:contentInsetEnd="0dp"
-                android:contentInsetLeft="0dp"
-                android:contentInsetRight="0dp"
                 android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp"
+                android:contentInsetEnd="0dp"
+                android:contentInsetRight="0dp"
                 app:contentInsetEnd="0dp"
                 app:contentInsetLeft="0dp"
                 app:contentInsetRight="0dp"
@@ -69,7 +69,7 @@
                     </LinearLayout>
 
                     <com.views.button.circularimageclick.LCircularClickImageButton
-                        android:id="@+id/bt_menu"
+                        android:id="@+id/btMenu"
                         android:layout_width="@dimen/w_50"
                         android:layout_height="@dimen/w_30"
                         android:layout_alignParentEnd="true"
@@ -78,7 +78,7 @@
                         android:background="?selectableItemBackgroundBorderless"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
-                        android:src="@drawable/l_ic_more_vert_white_48dp" />
+                        android:src="@drawable/ic_more_vert_black_48dp" />
                 </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>
@@ -87,23 +87,23 @@
     </com.views.LAppBarLayout>
 
     <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
-            android:id="@+id/root_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv_msg"
+                android:id="@+id/tvMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="@string/large_text"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/Gray" />
+                android:textColor="@color/gray" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -112,7 +112,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/app_bar"
+        app:layout_anchor="@id/appBarLayout"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 

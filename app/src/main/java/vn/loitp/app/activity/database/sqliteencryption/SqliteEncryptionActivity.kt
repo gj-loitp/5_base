@@ -5,13 +5,12 @@ import android.view.Gravity
 import android.view.View
 import android.widget.Button
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 
 class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
@@ -62,7 +61,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun getAllBike() {
-        LLog.d(TAG, "getAllBike")
+        logD("getAllBike")
         showProgress()
         compositeDisposable.add(
                 Single.create<List<Bike>> {
@@ -75,14 +74,14 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                 }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 {
-                                    LLog.d(TAG, "getAllBike success " + it.size)
+                                    logD("getAllBike success " + it.size)
                                     for (bike in it) {
                                         addButtonByBike(bike)
                                     }
                                     hideProgress()
                                 },
                                 {
-                                    LLog.e(TAG, "getAllBike failed: $it")
+                                    logE("getAllBike failed: $it")
                                     hideProgress()
                                 }
                         ))
@@ -95,15 +94,15 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private fun addButtonById(idBike: Long?) {
         val button = Button(activity)
         val bike = db.getBike(idBike)
-        LLog.d(TAG, "addButton bike " + LApplication.gson.toJson(bike))
+        logD("addButton bike " + LApplication.gson.toJson(bike))
         if (bike != null) {
             LUIUtil.printBeautyJson(bike, button)
             button.isAllCaps = false
             button.gravity = Gravity.START
-            button.setOnClickListener { v ->
+            button.setOnClickListener { _ ->
                 updateBike(bike, button)
             }
-            button.setOnLongClickListener { v ->
+            button.setOnLongClickListener { _ ->
                 deleteBike(bike, button)
                 true
             }
@@ -114,7 +113,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private fun addBike() {
         showProgress()
         val size = db.bikeCount
-        LLog.d(TAG, "size: $size")
+        logD("size: $size")
         val bike = Bike()
         bike.name = "GSX " + (size + 1)
         bike.branch = "Suzuki " + (size + 1)
@@ -140,7 +139,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                                     hideProgress()
                                 },
                                 { t ->
-                                    LLog.e(TAG, "addBike failed: $t")
+                                    logE("addBike failed: $t")
                                     hideProgress()
                                 }
                         ))
@@ -148,7 +147,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun clearAllBike() {
-        LLog.d(TAG, "clearAllContact")
+        logD("clearAllContact")
         ll.removeAllViews()
         db.clearAllBike()
         getAllBike()
@@ -171,7 +170,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                                     hideProgress()
                                 },
                                 { t ->
-                                    LLog.e(TAG, "addBike failed: $t")
+                                    logE("addBike failed: $t")
                                     showShort("addBike failed: $t")
                                     hideProgress()
                                 }
@@ -194,12 +193,12 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                     }
                 }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
-                                { id ->
+                                { _ ->
                                     LUIUtil.printBeautyJson(bike, button)
                                     hideProgress()
                                 },
                                 { t ->
-                                    LLog.e(TAG, "updateBike failed: $t")
+                                    logE("updateBike failed: $t")
                                     showShort("updateBike failed: $t")
                                     hideProgress()
                                 }
@@ -208,7 +207,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun deleteBike(bike: Bike, button: Button) {
         val result = db.deleteBike(bike)
-        LLog.d(TAG, "deleteContact result $result")
+        logD("deleteContact result $result")
         ll.removeView(button)
     }
 }

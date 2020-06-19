@@ -1,11 +1,12 @@
 package vn.loitp.app.activity.demo.firebase.database.viewholder;
 
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import loitp.basemaster.R;
+import androidx.recyclerview.widget.RecyclerView;
+
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 
 public class PostViewHolder extends RecyclerView.ViewHolder {

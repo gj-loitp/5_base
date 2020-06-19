@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import loitp.basemaster.R
+import vn.loitp.app.R
 import java.util.*
 
 class DemoColorPagerAdapter : PagerAdapter() {
@@ -13,11 +13,10 @@ class DemoColorPagerAdapter : PagerAdapter() {
     private var mItems: List<ColorItem> = ArrayList()
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(container.context)
-                .inflate(R.layout.item_recycler_tablayout_page, container, false)
+        val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
-        val textView = view.findViewById<TextView>(R.id.title)
-        textView.text = "Page: " + mItems[position].hex!!
+        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
+        tvTitle.text = "Page: " + mItems[position].hex
         container.addView(view)
 
         return view

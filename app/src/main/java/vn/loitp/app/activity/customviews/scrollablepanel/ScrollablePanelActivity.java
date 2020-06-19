@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/Kelin-Hong/ScrollablePanel?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5306
 public class ScrollablePanelActivity extends BaseFontActivity {

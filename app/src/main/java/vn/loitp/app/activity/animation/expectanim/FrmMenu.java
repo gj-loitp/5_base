@@ -8,15 +8,15 @@ import androidx.annotation.Nullable;
 
 import com.core.base.BaseFragment;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FrmMenu extends BaseFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getFrmRootView().findViewById(R.id.bt_0).setOnClickListener(v -> ((ExpectAnimActivity) getActivity()).addFrm(new FrmScroll(), true));
-        getFrmRootView().findViewById(R.id.bt_1).setOnClickListener(v -> ((ExpectAnimActivity) getActivity()).addFrm(new FrmSample(), true));
+        getFrmRootView().findViewById(R.id.bt0).setOnClickListener(v -> ((ExpectAnimActivity) getActivity()).addFrm(new FrmScroll(), true));
+        getFrmRootView().findViewById(R.id.bt1).setOnClickListener(v -> ((ExpectAnimActivity) getActivity()).addFrm(new FrmSample(), true));
     }
 
     @Override

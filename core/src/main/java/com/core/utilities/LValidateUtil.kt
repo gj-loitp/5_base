@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.content.Context
 import android.text.TextUtils
 import android.util.Patterns
 import java.util.*
@@ -19,7 +18,7 @@ object LValidateUtil {
         return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()
     }
 
-    fun isValidPassword(context: Context, pw: String): String? {
+    fun isValidPassword(pw: String): String? {
         if (pw.length < 8) {
             return MSG_0
         }

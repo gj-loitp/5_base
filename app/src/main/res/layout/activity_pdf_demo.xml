@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke"
+    android:animateLayoutChanges="true"
+    android:background="@color/whiteSmoke"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btFile"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btFileAsynctask"
         style="@style/ButtonMenu"
-        android:text="@string/load_from_url_file_pdf_30mb_file" />
+        android:text="Load from Url File - Aysnctask" />
 
-    <Button
-        android:id="@+id/btStream"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btFileCoroutine"
         style="@style/ButtonMenu"
-        android:text="@string/load_from_url_file_pdf_30mb_stream" />
+        android:text="Load from Url File - Coroutine" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btStreamAsyncTask"
+        style="@style/ButtonMenu"
+        android:text="Load from Url Stream - Aysnctask" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btStreamCoroutine"
+        style="@style/ButtonMenu"
+        android:text="Load from Url Stream - Coroutine" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +36,8 @@
             android:id="@+id/pdfView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:visibility="visible" />
 
         <ProgressBar
             android:id="@+id/pb"
@@ -34,6 +47,8 @@
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/margin_10"
             android:max="100"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:progress="50"
+            tools:visibility="visible" />
     </RelativeLayout>
 </LinearLayout>

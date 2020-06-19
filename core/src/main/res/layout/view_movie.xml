@@ -36,7 +36,7 @@
         android:layout_marginStart="16dp"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/pause"
-        android:src="@drawable/l_ic_pause_64dp"
+        android:src="@drawable/ic_pause_black_48dp"
         android:visibility="invisible" />
 
     <ImageButton
@@ -47,7 +47,7 @@
         android:layout_toStartOf="@id/toggle"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/fast_rewind"
-        android:src="@drawable/l_ic_fast_rewind_64dp"
+        android:src="@drawable/ic_fast_rewind_black_48dp"
         android:visibility="invisible" />
 
     <ImageButton
@@ -58,7 +58,7 @@
         android:layout_toEndOf="@id/toggle"
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/fast_forward"
-        android:src="@drawable/l_ic_fast_forward_64dp"
+        android:src="@drawable/ic_fast_forward_black_48dp"
         android:visibility="invisible" />
 
     <ImageButton
@@ -70,7 +70,7 @@
         android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/minimize"
         android:padding="16dp"
-        android:src="@drawable/l_ic_minimize_24dp"
+        android:src="@drawable/ic_keyboard_arrow_down_black_48dp"
         android:visibility="invisible" />
 
 </merge>

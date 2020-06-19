@@ -4,35 +4,27 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import com.core.base.BaseFontActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_menu_arc_navigation_view.*
+import kotlinx.android.synthetic.main.menu_arc_navigation_view_main.*
+import vn.loitp.app.R
 
 class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private var drawerLayout: DrawerLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
+        setSupportActionBar(toolbar)
         fab.setOnClickListener { view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() }
 
-        drawerLayout = findViewById(R.id.drawer_layout)
-        val toggle = ActionBarDrawerToggle(
-                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         toggle.syncState()
 
-        val navigationView = findViewById<NavigationView>(R.id.nav_view)
-        val navigationViewRight = findViewById<NavigationView>(R.id.nav_view_right)
-        navigationViewRight.setNavigationItemSelectedListener(this)
-        navigationView.setNavigationItemSelectedListener(this)
+        navViewRight.setNavigationItemSelectedListener(this)
+        navView.setNavigationItemSelectedListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -44,17 +36,20 @@ class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigatio
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_arc_navigation_view
+        return R.layout.activity_menu_arc_navigation_view
     }
 
     override fun onBackPressed() {
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
-        } else if (drawer.isDrawerOpen(GravityCompat.END)) {
-            drawer.closeDrawer(GravityCompat.END)
-        } else {
-            super.onBackPressed()
+        when {
+            drawerLayout.isDrawerOpen(GravityCompat.START) -> {
+                drawerLayout.closeDrawer(GravityCompat.START)
+            }
+            drawerLayout.isDrawerOpen(GravityCompat.END) -> {
+                drawerLayout.closeDrawer(GravityCompat.END)
+            }
+            else -> {
+                super.onBackPressed()
+            }
         }
     }
 
@@ -65,11 +60,11 @@ class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigatio
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
-        if (id == R.id.action_right_menu) {
-            if (drawerLayout!!.isDrawerOpen(GravityCompat.END)) {
-                drawerLayout!!.closeDrawer(GravityCompat.END)
+        if (id == R.id.itemActionRightMenu) {
+            if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+                drawerLayout.closeDrawer(GravityCompat.END)
             } else {
-                drawerLayout!!.openDrawer(GravityCompat.END)
+                drawerLayout.openDrawer(GravityCompat.END)
             }
             return true
         }
@@ -78,22 +73,27 @@ class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigatio
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        when (item.itemId) {
+            R.id.navCamera -> {
+                // Handle the camera action
+            }
+            R.id.navGallery -> {
 
-        } else if (id == R.id.nav_slideshow) {
+            }
+            R.id.navSlideshow -> {
 
-        } else if (id == R.id.nav_manage) {
+            }
+            R.id.navManage -> {
 
-        } else if (id == R.id.nav_share) {
+            }
+            R.id.navShare -> {
 
-        } else if (id == R.id.nav_send) {
+            }
+            R.id.navSend -> {
 
+            }
         }
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        drawer.closeDrawer(GravityCompat.START)
+        drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,9 +26,9 @@ import com.restapi.flickr.FlickrConst;
 import com.restapi.flickr.model.photosetgetphotos.Photo;
 import com.restapi.flickr.service.FlickrService;
 import com.restapi.restclient.RestClient;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import com.views.recyclerview.animator.animators.SlideInRightAnimator;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class GalleryCorePhotosActivity extends BaseFontActivity {
     private TextView tvTitle;
-    private LAVLoadingIndicatorView LAVLoadingIndicatorView;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     private int currentPage = 0;
     private int totalPage = 1;
@@ -59,7 +60,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         tvTitle = findViewById(R.id.tv_title);
         LUIUtil.INSTANCE.setTextShadow(tvTitle);
 
-        LAVLoadingIndicatorView = findViewById(R.id.av);
+        avLoadingIndicatorView = findViewById(R.id.av);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
@@ -70,10 +71,11 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
         bkgRootView = getIntent().getIntExtra(Constants.getBKG_ROOT_VIEW(), Constants.getNOT_FOUND());
         LLog.d(getTAG(), "bkgRootView " + bkgRootView);
+        RelativeLayout rootView = findViewById(R.id.rootView);
         if (bkgRootView == Constants.getNOT_FOUND()) {
-            getRootView().setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
+            rootView.setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         } else {
-            getRootView().setBackgroundResource(bkgRootView);
+            rootView.setBackgroundResource(bkgRootView);
         }
 
         int totalPhotos;
@@ -193,7 +195,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         }
         LLog.d(getTAG(), "is calling photosetsGetPhotos " + currentPage + "/" + totalPage);
         isLoading = true;
-        LAVLoadingIndicatorView.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         final FlickrService service = RestClient.createService(FlickrService.class);
         final String method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS;
         final String apiKey = FlickrConst.API_KEY;
@@ -201,7 +203,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         if (currentPage <= 0) {
             LLog.d(getTAG(), "currentPage <= 0 -> return");
             currentPage = 0;
-            LAVLoadingIndicatorView.smoothToHide();
+            avLoadingIndicatorView.smoothToHide();
             isLoading = false;
             return;
         }
@@ -219,13 +221,13 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
                     final List<Photo> photoList = wrapperPhotosetGetPhotos.getPhotoset().getPhoto();
                     PhotosDataCore.getInstance().addPhoto(photoList);
                     updateAllViews();
-                    LAVLoadingIndicatorView.smoothToHide();
+                    avLoadingIndicatorView.smoothToHide();
                     btPage.setVisibility(View.VISIBLE);
                     isLoading = false;
                 }, e -> {
                     LLog.e(getTAG(), "onFail " + e.toString());
                     handleException(e);
-                    LAVLoadingIndicatorView.smoothToHide();
+                    avLoadingIndicatorView.smoothToHide();
                     isLoading = true;
                 }));
     }

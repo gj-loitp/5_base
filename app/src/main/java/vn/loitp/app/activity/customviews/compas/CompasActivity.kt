@@ -4,10 +4,9 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.views.compass.CompassListener
 import kotlinx.android.synthetic.main.activity_compas.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/arbelkilani/Compass-View?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6973
 class CompasActivity : BaseFontActivity() {
@@ -16,12 +15,12 @@ class CompasActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         compassView.setListener(object : CompassListener {
             override fun onSensorChanged(event: SensorEvent) {
-                LLog.d(TAG, "onSensorChanged : $event")
+                logD("onSensorChanged : $event")
             }
 
             override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
-                LLog.d(TAG, "onAccuracyChanged : sensor : $sensor")
-                LLog.d(TAG, "onAccuracyChanged : accuracy : $accuracy")
+                logD("onAccuracyChanged : sensor : $sensor")
+                logD("onAccuracyChanged : accuracy : $accuracy")
             }
         })
     }

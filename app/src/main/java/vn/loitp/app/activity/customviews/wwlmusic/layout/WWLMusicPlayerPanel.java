@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by thangn on 3/1/17.

@@ -9,70 +9,67 @@ import com.core.helper.gallery.GalleryCoreSplashActivity
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_demo.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_demo_menu.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
-import vn.loitp.app.activity.demo.butterknife.ButterKnifeActivity
 import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
-import vn.loitp.app.activity.demo.film.FilmDemoActivity
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
 import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
+import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
 import vn.loitp.app.activity.demo.video.VideoActivity
-import vn.loitp.app.activity.demo.youtubeparser.YoutubeParserChannelActivity
 import java.util.*
 
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_alarm).setOnClickListener(this)
-        findViewById<View>(R.id.bt_butter_knife).setOnClickListener(this)
-        findViewById<View>(R.id.bt_ebook_with_realm).setOnClickListener(this)
-        findViewById<View>(R.id.bt_video).setOnClickListener(this)
-        findViewById<View>(R.id.bt_sound).setOnClickListener(this)
-        findViewById<View>(R.id.bt_text_to_speech).setOnClickListener(this)
-        findViewById<View>(R.id.bt_floating_widget).setOnClickListener(this)
-        findViewById<View>(R.id.bt_floating_video).setOnClickListener(this)
-        findViewById<View>(R.id.bt_floating_view).setOnClickListener(this)
-        findViewById<View>(R.id.bt_firebase).setOnClickListener(this)
-        findViewById<View>(R.id.bt_film).setOnClickListener(this)
+
+        btAlarm.setOnClickListener(this)
+        btEbookWithRealm.setOnClickListener(this)
+        btVideo.setOnClickListener(this)
+        btSound.setOnClickListener(this)
+        btTextToSpeech.setOnClickListener(this)
+        btFloatingWidget.setOnClickListener(this)
+        btFloatingVideo.setOnClickListener(this)
+        btFloatingView.setOnClickListener(this)
+        btFirebase.setOnClickListener(this)
         if (Constants.IS_DEBUG) {
-            findViewById<View>(R.id.bt_gallery_core).visibility = View.VISIBLE
-            findViewById<View>(R.id.bt_gallery_core).setOnClickListener(this)
+            btGalleryCore.visibility = View.VISIBLE
+            btGalleryCore.setOnClickListener(this)
 
-            findViewById<View>(R.id.bt_gallery_core_album).visibility = View.VISIBLE
-            findViewById<View>(R.id.bt_gallery_core_album).setOnClickListener(this)
+            btGalleryCoreAlbum.visibility = View.VISIBLE
+            btGalleryCoreAlbum.setOnClickListener(this)
 
-            findViewById<View>(R.id.bt_gallery_member).visibility = View.VISIBLE
-            findViewById<View>(R.id.bt_gallery_member).setOnClickListener(this)
+            btGalleryMember.visibility = View.VISIBLE
+            btGalleryMember.setOnClickListener(this)
 
-            findViewById<View>(R.id.bt_gallery_core_album_frm).setOnClickListener(this)
-            findViewById<View>(R.id.bt_gallery_core_album_frm).visibility = View.VISIBLE
+            btGalleryCoreAlbumFrm.setOnClickListener(this)
+            btGalleryCoreAlbumFrm.visibility = View.VISIBLE
         } else {
-            findViewById<View>(R.id.bt_gallery_core).visibility = View.GONE
-            findViewById<View>(R.id.bt_gallery_core_album).visibility = View.GONE
-            findViewById<View>(R.id.bt_gallery_member).visibility = View.GONE
-            findViewById<View>(R.id.bt_gallery_core_album_frm).visibility = View.GONE
+            btGalleryCore.visibility = View.GONE
+            btGalleryCoreAlbum.visibility = View.GONE
+            btGalleryMember.visibility = View.GONE
+            btGalleryCoreAlbumFrm.visibility = View.GONE
         }
-        findViewById<View>(R.id.bt_epub_reader).setOnClickListener(this)
-        findViewById<View>(R.id.bt_2_instance_activity).setOnClickListener(this)
-        findViewById<View>(R.id.bt_youtube_parser).setOnClickListener(this)
-        findViewById<View>(R.id.bt_fragment_navigation).setOnClickListener(this)
+        btEpubReader.setOnClickListener(this)
+        bt2InstanceActivity.setOnClickListener(this)
+        btFragmentNavigation.setOnClickListener(this)
         btPdf.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
         btDeepLinks.setOnClickListener(this)
         btArchitectureComponent.setOnClickListener(this)
+        btNFC.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -84,23 +81,21 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_demo
+        return R.layout.activity_demo_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_alarm -> intent = Intent(activity, AlarmMeActivity::class.java)
-            R.id.bt_butter_knife -> intent = Intent(activity, ButterKnifeActivity::class.java)
-            R.id.bt_ebook_with_realm -> intent = Intent(activity, EbookWithRealmActivity::class.java)
-            R.id.bt_video -> intent = Intent(activity, VideoActivity::class.java)
-            R.id.bt_sound -> intent = Intent(activity, SoundActivity::class.java)
-            R.id.bt_text_to_speech -> intent = Intent(activity, TextToSpeechActivity::class.java)
-            R.id.bt_floating_widget -> intent = Intent(activity, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java)
-            R.id.bt_floating_video -> intent = Intent(activity, FloatingWidgetActivity::class.java)
-            R.id.bt_firebase -> intent = Intent(activity, MenuFirebaseActivity::class.java)
-            R.id.bt_film -> intent = Intent(activity, FilmDemoActivity::class.java)
-            R.id.bt_gallery_core -> {
+        when (v) {
+            btAlarm -> intent = Intent(activity, AlarmMeActivity::class.java)
+            btEbookWithRealm -> intent = Intent(activity, EbookWithRealmActivity::class.java)
+            btVideo -> intent = Intent(activity, VideoActivity::class.java)
+            btSound -> intent = Intent(activity, SoundActivity::class.java)
+            btTextToSpeech -> intent = Intent(activity, TextToSpeechActivity::class.java)
+            btFloatingWidget -> intent = Intent(activity, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java)
+            btFloatingVideo -> intent = Intent(activity, FloatingWidgetActivity::class.java)
+            btFirebase -> intent = Intent(activity, MenuFirebaseActivity::class.java)
+            btGalleryCore -> {
                 intent = Intent(activity, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg")
@@ -113,7 +108,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
                 intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumFlickrList)
             }
-            R.id.bt_gallery_core_album -> {
+            btGalleryCoreAlbum -> {
                 intent = Intent(activity, GalleryCorePhotosOnlyActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
@@ -124,21 +119,21 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
                 intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
             }
-            R.id.bt_gallery_member -> {
+            btGalleryMember -> {
                 intent = Intent(activity, GalleryMemberActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
             }
-            R.id.bt_epub_reader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
-            R.id.bt_floating_view -> intent = Intent(activity, FloatingViewActivity::class.java)
-            R.id.bt_2_instance_activity -> intent = Intent(activity, Activity1::class.java)
-            R.id.bt_youtube_parser -> intent = Intent(activity, YoutubeParserChannelActivity::class.java)
-            R.id.bt_fragment_navigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
-            R.id.btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
-            R.id.btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
-            R.id.btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
-            R.id.bt_gallery_core_album_frm -> intent = Intent(activity, GalleryCoreAlbumFrmActivity::class.java)
-            R.id.btArchitectureComponent -> intent = Intent(activity, MenuAndroidArchitectureComponentActivity::class.java)
+            btEpubReader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
+            btFloatingView -> intent = Intent(activity, FloatingViewActivity::class.java)
+            bt2InstanceActivity -> intent = Intent(activity, Activity1::class.java)
+            btFragmentNavigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
+            btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
+            btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
+            btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
+            btGalleryCoreAlbumFrm -> intent = Intent(activity, GalleryCoreAlbumFrmActivity::class.java)
+            btArchitectureComponent -> intent = Intent(activity, MenuAndroidArchitectureComponentActivity::class.java)
+            btNFC -> intent = Intent(activity, NFCActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

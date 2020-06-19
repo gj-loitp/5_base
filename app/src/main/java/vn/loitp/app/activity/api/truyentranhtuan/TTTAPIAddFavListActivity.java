@@ -1,30 +1,29 @@
 package vn.loitp.app.activity.api.truyentranhtuan;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
 import com.views.LToast;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.AddComicFavListTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 
 public class TTTAPIAddFavListActivity extends BaseFontActivity {
     private TextView tv;
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = findViewById(R.id.tv);
-        avi = findViewById(R.id.avi);
-        avi.hide();
+        tv = findViewById(R.id.textView);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
+        avLoadingIndicatorView.hide();
 
         findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(v -> {
             Comic comic = new Comic();
@@ -65,27 +64,27 @@ public class TTTAPIAddFavListActivity extends BaseFontActivity {
     }
 
     private void addComic(Comic comic) {
-        avi.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         new AddComicFavListTask(getActivity(), comic, new AddComicFavListTask.Callback() {
             @Override
             public void onAddComicSuccess(Comic mComic, List<Comic> comicList) {
                 LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
                 LToast.showShort(activity, "onAddComicSuccess", R.drawable.l_bkg_horizontal);
-                avi.smoothToHide();
+                avLoadingIndicatorView.smoothToHide();
             }
 
             @Override
             public void onComicIsExist(Comic mComic, List<Comic> comicList) {
                 LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
                 LToast.showShort(activity, "onComicIsExist");
-                avi.smoothToHide();
+                avLoadingIndicatorView.smoothToHide();
             }
 
             @Override
             public void onAddComicError() {
                 LToast.showShort(activity, "onAddComicError");
                 tv.setText("add error");
-                avi.smoothToHide();
+                avLoadingIndicatorView.smoothToHide();
             }
         }).execute();
     }

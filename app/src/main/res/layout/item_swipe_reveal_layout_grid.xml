@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/l_ic_settings_black_48dp"
+            android:src="@drawable/ic_settings_black_48dp"
             android:tint="@color/white" />
     </FrameLayout>
 
@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="@dimen/margin_5"
-            android:background="@color/DarkCyan"
+            android:background="@color/darkCyan"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_18" />

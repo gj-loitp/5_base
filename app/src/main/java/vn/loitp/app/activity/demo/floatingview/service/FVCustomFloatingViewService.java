@@ -5,7 +5,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Rect;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
@@ -21,7 +20,7 @@ import com.views.LToast;
 import com.views.floatingview.FloatingViewListener;
 import com.views.floatingview.FloatingViewManager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FVCustomFloatingViewService extends Service implements FloatingViewListener {
     public static final String EXTRA_CUTOUT_SAFE_AREA = "cutout_safe_area";
@@ -52,7 +51,7 @@ public class FVCustomFloatingViewService extends Service implements FloatingView
             }
         });
         mFloatingViewManager = new FloatingViewManager(this, this);
-        mFloatingViewManager.setFixedTrashIconImage(R.drawable.l_ic_trash_fixed);
+        mFloatingViewManager.setFixedTrashIconImage(R.drawable.ic_close_black_48dp);
         mFloatingViewManager.setActionTrashIconImage(R.drawable.l_ic_trash_action);
         mFloatingViewManager.setSafeInsetRect(intent.getParcelableExtra(EXTRA_CUTOUT_SAFE_AREA));
         // Setting Options(you can change options at any time)

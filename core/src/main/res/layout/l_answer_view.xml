@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:background="@drawable/l_answer_circle"
             android:gravity="center"
-            android:textColor="@color/aw_cevap_text"
+            android:textColor="@color/black"
             android:textSize="15sp"
             tools:text="A" />
     </LinearLayout>

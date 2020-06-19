@@ -1,6 +1,10 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="padding_small">5dp</dimen>
+    <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_large">15dp</dimen>
+
     <dimen name="padding_3">3dp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_8">8dp</dimen>
@@ -15,6 +19,10 @@
     <dimen name="padding_50">50dp</dimen>
     <dimen name="padding_55">55dp</dimen>
     <dimen name="padding_100">100dp</dimen>
+
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="margin_medium">10dp</dimen>
+    <dimen name="margin_large">15dp</dimen>
 
     <dimen name="margin_3">3dp</dimen>
     <dimen name="margin_5">5dp</dimen>
@@ -31,6 +39,10 @@
     <dimen name="margin_65">65dp</dimen>
     <dimen name="margin_75">75dp</dimen>
     <dimen name="margin_100">100dp</dimen>
+
+    <dimen name="txt_small">12sp</dimen>
+    <dimen name="txt_medium">16sp</dimen>
+    <dimen name="txt_large">22sp</dimen>
 
     <dimen name="txt_8">8sp</dimen>
     <dimen name="txt_10">10sp</dimen>
@@ -54,6 +66,7 @@
     <dimen name="txt_100">100sp</dimen>
     <dimen name="txt_150">150sp</dimen>
 
+    <dimen name="round_medium">15dp</dimen>
     <dimen name="round_5">5dp</dimen>
     <dimen name="round_10">10dp</dimen>
     <dimen name="round_15">15dp</dimen>
@@ -153,4 +166,6 @@
     <dimen name="day_text_size">14sp</dimen>
     <dimen name="day_text_padding">8dp</dimen>
     <!--endregion cosmocalendar-->
+
+    <dimen name="spl_default_splitter_size">8dp</dimen>
 </resources>

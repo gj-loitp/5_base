@@ -24,7 +24,7 @@ import com.views.LToast;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class ImageWithCropActivity extends BaseFontActivity {
     private ImageView imageView;

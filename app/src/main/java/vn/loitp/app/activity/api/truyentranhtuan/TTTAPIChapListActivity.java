@@ -6,16 +6,16 @@ import android.widget.TextView;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 
 public class TTTAPIChapListActivity extends BaseFontActivity {
     private TextView tvTitle;
     private TextView tv;
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
     private Button btSelect;
 
     @Override
@@ -23,15 +23,15 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         btSelect = findViewById(R.id.bt_select);
         tvTitle = findViewById(R.id.tv_title);
-        tv = findViewById(R.id.tv);
-        avi = findViewById(R.id.avi);
+        tv = findViewById(R.id.textView);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
 
         String urlComic = "http://truyentranhtuan.com/one-piece/";
         new GetChapTask(getActivity(), urlComic, new GetChapTask.Callback() {
             @Override
             public void onSuccess(TTTChap tttChap) {
                 LUIUtil.INSTANCE.printBeautyJson(tttChap, tv);
-                avi.smoothToHide();
+                avLoadingIndicatorView.smoothToHide();
                 tvTitle.setText("Chap truyện One Piece - size: " + tttChap.getChaps().getChap().size());
             }
 

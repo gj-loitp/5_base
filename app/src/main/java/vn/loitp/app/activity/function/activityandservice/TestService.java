@@ -10,18 +10,15 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
-import vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity;
 
 /**
  * Created by loitp on 3/27/2018.
@@ -73,7 +70,7 @@ public class TestService extends Service {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mFloatingView, params);
 
-        tv = (TextView) mFloatingView.findViewById(R.id.tv);
+        tv = (TextView) mFloatingView.findViewById(R.id.textView);
         ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +85,7 @@ public class TestService extends Service {
 
         tv.setText("This is floating view");
 
-        mFloatingView.findViewById(R.id.bt_0).setOnClickListener(new View.OnClickListener() {
+        mFloatingView.findViewById(R.id.bt0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ComunicateMng.postFromService(new ComunicateMng.MsgFromService("Send msg to activity"));

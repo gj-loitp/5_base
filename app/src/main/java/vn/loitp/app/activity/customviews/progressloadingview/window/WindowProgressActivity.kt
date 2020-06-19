@@ -2,18 +2,27 @@ package vn.loitp.app.activity.customviews.progressloadingview.window
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_window_progress.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_progress_window.*
+import vn.loitp.app.R
 
 class WindowProgressActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         wp10progressBar.setIndicatorRadius(5)
-        showWP7Btn.setOnClickListener { wp7progressBar.showProgressBar() }
-        hideWP7Btn.setOnClickListener { wp7progressBar.hideProgressBar() }
-        showWP10Btn.setOnClickListener { wp10progressBar.showProgressBar() }
-        hideWP10Btn.setOnClickListener { wp10progressBar.hideProgressBar() }
+        showWP7Btn.setOnClickListener {
+            wp7progressBar.showProgressBar()
+        }
+        hideWP7Btn.setOnClickListener {
+            wp7progressBar.hideProgressBar()
+        }
+        showWP10Btn.setOnClickListener {
+            wp10progressBar.showProgressBar()
+        }
+        hideWP10Btn.setOnClickListener {
+            wp10progressBar.hideProgressBar()
+        }
     }
 
     override fun setFullScreen(): Boolean {
@@ -25,6 +34,6 @@ class WindowProgressActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_window_progress
+        return R.layout.activity_progress_window
     }
 }

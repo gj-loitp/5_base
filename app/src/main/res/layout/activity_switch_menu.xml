@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAppcompatSwitch"
+                style="@style/ButtonMenu"
+                android:text="Appcompat Switch" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCustomToggleButton"
+                style="@style/ButtonMenu"
+                android:text="Custom Toggle Button" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btToggle"
+                style="@style/ButtonMenu"
+                android:text="Toggle" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btToggleButtonGroup"
+                style="@style/ButtonMenu"
+                android:text="Toggle Button Group" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Switch Toggle Menu" />
+</RelativeLayout>

@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
-import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.os.Build
 import android.os.Vibrator
@@ -35,21 +34,18 @@ object LDeviceUtil {
         return activity.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
     }
 
-    /*
-    get current android version
-    @return int
-    */
-    fun getCurrentAndroidVersion(activity: Activity): Int {
-        val thisVersion: Int
-        thisVersion = try {
-            val pi = activity.packageManager.getPackageInfo(activity.packageName, 0)
-            pi.versionCode
-        } catch (e: PackageManager.NameNotFoundException) {
-            1
-        }
-        return thisVersion
-    }
+//    fun getCurrentAndroidVersion(activity: Activity): Int {
+//        val thisVersion: Int
+//        thisVersion = try {
+//            val pi = activity.packageManager.getPackageInfo(activity.packageName, 0)
+//            pi.versionCode
+//        } catch (e: PackageManager.NameNotFoundException) {
+//            1
+//        }
+//        return thisVersion
+//    }
 
+    @Suppress("DEPRECATION")
     @SuppressLint("ObsoleteSdkInt")
     fun setClipboard(context: Context, text: String) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
@@ -76,6 +72,18 @@ object LDeviceUtil {
     fun getRandomNumber(max: Int): Int {
         val r = Random()
         return r.nextInt(max)
+    }
+
+    fun getRandomString(maxLeng: Int): String? {
+        val generator = Random()
+        val randomStringBuilder = StringBuilder()
+        val randomLength = generator.nextInt(maxLeng)
+        var tempChar: Char
+        for (i in 0 until randomLength) {
+            tempChar = (generator.nextInt(96) + 32).toChar()
+            randomStringBuilder.append(tempChar)
+        }
+        return randomStringBuilder.toString()
     }
 
     fun isCanOverlay(activity: Activity?): Boolean {

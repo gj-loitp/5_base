@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutofitTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/autofit_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCircleTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/circle_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btColorTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/color_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCountDown"
+                style="@style/ButtonMenu"
+                android:text="@string/countdown_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btExtraTextview"
+                style="@style/ButtonMenu"
+                android:text="@string/extra_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btJustifieldTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/justifiedtextview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btScoreText"
+                style="@style/ButtonMenu"
+                android:text="@string/score_text" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btScrollNumber"
+                style="@style/ButtonMenu"
+                android:text="@string/scroll_number" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectableTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/selectabletextview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btStrokedTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/stroked_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTextDecorator"
+                style="@style/ButtonMenu"
+                android:text="@string/text_decorator" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTranslucentView"
+                style="@style/ButtonMenu"
+                android:text="@string/translucent_view" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTypeWriterTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/type_writer_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btVerticalMarqueeTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/vertial_marquee_textview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btZoomTextView"
+                style="@style/ButtonMenu"
+                android:text="@string/zoom_textview" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/menu_textview" />
+</RelativeLayout>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tvMenu"
@@ -16,42 +16,42 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_test_rx"
                 style="@style/ButtonMenu"
                 android:text="Test RX" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_00"
                 style="@style/ButtonMenu"
                 android:text="AsyncTask and Rx" />
 
-            <Button
-                android:id="@+id/bt_0"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt0"
                 style="@style/ButtonMenu"
                 android:text="DisposableExampleActivity" />
 
-            <Button
-                android:id="@+id/bt_1"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt1"
                 style="@style/ButtonMenu"
                 android:text="FlowableExampleActivity" />
 
-            <Button
-                android:id="@+id/bt_2"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2"
                 style="@style/ButtonMenu"
                 android:text="IntervalExampleActivity " />
 
-            <Button
-                android:id="@+id/bt_3"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt3"
                 style="@style/ButtonMenu"
                 android:text="SingleObserverExampleActivity " />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_4"
                 style="@style/ButtonMenu"
                 android:text="CompletableObserverExampleActivity " />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_5"
                 style="@style/ButtonMenu"
                 android:text="MapExampleActivity  " />

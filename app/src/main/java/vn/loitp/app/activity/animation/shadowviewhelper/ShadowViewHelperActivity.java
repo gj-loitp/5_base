@@ -12,7 +12,7 @@ import com.core.utilities.LDisplayUtil;
 import com.views.shadowviewhelper.ShadowProperty;
 import com.views.shadowviewhelper.ShadowViewDrawable;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
 public class ShadowViewHelperActivity extends BaseFontActivity {
@@ -59,7 +59,7 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
                 .setShadowRadius(LDisplayUtil.INSTANCE.dip2px(this, 3))
                 .setShadowSide(ShadowProperty.Companion.getRIGHT() | ShadowProperty.Companion.getBOTTOM());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.TRANSPARENT, 0, 0);
-        ImageView iv = findViewById(R.id.iv);
+        ImageView iv = findViewById(R.id.imageView);
         ViewCompat.setBackground(iv, sd);
         ViewCompat.setLayerType(iv, ViewCompat.LAYER_TYPE_SOFTWARE, null);
     }

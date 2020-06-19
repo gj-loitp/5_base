@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_scratchview_menu.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity
 import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity
 
@@ -13,8 +14,8 @@ class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_scratchview_image).setOnClickListener(this)
-        findViewById<View>(R.id.bt_scratchview_text).setOnClickListener(this)
+        btScratchViewImage.setOnClickListener(this)
+        btScratchViewText.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -26,17 +27,17 @@ class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_scratchview
+        return R.layout.activity_scratchview_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_scratchview_image -> intent = Intent(activity, ScratchViewImageActivity::class.java)
-            R.id.bt_scratchview_text -> intent = Intent(activity, ScratchViewTextActivity::class.java)
+        when (v) {
+            btScratchViewImage -> intent = Intent(activity, ScratchViewImageActivity::class.java)
+            btScratchViewText -> intent = Intent(activity, ScratchViewTextActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

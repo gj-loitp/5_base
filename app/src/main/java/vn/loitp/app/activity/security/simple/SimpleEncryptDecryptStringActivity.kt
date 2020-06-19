@@ -5,7 +5,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionUtil
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
 
@@ -58,7 +58,7 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
             showShort("Empty string")
             return
         }
-        val newStr = LEncryptionUtil.encrypt(str, password)
+        val newStr = LEncryptionUtil.encrypt(plaintext = str, password = password)
         tv1.text = newStr
         tv0.text = ""
     }
@@ -69,7 +69,7 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
             showShort("Empty string")
             return
         }
-        val newStr = LEncryptionUtil.decrypt(str, password)
+        val newStr = LEncryptionUtil.decrypt(cipherText = str, password = password)
         tv1.text = ""
         tv0.text = newStr
     }

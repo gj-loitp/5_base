@@ -53,7 +53,7 @@ public class CustomTextView extends AppCompatTextView {
     }
 
     private void init() {
-        setDefaultSelectionColor(ContextCompat.getColor(getContext(), R.color.textColorHighlight));
+        setDefaultSelectionColor(ContextCompat.getColor(getContext(), R.color.gray));
         mCursorSelection = new CustomInfo();
         mSelectionController = new SelectionCursorController();
 

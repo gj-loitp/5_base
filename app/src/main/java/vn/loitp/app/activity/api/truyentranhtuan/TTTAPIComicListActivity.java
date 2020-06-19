@@ -8,11 +8,11 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
@@ -21,7 +21,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType;
 public class TTTAPIComicListActivity extends BaseFontActivity {
     private TextView tvTitle;
     private TextView tv;
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
     private List<ComicType> comicTypeList;
 
     @Override
@@ -30,9 +30,9 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
 
         Button btSelect = findViewById(R.id.bt_select);
         tvTitle = findViewById(R.id.tv_title);
-        tv = findViewById(R.id.tv);
-        avi = findViewById(R.id.avi);
-        avi.hide();
+        tv = findViewById(R.id.textView);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
+        avLoadingIndicatorView.hide();
 
         comicTypeList = ComicUtils.getComicTypeList();
 
@@ -68,7 +68,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
             LLog.d(getTAG(), "onClick " + position);
             tv.setText("");
             tvTitle.setText("");
-            new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avi, new GetComicTask.Callback() {
+            new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avLoadingIndicatorView, new GetComicTask.Callback() {
                 @Override
                 public void onSuccess(List<Comic> comicList) {
                     LUIUtil.INSTANCE.printBeautyJson(comicList, tv);

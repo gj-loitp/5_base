@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,19 +13,19 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Red"
+            android:background="@color/red"
             android:gravity="center"
             android:text="This is recyclerview, not viewpager\nCan use vertical or horizontal"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/Red"
+            android:background="@color/red"
             android:gravity="center"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView

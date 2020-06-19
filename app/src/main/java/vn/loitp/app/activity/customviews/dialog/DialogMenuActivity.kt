@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_dialog.*
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_dialog_menu.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dialog.customdialog.CustomDialogActivity
 import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity
 import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity
@@ -19,11 +19,11 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_ios_dialog).setOnClickListener(this)
-        findViewById<View>(R.id.bt_original_dialog).setOnClickListener(this)
-        findViewById<View>(R.id.bt_pretty_dialog).setOnClickListener(this)
-        findViewById<View>(R.id.bt_swipe_away_dialog).setOnClickListener(this)
-        findViewById<View>(R.id.bt_custom_progress_dialog).setOnClickListener(this)
+        btIosDialog.setOnClickListener(this)
+        btOriginalDialog.setOnClickListener(this)
+        btPrettyDialog.setOnClickListener(this)
+        btSwipeAwayDialog.setOnClickListener(this)
+        btCustomProgressDialog.setOnClickListener(this)
         btSlideImages.setOnClickListener(this)
         btCustomDialog.setOnClickListener(this)
     }
@@ -37,19 +37,19 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_dialog
+        return R.layout.activity_dialog_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_ios_dialog -> intent = Intent(activity, DialogIOSActivity::class.java)
-            R.id.bt_original_dialog -> intent = Intent(activity, DialogOriginalActivity::class.java)
-            R.id.bt_pretty_dialog -> intent = Intent(activity, PrettyDialogActivity::class.java)
-            R.id.bt_swipe_away_dialog -> intent = Intent(activity, SwipeAwayDialogActivity::class.java)
-            R.id.bt_custom_progress_dialog -> intent = Intent(activity, CustomProgressDialoglActivity::class.java)
-            R.id.btSlideImages -> intent = Intent(activity, DialogSlideImagesActivity::class.java)
-            R.id.btCustomDialog -> intent = Intent(activity, CustomDialogActivity::class.java)
+        when (v) {
+            btIosDialog -> intent = Intent(activity, DialogIOSActivity::class.java)
+            btOriginalDialog -> intent = Intent(activity, DialogOriginalActivity::class.java)
+            btPrettyDialog -> intent = Intent(activity, PrettyDialogActivity::class.java)
+            btSwipeAwayDialog -> intent = Intent(activity, SwipeAwayDialogActivity::class.java)
+            btCustomProgressDialog -> intent = Intent(activity, CustomProgressDialoglActivity::class.java)
+            btSlideImages -> intent = Intent(activity, DialogSlideImagesActivity::class.java)
+            btCustomDialog -> intent = Intent(activity, CustomDialogActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

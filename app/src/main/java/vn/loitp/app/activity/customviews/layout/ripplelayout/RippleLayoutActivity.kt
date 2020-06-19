@@ -4,7 +4,7 @@ import android.os.Bundle
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class RippleLayoutActivity : BaseFontActivity() {
 
@@ -22,6 +22,6 @@ class RippleLayoutActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_ripple_layout
+        return R.layout.activity_layout_ripple
     }
 }

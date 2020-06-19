@@ -17,7 +17,7 @@ import com.views.LToast;
 import java.util.HashMap;
 import java.util.Map;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 import vn.loitp.app.app.LApplication;

@@ -3,24 +3,18 @@
 
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="@color/LightGrey" />
-
-            <stroke android:width="@dimen/w_1" android:color="@color/LightGrey" />
-
+            <solid android:color="@color/lightGrey" />
+            <stroke android:width="0.5dp" android:color="@color/lightGrey" />
             <corners android:radius="@dimen/round_45" />
-
-            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_5" android:right="@dimen/padding_5" android:top="@dimen/padding_5" />
+<!--            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_5" android:right="@dimen/padding_5" android:top="@dimen/padding_5" />-->
         </shape>
     </item>
     <item>
         <shape>
-            <gradient android:angle="270" android:endColor="@color/transparent" android:startColor="@color/transparent" />
-
-            <stroke android:width="@dimen/w_1" android:color="@color/LightGrey" />
-
+            <gradient android:angle="270" android:endColor="@color/white" android:startColor="@color/white" />
+            <stroke android:width="0.5dp" android:color="@color/lightGrey" />
             <corners android:radius="@dimen/round_45" />
-
-            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_10" android:right="@dimen/padding_10" android:top="@dimen/padding_5" />
+<!--            <padding android:bottom="@dimen/padding_5" android:left="@dimen/padding_10" android:right="@dimen/padding_10" android:top="@dimen/padding_5" />-->
         </shape>
     </item>
 

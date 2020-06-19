@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://www.lottiefiles.com/?page=1
 public class MenuLottieActivity extends BaseFontActivity {
@@ -31,11 +31,11 @@ public class MenuLottieActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewPager = findViewById(R.id.view_pager);
+        viewPager = findViewById(R.id.viewPager);
         sb = findViewById(R.id.sb);
         slidePagerAdapter = new SlidePagerAdapter();
         viewPager.setAdapter(slidePagerAdapter);
-        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {

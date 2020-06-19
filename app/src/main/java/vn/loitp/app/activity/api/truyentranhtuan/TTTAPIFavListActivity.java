@@ -6,23 +6,23 @@ import android.widget.TextView;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask;
 
 public class TTTAPIFavListActivity extends BaseFontActivity {
     private TextView tv;
     private TextView tvTitle;
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         tvTitle = findViewById(R.id.tv_title);
-        avi = findViewById(R.id.avi);
-        avi.hide();
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
+        avLoadingIndicatorView.hide();
 
         getFavList();
     }
@@ -43,7 +43,7 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
     }
 
     private void getFavList() {
-        new GetFavListTask(getActivity(), avi, comicList -> {
+        new GetFavListTask(getActivity(), avLoadingIndicatorView, comicList -> {
             LLog.d(getTAG(), "onSuccess " + comicList.size());
             LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
             tvTitle.setText("Danh sách yêu thích: " + comicList.size());

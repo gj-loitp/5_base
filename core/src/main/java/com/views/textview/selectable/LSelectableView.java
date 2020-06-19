@@ -68,7 +68,7 @@ public class LSelectableView extends FrameLayout {
         saveBtn = new TextView(context);
         saveBtn.setGravity(Gravity.CENTER);
         saveBtn.setText(context.getResources().getString(R.string.save_conversation));
-        saveBtn.setTextColor(context.getResources().getColor(R.color.main_progressbar));
+        saveBtn.setTextColor(context.getResources().getColor(R.color.deepPink));
         saveBtn.setBackgroundResource(R.drawable.selector_highlight_btn_bg);
         saveBtn.setVisibility(GONE);
         saveBtn.setOnClickListener(new OnClickListener() {

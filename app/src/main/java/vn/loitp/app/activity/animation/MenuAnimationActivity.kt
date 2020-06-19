@@ -5,13 +5,12 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
 import vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity
 import vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity
-import vn.loitp.app.activity.animation.confetti.ConfettiMenuActivity
 import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity
 import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
@@ -29,7 +28,6 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_activity_transition).setOnClickListener(this)
         findViewById<View>(R.id.bt_shadowview_helper).setOnClickListener(this)
         findViewById<View>(R.id.bt_expect_anim).setOnClickListener(this)
-        findViewById<View>(R.id.bt_animation_confetti).setOnClickListener(this)
         findViewById<View>(R.id.bt_basic_transition_frm).setOnClickListener(this)
         findViewById<View>(R.id.bt_basic_transition_activity).setOnClickListener(this)
         findViewById<View>(R.id.bt_basic_transition).setOnClickListener(this)
@@ -58,7 +56,6 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_activity_transition -> intent = Intent(activity, Animation1Activity::class.java)
             R.id.bt_shadowview_helper -> intent = Intent(activity, ShadowViewHelperActivity::class.java)
             R.id.bt_expect_anim -> intent = Intent(activity, ExpectAnimActivity::class.java)
-            R.id.bt_animation_confetti -> intent = Intent(activity, ConfettiMenuActivity::class.java)
             R.id.bt_basic_transition_frm -> intent = Intent(activity, BasicTransitionActivity::class.java)
             R.id.bt_basic_transition_activity -> intent = Intent(activity, SceneTransitionBasicActivity::class.java)
             R.id.bt_basic_transition -> intent = Intent(activity, BasicTransition0Activity::class.java)

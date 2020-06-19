@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_control" />
+        android:layout_below="@+id/layoutControl" />
 
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/WhiteSmoke"
+        android:background="@color/whiteSmoke"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -28,7 +28,7 @@
             android:text="LinearLayoutManager vertical"
             android:textStyle="bold" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,20 +36,20 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll"
-        android:background="@color/WhiteSmoke"
+        android:background="@color/whiteSmoke"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_add_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add to position 3" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt_remove_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -5,10 +5,9 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
@@ -50,7 +49,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
     }
 
     private fun showMsg(msg: String) {
-        LLog.d(TAG, "\n" + msg)
+        logD("\n" + msg)
         val tv = TextView(activity)
         tv.text = msg
         LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 10)
@@ -161,7 +160,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 for (i in 0 until totalPage) {
                     showMsg("------------$i------------")
                     val list = db.getActionListByPage(i, pageSize)
-                    LLog.d(TAG, "$i/$totalPage -> size: ${list.size} -> btGetActionListPage " + LApplication.gson.toJson(list))
+                    logD("$i/$totalPage -> size: ${list.size} -> btGetActionListPage " + LApplication.gson.toJson(list))
                     showMsg("$i/$totalPage -> size: ${list.size} -> list: " + LApplication.gson.toJson(list))
                 }
                 showMsg("=========================================")

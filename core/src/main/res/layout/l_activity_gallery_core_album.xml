@@ -9,7 +9,7 @@
     app:swipeBackFactor="0.5">
 
     <RelativeLayout
-        android:id="@+id/root_view"
+        android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark">
@@ -40,13 +40,13 @@
             android:gravity="center"
             android:orientation="vertical" />
 
-        <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+        <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/av"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:layout_centerInParent="true"
-            app:indicatorColor="@color/White"
+            app:indicatorColor="@color/white"
             app:indicatorName="LineScalePulseOutRapidIndicator" />
     </RelativeLayout>
 

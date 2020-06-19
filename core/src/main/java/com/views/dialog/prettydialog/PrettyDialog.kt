@@ -29,8 +29,7 @@ import com.core.utilities.LUIUtil
 import java.util.*
 
 class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
-    /*public enum BUTTON_TYPE{FILL,BORDER}*/
-    internal var defaultIconTint: Int = R.color.pdlg_color_blue
+    internal var defaultIconTint: Int = R.color.colorPrimary
     internal var resources: Resources
     internal var llContent: LinearLayout? = null
     internal var llButtons: LinearLayout? = null
@@ -137,7 +136,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setTitleColor(color: Int?): PrettyDialog {
-        tvTitle?.setTextColor(ContextCompat.getColor(context, color ?: R.color.pdlg_color_black))
+        tvTitle?.setTextColor(ContextCompat.getColor(context, color ?: R.color.black))
         return this
     }
 
@@ -152,13 +151,13 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setMessageColor(color: Int?): PrettyDialog {
-        tvMessage?.setTextColor(ContextCompat.getColor(context, color ?: R.color.pdlg_color_black))
+        tvMessage?.setTextColor(ContextCompat.getColor(context, color ?: R.color.black))
         return this
     }
 
     @SuppressLint("ClickableViewAccessibility")
     fun setIcon(icon: Int?): PrettyDialog {
-        ivIcon?.setImageResource(icon ?: R.drawable.pdlg_icon_close)
+        ivIcon?.setImageResource(icon ?: R.drawable.ic_close_black_48dp)
         iconAnimation = false
         ivIcon?.setOnTouchListener(null)
         return this
@@ -196,7 +195,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     fun setIcon(icon: Int?, iconTint: Int?, callback: Runnable?): PrettyDialog {
         iconAnimation = false
         ivIcon?.let {
-            it.setImageResource(icon ?: R.drawable.pdlg_icon_close)
+            it.setImageResource(icon ?: R.drawable.ic_close_black_48dp)
             it.setColorFilter(ContextCompat.getColor(context, iconTint
                     ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
             it.setOnTouchListener(null)

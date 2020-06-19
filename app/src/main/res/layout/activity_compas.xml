@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/WhiteSmoke">
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,17 +23,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                app:border_color="@color/Red"
-                app:degree_color="@color/Blue"
+                app:degree_color="@color/blue"
                 app:degree_value_color="@color/colorAccent"
                 app:degrees_step="5"
                 app:needle="@drawable/l_ic_needle"
-                app:orientation_labels_color="@color/Red"
+                app:orientation_labels_color="@color/red"
                 app:show_border="false"
                 app:show_degree_value="false"
                 app:show_orientation_labels="true" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"

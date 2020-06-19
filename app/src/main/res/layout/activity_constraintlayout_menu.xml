@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,27 +17,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_constraint_set"
                 style="@style/ButtonMenu"
                 android:text="ConstraintSet" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_custom_behavior"
                 style="@style/ButtonMenu"
                 android:text="Custom Behavior" />
 
-            <Button
-                android:id="@+id/bt_demo"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDemo"
                 style="@style/ButtonMenu"
                 android:text="Demo" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fab_n_snackbar"
                 style="@style/ButtonMenu"
                 android:text="FabAndSnackbarActivity" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_fab_follow_widget"
                 style="@style/ButtonMenu"
                 android:text="Fab follow widget" />

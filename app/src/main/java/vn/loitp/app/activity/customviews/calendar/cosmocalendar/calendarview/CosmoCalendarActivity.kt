@@ -7,8 +7,9 @@ import android.widget.RadioGroup
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.OrientationHelper
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
+import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
+import com.views.calendar.cosmocalendar.selection.RangeSelectionManager
 import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
 import com.views.calendar.cosmocalendar.selection.criteria.WeekDayCriteria
 import com.views.calendar.cosmocalendar.selection.criteria.month.CurrentMonthCriteria
@@ -16,11 +17,13 @@ import com.views.calendar.cosmocalendar.selection.criteria.month.NextMonthCriter
 import com.views.calendar.cosmocalendar.selection.criteria.month.PreviousMonthCriteria
 import com.views.calendar.cosmocalendar.utils.SelectionType
 import kotlinx.android.synthetic.main.activity_calendar_cosmo.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 import java.util.*
 import kotlin.collections.ArrayList
 
+//https://github.com/ApplikeySolutions/CosmoCalendar
+//set color o colors.xml region cosmocalendar
 class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeListener {
     private var threeMonthsCriteriaList = ArrayList<BaseCriteria>()
     private var fridayCriteria: WeekDayCriteria? = null
@@ -37,6 +40,15 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
         initViews()
         createCriterias()
+
+        //add min date and max date
+        /*val c = Calendar.getInstance()
+        calendarView.minDate = c
+
+        c.add(Calendar.DATE, 30)
+        calendarView.maxDate = c*/
+
+        //calendarView.currentDayIconRes = R.drawable.circle
     }
 
     override fun setFullScreen(): Boolean {
@@ -52,9 +64,9 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     }
 
     private fun initViews() {
-        (findViewById<RadioGroup>(R.id.rgShowHideFlBottomSelectionBar)).setOnCheckedChangeListener(this)
-        (findViewById<RadioGroup>(R.id.rg_orientation)).setOnCheckedChangeListener(this)
-        (findViewById<RadioGroup>(R.id.rg_selection_type)).setOnCheckedChangeListener(this)
+        rgShowHideFlBottomSelectionBar.setOnCheckedChangeListener(this)
+        rgOrientation.setOnCheckedChangeListener(this)
+        rgSelectionType.setOnCheckedChangeListener(this)
     }
 
     private fun createCriterias() {
@@ -68,26 +80,26 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_calendar_cosmo, menu)
-        menuFridays = menu.findItem(R.id.select_all_fridays)
-        menuThreeMonth = menu.findItem(R.id.select_three_months)
+        menuFridays = menu.findItem(R.id.itemSelectAllFridays)
+        menuThreeMonth = menu.findItem(R.id.itemSelectThreeMonths)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.select_all_fridays -> {
+            R.id.itemSelectAllFridays -> {
                 fridayMenuClick()
                 return true
             }
-            R.id.select_three_months -> {
+            R.id.itemSelectThreeMonths -> {
                 threeMonthsMenuClick()
                 return true
             }
-            R.id.clear_selections -> {
+            R.id.itemClearSelections -> {
                 clearSelectionsMenuClick()
                 return true
             }
-            R.id.log_selected_days -> {
+            R.id.itemLogSelectedDays -> {
                 logSelectedDaysMenuClick()
                 return true
             }
@@ -157,7 +169,6 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun logSelectedDaysMenuClick() {
         showShort("Selected " + calendarView.selectedDays.size)
-        LLog.d(TAG, "logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
     }
 
     override fun onCheckedChanged(group: RadioGroup, @IdRes checkedId: Int) {
@@ -169,28 +180,47 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
             R.id.rbHideFlBottomSelectionBar -> {
                 calendarView.isShowFlBottomSelectionBar = false
             }
-            R.id.rb_horizontal -> calendarView.calendarOrientation = OrientationHelper.HORIZONTAL
-            R.id.rb_vertical -> calendarView.calendarOrientation = OrientationHelper.VERTICAL
-            R.id.rb_single -> {
+            R.id.rbHorizontal -> {
+                calendarView.calendarOrientation = OrientationHelper.HORIZONTAL
+            }
+            R.id.rbVertical -> calendarView.calendarOrientation = OrientationHelper.VERTICAL
+            R.id.rbSingle -> {
                 calendarView.selectionType = SelectionType.SINGLE
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false
             }
-            R.id.rb_multiple -> {
+            R.id.rbMultiple -> {
                 calendarView.selectionType = SelectionType.MULTIPLE
                 menuFridays.isVisible = true
                 menuThreeMonth.isVisible = true
             }
-            R.id.rb_range -> {
+            R.id.rbRange -> {
                 calendarView.selectionType = SelectionType.RANGE
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false
+
+                addDefaultRange()
             }
-            R.id.rb_none -> {
+            R.id.rbNone -> {
                 calendarView.selectionType = SelectionType.NONE
                 menuFridays.isVisible = false
                 menuThreeMonth.isVisible = false
             }
+        }
+    }
+
+    private fun addDefaultRange() {
+        calendarView.selectionManager = RangeSelectionManager {
+            logD("logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
+        }
+        if (calendarView.selectionManager is RangeSelectionManager) {
+            calendarView.clearSelections()
+            val rangeSelectionManager: RangeSelectionManager = calendarView.selectionManager as RangeSelectionManager
+            val calendar: Calendar = Calendar.getInstance()
+            calendar.add(Calendar.DATE, 3)
+            rangeSelectionManager.toggleDay(Day(Calendar.getInstance()))
+            rangeSelectionManager.toggleDay(Day(calendar))
+            calendarView.update()
         }
     }
 }

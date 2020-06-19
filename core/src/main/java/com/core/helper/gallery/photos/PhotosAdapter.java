@@ -110,13 +110,11 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
         public ViewHolder(View v) {
             super(v);
-            iv = v.findViewById(R.id.iv);
-            tvSize = v.findViewById(R.id.tv_size);
-            //progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
-            rootView = v.findViewById(R.id.root_view);
-            viewSpaceTop = v.findViewById(R.id.view_space_top);
-            viewSpaceBottom = v.findViewById(R.id.view_space_bottom);
-            //LUIUtil.setColorProgressBar(progressBar, Color.WHITE);
+            iv = v.findViewById(R.id.imageView);
+            tvSize = v.findViewById(R.id.tvSize);
+            rootView = v.findViewById(R.id.rootView);
+            viewSpaceTop = v.findViewById(R.id.viewSpaceTop);
+            viewSpaceBottom = v.findViewById(R.id.viewSpaceBottom);
         }
     }
 

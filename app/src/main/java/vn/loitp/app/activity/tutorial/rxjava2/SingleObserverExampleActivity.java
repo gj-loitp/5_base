@@ -10,7 +10,7 @@ import com.core.utilities.LLog;
 import io.reactivex.Single;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class SingleObserverExampleActivity extends BaseFontActivity {

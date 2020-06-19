@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="false">
@@ -17,17 +17,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_25"
         android:padding="@dimen/padding_5"
-        android:textColor="@color/White"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_20" />
 
-    <com.views.progressloadingview.avl.LAVLoadingIndicatorView
+    <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/av"
         style="@style/AVLoadingIndicatorView"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/margin_15"
-        app:indicatorColor="@color/White"
+        app:indicatorColor="@color/white"
         app:indicatorName="LineScalePulseOutRapidIndicator" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -41,7 +41,7 @@
         android:src="@drawable/l_page"
         android:tint="@color/colorPrimary"
         android:visibility="invisible"
-        app:backgroundTint="@color/White"
+        app:backgroundTint="@color/white"
         app:borderWidth="@dimen/w_1"
         app:elevation="@dimen/w_1"
         app:fabSize="normal" />

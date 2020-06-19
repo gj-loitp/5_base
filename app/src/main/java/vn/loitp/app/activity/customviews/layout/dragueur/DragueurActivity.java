@@ -8,7 +8,7 @@ import com.core.utilities.LLog;
 import com.views.layout.dragueur.Direction;
 import com.views.layout.dragueur.DraggableView;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://github.com/Meetic/Dragueur?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3534
 public class DragueurActivity extends BaseFontActivity {
@@ -19,7 +19,7 @@ public class DragueurActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         draggableView = findViewById(R.id.dragueur);
-        tv = findViewById(R.id.tv);
+        tv = findViewById(R.id.textView);
         draggableView.setRotationEnabled(true);
         //draggableView.setAnimating(true);
         draggableView.setRotationValue(10f);

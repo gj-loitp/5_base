@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCoroutine"
+                style="@style/ButtonMenu"
+                android:text="Coroutine" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRoom"
+                style="@style/ButtonMenu"
+                android:text="Room" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btViewModel"
+                style="@style/ButtonMenu"
+                android:text="View model - Live Data" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Menu Architecture Component" />
+</RelativeLayout>

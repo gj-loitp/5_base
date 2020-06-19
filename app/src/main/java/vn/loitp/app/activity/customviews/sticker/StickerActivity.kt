@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.views.sticker.StickerImageView
 import com.views.sticker.StickerTextView
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class StickerActivity : BaseFontActivity() {
 

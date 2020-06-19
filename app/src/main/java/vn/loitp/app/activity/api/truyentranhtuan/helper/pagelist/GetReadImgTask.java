@@ -3,7 +3,7 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist;
 import android.os.AsyncTask;
 
 import com.core.utilities.LLog;
-import com.views.progressloadingview.avl.LAVLoadingIndicatorView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.DataNode;
@@ -28,7 +28,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
     private List<String> imagesListOfOneChap = new ArrayList<>();//list img per chap
     private String link = "";
 
-    private LAVLoadingIndicatorView avi;
+    private AVLoadingIndicatorView avLoadingIndicatorView;
 
     public interface Callback {
         public void onSuccess(List<String> imagesListOfOneChap);
@@ -38,9 +38,9 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
     private Callback callback;
 
-    public GetReadImgTask(String link, LAVLoadingIndicatorView avi, Callback callback) {
+    public GetReadImgTask(String link, AVLoadingIndicatorView avLoadingIndicatorView, Callback callback) {
         this.link = link;
-        this.avi = avi;
+        this.avLoadingIndicatorView = avLoadingIndicatorView;
         this.callback = callback;
     }
 
@@ -49,7 +49,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
         if (imagesListOfOneChap != null) {
             imagesListOfOneChap.clear();
         }
-        avi.smoothToShow();
+        avLoadingIndicatorView.smoothToShow();
         super.onPreExecute();
     }
 
@@ -84,7 +84,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
                 callback.onError();
             }
         }
-        avi.smoothToHide();
+        avLoadingIndicatorView.smoothToHide();
         super.onPostExecute(aVoid);
     }
 

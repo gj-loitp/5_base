@@ -2,30 +2,30 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<group android:checkableBehavior="single">
 		<item
-			android:id="@+id/nav_camera"
+			android:id="@+id/navCamera"
 			android:icon="@mipmap/ic_launcher"
 			android:title="Import" />
 		<item
-			android:id="@+id/nav_gallery"
+			android:id="@+id/navGallery"
 			android:icon="@mipmap/ic_launcher"
 			android:title="Gallery" />
 		<item
-			android:id="@+id/nav_slideshow"
+			android:id="@+id/navSlideshow"
 			android:icon="@mipmap/ic_launcher"
 			android:title="Slideshow" />
 		<item
-			android:id="@+id/nav_manage"
+			android:id="@+id/navManage"
 			android:icon="@mipmap/ic_launcher"
 			android:title="Tools" />
 	</group>
 	<item android:title="Communicate">
 		<menu>
 			<item
-				android:id="@+id/nav_share"
+				android:id="@+id/navShare"
 				android:icon="@mipmap/ic_launcher"
 				android:title="Share" />
 			<item
-				android:id="@+id/nav_send"
+				android:id="@+id/navSend"
 				android:icon="@mipmap/ic_launcher"
 				android:title="Send" />
 		</menu>

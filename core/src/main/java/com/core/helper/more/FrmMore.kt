@@ -3,14 +3,13 @@ package com.core.helper.more
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.core.widget.NestedScrollView
 import com.R
-
 import com.core.base.BaseFragment
 import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.l_frm_more.*
 
 /**
  * Created by www.muathu@gmail.com on 7/26/2017.
@@ -23,14 +22,13 @@ class FrmMore : BaseFragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        view.findViewById<View>(R.id.bt_rate_app).setOnClickListener(this)
-        view.findViewById<View>(R.id.bt_more_app).setOnClickListener(this)
-        view.findViewById<View>(R.id.bt_share_app).setOnClickListener(this)
-        view.findViewById<View>(R.id.bt_like_fb_fanpage).setOnClickListener(this)
-        view.findViewById<View>(R.id.bt_support).setOnClickListener(this)
-        view.findViewById<View>(R.id.bt_ad_helper).setOnClickListener(this)
+        btRateApp.setOnClickListener(this)
+        btMoreApp.setOnClickListener(this)
+        btShareApp.setOnClickListener(this)
+        btLikeFbFanpage.setOnClickListener(this)
+        btSupport.setOnClickListener(this)
+        btAdHelper.setOnClickListener(this)
 
-        val nestedScrollView = view.findViewById<View>(R.id.sv) as NestedScrollView
         LUIUtil.setPullLikeIOSVertical(nestedScrollView)
     }
 
@@ -40,13 +38,13 @@ class FrmMore : BaseFragment(), View.OnClickListener {
 
     override fun onClick(v: View) {
         activity?.let {
-            when (v.id) {
-                R.id.bt_rate_app -> LSocialUtil.rateApp(it, it.packageName)
-                R.id.bt_more_app -> LSocialUtil.moreApp(it)
-                R.id.bt_share_app -> LSocialUtil.shareApp(it)
-                R.id.bt_like_fb_fanpage -> LSocialUtil.likeFacebookFanpage(it)
-                R.id.bt_support -> LSocialUtil.chatMessenger(it)
-                R.id.bt_ad_helper -> {
+            when (v) {
+                btRateApp -> LSocialUtil.rateApp(it, it.packageName)
+                btMoreApp -> LSocialUtil.moreApp(it)
+                btShareApp -> LSocialUtil.shareApp(it)
+                btLikeFbFanpage -> LSocialUtil.likeFacebookFanpage(it)
+                btSupport -> LSocialUtil.chatMessenger(it)
+                btAdHelper -> {
                     val intent = Intent(it, AdHelperActivity::class.java)
                     startActivity(intent)
                     LActivityUtil.tranIn(it)

@@ -1,5 +1,10 @@
 <resources>
 
+    <style name="SplashTheme" parent="AppThemeAndroidO">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowBackground">@drawable/startup</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
@@ -20,24 +25,43 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/l_bkg_horizontal</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/White</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/txt_22</item>
-        <item name="android:paddingBottom">@dimen/padding_30</item>
-        <item name="android:paddingTop">@dimen/padding_30</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:paddingBottom">@dimen/padding_large</item>
+        <item name="android:paddingTop">@dimen/padding_large</item>
     </style>
 
     <style name="ButtonMenu">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">start|center_vertical</item>
-        <item name="android:textColor">@color/Black</item>
-        <item name="android:textSize">@dimen/txt_18</item>
-        <item name="android:layout_marginStart">@dimen/margin_15</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/txt_medium</item>
+        <item name="android:layout_marginStart">@dimen/margin_medium</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:layout_marginEnd">@dimen/margin_15</item>
-        <item name="android:layout_marginTop">@dimen/margin_5</item>
-        <item name="android:layout_marginBottom">@dimen/margin_5</item>
+        <item name="android:layout_marginEnd">@dimen/margin_medium</item>
+        <item name="android:paddingStart">@dimen/padding_medium</item>
+        <item name="android:paddingEnd">@dimen/padding_medium</item>
+        <item name="android:layout_marginTop">@dimen/margin_small</item>
+        <item name="android:layout_marginBottom">@dimen/margin_small</item>
         <item name="android:background">@drawable/bt_tag</item>
     </style>
+
+    <declare-styleable name="CustomCompoundButtonTheme">
+        <attr name="customCompoundButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <style name="CustomCompoundButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:background">@drawable/selector_bg_radio_button</item>
+        <item name="android:textColor">@color/selector_text_radio_button</item>
+        <item name="android:button">@null</item>
+    </style>
+
+    <declare-styleable name="CustomCompoundToggleButton">
+        <attr name="tbgFrontImage" format="reference" />
+        <attr name="tbgBackImage" format="reference" />
+    </declare-styleable>
+
 </resources>

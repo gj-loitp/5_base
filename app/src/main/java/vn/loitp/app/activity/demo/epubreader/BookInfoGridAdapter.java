@@ -14,7 +14,7 @@ import com.function.epub.model.BookInfo;
 
 import java.util.List;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 /**
  * Created by loitp on 08.09.2016.

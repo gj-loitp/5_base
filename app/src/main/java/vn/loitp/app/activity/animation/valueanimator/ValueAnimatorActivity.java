@@ -10,7 +10,7 @@ import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 public class ValueAnimatorActivity extends BaseFontActivity {
@@ -22,7 +22,7 @@ public class ValueAnimatorActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         tvDebug = findViewById(R.id.tv_debug);
         view = findViewById(R.id.view);
-        findViewById(R.id.bt_start).setOnClickListener(view -> startAnim());
+        findViewById(R.id.btStart).setOnClickListener(view -> startAnim());
     }
 
     @Override

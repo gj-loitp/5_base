@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/frmGetListUser">
+
+    <fragment
+        android:id="@+id/frmGetListUser"
+        android:name="vn.loitp.app.activity.api.coroutine.activity.FrmGetListUser"
+        android:label="frmGetListUser"
+        tools:layout="@layout/frm_coroutine_get_list">
+        <action
+            android:id="@+id/action_frmGetListUser_to_frmUser"
+            app:destination="@id/frmUser"
+            app:enterAnim="@anim/fm_slide_in_right"
+            app:exitAnim="@anim/fm_slide_out_left"
+            app:popEnterAnim="@anim/fm_slide_in_left"
+            app:popExitAnim="@anim/fm_slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/frmUser"
+        android:name="vn.loitp.app.activity.api.coroutine.activity.FrmUser"
+        android:label="FrmUser"
+        tools:layout="@layout/frm_coroutine_user">
+    </fragment>
+
+</navigation>

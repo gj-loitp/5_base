@@ -9,9 +9,11 @@ import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.core.utilities.LDialogUtil
-import com.core.utilities.LSharedPrefsUtil
+import com.core.utilities.LLog
 import com.data.EventBusData
 import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
@@ -23,9 +25,9 @@ import org.greenrobot.eventbus.ThreadMode
  * Created by loitp on 2019/7/12
  */
 abstract class BaseFragment : Fragment() {
-    protected lateinit var TAG: String
+    protected var TAG: String? = null
     protected var compositeDisposable = CompositeDisposable()
-    protected lateinit var frmRootView: View
+    protected var frmRootView: View? = null
     protected var fragmentCallback: FragmentCallback? = null
 
     private val DEFAULT_CHILD_ANIMATION_DURATION = 400
@@ -52,6 +54,18 @@ abstract class BaseFragment : Fragment() {
         super.onDestroyView()
     }
 
+    protected fun logD(msg: String) {
+        TAG?.let {
+            LLog.d(it, msg)
+        }
+    }
+
+    protected fun logE(msg: String) {
+        TAG?.let {
+            LLog.e(it, msg)
+        }
+    }
+
     /*override fun onAttach(context: Context?) {
         super.onAttach(context)
     }*/
@@ -62,21 +76,23 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun showDialogError(errMsg: String) {
+    open fun showDialogError(errMsg: String, runnable: Runnable? = null) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.warning), errMsg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
                         override fun onClick1() {
+                            runnable?.run()
                         }
                     })
         }
     }
 
-    open fun showDialogMsg(msg: String) {
+    open fun showDialogMsg(msg: String, runnable: Runnable? = null) {
         context?.let {
             LDialogUtil.showDialog1(it, getString(R.string.app_name), msg, getString(R.string.confirm),
                     object : LDialogUtil.Callback1 {
                         override fun onClick1() {
+                            runnable?.run()
                         }
                     }
             )
@@ -93,15 +109,15 @@ abstract class BaseFragment : Fragment() {
 
         // Apply the workaround only if this is a child fragment, and the parent
         // is being removed.
-        if (!enter && parent != null && parent.isRemoving) {
+        return if (!enter && parent != null && parent.isRemoving) {
             // This is a workaround for the bug where child fragments disappear when
             // the parent is removed (as all children are first removed from the parent)
             // See https://code.google.com/p/android/issues/detail?id=55228
             val doNothingAnim = AlphaAnimation(1f, 1f)
             doNothingAnim.duration = getNextAnimationDuration(parent, DEFAULT_CHILD_ANIMATION_DURATION.toLong())
-            return doNothingAnim
+            doNothingAnim
         } else {
-            return super.onCreateAnimation(transit, enter, nextAnim)
+            super.onCreateAnimation(transit, enter, nextAnim)
         }
     }
 
@@ -117,27 +133,34 @@ abstract class BaseFragment : Fragment() {
             // ...and if it can be loaded, return that animation's duration
             return nextAnim?.duration ?: defValue
         } catch (ex: NoSuchFieldException) {
-            //LLog.d(TAG, "Unable to load next animation from parent.", ex);
+            //logD("Unable to load next animation from parent.", ex)
+            ex.printStackTrace()
             return defValue
         } catch (ex: IllegalAccessException) {
+            ex.printStackTrace()
             return defValue
         } catch (ex: Resources.NotFoundException) {
+            ex.printStackTrace()
             return defValue
         }
     }
 
     open fun showShort(msg: String) {
-        activity?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
+        context?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         //TAG = "onMessageEvent"
-        //LLog.d(TAG, "onMessageEvent " + event.isConnected())
+        //logD(TAG, "onMessageEvent " + event.isConnected())
         onNetworkChange(event)
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {
         //showToastLongDebug("onNetworkChange isConnected: ${event.isConnected}")
+    }
+
+    protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
+        return ViewModelProvider(this).get(className)
     }
 }

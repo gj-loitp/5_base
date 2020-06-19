@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:id="@+id/root_view"
+	android:id="@+id/rootView"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
 	<ScrollView
-		android:id="@+id/scroll_view"
+		android:id="@+id/scrollView"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:fillViewport="true"
@@ -28,23 +28,23 @@ You can resize main log window by dragging down right corner of the log window.
 Clear the screen by clicking on the right upper corner.
 Easy use. Only three API methods.
 Easy link with Gradle."
-				android:textColor="@color/Black"
+				android:textColor="@color/black"
 				android:textSize="@dimen/txt_14" />
 
-			<Button
-				android:id="@+id/bt_start"
+			<androidx.appcompat.widget.AppCompatButton
+				android:id="@+id/btStart"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="Start" />
 
-			<Button
+			<androidx.appcompat.widget.AppCompatButton
 				android:id="@+id/bt_stop"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:enabled="false"
 				android:text="Stop" />
 
-			<Button
+			<androidx.appcompat.widget.AppCompatButton
 				android:id="@+id/bt_send"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"

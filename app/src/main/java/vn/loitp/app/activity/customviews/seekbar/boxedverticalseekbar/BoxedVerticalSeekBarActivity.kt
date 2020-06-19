@@ -2,44 +2,39 @@ package vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar
 
 import android.graphics.Color
 import android.os.Bundle
-import android.widget.TextView
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.views.seekbar.boxedvertical.LBoxedVertical
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_seekbar_boxed_vertical.*
+import vn.loitp.app.R
 import java.util.*
 
 //https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 class BoxedVerticalSeekBarActivity : BaseFontActivity() {
-    private var tv: TextView? = null
     private val stringList = ArrayList<String>()
-
     private val x: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val bv = findViewById<LBoxedVertical>(R.id.boxed_vertical)
-        tv = findViewById(R.id.tv)
 
-        bv.setOnBoxedPointsChangeListener(object : LBoxedVertical.OnValuesChangeListener {
+        boxedVertical.setOnBoxedPointsChangeListener(object : LBoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: LBoxedVertical, value: Int) {
-                LLog.d(TAG, "onPointsChanged $value")
-                stringList.add(0, "onPointsChanged $value")
+                logD("onPointsChanged $value")
+                stringList.add(index = 0, element = "onPointsChanged $value")
                 print()
             }
 
             override fun onStartTrackingTouch(boxedPoints: LBoxedVertical) {
-                LLog.d(TAG, "onStartTrackingTouch")
-                stringList.add(0, "onStartTrackingTouch")
+                logD("onStartTrackingTouch")
+                stringList.add(index = 0, element = "onStartTrackingTouch")
                 print()
             }
 
             override fun onStopTrackingTouch(boxedPoints: LBoxedVertical) {
-                LLog.d(TAG, "onStopTrackingTouch")
-                stringList.add(0, "onStopTrackingTouch")
+                logD("onStopTrackingTouch")
+                stringList.add(index = 0, element = "onStopTrackingTouch")
                 print()
-                bv.setBackgroundColor(Color.RED)
-                bv.setProgressColor(Color.GREEN)
+                boxedVertical.setBackgroundColor(Color.RED)
+                boxedVertical.setProgressColor(Color.GREEN)
             }
         })
     }
@@ -52,7 +47,7 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
         for (s in stringList) {
             x += "\n" + s
         }
-        tv?.text = x
+        textView?.text = x
     }
 
     override fun setFullScreen(): Boolean {
@@ -64,6 +59,6 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_boxed_vertical_seekbar
+        return R.layout.activity_seekbar_boxed_vertical
     }
 }

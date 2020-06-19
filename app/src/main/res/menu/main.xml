@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 	<item
-		android:id="@+id/action_right_menu"
+		android:id="@+id/itemActionRightMenu"
 		android:icon="@mipmap/ic_launcher"
 		android:orderInCategory="100"
 		android:title="right menu"

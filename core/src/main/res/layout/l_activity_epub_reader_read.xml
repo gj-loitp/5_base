@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/White">
+    android:background="@color/white">
 
     <LinearLayout
-        android:id="@+id/ll_control"
+        android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -22,8 +22,8 @@
             android:contentDescription="@string/app_name"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
-            android:src="@drawable/l_ic_keyboard_arrow_left_black_48dp"
-            android:tint="@color/Black" />
+            android:src="@drawable/ic_chevron_left_black_48dp"
+            android:tint="@color/black" />
 
         <TextView
             android:id="@+id/tv_page"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_5"
             android:layout_weight="1"
-            android:textColor="@color/Black"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <ImageButton
@@ -42,8 +42,8 @@
             android:contentDescription="@string/app_name"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
-            android:src="@drawable/l_baseline_add_black_48"
-            android:tint="@color/Black" />
+            android:src="@drawable/ic_add_black_48dp"
+            android:tint="@color/black" />
 
         <ImageButton
             android:id="@+id/bt_zoom_out"
@@ -54,16 +54,16 @@
             android:contentDescription="@string/app_name"
             android:foreground="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
-            android:src="@drawable/l_baseline_remove_black_48"
-            android:tint="@color/Black" />
+            android:src="@drawable/ic_remove_black_48dp"
+            android:tint="@color/black" />
     </LinearLayout>
 
     <View
         android:id="@+id/v_line"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_1"
-        android:layout_below="@+id/ll_control"
-        android:background="@color/WhiteSmoke" />
+        android:layout_below="@+id/layoutControl"
+        android:background="@color/whiteSmoke" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/container"
@@ -85,7 +85,7 @@
         android:id="@+id/ll_guide"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black_85"
+        android:background="@color/black85"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="invisible">
@@ -95,7 +95,7 @@
             android:layout_height="@dimen/w_100"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_gesture"
-            android:tint="@color/White" />
+            android:tint="@color/white" />
 
         <TextView
             android:layout_width="match_parent"
@@ -103,7 +103,7 @@
             android:gravity="center"
             android:padding="@dimen/padding_5"
             android:text="Swipe left/right to another page\n\n\nTouch anywhere to hide."
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_22"
             android:textStyle="bold" />
 
@@ -121,11 +121,11 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop" />
 
-        <com.views.realtimeblurview.LRealtimeBlurView
+        <com.github.mmin18.widget.RealtimeBlurView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:realtimeBlurRadius="@dimen/round_5"
-            app:realtimeOverlayColor="@color/black_35" />
+            app:realtimeOverlayColor="@color/black35" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -134,7 +134,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:padding="@dimen/padding_5"
-            android:textColor="@color/White"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_40" />
     </RelativeLayout>
 

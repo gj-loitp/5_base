@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <HorizontalScrollView
+        android:id="@+id/hsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMenu">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSaveListFrom0To10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save List id 0 -> 10" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSaveListFrom10To20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save List id 10 -> 20" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btInsert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insert" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGetList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get List" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGetListFrom3To5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Get List From 3 To 5" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFind1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Find id=1" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDeleteAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete All" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFloorPlan"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/hsv" />
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Room 2" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</RelativeLayout>

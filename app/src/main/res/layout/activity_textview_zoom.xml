@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke"
+    android:padding="@dimen/padding_medium">
+
+    <com.views.textview.zoom.LZoomTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/i_love_you"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
+
+</RelativeLayout>
+

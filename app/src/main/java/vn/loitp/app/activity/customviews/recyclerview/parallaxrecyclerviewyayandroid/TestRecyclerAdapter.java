@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.views.recyclerview.parallaxyay.ParallaxViewHolder;
 
 import org.jetbrains.annotations.NotNull;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapter.ViewHolder> {
 
@@ -89,7 +88,7 @@ public class TestRecyclerAdapter extends RecyclerView.Adapter<TestRecyclerAdapte
             super(v);
 
             textView = v.findViewById(R.id.label);
-            rootView = v.findViewById(R.id.root_view);
+            rootView = v.findViewById(R.id.rootView);
         }
 
         @Override

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,13 +15,18 @@
         android:layout_below="@+id/tvMenu"
         android:gravity="center"
         android:text="You can custom more effect"
-        android:textSize="@dimen/txt_14" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
 
-    <com.views.button.shinebutton.LShineView
-        android:id="@+id/bt_0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true" />
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:id="@+id/bt0"
+        android:layout_width="@dimen/w_100"
+        android:layout_height="@dimen/w_100"
+        android:layout_centerInParent="true"
+        app:allow_random_color="false"
+        app:btn_color="@android:color/darker_gray"
+        app:btn_fill_color="@android:color/holo_green_dark"
+        app:siShape="@raw/smile" />
 
     <TextView
         android:layout_width="match_parent"
@@ -29,6 +34,6 @@
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:text="Click above button"
-        android:textSize="@dimen/txt_14" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/txt_medium" />
 </RelativeLayout>
-

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -14,27 +15,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNormalSingle"
                 style="@style/ButtonMenu"
                 android:text="Normal - Single" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNormalMulti"
                 style="@style/ButtonMenu"
                 android:text="Normal - Multi" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxSingle"
                 style="@style/ButtonMenu"
                 android:text="Rx - Single" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxSingleThenResize"
                 style="@style/ButtonMenu"
                 android:text="Rx - Single then Resize" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxMulti"
                 style="@style/ButtonMenu"
                 android:text="Rx - Multi" />

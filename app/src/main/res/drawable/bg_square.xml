@@ -3,14 +3,14 @@
 
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="@color/WhiteSmoke"/>
-            <stroke android:width="0.25dp" android:color="@color/Black"/>
+            <solid android:color="@color/whiteSmoke"/>
+            <stroke android:width="0.25dp" android:color="@color/black"/>
         </shape>
     </item>
     <item>
         <shape>
-            <gradient android:angle="270" android:endColor="@color/White" android:startColor="@color/White"/>
-            <stroke android:width="0.25dp" android:color="@color/Black"/>
+            <gradient android:angle="270" android:endColor="@color/white" android:startColor="@color/white"/>
+            <stroke android:width="0.25dp" android:color="@color/black"/>
         </shape>
     </item>
 

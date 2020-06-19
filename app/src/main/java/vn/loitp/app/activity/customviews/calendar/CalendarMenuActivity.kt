@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_calendar_menu.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.calendar.cosmocalendar.calendarview.CosmoCalendarActivity
 
 class CalendarMenuActivity : BaseFontActivity(), View.OnClickListener {
@@ -30,8 +30,8 @@ class CalendarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.btCalendar -> intent = Intent(activity, CosmoCalendarActivity::class.java)
+        when (v) {
+            btCalendar -> intent = Intent(activity, CosmoCalendarActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

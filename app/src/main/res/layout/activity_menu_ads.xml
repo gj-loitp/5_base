@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,18 +17,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/bt_1"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt1"
                 style="@style/ButtonMenu"
                 android:text="@string/admob_banner" />
 
-            <Button
-                android:id="@+id/bt_2"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2"
                 style="@style/ButtonMenu"
                 android:text="@string/admob_interstitial" />
 
-            <Button
-                android:id="@+id/bt_3"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt3"
                 style="@style/ButtonMenu"
                 android:text="@string/admob_rewarded_video" />
         </LinearLayout>

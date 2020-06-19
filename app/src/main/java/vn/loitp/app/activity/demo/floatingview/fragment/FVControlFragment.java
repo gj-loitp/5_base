@@ -22,7 +22,7 @@ import androidx.fragment.app.Fragment;
 
 import com.views.floatingview.FloatingViewManager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.floatingview.service.FVChatHeadService;
 import vn.loitp.app.activity.demo.floatingview.service.FVCustomFloatingViewService;
 import vn.loitp.app.activity.demo.floatingview.service.FVCustomUZVideoService;

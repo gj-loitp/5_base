@@ -2,38 +2,26 @@ package com.core.helper.donate
 
 import android.os.Bundle
 import android.view.View
-import android.widget.RelativeLayout
-import android.widget.ScrollView
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFragment
-import com.core.utilities.LUIUtil
-import com.views.animation.confetti.CommonConfetti
-import com.views.animation.confetti.ConfettiManager
 import com.views.textview.textdecorator.LTextDecorator
-import java.util.*
+import kotlinx.android.synthetic.main.l_frm_donate.*
 
 class FrmDonate : BaseFragment() {
     override fun setTag(): String? {
         return javaClass.simpleName
     }
 
-    private var goldDark: Int = 0
-    private var goldMed: Int = 0
-    private var gold: Int = 0
-    private var goldLight: Int = 0
+    private var red: Int = 0
+    private var green: Int = 0
+    private var blue: Int = 0
+    private var violet: Int = 0
     private var colorPrimary: Int = 0
     private var colors: IntArray? = null
-    private val activeConfettiManagers = ArrayList<ConfettiManager>()
-    private var rv: RelativeLayout? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val sv = view.findViewById<ScrollView>(R.id.sv)
-        LUIUtil.setPullLikeIOSVertical(sv)
-        rv = view.findViewById(R.id.rv)
-        val tv = view.findViewById<TextView>(R.id.tv)
         val text = "Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: \n" +
                 "\n" +
                 "❤ Vietcombank\n" +
@@ -53,7 +41,7 @@ class FrmDonate : BaseFragment() {
                 "Những đóng góp của mọi người là động lực và trách nhiệm để mình có thể cho ra nhiều ứng dụng hay hơn nữa. Chân thành cảm ơn!"
 
         LTextDecorator
-                .decorate(tv, text)
+                .decorate(textView, text)
                 .setTextColor(R.color.colorPrimary, "❤", "Trần Phú Lợi", "0371000106443", "166210585", "164205468", "0764088864")
                 //.setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
                 //.strikethrough("Duis", "Praesent")
@@ -69,32 +57,16 @@ class FrmDonate : BaseFragment() {
                 .build()
 
         context?.let {
-            goldDark = ContextCompat.getColor(it, R.color.gold_dark)
-            goldMed = ContextCompat.getColor(it, R.color.gold_med)
-            gold = ContextCompat.getColor(it, R.color.gold)
-            goldLight = ContextCompat.getColor(it, R.color.gold_light)
+            red = ContextCompat.getColor(it, R.color.red)
+            green = ContextCompat.getColor(it, R.color.green)
+            blue = ContextCompat.getColor(it, R.color.blue)
+            violet = ContextCompat.getColor(it, R.color.violet)
             colorPrimary = ContextCompat.getColor(it, R.color.colorPrimary)
-            colors = intArrayOf(goldDark, goldMed, gold, goldLight, colorPrimary)
+            colors = intArrayOf(red, green, blue, violet, colorPrimary)
         }
-
-        LUIUtil.setDelay(500, Runnable {
-            activeConfettiManagers.add(generateOnce())
-        })
     }
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_frm_donate
-    }
-
-    protected fun generateOnce(): ConfettiManager {
-        return CommonConfetti.rainingConfetti(rv, colors).oneShot()
-    }
-
-    protected fun generateStream(): ConfettiManager {
-        return CommonConfetti.rainingConfetti(rv, colors).stream(3000)
-    }
-
-    protected fun generateInfinite(): ConfettiManager {
-        return CommonConfetti.rainingConfetti(rv, colors).infinite()
     }
 }

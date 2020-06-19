@@ -8,7 +8,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.core.base.BaseFontActivity;
 import com.google.android.material.snackbar.Snackbar;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FabAndSnackbarActivity extends BaseFontActivity {
     private Button mShowSnackbarButton;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
@@ -11,17 +11,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
             android:text="Clear all bike" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAddBike"
             style="@style/ButtonMenu"
             android:text="Add Dummy Bike" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btGetBikeWithId"
             style="@style/ButtonMenu"
             android:text="Get bike With ID=2" />
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/demo_sqlite_encryption_nclick_to_edit_long_click_to_delete"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_20" />
 
             <ProgressBar

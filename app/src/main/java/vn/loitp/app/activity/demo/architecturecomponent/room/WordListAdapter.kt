@@ -3,12 +3,10 @@ package vn.loitp.app.activity.demo.architecturecomponent.room
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LUIUtil
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.item_room_note.view.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 
 class WordListAdapter(val callback: Callback?) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
@@ -21,9 +19,16 @@ class WordListAdapter(val callback: Callback?) : RecyclerView.Adapter<WordListAd
     private var words = emptyList<Word>()
 
     inner class WordViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvNote: TextView = itemView.findViewById(R.id.tvNote)
-        val ivDelete: ImageView = itemView.findViewById(R.id.ivDelete)
-        val cardView: CardView = itemView.findViewById(R.id.cardView)
+        fun bind(word: Word) {
+            LUIUtil.printBeautyJson(o = word, textView = itemView.tvNote)
+
+            itemView.ivDelete.setOnClickListener {
+                callback?.onDelete(word = word)
+            }
+            itemView.cardView.setOnClickListener {
+                callback?.onUpdate(word = word)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
@@ -32,15 +37,7 @@ class WordListAdapter(val callback: Callback?) : RecyclerView.Adapter<WordListAd
     }
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-        val word = words[position]
-        LUIUtil.printBeautyJson(word, holder.tvNote)
-
-        holder.ivDelete.setOnClickListener {
-            callback?.onDelete(word)
-        }
-        holder.cardView.setOnClickListener {
-            callback?.onUpdate(word)
-        }
+        holder.bind(words[position])
     }
 
     fun setWords(words: List<Word>) {

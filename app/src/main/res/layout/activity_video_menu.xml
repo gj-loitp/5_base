@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btExoPlayer2"
+                style="@style/ButtonMenu"
+                android:text="ExoPlayer2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btExoPlayer2IMA"
+                style="@style/ButtonMenu"
+                android:text="ExoPlayer2 IMA Ad" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt2"
+                style="@style/ButtonMenu"
+                android:text="Place controller under the video without overlapping the video" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt3"
+                style="@style/ButtonMenu"
+                android:text="Switch target view" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btYoutube"
+                style="@style/ButtonMenu"
+                android:text="Youtube" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Menu Video View" />
+</RelativeLayout>

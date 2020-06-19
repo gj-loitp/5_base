@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class FacebookCommentActivity : BaseFontActivity() {
 
@@ -14,7 +14,7 @@ class FacebookCommentActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        findViewById<View>(R.id.bt).setOnClickListener { v -> LSocialUtil.openFacebookComment(activity, "http://truyentranhtuan.com/one-piece-chuong-907/", getString(R.string.str_b)) }
+        findViewById<View>(R.id.bt).setOnClickListener { _ -> LSocialUtil.openFacebookComment(activity, "http://truyentranhtuan.com/one-piece-chuong-907/", getString(R.string.str_b)) }
     }
 
     override fun setFullScreen(): Boolean {

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="Menu Toggle Button Group" />
+
+    <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+        android:id="@+id/groupWeekdays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
+        app:tbgChildSpacing="auto"
+        app:tbgChildSpacingForLastRow="align"
+        app:tbgRowSpacing="8dp">
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/lbSun"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="SUN" />
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/lbMon"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="MON" />
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/lbTue"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="TUE" />
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/lbWed"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="WED" />
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/lbThu"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="THU" />
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/lbFri"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="FRI" />
+
+        <com.nex3z.togglebuttongroup.button.LabelToggle
+            android:id="@+id/lbSat"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:text="SAT" />
+
+    </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
+
+    <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+        android:id="@+id/groupDummy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:padding="@dimen/padding_medium"
+        app:tbgChildSpacing="auto"
+        app:tbgChildSpacingForLastRow="align"
+        app:tbgRowSpacing="8dp">
+
+    </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
+
+</LinearLayout>

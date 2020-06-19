@@ -31,7 +31,7 @@ import android.widget.TextView;
 
 import com.core.utilities.LLog;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DataSource;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
@@ -57,8 +57,8 @@ public class AlarmListAdapter extends BaseAdapter {
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
 
-        mColorOutdated = mContext.getResources().getColor(R.color.alarm_title_outdated);
-        mColorActive = mContext.getResources().getColor(R.color.alarm_title_active);
+        mColorOutdated = mContext.getResources().getColor(R.color.gray);
+        mColorActive = mContext.getResources().getColor(R.color.red);
 
         mAlarmManager = (AlarmManager) context.getSystemService(mContext.ALARM_SERVICE);
 

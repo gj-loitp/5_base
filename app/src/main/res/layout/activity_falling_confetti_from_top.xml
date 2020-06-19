@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,7 +10,7 @@
         android:layout_above="@+id/num_confetti_txt"
         android:orientation="horizontal">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_once_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
             android:padding="16dp"
             android:text="@string/generate_confetti_once" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_stream_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:padding="16dp"
             android:text="@string/generate_confetti_stream" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_infinite_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:padding="16dp"
             android:text="@string/generate_confetti_infinite" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/generate_confetti_stop_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
         android:layout_height="@dimen/w_50"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:textColor="@color/Black"
+        android:textColor="@color/black"
         android:visibility="invisible" />
 </RelativeLayout>
 

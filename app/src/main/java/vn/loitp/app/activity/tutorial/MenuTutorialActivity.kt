@@ -5,7 +5,8 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_tutorial_menu.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.retrofit2.Retrofit2Activity
 import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity
 
@@ -13,8 +14,8 @@ class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_rx_java_2).setOnClickListener(this)
-        findViewById<View>(R.id.bt_retrofit_2).setOnClickListener(this)
+        btRxJava2.setOnClickListener(this)
+        btRetrofit2.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -31,11 +32,11 @@ class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_rx_java_2 -> intent = Intent(activity, MenuRxJava2Activity::class.java)
-            R.id.bt_retrofit_2 -> intent = Intent(activity, Retrofit2Activity::class.java)
+        when (v) {
+            btRxJava2 -> intent = Intent(activity, MenuRxJava2Activity::class.java)
+            btRetrofit2 -> intent = Intent(activity, Retrofit2Activity::class.java)
         }
-        if (intent != null) {
+        intent?.let {
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }

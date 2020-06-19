@@ -10,14 +10,13 @@
     app:swipeBackFactor="0.5">
 
     <RelativeLayout
-        android:id="@+id/root_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical">
 
         <RadioGroup
-            android:id="@+id/radio_group"
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -65,23 +64,24 @@
                 android:text="Bottom" />
         </RadioGroup>
 
-        <ScrollView
+        <androidx.core.widget.NestedScrollView
+            style="@style/ScrollVertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/radio_group">
+            android:layout_below="@+id/radioGroup">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_10"
                 android:text="@string/large_text" />
-        </ScrollView>
+        </androidx.core.widget.NestedScrollView>
 
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_150"
-            android:background="@color/RedTrans" />
+            android:background="@color/red50" />
 
     </RelativeLayout>
 

@@ -4,7 +4,7 @@ import android.os.Bundle
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class ColorTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ class ColorTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_color_textview
+        return R.layout.activity_textview_color
     }
 
 }

@@ -22,7 +22,7 @@
 			motion:layout_constraintEnd_toEndOf="parent">
 			<CustomAttribute
 				motion:attributeName="BackgroundColor"
-				motion:customColorValue="@color/Green" />
+				motion:customColorValue="@color/green" />
 		</Constraint>
 	</ConstraintSet>
 	<ConstraintSet android:id="@+id/end">
@@ -34,7 +34,7 @@
 			motion:layout_constraintTop_toTopOf="parent">
 			<CustomAttribute
 				motion:attributeName="BackgroundColor"
-				motion:customColorValue="@color/LightPink" />
+				motion:customColorValue="@color/lightPink" />
 		</Constraint>
 	</ConstraintSet>
 </MotionScene>

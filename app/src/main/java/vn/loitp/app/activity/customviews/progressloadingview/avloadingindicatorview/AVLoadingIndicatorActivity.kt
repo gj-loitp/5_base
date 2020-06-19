@@ -4,7 +4,7 @@ import android.os.Bundle
 
 import com.core.base.BaseFontActivity
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class AVLoadingIndicatorActivity : BaseFontActivity() {
 
@@ -21,6 +21,6 @@ class AVLoadingIndicatorActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_avloading_indicator
+        return R.layout.activity_progress_avloading_indicator
     }
 }

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_retrofit2.view.*
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private val listener: Listener) : RecyclerView.Adapter<Retrofit2Adapter.ViewHolder>() {
     interface Listener {
@@ -26,8 +26,9 @@ class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private v
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(retroCrypto: RetroCrypto, listener: Listener) {
             itemView.setOnClickListener { listener.onItemClick(retroCrypto) }
-            itemView.text_name.text = retroCrypto.currency
-            itemView.text_price.text = retroCrypto.price
+            itemView.text_name.text = retroCrypto.currency + " " + System.currentTimeMillis()
+            itemView.text_price.text = retroCrypto.price + " " + System.currentTimeMillis()
+
         }
     }
 }

@@ -116,10 +116,10 @@ public class LBoxedVertical extends View {
         float density = getResources().getDisplayMetrics().density;
 
         // Defaults, may need to link this into theme settings
-        progressColor = ContextCompat.getColor(context, R.color.color_progress);
-        backgroundColor = ContextCompat.getColor(context, R.color.color_background);
+        progressColor = ContextCompat.getColor(context, R.color.red);
+        backgroundColor = ContextCompat.getColor(context, R.color.whiteSmoke);
 
-        int textColor = ContextCompat.getColor(context, R.color.color_text);
+        int textColor = ContextCompat.getColor(context, R.color.black);
         mTextSize = (int) (mTextSize * density);
         mDefaultValue = mMax / 2;
 

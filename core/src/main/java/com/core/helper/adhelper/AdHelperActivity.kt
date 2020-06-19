@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -17,15 +16,13 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.utils.util.AppUtils
-import com.views.button.roundedbutton.LRoundedButton
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.l_activity_ad_helper.*
+import life.sabujak.roundedbutton.RoundedButton
 import java.util.*
 
 class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
-    private lateinit var btPrevScreen: ImageButton
-    private lateinit var btNextScreen: ImageButton
-    private lateinit var tvPage: TextView
-    private lateinit var viewPager: ViewPager
     private var isEnglishLanguage: Boolean = false
 
     override fun setFullScreen(): Boolean {
@@ -38,6 +35,54 @@ class AdHelperActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_ad_helper
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        isShowAdWhenExit = false
+
+        isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
+
+        setupData()
+
+        btBack.setSafeOnClickListener {
+            finish()
+            LActivityUtil.tranOut(activity)
+        }
+        btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
+        btNextScreen.setSafeOnClickListener {
+            if (viewPager.currentItem == adPageList.size - 1) {
+                finish()
+                LActivityUtil.tranOut(activity)
+            } else {
+                viewPager.currentItem = viewPager.currentItem + 1
+            }
+        }
+
+        viewPager.adapter = SlidePagerAdapter()
+        LUIUtil.setPullLikeIOSHorizontal(viewPager)
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                //do nothing
+            }
+
+            override fun onPageSelected(position: Int) {
+                tvPage.text = (position + 1).toString() + "/" + adPageList.size
+                when (position) {
+                    0 -> btPrevScreen.visibility = View.INVISIBLE
+                    adPageList.size - 1 -> btNextScreen.visibility = View.INVISIBLE
+                    else -> {
+                        btPrevScreen.visibility = View.VISIBLE
+                        btNextScreen.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                //do nothing
+            }
+        })
+        tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
     }
 
     private fun setupData() {
@@ -87,82 +132,28 @@ class AdHelperActivity : BaseFontActivity() {
         adPageList.add(adPage3)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
-
-        isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
-
-        btPrevScreen = findViewById(R.id.bt_prev_screen)
-        btNextScreen = findViewById(R.id.bt_next_screen)
-        tvPage = findViewById(R.id.tv_page)
-        //LUIUtil.setTextShadow(tvPage);
-
-        setupData()
-
-        findViewById<View>(R.id.bt_back).setOnClickListener {
-            finish()
-            LActivityUtil.tranOut(activity)
-        }
-        btPrevScreen.setOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
-        btNextScreen.setOnClickListener {
-            if (viewPager.currentItem == adPageList.size - 1) {
-                finish()
-                LActivityUtil.tranOut(activity)
-            } else {
-                viewPager.currentItem = viewPager.currentItem + 1
-            }
-        }
-
-        viewPager = findViewById(R.id.viewpager)
-        viewPager.adapter = SlidePagerAdapter()
-
-        LUIUtil.setPullLikeIOSHorizontal(viewPager)
-
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                //do nothing
-            }
-
-            override fun onPageSelected(position: Int) {
-                tvPage.text = (position + 1).toString() + "/" + adPageList.size
-                when (position) {
-                    0 -> btPrevScreen.visibility = View.INVISIBLE
-                    adPageList.size - 1 -> btNextScreen.visibility = View.INVISIBLE
-                    else -> {
-                        btPrevScreen.visibility = View.VISIBLE
-                        btNextScreen.visibility = View.VISIBLE
-                    }
-                }
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                //do nothing
-            }
-        })
-        tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
-    }
-
     private inner class SlidePagerAdapter : PagerAdapter() {
 
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val adPage = adPageList[position]
             val inflater = LayoutInflater.from(activity)
             val layout = inflater.inflate(R.layout.l_item_photo_ad_helper, collection, false) as ViewGroup
+
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
+            val tv = layout.findViewById<TextView>(R.id.textView)
+            val tvMsg = layout.findViewById<TextView>(R.id.tvMsg)
+            val btOkay = layout.findViewById<RoundedButton>(R.id.btOkay)
+
             adPage.urlAd?.let {
                 LImageUtil.load(activity, it, imageView)
             }
 
-            val tv = layout.findViewById<TextView>(R.id.tv)
             tv.text = adPage.title
-            LUIUtil.setTextShadow(tv, ContextCompat.getColor(activity, R.color.White))
+            LUIUtil.setTextShadow(tv, ContextCompat.getColor(activity, R.color.white))
 
-            val tvMsg = layout.findViewById<TextView>(R.id.tv_msg)
             tvMsg.text = adPage.msg
-            LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.White))
+            LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.white))
 
-            val btOkay = layout.findViewById<LRoundedButton>(R.id.bt_okay)
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"
             } else {
@@ -173,7 +164,7 @@ class AdHelperActivity : BaseFontActivity() {
             } else {
                 btOkay.visibility = View.GONE
             }
-            btOkay.setOnClickListener {
+            btOkay.setSafeOnClickListener {
                 finish()
                 LActivityUtil.tranOut(activity)
             }
@@ -190,8 +181,8 @@ class AdHelperActivity : BaseFontActivity() {
             return adPageList.size
         }
 
-        override fun isViewFromObject(view: View, `object`: Any): Boolean {
-            return view === `object`
+        override fun isViewFromObject(view: View, any: Any): Boolean {
+            return view === any
         }
     }
 

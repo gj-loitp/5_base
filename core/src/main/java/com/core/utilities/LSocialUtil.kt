@@ -27,7 +27,7 @@ object LSocialUtil {
         try {
             activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
             LActivityUtil.tranIn(activity)
-        } catch (anfe: android.content.ActivityNotFoundException) {
+        } catch (e: android.content.ActivityNotFoundException) {
             activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=$packageName")))
             LActivityUtil.tranIn(activity)
         }
@@ -52,7 +52,8 @@ object LSocialUtil {
             activity.startActivity(Intent.createChooser(intent, "Vui lòng chọn"))
             LActivityUtil.tranIn(activity)
         } catch (e: Exception) {
-            LLog.d(TAG, "shareApp: $e")
+            LLog.e(TAG, "shareApp: $e")
+            e.printStackTrace()
         }
     }
 
@@ -67,36 +68,39 @@ object LSocialUtil {
             activity.startActivity(Intent.createChooser(intent, "Share via"))
             LActivityUtil.tranIn(activity)
         } catch (e: Exception) {
-            LLog.d(TAG, "shareApp: $e")
+            LLog.e(TAG, "shareApp: $e")
+            e.printStackTrace()
         }
 
     }
 
     //like fanpage
-    fun likeFacebookFanpage(activity: Activity) {
-        val facebookIntent = Intent(Intent.ACTION_VIEW)
-        val facebookUrl = getFacebookPageURL(activity)
-        facebookIntent.data = Uri.parse(facebookUrl)
-        activity.startActivity(facebookIntent)
-        LActivityUtil.tranIn(activity)
+    fun likeFacebookFanpage(activity: Activity?) {
+        activity?.let {
+            val facebookIntent = Intent(Intent.ACTION_VIEW)
+            val facebookUrl = getFacebookPageURL(it)
+            facebookIntent.data = Uri.parse(facebookUrl)
+            it.startActivity(facebookIntent)
+            LActivityUtil.tranIn(it)
+        }
     }
 
     /*
     get url fb fanpage
      */
     private fun getFacebookPageURL(context: Context): String {
-        val FACEBOOK_URL = "https://www.facebook.com/hoidammedocsach"
-        val FACEBOOK_PAGE_ID = "hoidammedocsach"
+        val facebookUrl = "https://www.facebook.com/hoidammedocsach"
+        val facebookPageId = "hoidammedocsach"
         val packageManager = context.packageManager
         return try {
             val versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
             if (versionCode >= 3002850) {
-                "fb://facewebmodal/f?href=$FACEBOOK_URL"
+                "fb://facewebmodal/f?href=$facebookUrl"
             } else {
-                "fb://page/$FACEBOOK_PAGE_ID"
+                "fb://page/$facebookPageId"
             }
         } catch (e: PackageManager.NameNotFoundException) {
-            FACEBOOK_URL
+            facebookUrl
         }
 
     }
@@ -111,7 +115,8 @@ object LSocialUtil {
             val versionCode = packageManager.getPackageInfo("com.facebook.orca", 0).versionCode
             if (versionCode >= 0) isFBInstalled = true
         } catch (e: PackageManager.NameNotFoundException) {
-            LLog.d(TAG, "packageManager com.facebook.orca: $e")
+            e.printStackTrace()
+            LLog.e(TAG, "packageManager com.facebook.orca: $e")
         }
 
         if (!isFBInstalled) {
@@ -124,43 +129,51 @@ object LSocialUtil {
                 activity.startActivity(intent)
                 LActivityUtil.tranIn(activity)
             } catch (e: Exception) {
+                e.printStackTrace()
                 LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null)
-
             }
-
         }
     }
 
     /*
      * send email support
      */
-    fun sendEmail(context: Context) {
+    fun sendEmail(context: Context?) {
         val emailIntent = Intent(Intent.ACTION_SENDTO)
         emailIntent.data = Uri.parse("mailto: www.muathu@gmail.com")
-        context.startActivity(Intent.createChooser(emailIntent, "Send feedback"))
+        context?.startActivity(Intent.createChooser(emailIntent, "Send feedback"))
     }
 
     fun openBrowserPolicy(context: Context) {
         openUrlInBrowser(context, Constants.URL_POLICY)
     }
 
-    fun openUrlInBrowser(context: Context, url: String) {
-        val webpage = Uri.parse(url)
-        val intent = Intent(Intent.ACTION_VIEW, webpage)
+    fun openUrlInBrowser(context: Context?, url: String?) {
+        if (context == null || url.isNullOrEmpty()) {
+            return
+        }
+        val webPage = Uri.parse(url)
+        val intent = Intent(Intent.ACTION_VIEW, webPage)
         if (intent.resolveActivity(context.packageManager) != null) {
             context.startActivity(intent)
             LActivityUtil.tranIn(context)
         }
     }
 
-    fun openFacebookComment(context: Context, url: String) {
+    fun openFacebookComment(context: Context?, url: String?) {
+        if (context == null || url.isNullOrEmpty()) {
+            return
+        }
         val intent = Intent(context, FbCommentActivity::class.java)
         intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
         context.startActivity(intent)
         LActivityUtil.tranIn(context)
     }
 
-    fun openFacebookComment(context: Context, url: String, adUnitId: String) {
+    fun openFacebookComment(context: Context?, url: String?, adUnitId: String?) {
+        if (context == null || url.isNullOrEmpty() || adUnitId.isNullOrEmpty()) {
+            return
+        }
         val intent = Intent(context, FbCommentActivity::class.java)
         intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
         intent.putExtra(Constants.AD_UNIT_ID_BANNER, adUnitId)

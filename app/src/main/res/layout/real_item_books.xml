@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_15"
-    card_view:cardBackgroundColor="@color/White"
+    card_view:cardBackgroundColor="@color/white"
     card_view:cardCornerRadius="5dp"
     card_view:cardElevation="3dp">
 
@@ -32,7 +32,7 @@
                 android:id="@+id/text_books_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/Black"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <TextView

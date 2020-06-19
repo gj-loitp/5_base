@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_menu_menu.*
+import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.menu.drawerbehavior.DrawerBehaviorMainActivity
 import vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity
 
 class MenuMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_reside_menu).setOnClickListener(this)
+        btResideMenu.setOnClickListener(this)
+        btDrawerBehavior.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -28,8 +31,9 @@ class MenuMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_reside_menu -> intent = Intent(activity, ResideMenuActivity::class.java)
+        when (v) {
+            btResideMenu -> intent = Intent(activity, ResideMenuActivity::class.java)
+            btDrawerBehavior -> intent = Intent(activity, DrawerBehaviorMainActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

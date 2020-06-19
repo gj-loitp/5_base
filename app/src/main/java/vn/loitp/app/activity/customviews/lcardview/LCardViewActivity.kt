@@ -9,9 +9,9 @@ import com.core.utilities.LAnimationUtil
 import com.core.utilities.LScreenUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.views.card.LCardView
-import kotlinx.android.synthetic.main.activity_l_card_view.*
+import kotlinx.android.synthetic.main.activity_card_view_l.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 class LCardViewActivity : BaseFontActivity() {
 
@@ -62,6 +62,6 @@ class LCardViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_card_view
+        return R.layout.activity_card_view_l
     }
 }

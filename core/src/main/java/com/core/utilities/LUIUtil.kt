@@ -11,8 +11,10 @@ import android.graphics.drawable.shapes.RectShape
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
+import android.text.Editable
 import android.text.Html
 import android.text.TextUtils
+import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
@@ -55,10 +57,10 @@ object LUIUtil {
     private var lastOffset = 0.0f
     private var isUp = false
 
-    private val colors = intArrayOf(R.color.LightBlue, R.color.LightCoral, R.color.LightCyan,
-            R.color.LightGoldenrodYellow, R.color.LightGreen, R.color.LightGrey, R.color.LightPink,
-            R.color.LightSalmon, R.color.LightSeaGreen, R.color.LightSlateGray, R.color.LightSteelBlue,
-            R.color.LightYellow, R.color.LightSkyBlue)
+    private val colors = intArrayOf(R.color.lightBlue, R.color.lightCoral, R.color.lightCyan,
+            R.color.lightGoldenrodYellow, R.color.lightGreen, R.color.lightGrey, R.color.lightPink,
+            R.color.lightSalmon, R.color.lightSeaGreen, R.color.lightSlateGray, R.color.lightSteelBlue,
+            R.color.lightYellow, R.color.lightSkyBlue)
 
     var fontForAll: String? = null
         set(fontForAll) {
@@ -185,7 +187,7 @@ object LUIUtil {
         try {
             view.setBackgroundDrawable(createGradientDrawableWithColor(colorMain, colorStroke))
         } catch (e: Exception) {
-            Log.e(TAG, "setCircleViewWithColor setBkgColor: $e")
+            e.printStackTrace()
         }
     }
 
@@ -224,6 +226,7 @@ object LUIUtil {
         v.setBackgroundDrawable(composite)
     }
 
+    @Suppress("DEPRECATION")
     fun setTextFromHTML(textView: TextView?, bodyData: String) {
         textView?.let {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -294,6 +297,7 @@ object LUIUtil {
         }*/
     }
 
+    @Suppress("DEPRECATION")
     fun setTextAppearance(context: Context, textView: TextView, resId: Int) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             textView.setTextAppearance(context, resId)
@@ -384,7 +388,7 @@ object LUIUtil {
         val mDecor = OverScrollDecoratorHelper.setUpOverScroll(viewPager)
         callback?.let {
             mDecor.setOverScrollUpdateListener { decor, state, offset ->
-                val view = decor.view
+                //val view = decor.view
                 when {
                     offset > 0 -> {
                         // 'view' is currently being over-scrolled from the top.
@@ -456,39 +460,43 @@ object LUIUtil {
                 }
             });*/
             mDecor.setOverScrollUpdateListener { decor, state, offset ->
-                val view = decor.view
-                if (offset > 0) {
-                    // 'view' is currently being over-scrolled from the top.
-                    lastOffset = offset
-                    isUp = true
-                    //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
-                } else if (offset < 0) {
-                    // 'view' is currently being over-scrolled from the bottom.
-                    lastOffset = offset
-                    isUp = false
-                    //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
-                } else {
-                    // No over-scroll is in-effect.
-                    // This is synonymous with having (state == STATE_IDLE).
-                    //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
-                    if (isUp) {
-                        //LLog.d(TAG, "________________ up " + lastOffset);
-                        if (lastOffset > 1.8f) {
-                            callback.onUpOrLeftRefresh(lastOffset)
-                            LSoundUtil.startMusicFromAsset(recyclerView.context, "ting.ogg")
-                        } else {
-                            callback.onUpOrLeft(lastOffset)
-                        }
-                    } else {
-                        //LLog.d(TAG, "________________ down " + lastOffset);
-                        if (lastOffset < -1.8f) {
-                            callback.onDownOrRightRefresh(lastOffset)
-                        } else {
-                            callback.onDownOrRight(lastOffset)
-                        }
+                //val view = decor.view
+                when {
+                    offset > 0 -> {
+                        // 'view' is currently being over-scrolled from the top.
+                        lastOffset = offset
+                        isUp = true
+                        //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
                     }
-                    lastOffset = 0f
-                    isUp = false
+                    offset < 0 -> {
+                        // 'view' is currently being over-scrolled from the bottom.
+                        lastOffset = offset
+                        isUp = false
+                        //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
+                    }
+                    else -> {
+                        // No over-scroll is in-effect.
+                        // This is synonymous with having (state == STATE_IDLE).
+                        //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
+                        if (isUp) {
+                            //LLog.d(TAG, "________________ up " + lastOffset);
+                            if (lastOffset > 1.8f) {
+                                callback.onUpOrLeftRefresh(lastOffset)
+                                LSoundUtil.startMusicFromAsset(recyclerView.context, "ting.ogg")
+                            } else {
+                                callback.onUpOrLeft(lastOffset)
+                            }
+                        } else {
+                            //LLog.d(TAG, "________________ down " + lastOffset);
+                            if (lastOffset < -1.8f) {
+                                callback.onDownOrRightRefresh(lastOffset)
+                            } else {
+                                callback.onDownOrRight(lastOffset)
+                            }
+                        }
+                        lastOffset = 0f
+                        isUp = false
+                    }
                 }
             }
         }
@@ -763,5 +771,35 @@ object LUIUtil {
                 }
             }
         })
+    }
+
+    fun addTextChangedListener(editText: EditText?, delayInMls: Long, afterTextChanged: (String) -> Unit) {
+        if (delayInMls > 0) {
+            editText?.let { et ->
+                et.addTextChangedListener(object : TextWatcher {
+                    private var timer = Timer()
+                    override fun afterTextChanged(editable: Editable?) {
+                        timer.cancel()
+                        timer = Timer()
+                        timer.schedule(object : TimerTask() {
+                            override fun run() {
+                                editable?.let { e ->
+                                    et.post {
+                                        afterTextChanged.invoke(e.toString())
+                                    }
+                                }
+                            }
+                        }, delayInMls)
+                    }
+
+                    override fun beforeTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    }
+
+                    override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    }
+                }
+                )
+            }
+        }
     }
 }

@@ -11,19 +11,19 @@ import com.core.utilities.LUIUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.views.viewpager.auto.LAutoViewPager;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class AutoViewPagerActivity extends BaseFontActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LAutoViewPager viewPager = findViewById(R.id.view_pager);
+        LAutoViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(new SamplePagerAdapter(getSupportFragmentManager()));
         //viewPager.setIndeterminate(true);
         viewPager.setAutoScrollEnabled(true);
 
-        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
         LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
     }

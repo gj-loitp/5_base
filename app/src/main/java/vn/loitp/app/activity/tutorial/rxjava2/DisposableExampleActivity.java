@@ -13,7 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 //https://www.vogella.com/tutorials/RxJava/article.html
 public class DisposableExampleActivity extends BaseFontActivity {

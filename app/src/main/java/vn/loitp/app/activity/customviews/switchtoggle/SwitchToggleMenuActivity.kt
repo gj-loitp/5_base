@@ -6,19 +6,22 @@ import android.view.View
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_switch_menu.*
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity
 import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity
 import vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity
+import vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.TBGMenuActivity
 
 class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_appcompat_switch).setOnClickListener(this)
-        findViewById<View>(R.id.bt_custom_toggle_button).setOnClickListener(this)
-        findViewById<View>(R.id.bt_toggle).setOnClickListener(this)
+        btAppcompatSwitch.setOnClickListener(this)
+        btCustomToggleButton.setOnClickListener(this)
+        btToggle.setOnClickListener(this)
+        btToggleButtonGroup.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -30,18 +33,19 @@ class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_switch_toggle
+        return R.layout.activity_switch_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_appcompat_switch -> intent = Intent(activity, AppcompatSwitchActivity::class.java)
-            R.id.bt_custom_toggle_button -> intent = Intent(activity, CustomToggleButtonActivity::class.java)
-            R.id.bt_toggle -> intent = Intent(activity, ToggleActivity::class.java)
+        when (v) {
+            btAppcompatSwitch -> intent = Intent(activity, AppcompatSwitchActivity::class.java)
+            btCustomToggleButton -> intent = Intent(activity, CustomToggleButtonActivity::class.java)
+            btToggle -> intent = Intent(activity, ToggleActivity::class.java)
+            btToggleButtonGroup -> intent = Intent(activity, TBGMenuActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

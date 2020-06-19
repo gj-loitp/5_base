@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFragment
 import com.core.utilities.LLog
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 
 class FN4 : BaseFragment(), OnBackPressedListener {

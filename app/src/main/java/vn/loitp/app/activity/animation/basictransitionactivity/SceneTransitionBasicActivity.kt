@@ -4,22 +4,25 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.BaseAdapter
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import loitp.basemaster.R
+import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic.*
+import vn.loitp.app.R
 
 class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val mGridView = findViewById<GridView>(R.id.gv)
-        mGridView.onItemClickListener = this
-        val mAdapter = GridAdapter()
-        mGridView.adapter = mAdapter
+        gridView.onItemClickListener = this
+        val gridAdapter = GridAdapter()
+        gridView.adapter = gridAdapter
     }
 
     override fun setFullScreen(): Boolean {
@@ -31,7 +34,7 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scene_transition_basic
+        return R.layout.activity_animation_scene_transition_basic
     }
 
     override fun onItemClick(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -43,9 +46,9 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
 
                 // Now we provide a list of Pair items which contain the view we can transitioning
                 // from, and the name of the view it is transitioning to, in the launched activity
-                Pair(view.findViewById(R.id.imageview_item),
+                Pair(view.findViewById(R.id.imageViewItem),
                         SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_IMAGE),
-                Pair(view.findViewById(R.id.textview_name),
+                Pair(view.findViewById(R.id.textViewName),
                         SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_TITLE))
         ActivityCompat.startActivity(this, intent, activityOptions.toBundle())
     }
@@ -67,21 +70,21 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
             return getItem(position).id.toLong()
         }
 
-        override fun getView(position: Int, v: View?, viewGroup: ViewGroup): View {
+        override fun getView(position: Int, v: View?, viewGroup: ViewGroup): View? {
             var view = v
             if (view == null) {
-                view = layoutInflater.inflate(R.layout.item_grid_view, viewGroup, false)
+                view = layoutInflater.inflate(R.layout.view_row_item_grid_view, viewGroup, false)
             }
 
             val item = getItem(position)
 
             // Load the thumbnail image
-            val image = view!!.findViewById<ImageView>(R.id.imageview_item)
-            LImageUtil.load(activity, item.photoUrl, image)
+            val imageViewItem = view?.findViewById<ImageView>(R.id.imageViewItem)
+            LImageUtil.load(context = activity, url = item.photoUrl, imageView = imageViewItem)
 
             // Set the TextView's contents
-            val name = view.findViewById<TextView>(R.id.textview_name)
-            name.text = item.name
+            val textViewName = view?.findViewById<TextView>(R.id.textViewName)
+            textViewName?.text = item.name
 
             return view
         }

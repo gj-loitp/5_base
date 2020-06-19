@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -46,8 +45,8 @@ import com.views.LToast;
 import java.text.DateFormat;
 import java.util.Date;
 
-import loitp.basemaster.BuildConfig;
-import loitp.basemaster.R;
+import vn.loitp.app.BuildConfig;
+import vn.loitp.app.R;
 
 public class LocationActivity extends BaseActivity {
     private TextView txtLocationResult;
@@ -329,10 +328,8 @@ public class LocationActivity extends BaseActivity {
 
     private void openSettings() {
         Intent intent = new Intent();
-        intent.setAction(
-                Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        Uri uri = Uri.fromParts("package",
-                BuildConfig.APPLICATION_ID, null);
+        intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", BuildConfig.APPLICATION_ID, null);
         intent.setData(uri);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

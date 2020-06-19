@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.helper.admobrewardedvideo.AdmobRewardedVideoActivity
 import com.core.utilities.LActivityUtil
-import loitp.basemaster.R
+import vn.loitp.app.R
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity
 
@@ -15,17 +15,17 @@ class MenuAdsActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false
-        findViewById<View>(R.id.bt_1).setOnClickListener {
+        findViewById<View>(R.id.bt1).setOnClickListener {
             val intent = Intent(activity, AdmobBannerActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
-        findViewById<View>(R.id.bt_2).setOnClickListener {
+        findViewById<View>(R.id.bt2).setOnClickListener {
             val intent = Intent(activity, AdmobInterstitialActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
-        findViewById<View>(R.id.bt_3).setOnClickListener {
+        findViewById<View>(R.id.bt3).setOnClickListener {
             val intent = Intent(activity, AdmobRewardedVideoActivity::class.java)
             intent.putExtra(AdmobRewardedVideoActivity.APP_ID, getString(R.string.str_app_id))
             intent.putExtra(AdmobRewardedVideoActivity.ID_REWARD, getString(R.string.str_reward))
@@ -46,3 +46,4 @@ class MenuAdsActivity : BaseFontActivity() {
         return R.layout.activity_menu_ads
     }
 }
+

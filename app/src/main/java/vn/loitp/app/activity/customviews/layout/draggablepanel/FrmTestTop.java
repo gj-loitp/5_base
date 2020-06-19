@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import loitp.basemaster.R;
+import vn.loitp.app.R;
 
 public class FrmTestTop extends Fragment {
     public static FrmTestTop newInstance() {

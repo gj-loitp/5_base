@@ -1,125 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <ScrollView
-        android:id="@+id/scroll_view"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tv_policy"
+        android:layout_above="@+id/tvPolicy"
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
-            <Button
-                android:id="@+id/bt_api"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btApi"
                 style="@style/ButtonMenu"
                 android:text="@string/api" />
 
-            <Button
-                android:id="@+id/bt_ads"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAds"
                 style="@style/ButtonMenu"
                 android:text="@string/ads" />
 
-            <Button
-                android:id="@+id/bt_animation"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAnimation"
                 style="@style/ButtonMenu"
                 android:text="@string/animation" />
 
-            <Button
-                android:id="@+id/bt_custom_view"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCustomView"
                 style="@style/ButtonMenu"
                 android:text="@string/custom_views" />
 
-            <Button
-                android:id="@+id/bt_database"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDatabase"
                 style="@style/ButtonMenu"
                 android:text="@string/database" />
 
-            <Button
-                android:id="@+id/bt_picker"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPicker"
                 style="@style/ButtonMenu"
                 android:text="@string/picker" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSecurity"
                 style="@style/ButtonMenu"
                 android:text="Security" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btService"
                 style="@style/ButtonMenu"
                 android:text="Service" />
 
-            <Button
-                android:id="@+id/bt_demo"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDemo"
                 style="@style/ButtonMenu"
                 android:text="@string/demo_app" />
 
-            <Button
-                android:id="@+id/bt_function"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFunction"
                 style="@style/ButtonMenu"
                 android:text="@string/function" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNetwork"
                 style="@style/ButtonMenu"
                 android:text="@string/network" />
 
-            <Button
-                android:id="@+id/bt_pattern"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPattern"
                 style="@style/ButtonMenu"
                 android:text="@string/pattern" />
 
-            <Button
-                android:id="@+id/bt_tutorial"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTutorial"
                 style="@style/ButtonMenu"
                 android:text="@string/tutorial" />
 
-            <Button
-                android:id="@+id/bt_rate_app"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRateApp"
                 style="@style/ButtonMenu"
                 android:text="@string/rate_app" />
 
-            <Button
-                android:id="@+id/bt_more_app"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMoreApp"
                 style="@style/ButtonMenu"
                 android:text="@string/more_app" />
 
-            <Button
-                android:id="@+id/bt_chat"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChat"
                 style="@style/ButtonMenu"
                 android:text="@string/chat_with_dev" />
 
-            <Button
-                android:id="@+id/bt_fb_fanpage"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFbFanpage"
                 style="@style/ButtonMenu"
                 android:text="@string/fb_fanpage" />
 
-            <Button
-                android:id="@+id/bt_ad_helper"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAdHelper"
                 style="@style/ButtonMenu"
                 android:text="Vì sao bạn thấy quảng cáo?" />
 
-            <Button
-                android:id="@+id/bt_frm_more"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFrmMore"
                 style="@style/ButtonMenu"
                 android:text="@string/th_m" />
 
-            <Button
-                android:id="@+id/bt_donation"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDonation"
                 style="@style/ButtonMenu"
                 android:text="@string/donation" />
 
-            <Button
-                android:id="@+id/bt_github"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGithub"
                 style="@style/ButtonMenu"
                 android:text="@string/github" />
         </LinearLayout>
@@ -131,14 +132,13 @@
         android:text="@string/main_menu" />
 
     <TextView
-        android:id="@+id/tv_policy"
+        android:id="@+id/tvPolicy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_medium"
         android:text="@string/policy"
         android:textColor="@drawable/text_black_white"
         android:textSize="@dimen/txt_10" />
 </RelativeLayout>
-

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -26,12 +26,12 @@
         app:realtimeOverlayColor="@color/black_65" />-->
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
     <TextView
-        android:id="@+id/tv_size"
+        android:id="@+id/tvSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_15"
@@ -56,9 +56,9 @@
             android:layout_marginEnd="@dimen/margin_10"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/l_baseline_bug_report_black_48"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:src="@drawable/ic_bug_report_black_48dp"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini" />
@@ -69,9 +69,9 @@
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/l_baseline_cloud_download_black_48"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:src="@drawable/ic_cloud_download_black_48dp"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini" />
@@ -84,9 +84,9 @@
             android:layout_marginRight="@dimen/margin_10"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
-            android:src="@drawable/l_ic_share_black_48dp"
-            android:tint="@color/Black"
-            app:backgroundTint="@color/White"
+            android:src="@drawable/ic_share_black_48dp"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini" />

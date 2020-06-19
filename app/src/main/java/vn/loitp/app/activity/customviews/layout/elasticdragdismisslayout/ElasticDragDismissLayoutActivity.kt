@@ -7,7 +7,7 @@ import com.core.base.BaseFontActivity
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissCallback
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout
 
-import loitp.basemaster.R
+import vn.loitp.app.R
 
 //https://github.com/Commit451/ElasticDragDismissLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3098
 class ElasticDragDismissLayoutActivity : BaseFontActivity() {
@@ -15,7 +15,7 @@ class ElasticDragDismissLayoutActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tv = findViewById(R.id.tv)
+        tv = findViewById(R.id.textView)
         val elasticDragDismissLinearLayout = findViewById<ElasticDragDismissLinearLayout>(R.id.draggable_frame)
         elasticDragDismissLinearLayout.addListener(object : ElasticDragDismissCallback() {
             override fun onDrag(elasticOffset: Float, elasticOffsetPixels: Float, rawOffset: Float, rawOffsetPixels: Float) {

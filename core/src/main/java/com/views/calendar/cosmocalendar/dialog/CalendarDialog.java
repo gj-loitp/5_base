@@ -27,6 +27,7 @@ import com.views.calendar.cosmocalendar.settings.selection.SelectionInterface;
 import com.views.calendar.cosmocalendar.utils.SelectionType;
 import com.views.calendar.cosmocalendar.view.CalendarView;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
@@ -350,6 +351,16 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
     }
 
     @Override
+    public Calendar getMinDate() {
+        return calendarView.getMinDate();
+    }
+
+    @Override
+    public Calendar getMaxDate() {
+        return calendarView.getMaxDate();
+    }
+
+    @Override
     public void setShowFlBottomSelectionBar(boolean showFlBottomSelectionBar) {
         calendarView.setShowFlBottomSelectionBar(showFlBottomSelectionBar);
     }
@@ -357,6 +368,16 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
     @Override
     public Set<Long> getDisabledDays() {
         return calendarView.getDisabledDays();
+    }
+
+    @Override
+    public void setMinDate(Calendar minDate) {
+        calendarView.setMinDate(minDate);
+    }
+
+    @Override
+    public void setMaxDate(Calendar maxDate) {
+        calendarView.setMaxDate(maxDate);
     }
 
     @Override

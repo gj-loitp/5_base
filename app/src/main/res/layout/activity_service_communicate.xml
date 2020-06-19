@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scroll_view"
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -17,17 +17,17 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/notify_me"
                 style="@style/ButtonMenu"
                 android:text="Click to Service" />
 
-            <Button
-                android:id="@+id/bt_0"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/bt0"
                 style="@style/ButtonMenu"
                 android:text="Send Service Dummy Test 0" />
         </LinearLayout>

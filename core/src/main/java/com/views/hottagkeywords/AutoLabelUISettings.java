@@ -10,7 +10,7 @@ public class AutoLabelUISettings implements Parcelable {
     public static final boolean DEFAULT_SHOW_CROSS = true;
     public static final boolean DEFAULT_LABELS_CLICKABLES = false;
     public static final int DEFAULT_MAX_LABELS = -1;
-    public static final int DEFAULT_ICON_CROSS = R.drawable.l_cross;
+    public static final int DEFAULT_ICON_CROSS = R.drawable.ic_close_black_48dp;
 
     private int mMaxLabels;
     private boolean mShowCross;
@@ -103,7 +103,7 @@ public class AutoLabelUISettings implements Parcelable {
         private int bIconCross = DEFAULT_ICON_CROSS;
         private int bTextColor = android.R.color.white;
         private int bTextSize = R.dimen.label_title_size;
-        private int bBackgroundResource = R.color.default_background_label;
+        private int bBackgroundResource = R.color.green;
         private boolean bLabelsClickables = DEFAULT_LABELS_CLICKABLES;
         private int bLabelPadding = R.dimen.padding_label_view;
 

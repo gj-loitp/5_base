@@ -6,16 +6,16 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/iv_prev"
+        android:id="@+id/ivPrev"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
         android:contentDescription="@string/app_name"
         android:foreground="?actionBarItemBackground"
         android:scaleType="centerInside"
-        android:src="@drawable/l_baseline_keyboard_arrow_left_black_48dp" />
+        android:src="@drawable/ic_chevron_left_black_48dp" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -23,11 +23,11 @@
         android:singleLine="true" />
 
     <ImageView
-        android:id="@+id/iv_next"
+        android:id="@+id/ivNext"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
         android:contentDescription="@string/app_name"
         android:foreground="?actionBarItemBackground"
         android:scaleType="centerInside"
-        android:src="@drawable/l_baseline_keyboard_arrow_right_black_48dp" />
+        android:src="@drawable/ic_chevron_right_black_48dp" />
 </LinearLayout>
