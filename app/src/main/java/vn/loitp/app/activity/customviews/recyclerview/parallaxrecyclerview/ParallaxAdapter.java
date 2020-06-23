@@ -23,7 +23,7 @@ public class ParallaxAdapter extends RecyclerView.Adapter {
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.row_parallax, parent, false);
-        return new Holder(view);
+        return new ParallaxHolder(view);
     }
 
     @Override
@@ -35,11 +35,9 @@ public class ParallaxAdapter extends RecyclerView.Adapter {
         return 50;
     }
 
-    private class Holder extends RecyclerView.ViewHolder {
-
-        Holder(View itemView) {
+    private static class ParallaxHolder extends RecyclerView.ViewHolder {
+        ParallaxHolder(View itemView) {
             super(itemView);
         }
-
     }
 }
