@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="150dp"
-    android:paddingBottom="10dp">
+    android:paddingBottom="@dimen/padding_medium">
 
     <com.views.recyclerview.parallaxyay.ParallaxImageView
         android:id="@+id/backgroundImage"
@@ -15,8 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
 </RelativeLayout>
