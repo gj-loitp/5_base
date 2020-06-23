@@ -4,13 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.view_row_item_book.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
@@ -49,41 +47,37 @@ class BookAdapter(private val context: Context,
     }
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var tv: TextView = view.findViewById(R.id.textView)
-        var iv: ImageView = view.findViewById(R.id.imageView)
-        var bkg: ImageView = view.findViewById(R.id.bkg)
-        var rootView: RelativeLayout = view.findViewById(R.id.rootView)
 
         fun bind(movie: Movie) {
-            rootView.layoutParams.width = sizeW
-            rootView.layoutParams.height = sizeH
-            rootView.invalidate()
+            itemView.rootView.layoutParams.width = sizeW
+            itemView.rootView.layoutParams.height = sizeH
+            itemView.rootView.invalidate()
             val indexEachColumn = bindingAdapterPosition % column
-            tv.text = movie.title
-            tv.visibility = View.VISIBLE
+            itemView.textView.text = movie.title
+            itemView.textView.visibility = View.VISIBLE
             when (indexEachColumn) {
                 0 -> {
-                    bkg.setImageResource(R.drawable.l_grid_item_background_left)
+                    itemView.bkg.setImageResource(R.drawable.l_grid_item_background_left)
                 }
                 column - 1 -> {
-                    bkg.setImageResource(R.drawable.l_grid_item_background_right)
+                    itemView.bkg.setImageResource(R.drawable.l_grid_item_background_right)
                 }
                 else -> {
-                    bkg.setImageResource(R.drawable.l_grid_item_background_center)
+                    itemView.bkg.setImageResource(R.drawable.l_grid_item_background_center)
                 }
             }
-            LUIUtil.setMargins(view = iv, leftPx = sizeMarginTopLeftRight, topPx = sizeMarginTopBottom, rightPx = sizeMarginTopLeftRight, bottomPx = sizeMarginTopBottom)
+            LUIUtil.setMargins(view = itemView.imageView, leftPx = sizeMarginTopLeftRight, topPx = sizeMarginTopBottom, rightPx = sizeMarginTopLeftRight, bottomPx = sizeMarginTopBottom)
             val url = movie.cover
             if (url != null) {
-                LImageUtil.load(context = context, url = url, imageView = iv)
+                LImageUtil.load(context = context, url = url, imageView = itemView.imageView)
             } else {
-                iv.setImageResource(0)
-                tv.visibility = View.INVISIBLE
+                itemView.imageView.setImageResource(0)
+                itemView.textView.visibility = View.INVISIBLE
             }
-            rootView.setOnClickListener { v: View? ->
+            itemView.rootView.setOnClickListener { v: View? ->
                 callback?.onClick(movie, bindingAdapterPosition)
             }
-            rootView.setOnLongClickListener { v: View? ->
+            itemView.rootView.setOnLongClickListener { v: View? ->
                 callback?.onLongClick(movie, bindingAdapterPosition)
                 true
             }

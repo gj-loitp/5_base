@@ -16,24 +16,26 @@ class BookViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mAdapter = BookAdapter(activity, 3, movieList, object : BookAdapter.Callback {
-            override fun onClick(movie: Movie, position: Int) {
-                showShort("Click " + movie.title)
-            }
 
-            override fun onLongClick(movie: Movie, position: Int) {
-                val isRemoved = movieList.remove(movie)
-                if (isRemoved) {
-                    mAdapter?.apply {
-                        notifyItemRemoved(position)
-                        notifyItemRangeChanged(position, movieList.size)
-                        checkData()
+        mAdapter = BookAdapter(context = activity, column = 3, moviesList = movieList,
+                callback = object : BookAdapter.Callback {
+                    override fun onClick(movie: Movie, position: Int) {
+                        showShort("Click " + movie.title)
                     }
-                }
-            }
 
-            override fun onLoadMore() {}
-        })
+                    override fun onLongClick(movie: Movie, position: Int) {
+                        val isRemoved = movieList.remove(movie)
+                        if (isRemoved) {
+                            mAdapter?.apply {
+                                notifyItemRemoved(position)
+                                notifyItemRangeChanged(position, movieList.size)
+                                checkData()
+                            }
+                        }
+                    }
+
+                    override fun onLoadMore() {}
+                })
         rv.layoutManager = GridLayoutManager(activity, 3)
         rv.adapter = mAdapter
         prepareMovieData()

@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_recyclerview_menu.*
+import kotlinx.android.synthetic.main.activity_recycler_view_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
@@ -23,6 +23,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btParallaxRecyclerView.setOnClickListener(this)
         btNormalRecyclerView.setOnClickListener(this)
         btNormalRecyclerViewWithSpanSize.setOnClickListener(this)
@@ -45,7 +46,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recyclerview_menu
+        return R.layout.activity_recycler_view_menu
     }
 
     override fun onClick(v: View) {

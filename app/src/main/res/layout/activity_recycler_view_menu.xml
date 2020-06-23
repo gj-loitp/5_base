@@ -82,4 +82,3 @@
         style="@style/TextMenu"
         android:text="RecyclerView Menu" />
 </RelativeLayout>
-
