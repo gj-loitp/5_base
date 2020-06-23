@@ -1,16 +1,9 @@
 package vn.loitp.app.activity.customviews.textview.translucentview
 
-import android.os.Bundle
-
 import com.core.base.BaseFontActivity
-
 import vn.loitp.app.R
 
 class TranslucentViewActivity : BaseFontActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun setFullScreen(): Boolean {
         return false
@@ -21,7 +14,7 @@ class TranslucentViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_translucent_view
+        return R.layout.activity_text_view_translucent
     }
 
 }

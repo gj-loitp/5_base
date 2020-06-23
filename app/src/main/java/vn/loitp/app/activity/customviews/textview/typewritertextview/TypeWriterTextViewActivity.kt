@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.textview.typewritertextview
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_textview_type_writer.*
+import kotlinx.android.synthetic.main.activity_text_view_type_writer.*
 import vn.loitp.app.R
 
 class TypeWriterTextViewActivity : BaseFontActivity() {
@@ -24,7 +24,7 @@ class TypeWriterTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_type_writer
+        return R.layout.activity_text_view_type_writer
     }
 
 }

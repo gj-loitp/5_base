@@ -7,7 +7,7 @@ import android.view.View.OnClickListener
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_textview_menu.*
+import kotlinx.android.synthetic.main.activity_text_view_menu.*
 
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity
@@ -56,7 +56,7 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_menu
+        return R.layout.activity_text_view_menu
     }
 
     override fun onClick(v: View) {

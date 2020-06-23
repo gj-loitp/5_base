@@ -2,7 +2,7 @@ package vn.loitp.app.activity.customviews.textview.scrollnumber
 
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_textview_scroll_number.*
+import kotlinx.android.synthetic.main.activity_text_view_scroll_number.*
 import vn.loitp.app.R
 
 class ScrollNumberActivity : BaseFontActivity() {
@@ -29,7 +29,7 @@ class ScrollNumberActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_scroll_number
+        return R.layout.activity_text_view_scroll_number
     }
 
 }
