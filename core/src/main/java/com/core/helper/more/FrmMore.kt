@@ -11,10 +11,6 @@ import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_more.*
 
-/**
- * Created by www.muathu@gmail.com on 7/26/2017.
- */
-
 class FrmMore : BaseFragment(), View.OnClickListener {
     override fun setTag(): String? {
         return javaClass.simpleName
@@ -22,6 +18,7 @@ class FrmMore : BaseFragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         btRateApp.setOnClickListener(this)
         btMoreApp.setOnClickListener(this)
         btShareApp.setOnClickListener(this)
@@ -39,11 +36,11 @@ class FrmMore : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View) {
         activity?.let {
             when (v) {
-                btRateApp -> LSocialUtil.rateApp(it, it.packageName)
-                btMoreApp -> LSocialUtil.moreApp(it)
-                btShareApp -> LSocialUtil.shareApp(it)
-                btLikeFbFanpage -> LSocialUtil.likeFacebookFanpage(it)
-                btSupport -> LSocialUtil.chatMessenger(it)
+                btRateApp -> LSocialUtil.rateApp(activity = it, packageName = it.packageName)
+                btMoreApp -> LSocialUtil.moreApp(activity = it)
+                btShareApp -> LSocialUtil.shareApp(activity = it)
+                btLikeFbFanpage -> LSocialUtil.likeFacebookFanpage(activity = it)
+                btSupport -> LSocialUtil.chatMessenger(activity = it)
                 btAdHelper -> {
                     val intent = Intent(it, AdHelperActivity::class.java)
                     startActivity(intent)

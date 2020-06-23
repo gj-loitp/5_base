@@ -25,10 +25,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_5">
+                android:padding="@dimen/padding_medium">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -39,11 +36,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_30"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/why_u_see_ad"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/txt_18" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:background="@color/lightGrey" />
 
             <LinearLayout
                 android:id="@+id/btRateApp"
@@ -53,10 +55,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_5">
+                android:padding="@dimen/padding_medium">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -67,11 +66,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_30"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/rate_app"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/txt_18" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:background="@color/lightGrey" />
 
             <LinearLayout
                 android:id="@+id/btMoreApp"
@@ -81,10 +85,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_5">
+                android:padding="@dimen/padding_medium">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -95,11 +96,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_30"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/more_app"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/txt_18" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:background="@color/lightGrey" />
 
             <LinearLayout
                 android:id="@+id/btShareApp"
@@ -109,10 +115,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_5">
+                android:padding="@dimen/padding_medium">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -123,11 +126,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_30"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/share_app"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/txt_18" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:background="@color/lightGrey" />
 
             <LinearLayout
                 android:id="@+id/btLikeFbFanpage"
@@ -137,10 +145,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_5">
+                android:padding="@dimen/padding_medium">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -151,11 +156,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_30"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/like_facebook_fanpage"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/txt_18" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:background="@color/lightGrey" />
 
             <LinearLayout
                 android:id="@+id/btSupport"
@@ -165,10 +175,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:paddingLeft="@dimen/padding_10"
-                android:paddingTop="@dimen/padding_5"
-                android:paddingRight="@dimen/padding_10"
-                android:paddingBottom="@dimen/padding_5">
+                android:padding="@dimen/padding_medium">
 
                 <ImageView
                     android:layout_width="@dimen/w_40"
@@ -179,10 +186,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_30"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/support_24_7"
-                    android:textColor="@color/grey"
-                    android:textSize="@dimen/txt_18" />
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
         </LinearLayout>
