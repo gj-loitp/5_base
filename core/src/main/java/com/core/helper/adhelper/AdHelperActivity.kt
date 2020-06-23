@@ -1,5 +1,6 @@
 package com.core.helper.adhelper
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,6 +38,7 @@ class AdHelperActivity : BaseFontActivity() {
         return R.layout.l_activity_ad_helper
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false

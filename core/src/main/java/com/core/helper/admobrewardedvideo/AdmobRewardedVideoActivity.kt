@@ -11,7 +11,6 @@ import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.reward.RewardItem
 import com.google.android.gms.ads.reward.RewardedVideoAd
 import com.google.android.gms.ads.reward.RewardedVideoAdListener
-import com.views.LToast
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_admob_rewarded_video.*
 
@@ -26,6 +25,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         textView.setText(R.string.loading)
         LUIUtil.setTextShadow(textView)
 
@@ -44,7 +44,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
         val strAppId = intent.getStringExtra(APP_ID)
         strReward = intent.getStringExtra(ID_REWARD)
         if (strAppId.isNullOrEmpty() || strReward.isNullOrEmpty()) {
-            LToast.show(activity, getString(R.string.err_unknow))
+            showShort(getString(R.string.err_unknow))
             onBackPressed()
             return
         }

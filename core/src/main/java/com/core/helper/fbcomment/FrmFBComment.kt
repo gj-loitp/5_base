@@ -94,7 +94,7 @@ class FrmFBComment : BaseFragment() {
             LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
         } else {
             LUIUtil.setDelay(mls = 1000, runnable = Runnable {
-                LUIUtil.setProgressBarVisibility(progressBar, View.GONE)
+                LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
             })
         }
     }
