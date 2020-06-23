@@ -22,7 +22,7 @@ class FN4 : BaseFragment(), OnBackPressedListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.fn_4
+        return R.layout.frm_fn_4
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {}
@@ -34,6 +34,6 @@ class FN4 : BaseFragment(), OnBackPressedListener {
 
     override fun onBackPressed() {
         LLog.d(fragmentNavigationActivity!!.T, "onBackPressed FN4")
-        fragmentNavigationActivity!!.popThisFragment()
+        fragmentNavigationActivity?.popThisFragment()
     }
 }

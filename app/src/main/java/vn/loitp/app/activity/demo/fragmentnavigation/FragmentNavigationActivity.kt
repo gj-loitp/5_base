@@ -14,7 +14,7 @@ class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigati
     val T = "FragmentNavigationActivity"
 
     val navController: NavController
-        get() = Navigation.findNavController(activity, R.id.my_nav_host_fragment)
+        get() = Navigation.findNavController(activity, R.id.fragmentContainerView)
 
     override fun setFullScreen(): Boolean {
         return false
@@ -34,7 +34,7 @@ class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigati
     }
 
     override fun onBackPressed() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment?
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment?
         if (navHostFragment == null) {
             super.onBackPressed()
             return

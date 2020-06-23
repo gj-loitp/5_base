@@ -2,26 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightBlue"
+    android:background="@color/lightSalmon"
     android:orientation="vertical">
 
     <TextView
         style="@style/TextMenu"
-        android:text="@string/fn1" />
+        android:text="@string/fn3" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/button3"
         style="@style/ButtonMenu"
-        android:text="@string/go_to_fn2" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_4"
-        style="@style/ButtonMenu"
-        android:text="@string/go_to_fn4" />
+        android:layout_marginTop="@dimen/margin_medium"
+        android:text="@string/back_to_fn1" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/logo" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/loitp" />
+
 </LinearLayout>
