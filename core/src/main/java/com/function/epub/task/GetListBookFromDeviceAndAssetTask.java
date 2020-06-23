@@ -13,7 +13,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO convert rx
+//TODO convert coroutine
 public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object, List<BookInfo>> {
     private Callback callback;
     private Activity activity;
