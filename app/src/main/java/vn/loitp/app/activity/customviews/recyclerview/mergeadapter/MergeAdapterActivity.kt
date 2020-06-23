@@ -9,7 +9,7 @@ import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import com.interfaces.RecyclerViewCallback
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_recyclerview_merge_adapter.*
+import kotlinx.android.synthetic.main.activity_recycler_view_merge_adapter.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.*
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.DataSource
@@ -39,7 +39,7 @@ class MergeAdapterActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recyclerview_merge_adapter
+        return R.layout.activity_recycler_view_merge_adapter
     }
 
     private fun setupDataInRecyclerView() {

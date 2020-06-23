@@ -29,9 +29,9 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         recyclerView = findViewById(R.id.rv);
-        tvType = findViewById(R.id.tv_type);
+        tvType = findViewById(R.id.tvType);
 
-        mAdapter = new MoviesAdapter(getActivity(), DummyData.Companion.getInstance().getMovieList(), new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(DummyData.Companion.getInstance().getMovieList(), new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 LToast.show(getActivity(), "Click " + movie.getTitle());
@@ -60,27 +60,27 @@ public class RecyclerViewWithSingletonDataActivity extends BaseFontActivity {
 
         prepareMovieData();
 
-        findViewById(R.id.bt_setting).setOnClickListener(v -> LPopupMenu.INSTANCE.show(getActivity(), v, R.menu.menu_recycler_view, menuItem -> {
+        findViewById(R.id.btSetting).setOnClickListener(v -> LPopupMenu.INSTANCE.show(getActivity(), v, R.menu.menu_recycler_view, menuItem -> {
             tvType.setText(menuItem.getTitle().toString());
             switch (menuItem.getItemId()) {
-                case R.id.menu_linear_vertical:
+                case R.id.menuLinearVertical:
                     RecyclerView.LayoutManager lmVertical = new LinearLayoutManager(getApplicationContext());
                     recyclerView.setLayoutManager(lmVertical);
                     break;
-                case R.id.menu_linear_horizontal:
+                case R.id.menuLinearHorizontal:
                     RecyclerView.LayoutManager lmHorizontal = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
                     recyclerView.setLayoutManager(lmHorizontal);
                     break;
-                case R.id.menu_gridlayoutmanager_2:
+                case R.id.menuGridLayoutManager2:
                     recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                     break;
-                case R.id.menu_gridlayoutmanager_3:
+                case R.id.menuGridLayoutManager3:
                     recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
                     break;
-                case R.id.menu_staggeredgridlayoutmanager_2:
+                case R.id.menuStaggeredGridLayoutManager2:
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
                     break;
-                case R.id.menu_staggeredgridlayoutmanager_4:
+                case R.id.menuStaggeredGridLayoutManager4:
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL));
                     break;
             }

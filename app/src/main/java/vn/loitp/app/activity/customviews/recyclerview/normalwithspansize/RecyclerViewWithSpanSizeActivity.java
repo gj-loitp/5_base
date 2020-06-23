@@ -28,7 +28,7 @@ public class RecyclerViewWithSpanSizeActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         RecyclerView recyclerView = findViewById(R.id.rv);
 
-        mAdapter = new MoviesAdapter(getActivity(), movieList, new MoviesAdapter.Callback() {
+        mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(Movie movie, int position) {
                 showShort("Click " + movie.getTitle());

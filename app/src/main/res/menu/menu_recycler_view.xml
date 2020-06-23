@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item
-		android:id="@+id/menu_linear_vertical"
-		android:title="LinearLayoutManager vertical" />
-	<item
-		android:id="@+id/menu_linear_horizontal"
-		android:title="LinearLayoutManager horizontal" />
-	<item
-		android:id="@+id/menu_gridlayoutmanager_2"
-		android:title="GridLayoutManager 2" />
-	<item
-		android:id="@+id/menu_gridlayoutmanager_3"
-		android:title="GridLayoutManager 3" />
-	<item
-		android:id="@+id/menu_staggeredgridlayoutmanager_2"
-		android:title="StaggeredGridLayoutManager 2 Vertical" />
-	<item
-		android:id="@+id/menu_staggeredgridlayoutmanager_4"
-		android:title="StaggeredGridLayoutManager 4 Horizontal" />
+    <item
+        android:id="@+id/menuLinearVertical"
+        android:title="LinearLayoutManager vertical" />
+    <item
+        android:id="@+id/menuLinearHorizontal"
+        android:title="LinearLayoutManager horizontal" />
+    <item
+        android:id="@+id/menuGridLayoutManager2"
+        android:title="GridLayoutManager 2" />
+    <item
+        android:id="@+id/menuGridLayoutManager3"
+        android:title="GridLayoutManager 3" />
+    <item
+        android:id="@+id/menuStaggeredGridLayoutManager2"
+        android:title="StaggeredGridLayoutManager 2 Vertical" />
+    <item
+        android:id="@+id/menuStaggeredGridLayoutManager4"
+        android:title="StaggeredGridLayoutManager 4 Horizontal" />
 </menu>
