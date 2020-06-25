@@ -67,7 +67,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
-            LLog.INSTANCE.d(TAG, "onViewPositionChanged " + left + " - " + top + " - " + dx + " - " + dy);
+            LLog.d(TAG, "onViewPositionChanged " + left + " - " + top + " - " + dx + " - " + dy);
             mTop = top;
             mDragOffset = (float) top / mDragRange;
             //LLog.d(TAG, "onViewPositionChanged mDragOffset " + mDragOffset);
@@ -88,7 +88,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
-            LLog.INSTANCE.d(TAG, "onViewReleased");
+            LLog.d(TAG, "onViewReleased");
             int top = getPaddingTop();
             if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
                 top += mDragRange;
@@ -103,7 +103,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public int clampViewPositionVertical(View child, int top, int dy) {
-            LLog.INSTANCE.d(TAG, "clampViewPositionVertical " + top);
+            LLog.d(TAG, "clampViewPositionVertical " + top);
             final int topBound = getPaddingTop();
             final int bottomBound = getHeight() - mHeaderView.getHeight() - mHeaderView.getPaddingBottom();
             final int newTop = Math.min(Math.max(top, topBound), bottomBound);
@@ -112,7 +112,7 @@ public class YoutubeLayout extends ViewGroup {
 
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
-            LLog.INSTANCE.d(TAG, "clampViewPositionHorizontal " + left + "," + dx);
+            LLog.d(TAG, "clampViewPositionHorizontal " + left + "," + dx);
             final int leftBound = getPaddingLeft();
             final int rightBound = getWidth() - mHeaderView.getWidth();
             final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
@@ -147,7 +147,7 @@ public class YoutubeLayout extends ViewGroup {
 
         switch (action) {
             case MotionEvent.ACTION_DOWN: {
-                LLog.INSTANCE.d(TAG, "onInterceptTouchEvent ACTION_DOWN");
+                LLog.d(TAG, "onInterceptTouchEvent ACTION_DOWN");
                 mInitialMotionX = x;
                 mInitialMotionY = y;
                 interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
@@ -155,7 +155,7 @@ public class YoutubeLayout extends ViewGroup {
             }
 
             case MotionEvent.ACTION_MOVE: {
-                LLog.INSTANCE.d(TAG, "onInterceptTouchEvent ACTION_MOVE");
+                LLog.d(TAG, "onInterceptTouchEvent ACTION_MOVE");
                 final float adx = Math.abs(x - mInitialMotionX);
                 final float ady = Math.abs(y - mInitialMotionY);
                 final int slop = mDragHelper.getTouchSlop();
@@ -180,14 +180,14 @@ public class YoutubeLayout extends ViewGroup {
         boolean isHeaderViewUnder = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
         switch (action & MotionEventCompat.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN: {
-                LLog.INSTANCE.d(TAG, "onTouchEvent ACTION_DOWN");
+                LLog.d(TAG, "onTouchEvent ACTION_DOWN");
                 mInitialMotionX = x;
                 mInitialMotionY = y;
                 break;
             }
 
             case MotionEvent.ACTION_UP: {
-                LLog.INSTANCE.d(TAG, "onTouchEvent ACTION_UP");
+                LLog.d(TAG, "onTouchEvent ACTION_UP");
                 /*final float dx = x - mInitialMotionX;
                 final float dy = y - mInitialMotionY;
                 final int slop = mDragHelper.getTouchSlop();

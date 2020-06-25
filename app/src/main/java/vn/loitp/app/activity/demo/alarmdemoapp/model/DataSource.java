@@ -52,7 +52,7 @@ public class DataSource {
     }
 
     private static void load() {
-        LLog.INSTANCE.d(TAG, "DataSource.load()");
+        LLog.d(TAG, "DataSource.load()");
 
         mList = new ArrayList<Alarm>();
         mNextId = 1;
@@ -79,7 +79,7 @@ public class DataSource {
     }
 
     public static void save() {
-        LLog.INSTANCE.d(TAG, "DataSource.save()");
+        LLog.d(TAG, "DataSource.save()");
 
         try {
             DataOutputStream dos = new DataOutputStream(mContext.openFileOutput(DATA_FILE_NAME, Context.MODE_PRIVATE));
@@ -93,6 +93,7 @@ public class DataSource {
 
             dos.close();
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

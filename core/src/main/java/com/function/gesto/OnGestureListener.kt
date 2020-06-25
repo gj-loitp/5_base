@@ -1,8 +1,5 @@
 package com.function.gesto
 
-/**
- * Created by www.muathu@gmail.com on 1/16/2018.
- */
 
 import android.content.Context
 import android.view.GestureDetector

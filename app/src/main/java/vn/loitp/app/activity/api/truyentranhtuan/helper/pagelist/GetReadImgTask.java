@@ -31,9 +31,9 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
     private AVLoadingIndicatorView avLoadingIndicatorView;
 
     public interface Callback {
-        public void onSuccess(List<String> imagesListOfOneChap);
+        void onSuccess(List<String> imagesListOfOneChap);
 
-        public void onError();
+        void onError();
     }
 
     private Callback callback;
@@ -55,16 +55,16 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... voids) {
-        LLog.INSTANCE.d(TAG, "doInBackground");
+        LLog.d(TAG, "doInBackground");
         imagesListOfOneChap = doTask(link);
-        LLog.INSTANCE.d(TAG, ">>>imagesListOfOneChap: " + LApplication.Companion.getGson().toJson(imagesListOfOneChap));
+        LLog.d(TAG, ">>>imagesListOfOneChap: " + LApplication.Companion.getGson().toJson(imagesListOfOneChap));
         if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
             for (int i = 0; i < imagesListOfOneChap.size(); i++) {
                 String urlImg = imagesListOfOneChap.get(i);
                 if (urlImg.contains("http://images2-focus-opensocial.googleusercontent.com")) {
                     int index = urlImg.lastIndexOf("url=http");
-                    String tmp = urlImg.substring(index + 4, urlImg.length());
-                    LLog.INSTANCE.d(TAG, "tmp: " + tmp);
+                    String tmp = urlImg.substring(index + 4);
+                    LLog.d(TAG, "tmp: " + tmp);
                     imagesListOfOneChap.set(i, tmp);
                 }
             }
@@ -74,7 +74,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.INSTANCE.d(TAG, "onPostExecute: " + LApplication.Companion.getGson().toJson(imagesListOfOneChap));
+        LLog.d(TAG, "onPostExecute: " + LApplication.Companion.getGson().toJson(imagesListOfOneChap));
         if (imagesListOfOneChap != null && !imagesListOfOneChap.isEmpty()) {
             if (callback != null) {
                 callback.onSuccess(imagesListOfOneChap);
@@ -91,7 +91,7 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
     private List<String> doTask(String link) {
         String originalString = "";
         String stringAfterSplit = "";
-        String arrString[];
+        String[] arrString;
         Document document;
         List<String> imgList = new ArrayList<>();
         try {
@@ -114,27 +114,27 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
                         //LLog.d(TAG, "string: " + string);
                         int firstIndex = originalString.indexOf(subFirstString_0);
                         int lastIndex = originalString.indexOf(subLastString_0);
-                        LLog.INSTANCE.d(TAG, "firstIndex: " + firstIndex + ", lastIndex: " + lastIndex);
+                        LLog.d(TAG, "firstIndex: " + firstIndex + ", lastIndex: " + lastIndex);
                         stringAfterSplit = originalString.substring(firstIndex + subFirstString_0.length(), lastIndex);
                         stringAfterSplit = stringAfterSplit.replace("];", "");
                         stringAfterSplit = stringAfterSplit.replace("\"", "");
                         stringAfterSplit = stringAfterSplit.trim();
-                        LLog.INSTANCE.d(TAG, "stringAfterSplit:" + stringAfterSplit);
+                        LLog.d(TAG, "stringAfterSplit:" + stringAfterSplit);
                         if (stringAfterSplit.isEmpty()) {
-                            LLog.INSTANCE.d(TAG, "stringAfterSplit.isEmpty()");
+                            LLog.d(TAG, "stringAfterSplit.isEmpty()");
                             firstIndex = originalString.indexOf(subFirstString_1);
                             lastIndex = originalString.indexOf(subLastString_1);
-                            LLog.INSTANCE.d(TAG, "firstIndex: " + firstIndex + ", lastIndex: " + lastIndex);
+                            LLog.d(TAG, "firstIndex: " + firstIndex + ", lastIndex: " + lastIndex);
                             stringAfterSplit = originalString.substring(firstIndex + subFirstString_1.length(), lastIndex);
                             stringAfterSplit = stringAfterSplit.replace("];", "");
                             stringAfterSplit = stringAfterSplit.replace("[", "");
                             stringAfterSplit = stringAfterSplit.replace("\"", "");
                             stringAfterSplit = stringAfterSplit.trim();
-                            LLog.INSTANCE.d(TAG, "stringAfterSplit: " + stringAfterSplit);
+                            LLog.d(TAG, "stringAfterSplit: " + stringAfterSplit);
                             needToSortList = true;
                         }
                         arrString = stringAfterSplit.split(",");
-                        LLog.INSTANCE.d(TAG, "gson stringAfterSplit: " + LApplication.Companion.getGson().toJson(arrString));
+                        LLog.d(TAG, "gson stringAfterSplit: " + LApplication.Companion.getGson().toJson(arrString));
                         Collections.addAll(imgList, arrString);
                         if (needToSortList) {
                             Collections.sort(imgList, new Comparator<String>() {
@@ -146,16 +146,16 @@ public class GetReadImgTask extends AsyncTask<Void, Void, Void> {
 
                             });
                         }
-                        LLog.INSTANCE.d(TAG, "gson stringAfterSplit after sort: " + LApplication.Companion.getGson().toJson(arrString));
+                        LLog.d(TAG, "gson stringAfterSplit after sort: " + LApplication.Companion.getGson().toJson(arrString));
                         return imgList;
                     } else {
-                        LLog.INSTANCE.d(TAG, "doTask else");
+                        LLog.d(TAG, "doTask else");
                     }
                 }
             }
             return null;
         } catch (Exception e) {
-            LLog.INSTANCE.d(TAG, "err : " + e.toString() + " doTask again");
+            LLog.d(TAG, "err : " + e.toString() + " doTask again");
             return null;
         }
     }

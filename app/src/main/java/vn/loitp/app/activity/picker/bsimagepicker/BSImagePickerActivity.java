@@ -97,7 +97,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
             final int aspectY = 1;
             final int outputX = 500;
             final int outputY = 500;
-            LPickerUtil.INSTANCE.cropImage(getActivity(), uri, CROP_PIC_REQUEST_CODE, aspectX, aspectY, outputX, outputY);
+            LPickerUtil.Companion.cropImage(getActivity(), uri, CROP_PIC_REQUEST_CODE, aspectX, aspectY, outputX, outputY);
         } else {
             LImageUtil.INSTANCE.load(getActivity(), uri, ivImage2);
         }

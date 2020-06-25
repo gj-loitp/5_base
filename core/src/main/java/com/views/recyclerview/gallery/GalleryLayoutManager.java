@@ -408,7 +408,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     private float calculateToCenterFraction(View child, float pendingOffset) {
         int distance = calculateDistanceCenter(child, pendingOffset);
         int childLength = mOrientation == GalleryLayoutManager.HORIZONTAL ? child.getWidth() : child.getHeight();
-        LLog.INSTANCE.d(TAG, "calculateToCenterFraction: distance:" + distance + ",childLength:" + childLength);
+        LLog.d(TAG, "calculateToCenterFraction: distance:" + distance + ",childLength:" + childLength);
         return Math.max(-1.f, Math.min(1.f, distance * 1.f / childLength));
     }
 
@@ -434,7 +434,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
      * @param dy
      */
     private void fillWithVertical(RecyclerView.Recycler recycler, RecyclerView.State state, int dy) {
-        LLog.INSTANCE.d(TAG, "fillWithVertical: dy:" + dy);
+        LLog.d(TAG, "fillWithVertical: dy:" + dy);
         int topEdge = getOrientationHelper().getStartAfterPadding();
         int bottomEdge = getOrientationHelper().getEndAfterPadding();
 
