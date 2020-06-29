@@ -91,7 +91,7 @@ class MemberAdapter(private val context: Context, numCount: Int, private val cal
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val fl: FrameLayout = v.findViewById(R.id.fl)
-        val tvTitle: TextView = v.findViewById(R.id.tv_title)
+        val tvTitle: TextView = v.findViewById(R.id.tvTitle)
         val imageView: ImageView = v.findViewById(R.id.image_view)
         val viewSpaceTop: View = v.findViewById(R.id.viewSpaceTop)
         val viewSpaceBottom: View = v.findViewById(R.id.viewSpaceBottom)

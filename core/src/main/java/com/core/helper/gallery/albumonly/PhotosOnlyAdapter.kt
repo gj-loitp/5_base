@@ -65,7 +65,7 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
     }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        private val tvTitle: TextView = v.findViewById(R.id.tv_title)
+        private val tvTitle: TextView = v.findViewById(R.id.tvTitle)
         private val bigImageView: BigImageView = v.findViewById(R.id.biv)
         private val btDownload: FloatingActionButton = v.findViewById(R.id.bt_download)
         private val btShare: FloatingActionButton = v.findViewById(R.id.bt_share)

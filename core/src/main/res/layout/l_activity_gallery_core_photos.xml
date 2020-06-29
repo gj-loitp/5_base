@@ -27,7 +27,7 @@
             android:layout_height="match_parent" />
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_25"
@@ -46,7 +46,7 @@
             app:indicatorName="LineScalePulseOutRapidIndicator" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_page"
+            android:id="@+id/btPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

@@ -14,15 +14,6 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="false">
 
-        <!--<android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:fastScrollEnabled="true"
-            app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
-            app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
-            app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
-            app:fastScrollVerticalTrackDrawable="@drawable/line_drawable" />-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
@@ -38,11 +29,11 @@
             android:orientation="vertical" />
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_25"
-            android:padding="@dimen/padding_5"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:padding="@dimen/padding_medium"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_20" />
 
@@ -52,17 +43,16 @@
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/margin_15"
             app:indicatorColor="@color/white"
             app:indicatorName="LineScalePulseOutRapidIndicator" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_page"
+            android:id="@+id/btPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/lnAdView"
             android:layout_alignParentEnd="true"
-            android:layout_margin="@dimen/margin_15"
+            android:layout_margin="@dimen/margin_medium"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_page"
             android:tint="@color/colorPrimary"

@@ -20,7 +20,7 @@ public class TTTAPIFavListActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv = findViewById(R.id.textView);
-        tvTitle = findViewById(R.id.tv_title);
+        tvTitle = findViewById(R.id.tvTitle);
         avLoadingIndicatorView = findViewById(R.id.indicatorView);
         avLoadingIndicatorView.hide();
 

@@ -18,7 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-//TODO convert rx
+//TODO convert corountine
 public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private Context mContext;
     private String mURL;

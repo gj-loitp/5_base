@@ -21,7 +21,7 @@ public class TTTAPIPageListActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tv = findViewById(R.id.textView);
-        tvTitle = findViewById(R.id.tv_title);
+        tvTitle = findViewById(R.id.tvTitle);
         avLoadingIndicatorView = findViewById(R.id.indicatorView);
 
         String currentLink = "http://truyentranhtuan.com/one-piece-chuong-69/";

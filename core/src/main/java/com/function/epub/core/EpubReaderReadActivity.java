@@ -98,7 +98,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         super.onCreate(savedInstanceState);
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         rlSplash = findViewById(R.id.rl_splash);
-        tvTitle = findViewById(R.id.tv_title);
+        tvTitle = findViewById(R.id.tvTitle);
         ivCover = findViewById(R.id.iv_cover);
         llGuide = findViewById(R.id.ll_guide);
         LUIUtil.INSTANCE.setTextShadow(tvTitle);

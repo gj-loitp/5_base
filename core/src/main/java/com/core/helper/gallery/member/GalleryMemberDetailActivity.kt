@@ -20,7 +20,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false
         imageView = findViewById(R.id.image_view)
-        tvTitle = findViewById(R.id.tv_title)
+        tvTitle = findViewById(R.id.tvTitle)
         LUIUtil.setTextShadow(tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
         loadItem(photo)

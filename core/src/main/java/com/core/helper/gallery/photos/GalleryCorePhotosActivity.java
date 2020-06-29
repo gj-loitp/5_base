@@ -56,8 +56,8 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         setShowAdWhenExit(false);
         setTransparentStatusNavigationBar();
         PhotosDataCore.getInstance().clearData();
-        btPage = findViewById(R.id.bt_page);
-        tvTitle = findViewById(R.id.tv_title);
+        btPage = findViewById(R.id.btPage);
+        tvTitle = findViewById(R.id.tvTitle);
         LUIUtil.INSTANCE.setTextShadow(tvTitle);
 
         avLoadingIndicatorView = findViewById(R.id.indicatorView);

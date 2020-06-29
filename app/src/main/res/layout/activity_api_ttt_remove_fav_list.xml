@@ -10,7 +10,7 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv_title"
+        android:layout_below="@+id/tvTitle"
         android:fillViewport="true">
 
         <LinearLayout

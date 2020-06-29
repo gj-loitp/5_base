@@ -62,10 +62,10 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val bundle = arguments ?: return
         PhotosDataCore.getInstance().clearData()
-        tvTitle = view.findViewById(R.id.tv_title)
+        tvTitle = view.findViewById(R.id.tvTitle)
         LUIUtil.setTextShadow(tvTitle)
         avLoadingIndicatorView = view.findViewById(R.id.indicatorView)
-        btPage = view.findViewById(R.id.bt_page)
+        btPage = view.findViewById(R.id.btPage)
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknow)))

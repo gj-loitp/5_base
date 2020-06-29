@@ -82,7 +82,7 @@ class GalleryMemberActivity : BaseFontActivity() {
             }
         }
 
-        tvTitle = findViewById(R.id.tv_title)
+        tvTitle = findViewById(R.id.tvTitle)
         LUIUtil.setTextShadow(tvTitle, Color.WHITE)
         avLoadingIndicatorView = findViewById(R.id.indicatorView)
 

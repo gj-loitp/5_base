@@ -43,8 +43,8 @@ public class ResideMenuItem extends LinearLayout {
     private void initViews(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.residemenu_item, this);
-        ivIcon = (ImageView) findViewById(R.id.iv_icon);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
+        ivIcon = findViewById(R.id.iv_icon);
+        tvTitle = findViewById(R.id.tvTitle);
     }
 
     /**
