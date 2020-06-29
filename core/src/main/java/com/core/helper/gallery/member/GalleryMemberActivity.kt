@@ -67,7 +67,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("adUnitId $adUnitId")
-        val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
+        val lnAdview = findViewById<LinearLayout>(R.id.lnAdView)
         if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {

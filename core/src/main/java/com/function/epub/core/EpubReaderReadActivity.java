@@ -136,7 +136,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         mViewPager.setAdapter(mSectionsPagerAdapter);
         final String adUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
         //LLog.d(TAG, "adUnitId " + adUnitId);
-        LinearLayout lnAdview = findViewById(R.id.ln_adview);
+        LinearLayout lnAdview = findViewById(R.id.lnAdView);
         if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.INSTANCE.isConnected(getActivity())) {
             lnAdview.setVisibility(View.GONE);
         } else {

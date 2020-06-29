@@ -39,7 +39,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         public UserViewHolder(View view) {
             super(view);
-            tvName = view.findViewById(R.id.tv_name);
+            tvName = view.findViewById(R.id.tvName);
             tvTime = view.findViewById(R.id.tv_time);
             tvMsg = view.findViewById(R.id.tv_msg);
             avt = view.findViewById(R.id.avt);

@@ -45,7 +45,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         avLoadingIndicatorView = findViewById(R.id.av)
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("admobBannerUnitId $admobBannerUnitId")
-        val lnAdview = findViewById<LinearLayout>(R.id.ln_adview)
+        val lnAdview = findViewById<LinearLayout>(R.id.lnAdView)
         if (admobBannerUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {
