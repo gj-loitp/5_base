@@ -302,7 +302,7 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    fun getFlickrLink100(urlM: String): String? {
+    fun getFlickrLink100(urlM: String): String {
         var linkUrlM = urlM
         /*
         s	small square 75x75
@@ -321,7 +321,7 @@ object LImageUtil {
 
 
         if (linkUrlM.isEmpty()) {
-            return null
+            return ""
         }
         linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {
@@ -333,7 +333,7 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    fun getFlickrLink640(urlM: String): String? {
+    fun getFlickrLink640(urlM: String): String {
         var linkUrlM = urlM
         /*
         s	small square 75x75
@@ -352,7 +352,7 @@ object LImageUtil {
 
 
         if (linkUrlM.isEmpty()) {
-            return null
+            return ""
         }
         linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {
@@ -364,7 +364,7 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_n
-    fun getFlickrLink320(urlM: String): String? {
+    fun getFlickrLink320(urlM: String): String {
         var linkUrlM = urlM
         /*
         s	small square 75x75
@@ -383,7 +383,7 @@ object LImageUtil {
 
 
         if (linkUrlM.isEmpty()) {
-            return null
+            return ""
         }
         linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {
@@ -395,7 +395,7 @@ object LImageUtil {
     }
 
     //for flick api url_m -> url_b
-    fun getFlickrLink1024(urlM: String): String? {
+    fun getFlickrLink1024(urlM: String): String {
         var linkUrlM = urlM
         /*
         s	small square 75x75
@@ -414,7 +414,7 @@ object LImageUtil {
 
 
         if (linkUrlM.isEmpty()) {
-            return null
+            return ""
         }
         linkUrlM = linkUrlM.toLowerCase(Locale.getDefault())
         if (linkUrlM.contains(".jpg")) {

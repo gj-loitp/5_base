@@ -84,7 +84,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         tvTitle = findViewById(R.id.tv_title)
         LUIUtil.setTextShadow(tvTitle, Color.WHITE)
-        avLoadingIndicatorView = findViewById(R.id.av)
+        avLoadingIndicatorView = findViewById(R.id.indicatorView)
 
         photosetID = Constants.FLICKR_ID_MEMBERS
         if (photosetID?.isEmpty() == true) {
@@ -191,15 +191,17 @@ class GalleryMemberActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
-                    for (photoset in wrapperPhotosetGetlist.photosets.photoset) {
-                        if (photoset.id == photosetID) {
-                            photosSize = Integer.parseInt(photoset.photos)
-                            init()
-                            return@subscribe
+                    wrapperPhotosetGetlist.photosets?.photoset?.let { list ->
+                        for (photoset in list) {
+                            if (photoset.id == photosetID) {
+                                photosSize = Integer.parseInt(photoset.photos ?: "0")
+                                init()
+                                return@subscribe
+                            }
                         }
                     }
                 }, { e ->
@@ -231,15 +233,15 @@ class GalleryMemberActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
                     logD("photosetsGetPhotos $currentPage/$totalPage")
 
-                    val s = wrapperPhotosetGetPhotos.photoset.title + " (" + currentPage + "/" + totalPage + ")"
+                    val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    val photoList = wrapperPhotosetGetPhotos.photoset.photo
+                    val photoList = wrapperPhotosetGetPhotos.photoset?.photo
                     PhotosDataCore.getInstance().addPhoto(photoList)
                     updateAllViews()
 

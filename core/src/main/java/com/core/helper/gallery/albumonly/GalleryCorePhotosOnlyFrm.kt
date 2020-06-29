@@ -64,7 +64,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         PhotosDataCore.getInstance().clearData()
         tvTitle = view.findViewById(R.id.tv_title)
         LUIUtil.setTextShadow(tvTitle)
-        avLoadingIndicatorView = view.findViewById(R.id.av)
+        avLoadingIndicatorView = view.findViewById(R.id.indicatorView)
         btPage = view.findViewById(R.id.bt_page)
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
@@ -207,16 +207,19 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         val format = FlickrConst.FORMAT
         val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
-                    logD("photosetsGetList onSuccess " + Gson().toJson(wrapperPhotosetGetlist))
-                    for (photoset in wrapperPhotosetGetlist.photosets.photoset) {
-                        if (photoset.id == photosetID) {
-                            photosSize = Integer.parseInt(photoset.photos)
-                            init()
-                            return@subscribe
+                    //logD("photosetsGetList onSuccess " + Gson().toJson(wrapperPhotosetGetlist))
+
+                    wrapperPhotosetGetlist.photosets?.photoset?.let { list ->
+                        for (photoset in list) {
+                            if (photoset.id == photosetID) {
+                                photosSize = Integer.parseInt(photoset.photos ?: "0")
+                                init()
+                                return@subscribe
+                            }
                         }
                     }
                 }, { e ->
@@ -248,16 +251,16 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         val format = FlickrConst.FORMAT
         val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
                     logD("photosetsGetPhotos onSuccess " + Gson().toJson(wrapperPhotosetGetPhotos))
                     //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
-                    val s = wrapperPhotosetGetPhotos.photoset.title + " (" + currentPage + "/" + totalPage + ")"
+                    val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    val photoList = wrapperPhotosetGetPhotos.photoset.photo
+                    val photoList = wrapperPhotosetGetPhotos.photoset?.photo
                     PhotosDataCore.getInstance().addPhoto(photoList)
                     updateAllViews()
 

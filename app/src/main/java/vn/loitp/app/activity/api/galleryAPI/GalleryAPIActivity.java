@@ -70,7 +70,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        getCompositeDisposable().add(service.photosetsGetList(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        getCompositeDisposable().add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
@@ -117,7 +117,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        getCompositeDisposable().add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback)
+        getCompositeDisposable().add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {

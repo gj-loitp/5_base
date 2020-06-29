@@ -17,6 +17,7 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
+import java.util.*
 
 /**
  * Created by loitp on 14/04/15.
@@ -52,7 +53,7 @@ class MemberAdapter(private val context: Context, numCount: Int, private val cal
         //LImageUtil.load(context, photo.getUrlM(), viewHolder.imageView);
         LImageUtil.loadNoAmin(context, photo.urlO, photo.urlS, viewHolder.imageView)
 
-        if (photo.title == null || photo.title.toLowerCase().startsWith("null")) {
+        if (photo.title.toLowerCase(Locale.getDefault()).startsWith("null")) {
             viewHolder.tvTitle.visibility = View.INVISIBLE
         } else {
             viewHolder.tvTitle.visibility = View.VISIBLE

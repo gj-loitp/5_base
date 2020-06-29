@@ -14,19 +14,6 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark">
 
-        <!--<ImageView
-            android:id="@+id/iv_bkg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />-->
-
-        <!--<com.views.realtimeblurview.RealtimeBlurView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_15"
-            app:realtimeOverlayColor="@color/black_35" />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
@@ -41,7 +28,7 @@
             android:orientation="vertical" />
 
         <com.wang.avi.AVLoadingIndicatorView
-            android:id="@+id/av"
+            android:id="@+id/indicatorView"
             style="@style/AVLoadingIndicatorView"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"

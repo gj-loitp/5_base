@@ -60,7 +60,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         tvTitle = findViewById(R.id.tv_title);
         LUIUtil.INSTANCE.setTextShadow(tvTitle);
 
-        avLoadingIndicatorView = findViewById(R.id.av);
+        avLoadingIndicatorView = findViewById(R.id.indicatorView);
         //ImageView ivBkg = (ImageView) findViewById(R.id.iv_bkg);
         //LImageUtil.load(activity, Constants.URL_IMG_2, ivBkg);
 
@@ -160,7 +160,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     private void showListPage() {
         int size = totalPage;
-        final String arr[] = new String[size];
+        final String[] arr = new String[size];
         for (int i = 0; i < size; i++) {
             arr[i] = "Page " + (totalPage - i);
         }
@@ -211,7 +211,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
         final String format = FlickrConst.FORMAT;
         final int nojsoncallback = FlickrConst.NO_JSON_CALLBACK;
 
-        getCompositeDisposable().add(service.photosetsGetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+        getCompositeDisposable().add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetPhotos -> {

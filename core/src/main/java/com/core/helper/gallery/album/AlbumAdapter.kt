@@ -19,15 +19,12 @@ import com.restapi.flickr.model.photosetgetlist.Photoset
 /**
  * Created by loitp on 14/04/15.
  */
-class AlbumAdapter(private val context: Context, private val photosetList: List<Photoset>?, private val callback: Callback?) : RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
+class AlbumAdapter(private val context: Context, private val photosetList: List<Photoset>, private val callback: Callback?)
+    : RecyclerView.Adapter<AlbumAdapter.ViewHolder>() {
     private val TAG = javaClass.simpleName
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private val sizeW: Int = LScreenUtil.screenWidth
-    private val sizeH: Int
-
-    init {
-        sizeH = sizeW
-    }
+    private val sizeH: Int = sizeW
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.l_item_album_core, viewGroup, false))
@@ -36,37 +33,25 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
     override fun onViewRecycled(holder: ViewHolder) {
         super.onViewRecycled(holder)
         //LLog.d(TAG, "onViewRecycled");
-        LImageUtil.clear(context, holder.iv)
+        LImageUtil.clear(context = context, target = holder.iv)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.rootView.layoutParams.height = sizeH
         viewHolder.rootView.requestLayout()
 
-        if (photosetList == null) {
-            return
-        }
+        val photoSet = photosetList[position]
+        LImageUtil.loadNoAmin(context = context, url = photoSet.flickrLinkO(), urlThumbnal = photoSet.flickrLinkM(), imageView = viewHolder.iv)
 
-        val photoset = photosetList[position]
-        //LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
+        viewHolder.tvLabel.text = photoSet.title?.content
 
-        //LLog.d(TAG, ">>>getUrlO " + photoset.getPrimaryPhotoExtras().getUrlO());
-        //LLog.d(TAG, ">>>getFlickrLink640 " + photoset.getFlickrLink640());
-        //LLog.d(TAG, ">>>getFlickrLink1024 " + photoset.getFlickrLink1024());
-
-        //LImageUtil.load(context, photoset.getFlickrLink1024(), viewHolder.iv, viewHolder.progressBar);
-        LImageUtil.loadNoAmin(context, photoset.flickrLinkO, photoset.flickrLinkM, viewHolder.iv)
-
-        viewHolder.tvLabel.text = photoset.title.content
-
-        val update = LDateUtil.getDateCurrentTimeZone(photoset.dateUpdate, "dd-MM-yyyy HH:mm:ss")
+        val update = LDateUtil.getDateCurrentTimeZone(timestamp = photoSet.dateUpdate, format = "dd-MM-yyyy HH:mm:ss")
         viewHolder.tvUpdate.text = update
+        viewHolder.tvNumber.text = photoSet.photos
 
-        viewHolder.tvNumber.text = photoset.photos
-
-        LUIUtil.setTextShadow(viewHolder.tvLabel)
-        LUIUtil.setTextShadow(viewHolder.tvUpdate)
-        LUIUtil.setTextShadow(viewHolder.tvNumber)
+        LUIUtil.setTextShadow(textView = viewHolder.tvLabel)
+        LUIUtil.setTextShadow(textView = viewHolder.tvUpdate)
+        LUIUtil.setTextShadow(textView = viewHolder.tvNumber)
 
         viewHolder.rootView.setOnClickListener {
             callback?.onClick(position)
@@ -93,14 +78,14 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
     }
 
     override fun getItemCount(): Int {
-        return photosetList?.size ?: 0
+        return photosetList.size
     }
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val iv: ImageView = v.findViewById(R.id.imageView)
-        val tvLabel: TextView = v.findViewById(R.id.tv_label)
-        val tvUpdate: TextView = v.findViewById(R.id.tv_update)
-        val tvNumber: TextView = v.findViewById(R.id.tv_number)
+        val tvLabel: TextView = v.findViewById(R.id.tvLabel)
+        val tvUpdate: TextView = v.findViewById(R.id.tvUpdate)
+        val tvNumber: TextView = v.findViewById(R.id.tvNumber)
         val rootView: LinearLayout = v.findViewById(R.id.rootView)
         val viewSpaceTop: View = v.findViewById(R.id.viewSpaceTop)
         val viewSpaceBottom: View = v.findViewById(R.id.viewSpaceBottom)

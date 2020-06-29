@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="UnusedAttribute">
 
     <View
         android:id="@+id/viewSpaceTop"
@@ -30,10 +31,10 @@
             android:background="@drawable/l_bkg_shadow_white_black_dark" />
 
         <TextView
-            android:id="@+id/tv_label"
+            android:id="@+id/tvLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/tv_update"
+            android:layout_above="@+id/tvUpdate"
             android:layout_marginStart="@dimen/margin_3"
             android:singleLine="true"
             android:textColor="@android:color/white"
@@ -41,7 +42,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tv_update"
+            android:id="@+id/tvUpdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -49,10 +50,10 @@
             android:layout_marginBottom="@dimen/margin_3"
             android:singleLine="true"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/txt_14" />
+            android:textSize="@dimen/txt_medium" />
 
         <TextView
-            android:id="@+id/tv_number"
+            android:id="@+id/tvNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
