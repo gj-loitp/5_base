@@ -29,7 +29,7 @@ import java.util.*
 class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
-    private var listRemoveAlbum: ArrayList<String>? = null
+    private var listRemoveAlbum = ArrayList<String>()
     private var bkgRootView: Int = 0
     private var adView: AdView? = null
 
@@ -38,7 +38,9 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
         isShowAdWhenExit = false
         setTransparentStatusNavigationBar()
-        listRemoveAlbum = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
+        intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
+            listRemoveAlbum.addAll(it)
+        }
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("admobBannerUnitId $admobBannerUnitId")
 
@@ -148,7 +150,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                     //LLog.d(TAG, "orginal size: " + photosetList.size());
                     //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
 
-                    listRemoveAlbum?.let {
+                    listRemoveAlbum.let {
                         for (i in it.indices.reversed()) {
                             for (j in listPhotoSet.indices.reversed()) {
                                 if (it[i] == listPhotoSet[j].id) {
