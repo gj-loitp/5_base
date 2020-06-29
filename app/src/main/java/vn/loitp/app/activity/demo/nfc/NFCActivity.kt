@@ -9,14 +9,13 @@ import android.nfc.Tag
 import android.nfc.tech.*
 import android.os.Bundle
 import android.provider.Settings
-import android.util.Log
-import android.widget.TextView
-import android.widget.Toast
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDateUtil
 import com.core.utilities.LDialogUtil
-import com.google.gson.Gson
+import com.core.utilities.LUIUtil
+import com.core.utilities.nfc.LNFCUtil
+import com.core.utilities.nfc.TagWrapper
 import kotlinx.android.synthetic.main.activity_demo_nfc.*
 import vn.loitp.app.R
 import java.io.UnsupportedEncodingException
@@ -82,15 +81,15 @@ class NFCActivity : BaseFontActivity() {
         super.onNewIntent(intent)
 
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
-        val tagId: String = NFCUtil.bytesToHex(tag?.id)
+        val tagId: String = LNFCUtil.bytesToHex(tag?.id)
         val tagWrapper = TagWrapper(tagId)
         val misc = ArrayList<String>()
         misc.add("scanned at: " + LDateUtil.now())
 
-        val rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
+        val rawMsg = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
         var tagData = ""
-        if (rawMsgs != null) {
-            val msg = rawMsgs[0] as NdefMessage
+        if (rawMsg != null) {
+            val msg = rawMsg[0] as NdefMessage
             val cardRecord = msg.records[0]
             tagData = try {
                 readRecord(cardRecord.payload) ?: ""
@@ -103,20 +102,18 @@ class NFCActivity : BaseFontActivity() {
         tagWrapper.techList.put("Misc", misc)
         tag?.let {
             for (tech in it.techList) {
-                val tech = tech.replace("android.nfc.tech.", "")
-                val info = getTagInfo(tag, tech)
-                tagWrapper.techList.put("Technology: $tech", info)
+                val item = tech.replace("android.nfc.tech.", "")
+                val info = getTagInfo(tag = tag, tech = item)
+                tagWrapper.techList.put("Technology: $item", info)
             }
         }
 
         if (tags.size == 1) {
-            Toast.makeText(this, "Swipe right to see previous tags", Toast.LENGTH_LONG).show()
+            showShort("Swipe right to see previous tags")
         }
         tags.add(tagWrapper)
-        Log.d("loitpp", "--> tags")
-        val tvResult = findViewById<TextView>(R.id.tvResult)
-        val gson = Gson()
-        tvResult.text = gson.toJson(tags)
+
+        LUIUtil.printBeautyJson(o = tags, textView = tvResult)
     }
 
     @Throws(UnsupportedEncodingException::class)
@@ -134,15 +131,15 @@ class NFCActivity : BaseFontActivity() {
             "NfcA" -> {
                 info.add("aka ISO 14443-3A")
                 val nfcATag = NfcA.get(tag)
-                info.add("atqa: " + NFCUtil.bytesToHexAndString(nfcATag.atqa))
+                info.add("atqa: " + LNFCUtil.bytesToHexAndString(nfcATag.atqa))
                 info.add("sak: " + nfcATag.sak)
                 info.add("maxTransceiveLength: " + nfcATag.maxTransceiveLength)
             }
             "NfcF" -> {
                 info.add("aka JIS 6319-4")
                 val nfcFTag = NfcF.get(tag)
-                info.add("manufacturer: " + NFCUtil.bytesToHex(nfcFTag.manufacturer))
-                info.add("systemCode: " + NFCUtil.bytesToHex(nfcFTag.systemCode))
+                info.add("manufacturer: " + LNFCUtil.bytesToHex(nfcFTag.manufacturer))
+                info.add("systemCode: " + LNFCUtil.bytesToHex(nfcFTag.systemCode))
                 info.add("maxTransceiveLength: " + nfcFTag.maxTransceiveLength)
             }
             "NfcV" -> {
@@ -160,10 +157,10 @@ class NFCActivity : BaseFontActivity() {
                     ndefMessage = ndefTag.ndefMessage
                     ndefTag.close()
                     for (record in ndefMessage.records) {
-                        val id = if (record.id.size == 0) "null" else NFCUtil.bytesToHex(record.id)
+                        val id = if (record.id.isEmpty()) "null" else LNFCUtil.bytesToHex(record.id)
                         info.add("record[" + id + "].tnf: " + record.tnf)
-                        info.add("record[" + id + "].type: " + NFCUtil.bytesToHexAndString(record.type))
-                        info.add("record[" + id + "].payload: " + NFCUtil.bytesToHexAndString(record.payload))
+                        info.add("record[" + id + "].type: " + LNFCUtil.bytesToHexAndString(record.type))
+                        info.add("record[" + id + "].payload: " + LNFCUtil.bytesToHexAndString(record.payload))
                     }
                     info.add("messageSize: " + ndefMessage.byteArrayLength)
                 } catch (e: Exception) {
@@ -194,8 +191,8 @@ class NFCActivity : BaseFontActivity() {
             "IsoDep" -> {
                 info.add("aka ISO 14443-4")
                 val isoDepTag = IsoDep.get(tag)
-                info.add("historicalBytes: " + NFCUtil.bytesToHexAndString(isoDepTag.historicalBytes))
-                info.add("hiLayerResponse: " + NFCUtil.bytesToHexAndString(isoDepTag.hiLayerResponse))
+                info.add("historicalBytes: " + LNFCUtil.bytesToHexAndString(isoDepTag.historicalBytes))
+                info.add("hiLayerResponse: " + LNFCUtil.bytesToHexAndString(isoDepTag.hiLayerResponse))
                 info.add("timeout: " + isoDepTag.timeout)
                 info.add("extendedLengthApduSupported: " + isoDepTag.isExtendedLengthApduSupported)
                 info.add("maxTransceiveLength: " + isoDepTag.maxTransceiveLength)

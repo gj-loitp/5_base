@@ -1,6 +1,6 @@
-package vn.loitp.app.activity.demo.nfc;
+package com.core.utilities.nfc;
 
-final class NFCUtil {
+public class LNFCUtil {
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
     public static String bytesToHex(byte[] bytes) {
