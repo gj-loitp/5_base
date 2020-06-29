@@ -96,6 +96,7 @@ class CurrencyEditText @JvmOverloads constructor(context: Context, attrs: Attrib
                 return
             }
             if (str == prefix) {
+                onTextChanged?.invoke(str, getTextNumber())
                 return
             }
             // number this the string which not contain prefix and ,
