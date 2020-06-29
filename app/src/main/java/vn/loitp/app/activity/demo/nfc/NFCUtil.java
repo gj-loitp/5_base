@@ -1,11 +1,6 @@
 package vn.loitp.app.activity.demo.nfc;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-
-final class Utils {
+final class NFCUtil {
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
     public static String bytesToHex(byte[] bytes) {
@@ -25,12 +20,4 @@ final class Utils {
 
         return bytesToHex(bytes) + " (" + new String(bytes) + ")";
     }
-
-    public static String now() {
-        TimeZone tz = TimeZone.getTimeZone("UTC");
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        df.setTimeZone(tz);
-        return df.format(new Date());
-    }
-
 }

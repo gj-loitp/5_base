@@ -1,12 +1,14 @@
 package com.core.utilities
 
 import com.core.common.Constants
+import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
 object LDateUtil {
     private val TAG = LDateUtil::class.java.simpleName
+
     val currentDate: String
         get() {
             val c = Calendar.getInstance()
@@ -27,6 +29,13 @@ object LDateUtil {
             val df = SimpleDateFormat("MM", Locale.getDefault())
             return df.format(c.time)
         }
+
+    fun now(): String? {
+        val tz = TimeZone.getTimeZone("UTC")
+        val df: DateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
+        df.timeZone = tz
+        return df.format(Date())
+    }
 
     fun convertFormatDate(strDate: String, fromFormat: String, toFormat: String): String? {
         val date = stringToDate(strDate, fromFormat)
@@ -210,8 +219,8 @@ object LDateUtil {
             calendar.timeInMillis = timestamp * 1000
             calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.timeInMillis))
             val sdf = SimpleDateFormat(format, Locale.getDefault())
-            val currenTimeZone = calendar.time as Date
-            sdf.format(currenTimeZone)
+            val currentTimeZone = calendar.time as Date
+            sdf.format(currentTimeZone)
         } catch (e: Exception) {
             ""
         }
