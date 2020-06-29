@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.nfc
 
+import android.annotation.SuppressLint
 import android.app.PendingIntent
 import android.content.Intent
 import android.nfc.NdefMessage
@@ -7,10 +8,13 @@ import android.nfc.NfcAdapter
 import android.nfc.Tag
 import android.nfc.tech.*
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LDialogUtil
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_demo_nfc.*
 import vn.loitp.app.R
@@ -37,18 +41,27 @@ class NFCActivity : BaseFontActivity() {
         return R.layout.activity_demo_nfc
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         currentTagView.text = "Loading..."
-
         adapter = NfcAdapter.getDefaultAdapter(this)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
+
         if (adapter?.isEnabled == false) {
-            Utils.showNfcSettingsDialog(this)
+            val dialog = LDialogUtil.showDialog1(context = activity, title = "NFC is disabled", msg = "You must enable NFC to use this app.", button1 = "OK",
+                    callback1 = object : LDialogUtil.Callback1 {
+                        override fun onClick1() {
+                            startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
+                            LActivityUtil.tranIn(activity)
+                        }
+                    })
+            dialog.setCancelable(false)
             return
         }
         if (pendingIntent == null) {
@@ -68,7 +81,7 @@ class NFCActivity : BaseFontActivity() {
         super.onNewIntent(intent)
         Log.d("loitpp onNewIntent", "Discovered tag with intent $intent")
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
-        val tagId: String = Utils.bytesToHex(tag.id)
+        val tagId: String = Utils.bytesToHex(tag?.id)
         val tagWrapper = TagWrapper(tagId)
         val misc = ArrayList<String>()
         misc.add("scanned at: " + Utils.now())
@@ -80,17 +93,20 @@ class NFCActivity : BaseFontActivity() {
             tagData = try {
                 readRecord(cardRecord.payload) ?: ""
             } catch (e: UnsupportedEncodingException) {
-                Log.e("TagScan", e.message)
+                e.printStackTrace()
                 return
             }
         }
         misc.add("tag data: $tagData")
         tagWrapper.techList.put("Misc", misc)
-        for (tech in tag.techList) {
-            val tech = tech.replace("android.nfc.tech.", "")
-            val info = getTagInfo(tag, tech)
-            tagWrapper.techList.put("Technology: $tech", info)
+        tag?.let {
+            for (tech in it.techList) {
+                val tech = tech.replace("android.nfc.tech.", "")
+                val info = getTagInfo(tag, tech)
+                tagWrapper.techList.put("Technology: $tech", info)
+            }
         }
+
         if (tags.size == 1) {
             Toast.makeText(this, "Swipe right to see previous tags", Toast.LENGTH_LONG).show()
         }

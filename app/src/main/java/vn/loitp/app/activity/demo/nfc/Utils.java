@@ -1,9 +1,5 @@
 package vn.loitp.app.activity.demo.nfc;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Intent;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,16 +33,4 @@ final class Utils {
         return df.format(new Date());
     }
 
-
-    public static void showNfcSettingsDialog(final Activity app) {
-        new AlertDialog.Builder(app)
-                .setTitle("NFC is disabled")
-                .setMessage("You must enable NFC to use this app.")
-                .setPositiveButton(android.R.string.yes, (dialog, which) ->
-                        app.startActivity(new Intent(android.provider.Settings.ACTION_NFC_SETTINGS)))
-                .setNegativeButton(android.R.string.no, (dialog, which) ->
-                        app.finish())
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-    }
 }
