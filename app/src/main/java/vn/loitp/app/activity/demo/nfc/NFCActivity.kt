@@ -81,6 +81,9 @@ class NFCActivity : BaseFontActivity() {
         super.onNewIntent(intent)
 
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
+
+        logD("buildMACAddressString " + LNFCUtil.buildMACAddressString(tag?.id))
+
         val tagId: String = LNFCUtil.bytesToHex(tag?.id)
         val tagWrapper = TagWrapper(tagId)
         val misc = ArrayList<String>()
