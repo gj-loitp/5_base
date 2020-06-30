@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="false">
+    android:animateLayoutChanges="false"
+    android:background="@color/whiteSmoke">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -15,10 +18,10 @@
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_25"
-        android:padding="@dimen/padding_5"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:padding="@dimen/padding_medium"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_20" />
+        android:textSize="@dimen/txt_medium" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/indicatorView"
@@ -26,17 +29,16 @@
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="@dimen/margin_15"
-        app:indicatorColor="@color/white"
+        app:indicatorColor="@color/colorPrimary"
         app:indicatorName="LineScalePulseOutRapidIndicator" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/lnAdView"
         android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/margin_15"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_medium"
         android:contentDescription="@string/app_name"
         android:src="@drawable/l_page"
         android:tint="@color/colorPrimary"
@@ -44,5 +46,6 @@
         app:backgroundTint="@color/white"
         app:borderWidth="@dimen/w_1"
         app:elevation="@dimen/w_1"
-        app:fabSize="normal" />
+        app:fabSize="normal"
+        tools:visibility="visible" />
 </RelativeLayout>

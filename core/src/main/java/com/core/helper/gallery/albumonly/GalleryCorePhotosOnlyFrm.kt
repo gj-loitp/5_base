@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
@@ -16,7 +15,6 @@ import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -28,17 +26,15 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.task.AsyncTaskDownloadImage
-import com.wang.avi.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.l_frm_gallery_core_photos_only.*
 
 class GalleryCorePhotosOnlyFrm : BaseFragment() {
     override fun setTag(): String? {
         return javaClass.simpleName
     }
 
-    private lateinit var tvTitle: TextView
-    private lateinit var avLoadingIndicatorView: AVLoadingIndicatorView
     private var currentPage = 0
     private var totalPage = 1
     private val PER_PAGE_SIZE = 100
@@ -46,7 +42,6 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var photosetID: String? = null
     private var photosSize: Int = 0
-    private lateinit var btPage: FloatingActionButton
     private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
@@ -60,12 +55,10 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val bundle = arguments ?: return
         PhotosDataCore.getInstance().clearData()
-        tvTitle = view.findViewById(R.id.tvTitle)
         LUIUtil.setTextShadow(tvTitle)
-        avLoadingIndicatorView = view.findViewById(R.id.indicatorView)
-        btPage = view.findViewById(R.id.btPage)
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknow)))
@@ -75,8 +68,6 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
         logD("photosSize $photosSize")
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-
         /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);*/
@@ -85,45 +76,31 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
 
         recyclerView.setHasFixedSize(true)
-        photosOnlyAdapter = PhotosOnlyAdapter(context!!, object : PhotosOnlyAdapter.Callback {
-            override fun onClick(photo: Photo, pos: Int) {
-                //LLog.d(TAG, "onClick " + photo.getWidthO() + "x" + photo.getHeightO());
-                /*Intent intent = new Intent(activity, GalleryCoreSlideActivity.class);
-                intent.putExtra(Constants.SK_PHOTO_ID, photo.getId());
-                startActivity(intent);
-                LActivityUtil.tranIn(activity);*/
-            }
-
-            override fun onLongClick(photo: Photo, pos: Int) {
-                //LSocialUtil.share(activity, photo.getUrlO());
-            }
-
-            override fun onClickDownload(photo: Photo, pos: Int) {
-                //LLog.d(TAG, "onClick " + PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
-                //TODO convert to rx
-                activity?.let {
-                    AsyncTaskDownloadImage(it, photo.urlO).execute()
+        activity?.let { a ->
+            photosOnlyAdapter = PhotosOnlyAdapter(context = a, callback = object : PhotosOnlyAdapter.Callback {
+                override fun onClick(photo: Photo, pos: Int) {
                 }
-            }
 
-            override fun onClickShare(photo: Photo, pos: Int) {
-                activity?.let {
-                    LSocialUtil.share(it, photo.urlO)
+                override fun onLongClick(photo: Photo, pos: Int) {
                 }
-            }
 
-            override fun onClickReport(photo: Photo, pos: Int) {
-                activity?.let {
-                    LSocialUtil.sendEmail(it)
+                override fun onClickDownload(photo: Photo, pos: Int) {
+                    AsyncTaskDownloadImage(a, photo.urlO).execute()
                 }
-            }
 
-            override fun onClickCmt(photo: Photo, pos: Int) {
-                activity?.let {
-                    LSocialUtil.openFacebookComment(it, photo.urlO)
+                override fun onClickShare(photo: Photo, pos: Int) {
+                    LSocialUtil.share(activity = a, msg = photo.urlO)
                 }
-            }
-        })
+
+                override fun onClickReport(photo: Photo, pos: Int) {
+                    LSocialUtil.sendEmail(context = a)
+                }
+
+                override fun onClickCmt(photo: Photo, pos: Int) {
+                    LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
+                }
+            })
+        }
         recyclerView.adapter = photosOnlyAdapter
         /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
         scaleAdapter.setDuration(1000);
@@ -131,22 +108,20 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);*/
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView)
+        //LUIUtil.setPullLikeIOSVertical(recyclerView)
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        //LLog.d(TAG, "last item");
-                        photosetsGetPhotos(photosetID!!)
+                        photosetsGetPhotos(photosetID)
                     }
                 }
             }
         })
 
         btPage.setOnClickListener {
-            //LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
             showListPage()
         }
     }
@@ -158,21 +133,22 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
             arr[i] = "Page " + (totalPage - i)
         }
         activity?.let {
-            LDialogUtil.showDialogList(it, "Select page", arr, object : LDialogUtil.CallbackList {
-                override fun onClick(position: Int) {
-                    currentPage = totalPage - position
-                    logD("showDialogList onClick position $position, -> currentPage: $currentPage")
-                    PhotosDataCore.getInstance().clearData()
-                    updateAllViews()
-                    photosetsGetPhotos(photosetID!!)
-                }
-            })
+            LDialogUtil.showDialogList(context = it, title = "Select page", arr = arr,
+                    callbackList = object : LDialogUtil.CallbackList {
+                        override fun onClick(position: Int) {
+                            currentPage = totalPage - position
+                            logD("showDialogList onClick position $position, -> currentPage: $currentPage")
+                            PhotosDataCore.getInstance().clearData()
+                            updateAllViews()
+                            photosetsGetPhotos(photosetID)
+                        }
+                    })
         }
     }
 
     private fun goToHome() {
         if (photosSize == Constants.NOT_FOUND) {
-            photosetsGetList()
+            getPhotosets()
         } else {
             init()
         }
@@ -188,14 +164,12 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         }
 
         currentPage = totalPage
-        //LLog.d(TAG, "total page " + totalPage);
-        //LLog.d(TAG, "currentPage " + currentPage);
 
-        photosetsGetPhotos(photosetID!!)
+        photosetsGetPhotos(photosetID)
     }
 
-    private fun photosetsGetList() {
-        avLoadingIndicatorView.smoothToShow()
+    private fun getPhotosets() {
+        indicatorView.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -205,13 +179,12 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         //String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
         val primaryPhotoExtras = ""
         val format = FlickrConst.FORMAT
-        val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
+        val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
-                    //logD("photosetsGetList onSuccess " + Gson().toJson(wrapperPhotosetGetlist))
 
                     wrapperPhotosetGetlist.photosets?.photoset?.let { list ->
                         for (photoset in list) {
@@ -223,20 +196,24 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                         }
                     }
                 }, { e ->
-                    logE("photosetsGetList onFail $e")
+                    e.printStackTrace()
                     handleException(e)
-                    avLoadingIndicatorView.smoothToHide()
+                    indicatorView.smoothToHide()
                 }))
     }
 
-    private fun photosetsGetPhotos(photosetID: String) {
+    private fun photosetsGetPhotos(photosetID: String?) {
+        if (photosetID.isNullOrEmpty()) {
+            logD("photosetID isNullOrEmpty -> return")
+            return
+        }
         if (isLoading) {
             logD("photosetsGetList isLoading true -> return")
             return
         }
         logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        avLoadingIndicatorView.smoothToShow()
+        indicatorView.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -244,19 +221,18 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         if (currentPage <= 0) {
             logD("currentPage <= 0 -> return")
             currentPage = 0
-            avLoadingIndicatorView.smoothToHide()
+            indicatorView.smoothToHide()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
         val format = FlickrConst.FORMAT
-        val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
+        val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
                     logD("photosetsGetPhotos onSuccess " + Gson().toJson(wrapperPhotosetGetPhotos))
-                    //LLog.d(TAG, "photosetsGetPhotos " + currentPage + "/" + totalPage);
 
                     val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
@@ -264,14 +240,13 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                     PhotosDataCore.getInstance().addPhoto(photoList)
                     updateAllViews()
 
-                    avLoadingIndicatorView.smoothToHide()
+                    indicatorView.smoothToHide()
                     btPage.visibility = View.VISIBLE
                     isLoading = false
                     currentPage--
                 }, { e ->
-                    logE("photosetsGetPhotos onFail $e")
                     handleException(e)
-                    avLoadingIndicatorView.smoothToHide()
+                    indicatorView.smoothToHide()
                     isLoading = true
                 }))
     }
@@ -324,9 +299,9 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     private fun showShouldAcceptPermission() {
         activity?.let {
-            val alertDialog = LDialogUtil.showDialog2(it, "Need Permissions",
-                    "This app needs permission to use this feature.", "Okay", "Cancel",
-                    object : LDialogUtil.Callback2 {
+            val alertDialog = LDialogUtil.showDialog2(context = it, title = "Need Permissions",
+                    msg = "This app needs permission to use this feature.", button1 = "Okay", button2 = "Cancel",
+                    callback2 = object : LDialogUtil.Callback2 {
                         override fun onClick1() {
                             checkPermission()
                         }
@@ -341,9 +316,9 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     private fun showSettingsDialog() {
         context?.let {
-            val alertDialog = LDialogUtil.showDialog2(it, "Need Permissions",
-                    "This app needs permission to use this feature. You can grant them in app settings.",
-                    "GOTO SETTINGS", "Cancel", object : LDialogUtil.Callback2 {
+            val alertDialog = LDialogUtil.showDialog2(context = it, title = "Need Permissions",
+                    msg = "This app needs permission to use this feature. You can grant them in app settings.",
+                    button1 = "GOTO SETTINGS", button2 = "Cancel", callback2 = object : LDialogUtil.Callback2 {
                 override fun onClick1() {
                     isShowDialogCheck = false
                     val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
