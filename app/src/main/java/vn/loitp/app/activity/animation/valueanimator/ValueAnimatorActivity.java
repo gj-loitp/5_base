@@ -50,8 +50,8 @@ public class ValueAnimatorActivity extends BaseFontActivity {
         valueAnimator = ValueAnimator.ofInt(min, max);
         valueAnimator.setDuration(duration);
         valueAnimator.setInterpolator(new DecelerateInterpolator());
-        float spaceW = (LScreenUtil.INSTANCE.getScreenWidth() - view.getWidth()) / range;
-        float spaceH = (LScreenUtil.INSTANCE.getScreenHeight() - LScreenUtil.INSTANCE.getStatusBarHeight(getActivity()) - LScreenUtil.INSTANCE.getBottomBarHeight(getActivity()) - view.getHeight()) / range;
+        float spaceW = (LScreenUtil.Companion.getScreenWidth() - view.getWidth()) / range;
+        float spaceH = (LScreenUtil.Companion.getScreenHeight() - LScreenUtil.Companion.getStatusBarHeight(getActivity()) - LScreenUtil.Companion.getBottomBarHeight(getActivity()) - view.getHeight()) / range;
         LLog.d(getTAG(), "view " + view.getWidth() + "x" + view.getHeight() + " -> " + spaceW + " - " + spaceH);
         valueAnimator.addUpdateListener(animation -> {
             int value = (int) animation.getAnimatedValue();

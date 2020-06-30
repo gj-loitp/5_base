@@ -78,19 +78,19 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             } else {
                 byte[] coverImageAsBytes = bookInfo.getCoverImage();
                 if (coverImageAsBytes != null) {
-                    Bitmap bitmap = LReaderUtil.INSTANCE.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
+                    Bitmap bitmap = LReaderUtil.Companion.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
                     bookInfo.setCoverImageBitmap(bitmap);
                     bookInfo.setCoverImage(null);
                     ivCover.setImageBitmap(bitmap);
                 } else {
                     // Searched and not found.
                     bookInfo.setCoverImageNotExists(true);
-                    ivCover.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
+                    ivCover.setImageResource(LReaderUtil.Companion.getDefaultCover());
                 }
             }
         } else {
             // Searched before and not found.
-            ivCover.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
+            ivCover.setImageResource(LReaderUtil.Companion.getDefaultCover());
         }
     }
 

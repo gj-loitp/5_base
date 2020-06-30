@@ -80,8 +80,8 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         collapsedView = mFloatingView.findViewById(R.id.collapse_view);
         expandedView = mFloatingView.findViewById(R.id.expanded_container);
 
-        expandedView.getLayoutParams().width = LScreenUtil.INSTANCE.getScreenWidth() / 2;
-        expandedView.getLayoutParams().height = LScreenUtil.INSTANCE.getScreenHeight() * 2 / 3;
+        expandedView.getLayoutParams().width = LScreenUtil.Companion.getScreenWidth() / 2;
+        expandedView.getLayoutParams().height = LScreenUtil.Companion.getScreenHeight() * 2 / 3;
         expandedView.requestLayout();
 
         llRootTv = mFloatingView.findViewById(R.id.ll_root_tv);

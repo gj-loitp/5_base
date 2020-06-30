@@ -81,8 +81,8 @@ public class VDHView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        screenW = LScreenUtil.INSTANCE.getScreenWidth();
-        screenH = LScreenUtil.INSTANCE.getScreenHeight();
+        screenW = LScreenUtil.Companion.getScreenWidth();
+        screenH = LScreenUtil.Companion.getScreenHeight();
         headerView = findViewById(R.id.header_view);
         bodyView = findViewById(R.id.body_view);
         headerView.post(new Runnable() {
