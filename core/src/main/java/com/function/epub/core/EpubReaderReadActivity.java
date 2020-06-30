@@ -45,6 +45,7 @@ import com.function.epub.model.BookInfo;
 import com.function.epub.model.BookInfoData;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.interfaces.CallbackAnimation;
 import com.utils.util.ConvertUtils;
 import com.views.LToast;
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
@@ -197,7 +198,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         llGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.Companion.play(llGuide, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
+                LAnimationUtil.Companion.play(llGuide, Techniques.SlideOutLeft, new CallbackAnimation() {
                     @Override
                     public void onCancel() {
                     }

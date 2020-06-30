@@ -15,6 +15,7 @@ import com.core.utilities.LAnimationUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
+import com.interfaces.CallbackAnimation
 import com.task.AsyncTaskDownloadImage
 import com.views.layout.floatdraglayout.DisplayUtil
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
@@ -102,7 +103,7 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
     }
 
     private fun hideRlControl() {
-        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideOutDown, callback = object : LAnimationUtil.Callback {
+        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideOutDown, callbackAnimation = object : CallbackAnimation {
             override fun onCancel() {}
             override fun onEnd() {
                 rlControl.visibility = View.INVISIBLE

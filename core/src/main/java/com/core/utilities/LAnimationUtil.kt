@@ -9,24 +9,16 @@ import android.view.animation.RotateAnimation
 import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.interfaces.CallbackAnimation
 
 /**
  * Created by www.muathu@gmail.com on 6/9/2017.
  */
 
 class LAnimationUtil {
-    interface Callback {
-        fun onCancel()
-
-        fun onEnd()
-
-        fun onRepeat()
-
-        fun onStart()
-    }
 
     companion object {
-        fun play(view: View?, duration: Int, repeatCount: Int, techniques: Techniques, delayInMls: Int, callback: Callback?) {
+        fun play(view: View?, duration: Int, repeatCount: Int, techniques: Techniques, delayInMls: Int, callbackAnimation: CallbackAnimation?) {
             if (view == null) {
                 return
             }
@@ -36,16 +28,16 @@ class LAnimationUtil {
                     .duration(duration.toLong())
                     .repeat(repeatCount)
                     .onCancel {
-                        callback?.onCancel()
+                        callbackAnimation?.onCancel()
                     }
                     .onEnd {
-                        callback?.onEnd()
+                        callbackAnimation?.onEnd()
                     }
                     .onRepeat {
-                        callback?.onRepeat()
+                        callbackAnimation?.onRepeat()
                     }
                     .onStart {
-                        callback?.onStart()
+                        callbackAnimation?.onStart()
                     }
                     .delay(delayInMls.toLong())
                     .playOn(view)
@@ -63,16 +55,16 @@ class LAnimationUtil {
             play(view, 500, 1, techniques, delayInMls, null)
         }
 
-        fun play(view: View?, techniques: Techniques, callback: Callback) {
-            play(view, 500, 1, techniques, 0, callback)
+        fun play(view: View?, techniques: Techniques, callbackAnimation: CallbackAnimation) {
+            play(view, 500, 1, techniques, 0, callbackAnimation)
         }
 
         fun playDuration(view: View?, techniques: Techniques, duration: Int) {
             play(view, duration, 1, techniques, 0, null)
         }
 
-        fun playDuration(view: View?, techniques: Techniques, duration: Int, callback: Callback) {
-            play(view, duration, 1, techniques, 0, callback)
+        fun playDuration(view: View?, techniques: Techniques, duration: Int, callbackAnimation: CallbackAnimation) {
+            play(view, duration, 1, techniques, 0, callbackAnimation)
         }
 
         fun playRotate(view: View?, animationListener: Animation.AnimationListener) {

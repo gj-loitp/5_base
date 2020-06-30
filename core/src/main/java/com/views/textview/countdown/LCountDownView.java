@@ -9,6 +9,7 @@ import com.R;
 import com.core.utilities.LAnimationUtil;
 import com.core.utilities.LLog;
 import com.daimajia.androidanimations.library.Techniques;
+import com.interfaces.CallbackAnimation;
 
 public class LCountDownView extends RelativeLayout {
     private final String TAG = getClass().getSimpleName();
@@ -57,7 +58,7 @@ public class LCountDownView extends RelativeLayout {
     private void doPerSec() {
         if (tvCountDown != null) {
             tvCountDown.setText(String.valueOf(number));
-            LAnimationUtil.Companion.playDuration(tvCountDown, Techniques.FlipInX, 1000, new LAnimationUtil.Callback() {
+            LAnimationUtil.Companion.playDuration(tvCountDown, Techniques.FlipInX, 1000, new CallbackAnimation() {
                 @Override
                 public void onCancel() {
                     //do nothing
@@ -69,7 +70,7 @@ public class LCountDownView extends RelativeLayout {
                     //LLog.d(TAG, "number " + number);
                     if (number == 0) {
                         tvCountDown.setText("GO");
-                        LAnimationUtil.Companion.play(tvCountDown, Techniques.Flash, new LAnimationUtil.Callback() {
+                        LAnimationUtil.Companion.play(tvCountDown, Techniques.Flash, new CallbackAnimation() {
                             @Override
                             public void onCancel() {
                                 //do nothing
