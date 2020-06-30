@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
-import com.core.utilities.statusbar.LThreadUtil;
+import com.core.utilities.LThreadUtil;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.core.utilities.statusbar
+package com.core.utilities
 
 import android.os.Looper
 
