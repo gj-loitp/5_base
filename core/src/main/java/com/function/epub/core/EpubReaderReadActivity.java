@@ -102,7 +102,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         tvTitle = findViewById(R.id.tvTitle);
         ivCover = findViewById(R.id.iv_cover);
         llGuide = findViewById(R.id.ll_guide);
-        LUIUtil.INSTANCE.setTextShadow(tvTitle);
+        LUIUtil.Companion.setTextShadow(tvTitle);
         bookInfo = BookInfoData.getInstance().getBookInfo();
         if (bookInfo == null) {
             LToast.show(getActivity(), getString(R.string.err_unknow));
@@ -116,7 +116,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         tvTitle.setText(titleBook);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = findViewById(R.id.container);
-        LUIUtil.INSTANCE.setPullLikeIOSHorizontal(mViewPager);
+        LUIUtil.Companion.setPullLikeIOSHorizontal(mViewPager);
         tvPage = findViewById(R.id.tv_page);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
@@ -144,7 +144,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             adView = new AdView(getActivity());
             adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(adUnitId);
-            LUIUtil.INSTANCE.createAdBanner(adView);
+            LUIUtil.Companion.createAdBanner(adView);
             lnAdview.addView(adView);
             lnAdview.requestLayout();
             //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
@@ -288,7 +288,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         protected void onPostExecute(Void aVoid) {
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
-            LUIUtil.INSTANCE.setDelay(1000, () -> {
+            LUIUtil.Companion.setDelay(1000, () -> {
                 rlSplash.setVisibility(View.GONE);
                 rlSplash = null;
             });
@@ -501,7 +501,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         boolean addBodyEnd = !html.toLowerCase().contains("</body");
         return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
                 "src: url(\"file:///android_asset/" +
-                LUIUtil.INSTANCE.getFontForAll() +
+                LUIUtil.Companion.getFontForAll() +
                 "\")}" +
                 "body {font-family: CustomFont;font-size: medium;text-align: justify;}</style>" +
                 (addBodyStart ? "<body>" : "") + html + (addBodyEnd ? "</body>" : "");

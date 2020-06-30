@@ -69,14 +69,14 @@ public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
             @Override
             public void onRemoveComicSuccess(Comic mComic, List<Comic> comicList) {
                 LToast.showShort(activity, "onRemoveComicSuccess");
-                LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
+                LUIUtil.Companion.printBeautyJson(comicList, tv);
                 avLoadingIndicatorView.smoothToHide();
             }
 
             @Override
             public void onComicIsNotExist(Comic mComic, List<Comic> comicList) {
                 LToast.showShort(activity, "onComicIsNotExist");
-                LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
+                LUIUtil.Companion.printBeautyJson(comicList, tv);
                 avLoadingIndicatorView.smoothToHide();
             }
 

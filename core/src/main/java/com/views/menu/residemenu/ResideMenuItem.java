@@ -88,11 +88,11 @@ public class ResideMenuItem extends LinearLayout {
     }
 
     public void setTextSize(int typedValue, int size) {
-        LUIUtil.INSTANCE.setTextSize(tvTitle, typedValue, size);
+        LUIUtil.Companion.setTextSize(tvTitle, typedValue, size);
     }
 
     public void setTextShadow(int color) {
-        LUIUtil.INSTANCE.setTextShadow(tvTitle, color);
+        LUIUtil.Companion.setTextShadow(tvTitle, color);
     }
 
     public void setIvIconSizePx(int sizeInPx) {

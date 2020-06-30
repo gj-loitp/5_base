@@ -20,7 +20,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this::doTask);
-        LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
+        LUIUtil.Companion.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         TextView tv = findViewById(R.id.textView);
         String poem = LStoreUtil.Companion.readTxtFromRawFolder(getActivity(), R.raw.loitp);
@@ -28,7 +28,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     }
 
     private void doTask() {
-        LUIUtil.INSTANCE.setDelay(5000, () -> {
+        LUIUtil.Companion.setDelay(5000, () -> {
             swipeRefreshLayout.setRefreshing(false);
             LToast.show(activity, "Finish", R.drawable.l_bkg_horizontal);
         });

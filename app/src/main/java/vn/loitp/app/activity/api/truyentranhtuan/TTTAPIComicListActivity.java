@@ -71,7 +71,7 @@ public class TTTAPIComicListActivity extends BaseFontActivity {
             new GetComicTask(getActivity(), comicTypeList.get(position).getUrl(), avLoadingIndicatorView, new GetComicTask.Callback() {
                 @Override
                 public void onSuccess(List<Comic> comicList) {
-                    LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
+                    LUIUtil.Companion.printBeautyJson(comicList, tv);
                     tvTitle.setText("Danh sách truyện: " + comicList.size());
                 }
 

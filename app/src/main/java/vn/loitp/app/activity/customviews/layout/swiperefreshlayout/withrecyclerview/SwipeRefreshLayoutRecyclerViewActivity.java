@@ -30,7 +30,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setOnRefreshListener(this::refresh);
-        LUIUtil.INSTANCE.setColorForSwipeRefreshLayout(swipeRefreshLayout);
+        LUIUtil.Companion.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         recyclerView = findViewById(R.id.rv);
 
@@ -63,7 +63,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private void refresh() {
         movieList.clear();
         mAdapter.notifyDataSetChanged();
-        LUIUtil.INSTANCE.setDelay(3000, () -> {
+        LUIUtil.Companion.setDelay(3000, () -> {
             prepareMovieData();
             swipeRefreshLayout.setRefreshing(false);
             showShort("Finish refresh");
@@ -73,7 +73,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private void loadMore() {
         LLog.d(getTAG(), "loadMore");
         swipeRefreshLayout.setRefreshing(true);
-        LUIUtil.INSTANCE.setDelay(2000, () -> {
+        LUIUtil.Companion.setDelay(2000, () -> {
             swipeRefreshLayout.setRefreshing(false);
             int newSize = 5;
             for (int i = 0; i < newSize; i++) {

@@ -41,7 +41,7 @@ public class TextViewWithSize extends TextView {
     }
 
     private void init() {
-        LUIUtil.INSTANCE.setTextShadow(this);
+        LUIUtil.Companion.setTextShadow(this);
     }
 
     @Override

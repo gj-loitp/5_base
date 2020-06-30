@@ -156,6 +156,6 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);
 
-        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.Companion.setPullLikeIOSVertical(recyclerView);
     }
 }

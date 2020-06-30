@@ -41,7 +41,7 @@ public class TestAPIRetrofit2Activity extends BaseFontActivity {
         RecyclerView.ItemDecoration itemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         mRecyclerView.addItemDecoration(itemDecoration);
 
-        LUIUtil.INSTANCE.setPullLikeIOSVertical(mRecyclerView);
+        LUIUtil.Companion.setPullLikeIOSVertical(mRecyclerView);
 
         loadAnswers();
     }

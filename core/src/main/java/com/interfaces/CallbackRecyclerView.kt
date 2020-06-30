@@ -1,6 +1,6 @@
 package com.interfaces
 
-interface RecyclerViewCallback {
+interface CallbackRecyclerView {
     fun onTop()
     fun onBottom()
 }

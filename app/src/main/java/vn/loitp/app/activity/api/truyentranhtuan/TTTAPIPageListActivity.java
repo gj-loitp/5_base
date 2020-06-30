@@ -28,7 +28,7 @@ public class TTTAPIPageListActivity extends BaseFontActivity {
         new GetReadImgTask(currentLink, avLoadingIndicatorView, new GetReadImgTask.Callback() {
             @Override
             public void onSuccess(List<String> imagesListOfOneChap) {
-                LUIUtil.INSTANCE.printBeautyJson(imagesListOfOneChap, tv);
+                LUIUtil.Companion.printBeautyJson(imagesListOfOneChap, tv);
                 tvTitle.setText("Danh sách page trong chap 69 - size: " + imagesListOfOneChap.size());
             }
 

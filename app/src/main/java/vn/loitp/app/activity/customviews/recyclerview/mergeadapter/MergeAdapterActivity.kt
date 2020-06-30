@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
-import com.interfaces.RecyclerViewCallback
+import com.interfaces.CallbackRecyclerView
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recycler_view_merge_adapter.*
 import vn.loitp.app.R
@@ -84,7 +84,7 @@ class MergeAdapterActivity : BaseFontActivity() {
 
         recyclerView.adapter = mergeAdapter
 
-        LUIUtil.setScrollChange(recyclerView, object : RecyclerViewCallback {
+        LUIUtil.setScrollChange(recyclerView, object : CallbackRecyclerView {
             override fun onTop() {
                 logD("onTop")
             }

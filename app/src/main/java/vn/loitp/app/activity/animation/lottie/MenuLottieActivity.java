@@ -37,7 +37,7 @@ public class MenuLottieActivity extends BaseFontActivity {
         viewPager.setAdapter(slidePagerAdapter);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
-        LUIUtil.INSTANCE.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
+        LUIUtil.Companion.changeTabsFont(tabLayout, com.core.common.Constants.INSTANCE.getFONT_PATH());
         sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {

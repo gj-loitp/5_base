@@ -9,7 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.R
 import com.core.utilities.LAnimationUtil
-import com.core.utilities.LUIUtil.setTextSize
+import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 
 class LTextNavigationView : RelativeLayout, View.OnClickListener {
@@ -147,8 +147,8 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     }
 
     fun setTextSize(dpPrev: Int, dpText: Int, dpNext: Int) {
-        setTextSize(textView = tvPrev, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpPrev)
-        setTextSize(textView = tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpText)
-        setTextSize(textView = tvNext, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpNext)
+        LUIUtil.setTextSize(textView = tvPrev, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpPrev)
+        LUIUtil.setTextSize(textView = tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpText)
+        LUIUtil.setTextSize(textView = tvNext, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpNext)
     }
 }

@@ -68,14 +68,14 @@ public class TTTAPIAddFavListActivity extends BaseFontActivity {
         new AddComicFavListTask(getActivity(), comic, new AddComicFavListTask.Callback() {
             @Override
             public void onAddComicSuccess(Comic mComic, List<Comic> comicList) {
-                LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
+                LUIUtil.Companion.printBeautyJson(comicList, tv);
                 LToast.showShort(activity, "onAddComicSuccess", R.drawable.l_bkg_horizontal);
                 avLoadingIndicatorView.smoothToHide();
             }
 
             @Override
             public void onComicIsExist(Comic mComic, List<Comic> comicList) {
-                LUIUtil.INSTANCE.printBeautyJson(comicList, tv);
+                LUIUtil.Companion.printBeautyJson(comicList, tv);
                 LToast.showShort(activity, "onComicIsExist");
                 avLoadingIndicatorView.smoothToHide();
             }

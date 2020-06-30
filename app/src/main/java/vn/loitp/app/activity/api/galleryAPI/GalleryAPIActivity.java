@@ -76,7 +76,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
                 .subscribe(wrapperPhotosetGetlist -> {
                     LLog.d(getTAG(), "onSuccess " + LApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
                     mWrapperPhotosetGetlist = wrapperPhotosetGetlist;
-                    LUIUtil.INSTANCE.printBeautyJson(wrapperPhotosetGetlist, tv);
+                    LUIUtil.Companion.printBeautyJson(wrapperPhotosetGetlist, tv);
                     avLoadingIndicatorView.smoothToHide();
                     bt2.setVisibility(View.VISIBLE);
                 }, e -> {
@@ -122,7 +122,7 @@ public class GalleryAPIActivity extends BaseFontActivity {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(wrapperPhotosetGetlist -> {
                     LLog.d(getTAG(), "onSuccess " + LApplication.Companion.getGson().toJson(wrapperPhotosetGetlist));
-                    LUIUtil.INSTANCE.printBeautyJson(wrapperPhotosetGetlist, tv);
+                    LUIUtil.Companion.printBeautyJson(wrapperPhotosetGetlist, tv);
                     avLoadingIndicatorView.smoothToHide();
                     bt2.setVisibility(View.VISIBLE);
                 }, e -> {
