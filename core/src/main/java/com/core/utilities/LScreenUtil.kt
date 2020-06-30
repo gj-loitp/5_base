@@ -14,6 +14,7 @@ import android.provider.Settings
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.core.base.BaseActivity
+import com.interfaces.Callback1
 import com.utils.util.FragmentUtils
 
 /**
@@ -294,17 +295,20 @@ object LScreenUtil {
         LLog.d(TAG, "isCanWriteSystem $isCanWriteSystem")
 
         if (!isCanWriteSystem) {
-            LDialogUtil.showDialog1(context, "Thông báo", "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình",
-                    "Cấp phép", object : LDialogUtil.Callback1 {
-                @TargetApi(Build.VERSION_CODES.M)
-                override fun onClick1() {
-                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                    intent.data = Uri.parse("package:" + context.packageName)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    context.startActivity(intent)
-                    LActivityUtil.tranIn(context)
-                }
-            })
+            LDialogUtil.showDialog1(context = context,
+                    title = "Thông báo",
+                    msg = "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình",
+                    button1 = "Cấp phép",
+                    callback1 = object : Callback1 {
+                        @TargetApi(Build.VERSION_CODES.M)
+                        override fun onClick1() {
+                            val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+                            intent.data = Uri.parse("package:" + context.packageName)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            context.startActivity(intent)
+                            LActivityUtil.tranIn(context)
+                        }
+                    })
             return
         }
 

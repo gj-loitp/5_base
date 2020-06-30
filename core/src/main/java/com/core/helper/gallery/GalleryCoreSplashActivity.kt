@@ -17,6 +17,7 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
+import com.interfaces.Callback2
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -162,7 +163,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
                 msg = "This app needs permission to use this feature.",
                 button1 = "Okay",
                 button2 = "Cancel",
-                callback2 = object : LDialogUtil.Callback2 {
+                callback2 = object : Callback2 {
                     override fun onClick1() {
                         checkPermission()
                     }
@@ -180,7 +181,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",
                 button2 = "Cancel",
-                callback2 = object : LDialogUtil.Callback2 {
+                callback2 = object : Callback2 {
                     override fun onClick1() {
                         isShowDialogCheck = false
                         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)

@@ -16,6 +16,8 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import com.google.gson.Gson
+import com.interfaces.Callback2
+import com.interfaces.CallbackList
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -133,8 +135,10 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
             arr[i] = "Page " + (totalPage - i)
         }
         activity?.let {
-            LDialogUtil.showDialogList(context = it, title = "Select page", arr = arr,
-                    callbackList = object : LDialogUtil.CallbackList {
+            LDialogUtil.showDialogList(context = it,
+                    title = "Select page",
+                    arr = arr,
+                    callbackList = object : CallbackList {
                         override fun onClick(position: Int) {
                             currentPage = totalPage - position
                             logD("showDialogList onClick position $position, -> currentPage: $currentPage")
@@ -300,9 +304,12 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     private fun showShouldAcceptPermission() {
         activity?.let {
-            val alertDialog = LDialogUtil.showDialog2(context = it, title = "Need Permissions",
-                    msg = "This app needs permission to use this feature.", button1 = "Okay", button2 = "Cancel",
-                    callback2 = object : LDialogUtil.Callback2 {
+            val alertDialog = LDialogUtil.showDialog2(context = it,
+                    title = "Need Permissions",
+                    msg = "This app needs permission to use this feature.",
+                    button1 = "Okay",
+                    button2 = "Cancel",
+                    callback2 = object : Callback2 {
                         override fun onClick1() {
                             checkPermission()
                         }
@@ -317,21 +324,24 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     private fun showSettingsDialog() {
         context?.let {
-            val alertDialog = LDialogUtil.showDialog2(context = it, title = "Need Permissions",
+            val alertDialog = LDialogUtil.showDialog2(context = it,
+                    title = "Need Permissions",
                     msg = "This app needs permission to use this feature. You can grant them in app settings.",
-                    button1 = "GOTO SETTINGS", button2 = "Cancel", callback2 = object : LDialogUtil.Callback2 {
-                override fun onClick1() {
-                    isShowDialogCheck = false
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", it.packageName, null)
-                    intent.data = uri
-                    startActivityForResult(intent, 101)
-                }
+                    button1 = "GOTO SETTINGS",
+                    button2 = "Cancel",
+                    callback2 = object : Callback2 {
+                        override fun onClick1() {
+                            isShowDialogCheck = false
+                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                            val uri = Uri.fromParts("package", it.packageName, null)
+                            intent.data = uri
+                            startActivityForResult(intent, 101)
+                        }
 
-                override fun onClick2() {
-                    activity?.onBackPressed()
-                }
-            })
+                        override fun onClick2() {
+                            activity?.onBackPressed()
+                        }
+                    })
             alertDialog.setCancelable(false)
         }
     }

@@ -12,6 +12,10 @@ import android.widget.Button
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
+import com.interfaces.Callback1
+import com.interfaces.Callback2
+import com.interfaces.Callback3
+import com.interfaces.CallbackList
 import com.views.LToast
 import com.views.dialog.swipeawaydialog.support.SwipeAwayDialogFragment
 import vn.loitp.app.R
@@ -42,7 +46,7 @@ class SADialog : SwipeAwayDialogFragment() {
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1",
-                callback1 = object : LDialogUtil.Callback1 {
+                callback1 = object : Callback1 {
                     override fun onClick1() {
                         LToast.show(context!!, R.drawable.l_bkg_horizontal)
                     }
@@ -50,7 +54,7 @@ class SADialog : SwipeAwayDialogFragment() {
     }
 
     private fun show2(): AlertDialog {
-        return LDialogUtil.showDialog2(context!!, "Title", "Msg", "Button 1", "Button 2", object : LDialogUtil.Callback2 {
+        return LDialogUtil.showDialog2(context!!, "Title", "Msg", "Button 1", "Button 2", object : Callback2 {
             override fun onClick1() {
                 LToast.showShort(context!!, "Click 1", R.drawable.l_bkg_horizontal)
             }
@@ -62,7 +66,7 @@ class SADialog : SwipeAwayDialogFragment() {
     }
 
     private fun show3(): AlertDialog {
-        return LDialogUtil.showDialog3(context!!, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : LDialogUtil.Callback3 {
+        return LDialogUtil.showDialog3(context!!, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : Callback3 {
             override fun onClick1() {
                 LToast.showShort(context!!, "Click 1", R.drawable.l_bkg_horizontal)
             }
@@ -83,7 +87,7 @@ class SADialog : SwipeAwayDialogFragment() {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        return LDialogUtil.showDialogList(context!!, "Title", arr, object : LDialogUtil.CallbackList {
+        return LDialogUtil.showDialogList(context!!, "Title", arr, object : CallbackList {
             override fun onClick(position: Int) {
                 LToast.show(context!!, "Click position " + position + ", item: " + arr[position], R.drawable.l_bkg_horizontal)
             }

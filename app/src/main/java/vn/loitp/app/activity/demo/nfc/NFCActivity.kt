@@ -16,6 +16,7 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.nfc.LNFCUtil
 import com.core.utilities.nfc.TagWrapper
+import com.interfaces.Callback1
 import kotlinx.android.synthetic.main.activity_demo_nfc.*
 import vn.loitp.app.R
 import java.io.UnsupportedEncodingException
@@ -54,8 +55,11 @@ class NFCActivity : BaseFontActivity() {
         super.onResume()
 
         if (adapter?.isEnabled == false) {
-            val dialog = LDialogUtil.showDialog1(context = activity, title = "NFC is disabled", msg = "You must enable NFC to use this app.", button1 = "OK",
-                    callback1 = object : LDialogUtil.Callback1 {
+            val dialog = LDialogUtil.showDialog1(context = activity,
+                    title = "NFC is disabled",
+                    msg = "You must enable NFC to use this app.",
+                    button1 = "OK",
+                    callback1 = object : Callback1 {
                         override fun onClick1() {
                             startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
                             LActivityUtil.tranIn(activity)

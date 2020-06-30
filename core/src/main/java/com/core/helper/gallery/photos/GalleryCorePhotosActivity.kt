@@ -15,6 +15,7 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
+import com.interfaces.CallbackList
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos
@@ -121,8 +122,10 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(context = activity, title = "Select page", arr = arr,
-                callbackList = object : LDialogUtil.CallbackList {
+        LDialogUtil.showDialogList(context = activity,
+                title = "Select page",
+                arr = arr,
+                callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
                         currentPage = totalPage - position
                         PhotosDataCore.instance.clearData()

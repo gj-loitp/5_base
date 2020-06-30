@@ -10,6 +10,7 @@ import com.core.utilities.LUIUtil
 import com.function.epub.model.BookInfo
 import com.function.epub.task.GetListBookAllAssetTask
 import com.function.epub.task.GetListBookFromDeviceAndAssetTask
+import com.interfaces.Callback2
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 
@@ -34,10 +35,12 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     }
 
     private fun ask() {
-        LDialogUtil.showDialog2(context = activity, title = "Chọn", msg = "Có 2 option",
+        LDialogUtil.showDialog2(context = activity,
+                title = "Chọn",
+                msg = "Có 2 option",
                 button1 = "Load tất cả epub có trong device và 1 file ở asset",
                 button2 = "Load tất cả epub trong asset",
-                callback2 = object : LDialogUtil.Callback2 {
+                callback2 = object : Callback2 {
                     override fun onClick1() {
                         //lấy list epub ở trên all device và 1 file ở asset folder rồi show lên UI
                         getListBookFromDeviceAndAssetTask = GetListBookFromDeviceAndAssetTask(activity, object : GetListBookFromDeviceAndAssetTask.Callback {

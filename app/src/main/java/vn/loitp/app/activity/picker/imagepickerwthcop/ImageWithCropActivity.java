@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LDialogUtil;
 import com.core.utilities.LLog;
+import com.interfaces.Callback2;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
@@ -122,7 +123,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
     }
 
     private void showShouldAcceptPermission() {
-        final AlertDialog alertDialog = LDialogUtil.INSTANCE.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.Companion.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -137,7 +138,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
     }
 
     private void showSettingsDialog() {
-        final AlertDialog alertDialog = LDialogUtil.INSTANCE.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new LDialogUtil.Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.Companion.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;

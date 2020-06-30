@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.provider.Settings
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
+import com.interfaces.Callback1
+import com.interfaces.Callback2
 import com.interfaces.GGSettingCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -96,20 +98,25 @@ class SplashActivity : BaseFontActivity() {
                     .onSameThread()
                     .check()
         } else {
-            val alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions", "This app needs permission to allow modifying system settings", "Okay", "Exit", object : LDialogUtil.Callback2 {
-                override fun onClick1() {
-                    isShowDialogCheck = false
-                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                    intent.data = Uri.parse("package:" + activity.packageName)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    activity.startActivity(intent)
-                    LActivityUtil.tranIn(activity)
-                }
+            val alertDialog = LDialogUtil.showDialog2(context = activity,
+                    title = "Need Permissions",
+                    msg = "This app needs permission to allow modifying system settings",
+                    button1 = "Okay",
+                    button2 = "Exit",
+                    callback2 = object : Callback2 {
+                        override fun onClick1() {
+                            isShowDialogCheck = false
+                            val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+                            intent.data = Uri.parse("package:" + activity.packageName)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            activity.startActivity(intent)
+                            LActivityUtil.tranIn(activity)
+                        }
 
-                override fun onClick2() {
-                    onBackPressed()
-                }
-            })
+                        override fun onClick2() {
+                            onBackPressed()
+                        }
+                    })
             alertDialog.setCancelable(false)
         }
     }
@@ -134,8 +141,11 @@ class SplashActivity : BaseFontActivity() {
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = LDialogUtil.showDialog1(activity, "Warning", title, "Ok",
-                    object : LDialogUtil.Callback1 {
+            val alertDial = LDialogUtil.showDialog1(context = activity,
+                    title = "Warning",
+                    msg = title,
+                    button1 = "Ok",
+                    callback1 = object : Callback1 {
                         override fun onClick1() {
                             onBackPressed()
                         }
@@ -199,7 +209,7 @@ class SplashActivity : BaseFontActivity() {
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",
                 button2 = "Cancel",
-                callback2 = object : LDialogUtil.Callback2 {
+                callback2 = object : Callback2 {
                     override fun onClick1() {
                         isShowDialogCheck = false
                         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
@@ -220,7 +230,7 @@ class SplashActivity : BaseFontActivity() {
                 context = activity, title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
                 button1 = "Okay", button2 = "Cancel",
-                callback2 = object : LDialogUtil.Callback2 {
+                callback2 = object : Callback2 {
                     override fun onClick1() {
                         checkPermission()
                     }
