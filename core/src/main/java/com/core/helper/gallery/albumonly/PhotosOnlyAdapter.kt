@@ -21,21 +21,18 @@ import com.github.piasy.biv.view.GlideImageViewFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import java.io.File
+import java.util.*
 
 /**
  * Created by loitp on 14/04/15.
  */
 class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
         RecyclerView.Adapter<PhotosOnlyAdapter.ViewHolder>() {
-    private val TAG = javaClass.simpleName
-    private val inflater: LayoutInflater
-    private val screenW: Int
-    private val viewFactory = GlideImageViewFactory()
 
-    init {
-        this.inflater = LayoutInflater.from(context)
-        screenW = LScreenUtil.screenWidth
-    }
+    private val TAG = javaClass.simpleName
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
+    private val screenW: Int = LScreenUtil.screenWidth
+    private val viewFactory = GlideImageViewFactory()
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.l_item_photos_core_only, viewGroup, false))
@@ -55,7 +52,7 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val photo = PhotosDataCore.getInstance().photoList[position]
-        viewHolder.bind(photo, position)
+        viewHolder.bind(p = photo, position = position)
     }
 
     override fun getItemCount(): Int {
@@ -83,7 +80,6 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
             this.photo = p
             photo?.let {
                 val height = it.heightO * screenW / it.widthO
-                //LLog.d(TAG, photo.getWidthO() + "x" + photo.getHeightO() + "->" + screenW + "x" + height);
 
                 //viewHolder.rootView.setBackgroundColor(LStoreUtil.getRandomColorLight());
                 bigImageView.layoutParams.width = screenW
@@ -114,39 +110,39 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
                     override fun onFail(error: Exception) {}
                 })
 
-                if (it.title == null || it.title.toLowerCase().startsWith("null")) {
+                if (it.title.toLowerCase(Locale.getDefault()).startsWith("null")) {
                     tvTitle.visibility = View.INVISIBLE
                 } else {
                     tvTitle.visibility = View.VISIBLE
                     tvTitle.text = it.title
-                    LUIUtil.setTextShadow(tvTitle)
+                    LUIUtil.setTextShadow(textView = tvTitle)
                 }
                 bigImageView.setOnClickListener { _ ->
                     LLog.d(TAG, "setOnClickListener")
-                    LAnimationUtil.play(bigImageView, Techniques.Pulse)
-                    callback?.onClick(it, position)
+                    LAnimationUtil.play(view = bigImageView, techniques = Techniques.Pulse)
+                    callback?.onClick(photo = it, pos = position)
                 }
                 bigImageView.setOnLongClickListener { _ ->
                     LLog.d(TAG, "onLongClick")
-                    LAnimationUtil.play(bigImageView, Techniques.Pulse)
-                    callback?.onLongClick(it, position)
+                    LAnimationUtil.play(view = bigImageView, techniques = Techniques.Pulse)
+                    callback?.onLongClick(photo = it, pos = position)
                     true
                 }
                 btDownload.setOnClickListener { v ->
-                    LAnimationUtil.play(v, Techniques.Flash)
-                    callback?.onClickDownload(it, position)
+                    LAnimationUtil.play(view = v, techniques = Techniques.Flash)
+                    callback?.onClickDownload(photo = it, pos = position)
                 }
                 btShare.setOnClickListener { v ->
-                    LAnimationUtil.play(v, Techniques.Flash)
-                    callback?.onClickShare(it, position)
+                    LAnimationUtil.play(view = v, techniques = Techniques.Flash)
+                    callback?.onClickShare(photo = it, pos = position)
                 }
                 btReport.setOnClickListener { v ->
-                    LAnimationUtil.play(v, Techniques.Flash)
-                    callback?.onClickReport(it, position)
+                    LAnimationUtil.play(view = v, techniques = Techniques.Flash)
+                    callback?.onClickReport(photo = it, pos = position)
                 }
                 btCmt.setOnClickListener { v ->
-                    LAnimationUtil.play(v, Techniques.Flash)
-                    callback?.onClickCmt(it, position)
+                    LAnimationUtil.play(view = v, techniques = Techniques.Flash)
+                    callback?.onClickCmt(photo = it, pos = position)
                 }
             }
         }
@@ -158,8 +154,7 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
         }
 
         internal fun clear() {
-            val ssiv = bigImageView.ssiv
-            ssiv?.recycle()
+            bigImageView.ssiv?.recycle()
         }
 
         internal fun hasNoImage(): Boolean {

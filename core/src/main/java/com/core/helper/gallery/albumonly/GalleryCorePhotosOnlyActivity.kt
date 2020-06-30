@@ -98,7 +98,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
 
             override fun onClickDownload(photo: Photo, pos: Int) {
-                AsyncTaskDownloadImage(applicationContext, photo.urlO).execute()
+                AsyncTaskDownloadImage(activity, photo.urlO).execute()
             }
 
             override fun onClickShare(photo: Photo, pos: Int) {
@@ -136,7 +136,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         })
 
         btPage.setOnClickListener { _ ->
-            //LLog.d(TAG, "onClick " + currentPage + "/" + totalPage);
             showListPage()
         }
     }
@@ -188,8 +187,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         }
 
         currentPage = totalPage
-        //LLog.d(TAG, "total page " + totalPage);
-        //LLog.d(TAG, "currentPage " + currentPage);
 
         photosetID?.let {
             photosetsGetPhotos(it)

@@ -5,10 +5,10 @@
         <shape>
             <gradient
                 android:angle="270"
-                android:centerColor="@color/transparent"
+                android:centerColor="@color/white"
                 android:centerY="1.0"
-                android:endColor="@color/transparent"
-                android:startColor="@color/transparent" />
+                android:endColor="@color/white"
+                android:startColor="@color/white" />
         </shape>
     </item>
 
@@ -18,10 +18,10 @@
             <shape>
                 <gradient
                     android:angle="270"
-                    android:centerColor="@color/white"
+                    android:centerColor="@color/lightGrey"
                     android:centerY="1.0"
-                    android:endColor="@color/white"
-                    android:startColor="@color/white" />
+                    android:endColor="@color/lightGrey"
+                    android:startColor="@color/lightGrey" />
             </shape>
         </clip>
     </item>
