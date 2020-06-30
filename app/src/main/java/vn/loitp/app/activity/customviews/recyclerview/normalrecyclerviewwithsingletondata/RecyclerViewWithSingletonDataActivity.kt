@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.*
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
+import com.interfaces.CallbackPopup
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
@@ -47,7 +48,7 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
         prepareMovieData()
         findViewById<View>(R.id.btSetting).setOnClickListener {
             LPopupMenu.show(activity = activity, showOnView = it, menuRes = R.menu.menu_recycler_view,
-                    callBack = object : LPopupMenu.CallBack {
+                    callBackPopup = object : CallbackPopup {
                         override fun clickOnItem(menuItem: MenuItem) {
                             tvType.text = menuItem.title.toString()
                             when (menuItem.itemId) {

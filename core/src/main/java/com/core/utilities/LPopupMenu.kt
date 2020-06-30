@@ -1,26 +1,26 @@
 package com.core.utilities
 
 import android.app.Activity
-import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
+import com.interfaces.CallbackPopup
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
-object LPopupMenu {
-    interface CallBack {
-        fun clickOnItem(menuItem: MenuItem)
-    }
+class LPopupMenu {
 
-    fun show(activity: Activity, showOnView: View, menuRes: Int, callBack: CallBack?) {
-        val popup = PopupMenu(activity, showOnView)
-        popup.menuInflater.inflate(menuRes, popup.menu)
-        popup.setOnMenuItemClickListener { menuItem ->
-            callBack?.clickOnItem(menuItem)
-            true
+    companion object {
+
+        fun show(activity: Activity, showOnView: View, menuRes: Int, callBackPopup: CallbackPopup?) {
+            val popup = PopupMenu(activity, showOnView)
+            popup.menuInflater.inflate(menuRes, popup.menu)
+            popup.setOnMenuItemClickListener { menuItem ->
+                callBackPopup?.clickOnItem(menuItem)
+                true
+            }
+            popup.show()
         }
-        popup.show()
     }
 }

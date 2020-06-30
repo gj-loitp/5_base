@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.google.android.material.snackbar.Snackbar
+import com.interfaces.CallbackPopup
 import com.views.LAppBarLayout
 import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar.*
@@ -61,7 +62,7 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btMenu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
+            btMenu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : CallbackPopup {
                 override fun clickOnItem(menuItem: MenuItem) {
                     LToast.show(activity, menuItem.title.toString())
                 }

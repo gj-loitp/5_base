@@ -5,6 +5,7 @@ import android.view.MenuItem
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
+import com.interfaces.CallbackPopup
 import com.views.LToast
 import kotlinx.android.synthetic.main.activity_menu_popup.*
 import vn.loitp.app.R
@@ -38,9 +39,9 @@ class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
             R.id.btShow2,
             R.id.btShow3,
             R.id.btShow4,
-            R.id.btShow5 -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
+            R.id.btShow5 -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : CallbackPopup {
                 override fun clickOnItem(menuItem: MenuItem) {
-                    LToast.show(activity, menuItem.getTitle().toString())
+                    LToast.show(activity, menuItem.title.toString())
                 }
             })
         }
