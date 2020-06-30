@@ -20,7 +20,6 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
-import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -89,12 +88,16 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 LSocialUtil.share(activity = activity, msg = photo.urlO)
             }
         })
-        val scaleAdapter = ScaleInAnimationAdapter(photosAdapter)
-        scaleAdapter.setDuration(1000)
-        scaleAdapter.setInterpolator(OvershootInterpolator())
-        scaleAdapter.setFirstOnly(true)
-        recyclerView.adapter = scaleAdapter
+
+//        val scaleAdapter = ScaleInAnimationAdapter(photosAdapter)
+//        scaleAdapter.setDuration(1000)
+//        scaleAdapter.setInterpolator(OvershootInterpolator())
+//        scaleAdapter.setFirstOnly(true)
+//        recyclerView.adapter = scaleAdapter
+
+        recyclerView.adapter = photosAdapter
         //LUIUtil.setPullLikeIOSVertical(recyclerView)
+
         photosetsGetPhotos(photosetID)
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {

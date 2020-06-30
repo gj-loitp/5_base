@@ -101,7 +101,8 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         }
 
         recyclerView.apply {
-            this.adapter = scaleAdapter
+            //this.adapter = scaleAdapter
+            this.adapter = albumAdapter
             //LUIUtil.setPullLikeIOSVertical(this)
         }
 
