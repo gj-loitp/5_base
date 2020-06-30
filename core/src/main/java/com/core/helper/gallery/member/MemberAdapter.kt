@@ -34,7 +34,7 @@ class MemberAdapter(private val context: Context, numCount: Int, private val cal
         viewHolder.fl.layoutParams.width = sizeW
         viewHolder.fl.layoutParams.height = sizeH
         viewHolder.fl.requestLayout()
-        val photo = PhotosDataCore.getInstance().photoList[position]
+        val photo = PhotosDataCore.instance.getPhotoList()[position]
 
         LImageUtil.loadNoAmin(context = context, url = photo.urlO, urlThumbnal = photo.urlS, imageView = viewHolder.touchImageView)
 
@@ -69,9 +69,7 @@ class MemberAdapter(private val context: Context, numCount: Int, private val cal
     }
 
     override fun getItemCount(): Int {
-        return if (PhotosDataCore.getInstance().photoList == null) {
-            0
-        } else PhotosDataCore.getInstance().photoList.size
+        return PhotosDataCore.instance.getPhotoList().size
     }
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {

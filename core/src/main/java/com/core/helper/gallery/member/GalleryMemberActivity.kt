@@ -55,7 +55,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         isShowAdWhenExit = false
         RestClient.init(getString(R.string.flickr_URL))
         setTransparentStatusNavigationBar()
-        PhotosDataCore.getInstance().clearData()
+        PhotosDataCore.instance.clearData()
 
         val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary)
         rootView.setBackgroundResource(resBkgRootView)
@@ -232,8 +232,9 @@ class GalleryMemberActivity : BaseFontActivity() {
 
                     val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    val photoList = wrapperPhotosetGetPhotos.photoset?.photo
-                    PhotosDataCore.getInstance().addPhoto(photoList)
+                    wrapperPhotosetGetPhotos.photoset?.photo?.let {
+                        PhotosDataCore.instance.addPhoto(it)
+                    }
                     updateAllViews()
 
                     indicatorView.smoothToHide()

@@ -53,7 +53,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
         viewHolder.rootView.getLayoutParams().height = sizeH;
         viewHolder.rootView.requestLayout();
 
-        final Photo photo = PhotosDataCore.getInstance().getPhotoList().get(position);
+        final Photo photo = PhotosDataCore.Companion.getInstance().getPhotoList().get(position);
         //LUIUtil.setProgressBarVisibility(viewHolder.progressBar, View.VISIBLE);
 
         //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
@@ -94,10 +94,10 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        if (PhotosDataCore.getInstance().getPhotoList() == null) {
+        if (PhotosDataCore.Companion.getInstance().getPhotoList() == null) {
             return 0;
         }
-        return PhotosDataCore.getInstance().getPhotoList().size();
+        return PhotosDataCore.Companion.getInstance().getPhotoList().size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

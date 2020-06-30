@@ -57,7 +57,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val bundle = arguments ?: return
-        PhotosDataCore.getInstance().clearData()
+        PhotosDataCore.instance.clearData()
         LUIUtil.setTextShadow(tvTitle)
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
@@ -138,7 +138,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                         override fun onClick(position: Int) {
                             currentPage = totalPage - position
                             logD("showDialogList onClick position $position, -> currentPage: $currentPage")
-                            PhotosDataCore.getInstance().clearData()
+                            PhotosDataCore.instance.clearData()
                             updateAllViews()
                             photosetsGetPhotos(photosetID)
                         }
@@ -236,8 +236,9 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
                     val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    val photoList = wrapperPhotosetGetPhotos.photoset?.photo
-                    PhotosDataCore.getInstance().addPhoto(photoList)
+                    wrapperPhotosetGetPhotos.photoset?.photo?.let {
+                        PhotosDataCore.instance.addPhoto(it)
+                    }
                     updateAllViews()
 
                     indicatorView.smoothToHide()

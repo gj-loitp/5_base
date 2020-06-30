@@ -62,7 +62,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
         viewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
 
         final String photoID = getIntent().getStringExtra(Constants.INSTANCE.getSK_PHOTO_ID());
-        int position = PhotosDataCore.getInstance().getPosition(photoID);
+        int position = PhotosDataCore.Companion.getInstance().getPosition(photoID);
         //LLog.d(TAG, "position: " + position);
         viewPager.setCurrentItem(position);
 
@@ -128,11 +128,11 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         findViewById(R.id.bt_download).setOnClickListener(v -> {
             //LAnimationUtil.play(v, Techniques.Pulse);
-            new AsyncTaskDownloadImage(getApplicationContext(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
+            new AsyncTaskDownloadImage(getApplicationContext(), PhotosDataCore.Companion.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO()).execute();
         });
         findViewById(R.id.bt_share).setOnClickListener(v -> {
             //LAnimationUtil.play(v, Techniques.Pulse);
-            LSocialUtil.INSTANCE.share(getActivity(), PhotosDataCore.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
+            LSocialUtil.INSTANCE.share(getActivity(), PhotosDataCore.Companion.getInstance().getPhoto(viewPager.getCurrentItem()).getUrlO());
         });
         findViewById(R.id.bt_report).setOnClickListener(v -> {
             //LAnimationUtil.play(v, Techniques.Pulse);
@@ -173,7 +173,7 @@ public class GalleryCoreSlideActivity extends BaseFontActivity {
 
         @Override
         public int getCount() {
-            return PhotosDataCore.getInstance().getSize();
+            return PhotosDataCore.Companion.getInstance().getSize();
         }
     }
 

@@ -51,14 +51,12 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val photo = PhotosDataCore.getInstance().photoList[position]
+        val photo = PhotosDataCore.instance.getPhotoList()[position]
         viewHolder.bind(p = photo, position = position)
     }
 
     override fun getItemCount(): Int {
-        return if (PhotosDataCore.getInstance().photoList == null) {
-            0
-        } else PhotosDataCore.getInstance().photoList.size
+        return PhotosDataCore.instance.getPhotoList().size
     }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {

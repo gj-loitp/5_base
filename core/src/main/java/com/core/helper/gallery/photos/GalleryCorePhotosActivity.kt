@@ -39,7 +39,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
         isShowAdWhenExit = false
         setTransparentStatusNavigationBar()
-        PhotosDataCore.getInstance().clearData()
+        PhotosDataCore.instance.clearData()
 
         LUIUtil.setTextShadow(textView = tvTitle)
 
@@ -122,7 +122,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 callbackList = object : LDialogUtil.CallbackList {
                     override fun onClick(position: Int) {
                         currentPage = totalPage - position
-                        PhotosDataCore.getInstance().clearData()
+                        PhotosDataCore.instance.clearData()
                         updateAllViews()
                         photosetsGetPhotos(photosetID)
                     }
@@ -167,7 +167,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                     val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
                     wrapperPhotosetGetPhotos.photoset?.photo?.let {
-                        PhotosDataCore.getInstance().addPhoto(it)
+                        PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
                     indicatorView.smoothToHide()
