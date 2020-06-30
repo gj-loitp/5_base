@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
@@ -33,15 +32,11 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.layout.floatdraglayout.DisplayUtil
-import com.wang.avi.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
 class GalleryMemberActivity : BaseFontActivity() {
-    private lateinit var avLoadingIndicatorView: AVLoadingIndicatorView
-    private lateinit var tvTitle: TextView
-
     private var currentPage = 0
     private var totalPage = 1
     private val PER_PAGE_SIZE = 50
@@ -67,24 +62,21 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("adUnitId $adUnitId")
-        val lnAdview = findViewById<LinearLayout>(R.id.lnAdView)
         if (adUnitId.isNullOrEmpty()) {
-            lnAdview.visibility = View.GONE
+            lnAdView.visibility = View.GONE
         } else {
             adView = AdView(activity)
             adView?.let {
                 it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(it)
-                lnAdview.addView(it)
+                lnAdView.addView(it)
                 val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-                LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 4)
+                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
 
-        tvTitle = findViewById(R.id.tvTitle)
-        LUIUtil.setTextShadow(tvTitle, Color.WHITE)
-        avLoadingIndicatorView = findViewById(R.id.indicatorView)
+        LUIUtil.setTextShadow(textView = tvTitle, color = Color.WHITE)
 
         photosetID = Constants.FLICKR_ID_MEMBERS
         if (photosetID?.isEmpty() == true) {
@@ -92,8 +84,6 @@ class GalleryMemberActivity : BaseFontActivity() {
             return
         }
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
-
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
         /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
@@ -103,26 +93,25 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         recyclerView.layoutManager = GridLayoutManager(activity, numCount)
         recyclerView.setHasFixedSize(true)
-        memberAdapter = MemberAdapter(activity, numCount, object : MemberAdapter.Callback {
-            override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
-                val intent = Intent(activity, GalleryMemberDetailActivity::class.java)
-                intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
+        memberAdapter = MemberAdapter(context = activity, numCount = numCount,
+                callback = object : MemberAdapter.Callback {
+                    override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
+                        val intent = Intent(activity, GalleryMemberDetailActivity::class.java)
+                        intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
 
-                val pair1 = Pair<View, String>(imageView, GalleryMemberDetailActivity.IV)
-                val pair2 = Pair<View, String>(textView, GalleryMemberDetailActivity.TV)
+                        val pair1 = Pair<View, String>(imageView, GalleryMemberDetailActivity.IV)
+                        val pair2 = Pair<View, String>(textView, GalleryMemberDetailActivity.TV)
 
-                val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        activity,
-                        pair1,
-                        pair2)
-                ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
-            }
+                        val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                                activity,
+                                pair1,
+                                pair2)
+                        ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
+                    }
 
-            override fun onLongClick(photo: Photo, pos: Int) {
-                ////do nothing
-                //LSocialUtil.share(activity, photo.getUrlO());
-            }
-        })
+                    override fun onLongClick(photo: Photo, pos: Int) {
+                    }
+                })
         recyclerView.adapter = memberAdapter
         /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(memberAdapter);
         scaleAdapter.setDuration(1000);
@@ -130,14 +119,14 @@ class GalleryMemberActivity : BaseFontActivity() {
         scaleAdapter.setFirstOnly(true);
         recyclerView.setAdapter(scaleAdapter);*/
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView)
+        //LUIUtil.setPullLikeIOSVertical(recyclerView)
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (!recyclerView.canScrollVertically(1)) {
                     if (!isLoading) {
-                        photosetsGetPhotos(photosetID!!)
+                        photosetsGetPhotos(photosetID)
                     }
                 }
             }
@@ -146,7 +135,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
     private fun goToHome() {
         if (photosSize == Constants.NOT_FOUND) {
-            photosetsGetList()
+            getPhotosets()
         } else {
             init()
         }
@@ -172,14 +161,12 @@ class GalleryMemberActivity : BaseFontActivity() {
         }
 
         currentPage = totalPage
-        //LLog.d(TAG, "total page " + totalPage);
-        //LLog.d(TAG, "currentPage " + currentPage);
 
-        photosetsGetPhotos(photosetID!!)
+        photosetsGetPhotos(photosetID = photosetID)
     }
 
-    private fun photosetsGetList() {
-        avLoadingIndicatorView.smoothToShow()
+    private fun getPhotosets() {
+        indicatorView.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -189,9 +176,9 @@ class GalleryMemberActivity : BaseFontActivity() {
         //String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
         val primaryPhotoExtras = ""
         val format = FlickrConst.FORMAT
-        val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
+        val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, nojsoncallback)
+        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
@@ -205,20 +192,24 @@ class GalleryMemberActivity : BaseFontActivity() {
                         }
                     }
                 }, { e ->
-                    logE("photosetsGetList onFail $e")
+                    e.printStackTrace()
                     handleException(e)
-                    avLoadingIndicatorView.smoothToHide()
+                    indicatorView.smoothToHide()
                 }))
     }
 
-    private fun photosetsGetPhotos(photosetID: String) {
+    private fun photosetsGetPhotos(photosetID: String?) {
+        if (photosetID.isNullOrEmpty()) {
+            logD("photosetID isNullOrEmpty -> return")
+            return
+        }
         if (isLoading) {
             logD("photosetsGetList isLoading true -> return")
             return
         }
         logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        avLoadingIndicatorView.smoothToShow()
+        indicatorView.smoothToShow()
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -226,14 +217,14 @@ class GalleryMemberActivity : BaseFontActivity() {
         if (currentPage <= 0) {
             logD("currentPage <= 0 -> return")
             currentPage = 0
-            avLoadingIndicatorView.smoothToHide()
+            indicatorView.smoothToHide()
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
         val format = FlickrConst.FORMAT
-        val nojsoncallback = FlickrConst.NO_JSON_CALLBACK
+        val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, nojsoncallback)
+        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
@@ -245,13 +236,13 @@ class GalleryMemberActivity : BaseFontActivity() {
                     PhotosDataCore.getInstance().addPhoto(photoList)
                     updateAllViews()
 
-                    avLoadingIndicatorView.smoothToHide()
+                    indicatorView.smoothToHide()
                     isLoading = false
                     currentPage--
                 }, { e ->
-                    logE("photosetsGetPhotos onFail $e")
+                    e.printStackTrace()
                     handleException(e)
-                    avLoadingIndicatorView.smoothToHide()
+                    indicatorView.smoothToHide()
                     isLoading = true
                 }))
     }
@@ -320,9 +311,9 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions",
-                "This app needs permission to use this feature.", "Okay", "Cancel",
-                object : LDialogUtil.Callback2 {
+        val alertDialog = LDialogUtil.showDialog2(context = activity, title = "Need Permissions",
+                msg = "This app needs permission to use this feature.", button1 = "Okay", button2 = "Cancel",
+                callback2 = object : LDialogUtil.Callback2 {
                     override fun onClick1() {
                         checkPermission()
                     }
@@ -335,9 +326,9 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(activity, "Need Permissions",
-                "This app needs permission to use this feature. You can grant them in app settings.",
-                "GOTO SETTINGS", "Cancel", object : LDialogUtil.Callback2 {
+        val alertDialog = LDialogUtil.showDialog2(context = activity, title = "Need Permissions",
+                msg = "This app needs permission to use this feature. You can grant them in app settings.",
+                button1 = "GOTO SETTINGS", button2 = "Cancel", callback2 = object : LDialogUtil.Callback2 {
             override fun onClick1() {
                 isShowDialogCheck = false
                 val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)

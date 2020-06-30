@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <View
@@ -18,7 +19,7 @@
         android:foreground="?android:attr/selectableItemBackground">
 
         <ImageView
-            android:id="@+id/image_view"
+            android:id="@+id/touchImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
@@ -32,7 +33,7 @@
             android:gravity="center"
             android:singleLine="true"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_14" />
+            android:textSize="@dimen/text_medium" />
     </FrameLayout>
 
     <View

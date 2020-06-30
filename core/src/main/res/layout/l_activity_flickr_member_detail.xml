@@ -7,7 +7,7 @@
     android:background="@color/black85">
 
     <com.views.imageview.touch.LTouchImageView
-        android:id="@+id/image_view"
+        android:id="@+id/touchImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name" />
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_medium"
         android:singleLine="true"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_50" />
