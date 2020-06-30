@@ -16,58 +16,60 @@ import org.json.JSONObject
  * Created by Loitp on 4/18/2017.
  */
 
-object LFCMUtil {
-    private val TAG = javaClass.simpleName
-    private val JSON = MediaType.parse("application/json; charset=utf-8")
+class LFCMUtil {
+    companion object {
+        private val TAG = LFCMUtil::class.java.simpleName
+        private val JSON = MediaType.parse("application/json; charset=utf-8")
 
-    @SuppressLint("CheckResult")
-    fun sendNotification(key: String, body: String) {
-        Completable.fromAction {
-            val client = OkHttpClient()
-            val json = JSONObject()
-            val dataJson = JSONObject()
-            dataJson.put("body", body)
-            dataJson.put("title", R.string.app_name)
-            json.put("notification", dataJson)
-            json.put("to", Constants.FCM_TOPIC)
-            val jsonBody = RequestBody.create(JSON, json.toString())
-            //LLog.d(TAG, "body:" + LApplication.getGson().toJson(body));
-            val request = Request.Builder()
-                    .header("Authorization", "key=$key")
-                    .url("https://fcm.googleapis.com/fcm/send")
-                    .post(jsonBody)
-                    .build()
-            val response = client.newCall(request).execute()
-            val finalResponse = response.body()
-            LLog.d(TAG, "finalResponse:" + finalResponse.toString())
-        }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    LLog.d(TAG, "onComplete")
-                }, {
-                    LLog.d(TAG, "onError $it")
-                })
+        @SuppressLint("CheckResult")
+        fun sendNotification(key: String, body: String) {
+            Completable.fromAction {
+                val client = OkHttpClient()
+                val json = JSONObject()
+                val dataJson = JSONObject()
+                dataJson.put("body", body)
+                dataJson.put("title", R.string.app_name)
+                json.put("notification", dataJson)
+                json.put("to", Constants.FCM_TOPIC)
+                val jsonBody = RequestBody.create(JSON, json.toString())
+                //LLog.d(TAG, "body:" + LApplication.getGson().toJson(body));
+                val request = Request.Builder()
+                        .header("Authorization", "key=$key")
+                        .url("https://fcm.googleapis.com/fcm/send")
+                        .post(jsonBody)
+                        .build()
+                val response = client.newCall(request).execute()
+                val finalResponse = response.body()
+                LLog.d(TAG, "finalResponse:" + finalResponse.toString())
+            }.subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        LLog.d(TAG, "onComplete")
+                    }, {
+                        LLog.d(TAG, "onError $it")
+                    })
+        }
+
+//        fun getFCMToken(context: Context) {
+//            FirebaseInstanceId.getInstance().instanceId
+//                    .addOnCompleteListener(OnCompleteListener { task ->
+//                        if (!task.isSuccessful) {
+//                            return@OnCompleteListener
+//                        }
+//                        val fcmToken = task.result?.token
+//                        VinPref.setFCMToken(fcmToken)
+//                    })
+//        }
+
+//        fun resetInstanceId() {
+//            Thread(Runnable {
+//                try {
+//                    FirebaseInstanceId.getInstance().deleteInstanceId()
+//                    FirebaseInstanceId.getInstance().instanceId
+//                } catch (e: IOException) {
+//                    e.printStackTrace()
+//                }
+//            }).start()
+//        }
     }
-
-    /*fun getFCMToken(context: Context) {
-        FirebaseInstanceId.getInstance().instanceId
-                .addOnCompleteListener(OnCompleteListener { task ->
-                    if (!task.isSuccessful) {
-                        return@OnCompleteListener
-                    }
-                    val fcmToken = task.result?.token
-                    VinPref.setFCMToken(fcmToken)
-                })
-    }*/
-
-    /*fun resetInstanceId() {
-        Thread(Runnable {
-            try {
-                FirebaseInstanceId.getInstance().deleteInstanceId()
-                FirebaseInstanceId.getInstance().instanceId
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }).start()
-    }*/
 }
