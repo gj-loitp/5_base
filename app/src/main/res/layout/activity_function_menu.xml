@@ -38,11 +38,6 @@
                 android:text="@string/toggle_fullscreen" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_gesto"
-                style="@style/ButtonMenu"
-                android:text="@string/gesto" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_glide"
                 style="@style/ButtonMenu"
                 android:text="@string/glide" />

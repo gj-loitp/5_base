@@ -11,7 +11,6 @@ import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
 import vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity
 import vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity
-import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity
 import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity
@@ -27,7 +26,6 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt_fly_school).setOnClickListener(this)
         findViewById<View>(R.id.bt_activity_transition).setOnClickListener(this)
         findViewById<View>(R.id.bt_shadowview_helper).setOnClickListener(this)
-        findViewById<View>(R.id.bt_expect_anim).setOnClickListener(this)
         findViewById<View>(R.id.bt_basic_transition_frm).setOnClickListener(this)
         findViewById<View>(R.id.bt_basic_transition_activity).setOnClickListener(this)
         findViewById<View>(R.id.bt_basic_transition).setOnClickListener(this)
@@ -55,7 +53,6 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
             R.id.bt_fly_school -> intent = Intent(activity, FlySchoolActivity::class.java)
             R.id.bt_activity_transition -> intent = Intent(activity, Animation1Activity::class.java)
             R.id.bt_shadowview_helper -> intent = Intent(activity, ShadowViewHelperActivity::class.java)
-            R.id.bt_expect_anim -> intent = Intent(activity, ExpectAnimActivity::class.java)
             R.id.bt_basic_transition_frm -> intent = Intent(activity, BasicTransitionActivity::class.java)
             R.id.bt_basic_transition_activity -> intent = Intent(activity, SceneTransitionBasicActivity::class.java)
             R.id.bt_basic_transition -> intent = Intent(activity, BasicTransition0Activity::class.java)

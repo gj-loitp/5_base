@@ -13,7 +13,6 @@ import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunica
 import vn.loitp.app.activity.function.downloadmanager.DownloadManagerActivity
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity
-import vn.loitp.app.activity.function.gesto.GestoActivity
 import vn.loitp.app.activity.function.glide.GlideActivity
 import vn.loitp.app.activity.function.hashmap.HashMapActivity
 import vn.loitp.app.activity.function.keyboard.KeyboardActivity
@@ -32,7 +31,6 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false
 
-        findViewById<View>(R.id.bt_gesto).setOnClickListener(this)
         findViewById<View>(R.id.bt_simple_finger_gesture).setOnClickListener(this)
         findViewById<View>(R.id.bt_hashmap).setOnClickListener(this)
         findViewById<View>(R.id.bt_drag_drop_sample).setOnClickListener(this)
@@ -65,7 +63,6 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v.id) {
-            R.id.bt_gesto -> intent = Intent(activity, GestoActivity::class.java)
             R.id.bt_simple_finger_gesture -> intent = Intent(activity, SimpleFingerGesturesActivity::class.java)
             R.id.bt_hashmap -> intent = Intent(activity, HashMapActivity::class.java)
             R.id.bt_drag_drop_sample -> intent = Intent(activity, DragDropSampleActivity::class.java)
