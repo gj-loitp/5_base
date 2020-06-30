@@ -161,7 +161,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         findViewById(R.id.bt_zoom_in).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
+                LAnimationUtil.Companion.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
                     zoomIn(pageFragment);
@@ -179,7 +179,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         findViewById(R.id.bt_zoom_out).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
+                LAnimationUtil.Companion.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
                     zoomOut(pageFragment);
@@ -197,7 +197,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         llGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.INSTANCE.play(llGuide, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
+                LAnimationUtil.Companion.play(llGuide, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
                     @Override
                     public void onCancel() {
                     }

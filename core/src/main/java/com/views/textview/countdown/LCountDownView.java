@@ -57,7 +57,7 @@ public class LCountDownView extends RelativeLayout {
     private void doPerSec() {
         if (tvCountDown != null) {
             tvCountDown.setText(String.valueOf(number));
-            LAnimationUtil.INSTANCE.playDuration(tvCountDown, Techniques.FlipInX, 1000, new LAnimationUtil.Callback() {
+            LAnimationUtil.Companion.playDuration(tvCountDown, Techniques.FlipInX, 1000, new LAnimationUtil.Callback() {
                 @Override
                 public void onCancel() {
                     //do nothing
@@ -69,7 +69,7 @@ public class LCountDownView extends RelativeLayout {
                     //LLog.d(TAG, "number " + number);
                     if (number == 0) {
                         tvCountDown.setText("GO");
-                        LAnimationUtil.INSTANCE.play(tvCountDown, Techniques.Flash, new LAnimationUtil.Callback() {
+                        LAnimationUtil.Companion.play(tvCountDown, Techniques.Flash, new LAnimationUtil.Callback() {
                             @Override
                             public void onCancel() {
                                 //do nothing

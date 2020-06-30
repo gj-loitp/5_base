@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.R
-import com.core.utilities.LAnimationUtil.play
+import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil.setTextSize
 import com.daimajia.androidanimations.library.Techniques
 
@@ -93,7 +93,7 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         val s = stringList[currenIndex]
         tv?.text = s
         if (isEnableAnimation) {
-            play(view = tv, techniques = Techniques.FlipInX)
+            LAnimationUtil.play(view = tv, techniques = Techniques.FlipInX)
         }
         val size = stringList.size
         if (size == 1) {
@@ -117,13 +117,13 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     override fun onClick(view: View) {
         if (view === tvPrev) {
             if (isEnableAnimation) {
-                play(view = view, techniques = Techniques.Pulse)
+                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
             currenIndex--
             updateUI()
         } else if (view === tvNext) {
             if (isEnableAnimation) {
-                play(view = view, techniques = Techniques.Pulse)
+                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
             currenIndex++
             updateUI()
