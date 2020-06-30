@@ -23,7 +23,7 @@ import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.l_activity_gallery_core_album.*
+import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import java.util.*
 
 class GalleryCoreAlbumActivity : BaseFontActivity() {
@@ -117,7 +117,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_gallery_core_album
+        return R.layout.l_activity_flickr_gallery_core_album
     }
 
     private fun getListPhotosets() {

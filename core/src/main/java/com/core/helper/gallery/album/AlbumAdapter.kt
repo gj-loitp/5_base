@@ -27,7 +27,7 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
     private val sizeH: Int = sizeW
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(inflater.inflate(R.layout.l_item_album_core, viewGroup, false))
+        return ViewHolder(inflater.inflate(R.layout.l_item_flickr_album_core, viewGroup, false))
     }
 
     override fun onViewRecycled(holder: ViewHolder) {

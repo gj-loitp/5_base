@@ -6,19 +6,6 @@
     android:animateLayoutChanges="false"
     android:background="@color/black85">
 
-    <!--<ImageView
-        android:id="@+id/iv_bkg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />-->
-
-    <!--<com.views.realtimeblurview.RealtimeBlurView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_50"
-        app:realtimeOverlayColor="@color/black_65" />-->
-
     <com.views.imageview.touch.LTouchImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"

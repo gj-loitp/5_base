@@ -25,7 +25,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
 import com.views.layout.floatdraglayout.DisplayUtil
-import kotlinx.android.synthetic.main.l_activity_gallery_core_splash.*
+import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 import java.util.*
 
 class GalleryCoreSplashActivity : BaseFontActivity() {
@@ -99,7 +99,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_gallery_core_splash
+        return R.layout.l_activity_flickr_gallery_core_splash
     }
 
     override fun onResume() {

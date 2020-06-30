@@ -185,7 +185,7 @@ public class GalleryCorePhotosActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.l_activity_gallery_core_photos;
+        return R.layout.l_activity_flickr_gallery_core_photos;
     }
 
     private void photosetsGetPhotos(@NonNull final String photosetID) {

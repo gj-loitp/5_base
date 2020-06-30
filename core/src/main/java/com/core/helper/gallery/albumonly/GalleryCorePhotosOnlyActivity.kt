@@ -31,7 +31,7 @@ import com.task.AsyncTaskDownloadImage
 import com.views.layout.floatdraglayout.DisplayUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.l_activity_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
 class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var currentPage = 0
@@ -176,7 +176,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_gallery_core_photos_only
+        return R.layout.l_activity_flickr_gallery_core_photos_only
     }
 
     private fun init() {

@@ -28,7 +28,7 @@ import com.restapi.restclient.RestClient
 import com.task.AsyncTaskDownloadImage
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.l_frm_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
 
 class GalleryCorePhotosOnlyFrm : BaseFragment() {
     override fun setTag(): String? {
@@ -45,7 +45,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
     private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_gallery_core_photos_only
+        return R.layout.l_frm_flickr_gallery_core_photos_only
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -36,7 +36,7 @@ import com.views.layout.floatdraglayout.DisplayUtil
 import com.wang.avi.AVLoadingIndicatorView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.l_activity_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
 class GalleryMemberActivity : BaseFontActivity() {
     private lateinit var avLoadingIndicatorView: AVLoadingIndicatorView
@@ -161,7 +161,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_gallery_core_photos_only
+        return R.layout.l_activity_flickr_gallery_core_photos_only
     }
 
     private fun init() {

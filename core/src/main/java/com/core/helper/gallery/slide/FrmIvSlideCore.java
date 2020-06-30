@@ -30,7 +30,7 @@ public class FrmIvSlideCore extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.l_item_photo_slide_iv_core, container, false);
+        return inflater.inflate(R.layout.l_item_flickr_photo_slide_iv_core, container, false);
     }
 
     @Override

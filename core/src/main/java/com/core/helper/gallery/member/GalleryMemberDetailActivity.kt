@@ -37,7 +37,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_member_detail
+        return R.layout.l_activity_flickr_member_detail
     }
 
     private fun loadItem(photo: Photo) {

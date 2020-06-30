@@ -37,7 +37,7 @@ class MemberAdapter(private val context: Context, numCount: Int, private val cal
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(inflater.inflate(R.layout.l_item_photos_member, viewGroup, false))
+        return ViewHolder(inflater.inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
