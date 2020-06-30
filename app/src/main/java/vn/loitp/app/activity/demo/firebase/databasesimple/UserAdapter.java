@@ -67,7 +67,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.tvMsg.setText(user.getMsg());
         holder.tvTime.setText(user.getTimestamp() + "");
 
-        LImageUtil.INSTANCE.load(context, user.getAvt(), holder.avt);
+        LImageUtil.Companion.load(context, user.getAvt(), holder.avt);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override

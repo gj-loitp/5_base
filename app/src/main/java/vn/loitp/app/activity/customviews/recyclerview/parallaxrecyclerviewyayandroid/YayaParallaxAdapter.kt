@@ -42,10 +42,10 @@ class YayaParallaxAdapter internal constructor(private val context: Context, pri
         fun bind() {
             LImageUtil.load(context = context, url = instance.stringList[bindingAdapterPosition], imageView = itemView.backgroundImage)
             itemView.label.text = "Row $bindingAdapterPosition"
-            itemView.rootView.setOnClickListener { v: View? ->
+            itemView.rootView.setOnClickListener {
                 callback?.onClick(bindingAdapterPosition)
             }
-            itemView.rootView.setOnLongClickListener { v: View? ->
+            itemView.rootView.setOnLongClickListener {
                 callback?.onLongClick(bindingAdapterPosition)
                 true
             }

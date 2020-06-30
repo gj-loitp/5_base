@@ -148,7 +148,7 @@ public class CropActivity extends BaseFontActivity {
                 }
                 final File file = new File(realPath);
                 LLog.d(getTAG(), "onActivityResult file " + file.getPath());
-                LImageUtil.INSTANCE.load(getActivity(), file, iv);
+                LImageUtil.Companion.load(getActivity(), file, iv);
             }
         }
     }

@@ -43,7 +43,7 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
 
     @Override
     public void setShape(int drawableRes) {
-        LImageUtil.INSTANCE.load(getContext(), drawableRes, ivGift);
+        LImageUtil.Companion.load(getContext(), drawableRes, ivGift);
     }
 
     @Override
@@ -55,14 +55,14 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
         if (drawableRes == 0) {
             try {
                 String urlGift = imgObject.getUrl();
-                LImageUtil.INSTANCE.load(getContext(), urlGift, ivGift);
+                LImageUtil.Companion.load(getContext(), urlGift, ivGift);
             } catch (NullPointerException e) {
                 //do nothing
             }
         } else {
-            LImageUtil.INSTANCE.load(getContext(), drawableRes, ivGift);
+            LImageUtil.Companion.load(getContext(), drawableRes, ivGift);
         }
         String urlAvatar = imgObject.getAvatar();
-        LImageUtil.INSTANCE.load(getContext(), urlAvatar, ivAvatar);
+        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar);
     }
 }

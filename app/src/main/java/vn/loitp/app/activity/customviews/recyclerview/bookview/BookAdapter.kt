@@ -74,10 +74,10 @@ class BookAdapter(private val context: Context,
                 itemView.imageView.setImageResource(0)
                 itemView.textView.visibility = View.INVISIBLE
             }
-            itemView.rootView.setOnClickListener { v: View? ->
+            itemView.rootView.setOnClickListener {
                 callback?.onClick(movie, bindingAdapterPosition)
             }
-            itemView.rootView.setOnLongClickListener { v: View? ->
+            itemView.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie, bindingAdapterPosition)
                 true
             }
