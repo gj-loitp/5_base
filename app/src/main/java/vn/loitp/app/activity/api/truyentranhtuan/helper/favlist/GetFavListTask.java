@@ -44,7 +44,7 @@ public class GetFavListTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... voids) {
         LLog.d(TAG, "doInBackground");
-        String json = LStoreUtil.INSTANCE.readTxtFromFolder(mActivity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE());
+        String json = LStoreUtil.Companion.readTxtFromFolder(mActivity, LStoreUtil.Companion.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.Companion.getFILE_NAME_MAIN_COMICS_LIST_FAVOURITE());
         if (json == null || json.isEmpty()) {
             LLog.d(TAG, "json == null || json.isEmpty()");
         } else {

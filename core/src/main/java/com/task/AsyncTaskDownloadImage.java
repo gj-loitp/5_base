@@ -55,7 +55,7 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private void downloadImagesToSdCard(final String downloadUrl, final String imageName) {
         try {
             final URL url = new URL(downloadUrl);
-            sdCard = LStoreUtil.INSTANCE.getFolderPath(mContext);
+            sdCard = LStoreUtil.Companion.getFolderPath(mContext);
             final File myDir = new File(sdCard + "/Photo");
 
             /* if specified not exist create new */

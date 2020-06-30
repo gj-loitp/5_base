@@ -76,7 +76,7 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                 }
 
                 stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n" + tttChap.getInfo().getSummary() + "\n\n";
-                getChapSuccess = LStoreUtil.INSTANCE.writeToFile(activity, LStoreUtil.INSTANCE.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.INSTANCE.getFileNameComic(url), LApplication.Companion.getGson().toJson(tttChap));
+                getChapSuccess = LStoreUtil.Companion.writeToFile(activity, LStoreUtil.Companion.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.Companion.getFileNameComic(url), LApplication.Companion.getGson().toJson(tttChap));
             }
 
             //save url img cover to list comic -> tttChap.getInfo().getCover()
