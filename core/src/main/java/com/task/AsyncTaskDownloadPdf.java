@@ -130,7 +130,7 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
             if (callback != null) {
                 final long endTime = System.currentTimeMillis();
                 final long durationSec = (endTime - startTime) / 1000;
-                final String duration = LDateUtil.INSTANCE.convertSToFormat(durationSec, "HH:mm:ss");
+                final String duration = LDateUtil.Companion.convertSToFormat(durationSec, "HH:mm:ss");
                 LLog.d(TAG, "onPostExecute duration: " + duration);
                 callback.onSuccess(durationSec, duration, file);
             }
