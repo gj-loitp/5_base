@@ -50,7 +50,7 @@
         android:padding="@dimen/padding_medium">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_report"
+            android:id="@+id/btReport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
@@ -64,7 +64,7 @@
             app:useCompatPadding="true" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_download"
+            android:id="@+id/btDownload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -94,7 +94,7 @@
             app:useCompatPadding="true" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_share"
+            android:id="@+id/btShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"

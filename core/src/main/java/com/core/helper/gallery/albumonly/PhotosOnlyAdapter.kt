@@ -62,9 +62,9 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         private val tvTitle: TextView = v.findViewById(R.id.tvTitle)
         private val bigImageView: BigImageView = v.findViewById(R.id.biv)
-        private val btDownload: FloatingActionButton = v.findViewById(R.id.bt_download)
-        private val btShare: FloatingActionButton = v.findViewById(R.id.bt_share)
-        private val btReport: FloatingActionButton = v.findViewById(R.id.bt_report)
+        private val btDownload: FloatingActionButton = v.findViewById(R.id.btDownload)
+        private val btShare: FloatingActionButton = v.findViewById(R.id.btShare)
+        private val btReport: FloatingActionButton = v.findViewById(R.id.btReport)
         private val btCmt: FloatingActionButton = v.findViewById(R.id.bt_cmt)
         private val pb: ProgressBar? = v.findViewById(R.id.progressBar)
         private var photo: Photo? = null

@@ -5,26 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!--<ImageView
-        android:id="@+id/iv_bkg_1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />
-
-    <ImageView
-        android:id="@+id/iv_bkg_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="@string/app_name"
-        android:scaleType="centerCrop" />
-
-    <com.views.realtimeblurview.RealtimeBlurView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_80"
-        app:realtimeOverlayColor="@color/black_65" />-->
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
@@ -34,26 +14,26 @@
         android:id="@+id/tvSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_15"
-        android:padding="@dimen/padding_5"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:padding="@dimen/padding_medium"
         android:singleLine="true"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/txt_22"
+        android:textSize="@dimen/text_large"
         android:textStyle="bold" />
 
     <LinearLayout
-        android:id="@+id/rl_control"
+        android:id="@+id/rlControl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
-        android:paddingBottom="@dimen/padding_10">
+        android:paddingBottom="@dimen/padding_medium">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_report"
+            android:id="@+id/btReport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_10"
+            android:layout_marginEnd="@dimen/margin_medium"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_bug_report_black_48dp"
@@ -64,7 +44,7 @@
             app:fabSize="mini" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_download"
+            android:id="@+id/btDownload"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
@@ -77,11 +57,11 @@
             app:fabSize="mini" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_share"
+            android:id="@+id/btShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_10"
-            android:layout_marginRight="@dimen/margin_10"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_share_black_48dp"

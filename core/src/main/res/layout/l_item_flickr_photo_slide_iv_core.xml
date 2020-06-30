@@ -33,11 +33,11 @@
             app:indicatorName="LineScalePulseOutRapidIndicator" />
 
         <TextView
-            android:id="@+id/tv_progress"
+            android:id="@+id/tvProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_18" />
+            android:textSize="@dimen/txt_medium" />
     </LinearLayout>
 </RelativeLayout>

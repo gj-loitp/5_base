@@ -46,7 +46,7 @@ public class FrmIvSlideCore extends Fragment {
 
         final AVLoadingIndicatorView avLoadingIndicatorView = view.findViewById(R.id.indicatorView);
         final BigImageView bigImageView = view.findViewById(R.id.biv);
-        final TextView tvProgress = view.findViewById(R.id.tv_progress);
+        final TextView tvProgress = view.findViewById(R.id.tvProgress);
         LUIUtil.INSTANCE.setTextShadow(tvProgress);
 
         bigImageView.setImageViewFactory(new GlideImageViewFactory());
