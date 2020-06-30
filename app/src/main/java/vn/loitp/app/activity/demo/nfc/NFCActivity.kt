@@ -154,7 +154,7 @@ class NFCActivity : BaseFontActivity() {
             }
             "Ndef" -> {
                 val ndefTag = Ndef.get(tag)
-                var ndefMessage: NdefMessage? = null
+                val ndefMessage: NdefMessage?
                 try {
                     ndefTag.connect()
                     ndefMessage = ndefTag.ndefMessage
