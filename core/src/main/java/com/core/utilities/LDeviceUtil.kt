@@ -19,106 +19,97 @@ import java.util.*
  *
  * @author loitp
  */
-object LDeviceUtil {
+class LDeviceUtil {
 
-    private val TAG = LDeviceUtil::class.java.simpleName
+    companion object {
+        private val TAG = LDeviceUtil::class.java.simpleName
 
-    val isNavigationBarAvailable: Boolean
-        get() {
-            val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
-            val hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME)
-            return !(hasBackKey && hasHomeKey)
+        val isNavigationBarAvailable: Boolean
+            get() {
+                val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
+                val hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME)
+                return !(hasBackKey && hasHomeKey)
+            }
+
+        fun isTablet(activity: Activity): Boolean {
+            return activity.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
         }
 
-    fun isTablet(activity: Activity): Boolean {
-        return activity.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
-    }
-
-//    fun getCurrentAndroidVersion(activity: Activity): Int {
-//        val thisVersion: Int
-//        thisVersion = try {
-//            val pi = activity.packageManager.getPackageInfo(activity.packageName, 0)
-//            pi.versionCode
-//        } catch (e: PackageManager.NameNotFoundException) {
-//            1
-//        }
-//        return thisVersion
-//    }
-
-    @Suppress("DEPRECATION")
-    @SuppressLint("ObsoleteSdkInt")
-    fun setClipboard(context: Context, text: String) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
-            clipboard.text = text
-        } else {
-            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
-            val clip = android.content.ClipData.newPlainText("Copy", text)
-            clipboard.setPrimaryClip(clip)
+        @Suppress("DEPRECATION")
+        @SuppressLint("ObsoleteSdkInt")
+        fun setClipboard(context: Context, text: String) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
+                clipboard.text = text
+            } else {
+                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clip = android.content.ClipData.newPlainText("Copy", text)
+                clipboard.setPrimaryClip(clip)
+            }
         }
-    }
 
-    @JvmStatic
-    fun vibrate(context: Context, length: Int = 300) {
-        val v = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-        v.vibrate(length.toLong())
-    }
-
-    @JvmStatic
-    fun vibrate(context: Context) {
-        vibrate(context, 200)
-    }
-
-    fun getRandomNumber(max: Int): Int {
-        val r = Random()
-        return r.nextInt(max)
-    }
-
-    fun getRandomString(maxLeng: Int): String? {
-        val generator = Random()
-        val randomStringBuilder = StringBuilder()
-        val randomLength = generator.nextInt(maxLeng)
-        var tempChar: Char
-        for (i in 0 until randomLength) {
-            tempChar = (generator.nextInt(96) + 32).toChar()
-            randomStringBuilder.append(tempChar)
+        @JvmStatic
+        fun vibrate(context: Context, length: Int = 300) {
+            val v = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            v.vibrate(length.toLong())
         }
-        return randomStringBuilder.toString()
-    }
 
-    fun isCanOverlay(activity: Activity?): Boolean {
-        if (activity == null) {
-            return false
+        @JvmStatic
+        fun vibrate(context: Context) {
+            vibrate(context, 200)
         }
-        return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity))
-    }
 
-    fun isEmulator(): Boolean {
-        return (Build.FINGERPRINT.startsWith("generic")
-                || Build.FINGERPRINT.startsWith("unknown")
-                || Build.MODEL.contains("google_sdk")
-                || Build.MODEL.contains("Emulator")
-                || Build.MODEL.contains("Android SDK built for x86")
-                || Build.MANUFACTURER.contains("Genymotion")
-                || Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
-                || "google_sdk" == Build.PRODUCT)
-    }
+        fun getRandomNumber(max: Int): Int {
+            val r = Random()
+            return r.nextInt(max)
+        }
 
-    fun getAvailableSpaceInMb(context: Context): Int {
-        val freeBytesExternal = File(context.getExternalFilesDir(null).toString()).freeSpace
-        val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
-        //val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
-        //val totalMb = (totalSize / (1024 * 1024)).toInt()
-        return freeMb
-    }
+        fun getRandomString(maxLeng: Int): String? {
+            val generator = Random()
+            val randomStringBuilder = StringBuilder()
+            val randomLength = generator.nextInt(maxLeng)
+            var tempChar: Char
+            for (i in 0 until randomLength) {
+                tempChar = (generator.nextInt(96) + 32).toChar()
+                randomStringBuilder.append(tempChar)
+            }
+            return randomStringBuilder.toString()
+        }
 
-    fun getAvailableRAM(context: Context): Long {
-        val memoryInfo = ActivityManager.MemoryInfo()
-        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        activityManager.getMemoryInfo(memoryInfo)
-        val availableMegs = memoryInfo.availMem / 1048576L
-        val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
-        //LLog.d(TAG, "percentAvail $percentAvail")
-        return availableMegs
+        fun isCanOverlay(activity: Activity?): Boolean {
+            if (activity == null) {
+                return false
+            }
+            return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity))
+        }
+
+        fun isEmulator(): Boolean {
+            return (Build.FINGERPRINT.startsWith("generic")
+                    || Build.FINGERPRINT.startsWith("unknown")
+                    || Build.MODEL.contains("google_sdk")
+                    || Build.MODEL.contains("Emulator")
+                    || Build.MODEL.contains("Android SDK built for x86")
+                    || Build.MANUFACTURER.contains("Genymotion")
+                    || Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
+                    || "google_sdk" == Build.PRODUCT)
+        }
+
+        fun getAvailableSpaceInMb(context: Context): Int {
+            val freeBytesExternal = File(context.getExternalFilesDir(null).toString()).freeSpace
+            val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
+            //val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
+            //val totalMb = (totalSize / (1024 * 1024)).toInt()
+            return freeMb
+        }
+
+        fun getAvailableRAM(context: Context): Long {
+            val memoryInfo = ActivityManager.MemoryInfo()
+            val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            activityManager.getMemoryInfo(memoryInfo)
+            val availableMegs = memoryInfo.availMem / 1048576L
+            val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
+            //LLog.d(TAG, "percentAvail $percentAvail")
+            return availableMegs
+        }
     }
 }
