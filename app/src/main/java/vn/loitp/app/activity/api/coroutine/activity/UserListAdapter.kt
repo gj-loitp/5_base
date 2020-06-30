@@ -14,7 +14,8 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.model.UserTest
 
 class UserListAdapter(private val context: Context,
-                      private val callback: (Int, UserTest) -> Unit) : RecyclerView.Adapter<UserListAdapter.UserTestViewHolder>() {
+                      private val callback: (Int, UserTest) -> Unit) :
+        RecyclerView.Adapter<UserListAdapter.UserTestViewHolder>() {
     private val TAG = javaClass.simpleName
 
     private var userTestList = ArrayList<UserTest>()

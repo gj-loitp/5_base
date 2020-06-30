@@ -30,6 +30,6 @@ class TestRepository(private val apiService: ApiService) : BaseRepository() {
     }*/
 
     suspend fun getUserTest(page: Int): ApiResponse<ArrayList<UserTest>> = makeApiCall {
-        apiService.getUserTest(page).await()
+        apiService.getUserTestAsync(page).await()
     }
 }

@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.restapi.restclient.RestClient
-import kotlinx.android.synthetic.main.activity_menu_api.*
+import kotlinx.android.synthetic.main.activity_api_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.activity.CoroutineAPIActivity
 import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
@@ -32,7 +32,7 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_api
+        return R.layout.activity_api_menu
     }
 
     override fun onClick(v: View?) {

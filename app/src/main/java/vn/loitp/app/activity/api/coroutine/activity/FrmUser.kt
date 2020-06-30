@@ -34,7 +34,7 @@ class FrmUser : BaseFragment() {
             findNavController().popBackStack()
         }
 
-        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
+        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
         }

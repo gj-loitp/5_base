@@ -27,6 +27,6 @@ interface ApiService {
             Deferred<Response<ApiResponse<WrapperPhotosetGetlist>>>*/
 
     @GET("users/")
-    fun getUserTest(@Query("page") page: Int):
+    fun getUserTestAsync(@Query("page") page: Int):
             Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
 }

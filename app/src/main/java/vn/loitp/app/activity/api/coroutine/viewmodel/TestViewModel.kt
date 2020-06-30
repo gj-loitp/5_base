@@ -17,7 +17,7 @@ import vn.loitp.app.activity.api.coroutine.service.TestApiClient
  */
 
 class TestViewModel(application: Application) : BaseViewModel(application) {
-    private val TAG = "loitpp" + javaClass.simpleName
+    private val TAG = javaClass.simpleName
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
     // action
