@@ -18,7 +18,7 @@ import vn.loitp.app.app.LApplication;
  * Created by www.muathu@gmail.com on 11/2/2017.
  */
 
-//TODO convert rx
+//TODO convert croutine
 public class AddComicFavListTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
     private Activity mActivity;

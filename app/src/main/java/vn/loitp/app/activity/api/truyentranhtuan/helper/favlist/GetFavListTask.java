@@ -14,7 +14,7 @@ import java.util.List;
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic;
 import vn.loitp.app.app.LApplication;
 
-//TODO convert rx
+//TODO convert croutine
 public class GetFavListTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
 

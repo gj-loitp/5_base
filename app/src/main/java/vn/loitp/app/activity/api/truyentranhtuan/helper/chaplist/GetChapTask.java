@@ -20,10 +20,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Info;
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap;
 import vn.loitp.app.app.LApplication;
 
-/**
- * Created by www.muathu@gmail.com on 11/2/2017.
- */
-
+//TODO convert coroutine
 public class GetChapTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
     private TTTChap tttChap;
@@ -78,11 +75,6 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                 stringInfo = tttChap.getInfo().getOtherName() + "\n\n" + tttChap.getInfo().getAuthor() + "\n\n" + tttChap.getInfo().getType() + "\n\n" + tttChap.getInfo().getNewChap() + "\n\n" + tttChap.getInfo().getSummary() + "\n\n";
                 getChapSuccess = LStoreUtil.Companion.writeToFile(activity, LStoreUtil.Companion.getFOLDER_TRUYENTRANHTUAN(), LStoreUtil.Companion.getFileNameComic(url), LApplication.Companion.getGson().toJson(tttChap));
             }
-
-            //save url img cover to list comic -> tttChap.getInfo().getCover()
-            /*if (tttChap.getInfo().getCover() != null) {
-                updateInfoToComicList(url, tttChap.getInfo().getCover(), tttChap.getInfo().getType());
-            }*/
         }
         return null;
     }
@@ -99,30 +91,6 @@ public class GetChapTask extends AsyncTask<Void, Void, Void> {
                 callback.onError();
             }
         }
-            /*if (getChapSuccess) {
-                if (chapList != null && !chapList.isEmpty()) {
-                    chapAdapter = new ChapAdapter(activity, tttChap.getChaps().getChap());
-
-                    recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-                    //recyclerView.setLayoutManager(new GridLayoutManager(activity, 3));
-                    //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, 1));
-                    recyclerView.setAdapter(chapAdapter);
-                } else {
-                    LToast.show(activity, R.string.list_chap_of_comic_is_empty);
-                }
-                if (tttChap.getInfo().getCover() != null) {
-                    Glide.with(activity).load(tttChap.getInfo().getCover()).centerCrop()
-                            //.placeholder(R.drawable.loading_spinner)
-                            .crossFade().into(toolbarImage);
-                    Glide.with(activity).load(tttChap.getInfo().getCover()).centerCrop()
-                            //.placeholder(R.drawable.loading_spinner)
-                            .crossFade().into((ImageView) findViewById(R.id.iv_blur));
-                }
-                tvInfo.setText(stringInfo);
-            } else {
-                LToast.show(activity, R.string.err_connect_failed);
-            }*/
         super.onPostExecute(aVoid);
     }
 
