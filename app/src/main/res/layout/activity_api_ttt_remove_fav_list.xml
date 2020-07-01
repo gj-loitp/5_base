@@ -45,7 +45,7 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/tv_title"
+        android:id="@+id/tvTitle"
         style="@style/TextMenu"
         android:text="Test xóa truyện" />
 

@@ -21,7 +21,7 @@ public class TTTAPIChapListActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        btSelect = findViewById(R.id.bt_select);
+        btSelect = findViewById(R.id.btSelect);
         tvTitle = findViewById(R.id.tvTitle);
         tv = findViewById(R.id.textView);
         avLoadingIndicatorView = findViewById(R.id.indicatorView);
