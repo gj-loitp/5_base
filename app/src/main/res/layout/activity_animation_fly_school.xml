@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:padding="@dimen/padding_medium"
         android:text="Can customize the path you like"
-        android:textSize="@dimen/txt_18" />
+        android:textSize="@dimen/txt_medium" />
 
     <com.views.animation.flyschool.ShapeFlyer
-        android:id="@+id/floating_container"
+        android:id="@+id/floatingContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:enable_alpha="true"
@@ -31,25 +32,24 @@
         android:layout_alignParentBottom="true">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_play_1"
+            android:id="@+id/btPlay1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Play1" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_play_2"
+            android:id="@+id/btPlay2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Play2" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_play_3"
+            android:id="@+id/btPlay3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Play3" />
     </LinearLayout>
 </RelativeLayout>
-
