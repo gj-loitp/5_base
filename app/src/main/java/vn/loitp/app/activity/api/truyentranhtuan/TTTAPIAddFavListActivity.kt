@@ -52,25 +52,27 @@ class TTTAPIAddFavListActivity : BaseFontActivity() {
 
     private fun addComic(comic: Comic) {
         indicatorView.smoothToShow()
-        AddComicFavListTask(activity, comic, object : AddComicFavListTask.Callback {
-            override fun onAddComicSuccess(mComic: Comic, comicList: List<Comic>) {
-                LUIUtil.printBeautyJson(comicList, textView)
-                showShort("onAddComicSuccess")
-                indicatorView.smoothToHide()
-            }
+        AddComicFavListTask(context = applicationContext,
+                mComic = comic,
+                callback = object : AddComicFavListTask.Callback {
+                    override fun onAddComicSuccess(mComic: Comic, comicList: List<Comic>) {
+                        LUIUtil.printBeautyJson(comicList, textView)
+                        showShort("onAddComicSuccess")
+                        indicatorView.smoothToHide()
+                    }
 
-            override fun onComicIsExist(mComic: Comic, comicList: List<Comic>) {
-                LUIUtil.printBeautyJson(comicList, textView)
-                showShort("onComicIsExist")
-                indicatorView.smoothToHide()
-            }
+                    override fun onComicIsExist(mComic: Comic, comicList: List<Comic>) {
+                        LUIUtil.printBeautyJson(comicList, textView)
+                        showShort("onComicIsExist")
+                        indicatorView.smoothToHide()
+                    }
 
-            @SuppressLint("SetTextI18n")
-            override fun onAddComicError() {
-                showShort("onAddComicError")
-                textView.text = "add error"
-                indicatorView.smoothToHide()
-            }
-        }).execute()
+                    @SuppressLint("SetTextI18n")
+                    override fun onAddComicError() {
+                        showShort("onAddComicError")
+                        textView.text = "add error"
+                        indicatorView.smoothToHide()
+                    }
+                }).execute()
     }
 }
