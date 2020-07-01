@@ -182,8 +182,8 @@ class LStoreUtil {
         /*
          * read text file from folder
          */
-        fun readTxtFromFolder(activity: Activity, folderName: String?, fileName: String): String {
-            val path = getFolderPath(activity) + (if (folderName == null) "/" else "$folderName/") + fileName
+        fun readTxtFromFolder(context: Context, folderName: String?, fileName: String): String {
+            val path = getFolderPath(context) + (if (folderName == null) "/" else "$folderName/") + fileName
             //LLog.d(TAG, "path: $path")
             val txtFile = File(path)
             val text = StringBuilder()
@@ -330,7 +330,7 @@ class LStoreUtil {
                 br.close()
                 ins.close()
                 //LLog.d(TAG, "writeToFile saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString())
-                writeToFile(context as Activity, folderName, fileName, stringBuilder.toString())
+                writeToFile(context, folderName, fileName, stringBuilder.toString())
                 state = true
             } catch (e: Exception) {
                 e.printStackTrace()

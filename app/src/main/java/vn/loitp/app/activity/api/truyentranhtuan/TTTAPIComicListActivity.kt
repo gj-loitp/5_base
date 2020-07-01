@@ -5,7 +5,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil.Companion.printBeautyJson
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils
@@ -50,17 +50,22 @@ class TTTAPIComicListActivity : BaseFontActivity() {
             textView.text = ""
             tvTitle.text = ""
 
-            GetComicTask(activity, comicTypeList[position].url, indicatorView, object : GetComicTask.Callback {
-                @SuppressLint("SetTextI18n")
-                override fun onSuccess(comicList: List<Comic>) {
-                    printBeautyJson(comicList, textView)
-                    tvTitle.text = "Danh sách truyện: " + comicList.size
-                }
+            indicatorView.smoothToShow()
+            GetComicTask(context = applicationContext,
+                    link = comicTypeList[position].url,
+                    callback = object : GetComicTask.Callback {
+                        @SuppressLint("SetTextI18n")
+                        override fun onSuccess(comicList: List<Comic>) {
+                            LUIUtil.printBeautyJson(o = comicList, textView = textView)
+                            tvTitle?.text = "Danh sách truyện: " + comicList.size
+                            indicatorView?.smoothToHide()
+                        }
 
-                override fun onError() {
-                    showShort("Error")
-                }
-            }).execute()
+                        override fun onError() {
+                            showShort("Error")
+                            indicatorView?.smoothToHide()
+                        }
+                    }).execute()
         }
         val dialog = builder.create()
         dialog.show()
