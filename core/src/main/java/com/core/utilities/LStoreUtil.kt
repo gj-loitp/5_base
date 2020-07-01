@@ -184,7 +184,7 @@ class LStoreUtil {
          */
         fun readTxtFromFolder(activity: Activity, folderName: String?, fileName: String): String {
             val path = getFolderPath(activity) + (if (folderName == null) "/" else "$folderName/") + fileName
-            LLog.d(TAG, "path: $path")
+            //LLog.d(TAG, "path: $path")
             val txtFile = File(path)
             val text = StringBuilder()
             try {
