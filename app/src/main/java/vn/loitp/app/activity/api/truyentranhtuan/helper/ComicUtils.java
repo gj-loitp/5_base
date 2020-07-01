@@ -79,6 +79,6 @@ public class ComicUtils {
                 return i;
             }
         }
-        return com.core.common.Constants.INSTANCE.getNOT_FOUND();
+        return com.core.common.Constants.getNOT_FOUND();
     }
 }
