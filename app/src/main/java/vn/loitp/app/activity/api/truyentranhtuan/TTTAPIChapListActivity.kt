@@ -15,18 +15,22 @@ class TTTAPIChapListActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         val urlComic = "http://truyentranhtuan.com/one-piece/"
-        GetChapTask(activity, urlComic, object : GetChapTask.Callback {
-            @SuppressLint("SetTextI18n")
-            override fun onSuccess(tttChap: TTTChap) {
-                LUIUtil.printBeautyJson(tttChap, textView)
-                indicatorView.smoothToHide()
-                tvTitle.text = "Chap truyện One Piece - size: " + tttChap.chaps?.chap?.size
-            }
+        GetChapTask(context = applicationContext,
+                url = urlComic,
+                callback = object : GetChapTask.Callback {
+                    @SuppressLint("SetTextI18n")
+                    override fun onSuccess(tttChap: TTTChap?) {
+                        tttChap?.let {
+                            LUIUtil.printBeautyJson(tttChap, textView)
+                            indicatorView.smoothToHide()
+                            tvTitle.text = "Chap truyện One Piece - size: " + tttChap.chaps?.chap?.size
+                        }
+                    }
 
-            override fun onError() {
-                showShort("onError")
-            }
-        }).execute()
+                    override fun onError() {
+                        showShort("onError")
+                    }
+                }).execute()
     }
 
     override fun setFullScreen(): Boolean {
