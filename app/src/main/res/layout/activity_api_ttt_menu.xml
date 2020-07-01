@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_comic_list"
+                android:id="@+id/btComicList"
                 style="@style/ButtonMenu"
                 android:text="Lấy danh sách truyện" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_chap_list"
+                android:id="@+id/btChapList"
                 style="@style/ButtonMenu"
                 android:text="Danh sách chương ONEPIECE" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_page_list"
+                android:id="@+id/btPageList"
                 style="@style/ButtonMenu"
                 android:text="Danh sách trang ONEPIECE - Chap 69" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_fav_list"
+                android:id="@+id/btFavList"
                 style="@style/ButtonMenu"
                 android:text="Danh sách truyện yêu thích" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_add_to_fav_list"
+                android:id="@+id/btAddToFavList"
                 style="@style/ButtonMenu"
                 android:text="Thêm truyện vào danh sách truyện yêu thích" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_remove_to_fav_list"
+                android:id="@+id/btRemoveToFavList"
                 style="@style/ButtonMenu"
                 android:text="Xóa truyện khỏi danh sách truyện yêu thích" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu TTT API" />
 </RelativeLayout>
-
