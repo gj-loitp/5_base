@@ -25,21 +25,21 @@ public class TTTAPIRemoveFavListActivity extends BaseFontActivity {
         avLoadingIndicatorView = findViewById(R.id.indicatorView);
         avLoadingIndicatorView.hide();
 
-        findViewById(R.id.bt_add_vuongphongloi).setOnClickListener(v -> {
+        findViewById(R.id.btAddVuongPhongLoi).setOnClickListener(v -> {
             Comic comic = new Comic();
             comic.setDate("29.07.2014");
             comic.setUrl("http://truyentranhtuan.com/vuong-phong-loi-i/");
             comic.setTitle("Vương Phong Lôi I");
             removeComic(comic);
         });
-        findViewById(R.id.bt_add_layers).setOnClickListener(v -> {
+        findViewById(R.id.btAddLayers).setOnClickListener(v -> {
             Comic comic = new Comic();
             comic.setDate("28.06.2015");
             comic.setUrl("http://truyentranhtuan.com/layers/");
             comic.setTitle("Layers");
             removeComic(comic);
         });
-        findViewById(R.id.bt_add_blackhaze).setOnClickListener(v -> {
+        findViewById(R.id.btAddBlackHaze).setOnClickListener(v -> {
             Comic comic = new Comic();
             comic.setDate("12.03.2017");
             comic.setUrl("http://truyentranhtuan.com/black-haze/");

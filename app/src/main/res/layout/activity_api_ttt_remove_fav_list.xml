@@ -19,17 +19,17 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_add_vuongphongloi"
+                android:id="@+id/btAddVuongPhongLoi"
                 style="@style/ButtonMenu"
                 android:text="Xóa truyện Vương Phong Lôi I" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_add_layers"
+                android:id="@+id/btAddLayers"
                 style="@style/ButtonMenu"
                 android:text="Xóa truyện Layers" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_add_blackhaze"
+                android:id="@+id/btAddBlackHaze"
                 style="@style/ButtonMenu"
                 android:text="Xóa truyện Black Haze" />
 
