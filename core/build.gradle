@@ -106,6 +106,9 @@ dependencies {
     api 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
 
     api 'com.airbnb.android:lottie:3.0.6'
+
+    //https://github.com/EverythingMe/overscroll-decor
+    api 'me.everything:overscroll-decor-android:1.1.0'
     //endregion
 
     //region google service

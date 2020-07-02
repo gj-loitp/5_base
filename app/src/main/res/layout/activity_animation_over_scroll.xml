@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
 
-    <androidx.core.widget.NestedScrollView
+    <ScrollView
         android:id="@+id/nsv"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/txt_medium" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </ScrollView>
 
     <TextView
         android:id="@+id/tvMenu"

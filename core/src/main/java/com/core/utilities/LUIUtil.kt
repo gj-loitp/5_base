@@ -39,11 +39,11 @@ import com.google.gson.GsonBuilder
 import com.interfaces.CallbackPull
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.ConvertUtils
-import com.views.overscroll.OverScrollDecoratorHelper
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
 import io.github.inflationx.calligraphy3.CalligraphyUtils
 import io.github.inflationx.viewpump.ViewPump
+import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
 import java.util.*
 
