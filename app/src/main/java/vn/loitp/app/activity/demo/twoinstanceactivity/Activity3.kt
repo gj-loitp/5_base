@@ -3,17 +3,12 @@ package vn.loitp.app.activity.demo.twoinstanceactivity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_3.*
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.app.R
-import vn.loitp.app.activity.demo.twoinstanceactivity.FloatingViewService.MessageEvent
 
 class Activity3 : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,26 +26,6 @@ class Activity3 : BaseFontActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
             LActivityUtil.tranIn(activity)
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-            askPermission()
-        }
-        btGoToFloat.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (Settings.canDrawOverlays(activity)) {
-                    startService(Intent(activity, FloatingViewService::class.java))
-                } else {
-                    askPermission()
-                    showShort("You need System Alert Window Permission to do this")
-                }
-            }
-        }
-    }
-
-    private fun askPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-            startActivityForResult(intent, SYSTEM_ALERT_WINDOW_PERMISSION)
         }
     }
 
@@ -91,15 +66,4 @@ class Activity3 : BaseFontActivity() {
         return R.layout.activity_3
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onMessageEvent(event: MessageEvent?) {
-        logD("onMessageEvent")
-        val intent = Intent(this@Activity3, Activity2::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
-        startActivity(intent)
-    }
-
-    companion object {
-        private const val SYSTEM_ALERT_WINDOW_PERMISSION = 2084
-    }
 }

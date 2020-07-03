@@ -907,10 +907,6 @@
         <service
             android:name=".activity.demo.floatingview.service.FVCustomUZVideoService"
             android:exported="false" />
-        <service
-            android:name=".activity.demo.twoinstanceactivity.FloatingViewService"
-            android:enabled="true"
-            android:exported="false" />
 
         <activity
             android:name=".activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"
