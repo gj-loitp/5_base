@@ -44,7 +44,7 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        resolutionTextView = findViewById(R.id.resolution_textView);
+        resolutionTextView = findViewById(R.id.tvResolution);
         simpleExoPlayerView = findViewById(R.id.playerView);
 
         BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
@@ -183,7 +183,7 @@ public class VideoActivity extends BaseFontActivity implements VideoRendererEven
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_video;
+        return R.layout.activity_demo_video;
     }
 
     @Override

@@ -8,7 +8,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/resolution_textView"
+        android:layout_below="@+id/tvResolution"
         android:fillViewport="true">
 
         <LinearLayout
@@ -55,7 +55,7 @@
     </ScrollView>
 
     <TextView
-        android:id="@+id/resolution_textView"
+        android:id="@+id/tvResolution"
         style="@style/TextMenu"
         android:text="Text To Speech" />
 </RelativeLayout>
