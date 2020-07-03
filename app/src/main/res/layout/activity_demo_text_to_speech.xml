@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvResolution"
-        android:fillViewport="true">
+        android:fillViewport="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_i_love_you"
+                android:id="@+id/btILoveYou"
                 style="@style/ButtonMenu"
                 android:text="I love you" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_i_you_love_me"
+                android:id="@+id/btYouLoveMe"
                 style="@style/ButtonMenu"
                 android:text="You love me" />
 
@@ -35,8 +37,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/et_type"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etType"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -44,7 +46,7 @@
                     android:maxLines="1" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/bt_speak"
+                    android:id="@+id/btSpeak"
                     style="@style/ButtonMenu"
                     android:text="Speak"
                     android:visibility="gone"
@@ -52,7 +54,7 @@
             </LinearLayout>
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvResolution"

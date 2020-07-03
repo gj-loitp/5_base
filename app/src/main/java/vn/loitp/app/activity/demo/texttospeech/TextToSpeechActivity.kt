@@ -7,29 +7,30 @@ import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
 import com.core.utilities.LTextToSpeechUtil
-import kotlinx.android.synthetic.main.activity_text_to_speech.*
+import kotlinx.android.synthetic.main.activity_demo_text_to_speech.*
 import vn.loitp.app.R
 
 class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         LTextToSpeechUtil.instance.setupTTS(this)
-        findViewById<View>(R.id.bt_i_love_you).setOnClickListener(this)
-        findViewById<View>(R.id.bt_i_you_love_me).setOnClickListener(this)
 
-        bt_speak.setOnClickListener(this)
+        btILoveYou.setOnClickListener(this)
+        btYouLoveMe.setOnClickListener(this)
+        btSpeak.setOnClickListener(this)
 
-        et_type.addTextChangedListener(object : TextWatcher {
+        etType.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
                 //do nothing
             }
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                if (et_type.text.toString().isEmpty()) {
-                    bt_speak.visibility = View.GONE
+                if (etType.text.toString().isEmpty()) {
+                    btSpeak.visibility = View.GONE
                 } else {
-                    bt_speak.visibility = View.VISIBLE
+                    btSpeak.visibility = View.VISIBLE
                 }
             }
 
@@ -48,14 +49,14 @@ class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_to_speech
+        return R.layout.activity_demo_text_to_speech
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.bt_i_love_you -> LTextToSpeechUtil.instance.speakOut("I love you")
-            R.id.bt_i_you_love_me -> LTextToSpeechUtil.instance.speakOut("You love me")
-            R.id.bt_speak -> LTextToSpeechUtil.instance.speakOut(et_type.text.toString())
+        when (v) {
+            btILoveYou -> LTextToSpeechUtil.instance.speakOut("I love you")
+            btYouLoveMe -> LTextToSpeechUtil.instance.speakOut("You love me")
+            btSpeak -> LTextToSpeechUtil.instance.speakOut(etType.text.toString())
         }
     }
 
