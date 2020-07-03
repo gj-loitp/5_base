@@ -36,16 +36,10 @@ class Activity3 : BaseFontActivity() {
             askPermission()
         }
         btGoToFloat.setOnClickListener {
-            when {
-                Build.VERSION.SDK_INT < Build.VERSION_CODES.M -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (Settings.canDrawOverlays(activity)) {
                     startService(Intent(activity, FloatingViewService::class.java))
-                    //finish();
-                }
-                Settings.canDrawOverlays(activity) -> {
-                    startService(Intent(activity, FloatingViewService::class.java))
-                    //finish();
-                }
-                else -> {
+                } else {
                     askPermission()
                     showShort("You need System Alert Window Permission to do this")
                 }
@@ -54,8 +48,10 @@ class Activity3 : BaseFontActivity() {
     }
 
     private fun askPermission() {
-        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-        startActivityForResult(intent, SYSTEM_ALERT_WINDOW_PERMISSION)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+            startActivityForResult(intent, SYSTEM_ALERT_WINDOW_PERMISSION)
+        }
     }
 
     override fun onNewIntent(intent: Intent) {
