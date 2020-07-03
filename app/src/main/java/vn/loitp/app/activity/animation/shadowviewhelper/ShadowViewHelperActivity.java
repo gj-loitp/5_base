@@ -33,7 +33,7 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
                 .setShadowRadius(LDisplayUtil.Companion.dip2px(this, 3))
                 .setShadowSide(ShadowProperty.Companion.getALL());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.WHITE, 0, 0);
-        LinearLayout ll0 = findViewById(R.id.ll_0);
+        LinearLayout ll0 = findViewById(R.id.ll0);
         ViewCompat.setBackground(ll0, sd);
         ViewCompat.setLayerType(ll0, ViewCompat.LAYER_TYPE_SOFTWARE, null);
     }
@@ -46,7 +46,7 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
                 .setShadowRadius(LDisplayUtil.Companion.dip2px(this, 3))
                 .setShadowSide(ShadowProperty.Companion.getLEFT() | ShadowProperty.Companion.getRIGHT() | ShadowProperty.Companion.getBOTTOM());
         ShadowViewDrawable sd = new ShadowViewDrawable(sp, Color.TRANSPARENT, 0, 0);
-        LinearLayout ll1 = findViewById(R.id.ll_1);
+        LinearLayout ll1 = findViewById(R.id.ll1);
         ViewCompat.setBackground(ll1, sd);
         ViewCompat.setLayerType(ll1, ViewCompat.LAYER_TYPE_SOFTWARE, null);
     }
@@ -76,6 +76,6 @@ public class ShadowViewHelperActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_shadowview_helper;
+        return R.layout.activity_animation_shadowview_helper;
     }
 }
