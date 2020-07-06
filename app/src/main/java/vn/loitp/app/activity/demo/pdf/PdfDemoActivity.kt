@@ -10,7 +10,7 @@ import com.task.AsyncTaskDownloadPdf
 import com.task.AsyncTaskDownloadPdfStream
 import com.task.GetPdfCoroutine
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_pdf_demo.*
+import kotlinx.android.synthetic.main.activity_demo_pdf.*
 import vn.loitp.app.R
 import java.io.File
 
@@ -26,18 +26,18 @@ class PdfDemoActivity : BaseFontActivity() {
     }
 
     override fun setTag(): String? {
-        return "loitppp" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pdf_demo
+        return R.layout.activity_demo_pdf
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btFileAsynctask.setSafeOnClickListener {
-            callAysnctaskFile()
+        btFileAsyncTask.setSafeOnClickListener {
+            callAysncTaskFile()
         }
         btFileCoroutine.setSafeOnClickListener {
             callCoroutineFile()
@@ -63,22 +63,22 @@ class PdfDemoActivity : BaseFontActivity() {
             pb.visibility = View.VISIBLE
             pb.progress = 0
             pdfView.visibility = View.GONE
-            btFileAsynctask.visibility = View.GONE
+            btFileAsyncTask.visibility = View.GONE
             btFileCoroutine.visibility = View.GONE
             btStreamAsyncTask.visibility = View.GONE
             btStreamCoroutine.visibility = View.GONE
         } else {
             pb.visibility = View.GONE
-            btFileAsynctask.visibility = View.VISIBLE
+            btFileAsyncTask.visibility = View.VISIBLE
             btFileCoroutine.visibility = View.VISIBLE
             btStreamAsyncTask.visibility = View.VISIBLE
             btStreamCoroutine.visibility = View.VISIBLE
         }
     }
 
-    private fun callAysnctaskFile() {
+    private fun callAysncTaskFile() {
         asyncTaskDownloadPdf?.cancel(true)
-        val url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+        val url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf"
         //val url = "http://www.pdf995.com/samples/pdf.pdf";
         //val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
@@ -129,7 +129,7 @@ class PdfDemoActivity : BaseFontActivity() {
 
     private fun callCoroutineFile() {
         updateUIProgress(isLoadding = true)
-        val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf";
+        val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf"
         //val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
         //val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
