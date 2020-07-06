@@ -85,42 +85,43 @@ class NFCActivity : BaseFontActivity() {
         super.onNewIntent(intent)
 
         val tag = intent.getParcelableExtra<Tag>(NfcAdapter.EXTRA_TAG)
-
         logD("buildMACAddressString " + LNFCUtil.buildMACAddressString(tag?.id))
 
-        val tagId: String = LNFCUtil.bytesToHex(tag?.id)
-        val tagWrapper = TagWrapper(tagId)
-        val misc = ArrayList<String>()
-        misc.add("scanned at: " + LDateUtil.now())
+        val tagId = LNFCUtil.bytesToHex(tag?.id)
+        tagId?.let {
+            val tagWrapper = TagWrapper(id = it)
+            val misc = ArrayList<String>()
+            misc.add("scanned at: " + LDateUtil.now())
 
-        val rawMsg = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
-        var tagData = ""
-        if (rawMsg != null) {
-            val msg = rawMsg[0] as NdefMessage
-            val cardRecord = msg.records[0]
-            tagData = try {
-                readRecord(cardRecord.payload) ?: ""
-            } catch (e: UnsupportedEncodingException) {
-                e.printStackTrace()
-                return
+            val rawMsg = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES)
+            var tagData = ""
+            if (rawMsg != null) {
+                val msg = rawMsg[0] as NdefMessage
+                val cardRecord = msg.records[0]
+                tagData = try {
+                    readRecord(cardRecord.payload) ?: ""
+                } catch (e: UnsupportedEncodingException) {
+                    e.printStackTrace()
+                    return
+                }
             }
-        }
-        misc.add("tag data: $tagData")
-        tagWrapper.techList.put("Misc", misc)
-        tag?.let {
-            for (tech in it.techList) {
-                val item = tech.replace("android.nfc.tech.", "")
-                val info = getTagInfo(tag = tag, tech = item)
-                tagWrapper.techList["Technology: $item"] = info
+            misc.add("tag data: $tagData")
+            tagWrapper.techList.put("Misc", misc)
+            tag?.let {
+                for (tech in it.techList) {
+                    val item = tech.replace("android.nfc.tech.", "")
+                    val info = getTagInfo(tag = tag, tech = item)
+                    tagWrapper.techList["Technology: $item"] = info
+                }
             }
-        }
 
-        if (tags.size == 1) {
-            showShort("Swipe right to see previous tags")
-        }
-        tags.add(tagWrapper)
+            if (tags.size == 1) {
+                showShort("Swipe right to see previous tags")
+            }
+            tags.add(tagWrapper)
 
-        LUIUtil.printBeautyJson(o = tags, textView = tvResult)
+            LUIUtil.printBeautyJson(o = tags, textView = tvResult)
+        }
     }
 
     @Throws(UnsupportedEncodingException::class)
