@@ -111,7 +111,7 @@ class NFCActivity : BaseFontActivity() {
             for (tech in it.techList) {
                 val item = tech.replace("android.nfc.tech.", "")
                 val info = getTagInfo(tag = tag, tech = item)
-                tagWrapper.techList.put("Technology: $item", info)
+                tagWrapper.techList["Technology: $item"] = info
             }
         }
 
