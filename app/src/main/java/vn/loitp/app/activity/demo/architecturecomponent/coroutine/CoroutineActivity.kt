@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_coroutine.*
+import kotlinx.android.synthetic.main.activity_demo_coroutine.*
 import kotlinx.coroutines.*
 import vn.loitp.app.R
 import kotlin.system.measureTimeMillis
@@ -28,7 +28,7 @@ class CoroutineActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_coroutine
+        return R.layout.activity_demo_coroutine
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

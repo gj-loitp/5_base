@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_database_room_work.*
+import kotlinx.android.synthetic.main.activity_demo_database_room_work.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
@@ -34,7 +34,7 @@ class WordActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_database_room_work
+        return R.layout.activity_demo_database_room_work
     }
 
     private fun setupViews() {

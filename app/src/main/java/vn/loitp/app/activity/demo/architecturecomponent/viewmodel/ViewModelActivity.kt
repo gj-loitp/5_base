@@ -6,7 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
-import kotlinx.android.synthetic.main.activity_view_model.*
+import kotlinx.android.synthetic.main.activity_demo_view_model.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
@@ -68,7 +68,7 @@ class ViewModelActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_model
+        return R.layout.activity_demo_view_model
     }
 
     private fun generateRandomColor(): Int {

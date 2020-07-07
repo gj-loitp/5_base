@@ -9,6 +9,7 @@ class DeepLinksActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val action = intent?.action
         val data = intent?.data
         tvDeepLinks.text = "action: $action\ndata: $data"
