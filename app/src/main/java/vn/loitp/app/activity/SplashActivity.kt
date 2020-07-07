@@ -10,6 +10,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.Callback1
 import com.interfaces.Callback2
+import com.interfaces.GGCallback
 import com.interfaces.GGSettingCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -17,6 +18,7 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.model.App
+import com.model.GG
 import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.*
 import vn.loitp.app.BuildConfig
@@ -44,6 +46,7 @@ class SplashActivity : BaseFontActivity() {
         }
 
         getSettingFromGGDrive()
+        getGG()
 
         startIdleTimeHandler(10 * 1000)
         //val getAddressLog = DebugDB.getAddressLog()
@@ -257,6 +260,22 @@ class SplashActivity : BaseFontActivity() {
 
                     override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
                         logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
+                    }
+                })
+    }
+
+    private fun getGG() {
+        val linkGGDrive = "https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI"
+        LStoreUtil.getTextFromGGDrive(
+                context = activity,
+                linkGGDrive = linkGGDrive,
+                ggCallback = object : GGCallback {
+                    override fun onGGFailure(call: Call, e: Exception) {
+                        e.printStackTrace()
+                    }
+
+                    override fun onGGResponse(listGG: ArrayList<GG>) {
+                        logD("getGG listGG: -> " + LApplication.gson.toJson(listGG))
                     }
                 })
     }
