@@ -73,7 +73,7 @@ public class RecolorActivity extends BaseFontActivity {
 
     private void logAListOfColors() {
         int[] colorList = new ReColor(context).getColorIntArray("E91E63", "1E88E5", 20);
-        for (int i = 0; i < colorList.length; i++) LLog.INSTANCE.d("Color #" + i, colorList[i] + "");
+        for (int i = 0; i < colorList.length; i++) LLog.d("Color #" + i, colorList[i] + "");
     }
 
     private void onClicks() {
@@ -144,7 +144,7 @@ public class RecolorActivity extends BaseFontActivity {
         reColorCardView.setOnReColorFinish(new OnReColorFinish() {
             @Override
             public void onFinish() {
-                LLog.INSTANCE.d("onReColorFinishCallBack", "It listens");
+                LLog.d("onReColorFinishCallBack", "It listens");
             }
         });
         theCardView.setOnClickListener(new View.OnClickListener() {

@@ -1,82 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMenu">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_activity_transition"
+                android:id="@+id/btActivityTransition"
                 style="@style/ButtonMenu"
                 android:text="@string/activity_transition" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_animation_view"
+                android:id="@+id/btAnimationView"
                 style="@style/ButtonMenu"
                 android:text="@string/animation_view" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_basic_transition"
+                android:id="@+id/btBasicTransition"
                 style="@style/ButtonMenu"
                 android:text="@string/basic_transition" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_basic_transition_activity"
+                android:id="@+id/btBasicTransitionActivity"
                 style="@style/ButtonMenu"
                 android:text="@string/basic_transition_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_basic_transition_frm"
+                android:id="@+id/btBasicTransitionFrm"
                 style="@style/ButtonMenu"
                 android:text="@string/basic_transition" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_expect_anim"
-                style="@style/ButtonMenu"
-                android:text="@string/expect_anim" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_fly_school"
+                android:id="@+id/btFlySchool"
                 style="@style/ButtonMenu"
                 android:text="@string/fly_school" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_lottie"
+                android:id="@+id/btLottie"
                 style="@style/ButtonMenu"
                 android:text="@string/lottie" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_over_scroll"
+                android:id="@+id/btOverScroll"
                 style="@style/ButtonMenu"
                 android:text="@string/over_scroll_like_ios" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_shadowview_helper"
+                android:id="@+id/btShadowViewHelper"
                 style="@style/ButtonMenu"
                 android:text="@string/shadowview_helper" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_value_animator"
+                android:id="@+id/btValueAnimator"
                 style="@style/ButtonMenu"
                 android:text="@string/value_animator" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_animation" />
 </RelativeLayout>
-

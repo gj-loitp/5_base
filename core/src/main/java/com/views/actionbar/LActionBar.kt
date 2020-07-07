@@ -36,7 +36,7 @@ class LActionBar : RelativeLayout {
 
         this.ivIconBack = findViewById<ImageView>(R.id.iv_icon_back)
         this.ivIconMenu = findViewById<ImageView>(R.id.iv_icon_menu)
-        this.tvTitle = findViewById<TextView>(R.id.tv_title)
+        this.tvTitle = findViewById<TextView>(R.id.tvTitle)
         this.realtimeBlurView = findViewById<RealtimeBlurView>(R.id.blur_view)
         this.shadowView = findViewById<View>(R.id.shadow_view)
 

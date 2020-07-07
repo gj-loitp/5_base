@@ -1,6 +1,5 @@
 package com.core.helper.gallery.member
 
-import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -12,58 +11,45 @@ import androidx.recyclerview.widget.RecyclerView
 import com.R
 
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.LDeviceUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
+import java.util.*
 
 /**
  * Created by loitp on 14/04/15.
  */
 class MemberAdapter(private val context: Context, numCount: Int, private val callback: Callback?) : RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
     private val TAG = javaClass.simpleName
-    private val inflater: LayoutInflater
-    private val isTablet: Boolean
-    private val sizeW: Int
-    private val sizeH: Int
-
-    init {
-        this.inflater = LayoutInflater.from(context)
-        this.sizeW = LScreenUtil.screenWidth / numCount
-        this.sizeH = LScreenUtil.screenHeight / numCount
-        this.isTablet = LDeviceUtil.isTablet(context as Activity)
-    }
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
+    private val sizeW: Int = LScreenUtil.screenWidth / numCount
+    private val sizeH: Int = LScreenUtil.screenHeight / numCount
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(inflater.inflate(R.layout.l_item_photos_member, viewGroup, false))
+        return ViewHolder(inflater.inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.fl.layoutParams.width = sizeW
         viewHolder.fl.layoutParams.height = sizeH
         viewHolder.fl.requestLayout()
-        val photo = PhotosDataCore.getInstance().photoList[position]
+        val photo = PhotosDataCore.instance.getPhotoList()[position]
 
-        //LLog.d(TAG, ">>>getUrlO " + photo.getUrlO());
-        //LLog.d(TAG, ">>>getFlickrLink640 " + photo.getFlickrLink640());
-        //LLog.d(TAG, ">>>getFlickrLink1024 " + photo.getFlickrLink1024());
+        LImageUtil.loadNoAmin(context = context, url = photo.urlO, urlThumbnal = photo.urlS, imageView = viewHolder.touchImageView)
 
-        //LImageUtil.load(context, photo.getUrlM(), viewHolder.imageView);
-        LImageUtil.loadNoAmin(context, photo.urlO, photo.urlS, viewHolder.imageView)
-
-        if (photo.title == null || photo.title.toLowerCase().startsWith("null")) {
+        if (photo.title.toLowerCase(Locale.getDefault()).startsWith("null")) {
             viewHolder.tvTitle.visibility = View.INVISIBLE
         } else {
             viewHolder.tvTitle.visibility = View.VISIBLE
             viewHolder.tvTitle.text = photo.title
-            LUIUtil.setTextShadow(viewHolder.tvTitle)
+            LUIUtil.setTextShadow(textView = viewHolder.tvTitle)
         }
-        viewHolder.imageView.setOnClickListener {
-            callback?.onClick(photo, position, viewHolder.imageView, viewHolder.tvTitle)
+        viewHolder.touchImageView.setOnClickListener {
+            callback?.onClick(photo = photo, pos = position, imageView = viewHolder.touchImageView, textView = viewHolder.tvTitle)
         }
-        viewHolder.imageView.setOnLongClickListener {
-            callback?.onLongClick(photo, position)
+        viewHolder.touchImageView.setOnLongClickListener {
+            callback?.onLongClick(photo = photo, pos = position)
             true
         }
 
@@ -83,18 +69,15 @@ class MemberAdapter(private val context: Context, numCount: Int, private val cal
     }
 
     override fun getItemCount(): Int {
-        return if (PhotosDataCore.getInstance().photoList == null) {
-            0
-        } else PhotosDataCore.getInstance().photoList.size
+        return PhotosDataCore.instance.getPhotoList().size
     }
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val fl: FrameLayout = v.findViewById(R.id.fl)
-        val tvTitle: TextView = v.findViewById(R.id.tv_title)
-        val imageView: ImageView = v.findViewById(R.id.image_view)
+        val tvTitle: TextView = v.findViewById(R.id.tvTitle)
+        val touchImageView: ImageView = v.findViewById(R.id.touchImageView)
         val viewSpaceTop: View = v.findViewById(R.id.viewSpaceTop)
         val viewSpaceBottom: View = v.findViewById(R.id.viewSpaceBottom)
-
     }
 
     interface Callback {

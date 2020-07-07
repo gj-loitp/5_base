@@ -21,4 +21,3 @@ class AdmobData private constructor() {
         val instance = AdmobData()
     }
 }
-

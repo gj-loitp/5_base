@@ -107,7 +107,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
                 else -> return@setOnTouchListener false
             }
         }
-        tvTitle = findViewById(R.id.tv_title)
+        tvTitle = findViewById(R.id.tvTitle)
         tvTitle?.visibility = View.GONE
         tvMessage = findViewById(R.id.tv_message)
         tvMessage?.visibility = View.GONE

@@ -11,7 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil.setSize
+import com.core.utilities.LUIUtil
 import com.views.LToast.showShort
 import com.views.scrollview.LHorizontalScrollView
 import com.views.scrollview.LScrollView
@@ -51,10 +51,10 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
             if (btGenLine.isClickable) {
                 btGenLine.isClickable = false
                 btGenLine.setTextColor(Color.GRAY)
-                setSize(vg1, WIDTH_PX, HEIGHT_PX)
-                setSize(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
-                setSize(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
-                setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                LUIUtil.setSize(vg1, WIDTH_PX, HEIGHT_PX)
+                LUIUtil.setSize(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
+                LUIUtil.setSize(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
+                LUIUtil.setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
                 Render(30, 24).execute()
                 //new Render(7, 12).execute();
             }

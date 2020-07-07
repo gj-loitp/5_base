@@ -66,7 +66,7 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), DatabaseFirebaseNewPostActivity.class));
-                LActivityUtil.INSTANCE.tranIn(getActivity());
+                LActivityUtil.tranIn(getActivity());
             }
         });
     }

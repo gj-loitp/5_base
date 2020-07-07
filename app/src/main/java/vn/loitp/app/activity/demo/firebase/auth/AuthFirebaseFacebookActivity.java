@@ -169,12 +169,12 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
             mStatusTextView.setText(getString(R.string.facebook_status_fmt, user.getDisplayName()));
             //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
 
-            LUIUtil.INSTANCE.printBeautyJson(user, mDetailTextView);
+            LUIUtil.Companion.printBeautyJson(user, mDetailTextView);
 
             LLog.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
             LLog.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
             try {
-                LImageUtil.INSTANCE.load(getActivity(), user.getPhotoUrl() + "?height=500", findViewById(R.id.icon));
+                LImageUtil.Companion.load(getActivity(), user.getPhotoUrl() + "?height=500", findViewById(R.id.icon));
             } catch (Exception e) {
                 //who cares?
             }

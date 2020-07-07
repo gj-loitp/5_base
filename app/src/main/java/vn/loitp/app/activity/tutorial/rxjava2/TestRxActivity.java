@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
-import com.core.utilities.statusbar.LThreadUtil;
+import com.core.utilities.LThreadUtil;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
@@ -84,8 +84,8 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void print(String s) {
-        LLog.d(getTAG(), s + " -> isUIThread: " + LThreadUtil.INSTANCE.isUIThread() + "\n");
-        tv.append(s + " -> isUIThread: " + LThreadUtil.INSTANCE.isUIThread() + "\n");
+        LLog.d(getTAG(), s + " -> isUIThread: " + LThreadUtil.Companion.isUIThread() + "\n");
+        tv.append(s + " -> isUIThread: " + LThreadUtil.Companion.isUIThread() + "\n");
     }
 
     private List<Bike> getBikeList() {

@@ -1,22 +1,17 @@
 package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview
 
 import android.os.Bundle
-
-import androidx.recyclerview.widget.RecyclerView
-
 import com.core.base.BaseFontActivity
-import com.core.utilities.LUIUtil
-
+import kotlinx.android.synthetic.main.activity_parallax_recycler_view.*
 import vn.loitp.app.R
 
 class ParallaxRecyclerViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val recyclerView = findViewById<RecyclerView>(R.id.rv)
-        recyclerView.adapter = ParallaxAdapter(this)
 
-        LUIUtil.setPullLikeIOSVertical(recyclerView)
+        rv.adapter = ParallaxAdapter(this)
+        //LUIUtil.setPullLikeIOSVertical(rv)
     }
 
     override fun setFullScreen(): Boolean {

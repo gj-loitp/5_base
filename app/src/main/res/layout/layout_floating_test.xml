@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/root_container"
+        android:id="@+id/rlRootContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -13,7 +13,7 @@
         tools:ignore="UselessParent">
 
         <ImageView
-            android:id="@+id/close_btn"
+            android:id="@+id/ivClose"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_close"
@@ -24,7 +24,7 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/close_btn"
+            android:layout_below="@+id/ivClose"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_18" />
 

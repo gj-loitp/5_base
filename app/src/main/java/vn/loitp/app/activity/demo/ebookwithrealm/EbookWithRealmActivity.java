@@ -45,7 +45,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         setupRecycler();
 
-        if (!LPrefUtil.INSTANCE.getPreLoad(getActivity())) {
+        if (!LPrefUtil.Companion.getPreLoad(getActivity())) {
             setRealmData();
         }
 
@@ -101,7 +101,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             }
         });
         recyclerView.setAdapter(booksAdapter);
-        LUIUtil.INSTANCE.setPullLikeIOSVertical(recyclerView);
+        LUIUtil.Companion.setPullLikeIOSVertical(recyclerView);
     }
 
     private void setRealmData() {
@@ -149,7 +149,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             realm.commitTransaction();
         }
 
-        LPrefUtil.INSTANCE.setPreLoad(getActivity(), true);
+        LPrefUtil.Companion.setPreLoad(getActivity(), true);
     }
 
     private void addItem() {
@@ -238,7 +238,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPrefUtil.INSTANCE.setPreLoad(getActivity(), false);
+            LPrefUtil.Companion.setPreLoad(getActivity(), false);
         }
 
         booksAdapter.notifyItemRemoved(position);

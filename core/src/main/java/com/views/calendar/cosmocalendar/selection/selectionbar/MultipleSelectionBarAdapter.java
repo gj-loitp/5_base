@@ -77,7 +77,7 @@ public class MultipleSelectionBarAdapter extends RecyclerView.Adapter<RecyclerVi
 
         public TitleViewHolder(View itemView) {
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.tv_title);
+            tvTitle = itemView.findViewById(R.id.tvTitle);
         }
 
         public void bind(int position) {

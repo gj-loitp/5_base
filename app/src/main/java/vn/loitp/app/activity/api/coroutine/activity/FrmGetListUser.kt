@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
-import com.interfaces.RecyclerViewCallback
+import com.interfaces.CallbackRecyclerView
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
 import vn.loitp.app.R
@@ -63,7 +63,7 @@ class FrmGetListUser : BaseFragment() {
         }
         rvUserTest.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvUserTest.adapter = userListAdapter
-        LUIUtil.setScrollChange(rvUserTest, object : RecyclerViewCallback {
+        LUIUtil.setScrollChange(rvUserTest, object : CallbackRecyclerView {
             override fun onTop() {
             }
 

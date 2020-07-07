@@ -33,14 +33,9 @@
                 android:text="@string/drag_drop_sample" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_toggle_fullscreen"
+                android:id="@+id/btToggleFullScreen"
                 style="@style/ButtonMenu"
                 android:text="@string/toggle_fullscreen" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_gesto"
-                style="@style/ButtonMenu"
-                android:text="@string/gesto" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_glide"

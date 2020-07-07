@@ -21,7 +21,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/tv_type"
+            android:id="@+id/tvType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -29,7 +29,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_setting"
+            android:id="@+id/btSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Setting" />
@@ -44,13 +44,13 @@
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_add_3"
+            android:id="@+id/btAdd3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add to position 3" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_remove_1"
+            android:id="@+id/btRemove1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Remove position 1" />

@@ -55,7 +55,7 @@ class PdfStreamCoroutine : CoroutineScope {
                 inputStream = BufferedInputStream(httpURLConnection.inputStream)
             }
         } catch (e: IOException) {
-            LLog.d(TAG, "doInBackground IOException $e")
+            e.printStackTrace()
             return@withContext null
         }
 

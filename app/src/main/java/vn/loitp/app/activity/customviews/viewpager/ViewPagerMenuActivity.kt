@@ -9,7 +9,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_view_pager_menu.*
 
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.viewpager.autoviewpager.AutoViewPagerActivity
+import vn.loitp.app.activity.customviews.viewpager.autoviewpager.ViewPagerAutoActivity
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.DetectViewPagerSwipeOutActivity
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.ViewPagerSwipeOut2Activity
 import vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableViewPagerActivity
@@ -46,7 +46,7 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAutoViewPager -> intent = Intent(activity, AutoViewPagerActivity::class.java)
+            btAutoViewPager -> intent = Intent(activity, ViewPagerAutoActivity::class.java)
             btParallaxViewPager -> intent = Intent(activity, ParallaxViewPagerActivity::class.java)
             btDetectViewPagerSwipeOut -> intent = Intent(activity, DetectViewPagerSwipeOutActivity::class.java)
             btViewPagerTabLayout -> intent = Intent(activity, ViewPagerWithTabLayoutActivity::class.java)

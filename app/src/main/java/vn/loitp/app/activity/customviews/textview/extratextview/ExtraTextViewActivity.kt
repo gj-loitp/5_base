@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.textview.extratextview
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.views.textview.extra.LToggleLExtraTextView
-import kotlinx.android.synthetic.main.activity_textview_extra.*
+import kotlinx.android.synthetic.main.activity_text_view_extra.*
 import vn.loitp.app.R
 
 //https://github.com/chuross/extra-textview
@@ -39,6 +39,6 @@ class ExtraTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_extra
+        return R.layout.activity_text_view_extra
     }
 }

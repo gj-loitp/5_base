@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    tools:ignore="UnusedAttribute">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_5"
+        android:max="100"
+        android:progress="1"
+        android:progressDrawable="@drawable/l_custom_progressbar" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_80" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_medium" />
+
+    <com.github.piasy.biv.view.BigImageView
+        android:id="@+id/biv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:failureImage="@drawable/l_error_404"
+        app:failureImageInitScaleType="center"
+        app:initScaleType="custom"
+        app:optimizeDisplay="true"
+        app:thumbnailScaleType="fitCenter" />
+
+    <LinearLayout
+        android:id="@+id/layoutControl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_bug_report_black_48dp"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_cloud_download_black_48dp"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/bt_cmt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_chat_black_48dp"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_share_black_48dp"
+            android:tint="@color/black"
+            app:backgroundTint="@color/white"
+            app:borderWidth="@dimen/w_1"
+            app:elevation="@dimen/w_1"
+            app:fabSize="mini"
+            app:useCompatPadding="true" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_80" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_1"
+        android:background="@color/white" />
+</LinearLayout>

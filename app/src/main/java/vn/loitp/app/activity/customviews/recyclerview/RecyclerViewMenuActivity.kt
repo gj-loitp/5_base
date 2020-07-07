@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_recyclerview_menu.*
+import kotlinx.android.synthetic.main.activity_recycler_view_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
@@ -16,13 +16,14 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Recycle
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity
-import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.ParallaxYayandroidRecyclerViewActivity
+import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.RecyclerViewParallaxYayaActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutMenuActivity
 
 class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btParallaxRecyclerView.setOnClickListener(this)
         btNormalRecyclerView.setOnClickListener(this)
         btNormalRecyclerViewWithSpanSize.setOnClickListener(this)
@@ -45,7 +46,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recyclerview_menu
+        return R.layout.activity_recycler_view_menu
     }
 
     override fun onClick(v: View) {
@@ -54,7 +55,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btParallaxRecyclerView -> intent = Intent(activity, ParallaxRecyclerViewActivity::class.java)
             btNormalRecyclerView -> intent = Intent(activity, RecyclerViewActivity::class.java)
             btNormalRecyclerViewWithSpanSize -> intent = Intent(activity, RecyclerViewWithSpanSizeActivity::class.java)
-            btParallaxRecyclerViewYayandroid -> intent = Intent(activity, ParallaxYayandroidRecyclerViewActivity::class.java)
+            btParallaxRecyclerViewYayandroid -> intent = Intent(activity, RecyclerViewParallaxYayaActivity::class.java)
             btNormalRecyclerViewWithSingletonData -> intent = Intent(activity, RecyclerViewWithSingletonDataActivity::class.java)
             btGalleryLayoutManager -> intent = Intent(activity, GalleryLayoutManagerHorizontalActivity::class.java)
             btGalleryLayoutManagerVertical -> intent = Intent(activity, GalleryLayoutManagerVerticalActivity::class.java)

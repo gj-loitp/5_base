@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_architecture_component_menu.*
+import kotlinx.android.synthetic.main.activity_demo_architecture_component_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.coroutine.CoroutineActivity
 import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
@@ -30,7 +30,7 @@ class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClic
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_architecture_component_menu
+        return R.layout.activity_demo_architecture_component_menu
     }
 
     override fun onClick(v: View) {

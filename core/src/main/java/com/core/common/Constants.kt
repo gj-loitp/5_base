@@ -188,14 +188,12 @@ object Constants {
     val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"
     val BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN"
     val IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW"
-    val ARR_RANDOM_BKG = intArrayOf(R.drawable.l_bkg_gradient_man_of_steel, R.drawable.l_bkg_shadow_black_white, R.drawable.l_bkg_shadow_black_white_dark, R.drawable.l_bkg_shadow_white_black, R.drawable.l_bkg_shadow_white_black_dark)
+    val ARR_RANDOM_BKG = intArrayOf(R.drawable.l_bkg_gradient_man_of_steel, R.drawable.l_bkg_shadow_black_white,
+            R.drawable.l_bkg_shadow_black_white_dark, R.drawable.l_bkg_shadow_white_black, R.drawable.l_bkg_shadow_white_black_dark)
     val ARR_URL_BKG_FLICKR = arrayOf(URL_IMG, URL_IMG_1, URL_IMG_2, URL_IMG_3, URL_IMG_4, URL_IMG_5, URL_IMG_6, URL_IMG_7, URL_IMG_8, URL_IMG_9, URL_IMG_10, URL_IMG_11, URL_IMG_12)
     val KEY_VIDEO_CURRENT_POSITION = "KEY_VIDEO_CURRENT_POSITION"
     val KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY"
     val KEY_VIDEO_LINK_IMA_AD = "KEY_VIDEO_LINK_IMA_AD"
-    val URL_GET_LINK_PLAY_DEV = "https://dev-ucc.uizadev.io/"
-    val URL_GET_LINK_PLAY_STAG = "https://stag-ucc.uizadev.io/"
-    val URL_GET_LINK_PLAY_PROD = "https://ucc.uiza.io/"
     fun setIsDebug(isDebug: Boolean) {
         IS_DEBUG = isDebug
     }

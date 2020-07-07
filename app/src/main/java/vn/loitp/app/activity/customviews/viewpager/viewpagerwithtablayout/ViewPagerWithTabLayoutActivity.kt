@@ -12,6 +12,7 @@ import com.core.common.Constants
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
+import com.interfaces.CallbackList
 import com.views.viewpager.viewpagertransformers.*
 import kotlinx.android.synthetic.main.activity_viewpager_with_tablayout.*
 import vn.loitp.app.R
@@ -79,7 +80,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         LDialogUtil.showDialogList(context = activity,
                 title = "Select",
                 arr = arr,
-                callbackList = object : LDialogUtil.CallbackList {
+                callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
                         showShort("Click position " + position + ", item: " + arr[position])
                         when (stringList[position]) {

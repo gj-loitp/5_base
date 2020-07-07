@@ -5,7 +5,7 @@ import android.os.Handler
 import android.os.Message
 import android.view.View
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_textview_score.*
+import kotlinx.android.synthetic.main.activity_text_view_score.*
 import vn.loitp.app.R
 
 class ScoreTextViewActivity : BaseFontActivity() {
@@ -13,10 +13,10 @@ class ScoreTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        textView.setText("${currentScore}")
+        textView.text = "${currentScore}"
         bt.setOnClickListener { v: View? ->
             currentScore = 0
-            bt.setEnabled(false)
+            bt.isEnabled = false
             updateScore(maxScore)
         }
     }
@@ -30,7 +30,7 @@ class ScoreTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_score
+        return R.layout.activity_text_view_score
     }
 
     private var currentScore = 0

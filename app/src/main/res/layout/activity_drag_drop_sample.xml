@@ -2,32 +2,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rootView"
-    android:background="#292a2e">
+    android:background="@color/whiteSmoke">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Mew Mew"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/red" />
 
     <ImageView
-        android:id="@+id/paper"
+        android:id="@+id/ivPaper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/iv" />
 
     <ImageView
-        android:id="@+id/trash"
+        android:id="@+id/ivTrash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:src="@mipmap/ic_launcher" />
+        android:layout_margin="@dimen/margin_medium"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_delete_forever_black_48dp" />
 
 </RelativeLayout>

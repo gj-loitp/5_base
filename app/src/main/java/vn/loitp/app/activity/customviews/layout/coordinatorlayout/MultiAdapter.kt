@@ -52,7 +52,7 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == TYPE_MOVIE) {
-            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.movie_list_row, parent, false)
+            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
             MovieViewHolder(itemView)
         } else {
             val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_movie_bottom, parent, false)

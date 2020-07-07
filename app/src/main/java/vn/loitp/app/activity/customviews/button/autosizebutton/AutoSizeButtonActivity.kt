@@ -3,8 +3,8 @@ package vn.loitp.app.activity.customviews.button.autosizebutton
 import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil.toggleScreenOritation
-import com.core.utilities.LScreenUtil.screenWidth
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_button_autosize.*
 import vn.loitp.app.R
 
@@ -38,16 +38,16 @@ class AutoSizeButtonActivity : BaseFontActivity(), View.OnClickListener {
         bt1.setLandscapeSizeHInDp(100f)
         bt1.setOnClickListener(this)
 
-        bt2.setPortraitSizeWInPx(screenWidth)
-        bt2.setPortraitSizeHInPx(screenWidth / 10)
-        bt2.setLandscapeSizeWInPx(screenWidth / 2)
-        bt2.setLandscapeSizeHInPx(screenWidth / 2)
+        bt2.setPortraitSizeWInPx(LScreenUtil.screenWidth)
+        bt2.setPortraitSizeHInPx(LScreenUtil.screenWidth / 10)
+        bt2.setLandscapeSizeWInPx(LScreenUtil.screenWidth / 2)
+        bt2.setLandscapeSizeHInPx(LScreenUtil.screenWidth / 2)
         bt2.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v) {
-            btRotate -> toggleScreenOritation(activity)
+            btRotate -> LActivityUtil.toggleScreenOritation(activity)
             bt0, bt1, bt2 -> showShort("Click")
         }
     }

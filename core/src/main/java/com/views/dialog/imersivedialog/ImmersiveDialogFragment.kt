@@ -18,7 +18,7 @@ class ImmersiveDialogFragment : DialogFragment() {
     private val TAG = javaClass.simpleName
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        LLog.d(TAG, "onCreateDialog")
+
         val alertDialog = AlertDialog.Builder(activity)
                 .setTitle("Example Dialog")
                 .setMessage("Some text.")
@@ -39,7 +39,6 @@ class ImmersiveDialogFragment : DialogFragment() {
     }
 
     fun showImmersive(activity: Activity) {
-        LLog.d(TAG, "showImmersive")
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
                 show(fm, TAG)

@@ -2,7 +2,7 @@ package vn.loitp.app.activity.demo.fragmentflow
 
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.frm_flow_1.*
+import kotlinx.android.synthetic.main.frm_demo_flow_1.*
 import vn.loitp.app.R
 
 class FrmFlow1 : FrmFlowBase() {
@@ -17,7 +17,7 @@ class FrmFlow1 : FrmFlowBase() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.frm_flow_1
+        return R.layout.frm_demo_flow_1
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

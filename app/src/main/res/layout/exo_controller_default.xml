@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="@color/blue"
+    android:background="@color/colorPrimary"
     android:layoutDirection="ltr"
     android:orientation="vertical">
 
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="exo_controller_default.xml"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_18"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="4dp">
+        android:paddingTop="@dimen/padding_medium">
 
         <ImageButton
             android:id="@id/exo_prev"
@@ -55,7 +55,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="@dimen/margin_medium"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 

@@ -18,7 +18,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import vn.loitp.app.R;
-import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
+import vn.loitp.app.activity.demo.floatingwidget.CommunicateMng;
 
 /**
  * Created by loitp on 3/27/2018.
@@ -70,12 +70,12 @@ public class TestService extends Service {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mFloatingView, params);
 
-        tv = (TextView) mFloatingView.findViewById(R.id.textView);
-        ImageView closeButtonCollapsed = (ImageView) mFloatingView.findViewById(R.id.close_btn);
+        tv = mFloatingView.findViewById(R.id.textView);
+        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.ivClose);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ComunicateMng.postFromService(new ComunicateMng.MsgFromService("User clicks close button -> stop service"));
+                CommunicateMng.postFromService(new CommunicateMng.MsgFromService("User clicks close button -> stop service"));
                 //close the service and remove the from from the window
                 stopSelf();
             }
@@ -88,14 +88,14 @@ public class TestService extends Service {
         mFloatingView.findViewById(R.id.bt0).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ComunicateMng.postFromService(new ComunicateMng.MsgFromService("Send msg to activity"));
+                CommunicateMng.postFromService(new CommunicateMng.MsgFromService("Send msg to activity"));
             }
         });
     }
 
     private void setDrag(WindowManager.LayoutParams params) {
         //Drag and move floating view using user's touch action.
-        mFloatingView.findViewById(R.id.root_container).setOnTouchListener(new View.OnTouchListener() {
+        mFloatingView.findViewById(R.id.rlRootContainer).setOnTouchListener(new View.OnTouchListener() {
             private int initialX;
             private int initialY;
             private float initialTouchX;
@@ -143,7 +143,7 @@ public class TestService extends Service {
 
     //listen msg from activity
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(ComunicateMng.MsgFromActivity msg) {
+    public void onEvent(CommunicateMng.MsgFromActivity msg) {
         tv.setText(msg.getMsg());
     }
 }

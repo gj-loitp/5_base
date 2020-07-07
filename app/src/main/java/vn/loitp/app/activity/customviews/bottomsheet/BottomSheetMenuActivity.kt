@@ -35,7 +35,9 @@ class BottomSheetMenuActivity : BaseFontActivity() {
     }
 
     private fun click0() {
-        btPayment.setOnClickListener { v: View? -> show(activity, "Click layoutBottomSheet R.id.bt_payment") }
+        btPayment.setOnClickListener {
+            show(activity, "Click layoutBottomSheet R.id.bt_payment")
+        }
         sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
         sheetBehavior?.setBottomSheetCallback(object : BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {

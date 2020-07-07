@@ -2,9 +2,9 @@ package vn.loitp.app.activity.demo.fragmentnavigation
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import com.core.base.BaseFragment
 import com.core.utilities.LLog
+import kotlinx.android.synthetic.main.frm_fn_2.*
 import vn.loitp.app.R
 
 class FN2 : BaseFragment(), OnBackPressedListener {
@@ -20,15 +20,14 @@ class FN2 : BaseFragment(), OnBackPressedListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.fn_2
+        return R.layout.frm_fn_2
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val button = view.findViewById<Button>(R.id.button2)
-        button.setOnClickListener {
-            val navController = fragmentNavigationActivity!!.navController
+        button2.setOnClickListener {
+            val navController = fragmentNavigationActivity?.navController
             //new NavOptions.Builder().setExitAnim(R.anim.fade_out);
-            navController.navigate(R.id.action_fn2_to_fn3)
+            navController?.navigate(R.id.action_fn2_to_fn3)
         }
 
     }
@@ -40,6 +39,6 @@ class FN2 : BaseFragment(), OnBackPressedListener {
 
     override fun onBackPressed() {
         LLog.d(fragmentNavigationActivity!!.T, "onBackPressed FN2")
-        fragmentNavigationActivity!!.popThisFragment()
+        fragmentNavigationActivity?.popThisFragment()
     }
 }

@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import kotlinx.android.synthetic.main.activity_menu_animation.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
 import vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity
 import vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity
-import vn.loitp.app.activity.animation.expectanim.ExpectAnimActivity
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity
 import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity
@@ -22,17 +22,17 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_animation_view).setOnClickListener(this)
-        findViewById<View>(R.id.bt_over_scroll).setOnClickListener(this)
-        findViewById<View>(R.id.bt_fly_school).setOnClickListener(this)
-        findViewById<View>(R.id.bt_activity_transition).setOnClickListener(this)
-        findViewById<View>(R.id.bt_shadowview_helper).setOnClickListener(this)
-        findViewById<View>(R.id.bt_expect_anim).setOnClickListener(this)
-        findViewById<View>(R.id.bt_basic_transition_frm).setOnClickListener(this)
-        findViewById<View>(R.id.bt_basic_transition_activity).setOnClickListener(this)
-        findViewById<View>(R.id.bt_basic_transition).setOnClickListener(this)
-        findViewById<View>(R.id.bt_lottie).setOnClickListener(this)
-        findViewById<View>(R.id.bt_value_animator).setOnClickListener(this)
+
+        btAnimationView.setOnClickListener(this)
+        btOverScroll.setOnClickListener(this)
+        btFlySchool.setOnClickListener(this)
+        btActivityTransition.setOnClickListener(this)
+        btShadowViewHelper.setOnClickListener(this)
+        btBasicTransitionFrm.setOnClickListener(this)
+        btBasicTransitionActivity.setOnClickListener(this)
+        btBasicTransition.setOnClickListener(this)
+        btLottie.setOnClickListener(this)
+        btValueAnimator.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -49,21 +49,20 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_animation_view -> intent = Intent(activity, AnimationViewActivity::class.java)
-            R.id.bt_over_scroll -> intent = Intent(activity, OverScrollActivity::class.java)
-            R.id.bt_fly_school -> intent = Intent(activity, FlySchoolActivity::class.java)
-            R.id.bt_activity_transition -> intent = Intent(activity, Animation1Activity::class.java)
-            R.id.bt_shadowview_helper -> intent = Intent(activity, ShadowViewHelperActivity::class.java)
-            R.id.bt_expect_anim -> intent = Intent(activity, ExpectAnimActivity::class.java)
-            R.id.bt_basic_transition_frm -> intent = Intent(activity, BasicTransitionActivity::class.java)
-            R.id.bt_basic_transition_activity -> intent = Intent(activity, SceneTransitionBasicActivity::class.java)
-            R.id.bt_basic_transition -> intent = Intent(activity, BasicTransition0Activity::class.java)
-            R.id.bt_lottie -> intent = Intent(activity, MenuLottieActivity::class.java)
-            R.id.bt_value_animator -> intent = Intent(activity, ValueAnimatorActivity::class.java)
+        when (v) {
+            btAnimationView -> intent = Intent(activity, AnimationViewActivity::class.java)
+            btOverScroll -> intent = Intent(activity, OverScrollActivity::class.java)
+            btFlySchool -> intent = Intent(activity, FlySchoolActivity::class.java)
+            btActivityTransition -> intent = Intent(activity, Animation1Activity::class.java)
+            btShadowViewHelper -> intent = Intent(activity, ShadowViewHelperActivity::class.java)
+            btBasicTransitionFrm -> intent = Intent(activity, BasicTransitionActivity::class.java)
+            btBasicTransitionActivity -> intent = Intent(activity, SceneTransitionBasicActivity::class.java)
+            btBasicTransition -> intent = Intent(activity, BasicTransition0Activity::class.java)
+            btLottie -> intent = Intent(activity, MenuLottieActivity::class.java)
+            btValueAnimator -> intent = Intent(activity, ValueAnimatorActivity::class.java)
         }
-        if (intent != null) {
-            startActivity(intent)
+        intent?.let {
+            startActivity(it)
             LActivityUtil.tranIn(activity)
         }
     }

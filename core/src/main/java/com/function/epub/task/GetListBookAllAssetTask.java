@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+//TODO convert to coroutine
 public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
     private final String TAG = getClass().getSimpleName();
     private int maxBookAsset;
@@ -53,7 +54,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         LLog.d(TAG, ">>>>>>>>>>>>>>>>>>doInBackground");
-        String jsonBookAsset = LPrefUtil.INSTANCE.getJsonBookAsset(context);
+        String jsonBookAsset = LPrefUtil.Companion.getJsonBookAsset(context);
         if (jsonBookAsset == null || jsonBookAsset.isEmpty()) {
             bookInfoList.addAll(searchForFiles());
         } else {

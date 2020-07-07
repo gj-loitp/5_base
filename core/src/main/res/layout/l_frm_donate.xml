@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/rv"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -16,7 +15,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="@dimen/padding_10">
+            android:padding="@dimen/padding_medium">
 
             <ImageView
                 android:layout_width="@dimen/w_100"
@@ -30,8 +29,8 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
-                android:textSize="@dimen/txt_18"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textSize="@dimen/txt_medium"
                 tools:text="Hello World!" />
 
         </LinearLayout>

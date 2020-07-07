@@ -5,15 +5,13 @@ import android.view.View
 import android.widget.AdapterView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.core.utilities.LDialogUtil.hideProgress
-import com.core.utilities.LDialogUtil.showDialog2
-import com.core.utilities.LDialogUtil.showProgress
-import com.core.utilities.LReaderUtil.readEpub
-import com.core.utilities.LUIUtil.setDelay
+import com.core.utilities.LReaderUtil
+import com.core.utilities.LUIUtil
 import com.function.epub.model.BookInfo
 import com.function.epub.task.GetListBookAllAssetTask
 import com.function.epub.task.GetListBookFromDeviceAndAssetTask
-import kotlinx.android.synthetic.main.activity_epub_reader_menu.*
+import com.interfaces.Callback2
+import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 
 class EpubReaderMenuActivity : BaseFontActivity() {
@@ -29,56 +27,63 @@ class EpubReaderMenuActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         gridBookInfo.onItemClickListener = AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
             val bookInfo = adapterView.adapter.getItem(i) as BookInfo
-            readEpub(activity, bookInfo, getString(R.string.str_b))
+            LReaderUtil.readEpub(activity = activity, bookInfo = bookInfo, admobAdIdBanner = getString(R.string.str_b))
         }
-        setDelay(1000, Runnable { ask() })
+        LUIUtil.setDelay(mls = 1000, runnable = Runnable {
+            ask()
+        })
     }
 
     private fun ask() {
-        showDialog2(activity, "Chọn", "Có 2 option", "Load tất cả epub có trong device và 1 file ở asset", "Load tất cả epub trong asset", object : LDialogUtil.Callback2 {
-            override fun onClick1() {
-                //lấy list epub ở trên all device và 1 file ở asset folder rồi show lên UI
-                getListBookFromDeviceAndAssetTask = GetListBookFromDeviceAndAssetTask(activity, object : GetListBookFromDeviceAndAssetTask.Callback {
-                    override fun onPreExecute() {
-                        showProgress(progressBar)
+        LDialogUtil.showDialog2(context = activity,
+                title = "Chọn",
+                msg = "Có 2 option",
+                button1 = "Load tất cả epub có trong device và 1 file ở asset",
+                button2 = "Load tất cả epub trong asset",
+                callback2 = object : Callback2 {
+                    override fun onClick1() {
+                        //lấy list epub ở trên all device và 1 file ở asset folder rồi show lên UI
+                        getListBookFromDeviceAndAssetTask = GetListBookFromDeviceAndAssetTask(activity, object : GetListBookFromDeviceAndAssetTask.Callback {
+                            override fun onPreExecute() {
+                                LDialogUtil.showProgress(progressBar)
+                            }
+
+                            override fun onPostExecute(bookInfoList: List<BookInfo>) {
+                                logD("onPostExecute " + bookInfoList.size)
+                                LDialogUtil.hideProgress(progressBar)
+                                val adapter = BookInfoGridAdapter(activity, bookInfoList)
+                                gridBookInfo.adapter = adapter
+                            }
+                        })
+                        getListBookFromDeviceAndAssetTask?.execute()
                     }
 
-                    override fun onPostExecute(bookInfoList: List<BookInfo>) {
-                        logD("onPostExecute " + bookInfoList.size)
-                        hideProgress(progressBar)
-                        val adapter = BookInfoGridAdapter(activity, bookInfoList)
-                        gridBookInfo.adapter = adapter
+                    override fun onClick2() {
+                        getListBookAllAssetTask = GetListBookAllAssetTask(applicationContext, MAX_BOOK_ASSET, EXTENSION_EPUB, object : GetListBookAllAssetTask.Callback {
+                            override fun onPreExecute() {
+                                LDialogUtil.showProgress(progressBar)
+                            }
+
+                            override fun onPostExecute(bookInfoList: MutableList<BookInfo>) {
+                                logD("onPostExecute " + bookInfoList.size)
+                                LDialogUtil.hideProgress(progressBar)
+                                bookInfoList.addAll(bookInfoList)
+                                /*bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);
+                                        bookInfoList.addAll(bookInfoList);*/
+                                val adapter = BookInfoGridAdapter(activity, bookInfoList)
+                                gridBookInfo.adapter = adapter
+                            }
+                        })
+                        getListBookAllAssetTask?.execute()
                     }
                 })
-                getListBookFromDeviceAndAssetTask?.execute()
-            }
-
-            override fun onClick2() {
-                getListBookAllAssetTask = GetListBookAllAssetTask(applicationContext, MAX_BOOK_ASSET, EXTENSION_EPUB, object : GetListBookAllAssetTask.Callback {
-                    override fun onPreExecute() {
-                        showProgress(progressBar)
-                    }
-
-                    override fun onPostExecute(bookInfoList: MutableList<BookInfo>) {
-                        logD("onPostExecute " + bookInfoList.size)
-                        hideProgress(progressBar)
-                        bookInfoList.addAll(bookInfoList)
-                        /*bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);
-                        bookInfoList.addAll(bookInfoList);*/
-                        val adapter = BookInfoGridAdapter(activity, bookInfoList)
-                        gridBookInfo.adapter = adapter
-                    }
-                })
-                getListBookAllAssetTask?.execute()
-            }
-        })
     }
 
     override fun onDestroy() {
@@ -96,6 +101,6 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_epub_reader_menu
+        return R.layout.activity_demo_epub_reader
     }
 }

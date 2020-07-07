@@ -7,6 +7,7 @@ import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.utilities.LDialogUtil;
 import com.core.utilities.LFCMUtil;
+import com.interfaces.Callback1;
 
 import vn.loitp.app.R;
 
@@ -21,9 +22,9 @@ public class FCMFirebaseActivity extends BaseFontActivity {
             @Override
             public void onClick(View v) {
                 if (Constants.INSTANCE.getIS_DEBUG()) {
-                    LFCMUtil.INSTANCE.sendNotification(fcmKey, "Hello! This is a notification! " + System.currentTimeMillis());
+                    LFCMUtil.Companion.sendNotification(fcmKey, "Hello! This is a notification! " + System.currentTimeMillis());
                 } else {
-                    LDialogUtil.INSTANCE.showDialog1(getActivity(), "Message", "This feature is disabled by Loitp", "Okay", new LDialogUtil.Callback1() {
+                    LDialogUtil.Companion.showDialog1(getActivity(), "Message", "This feature is disabled by Loitp", "Okay", new Callback1() {
                         @Override
                         public void onClick1() {
                             //do nothing

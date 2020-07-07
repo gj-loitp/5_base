@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tvMenu"
+        android:fillViewport="true"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBookView"
+                style="@style/ButtonMenu"
+                android:text="Bookview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDiffUtil"
+                style="@style/ButtonMenu"
+                android:text="Diff Util" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGalleryLayoutManager"
+                style="@style/ButtonMenu"
+                android:text="GalleryLayoutManager Horizontal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGalleryLayoutManagerVertical"
+                style="@style/ButtonMenu"
+                android:text="GalleryLayoutManager Vertical" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMergeAdapter"
+                style="@style/ButtonMenu"
+                android:text="Merge Adapter" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNormalRecyclerView"
+                style="@style/ButtonMenu"
+                android:text="Normal RecyclerView With Animation" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNormalRecyclerViewWithSingletonData"
+                style="@style/ButtonMenu"
+                android:text="Normal RecyclerView With Singleton Data" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNormalRecyclerViewWithSpanSize"
+                style="@style/ButtonMenu"
+                android:text="Normal RecyclerView With Spansize" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btParallaxRecyclerView"
+                style="@style/ButtonMenu"
+                android:text="ParallaxRecyclerView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btParallaxRecyclerViewYayandroid"
+                style="@style/ButtonMenu"
+                android:text="ParallaxRecyclerView Yayandroid" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRecyclerTabLayout"
+                style="@style/ButtonMenu"
+                android:text="Recycler Tab Layout" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="RecyclerView Menu" />
+</RelativeLayout>

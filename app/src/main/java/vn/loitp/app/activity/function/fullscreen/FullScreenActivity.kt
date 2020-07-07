@@ -5,6 +5,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import com.views.dialog.imersivedialog.ImmersiveDialogFragment
+import kotlinx.android.synthetic.main.activity_func_fullscreen.*
 import vn.loitp.app.R
 
 class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
@@ -13,8 +14,9 @@ class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_toggle_fullscreen).setOnClickListener(this)
-        findViewById<View>(R.id.bt_show_dialog).setOnClickListener(this)
+
+        btToggleFullScreen.setOnClickListener(this)
+        btShowDialog.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -26,16 +28,16 @@ class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fullscreen
+        return R.layout.activity_func_fullscreen
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.bt_toggle_fullscreen -> {
+        when (v) {
+            btToggleFullScreen -> {
                 isFullScreen = !isFullScreen
                 LScreenUtil.toggleFullscreen(activity, isFullScreen)
             }
-            R.id.bt_show_dialog -> showDialog()
+            btShowDialog -> showDialog()
         }
     }
 

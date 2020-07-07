@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium"
+        android:text="Can customize the path you like"
+        android:textSize="@dimen/txt_medium" />
+
+    <com.views.animation.flyschool.ShapeFlyer
+        android:id="@+id/floatingContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:enable_alpha="true"
+        app:enable_scale="true"
+        app:from_alpha="1"
+        app:from_scale="1"
+        app:shape_height="@dimen/w_120"
+        app:shape_width="@dimen/w_200"
+        app:to_alpha="0.5"
+        app:to_scale="0.5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btPlay1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Play1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btPlay2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Play2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btPlay3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Play3" />
+    </LinearLayout>
+</RelativeLayout>

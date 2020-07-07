@@ -37,6 +37,7 @@ class FbCommentActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setupActionBar()
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("adUnitId $adUnitId")
@@ -82,7 +83,6 @@ class FbCommentActivity : BaseFontActivity() {
                 }
 
                 override fun onClickMenu(view: View) {
-                    //LToast.show(activity, "onClickMenu");
                 }
             })
             inviMenuIcon()
@@ -138,8 +138,8 @@ class FbCommentActivity : BaseFontActivity() {
         if (isLoading) {
             LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
         } else {
-            LUIUtil.setDelay(1000, Runnable {
-                LUIUtil.setProgressBarVisibility(progressBar, View.GONE)
+            LUIUtil.setDelay(mls = 1000, runnable = Runnable {
+                LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
             })
         }
         invalidateOptionsMenu()

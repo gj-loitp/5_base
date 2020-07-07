@@ -17,7 +17,7 @@ import kotlin.coroutines.CoroutineContext
  * www.muathu@gmail.com
  */
 class GetPdfCoroutine : CoroutineScope {
-    private val TAG = "loitppp" + javaClass.simpleName
+    private val TAG = javaClass.simpleName
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job // to run code in Main(UI) Thread
@@ -115,10 +115,4 @@ class GetPdfCoroutine : CoroutineScope {
             null
         }
     }
-
-//    interface Callback {
-//        fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?)
-//        fun onError(e: Exception?)
-//        fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float)
-//    }
 }

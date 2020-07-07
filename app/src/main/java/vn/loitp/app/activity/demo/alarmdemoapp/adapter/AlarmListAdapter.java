@@ -52,7 +52,7 @@ public class AlarmListAdapter extends BaseAdapter {
         mContext = context;
         mDataSource = DataSource.getInstance(context);
 
-        LLog.INSTANCE.d(TAG, "AlarmListAdapter.create()");
+        LLog.d(TAG, "AlarmListAdapter.create()");
 
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
@@ -60,35 +60,35 @@ public class AlarmListAdapter extends BaseAdapter {
         mColorOutdated = mContext.getResources().getColor(R.color.gray);
         mColorActive = mContext.getResources().getColor(R.color.red);
 
-        mAlarmManager = (AlarmManager) context.getSystemService(mContext.ALARM_SERVICE);
+        mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
         dataSetChanged();
     }
 
     public void save() {
-        mDataSource.save();
+        DataSource.save();
     }
 
     public void update(Alarm alarm) {
-        mDataSource.update(alarm);
+        DataSource.update(alarm);
         dataSetChanged();
     }
 
     public void updateAlarms() {
-        LLog.INSTANCE.d(TAG, "AlarmListAdapter.updateAlarms()");
-        for (int i = 0; i < mDataSource.size(); i++)
-            mDataSource.update(mDataSource.get(i));
+        LLog.d(TAG, "AlarmListAdapter.updateAlarms()");
+        for (int i = 0; i < DataSource.size(); i++)
+            DataSource.update(DataSource.get(i));
         dataSetChanged();
     }
 
     public void add(Alarm alarm) {
-        mDataSource.add(alarm);
+        DataSource.add(alarm);
         dataSetChanged();
     }
 
     public void delete(int index) {
-        cancelAlarm(mDataSource.get(index));
-        mDataSource.remove(index);
+        cancelAlarm(DataSource.get(index));
+        DataSource.remove(index);
         dataSetChanged();
     }
 
@@ -98,11 +98,11 @@ public class AlarmListAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        return mDataSource.size();
+        return DataSource.size();
     }
 
     public Alarm getItem(int position) {
-        return mDataSource.get(position);
+        return DataSource.get(position);
     }
 
     public long getItemId(int position) {
@@ -111,7 +111,7 @@ public class AlarmListAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        Alarm alarm = mDataSource.get(position);
+        Alarm alarm = DataSource.get(position);
 
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.list_item, null);
@@ -137,8 +137,8 @@ public class AlarmListAdapter extends BaseAdapter {
     }
 
     private void dataSetChanged() {
-        for (int i = 0; i < mDataSource.size(); i++)
-            setAlarm(mDataSource.get(i));
+        for (int i = 0; i < DataSource.size(); i++)
+            setAlarm(DataSource.get(i));
 
         notifyDataSetChanged();
     }
@@ -152,7 +152,7 @@ public class AlarmListAdapter extends BaseAdapter {
             alarm.toIntent(intent);
             sender = PendingIntent.getBroadcast(mContext, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
             mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, alarm.getDate(), sender);
-            LLog.INSTANCE.d(TAG, "AlarmListAdapter.setAlarm(" + alarm.getId() + ", '" + alarm.getTitle() + "', " + alarm.getDate() + ")");
+            LLog.d(TAG, "AlarmListAdapter.setAlarm(" + alarm.getId() + ", '" + alarm.getTitle() + "', " + alarm.getDate() + ")");
         }
     }
 

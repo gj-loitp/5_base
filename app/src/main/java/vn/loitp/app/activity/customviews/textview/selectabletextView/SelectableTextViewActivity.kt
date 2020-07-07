@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.textview.selectabletextView
 import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_textview_selectable.*
+import kotlinx.android.synthetic.main.activity_text_view_selectable.*
 import vn.loitp.app.R
 
 class SelectableTextViewActivity : BaseFontActivity() {
@@ -39,6 +39,6 @@ class SelectableTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_selectable
+        return R.layout.activity_text_view_selectable
     }
 }

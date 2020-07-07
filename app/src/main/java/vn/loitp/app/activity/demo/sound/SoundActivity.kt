@@ -6,13 +6,15 @@ import android.view.View.OnClickListener
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSoundUtil
+import kotlinx.android.synthetic.main.activity_demo_sound.*
 
 import vn.loitp.app.R
 
 class SoundActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_play).setOnClickListener(this)
+
+        btPlay.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -24,12 +26,12 @@ class SoundActivity : BaseFontActivity(), OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sound
+        return R.layout.activity_demo_sound
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.bt_play -> LSoundUtil.startMusicFromAsset(activity, "ting.ogg")
+        when (v) {
+            btPlay -> LSoundUtil.startMusicFromAsset(activity, "ting.ogg")
         }
     }
 }

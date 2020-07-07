@@ -43,8 +43,8 @@ public class ResideMenuItem extends LinearLayout {
     private void initViews(Context context) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.residemenu_item, this);
-        ivIcon = (ImageView) findViewById(R.id.iv_icon);
-        tvTitle = (TextView) findViewById(R.id.tv_title);
+        ivIcon = findViewById(R.id.iv_icon);
+        tvTitle = findViewById(R.id.tvTitle);
     }
 
     /**
@@ -88,11 +88,11 @@ public class ResideMenuItem extends LinearLayout {
     }
 
     public void setTextSize(int typedValue, int size) {
-        LUIUtil.INSTANCE.setTextSize(tvTitle, typedValue, size);
+        LUIUtil.Companion.setTextSize(tvTitle, typedValue, size);
     }
 
     public void setTextShadow(int color) {
-        LUIUtil.INSTANCE.setTextShadow(tvTitle, color);
+        LUIUtil.Companion.setTextShadow(tvTitle, color);
     }
 
     public void setIvIconSizePx(int sizeInPx) {

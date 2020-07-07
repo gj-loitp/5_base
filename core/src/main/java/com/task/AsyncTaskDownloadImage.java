@@ -18,7 +18,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-//TODO convert rx
+//TODO convert corountine
 public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private Context mContext;
     private String mURL;
@@ -55,7 +55,7 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     private void downloadImagesToSdCard(final String downloadUrl, final String imageName) {
         try {
             final URL url = new URL(downloadUrl);
-            sdCard = LStoreUtil.INSTANCE.getFolderPath(mContext);
+            sdCard = LStoreUtil.Companion.getFolderPath(mContext);
             final File myDir = new File(sdCard + "/Photo");
 
             /* if specified not exist create new */
@@ -108,7 +108,7 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
         //LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
         if (downComplete) {
             LToast.show(mContext, "Download successful " + sdCard + fileName, R.drawable.l_bkg_horizontal);
-            LSoundUtil.INSTANCE.startMusicFromAsset(mContext, "ting.ogg");
+            LSoundUtil.Companion.startMusicFromAsset(mContext, "ting.ogg");
         } else {
             LToast.show(mContext, R.string.download_failed, R.drawable.l_bkg_horizontal);
         }

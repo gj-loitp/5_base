@@ -6,7 +6,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.common.Constants.KEY_VIDEO_LINK_IMA_AD
 import com.core.common.Constants.KEY_VIDEO_LINK_PLAY
-import com.core.utilities.LActivityUtil.tranIn
+import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_video_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity
@@ -55,7 +55,7 @@ class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         }
         intent?.let {
             startActivity(it)
-            tranIn(activity)
+            LActivityUtil.tranIn(activity)
         }
     }
 }

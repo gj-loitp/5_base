@@ -1,20 +1,9 @@
 package vn.loitp.app.activity.customviews.textview.colortextview
 
-import android.os.Bundle
-
 import com.core.base.BaseFontActivity
-
 import vn.loitp.app.R
 
 class ColorTextViewActivity : BaseFontActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        //can set color in xml or java code
-        /*((ColorTextView) findViewById(R.id.ctv_text))
-                .findAndSetStrColor("after", "#ff8000")
-                .findAndSetStrColor("and", "#008888");*/
-    }
 
     override fun setFullScreen(): Boolean {
         return false
@@ -25,7 +14,7 @@ class ColorTextViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_color
+        return R.layout.activity_text_view_color
     }
 
 }

@@ -8,8 +8,8 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.R
-import com.core.utilities.LAnimationUtil.play
-import com.core.utilities.LUIUtil.setTextSize
+import com.core.utilities.LAnimationUtil
+import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 
 class LTextNavigationView : RelativeLayout, View.OnClickListener {
@@ -93,7 +93,7 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         val s = stringList[currenIndex]
         tv?.text = s
         if (isEnableAnimation) {
-            play(view = tv, techniques = Techniques.FlipInX)
+            LAnimationUtil.play(view = tv, techniques = Techniques.FlipInX)
         }
         val size = stringList.size
         if (size == 1) {
@@ -117,13 +117,13 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     override fun onClick(view: View) {
         if (view === tvPrev) {
             if (isEnableAnimation) {
-                play(view = view, techniques = Techniques.Pulse)
+                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
             currenIndex--
             updateUI()
         } else if (view === tvNext) {
             if (isEnableAnimation) {
-                play(view = view, techniques = Techniques.Pulse)
+                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
             currenIndex++
             updateUI()
@@ -147,8 +147,8 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
     }
 
     fun setTextSize(dpPrev: Int, dpText: Int, dpNext: Int) {
-        setTextSize(textView = tvPrev, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpPrev)
-        setTextSize(textView = tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpText)
-        setTextSize(textView = tvNext, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpNext)
+        LUIUtil.setTextSize(textView = tvPrev, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpPrev)
+        LUIUtil.setTextSize(textView = tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpText)
+        LUIUtil.setTextSize(textView = tvNext, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpNext)
     }
 }

@@ -45,6 +45,7 @@ import com.function.epub.model.BookInfo;
 import com.function.epub.model.BookInfoData;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.interfaces.CallbackAnimation;
 import com.utils.util.ConvertUtils;
 import com.views.LToast;
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
@@ -77,19 +78,19 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             } else {
                 byte[] coverImageAsBytes = bookInfo.getCoverImage();
                 if (coverImageAsBytes != null) {
-                    Bitmap bitmap = LReaderUtil.INSTANCE.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
+                    Bitmap bitmap = LReaderUtil.Companion.decodeBitmapFromByteArray(coverImageAsBytes, 100, 200);
                     bookInfo.setCoverImageBitmap(bitmap);
                     bookInfo.setCoverImage(null);
                     ivCover.setImageBitmap(bitmap);
                 } else {
                     // Searched and not found.
                     bookInfo.setCoverImageNotExists(true);
-                    ivCover.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
+                    ivCover.setImageResource(LReaderUtil.Companion.getDefaultCover());
                 }
             }
         } else {
             // Searched before and not found.
-            ivCover.setImageResource(LReaderUtil.INSTANCE.getDefaultCover());
+            ivCover.setImageResource(LReaderUtil.Companion.getDefaultCover());
         }
     }
 
@@ -98,10 +99,10 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         super.onCreate(savedInstanceState);
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         rlSplash = findViewById(R.id.rl_splash);
-        tvTitle = findViewById(R.id.tv_title);
+        tvTitle = findViewById(R.id.tvTitle);
         ivCover = findViewById(R.id.iv_cover);
         llGuide = findViewById(R.id.ll_guide);
-        LUIUtil.INSTANCE.setTextShadow(tvTitle);
+        LUIUtil.Companion.setTextShadow(tvTitle);
         bookInfo = BookInfoData.getInstance().getBookInfo();
         if (bookInfo == null) {
             LToast.show(getActivity(), getString(R.string.err_unknow));
@@ -115,7 +116,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         tvTitle.setText(titleBook);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mViewPager = findViewById(R.id.container);
-        LUIUtil.INSTANCE.setPullLikeIOSHorizontal(mViewPager);
+        LUIUtil.Companion.setPullLikeIOSHorizontal(mViewPager);
         tvPage = findViewById(R.id.tv_page);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
@@ -136,14 +137,14 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         mViewPager.setAdapter(mSectionsPagerAdapter);
         final String adUnitId = getIntent().getStringExtra(Constants.getAD_UNIT_ID_BANNER());
         //LLog.d(TAG, "adUnitId " + adUnitId);
-        LinearLayout lnAdview = findViewById(R.id.ln_adview);
-        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.INSTANCE.isConnected(getActivity())) {
+        LinearLayout lnAdview = findViewById(R.id.lnAdView);
+        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.Companion.isConnected(getActivity())) {
             lnAdview.setVisibility(View.GONE);
         } else {
             adView = new AdView(getActivity());
             adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(adUnitId);
-            LUIUtil.INSTANCE.createAdBanner(adView);
+            LUIUtil.Companion.createAdBanner(adView);
             lnAdview.addView(adView);
             lnAdview.requestLayout();
             //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
@@ -161,7 +162,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         findViewById(R.id.bt_zoom_in).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
+                LAnimationUtil.Companion.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
                     zoomIn(pageFragment);
@@ -179,7 +180,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         findViewById(R.id.bt_zoom_out).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.INSTANCE.play(view, Techniques.Pulse);
+                LAnimationUtil.Companion.play(view, Techniques.Pulse);
                 PageFragment pageFragment = (PageFragment) mSectionsPagerAdapter.instantiateItem(mViewPager, mViewPager.getCurrentItem());
                 if (pageFragment != null) {
                     zoomOut(pageFragment);
@@ -197,7 +198,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         llGuide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LAnimationUtil.INSTANCE.play(llGuide, Techniques.SlideOutLeft, new LAnimationUtil.Callback() {
+                LAnimationUtil.Companion.play(llGuide, Techniques.SlideOutLeft, new CallbackAnimation() {
                     @Override
                     public void onCancel() {
                     }
@@ -287,7 +288,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         protected void onPostExecute(Void aVoid) {
             //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
-            LUIUtil.INSTANCE.setDelay(1000, () -> {
+            LUIUtil.Companion.setDelay(1000, () -> {
                 rlSplash.setVisibility(View.GONE);
                 rlSplash = null;
             });
@@ -467,7 +468,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             webView.loadDataWithBaseURL(null, getStyledFont(data), mimeType, encoding, null);
             webView.setScrollBarSize(ConvertUtils.dp2px(2));
             webView.setLayoutParams(layoutParams);
-            int size = LPrefUtil.INSTANCE.getTextSizeEpub(getActivity());
+            int size = LPrefUtil.Companion.getTextSizeEpub(getActivity());
             updateUIWevViewSize(webView, size);
             return webView;
         } else {
@@ -500,7 +501,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         boolean addBodyEnd = !html.toLowerCase().contains("</body");
         return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
                 "src: url(\"file:///android_asset/" +
-                LUIUtil.INSTANCE.getFontForAll() +
+                LUIUtil.Companion.getFontForAll() +
                 "\")}" +
                 "body {font-family: CustomFont;font-size: medium;text-align: justify;}</style>" +
                 (addBodyStart ? "<body>" : "") + html + (addBodyEnd ? "</body>" : "");
@@ -526,7 +527,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 size = 250;
             }
             //LLog.d(TAG, "webView size " + size);
-            LPrefUtil.INSTANCE.setTextSizeEpub(getActivity(), size);
+            LPrefUtil.Companion.setTextSizeEpub(getActivity(), size);
             updateUIWevViewSize(webView, size);
         }
     }
@@ -551,7 +552,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 size = 50;
             }
             //LLog.d(TAG, "webView size " + size);
-            LPrefUtil.INSTANCE.setTextSizeEpub(getActivity(), size);
+            LPrefUtil.Companion.setTextSizeEpub(getActivity(), size);
             updateUIWevViewSize(webView, size);
         }
     }

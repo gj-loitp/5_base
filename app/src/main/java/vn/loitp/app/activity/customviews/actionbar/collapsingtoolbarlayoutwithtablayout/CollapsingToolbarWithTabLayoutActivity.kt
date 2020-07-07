@@ -17,6 +17,7 @@ import com.core.common.Constants
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.google.android.material.snackbar.Snackbar
+import com.interfaces.CallbackPopup
 import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
 import vn.loitp.app.R
@@ -82,7 +83,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         when (v.id) {
             R.id.fab -> Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            R.id.btMenu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : LPopupMenu.CallBack {
+            R.id.btMenu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : CallbackPopup {
                 override fun clickOnItem(menuItem: MenuItem) {
                     LToast.show(activity, menuItem.title.toString())
                 }

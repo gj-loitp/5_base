@@ -15,6 +15,7 @@ import com.R
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
 import com.data.EventBusData
+import com.interfaces.Callback1
 import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
@@ -78,8 +79,11 @@ abstract class BaseFragment : Fragment() {
 
     open fun showDialogError(errMsg: String, runnable: Runnable? = null) {
         context?.let {
-            LDialogUtil.showDialog1(it, getString(R.string.warning), errMsg, getString(R.string.confirm),
-                    object : LDialogUtil.Callback1 {
+            LDialogUtil.showDialog1(context = it,
+                    title = getString(R.string.warning),
+                    msg = errMsg,
+                    button1 = getString(R.string.confirm),
+                    callback1 = object : Callback1 {
                         override fun onClick1() {
                             runnable?.run()
                         }
@@ -89,8 +93,11 @@ abstract class BaseFragment : Fragment() {
 
     open fun showDialogMsg(msg: String, runnable: Runnable? = null) {
         context?.let {
-            LDialogUtil.showDialog1(it, getString(R.string.app_name), msg, getString(R.string.confirm),
-                    object : LDialogUtil.Callback1 {
+            LDialogUtil.showDialog1(context = it,
+                    title = getString(R.string.app_name),
+                    msg = msg,
+                    button1 = getString(R.string.confirm),
+                    callback1 = object : Callback1 {
                         override fun onClick1() {
                             runnable?.run()
                         }

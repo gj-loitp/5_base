@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMenu">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCoroutineAPI"
+                style="@style/ButtonMenu"
+                android:text="Coroutine API" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGalleryAPI"
+                style="@style/ButtonMenu"
+                android:text="@string/gallery_api" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTestRetrofit2"
+                style="@style/ButtonMenu"
+                android:text="@string/test_retrofit2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btComicAPI"
+                style="@style/ButtonMenu"
+                android:text="@string/truyen_tranh_api" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/tvMenu"
+        style="@style/TextMenu"
+        android:text="@string/menu_api" />
+</RelativeLayout>

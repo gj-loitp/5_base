@@ -69,11 +69,11 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ln_adview"
+        android:layout_above="@+id/lnAdView"
         android:layout_below="@+id/v_line" />
 
     <LinearLayout
-        android:id="@+id/ln_adview"
+        android:id="@+id/lnAdView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -128,7 +128,7 @@
             app:realtimeOverlayColor="@color/black35" />
 
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"

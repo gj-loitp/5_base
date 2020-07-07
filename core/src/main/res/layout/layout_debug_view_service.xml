@@ -6,14 +6,14 @@
 
     <!--Root container-->
     <RelativeLayout
-        android:id="@+id/root_container"
+        android:id="@+id/rlRootContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:ignore="UselessParent">
 
         <!--View while view is collapsed-->
         <RelativeLayout
-            android:id="@+id/collapse_view"
+            android:id="@+id/rlCollapse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -28,7 +28,7 @@
 
             <!--Close button-->
             <ImageView
-                android:id="@+id/close_btn"
+                android:id="@+id/ivClose"
                 android:layout_width="@dimen/w_20"
                 android:layout_height="@dimen/w_20"
                 android:layout_marginStart="@dimen/margin_40"
@@ -38,7 +38,7 @@
 
         <!--View while view is expanded-->
         <LinearLayout
-            android:id="@+id/expanded_container"
+            android:id="@+id/llExpanded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/black85"
@@ -64,7 +64,7 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/close_button"
+                    android:id="@+id/ivCloseButton"
                     android:layout_width="@dimen/w_20"
                     android:layout_height="@dimen/w_20"
                     android:layout_marginStart="@dimen/margin_5"

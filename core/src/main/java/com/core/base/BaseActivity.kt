@@ -17,6 +17,7 @@ import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
+import com.interfaces.Callback1
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
@@ -170,8 +171,11 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogError(errMsg: String) {
-        val alertDialog = LDialogUtil.showDialog1(activity, getString(R.string.warning), errMsg, getString(R.string.confirm),
-                object : LDialogUtil.Callback1 {
+        val alertDialog = LDialogUtil.showDialog1(context = activity,
+                title = getString(R.string.warning),
+                msg = errMsg,
+                button1 = getString(R.string.confirm),
+                callback1 = object : Callback1 {
                     override fun onClick1() {
                         onBackPressed()
                     }
@@ -180,11 +184,15 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogMsg(errMsg: String, runnable: Runnable? = null) {
-        LDialogUtil.showDialog1(activity, getString(R.string.app_name), errMsg, getString(R.string.confirm), object : LDialogUtil.Callback1 {
-            override fun onClick1() {
-                runnable?.run()
-            }
-        })
+        LDialogUtil.showDialog1(context = activity,
+                title = getString(R.string.app_name),
+                msg = errMsg,
+                button1 = getString(R.string.confirm),
+                callback1 = object : Callback1 {
+                    override fun onClick1() {
+                        runnable?.run()
+                    }
+                })
     }
 
     override fun onBackPressed() {
@@ -194,7 +202,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         if (isShowAdWhenExit && !Constants.IS_DEBUG) {
             interstitialAd?.let {
-                LUIUtil.displayInterstitial(it, 70)
+                LUIUtil.displayInterstitial(interstitial = it, maxNumber = 70)
             }
         } else {
             //dont use LLog here

@@ -189,7 +189,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
             //mDetailTextView.setText(LApplication.getInstance().getGson().toJson(user));
-            LUIUtil.INSTANCE.printBeautyJson(user, mDetailTextView);
+            LUIUtil.Companion.printBeautyJson(user, mDetailTextView);
 
             LLog.d(getTAG(), "updateUI " + LApplication.Companion.getGson().toJson(user));
             LLog.d(getTAG(), "user.getPhotoUrl() " + user.getPhotoUrl());
@@ -198,7 +198,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                 String url = user.getPhotoUrl().toString();
                 //String url= FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
                 url = url.replace("/s96-c/", "/s300-c/");
-                LImageUtil.INSTANCE.load(getActivity(), url, findViewById(R.id.google_icon));
+                LImageUtil.Companion.load(getActivity(), url, findViewById(R.id.google_icon));
             } catch (Exception e) {
                 //who cares?
             }

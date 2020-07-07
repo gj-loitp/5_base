@@ -42,7 +42,7 @@ public class AlarmMeActivity extends BaseFontActivity {
         LLog.d(getTAG(), "AlarmMeActivity.onCreate()");
 
         mAlarmList = findViewById(R.id.lv_alarm);
-        LUIUtil.INSTANCE.setPullLikeIOSVertical(mAlarmList);
+        LUIUtil.Companion.setPullLikeIOSVertical(mAlarmList);
 
         mAlarmListAdapter = new AlarmListAdapter(this);
         mAlarmList.setAdapter(mAlarmListAdapter);

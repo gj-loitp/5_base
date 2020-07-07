@@ -3,7 +3,7 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer
 import android.content.res.Configuration
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.utilities.LScreenUtil.isLandscape
+import com.core.utilities.LScreenUtil
 import com.views.exo.PlayerManager
 import kotlinx.android.synthetic.main.activity_video_exo_player2.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
@@ -57,7 +57,7 @@ class ExoPlayerActivity2 : BaseFontActivity() {
     }
 
     override fun onBackPressed() {
-        if (isLandscape(activity)) {
+        if (LScreenUtil.isLandscape(activity)) {
             playerManager?.toggleFullscreen(activity)
         } else {
             super.onBackPressed()

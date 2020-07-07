@@ -21,9 +21,7 @@ open class BaseRepository {
             val response = call.invoke()
 
             if (response.isSuccessful) {
-                response.body()?.let {
-                    it
-                } ?: run {
+                response.body() ?: run {
                     ApiResponse<T>(status = true, data = null)
                 }
             } else {

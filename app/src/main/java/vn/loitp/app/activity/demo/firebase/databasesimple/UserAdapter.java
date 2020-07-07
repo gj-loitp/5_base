@@ -39,7 +39,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
         public UserViewHolder(View view) {
             super(view);
-            tvName = view.findViewById(R.id.tv_name);
+            tvName = view.findViewById(R.id.tvName);
             tvTime = view.findViewById(R.id.tv_time);
             tvMsg = view.findViewById(R.id.tv_msg);
             avt = view.findViewById(R.id.avt);
@@ -67,7 +67,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.tvMsg.setText(user.getMsg());
         holder.tvTime.setText(user.getTimestamp() + "");
 
-        LImageUtil.INSTANCE.load(context, user.getAvt(), holder.avt);
+        LImageUtil.Companion.load(context, user.getAvt(), holder.avt);
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override

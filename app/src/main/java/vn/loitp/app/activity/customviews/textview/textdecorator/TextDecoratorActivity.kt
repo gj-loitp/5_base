@@ -5,7 +5,7 @@ import android.view.View
 import com.core.base.BaseFontActivity
 import com.views.textview.textdecorator.LTextDecorator
 import com.views.textview.textdecorator.OnTextClickListener
-import kotlinx.android.synthetic.main.activity_textview_text_decorator.*
+import kotlinx.android.synthetic.main.activity_text_view_text_decorator.*
 import vn.loitp.app.R
 
 //https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
@@ -41,6 +41,6 @@ class TextDecoratorActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_textview_text_decorator
+        return R.layout.activity_text_view_text_decorator
     }
 }
