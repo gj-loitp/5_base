@@ -9,7 +9,8 @@ import vn.loitp.app.R
 class DonationActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LScreenUtil.addFragment(activity, R.id.fl_container, FrmDonate(), false)
+
+        LScreenUtil.addFragment(activity = activity, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmDonate(), isAddToBackStack = false)
     }
 
     override fun setFullScreen(): Boolean {
