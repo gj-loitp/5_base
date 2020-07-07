@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkOrange">
+    android:background="@color/darkViolet">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/w_250"
+        android:layout_height="@dimen/w_350"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/loitp" />
+        android:src="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
@@ -19,7 +19,7 @@
         android:layout_above="@+id/bt"
         android:layout_below="@+id/imageView"
         android:gravity="center"
-        android:text="Screen 1"
+        android:text="Screen 2"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_32" />
 
@@ -27,7 +27,6 @@
         android:id="@+id/bt"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
-        android:text="Go to Screen 2" />
+        android:text="Pop this fragment" />
 
 </RelativeLayout>
-
