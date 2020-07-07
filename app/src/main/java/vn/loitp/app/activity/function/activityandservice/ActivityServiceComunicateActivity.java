@@ -15,7 +15,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import vn.loitp.app.R;
-import vn.loitp.app.activity.demo.floatingwidget.ComunicateMng;
+import vn.loitp.app.activity.demo.floatingwidget.CommunicateMng;
 
 public class ActivityServiceComunicateActivity extends BaseFontActivity {
     private static final int CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084;
@@ -59,7 +59,9 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
             startService(new Intent(getActivity(), TestService.class));
         });
         Button button0 = findViewById(R.id.bt0);
-        button0.setOnClickListener(v -> ComunicateMng.postFromActivity(new ComunicateMng.MsgFromActivity(button0.getText().toString())));
+        button0.setOnClickListener(v ->
+                CommunicateMng.postFromActivity(new CommunicateMng.MsgFromActivity(button0.getText().toString()))
+        );
     }
 
     @Override
@@ -78,7 +80,7 @@ public class ActivityServiceComunicateActivity extends BaseFontActivity {
 
     //listen msg from service
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onEvent(ComunicateMng.MsgFromService msg) {
+    public void onEvent(CommunicateMng.MsgFromService msg) {
         tv.setText(msg.getMsg());
     }
 }
