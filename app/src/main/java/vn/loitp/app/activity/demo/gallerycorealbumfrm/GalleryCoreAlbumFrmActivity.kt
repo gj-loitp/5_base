@@ -11,6 +11,7 @@ class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val frm = GalleryCorePhotosOnlyFrm()
         val bundle = Bundle()
         bundle.putString(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
@@ -27,6 +28,6 @@ class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_gallery_core_album_frm
+        return R.layout.activity_demo_gallery_core_album_frm
     }
 }
