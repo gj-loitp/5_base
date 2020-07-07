@@ -2,6 +2,7 @@ package vn.loitp.app.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -72,6 +73,19 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu
+    }
+
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+        this.doubleBackToExitPressedOnce = true
+        showShort("Press again to exit")
+        Handler().postDelayed({
+            doubleBackToExitPressedOnce = false
+        }, 2000)
     }
 
     override fun onClick(v: View) {
