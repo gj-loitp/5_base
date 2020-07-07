@@ -19,7 +19,7 @@
             app:controller_layout_id="@layout/exo_controller_default" />
 
         <ImageView
-            android:id="@+id/close_btn"
+            android:id="@+id/ivClose"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_toEndOf="@id/playerView"

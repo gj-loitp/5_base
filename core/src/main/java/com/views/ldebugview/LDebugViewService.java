@@ -77,8 +77,8 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mFloatingView, params);
 
-        collapsedView = mFloatingView.findViewById(R.id.collapse_view);
-        expandedView = mFloatingView.findViewById(R.id.expanded_container);
+        collapsedView = mFloatingView.findViewById(R.id.rlCollapse);
+        expandedView = mFloatingView.findViewById(R.id.llExpanded);
 
         expandedView.getLayoutParams().width = LScreenUtil.Companion.getScreenWidth() / 2;
         expandedView.getLayoutParams().height = LScreenUtil.Companion.getScreenHeight() * 2 / 3;
@@ -88,7 +88,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         scrollView = mFloatingView.findViewById(R.id.scrollView);
 
         //Set the close button
-        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.close_btn);
+        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.ivClose);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +98,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         });
 
         //Set the close button
-        ImageView closeButton = mFloatingView.findViewById(R.id.close_button);
+        ImageView closeButton = mFloatingView.findViewById(R.id.ivCloseButton);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,7 +108,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         });
 
         //Drag and move floating view using user's touch action.
-        mFloatingView.findViewById(R.id.root_container).setOnTouchListener(this);
+        mFloatingView.findViewById(R.id.rlRootContainer).setOnTouchListener(this);
     }
 
     /**
@@ -117,7 +117,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
      * @return true if the floating view is collapsed.
      */
     private boolean isViewCollapsed() {
-        return mFloatingView == null || mFloatingView.findViewById(R.id.collapse_view).getVisibility() == View.VISIBLE;
+        return mFloatingView == null || mFloatingView.findViewById(R.id.rlCollapse).getVisibility() == View.VISIBLE;
     }
 
     private int initialX;
@@ -127,7 +127,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        if (v.getId() == R.id.root_container) {
+        if (v.getId() == R.id.rlRootContainer) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
 

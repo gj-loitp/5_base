@@ -71,7 +71,7 @@ public class TestService extends Service {
         mWindowManager.addView(mFloatingView, params);
 
         tv = mFloatingView.findViewById(R.id.textView);
-        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.close_btn);
+        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.ivClose);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +95,7 @@ public class TestService extends Service {
 
     private void setDrag(WindowManager.LayoutParams params) {
         //Drag and move floating view using user's touch action.
-        mFloatingView.findViewById(R.id.root_container).setOnTouchListener(new View.OnTouchListener() {
+        mFloatingView.findViewById(R.id.rlRootContainer).setOnTouchListener(new View.OnTouchListener() {
             private int initialX;
             private int initialY;
             private float initialTouchX;

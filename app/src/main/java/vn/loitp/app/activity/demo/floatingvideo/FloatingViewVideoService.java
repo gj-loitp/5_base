@@ -92,7 +92,7 @@ public class FloatingViewVideoService extends Service implements VideoRendererEv
         mWindowManager.addView(mFloatingView, params);
 
         //Set the close button
-        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.close_btn);
+        ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.ivClose);
         closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
