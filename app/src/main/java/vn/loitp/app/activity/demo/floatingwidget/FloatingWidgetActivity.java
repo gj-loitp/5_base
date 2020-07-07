@@ -5,10 +5,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.widget.Toast;
 
 import com.core.base.BaseFontActivity;
-import com.views.LToast;
+import com.core.utilities.LDialogUtil;
+import com.interfaces.Callback2;
 
 import vn.loitp.app.R;
 
@@ -18,16 +18,28 @@ public class FloatingWidgetActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //Check if the application has draw over other apps permission or not?
-        //This permission is by default available for API<23. But for API > 23
-        //you have to ask for the permission in runtime.
+        findViewById(R.id.btNotifyMe).setOnClickListener(view -> {
+            startService();
+        });
+    }
+
+    private void startService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-            //If the draw over permission is not available open the settings screen
-            //to grant the permission.
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
+            LDialogUtil.Companion.showDialog2(activity, "Permission", "Please open overlay permission", "Yes", "No", new Callback2() {
+                @Override
+                public void onClick1() {
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                    startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION);
+                }
+
+                @Override
+                public void onClick2() {
+                    //do nothing
+                }
+            });
         } else {
-            initializeView();
+            startService(new Intent(getActivity(), FloatingViewService.class));
+            onBackPressed();
         }
     }
 
@@ -46,29 +58,12 @@ public class FloatingWidgetActivity extends BaseFontActivity {
         return R.layout.activity_demo_floating_widget;
     }
 
-    private void initializeView() {
-        findViewById(R.id.btNotifyMe).setOnClickListener(view -> {
-            LToast.show(getActivity(), "onClick");
-            startService(new Intent(getActivity(), FloatingViewService.class));
-            onBackPressed();
-        });
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
             //Check if the permission is granted or not.
-            if (resultCode == RESULT_OK) {
-                initializeView();
-            } else { //Permission is not available
-                Toast.makeText(this,
-                        "Draw over other app permission not available. Closing the application",
-                        Toast.LENGTH_SHORT).show();
-
-                finish();
-            }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data);
+            startService();
         }
     }
 }
