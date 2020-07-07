@@ -50,8 +50,8 @@ public class FloatingViewEdgeService extends Service {
         statusBarHeight = LScreenUtil.Companion.getStatusBarHeight(getApplicationContext());
         //Inflate the floating view layout we created
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_floating_view_edge, null);
-        moveView = (RelativeLayout) mFloatingView.findViewById(R.id.move_view);
-        vBkgDestroy = (View) mFloatingView.findViewById(R.id.v_bkg_destroy);
+        moveView = mFloatingView.findViewById(R.id.rlMove);
+        vBkgDestroy = mFloatingView.findViewById(R.id.v_bkg_destroy);
         //Add the view to the window.
         int LAYOUT_FLAG;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -103,8 +103,8 @@ public class FloatingViewEdgeService extends Service {
         final int currentPosX = params.x;
         final int currentPosY = params.y;
         //LLog.d(TAG, "slideToPosition current Point: " + currentPosX + " x " + currentPosY);
-        final int a = (int) Math.abs(goToPosX - currentPosX);
-        final int b = (int) Math.abs(goToPosY - currentPosY);
+        final int a = Math.abs(goToPosX - currentPosX);
+        final int b = Math.abs(goToPosY - currentPosY);
         //LLog.d(TAG, "slideToPosition " + goToPosX + " x " + goToPosY + " -> a x b: " + a + " x " + b);
 
         countDownTimer = new CountDownTimer(300, 3) {
