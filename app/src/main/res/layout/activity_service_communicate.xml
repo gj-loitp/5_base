@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/notify_me"
+                android:id="@+id/btNotifyMe"
                 style="@style/ButtonMenu"
                 android:text="Click to Service" />
 

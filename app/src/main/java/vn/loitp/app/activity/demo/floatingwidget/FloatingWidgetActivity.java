@@ -43,11 +43,11 @@ public class FloatingWidgetActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_floating_widget;
+        return R.layout.activity_demo_floating_widget;
     }
 
     private void initializeView() {
-        findViewById(R.id.notify_me).setOnClickListener(view -> {
+        findViewById(R.id.btNotifyMe).setOnClickListener(view -> {
             LToast.show(getActivity(), "onClick");
             startService(new Intent(getActivity(), FloatingViewService.class));
             onBackPressed();

@@ -19,7 +19,6 @@ import vn.loitp.app.R;
  * Created by LENOVO on 3/27/2018.
  */
 
-
 public class FloatingViewService extends Service {
     private WindowManager mWindowManager;
     private View mFloatingView;
