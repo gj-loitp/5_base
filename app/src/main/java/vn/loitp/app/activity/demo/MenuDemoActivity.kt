@@ -18,7 +18,6 @@ import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
-import vn.loitp.app.activity.demo.floatingview.FloatingViewActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
 import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
@@ -42,7 +41,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btTextToSpeech.setOnClickListener(this)
         btFloatingWidget.setOnClickListener(this)
         btFloatingVideo.setOnClickListener(this)
-        btFloatingView.setOnClickListener(this)
         btFirebase.setOnClickListener(this)
         if (Constants.IS_DEBUG) {
             btGalleryCore.visibility = View.VISIBLE
@@ -125,7 +123,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
             }
             btEpubReader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
-            btFloatingView -> intent = Intent(activity, FloatingViewActivity::class.java)
             bt2InstanceActivity -> intent = Intent(activity, Activity1::class.java)
             btFragmentNavigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
             btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)

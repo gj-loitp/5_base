@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -55,11 +56,6 @@
                 android:id="@+id/btFloatingWidget"
                 style="@style/ButtonMenu"
                 android:text="@string/android_floating_widget_like_facebook_chat_head" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btFloatingView"
-                style="@style/ButtonMenu"
-                android:text="@string/floating_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFragmentFlow"
