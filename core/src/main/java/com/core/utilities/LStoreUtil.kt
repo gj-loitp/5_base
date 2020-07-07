@@ -432,7 +432,7 @@ class LStoreUtil {
                         LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful $json")
                         val app = Gson().fromJson(json, App::class.java)
                         if (app == null) {
-                            ggSettingCallback?.onGGResponse(null, false)
+                            ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
                         } else {
                             val localMsg = LPrefUtil.getGGAppMsg(context)
                             val serverMsg = app.config?.msg

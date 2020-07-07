@@ -1,6 +1,7 @@
 package vn.loitp.app.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -28,6 +29,7 @@ class SplashActivity : BaseFontActivity() {
     private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LUIUtil.setDelay(mls = 2500, runnable = Runnable {
@@ -227,9 +229,11 @@ class SplashActivity : BaseFontActivity() {
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = activity, title = "Need Permissions",
+                context = activity,
+                title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
-                button1 = "Okay", button2 = "Cancel",
+                button1 = "Okay",
+                button2 = "Cancel",
                 callback2 = object : Callback2 {
                     override fun onClick1() {
                         checkPermission()
