@@ -176,9 +176,9 @@ class SplashActivity : BaseFontActivity() {
 
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful) {
+                if (response.isSuccessful && response.body != null) {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
-                    val versionServer = Integer.parseInt(response.body()!!.string())
+                    val versionServer = Integer.parseInt(response.body!!.string())
                     logD("onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true

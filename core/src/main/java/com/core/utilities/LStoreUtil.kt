@@ -430,7 +430,7 @@ class LStoreUtil {
                 @Throws(IOException::class)
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
-                        val responseBody = response.body() ?: return
+                        val responseBody = response.body ?: return
                         val json = responseBody.string()
 //                        LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful $json")
                         val app = Gson().fromJson(json, App::class.java)
@@ -473,7 +473,7 @@ class LStoreUtil {
                 @Throws(IOException::class)
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
-                        val responseBody = response.body()
+                        val responseBody = response.body
                         val json = responseBody?.string()
                         if (json.isNullOrEmpty()) {
                             ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody isNullOrEmpty"))
