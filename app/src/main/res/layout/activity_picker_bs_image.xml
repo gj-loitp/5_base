@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:fillViewport="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,30 +20,30 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tv_single_selection"
+                    android:id="@+id/tvSingleSelection"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:padding="24dp"
+                    android:padding="@dimen/txt_medium"
                     android:text="@string/single_selection" />
 
                 <TextView
-                    android:id="@+id/tv_single_selection_crop"
+                    android:id="@+id/tvSingleSelectionCrop"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:padding="24dp"
+                    android:padding="@dimen/txt_medium"
                     android:text="@string/single_selection_crop" />
 
                 <TextView
-                    android:id="@+id/tv_multi_selection"
+                    android:id="@+id/tvMultiSelection"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:padding="24dp"
+                    android:padding="@dimen/txt_medium"
                     android:text="@string/multi_selection" />
             </LinearLayout>
 
@@ -55,21 +54,21 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/iv_image1"
+                    android:id="@+id/ivImage1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
                 <ImageView
-                    android:id="@+id/iv_image2"
+                    android:id="@+id/ivImage2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
                 <ImageView
-                    android:id="@+id/iv_image3"
+                    android:id="@+id/ivImage3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -83,32 +82,31 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/iv_image4"
+                    android:id="@+id/ivImage4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
                 <ImageView
-                    android:id="@+id/iv_image5"
+                    android:id="@+id/ivImage5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
                 <ImageView
-                    android:id="@+id/iv_image6"
+                    android:id="@+id/ivImage6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="BSImagePicker" />
 </RelativeLayout>
-

@@ -31,19 +31,19 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
 
-        ivImage1 = findViewById(R.id.iv_image1);
-        ivImage2 = findViewById(R.id.iv_image2);
-        ivImage3 = findViewById(R.id.iv_image3);
-        ivImage4 = findViewById(R.id.iv_image4);
-        ivImage5 = findViewById(R.id.iv_image5);
-        ivImage6 = findViewById(R.id.iv_image6);
+        ivImage1 = findViewById(R.id.ivImage1);
+        ivImage2 = findViewById(R.id.ivImage2);
+        ivImage3 = findViewById(R.id.ivImage3);
+        ivImage4 = findViewById(R.id.ivImage4);
+        ivImage5 = findViewById(R.id.ivImage5);
+        ivImage6 = findViewById(R.id.ivImage6);
 
-        findViewById(R.id.tv_single_selection).setOnClickListener(v -> {
+        findViewById(R.id.tvSingleSelection).setOnClickListener(v -> {
             isCropEnable = false;
             final BSImagePicker pickerDialog = new BSImagePicker.Builder(providerAuthority).build();
             pickerDialog.show(getSupportFragmentManager(), "picker");
         });
-        findViewById(R.id.tv_multi_selection).setOnClickListener(v -> {
+        findViewById(R.id.tvMultiSelection).setOnClickListener(v -> {
             final BSImagePicker pickerDialog = new BSImagePicker.Builder(providerAuthority)
                     .setMaximumDisplayingImages(Integer.MAX_VALUE)
                     .isMultiSelect()
@@ -52,7 +52,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
                     .build();
             pickerDialog.show(getSupportFragmentManager(), "picker");
         });
-        findViewById(R.id.tv_single_selection_crop).setOnClickListener(v -> {
+        findViewById(R.id.tvSingleSelectionCrop).setOnClickListener(v -> {
             isCropEnable = true;
             final BSImagePicker pickerDialog = new BSImagePicker.Builder(providerAuthority).build();
             pickerDialog.show(getSupportFragmentManager(), "picker");
@@ -71,7 +71,7 @@ public class BSImagePickerActivity extends BaseFontActivity implements BSImagePi
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_bs_image_picker;
+        return R.layout.activity_picker_bs_image;
     }
 
     @Override
