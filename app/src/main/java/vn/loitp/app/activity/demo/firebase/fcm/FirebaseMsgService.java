@@ -37,7 +37,7 @@ public class FirebaseMsgService extends FirebaseMessagingService {
             LLog.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
             //THIS CODE BELOWS SEND A NOTIFICATION
-            if (Constants.INSTANCE.getIS_DEBUG()) {
+            if (Constants.Companion.getIS_DEBUG()) {
                 String appName = AppUtils.getAppName();
                 String title = appName + " miss you!";
                 String messageBody = remoteMessage.getNotification().getBody();
