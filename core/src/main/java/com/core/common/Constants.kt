@@ -69,6 +69,9 @@ class Constants {
         @JvmStatic
         val TEST_11 = "D1B593A99FF7E14DF4E2741AFF95645D"
 
+        @JvmStatic
+        val TEST_12 = "0ECE5CECE9A16F33BCAF16AB4DAB3B1D"
+
         val LOITP = "LoitpDebug"
 
         //region activity transition
