@@ -5,5 +5,5 @@ package vn.loitp.app.activity.pattern.observerpattern
  */
 
 interface RepositoryObserver {
-    fun onUserDataChanged(fullname: String, age: Int)
+    fun onUserDataChanged(fullName: String, age: Int)
 }

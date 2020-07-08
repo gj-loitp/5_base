@@ -8,12 +8,11 @@ import android.os.Handler
 import java.util.*
 
 class UserDataRepository private constructor() : Subject {
-    private var mFullName: String? = null
+    private var mFullName: String = ""
     private var mAge: Int = 0
-    private val mObservers: ArrayList<RepositoryObserver>
+    private val mObservers: ArrayList<RepositoryObserver> = ArrayList()
 
     init {
-        mObservers = ArrayList()
         //getNewDataFromRemote();
     }
 
@@ -37,7 +36,7 @@ class UserDataRepository private constructor() : Subject {
 
     override fun notifyObservers() {
         for (observer in mObservers) {
-            observer.onUserDataChanged(mFullName!!, mAge)
+            observer.onUserDataChanged(mFullName, mAge)
         }
     }
 
