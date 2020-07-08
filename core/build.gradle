@@ -7,7 +7,7 @@ group = 'com.github.tplloi'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
         minSdkVersion 19
@@ -52,8 +52,8 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //region image loader
-    api 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //bigimageview https://github.com/Piasy/BigImageViewer
     api 'com.github.piasy:BigImageViewer:1.5.6'
     api 'com.github.piasy:GlideImageLoader:1.5.6'
@@ -62,11 +62,11 @@ dependencies {
     //endregion
 
     //region retrofit
-    api 'com.squareup.retrofit2:retrofit:2.6.2'
+    api 'com.squareup.retrofit2:retrofit:2.7.2'
     api 'com.squareup.retrofit2:converter-gson:2.6.2'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     api 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
-    api 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    api 'com.squareup.okhttp3:logging-interceptor:4.4.0'
     api 'com.j256.ormlite:ormlite-core:4.48'
     api 'com.j256.ormlite:ormlite-android:4.48'
     //endregion
@@ -116,7 +116,7 @@ dependencies {
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
-    api 'com.google.android.gms:play-services-ads:18.3.0'
+    api 'com.google.android.gms:play-services-ads:19.2.0'
     api 'com.google.android.gms:play-services-location:17.0.0'
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
     //endregion

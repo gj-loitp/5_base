@@ -1,6 +1,7 @@
 package vn.loitp.app.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -9,6 +10,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.Callback1
 import com.interfaces.Callback2
+import com.interfaces.GGCallback
 import com.interfaces.GGSettingCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -16,6 +18,7 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.model.App
+import com.model.GG
 import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.*
 import vn.loitp.app.BuildConfig
@@ -28,6 +31,7 @@ class SplashActivity : BaseFontActivity() {
     private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         LUIUtil.setDelay(mls = 2500, runnable = Runnable {
@@ -42,6 +46,7 @@ class SplashActivity : BaseFontActivity() {
         }
 
         getSettingFromGGDrive()
+        getGG()
 
         startIdleTimeHandler(10 * 1000)
         //val getAddressLog = DebugDB.getAddressLog()
@@ -171,9 +176,9 @@ class SplashActivity : BaseFontActivity() {
 
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
-                if (response.isSuccessful) {
+                if (response.isSuccessful && response.body != null) {
                     //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
-                    val versionServer = Integer.parseInt(response.body()!!.string())
+                    val versionServer = Integer.parseInt(response.body!!.string())
                     logD("onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true
@@ -227,9 +232,11 @@ class SplashActivity : BaseFontActivity() {
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = activity, title = "Need Permissions",
+                context = activity,
+                title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
-                button1 = "Okay", button2 = "Cancel",
+                button1 = "Okay",
+                button2 = "Cancel",
                 callback2 = object : Callback2 {
                     override fun onClick1() {
                         checkPermission()
@@ -253,6 +260,22 @@ class SplashActivity : BaseFontActivity() {
 
                     override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
                         logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
+                    }
+                })
+    }
+
+    private fun getGG() {
+        val linkGGDrive = "https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI"
+        LStoreUtil.getTextFromGGDrive(
+                context = activity,
+                linkGGDrive = linkGGDrive,
+                ggCallback = object : GGCallback {
+                    override fun onGGFailure(call: Call, e: Exception) {
+                        e.printStackTrace()
+                    }
+
+                    override fun onGGResponse(listGG: ArrayList<GG>) {
+                        logD("getGG listGG: -> " + LApplication.gson.toJson(listGG))
                     }
                 })
     }

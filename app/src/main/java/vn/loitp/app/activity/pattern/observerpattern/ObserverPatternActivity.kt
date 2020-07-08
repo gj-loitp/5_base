@@ -1,25 +1,23 @@
 package vn.loitp.app.activity.pattern.observerpattern
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import com.core.base.BaseFontActivity
-import com.views.LToast
+import kotlinx.android.synthetic.main.activity_pattern_observer.*
 import vn.loitp.app.R
 
 //https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
 class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, RepositoryObserver {
     private var mUserDataRepository: Subject? = null
-    private var tv: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        tv = findViewById<TextView>(R.id.textView)
 
         mUserDataRepository = UserDataRepository.getInstance()
-        mUserDataRepository!!.registerObserver(this)
+        mUserDataRepository?.registerObserver(this)
 
-        findViewById<View>(R.id.bt).setOnClickListener(this)
+        bt.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -31,25 +29,27 @@ class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, Reposi
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_observer_pattern
+        return R.layout.activity_pattern_observer
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.bt -> {
-                tv!!.text = "Loading..."
-                UserDataRepository.getInstance()!!.getNewDataFromRemote()
+        when (v) {
+            bt -> {
+                textView.text = "Loading..."
+                UserDataRepository.getInstance()?.getNewDataFromRemote()
             }
         }
     }
 
-    override fun onUserDataChanged(fullname: String, age: Int) {
-        LToast.show(activity, "onUserDataChanged $fullname - $age")
-        tv!!.text = "$fullname - $age"
+    @SuppressLint("SetTextI18n")
+    override fun onUserDataChanged(fullName: String, age: Int) {
+        showShort("onUserDataChanged $fullName - $age")
+        textView.text = "$fullName - $age"
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mUserDataRepository!!.removeObserver(this)
+        mUserDataRepository?.removeObserver(this)
     }
 }

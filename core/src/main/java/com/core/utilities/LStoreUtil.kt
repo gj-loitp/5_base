@@ -6,12 +6,15 @@ import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Environment
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.interfaces.*
 import com.model.App
+import com.model.GG
 import okhttp3.*
 import java.io.*
 import java.net.URL
 import java.util.*
+import kotlin.collections.ArrayList
 
 class LStoreUtil {
     companion object {
@@ -415,24 +418,24 @@ class LStoreUtil {
             if (context == null || linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
                 return
             }
-            LLog.d(TAG, "getSettingFromGGDrive")
+//            LLog.d(TAG, "getSettingFromGGDrive")
             val request = Request.Builder().url(linkGGDriveSetting).build()
             val okHttpClient = OkHttpClient()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    LLog.d(TAG, "getSettingFromGGDrive onFailure $e")
+//                    LLog.d(TAG, "getSettingFromGGDrive onFailure $e")
                     ggSettingCallback?.onGGFailure(call, e)
                 }
 
                 @Throws(IOException::class)
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful) {
-                        val responseBody = response.body() ?: return
+                        val responseBody = response.body ?: return
                         val json = responseBody.string()
-                        LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful $json")
+//                        LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful $json")
                         val app = Gson().fromJson(json, App::class.java)
                         if (app == null) {
-                            ggSettingCallback?.onGGResponse(null, false)
+                            ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
                         } else {
                             val localMsg = LPrefUtil.getGGAppMsg(context)
                             val serverMsg = app.config?.msg
@@ -447,8 +450,43 @@ class LStoreUtil {
                         }
 
                     } else {
-                        LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: $response")
+//                        LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: $response")
                         ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
+                    }
+                }
+            })
+        }
+
+        fun getTextFromGGDrive(context: Context?, linkGGDrive: String?, ggCallback: GGCallback?) {
+            if (context == null || linkGGDrive == null || linkGGDrive.isEmpty()) {
+                return
+            }
+//            LLog.d(TAG, "getTextFromGGDrive")
+            val request = Request.Builder().url(linkGGDrive).build()
+            val okHttpClient = OkHttpClient()
+            okHttpClient.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    LLog.d(TAG, "getTextFromGGDrive onFailure $e")
+                    ggCallback?.onGGFailure(call = call, e = e)
+                }
+
+                @Throws(IOException::class)
+                override fun onResponse(call: Call, response: Response) {
+                    if (response.isSuccessful) {
+                        val responseBody = response.body
+                        val json = responseBody?.string()
+                        if (json.isNullOrEmpty()) {
+                            ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody isNullOrEmpty"))
+                        } else {
+//                            LLog.d(TAG, "getTextFromGGDrive onResponse isSuccessful $json")
+                            val g = Gson()
+                            val listGG: ArrayList<GG> = g.fromJson(json, object : TypeToken<List<GG?>?>() {}.type)
+//                            LLog.d(TAG, "getTextFromGGDrive listGG " + g.toJson(listGG))
+                            ggCallback?.onGGResponse(listGG = listGG)
+                        }
+                    } else {
+//                        LLog.d(TAG, "getTextFromGGDrive !isSuccessful: $response")
+                        ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody !isSuccessful"))
                     }
                 }
             })

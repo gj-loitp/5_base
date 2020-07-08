@@ -18,6 +18,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btBsImagePicker.setOnClickListener(this)
         btImagePickerWithCrop.setOnClickListener(this)
         btCrop.setOnClickListener(this)

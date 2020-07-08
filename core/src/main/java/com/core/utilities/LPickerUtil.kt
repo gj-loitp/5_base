@@ -10,8 +10,13 @@ import com.views.LToast
 class LPickerUtil {
 
     companion object {
-        fun cropImage(activity: Activity, picUri: Uri, CROP_PIC_REQUEST_CODE: Int,
+        fun cropImage(activity: Activity?, picUri: Uri?, CROP_PIC_REQUEST_CODE: Int,
                       aspectX: Int, aspectY: Int, outputX: Int, outputY: Int) {
+
+            if (activity == null || picUri == null) {
+                return
+            }
+
             try {
                 val cropIntent = Intent("com.android.camera.action.CROP")
                 cropIntent.setDataAndType(picUri, "image/*")

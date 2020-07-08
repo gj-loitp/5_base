@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.network
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.core.utilities.LConnectivityUtil
@@ -32,6 +33,7 @@ class NetworkActivity : BaseFontActivity() {
         showStatus(event.isConnected)
     }
 
+    @SuppressLint("SetTextI18n")
     private fun showStatus(isConnected: Boolean) {
         textView.text = "isConnected: $isConnected"
     }

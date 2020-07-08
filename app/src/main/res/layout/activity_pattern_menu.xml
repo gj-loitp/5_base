@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:fillViewport="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMVP"
@@ -23,20 +24,19 @@
                 android:text="@string/mvp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_mvvm"
+                android:id="@+id/btMVVM"
                 style="@style/ButtonMenu"
                 android:text="@string/mvvm" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_observer_pattern"
+                android:id="@+id/btObserver"
                 style="@style/ButtonMenu"
                 android:text="@string/observer_pattern" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_pattern" />
 </RelativeLayout>
-

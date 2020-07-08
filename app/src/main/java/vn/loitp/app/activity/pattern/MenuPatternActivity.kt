@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import kotlinx.android.synthetic.main.activity_menu_pattern.*
+import kotlinx.android.synthetic.main.activity_pattern_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.MVPActivity
 import vn.loitp.app.activity.pattern.mvvm.MVVMActivity
@@ -15,8 +15,9 @@ class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_observer_pattern).setOnClickListener(this)
-        findViewById<View>(R.id.bt_mvvm).setOnClickListener(this)
+
+        btObserver.setOnClickListener(this)
+        btMVVM.setOnClickListener(this)
         btMVP.setOnClickListener(this)
     }
 
@@ -29,15 +30,15 @@ class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_pattern
+        return R.layout.activity_pattern_menu
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_observer_pattern -> intent = Intent(activity, ObserverPatternActivity::class.java)
-            R.id.bt_mvvm -> intent = Intent(activity, MVVMActivity::class.java)
-            R.id.btMVP -> intent = Intent(activity, MVPActivity::class.java)
+        when (v) {
+            btObserver -> intent = Intent(activity, ObserverPatternActivity::class.java)
+            btMVVM -> intent = Intent(activity, MVVMActivity::class.java)
+            btMVP -> intent = Intent(activity, MVPActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

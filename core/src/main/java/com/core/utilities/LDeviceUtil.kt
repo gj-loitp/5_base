@@ -108,7 +108,7 @@ class LDeviceUtil {
             activityManager.getMemoryInfo(memoryInfo)
             val availableMegs = memoryInfo.availMem / 1048576L
             val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
-            //LLog.d(TAG, "percentAvail $percentAvail")
+            LLog.d(TAG, "percentAvail $percentAvail")
             return availableMegs
         }
     }
