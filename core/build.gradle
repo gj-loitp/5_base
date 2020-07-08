@@ -52,8 +52,8 @@ dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //region image loader
-    api 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //bigimageview https://github.com/Piasy/BigImageViewer
     api 'com.github.piasy:BigImageViewer:1.5.6'
     api 'com.github.piasy:GlideImageLoader:1.5.6'
