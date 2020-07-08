@@ -17,8 +17,8 @@ class DemoPresenter(var view: View?) {
 
     fun doALongTask() {
         view?.showProgressBar()
-        LUIUtil.setDelay(5000, Runnable {
-            view?.let{
+        LUIUtil.setDelay(mls = 5000, runnable = Runnable {
+            view?.let {
                 it.hideProgressBar()
                 it.onDoALongTask("Finish do a long task (5000mls) ${System.currentTimeMillis()}")
             }

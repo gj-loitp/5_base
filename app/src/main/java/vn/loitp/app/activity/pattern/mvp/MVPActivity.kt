@@ -6,7 +6,7 @@ import android.text.TextWatcher
 import android.view.View
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_mvp.*
+import kotlinx.android.synthetic.main.activity_pattern_mvp.*
 import vn.loitp.app.R
 
 class MVPActivity : BaseFontActivity(), DemoPresenter.View {
@@ -15,6 +15,7 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         demoPresenter = DemoPresenter(this)
 
         username.addTextChangedListener(object : TextWatcher {
@@ -57,11 +58,11 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_mvp
+        return R.layout.activity_pattern_mvp
     }
 
     override fun updateUserInfoTextView(info: String) {
-        myTextView.text = info
+        textView.text = info
     }
 
     override fun showProgressBar() {
