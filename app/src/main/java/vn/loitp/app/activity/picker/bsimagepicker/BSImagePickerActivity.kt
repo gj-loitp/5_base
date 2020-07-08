@@ -75,6 +75,7 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
 
     override fun onSingleImageSelected(uri: Uri?, tag: String?) {
         logD("onSingleImageSelected $uri, $tag")
+        showShort("onSingleImageSelected $uri, $tag")
         if (isCropEnable) {
             val aspectX = 1
             val aspectY = 1
