@@ -101,7 +101,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     private void addData() {
         User user = new User();
         user.setTimestamp(System.currentTimeMillis());
-        user.setAvt(Constants.INSTANCE.getURL_IMG());
+        user.setAvt(Constants.Companion.getURL_IMG());
         user.setName("loitp");
         user.setMsg("dummy msg " + user.getTimestamp());
         mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user)
@@ -129,7 +129,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
-                user.setAvt(Constants.INSTANCE.getURL_IMG_1());
+                user.setAvt(Constants.Companion.getURL_IMG_1());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user);
             }
 

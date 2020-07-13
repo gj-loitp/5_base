@@ -77,7 +77,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
             swipeRefreshLayout.setRefreshing(false);
             int newSize = 5;
             for (int i = 0; i < newSize; i++) {
-                Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.INSTANCE.getURL_IMG());
+                Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.Companion.getURL_IMG());
                 movieList.add(movie);
             }
             mAdapter.notifyDataSetChanged();
@@ -102,7 +102,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
 
     private void prepareMovieData() {
         for (int i = 0; i < 50; i++) {
-            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.INSTANCE.getURL_IMG());
+            Movie movie = new Movie("Loitp " + i, "Action & Adventure " + i, "Year: " + i, Constants.Companion.getURL_IMG());
             movieList.add(movie);
         }
         mAdapter.notifyDataSetChanged();

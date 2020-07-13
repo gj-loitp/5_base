@@ -6,8 +6,7 @@ import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_bookview.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-import vn.loitp.app.common.Constants.URL_IMG_1
-import vn.loitp.app.common.Constants.URL_IMG_2
+import vn.loitp.app.common.Constants
 import java.util.*
 
 class BookViewActivity : BaseFontActivity() {
@@ -57,9 +56,9 @@ class BookViewActivity : BaseFontActivity() {
         var cover: String
         for (i in 0..99) {
             cover = if (i % 2 == 0) {
-                URL_IMG_1
+                Constants.URL_IMG_1
             } else {
-                URL_IMG_2
+                Constants.URL_IMG_2
             }
             val movie = Movie("Loitp $i", "Action & Adventure $i", "Year: $i", cover)
             movieList.add(movie)
