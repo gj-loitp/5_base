@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="@dimen/w_150"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="#88ff0000"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            android:text="I can be dragged !"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="@dimen/w_150"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="#8800ff00"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            android:text="I will back to original loc!"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="@dimen/w_150"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="#880000ff"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            android:text="Edage to ctrl me"
+            android:textColor="@color/white" />
+    </vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperView>
+</RelativeLayout>
