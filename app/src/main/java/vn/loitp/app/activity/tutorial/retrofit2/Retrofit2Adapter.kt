@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.tutorial.retrofit2
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,10 +25,11 @@ class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private v
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        @SuppressLint("SetTextI18n")
         fun bind(retroCrypto: RetroCrypto, listener: Listener) {
             itemView.setOnClickListener { listener.onItemClick(retroCrypto) }
-            itemView.text_name.text = retroCrypto.currency + " " + System.currentTimeMillis()
-            itemView.text_price.text = retroCrypto.price + " " + System.currentTimeMillis()
+            itemView.tvName.text = retroCrypto.currency + " " + System.currentTimeMillis()
+            itemView.tvPrice.text = retroCrypto.price + " " + System.currentTimeMillis()
 
         }
     }

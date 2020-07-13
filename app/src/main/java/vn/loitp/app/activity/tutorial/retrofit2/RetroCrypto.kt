@@ -7,6 +7,7 @@ class RetroCrypto {
     @SerializedName("currency")
     @Expose
     var currency: String? = null
+
     @SerializedName("price")
     @Expose
     var price: String? = null
