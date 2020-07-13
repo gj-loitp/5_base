@@ -11,7 +11,6 @@ public class ViewDragHelperActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -26,7 +25,7 @@ public class ViewDragHelperActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_view_drag_helper;
+        return R.layout.activity_func_view_drag_helper;
     }
 
 }
