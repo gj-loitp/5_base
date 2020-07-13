@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.tutorial.retrofit2
 
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.core.base.BaseFontActivity
@@ -34,6 +35,7 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
 
     private fun loadData() {
         logD("loadData")
+        pb.visibility = View.VISIBLE
         compositeDisposable.add(sampleService.getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -43,9 +45,11 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                     retroCryptoArrayList.addAll(it)
                     retrofit2Adapter = Retrofit2Adapter(cryptoList = retroCryptoArrayList, listener = this)
                     rv.adapter = retrofit2Adapter
+                    pb.visibility = View.GONE
                 }, {
                     logE("loadData error $it")
                     showShort(it.toString())
+                    pb.visibility = View.GONE
                 }))
     }
 
