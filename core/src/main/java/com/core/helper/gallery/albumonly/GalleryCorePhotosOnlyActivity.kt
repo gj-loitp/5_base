@@ -214,7 +214,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
-                    wrapperPhotosetGetlist.photosets?.photoset?.let { list ->
+                    wrapperPhotosetGetlist?.photosets?.photoset?.let { list ->
                         for (photoset in list) {
                             if (photoset.id == photosetID) {
                                 photosSize = Integer.parseInt(photoset.photos ?: "0")
@@ -258,9 +258,9 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 .subscribe({ wrapperPhotosetGetPhotos ->
                     logD("photosetsGetPhotos onSuccess " + Gson().toJson(wrapperPhotosetGetPhotos))
 
-                    val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                    val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    wrapperPhotosetGetPhotos.photoset?.photo?.let {
+                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()

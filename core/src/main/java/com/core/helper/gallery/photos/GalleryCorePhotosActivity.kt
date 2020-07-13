@@ -18,7 +18,6 @@ import com.core.utilities.LUIUtil
 import com.interfaces.CallbackList
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
-import com.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
@@ -169,10 +168,10 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotosetGetPhotos: WrapperPhotosetGetPhotos ->
-                    val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                .subscribe({ wrapperPhotosetGetPhotos ->
+                    val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    wrapperPhotosetGetPhotos.photoset?.photo?.let {
+                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()

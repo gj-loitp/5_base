@@ -183,7 +183,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
-                    wrapperPhotosetGetlist.photosets?.photoset?.let { list ->
+                    wrapperPhotosetGetlist?.photosets?.photoset?.let { list ->
                         for (photoset in list) {
                             if (photoset.id == photosetID) {
                                 photosSize = Integer.parseInt(photoset.photos ?: "0")
@@ -225,15 +225,23 @@ class GalleryMemberActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, noJsonCallBack)
+        compositeDisposable.add(service.getPhotosetPhotos(method = method,
+                apiKey = apiKey,
+                photosetId = photosetID,
+                userId = userID,
+                extras = primaryPhotoExtras,
+                perPage = PER_PAGE_SIZE,
+                page = currentPage,
+                format = format,
+                noJsonCallback = noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
                     logD("photosetsGetPhotos $currentPage/$totalPage")
 
-                    val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                    val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    wrapperPhotosetGetPhotos.photoset?.photo?.let {
+                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()

@@ -133,24 +133,20 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras,
-                format, noJsonCallBack)
+        compositeDisposable.add(service.getListPhotoset(method = method,
+                apiKey = apiKey,
+                userId = userID,
+                page = page,
+                perPage = perPage,
+                primaryPhotoExtras = primaryPhotoExtras,
+                format = format,
+                noJsonCallback = noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotoSetGetlist ->
-                    wrapperPhotoSetGetlist.photosets?.photoset?.let {
+                    wrapperPhotoSetGetlist?.photosets?.photoset?.let {
                         listPhotoSet.addAll(it)
                     }
-
-                    /*String x = "";
-                    for (int i = 0; i < photosetList.size(); i++) {
-                        x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
-                    }
-                    LLog.d(TAG, "" + x);*/
-
-                    //LLog.d(TAG, "orginal size: " + photosetList.size());
-                    //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
-
                     listRemoveAlbum.let {
                         for (i in it.indices.reversed()) {
                             for (j in listPhotoSet.indices.reversed()) {
