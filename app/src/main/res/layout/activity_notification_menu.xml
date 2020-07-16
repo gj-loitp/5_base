@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -15,31 +16,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/simpleNotification"
+                android:id="@+id/btSimpleNotification"
                 style="@style/ButtonMenu"
                 android:text="simple notification" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/simpleNotificationActions"
+                android:id="@+id/btSimpleNotificationActions"
                 style="@style/ButtonMenu"
                 android:text="simple notification with actions" />
 
-
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bigTextNotification"
+                android:id="@+id/btBigTextNotification"
                 style="@style/ButtonMenu"
                 android:text="big text notification" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/inboxNotification"
+                android:id="@+id/btInboxNotification"
                 style="@style/ButtonMenu"
                 android:text="inbox notification" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bigPictureNotification"
+                android:id="@+id/btBigPictureNotification"
                 style="@style/ButtonMenu"
                 android:text="big picture notification" />
 
@@ -61,4 +63,3 @@
         style="@style/TextMenu"
         android:text="Notification Menu" />
 </RelativeLayout>
-

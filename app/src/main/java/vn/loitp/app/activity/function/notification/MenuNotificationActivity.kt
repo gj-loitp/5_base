@@ -35,8 +35,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
 
     private var notti: Notti? = null
     private val channelId = "my_package_channel"
-
-    private var notifManager: NotificationManager? = null
+    private var notificationManager: NotificationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,13 +45,13 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             tvMenu.text = d
         }
 
-        notti = Notti(this, NottiConf(R.mipmap.ic_launcher,
-                VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
-        simpleNotification.setOnClickListener(this)
-        simpleNotificationActions.setOnClickListener(this)
-        bigTextNotification.setOnClickListener(this)
-        inboxNotification.setOnClickListener(this)
-        bigPictureNotification.setOnClickListener(this)
+        notti = Notti(this, NottiConf(R.mipmap.ic_launcher, VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
+
+        btSimpleNotification.setOnClickListener(this)
+        btSimpleNotificationActions.setOnClickListener(this)
+        btBigTextNotification.setOnClickListener(this)
+        btInboxNotification.setOnClickListener(this)
+        btBigPictureNotification.setOnClickListener(this)
         btNotificationHeadsup.setOnClickListener(this)
         btNotificationHeadsupNice.setOnClickListener(this)
 
@@ -112,13 +111,13 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         val intent: Intent?
-        when (v.id) {
-            R.id.simpleNotification -> {
+        when (v) {
+            btSimpleNotification -> {
                 notti?.show(NottiFactory
                         .get(NottiFactory.TYPE.STANDARD, "some text", "some content")
                         .setContentAction(ContentAction(Intent(this, MenuNotificationActivity::class.java), this)))
             }
-            R.id.simpleNotificationActions -> {
+            btSimpleNotificationActions -> {
                 intent = Intent(this, MenuNotificationActivity::class.java)
 
                 val actionsList = Arrays.asList(NotificationAction("action", intent, this),
@@ -128,28 +127,28 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                         .get(NottiFactory.TYPE.STANDARD, "some text", "some content")
                         .setActions(actionsList))
             }
-            R.id.bigTextNotification -> {
+            btBigTextNotification -> {
                 notti?.show(NottiFactory
                         .get(NottiFactory.TYPE.BIG_TEXT, "some text", "some content").setBigText(
                                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere arcu enim, ut imperdiet sem pellentesque quis.Morbi in tempus lorem. Integer venenatis risus sit amet dolor lobortis, et consequat neque luctus. Etiam ut est nulla. Quisque turpis sapien, aliquet a consequat in, lacinia ut neque. Praesent scelerisque maximus nisi, sed pharetra nulla varius id. Proin at augue purus. Aliquam ut ullamcorper lorem, at vehicula nisl. Pellentesque imperdiet nunc vitae quam consectetur tempus. Nullam vel auctor orci. Ut a turpis ac quam placerat vestibulum. Sed ac hendrerit lorem, non imperdiet neque. Sed nisl urna, eleifend ac sem et, accumsan consectetur felis. Quisque cursus interdum erat, sit amet maximus felis consectetur ac. Aenean luctus, mi nec elementum bibendum, felis felis lacinia justo, vitae lacinia ligula nibh ut nulla. Nunc viverra commodo augue, in cursus nulla."))
             }
-            R.id.inboxNotification -> {
+            btInboxNotification -> {
                 notti?.show(NottiFactory
                         .get(NottiFactory.TYPE.INBOX, "some text", "some content")
                         .addInboxItem("some item").addInboxItem("another item")
                         .addInboxItem("and final item").setInboxSummary("random summary"))
             }
-            R.id.bigPictureNotification -> {
+            btBigPictureNotification -> {
                 val icon = BitmapFactory.decodeResource(this.resources, R.mipmap.ic_launcher)
                 val iconBig = BitmapFactory.decodeResource(this.resources, R.drawable.iv)
                 notti?.show(NottiFactory
                         .get(NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content")
                         .setBigPicture(iconBig).setLargeIcon(icon))
             }
-            R.id.btNotificationHeadsup -> {
+            btNotificationHeadsup -> {
                 createNotification("Testttttttttttttttttttttttttt")
             }
-            R.id.btNotificationHeadsupNice -> {
+            btNotificationHeadsupNice -> {
                 val title = "This is title " + System.currentTimeMillis()
                 val body = "This is body " + System.currentTimeMillis()
                 val iconRes = R.mipmap.ic_launcher
@@ -174,20 +173,20 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         val pendingIntent: PendingIntent
         val builder: NotificationCompat.Builder
 
-        if (notifManager == null) {
-            notifManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (notificationManager == null) {
+            notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_HIGH
-            var mChannel: NotificationChannel? = notifManager?.getNotificationChannel(id)
+            var mChannel: NotificationChannel? = notificationManager?.getNotificationChannel(id)
             if (mChannel == null) {
                 mChannel = NotificationChannel(id, name, importance)
                 mChannel.description = description
                 mChannel.enableVibration(true)
                 mChannel.lightColor = Color.GREEN
                 mChannel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
-                notifManager?.createNotificationChannel(mChannel)
+                notificationManager?.createNotificationChannel(mChannel)
             }
             builder = NotificationCompat.Builder(this, id)
 
@@ -220,6 +219,6 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         } // else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
 
         val notification = builder.build()
-        notifManager?.notify(NOTIFY_ID, notification)
+        notificationManager?.notify(NOTIFY_ID, notification)
     }
 }
