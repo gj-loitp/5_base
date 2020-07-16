@@ -20,18 +20,18 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_start_location_updates"
+                android:id="@+id/btStartLocationUpdates"
                 style="@style/ButtonMenu"
                 android:text="@string/start_updates" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_stop_location_updates"
+                android:id="@+id/btStopLocationUpdates"
                 style="@style/ButtonMenu"
                 android:enabled="false"
                 android:text="@string/stop_updates" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_get_last_location"
+                android:id="@+id/btGetLastLocation"
                 style="@style/ButtonMenu"
                 android:text="@string/get_last_location" />
 
@@ -43,14 +43,14 @@
                 android:text="Location updates will be received only when app is foreground" />
 
             <TextView
-                android:id="@+id/location_result"
+                android:id="@+id/tvLocationResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
                 android:textSize="@dimen/txt_medium" />
 
             <TextView
-                android:id="@+id/updated_on"
+                android:id="@+id/tvUpdatedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
