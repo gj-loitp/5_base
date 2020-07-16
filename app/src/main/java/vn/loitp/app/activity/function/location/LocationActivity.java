@@ -110,7 +110,7 @@ public class LocationActivity extends BaseActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_location;
+        return R.layout.activity_func_location;
     }
 
     private void init() {
