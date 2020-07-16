@@ -21,7 +21,7 @@ class TBGSingleSelectActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        groupChoices.setOnCheckedChangeListener { group, checkedId ->
+        groupChoices.setOnCheckedChangeListener { _, checkedId ->
             logD("onCheckedChanged(): checkedId = $checkedId")
             showShort("onCheckedChanged(): checkedId = $checkedId")
         }

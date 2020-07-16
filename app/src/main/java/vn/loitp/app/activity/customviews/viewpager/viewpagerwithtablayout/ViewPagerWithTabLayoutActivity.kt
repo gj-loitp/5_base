@@ -120,7 +120,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
 
     private inner class SlidePagerAdapter : PagerAdapter() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
-            val res = resList[position]
+//            val res = resList[position]
             val inflater = LayoutInflater.from(activity)
             val layout = inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)

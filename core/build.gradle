@@ -104,6 +104,7 @@ dependencies {
     api 'com.daimajia.easing:library:2.0@aar'
     api 'com.daimajia.androidanimations:library:2.2@aar'
     api 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
+    api 'com.simmorsal.recolor:recolor:1.1.0'//https://github.com/SIMMORSAL/ReColor
 
     api 'com.airbnb.android:lottie:3.0.6'
 
