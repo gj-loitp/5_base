@@ -25,7 +25,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
         db = new DatabaseHandler(this);
 
-        findViewById(R.id.bt_add).setOnClickListener(this);
+        findViewById(R.id.btAdd).setOnClickListener(this);
         findViewById(R.id.bt_clear_all).setOnClickListener(this);
         findViewById(R.id.bt_getcontact_with_id).setOnClickListener(this);
         findViewById(R.id.btGetContactListPage1).setOnClickListener(this);
@@ -52,7 +52,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.bt_add:
+            case R.id.btAdd:
                 addContact();
                 break;
             case R.id.btAdd100:

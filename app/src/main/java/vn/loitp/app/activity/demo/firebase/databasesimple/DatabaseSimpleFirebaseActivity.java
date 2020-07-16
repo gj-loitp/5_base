@@ -39,7 +39,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference();
 
-        findViewById(R.id.bt_add).setOnClickListener(this);
+        findViewById(R.id.btAdd).setOnClickListener(this);
 
         setupUI();
 
@@ -93,7 +93,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.bt_add) {
+        if (v.getId() == R.id.btAdd) {
             addData();
         }
     }
