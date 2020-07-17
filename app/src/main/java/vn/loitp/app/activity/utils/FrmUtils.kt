@@ -105,6 +105,33 @@ class FrmUtils : Fragment() {
         text += "\n$line byte[] encryptHmacSHA224(byte[] data, byte[] key)"
         text += "\n$line String encryptHmacSHA256ToString(String data, String key)" + EncryptUtils.encryptHmacSHA256ToString("TRAN PHU LOI", "TRAN PHU LOI")
         text += "\n$line String encryptHmacSHA256ToString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptHmacSHA256(byte[] data, byte[] key)"
+        text += "\n$line String encryptHmacSHA384ToString(String data, String key) " + EncryptUtils.encryptHmacSHA384ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA384ToString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptHmacSHA384(byte[] data, byte[] key)"
+        text += "\n$line String encryptHmacSHA512ToString(String data, String key) " + EncryptUtils.encryptHmacSHA512ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA512ToString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptHmacSHA512(byte[] data, byte[] key)"
+        text += "\n$line byte[] hmacTemplate(byte[] data, byte[] key, String algorithm)"
+        text += "\n$line byte[] encryptDES2Base64(byte[] data, byte[] key)"
+        text += "\n$line String encryptDES2HexString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptDES(byte[] data, byte[] key)"
+        text += "\n$line byte[] decryptBase64DES(byte[] data, byte[] key)"
+        text += "\n$line byte[] decryptHexStringDES(String data, byte[] key)"
+        text += "\n$line byte[] decryptDES(byte[] data, byte[] key)"
+        text += "\n$line byte[] encrypt3DES2Base64(byte[] data, byte[] key)"
+        text += "\n$line String encrypt3DES2HexString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encrypt3DES(byte[] data, byte[] key)"
+        text += "\n$line byte[] decryptBase64_3DES(byte[] data, byte[] key)"
+        text += "\n$line byte[] decryptHexString3DES(String data, byte[] key)"
+        text += "\n$line byte[] decrypt3DES(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptAES2Base64(byte[] data, byte[] key)"
+        text += "\n$line String encryptAES2HexString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptAES(byte[] data, byte[] key)"
+        text += "\n$line byte[] decryptBase64AES(byte[] data, byte[] key)"
+        text += "\n$line byte[] decryptHexStringAES(String data, byte[] key)"
+        text += "\n$line byte[] decryptAES(byte[] data, byte[] key)"
+        text += "\n$line byte[] desTemplate(byte[] data, byte[] key, String algorithm, String transformation, boolean isEncrypt)"
 
         textView.text = text
     }
