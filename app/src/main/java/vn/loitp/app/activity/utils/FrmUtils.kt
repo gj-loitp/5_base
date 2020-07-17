@@ -64,6 +64,13 @@ class FrmUtils : Fragment() {
         text += "\n$line int getSDKVersion() " + DeviceUtils.getSDKVersion()
         text += "\n$line String getAndroidID() " + DeviceUtils.getAndroidID()
         text += "\n$line String getMacAddress() " + DeviceUtils.getMacAddress()
+        text += "\n$line String getManufacturer() " + DeviceUtils.getManufacturer()
+        text += "\n$line String getModel() " + DeviceUtils.getModel()
+        text += "\n$line void shutdown()"
+        text += "\n$line void reboot()"
+        text += "\n$line void reboot(String reason)"
+        text += "\n$line void reboot2Recovery()"
+        text += "\n$line void reboot2Bootloader()"
 
         textView.text = text
     }
