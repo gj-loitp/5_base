@@ -56,8 +56,36 @@ class FrmUtils : Fragment() {
                 EncodeUtils::class.java.simpleName -> {
                     handleEncodeUtils()
                 }
+                EncryptUtils::class.java.simpleName -> {
+                    handleEncryptUtils()
+                }
             }
         }
+    }
+
+    private fun handleEncryptUtils() {
+        var text = ""
+
+        text += "\n$line String encryptMD2ToString(String data) " + EncryptUtils.encryptMD2ToString("TRAN PHU LOI")
+        text += "\n$line String encryptMD2ToString(byte[] data)"
+        text += "\n$line byte[] encryptMD2(byte[] data)"
+        text += "\n$line String encryptMD5ToString(String data) " + EncryptUtils.encryptMD5ToString("TRAN PHU LOI")
+        text += "\n$line String encryptMD5ToString(String data, String salt)"
+        text += "\n$line String encryptMD5ToString(byte[] data)"
+        text += "\n$line String encryptMD5ToString(byte[] data, byte[] salt)"
+        text += "\n$line byte[] encryptMD5(byte[] data)"
+        text += "\n$line String encryptMD5File2String(String filePath)"
+        text += "\n$line byte[] encryptMD5File(String filePath)"
+        text += "\n$line String encryptMD5File2String(File file)"
+        text += "\n$line byte[] encryptMD5File(File file)"
+        text += "\n$line String encryptSHA1ToString(String data) " + EncryptUtils.encryptSHA1ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA1ToString(byte[] data)"
+        text += "\n$line byte[] encryptSHA1(byte[] data)"
+        text += "\n$line String encryptSHA224ToString(String data) " + EncryptUtils.encryptSHA224ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA224ToString(byte[] data)"
+        text += "\n$line byte[] encryptSHA224(byte[] data)"
+
+        textView.text = text
     }
 
     private fun handleEncodeUtils() {

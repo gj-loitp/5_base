@@ -27,6 +27,7 @@ class UtilsActivity : BaseFontActivity() {
 
     private fun setupData() {
 
+        listClass.add(EncryptUtils::class.java.simpleName)
         listClass.add(EncodeUtils::class.java.simpleName)
         listClass.add(DeviceUtils::class.java.simpleName)
         listClass.add(ConvertUtils::class.java.simpleName)
