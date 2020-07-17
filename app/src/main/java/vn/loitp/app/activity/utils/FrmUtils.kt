@@ -45,6 +45,7 @@ class FrmUtils : Fragment() {
 
         text += "\nisActivityExists UtilsActivity: " + ActivityUtils.isActivityExists(activity?.packageName, "UtilsActivity")
         text += "\ngetLauncherActivity: " + ActivityUtils.getLauncherActivity(activity?.packageName)
+        text += "\ngetTopActivity: " + ActivityUtils.getTopActivity()
 
         textView.text = text
     }
