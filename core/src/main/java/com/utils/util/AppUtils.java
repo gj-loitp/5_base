@@ -10,6 +10,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -556,6 +558,7 @@ public final class AppUtils {
             this.setSystem(isSystem);
         }
 
+        @NotNull
         @Override
         public String toString() {
             return "pkg name: " + getPackageName() +
