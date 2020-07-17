@@ -87,11 +87,20 @@ class FrmUtils : Fragment() {
         text += "\n$LINE getAppInfo ${activity?.packageName} " + AppUtils.getAppInfo(activity?.packageName)
         text += "\n$LINE getBean(PackageManager pm, PackageInfo pi)"
         text += "\n$LINE getAppsInfo ${activity?.packageName} " + AppUtils.getAppsInfo()
+        text += "\n$LINE boolean cleanAppData(String... dirPaths)"
+        text += "\n$LINE boolean cleanAppData(File... dirs)"
 
         textView.text = text
     }
 
     private fun handleBarUtils() {
+        var text = ""
 
+        //text += "\n$LINE setColor(Activity activity, @ColorInt int color): " + BarUtils.setColor(activity, Color.RED)
+        text += "\n$LINE setColor(Activity activity, @ColorInt int color)"
+        text += "\n$LINE void setColor(Activity activity, @ColorInt int color, @IntRange(from = 0, to = 255) int statusBarAlpha)"
+        text += "\n$LINE setColorForSwipeBack(Activity activity, int color)"
+
+        textView.text = text
     }
 }
