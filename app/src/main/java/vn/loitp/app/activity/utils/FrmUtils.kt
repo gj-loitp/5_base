@@ -53,8 +53,30 @@ class FrmUtils : Fragment() {
                 DeviceUtils::class.java.simpleName -> {
                     handleDeviceUtils()
                 }
+                EncodeUtils::class.java.simpleName -> {
+                    handleEncodeUtils()
+                }
             }
         }
+    }
+
+    private fun handleEncodeUtils() {
+        var text = ""
+
+        text += "\n$line String urlEncode(String input)"
+        text += "\n$line String urlEncode(String input, String charset)"
+        text += "\n$line String urlDecode(String input)"
+        text += "\n$line String String urlDecode(String input, String charset)"
+        text += "\n$line byte[] base64Encode(String input)"
+        text += "\n$line byte[] base64Encode(byte[] input)"
+        text += "\n$line String base64Encode2String(byte[] input)"
+        text += "\n$line byte[] base64Decode(String input)"
+        text += "\n$line byte[] base64Decode(byte[] input)"
+        text += "\n$line byte[] base64UrlSafeEncode(String input)"
+        text += "\n$line String htmlEncode(CharSequence input)"
+        text += "\n$line CharSequence htmlDecode(String input)"
+
+        textView.text = text
     }
 
     private fun handleDeviceUtils() {
