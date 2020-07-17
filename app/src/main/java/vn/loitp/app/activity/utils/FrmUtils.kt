@@ -63,6 +63,13 @@ class FrmUtils : Fragment() {
         text += "\nuninstallApp(Activity activity, String packageName, int requestCode)"
         text += "\nuninstallAppSilent(String packageName, boolean isKeepData)"
         text += "\nisAppRoot: " + AppUtils.isAppRoot()
+        text += "\nlaunchApp(String packageName)"
+        text += "\nlaunchApp(Activity activity, String packageName, int requestCode)"
+        text += "\ngetAppPackageName: " + AppUtils.getAppPackageName()
+        text += "\ngetAppDetailsSettings()"
+        text += "\ngetAppDetailsSettings(String packageName)"
+        text += "\ngetAppName: " + AppUtils.getAppName()
+        text += "\ngetAppName com.facebook.katana: " + AppUtils.getAppName("com.facebook.katana")
 
         textView.text = text
     }
