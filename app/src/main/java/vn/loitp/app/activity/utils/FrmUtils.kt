@@ -50,8 +50,22 @@ class FrmUtils : Fragment() {
                 ConvertUtils::class.java.simpleName -> {
                     handleConvertUtils()
                 }
+                DeviceUtils::class.java.simpleName -> {
+                    handleDeviceUtils()
+                }
             }
         }
+    }
+
+    private fun handleDeviceUtils() {
+        var text = ""
+
+        text += "\n$line boolean isDeviceRooted() " + DeviceUtils.isDeviceRooted()
+        text += "\n$line int getSDKVersion() " + DeviceUtils.getSDKVersion()
+        text += "\n$line String getAndroidID() " + DeviceUtils.getAndroidID()
+        text += "\n$line String getMacAddress() " + DeviceUtils.getMacAddress()
+
+        textView.text = text
     }
 
     private fun handleConvertUtils() {
