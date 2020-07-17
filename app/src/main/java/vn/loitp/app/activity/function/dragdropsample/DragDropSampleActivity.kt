@@ -8,7 +8,7 @@ import android.view.View.DragShadowBuilder
 import android.view.View.OnDragListener
 import android.widget.ImageView
 import com.core.base.BaseFontActivity
-import kotlinx.android.synthetic.main.activity_drag_drop_sample.*
+import kotlinx.android.synthetic.main.activity_func_drag_drop_sample.*
 import vn.loitp.app.R
 
 class DragDropSampleActivity : BaseFontActivity() {
@@ -40,7 +40,7 @@ class DragDropSampleActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drag_drop_sample
+        return R.layout.activity_func_drag_drop_sample
     }
 
     private class TrashDragListener(private val enterShape: Int, private val normalShape: Int) : OnDragListener {

@@ -9,7 +9,7 @@
         android:id="@+id/tvCurrentStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15" />
+        android:padding="@dimen/padding_medium" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btStartDownload"
@@ -37,24 +37,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminateOnly="false"
-        android:padding="@dimen/padding_15" />
+        android:padding="@dimen/padding_medium" />
 
     <TextView
         android:id="@+id/tvPercent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15" />
+        android:padding="@dimen/padding_medium" />
 
     <TextView
         android:id="@+id/tvSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15" />
+        android:padding="@dimen/padding_medium" />
 
     <TextView
         android:id="@+id/tvTotalSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15" />
+        android:padding="@dimen/padding_medium" />
 
 </LinearLayout>
