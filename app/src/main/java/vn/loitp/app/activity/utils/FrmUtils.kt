@@ -41,8 +41,24 @@ class FrmUtils : Fragment() {
                 CleanUtils::class.java.simpleName -> {
                     handleCleanUtils()
                 }
+                ClipboardUtils::class.java.simpleName -> {
+                    handleClipboardUtils()
+                }
             }
         }
+    }
+
+    private fun handleClipboardUtils() {
+        var text = ""
+
+        text += "\n$line void copyText(CharSequence text)"
+        text += "\n$line CharSequence getText()"
+        text += "\n$line void copyUri(Uri uri)"
+        text += "\n$line Uri getUri()"
+        text += "\n$line void copyIntent(Intent intent)"
+        text += "\n$line Intent getIntent()"
+
+        textView.text = text
     }
 
     private fun handleCleanUtils() {

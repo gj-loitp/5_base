@@ -27,6 +27,7 @@ class UtilsActivity : BaseFontActivity() {
 
     private fun setupData() {
 
+        listClass.add(ClipboardUtils::class.java.simpleName)
         listClass.add(CleanUtils::class.java.simpleName)
         listClass.add(CacheUtils::class.java.simpleName)
         listClass.add(BarUtils::class.java.simpleName)
