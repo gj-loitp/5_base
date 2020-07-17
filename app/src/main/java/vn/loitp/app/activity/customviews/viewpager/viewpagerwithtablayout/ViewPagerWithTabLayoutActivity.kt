@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -119,6 +120,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
     }
 
     private inner class SlidePagerAdapter : PagerAdapter() {
+        @SuppressLint("SetTextI18n")
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
 //            val res = resList[position]
             val inflater = LayoutInflater.from(activity)

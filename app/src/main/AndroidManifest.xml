@@ -683,7 +683,7 @@
             android:name=".activity.animation.lottie.MenuLottieActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.demo.floatingview.FloatingViewActivity"
+            android:name=".activity.utils.UtilsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.animation.valueanimator.ValueAnimatorActivity"
@@ -902,15 +902,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".activity.demo.floatingview.service.FVChatHeadService"
-            android:exported="false" />
-        <service
-            android:name=".activity.demo.floatingview.service.FVCustomFloatingViewService"
-            android:exported="false" />
-        <service
-            android:name=".activity.demo.floatingview.service.FVCustomUZVideoService"
-            android:exported="false" />
 
         <activity
             android:name=".activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"

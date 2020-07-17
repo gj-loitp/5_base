@@ -9,7 +9,7 @@ import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_viewpager_lockable.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv.Companion.newInstance
+import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv
 
 class LockableViewPagerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ class LockableViewPagerActivity : BaseFontActivity() {
 
     private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
-            return newInstance()
+            return FrmIv.newInstance()
         }
 
         override fun getCount(): Int {

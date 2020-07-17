@@ -85,6 +85,11 @@
                 android:text="@string/tutorial" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btUtils"
+                style="@style/ButtonMenu"
+                android:text="Utils" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRateApp"
                 style="@style/ButtonMenu"
                 android:text="@string/rate_app" />
