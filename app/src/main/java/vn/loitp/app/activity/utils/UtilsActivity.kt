@@ -7,8 +7,11 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
+import com.utils.util.ActivityUtils
 import kotlinx.android.synthetic.main.activity_utils.*
 import vn.loitp.app.R
+import java.util.*
+import kotlin.collections.ArrayList
 
 class UtilsActivity : BaseFontActivity() {
 
@@ -25,7 +28,7 @@ class UtilsActivity : BaseFontActivity() {
     }
 
     private fun setupData() {
-        listClass.add("Test")
+        listClass.add(ActivityUtils::class.java.simpleName)
         viewPager.adapter?.notifyDataSetChanged()
     }
 
@@ -45,7 +48,10 @@ class UtilsActivity : BaseFontActivity() {
         : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
-            return FrmTest.newInstance()
+            if (listClass[position] == ActivityUtils::class.java.simpleName) {
+                return FrmActivityUtils.newInstance()
+            }
+            return FrmActivityUtils.newInstance()
         }
 
         override fun getCount(): Int {
@@ -53,7 +59,7 @@ class UtilsActivity : BaseFontActivity() {
         }
 
         override fun getPageTitle(position: Int): CharSequence? {
-            return listClass[position]
+            return listClass[position].toLowerCase(Locale.getDefault())
         }
     }
 }
