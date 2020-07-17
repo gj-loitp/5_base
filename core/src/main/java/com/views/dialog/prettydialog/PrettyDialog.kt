@@ -242,26 +242,20 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         return this
     }
 
-    fun setTextSizeTitle(typedValue: Int, size: Int): PrettyDialog {
-        if (tvTitle == null) {
-            return this
-        }
-        LUIUtil.setTextSize(tvTitle, typedValue, size)
+    fun setTextSizeTitle(size: Float): PrettyDialog {
+        LUIUtil.setTextSize(textView = tvTitle, size = size)
         return this
     }
 
-    fun setTextSizeMsg(typedValue: Int, size: Int): PrettyDialog {
-        if (tvMessage == null) {
-            return this
-        }
-        LUIUtil.setTextSize(tvMessage, typedValue, size)
+    fun setTextSizeMsg(size: Float): PrettyDialog {
+        LUIUtil.setTextSize(textView = tvMessage, size = size)
         return this
     }
 
-    fun setTextSizeButton(typedValue: Int, size: Int): PrettyDialog {
+    fun setTextSizeButton(size: Float): PrettyDialog {
         if (prettyDialogButtonList.isNotEmpty()) {
             for (prettyDialogButton in prettyDialogButtonList) {
-                prettyDialogButton.setTextSize(typedValue, size)
+                prettyDialogButton.setTextSize(size)
             }
         }
         return this

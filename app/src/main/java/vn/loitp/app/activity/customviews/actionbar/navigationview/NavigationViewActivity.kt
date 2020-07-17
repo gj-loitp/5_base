@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.actionbar.navigationview
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.TypedValue
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
@@ -32,7 +31,7 @@ class NavigationViewActivity : BaseFontActivity() {
             colorOn = ContextCompat.getColor(activity, R.color.red)
             colorOff = ContextCompat.getColor(activity, R.color.gray)
             tv?.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(textView = this.tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = 20)//20dp
+            LUIUtil.setTextSize(textView = this.tv, size = resources.getDimension(R.dimen.txt_medium))
         }
 
         val stringList = ArrayList<String>()

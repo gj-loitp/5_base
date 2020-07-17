@@ -552,11 +552,18 @@ class LUIUtil {
         //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_SP, 25);//25sp
         //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PX, 25);//25px
         //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PT, 25);//25points
-        fun setTextSize(textView: TextView?, typedValue: Int, size: Int) {
-            if (size < 0) {
+//        fun setTextSize(textView: TextView?, typedValue: Int, size: Int) {
+//            if (size < 0) {
+//                return
+//            }
+//            textView?.setTextSize(typedValue, size.toFloat())
+//        }
+
+        fun setTextSize(textView: TextView?, size: Float) {
+            if (size < 0 || textView == null) {
                 return
             }
-            textView?.setTextSize(typedValue, size.toFloat())
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
         }
 
         fun setMargins(view: View?, leftPx: Int, topPx: Int, rightPx: Int, bottomPx: Int) {

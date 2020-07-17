@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.menu.residemenu;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -50,7 +49,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private void setupUIResideMenuItem(final ResideMenuItem resideMenuItem) {
         resideMenuItem.setTextColor(Color.BLACK);
         resideMenuItem.setTextShadow(Color.WHITE);
-        resideMenuItem.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
+        resideMenuItem.setTextSize(getResources().getDimension(R.dimen.txt_medium));
         resideMenuItem.setIvIconSizeDp(20);
     }
 

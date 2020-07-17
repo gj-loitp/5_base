@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.dialog.prettydialog
 
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.TypedValue
 import android.view.View
 import android.view.View.OnClickListener
 import com.core.base.BaseFontActivity
@@ -119,8 +118,8 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setAnimationEnabled(true)
                     .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
-                    .setTextSizeTitle(TypedValue.COMPLEX_UNIT_DIP, 22)
-                    .setTextSizeMsg(TypedValue.COMPLEX_UNIT_DIP, 18)
+                    .setTextSizeTitle(resources.getDimension(R.dimen.txt_medium))
+                    .setTextSizeMsg(resources.getDimension(R.dimen.txt_medium))
                     .setIconCallback(Runnable {
                         showShort("onClick setIconCallback")
                     })
@@ -154,7 +153,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                                 prettyDialog?.cancel()
                             }
                     )
-                    .setTextSizeButton(TypedValue.COMPLEX_UNIT_DIP, 20)
+                    .setTextSizeButton(resources.getDimension(R.dimen.txt_medium))
                     .show()
         }
     }

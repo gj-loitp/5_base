@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.database.sqlitemultitable
 
 import android.os.Bundle
-import android.util.TypedValue
 import android.widget.TextView
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
@@ -145,7 +144,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         logD(msg)
         val tv = TextView(activity)
         tv.text = msg
-        LUIUtil.setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 10)
+        LUIUtil.setTextSize(textView = tv, size = resources.getDimension(R.dimen.txt_small))
         ll.addView(tv)
     }
 }

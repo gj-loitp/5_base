@@ -87,8 +87,8 @@ public class ResideMenuItem extends LinearLayout {
         tvTitle.setTextColor(color);
     }
 
-    public void setTextSize(int typedValue, int size) {
-        LUIUtil.Companion.setTextSize(tvTitle, typedValue, size);
+    public void setTextSize(float size) {
+        LUIUtil.Companion.setTextSize(tvTitle, size);
     }
 
     public void setTextShadow(int color) {
