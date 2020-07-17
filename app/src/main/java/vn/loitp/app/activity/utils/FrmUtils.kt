@@ -126,6 +126,10 @@ class FrmUtils : Fragment() {
         text += "\n$LINE void hideFakeStatusBarView(Activity activity)"
         text += "\n$LINE void setTransparentStatusBar(Activity activity)"
         text += "\n$LINE void hideStatusBar(Activity activity)"
+        text += "\n$LINE boolean isStatusBarExists(Activity activity) " + BarUtils.isStatusBarExists(activity)
+        text += "\n$LINE int getActionBarHeight(Activity activity) " + BarUtils.getActionBarHeight(activity)
+        text += "\n$LINE void showNotificationBar(Context context, boolean isSettingPanel)"
+        text += "\n$LINE void hideNotificationBar(Context context)"
 
         textView.text = text
     }
