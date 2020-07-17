@@ -51,7 +51,20 @@ class FrmUtils : Fragment() {
     }
 
     private fun handleAppUtils() {
+        var text = ""
 
+        text += "\nisInstallApp ${activity?.packageName}: " + AppUtils.isInstallApp(activity?.packageName)
+        text += "\ninstallApp(String filePath, String authority)"
+        text += "\ninstallApp(File file, String authority)"
+        text += "\ninstallApp(Activity activity, String filePath, String authority, int requestCode)"
+        text += "\ninstallApp(Activity activity, File file, String authority, int requestCode)"
+        text += "\ninstallAppSilent(String filePath)"
+        text += "\nuninstallApp(String packageName)"
+        text += "\nuninstallApp(Activity activity, String packageName, int requestCode)"
+        text += "\nuninstallAppSilent(String packageName, boolean isKeepData)"
+        text += "\nisAppRoot: " + AppUtils.isAppRoot()
+
+        textView.text = text
     }
 
     private fun handleBarUtils() {
