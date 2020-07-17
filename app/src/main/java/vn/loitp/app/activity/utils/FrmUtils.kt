@@ -44,8 +44,63 @@ class FrmUtils : Fragment() {
                 ClipboardUtils::class.java.simpleName -> {
                     handleClipboardUtils()
                 }
+                CloseUtils::class.java.simpleName -> {
+                    handleCloseUtils()
+                }
+                ConvertUtils::class.java.simpleName -> {
+                    handleConvertUtils()
+                }
             }
         }
+    }
+
+    private fun handleConvertUtils() {
+        var text = ""
+
+        text += "\n$line String bytes2HexString(byte[] bytes)"
+        text += "\n$line byte[] hexString2Bytes(String hexString)"
+        text += "\n$line byte[] chars2Bytes(char[] chars)"
+        text += "\n$line char[] bytes2Chars(byte[] bytes)"
+        text += "\n$line long memorySize2Byte(long memorySize, @MemoryConstants.Companion.Unit int unit)"
+        text += "\n$line double byte2MemorySize(long byteNum, @MemoryConstants.Companion.Unit int unit)"
+        text += "\n$line String byte2FitMemorySize(long byteNum)"
+        text += "\n$line long timeSpan2Millis(long timeSpan, @TimeConstants.Companion.Unit int unit)"
+        text += "\n$line long millis2TimeSpan(long millis, @TimeConstants.Companion.Unit int unit)"
+        text += "\n$line String millis2FitTimeSpan(long millis, int precision)"
+        text += "\n$line String bytes2Bits(byte[] bytes)"
+        text += "\n$line byte[] bits2Bytes(String bits)"
+        text += "\n$line ByteArrayOutputStream input2OutputStream(InputStream is)"
+        text += "\n$line ByteArrayInputStream output2InputStream(OutputStream out)"
+        text += "\n$line byte[] inputStream2Bytes(InputStream is)"
+        text += "\n$line InputStream bytes2InputStream(byte[] bytes)"
+        text += "\n$line byte[] outputStream2Bytes(OutputStream out)"
+        text += "\n$line OutputStream bytes2OutputStream(byte[] bytes)"
+        text += "\n$line String inputStream2String(InputStream is, String charsetName)"
+        text += "\n$line InputStream string2InputStream(String string, String charsetName)"
+        text += "\n$line String outputStream2String(OutputStream out, String charsetName)"
+        text += "\n$line OutputStream string2OutputStream(String string, String charsetName)"
+        text += "\n$line byte[] bitmap2Bytes(Bitmap bitmap, Bitmap.CompressFormat format)"
+        text += "\n$line Bitmap bytes2Bitmap(byte[] bytes)"
+        text += "\n$line Bitmap drawable2Bitmap(Drawable drawable)"
+        text += "\n$line Drawable bitmap2Drawable(Resources res, Bitmap bitmap)"
+        text += "\n$line byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format)"
+        text += "\n$line Drawable bytes2Drawable(Resources res, byte[] bytes)"
+        text += "\n$line Bitmap view2Bitmap(View view)"
+        text += "\n$line int dp2px(float dpValue) " + ConvertUtils.dp2px(69f)
+        text += "\n$line int int px2dp(float pxValue) " + ConvertUtils.px2dp(69f)
+        text += "\n$line int sp2px(float spValue) " + ConvertUtils.sp2px(69f)
+        text += "\n$line int px2sp(float pxValue) " + ConvertUtils.px2sp(69f)
+
+        textView.text = text
+    }
+
+    private fun handleCloseUtils() {
+        var text = ""
+
+        text += "\n$line void closeIO(Closeable... closeables)"
+        text += "\n$line void closeIOQuietly(Closeable... closeables)"
+
+        textView.text = text
     }
 
     private fun handleClipboardUtils() {
