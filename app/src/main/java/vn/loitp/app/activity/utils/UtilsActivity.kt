@@ -7,9 +7,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
-import com.utils.util.ActivityUtils
-import com.utils.util.AppUtils
-import com.utils.util.BarUtils
+import com.utils.util.*
 import kotlinx.android.synthetic.main.activity_utils.*
 import vn.loitp.app.R
 
@@ -29,6 +27,8 @@ class UtilsActivity : BaseFontActivity() {
 
     private fun setupData() {
 
+        listClass.add(CleanUtils::class.java.simpleName)
+        listClass.add(CacheUtils::class.java.simpleName)
         listClass.add(BarUtils::class.java.simpleName)
         listClass.add(AppUtils::class.java.simpleName)
         listClass.add(ActivityUtils::class.java.simpleName)
