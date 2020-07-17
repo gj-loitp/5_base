@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.function.activityandservice
 
-import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -60,12 +59,7 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
-            //Check if the permission is granted or not.
-            if (resultCode == Activity.RESULT_OK) {
-                handleNotify()
-            } else { //Permission is not available
-                showShort("Draw over other app permission not available. Closing the application")
-            }
+            handleNotify()
         } else {
             super.onActivityResult(requestCode, resultCode, data)
         }
