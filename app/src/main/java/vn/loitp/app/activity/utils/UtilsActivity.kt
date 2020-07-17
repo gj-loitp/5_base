@@ -28,9 +28,10 @@ class UtilsActivity : BaseFontActivity() {
     }
 
     private fun setupData() {
-        listClass.add(ActivityUtils::class.java.simpleName)
-        listClass.add(AppUtils::class.java.simpleName)
+
         listClass.add(BarUtils::class.java.simpleName)
+        listClass.add(AppUtils::class.java.simpleName)
+        listClass.add(ActivityUtils::class.java.simpleName)
 
         viewPager.adapter?.notifyDataSetChanged()
     }
