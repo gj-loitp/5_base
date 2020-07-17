@@ -29,14 +29,12 @@ abstract class BaseFragment : Fragment() {
     protected var TAG: String? = null
     protected var compositeDisposable = CompositeDisposable()
     protected var frmRootView: View? = null
-    protected var fragmentCallback: FragmentCallback? = null
 
     private val DEFAULT_CHILD_ANIMATION_DURATION = 400
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        fragmentCallback?.onViewCreated()
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
@@ -106,9 +104,9 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    interface FragmentCallback {
-        fun onViewCreated()
-    }
+//    interface FragmentCallback {
+//        fun onViewCreated()
+//    }
 
     //https://stackoverflow.com/questions/14900738/nested-fragments-disappear-during-transition-animation
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
