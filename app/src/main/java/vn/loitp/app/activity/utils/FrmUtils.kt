@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.utils.util.ActivityUtils
 import com.utils.util.AppUtils
 import com.utils.util.BarUtils
+import kotlinx.android.synthetic.main.frm_utils.*
 import vn.loitp.app.R
 
 class FrmUtils : Fragment() {
@@ -40,7 +41,12 @@ class FrmUtils : Fragment() {
     }
 
     private fun handleActivityUtils() {
+        var text = ""
 
+        text += "\nisActivityExists UtilsActivity: " + ActivityUtils.isActivityExists(activity?.packageName, "UtilsActivity")
+        text += "\ngetLauncherActivity: " + ActivityUtils.getLauncherActivity(activity?.packageName)
+
+        textView.text = text
     }
 
     private fun handleAppUtils() {

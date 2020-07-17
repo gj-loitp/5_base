@@ -178,7 +178,7 @@
         <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
         <item name="android:scrollbarStyle">outsideOverlay</item>
         <item name="android:scrollbars">vertical</item>
-        <item name="android:fadeScrollbars">false</item>
+        <item name="android:fadeScrollbars">true</item>
         <item name="android:scrollbarThumbVertical">@drawable/scroll_thumb</item>
         <item name="android:scrollbarTrackVertical">@drawable/scroll_track</item>
         <item name="android:scrollbarSize">@dimen/w_5</item>
