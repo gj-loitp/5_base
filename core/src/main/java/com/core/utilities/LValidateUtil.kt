@@ -7,13 +7,13 @@ import java.util.regex.Pattern
 
 class LValidateUtil {
     companion object {
-        private val TAG = javaClass.simpleName
+        private val TAG = "LValidateUtil"
 
-        val MSG_0 = "pw_must_length_more_8_character"
-        val MSG_1 = "pw_must_contain_number"
-        val MSG_2 = "pw_must_have_lower_case"
-        val MSG_3 = "pw_must_have_upper_case"
-        val MSG_4 = "pw_must_have_special_character"
+        const val MSG_0 = "pw_must_length_more_8_character"
+        const val MSG_1 = "pw_must_contain_number"
+        const val MSG_2 = "pw_must_have_lower_case"
+        const val MSG_3 = "pw_must_have_upper_case"
+        const val MSG_4 = "pw_must_have_special_character"
 
         fun isValidEmail(target: CharSequence): Boolean {
             return !TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches()

@@ -1,9 +1,5 @@
 package com.function.simplefingergestures;
 
-/**
- * Created by www.muathu@gmail.com on 1/16/2018.
- */
-
 import android.os.SystemClock;
 import android.view.MotionEvent;
 
@@ -260,11 +256,7 @@ public class GestureAnalyser {
     }
 
     public boolean isDoubleTap() {
-        if (initialT - prevFinalT < doubleTapMaxDelayMillis && finalT - initialT < doubleTapMaxDownMillis && prevFinalT - prevInitialT < doubleTapMaxDownMillis) {
-            return true;
-        } else {
-            return false;
-        }
+        return initialT - prevFinalT < doubleTapMaxDelayMillis && finalT - initialT < doubleTapMaxDownMillis && prevFinalT - prevInitialT < doubleTapMaxDownMillis;
     }
 
     public class GestureType {
