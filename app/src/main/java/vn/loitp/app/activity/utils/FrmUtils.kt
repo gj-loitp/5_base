@@ -70,6 +70,17 @@ class FrmUtils : Fragment() {
         text += "\ngetAppDetailsSettings(String packageName)"
         text += "\ngetAppName: " + AppUtils.getAppName()
         text += "\ngetAppName com.facebook.katana: " + AppUtils.getAppName("com.facebook.katana")
+        text += "\ngetAppIcon()"
+        text += "\ngetAppIcon(String packageName)"
+        text += "\ngetAppPath: " + AppUtils.getAppPath()
+        text += "\ngetAppPath com.facebook.katana: " + AppUtils.getAppPath("com.facebook.katana")
+        text += "\ngetAppVersionName: " + AppUtils.getAppVersionName()
+        text += "\ngetAppVersionName com.facebook.katana: " + AppUtils.getAppVersionName("com.facebook.katana")
+        text += "\ngetAppVersionCode ${activity?.packageName} " + AppUtils.getAppVersionCode(activity?.packageName)
+        text += "\nisSystemApp ${activity?.packageName} " + AppUtils.isSystemApp(activity?.packageName)
+        text += "\nisAppDebug ${activity?.packageName} " + AppUtils.isAppDebug(activity?.packageName)
+        text += "\ngetAppSignature ${activity?.packageName} " + AppUtils.getAppSignature(activity?.packageName)
+        text += "\ngetAppSignatureSHA1 ${activity?.packageName} " + AppUtils.getAppSignatureSHA1(activity?.packageName)
 
         textView.text = text
     }
