@@ -84,6 +84,27 @@ class FrmUtils : Fragment() {
         text += "\n$line String encryptSHA224ToString(String data) " + EncryptUtils.encryptSHA224ToString("TRAN PHU LOI")
         text += "\n$line String encryptSHA224ToString(byte[] data)"
         text += "\n$line byte[] encryptSHA224(byte[] data)"
+        text += "\n$line String encryptSHA256ToString(String data) " + EncryptUtils.encryptSHA256ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA256ToString(byte[] data)"
+        text += "\n$line byte[] encryptSHA256(byte[] data)"
+        text += "\n$line String encryptSHA384ToString(String data) " + EncryptUtils.encryptSHA384ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA384ToString(byte[] data)"
+        text += "\n$line byte[] encryptSHA384(byte[] data)"
+        text += "\n$line String encryptSHA512ToString(String data) " + EncryptUtils.encryptSHA512ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA512ToString(byte[] data)"
+        text += "\n$line byte[] encryptSHA512(byte[] data)"
+        text += "\n$line byte[] hashTemplate(byte[] data, String algorithm)"
+        text += "\n$line String encryptHmacMD5ToString(String data, String key) " + EncryptUtils.encryptHmacMD5ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacMD5ToString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptHmacMD5(byte[] data, byte[] key)"
+        text += "\n$line String encryptHmacSHA1ToString(String data, String key) " + EncryptUtils.encryptHmacSHA1ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA1ToString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptHmacSHA1(byte[] data, byte[] key)"
+        text += "\n$line String encryptHmacSHA224ToString(String data, String key) " + EncryptUtils.encryptHmacSHA224ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA224ToString(byte[] data, byte[] key)"
+        text += "\n$line byte[] encryptHmacSHA224(byte[] data, byte[] key)"
+        text += "\n$line String encryptHmacSHA256ToString(String data, String key)" + EncryptUtils.encryptHmacSHA256ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA256ToString(byte[] data, byte[] key)"
 
         textView.text = text
     }
