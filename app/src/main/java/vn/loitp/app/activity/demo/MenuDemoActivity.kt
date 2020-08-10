@@ -122,7 +122,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryMember -> {
                 intent = Intent(activity, GalleryMemberActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
+                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_primary_black)
             }
             btEpubReader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
             bt2InstanceActivity -> intent = Intent(activity, Activity1::class.java)

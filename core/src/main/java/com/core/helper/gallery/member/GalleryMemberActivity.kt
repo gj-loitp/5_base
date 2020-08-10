@@ -54,7 +54,6 @@ class GalleryMemberActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         RestClient.init(getString(R.string.flickr_URL))
-        //setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
 
         val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary)
@@ -76,7 +75,7 @@ class GalleryMemberActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setTextShadow(textView = tvTitle, color = Color.WHITE)
+        LUIUtil.setTextShadow(textView = tvTitle, color = Color.BLACK)
 
         photosetID = Constants.FLICKR_ID_MEMBERS
         if (photosetID?.isEmpty() == true) {
@@ -84,11 +83,10 @@ class GalleryMemberActivity : BaseFontActivity() {
             return
         }
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
-        val numCount = 2
 
-        recyclerView.layoutManager = GridLayoutManager(activity, numCount)
+        recyclerView.layoutManager = GridLayoutManager(activity, 2)
         recyclerView.setHasFixedSize(true)
-        memberAdapter = MemberAdapter(context = activity, numCount = numCount,
+        memberAdapter = MemberAdapter(context = activity,
                 callback = object : MemberAdapter.Callback {
                     override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
                         val intent = Intent(activity, GalleryMemberDetailActivity::class.java)

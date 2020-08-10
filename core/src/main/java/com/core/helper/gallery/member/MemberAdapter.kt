@@ -9,30 +9,23 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.R
-
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LImageUtil
-import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import java.util.*
 
-class MemberAdapter(private val context: Context, numCount: Int, private val callback: Callback?)
+class MemberAdapter(private val context: Context, private val callback: Callback?)
     : RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
 
     private val logTag = javaClass.simpleName
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private val sizeW: Int = LScreenUtil.screenWidth / numCount
-    private val sizeH: Int = LScreenUtil.screenHeight / numCount
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(inflater.inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.fl.layoutParams.width = sizeW
-        viewHolder.fl.layoutParams.height = sizeH
-        viewHolder.fl.requestLayout()
         val photo = PhotosDataCore.instance.getPhotoList()[position]
 
         LImageUtil.loadNoAmin(context = context, url = photo.urlO, urlThumbnal = photo.urlS, imageView = viewHolder.touchImageView)

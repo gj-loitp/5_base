@@ -66,6 +66,16 @@
                 app:civ_border_color="@color/black85"
                 app:civ_border_width="@dimen/w_10" />
 
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv"
+                android:layout_width="@dimen/w_200"
+                android:layout_height="@dimen/w_200"
+                android:layout_marginTop="@dimen/margin_30"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/iv"
+                app:civ_border_color="@color/black85"
+                app:civ_border_width="@dimen/w_10" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
