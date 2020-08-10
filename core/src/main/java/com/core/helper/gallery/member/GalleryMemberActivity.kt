@@ -37,6 +37,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
+//TODO
 class GalleryMemberActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
