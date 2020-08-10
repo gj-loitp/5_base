@@ -28,7 +28,7 @@ class MemberAdapter(private val context: Context, private val callback: Callback
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val photo = PhotosDataCore.instance.getPhotoList()[position]
 
-        LImageUtil.loadNoAmin(context = context, url = photo.urlO, urlThumbnal = photo.urlS, imageView = viewHolder.touchImageView)
+        LImageUtil.loadNoAmin(context = context, url = photo.urlO, urlThumbnal = photo.urlS, imageView = viewHolder.circleImageView)
 
         if (photo.title.toLowerCase(Locale.getDefault()).startsWith("null")) {
             viewHolder.tvTitle.visibility = View.INVISIBLE
@@ -37,27 +37,27 @@ class MemberAdapter(private val context: Context, private val callback: Callback
             viewHolder.tvTitle.text = photo.title
             LUIUtil.setTextShadow(textView = viewHolder.tvTitle)
         }
-        viewHolder.touchImageView.setOnClickListener {
-            callback?.onClick(photo = photo, pos = position, imageView = viewHolder.touchImageView, textView = viewHolder.tvTitle)
+        viewHolder.circleImageView.setOnClickListener {
+            callback?.onClick(photo = photo, pos = position, imageView = viewHolder.circleImageView, textView = viewHolder.tvTitle)
         }
-        viewHolder.touchImageView.setOnLongClickListener {
+        viewHolder.circleImageView.setOnLongClickListener {
             callback?.onLongClick(photo = photo, pos = position)
             true
         }
 
-        if (position == 0 || position == 1) {
-            viewHolder.viewSpaceTop.visibility = View.VISIBLE
-            viewHolder.viewSpaceBottom.visibility = View.GONE
-        } else if (itemCount % 2 == 0 && (position == itemCount - 1 || position == itemCount - 2)) {
-            viewHolder.viewSpaceTop.visibility = View.GONE
-            viewHolder.viewSpaceBottom.visibility = View.VISIBLE
-        } else if (itemCount % 2 != 0 && position == itemCount - 1) {
-            viewHolder.viewSpaceTop.visibility = View.GONE
-            viewHolder.viewSpaceBottom.visibility = View.VISIBLE
-        } else {
-            viewHolder.viewSpaceTop.visibility = View.GONE
-            viewHolder.viewSpaceBottom.visibility = View.GONE
-        }
+//        if (position == 0 || position == 1) {
+//            viewHolder.viewSpaceTop.visibility = View.VISIBLE
+//            viewHolder.viewSpaceBottom.visibility = View.GONE
+//        } else if (itemCount % 2 == 0 && (position == itemCount - 1 || position == itemCount - 2)) {
+//            viewHolder.viewSpaceTop.visibility = View.GONE
+//            viewHolder.viewSpaceBottom.visibility = View.VISIBLE
+//        } else if (itemCount % 2 != 0 && position == itemCount - 1) {
+//            viewHolder.viewSpaceTop.visibility = View.GONE
+//            viewHolder.viewSpaceBottom.visibility = View.VISIBLE
+//        } else {
+//            viewHolder.viewSpaceTop.visibility = View.GONE
+//            viewHolder.viewSpaceBottom.visibility = View.GONE
+//        }
     }
 
     override fun getItemCount(): Int {
@@ -67,9 +67,9 @@ class MemberAdapter(private val context: Context, private val callback: Callback
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val fl: FrameLayout = v.findViewById(R.id.fl)
         val tvTitle: TextView = v.findViewById(R.id.tvTitle)
-        val touchImageView: ImageView = v.findViewById(R.id.touchImageView)
-        val viewSpaceTop: View = v.findViewById(R.id.viewSpaceTop)
-        val viewSpaceBottom: View = v.findViewById(R.id.viewSpaceBottom)
+        val circleImageView: ImageView = v.findViewById(R.id.circleImageView)
+//        val viewSpaceTop: View = v.findViewById(R.id.viewSpaceTop)
+//        val viewSpaceBottom: View = v.findViewById(R.id.viewSpaceBottom)
     }
 
     interface Callback {
