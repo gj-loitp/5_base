@@ -17,11 +17,10 @@ import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import java.util.*
 
-/**
- * Created by loitp on 14/04/15.
- */
-class MemberAdapter(private val context: Context, numCount: Int, private val callback: Callback?) : RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
-    private val TAG = javaClass.simpleName
+class MemberAdapter(private val context: Context, numCount: Int, private val callback: Callback?)
+    : RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
+
+    private val logTag = javaClass.simpleName
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private val sizeW: Int = LScreenUtil.screenWidth / numCount
     private val sizeH: Int = LScreenUtil.screenHeight / numCount

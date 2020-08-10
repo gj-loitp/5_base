@@ -1,7 +1,6 @@
 package com.core.helper.gallery.member
 
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import com.R
 import com.core.base.BaseFontActivity
@@ -14,7 +13,6 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
 
         LUIUtil.setTextShadow(tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
@@ -40,16 +38,10 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
         LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlS, imageView = touchImageView)
     }
 
-    /**
-     * Load the item's thumbnail image into our [ImageView].
-     */
     private fun loadThumbnail(photo: Photo) {
         LImageUtil.loadNoAmin(activity, photo.urlM, touchImageView)
     }
 
-    /**
-     * Load the item's full-size image into our [ImageView].
-     */
     private fun loadFullSizeImage(photo: Photo) {
         LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlM, imageView = touchImageView, drawableRequestListener = null)
     }
