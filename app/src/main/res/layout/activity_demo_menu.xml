@@ -88,6 +88,11 @@
                 android:text="@string/gallery_member" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGirl"
+                style="@style/ButtonMenu"
+                android:text="Girl" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNFC"
                 style="@style/ButtonMenu"
                 android:text="NFC" />
