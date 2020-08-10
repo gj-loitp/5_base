@@ -1,6 +1,9 @@
 package vn.loitp.app.activity.demo.girl
 
+import android.os.Bundle
 import com.core.base.BaseFontActivity
+import com.core.helper.girl.FrmGirl
+import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 class GirlActivity : BaseFontActivity() {
@@ -15,6 +18,12 @@ class GirlActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_girl
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        LScreenUtil.addFragment(activity = activity, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmGirl(), isAddToBackStack = false)
     }
 
 }
