@@ -34,7 +34,8 @@ class LSocialUtil {
             }
         }
 
-        fun moreApp(activity: Activity, nameOfDeveloper: String = "NgonTinh KangKang") {
+        //NgonTinh KangKang
+        fun moreApp(activity: Activity, nameOfDeveloper: String = "Toi Yeu Viet Nam") {
             val uri = "https://play.google.com/store/apps/developer?id=$nameOfDeveloper"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
             activity.startActivity(intent)
