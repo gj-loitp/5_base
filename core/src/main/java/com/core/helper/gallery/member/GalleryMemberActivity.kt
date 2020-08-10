@@ -40,7 +40,6 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only
 class GalleryMemberActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
-    private val PER_PAGE_SIZE = 50
 
     private var isLoading: Boolean = false
     private var memberAdapter: MemberAdapter? = null
@@ -155,10 +154,10 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun init() {
-        totalPage = if (photosSize % PER_PAGE_SIZE == 0) {
-            photosSize / PER_PAGE_SIZE
+        totalPage = if (photosSize % Constants.PER_PAGE_SIZE == 0) {
+            photosSize / Constants.PER_PAGE_SIZE
         } else {
-            photosSize / PER_PAGE_SIZE + 1
+            photosSize / Constants.PER_PAGE_SIZE + 1
         }
 
         currentPage = totalPage
@@ -230,7 +229,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                 photosetId = photosetID,
                 userId = userID,
                 extras = primaryPhotoExtras,
-                perPage = PER_PAGE_SIZE,
+                perPage = Constants.PER_PAGE_SIZE,
                 page = currentPage,
                 format = format,
                 noJsonCallback = noJsonCallBack)
