@@ -18,7 +18,7 @@ import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetlist.Photoset
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
-import com.views.layout.floatdraglayout.DisplayUtil
+import com.views.layout.swipeback.SwipeBackLayout
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -36,13 +36,11 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        isShowAdWhenExit = false
-        setTransparentStatusNavigationBar()
         intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
         }
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        logD("admobBannerUnitId $admobBannerUnitId")
+//        logD("admobBannerUnitId $admobBannerUnitId")
 
         if (admobBannerUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
@@ -53,13 +51,13 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(adView = it)
                 lnAdView.addView(it)
-                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
+//                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
+//                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
 
         bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
-        logD("bkgRootView $bkgRootView")
+//        logD("bkgRootView $bkgRootView")
         if (bkgRootView == Constants.NOT_FOUND) {
             rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
         } else {
@@ -105,6 +103,18 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             this.adapter = albumAdapter
             //LUIUtil.setPullLikeIOSVertical(this)
         }
+
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAniamtion(activity)
+                }
+            }
+        })
 
         getListPhotosets()
     }

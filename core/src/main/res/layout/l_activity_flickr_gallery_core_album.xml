@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:directionMode="left"
@@ -18,7 +19,7 @@
             android:id="@+id/recyclerView"
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
 
         <LinearLayout
             android:id="@+id/lnAdView"
