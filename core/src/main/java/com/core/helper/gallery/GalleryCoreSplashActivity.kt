@@ -38,7 +38,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setTransparentStatusNavigationBar()
+//        setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
         admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("admobBannerUnitId $admobBannerUnitId")
