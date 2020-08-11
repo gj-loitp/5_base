@@ -28,7 +28,7 @@ class MemberAdapter(private val context: Context, private val callback: Callback
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val photo = PhotosDataCore.instance.getPhotoList()[position]
 
-        LImageUtil.load(context = context, url = photo.urlO, imageView = viewHolder.circleImageView, resPlaceHolder = R.color.whiteSmoke)
+        LImageUtil.load(context = context, url = photo.urlO, imageView = viewHolder.circleImageView)
 
         if (photo.title.toLowerCase(Locale.getDefault()).startsWith("null")) {
             viewHolder.tvTitle.visibility = View.INVISIBLE
