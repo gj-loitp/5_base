@@ -18,7 +18,8 @@
             android:id="@+id/recyclerView"
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:layout_above="@+id/lnAdView" />
 
         <LinearLayout
             android:id="@+id/lnAdView"
@@ -33,7 +34,6 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_medium"
             android:padding="@dimen/padding_medium"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_20" />

@@ -32,12 +32,10 @@ import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
-import com.views.layout.floatdraglayout.DisplayUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
-//TODO
 class GalleryMemberActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
@@ -71,8 +69,8 @@ class GalleryMemberActivity : BaseFontActivity() {
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(adView = it)
                 lnAdView.addView(it)
-                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
+                //val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
+                //LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
 
