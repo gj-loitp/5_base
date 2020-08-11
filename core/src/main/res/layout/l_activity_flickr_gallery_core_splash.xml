@@ -45,7 +45,7 @@
                 android:layout_margin="@dimen/margin_medium"
                 android:layout_marginBottom="@dimen/margin_55"
                 app:indicatorColor="@color/white"
-                app:indicatorName="LineScalePulseOutRapidIndicator" />
+                app:indicatorName="PacmanIndicator" />
 
             <TextView
                 android:id="@+id/tvName"

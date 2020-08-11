@@ -39,7 +39,7 @@
             android:layout_centerInParent="true"
             android:layout_marginBottom="@dimen/margin_medium"
             app:indicatorColor="@color/white"
-            app:indicatorName="LineScalePulseOutRapidIndicator" />
+            app:indicatorName="PacmanIndicator" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btPage"

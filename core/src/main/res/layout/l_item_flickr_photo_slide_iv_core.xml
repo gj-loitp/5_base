@@ -30,7 +30,7 @@
             android:layout_height="@dimen/w_40"
             android:layout_margin="@dimen/margin_10"
             app:indicatorColor="@color/white"
-            app:indicatorName="LineScalePulseOutRapidIndicator" />
+            app:indicatorName="PacmanIndicator" />
 
         <TextView
             android:id="@+id/tvProgress"
