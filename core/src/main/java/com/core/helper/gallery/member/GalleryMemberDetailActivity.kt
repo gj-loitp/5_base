@@ -39,13 +39,6 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
         LImageUtil.load(context = activity, url = photo.urlO, imageView = imageView)
-    }
-
-    private fun loadThumbnail(photo: Photo) {
-        LImageUtil.loadNoAmin(context = activity, url = photo.urlM, imageView = imageView)
-    }
-
-    private fun loadFullSizeImage(photo: Photo) {
-        LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlM, imageView = imageView, drawableRequestListener = null)
+        LImageUtil.load(context = activity, url = photo.urlS, imageView = imageViewBlur)
     }
 }

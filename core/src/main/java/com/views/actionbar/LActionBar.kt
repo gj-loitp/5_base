@@ -34,11 +34,11 @@ class LActionBar : RelativeLayout {
     private fun init() {
         View.inflate(context, R.layout.view_l_action_bar, this)
 
-        this.ivIconBack = findViewById<ImageView>(R.id.iv_icon_back)
-        this.ivIconMenu = findViewById<ImageView>(R.id.iv_icon_menu)
-        this.tvTitle = findViewById<TextView>(R.id.tvTitle)
-        this.realtimeBlurView = findViewById<RealtimeBlurView>(R.id.blur_view)
-        this.shadowView = findViewById<View>(R.id.shadow_view)
+        this.ivIconBack = findViewById(R.id.iv_icon_back)
+        this.ivIconMenu = findViewById(R.id.iv_icon_menu)
+        this.tvTitle = findViewById(R.id.tvTitle)
+        this.realtimeBlurView = findViewById(R.id.blur_view)
+        this.shadowView = findViewById(R.id.shadow_view)
 
         ivIconBack?.setOnClickListener { v ->
             callback?.onClickBack(v)
