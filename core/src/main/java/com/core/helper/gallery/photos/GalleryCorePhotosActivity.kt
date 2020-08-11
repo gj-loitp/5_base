@@ -20,6 +20,7 @@ import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
+import com.views.layout.swipeback.SwipeBackLayout
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -33,11 +34,11 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     private var photosAdapter: PhotosAdapter? = null
     private var photosetID: String? = null
     private var bkgRootView = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        isShowAdWhenExit = false
-        setTransparentStatusNavigationBar()
+//        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
 
         LUIUtil.setTextShadow(textView = tvTitle)
@@ -75,7 +76,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         val column = 2
         recyclerView.layoutManager = GridLayoutManager(activity, column)
         recyclerView.setHasFixedSize(true)
-        photosAdapter = PhotosAdapter(activity, column, object : PhotosAdapter.Callback {
+        photosAdapter = PhotosAdapter(context = activity, callback = object : PhotosAdapter.Callback {
             override fun onClick(photo: Photo, pos: Int) {
                 val intent = Intent(activity, GalleryCoreSlideActivity::class.java)
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
@@ -113,6 +114,18 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         btPage.setOnClickListener {
             showListPage()
         }
+
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAniamtion(activity)
+                }
+            }
+        })
     }
 
     private fun showListPage() {
