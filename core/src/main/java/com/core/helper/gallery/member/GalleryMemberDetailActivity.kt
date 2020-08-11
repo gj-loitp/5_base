@@ -1,7 +1,6 @@
 package com.core.helper.gallery.member
 
 import android.os.Bundle
-import androidx.core.view.ViewCompat
 import com.R
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
@@ -11,18 +10,22 @@ import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
 class GalleryMemberDetailActivity : BaseFontActivity() {
 
+    companion object {
+        const val PHOTO = "PHOTO"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LUIUtil.setTextShadow(tvTitle)
+        LUIUtil.setTextShadow(textView = tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
-        loadItem(photo)
-        ViewCompat.setTransitionName(touchImageView, IV)
-        ViewCompat.setTransitionName(tvTitle, TV)
+        loadItem(photo = photo)
+
+        LImageUtil.setImageViewZoom(iv = imageView)
     }
 
     override fun setFullScreen(): Boolean {
-        return true
+        return false
     }
 
     override fun setTag(): String? {
@@ -35,20 +38,14 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
-        LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlS, imageView = touchImageView)
+        LImageUtil.load(context = activity, url = photo.urlO, imageView = imageView)
     }
 
     private fun loadThumbnail(photo: Photo) {
-        LImageUtil.loadNoAmin(activity, photo.urlM, touchImageView)
+        LImageUtil.loadNoAmin(context = activity, url = photo.urlM, imageView = imageView)
     }
 
     private fun loadFullSizeImage(photo: Photo) {
-        LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlM, imageView = touchImageView, drawableRequestListener = null)
-    }
-
-    companion object {
-        const val PHOTO = "PHOTO"
-        const val IV = "iv"
-        const val TV = "tv"
+        LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlM, imageView = imageView, drawableRequestListener = null)
     }
 }

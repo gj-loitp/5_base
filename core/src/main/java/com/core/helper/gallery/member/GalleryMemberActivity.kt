@@ -9,15 +9,13 @@ import android.provider.Settings
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.util.Pair
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
@@ -90,15 +88,8 @@ class GalleryMemberActivity : BaseFontActivity() {
                     override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
                         val intent = Intent(activity, GalleryMemberDetailActivity::class.java)
                         intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
-
-                        val pair1 = Pair<View, String>(imageView, GalleryMemberDetailActivity.IV)
-                        val pair2 = Pair<View, String>(textView, GalleryMemberDetailActivity.TV)
-
-                        val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                                activity,
-                                pair1,
-                                pair2)
-                        ActivityCompat.startActivity(activity, intent, activityOptions.toBundle())
+                        startActivity(intent)
+                        LActivityUtil.tranIn(activity)
                     }
 
                     override fun onLongClick(photo: Photo, pos: Int) {

@@ -3,11 +3,10 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="false"
-    android:background="@color/black85">
+    android:background="@color/black">
 
-    <com.views.imageview.touch.LTouchImageView
-        android:id="@+id/touchImageView"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name" />
