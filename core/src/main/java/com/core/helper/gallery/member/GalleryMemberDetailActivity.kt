@@ -1,11 +1,14 @@
 package com.core.helper.gallery.member
 
 import android.os.Bundle
+import android.view.View
 import com.R
 import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
+import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
 class GalleryMemberDetailActivity : BaseFontActivity() {
@@ -22,6 +25,18 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
         loadItem(photo = photo)
 
         LImageUtil.setImageViewZoom(iv = imageView)
+
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAniamtion(activity)
+                }
+            }
+        })
     }
 
     override fun setFullScreen(): Boolean {
