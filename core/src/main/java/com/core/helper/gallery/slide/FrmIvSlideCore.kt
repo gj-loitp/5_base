@@ -32,7 +32,7 @@ class FrmIvSlideCore : Fragment() {
 
         LUIUtil.setTextShadow(textView = tvProgress)
         biv.setImageViewFactory(GlideImageViewFactory())
-        
+
         biv.setImageLoaderCallback(object : ImageLoader.Callback {
             override fun onCacheHit(imageType: Int, image: File) {}
             override fun onCacheMiss(imageType: Int, image: File) {}

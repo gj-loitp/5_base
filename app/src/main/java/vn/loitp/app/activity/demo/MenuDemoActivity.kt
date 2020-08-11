@@ -110,7 +110,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryCoreAlbum -> {
                 intent = Intent(activity, GalleryCorePhotosOnlyActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_gradient_man_of_steel)
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
