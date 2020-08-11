@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
@@ -33,7 +32,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     private var isLoading = false
     private var photosAdapter: PhotosAdapter? = null
     private var photosetID: String? = null
-    private var bkgRootView = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,13 +43,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         val photosSize = intent.getStringExtra(Constants.SK_PHOTOSET_SIZE)
-        bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
 
-        if (bkgRootView == Constants.NOT_FOUND) {
-            rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        } else {
-            rootView.setBackgroundResource(bkgRootView)
-        }
         val totalPhotos = try {
             photosSize?.toInt() ?: 0
         } catch (e: Exception) {
@@ -80,7 +72,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             override fun onClick(photo: Photo, pos: Int) {
                 val intent = Intent(activity, GalleryCoreSlideActivity::class.java)
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
-                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView)
                 startActivity(intent)
                 LActivityUtil.tranIn(activity)
             }

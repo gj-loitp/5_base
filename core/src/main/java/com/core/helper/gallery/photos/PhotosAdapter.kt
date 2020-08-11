@@ -38,7 +38,7 @@ class PhotosAdapter internal constructor(private val context: Context, private v
         val photo = instance.getPhotoList()[position]
 
         LImageUtil.load(context = context, url = photo.flickrLink1024, imageView = viewHolder.imageView)
-        viewHolder.tvSize.text = "${photo.widthO} + x + ${photo.heightO}"
+        viewHolder.tvSize.text = "${photo.widthO} x ${photo.heightO}"
         LUIUtil.setTextShadow(textView = viewHolder.tvSize)
 
         viewHolder.rootView.setOnClickListener {

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
 import com.core.base.BaseFontActivity
@@ -30,7 +29,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
     private var listRemoveAlbum = ArrayList<String>()
-    private var bkgRootView: Int = 0
     private var adView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,14 +54,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             }
         }
 
-        bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
-//        logD("bkgRootView $bkgRootView")
-        if (bkgRootView == Constants.NOT_FOUND) {
-            rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        } else {
-            rootView.setBackgroundResource(bkgRootView)
-        }
-
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
         animator.addDuration = 1000
 
@@ -79,7 +69,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                     override fun onClick(pos: Int) {
                         val intent = Intent(activity, GalleryCorePhotosActivity::class.java)
                         intent.apply {
-                            putExtra(Constants.BKG_ROOT_VIEW, bkgRootView)
                             putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
                             putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
                             startActivity(this)

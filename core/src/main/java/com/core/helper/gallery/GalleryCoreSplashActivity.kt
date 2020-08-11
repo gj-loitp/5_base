@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -30,7 +29,6 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 import java.util.*
 
 class GalleryCoreSplashActivity : BaseFontActivity() {
-    private var bkgRootView: Int = 0
     private var adView: AdView? = null
     private var admobBannerUnitId: String? = null
     private var isShowDialogCheck: Boolean = false
@@ -41,7 +39,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 //        setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
         admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        logD("admobBannerUnitId $admobBannerUnitId")
+//        logD("admobBannerUnitId $admobBannerUnitId")
 
         if (admobBannerUnitId == null || admobBannerUnitId!!.isEmpty()) {
             lnAdView.visibility = View.GONE
@@ -62,17 +60,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
         LImageUtil.load(context = activity, url = urlCoverSplashScreen, imageView = ivBkg)
-
-        bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
-        logD("bkgRootView $bkgRootView")
-        if (bkgRootView == Constants.NOT_FOUND) {
-            rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        } else {
-            rootView.setBackgroundResource(bkgRootView)
-        }
-
         LUIUtil.setTextShadow(textView = tvCopyright)
-
         tvName.text = AppUtils.getAppName()
         LUIUtil.setTextShadow(tvName)
     }
@@ -82,7 +70,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             val intent = Intent(activity, GalleryCoreAlbumActivity::class.java)
             intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
-            intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView)
             intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList
                     ?: ArrayList())
             startActivity(intent)
