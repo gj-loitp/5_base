@@ -93,6 +93,11 @@
                 android:text="Girl" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMapTracker"
+                style="@style/ButtonMenu"
+                android:text="Map tracker" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNFC"
                 style="@style/ButtonMenu"
                 android:text="NFC" />

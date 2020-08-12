@@ -22,6 +22,7 @@ import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
 import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
 import vn.loitp.app.activity.demo.girl.GirlActivity
+import vn.loitp.app.activity.demo.maptracker.MapTrackerActivity
 import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
@@ -70,6 +71,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btArchitectureComponent.setOnClickListener(this)
         btNFC.setOnClickListener(this)
         btGirl.setOnClickListener(this)
+        btMapTracker.setOnClickListener(this)
     }
 
     override fun setFullScreen(): Boolean {
@@ -132,6 +134,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btArchitectureComponent -> intent = Intent(activity, MenuAndroidArchitectureComponentActivity::class.java)
             btNFC -> intent = Intent(activity, NFCActivity::class.java)
             btGirl -> intent = Intent(activity, GirlActivity::class.java)
+            btMapTracker -> intent = Intent(activity, MapTrackerActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
