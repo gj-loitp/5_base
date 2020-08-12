@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.maptracker
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Criteria
 import android.location.Geocoder
 import android.location.Location
@@ -21,10 +22,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.Marker
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 import vn.loitp.app.R
 import java.io.IOException
 import java.util.*
@@ -34,6 +32,10 @@ class MapTrackerActivity : BaseFontActivity(),
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
+
+    companion object {
+        private const val MY_PERMISSIONS_REQUEST_LOCATION = 99
+    }
 
     private var googleApiClient: GoogleApiClient? = null
     private var currentLocationMarker: Marker? = null
@@ -45,6 +47,10 @@ class MapTrackerActivity : BaseFontActivity(),
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_map_tracker
+    }
+
+    override fun setFullScreen(): Boolean {
+        return false
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,12 +83,25 @@ class MapTrackerActivity : BaseFontActivity(),
         }
 
 //        addMakerSydney()
+
+        //draw router
+        val list = ArrayList<LatLng>()
+        list.add(LatLng(10.8785614, 106.8107979))
+        list.add(LatLng(11.8785614, 107.8107979))
+        list.add(LatLng(12.8785614, 108.8107979))
+        list.add(LatLng(13.8785614, 109.8107979))
+        list.add(LatLng(14.8785614, 110.8107979))
+        list.add(LatLng(15.8785614, 115.8107979))
+        list.add(LatLng(20.8785614, 120.8107979))
+        list.add(LatLng(25.8785614, 125.8107979))
+        list.add(LatLng(30.8785614, 130.8107979))
+        drawPolyLineOnMap(list)
     }
 
-    private fun addMakerSydney(){
+    private fun addMakerSydney() {
         // Add a marker in Sydney and move the camera
         val sydney = LatLng(-34.0, 151.0)
-        mGoogleMap?.let{
+        mGoogleMap?.let {
             it.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
             it.moveCamera(CameraUpdateFactory.newLatLng(sydney))
         }
@@ -114,6 +133,7 @@ class MapTrackerActivity : BaseFontActivity(),
         currentLocationMarker?.remove()
         //Showing Current Location Marker on Map
         val latLng = LatLng(location.latitude, location.longitude)
+        logD("onLocationChanged ${location.latitude} - ${location.longitude}")
         val markerOptions = MarkerOptions()
         markerOptions.position(latLng)
         val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
@@ -182,11 +202,21 @@ class MapTrackerActivity : BaseFontActivity(),
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
+    private fun drawPolyLineOnMap(list: List<LatLng>) {
+        val polyOptions = PolylineOptions()
+        polyOptions.color(Color.RED)
+        polyOptions.width(5f)
+        polyOptions.addAll(list)
+        mGoogleMap?.clear()
+        mGoogleMap?.addPolyline(polyOptions)
+        val builder = LatLngBounds.Builder()
+        for (latLng in list) {
+            builder.include(latLng)
+        }
+        val bounds = builder.build()
 
-    companion object {
-        private const val MY_PERMISSIONS_REQUEST_LOCATION = 99
+        //BOUND_PADDING is an int to specify padding of bound.. try 100.
+        val cu = CameraUpdateFactory.newLatLngBounds(bounds, 10)
+        mGoogleMap?.animateCamera(cu)
     }
 }
