@@ -75,6 +75,17 @@ class MapTrackerActivity : BaseFontActivity(),
             buildGoogleApiClient()
             mGoogleMap?.isMyLocationEnabled = true
         }
+
+//        addMakerSydney()
+    }
+
+    private fun addMakerSydney(){
+        // Add a marker in Sydney and move the camera
+        val sydney = LatLng(-34.0, 151.0)
+        mGoogleMap?.let{
+            it.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+            it.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        }
     }
 
     @Synchronized
