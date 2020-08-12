@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.location.Criteria
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
@@ -26,6 +25,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
 import vn.loitp.app.R
+import vn.loitp.app.app.LApplication
 import java.io.IOException
 import java.text.DateFormat
 import java.util.*
@@ -84,7 +84,6 @@ class MapTrackerActivity : BaseFontActivity(),
         mapFragment?.getMapAsync(this)
 
         initLocation()
-        startLocationUpdates()
     }
 
     private fun onChangeLocation() {
@@ -96,40 +95,42 @@ class MapTrackerActivity : BaseFontActivity(),
             val latLng = LatLng(location.latitude, location.longitude)
             val markerOptions = MarkerOptions()
             markerOptions.position(latLng)
+
             val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            val provider = locationManager.getBestProvider(Criteria(), true)
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return
-            }
-            var locations: Location? = null
-            provider?.let {
-                locations = locationManager.getLastKnownLocation(it)
-            }
+//            val provider = locationManager.getBestProvider(Criteria(), true)
+//            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+//                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//                return
+//            }
+//            var locations: Location? = null
+//            provider?.let {
+//                locations = locationManager.getLastKnownLocation(it)
+//            }
             val providerList = locationManager.allProviders
 
-            locations?.let { loc ->
-                if (providerList.size > 0) {
-                    val longitude = loc.longitude
-                    val latitude = loc.latitude
-                    val geoCoder = Geocoder(applicationContext, Locale.getDefault())
-                    try {
-                        val listAddresses = geoCoder.getFromLocation(latitude, longitude, 1)
-                        if (listAddresses.isNullOrEmpty()) {
-                            //do nothing
-                        } else {
-                            val state = listAddresses[0].adminArea
-                            val country = listAddresses[0].countryName
-                            val subLocality = listAddresses[0].subLocality
-                            markerOptions.title("$latLng,$subLocality,$state,$country")
-                        }
-                    } catch (e: IOException) {
-                        e.printStackTrace()
+            if (providerList.size > 0) {
+                val longitude = location.longitude
+                val latitude = location.latitude
+                val geoCoder = Geocoder(applicationContext, Locale.getDefault())
+                try {
+                    val listAddresses = geoCoder.getFromLocation(latitude, longitude, 1)
+                    logD("listAddresses " + LApplication.gson.toJson(listAddresses))
+                    if (listAddresses.isNullOrEmpty()) {
+                        //do nothing
+                    } else {
+//                        val state = listAddresses[0].adminArea
+//                        val country = listAddresses[0].countryName
+//                        val subLocality = listAddresses[0].subLocality
+//                        markerOptions.title("$latLng,$subLocality,$state,$country")
+
+                        markerOptions.title(listAddresses[0].getAddressLine(0))
                     }
+                } catch (e: IOException) {
+                    e.printStackTrace()
                 }
             }
 
-            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
             currentLocationMarker = mGoogleMap?.addMarker(markerOptions)
             mGoogleMap?.let {
                 it.moveCamera(CameraUpdateFactory.newLatLng(latLng))
@@ -184,17 +185,17 @@ class MapTrackerActivity : BaseFontActivity(),
 //        addMakerSydney()
 
         //draw router
-        val list = ArrayList<LatLng>()
-        list.add(LatLng(10.8785614, 106.8107979))
-        list.add(LatLng(11.8785614, 107.8107979))
-        list.add(LatLng(12.8785614, 108.8107979))
-        list.add(LatLng(13.8785614, 109.8107979))
-        list.add(LatLng(14.8785614, 110.8107979))
-        list.add(LatLng(15.8785614, 115.8107979))
-        list.add(LatLng(20.8785614, 120.8107979))
-        list.add(LatLng(25.8785614, 125.8107979))
-        list.add(LatLng(30.8785614, 130.8107979))
-        drawPolyLineOnMap(list)
+//        val list = ArrayList<LatLng>()
+//        list.add(LatLng(10.8785614, 106.8107979))
+//        list.add(LatLng(11.8785614, 107.8107979))
+//        list.add(LatLng(12.8785614, 108.8107979))
+//        list.add(LatLng(13.8785614, 109.8107979))
+//        list.add(LatLng(14.8785614, 110.8107979))
+//        list.add(LatLng(15.8785614, 115.8107979))
+//        list.add(LatLng(20.8785614, 120.8107979))
+//        list.add(LatLng(25.8785614, 125.8107979))
+//        list.add(LatLng(30.8785614, 130.8107979))
+//        drawPolyLineOnMap(list)
     }
 
     private fun addMakerSydney() {
@@ -217,6 +218,8 @@ class MapTrackerActivity : BaseFontActivity(),
     }
 
     override fun onConnected(bundle: Bundle?) {
+        logD("onConnected")
+        startLocationUpdates()
     }
 
     override fun onConnectionSuspended(i: Int) {}
