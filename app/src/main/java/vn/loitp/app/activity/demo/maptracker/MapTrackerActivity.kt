@@ -190,14 +190,17 @@ class MapTrackerActivity : BaseFontActivity(),
         mCurrentLocation?.let { location ->
             val latLng = LatLng(location.latitude, location.longitude)
 
+            val beforeLatLng = listLoc.lastOrNull()?.afterLatLng
+            val afterLatLng = latLng
             val loc = Loc(
                     timestamp = System.currentTimeMillis(),
-                    latLng = latLng
+                    beforeLatLng = beforeLatLng,
+                    afterLatLng = afterLatLng
             )
             listLoc.add(element = loc)
             var log = ""
             listLoc.forEach {
-                log += "\n${it.timestamp} : ${it.latLng?.latitude} - ${it.latLng?.longitude}"
+                log += "\n${it.timestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m)"
             }
             tvLog.text = log
 
