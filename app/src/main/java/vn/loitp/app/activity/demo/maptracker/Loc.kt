@@ -27,6 +27,9 @@ data class Loc(
     }
 
     fun getTimeInSecond(): Long {
+        if (beforeTimestamp == 0L) {
+            return 0
+        }
         return afterTimestamp / 1000L - beforeTimestamp / 1000L
     }
 }

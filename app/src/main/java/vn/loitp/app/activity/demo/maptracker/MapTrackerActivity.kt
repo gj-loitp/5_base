@@ -184,7 +184,6 @@ class MapTrackerActivity : BaseFontActivity(),
 
     private fun onChangeLocation() {
         logD("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude)
-        showShort("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude)
 
         currentLocationMarker?.remove()
         mCurrentLocation?.let { location ->
