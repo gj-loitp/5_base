@@ -24,6 +24,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 import java.io.IOException
@@ -36,14 +38,8 @@ class MapTrackerActivity : BaseFontActivity(),
         GoogleApiClient.OnConnectionFailedListener {
 
     companion object {
-        private const val MY_PERMISSIONS_REQUEST_LOCATION = 99
-
-        // location updates interval - 10sec
+        private const val PERMISSIONS_REQUEST_LOCATION = 99
         private const val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 5000
-
-        // fastest updates interval - 5 sec
-        // location updates will be received if another app is requesting the locations
-        // than your app can handle
         private const val FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS: Long = 2000
         private const val REQUEST_CHECK_SETTINGS = 100
     }
@@ -55,7 +51,6 @@ class MapTrackerActivity : BaseFontActivity(),
     // location last updated time
     private var mLastUpdateTime: String? = null
 
-    // bunch of location related apis
     private var mFusedLocationClient: FusedLocationProviderClient? = null
     private var mSettingsClient: SettingsClient? = null
     private var mLocationRequest: LocationRequest? = null
@@ -84,6 +79,15 @@ class MapTrackerActivity : BaseFontActivity(),
         mapFragment?.getMapAsync(this)
 
         initLocation()
+        btLocation.setSafeOnClickListener {
+            startLocationUpdates()
+        }
+        btAddMaker.setSafeOnClickListener {
+            addMakerSydney()
+        }
+        btRouter.setSafeOnClickListener {
+            drawRouter()
+        }
     }
 
     private fun onChangeLocation() {
@@ -171,7 +175,6 @@ class MapTrackerActivity : BaseFontActivity(),
             uiSettings.isCompassEnabled = true
         }
 
-        //Initialize Google Play Services
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient()
@@ -181,21 +184,20 @@ class MapTrackerActivity : BaseFontActivity(),
             buildGoogleApiClient()
             mGoogleMap?.isMyLocationEnabled = true
         }
+    }
 
-//        addMakerSydney()
-
-        //draw router
-//        val list = ArrayList<LatLng>()
-//        list.add(LatLng(10.8785614, 106.8107979))
-//        list.add(LatLng(11.8785614, 107.8107979))
-//        list.add(LatLng(12.8785614, 108.8107979))
-//        list.add(LatLng(13.8785614, 109.8107979))
-//        list.add(LatLng(14.8785614, 110.8107979))
-//        list.add(LatLng(15.8785614, 115.8107979))
-//        list.add(LatLng(20.8785614, 120.8107979))
-//        list.add(LatLng(25.8785614, 125.8107979))
-//        list.add(LatLng(30.8785614, 130.8107979))
-//        drawPolyLineOnMap(list)
+    private fun drawRouter() {
+        val list = ArrayList<LatLng>()
+        list.add(LatLng(10.8785614, 106.8107979))
+        list.add(LatLng(11.8785614, 107.8107979))
+        list.add(LatLng(12.8785614, 108.8107979))
+        list.add(LatLng(13.8785614, 109.8107979))
+        list.add(LatLng(14.8785614, 110.8107979))
+        list.add(LatLng(15.8785614, 115.8107979))
+        list.add(LatLng(20.8785614, 120.8107979))
+        list.add(LatLng(25.8785614, 125.8107979))
+        list.add(LatLng(30.8785614, 130.8107979))
+        drawPolyLineOnMap(list)
     }
 
     private fun addMakerSydney() {
@@ -218,22 +220,25 @@ class MapTrackerActivity : BaseFontActivity(),
     }
 
     override fun onConnected(bundle: Bundle?) {
-        logD("onConnected")
-        startLocationUpdates()
+
     }
 
-    override fun onConnectionSuspended(i: Int) {}
+    override fun onConnectionSuspended(i: Int) {
 
-    override fun onConnectionFailed(connectionResult: ConnectionResult) {}
+    }
+
+    override fun onConnectionFailed(connectionResult: ConnectionResult) {
+
+    }
 
     private fun checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSIONS_REQUEST_LOCATION)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), PERMISSIONS_REQUEST_LOCATION)
         }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) {
+        if (requestCode == PERMISSIONS_REQUEST_LOCATION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     if (googleApiClient == null) {
@@ -260,7 +265,7 @@ class MapTrackerActivity : BaseFontActivity(),
         }
         val bounds = builder.build()
         //BOUND_PADDING is an int to specify padding of bound.. try 100.
-        val cu = CameraUpdateFactory.newLatLngBounds(bounds, 10)
+        val cu = CameraUpdateFactory.newLatLngBounds(bounds, 100)
         mGoogleMap?.animateCamera(cu)
     }
 

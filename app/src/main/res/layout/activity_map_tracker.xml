@@ -9,4 +9,24 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btAddMaker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btLocation"
+        android:text="Add marker" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btRouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btAddMaker"
+        android:text="Router" />
 </RelativeLayout>
