@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
+import com.core.utilities.LMathUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.google.android.gms.common.ConnectionResult
@@ -188,7 +189,11 @@ class MapTrackerActivity : BaseFontActivity(),
 
         currentLocationMarker?.remove()
         mCurrentLocation?.let { location ->
-            val latLng = LatLng(location.latitude, location.longitude)
+
+            val latRound = LMathUtil.roundDouble(value = location.latitude, newScale = 4)
+            val lngRound = LMathUtil.roundDouble(value = location.longitude, newScale = 4)
+
+            val latLng = LatLng(latRound, lngRound)
 
             val beforeLoc = listLoc.lastOrNull()
             val beforeTimestamp = beforeLoc?.afterTimestamp ?: 0
