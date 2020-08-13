@@ -190,17 +190,20 @@ class MapTrackerActivity : BaseFontActivity(),
         mCurrentLocation?.let { location ->
             val latLng = LatLng(location.latitude, location.longitude)
 
-            val beforeLatLng = listLoc.lastOrNull()?.afterLatLng
+            val beforeLoc = listLoc.lastOrNull()
+            val beforeTimestamp = beforeLoc?.afterTimestamp ?: 0
+            val beforeLatLng = beforeLoc?.afterLatLng
             val afterLatLng = latLng
             val loc = Loc(
-                    timestamp = System.currentTimeMillis(),
+                    beforeTimestamp = beforeTimestamp,
+                    afterTimestamp = System.currentTimeMillis(),
                     beforeLatLng = beforeLatLng,
                     afterLatLng = afterLatLng
             )
             listLoc.add(element = loc)
             var log = ""
             listLoc.forEach {
-                log += "\n${it.timestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m)"
+                log += "\n${it.beforeTimestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m) - ${it.getTimeInSecond()}(s)"
             }
             tvLog.text = log
 
@@ -249,7 +252,7 @@ class MapTrackerActivity : BaseFontActivity(),
         mLocationRequest = LocationRequest()
         mLocationRequest?.let {
             it.interval = UPDATE_INTERVAL_IN_MILLISECONDS
-            it.fastestInterval = FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS
+            it.fastestInterval = UPDATE_INTERVAL_IN_MILLISECONDS
             it.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 
             val builder = LocationSettingsRequest.Builder()

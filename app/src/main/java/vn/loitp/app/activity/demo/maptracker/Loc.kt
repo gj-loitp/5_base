@@ -4,7 +4,8 @@ import android.location.Location
 import com.google.android.gms.maps.model.LatLng
 
 data class Loc(
-        var timestamp: Long = 0,
+        var beforeTimestamp: Long = 0,
+        var afterTimestamp: Long = 0,
         var beforeLatLng: LatLng? = null,
         var afterLatLng: LatLng? = null
 ) {
@@ -23,5 +24,9 @@ data class Loc(
             }
         }
         return null
+    }
+
+    fun getTimeInSecond(): Long {
+        return afterTimestamp / 1000L - beforeTimestamp / 1000L
     }
 }
