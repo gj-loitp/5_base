@@ -202,7 +202,7 @@ class MapTrackerActivity : BaseFontActivity(),
             listLoc.add(element = loc)
             var log = ""
             listLoc.forEach {
-                log += "\n${it.beforeTimestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m) - ${it.getTimeInSecond()}(s)"
+                log += "\n${it.beforeTimestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m) - ${it.getTimeInSecond()}(s) -> ${it.getSpeed()}(m/s)"
             }
             tvLog.text = log
 
@@ -251,7 +251,7 @@ class MapTrackerActivity : BaseFontActivity(),
         mLocationRequest = LocationRequest()
         mLocationRequest?.let {
             it.interval = UPDATE_INTERVAL_IN_MILLISECONDS
-            it.fastestInterval = UPDATE_INTERVAL_IN_MILLISECONDS
+            it.fastestInterval = FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS
             it.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
 
             val builder = LocationSettingsRequest.Builder()

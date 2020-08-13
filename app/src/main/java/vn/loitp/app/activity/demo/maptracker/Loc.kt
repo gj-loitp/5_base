@@ -32,4 +32,11 @@ data class Loc(
         }
         return afterTimestamp / 1000L - beforeTimestamp / 1000L
     }
+
+    //return speed m/s
+    fun getSpeed(): Float {
+        val s = getDistance() ?: 0F
+        val t = getTimeInSecond().toFloat()
+        return s / t
+    }
 }

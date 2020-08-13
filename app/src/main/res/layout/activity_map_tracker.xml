@@ -58,7 +58,7 @@
             android:gravity="bottom"
             android:padding="@dimen/padding_medium"
             android:textColor="@color/white"
-            android:textSize="6dp"
+            android:textSize="@dimen/text_tiny"
             tools:text="@string/large_dummy_text" />
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
