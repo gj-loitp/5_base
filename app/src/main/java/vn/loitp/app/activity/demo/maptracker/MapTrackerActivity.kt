@@ -350,6 +350,7 @@ class MapTrackerActivity : BaseFontActivity(),
 
     override fun onConnected(bundle: Bundle?) {
         logD("onConnected")
+        startLocationUpdates()
     }
 
     override fun onConnectionSuspended(i: Int) {

@@ -41,7 +41,8 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="wrap_content"
         android:layout_height="@dimen/w_250"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:background="@color/black35">
 
         <TextView
             android:id="@+id/tvLog"
@@ -49,6 +50,7 @@
             android:layout_height="wrap_content"
             android:gravity="bottom"
             android:padding="@dimen/text_small"
+            android:textColor="@color/white"
             tools:text="@string/large_dummy_text" />
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
