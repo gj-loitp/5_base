@@ -36,8 +36,8 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
 import java.io.IOException
-import java.text.DateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class MapTrackerActivity : BaseFontActivity(),
         OnMapReadyCallback,
@@ -46,20 +46,19 @@ class MapTrackerActivity : BaseFontActivity(),
 
     companion object {
         private const val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 5000
-        private const val FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS: Long = 2000
+        private const val FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS: Long = 3000
     }
 
     private var googleApiClient: GoogleApiClient? = null
     private var currentLocationMarker: Marker? = null
     private var mGoogleMap: GoogleMap? = null
-    private var mLastUpdateTime: String? = null
     private var mFusedLocationClient: FusedLocationProviderClient? = null
     private var mSettingsClient: SettingsClient? = null
     private var mLocationRequest: LocationRequest? = null
     private var mLocationSettingsRequest: LocationSettingsRequest? = null
     private var mLocationCallback: LocationCallback? = null
     private var mCurrentLocation: Location? = null
-
+    private val listLoc = ArrayList<Loc>()
     private var isShowDialogCheck = false
 
     override fun setTag(): String? {
@@ -176,12 +175,24 @@ class MapTrackerActivity : BaseFontActivity(),
     //endregion
 
     private fun onChangeLocation() {
-        logD("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude + ", mLastUpdateTime:" + mLastUpdateTime)
-        showShort("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude + ", mLastUpdateTime:" + mLastUpdateTime)
+        logD("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude)
+        showShort("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude)
 
         currentLocationMarker?.remove()
         mCurrentLocation?.let { location ->
             val latLng = LatLng(location.latitude, location.longitude)
+
+            val loc = Loc(
+                    timestamp = System.currentTimeMillis(),
+                    latLng = latLng
+            )
+            listLoc.add(element = loc)
+            var log = ""
+            listLoc.forEach {
+                log += "\n${it.timestamp} : ${it.latLng?.latitude} - ${it.latLng?.longitude}"
+            }
+            tvLog.text = log
+
             val markerOptions = MarkerOptions()
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
             markerOptions.position(latLng)
@@ -221,7 +232,6 @@ class MapTrackerActivity : BaseFontActivity(),
             override fun onLocationResult(locationResult: LocationResult) {
                 super.onLocationResult(locationResult)
                 mCurrentLocation = locationResult.lastLocation
-                mLastUpdateTime = DateFormat.getTimeInstance().format(Date())
                 onChangeLocation()
             }
         }

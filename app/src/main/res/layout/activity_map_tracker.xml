@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/whiteSmoke">
@@ -36,4 +37,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btRouter"
         android:text="Router Anim" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/w_250"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:padding="@dimen/text_small"
+            tools:text="@string/large_dummy_text" />
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
