@@ -24,6 +24,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
@@ -761,6 +762,20 @@ class LUIUtil {
                     )
                 }
             }
+        }
+
+        fun ScrollView.scrollToBottom() {
+            val lastChild = getChildAt(childCount - 1)
+            val bottom = lastChild.bottom + paddingBottom
+            val delta = bottom - (scrollY + height)
+            smoothScrollBy(0, delta)
+        }
+
+        fun NestedScrollView.scrollToBottom() {
+            val lastChild = getChildAt(childCount - 1)
+            val bottom = lastChild.bottom + paddingBottom
+            val delta = bottom - (scrollY + height)
+            smoothScrollBy(0, delta)
         }
     }
 }

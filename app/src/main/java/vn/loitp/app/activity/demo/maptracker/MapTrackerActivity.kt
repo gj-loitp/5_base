@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
+import com.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -46,8 +47,8 @@ class MapTrackerActivity : BaseFontActivity(),
         GoogleApiClient.OnConnectionFailedListener {
 
     companion object {
-        private const val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 5000
-        private const val FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS: Long = 3000
+        private const val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 8000
+        private const val FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS: Long = 5000
     }
 
     private var googleApiClient: GoogleApiClient? = null
@@ -202,9 +203,10 @@ class MapTrackerActivity : BaseFontActivity(),
             listLoc.add(element = loc)
             var log = ""
             listLoc.forEach {
-                log += "\n${it.beforeTimestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m) - ${it.getTimeInSecond()}(s) -> ${it.getSpeed()}(m/s)"
+                log += "\n\n\n${it.beforeTimestamp} : ${it.beforeLatLng?.latitude} - ${it.beforeLatLng?.longitude} ~ ${it.afterLatLng?.latitude} - ${it.afterLatLng?.longitude} -> ${it.getDistance()}(m) - ${it.getTimeInSecond()}(s) -> ${it.getSpeed()}(m/s)"
             }
             tvLog.text = log
+            nsv.scrollToBottom()
 
             val markerOptions = MarkerOptions()
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
