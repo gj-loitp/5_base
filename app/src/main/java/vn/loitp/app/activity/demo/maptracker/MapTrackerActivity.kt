@@ -34,7 +34,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
-import vn.loitp.app.app.LApplication
 import java.io.IOException
 import java.text.DateFormat
 import java.util.*
@@ -63,7 +62,7 @@ class MapTrackerActivity : BaseFontActivity(),
     private var isShowDialogCheck = false
 
     override fun setTag(): String? {
-        return "loitpp" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
@@ -100,149 +99,16 @@ class MapTrackerActivity : BaseFontActivity(),
         }
     }
 
-    private fun onChangeLocation() {
-        logD("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude + ", mLastUpdateTime:" + mLastUpdateTime)
-
-        currentLocationMarker?.remove()
-        mCurrentLocation?.let { location ->
-            val latLng = LatLng(location.latitude, location.longitude)
-            val markerOptions = MarkerOptions()
-            markerOptions.position(latLng)
-
-            val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
-            val providerList = locationManager.allProviders
-
-            if (providerList.size > 0) {
-                val longitude = location.longitude
-                val latitude = location.latitude
-                val geoCoder = Geocoder(applicationContext, Locale.getDefault())
-                try {
-                    val listAddresses = geoCoder.getFromLocation(latitude, longitude, 1)
-                    logD("listAddresses " + LApplication.gson.toJson(listAddresses))
-                    if (listAddresses.isNullOrEmpty()) {
-                        //do nothing
-                    } else {
-                        markerOptions.title(listAddresses[0].getAddressLine(0))
-                    }
-                } catch (e: IOException) {
-                    e.printStackTrace()
-                }
-            }
-
-            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-            currentLocationMarker = mGoogleMap?.addMarker(markerOptions)
-            mGoogleMap?.let {
-                it.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-                it.animateCamera(CameraUpdateFactory.zoomTo(11f))
-            }
-        }
-    }
-
-    private fun initLocation() {
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-        mSettingsClient = LocationServices.getSettingsClient(this)
-        mLocationCallback = object : LocationCallback() {
-            override fun onLocationResult(locationResult: LocationResult) {
-                super.onLocationResult(locationResult)
-                mCurrentLocation = locationResult.lastLocation
-                mLastUpdateTime = DateFormat.getTimeInstance().format(Date())
-                onChangeLocation()
-            }
-        }
-        mLocationRequest = LocationRequest()
-        mLocationRequest?.let {
-            it.interval = UPDATE_INTERVAL_IN_MILLISECONDS
-            it.fastestInterval = FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS
-            it.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-
-            val builder = LocationSettingsRequest.Builder()
-            builder.addLocationRequest(it)
-            mLocationSettingsRequest = builder.build()
-        }
-    }
-
-    override fun onMapReady(googleMap: GoogleMap) {
-        mGoogleMap = googleMap
-        mGoogleMap?.apply {
-            mapType = GoogleMap.MAP_TYPE_NORMAL
-            uiSettings.isZoomControlsEnabled = false
-            uiSettings.isZoomGesturesEnabled = true
-            uiSettings.isCompassEnabled = true
-//            uiSettings.isMapToolbarEnabled = true
-            uiSettings.isMyLocationButtonEnabled = true
-            uiSettings.isRotateGesturesEnabled = true
-            uiSettings.isScrollGesturesEnabled = true
-            uiSettings.isTiltGesturesEnabled = true
-        }
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                buildGoogleApiClient()
-                mGoogleMap?.isMyLocationEnabled = true
-            }
-        } else {
-            buildGoogleApiClient()
-            mGoogleMap?.isMyLocationEnabled = true
-        }
-    }
-
-    private fun drawRouter() {
-        val list = ArrayList<LatLng>()
-        list.add(LatLng(10.8785614, 106.8107979))
-        list.add(LatLng(11.8785614, 107.8107979))
-        list.add(LatLng(12.8785614, 108.8107979))
-        list.add(LatLng(13.8785614, 109.8107979))
-        list.add(LatLng(14.8785614, 110.8107979))
-        list.add(LatLng(15.8785614, 115.8107979))
-        list.add(LatLng(20.8785614, 120.8107979))
-        list.add(LatLng(25.8785614, 125.8107979))
-        list.add(LatLng(30.8785614, 130.8107979))
-        drawPolyLineOnMap(list)
-    }
-
-    private fun addMakerSydney() {
-        val sydney = LatLng(-34.0, 151.0)
-        mGoogleMap?.let {
-            it.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-            it.moveCamera(CameraUpdateFactory.newLatLng(sydney))
-        }
-    }
-
-    @Synchronized
-    private fun buildGoogleApiClient() {
-        googleApiClient = GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build()
-        googleApiClient?.connect()
-    }
-
-    override fun onConnected(bundle: Bundle?) {
-
-    }
-
-    override fun onConnectionSuspended(i: Int) {
-
-    }
-
-    override fun onConnectionFailed(connectionResult: ConnectionResult) {
-
-    }
-
+    //region permisson
     private fun checkPermission() {
+        showShort("checkPermission")
         isShowDialogCheck = true
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         if (report.areAllPermissionsGranted()) {
-                            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                                if (googleApiClient == null) {
-                                    buildGoogleApiClient()
-                                }
-                                mGoogleMap?.isMyLocationEnabled = true
-                            }
+                            buildClient()
                         } else {
                             showShouldAcceptPermission()
                         }
@@ -302,6 +168,146 @@ class MapTrackerActivity : BaseFontActivity(),
                 })
         alertDialog.setCancelable(false)
     }
+    //endregion
+
+    private fun onChangeLocation() {
+        logD("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude + ", mLastUpdateTime:" + mLastUpdateTime)
+        showShort("onChangeLocation " + mCurrentLocation?.latitude + " - " + mCurrentLocation?.longitude + ", mLastUpdateTime:" + mLastUpdateTime)
+
+        currentLocationMarker?.remove()
+        mCurrentLocation?.let { location ->
+            val latLng = LatLng(location.latitude, location.longitude)
+            val markerOptions = MarkerOptions()
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+            markerOptions.position(latLng)
+
+            val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            val providerList = locationManager.allProviders
+
+            if (providerList.size > 0) {
+                val longitude = location.longitude
+                val latitude = location.latitude
+                val geoCoder = Geocoder(applicationContext, Locale.getDefault())
+                try {
+                    val listAddresses = geoCoder.getFromLocation(latitude, longitude, 1)
+//                    logD("listAddresses " + LApplication.gson.toJson(listAddresses))
+                    if (listAddresses.isNullOrEmpty()) {
+                        //do nothing
+                    } else {
+                        markerOptions.title(listAddresses[0].getAddressLine(0))
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+
+            currentLocationMarker = mGoogleMap?.addMarker(markerOptions)
+            mGoogleMap?.let {
+                it.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+                it.animateCamera(CameraUpdateFactory.zoomTo(11f))
+            }
+        }
+    }
+
+    private fun initLocation() {
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        mSettingsClient = LocationServices.getSettingsClient(this)
+        mLocationCallback = object : LocationCallback() {
+            override fun onLocationResult(locationResult: LocationResult) {
+                super.onLocationResult(locationResult)
+                mCurrentLocation = locationResult.lastLocation
+                mLastUpdateTime = DateFormat.getTimeInstance().format(Date())
+                onChangeLocation()
+            }
+        }
+        mLocationRequest = LocationRequest()
+        mLocationRequest?.let {
+            it.interval = UPDATE_INTERVAL_IN_MILLISECONDS
+            it.fastestInterval = FASTEST_UPDATE_INTERVAL_IN_MILLISECONDS
+            it.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+
+            val builder = LocationSettingsRequest.Builder()
+            builder.addLocationRequest(it)
+            mLocationSettingsRequest = builder.build()
+        }
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mGoogleMap = googleMap
+        mGoogleMap?.apply {
+            mapType = GoogleMap.MAP_TYPE_NORMAL
+            uiSettings.isZoomControlsEnabled = false
+            uiSettings.isZoomGesturesEnabled = true
+            uiSettings.isCompassEnabled = true
+//            uiSettings.isMapToolbarEnabled = true
+            uiSettings.isMyLocationButtonEnabled = true
+            uiSettings.isRotateGesturesEnabled = true
+            uiSettings.isScrollGesturesEnabled = true
+            uiSettings.isTiltGesturesEnabled = true
+        }
+        buildClient()
+    }
+
+    private fun drawRouter() {
+        val list = ArrayList<LatLng>()
+        list.add(LatLng(10.8785614, 106.8107979))
+        list.add(LatLng(11.8785614, 107.8107979))
+        list.add(LatLng(12.8785614, 108.8107979))
+        list.add(LatLng(13.8785614, 109.8107979))
+        list.add(LatLng(14.8785614, 110.8107979))
+        list.add(LatLng(15.8785614, 115.8107979))
+        list.add(LatLng(20.8785614, 120.8107979))
+        list.add(LatLng(25.8785614, 125.8107979))
+        list.add(LatLng(30.8785614, 130.8107979))
+        drawPolyLineOnMap(list)
+    }
+
+    private fun addMakerSydney() {
+        val sydney = LatLng(-34.0, 151.0)
+        mGoogleMap?.let {
+            it.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
+            it.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        }
+    }
+
+    private fun buildClient() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                if (googleApiClient == null) {
+                    buildGoogleApiClient()
+                }
+                mGoogleMap?.isMyLocationEnabled = true
+            }
+        } else {
+            if (googleApiClient == null) {
+                buildGoogleApiClient()
+            }
+            mGoogleMap?.isMyLocationEnabled = true
+        }
+    }
+
+    @Synchronized
+    private fun buildGoogleApiClient() {
+        googleApiClient = GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build()
+        googleApiClient?.connect()
+    }
+
+    override fun onConnected(bundle: Bundle?) {
+        logD("onConnected")
+    }
+
+    override fun onConnectionSuspended(i: Int) {
+        logD("onConnectionSuspended")
+    }
+
+    override fun onConnectionFailed(connectionResult: ConnectionResult) {
+        logD("onConnectionFailed")
+    }
+
 
     private fun drawPolyLineOnMap(list: List<LatLng>) {
         val polyOptions = PolylineOptions()
