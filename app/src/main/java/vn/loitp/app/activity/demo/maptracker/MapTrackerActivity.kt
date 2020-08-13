@@ -35,6 +35,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
+import vn.loitp.app.app.LApplication
 import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
@@ -93,6 +94,13 @@ class MapTrackerActivity : BaseFontActivity(),
 
         btRouterAnim.setSafeOnClickListener {
             drawRouterAnim()
+        }
+
+        btDistance.setSafeOnClickListener {
+            val startLatLng = LatLng(10.8785614, 106.8107979)
+            val endLatLng = LatLng(30.8785614, 145.8107979)
+            val distance = getDistance(startLatLng = startLatLng, endLatLng = endLatLng)
+            showShort("distance: $distance (m)")
         }
     }
 
@@ -379,5 +387,18 @@ class MapTrackerActivity : BaseFontActivity(),
                         onChangeLocation()
                     }
         }
+    }
+
+    //return in meter
+    private fun getDistance(startLatLng: LatLng, endLatLng: LatLng): Float {
+        val results = floatArrayOf(0f)
+        Location.distanceBetween(
+                startLatLng.latitude,
+                startLatLng.longitude,
+                endLatLng.latitude,
+                endLatLng.longitude,
+                results)
+        logD("getDistance results: " + LApplication.gson.toJson(results))
+        return results[0]
     }
 }
