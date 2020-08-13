@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
+import com.core.utilities.LUIUtil
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.location.*
@@ -89,6 +90,10 @@ class MapTrackerActivity : BaseFontActivity(),
         }
         btRouter.setSafeOnClickListener {
             drawRouter()
+        }
+
+        btRouterAnim.setSafeOnClickListener {
+            drawRouterAnim()
         }
     }
 
@@ -262,6 +267,43 @@ class MapTrackerActivity : BaseFontActivity(),
         drawPolyLineOnMap(list)
     }
 
+    private fun drawPolyLineOnMap(list: List<LatLng>) {
+        val polyOptions = PolylineOptions()
+        polyOptions.color(Color.RED)
+        polyOptions.width(5f)
+        polyOptions.addAll(list)
+        mGoogleMap?.clear()
+        mGoogleMap?.addPolyline(polyOptions)
+        val builder = LatLngBounds.Builder()
+        for (latLng in list) {
+            builder.include(latLng)
+        }
+        val bounds = builder.build()
+        //BOUND_PADDING is an int to specify padding of bound.. try 100.
+        val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, 100)
+        mGoogleMap?.animateCamera(cameraUpdate)
+    }
+
+    private fun drawRouterAnim() {
+        val list = ArrayList<LatLng>()
+        list.add(LatLng(20.8785614, 80.8107979))
+        drawPolyLineOnMap(list)
+        LUIUtil.setDelay(1000, Runnable {
+            list.add(LatLng(25.8785614, 85.8107979))
+            drawPolyLineOnMap(list)
+
+            LUIUtil.setDelay(1000, Runnable {
+                list.add(LatLng(30.8785614, 90.8107979))
+                drawPolyLineOnMap(list)
+
+                LUIUtil.setDelay(1000, Runnable {
+                    list.add(LatLng(35.8785614, 95.8107979))
+                    drawPolyLineOnMap(list)
+                })
+            })
+        })
+    }
+
     private fun addMakerSydney() {
         val sydney = LatLng(-34.0, 151.0)
         mGoogleMap?.let {
@@ -306,24 +348,6 @@ class MapTrackerActivity : BaseFontActivity(),
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
         logD("onConnectionFailed")
-    }
-
-
-    private fun drawPolyLineOnMap(list: List<LatLng>) {
-        val polyOptions = PolylineOptions()
-        polyOptions.color(Color.RED)
-        polyOptions.width(5f)
-        polyOptions.addAll(list)
-        mGoogleMap?.clear()
-        mGoogleMap?.addPolyline(polyOptions)
-        val builder = LatLngBounds.Builder()
-        for (latLng in list) {
-            builder.include(latLng)
-        }
-        val bounds = builder.build()
-        //BOUND_PADDING is an int to specify padding of bound.. try 100.
-        val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, 100)
-        mGoogleMap?.animateCamera(cameraUpdate)
     }
 
     private fun startLocationUpdates() {
