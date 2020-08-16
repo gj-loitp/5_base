@@ -65,7 +65,7 @@ class MapTrackerActivity : BaseFontActivity(),
     private var isShowDialogCheck = false
 
     override fun setTag(): String? {
-        return javaClass.simpleName
+        return "loitpp" + javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {
