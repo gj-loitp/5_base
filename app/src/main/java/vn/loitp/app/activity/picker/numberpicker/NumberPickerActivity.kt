@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.picker.numberpicker
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import com.core.base.BaseFontActivity
 import com.picker.number.LNumberPicker
@@ -25,6 +26,7 @@ class NumberPickerActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         lnb.setCallback(object : LNumberPicker.Callback {
+            @SuppressLint("SetTextI18n")
             override fun onValueChangedNumberPicker(h: String, m: String, s: String) {
                 textView.text = "$h : $m : $s"
             }

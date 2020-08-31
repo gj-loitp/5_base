@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
+import android.annotation.SuppressLint
 import android.os.SystemClock
 import android.widget.TextView
 import com.core.utilities.LLog
@@ -11,9 +12,10 @@ import io.reactivex.schedulers.Schedulers
 class MyRxTask1(val tv: TextView?) {
     val TAG = javaClass.simpleName
 
+    @SuppressLint("SetTextI18n")
     fun execute(): Disposable {
         LLog.d(TAG, "onPreExecute")
-        tv?.setText("onPreExecute\n")
+        tv?.text = "onPreExecute\n"
         return Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
                 .flatMap {
                     LLog.d(TAG, "doInBackground")

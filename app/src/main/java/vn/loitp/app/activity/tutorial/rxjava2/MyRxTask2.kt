@@ -11,21 +11,21 @@ import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 
 class MyRxTask2(val tv: TextView?) {
-    val TAG = javaClass.simpleName
+    val logTag = javaClass.simpleName
 
-    @SuppressLint("CheckResult")
+    @SuppressLint("CheckResult", "SetTextI18n")
     fun execute(): Disposable {
         val publishSubject = PublishSubject.create<Int>()
         publishSubject.observeOn(AndroidSchedulers.mainThread()).subscribe {
-            LLog.d(TAG, "onProgressUpdate value = $it")
+            LLog.d(logTag, "onProgressUpdate value = $it")
             tv?.append("onProgressUpdate value = $it\n")
         }
-        LLog.d(TAG, "onPreExecute")
+        LLog.d(logTag, "onPreExecute")
         tv?.text = "onPreExecute\n"
         return Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
                 .doOnNext {
                     it.forEach {
-                        LLog.d(TAG, "doInBackground " + it)
+                        LLog.d(logTag, "doInBackground " + it)
                         publishSubject.onNext(it)
                         SystemClock.sleep(1000)
                     }
@@ -37,12 +37,12 @@ class MyRxTask2(val tv: TextView?) {
                     tv?.append("onPostExecute\n")
                 }*/
                 .subscribe({
-                    LLog.d(TAG, "onPostExecute onNext")
+                    LLog.d(logTag, "onPostExecute onNext")
                     tv?.append("onPostExecute\n")
                 }, {
-                    LLog.d(TAG, "onPostExecute onError")
+                    LLog.d(logTag, "onPostExecute onError")
                 }, {
-                    LLog.d(TAG, "onPostExecute onComplete")
+                    LLog.d(logTag, "onPostExecute onComplete")
                 })
     }
 

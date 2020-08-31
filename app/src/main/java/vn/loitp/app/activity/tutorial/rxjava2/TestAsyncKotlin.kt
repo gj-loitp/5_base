@@ -22,15 +22,15 @@ class TestAsyncKotlin(private val count: Int) {
             doInBkg(it)
         }.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnDispose({
+                .doOnDispose {
                     onDispose.invoke()
-                })
+                }
                 .subscribe({
-                    log("post 1 " + it)
+                    log("post 1 $it")
                     onSuccess.invoke(it)
                     onFinished.invoke()
                 }, {
-                    log("post 2 " + it.toString())
+                    log("post 2 $it")
                     onError.invoke(it)
                     onFinished.invoke()
                 })
@@ -51,12 +51,12 @@ class TestAsyncKotlin(private val count: Int) {
             try {
                 Thread.sleep(1000)
             } catch (e: Exception) {
-                log("Exception " + e.toString())
+                log("Exception $e")
                 sourceProgression.onComplete()
                 emmiter.tryOnError(IllegalArgumentException("ahihi"))
                 break
             }
-            log("bkg count: " + i)
+            log("bkg count: $i")
             sourceProgression.onNext(i)
         }
         sourceProgression.onComplete()
