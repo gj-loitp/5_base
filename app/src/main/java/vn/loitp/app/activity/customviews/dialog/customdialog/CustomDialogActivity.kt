@@ -12,38 +12,38 @@ class CustomDialogActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        btToggleFullScreen.setOnClickListener { _ ->
+        btToggleFullScreen.setOnClickListener {
             isFullScreen = !isFullScreen
             LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = isFullScreen)
         }
-        btDefault.setOnClickListener { _ ->
+        btDefault.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.DEFAULT)
         }
-        btTopLeft.setOnClickListener { _ ->
+        btTopLeft.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_LEFT)
         }
-        btTopCenter.setOnClickListener { _ ->
+        btTopCenter.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_CENTER)
         }
-        btTopRight.setOnClickListener { _ ->
+        btTopRight.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_RIGHT)
         }
-        btCenterLeft.setOnClickListener { _ ->
+        btCenterLeft.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_LEFT)
         }
-        btCenterCenter.setOnClickListener { _ ->
+        btCenterCenter.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_CENTER)
         }
-        btCenterRight.setOnClickListener { _ ->
+        btCenterRight.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_RIGHT)
         }
-        btBottomLeft.setOnClickListener { _ ->
+        btBottomLeft.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_LEFT)
         }
-        btBottomCenter.setOnClickListener { _ ->
+        btBottomCenter.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_CENTER)
         }
-        btBottomRight.setOnClickListener { _ ->
+        btBottomRight.setOnClickListener {
             PositionDialog().showImmersivePos(activity = activity, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_RIGHT)
         }
     }

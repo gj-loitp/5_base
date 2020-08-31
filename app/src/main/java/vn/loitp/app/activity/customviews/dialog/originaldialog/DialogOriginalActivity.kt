@@ -14,7 +14,6 @@ import com.interfaces.Callback1
 import com.interfaces.Callback2
 import com.interfaces.Callback3
 import com.interfaces.CallbackList
-import com.views.LToast
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
@@ -23,6 +22,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btShow1.setOnClickListener(this)
         btShow2.setOnClickListener(this)
         btShow3.setOnClickListener(this)
@@ -185,9 +185,9 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)
 
-        builder.setPositiveButton("OK") { _, which ->
+        builder.setPositiveButton("OK") { _, _ ->
             val text = input.text.toString()
-            LToast.show(activity, "Text $text")
+            showShort("Text $text")
         }
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
 

@@ -84,7 +84,7 @@ class GalleryAPIActivity : BaseFontActivity() {
         for (i in listPhotoset.indices) {
             items[i] = listPhotoset[i].title?.content
         }
-        builder.setItems(items) { dialog: DialogInterface?, position: Int ->
+        builder.setItems(items) { _: DialogInterface?, position: Int ->
             photosetsGetPhotos(listPhotoset[position].id)
         }
         val dialog = builder.create()
