@@ -28,7 +28,7 @@
                 android:text="AsyncTask and Rx" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt0"
+                android:id="@+id/btDisposableExampleActivity"
                 style="@style/ButtonMenu"
                 android:text="DisposableExampleActivity" />
 

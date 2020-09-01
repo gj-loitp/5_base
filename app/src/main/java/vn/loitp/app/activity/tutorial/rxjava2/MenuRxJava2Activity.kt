@@ -13,7 +13,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bt0.setOnClickListener(this)
+        btDisposableExampleActivity.setOnClickListener(this)
         bt1.setOnClickListener(this)
         bt2.setOnClickListener(this)
         bt3.setOnClickListener(this)
@@ -38,7 +38,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            bt0 -> intent = Intent(activity, DisposableExampleActivity::class.java)
+            btDisposableExampleActivity -> intent = Intent(activity, DisposableExampleActivity::class.java)
             bt1 -> intent = Intent(activity, FlowableExampleActivity::class.java)
             bt2 -> intent = Intent(activity, IntervalExampleActivity::class.java)
             bt3 -> intent = Intent(activity, SingleObserverExampleActivity::class.java)
