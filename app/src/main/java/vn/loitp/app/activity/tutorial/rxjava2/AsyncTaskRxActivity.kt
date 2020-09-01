@@ -57,10 +57,7 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
                 }
             }
             btRx2 -> {
-                if (disposable != null) {
-                    disposable?.dispose()
-                    return
-                }
+                disposable?.dispose()
                 val myRxTask2 = MyRxTask2(textView)
                 disposable = myRxTask2.execute()
                 disposable?.let {
