@@ -19,7 +19,7 @@ import io.reactivex.schedulers.Schedulers;
 import vn.loitp.app.R;
 import vn.loitp.app.activity.tutorial.rxjava2.model.ApiUser;
 import vn.loitp.app.activity.tutorial.rxjava2.model.User;
-import vn.loitp.app.activity.tutorial.rxjava2.util.Utils;
+import vn.loitp.app.activity.tutorial.rxjava2.util.RxJavaUtils;
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 public class MapExampleActivity extends BaseFontActivity {
@@ -55,7 +55,7 @@ public class MapExampleActivity extends BaseFontActivity {
 
                     @Override
                     public List<User> apply(List<ApiUser> apiUsers) {
-                        return Utils.convertApiUserListToUserList(apiUsers);
+                        return RxJavaUtils.convertApiUserListToUserList(apiUsers);
                     }
                 })
                 .subscribe(getObserver());
@@ -64,7 +64,7 @@ public class MapExampleActivity extends BaseFontActivity {
     private Observable<List<ApiUser>> getObservable() {
         return Observable.create(listObservableEmitter -> {
             if (!listObservableEmitter.isDisposed()) {
-                listObservableEmitter.onNext(Utils.getApiUserList());
+                listObservableEmitter.onNext(RxJavaUtils.getApiUserList());
                 listObservableEmitter.onComplete();
             }
         });
