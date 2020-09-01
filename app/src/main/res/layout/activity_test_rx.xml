@@ -35,12 +35,12 @@
                 android:text="Test Interval" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_4"
+                android:id="@+id/bt4"
                 style="@style/ButtonMenu"
                 android:text="Test Create" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_5"
+                android:id="@+id/bt5"
                 style="@style/ButtonMenu"
                 android:text="Test Map" />
 

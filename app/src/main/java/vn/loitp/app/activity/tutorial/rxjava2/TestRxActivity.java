@@ -55,8 +55,8 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
         findViewById(R.id.bt1).setOnClickListener(this);
         findViewById(R.id.bt2).setOnClickListener(this);
         findViewById(R.id.bt3).setOnClickListener(this);
-        findViewById(R.id.bt_4).setOnClickListener(this);
-        findViewById(R.id.bt_5).setOnClickListener(this);
+        findViewById(R.id.bt4).setOnClickListener(this);
+        findViewById(R.id.bt5).setOnClickListener(this);
     }
 
     @Override
@@ -74,10 +74,10 @@ public class TestRxActivity extends BaseFontActivity implements View.OnClickList
             case R.id.bt3:
                 test3();
                 break;
-            case R.id.bt_4:
+            case R.id.bt4:
                 test4();
                 break;
-            case R.id.bt_5:
+            case R.id.bt5:
                 test5();
                 break;
         }

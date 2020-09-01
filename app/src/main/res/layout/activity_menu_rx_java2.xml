@@ -47,12 +47,12 @@
                 android:text="SingleObserverExampleActivity " />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_4"
+                android:id="@+id/bt4"
                 style="@style/ButtonMenu"
                 android:text="CompletableObserverExampleActivity " />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_5"
+                android:id="@+id/bt5"
                 style="@style/ButtonMenu"
                 android:text="MapExampleActivity  " />
         </LinearLayout>

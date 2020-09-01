@@ -19,7 +19,7 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         findViewById<View>(R.id.bt1).setOnClickListener(this)
         findViewById<View>(R.id.bt2).setOnClickListener(this)
         findViewById<View>(R.id.bt3).setOnClickListener(this)
-        findViewById<View>(R.id.bt_4).setOnClickListener(this)
+        findViewById<View>(R.id.bt4).setOnClickListener(this)
         bt5.setOnClickListener(this)
     }
 
@@ -51,7 +51,7 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
                 intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_2)
             }
-            R.id.bt_4 -> {
+            R.id.bt4 -> {
                 intent = Intent(activity, CoordinatorLayoutSampleActivity::class.java)
                 intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_3)
             }
