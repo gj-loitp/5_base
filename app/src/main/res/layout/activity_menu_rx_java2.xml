@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -17,12 +18,12 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_test_rx"
+                android:id="@+id/btTestRx"
                 style="@style/ButtonMenu"
                 android:text="Test RX" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_00"
+                android:id="@+id/btAsyncTaskAndRx"
                 style="@style/ButtonMenu"
                 android:text="AsyncTask and Rx" />
 
@@ -63,4 +64,3 @@
         style="@style/TextMenu"
         android:text="Menu RxJava2" />
 </RelativeLayout>
-
