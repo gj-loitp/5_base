@@ -6,9 +6,6 @@ import java.util.List;
 import vn.loitp.app.activity.tutorial.rxjava2.model.ApiUser;
 import vn.loitp.app.activity.tutorial.rxjava2.model.User;
 
-/**
- * Created by amitshekhar on 27/08/16.
- */
 public class Utils {
 
     private Utils() {
