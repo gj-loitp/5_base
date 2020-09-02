@@ -14,7 +14,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         btDisposableExampleActivity.setOnClickListener(this)
-        bt1.setOnClickListener(this)
+        btFlowableExampleActivity.setOnClickListener(this)
         bt2.setOnClickListener(this)
         bt3.setOnClickListener(this)
         bt4.setOnClickListener(this)
@@ -39,7 +39,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
         var intent: Intent? = null
         when (v) {
             btDisposableExampleActivity -> intent = Intent(activity, DisposableExampleActivity::class.java)
-            bt1 -> intent = Intent(activity, FlowableExampleActivity::class.java)
+            btFlowableExampleActivity -> intent = Intent(activity, FlowableExampleActivity::class.java)
             bt2 -> intent = Intent(activity, IntervalExampleActivity::class.java)
             bt3 -> intent = Intent(activity, SingleObserverExampleActivity::class.java)
             bt4 -> intent = Intent(activity, CompletableObserverExampleActivity::class.java)

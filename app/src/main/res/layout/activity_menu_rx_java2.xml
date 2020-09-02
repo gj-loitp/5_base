@@ -33,7 +33,7 @@
                 android:text="DisposableExampleActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt1"
+                android:id="@+id/btFlowableExampleActivity"
                 style="@style/ButtonMenu"
                 android:text="FlowableExampleActivity" />
 
