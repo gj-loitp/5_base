@@ -18,7 +18,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
         btIntervalExampleActivity.setOnClickListener(this)
         bt3.setOnClickListener(this)
         bt4.setOnClickListener(this)
-        bt5.setOnClickListener(this)
+        btMapExampleActivity.setOnClickListener(this)
         btAsyncTaskAndRx.setOnClickListener(this)
         btTestRx.setOnClickListener(this)
     }
@@ -43,7 +43,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
             btIntervalExampleActivity -> intent = Intent(activity, IntervalExampleActivity::class.java)
             bt3 -> intent = Intent(activity, SingleObserverExampleActivity::class.java)
             bt4 -> intent = Intent(activity, CompletableObserverExampleActivity::class.java)
-            bt5 -> intent = Intent(activity, MapExampleActivity::class.java)
+            btMapExampleActivity -> intent = Intent(activity, MapExampleActivity::class.java)
             btAsyncTaskAndRx -> intent = Intent(activity, AsyncTaskRxActivity::class.java)
             btTestRx -> intent = Intent(activity, TestRxActivity::class.java)
         }

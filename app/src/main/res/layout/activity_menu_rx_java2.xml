@@ -55,7 +55,7 @@
                 android:text="CompletableObserverExampleActivity " />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt5"
+                android:id="@+id/btMapExampleActivity"
                 style="@style/ButtonMenu"
                 android:text="MapExampleActivity  " />
         </LinearLayout>
