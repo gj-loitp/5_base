@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine.livedata
+package com.service.livedata
 
 import androidx.annotation.MainThread
 import androidx.lifecycle.LifecycleOwner

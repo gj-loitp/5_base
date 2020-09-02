@@ -1,6 +1,6 @@
-package vn.loitp.app.activity.api.coroutine.livedata
+package com.service.livedata
 
-import vn.loitp.app.activity.api.coroutine.model.ErrorResponse
+import com.service.model.ErrorResponse
 
 /**
  * Created by Loitp on 24,December,2019

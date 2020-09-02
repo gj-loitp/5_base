@@ -1,17 +1,17 @@
-package vn.loitp.app.activity.api.coroutine.viewmodel
+package com.core.base
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.core.utilities.LLog
+import com.service.RequestStatus
+import com.service.livedata.ActionData
+import com.service.model.ApiResponse
+import com.service.model.ErrorResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
-import vn.loitp.app.activity.api.coroutine.livedata.ActionData
-import vn.loitp.app.activity.api.coroutine.model.ApiResponse
-import vn.loitp.app.activity.api.coroutine.model.ErrorResponse
-import vn.loitp.app.activity.api.coroutine.service.RequestStatus
 
 /**
  * Created by Loitp on 24,December,2019

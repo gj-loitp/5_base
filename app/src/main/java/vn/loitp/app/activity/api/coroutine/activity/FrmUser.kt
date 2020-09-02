@@ -6,10 +6,10 @@ import androidx.navigation.fragment.findNavController
 import com.core.base.BaseFragment
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
+import com.service.model.UserTest
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.coroutine.model.UserTest
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 
 class FrmUser : BaseFragment() {

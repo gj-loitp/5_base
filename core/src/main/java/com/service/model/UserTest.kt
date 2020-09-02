@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.coroutine.model
+package com.service.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName

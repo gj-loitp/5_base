@@ -1,11 +1,11 @@
-package vn.loitp.app.activity.api.coroutine.repository
+package com.service.repository
 
+import com.google.gson.Gson
+import com.service.RequestStatus
+import com.service.model.ApiResponse
+import com.service.model.ErrorJson
+import com.service.model.ErrorResponse
 import retrofit2.Response
-import vn.loitp.app.activity.api.coroutine.model.ApiResponse
-import vn.loitp.app.activity.api.coroutine.model.ErrorJson
-import vn.loitp.app.activity.api.coroutine.model.ErrorResponse
-import vn.loitp.app.activity.api.coroutine.service.RequestStatus
-import vn.loitp.app.app.LApplication
 
 /**
  * Created by Loitp on 24,December,2019
@@ -54,7 +54,7 @@ open class BaseRepository {
             try {
                 // parser error body
                 val jsonError = it.string()
-                val errorJson = LApplication.gson.fromJson(jsonError, ErrorJson::class.java) as ErrorJson
+                val errorJson = Gson().fromJson(jsonError, ErrorJson::class.java) as ErrorJson
                 errorResponse = errorJson.errors?.firstOrNull()
 
             } catch (e: Exception) {
