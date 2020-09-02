@@ -2,10 +2,6 @@ package vn.loitp.app.activity.pattern.mvvm.model
 
 import java.util.*
 
-/**
- * Created by Qichuan on 02/12/17.
- */
-
 class User : Observable() {
     /// The first name of the user
     var firstName: String = ""

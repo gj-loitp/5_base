@@ -94,11 +94,10 @@ public class BarUtils {
      * @param color          状态栏颜色值
      * @param statusBarAlpha 状态栏透明度
      */
-    public static void setColorForSwipeBack(Activity activity, @ColorInt int color,
-                                            @IntRange(from = 0, to = 255) int statusBarAlpha) {
+    public static void setColorForSwipeBack(Activity activity, @ColorInt int color, @IntRange(from = 0, to = 255) int statusBarAlpha) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 
-            ViewGroup contentView = ((ViewGroup) activity.findViewById(android.R.id.content));
+            ViewGroup contentView = activity.findViewById(android.R.id.content);
             View rootView = contentView.getChildAt(0);
             int statusBarHeight = getStatusBarHeight(activity);
             if (rootView != null && rootView instanceof CoordinatorLayout) {
@@ -149,7 +148,7 @@ public class BarUtils {
             return;
         }
         transparentStatusBar(activity);
-        ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
+        ViewGroup contentView = activity.findViewById(android.R.id.content);
         // 移除半透明矩形,以免叠加
         View fakeStatusBarView = contentView.findViewWithTag(FAKE_STATUS_BAR_VIEW_TAG);
         if (fakeStatusBarView != null) {
@@ -265,8 +264,7 @@ public class BarUtils {
      * @param color          状态栏颜色值
      * @param statusBarAlpha 状态栏透明度
      */
-    public static void setColorForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @ColorInt int color,
-                                               @IntRange(from = 0, to = 255) int statusBarAlpha) {
+    public static void setColorForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @ColorInt int color, @IntRange(from = 0, to = 255) int statusBarAlpha) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
         }
@@ -362,8 +360,7 @@ public class BarUtils {
      * @param activity     需要设置的activity
      * @param drawerLayout DrawerLayout
      */
-    public static void setTranslucentForDrawerLayout(Activity activity, DrawerLayout drawerLayout,
-                                                     @IntRange(from = 0, to = 255) int statusBarAlpha) {
+    public static void setTranslucentForDrawerLayout(Activity activity, DrawerLayout drawerLayout, @IntRange(from = 0, to = 255) int statusBarAlpha) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
         }
@@ -449,8 +446,7 @@ public class BarUtils {
      * @param statusBarAlpha 状态栏透明度
      * @param needOffsetView 需要向下偏移的 View
      */
-    public static void setTranslucentForImageView(Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha,
-                                                  View needOffsetView) {
+    public static void setTranslucentForImageView(Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha, View needOffsetView) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
             return;
         }
@@ -495,8 +491,7 @@ public class BarUtils {
      * @param statusBarAlpha 状态栏透明度
      * @param needOffsetView 需要向下偏移的 View
      */
-    public static void setTranslucentForImageViewInFragment(Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha,
-                                                            View needOffsetView) {
+    public static void setTranslucentForImageViewInFragment(Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha, View needOffsetView) {
         setTranslucentForImageView(activity, statusBarAlpha, needOffsetView);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             clearPreviousSetting(activity);
@@ -540,7 +535,7 @@ public class BarUtils {
      * @param statusBarAlpha 透明值
      */
     private static void addTranslucentView(Activity activity, @IntRange(from = 0, to = 255) int statusBarAlpha) {
-        ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
+        ViewGroup contentView = activity.findViewById(android.R.id.content);
         View fakeTranslucentView = contentView.findViewWithTag(FAKE_TRANSLUCENT_VIEW_TAG);
         if (fakeTranslucentView != null) {
             if (fakeTranslucentView.getVisibility() == View.GONE) {
@@ -586,7 +581,7 @@ public class BarUtils {
      * 设置根布局参数
      */
     private static void setRootView(Activity activity) {
-        ViewGroup parent = (ViewGroup) activity.findViewById(android.R.id.content);
+        ViewGroup parent = activity.findViewById(android.R.id.content);
         for (int i = 0, count = parent.getChildCount(); i < count; i++) {
             View childView = parent.getChildAt(i);
             if (childView instanceof ViewGroup) {

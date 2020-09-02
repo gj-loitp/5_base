@@ -1,43 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<com.views.layout.squarelayout.LSquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:padding="@dimen/padding_medium">
 
-    <View
-        android:id="@+id/viewSpaceTop"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/w_80" />
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="@dimen/w_1" />
 
-    <FrameLayout
-        android:id="@+id/fl"
+    <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground">
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:padding="@dimen/padding_medium"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_medium" />
 
-        <ImageView
-            android:id="@+id/touchImageView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:gravity="center"
-            android:singleLine="true"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_medium" />
-    </FrameLayout>
-
-    <View
-        android:id="@+id/viewSpaceBottom"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_150" />
-
-</LinearLayout>
+</com.views.layout.squarelayout.LSquareFrameLayout>

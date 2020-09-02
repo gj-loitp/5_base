@@ -5,7 +5,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
-import android.util.TypedValue
 import android.view.*
 import android.widget.Button
 import android.widget.LinearLayout
@@ -19,7 +18,7 @@ import kotlin.math.hypot
 import kotlin.math.max
 
 class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : LRelativePopupWindow() {
-    private val TAG = javaClass.simpleName;
+    private val TAG = javaClass.simpleName
     private var ll: LinearLayout
     private var sv: ScrollView
 
@@ -80,11 +79,11 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
             button.setPadding(padding, padding, padding, padding)
             button.isAllCaps = false
             button.gravity = Gravity.START
-            button.setSingleLine(true)
+            button.isSingleLine = true
             //button.setBackgroundColor(Color.TRANSPARENT)
             button.text = s
             button.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(button, TypedValue.COMPLEX_UNIT_DIP, 14)
+            LUIUtil.setTextSize(button, context.resources.getDimension(R.dimen.text_medium))
             LUIUtil.setRipple(context, button)
             button.setOnClickListener {
                 LLog.d(TAG, "onClick $s")

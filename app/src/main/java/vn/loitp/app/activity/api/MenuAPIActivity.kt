@@ -17,6 +17,7 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btCoroutineAPI.setOnClickListener(this)
         btGalleryAPI.setOnClickListener(this)
         btComicAPI.setOnClickListener(this)

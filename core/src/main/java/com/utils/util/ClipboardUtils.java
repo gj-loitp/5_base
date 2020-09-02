@@ -27,7 +27,9 @@ public final class ClipboardUtils {
      */
     public static void copyText(CharSequence text) {
         ClipboardManager clipboard = (ClipboardManager) Utils.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        clipboard.setPrimaryClip(ClipData.newPlainText("text", text));
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(ClipData.newPlainText("text", text));
+        }
     }
 
     /**
@@ -37,7 +39,10 @@ public final class ClipboardUtils {
      */
     public static CharSequence getText() {
         ClipboardManager clipboard = (ClipboardManager) Utils.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = clipboard.getPrimaryClip();
+        ClipData clip = null;
+        if (clipboard != null) {
+            clip = clipboard.getPrimaryClip();
+        }
         if (clip != null && clip.getItemCount() > 0) {
             return clip.getItemAt(0).coerceToText(Utils.getContext());
         }
@@ -51,7 +56,9 @@ public final class ClipboardUtils {
      */
     public static void copyUri(Uri uri) {
         ClipboardManager clipboard = (ClipboardManager) Utils.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        clipboard.setPrimaryClip(ClipData.newUri(Utils.getContext().getContentResolver(), "uri", uri));
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(ClipData.newUri(Utils.getContext().getContentResolver(), "uri", uri));
+        }
     }
 
     /**
@@ -61,7 +68,10 @@ public final class ClipboardUtils {
      */
     public static Uri getUri() {
         ClipboardManager clipboard = (ClipboardManager) Utils.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = clipboard.getPrimaryClip();
+        ClipData clip = null;
+        if (clipboard != null) {
+            clip = clipboard.getPrimaryClip();
+        }
         if (clip != null && clip.getItemCount() > 0) {
             return clip.getItemAt(0).getUri();
         }
@@ -75,7 +85,9 @@ public final class ClipboardUtils {
      */
     public static void copyIntent(Intent intent) {
         ClipboardManager clipboard = (ClipboardManager) Utils.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        clipboard.setPrimaryClip(ClipData.newIntent("intent", intent));
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(ClipData.newIntent("intent", intent));
+        }
     }
 
     /**
@@ -85,7 +97,10 @@ public final class ClipboardUtils {
      */
     public static Intent getIntent() {
         ClipboardManager clipboard = (ClipboardManager) Utils.getContext().getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = clipboard.getPrimaryClip();
+        ClipData clip = null;
+        if (clipboard != null) {
+            clip = clipboard.getPrimaryClip();
+        }
         if (clip != null && clip.getItemCount() > 0) {
             return clip.getItemAt(0).getIntent();
         }

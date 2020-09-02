@@ -14,6 +14,7 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btShow1.setOnClickListener(this)
         btShow2.setOnClickListener(this)
     }

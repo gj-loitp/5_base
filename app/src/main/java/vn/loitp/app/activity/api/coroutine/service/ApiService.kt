@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.api.coroutine.service
 
+import com.service.model.ApiResponse
+import com.service.model.UserTest
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
-import vn.loitp.app.activity.api.coroutine.model.ApiResponse
-import vn.loitp.app.activity.api.coroutine.model.UserTest
 
 /**
  * Created by Loitp on 24,December,2019

@@ -24,6 +24,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.content.ContextCompat
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.viewpager.widget.ViewPager
@@ -96,6 +97,8 @@ class LUIUtil {
                     .addTestDevice(Constants.TEST_8)
                     .addTestDevice(Constants.TEST_9)
                     .addTestDevice(Constants.TEST_10)
+                    .addTestDevice(Constants.TEST_11)
+                    .addTestDevice(Constants.TEST_12)
                     .build())
             return adView
         }
@@ -116,6 +119,8 @@ class LUIUtil {
                     .addTestDevice(Constants.TEST_8)
                     .addTestDevice(Constants.TEST_9)
                     .addTestDevice(Constants.TEST_10)
+                    .addTestDevice(Constants.TEST_11)
+                    .addTestDevice(Constants.TEST_12)
                     .build()
             interstitial.loadAd(adRequest)
             return interstitial
@@ -548,11 +553,18 @@ class LUIUtil {
         //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_SP, 25);//25sp
         //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PX, 25);//25px
         //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PT, 25);//25points
-        fun setTextSize(textView: TextView?, typedValue: Int, size: Int) {
-            if (size < 0) {
+//        fun setTextSize(textView: TextView?, typedValue: Int, size: Int) {
+//            if (size < 0) {
+//                return
+//            }
+//            textView?.setTextSize(typedValue, size.toFloat())
+//        }
+
+        fun setTextSize(textView: TextView?, size: Float) {
+            if (size < 0 || textView == null) {
                 return
             }
-            textView?.setTextSize(typedValue, size.toFloat())
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, size)
         }
 
         fun setMargins(view: View?, leftPx: Int, topPx: Int, rightPx: Int, bottomPx: Int) {
@@ -750,6 +762,20 @@ class LUIUtil {
                     )
                 }
             }
+        }
+
+        fun ScrollView.scrollToBottom() {
+            val lastChild = getChildAt(childCount - 1)
+            val bottom = lastChild.bottom + paddingBottom
+            val delta = bottom - (scrollY + height)
+            smoothScrollBy(0, delta)
+        }
+
+        fun NestedScrollView.scrollToBottom() {
+            val lastChild = getChildAt(childCount - 1)
+            val bottom = lastChild.bottom + paddingBottom
+            val delta = bottom - (scrollY + height)
+            smoothScrollBy(0, delta)
         }
     }
 }

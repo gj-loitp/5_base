@@ -6,13 +6,13 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
 import com.views.setSafeOnClickListener
 import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
-import kotlinx.android.synthetic.main.activity_keyboard.*
+import kotlinx.android.synthetic.main.activity_func_keyboard.*
 import vn.loitp.app.R
 
 //https://github.com/ParkSangGwon/TedKeyboardObserver
 class KeyboardActivity : BaseFontActivity() {
 
-    @SuppressLint("CheckResult")
+    @SuppressLint("CheckResult", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -39,7 +39,7 @@ class KeyboardActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_keyboard
+        return R.layout.activity_func_keyboard
     }
 
 }

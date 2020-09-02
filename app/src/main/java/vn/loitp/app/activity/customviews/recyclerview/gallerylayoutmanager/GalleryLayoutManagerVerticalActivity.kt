@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_recycler_view_menu_gallery_layout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
-import vn.loitp.app.common.Constants.URL_IMG
+import vn.loitp.app.common.Constants
 
 //https://github.com/BCsl/GalleryLayoutManager
 class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
@@ -69,7 +69,7 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..49) {
-                val movie = Movie(title = "Menu $i", genre = "Action & Adventure $i", year = "Year: $i", cover = URL_IMG)
+                val movie = Movie(title = "Menu $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
                 instance.movieList.add(movie)
             }
         }

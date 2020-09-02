@@ -9,9 +9,9 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LImageUtil
+import com.service.model.UserTest
 import com.views.setSafeOnClickListener
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.coroutine.model.UserTest
 
 class UserListAdapter(private val context: Context,
                       private val callback: (Int, UserTest) -> Unit) :

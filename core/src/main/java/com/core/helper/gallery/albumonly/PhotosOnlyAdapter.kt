@@ -29,7 +29,7 @@ import java.util.*
 class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
         RecyclerView.Adapter<PhotosOnlyAdapter.ViewHolder>() {
 
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private val screenW: Int = LScreenUtil.screenWidth
     private val viewFactory = GlideImageViewFactory()
@@ -116,12 +116,12 @@ class PhotosOnlyAdapter(context: Context, private val callback: Callback?) :
                     LUIUtil.setTextShadow(textView = tvTitle)
                 }
                 bigImageView.setOnClickListener { _ ->
-                    LLog.d(TAG, "setOnClickListener")
+                    LLog.d(logTag, "setOnClickListener")
                     LAnimationUtil.play(view = bigImageView, techniques = Techniques.Pulse)
                     callback?.onClick(photo = it, pos = position)
                 }
                 bigImageView.setOnLongClickListener { _ ->
-                    LLog.d(TAG, "onLongClick")
+                    LLog.d(logTag, "onLongClick")
                     LAnimationUtil.play(view = bigImageView, techniques = Techniques.Pulse)
                     callback?.onLongClick(photo = it, pos = position)
                     true

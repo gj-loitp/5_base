@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAdd"
+                style="@style/ButtonMenu"
+                android:text="Add" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGetKey0"
+                style="@style/ButtonMenu"
+                android:text="Get key=0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRemoveKey0"
+                style="@style/ButtonMenu"
+                android:text="Remove key=0" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/txt_medium"
+                tools:text="@string/app_name" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

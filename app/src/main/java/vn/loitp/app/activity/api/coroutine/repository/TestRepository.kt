@@ -1,7 +1,8 @@
 package vn.loitp.app.activity.api.coroutine.repository
 
-import vn.loitp.app.activity.api.coroutine.model.ApiResponse
-import vn.loitp.app.activity.api.coroutine.model.UserTest
+import com.service.model.ApiResponse
+import com.service.model.UserTest
+import com.service.repository.BaseRepository
 import vn.loitp.app.activity.api.coroutine.service.ApiService
 
 /**

@@ -3,8 +3,7 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer
 import android.content.res.Configuration
 import android.os.Bundle
 import com.core.base.BaseFontActivity
-import com.core.common.Constants.KEY_VIDEO_LINK_IMA_AD
-import com.core.common.Constants.KEY_VIDEO_LINK_PLAY
+import com.core.common.Constants
 import com.core.utilities.LScreenUtil
 import com.views.exo.PlayerManager
 import kotlinx.android.synthetic.main.activity_video_exo_player.*
@@ -19,8 +18,8 @@ class ExoPlayerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        linkPlay = intent.getStringExtra(KEY_VIDEO_LINK_PLAY) ?: ""
-        val linkIMAAd = intent.getStringExtra(KEY_VIDEO_LINK_IMA_AD)
+        linkPlay = intent.getStringExtra(Constants.KEY_VIDEO_LINK_PLAY) ?: ""
+        val linkIMAAd = intent.getStringExtra(Constants.KEY_VIDEO_LINK_IMA_AD)
 
         playerManager = linkIMAAd?.let {
             PlayerManager(activity, it)

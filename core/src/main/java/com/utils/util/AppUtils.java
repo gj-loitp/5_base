@@ -10,18 +10,12 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/08/02
- *     desc  : App相关工具类
- * </pre>
- */
 public final class AppUtils {
 
     private AppUtils() {
@@ -360,7 +354,7 @@ public final class AppUtils {
         try {
             PackageManager pm = Utils.getContext().getPackageManager();
             ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
-            return ai != null && (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
+            return (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return false;
@@ -387,7 +381,7 @@ public final class AppUtils {
         try {
             PackageManager pm = Utils.getContext().getPackageManager();
             ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
-            return ai != null && (ai.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+            return (ai.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return false;
@@ -480,13 +474,13 @@ public final class AppUtils {
      */
     public static class AppInfo {
 
-        private String   name;
+        private String name;
         private Drawable icon;
-        private String   packageName;
-        private String   packagePath;
-        private String   versionName;
-        private int      versionCode;
-        private boolean  isSystem;
+        private String packageName;
+        private String packagePath;
+        private String versionName;
+        private int versionCode;
+        private boolean isSystem;
 
         public Drawable getIcon() {
             return icon;
@@ -564,6 +558,7 @@ public final class AppUtils {
             this.setSystem(isSystem);
         }
 
+        @NotNull
         @Override
         public String toString() {
             return "pkg name: " + getPackageName() +

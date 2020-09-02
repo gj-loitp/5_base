@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btAddMaker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btLocation"
+        android:text="Add marker" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btRouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btAddMaker"
+        android:text="Router" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btRouterAnim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btRouter"
+        android:text="Router Anim" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btRouterAnim"
+        android:text="Distance" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/w_250"
+        android:layout_alignParentBottom="true"
+        android:background="@color/black35">
+
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:padding="@dimen/padding_medium"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_tiny"
+            tools:text="@string/large_dummy_text" />
+    </androidx.core.widget.NestedScrollView>
+</RelativeLayout>

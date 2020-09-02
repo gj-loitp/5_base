@@ -89,9 +89,9 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 break;
             case R.id.bt_send_object_d:
                 User user = new User();
-                user.setAvatar(Constants.INSTANCE.getURL_IMG());
+                user.setAvatar(Constants.Companion.getURL_IMG());
                 user.setAddress("Address");
-                user.setCover(Constants.INSTANCE.getURL_IMG_2());
+                user.setCover(Constants.Companion.getURL_IMG_2());
                 user.setEmail("www.muathu@gmail.com");
                 LDebug.log(user);
                 break;

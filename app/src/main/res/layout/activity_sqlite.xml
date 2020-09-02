@@ -16,7 +16,7 @@
             android:text="Clear all" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_add"
+            android:id="@+id/btAdd"
             style="@style/ButtonMenu"
             android:text="Add Dummy Contact" />
 

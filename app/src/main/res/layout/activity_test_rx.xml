@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -12,7 +13,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt0"
@@ -35,12 +38,12 @@
                 android:text="Test Interval" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_4"
+                android:id="@+id/bt4"
                 style="@style/ButtonMenu"
                 android:text="Test Create" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_5"
+                android:id="@+id/bt5"
                 style="@style/ButtonMenu"
                 android:text="Test Map" />
 

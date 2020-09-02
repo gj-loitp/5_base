@@ -13,7 +13,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
-import vn.loitp.app.common.Constants.URL_IMG
+import vn.loitp.app.common.Constants
 
 class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
     private var mAdapter: MoviesAdapter? = null
@@ -74,7 +74,7 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             val newSize = 5
             for (i in 0 until newSize) {
-                val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = URL_IMG)
+                val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)
                 instance.movieList.add(movie)
             }
             mAdapter?.notifyDataSetChanged()
@@ -97,7 +97,7 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..9) {
-                val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = URL_IMG)
+                val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
                 instance.movieList.add(movie)
             }
         }

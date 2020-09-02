@@ -39,7 +39,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference();
 
-        findViewById(R.id.bt_add).setOnClickListener(this);
+        findViewById(R.id.btAdd).setOnClickListener(this);
 
         setupUI();
 
@@ -93,7 +93,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.bt_add) {
+        if (v.getId() == R.id.btAdd) {
             addData();
         }
     }
@@ -101,7 +101,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     private void addData() {
         User user = new User();
         user.setTimestamp(System.currentTimeMillis());
-        user.setAvt(Constants.INSTANCE.getURL_IMG());
+        user.setAvt(Constants.Companion.getURL_IMG());
         user.setName("loitp");
         user.setMsg("dummy msg " + user.getTimestamp());
         mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user)
@@ -129,7 +129,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
-                user.setAvt(Constants.INSTANCE.getURL_IMG_1());
+                user.setAvt(Constants.Companion.getURL_IMG_1());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user);
             }
 

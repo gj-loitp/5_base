@@ -9,13 +9,15 @@ import vn.loitp.app.activity.pattern.mvp.User
 
 class SharedPrefsActivity : BaseFontActivity() {
 
-    private val KEY_STRING = "KEY_STRING"
-    private val KEY_STRING_WITH_DEFAULT_VALUE = "KEY_STRING_WITH_DEFAULT_VALUE"
-    private val KEY_BOOLEAN = "KEY_BOOLEAN"
-    private val KEY_FLOAT = "KEY_FLOAT"
-    private val KEY_INT = "KEY_INT"
-    private val KEY_LONG = "KEY_LONG"
-    private val KEY_OBJECT = "KEY_OBJECT"
+    companion object {
+        const val KEY_STRING = "KEY_STRING"
+        const val KEY_STRING_WITH_DEFAULT_VALUE = "KEY_STRING_WITH_DEFAULT_VALUE"
+        const val KEY_BOOLEAN = "KEY_BOOLEAN"
+        const val KEY_FLOAT = "KEY_FLOAT"
+        const val KEY_INT = "KEY_INT"
+        const val KEY_LONG = "KEY_LONG"
+        const val KEY_OBJECT = "KEY_OBJECT"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

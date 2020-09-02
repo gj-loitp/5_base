@@ -9,7 +9,7 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.frm_coordinator_4.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-import vn.loitp.app.common.Constants.URL_IMG
+import vn.loitp.app.common.Constants
 
 class FrmCoordinator4 : BaseFragment() {
     private var mAdapter: MultiAdapter? = null
@@ -35,7 +35,7 @@ class FrmCoordinator4 : BaseFragment() {
     private fun prepareMovieData() {
         val movieList = ArrayList<Movie>()
         for (i in 0..200) {
-            val movie = Movie("Loitp $i", "Action & Adventure $i", "Year: $i", URL_IMG)
+            val movie = Movie("Loitp $i", "Action & Adventure $i", "Year: $i", Constants.URL_IMG)
             movieList.add(movie)
         }
         mAdapter?.setList(movieList)

@@ -38,12 +38,12 @@
                 android:text="@string/shimmering_confetti" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_4"
+                android:id="@+id/bt4"
                 style="@style/ButtonMenu"
                 android:text="@string/falling_ice_flakes_with_touch" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_5"
+                android:id="@+id/bt5"
                 style="@style/ButtonMenu"
                 android:text="@string/falling_ice_flakes_with_listener" />
 

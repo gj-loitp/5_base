@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
 import com.core.base.BaseFontActivity
@@ -18,7 +17,7 @@ import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetlist.Photoset
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
-import com.views.layout.floatdraglayout.DisplayUtil
+import com.views.layout.swipeback.SwipeBackLayout
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -30,19 +29,16 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
     private var listRemoveAlbum = ArrayList<String>()
-    private var bkgRootView: Int = 0
     private var adView: AdView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        isShowAdWhenExit = false
-        setTransparentStatusNavigationBar()
         intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
         }
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
-        logD("admobBannerUnitId $admobBannerUnitId")
+//        logD("admobBannerUnitId $admobBannerUnitId")
 
         if (admobBannerUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
@@ -53,17 +49,9 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(adView = it)
                 lnAdView.addView(it)
-                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
+//                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
+//                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
-        }
-
-        bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
-        logD("bkgRootView $bkgRootView")
-        if (bkgRootView == Constants.NOT_FOUND) {
-            rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        } else {
-            rootView.setBackgroundResource(bkgRootView)
         }
 
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
@@ -81,7 +69,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                     override fun onClick(pos: Int) {
                         val intent = Intent(activity, GalleryCorePhotosActivity::class.java)
                         intent.apply {
-                            putExtra(Constants.BKG_ROOT_VIEW, bkgRootView)
                             putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
                             putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
                             startActivity(this)
@@ -105,6 +92,18 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             this.adapter = albumAdapter
             //LUIUtil.setPullLikeIOSVertical(this)
         }
+
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAniamtion(activity)
+                }
+            }
+        })
 
         getListPhotosets()
     }
@@ -133,24 +132,20 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras,
-                format, noJsonCallBack)
+        compositeDisposable.add(service.getListPhotoset(method = method,
+                apiKey = apiKey,
+                userId = userID,
+                page = page,
+                perPage = perPage,
+                primaryPhotoExtras = primaryPhotoExtras,
+                format = format,
+                noJsonCallback = noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotoSetGetlist ->
-                    wrapperPhotoSetGetlist.photosets?.photoset?.let {
+                    wrapperPhotoSetGetlist?.photosets?.photoset?.let {
                         listPhotoSet.addAll(it)
                     }
-
-                    /*String x = "";
-                    for (int i = 0; i < photosetList.size(); i++) {
-                        x += photosetList.get(i).getTitle().getContent() + " - " + photosetList.get(i).getId() + "\n";
-                    }
-                    LLog.d(TAG, "" + x);*/
-
-                    //LLog.d(TAG, "orginal size: " + photosetList.size());
-                    //LLog.d(TAG, "removeAlbumList size: " + removeAlbumList.size());
-
                     listRemoveAlbum.let {
                         for (i in it.indices.reversed()) {
                             for (j in listPhotoSet.indices.reversed()) {

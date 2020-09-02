@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
+<com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="false"
-    android:background="@color/black85">
+    app:directionMode="left"
+    app:isSwipeFromEdge="false"
+    app:maskAlpha="125"
+    app:swipeBackFactor="0.5">
 
-    <com.views.imageview.touch.LTouchImageView
-        android:id="@+id/touchImageView"
+    <RelativeLayout
+        android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:contentDescription="@string/app_name" />
+        android:background="@color/black">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_medium"
-        android:singleLine="true"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_50" />
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/imageViewBlur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop" />
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="@dimen/round_medium"
+            app:realtimeOverlayColor="@color/black65" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_50" />
+    </RelativeLayout>
+
+</com.views.layout.swipeback.SwipeBackLayout>

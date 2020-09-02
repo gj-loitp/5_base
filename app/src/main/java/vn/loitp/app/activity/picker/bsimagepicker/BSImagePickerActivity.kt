@@ -54,7 +54,7 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
     }
 
     override fun setTag(): String? {
-        return "loitpp" + javaClass.simpleName
+        return javaClass.simpleName
     }
 
     override fun setLayoutResourceId(): Int {

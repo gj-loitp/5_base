@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.OvershootInterpolator
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
@@ -18,9 +17,9 @@ import com.core.utilities.LUIUtil
 import com.interfaces.CallbackList
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
-import com.restapi.flickr.model.photosetgetphotos.WrapperPhotosetGetPhotos
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
+import com.views.layout.swipeback.SwipeBackLayout
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -33,25 +32,18 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     private var isLoading = false
     private var photosAdapter: PhotosAdapter? = null
     private var photosetID: String? = null
-    private var bkgRootView = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        isShowAdWhenExit = false
-        setTransparentStatusNavigationBar()
+//        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
 
         LUIUtil.setTextShadow(textView = tvTitle)
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         val photosSize = intent.getStringExtra(Constants.SK_PHOTOSET_SIZE)
-        bkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
 
-        if (bkgRootView == Constants.NOT_FOUND) {
-            rootView.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        } else {
-            rootView.setBackgroundResource(bkgRootView)
-        }
         val totalPhotos = try {
             photosSize?.toInt() ?: 0
         } catch (e: Exception) {
@@ -76,11 +68,10 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         val column = 2
         recyclerView.layoutManager = GridLayoutManager(activity, column)
         recyclerView.setHasFixedSize(true)
-        photosAdapter = PhotosAdapter(activity, column, object : PhotosAdapter.Callback {
+        photosAdapter = PhotosAdapter(context = activity, callback = object : PhotosAdapter.Callback {
             override fun onClick(photo: Photo, pos: Int) {
                 val intent = Intent(activity, GalleryCoreSlideActivity::class.java)
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
-                intent.putExtra(Constants.BKG_ROOT_VIEW, bkgRootView)
                 startActivity(intent)
                 LActivityUtil.tranIn(activity)
             }
@@ -114,6 +105,18 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         btPage.setOnClickListener {
             showListPage()
         }
+
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAniamtion(activity)
+                }
+            }
+        })
     }
 
     private fun showListPage() {
@@ -169,10 +172,10 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotosetGetPhotos: WrapperPhotosetGetPhotos ->
-                    val s = wrapperPhotosetGetPhotos.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                .subscribe({ wrapperPhotosetGetPhotos ->
+                    val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
-                    wrapperPhotosetGetPhotos.photoset?.photo?.let {
+                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()

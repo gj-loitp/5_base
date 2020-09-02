@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
-import vn.loitp.app.common.Constants.URL_IMG
+import vn.loitp.app.common.Constants
 import java.util.*
 
 class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
@@ -49,7 +49,7 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             val newSize = 5
             for (i in 0 until newSize) {
-                val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = URL_IMG)
+                val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)
                 movieList.add(movie)
             }
             mAdapter?.notifyDataSetChanged()
@@ -71,7 +71,7 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
 
     private fun prepareMovieData() {
         for (i in 0..99) {
-            val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = URL_IMG)
+            val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
             movieList.add(movie)
         }
         mAdapter?.notifyDataSetChanged()

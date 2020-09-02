@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.l_item_flickr_photo_slide_iv_core.*
 import java.io.File
 
 class FrmIvSlideCore : Fragment() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.l_item_flickr_photo_slide_iv_core, container, false)

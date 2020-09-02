@@ -125,7 +125,7 @@ internal class PrettyDialogButton(
         return res
     }
 
-    fun setTextSize(typedValued: Int, size: Int) {
-        LUIUtil.setTextSize(tv, typedValued, size)
+    fun setTextSize(size: Float) {
+        LUIUtil.setTextSize(textView = tv, size = size)
     }
 }

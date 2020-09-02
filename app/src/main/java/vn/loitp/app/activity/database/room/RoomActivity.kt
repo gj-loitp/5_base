@@ -184,7 +184,7 @@ class RoomActivity : BaseFontActivity() {
                         progressBar.visibility = View.GONE
                     }
                 }
-                val data = actionData.data
+//                val data = actionData.data
                 if (isDoing == false) {
                     showShort("findFloorPlanActionLiveData observe " + LApplication.gson.toJson(actionData.data))
                 }

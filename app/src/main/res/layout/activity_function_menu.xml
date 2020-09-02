@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/tvMenu"
-        android:fillViewport="true">
+        android:fillViewport="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_activity_service_comunicate"
+                android:id="@+id/btActivityServiceComunicate"
                 style="@style/ButtonMenu"
                 android:text="@string/activity_service_comunicate" />
 
@@ -28,7 +30,7 @@
                 android:text="Download manager" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_drag_drop_sample"
+                android:id="@+id/btDragDropSample"
                 style="@style/ButtonMenu"
                 android:text="@string/drag_drop_sample" />
 
@@ -38,66 +40,65 @@
                 android:text="@string/toggle_fullscreen" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_glide"
+                android:id="@+id/btGlide"
                 style="@style/ButtonMenu"
                 android:text="@string/glide" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_hashmap"
+                android:id="@+id/btHashmap"
                 style="@style/ButtonMenu"
                 android:text="@string/hashmap" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_keyboard"
+                android:id="@+id/btKeyboard"
                 style="@style/ButtonMenu"
                 android:text="@string/keyboard" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_location"
+                android:id="@+id/btLocation"
                 style="@style/ButtonMenu"
                 android:text="@string/location" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_notification"
+                android:id="@+id/btNotification"
                 style="@style/ButtonMenu"
                 android:text="@string/notification" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_recolor"
+                android:id="@+id/btRecolor"
                 style="@style/ButtonMenu"
                 android:text="@string/recolor" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_sensor"
+                android:id="@+id/btSensor"
                 style="@style/ButtonMenu"
                 android:text="@string/sensor" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_simple_finger_gesture"
+                android:id="@+id/btSimpleFingerGesture"
                 style="@style/ButtonMenu"
                 android:text="@string/simple_finger_gestures" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_view_drag_helper"
+                android:id="@+id/btViewDragHelper"
                 style="@style/ButtonMenu"
                 android:text="@string/viewdraghelper" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_view_drag_helper_simple"
+                android:id="@+id/btViewDragHelperSimple"
                 style="@style/ButtonMenu"
                 android:text="@string/viewdraghelper_simple" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_view_drag_helper_simple_1"
+                android:id="@+id/btViewDragHelperSimple1"
                 style="@style/ButtonMenu"
                 android:text="@string/viewdraghelper_simple_1" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
     <TextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/function_menu" />
 </RelativeLayout>
-

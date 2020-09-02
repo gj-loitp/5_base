@@ -683,7 +683,7 @@
             android:name=".activity.animation.lottie.MenuLottieActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.demo.floatingview.FloatingViewActivity"
+            android:name=".activity.utils.UtilsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.animation.valueanimator.ValueAnimatorActivity"
@@ -902,15 +902,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service
-            android:name=".activity.demo.floatingview.service.FVChatHeadService"
-            android:exported="false" />
-        <service
-            android:name=".activity.demo.floatingview.service.FVCustomFloatingViewService"
-            android:exported="false" />
-        <service
-            android:name=".activity.demo.floatingview.service.FVCustomUZVideoService"
-            android:exported="false" />
 
         <activity
             android:name=".activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"
@@ -1152,5 +1143,18 @@
         <activity
             android:name=".activity.demo.nfc.NFCActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.demo.girl.GirlActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+
+        <!--region map-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".activity.demo.maptracker.MapTrackerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <!--endregion-->
     </application>
 </manifest>

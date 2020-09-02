@@ -1,12 +1,12 @@
 package com.views.ldebugview;
 
+import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.IBinder;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -169,6 +169,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         return false;
     }
 
+    @SuppressLint("SetTextI18n")
     private void print(LComunicateDebug.MsgFromActivity msgFromActivity) {
         if (msgFromActivity == null) {
             return;
@@ -184,7 +185,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
             LUIUtil.Companion.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
         }
 
-        LUIUtil.Companion.setTextSize(textView, TypedValue.COMPLEX_UNIT_DIP, 6);
+        LUIUtil.Companion.setTextSize(textView, getBaseContext().getResources().getDimension(R.dimen.text_small));
         if (msgFromActivity.getType() == LComunicateDebug.MsgFromActivity.TYPE_D) {
             textView.setTextColor(Color.WHITE);
         } else if (msgFromActivity.getType() == LComunicateDebug.MsgFromActivity.TYPE_E) {

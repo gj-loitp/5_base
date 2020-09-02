@@ -38,7 +38,7 @@
                 android:text="App bar scrolling with Flexible space" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_4"
+                android:id="@+id/bt4"
                 style="@style/ButtonMenu"
                 android:text="App bar scrolling with overlapping content in Flexible space" />
 

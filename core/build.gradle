@@ -104,6 +104,7 @@ dependencies {
     api 'com.daimajia.easing:library:2.0@aar'
     api 'com.daimajia.androidanimations:library:2.2@aar'
     api 'com.daasuu:EasingInterpolator:1.0.0'//need for shine button
+    api 'com.simmorsal.recolor:recolor:1.1.0'//https://github.com/SIMMORSAL/ReColor
 
     api 'com.airbnb.android:lottie:3.0.6'
 
@@ -116,7 +117,8 @@ dependencies {
     //google service https://developers.google.com/android/guides/setup
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
-    api 'com.google.android.gms:play-services-ads:19.2.0'
+    api 'com.google.android.gms:play-services-maps:17.0.0'//gg map
+    api 'com.google.android.gms:play-services-ads:18.3.0'
     api 'com.google.android.gms:play-services-location:17.0.0'
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
     //endregion

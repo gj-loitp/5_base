@@ -15,7 +15,7 @@ import com.core.utilities.LLog
 import vn.loitp.app.R
 
 class PositionDialog : DialogFragment() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var anchorView: View? = null
 
     enum class Position {
@@ -83,7 +83,7 @@ class PositionDialog : DialogFragment() {
                         //do nothing
                     }
                 }
-                LLog.d(TAG, "posX: $posX, posY: $posY")
+                LLog.d(logTag, "posX: $posX, posY: $posY")
                 if (posX != null && posY != null) {
                     w.attributes?.let { a ->
                         a.gravity = Gravity.TOP or Gravity.START
@@ -125,7 +125,7 @@ class PositionDialog : DialogFragment() {
         this.anchorView = anchorView
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
-                show(fm, TAG)
+                show(fm, logTag)
                 fm.executePendingTransactions()
                 dialog?.window?.let { w ->
                     w.decorView.systemUiVisibility = activity.window.decorView.systemUiVisibility

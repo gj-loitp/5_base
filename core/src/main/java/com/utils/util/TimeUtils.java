@@ -321,7 +321,7 @@ public final class TimeUtils {
      *              </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpan(String time0, String time1, @TimeConstants.Unit int unit) {
+    public static long getTimeSpan(String time0, String time1, @TimeConstants.Companion.Unit int unit) {
         return getTimeSpan(time0, time1, DEFAULT_FORMAT, unit);
     }
 
@@ -342,7 +342,7 @@ public final class TimeUtils {
      *               </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpan(String time0, String time1, DateFormat format, @TimeConstants.Unit int unit) {
+    public static long getTimeSpan(String time0, String time1, DateFormat format, @TimeConstants.Companion.Unit int unit) {
         return millis2TimeSpan(Math.abs(string2Millis(time0, format) - string2Millis(time1, format)), unit);
     }
 
@@ -361,7 +361,7 @@ public final class TimeUtils {
      *              </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpan(Date date0, Date date1, @TimeConstants.Unit int unit) {
+    public static long getTimeSpan(Date date0, Date date1, @TimeConstants.Companion.Unit int unit) {
         return millis2TimeSpan(Math.abs(date2Millis(date0) - date2Millis(date1)), unit);
     }
 
@@ -380,7 +380,7 @@ public final class TimeUtils {
      *                </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpan(long millis0, long millis1, @TimeConstants.Unit int unit) {
+    public static long getTimeSpan(long millis0, long millis1, @TimeConstants.Companion.Unit int unit) {
         return millis2TimeSpan(Math.abs(millis0 - millis1), unit);
     }
 
@@ -513,7 +513,7 @@ public final class TimeUtils {
      *             </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpanByNow(String time, @TimeConstants.Unit int unit) {
+    public static long getTimeSpanByNow(String time, @TimeConstants.Companion.Unit int unit) {
         return getTimeSpan(getNowString(), time, DEFAULT_FORMAT, unit);
     }
 
@@ -533,7 +533,7 @@ public final class TimeUtils {
      *               </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpanByNow(String time, DateFormat format, @TimeConstants.Unit int unit) {
+    public static long getTimeSpanByNow(String time, DateFormat format, @TimeConstants.Companion.Unit int unit) {
         return getTimeSpan(getNowString(format), time, format, unit);
     }
 
@@ -551,7 +551,7 @@ public final class TimeUtils {
      *             </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpanByNow(Date date, @TimeConstants.Unit int unit) {
+    public static long getTimeSpanByNow(Date date, @TimeConstants.Companion.Unit int unit) {
         return getTimeSpan(new Date(), date, unit);
     }
 
@@ -569,7 +569,7 @@ public final class TimeUtils {
      *               </ul>
      * @return unit时间戳
      */
-    public static long getTimeSpanByNow(long millis, @TimeConstants.Unit int unit) {
+    public static long getTimeSpanByNow(long millis, @TimeConstants.Companion.Unit int unit) {
         return getTimeSpan(System.currentTimeMillis(), millis, unit);
     }
 
@@ -765,7 +765,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间戳
      */
-    public static long getMillis(long millis, long timeSpan, @TimeConstants.Unit int unit) {
+    public static long getMillis(long millis, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return millis + timeSpan2Millis(timeSpan, unit);
     }
 
@@ -785,7 +785,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间戳
      */
-    public static long getMillis(String time, long timeSpan, @TimeConstants.Unit int unit) {
+    public static long getMillis(String time, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getMillis(time, DEFAULT_FORMAT, timeSpan, unit);
     }
 
@@ -806,7 +806,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间戳
      */
-    public static long getMillis(String time, DateFormat format, long timeSpan, @TimeConstants.Unit int unit) {
+    public static long getMillis(String time, DateFormat format, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return string2Millis(time, format) + timeSpan2Millis(timeSpan, unit);
     }
 
@@ -825,7 +825,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间戳
      */
-    public static long getMillis(Date date, long timeSpan, @TimeConstants.Unit int unit) {
+    public static long getMillis(Date date, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return date2Millis(date) + timeSpan2Millis(timeSpan, unit);
     }
 
@@ -845,7 +845,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间字符串
      */
-    public static String getString(long millis, long timeSpan, @TimeConstants.Unit int unit) {
+    public static String getString(long millis, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getString(millis, DEFAULT_FORMAT, timeSpan, unit);
     }
 
@@ -866,7 +866,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间字符串
      */
-    public static String getString(long millis, DateFormat format, long timeSpan, @TimeConstants.Unit int unit) {
+    public static String getString(long millis, DateFormat format, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return millis2String(millis + timeSpan2Millis(timeSpan, unit), format);
     }
 
@@ -886,7 +886,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间字符串
      */
-    public static String getString(String time, long timeSpan, @TimeConstants.Unit int unit) {
+    public static String getString(String time, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getString(time, DEFAULT_FORMAT, timeSpan, unit);
     }
 
@@ -907,7 +907,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间字符串
      */
-    public static String getString(String time, DateFormat format, long timeSpan, @TimeConstants.Unit int unit) {
+    public static String getString(String time, DateFormat format, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return millis2String(string2Millis(time, format) + timeSpan2Millis(timeSpan, unit), format);
     }
 
@@ -927,7 +927,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间字符串
      */
-    public static String getString(Date date, long timeSpan, @TimeConstants.Unit int unit) {
+    public static String getString(Date date, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getString(date, DEFAULT_FORMAT, timeSpan, unit);
     }
 
@@ -948,7 +948,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的时间字符串
      */
-    public static String getString(Date date, DateFormat format, long timeSpan, @TimeConstants.Unit int unit) {
+    public static String getString(Date date, DateFormat format, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return millis2String(date2Millis(date) + timeSpan2Millis(timeSpan, unit), format);
     }
 
@@ -967,7 +967,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的Date
      */
-    public static Date getDate(long millis, long timeSpan, @TimeConstants.Unit int unit) {
+    public static Date getDate(long millis, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return millis2Date(millis + timeSpan2Millis(timeSpan, unit));
     }
 
@@ -987,7 +987,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的Date
      */
-    public static Date getDate(String time, long timeSpan, @TimeConstants.Unit int unit) {
+    public static Date getDate(String time, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getDate(time, DEFAULT_FORMAT, timeSpan, unit);
     }
 
@@ -1008,7 +1008,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的Date
      */
-    public static Date getDate(String time, DateFormat format, long timeSpan, @TimeConstants.Unit int unit) {
+    public static Date getDate(String time, DateFormat format, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return millis2Date(string2Millis(time, format) + timeSpan2Millis(timeSpan, unit));
     }
 
@@ -1027,7 +1027,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与给定时间等于时间差的Date
      */
-    public static Date getDate(Date date, long timeSpan, @TimeConstants.Unit int unit) {
+    public static Date getDate(Date date, long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return millis2Date(date2Millis(date) + timeSpan2Millis(timeSpan, unit));
     }
 
@@ -1045,7 +1045,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与当前时间等于时间差的时间戳
      */
-    public static long getMillisByNow(long timeSpan, @TimeConstants.Unit int unit) {
+    public static long getMillisByNow(long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getMillis(getNowMills(), timeSpan, unit);
     }
 
@@ -1064,7 +1064,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与当前时间等于时间差的时间字符串
      */
-    public static String getStringByNow(long timeSpan, @TimeConstants.Unit int unit) {
+    public static String getStringByNow(long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getStringByNow(timeSpan, DEFAULT_FORMAT, unit);
     }
 
@@ -1084,7 +1084,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与当前时间等于时间差的时间字符串
      */
-    public static String getStringByNow(long timeSpan, DateFormat format, @TimeConstants.Unit int unit) {
+    public static String getStringByNow(long timeSpan, DateFormat format, @TimeConstants.Companion.Unit int unit) {
         return getString(getNowMills(), format, timeSpan, unit);
     }
 
@@ -1102,7 +1102,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 与当前时间等于时间差的Date
      */
-    public static Date getDateByNow(long timeSpan, @TimeConstants.Unit int unit) {
+    public static Date getDateByNow(long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return getDate(getNowMills(), timeSpan, unit);
     }
 
@@ -1524,8 +1524,8 @@ public final class TimeUtils {
         return CHINESE_ZODIAC[year % 12];
     }
 
-    private static final String[] ZODIAC       = {"水瓶座", "双鱼座", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "魔羯座"};
-    private static final int[]    ZODIAC_FLAGS = {20, 19, 21, 21, 21, 22, 23, 23, 23, 24, 23, 22};
+    private static final String[] ZODIAC = {"水瓶座", "双鱼座", "白羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座", "魔羯座"};
+    private static final int[] ZODIAC_FLAGS = {20, 19, 21, 21, 21, 22, 23, 23, 23, 24, 23, 22};
 
     /**
      * 获取星座
@@ -1601,7 +1601,7 @@ public final class TimeUtils {
      *                 </ul>
      * @return 毫秒时间戳
      */
-    private static long timeSpan2Millis(long timeSpan, @TimeConstants.Unit int unit) {
+    private static long timeSpan2Millis(long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return timeSpan * unit;
     }
 
@@ -1619,7 +1619,7 @@ public final class TimeUtils {
      *               </ul>
      * @return 以unit为单位的时间长度
      */
-    private static long millis2TimeSpan(long millis, @TimeConstants.Unit int unit) {
+    private static long millis2TimeSpan(long millis, @TimeConstants.Companion.Unit int unit) {
         return millis / unit;
     }
 

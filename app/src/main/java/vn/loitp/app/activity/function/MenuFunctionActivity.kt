@@ -29,22 +29,21 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
 
-        findViewById<View>(R.id.bt_simple_finger_gesture).setOnClickListener(this)
-        findViewById<View>(R.id.bt_hashmap).setOnClickListener(this)
-        findViewById<View>(R.id.bt_drag_drop_sample).setOnClickListener(this)
-        findViewById<View>(R.id.btToggleFullScreen).setOnClickListener(this)
-        findViewById<View>(R.id.bt_view_drag_helper).setOnClickListener(this)
-        findViewById<View>(R.id.bt_recolor).setOnClickListener(this)
-        findViewById<View>(R.id.bt_activity_service_comunicate).setOnClickListener(this)
-        findViewById<View>(R.id.bt_location).setOnClickListener(this)
-        findViewById<View>(R.id.bt_notification).setOnClickListener(this)
-        findViewById<View>(R.id.bt_view_drag_helper_simple).setOnClickListener(this)
-        findViewById<View>(R.id.bt_view_drag_helper_simple_1).setOnClickListener(this)
-        findViewById<View>(R.id.bt_sensor).setOnClickListener(this)
-        findViewById<View>(R.id.bt_glide).setOnClickListener(this)
-        findViewById<View>(R.id.bt_keyboard).setOnClickListener(this)
+        btSimpleFingerGesture.setOnClickListener(this)
+        btHashmap.setOnClickListener(this)
+        btDragDropSample.setOnClickListener(this)
+        btToggleFullScreen.setOnClickListener(this)
+        btViewDragHelper.setOnClickListener(this)
+        btRecolor.setOnClickListener(this)
+        btActivityServiceComunicate.setOnClickListener(this)
+        btLocation.setOnClickListener(this)
+        btNotification.setOnClickListener(this)
+        btViewDragHelperSimple.setOnClickListener(this)
+        btViewDragHelperSimple1.setOnClickListener(this)
+        btSensor.setOnClickListener(this)
+        btGlide.setOnClickListener(this)
+        btKeyboard.setOnClickListener(this)
         btDownloadManager.setOnClickListener(this)
     }
 
@@ -62,22 +61,22 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_simple_finger_gesture -> intent = Intent(activity, SimpleFingerGesturesActivity::class.java)
-            R.id.bt_hashmap -> intent = Intent(activity, HashMapActivity::class.java)
-            R.id.bt_drag_drop_sample -> intent = Intent(activity, DragDropSampleActivity::class.java)
-            R.id.btToggleFullScreen -> intent = Intent(activity, FullScreenActivity::class.java)
-            R.id.bt_view_drag_helper -> intent = Intent(activity, ViewDragHelperActivity::class.java)
-            R.id.bt_recolor -> intent = Intent(activity, RecolorActivity::class.java)
-            R.id.bt_activity_service_comunicate -> intent = Intent(activity, ActivityServiceComunicateActivity::class.java)
-            R.id.bt_location -> intent = Intent(activity, LocationActivity::class.java)
-            R.id.bt_notification -> intent = Intent(activity, MenuNotificationActivity::class.java)
-            R.id.bt_view_drag_helper_simple -> intent = Intent(activity, ViewDragHelperSimpleActivity::class.java)
-            R.id.bt_view_drag_helper_simple_1 -> intent = Intent(activity, ViewDragHelperSimpleActivity1::class.java)
-            R.id.bt_sensor -> intent = Intent(activity, SensorActivity::class.java)
-            R.id.bt_glide -> intent = Intent(activity, GlideActivity::class.java)
-            R.id.bt_keyboard -> intent = Intent(activity, KeyboardActivity::class.java)
-            R.id.btDownloadManager -> intent = Intent(activity, DownloadManagerActivity::class.java)
+        when (v) {
+            btSimpleFingerGesture -> intent = Intent(activity, SimpleFingerGesturesActivity::class.java)
+            btHashmap -> intent = Intent(activity, HashMapActivity::class.java)
+            btDragDropSample -> intent = Intent(activity, DragDropSampleActivity::class.java)
+            btToggleFullScreen -> intent = Intent(activity, FullScreenActivity::class.java)
+            btViewDragHelper -> intent = Intent(activity, ViewDragHelperActivity::class.java)
+            btRecolor -> intent = Intent(activity, RecolorActivity::class.java)
+            btActivityServiceComunicate -> intent = Intent(activity, ActivityServiceComunicateActivity::class.java)
+            btLocation -> intent = Intent(activity, LocationActivity::class.java)
+            btNotification -> intent = Intent(activity, MenuNotificationActivity::class.java)
+            btViewDragHelperSimple -> intent = Intent(activity, ViewDragHelperSimpleActivity::class.java)
+            btViewDragHelperSimple1 -> intent = Intent(activity, ViewDragHelperSimpleActivity1::class.java)
+            btSensor -> intent = Intent(activity, SensorActivity::class.java)
+            btGlide -> intent = Intent(activity, GlideActivity::class.java)
+            btKeyboard -> intent = Intent(activity, KeyboardActivity::class.java)
+            btDownloadManager -> intent = Intent(activity, DownloadManagerActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

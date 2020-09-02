@@ -39,7 +39,6 @@ class LScreenUtil {
             if (resourceId > 0) {
                 result = mContext.resources.getDimensionPixelSize(resourceId)
             }
-            //Log.d(TAG,"result bar height: "+result);
             return result
         }
 
@@ -220,12 +219,12 @@ class LScreenUtil {
         }
 
         //rotate screen
-        fun setFullScreen(context: Context, isFullScreen: Boolean) {
+        fun setFullScreen(activity: Activity, isFullScreen: Boolean) {
             if (isFullScreen) {
-                (context as Activity).requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+                activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
             } else {
-                (context as Activity).requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             }
         }
 

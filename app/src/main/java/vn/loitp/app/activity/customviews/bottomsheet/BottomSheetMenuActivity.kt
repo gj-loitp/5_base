@@ -17,6 +17,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         click0()
         click1()
         click2()
@@ -34,12 +35,14 @@ class BottomSheetMenuActivity : BaseFontActivity() {
         return R.layout.activity_bottomsheet_menu
     }
 
+    @SuppressLint("SetTextI18n")
     private fun click0() {
         btPayment.setOnClickListener {
             show(activity, "Click layoutBottomSheet R.id.bt_payment")
         }
         sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
         sheetBehavior?.setBottomSheetCallback(object : BottomSheetCallback() {
+            @SuppressLint("SetTextI18n")
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
                     BottomSheetBehavior.STATE_HIDDEN -> {
@@ -59,6 +62,9 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                     BottomSheetBehavior.STATE_SETTLING -> {
                         logD("STATE_SETTLING")
                     }
+                    else -> {
+
+                    }
                 }
             }
 
@@ -66,7 +72,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                 logD("onSlide $slideOffset")
             }
         })
-        bt0.setOnClickListener { v: View? ->
+        bt0.setOnClickListener {
             sheetBehavior?.let { bsb ->
                 if (bsb.state != BottomSheetBehavior.STATE_EXPANDED) {
                     bsb.state = BottomSheetBehavior.STATE_EXPANDED

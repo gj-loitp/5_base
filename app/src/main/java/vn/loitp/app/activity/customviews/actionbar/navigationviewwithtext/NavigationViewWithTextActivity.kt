@@ -29,7 +29,7 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
         nv.apply {
             setTextNext("Next")
             setTextPrev("Prev Prev Prev")
-            setTextSize(22, 18, 22)
+            setTextSize(dpPrev = 22f, dpText = 18f, dpNext = 22f)
             colorOn = ContextCompat.getColor(activity, R.color.red)
             colorOff = ContextCompat.getColor(activity, R.color.gray)
             tv?.setTextColor(Color.BLACK)

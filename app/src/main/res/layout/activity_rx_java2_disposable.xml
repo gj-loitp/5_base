@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn"
@@ -18,8 +19,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_15"
+            android:padding="@dimen/padding_medium"
             android:textColor="@android:color/black" />
     </ScrollView>
 </RelativeLayout>
-

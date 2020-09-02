@@ -29,13 +29,9 @@ import java.io.File
 import java.util.*
 import kotlin.math.min
 
-/**
- * Created by www.muathu@gmail.com on 17/7/2019.
- */
-
 class LImageUtil {
     companion object {
-        private val TAG = javaClass.simpleName
+        private val TAG = "LImageUtil"
 
         val randomUrlFlickr: String
             get() {
@@ -63,10 +59,9 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            //.override(Target.SIZE_ORIGINAL)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
                     .into(imageView)
         }
@@ -76,10 +71,9 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            //.override(Target.SIZE_ORIGINAL)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
                     .listener(drawableRequestListener)
                     .into(imageView)
@@ -91,11 +85,11 @@ class LImageUtil {
             }
             Glide.with(context)
                     .load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            .placeholder(resPlaceHolder)
-                            //.override(Target.SIZE_ORIGINAL)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions()
+                                    .placeholder(resPlaceHolder)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
                     .into(imageView)
         }
@@ -134,7 +128,9 @@ class LImageUtil {
             Glide.with(imageView.context)
                     .load(url)
                     .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions.circleCropTransform())
+                    .apply(
+                            RequestOptions.circleCropTransform()
+                    )
                     .into(imageView)
         }
 
@@ -145,7 +141,11 @@ class LImageUtil {
             Glide.with(imageView.context)
                     .load(url)
                     .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions.circleCropTransform().placeholder(resPlaceHolder).error(resError)
+                    .apply(
+                            RequestOptions
+                                    .circleCropTransform()
+                                    .placeholder(resPlaceHolder)
+                                    .error(resError)
                     )
                     .into(imageView)
         }
@@ -157,7 +157,11 @@ class LImageUtil {
             Glide.with(imageView.context)
                     .load(res)
                     .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions.circleCropTransform().placeholder(R.color.transparent).error(R.color.colorPrimary)
+                    .apply(
+                            RequestOptions
+                                    .circleCropTransform()
+                                    .placeholder(R.color.transparent)
+                                    .error(R.color.colorPrimary)
                     )
                     .into(imageView)
         }
@@ -168,12 +172,12 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            .placeholder(resPlaceHolder)
-                            //.override(Target.SIZE_ORIGINAL)
-                            .error(resError)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions()
+                                    .placeholder(resPlaceHolder)
+                                    .error(resError)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
                     .listener(drawableRequestListener)
                     .into(imageView)
@@ -188,12 +192,12 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            .placeholder(resPlaceHolder)
-                            //.override(Target.SIZE_ORIGINAL)
-                            .error(resError)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions()
+                                    .placeholder(resPlaceHolder)
+                                    .error(resError)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
@@ -215,10 +219,11 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            .override(sizeW, sizeH)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions()
+                                    .override(sizeW, sizeH)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
@@ -239,19 +244,20 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            //.override(Target.SIZE_ORIGINAL)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions()
+                                    //.override(Target.SIZE_ORIGINAL)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
                     .listener(object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
-                            LUIUtil.setProgressBarVisibility(progressBar, View.GONE)
+                            LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
                             return false
                         }
 
                         override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
-                            LUIUtil.setProgressBarVisibility(progressBar, View.GONE)
+                            LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
                             return false
                         }
                     })
@@ -263,11 +269,12 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(RequestOptions()
-                            .placeholder(R.drawable.trans)
-                            .override(sizeW, sizeH)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions()
+                                    .placeholder(R.drawable.trans)
+                                    .override(sizeW, sizeH)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     ).into(imageView)
         }
 
@@ -287,16 +294,18 @@ class LImageUtil {
                 return
             }
             Glide.with(context).load(url)
-                    .thumbnail(Glide.with(context)
-                            .load(urlThumbnal)
-                            .thumbnail(1f)
+                    .thumbnail(
+                            Glide.with(context)
+                                    .load(urlThumbnal)
+                                    .thumbnail(1f)
                     )
-                    .apply(RequestOptions()
-                            .placeholder(R.drawable.trans)
-                            //.override(Target.SIZE_ORIGINAL)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .dontAnimate()
-                            .dontTransform()
+                    .apply(
+                            RequestOptions()
+                                    .placeholder(R.drawable.trans)
+                                    //.override(Target.SIZE_ORIGINAL)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                                    .dontAnimate()
+                                    .dontTransform()
                     )
                     .listener(drawableRequestListener)
                     .into(imageView)

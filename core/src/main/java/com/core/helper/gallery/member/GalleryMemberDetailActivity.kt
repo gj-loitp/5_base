@@ -1,30 +1,46 @@
 package com.core.helper.gallery.member
 
 import android.os.Bundle
-import android.widget.ImageView
-import androidx.core.view.ViewCompat
+import android.view.View
 import com.R
 import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
+import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
 class GalleryMemberDetailActivity : BaseFontActivity() {
 
+    companion object {
+        const val PHOTO = "PHOTO"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        isShowAdWhenExit = false
 
-        LUIUtil.setTextShadow(tvTitle)
+        LUIUtil.setTextShadow(textView = tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
-        loadItem(photo)
-        ViewCompat.setTransitionName(touchImageView, IV)
-        ViewCompat.setTransitionName(tvTitle, TV)
+        loadItem(photo = photo)
+
+        LImageUtil.setImageViewZoom(iv = imageView)
+
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAniamtion(activity)
+                }
+            }
+        })
     }
 
     override fun setFullScreen(): Boolean {
-        return true
+        return false
     }
 
     override fun setTag(): String? {
@@ -37,26 +53,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
-        LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlS, imageView = touchImageView)
-    }
-
-    /**
-     * Load the item's thumbnail image into our [ImageView].
-     */
-    private fun loadThumbnail(photo: Photo) {
-        LImageUtil.loadNoAmin(activity, photo.urlM, touchImageView)
-    }
-
-    /**
-     * Load the item's full-size image into our [ImageView].
-     */
-    private fun loadFullSizeImage(photo: Photo) {
-        LImageUtil.loadNoAmin(context = activity, url = photo.urlO, urlThumbnal = photo.urlM, imageView = touchImageView, drawableRequestListener = null)
-    }
-
-    companion object {
-        const val PHOTO = "PHOTO"
-        const val IV = "iv"
-        const val TV = "tv"
+        LImageUtil.load(context = activity, url = photo.urlO, imageView = imageView)
+        LImageUtil.load(context = activity, url = photo.urlS, imageView = imageViewBlur)
     }
 }

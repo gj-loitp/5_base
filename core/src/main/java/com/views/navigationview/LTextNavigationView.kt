@@ -3,7 +3,6 @@ package com.views.navigationview
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -146,9 +145,9 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         tvNext?.text = next
     }
 
-    fun setTextSize(dpPrev: Int, dpText: Int, dpNext: Int) {
-        LUIUtil.setTextSize(textView = tvPrev, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpPrev)
-        LUIUtil.setTextSize(textView = tv, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpText)
-        LUIUtil.setTextSize(textView = tvNext, typedValue = TypedValue.COMPLEX_UNIT_DIP, size = dpNext)
+    fun setTextSize(dpPrev: Float, dpText: Float, dpNext: Float) {
+        LUIUtil.setTextSize(textView = tvPrev, size = dpPrev)
+        LUIUtil.setTextSize(textView = tv, size = dpText)
+        LUIUtil.setTextSize(textView = tvNext, size = dpNext)
     }
 }

@@ -22,8 +22,8 @@ import java.util.Locale;
 public final class LocationUtils {
 
     private static OnLocationChangeListener mListener;
-    private static MyLocationListener       myLocationListener;
-    private static LocationManager          mLocationManager;
+    private static MyLocationListener myLocationListener;
+    private static LocationManager mLocationManager;
     private static final int TWO_MINUTES = 1000 * 60 * 2;
 
     private LocationUtils() {
@@ -37,7 +37,10 @@ public final class LocationUtils {
      */
     public static boolean isGpsEnabled() {
         LocationManager lm = (LocationManager) Utils.getContext().getSystemService(Context.LOCATION_SERVICE);
-        return lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (lm != null) {
+            return lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        }
+        return false;
     }
 
     /**
@@ -47,7 +50,10 @@ public final class LocationUtils {
      */
     public static boolean isLocationEnabled() {
         LocationManager lm = (LocationManager) Utils.getContext().getSystemService(Context.LOCATION_SERVICE);
-        return lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER) || lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        if (lm != null) {
+            return lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER) || lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        }
+        return false;
     }
 
     /**
@@ -223,10 +229,7 @@ public final class LocationUtils {
             return true;
         } else if (isNewer && !isLessAccurate) {
             return true;
-        } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            return true;
-        }
-        return false;
+        } else return isNewer && !isSignificantlyLessAccurate && isFromSameProvider;
     }
 
     /**

@@ -18,6 +18,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
         db = BikeDatabase(this)
         btAddBike.setOnClickListener(this)
         btClearAll.setOnClickListener(this)

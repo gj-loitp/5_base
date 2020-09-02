@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
+<!--    <ImageView-->
+<!--        android:id="@+id/imageViewBlur"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:contentDescription="@string/app_name"-->
+<!--        android:scaleType="centerCrop" />-->
+
+<!--    <com.github.mmin18.widget.RealtimeBlurView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:realtimeBlurRadius="@dimen/round_medium"-->
+<!--        app:realtimeOverlayColor="@color/black65" />-->
+
     <com.github.piasy.biv.view.BigImageView
         android:id="@+id/biv"
         android:layout_width="match_parent"
@@ -30,7 +43,7 @@
             android:layout_height="@dimen/w_40"
             android:layout_margin="@dimen/margin_10"
             app:indicatorColor="@color/white"
-            app:indicatorName="LineScalePulseOutRapidIndicator" />
+            app:indicatorName="PacmanIndicator" />
 
         <TextView
             android:id="@+id/tvProgress"

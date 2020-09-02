@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whiteSmoke">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_Cyan"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_8" />
+
+                <TextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_8" />
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txt_8" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btToast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show toast" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btAlpha"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable/Disable alpha" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btRevertMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Enable/Disable isEnableRevertMaxSize" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMaximize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Maximize" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeBottomLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimize Bottom Left" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeBottomRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimize Bottom Right" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeTopRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimize Top Right"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btMinimizeTopLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minimize Top Left"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btSlideToPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Slide to position" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowHideHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show/Hide header" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btShowHideBody"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Show/Hide body" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btAppear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Appear" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btDisappear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disappear" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/padding_medium"
+                    android:text="@string/large_text" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <vn.loitp.app.activity.function.viewdraghelpersimple.VDHView
+        android:id="@+id/vdhv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/headerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/w_250"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iv" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/bodyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/red">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/large_text"
+                android:textColor="@color/white" />
+        </androidx.core.widget.NestedScrollView>
+    </vn.loitp.app.activity.function.viewdraghelpersimple.VDHView>
+</RelativeLayout>

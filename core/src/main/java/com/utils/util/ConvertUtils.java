@@ -34,7 +34,7 @@ public final class ConvertUtils {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
-    private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] hexDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
      * byteArr转hexString
@@ -141,7 +141,7 @@ public final class ConvertUtils {
      *                   </ul>
      * @return 字节数
      */
-    public static long memorySize2Byte(long memorySize, @MemoryConstants.Unit int unit) {
+    public static long memorySize2Byte(long memorySize, @MemoryConstants.Companion.Unit int unit) {
         if (memorySize < 0) return -1;
         return memorySize * unit;
     }
@@ -159,7 +159,7 @@ public final class ConvertUtils {
      *                </ul>
      * @return 以unit为单位的size
      */
-    public static double byte2MemorySize(long byteNum, @MemoryConstants.Unit int unit) {
+    public static double byte2MemorySize(long byteNum, @MemoryConstants.Companion.Unit int unit) {
         if (byteNum < 0) return -1;
         return (double) byteNum / unit;
     }
@@ -200,7 +200,7 @@ public final class ConvertUtils {
      *                 </ul>
      * @return 毫秒时间戳
      */
-    public static long timeSpan2Millis(long timeSpan, @TimeConstants.Unit int unit) {
+    public static long timeSpan2Millis(long timeSpan, @TimeConstants.Companion.Unit int unit) {
         return timeSpan * unit;
     }
 
@@ -218,7 +218,7 @@ public final class ConvertUtils {
      *               </ul>
      * @return 以unit为单位的时间长度
      */
-    public static long millis2TimeSpan(long millis, @TimeConstants.Unit int unit) {
+    public static long millis2TimeSpan(long millis, @TimeConstants.Companion.Unit int unit) {
         return millis / unit;
     }
 
