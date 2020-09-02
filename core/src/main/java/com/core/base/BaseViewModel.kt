@@ -34,6 +34,20 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
     protected val ioScope = CoroutineScope(ioContext)
     protected val uiScope = CoroutineScope(uiContext)
 
+    // event
+    val eventLoading = MutableLiveData<Boolean>()
+    val eventErrorMessage = MutableLiveData<String?>()
+
+    fun showLoading(value: Boolean) {
+        eventLoading.post(value)
+    }
+
+    fun setErrorMessage(error: String?) {
+        if (error?.isNotEmpty() == true) {
+            eventErrorMessage.post(error)
+        }
+    }
+
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
