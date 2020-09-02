@@ -15,7 +15,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
 
         btDisposableExampleActivity.setOnClickListener(this)
         btFlowableExampleActivity.setOnClickListener(this)
-        bt2.setOnClickListener(this)
+        btIntervalExampleActivity.setOnClickListener(this)
         bt3.setOnClickListener(this)
         bt4.setOnClickListener(this)
         bt5.setOnClickListener(this)
@@ -40,7 +40,7 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btDisposableExampleActivity -> intent = Intent(activity, DisposableExampleActivity::class.java)
             btFlowableExampleActivity -> intent = Intent(activity, FlowableExampleActivity::class.java)
-            bt2 -> intent = Intent(activity, IntervalExampleActivity::class.java)
+            btIntervalExampleActivity -> intent = Intent(activity, IntervalExampleActivity::class.java)
             bt3 -> intent = Intent(activity, SingleObserverExampleActivity::class.java)
             bt4 -> intent = Intent(activity, CompletableObserverExampleActivity::class.java)
             bt5 -> intent = Intent(activity, MapExampleActivity::class.java)

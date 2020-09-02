@@ -15,7 +15,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTestRx"
@@ -38,7 +40,7 @@
                 android:text="FlowableExampleActivity" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt2"
+                android:id="@+id/btIntervalExampleActivity"
                 style="@style/ButtonMenu"
                 android:text="IntervalExampleActivity " />
 
