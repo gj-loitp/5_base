@@ -1,9 +1,8 @@
 package com.core.base
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.core.utilities.LLog
 import com.service.RequestStatus
 import com.service.livedata.ActionData
@@ -20,8 +19,9 @@ import kotlinx.coroutines.Job
  * www.muathu@gmail.com
  */
 
-open class BaseViewModel(application: Application) : AndroidViewModel(application) {
-    private val TAG = javaClass.simpleName
+open class BaseViewModel : ViewModel() {
+    private val logTag = javaClass.simpleName
+
     protected fun <T> LiveData<T>.post(data: T) = (this as MutableLiveData<T>).postValue(data)
     protected fun <T> LiveData<T>.set(data: T) {
         (this as MutableLiveData<T>).value = data
@@ -55,7 +55,7 @@ open class BaseViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun <T> getErrorRequest(response: ApiResponse<T>): ActionData<T> {
         val errorCode = response.errorCode
-        LLog.d(TAG, "getErrorRequest errorCode $errorCode")
+        LLog.d(logTag, "getErrorRequest errorCode $errorCode")
         return when (errorCode) {
             RequestStatus.NO_INTERNET_CONNECTION.value -> {
                 ActionData(
