@@ -7,7 +7,8 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackPopup
-import kotlinx.android.synthetic.main.activity_recycler_view.*
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_recycler_view_footter.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
@@ -38,17 +39,16 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
                     }
 
                     override fun onLoadMore() {
-                        loadMore()
                     }
                 })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
         rv.adapter = mAdapter
-        //LUIUtil.setPullLikeIOSVertical(rv)
+
         prepareMovieData()
 
-        btSetting.setOnClickListener {
+        btSetting.setSafeOnClickListener {
             LPopupMenu.show(activity = activity, showOnView = it, menuRes = R.menu.menu_recycler_view,
                     callBackPopup = object : CallbackPopup {
                         override fun clickOnItem(menuItem: MenuItem) {
@@ -70,15 +70,21 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
                         }
                     })
         }
+
+        btAddMore.setSafeOnClickListener {
+            loadMore()
+        }
     }
 
     private fun loadMore() {
+        indicatorView.smoothToShow()
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)
                 instance.movieList.add(movie)
             }
+            indicatorView?.smoothToHide()
             mAdapter?.notifyDataSetChanged()
             showShort("Finish loadMore")
         })
@@ -98,11 +104,12 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
 
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
-            for (i in 0..9) {
+            for (i in 0..3) {
                 val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
                 instance.movieList.add(movie)
             }
         }
         mAdapter?.notifyDataSetChanged()
+        indicatorView.smoothToHide()
     }
 }

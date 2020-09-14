@@ -8,7 +8,7 @@ import com.nex3z.togglebuttongroup.button.OnCheckedChangeListener
 import com.nex3z.togglebuttongroup.button.ToggleButton
 
 class CustomToggleButton @JvmOverloads constructor(
-        context: Context?,
+        context: Context,
         attrs: AttributeSet? = null
 ) : AppCompatButton(context, attrs), ToggleButton {
     private var mChecked = false

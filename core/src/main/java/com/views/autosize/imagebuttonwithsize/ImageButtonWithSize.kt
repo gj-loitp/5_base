@@ -10,9 +10,9 @@ import com.utils.util.ScreenUtils
 class ImageButtonWithSize : AppCompatImageButton {
     private val TAG = javaClass.simpleName
 
-    constructor(context: Context?) : super(context) {}
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {}
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     private val defaultSizePortrait = 50
     private val defaultSizeLandscape = 150
@@ -20,6 +20,7 @@ class ImageButtonWithSize : AppCompatImageButton {
     private var portraitSizeH = defaultSizePortrait
     private var landscapeSizeW = defaultSizeLandscape
     private var landscapeSizeH = defaultSizeLandscape
+
     fun setPortraitSizeWInPx(portraitSizeW: Int) {
         this.portraitSizeW = portraitSizeW
         updateSize()

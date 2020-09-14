@@ -21,7 +21,6 @@ import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutMe
 import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity
 import vn.loitp.app.activity.customviews.layout.flowlayout.FlowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.heartlayout.HeartLayoutActivity
-import vn.loitp.app.activity.customviews.layout.motionlayout.MenuMotionLayoutActivity
 import vn.loitp.app.activity.customviews.layout.relativepopupwindow.RelativePopupWindowActivity
 import vn.loitp.app.activity.customviews.layout.ripplelayout.RippleLayoutActivity
 import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivity
@@ -60,7 +59,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btCoordinatorLayout.setOnClickListener(this)
         btSquareLayout.setOnClickListener(this)
         btRelativePopupWindow.setOnClickListener(this)
-        btMotionLayout.setOnClickListener(this)
         btExpansionPanel.setOnClickListener(this)
         btScrollView2d.setOnClickListener(this)
         btScrollView2dAdvance.setOnClickListener(this)
@@ -106,7 +104,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btCoordinatorLayout -> intent = Intent(activity, CoordinatorLayoutMenuActivity::class.java)
             btSquareLayout -> intent = Intent(activity, SquareLayoutActivity::class.java)
             btRelativePopupWindow -> intent = Intent(activity, RelativePopupWindowActivity::class.java)
-            btMotionLayout -> intent = Intent(activity, MenuMotionLayoutActivity::class.java)
             btExpansionPanel -> intent = Intent(activity, ExpansionLayoutMenuActivity::class.java)
             btScrollView2d -> intent = Intent(activity, ScrollView2DActivity::class.java)
             btScrollView2dAdvance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)
