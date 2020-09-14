@@ -31,6 +31,11 @@
                 android:text="Diff Util" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFooter"
+                style="@style/ButtonMenu"
+                android:text="Footer" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGalleryLayoutManager"
                 style="@style/ButtonMenu"
                 android:text="GalleryLayoutManager Horizontal" />
