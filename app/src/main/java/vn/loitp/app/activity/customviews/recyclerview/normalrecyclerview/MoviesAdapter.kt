@@ -8,7 +8,9 @@ import kotlinx.android.synthetic.main.row_movie_list.view.*
 import vn.loitp.app.R
 
 class MoviesAdapter(private val moviesList: List<Movie>, private val callback: Callback?) :
-        RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+        com.core.adapter.AnimationAdapter() {
+
+    private val logTag = javaClass.simpleName
 
     interface Callback {
         fun onClick(movie: Movie, position: Int)
@@ -18,6 +20,7 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) {
+//            LLog.d(logTag, "bind: $bindingAdapterPosition")
             itemView.title.text = movie.title
             itemView.genre.text = movie.genre
             itemView.year.text = movie.year
@@ -31,6 +34,8 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
             if (bindingAdapterPosition == moviesList.size - 1) {
                 callback?.onLoadMore()
             }
+
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
@@ -39,13 +44,15 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
         return MovieViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = moviesList[position]
-        holder.bind(movie)
-    }
-
     override fun getItemCount(): Int {
         return moviesList.size
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is MovieViewHolder) {
+            val movie = moviesList[position]
+            holder.bind(movie)
+        }
     }
 
 }

@@ -1,88 +1,55 @@
-package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview
+package vn.loitp.app.activity.customviews.recyclerview.footer
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.animation.OvershootInterpolator
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.*
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackPopup
-import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
-import com.views.recyclerview.animator.animators.SlideInRightAnimator
-import kotlinx.android.synthetic.main.activity_recycler_view.*
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_recycler_view_footer.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
+import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
+import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
-import java.util.*
 
-//https://github.com/wasabeef/recyclerview-animators
-class RecyclerViewActivity : BaseFontActivity() {
+class RecyclerViewFooterActivity : BaseFontActivity() {
 
-    private val movieList: MutableList<Movie> = ArrayList()
     private var mAdapter: MoviesAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val animator = SlideInRightAnimator(OvershootInterpolator(1f))
-        animator.addDuration = 300
-        rv.itemAnimator = animator
-        //rv.getItemAnimator().setAddDuration(1000);
-        btAdd3.setOnClickListener {
-            val movie = Movie()
-            movie.title = "Add TITLE 3"
-            movie.year = "Add YEAR 3"
-            movie.genre = "Add GENRE 3"
-            movieList.add(index = 3, element = movie)
-            mAdapter?.notifyItemInserted(3)
-        }
-        btRemove1.setOnClickListener {
-            movieList.removeAt(index = 1)
-            mAdapter?.notifyItemRemoved(1)
-        }
-        mAdapter = MoviesAdapter(moviesList = movieList,
+        mAdapter = MoviesAdapter(moviesList = instance.movieList,
                 callback = object : MoviesAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShort("Click " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {
-                        val isRemoved = movieList.remove(movie)
+                        val isRemoved = instance.movieList.remove(movie)
                         if (isRemoved) {
-                            mAdapter?.notifyItemRemoved(position)
-                            mAdapter?.notifyItemRangeChanged(position, movieList.size)
+                            mAdapter?.let {
+                                it.notifyItemRemoved(position)
+                                it.notifyItemRangeChanged(position, instance.movieList.size)
+                            }
                         }
                     }
 
                     override fun onLoadMore() {
-                        loadMore()
                     }
                 })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
         rv.layoutManager = mLayoutManager
+        rv.itemAnimator = DefaultItemAnimator()
+        rv.adapter = mAdapter
 
-        //rv.setAdapter(mAdapter);
-
-        //AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
-        //alphaAdapter.setDuration(1000);
-        //alphaAdapter.setInterpolator(new OvershootInterpolator());
-        //alphaAdapter.setFirstOnly(true);
-        //recyclerView.setAdapter(alphaAdapter);
-
-        val scaleAdapter = ScaleInAnimationAdapter(mAdapter)
-        scaleAdapter.setDuration(1000)
-        scaleAdapter.setInterpolator(OvershootInterpolator())
-        scaleAdapter.setFirstOnly(true)
-        rv.adapter = scaleAdapter
-        //LUIUtil.setPullLikeIOSVertical(recyclerView = rv)
         prepareMovieData()
-        btSetting.setOnClickListener {
-            LPopupMenu.show(activity = activity,
-                    showOnView = it,
-                    menuRes = R.menu.menu_recycler_view,
+
+        btSetting.setSafeOnClickListener {
+            LPopupMenu.show(activity = activity, showOnView = it, menuRes = R.menu.menu_recycler_view,
                     callBackPopup = object : CallbackPopup {
                         override fun clickOnItem(menuItem: MenuItem) {
                             tvType.text = menuItem.title.toString()
@@ -103,15 +70,21 @@ class RecyclerViewActivity : BaseFontActivity() {
                         }
                     })
         }
+
+        btAddMore.setSafeOnClickListener {
+            loadMore()
+        }
     }
 
     private fun loadMore() {
+        indicatorView.smoothToShow()
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)
-                movieList.add(movie)
+                instance.movieList.add(movie)
             }
+            indicatorView?.smoothToHide()
             mAdapter?.notifyDataSetChanged()
             showShort("Finish loadMore")
         })
@@ -126,14 +99,17 @@ class RecyclerViewActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view
+        return R.layout.activity_recycler_view_footer
     }
 
     private fun prepareMovieData() {
-        for (i in 0..99) {
-            val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
-            movieList.add(movie)
+        if (instance.movieList.isEmpty()) {
+            for (i in 0..3) {
+                val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
+                instance.movieList.add(movie)
+            }
         }
         mAdapter?.notifyDataSetChanged()
+        indicatorView.smoothToHide()
     }
 }

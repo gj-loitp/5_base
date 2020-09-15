@@ -10,7 +10,7 @@ import vn.loitp.app.activity.database.room.model.Area
 import vn.loitp.app.activity.database.room.model.FloorPlan
 import vn.loitp.app.activity.database.room.model.Table
 
-class HomeViewModel(application: Application) : BaseViewModel(application) {
+class HomeViewModel(application: Application) : BaseViewModel() {
     private val TAG = "loitpp" + javaClass.simpleName
     val saveFloorPlanActionLiveData: ActionLiveData<ActionData<ArrayList<FloorPlan>>> = ActionLiveData()
     val getFloorPlanActionLiveData: ActionLiveData<ActionData<List<FloorPlan>>> = ActionLiveData()

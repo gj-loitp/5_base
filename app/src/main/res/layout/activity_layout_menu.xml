@@ -87,11 +87,6 @@
                 android:text="@string/heart_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btMotionLayout"
-                style="@style/ButtonMenu"
-                android:text="@string/motion_layout" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRelativePopupWindow"
                 style="@style/ButtonMenu"
                 android:text="@string/relative_popup_window" />

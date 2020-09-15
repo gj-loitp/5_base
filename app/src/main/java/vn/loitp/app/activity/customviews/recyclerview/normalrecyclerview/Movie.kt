@@ -11,7 +11,7 @@ class Movie {
     var cover: String? = null
     var isBottom: Boolean = false
 
-    constructor() {}
+    constructor()
 
     constructor(title: String, genre: String, year: String, cover: String) {
         this.title = title

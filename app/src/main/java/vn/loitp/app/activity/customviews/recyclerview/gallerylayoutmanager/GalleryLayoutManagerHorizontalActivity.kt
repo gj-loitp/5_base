@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsing
 //https://github.com/BCsl/GalleryLayoutManager
 class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
     private var mAdapter: GalleryAdapter? = null
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

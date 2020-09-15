@@ -4,15 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LLog
+import com.core.adapter.AnimationAdapter
 import vn.loitp.app.R
 
-class LoadingAdapter() : RecyclerView.Adapter<LoadingAdapter.DataViewHolder>() {
-    private val TAG = "loitpp" + javaClass.simpleName
+class LoadingAdapter : AnimationAdapter() {
+    private val logTag = javaClass.simpleName
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
-            LLog.d(TAG, "bind $bindingAdapterPosition")
+//            LLog.d(logTag, "bind $bindingAdapterPosition")
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
@@ -20,9 +21,10 @@ class LoadingAdapter() : RecyclerView.Adapter<LoadingAdapter.DataViewHolder>() {
             DataViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_loading, parent, false))
 
     override fun getItemCount(): Int = 1
-
-    override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        holder.bind()
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is DataViewHolder) {
+            holder.bind()
+        }
     }
 
 }

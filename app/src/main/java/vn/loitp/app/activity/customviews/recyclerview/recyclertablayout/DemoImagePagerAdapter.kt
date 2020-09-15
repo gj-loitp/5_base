@@ -1,11 +1,12 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.viewpager.widget.PagerAdapter
+import kotlinx.android.synthetic.main.view_item_recycler_tablayout_page.view.*
 import vn.loitp.app.R
 import java.util.*
 
@@ -13,11 +14,11 @@ class DemoImagePagerAdapter : PagerAdapter() {
 
     private var mItems: List<Int> = ArrayList()
 
+    @SuppressLint("SetTextI18n")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
-        val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
-        tvTitle.text = "Page: $position"
+        view.tvTitle.text = "Page: $position"
         container.addView(view)
 
         return view

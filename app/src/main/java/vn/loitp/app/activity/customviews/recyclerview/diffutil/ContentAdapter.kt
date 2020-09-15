@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.view_item_diff_util.view.*
 import vn.loitp.app.R
 import kotlin.properties.Delegates
 
-class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUpdatableAdapter {
+class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUpdatableAdapter {
     val TAG: String = javaClass.simpleName
 
     var items: List<Content> by Delegates.observable(emptyList()) { _, old, new ->
@@ -26,14 +26,10 @@ class ContentAdapter() : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), Auto
         holder.bind(items[position])
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: MutableList<Any>) {
-        super.onBindViewHolder(holder, position, payloads)
-    }
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(content: Content) = with(itemView) {
-            LImageUtil.load(context, content.image, image)
+            LImageUtil.load(context = context, url = content.image, imageView = image)
             text.text = content.text
         }
     }
