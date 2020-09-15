@@ -90,7 +90,7 @@ class LAnimationUtil {
 
         fun playAnimRandomDuration(viewToAnimate: View) {
             val anim = ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
-            anim.duration = Random.nextLong(1001) //to make duration random number between [0,1000)
+            anim.duration = Random.nextLong(501) //to make duration random number between [0,500)
 //            anim.duration = 500 //to make duration random number between [0,500)
             viewToAnimate.startAnimation(anim)
         }
