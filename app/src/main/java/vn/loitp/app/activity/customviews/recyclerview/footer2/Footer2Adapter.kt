@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.core.adapter.AnimationAdapter
 import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.row_movie_list.view.*
 import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
@@ -12,9 +13,9 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 class Footer2Adapter(private val moviesList: List<Movie>, private val callback: Callback?) :
-        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+        AnimationAdapter() {
 
-    private val logTag = "loitpp" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     companion object {
         const val TYPE_ITEM = 1
@@ -43,6 +44,7 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
 //            if (bindingAdapterPosition == moviesList.size - 1) {
 //                callback?.onLoadMore()
 //            }
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
