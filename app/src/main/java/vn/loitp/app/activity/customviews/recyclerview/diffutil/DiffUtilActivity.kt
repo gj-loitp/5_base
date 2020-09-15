@@ -9,6 +9,7 @@ import vn.loitp.app.R
 import java.util.*
 
 class DiffUtilActivity : BaseFontActivity() {
+
     override fun setFullScreen(): Boolean {
         return false
     }
