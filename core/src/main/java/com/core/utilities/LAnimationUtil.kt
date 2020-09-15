@@ -2,14 +2,12 @@ package com.core.utilities
 
 import android.content.Context
 import android.view.View
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
+import android.view.animation.*
 import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
 import com.interfaces.CallbackAnimation
+import kotlin.random.Random
 
 /**
  * Created by www.muathu@gmail.com on 6/9/2017.
@@ -88,6 +86,13 @@ class LAnimationUtil {
         fun slideInUp(context: Context, view: View?) {
             val slideDown = AnimationUtils.loadAnimation(context, R.anim.l_slide_up)
             view?.startAnimation(slideDown)
+        }
+
+        fun playAnimRandomDuration(viewToAnimate: View) {
+            val anim = ScaleAnimation(0.0f, 1.0f, 0.0f, 1.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+            anim.duration = Random.nextLong(1001) //to make duration random number between [0,1000)
+//            anim.duration = 500 //to make duration random number between [0,500)
+            viewToAnimate.startAnimation(anim)
         }
     }
 }

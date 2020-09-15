@@ -7,6 +7,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackPopup
+import com.views.recyclerview.itemdecoration.StickyFooterItemDecoration
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
 import vn.loitp.app.R

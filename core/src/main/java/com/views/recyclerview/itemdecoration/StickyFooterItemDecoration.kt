@@ -1,26 +1,25 @@
-package vn.loitp.app.activity.customviews.recyclerview.footer2
+package com.views.recyclerview.itemdecoration
 
 import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
-import com.core.utilities.LLog
 
 class StickyFooterItemDecoration : ItemDecoration() {
 
-    private val logTag = "loitpp" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         val position = parent.getChildAdapterPosition(view)
-        LLog.d(logTag, ">>>getItemOffsets position $position")
+//        LLog.d(logTag, ">>>getItemOffsets position $position")
         parent.adapter?.let { a ->
             val adapterItemCount = a.itemCount
             if (adapterItemCount == RecyclerView.NO_POSITION || adapterItemCount - 1 != position) {
                 return
             }
             val topOffset = calculateTopOffset(parent = parent, footerView = view, itemCount = adapterItemCount)
-            LLog.d(logTag, "-------------------------> topOffset: $topOffset")
+//            LLog.d(logTag, "-------------------------> topOffset: $topOffset")
             outRect.top = topOffset
         }
     }

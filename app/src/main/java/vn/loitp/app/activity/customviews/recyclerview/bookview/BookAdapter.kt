@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
@@ -15,7 +16,8 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 class BookAdapter(private val context: Context,
                   private val column: Int,
                   private val moviesList: MutableList<Movie>,
-                  private val callback: Callback?) : RecyclerView.Adapter<BookAdapter.MovieViewHolder>() {
+                  private val callback: Callback?) :
+        AnimationAdapter() {
 
     private val sizeW: Int = LScreenUtil.screenWidth / column
     private val sizeH: Int
@@ -84,6 +86,8 @@ class BookAdapter(private val context: Context,
             if (bindingAdapterPosition == moviesList.size - 1) {
                 callback?.onLoadMore()
             }
+
+            setAnimation(viewToAnimate = itemView.imageView, position = bindingAdapterPosition)
         }
     }
 
@@ -92,8 +96,10 @@ class BookAdapter(private val context: Context,
         return MovieViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(moviesList[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is MovieViewHolder) {
+            holder.bind(moviesList[position])
+        }
     }
 
     override fun getItemCount(): Int {
