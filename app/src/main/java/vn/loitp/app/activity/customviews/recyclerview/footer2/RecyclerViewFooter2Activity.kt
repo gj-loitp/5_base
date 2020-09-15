@@ -11,19 +11,18 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
 class RecyclerViewFooter2Activity : BaseFontActivity() {
 
-    private var mAdapter: MoviesAdapter? = null
+    private var footer2Adapter: Footer2Adapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAdapter = MoviesAdapter(moviesList = instance.movieList,
-                callback = object : MoviesAdapter.Callback {
+        footer2Adapter = Footer2Adapter(moviesList = instance.movieList,
+                callback = object : Footer2Adapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShort("Click " + movie.title)
                     }
@@ -31,7 +30,7 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
                     override fun onLongClick(movie: Movie, position: Int) {
                         val isRemoved = instance.movieList.remove(movie)
                         if (isRemoved) {
-                            mAdapter?.let {
+                            footer2Adapter?.let {
                                 it.notifyItemRemoved(position)
                                 it.notifyItemRangeChanged(position, instance.movieList.size)
                             }
@@ -44,7 +43,7 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
-        rv.adapter = mAdapter
+        rv.adapter = footer2Adapter
         rv.addItemDecoration(StickyFooterItemDecoration())
 
         prepareMovieData()
@@ -86,7 +85,7 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
                 instance.movieList.add(movie)
             }
             indicatorView?.smoothToHide()
-            mAdapter?.notifyDataSetChanged()
+            footer2Adapter?.notifyDataSetChanged()
             showShort("Finish loadMore")
         })
     }
@@ -110,7 +109,7 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
                 instance.movieList.add(movie)
             }
         }
-        mAdapter?.notifyDataSetChanged()
+        footer2Adapter?.notifyDataSetChanged()
         indicatorView.smoothToHide()
     }
 }

@@ -7,12 +7,13 @@
     android:background="@color/green"
     android:foreground="?selectableItemBackground"
     android:orientation="vertical"
-    android:padding="@dimen/padding_medium">
+    tools:ignore="UnusedAttribute">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         android:textColor="@color/black"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/loitp" />
@@ -21,6 +22,7 @@
         android:id="@+id/textViewAboutMe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         android:textColor="@color/gray"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/loitp" />
