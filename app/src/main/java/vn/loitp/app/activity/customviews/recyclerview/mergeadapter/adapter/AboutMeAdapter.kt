@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LLog
+import com.core.adapter.AnimationAdapter
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
 
-class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView.Adapter<AboutMeAdapter.DataViewHolder>() {
-    private val TAG = "loitpp" + javaClass.simpleName
+class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : AnimationAdapter() {
+    private val logTag = javaClass.simpleName
     var onClickRootListener: ((AboutMe, Int) -> Unit)? = null
 
     fun setData(aboutMe: ArrayList<AboutMe>) {
@@ -21,14 +21,16 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         fun bind(aboutMe: AboutMe) {
-            LLog.d(TAG, "bind $bindingAdapterPosition")
+//            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.textViewUser.text = aboutMe.name
             itemView.textViewAboutMe.text = aboutMe.aboutMe
 
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(aboutMe, bindingAdapterPosition)
             }
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
@@ -39,7 +41,10 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : RecyclerView
             ))
 
     override fun getItemCount(): Int = listAboutMe.size
-
-    override fun onBindViewHolder(holder: DataViewHolder, position: Int) = holder.bind(listAboutMe[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is DataViewHolder) {
+            holder.bind(aboutMe = listAboutMe[position])
+        }
+    }
 
 }

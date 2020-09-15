@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import com.core.utilities.LLog
 import com.views.setSafeOnClickListener
@@ -13,8 +14,9 @@ import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Us
 
 class UsersAdapter(
         private val listUser: ArrayList<User>
-) : RecyclerView.Adapter<UsersAdapter.DataViewHolder>() {
-    private val TAG = "loitpp" + javaClass.simpleName
+) : AnimationAdapter() {
+
+    private val logTag = javaClass.simpleName
     var onClickRootListener: ((User, Int) -> Unit)? = null
 
     fun setData(listUser: ArrayList<User>) {
@@ -25,7 +27,7 @@ class UsersAdapter(
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User) {
-            LLog.d(TAG, "bind $bindingAdapterPosition")
+            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.textViewUserName.text = user.name
             LImageUtil.load(context = itemView.imageViewAvatar.context,
                     url = user.avatar,
@@ -33,6 +35,7 @@ class UsersAdapter(
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(user, bindingAdapterPosition)
             }
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
@@ -45,8 +48,10 @@ class UsersAdapter(
             )
 
     override fun getItemCount(): Int = listUser.size
-
-    override fun onBindViewHolder(holder: DataViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is DataViewHolder) {
             holder.bind(listUser[position])
+        }
+    }
 
 }

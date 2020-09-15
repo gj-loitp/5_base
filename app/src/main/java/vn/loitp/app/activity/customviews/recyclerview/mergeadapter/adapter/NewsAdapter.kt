@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
-import com.core.utilities.LLog
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_news.view.*
 import kotlinx.android.synthetic.main.view_row_item_user.view.layoutRoot
@@ -14,8 +14,9 @@ import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Ne
 
 class NewsAdapter(
         private val listNews: ArrayList<News>
-) : RecyclerView.Adapter<NewsAdapter.DataViewHolder>() {
-    private val TAG = "loitpp" + javaClass.simpleName
+) : AnimationAdapter() {
+
+    private val logTag = javaClass.simpleName
     var onClickRootListener: ((News, Int) -> Unit)? = null
 
     fun addData(listNews: ArrayList<News>) {
@@ -25,7 +26,7 @@ class NewsAdapter(
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(news: News) {
-            LLog.d(TAG, "bind $bindingAdapterPosition")
+//            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.textViewNews.text = news.title
             LImageUtil.load(context = itemView.imageView.context,
                     url = news.image,
@@ -33,6 +34,7 @@ class NewsAdapter(
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(news, bindingAdapterPosition)
             }
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
@@ -46,7 +48,10 @@ class NewsAdapter(
 
     override fun getItemCount(): Int = listNews.size
 
-    override fun onBindViewHolder(holder: DataViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is DataViewHolder) {
             holder.bind(listNews[position])
+        }
+    }
 
 }
