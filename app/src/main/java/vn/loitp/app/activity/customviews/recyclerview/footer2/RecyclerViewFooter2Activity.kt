@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.recyclerview.footer
+package vn.loitp.app.activity.customviews.recyclerview.footer2
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,14 +8,14 @@ import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackPopup
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_recycler_view_footer.*
+import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
-class RecyclerViewFooterActivity : BaseFontActivity() {
+class RecyclerViewFooter2Activity : BaseFontActivity() {
 
     private var mAdapter: MoviesAdapter? = null
 
@@ -45,6 +45,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
         rv.adapter = mAdapter
+        rv.addItemDecoration(StickyFooterItemDecoration())
 
         prepareMovieData()
 
@@ -99,7 +100,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
     }
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_footer
+        return R.layout.activity_recycler_view_footer_2
     }
 
     private fun prepareMovieData() {

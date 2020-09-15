@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.row_movie_list.view.*
 import vn.loitp.app.R
 
@@ -21,7 +20,7 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) {
-            LLog.d(logTag, "bind: $bindingAdapterPosition")
+//            LLog.d(logTag, "bind: $bindingAdapterPosition")
             itemView.title.text = movie.title
             itemView.genre.text = movie.genre
             itemView.year.text = movie.year
