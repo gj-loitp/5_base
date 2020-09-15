@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsin
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.recyclerview.widget.*
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
@@ -16,7 +15,9 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsing
 import vn.loitp.app.common.Constants
 
 class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
+
     private var mAdapter: MoviesAdapter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -46,7 +47,7 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
         rv.adapter = mAdapter
         //LUIUtil.setPullLikeIOSVertical(rv)
         prepareMovieData()
-        findViewById<View>(R.id.btSetting).setOnClickListener {
+        btSetting.setOnClickListener {
             LPopupMenu.show(activity = activity, showOnView = it, menuRes = R.menu.menu_recycler_view,
                     callBackPopup = object : CallbackPopup {
                         override fun clickOnItem(menuItem: MenuItem) {
