@@ -33,6 +33,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView( R.layout.l_activity_flickr_gallery_core_album)
 
         intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
@@ -114,10 +115,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_album
     }
 
     private fun getListPhotosets() {

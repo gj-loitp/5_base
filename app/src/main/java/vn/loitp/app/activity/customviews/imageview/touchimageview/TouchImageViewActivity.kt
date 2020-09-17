@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.imageview.touchimageview
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_imageview_touch.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
+@LayoutId(R.layout.activity_imageview_touch)
 class TouchImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +26,4 @@ class TouchImageViewActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_touch
-    }
 }

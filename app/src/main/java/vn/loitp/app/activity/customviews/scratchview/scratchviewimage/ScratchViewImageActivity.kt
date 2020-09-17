@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.scratchview.scratchviewimage
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.scratchview.LScratchImageView
 import kotlinx.android.synthetic.main.activity_scratchview_image.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_scratchview_image)
 class ScratchViewImageActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +32,4 @@ class ScratchViewImageActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scratchview_image
-    }
 }

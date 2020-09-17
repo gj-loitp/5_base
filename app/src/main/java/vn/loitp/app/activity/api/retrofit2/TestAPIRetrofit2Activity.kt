@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_retrofit2_test_api.*
 import retrofit2.Call
@@ -15,6 +16,7 @@ import vn.loitp.app.activity.api.retrofit2.AnswersAdapter.PostItemListener
 import vn.loitp.app.activity.api.retrofit2.ApiUtils.Companion.sOService
 import java.util.*
 
+@LayoutId(R.layout.activity_retrofit2_test_api)
 class TestAPIRetrofit2Activity : BaseFontActivity() {
     private var mService: SOService? = null
     private var mAdapter: AnswersAdapter? = null
@@ -47,10 +49,6 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_retrofit2_test_api
     }
 
     private fun loadAnswers() {

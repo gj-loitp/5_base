@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.RadioGroup
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.OrientationHelper
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
@@ -24,6 +25,8 @@ import kotlin.collections.ArrayList
 
 //https://github.com/ApplikeySolutions/CosmoCalendar
 //set color o colors.xml region cosmocalendar
+
+@LayoutId(R.layout.activity_calendar_cosmo)
 class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeListener {
     private var threeMonthsCriteriaList = ArrayList<BaseCriteria>()
     private var fridayCriteria: WeekDayCriteria? = null
@@ -57,10 +60,6 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_calendar_cosmo
     }
 
     private fun initViews() {

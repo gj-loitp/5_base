@@ -3,12 +3,14 @@ package vn.loitp.app.activity.customviews.actionbar.navigationviewwithtext
 import android.graphics.Color
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.navigationview.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_navigation_view_with_text)
 class NavigationViewWithTextActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -17,10 +19,6 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_navigation_view_with_text
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

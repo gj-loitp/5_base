@@ -1,14 +1,11 @@
 package vn.loitp.app.activity.customviews.button.shinebutton
 
-import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_button_shine)
 class ShineButtonActivity : BaseFontActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun setFullScreen(): Boolean {
         return false
@@ -18,7 +15,4 @@ class ShineButtonActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_button_shine
-    }
 }

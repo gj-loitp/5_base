@@ -6,11 +6,13 @@ import android.os.Bundle
 import android.transition.Transition
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic_details.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_animation_scene_transition_basic_details)
 class SceneTransitionBasicDetailActivity : BaseFontActivity() {
     private var mItem: Item? = null
 
@@ -20,10 +22,6 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_scene_transition_basic_details
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

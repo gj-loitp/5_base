@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.footer2
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.*
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
@@ -15,6 +16,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
+@LayoutId(R.layout.activity_recycler_view_footer_2)
 class RecyclerViewFooter2Activity : BaseFontActivity() {
 
     private var footer2Adapter: Footer2Adapter? = null
@@ -97,10 +99,6 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_footer_2
     }
 
     private fun prepareMovieData() {

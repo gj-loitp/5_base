@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.LayoutId;
 import com.core.utilities.LLog;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +30,7 @@ import vn.loitp.app.activity.demo.firebase.database.models.Comment;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
+@LayoutId(R.layout.activity_post_detail)
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
 
     public static final String EXTRA_POST_KEY = "post_key";
@@ -96,7 +98,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
-                LLog.d(getTAG(), "loadPost:onCancelled " + databaseError.toException());
+                LLog.d(getLogTag(), "loadPost:onCancelled " + databaseError.toException());
                 // [START_EXCLUDE]
                 LToast.show(getActivity(), "Failed to load post.");
                 // [END_EXCLUDE]
@@ -193,7 +195,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             ChildEventListener childEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(getTAG(), "onChildAdded:" + dataSnapshot.getKey());
+                    LLog.d(getLogTag(), "onChildAdded:" + dataSnapshot.getKey());
 
                     // A new comment has been added, add it to the displayed list
                     Comment comment = dataSnapshot.getValue(Comment.class);
@@ -208,7 +210,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(getTAG(), "onChildChanged:" + dataSnapshot.getKey());
+                    LLog.d(getLogTag(), "onChildChanged:" + dataSnapshot.getKey());
 
                     // A comment has changed, use the key to determine if we are displaying this
                     // comment and if so displayed the changed comment.
@@ -224,14 +226,14 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                         // Update the RecyclerView
                         notifyItemChanged(commentIndex);
                     } else {
-                        LLog.d(getTAG(), "onChildChanged:unknown_child:" + commentKey);
+                        LLog.d(getLogTag(), "onChildChanged:unknown_child:" + commentKey);
                     }
                     // [END_EXCLUDE]
                 }
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    LLog.d(getTAG(), "onChildRemoved:" + dataSnapshot.getKey());
+                    LLog.d(getLogTag(), "onChildRemoved:" + dataSnapshot.getKey());
 
                     // A comment has changed, use the key to determine if we are displaying this
                     // comment and if so remove it.
@@ -247,14 +249,14 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                         // Update the RecyclerView
                         notifyItemRemoved(commentIndex);
                     } else {
-                        LLog.d(getTAG(), "onChildRemoved:unknown_child:" + commentKey);
+                        LLog.d(getLogTag(), "onChildRemoved:unknown_child:" + commentKey);
                     }
                     // [END_EXCLUDE]
                 }
 
                 @Override
                 public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(getTAG(), "onChildMoved:" + dataSnapshot.getKey());
+                    LLog.d(getLogTag(), "onChildMoved:" + dataSnapshot.getKey());
 
                     // A comment has changed position, use the key to determine if we are
                     // displaying this comment and if so move it.
@@ -266,7 +268,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    LLog.d(getTAG(), "postComments:onCancelled " + databaseError.toException());
+                    LLog.d(getLogTag(), "postComments:onCancelled " + databaseError.toException());
                     LToast.show(getActivity(), "Failed to load comments.");
                 }
             };
@@ -314,8 +316,4 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_post_detail;
-    }
 }

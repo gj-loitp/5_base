@@ -97,6 +97,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.l_activity_epub_reader_read);
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         rlSplash = findViewById(R.id.rl_splash);
         tvTitle = findViewById(R.id.tvTitle);
@@ -242,7 +243,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             }
             mSectionsPagerAdapter.notifyDataSetChanged();
         } catch (Exception e) {
-            LLog.e(getTAG(), "onFragmentReady " + e.toString());
+            LLog.e(getLogTag(), "onFragmentReady " + e.toString());
         }
         isSkippedToPage = false;
         if (bookSection != null) {
@@ -278,7 +279,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 }
 
             } catch (ReadingException e) {
-                LLog.e(getTAG(), "doInBackground " + e.toString());
+                LLog.e(getLogTag(), "doInBackground " + e.toString());
                 LToast.show(getActivity(), "Error: " + e.getMessage());
             }
             return null;
@@ -300,7 +301,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 tvPage.setText("0");
             }
             llGuide.setVisibility(View.VISIBLE);
-            LLog.d(getTAG(), "onPostExecute setCurrentItem " + lastSavedPage);
+            LLog.d(getLogTag(), "onPostExecute setCurrentItem " + lastSavedPage);
         }
     }
 
@@ -340,11 +341,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     @Override
     protected String setTag() {
         return "TAG" + getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.l_activity_epub_reader_read;
     }
 
     /*@Override
@@ -514,7 +510,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         }
         WebView webView = pageFragment.getView().findViewById(idWebview);
         if (webView == null) {
-            LLog.d(getTAG(), "webView null");
+            LLog.d(getLogTag(), "webView null");
             return;
         }
         WebSettings settings = webView.getSettings();

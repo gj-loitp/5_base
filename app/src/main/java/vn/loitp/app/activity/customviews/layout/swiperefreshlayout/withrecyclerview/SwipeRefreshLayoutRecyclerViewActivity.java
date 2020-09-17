@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
@@ -19,6 +20,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
 
+@LayoutId(R.layout.activity_swipe_refresh_recycler_view_layout)
 public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private List<Movie> movieList = new ArrayList<>();
@@ -71,7 +73,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.d(getTAG(), "loadMore");
+        LLog.d(getLogTag(), "loadMore");
         swipeRefreshLayout.setRefreshing(true);
         LUIUtil.Companion.setDelay(2000, () -> {
             swipeRefreshLayout.setRefreshing(false);
@@ -93,11 +95,6 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_swipe_refresh_recycler_view_layout;
     }
 
     private void prepareMovieData() {

@@ -4,12 +4,15 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.utils.util.ConvertUtils
 import kotlinx.android.synthetic.main.activity_layout_shadow.*
 import vn.loitp.app.R
 
 //https://github.com/lijiankun24/ShadowLayout
+
+@LayoutId(R.layout.activity_layout_shadow)
 class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +28,6 @@ class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_shadow
     }
 
     override fun onClick(v: View) {

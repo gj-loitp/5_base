@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.animation.flyschool
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.animation.flyschool.ImgObject
 import com.views.animation.flyschool.PATHS
@@ -8,6 +9,8 @@ import kotlinx.android.synthetic.main.activity_animation_fly_school.*
 import vn.loitp.app.R
 
 //https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
+
+@LayoutId(R.layout.activity_animation_fly_school)
 class FlySchoolActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +40,6 @@ class FlySchoolActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_fly_school
     }
 
     override fun onDestroy() {

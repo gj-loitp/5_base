@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.imageview.strectchyimageview
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_imageview_strectchy.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
+@LayoutId(R.layout.activity_imageview_strectchy)
 class StrectchyImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +24,4 @@ class StrectchyImageViewActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_strectchy
-    }
 }

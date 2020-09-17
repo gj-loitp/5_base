@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_menu_arc_navigation_view.*
 import kotlinx.android.synthetic.main.menu_arc_navigation_view_main.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_menu_arc_navigation_view)
 class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +35,6 @@ class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigatio
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_arc_navigation_view
     }
 
     override fun onBackPressed() {

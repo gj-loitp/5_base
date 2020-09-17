@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.LayoutId;
 import com.core.utilities.LLog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,6 +23,7 @@ import com.views.LToast;
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
+@LayoutId(R.layout.activity_sign_in)
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
@@ -60,7 +62,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signIn() {
-        LLog.d(getTAG(), "signIn");
+        LLog.d(getLogTag(), "signIn");
         if (!validateForm()) {
             return;
         }
@@ -73,7 +75,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(getTAG(), "signIn:onComplete:" + task.isSuccessful());
+                        LLog.d(getLogTag(), "signIn:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
@@ -86,7 +88,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signUp() {
-        LLog.d(getTAG(), "signUp");
+        LLog.d(getLogTag(), "signUp");
         if (!validateForm()) {
             return;
         }
@@ -99,7 +101,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(getTAG(), "createUser:onComplete:" + task.isSuccessful());
+                        LLog.d(getLogTag(), "createUser:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
@@ -176,8 +178,4 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_sign_in;
-    }
 }

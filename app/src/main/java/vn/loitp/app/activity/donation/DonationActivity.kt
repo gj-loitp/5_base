@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.donation
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.helper.donate.FrmDonate
 import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_more)
 class DonationActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +23,4 @@ class DonationActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_more
-    }
 }

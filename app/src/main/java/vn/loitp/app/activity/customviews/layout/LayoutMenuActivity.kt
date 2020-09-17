@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_layout_menu.*
@@ -36,9 +37,11 @@ import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshL
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.SwipeRevealLayoutActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
+@LayoutId(R.layout.activity_layout_menu)
 class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         btAspectRatioLayout.setOnClickListener(this)
         btDraggablePanel.setOnClickListener(this)
@@ -76,10 +79,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_menu
     }
 
     override fun onClick(v: View) {

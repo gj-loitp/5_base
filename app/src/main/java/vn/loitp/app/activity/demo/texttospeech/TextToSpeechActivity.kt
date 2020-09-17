@@ -5,11 +5,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LTextToSpeechUtil
 import kotlinx.android.synthetic.main.activity_demo_text_to_speech.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_demo_text_to_speech)
 class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,10 +48,6 @@ class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_text_to_speech
     }
 
     override fun onClick(v: View) {

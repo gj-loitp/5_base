@@ -3,12 +3,14 @@ package vn.loitp.app.activity.customviews.answerview;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.answerview.LAnswerView;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_answer_view)
 public class AnswerViewActivity extends BaseFontActivity {
 
     @Override
@@ -51,10 +53,5 @@ public class AnswerViewActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_answer_view;
     }
 }

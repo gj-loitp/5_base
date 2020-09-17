@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.imageview.circleimageview
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_imageview_circle.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
+@LayoutId(R.layout.activity_imageview_circle)
 class CircleImageViewActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -15,10 +17,6 @@ class CircleImageViewActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_circle
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

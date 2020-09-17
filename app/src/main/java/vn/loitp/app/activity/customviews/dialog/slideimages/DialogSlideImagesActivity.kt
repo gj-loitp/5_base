@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.dialog.slideimages
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
@@ -9,6 +10,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_slide_images.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_dialog_slide_images)
 class DialogSlideImagesActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +46,6 @@ class DialogSlideImagesActivity : BaseFontActivity() {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dialog_slide_images
     }
 
 }

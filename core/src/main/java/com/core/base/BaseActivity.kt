@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
+import com.annotation.LayoutId
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
@@ -30,7 +31,7 @@ import org.greenrobot.eventbus.ThreadMode
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected lateinit var activity: Activity
-    protected var TAG: String? = null
+    protected var logTag: String? = null
 
     protected var delayMlsIdleTime: Long = 60 * 1000//60s
     private var handlerIdleTime: Handler? = null
@@ -53,25 +54,22 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun setTag(): String?
 
-    protected abstract fun setLayoutResourceId(): Int
-
     override fun onCreate(savedInstanceState: Bundle?) {
         activity = this
-        TAG = "TAG" + setTag()
+        logTag = "logTag" + setTag()
         if (setFullScreen()) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             //LActivityUtil.hideSystemUI(getWindow().getDecorView());
         }
         setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary))
-
         super.onCreate(savedInstanceState)
-
         EventBus.getDefault().register(this)
-
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        if (setLayoutResourceId() != 0) {
-            setContentView(setLayoutResourceId())
+
+        val layoutId = javaClass.getAnnotation(LayoutId::class.java)
+        layoutId?.value?.let {
+            setContentView(it)
         }
 
         CheckNetworkConnectionHelper
@@ -206,7 +204,7 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         } else {
             //dont use LLog here
-            Log.d(TAG, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
+            Log.d(logTag, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
         }
     }
 
@@ -242,13 +240,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun logD(msg: String) {
-        TAG?.let {
+        logTag?.let {
             LLog.d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
-        TAG?.let {
+        logTag?.let {
             LLog.e(it, msg)
         }
     }

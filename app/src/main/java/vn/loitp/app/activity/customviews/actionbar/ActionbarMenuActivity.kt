@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.actionbar
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import vn.loitp.app.R
@@ -12,6 +13,7 @@ import vn.loitp.app.activity.customviews.actionbar.lactionbar.LActionbarActivity
 import vn.loitp.app.activity.customviews.actionbar.navigationview.NavigationViewActivity
 import vn.loitp.app.activity.customviews.actionbar.navigationviewwithtext.NavigationViewWithTextActivity
 
+@LayoutId(R.layout.activity_menu_action_bar)
 class ActionbarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +31,6 @@ class ActionbarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_action_bar
     }
 
     override fun onClick(v: View) {

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.animation.animationview
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_animation_view.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_animation_view)
 class AnimationViewActivity : BaseFontActivity() {
     private var listAnim: List<Techniques> = ArrayList()
     private var listString: Array<String?>? = null
@@ -39,10 +41,6 @@ class AnimationViewActivity : BaseFontActivity() {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_view
     }
 
     private fun showDialogSelectAnim() {

@@ -1,8 +1,10 @@
 package vn.loitp.app.activity.function.viewdraghelper
 
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_func_view_drag_helper)
 class ViewDragHelperActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -13,7 +15,4 @@ class ViewDragHelperActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_view_drag_helper
-    }
 }

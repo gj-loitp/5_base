@@ -2,12 +2,14 @@ package vn.loitp.app.activity.function.fullscreen
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import com.views.dialog.imersivedialog.ImmersiveDialogFragment
 import kotlinx.android.synthetic.main.activity_func_fullscreen.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_func_fullscreen)
 class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
 
     private var isFullScreen: Boolean = false
@@ -25,10 +27,6 @@ class FullScreenActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_fullscreen
     }
 
     override fun onClick(v: View) {

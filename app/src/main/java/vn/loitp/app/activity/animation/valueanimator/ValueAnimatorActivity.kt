@@ -5,12 +5,15 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_animation_value_animator.*
 import vn.loitp.app.R
 
 //https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
+
+@LayoutId(R.layout.activity_animation_value_animator)
 class ValueAnimatorActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +29,6 @@ class ValueAnimatorActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_value_animator
     }
 
     private var valueAnimator: ValueAnimator? = null

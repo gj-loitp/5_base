@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
@@ -29,6 +30,7 @@ import java.io.File;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_crop)
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
     private final int REQUEST_CODE_GET_FILE = 1;
@@ -55,12 +57,7 @@ public class CropActivity extends BaseFontActivity {
 
     @Override
     protected String setTag() {
-        return "TAG" + getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_crop;
+        return getClass().getSimpleName();
     }
 
     private void crop() {
@@ -87,31 +84,31 @@ public class CropActivity extends BaseFontActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        LLog.d(getTAG(), "onActivityResult requestCode " + requestCode);
+        LLog.d(getLogTag(), "onActivityResult requestCode " + requestCode);
         super.onActivityResult(requestCode, resultCode, data);
         if (data == null) {
-            LLog.e(getTAG(), "data == null return");
+            LLog.e(getLogTag(), "data == null return");
             return;
         }
         if (requestCode == REQUEST_CODE_GET_FILE) {
             if (data.getExtras() == null) {
-                LLog.e(getTAG(), "data.getExtras() == null return");
+                LLog.e(getLogTag(), "data.getExtras() == null return");
                 return;
             }
             final String filePath = data.getExtras().getString(LGalleryActivity.RETURN_VALUE);
             if (filePath == null) {
-                LLog.e(getTAG(), "filePath == null return");
+                LLog.e(getLogTag(), "filePath == null return");
                 return;
             }
-            LLog.d(getTAG(), "filePath " + filePath);
+            LLog.d(getLogTag(), "filePath " + filePath);
             final File file = new File(filePath);
             if (!file.exists()) {
-                LLog.e(getTAG(), "file is not exists");
+                LLog.e(getLogTag(), "file is not exists");
                 return;
             }
             final Uri imageUri = Uri.fromFile(file);
             if (imageUri == null) {
-                LLog.e(getTAG(), "imageUri == null");
+                LLog.e(getLogTag(), "imageUri == null");
                 return;
             }
             if (isOvalOption) {
@@ -147,7 +144,7 @@ public class CropActivity extends BaseFontActivity {
                     return;
                 }
                 final File file = new File(realPath);
-                LLog.d(getTAG(), "onActivityResult file " + file.getPath());
+                LLog.d(getLogTag(), "onActivityResult file " + file.getPath());
                 LImageUtil.Companion.load(getActivity(), file, iv);
             }
         }

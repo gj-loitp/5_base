@@ -35,6 +35,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_gallery_core_photos)
 
 //        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
@@ -144,10 +145,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos
     }
 
     private fun photosetsGetPhotos(photosetID: String?) {

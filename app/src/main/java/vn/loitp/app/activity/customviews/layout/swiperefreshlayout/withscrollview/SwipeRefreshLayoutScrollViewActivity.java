@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LStoreUtil;
 import com.core.utilities.LUIUtil;
@@ -12,6 +13,7 @@ import com.views.LToast;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_swipe_refresh_scroll_view_layout)
 public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -44,8 +46,4 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_swipe_refresh_scroll_view_layout;
-    }
 }

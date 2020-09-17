@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.swipebacklayout
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioGroup
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LScreenUtil
@@ -12,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_swipeback_layout.*
 import vn.loitp.app.R
 
 //https://github.com/gongwen/SwipeBackLayout
+
+@LayoutId(R.layout.activity_swipeback_layout)
 class SwipeBackLayoutActivity : BaseFontActivity() {
     private var screenW = 0
     private var screenH = 0
@@ -22,10 +25,6 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_swipeback_layout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

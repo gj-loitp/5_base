@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.videoview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
@@ -13,7 +14,9 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity2
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity3
 import vn.loitp.app.activity.customviews.videoview.youtube.YoutubeActivity
 
+@LayoutId(R.layout.activity_video_menu)
 class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,11 +34,6 @@ class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun setTag(): String? {
         return javaClass.simpleName
     }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_video_menu
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {

@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_imageview_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity
@@ -25,6 +24,7 @@ import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyI
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity
 
+@LayoutId(R.layout.activity_imageview_menu)
 class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,10 +51,6 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_menu
     }
 
     override fun onClick(v: View) {

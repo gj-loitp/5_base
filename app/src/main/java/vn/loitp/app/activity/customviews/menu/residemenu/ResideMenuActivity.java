@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.menu.residemenu.ResideMenu;
@@ -16,6 +17,7 @@ import com.views.menu.residemenu.ResideMenuItem;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.reside_menu)
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {
     private ResideMenu resideMenu;
     private ResideMenuItem itemHome;
@@ -31,11 +33,6 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.reside_menu;
     }
 
     @Override

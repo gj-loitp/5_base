@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import io.reactivex.Single
 import io.reactivex.SingleObserver
@@ -9,6 +10,8 @@ import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
 import vn.loitp.app.R
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+
+@LayoutId(R.layout.activity_rxjava2_flowable)
 class SingleObserverExampleActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +54,4 @@ class SingleObserverExampleActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rxjava2_flowable
-    }
 }

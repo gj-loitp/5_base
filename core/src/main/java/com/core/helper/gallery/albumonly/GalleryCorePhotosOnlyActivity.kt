@@ -48,6 +48,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_gallery_core_photos_only)
 
         RestClient.init(getString(R.string.flickr_URL))
 //        setTransparentStatusNavigationBar()
@@ -186,10 +187,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos_only
     }
 
     private fun init() {

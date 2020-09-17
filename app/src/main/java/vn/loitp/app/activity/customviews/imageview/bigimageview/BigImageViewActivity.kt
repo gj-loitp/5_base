@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview
 
 import android.net.Uri
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
@@ -11,6 +12,8 @@ import vn.loitp.app.common.Constants
 import java.io.File
 
 //https://github.com/Piasy/BigImageViewer
+
+@LayoutId(R.layout.activity_imageview_big)
 class BigImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +67,4 @@ class BigImageViewActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_big
-    }
 }

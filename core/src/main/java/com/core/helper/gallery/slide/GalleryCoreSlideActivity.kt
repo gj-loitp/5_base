@@ -20,6 +20,7 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_gallery_core_slide)
 
         val slidePagerAdapter = SlidePagerAdapter(supportFragmentManager)
         viewPager.adapter = slidePagerAdapter
@@ -51,10 +52,6 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_slide
     }
 
     private inner class SlidePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.animation.overscroll
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_animation_over_scroll.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_animation_over_scroll)
 class OverScrollActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,4 @@ class OverScrollActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_over_scroll
-    }
 }

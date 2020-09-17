@@ -3,17 +3,17 @@ package vn.loitp.app.activity.customviews.progressloadingview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_progress_loading_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.progressloadingview.avloadingindicatorview.AVLoadingIndicatorActivity
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressbar.CircularProgressBarActivity
 import vn.loitp.app.activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity
 import vn.loitp.app.activity.customviews.progressloadingview.window.WindowProgressActivity
 
+@LayoutId(R.layout.activity_progress_loading_menu)
 class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +31,6 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_progress_loading_menu
     }
 
     override fun onClick(v: View?) {

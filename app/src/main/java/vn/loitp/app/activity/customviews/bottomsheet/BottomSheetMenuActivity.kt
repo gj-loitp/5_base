@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.bottomsheet
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_bottomsheet_menu)
 class BottomSheetMenuActivity : BaseFontActivity() {
     private var sheetBehavior: BottomSheetBehavior<*>? = null
 
@@ -29,10 +31,6 @@ class BottomSheetMenuActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_bottomsheet_menu
     }
 
     @SuppressLint("SetTextI18n")

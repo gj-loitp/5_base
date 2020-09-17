@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.textview.countdown
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.textview.countdown.LCountDownView
 import kotlinx.android.synthetic.main.activity_text_view_count_down.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_text_view_count_down)
 class CountDownActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +40,4 @@ class CountDownActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_count_down
-    }
 }

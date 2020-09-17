@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.actionbar.lactionbar
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.views.LToast
@@ -9,6 +10,7 @@ import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.activity_l_action_bar.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_l_action_bar)
 class LActionbarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,11 +25,6 @@ class LActionbarActivity : BaseFontActivity() {
     override fun setTag(): String {
         return javaClass.simpleName
     }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_l_action_bar
-    }
-
     private fun setupActionBar() {
         textView.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar)
 

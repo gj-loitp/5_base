@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.views.LToast
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_realm.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 
+@LayoutId(R.layout.activity_realm)
 class RealmActivity : BaseFontActivity() {
     private lateinit var mRealm: Realm
 
@@ -50,10 +52,6 @@ class RealmActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_realm
     }
 
     private fun addMyBook() {

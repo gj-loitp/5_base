@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,6 +12,8 @@ import vn.loitp.app.R
 import java.util.concurrent.TimeUnit
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+
+@LayoutId(R.layout.activity_rxjava2_flowable)
 class IntervalExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +29,6 @@ class IntervalExampleActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rxjava2_flowable
     }
 
     override fun onDestroy() {

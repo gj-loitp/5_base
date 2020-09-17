@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.scratchview.scratchviewtext
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.scratchview.LScratchTextView
 import kotlinx.android.synthetic.main.activity_scratchview_text.*
 import vn.loitp.app.R
 
+@LayoutId( R.layout.activity_scratchview_text)
 class ScratchViewTextActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +32,4 @@ class ScratchViewTextActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scratchview_text
-    }
 }

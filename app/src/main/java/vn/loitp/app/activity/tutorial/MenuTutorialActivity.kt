@@ -3,6 +3,7 @@ package vn.loitp.app.activity.tutorial
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_tutorial_menu.*
@@ -10,6 +11,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.retrofit2.Retrofit2Activity
 import vn.loitp.app.activity.tutorial.rxjava2.MenuRxJava2Activity
 
+@LayoutId(R.layout.activity_tutorial_menu)
 class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +26,6 @@ class MenuTutorialActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_tutorial_menu
     }
 
     override fun onClick(v: View) {

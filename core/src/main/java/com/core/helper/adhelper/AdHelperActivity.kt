@@ -34,13 +34,11 @@ class AdHelperActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_ad_helper
-    }
-
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_ad_helper)
+
         isShowAdWhenExit = false
 
         isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)

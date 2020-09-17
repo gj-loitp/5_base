@@ -3,11 +3,10 @@ package vn.loitp.app.activity.customviews.viewpager
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_view_pager_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.ViewPagerAutoActivity
 import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout.DetectViewPagerSwipeOutActivity
@@ -17,6 +16,7 @@ import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxVi
 import vn.loitp.app.activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity
 import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity
 
+@LayoutId(R.layout.activity_view_pager_menu)
 class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +37,6 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_menu
     }
 
     override fun onClick(v: View) {

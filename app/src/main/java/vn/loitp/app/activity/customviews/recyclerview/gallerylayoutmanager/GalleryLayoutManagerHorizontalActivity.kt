@@ -6,6 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.views.recyclerview.gallery.GalleryLayoutManager
@@ -16,6 +17,8 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 
 //https://github.com/BCsl/GalleryLayoutManager
+
+@LayoutId(R.layout.activity_recycler_view_menu_gallery_layout_manager)
 class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
     private var mAdapter: GalleryAdapter? = null
     @SuppressLint("SetTextI18n")
@@ -61,10 +64,6 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_menu_gallery_layout_manager
     }
 
     private fun prepareMovieData() {

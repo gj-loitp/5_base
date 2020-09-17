@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.firebase
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.google.android.gms.tasks.OnCompleteListener
@@ -19,6 +20,8 @@ import vn.loitp.app.activity.demo.firebase.invite.InviteFirebaseActivity
 import java.io.IOException
 
 //https://github.com/firebase/quickstart-android
+
+@LayoutId(R.layout.activity_menu_firebase)
 class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +43,6 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_firebase
     }
 
     override fun onClick(v: View) {

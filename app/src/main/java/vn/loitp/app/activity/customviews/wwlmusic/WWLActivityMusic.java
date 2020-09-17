@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.wwlmusic;
 
 import android.os.Bundle;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.wwlmusic.layout.LWWLMusic;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 
+@LayoutId(R.layout.activity_wwl_music)
 public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.Listener, FragmentHost {
     private LWWLMusic LWWLMusic;
     private float mLastAlpha;
@@ -39,11 +41,6 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_wwl_music;
     }
 
     @Override

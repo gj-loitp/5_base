@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
@@ -13,6 +14,7 @@ import java.util.List;
 import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
+@LayoutId(R.layout.activity_sqlite)
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;
     private LinearLayout ll;
@@ -42,11 +44,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_sqlite;
     }
 
     @Override
@@ -110,7 +107,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void addContact() {
         int size = db.getContactsCount();
-        LLog.d(getTAG(), "size: " + size);
+        LLog.d(getLogTag(), "size: " + size);
         Contact contact = new Contact();
         contact.setName("name " + (size + 1));
         contact.setPhoneNumber("phone: " + (size + 1));
@@ -121,7 +118,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void add100Contact() {
         for (int i = 0; i < 100; i++) {
             int size = db.getContactsCount();
-            LLog.d(getTAG(), "size: " + size);
+            LLog.d(getLogTag(), "size: " + size);
             Contact contact = new Contact();
             contact.setName("name " + (size + 1));
             contact.setPhoneNumber("phone: " + (size + 1));
@@ -131,7 +128,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void clearAllContact() {
-        LLog.d(getTAG(), "clearAllContact");
+        LLog.d(getLogTag(), "clearAllContact");
         ll.removeAllViews();
         db.clearAllContact();
         getAllContact();
@@ -149,13 +146,13 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void updateContact(Contact contact, Button button) {
         contact.setName("Updated " + contact.getName());
         int result = db.updateContact(contact);
-        LLog.d(getTAG(), "updateContact result " + result);
+        LLog.d(getLogTag(), "updateContact result " + result);
         button.setText(contact.getId() + " " + contact.getName());
     }
 
     private void deleteContact(Contact contact, Button button) {
         int result = db.deleteContact(contact);
-        LLog.d(getTAG(), "deleteContact result " + result);
+        LLog.d(getLogTag(), "deleteContact result " + result);
         ll.removeView(button);
     }
 

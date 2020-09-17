@@ -3,12 +3,15 @@ package vn.loitp.app.activity.customviews.compas
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.compass.CompassListener
 import kotlinx.android.synthetic.main.activity_compas.*
 import vn.loitp.app.R
 
 //https://github.com/arbelkilani/Compass-View?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6973
+
+@LayoutId(R.layout.activity_compas)
 class CompasActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,9 +34,5 @@ class CompasActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_compas
     }
 }

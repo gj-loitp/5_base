@@ -8,6 +8,7 @@ import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.layout.swipereveallayout.list.SwipeReve
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.recycler.SwipeRevealLayoutRecyclerActivity;
 
 //https://github.com/chthai64/SwipeRevealLayout
+@LayoutId(R.layout.activity_swipe_reveal_layout)
 public class SwipeRevealLayoutActivity extends BaseFontActivity {
 
     @Override
@@ -34,11 +36,6 @@ public class SwipeRevealLayoutActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_swipe_reveal_layout;
     }
 
     @Override

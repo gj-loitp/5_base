@@ -6,6 +6,7 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 
 import org.jetbrains.annotations.NotNull;
@@ -15,6 +16,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_swipe_reveal_layout_list)
 public class SwipeRevealLayoutListActivity extends BaseFontActivity {
     private ListAdapter adapter;
 
@@ -34,11 +36,6 @@ public class SwipeRevealLayoutListActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_swipe_reveal_layout_list;
     }
 
     @Override

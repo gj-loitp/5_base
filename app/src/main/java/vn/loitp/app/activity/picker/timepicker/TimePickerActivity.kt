@@ -3,12 +3,14 @@ package vn.loitp.app.activity.picker.timepicker
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_time_picker.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_time_picker)
 class TimePickerActivity : BaseFontActivity() {
 
     private var picker: TimePickerDialog? = null
@@ -20,10 +22,6 @@ class TimePickerActivity : BaseFontActivity() {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_time_picker
     }
 
     @SuppressLint("SetTextI18n")

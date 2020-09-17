@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -17,6 +18,8 @@ import vn.loitp.app.BuildConfig;
 import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
+
+@LayoutId(R.layout.activity_config_firebase)
 public class ConfigFirebaseActivity extends BaseFontActivity {
     // Remote Config keys
     private static final String LOADING_PHRASE_CONFIG_KEY = "loading_phrase";
@@ -68,11 +71,6 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_config_firebase;
     }
 
     /**

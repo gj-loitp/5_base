@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.swiperefreshlayout
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview.SwipeRefreshLayoutRecyclerViewActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutScrollViewActivity
 
+@LayoutId(R.layout.activity_swipe_refresh_menu_layout)
 class SwipeRefreshLayoutMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +37,4 @@ class SwipeRefreshLayoutMenuActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_swipe_refresh_menu_layout
-    }
 }

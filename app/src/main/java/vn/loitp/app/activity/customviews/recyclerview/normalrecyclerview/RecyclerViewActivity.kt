@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
@@ -19,6 +20,8 @@ import vn.loitp.app.common.Constants
 import java.util.*
 
 //https://github.com/wasabeef/recyclerview-animators
+
+@LayoutId(R.layout.activity_recycler_view)
 class RecyclerViewActivity : BaseFontActivity() {
 
     private val movieList: MutableList<Movie> = ArrayList()
@@ -123,10 +126,6 @@ class RecyclerViewActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view
     }
 
     private fun prepareMovieData() {

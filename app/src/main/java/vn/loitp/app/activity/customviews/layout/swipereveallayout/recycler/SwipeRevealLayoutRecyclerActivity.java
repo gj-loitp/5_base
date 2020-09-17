@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 
 import org.jetbrains.annotations.NotNull;
@@ -16,6 +17,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_recycler)
 public class SwipeRevealLayoutRecyclerActivity extends BaseFontActivity {
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
@@ -36,11 +38,6 @@ public class SwipeRevealLayoutRecyclerActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_recycler;
     }
 
     @Override

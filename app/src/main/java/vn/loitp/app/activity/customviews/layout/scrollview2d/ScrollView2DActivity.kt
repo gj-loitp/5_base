@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.layout.scrollview2d
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_layout_scrollview_2d.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_layout_scrollview_2d)
 class ScrollView2DActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +28,4 @@ class ScrollView2DActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_scrollview_2d
-    }
 }

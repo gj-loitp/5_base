@@ -7,6 +7,7 @@ import android.view.MenuItem
 
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
+import com.annotation.LayoutId
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImagePagerAdapter
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData
 
+@LayoutId(R.layout.activity_recycler_tablayout_demo_custom_view02)
 class RvTabCustomView02Activity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -25,10 +27,6 @@ class RvTabCustomView02Activity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout_demo_custom_view02
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_switch_tbg_single.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_switch_tbg_single)
 class TBGSingleSelectActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
@@ -12,10 +14,6 @@ class TBGSingleSelectActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_tbg_single
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

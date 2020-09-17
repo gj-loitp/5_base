@@ -2,11 +2,13 @@ package vn.loitp.app.activity.database.readsqliteasset
 
 import android.os.Bundle
 import android.widget.TextView
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_read_sqlite_asset)
 class ReadSqliteAssetActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +37,6 @@ class ReadSqliteAssetActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_read_sqlite_asset
     }
 
 }

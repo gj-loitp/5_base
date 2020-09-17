@@ -1,12 +1,15 @@
 package vn.loitp.app.activity.function.recolor
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.simmorsal.recolor_project.ReColor
 import kotlinx.android.synthetic.main.activity_fun_recolor.*
 import vn.loitp.app.R
 
 //https://github.com/SIMMORSAL/ReColor
+
+@LayoutId(R.layout.activity_fun_recolor)
 class RecolorActivity : BaseFontActivity() {
     private var imageViewColorSetNumber = 0
     private var textViewColorSetNumber = 0
@@ -28,10 +31,6 @@ class RecolorActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fun_recolor
     }
 
     private fun logAListOfColors() {

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.dialog.iosdialog
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.interfaces.Callback1
@@ -10,6 +11,7 @@ import com.interfaces.Callback2
 import kotlinx.android.synthetic.main.activity_dialog_ios.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_dialog_ios)
 class DialogIOSActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +27,6 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dialog_ios
     }
 
     override fun onClick(v: View) {

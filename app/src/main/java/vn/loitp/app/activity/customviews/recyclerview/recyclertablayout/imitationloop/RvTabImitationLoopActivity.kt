@@ -5,12 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.viewpager.widget.ViewPager
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 
+@LayoutId(R.layout.activity_recycler_tablayout)
 open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChangeListener {
 
     private var mScrollState: Int = 0
@@ -23,10 +25,6 @@ open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChan
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

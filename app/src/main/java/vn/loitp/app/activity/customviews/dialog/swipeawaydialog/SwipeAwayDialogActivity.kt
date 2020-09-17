@@ -2,11 +2,14 @@ package vn.loitp.app.activity.customviews.dialog.swipeawaydialog
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_dialog_swipe_away.*
 import vn.loitp.app.R
 
 //https://github.com/kakajika/SwipeAwayDialog
+
+@LayoutId(R.layout.activity_dialog_swipe_away)
 class SwipeAwayDialogActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +28,6 @@ class SwipeAwayDialogActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dialog_swipe_away
     }
 
     override fun onClick(v: View) {

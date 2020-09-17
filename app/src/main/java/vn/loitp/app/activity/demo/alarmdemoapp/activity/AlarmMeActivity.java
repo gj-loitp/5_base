@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
@@ -21,6 +22,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
 
+@LayoutId(R.layout.activity_alarm_list)
 public class AlarmMeActivity extends BaseFontActivity {
     private ListView mAlarmList;
     private AlarmListAdapter mAlarmListAdapter;
@@ -39,7 +41,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        LLog.d(getTAG(), "AlarmMeActivity.onCreate()");
+        LLog.d(getLogTag(), "AlarmMeActivity.onCreate()");
 
         mAlarmList = findViewById(R.id.lv_alarm);
         LUIUtil.Companion.setPullLikeIOSVertical(mAlarmList);
@@ -55,7 +57,7 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LLog.d(getTAG(), "AlarmMeActivity.onDestroy()");
+        LLog.d(getLogTag(), "AlarmMeActivity.onDestroy()");
     }
 
     @Override
@@ -69,14 +71,9 @@ public class AlarmMeActivity extends BaseFontActivity {
     }
 
     @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_alarm_list;
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
-        LLog.d(getTAG(), "AlarmMeActivity.onResume()");
+        LLog.d(getLogTag(), "AlarmMeActivity.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 

@@ -1,10 +1,13 @@
 package vn.loitp.app.activity.animation.basictransitionfrm
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
 //https://github.com/googlesamples/android-BasicTransition/#readme
+
+@LayoutId(R.layout.activity_basic_transition)
 class BasicTransitionActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +28,4 @@ class BasicTransitionActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_basic_transition
-    }
 }

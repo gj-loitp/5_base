@@ -3,6 +3,7 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LThreadUtil.Companion.isUIThread
 import com.google.gson.reflect.TypeToken
@@ -21,6 +22,7 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 //https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
+@LayoutId(R.layout.activity_test_rx)
 class TestRxActivity : BaseFontActivity(), View.OnClickListener {
     override fun setFullScreen(): Boolean {
         return false
@@ -28,10 +30,6 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_test_rx
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

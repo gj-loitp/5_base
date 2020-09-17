@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.videoview.exoplayer
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import com.google.android.exoplayer2.ui.PlayerView
@@ -8,6 +9,7 @@ import com.views.exo.PlayerManager
 import kotlinx.android.synthetic.main.activity_video_exo_player3.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_video_exo_player3)
 class ExoPlayerActivity3 : BaseFontActivity() {
     private var playerManager: PlayerManager? = null
 
@@ -32,10 +34,6 @@ class ExoPlayerActivity3 : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_video_exo_player3
     }
 
     override fun onResume() {

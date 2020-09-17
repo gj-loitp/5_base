@@ -2,6 +2,7 @@ package vn.loitp.app.activity.security.simple
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionUtil
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
@@ -9,6 +10,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
 
+@LayoutId(R.layout.activity_encrypt_decrypt_string)
 class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
 
     private val password = "Loitp@123KawasakiZ1000R"
@@ -46,10 +48,6 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_encrypt_decrypt_string
     }
 
     private fun encrypt() {

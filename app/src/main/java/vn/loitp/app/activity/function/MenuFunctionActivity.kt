@@ -3,11 +3,10 @@ package vn.loitp.app.activity.function
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_function_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity
 import vn.loitp.app.activity.function.downloadmanager.DownloadManagerActivity
@@ -25,6 +24,7 @@ import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1
 
+@LayoutId(R.layout.activity_function_menu)
 class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,10 +53,6 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_function_menu
     }
 
     override fun onClick(v: View) {

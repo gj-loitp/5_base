@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.restapi.restclient.RestClient2
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,6 +14,8 @@ import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 
 //https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
+
+@LayoutId(R.layout.activity_retrofit_2)
 class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     private var retrofit2Adapter: Retrofit2Adapter? = null
     private var retroCryptoArrayList = ArrayList<RetroCrypto>()
@@ -63,10 +66,6 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_retrofit_2
     }
 
 }

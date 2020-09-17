@@ -12,7 +12,8 @@ import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
-import com.core.base.BaseActivity
+import com.annotation.LayoutId
+import com.core.base.BaseFontActivity
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -28,7 +29,8 @@ import vn.loitp.app.R
 import java.text.DateFormat
 import java.util.*
 
-class LocationActivity : BaseActivity() {
+@LayoutId(R.layout.activity_func_location)
+class LocationActivity : BaseFontActivity() {
 
     companion object {
         // location updates interval - 10sec
@@ -80,10 +82,6 @@ class LocationActivity : BaseActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_location
     }
 
     private fun init() {

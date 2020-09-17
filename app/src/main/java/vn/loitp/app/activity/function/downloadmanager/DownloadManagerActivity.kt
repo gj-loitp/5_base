@@ -5,12 +5,14 @@ import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import kotlinx.android.synthetic.main.activity_download_manager.*
 import vn.loitp.app.R
 import java.io.File
 
+@LayoutId(R.layout.activity_download_manager)
 class DownloadManagerActivity : BaseFontActivity() {
     private var downloader: Downloader? = null
     private val handler: Handler = Handler()
@@ -42,10 +44,6 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_download_manager
     }
 
     @SuppressLint("SetTextI18n")

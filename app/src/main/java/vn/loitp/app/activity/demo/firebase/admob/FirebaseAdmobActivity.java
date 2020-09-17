@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -16,6 +17,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_firebase_admob)
 public class FirebaseAdmobActivity extends BaseFontActivity {
     private AdView mAdView;
     // [START_EXCLUDE]
@@ -64,7 +66,7 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
             @Override
             public void onAdFailedToLoad(int i) {
                 // See https://goo.gl/sCZj0H for possible error codes.
-                Log.w(getTAG(), "onAdFailedToLoad:" + i);
+                Log.w(getLogTag(), "onAdFailedToLoad:" + i);
             }
         });
         // [END create_interstitial_ad_listener]
@@ -95,11 +97,6 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_firebase_admob;
     }
 
     /**

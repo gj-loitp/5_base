@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.dragueur;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.views.layout.dragueur.Direction;
@@ -11,6 +12,8 @@ import com.views.layout.dragueur.DraggableView;
 import vn.loitp.app.R;
 
 //https://github.com/Meetic/Dragueur?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3534
+
+@LayoutId((R.layout.activity_dragueur))
 public class DragueurActivity extends BaseFontActivity {
     private DraggableView draggableView;
     private TextView tv;
@@ -28,19 +31,19 @@ public class DragueurActivity extends BaseFontActivity {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
-                LLog.d(getTAG(), "onDrag " + percentX + " x " + percentY);
+                LLog.d(getLogTag(), "onDrag " + percentX + " x " + percentY);
             }
 
             @Override
             public void onDraggedStarted(DraggableView draggableView, Direction direction) {
                 setText("onDraggedStarted");
-                LLog.d(getTAG(), "onDraggedStarted " + direction.name());
+                LLog.d(getLogTag(), "onDraggedStarted " + direction.name());
             }
 
             @Override
             public void onDraggedEnded(DraggableView draggableView, Direction direction) {
                 setText("onDraggedEnded");
-                LLog.d(getTAG(), "onDraggedEnded " + direction.name());
+                LLog.d(getLogTag(), "onDraggedEnded " + direction.name());
             }
 
             @Override
@@ -74,11 +77,6 @@ public class DragueurActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_dragueur;
     }
 
     private void setText(String s) {

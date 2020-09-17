@@ -2,10 +2,12 @@ package vn.loitp.app.activity.customviews.button.qbutton
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_button_q.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_button_q)
 class QButtonActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -14,10 +16,6 @@ class QButtonActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_button_q
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

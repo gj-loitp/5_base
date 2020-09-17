@@ -1,13 +1,14 @@
 package vn.loitp.app.activity.customviews.facebookcomment
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
 import kotlinx.android.synthetic.main.activity_fb_cmt.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_fb_cmt)
 class FacebookCommentActivity : BaseFontActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +26,4 @@ class FacebookCommentActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fb_cmt
-    }
 }

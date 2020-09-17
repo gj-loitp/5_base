@@ -1,12 +1,15 @@
 package vn.loitp.app.activity.customviews.layout.zoomlayout
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_layout_zoom.*
 import vn.loitp.app.R
 
 //read more
 //https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282
+
+@LayoutId(R.layout.activity_layout_zoom)
 class ZoomLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +37,4 @@ class ZoomLayoutActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_zoom
-    }
 }

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.*
@@ -9,6 +10,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist.GetChapTask
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap
 
+@LayoutId(R.layout.activity_api_ttt_chap_list)
 class TTTAPIChapListActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +43,4 @@ class TTTAPIChapListActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_ttt_chap_list
-    }
 }

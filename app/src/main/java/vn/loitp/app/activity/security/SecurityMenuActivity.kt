@@ -3,12 +3,14 @@ package vn.loitp.app.activity.security
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_security_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.security.simple.SimpleEncryptDecryptStringActivity
 
+@LayoutId(R.layout.activity_security_menu)
 class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +24,6 @@ class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_security_menu
     }
 
     override fun onClick(v: View) {

@@ -7,12 +7,14 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.SeekBar
 import android.widget.SimpleAdapter
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator
 import kotlinx.android.synthetic.main.activity_progress_circular_progress_indicator.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_progress_circular_progress_indicator)
 class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, ColorPickerDialogFragment.OnColorSelectedListener {
 
@@ -97,10 +99,6 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_progress_circular_progress_indicator
     }
 
     override fun onClick(v: View) {

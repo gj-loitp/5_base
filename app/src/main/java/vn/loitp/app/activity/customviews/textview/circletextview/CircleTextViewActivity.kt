@@ -2,11 +2,14 @@ package vn.loitp.app.activity.customviews.textview.circletextview
 
 import android.os.Bundle
 import android.text.SpannableStringBuilder
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_text_view_circle.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_text_view_circle)
 class CircleTextViewActivity : BaseFontActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -21,10 +24,6 @@ class CircleTextViewActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_circle
     }
 
 }

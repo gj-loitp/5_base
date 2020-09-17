@@ -34,6 +34,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.l_activity_l_gallery);
         getStoreImage();
         final GalleryAdapter mAdapter = new GalleryAdapter();
         mAdapter.addAllDataList(thumbsDataList);
@@ -104,11 +105,6 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
     @Override
     protected String setTag() {
         return "TAG" + getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.l_activity_l_gallery;
     }
 
     /**

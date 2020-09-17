@@ -3,10 +3,12 @@ package vn.loitp.app.activity.customviews.button.lbutton
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_button_l.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_button_l)
 class LButtonActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
@@ -15,10 +17,6 @@ class LButtonActivity : BaseFontActivity(), OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_button_l
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

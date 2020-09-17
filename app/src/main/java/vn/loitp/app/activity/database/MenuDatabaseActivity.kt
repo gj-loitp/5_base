@@ -4,11 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_database_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
@@ -21,6 +20,7 @@ import vn.loitp.app.activity.database.sqlitemultitable.SqliteMultiTableActivity
 import vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity
 import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
 
+@LayoutId(R.layout.activity_database_menu)
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,10 +43,6 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_database_menu
     }
 
     override fun onClick(v: View) {

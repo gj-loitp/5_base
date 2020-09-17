@@ -1,23 +1,27 @@
 package vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissCallback
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout
-
 import vn.loitp.app.R
 
 //https://github.com/Commit451/ElasticDragDismissLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3098
+@LayoutId(R.layout.activity_elasticdragdismisslayout)
 class ElasticDragDismissLayoutActivity : BaseFontActivity() {
     private lateinit var tv: TextView
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         tv = findViewById(R.id.textView)
         val elasticDragDismissLinearLayout = findViewById<ElasticDragDismissLinearLayout>(R.id.draggable_frame)
+
         elasticDragDismissLinearLayout.addListener(object : ElasticDragDismissCallback() {
+
             override fun onDrag(elasticOffset: Float, elasticOffsetPixels: Float, rawOffset: Float, rawOffsetPixels: Float) {
                 tv.text = "onDrag $elasticOffset - $elasticOffsetPixels - $rawOffset - $rawOffsetPixels"
             }
@@ -39,7 +43,4 @@ class ElasticDragDismissLayoutActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_elasticdragdismisslayout
-    }
 }

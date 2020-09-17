@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.imageview.pinchtozoom
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_imageview_pinch_to_zoom.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
+@LayoutId(R.layout.activity_imageview_pinch_to_zoom)
 class PinchToZoomActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +25,4 @@ class PinchToZoomActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_pinch_to_zoom
-    }
 }

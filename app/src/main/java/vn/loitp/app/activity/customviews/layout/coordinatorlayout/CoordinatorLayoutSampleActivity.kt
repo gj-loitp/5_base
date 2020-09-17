@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorlayout
 
 import android.os.Bundle
+import com.annotation.LayoutId
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
@@ -8,6 +9,8 @@ import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
+
+@LayoutId(R.layout.activity_coordinator_layout_sample)
 class CoordinatorLayoutSampleActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +30,6 @@ class CoordinatorLayoutSampleActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_coordinator_layout_sample
     }
 
     companion object {

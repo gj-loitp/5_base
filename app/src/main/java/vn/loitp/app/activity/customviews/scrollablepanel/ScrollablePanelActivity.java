@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.scrollablepanel.LScrollablePanel;
 
@@ -17,6 +18,8 @@ import java.util.Random;
 import vn.loitp.app.R;
 
 //https://github.com/Kelin-Hong/ScrollablePanel?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5306
+
+@LayoutId(R.layout.activity_scrollable_panel)
 public class ScrollablePanelActivity extends BaseFontActivity {
     public static final SimpleDateFormat DAY_UI_MONTH_DAY_FORMAT = new SimpleDateFormat("MM-dd");
     public static final SimpleDateFormat WEEK_FORMAT = new SimpleDateFormat("EEE", Locale.US);
@@ -38,11 +41,6 @@ public class ScrollablePanelActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_scrollable_panel;
     }
 
     private void generateTestData(@NonNull final ScrollablePanelAdapter scrollablePanelAdapter) {

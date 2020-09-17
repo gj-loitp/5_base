@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.customviews.progressloadingview.window
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_progress_window.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_progress_window)
 class WindowProgressActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +35,4 @@ class WindowProgressActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_progress_window
-    }
 }

@@ -2,11 +2,13 @@ package vn.loitp.app.activity.function.glide
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil.Companion.loadNoAmin
 import kotlinx.android.synthetic.main.activity_func_glide.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_func_glide)
 class GlideActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +24,6 @@ class GlideActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_glide
     }
 
     private val urlLow = "https://c1.staticflickr.com/5/4740/39507376464_359b870746_z.jpg"

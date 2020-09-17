@@ -3,10 +3,12 @@ package vn.loitp.app.activity.customviews.textview.scoretext
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_text_view_score.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_text_view_score)
 class ScoreTextViewActivity : BaseFontActivity() {
     private val maxScore = 200
 
@@ -26,10 +28,6 @@ class ScoreTextViewActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_score
     }
 
     private var currentScore = 0

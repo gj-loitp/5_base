@@ -2,11 +2,13 @@ package vn.loitp.app.activity.function.hashmap
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_func_hashmap.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_func_hashmap)
 class HashMapActivity : BaseFontActivity(), View.OnClickListener {
     private val map: MutableMap<String, String> = HashMap()
     private var autoKey = 0
@@ -25,10 +27,6 @@ class HashMapActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_hashmap
     }
 
     override fun onClick(v: View) {

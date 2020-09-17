@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.actionbar.navigationview
 import android.graphics.Color
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.views.navigationview.LNavigationView
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_navigation_view.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_navigation_view)
 class NavigationViewActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -18,10 +20,6 @@ class NavigationViewActivity : BaseFontActivity() {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_navigation_view
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

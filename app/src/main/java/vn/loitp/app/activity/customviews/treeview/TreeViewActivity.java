@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.treeview.BaseTreeAdapter;
 import com.views.treeview.LTreeView;
@@ -14,6 +15,8 @@ import com.views.treeview.TreeNode;
 import vn.loitp.app.R;
 
 //https://github.com/Team-Blox/TreeView
+
+@LayoutId(R.layout.activity_tree_view)
 public class TreeViewActivity extends BaseFontActivity {
     private int nodeCount = 0;
 
@@ -62,11 +65,6 @@ public class TreeViewActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_tree_view;
     }
 
     private String getNodeText() {

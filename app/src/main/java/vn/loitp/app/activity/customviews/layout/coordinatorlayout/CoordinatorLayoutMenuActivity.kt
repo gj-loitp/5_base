@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -11,6 +12,8 @@ import kotlinx.android.synthetic.main.activity_menu_coordinator_layout.*
 import vn.loitp.app.R
 
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
+
+@LayoutId(R.layout.activity_menu_coordinator_layout)
 class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +32,6 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_coordinator_layout
     }
 
     override fun onClick(v: View) {

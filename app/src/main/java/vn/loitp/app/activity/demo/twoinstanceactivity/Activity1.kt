@@ -5,11 +5,13 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_1.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_1)
 class Activity1 : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +63,4 @@ class Activity1 : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_1
-    }
 }

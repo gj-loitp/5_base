@@ -3,6 +3,7 @@ package vn.loitp.app.activity.animation
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_animation.*
@@ -18,6 +19,7 @@ import vn.loitp.app.activity.animation.overscroll.OverScrollActivity
 import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity
 import vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity
 
+@LayoutId(R.layout.activity_menu_animation)
 class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,10 +43,6 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_animation
     }
 
     override fun onClick(v: View) {

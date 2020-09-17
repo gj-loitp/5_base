@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_remove_fav_list.*
@@ -8,6 +9,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.RemoveComicFavListTask
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 
+@LayoutId(R.layout.activity_api_ttt_remove_fav_list)
 class TTTAPIRemoveFavListActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,10 +45,6 @@ class TTTAPIRemoveFavListActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_ttt_remove_fav_list
     }
 
     private fun removeComic(comic: Comic) {

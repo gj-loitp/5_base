@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.edittext
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_edittext_menu.*
@@ -16,6 +17,7 @@ import vn.loitp.app.activity.customviews.edittext.ledittext.LEditTextActivity
 import vn.loitp.app.activity.customviews.edittext.materialtextfield.MaterialTextFieldActivity
 import vn.loitp.app.activity.customviews.edittext.textwatcher.EditTextTextWatcherActivity
 
+@LayoutId(R.layout.activity_edittext_menu)
 class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +38,6 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_edittext_menu
     }
 
     override fun onClick(v: View) {

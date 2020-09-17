@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.views.LToast.showShort
@@ -18,6 +19,7 @@ import com.views.scrollview.LScrollView
 import kotlinx.android.synthetic.main.activity_layout_scrollview_2d_advance.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_layout_scrollview_2d_advance)
 class ScrollView2DAdvanceActivity : BaseFontActivity() {
     companion object {
         private const val WIDTH_PX = 300
@@ -67,10 +69,6 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_scrollview_2d_advance
     }
 
     //TODO convert coroutine

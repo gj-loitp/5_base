@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId( R.layout.activity_view_pager_detect_swipe_out)
 class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
     private val vpPhotoList: MutableList<VPPhoto> = ArrayList()
 
@@ -54,11 +56,6 @@ class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
     override fun setTag(): String? {
         return javaClass.simpleName
     }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_detect_swipe_out
-    }
-
     private inner class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             val bundle = Bundle()

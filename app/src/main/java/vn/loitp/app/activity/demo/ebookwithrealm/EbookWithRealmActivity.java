@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LPrefUtil;
 import com.core.utilities.LUIUtil;
@@ -28,6 +29,8 @@ import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
+
+@LayoutId(R.layout.activity_ebook_with_realm)
 public class EbookWithRealmActivity extends BaseFontActivity {
     private BooksAdapter booksAdapter;
     private Realm realm;
@@ -70,11 +73,6 @@ public class EbookWithRealmActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_ebook_with_realm;
     }
 
     private void setRealmAdapter(RealmResults<Book> books) {

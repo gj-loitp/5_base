@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.FrameLayout;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseActivity;
 import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
@@ -11,6 +12,7 @@ import com.views.layout.floatdraglayout.FloatDragLayout;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_splash_v3)
 public class FloatDragWindowModeActivity extends BaseActivity {
     private FrameLayout containerWindows;
 
@@ -40,8 +42,4 @@ public class FloatDragWindowModeActivity extends BaseActivity {
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_splash_v3;
-    }
 }

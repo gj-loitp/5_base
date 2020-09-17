@@ -4,12 +4,14 @@ import android.graphics.Matrix;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_coordinator_layout)
 public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
 
     @Override
@@ -63,8 +65,4 @@ public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_coordinator_layout;
-    }
 }

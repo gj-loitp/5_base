@@ -7,6 +7,7 @@ import android.view.animation.OvershootInterpolator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
@@ -25,6 +26,7 @@ import java.util.List;
 import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
+@LayoutId(R.layout.activity_menu_firebase_simple)
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";
     private FirebaseDatabase mFirebaseInstance;
@@ -47,7 +49,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot == null || dataSnapshot.getValue() == null) {
-                    LLog.d(getTAG(), "onDataChange null => return");
+                    LLog.d(getLogTag(), "onDataChange null => return");
                     userList.clear();
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
@@ -63,7 +65,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                     }*/
                     userList.add(user);
                 }
-                LLog.d(getTAG(), "userList.size: " + userList.size());
+                LLog.d(getLogTag(), "userList.size: " + userList.size());
                 if (mAdapter != null) {
                     mAdapter.notifyDataSetChanged();
                 }
@@ -71,7 +73,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onCancelled(DatabaseError error) {
-                LLog.e(getTAG(), "Failed to read app title value " + error.toException());
+                LLog.e(getLogTag(), "Failed to read app title value " + error.toException());
             }
         });
     }
@@ -84,11 +86,6 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_menu_firebase_simple;
     }
 
     @Override

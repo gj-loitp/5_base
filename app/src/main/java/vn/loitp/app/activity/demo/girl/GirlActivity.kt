@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.demo.girl
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.FrmGirl
 import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_girl)
 class GirlActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -14,10 +16,6 @@ class GirlActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_girl
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

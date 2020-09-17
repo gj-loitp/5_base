@@ -4,12 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_button_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity
 import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImageClickActivity
@@ -19,6 +18,7 @@ import vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity
 import vn.loitp.app.activity.customviews.button.roundedbutton.RoundedButtonActivity
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity
 
+@LayoutId(R.layout.activity_button_menu)
 class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,10 +41,6 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_button_menu
     }
 
     override fun onClick(v: View) {

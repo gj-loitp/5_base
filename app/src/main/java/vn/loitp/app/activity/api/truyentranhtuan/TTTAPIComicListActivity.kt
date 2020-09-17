@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
@@ -13,6 +14,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist.GetComicTask
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType
 
+@LayoutId(R.layout.activity_api_ttt_comic_list)
 class TTTAPIComicListActivity : BaseFontActivity() {
     private var comicTypeList = ArrayList<ComicType>()
 
@@ -33,10 +35,6 @@ class TTTAPIComicListActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_ttt_comic_list
     }
 
     private fun showDialogSelect() {

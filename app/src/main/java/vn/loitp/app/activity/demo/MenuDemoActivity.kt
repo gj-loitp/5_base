@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.GalleryCoreSplashActivity
@@ -31,6 +32,7 @@ import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
 import vn.loitp.app.activity.demo.video.VideoActivity
 import java.util.*
 
+@LayoutId(R.layout.activity_demo_menu)
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,10 +82,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_menu
     }
 
     override fun onClick(v: View) {

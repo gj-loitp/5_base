@@ -1,9 +1,10 @@
 package vn.loitp.app.activity.customviews.layout.expansionpanel
 
-import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_expansion_panel_sample_main)
 class ExpansionPanelSampleActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -14,12 +15,4 @@ class ExpansionPanelSampleActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_expansion_panel_sample_main
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 }

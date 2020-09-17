@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.nex3z.togglebuttongroup.button.LabelToggle
 import kotlinx.android.synthetic.main.activity_switch_tbg_flow_label.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_switch_tbg_flow_label)
 class TBGFlowLabelActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
@@ -13,10 +15,6 @@ class TBGFlowLabelActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_switch_tbg_flow_label
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

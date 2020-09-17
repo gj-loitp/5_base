@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.imageview.kenburnview
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LImageUtil
@@ -12,6 +13,8 @@ import kotlinx.android.synthetic.main.activity_imageview_kenburn_view.*
 import vn.loitp.app.R
 
 //https://github.com/flavioarfaria/KenBurnsView
+
+@LayoutId(R.layout.activity_imageview_kenburn_view)
 class KenburnViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +49,4 @@ class KenburnViewActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_kenburn_view
-    }
 }

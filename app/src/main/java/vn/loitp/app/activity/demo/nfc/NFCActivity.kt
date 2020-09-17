@@ -9,6 +9,7 @@ import android.nfc.Tag
 import android.nfc.tech.*
 import android.os.Bundle
 import android.provider.Settings
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDateUtil
@@ -24,6 +25,7 @@ import java.nio.charset.Charset
 import java.util.*
 import kotlin.experimental.and
 
+@LayoutId(R.layout.activity_demo_nfc)
 class NFCActivity : BaseFontActivity() {
     private val tags: ArrayList<TagWrapper> = ArrayList()
 
@@ -36,10 +38,6 @@ class NFCActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_nfc
     }
 
     @SuppressLint("SetTextI18n")

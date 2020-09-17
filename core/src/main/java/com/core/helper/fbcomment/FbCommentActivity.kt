@@ -37,6 +37,7 @@ class FbCommentActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_fb_cmt_core)
 
         setupActionBar()
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
@@ -97,10 +98,6 @@ class FbCommentActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_fb_cmt_core
     }
 
     @SuppressLint("SetJavaScriptEnabled")

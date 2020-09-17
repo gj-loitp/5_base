@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import io.reactivex.Single
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
 import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 
+@LayoutId( R.layout.activity_sqlite_encryption)
 class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private lateinit var db: BikeDatabase
 
@@ -41,10 +43,6 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return "TAG" + javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sqlite_encryption
     }
 
     override fun onClick(v: View) {

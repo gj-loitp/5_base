@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.github.florent37.expansionpanel.ExpansionHeader
 import com.github.florent37.expansionpanel.ExpansionLayout
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_expansion_panel_sample_programmat
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.expansionpanel.Utils.dpToPx
 
+@LayoutId(R.layout.activity_expansion_panel_sample_programmatically)
 class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -26,10 +28,6 @@ class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_expansion_panel_sample_programmatically
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

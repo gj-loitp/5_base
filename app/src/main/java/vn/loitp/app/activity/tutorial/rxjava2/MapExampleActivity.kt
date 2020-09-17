@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import io.reactivex.Observable
 import io.reactivex.ObservableEmitter
@@ -16,6 +17,7 @@ import vn.loitp.app.activity.tutorial.rxjava2.util.RxJavaUtils.Companion.apiUser
 import vn.loitp.app.activity.tutorial.rxjava2.util.RxJavaUtils.Companion.convertApiUserListToUserList
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+@LayoutId(R.layout.activity_rxjava2_flowable)
 class MapExampleActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +82,4 @@ class MapExampleActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_rxjava2_flowable
-    }
 }

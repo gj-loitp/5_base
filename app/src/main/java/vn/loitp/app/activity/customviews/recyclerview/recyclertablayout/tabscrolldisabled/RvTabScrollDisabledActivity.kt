@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_demo_tab_scroll_disabled.*
@@ -13,6 +14,7 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData
 import java.util.*
 
+@LayoutId(R.layout.activity_recycler_tablayout_demo_tab_scroll_disabled)
 class RvTabScrollDisabledActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,10 +50,6 @@ class RvTabScrollDisabledActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout_demo_tab_scroll_disabled
     }
 
     companion object {

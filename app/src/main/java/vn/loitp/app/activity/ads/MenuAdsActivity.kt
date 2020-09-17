@@ -3,6 +3,7 @@ package vn.loitp.app.activity.ads
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.helper.admobrewardedvideo.AdmobRewardedVideoActivity
 import com.core.utilities.LActivityUtil
@@ -10,6 +11,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity
 
+@LayoutId(R.layout.activity_menu_ads)
 class MenuAdsActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +44,5 @@ class MenuAdsActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu_ads
-    }
 }
 

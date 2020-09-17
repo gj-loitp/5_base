@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.architecturecomponent
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_demo_architecture_component_menu.*
@@ -11,6 +12,7 @@ import vn.loitp.app.activity.demo.architecturecomponent.coroutine.CoroutineActiv
 import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
 import vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity
 
+@LayoutId(R.layout.activity_demo_architecture_component_menu)
 class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +29,6 @@ class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClic
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_architecture_component_menu
     }
 
     override fun onClick(v: View) {

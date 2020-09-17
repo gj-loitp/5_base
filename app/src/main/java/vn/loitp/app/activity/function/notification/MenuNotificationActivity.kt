@@ -14,6 +14,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import androidx.core.app.NotificationCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LNotification
 import com.function.notification.Notti
@@ -28,6 +29,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.SplashActivity
 import java.util.*
 
+@LayoutId(R.layout.activity_notification_menu)
 class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
     companion object {
         val KEY_NOTI_DATA_INTENT = "KEY_NOTI_DATA_INTENT"
@@ -103,10 +105,6 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_notification_menu
     }
 
     override fun onClick(v: View) {

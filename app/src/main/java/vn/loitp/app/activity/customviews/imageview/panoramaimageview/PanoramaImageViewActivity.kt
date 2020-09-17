@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.imageview.panoramaimageview
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.imageview.panorama.GyroscopeObserver
 import com.views.imageview.panorama.LPanoramaImageView
@@ -8,6 +9,8 @@ import kotlinx.android.synthetic.main.activity_imageview_panorama.*
 import vn.loitp.app.R
 
 //https://github.com/gjiazhe/PanoramaImageView
+
+@LayoutId(R.layout.activity_imageview_panorama)
 class PanoramaImageViewActivity : BaseFontActivity() {
     private var gyroscopeObserver: GyroscopeObserver? = null
 
@@ -17,10 +20,6 @@ class PanoramaImageViewActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_imageview_panorama
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

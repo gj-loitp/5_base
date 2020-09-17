@@ -3,12 +3,15 @@ package vn.loitp.app.activity.customviews.button.goodview
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.button.goodview.LGoodView
 import kotlinx.android.synthetic.main.activity_button_goodview.*
 import vn.loitp.app.R
 
 //https://github.com/venshine/GoodView
+
+@LayoutId(R.layout.activity_button_goodview)
 class GoodViewActivity : BaseFontActivity() {
     private var lGoodView: LGoodView? = null
 
@@ -18,10 +21,6 @@ class GoodViewActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_button_goodview
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

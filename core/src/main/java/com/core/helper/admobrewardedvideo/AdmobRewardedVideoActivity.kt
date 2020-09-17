@@ -25,6 +25,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_admob_rewarded_video)
 
         textView.setText(R.string.loading)
         LUIUtil.setTextShadow(textView)
@@ -63,10 +64,6 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_admob_rewarded_video
     }
 
     private fun loadRewardedVideoAd() {

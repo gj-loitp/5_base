@@ -3,6 +3,7 @@ package vn.loitp.app.activity.pattern
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_pattern_menu.*
@@ -11,6 +12,7 @@ import vn.loitp.app.activity.pattern.mvp.MVPActivity
 import vn.loitp.app.activity.pattern.mvvm.MVVMActivity
 import vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity
 
+@LayoutId(R.layout.activity_pattern_menu)
 class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +29,6 @@ class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_pattern_menu
     }
 
     override fun onClick(v: View) {

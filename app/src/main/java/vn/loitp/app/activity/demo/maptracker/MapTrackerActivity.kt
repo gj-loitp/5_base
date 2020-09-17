@@ -15,6 +15,7 @@ import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LMathUtil
@@ -42,6 +43,7 @@ import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
 
+@LayoutId(R.layout.activity_map_tracker)
 class MapTrackerActivity : BaseFontActivity(),
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -65,11 +67,7 @@ class MapTrackerActivity : BaseFontActivity(),
     private var isShowDialogCheck = false
 
     override fun setTag(): String? {
-        return "loitpp" + javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_map_tracker
+        return javaClass.simpleName
     }
 
     override fun setFullScreen(): Boolean {

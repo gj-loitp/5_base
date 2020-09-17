@@ -11,11 +11,13 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_animation_scene_transition_basic)
 class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +33,6 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_scene_transition_basic
     }
 
     override fun onItemClick(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.scratchview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_scratchview_menu.*
@@ -10,6 +11,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchViewImageActivity
 import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity
 
+@LayoutId(R.layout.activity_scratchview_menu)
 class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +26,6 @@ class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_scratchview_menu
     }
 
     override fun onClick(v: View) {

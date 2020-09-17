@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
@@ -17,6 +18,8 @@ import kotlin.system.measureTimeMillis
 //https://viblo.asia/p/cung-hoc-kotlin-coroutine-phan-6-coroutine-scope-aWj536n8l6m
 
 //https://medium.com/androiddevelopers/coroutines-on-android-part-ii-getting-started-3bff117176dd
+
+@LayoutId(R.layout.activity_demo_coroutine)
 class CoroutineActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
@@ -25,10 +28,6 @@ class CoroutineActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_coroutine
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

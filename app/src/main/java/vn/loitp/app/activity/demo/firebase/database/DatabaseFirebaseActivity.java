@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.annotation.LayoutId;
 import com.core.utilities.LActivityUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +21,8 @@ import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseMyT
 import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseRecentPostsFragmentDatabaseFirebase;
 
 //https://github.com/firebase/quickstart-android
+
+@LayoutId(R.layout.activity_database_firebase)
 public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
@@ -79,11 +82,6 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_database_firebase;
     }
 
     @Override

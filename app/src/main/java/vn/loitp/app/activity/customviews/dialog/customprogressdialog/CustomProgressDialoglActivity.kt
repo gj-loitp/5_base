@@ -1,12 +1,14 @@
 package vn.loitp.app.activity.customviews.dialog.customprogressdialog
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_dialog_custom_progress.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_dialog_custom_progress)
 class CustomProgressDialoglActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +30,4 @@ class CustomProgressDialoglActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dialog_custom_progress
-    }
 }

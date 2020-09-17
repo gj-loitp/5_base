@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import io.reactivex.Single
 import io.reactivex.SingleObserver
@@ -15,6 +16,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
 import java.util.*
 
+@LayoutId(R.layout.activity_asynctask_rx)
 class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
     private var taskTest1: TaskTest1? = null
     private var disposable: Disposable? = null
@@ -35,10 +37,6 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_asynctask_rx
     }
 
     override fun onClick(view: View) {

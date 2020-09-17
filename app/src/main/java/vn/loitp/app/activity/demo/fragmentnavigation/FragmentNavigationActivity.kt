@@ -4,11 +4,13 @@ import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.google.android.material.navigation.NavigationView
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_fragment_navigation)
 class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     val T = "FragmentNavigationActivity"
@@ -22,10 +24,6 @@ class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigati
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_fragment_navigation
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {

@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_database_room2.*
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.model.FloorPlan
 import vn.loitp.app.app.LApplication
 
+@LayoutId(R.layout.activity_database_room2)
 class RoomActivity : BaseFontActivity() {
     private var floorPlanAdapter: FloorPlanAdapter? = null
     private var homeViewModel: HomeViewModel? = null
@@ -28,11 +30,7 @@ class RoomActivity : BaseFontActivity() {
     }
 
     override fun setTag(): String? {
-        return "loitpp" + javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_database_room2
+        return javaClass.simpleName
     }
 
     private fun setupView() {

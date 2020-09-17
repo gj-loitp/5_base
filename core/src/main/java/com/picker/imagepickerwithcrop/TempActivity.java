@@ -16,6 +16,7 @@ public class TempActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(0);
         this.pickerManager = GlobalHolder.getInstance().getPickerManager();
         this.pickerManager.setActivity(getActivity());
         this.pickerManager.pickPhotoWithPermission();
@@ -29,11 +30,6 @@ public class TempActivity extends BaseFontActivity {
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return 0;
     }
 
     @Override
@@ -66,7 +62,7 @@ public class TempActivity extends BaseFontActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == PickerManager.REQUEST_CODE_IMAGE_PERMISSION) {
             pickerManager.handlePermissionResult(grantResults);
         } else {

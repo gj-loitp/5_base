@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.ldebugview.LComunicateDebug;
 import com.views.ldebugview.LDebug;
@@ -13,6 +14,7 @@ import com.views.ldebugview.LDebug;
 import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
+@LayoutId(R.layout.activity_l_debugview)
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;
     private Button btStop;
@@ -52,11 +54,6 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_l_debugview;
     }
 
     @Override

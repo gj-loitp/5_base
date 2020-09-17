@@ -1,17 +1,11 @@
 package vn.loitp.app.activity.customviews.layout.ripplelayout
 
-import android.os.Bundle
-
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
-
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_layout_ripple)
 class RippleLayoutActivity : BaseFontActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun setFullScreen(): Boolean {
         return false
@@ -21,7 +15,4 @@ class RippleLayoutActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_ripple
-    }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
@@ -16,6 +17,7 @@ import com.views.layout.floatdraglayout.FloatDragPopupWindow;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_float_drag_layout)
 public class FloatDragLayoutActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
@@ -49,11 +51,6 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
     @Override
     protected String setTag() {
         return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_float_drag_layout;
     }
 
     @Override

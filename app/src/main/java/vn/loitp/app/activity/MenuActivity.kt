@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.adhelper.AdHelperActivity
@@ -29,6 +30,7 @@ import vn.loitp.app.activity.service.MenuServiceActivity
 import vn.loitp.app.activity.tutorial.MenuTutorialActivity
 import vn.loitp.app.activity.utils.UtilsActivity
 
+@LayoutId(R.layout.activity_menu)
 class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,10 +73,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setTag(): String {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_menu
     }
 
     private var doubleBackToExitPressedOnce = false

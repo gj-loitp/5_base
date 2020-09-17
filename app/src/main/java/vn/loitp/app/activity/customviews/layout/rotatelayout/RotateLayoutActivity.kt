@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.layout.rotatelayout
 
 import android.os.Bundle
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDeviceUtil
 import kotlinx.android.synthetic.main.activity_layout_rotate.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_layout_rotate)
 class RotateLayoutActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +27,4 @@ class RotateLayoutActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_rotate
-    }
 }

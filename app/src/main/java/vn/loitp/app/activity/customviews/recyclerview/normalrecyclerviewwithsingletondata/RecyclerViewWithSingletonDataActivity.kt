@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsin
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.*
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesA
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
+@LayoutId(R.layout.activity_recycler_view)
 class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
 
     private var mAdapter: MoviesAdapter? = null
@@ -89,10 +91,6 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view
     }
 
     private fun prepareMovieData() {

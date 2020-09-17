@@ -4,12 +4,14 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.FragmentManager
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.base.BaseFragment
 import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_demo_fragment_flow.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_demo_fragment_flow)
 class FragmentFlowActivity : BaseFontActivity() {
 
     var onBackClickListener: OnBackClickListener? = null
@@ -43,10 +45,6 @@ class FragmentFlowActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_fragment_flow
     }
 
     override fun onBackPressed() {

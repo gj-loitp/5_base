@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.core.app.NotificationCompat;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
@@ -29,6 +30,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
+@LayoutId(R.layout.activity_alarm_notification)
 public class AlarmNotification extends BaseFontActivity {
     private Ringtone mRingtone;
     private Vibrator mVibrator;
@@ -66,7 +68,7 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LLog.d(getTAG(), "AlarmNotification.onDestroy()");
+        LLog.d(getLogTag(), "AlarmNotification.onDestroy()");
 
         stop();
     }
@@ -74,7 +76,7 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        LLog.d(getTAG(), "AlarmNotification.onNewIntent()");
+        LLog.d(getLogTag(), "AlarmNotification.onNewIntent()");
 
         addNotification(mAlarm);
 
@@ -86,7 +88,7 @@ public class AlarmNotification extends BaseFontActivity {
         mAlarm = new Alarm(this);
         mAlarm.fromIntent(intent);
 
-        LLog.d(getTAG(), "AlarmNotification.start('" + mAlarm.getTitle() + "')");
+        LLog.d(getLogTag(), "AlarmNotification.start('" + mAlarm.getTitle() + "')");
 
         mTextView.setText(mAlarm.getTitle());
 
@@ -99,7 +101,7 @@ public class AlarmNotification extends BaseFontActivity {
     }
 
     private void stop() {
-        LLog.d(getTAG(), "AlarmNotification.stop()");
+        LLog.d(getLogTag(), "AlarmNotification.stop()");
 
         mTimer.cancel();
         mRingtone.stop();
@@ -126,7 +128,7 @@ public class AlarmNotification extends BaseFontActivity {
         PendingIntent activity;
         Intent intent;
 
-        LLog.d(getTAG(), "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
+        LLog.d(getLogTag(), "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
 
         intent = new Intent(this.getApplicationContext(), AlarmMeActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
@@ -155,7 +157,7 @@ public class AlarmNotification extends BaseFontActivity {
     private class PlayTimerTask extends TimerTask {
         @Override
         public void run() {
-            LLog.d(getTAG(), "AlarmNotification.PalyTimerTask.run()");
+            LLog.d(getLogTag(), "AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
             LActivityUtil.tranIn(getActivity());
@@ -172,9 +174,5 @@ public class AlarmNotification extends BaseFontActivity {
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_alarm_notification;
-    }
 }
 

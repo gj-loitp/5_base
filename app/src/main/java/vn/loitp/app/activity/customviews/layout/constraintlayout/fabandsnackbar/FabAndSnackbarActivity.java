@@ -5,11 +5,13 @@ import android.widget.Button;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_fab_and_snackbar)
 public class FabAndSnackbarActivity extends BaseFontActivity {
     private Button mShowSnackbarButton;
     private CoordinatorLayout mCoordinatorLayout;
@@ -37,8 +39,4 @@ public class FabAndSnackbarActivity extends BaseFontActivity {
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_fab_and_snackbar;
-    }
 }

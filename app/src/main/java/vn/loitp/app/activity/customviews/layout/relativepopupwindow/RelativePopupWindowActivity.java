@@ -7,11 +7,13 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_relative_popup_window_layout)
 public class RelativePopupWindowActivity extends BaseFontActivity {
 
     @Override
@@ -138,8 +140,4 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_relative_popup_window_layout;
-    }
 }

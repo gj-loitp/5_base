@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
@@ -20,6 +21,7 @@ import vn.loitp.app.R
 import java.util.*
 
 //https://github.com/geftimov/android-viewpager-transformers
+@LayoutId(R.layout.activity_viewpager_with_tablayout)
 class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
     private val resList: MutableList<Int> = ArrayList()
 
@@ -113,10 +115,6 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_viewpager_with_tablayout
     }
 
     private inner class SlidePagerAdapter : PagerAdapter() {

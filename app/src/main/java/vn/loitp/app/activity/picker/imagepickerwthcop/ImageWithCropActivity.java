@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import androidx.core.content.ContextCompat;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LDialogUtil;
 import com.core.utilities.LLog;
@@ -27,6 +28,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_image_picker_with_crop)
 public class ImageWithCropActivity extends BaseFontActivity {
     private ImageView imageView;
     private boolean isShowDialogCheck;
@@ -82,11 +84,6 @@ public class ImageWithCropActivity extends BaseFontActivity {
         return getClass().getSimpleName();
     }
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_image_picker_with_crop;
-    }
-
     private void checkPermission() {
         isShowDialogCheck = true;
         Dexter.withActivity(this)
@@ -98,15 +95,15 @@ public class ImageWithCropActivity extends BaseFontActivity {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(getTAG(), "onPermissionsChecked do you work now");
+                            LLog.d(getLogTag(), "onPermissionsChecked do you work now");
                         } else {
-                            LLog.d(getTAG(), "!areAllPermissionsGranted");
+                            LLog.d(getLogTag(), "!areAllPermissionsGranted");
                             showShouldAcceptPermission();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.d(getTAG(), "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            LLog.d(getLogTag(), "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
                             showSettingsDialog();
                         }
                         isShowDialogCheck = true;
@@ -114,7 +111,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.d(getTAG(), "onPermissionRationaleShouldBeShown");
+                        LLog.d(getLogTag(), "onPermissionRationaleShouldBeShown");
                         token.continuePermissionRequest();
                     }
                 })

@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.sticker
 
 import android.os.Bundle
+import com.annotation.LayoutId
 
 import com.core.base.BaseFontActivity
 import com.views.sticker.StickerImageView
@@ -9,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_sticker.*
 
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_sticker)
 class StickerActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +37,4 @@ class StickerActivity : BaseFontActivity() {
         return javaClass.simpleName
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sticker
-    }
 }

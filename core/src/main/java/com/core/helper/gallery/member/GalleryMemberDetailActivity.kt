@@ -19,6 +19,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_member_detail)
 
         LUIUtil.setTextShadow(textView = tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
@@ -45,10 +46,6 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_member_detail
     }
 
     private fun loadItem(photo: Photo) {

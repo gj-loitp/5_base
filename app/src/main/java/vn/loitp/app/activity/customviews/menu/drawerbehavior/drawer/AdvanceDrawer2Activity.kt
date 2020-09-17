@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.annotation.LayoutId
 import com.core.base.BaseFontActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_drawer_behavior_advance2.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_drawer_behavior_advance2)
 class AdvanceDrawer2Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun setFullScreen(): Boolean {
@@ -21,10 +23,6 @@ class AdvanceDrawer2Activity : BaseFontActivity(), NavigationView.OnNavigationIt
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_drawer_behavior_advance2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
