@@ -13,6 +13,7 @@ import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
@@ -30,6 +31,7 @@ import java.text.DateFormat
 import java.util.*
 
 @LayoutId(R.layout.activity_func_location)
+@LogTag("LocationActivity")
 class LocationActivity : BaseFontActivity() {
 
     companion object {
@@ -78,10 +80,6 @@ class LocationActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun init() {

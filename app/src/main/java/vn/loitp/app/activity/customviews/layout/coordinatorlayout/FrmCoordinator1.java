@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.views.LToast;
@@ -14,6 +15,7 @@ import com.views.LToast;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.frm_coordinator_1)
+@LogTag("RelativePopupWindowActivity")
 public class FrmCoordinator1 extends BaseFragment {
 
     @Override
@@ -53,9 +55,4 @@ public class FrmCoordinator1 extends BaseFragment {
         });
     }
 
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
 }

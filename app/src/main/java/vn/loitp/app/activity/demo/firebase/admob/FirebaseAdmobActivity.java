@@ -9,6 +9,7 @@ import android.widget.Button;
 import androidx.annotation.VisibleForTesting;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -18,6 +19,7 @@ import com.google.android.gms.ads.InterstitialAd;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_firebase_admob)
+@LogTag("FirebaseAdmobActivity")
 public class FirebaseAdmobActivity extends BaseFontActivity {
     private AdView mAdView;
     // [START_EXCLUDE]
@@ -92,11 +94,6 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     /**

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
@@ -20,6 +21,7 @@ import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Ne
 //https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial
 
 @LayoutId(R.layout.activity_recycler_view_merge_adapter)
+@LogTag("MergeAdapterActivity")
 class MergeAdapterActivity : BaseFontActivity() {
     private var mergeAdapter: MergeAdapter? = null
     private var aboutMeAdapter: AboutMeAdapter? = null
@@ -35,10 +37,6 @@ class MergeAdapterActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     private fun setupDataInRecyclerView() {

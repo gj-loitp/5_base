@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.views.viewpager.swipeout.LSwipeOutViewPager.OnSwipeOutListener
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv.Companion.newInstance
 
 @LayoutId(R.layout.activity_view_pager_swipe_out_2)
+@LogTag("ViewPagerSwipeOut2Activity")
 class ViewPagerSwipeOut2Activity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +37,6 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

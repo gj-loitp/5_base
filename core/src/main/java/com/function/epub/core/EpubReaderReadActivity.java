@@ -27,6 +27,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.R;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.utilities.LAnimationUtil;
@@ -50,6 +51,7 @@ import com.utils.util.ConvertUtils;
 import com.views.LToast;
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer;
 
+@LogTag("EpubReaderReadActivity")
 public class EpubReaderReadActivity extends BaseFontActivity implements PageFragment.OnFragmentReadyListener {
     private Reader reader = new Reader();
     private boolean isSkippedToPage = false;
@@ -336,11 +338,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     @Override
     protected boolean setFullScreen() {
         return true;
-    }
-
-    @Override
-    protected String setTag() {
-        return "TAG" + getClass().getSimpleName();
     }
 
     /*@Override

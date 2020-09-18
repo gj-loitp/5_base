@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -18,13 +19,10 @@ import vn.loitp.app.R
 import java.util.*
 
 @LayoutId(R.layout.activity_drawer_behavior_advance6)
+@LogTag("AdvanceDrawer6Activity")
 class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

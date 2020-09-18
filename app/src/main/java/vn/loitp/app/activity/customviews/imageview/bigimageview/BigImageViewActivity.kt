@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview
 import android.net.Uri
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
@@ -14,6 +15,7 @@ import java.io.File
 //https://github.com/Piasy/BigImageViewer
 
 @LayoutId(R.layout.activity_imageview_big)
+@LogTag("BigImageViewActivity")
 class BigImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,9 +64,4 @@ class BigImageViewActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
     }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
 }

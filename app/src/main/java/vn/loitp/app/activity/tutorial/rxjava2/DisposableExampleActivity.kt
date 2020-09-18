@@ -3,6 +3,7 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.os.Bundle
 import android.os.SystemClock
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 //https://www.vogella.com/tutorials/RxJava/article.html
 
 @LayoutId(R.layout.activity_rx_java2_disposable)
+@LogTag("DisposableExampleActivity")
 class DisposableExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,10 +59,6 @@ class DisposableExampleActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun sampleObservable(): Observable<String> {

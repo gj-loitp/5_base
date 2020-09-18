@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 //http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 
 @LayoutId(R.layout.activity_menu_coordinator_layout)
+@LogTag("CoordinatorLayoutMenuActivity")
 class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +30,6 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.demo.gallerycorealbumfrm
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyFrm
@@ -9,6 +10,7 @@ import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_gallery_core_album_frm)
+@LogTag("GalleryCoreAlbumFrmActivity")
 class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,10 +25,6 @@ class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

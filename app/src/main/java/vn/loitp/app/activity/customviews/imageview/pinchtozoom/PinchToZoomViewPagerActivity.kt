@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_imageview_pinch_to_zoom_vp.*
@@ -13,6 +14,7 @@ import vn.loitp.app.common.Constants
 import java.util.*
 
 @LayoutId(R.layout.activity_imageview_pinch_to_zoom_vp)
+@LogTag("PinchToZoomViewPagerActivity")
 class PinchToZoomViewPagerActivity : BaseFontActivity() {
     private val list = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,10 +33,6 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

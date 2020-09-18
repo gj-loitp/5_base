@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.LinearLayout;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.answerview.LAnswerView;
@@ -11,6 +12,7 @@ import com.views.answerview.LAnswerView;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_answer_view)
+@LogTag("AnswerViewActivity")
 public class AnswerViewActivity extends BaseFontActivity {
 
     @Override
@@ -50,8 +52,4 @@ public class AnswerViewActivity extends BaseFontActivity {
         return false;
     }
 
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
 }

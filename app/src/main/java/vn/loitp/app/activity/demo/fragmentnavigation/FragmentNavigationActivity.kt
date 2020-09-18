@@ -5,12 +5,14 @@ import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LLog
 import com.google.android.material.navigation.NavigationView
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_fragment_navigation)
+@LogTag("FragmentNavigationActivity")
 class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     val T = "FragmentNavigationActivity"
@@ -20,10 +22,6 @@ class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigati
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LReaderUtil
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_epub_reader)
+@LogTag("EpubReaderMenuActivity")
 class EpubReaderMenuActivity : BaseFontActivity() {
     private var getListBookFromDeviceAndAssetTask: GetListBookFromDeviceAndAssetTask? = null
     private var getListBookAllAssetTask: GetListBookAllAssetTask? = null
@@ -96,10 +98,6 @@ class EpubReaderMenuActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

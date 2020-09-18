@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_bottom_bar_blur.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_bottom_bar_blur)
+@LogTag("BottomBarActivity")
 class BottomBarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,10 +54,6 @@ class BottomBarActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
 }

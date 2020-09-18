@@ -10,6 +10,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
 import com.core.utilities.LScreenUtil
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_editext_l_edit_text.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_editext_l_edit_text)
+@LogTag("LEditTextActivity")
 class LEditTextActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -136,10 +138,6 @@ class LEditTextActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
 }

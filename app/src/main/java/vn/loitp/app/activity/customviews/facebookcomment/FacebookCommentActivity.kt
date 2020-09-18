@@ -2,12 +2,14 @@ package vn.loitp.app.activity.customviews.facebookcomment
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
 import kotlinx.android.synthetic.main.activity_fb_cmt.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_fb_cmt)
+@LogTag("FacebookCommentActivity")
 class FacebookCommentActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +22,6 @@ class FacebookCommentActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

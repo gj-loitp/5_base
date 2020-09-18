@@ -6,10 +6,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
 import static com.yalantis.ucrop.UCrop.REQUEST_CROP;
 
+@LogTag("TempActivity")
 public class TempActivity extends BaseFontActivity {
     private PickerManager pickerManager;
 
@@ -25,11 +27,6 @@ public class TempActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

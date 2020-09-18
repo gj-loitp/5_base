@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.utilities.LLog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +25,7 @@ import vn.loitp.app.activity.demo.firebase.database.models.User;
 import vn.loitp.app.app.LApplication;
 
 @LayoutId(R.layout.activity_new_post)
+@LogTag("DatabaseFirebaseNewPostActivity")
 public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     private static final String REQUIRED = "Required";
 
@@ -144,11 +146,6 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
 }

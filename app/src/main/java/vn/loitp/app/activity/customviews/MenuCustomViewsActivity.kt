@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_custom_view_menu.*
@@ -42,6 +43,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
 
 @LayoutId(R.layout.activity_custom_view_menu)
+@LogTag("MenuCustomViewsActivity")
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,10 +83,6 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

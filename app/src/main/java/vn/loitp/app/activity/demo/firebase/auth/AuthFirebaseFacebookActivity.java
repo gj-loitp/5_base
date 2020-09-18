@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
@@ -40,6 +41,7 @@ import vn.loitp.app.app.LApplication;
 //https://github.com/firebase/quickstart-android
 
 @LayoutId(R.layout.activity_auth_firebase_facebook)
+@LogTag("AuthFirebaseFacebookActivity")
 public class AuthFirebaseFacebookActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView mStatusTextView;
     private TextView mDetailTextView;
@@ -99,11 +101,6 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

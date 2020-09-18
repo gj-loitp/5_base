@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.OrientationEventListener
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 import vn.loitp.app.common.Constants.Companion.URL_IMG
 
 @LayoutId(R.layout.activity_func_sensor)
+@LogTag("SensorActivity")
 class SensorActivity : BaseFontActivity() {
     private var orientationListener: OrientationListener? = null
 
@@ -28,10 +30,6 @@ class SensorActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun setSizeRelativeLayout(view: View, w: Int, h: Int) {

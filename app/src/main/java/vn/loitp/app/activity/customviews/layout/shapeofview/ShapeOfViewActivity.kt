@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.shapeofview
 import android.animation.ValueAnimator
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LImageUtil
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 //https://github.com/florent37/ShapeOfView
 
 @LayoutId(R.layout.activity_layout_shape_of_view)
+@LogTag("ShapeOfViewActivity")
 class ShapeOfViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +37,6 @@ class ShapeOfViewActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
 }

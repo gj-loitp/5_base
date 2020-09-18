@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.Callback1
@@ -28,6 +29,7 @@ import vn.loitp.app.app.LApplication
 import java.io.IOException
 
 @LayoutId(R.layout.activity_splash)
+@LogTag("SplashActivity")
 class SplashActivity : BaseFontActivity() {
     private var isAnimDone = false
     private var isCheckReadyDone = false
@@ -199,10 +201,6 @@ class SplashActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     private fun showSettingsDialog() {

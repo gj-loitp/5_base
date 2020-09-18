@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.button.autosizebutton
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LScreenUtil
@@ -10,13 +11,10 @@ import kotlinx.android.synthetic.main.activity_button_autosize.*
 import vn.loitp.app.R
 
 @LayoutId( R.layout.activity_button_autosize)
+@LogTag("AutoSizeButtonActivity")
 class AutoSizeButtonActivity : BaseFontActivity(), View.OnClickListener {
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

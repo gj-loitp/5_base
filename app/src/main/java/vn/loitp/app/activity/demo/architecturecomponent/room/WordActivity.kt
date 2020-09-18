@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_database_room_work.*
@@ -18,6 +19,7 @@ import vn.loitp.app.app.LApplication
 //https://codinginfinite.com/android-room-persistence-livedata-example/
 
 @LayoutId(R.layout.activity_demo_database_room_work)
+@LogTag("WordActivity")
 class WordActivity : BaseFontActivity() {
     private var wordViewModel: WordViewModel? = null
     private var wordListAdapter: WordListAdapter? = null
@@ -30,10 +32,6 @@ class WordActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun setupViews() {

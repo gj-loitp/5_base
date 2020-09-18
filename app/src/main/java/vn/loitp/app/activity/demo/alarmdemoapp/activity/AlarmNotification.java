@@ -19,6 +19,7 @@ import android.widget.TextView;
 import androidx.core.app.NotificationCompat;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
@@ -31,6 +32,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
 @LayoutId(R.layout.activity_alarm_notification)
+@LogTag("AlarmNotification")
 public class AlarmNotification extends BaseFontActivity {
     private Ringtone mRingtone;
     private Vibrator mVibrator;
@@ -168,11 +170,5 @@ public class AlarmNotification extends BaseFontActivity {
     protected boolean setFullScreen() {
         return false;
     }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
 }
 

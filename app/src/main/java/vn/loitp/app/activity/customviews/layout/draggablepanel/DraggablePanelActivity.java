@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.views.layout.draggablepanel.DraggableListener;
@@ -12,6 +13,7 @@ import com.views.layout.draggablepanel.DraggablePanel;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_draggable_panel)
+@LogTag("DraggablePanelActivity")
 public class DraggablePanelActivity extends BaseFontActivity {
     private DraggablePanel draggablePanel;
 
@@ -47,11 +49,6 @@ public class DraggablePanelActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private void initializeDraggablePanel() throws Resources.NotFoundException {

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.LToast;
 
@@ -20,6 +21,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
  */
 
 @LayoutId(R.layout.wwl_video_player_fragment)
+@LogTag("DatabaseFirebaseSignInActivity")
 public class WWLVideoPlayerFragment extends BaseFragment {
     private String mUrl;
     private FragmentHost mFragmentHost;
@@ -76,12 +78,6 @@ public class WWLVideoPlayerFragment extends BaseFragment {
         /*if (this.mPlayerWWLVideoControlsOverlay != null) {
             this.mPlayerWWLVideoControlsOverlay.toggleControls();
         }*/
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     /*@Override

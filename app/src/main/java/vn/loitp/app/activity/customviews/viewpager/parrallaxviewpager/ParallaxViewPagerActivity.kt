@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.views.viewpager.parrallax.ParrallaxMode
@@ -16,6 +17,7 @@ import vn.loitp.app.R
 import java.util.*
 
 @LayoutId(R.layout.activity_viewpager_parallax)
+@LogTag("ParallaxViewPagerActivity")
 class ParallaxViewPagerActivity : BaseFontActivity() {
     private val resList: MutableList<Int> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +33,6 @@ class ParallaxViewPagerActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
     }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
     private inner class SlidePagerAdapter : PagerAdapter() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val res = resList[position]

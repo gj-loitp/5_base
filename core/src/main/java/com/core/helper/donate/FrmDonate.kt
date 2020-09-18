@@ -6,15 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_donate.*
 
+@LogTag("FrmDonate")
 class FrmDonate : BaseFragment() {
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     private var red: Int = 0
     private var green: Int = 0

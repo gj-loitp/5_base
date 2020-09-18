@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.TextView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissCallback
 import com.views.layout.elasticdragdismisslayout.ElasticDragDismissLinearLayout
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 
 //https://github.com/Commit451/ElasticDragDismissLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3098
 @LayoutId(R.layout.activity_elasticdragdismisslayout)
+@LogTag("ElasticDragDismissLayoutActivity")
 class ElasticDragDismissLayoutActivity : BaseFontActivity() {
     private lateinit var tv: TextView
 
@@ -37,10 +39,6 @@ class ElasticDragDismissLayoutActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import com.views.LToast
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_editext_auto_suggest.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_editext_auto_suggest)
+@LogTag("EditTextAutoSuggestActivity")
 class EditTextAutoSuggestActivity : BaseFontActivity() {
     private var disposableSearch: Disposable? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,10 +61,6 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     private fun fakeCallAPI0(text: String) {

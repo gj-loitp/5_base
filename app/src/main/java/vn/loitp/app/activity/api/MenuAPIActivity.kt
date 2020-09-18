@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.restapi.restclient.RestClient
@@ -15,6 +16,7 @@ import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity
 
 @LayoutId(R.layout.activity_api_menu)
+@LogTag("MenuAPIActivity")
 class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +30,6 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View?) {

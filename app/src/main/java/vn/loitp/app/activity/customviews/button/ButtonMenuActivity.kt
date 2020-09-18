@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
@@ -19,6 +20,7 @@ import vn.loitp.app.activity.customviews.button.roundedbutton.RoundedButtonActiv
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity
 
 @LayoutId(R.layout.activity_button_menu)
+@LogTag("ButtonMenuActivity")
 class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +39,6 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.RequiresApi;
 
 import com.R;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
 import java.io.File;
@@ -27,6 +28,7 @@ import java.io.IOException;
 /**
  * Built-in activity for image cropping.<br>
  */
+@LogTag("LCropImageActivity")
 public class LCropImageActivity extends BaseFontActivity implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
         View.OnClickListener {
 
@@ -74,11 +76,6 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private void setEvents() {

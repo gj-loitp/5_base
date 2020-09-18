@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.adhelper.AdHelperActivity
@@ -31,6 +32,7 @@ import vn.loitp.app.activity.tutorial.MenuTutorialActivity
 import vn.loitp.app.activity.utils.UtilsActivity
 
 @LayoutId(R.layout.activity_menu)
+@LogTag("MenuActivity")
 class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,10 +71,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     private var doubleBackToExitPressedOnce = false

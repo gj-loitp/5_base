@@ -5,12 +5,14 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_pattern_mvp.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_pattern_mvp)
+@LogTag("MVPActivity")
 class MVPActivity : BaseFontActivity(), DemoPresenter.View {
 
     private lateinit var demoPresenter: DemoPresenter
@@ -53,10 +55,6 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun updateUserInfoTextView(info: String) {

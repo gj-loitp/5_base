@@ -3,16 +3,15 @@ package vn.loitp.app.activity.demo.fragmentnavigation
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.frm_fn_3.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.frm_fn_3)
+@LogTag("FN3")
 class FN3 : BaseFragment(), OnBackPressedListener {
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     private var fragmentNavigationActivity: FragmentNavigationActivity? = null
 

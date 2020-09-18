@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_animation_value_animator.*
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 //https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 
 @LayoutId(R.layout.activity_animation_value_animator)
+@LogTag("ValueAnimatorActivity")
 class ValueAnimatorActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +27,6 @@ class ValueAnimatorActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private var valueAnimator: ValueAnimator? = null

@@ -2,12 +2,14 @@ package vn.loitp.app.activity.customviews.dialog.customdialog
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_dialog_custom.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_dialog_custom)
+@LogTag("CustomDialogActivity")
 class CustomDialogActivity : BaseFontActivity() {
 
     private var isFullScreen: Boolean = false
@@ -52,10 +54,6 @@ class CustomDialogActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

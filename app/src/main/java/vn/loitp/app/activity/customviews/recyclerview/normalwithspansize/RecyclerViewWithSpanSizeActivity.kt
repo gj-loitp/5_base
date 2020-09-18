@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_recycler_view.*
@@ -15,6 +16,7 @@ import vn.loitp.app.common.Constants
 import java.util.*
 
 @LayoutId(R.layout.activity_recycler_view)
+@LogTag("RecyclerViewWithSpanSizeActivity")
 class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var mAdapter: MoviesAdapter? = null
@@ -61,10 +63,6 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun prepareMovieData() {

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.utilities.LLog;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +32,7 @@ import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LayoutId(R.layout.activity_post_detail)
+@LogTag("DatabaseFirebasePostDetailActivity")
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
 
     public static final String EXTRA_POST_KEY = "post_key";
@@ -309,11 +311,6 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
 }

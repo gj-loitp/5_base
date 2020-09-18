@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
@@ -13,10 +14,8 @@ import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_more.*
 
+@LogTag("BaseFragment")
 class FrmMore : BaseFragment(), View.OnClickListener {
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         inflater.inflate(R.layout.l_frm_more, container, false)

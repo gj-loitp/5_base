@@ -5,6 +5,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.FlickrConst
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_api_gallery.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_api_gallery)
+@LogTag("GalleryAPIActivity")
 class GalleryAPIActivity : BaseFontActivity() {
     private var mWrapperPhotosetGetlist: WrapperPhotosetGetlist? = null
 
@@ -36,10 +38,6 @@ class GalleryAPIActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun getPhotosets() {

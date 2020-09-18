@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
@@ -21,11 +22,8 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
-/**
- * Created by thangn on 2/26/17.
- */
-
 @LayoutId(R.layout.wwl_music_home_fragment)
+@LogTag("WWLHomeFragment")
 public class WWLHomeFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
@@ -74,12 +72,6 @@ public class WWLHomeFragment extends BaseFragment {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.goToDetail(item);
         }
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.github.florent37.expansionpanel.ExpansionLayout
 import com.github.florent37.expansionpanel.viewgroup.ExpansionLayoutCollection
@@ -15,14 +16,11 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionPanelSampleActivityRecycler.RecyclerAdapter.RecyclerHolder
 
 @LayoutId(R.layout.activity_expansion_panel_sample_recycler)
+@LogTag("ExpansionPanelSampleActivityRecycler")
 class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

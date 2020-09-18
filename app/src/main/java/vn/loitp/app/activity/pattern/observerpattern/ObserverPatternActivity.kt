@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_pattern_observer.*
 import vn.loitp.app.R
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 //https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
 
 @LayoutId(R.layout.activity_pattern_observer)
+@LogTag("ObserverPatternActivity")
 class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, RepositoryObserver {
     private var mUserDataRepository: Subject? = null
 
@@ -25,10 +27,6 @@ class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, Reposi
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     @SuppressLint("SetTextI18n")

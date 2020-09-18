@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
@@ -12,6 +13,7 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_coordinator_layout)
+@LogTag("CoordinatorLayoutWithImageViewActivity")
 public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
 
     @Override
@@ -58,11 +60,6 @@ public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
 }

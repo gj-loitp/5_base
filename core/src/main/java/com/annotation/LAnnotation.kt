@@ -4,3 +4,6 @@ package com.annotation
 @Retention(AnnotationRetention.RUNTIME)
 annotation class LayoutId(val value: Int)
 
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class LogTag(val value: String)

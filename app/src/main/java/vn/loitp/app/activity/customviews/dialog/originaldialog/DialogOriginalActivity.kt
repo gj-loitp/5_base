@@ -9,6 +9,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.widget.EditText
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.interfaces.Callback1
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_dialog_original)
+@LogTag("DialogOriginalActivity")
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private var testRun: TestRun? = null
 
@@ -40,10 +42,6 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

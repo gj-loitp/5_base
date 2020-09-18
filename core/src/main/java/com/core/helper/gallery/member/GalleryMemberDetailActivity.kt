@@ -3,6 +3,7 @@ package com.core.helper.gallery.member
 import android.os.Bundle
 import android.view.View
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
@@ -11,6 +12,7 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
+@LogTag("GalleryMemberDetailActivity")
 class GalleryMemberDetailActivity : BaseFontActivity() {
 
     companion object {
@@ -42,10 +44,6 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun loadItem(photo: Photo) {

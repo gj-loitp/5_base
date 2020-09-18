@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
@@ -22,6 +23,7 @@ import java.util.*
 //https://github.com/wasabeef/recyclerview-animators
 
 @LayoutId(R.layout.activity_recycler_view)
+@LogTag("RecyclerViewActivity")
 class RecyclerViewActivity : BaseFontActivity() {
 
     private val movieList: MutableList<Movie> = ArrayList()
@@ -122,10 +124,6 @@ class RecyclerViewActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun prepareMovieData() {

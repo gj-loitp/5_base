@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
@@ -31,6 +32,7 @@ import java.io.File;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_crop)
+@LogTag("CropActivity")
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
     private final int REQUEST_CODE_GET_FILE = 1;
@@ -53,11 +55,6 @@ public class CropActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private void crop() {

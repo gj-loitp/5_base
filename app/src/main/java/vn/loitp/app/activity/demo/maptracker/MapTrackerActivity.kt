@@ -16,6 +16,7 @@ import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LMathUtil
@@ -44,6 +45,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 @LayoutId(R.layout.activity_map_tracker)
+@LogTag("MapTrackerActivity")
 class MapTrackerActivity : BaseFontActivity(),
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -65,10 +67,6 @@ class MapTrackerActivity : BaseFontActivity(),
     private var mCurrentLocation: Location? = null
     private val listLoc = ArrayList<Loc>()
     private var isShowDialogCheck = false
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     override fun setFullScreen(): Boolean {
         return false

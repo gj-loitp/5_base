@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_progress_loading_menu.*
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.customviews.progressloadingview.circularprogressind
 import vn.loitp.app.activity.customviews.progressloadingview.window.WindowProgressActivity
 
 @LayoutId(R.layout.activity_progress_loading_menu)
+@LogTag("MenuProgressLoadingViewsActivity")
 class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +29,6 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View?) {

@@ -3,12 +3,14 @@ package vn.loitp.app.activity.api.truyentranhtuan
 import android.content.Intent
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_menu.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_api_ttt_menu)
+@LogTag("TTTAPIMenuActivity")
 class TTTAPIMenuActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,9 +49,5 @@ class TTTAPIMenuActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 }

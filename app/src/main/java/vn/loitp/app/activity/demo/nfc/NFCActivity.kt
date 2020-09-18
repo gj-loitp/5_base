@@ -10,6 +10,7 @@ import android.nfc.tech.*
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDateUtil
@@ -26,6 +27,7 @@ import java.util.*
 import kotlin.experimental.and
 
 @LayoutId(R.layout.activity_demo_nfc)
+@LogTag("NFCActivity")
 class NFCActivity : BaseFontActivity() {
     private val tags: ArrayList<TagWrapper> = ArrayList()
 
@@ -34,10 +36,6 @@ class NFCActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     @SuppressLint("SetTextI18n")

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.viewpager.widget.ViewPager
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout.*
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 
 @LayoutId(R.layout.activity_recycler_tablayout)
+@LogTag("RvTabImitationLoopActivity")
 open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChangeListener {
 
     private var mScrollState: Int = 0
@@ -21,10 +23,6 @@ open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChan
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

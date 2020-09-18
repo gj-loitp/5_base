@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.Point
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.function.simplefingergestures.SimpleFingerGestures
 import com.function.simplefingergestures.SimpleFingerGestures.OnFingerGestureListener
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_func_simple_finger_gestures.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_func_simple_finger_gestures)
+@LogTag("SimpleFingerGesturesActivity")
 class SimpleFingerGesturesActivity : BaseFontActivity() {
     private val mySfg = SimpleFingerGestures()
 
@@ -68,10 +70,6 @@ class SimpleFingerGesturesActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

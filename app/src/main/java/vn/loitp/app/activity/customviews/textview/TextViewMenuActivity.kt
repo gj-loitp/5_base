@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_text_view_menu.*
@@ -26,6 +27,7 @@ import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.Vertic
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity
 
 @LayoutId(R.layout.activity_text_view_menu)
+@LogTag("TextViewMenuActivity")
 class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,10 +52,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseActivity;
 import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
@@ -15,6 +16,7 @@ import com.views.layout.floatdraglayout.FloatDragLayout;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_splash_v3)
+@LogTag("FloatDragNoTitleActivity")
 public class FloatDragNoTitleActivity extends BaseActivity {
     private View mDecorView;
 
@@ -40,11 +42,6 @@ public class FloatDragNoTitleActivity extends BaseActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

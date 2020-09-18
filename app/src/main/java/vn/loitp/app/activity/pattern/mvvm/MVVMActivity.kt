@@ -4,19 +4,17 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.BR
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvvm.viewModel.UserViewModel
 
 @LayoutId(R.layout.activity_pattern_mvvm)
+@LogTag("MVVMActivity")
 class MVVMActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

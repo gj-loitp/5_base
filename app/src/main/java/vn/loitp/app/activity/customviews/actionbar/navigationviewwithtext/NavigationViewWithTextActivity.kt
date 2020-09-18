@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.navigationview.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
@@ -11,14 +12,11 @@ import vn.loitp.app.R
 import java.util.*
 
 @LayoutId(R.layout.activity_navigation_view_with_text)
+@LogTag("NavigationViewWithTextActivity")
 class NavigationViewWithTextActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

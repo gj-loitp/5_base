@@ -15,15 +15,14 @@ import android.webkit.*
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
 
+@LogTag("FrmFBComment")
 class FrmFBComment : BaseFragment() {
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     private var isLoading: Boolean = false
     private var mWebviewPop: WebView? = null

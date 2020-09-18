@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
@@ -27,6 +28,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
 @LayoutId(R.layout.activity_menu_firebase_simple)
+@LogTag("DatabaseSimpleFirebaseActivity")
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";
     private FirebaseDatabase mFirebaseInstance;
@@ -81,11 +83,6 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

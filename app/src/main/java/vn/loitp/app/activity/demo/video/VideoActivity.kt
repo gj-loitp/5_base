@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Surface
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.decoder.DecoderCounters
@@ -22,6 +23,7 @@ import kotlinx.android.synthetic.main.activity_demo_video.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_video)
+@LogTag("VideoActivity")
 class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
     private var player: SimpleExoPlayer? = null
 
@@ -134,10 +136,6 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onVideoEnabled(counters: DecoderCounters) {

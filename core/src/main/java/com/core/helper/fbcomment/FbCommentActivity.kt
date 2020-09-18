@@ -14,6 +14,7 @@ import android.webkit.*
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
@@ -23,6 +24,7 @@ import com.views.LToast
 import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 
+@LogTag("FbCommentActivity")
 class FbCommentActivity : BaseFontActivity() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
@@ -94,10 +96,6 @@ class FbCommentActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     @SuppressLint("SetJavaScriptEnabled")

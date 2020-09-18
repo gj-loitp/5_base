@@ -8,12 +8,14 @@ import android.widget.CheckBox;
 import android.widget.Spinner;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_relative_popup_window_layout)
+@LogTag("RelativePopupWindowActivity")
 public class RelativePopupWindowActivity extends BaseFontActivity {
 
     @Override
@@ -133,11 +135,6 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
 }

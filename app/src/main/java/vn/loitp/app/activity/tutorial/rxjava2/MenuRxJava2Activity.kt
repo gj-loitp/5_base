@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil.Companion.tranIn
 import kotlinx.android.synthetic.main.activity_menu_rx_java2.*
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
 @LayoutId(R.layout.activity_menu_rx_java2)
+@LogTag("MenuRxJava2Activity")
 class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +30,6 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

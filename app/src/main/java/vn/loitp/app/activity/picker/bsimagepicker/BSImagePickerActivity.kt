@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.widget.ImageView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.asksira.bsimagepicker.BSImagePicker
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
@@ -17,6 +18,7 @@ import vn.loitp.app.R
 //https://github.com/siralam/BSImagePicker
 
 @LayoutId(R.layout.activity_picker_bs_image)
+@LogTag("BSImagePickerActivity")
 class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSelectedListener,
         BSImagePicker.OnMultiImageSelectedListener, BSImagePicker.ImageLoaderDelegate, BSImagePicker.OnSelectImageCancelledListener {
     private val providerAuthority = ".activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
@@ -54,10 +56,6 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

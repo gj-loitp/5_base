@@ -7,6 +7,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.content.ContextCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.google.android.material.snackbar.Snackbar
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_collapsingtoolbar.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_collapsingtoolbar)
+@LogTag("CollapsingToolbarLayoutActivity")
 class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,10 +54,6 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

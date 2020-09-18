@@ -6,12 +6,14 @@ import android.widget.Button;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_fab_and_snackbar)
+@LogTag("FabAndSnackbarActivity")
 public class FabAndSnackbarActivity extends BaseFontActivity {
     private Button mShowSnackbarButton;
     private CoordinatorLayout mCoordinatorLayout;
@@ -33,10 +35,4 @@ public class FabAndSnackbarActivity extends BaseFontActivity {
     protected boolean setFullScreen() {
         return false;
     }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
 }

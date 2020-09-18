@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
@@ -21,6 +22,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesA
 import vn.loitp.app.common.Constants;
 
 @LayoutId(R.layout.activity_swipe_refresh_recycler_view_layout)
+@LogTag("SwipeRefreshLayoutRecyclerViewActivity")
 public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private List<Movie> movieList = new ArrayList<>();
@@ -90,11 +92,6 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private void prepareMovieData() {

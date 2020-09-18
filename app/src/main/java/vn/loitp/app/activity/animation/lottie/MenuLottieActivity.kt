@@ -11,6 +11,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.airbnb.lottie.LottieAnimationView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
@@ -21,6 +22,7 @@ import java.util.*
 
 //https://www.lottiefiles.com/?page=1
 @LayoutId(R.layout.activity_animation_lottie)
+@LogTag("MenuLottieActivity")
 class MenuLottieActivity : BaseFontActivity() {
     private val lottieItemList: MutableList<LottieItem> = ArrayList()
 
@@ -54,10 +56,6 @@ class MenuLottieActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun prepareData() {

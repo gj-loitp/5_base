@@ -2,6 +2,7 @@ package vn.loitp.app.activity.ads.admobbanner
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
@@ -9,6 +10,7 @@ import kotlinx.android.synthetic.main.activity_admob_banner.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_admob_banner)
+@LogTag("AdmobBannerActivity")
 class AdmobBannerActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +26,6 @@ class AdmobBannerActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     public override fun onPause() {

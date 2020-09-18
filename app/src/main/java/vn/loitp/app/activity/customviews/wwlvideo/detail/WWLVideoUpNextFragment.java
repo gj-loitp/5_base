@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
@@ -26,6 +27,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
  */
 
 @LayoutId(R.layout.wwl_video_up_next_fragment)
+@LogTag("WWLVideoUpNextFragment")
 public class WWLVideoUpNextFragment extends BaseFragment {
     private FragmentHost mFragmentHost;
     private RecyclerView mRecyclerView;
@@ -119,12 +121,6 @@ public class WWLVideoUpNextFragment extends BaseFragment {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.goToDetail(item);
         }
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

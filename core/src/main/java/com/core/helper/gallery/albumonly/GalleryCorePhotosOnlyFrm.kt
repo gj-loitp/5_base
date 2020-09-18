@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
@@ -34,10 +35,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
 
+@LogTag("GalleryCorePhotosOnlyFrm")
 class GalleryCorePhotosOnlyFrm : BaseFragment() {
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     private var currentPage = 0
     private var totalPage = 1

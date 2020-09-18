@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +18,7 @@ import java.util.List;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_swipe_reveal_layout_list)
+@LogTag("SwipeRevealLayoutListActivity")
 public class SwipeRevealLayoutListActivity extends BaseFontActivity {
     private ListAdapter adapter;
 
@@ -30,12 +32,6 @@ public class SwipeRevealLayoutListActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

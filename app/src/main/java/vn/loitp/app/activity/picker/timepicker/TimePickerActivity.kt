@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_time_picker.*
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 import java.util.*
 
 @LayoutId(R.layout.activity_time_picker)
+@LogTag("TimePickerActivity")
 class TimePickerActivity : BaseFontActivity() {
 
     private var picker: TimePickerDialog? = null
@@ -18,10 +20,6 @@ class TimePickerActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     @SuppressLint("SetTextI18n")

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.GalleryCorePhotosActivity
@@ -25,6 +26,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import java.util.*
 
+@LogTag("GalleryCoreAlbumActivity")
 class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
@@ -111,10 +113,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun getListPhotosets() {

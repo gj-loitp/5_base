@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.views.LToast
@@ -16,6 +17,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 
 @LayoutId(R.layout.activity_realm)
+@LogTag("RealmActivity")
 class RealmActivity : BaseFontActivity() {
     private lateinit var mRealm: Realm
 
@@ -48,10 +50,6 @@ class RealmActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun addMyBook() {

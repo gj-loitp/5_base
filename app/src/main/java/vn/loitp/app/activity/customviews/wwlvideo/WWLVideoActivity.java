@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.FrameLayout;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseActivity;
 import com.core.utilities.LLog;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
@@ -22,6 +23,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 
 @LayoutId(R.layout.wwl_video_activity)
+@LogTag("WWLVideoActivity")
 public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener, FragmentHost {
     private LWWLVideo LWWLVideo;
     private float mLastAlpha;
@@ -46,11 +48,6 @@ public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

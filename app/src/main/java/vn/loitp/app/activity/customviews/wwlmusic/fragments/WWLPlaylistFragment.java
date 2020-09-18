@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 
 import vn.loitp.app.R;
@@ -24,6 +25,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
  */
 
 @LayoutId(R.layout.wwl_music_playlist_fragment)
+@LogTag("WWLPlaylistFragment")
 public class WWLPlaylistFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
@@ -63,12 +65,6 @@ public class WWLPlaylistFragment extends BaseFragment {
     public void updateItem(WWLMusicDataset.DatasetItem item) {
         this.mTitleView.setText(item.title);
         this.mSubTitleView.setText(item.subtitle);
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

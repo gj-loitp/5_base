@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
 import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_sqlite_multi_table_advance)
+@LogTag("SqliteMultiTableAdvanceActivity")
 class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener {
 
     private lateinit var db: InspectionDatabaseHelper
@@ -39,10 +41,6 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun showMsg(msg: String) {

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_demo_tab_on_screen_limit.*
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData
 
 @LayoutId(R.layout.activity_recycler_tablayout_demo_tab_on_screen_limit)
+@LogTag("RvTabOnScreenLimitActivity")
 class RvTabOnScreenLimitActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,10 +47,6 @@ class RvTabOnScreenLimitActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     companion object {

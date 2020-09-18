@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.albumonly.PhotosOnlyAdapter
@@ -35,10 +36,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_frm_girl.*
 
+@LogTag("FrmGirl")
 class FrmGirl : BaseFragment() {
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     private var currentPage = 0
     private var totalPage = 1

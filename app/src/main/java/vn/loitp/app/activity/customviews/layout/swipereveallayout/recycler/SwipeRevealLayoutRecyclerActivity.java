@@ -7,10 +7,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +18,7 @@ import java.util.List;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_recycler)
+@LogTag("SwipeRevealLayoutRecyclerActivity")
 public class SwipeRevealLayoutRecyclerActivity extends BaseFontActivity {
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
@@ -32,12 +33,6 @@ public class SwipeRevealLayoutRecyclerActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

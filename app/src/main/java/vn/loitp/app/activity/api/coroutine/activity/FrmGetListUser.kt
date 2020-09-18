@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
@@ -18,14 +19,11 @@ import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.frm_coroutine_get_list)
+@LogTag("FrmGetListUser")
 class FrmGetListUser : BaseFragment() {
     private var testViewModel: TestViewModel? = null
     private var userListAdapter: UserListAdapter? = null
     private var page = 1
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (frmRootView == null) {

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.views.layout.dragueur.Direction;
@@ -14,6 +15,7 @@ import vn.loitp.app.R;
 //https://github.com/Meetic/Dragueur?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3534
 
 @LayoutId((R.layout.activity_dragueur))
+@LogTag("DragueurActivity")
 public class DragueurActivity extends BaseFontActivity {
     private DraggableView draggableView;
     private TextView tv;
@@ -72,11 +74,6 @@ public class DragueurActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private void setText(String s) {

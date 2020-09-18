@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.bookview
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_bookview.*
 import vn.loitp.app.R
@@ -11,6 +12,7 @@ import vn.loitp.app.common.Constants
 import java.util.*
 
 @LayoutId(R.layout.activity_bookview)
+@LogTag("BookViewActivity")
 class BookViewActivity : BaseFontActivity() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var mAdapter: BookAdapter? = null
@@ -44,10 +46,6 @@ class BookViewActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun prepareMovieData() {

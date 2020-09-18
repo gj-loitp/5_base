@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LPopupMenu
@@ -24,14 +25,11 @@ import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_collapsingtoolbar_withtablayout)
+@LogTag("CollapsingToolbarWithTabLayoutActivity")
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

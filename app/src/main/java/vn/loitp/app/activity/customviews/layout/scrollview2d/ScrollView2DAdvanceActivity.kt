@@ -11,6 +11,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.views.LToast.showShort
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_layout_scrollview_2d_advance.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_layout_scrollview_2d_advance)
+@LogTag("ScrollView2DAdvanceActivity")
 class ScrollView2DAdvanceActivity : BaseFontActivity() {
     companion object {
         private const val WIDTH_PX = 300
@@ -65,10 +67,6 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     //TODO convert coroutine

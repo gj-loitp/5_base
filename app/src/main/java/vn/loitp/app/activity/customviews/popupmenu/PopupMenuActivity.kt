@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.interfaces.CallbackPopup
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.activity_menu_popup.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_menu_popup)
+@LogTag("PopupMenuActivity")
 class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +27,6 @@ class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer
 import android.content.res.Configuration
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import com.views.exo.PlayerManager
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 //custom UI exo_playback_control_view.xml
 
 @LayoutId(R.layout.activity_video_exo_player2)
+@LogTag("ExoPlayerActivity2")
 class ExoPlayerActivity2 : BaseFontActivity() {
     private var playerManager: PlayerManager? = null
 
@@ -34,10 +36,6 @@ class ExoPlayerActivity2 : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onResume() {

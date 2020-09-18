@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_scratchview_menu.*
@@ -12,6 +13,7 @@ import vn.loitp.app.activity.customviews.scratchview.scratchviewimage.ScratchVie
 import vn.loitp.app.activity.customviews.scratchview.scratchviewtext.ScratchViewTextActivity
 
 @LayoutId(R.layout.activity_scratchview_menu)
+@LogTag("ScratchViewMenuActivity")
 class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +24,6 @@ class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

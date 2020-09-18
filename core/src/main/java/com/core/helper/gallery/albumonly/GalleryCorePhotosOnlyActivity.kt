@@ -9,6 +9,7 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
@@ -35,6 +36,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
+@LogTag("GalleryCorePhotosOnlyActivity")
 class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
@@ -183,10 +185,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun init() {

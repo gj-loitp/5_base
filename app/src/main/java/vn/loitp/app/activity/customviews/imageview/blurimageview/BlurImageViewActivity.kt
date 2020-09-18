@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.imageview.blurimageview
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LImageUtil
@@ -10,14 +11,11 @@ import kotlinx.android.synthetic.main.activity_imageview_blur.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_imageview_blur)
+@LogTag("BlurImageViewActivity")
 class BlurImageViewActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

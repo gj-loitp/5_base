@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
 import com.data.EventBusData
@@ -41,12 +42,11 @@ abstract class BaseFragment : Fragment() {
         layoutId?.value?.let {
             frmRootView = inflater.inflate(it, container, false)
         }
-        logTag = "logTag" + setTag()
+        val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
+        logTag = "logTag$tmpLogTag"
         EventBus.getDefault().register(this)
         return frmRootView
     }
-
-    protected abstract fun setTag(): String?
 
     override fun onDestroyView() {
         LDialogUtil.clearAll()

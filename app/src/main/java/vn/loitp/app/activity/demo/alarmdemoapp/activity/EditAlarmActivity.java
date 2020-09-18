@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 
@@ -31,6 +32,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
 @LayoutId(R.layout.activity_alarm_edit)
+@LogTag("EditAlarmActivity")
 public class EditAlarmActivity extends BaseFontActivity {
     private EditText mTitle;
     private CheckBox mAlarmEnabled;
@@ -226,11 +228,6 @@ public class EditAlarmActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
 }

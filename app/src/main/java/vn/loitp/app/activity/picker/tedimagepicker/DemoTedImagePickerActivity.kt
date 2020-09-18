@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import com.core.utilities.LSocialUtil
@@ -20,6 +21,7 @@ import java.io.File
 //https://github.com/ParkSangGwon/TedImagePicker
 
 @LayoutId(R.layout.activity_ted_image_picker_demo)
+@LogTag("DemoTedImagePickerActivity")
 class DemoTedImagePickerActivity : BaseFontActivity() {
     private var selectedUriList: List<Uri>? = null
 
@@ -39,10 +41,6 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     private fun setNormalSingleButton() {

@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
 import com.core.utilities.LLog;
@@ -36,6 +37,7 @@ import vn.loitp.app.app.LApplication;
 //https://github.com/firebase/quickstart-android
 
 @LayoutId(R.layout.activity_auth_firebase_google)
+@LogTag("AuthFirebaseGoogleActivity")
 public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View.OnClickListener {
     private static final int RC_SIGN_IN = 9001;
 
@@ -75,11 +77,6 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

@@ -7,18 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 
 import vn.loitp.app.R;
 
-/**
- * User: special
- * Date: 13-12-22
- * Time: 下午1:31
- * Mail: specialcyci@gmail.com
- */
-
 @LayoutId(R.layout.reside_menu_profile)
+@LogTag("ProfileFragment")
 public class ProfileFragment extends BaseFragment {
 
     @Override
@@ -26,9 +21,4 @@ public class ProfileFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
 }

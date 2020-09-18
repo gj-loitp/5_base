@@ -2,6 +2,7 @@ package vn.loitp.app.activity.database.sharedprefsencryption
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionSharedPrefsUtil
 import com.google.gson.reflect.TypeToken
@@ -11,6 +12,7 @@ import vn.loitp.app.activity.pattern.mvp.User
 import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_shared_prefs_encryption)
+@LogTag("EnctyptionSharedPrefsActivity")
 class EnctyptionSharedPrefsActivity : BaseFontActivity() {
 
     companion object {
@@ -106,10 +108,6 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

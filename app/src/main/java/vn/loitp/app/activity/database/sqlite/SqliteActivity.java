@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
@@ -15,6 +16,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
 @LayoutId(R.layout.activity_sqlite)
+@LogTag("SqliteActivity")
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;
     private LinearLayout ll;
@@ -39,11 +41,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

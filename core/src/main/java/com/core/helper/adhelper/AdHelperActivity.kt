@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
@@ -22,16 +23,13 @@ import kotlinx.android.synthetic.main.l_activity_ad_helper.*
 import life.sabujak.roundedbutton.RoundedButton
 import java.util.*
 
+@LogTag("AdHelperActivity")
 class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     @SuppressLint("SetTextI18n")

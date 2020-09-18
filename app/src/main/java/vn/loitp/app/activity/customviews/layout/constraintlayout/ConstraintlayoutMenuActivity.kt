@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.LayoutId
+import com.annotation.LogTag
 
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.layout.constraintlayout.fabandsnackbar.
 import vn.loitp.app.activity.customviews.layout.constraintlayout.fabfollowswiidget.FabFollowWidgetActivity
 
 @LayoutId(R.layout.activity_constraintlayout_menu)
+@LogTag("ConstraintlayoutMenuActivity")
 class ConstraintlayoutMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,10 +32,6 @@ class ConstraintlayoutMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

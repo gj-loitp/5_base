@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.layout.zoomlayout
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_layout_zoom.*
 import vn.loitp.app.R
@@ -10,6 +11,7 @@ import vn.loitp.app.R
 //https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282
 
 @LayoutId(R.layout.activity_layout_zoom)
+@LogTag("ZoomLayoutActivity")
 class ZoomLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +33,6 @@ class ZoomLayoutActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

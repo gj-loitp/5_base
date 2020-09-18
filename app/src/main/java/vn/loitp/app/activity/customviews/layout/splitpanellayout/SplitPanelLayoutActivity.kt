@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.layout.splitpanellayout
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.layout.splitpanellayout.SplitPaneLayout
 import kotlinx.android.synthetic.main.activity_layout_split_panel.*
@@ -10,6 +11,7 @@ import java.text.DecimalFormat
 import java.util.*
 
 @LayoutId(R.layout.activity_layout_split_panel)
+@LogTag("SplitPanelLayoutActivity")
 class SplitPanelLayoutActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +32,4 @@ class SplitPanelLayoutActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
     }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
 }

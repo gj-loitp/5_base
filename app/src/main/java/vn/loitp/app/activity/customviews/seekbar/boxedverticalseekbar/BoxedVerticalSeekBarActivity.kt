@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar
 import android.graphics.Color
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.seekbar.boxedvertical.LBoxedVertical
 import kotlinx.android.synthetic.main.activity_seekbar_boxed_vertical.*
@@ -12,6 +13,7 @@ import java.util.*
 //https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 
 @LayoutId(R.layout.activity_seekbar_boxed_vertical)
+@LogTag("BoxedVerticalSeekBarActivity")
 class BoxedVerticalSeekBarActivity : BaseFontActivity() {
     private val stringList = ArrayList<String>()
     private val x: String? = null
@@ -55,10 +57,6 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

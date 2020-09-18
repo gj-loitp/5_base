@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_calendar_menu.*
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.calendar.cosmocalendar.calendarview.CosmoCalendarActivity
 
 @LayoutId( R.layout.activity_calendar_menu)
+@LogTag("CalendarMenuActivity")
 class CalendarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,10 +22,6 @@ class CalendarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

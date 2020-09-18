@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.core.content.ContextCompat;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LDialogUtil;
 import com.core.utilities.LLog;
@@ -29,6 +30,7 @@ import java.util.List;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_image_picker_with_crop)
+@LogTag("ImageWithCropActivity")
 public class ImageWithCropActivity extends BaseFontActivity {
     private ImageView imageView;
     private boolean isShowDialogCheck;
@@ -77,11 +79,6 @@ public class ImageWithCropActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     private void checkPermission() {

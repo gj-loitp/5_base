@@ -2,6 +2,7 @@ package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
@@ -20,14 +21,11 @@ import kotlin.system.measureTimeMillis
 //https://medium.com/androiddevelopers/coroutines-on-android-part-ii-getting-started-3bff117176dd
 
 @LayoutId(R.layout.activity_demo_coroutine)
+@LogTag("CoroutineActivity")
 class CoroutineActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

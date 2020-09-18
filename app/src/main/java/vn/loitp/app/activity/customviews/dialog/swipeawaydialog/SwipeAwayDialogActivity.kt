@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.dialog.swipeawaydialog
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_dialog_swipe_away.*
 import vn.loitp.app.R
@@ -10,6 +11,7 @@ import vn.loitp.app.R
 //https://github.com/kakajika/SwipeAwayDialog
 
 @LayoutId(R.layout.activity_dialog_swipe_away)
+@LogTag("SwipeAwayDialogActivity")
 class SwipeAwayDialogActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,10 +26,6 @@ class SwipeAwayDialogActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

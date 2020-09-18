@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_dialog_menu.*
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesAct
 import vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity
 
 @LayoutId(R.layout.activity_dialog_menu)
+@LogTag("DialogMenuActivity")
 class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,10 +34,6 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onClick(v: View) {

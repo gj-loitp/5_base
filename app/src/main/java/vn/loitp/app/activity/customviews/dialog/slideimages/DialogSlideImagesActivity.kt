@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.dialog.slideimages
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
@@ -11,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_dialog_slide_images.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_dialog_slide_images)
+@LogTag("DialogSlideImagesActivity")
 class DialogSlideImagesActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,10 +44,6 @@ class DialogSlideImagesActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
 }

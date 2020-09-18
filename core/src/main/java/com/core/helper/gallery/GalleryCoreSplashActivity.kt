@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.album.GalleryCoreAlbumActivity
@@ -27,6 +28,7 @@ import com.utils.util.AppUtils
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 import java.util.*
 
+@LogTag("GalleryCoreSplashActivity")
 class GalleryCoreSplashActivity : BaseFontActivity() {
     private var adView: AdView? = null
     private var admobBannerUnitId: String? = null
@@ -80,10 +82,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onResume() {

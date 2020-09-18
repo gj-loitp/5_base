@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.textview.textdecorator
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.textview.textdecorator.LTextDecorator
 import com.views.textview.textdecorator.OnTextClickListener
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 //https://github.com/nntuyen/text-decorator?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=4982
 
 @LayoutId(R.layout.activity_text_view_text_decorator)
+@LogTag("TextDecoratorActivity")
 class TextDecoratorActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,10 +39,6 @@ class TextDecoratorActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

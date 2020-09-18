@@ -8,12 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.menu.residemenu.ResideMenu;
 
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.reside_menu_home)
+@LogTag("HomeFragment")
 public class HomeFragment extends BaseFragment {
     private ResideMenu resideMenu;
 
@@ -33,9 +35,4 @@ public class HomeFragment extends BaseFragment {
         resideMenu.addIgnoredView(ignored_view);
     }
 
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
 }

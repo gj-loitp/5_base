@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
@@ -23,6 +24,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
 
 @LayoutId(R.layout.activity_alarm_list)
+@LogTag("AlarmMeActivity")
 public class AlarmMeActivity extends BaseFontActivity {
     private ListView mAlarmList;
     private AlarmListAdapter mAlarmListAdapter;
@@ -63,11 +65,6 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

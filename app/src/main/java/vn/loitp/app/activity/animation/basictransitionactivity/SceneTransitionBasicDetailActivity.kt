@@ -7,21 +7,19 @@ import android.transition.Transition
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic_details.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_animation_scene_transition_basic_details)
+@LogTag("SceneTransitionBasicDetailActivity")
 class SceneTransitionBasicDetailActivity : BaseFontActivity() {
     private var mItem: Item? = null
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

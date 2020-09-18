@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.switchtoggle.toggle
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.switchtoggle.toggle.LabeledSwitch
 import com.views.switchtoggle.toggle.interfaces.OnToggledListener
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 //https://github.com/Angads25/android-toggle?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6778
 
 @LayoutId(R.layout.activity_switch_toggle)
+@LogTag("ToggleActivity")
 class ToggleActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,9 +28,4 @@ class ToggleActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
     }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
 }

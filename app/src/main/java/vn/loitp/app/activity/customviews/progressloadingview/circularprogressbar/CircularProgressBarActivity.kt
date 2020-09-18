@@ -2,11 +2,13 @@ package vn.loitp.app.activity.customviews.progressloadingview.circularprogressba
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_progress_circular_progress_bar.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_progress_circular_progress_bar)
+@LogTag("CircularProgressBarActivity")
 class CircularProgressBarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,10 +19,6 @@ class CircularProgressBarActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

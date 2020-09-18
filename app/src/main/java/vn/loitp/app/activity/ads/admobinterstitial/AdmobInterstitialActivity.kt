@@ -2,6 +2,7 @@ package vn.loitp.app.activity.ads.admobinterstitial
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
@@ -10,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_admob_interstitial.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_admob_interstitial)
+@LogTag("AdmobInterstitialActivity")
 class AdmobInterstitialActivity : BaseFontActivity() {
     private var interstitialAd: InterstitialAd? = null
 
@@ -23,10 +25,6 @@ class AdmobInterstitialActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onBackPressed() {

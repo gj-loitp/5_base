@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.menu.residemenu.ResideMenu;
@@ -18,6 +19,7 @@ import com.views.menu.residemenu.ResideMenuItem;
 import vn.loitp.app.R;
 
 @LayoutId(R.layout.reside_menu)
+@LogTag("ResideMenuActivity")
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {
     private ResideMenu resideMenu;
     private ResideMenuItem itemHome;
@@ -28,11 +30,6 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     @Override

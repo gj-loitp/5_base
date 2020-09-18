@@ -2,6 +2,7 @@ package com.core.helper.admobrewardedvideo
 
 import android.os.Bundle
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
@@ -14,6 +15,7 @@ import com.google.android.gms.ads.reward.RewardedVideoAdListener
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_admob_rewarded_video.*
 
+@LogTag("AdmobRewardedVideoActivity")
 class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     private var mAd: RewardedVideoAd? = null
     private var strReward: String? = null
@@ -60,10 +62,6 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
 
     override fun setFullScreen(): Boolean {
         return true
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun loadRewardedVideoAd() {

@@ -2,12 +2,14 @@ package vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.switchtoggle.customtogglebutton.LCustomToggle
 import kotlinx.android.synthetic.main.activity_switch_custom_toggle_button.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_switch_custom_toggle_button)
+@LogTag("CustomToggleButtonActivity")
 class CustomToggleButtonActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,10 +53,6 @@ class CustomToggleButtonActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }

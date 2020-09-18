@@ -3,20 +3,18 @@ package vn.loitp.app.activity.customviews.layout.flowlayout
 import android.os.Bundle
 import android.widget.TextView
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDeviceUtil
 import kotlinx.android.synthetic.main.activity_flow_layout.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_flow_layout)
+@LogTag("FlowLayoutActivity")
 class FlowLayoutActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

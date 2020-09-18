@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.utilities.LDialogUtil;
@@ -15,6 +16,7 @@ import vn.loitp.app.R;
 //https://docs.google.com/document/d/1LIkZgTWQB7FWVHUrc-ZrQaMVJkm6lbuMwirr1XCPwcA/edit
 
 @LayoutId(R.layout.activity_fcm_firebase)
+@LogTag("FCMFirebaseActivity")
 public class FCMFirebaseActivity extends BaseFontActivity {
 
     @Override
@@ -41,11 +43,6 @@ public class FCMFirebaseActivity extends BaseFontActivity {
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
 }

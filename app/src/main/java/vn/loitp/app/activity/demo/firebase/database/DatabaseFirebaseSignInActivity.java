@@ -10,6 +10,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 
 import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.utilities.LLog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,6 +25,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LayoutId(R.layout.activity_sign_in)
+@LogTag("DatabaseFirebaseSignInActivity")
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
@@ -171,11 +173,6 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
 }

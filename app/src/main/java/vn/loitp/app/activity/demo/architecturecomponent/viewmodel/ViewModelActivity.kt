@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
 import kotlinx.android.synthetic.main.activity_demo_view_model.*
@@ -16,6 +17,7 @@ import java.util.*
 //https://codinginfinite.com/architecture-component-viewmodel-example/
 
 @LayoutId(R.layout.activity_demo_view_model)
+@LogTag("ViewModelActivity")
 class ViewModelActivity : BaseFontActivity() {
 
     private lateinit var colorChangerViewModel: ColorChangerViewModel
@@ -64,10 +66,6 @@ class ViewModelActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     private fun generateRandomColor(): Int {

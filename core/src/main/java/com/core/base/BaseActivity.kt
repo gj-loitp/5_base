@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
@@ -52,11 +53,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun setFullScreen(): Boolean
 
-    protected abstract fun setTag(): String?
-
     override fun onCreate(savedInstanceState: Bundle?) {
         activity = this
-        logTag = "logTag" + setTag()
+
+        val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
+        logTag = "logTag$tmpLogTag"
+
         if (setFullScreen()) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
@@ -71,7 +73,6 @@ abstract class BaseActivity : AppCompatActivity() {
         layoutId?.value?.let {
             setContentView(it)
         }
-
         CheckNetworkConnectionHelper
                 .getInstance()
                 .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {

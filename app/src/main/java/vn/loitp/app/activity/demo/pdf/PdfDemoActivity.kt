@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.pdf
 import android.os.Bundle
 import android.view.View
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
@@ -18,6 +19,7 @@ import java.io.File
 //https://github.com/barteksc/AndroidPdfViewer
 
 @LayoutId(R.layout.activity_demo_pdf)
+@LogTag("PdfDemoActivity")
 class PdfDemoActivity : BaseFontActivity() {
     private var asyncTaskDownloadPdf: AsyncTaskDownloadPdf? = null
     private var asyncTaskDownloadPdfStream: AsyncTaskDownloadPdfStream? = null
@@ -26,10 +28,6 @@ class PdfDemoActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

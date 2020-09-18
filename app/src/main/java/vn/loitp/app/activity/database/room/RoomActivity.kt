@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_database_room2.*
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.database.room.model.FloorPlan
 import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_database_room2)
+@LogTag("RoomActivity")
 class RoomActivity : BaseFontActivity() {
     private var floorPlanAdapter: FloorPlanAdapter? = null
     private var homeViewModel: HomeViewModel? = null
@@ -28,11 +30,6 @@ class RoomActivity : BaseFontActivity() {
     override fun setFullScreen(): Boolean {
         return false
     }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
     private fun setupView() {
         floorPlanAdapter = FloorPlanAdapter()
         floorPlanAdapter?.apply {

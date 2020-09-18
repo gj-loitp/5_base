@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.R;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
@@ -27,6 +28,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@LogTag("LGalleryActivity")
 public class LGalleryActivity extends BaseFontActivity implements View.OnClickListener {
     private ArrayList<String> thumbsDataList = new ArrayList<>();
     public static final String RETURN_VALUE = "RETURN_VALUE";
@@ -100,11 +102,6 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
     @Override
     protected boolean setFullScreen() {
         return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return "TAG" + getClass().getSimpleName();
     }
 
     /**

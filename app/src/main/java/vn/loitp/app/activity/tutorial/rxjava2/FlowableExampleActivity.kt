@@ -2,6 +2,7 @@ package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
 import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import io.reactivex.Flowable
 import io.reactivex.SingleObserver
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
 @LayoutId(R.layout.activity_rxjava2_flowable)
+@LogTag("FlowableExampleActivity")
 class FlowableExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +50,6 @@ class FlowableExampleActivity : BaseFontActivity() {
 
     override fun setFullScreen(): Boolean {
         return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
     }
 
 }
