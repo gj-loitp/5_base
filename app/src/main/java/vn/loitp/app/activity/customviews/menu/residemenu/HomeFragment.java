@@ -7,11 +7,13 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFragment;
 import com.views.menu.residemenu.ResideMenu;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.reside_menu_home)
 public class HomeFragment extends BaseFragment {
     private ResideMenu resideMenu;
 
@@ -19,11 +21,6 @@ public class HomeFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setUpViews();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.reside_menu_home;
     }
 
     private void setUpViews() {

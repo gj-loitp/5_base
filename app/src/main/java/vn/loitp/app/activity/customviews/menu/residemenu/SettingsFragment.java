@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFragment;
 
 import vn.loitp.app.R;
@@ -16,16 +17,13 @@ import vn.loitp.app.R;
  * Time: 下午3:28
  * Mail: specialcyci@gmail.com
  */
+
+@LayoutId(R.layout.reside_menu_setting)
 public class SettingsFragment extends BaseFragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.reside_menu_setting;
     }
 
     @org.jetbrains.annotations.Nullable

@@ -5,7 +5,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
@@ -46,13 +48,14 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
     private var photosSize: Int = 0
     private var isShowDialogCheck: Boolean = false
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_flickr_gallery_core_photos_only
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         RestClient.init(getString(R.string.flickr_URL))
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater.inflate(R.layout.l_frm_flickr_gallery_core_photos_only, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

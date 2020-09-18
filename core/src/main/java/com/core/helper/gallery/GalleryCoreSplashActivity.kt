@@ -24,7 +24,6 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
-import com.views.layout.floatdraglayout.DisplayUtil
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 import java.util.*
 
@@ -51,8 +50,8 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
-                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-                LUIUtil.setMargins(view = it, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
+//                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
+//                LUIUtil.setMargins(view = it, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
 

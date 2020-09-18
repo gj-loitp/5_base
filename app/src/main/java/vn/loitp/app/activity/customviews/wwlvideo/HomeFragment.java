@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
@@ -24,6 +25,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
  * Created by thangn on 2/26/17.
  */
 
+@LayoutId(R.layout.wwl_video_home_fragment)
 public class HomeFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
@@ -48,11 +50,6 @@ public class HomeFragment extends BaseFragment {
         mRecyclerView.setAdapter(mAdapter);
 
         updateLayoutIfNeed();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.wwl_video_home_fragment;
     }
 
     @Override

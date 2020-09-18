@@ -1,23 +1,23 @@
 package vn.loitp.app.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
+import com.annotation.LayoutId
 import com.core.base.BaseFragment
+import kotlinx.android.synthetic.main.frm_bottom.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.frm_bottom)
 class FrmDummy : BaseFragment() {
     override fun setTag(): String? {
         return javaClass.simpleName
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val tv = view.findViewById<TextView>(R.id.textView)
-        tv.text = "DUMMYYYYYYYYYYYYYYYYYYY"
-    }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.frm_bottom
+        textView.text = "DUMMYYYYYYYYYYYYYYYYYYY"
     }
 }

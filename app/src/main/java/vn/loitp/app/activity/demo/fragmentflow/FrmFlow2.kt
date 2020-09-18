@@ -2,9 +2,11 @@ package vn.loitp.app.activity.demo.fragmentflow
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.LayoutId
 import kotlinx.android.synthetic.main.frm_demo_flow_2.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.frm_demo_flow_2)
 class FrmFlow2 : FrmFlowBase() {
     override fun onBackClick(): Boolean {
         print("onBackClick")
@@ -14,10 +16,6 @@ class FrmFlow2 : FrmFlowBase() {
 
     override fun setTag(): String? {
         return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.frm_demo_flow_2
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

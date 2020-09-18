@@ -1,7 +1,9 @@
 package com.core.helper.donate
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import com.R
 import com.core.base.BaseFragment
@@ -9,6 +11,7 @@ import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_donate.*
 
 class FrmDonate : BaseFragment() {
+
     override fun setTag(): String? {
         return javaClass.simpleName
     }
@@ -20,8 +23,14 @@ class FrmDonate : BaseFragment() {
     private var colorPrimary: Int = 0
     private var colors: IntArray? = null
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater.inflate(R.layout.l_frm_donate, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val text = "Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: \n" +
                 "\n" +
                 "❤ Vietcombank\n" +
@@ -66,7 +75,4 @@ class FrmDonate : BaseFragment() {
         }
     }
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_donate
-    }
 }

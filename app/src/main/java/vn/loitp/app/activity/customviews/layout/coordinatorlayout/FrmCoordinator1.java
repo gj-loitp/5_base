@@ -6,21 +6,20 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.views.LToast;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.frm_coordinator_1)
 public class FrmCoordinator1 extends BaseFragment {
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.frm_coordinator_1;
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         TabLayout tabLayout = view.findViewById(R.id.tl);
         // Add five tabs.  Three have icons and two have text titles
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_add_black_48dp));

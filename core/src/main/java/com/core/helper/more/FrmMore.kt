@@ -2,7 +2,9 @@ package com.core.helper.more
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import com.R
 import com.core.base.BaseFragment
 import com.core.helper.adhelper.AdHelperActivity
@@ -16,6 +18,11 @@ class FrmMore : BaseFragment(), View.OnClickListener {
         return javaClass.simpleName
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater.inflate(R.layout.l_frm_more, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -27,10 +34,6 @@ class FrmMore : BaseFragment(), View.OnClickListener {
         btAdHelper.setOnClickListener(this)
 
         LUIUtil.setPullLikeIOSVertical(nestedScrollView)
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_more
     }
 
     override fun onClick(v: View) {

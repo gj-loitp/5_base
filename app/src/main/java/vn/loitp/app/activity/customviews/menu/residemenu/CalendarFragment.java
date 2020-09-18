@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.annotation.LayoutId;
 import com.core.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -21,13 +22,10 @@ import vn.loitp.app.R;
  * Time: 下午3:26
  * Mail: specialcyci@gmail.com
  */
+
+@LayoutId(R.layout.reside_menu_calendar)
 public class CalendarFragment extends BaseFragment {
     private ListView listView;
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.reside_menu_calendar;
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
