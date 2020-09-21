@@ -60,7 +60,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         }
 
         var urlCoverSplashScreen: String? = intent.getStringExtra(Constants.BKG_SPLASH_SCREEN)
-        if (urlCoverSplashScreen == null || urlCoverSplashScreen.isEmpty()) {
+        if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
         LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
