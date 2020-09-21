@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.layout.draggablepanelfree
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -10,6 +11,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_draggable_panel_free)
 @LogTag("DraggablePanelFreeActivity")
+@IsFullScreen(false)
 class DraggablePanelFreeActivity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n")
@@ -25,10 +27,6 @@ class DraggablePanelFreeActivity : BaseFontActivity() {
         dpfl?.setCallback { state ->
             tv_state.text = "onStateChange " + state.name
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.textview.textdecorator
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_text_view_text_decorator)
 @LogTag("TextDecoratorActivity")
+@IsFullScreen(false)
 class TextDecoratorActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +38,4 @@ class TextDecoratorActivity : BaseFontActivity() {
                 .setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build()
     }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
 }

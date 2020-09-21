@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.database.sqlite;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -17,6 +19,7 @@ import vn.loitp.app.app.LApplication;
 
 @LayoutId(R.layout.activity_sqlite)
 @LogTag("SqliteActivity")
+@IsFullScreen(false)
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;
     private LinearLayout ll;
@@ -36,11 +39,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         findViewById(R.id.btAdd100).setOnClickListener(this);
 
         getAllContact();
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override
@@ -71,8 +69,9 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void addButton(Contact contact) {
-        Button button = new Button(getActivity());
+        Button button = new Button(this);
         button.setText(contact.getId() + " " + contact.getName());
         button.setOnClickListener(v -> {
             //LLog.d(TAG, "onClick " + button.getText().toString());
@@ -85,8 +84,9 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         ll.addView(button);
     }
 
+    @SuppressLint("SetTextI18n")
     private void addButton() {
-        Button button = new Button(getActivity());
+        Button button = new Button(this);
         Contact contact = db.getContact(db.getContactsCount());
         if (contact != null) {
             button.setText(contact.getId() + " - " + contact.getName());

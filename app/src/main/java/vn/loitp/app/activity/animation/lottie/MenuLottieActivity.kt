@@ -10,6 +10,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.airbnb.lottie.LottieAnimationView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -23,6 +24,7 @@ import java.util.*
 //https://www.lottiefiles.com/?page=1
 @LayoutId(R.layout.activity_animation_lottie)
 @LogTag("MenuLottieActivity")
+@IsFullScreen(false)
 class MenuLottieActivity : BaseFontActivity() {
     private val lottieItemList: MutableList<LottieItem> = ArrayList()
 
@@ -53,11 +55,7 @@ class MenuLottieActivity : BaseFontActivity() {
 
         prepareData()
     }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
+    
     private fun prepareData() {
         getListAssetFiles("lottie")
         for (i in stringList.indices) {
@@ -75,7 +73,7 @@ class MenuLottieActivity : BaseFontActivity() {
             if (list?.isNotEmpty() == true) {
                 // This is a folder
                 for (file in list) {
-                    if (!getListAssetFiles("$path/$file")) return false else {
+                    if (!getListAssetFiles(path = "$path/$file")) return false else {
                         // This is a file
                         stringList.add(file)
                     }
@@ -91,7 +89,7 @@ class MenuLottieActivity : BaseFontActivity() {
     private inner class SlidePagerAdapter : PagerAdapter() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val lottieItem = lottieItemList[position]
-            val inflater = LayoutInflater.from(activity)
+            val inflater = LayoutInflater.from(this@MenuLottieActivity)
             val layout = inflater.inflate(R.layout.item_lottie_view, collection, false) as ViewGroup
             val rl = layout.findViewById<RelativeLayout>(R.id.rl)
             val lottieAnimationView: LottieAnimationView = layout.findViewById(R.id.animationView)

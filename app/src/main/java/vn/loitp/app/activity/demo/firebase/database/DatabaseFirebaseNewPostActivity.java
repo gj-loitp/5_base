@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.utilities.LLog;
@@ -26,6 +27,7 @@ import vn.loitp.app.app.LApplication;
 
 @LayoutId(R.layout.activity_new_post)
 @LogTag("DatabaseFirebaseNewPostActivity")
+@IsFullScreen(false)
 public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     private static final String REQUIRED = "Required";
 
@@ -75,7 +77,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
-        LToast.show(getActivity(), "Posting...");
+        LToast.show(this, "Posting...");
 
         // [START single_value_read]
         final String userId = getUid();
@@ -94,7 +96,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         if (user == null) {
                             // User is null, error out
                             LLog.e(getLogTag(), "User " + userId + " is unexpectedly null");
-                            LToast.show(getActivity(), "Error: could not fetch user.");
+                            LToast.show(DatabaseFirebaseNewPostActivity.this, "Error: could not fetch user.");
                         } else {
                             // Write new post
                             writeNewPost(userId, user.username, title, body);
@@ -142,10 +144,5 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
         mDatabase.updateChildren(childUpdates);
     }
     // [END write_fan_out]
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
 
 }

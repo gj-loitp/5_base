@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TimePicker;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -33,6 +34,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
 @LayoutId(R.layout.activity_alarm_edit)
 @LogTag("EditAlarmActivity")
+@IsFullScreen(false)
 public class EditAlarmActivity extends BaseFontActivity {
     private EditText mTitle;
     private CheckBox mAlarmEnabled;
@@ -126,13 +128,13 @@ public class EditAlarmActivity extends BaseFontActivity {
         mAlarm.toIntent(intent);
         setResult(RESULT_OK, intent);
         finish();
-        LActivityUtil.tranIn(getActivity());
+        LActivityUtil.tranIn(this);
     }
 
     public void onCancelClick(View view) {
         setResult(RESULT_CANCELED, null);
         finish();
-        LActivityUtil.tranIn(getActivity());
+        LActivityUtil.tranIn(this);
     }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -225,10 +227,4 @@ public class EditAlarmActivity extends BaseFontActivity {
         return builder.create();
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
 }
-

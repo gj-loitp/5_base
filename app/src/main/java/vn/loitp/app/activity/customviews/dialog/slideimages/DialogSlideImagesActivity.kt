@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.dialog.slideimages
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_dialog_slide_images)
 @LogTag("DialogSlideImagesActivity")
+@IsFullScreen(false)
 class DialogSlideImagesActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,23 +29,19 @@ class DialogSlideImagesActivity : BaseFontActivity() {
         imageList.add(url1)
         imageList.add(url2)
 
-        LImageUtil.load(activity, url0, iv0)
-        LImageUtil.load(activity, url1, iv1)
-        LImageUtil.load(activity, url2, iv2)
+        LImageUtil.load(context = this, url = url0, imageView = iv0)
+        LImageUtil.load(context = this, url = url1, imageView = iv1)
+        LImageUtil.load(context = this, url = url2, imageView = iv2)
 
         iv0.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(context = activity, index = 0, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
+            LDialogUtil.showDialogSlide(context = this, index = 0, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
         }
         iv1.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(context = activity, index = 1, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
+            LDialogUtil.showDialogSlide(context = this, index = 1, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
         }
         iv2.setSafeOnClickListener {
-            LDialogUtil.showDialogSlide(context = activity, index = 2, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
+            LDialogUtil.showDialogSlide(context = this, index = 2, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -16,6 +17,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_relative_popup_window_layout)
 @LogTag("RelativePopupWindowActivity")
+@IsFullScreen(false)
 public class RelativePopupWindowActivity extends BaseFontActivity {
 
     @Override
@@ -130,11 +132,6 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
             final boolean fitInScreen = checkboxFitInScreen.isChecked();
             popup.showOnAnchor(view, vertPos, horizPos, fitInScreen);
         });
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
 }

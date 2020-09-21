@@ -5,6 +5,7 @@ import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import java.io.File
 
 @LayoutId(R.layout.activity_download_manager)
 @LogTag("DownloadManagerActivity")
+@IsFullScreen(false)
 class DownloadManagerActivity : BaseFontActivity() {
     private var downloader: Downloader? = null
     private val handler: Handler = Handler()
@@ -40,13 +42,9 @@ class DownloadManagerActivity : BaseFontActivity() {
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     @SuppressLint("SetTextI18n")
     private fun getDownloader() {
-        val path = LStoreUtil.getFolderPath(activity, "ZZZTestDownloader")
+        val path = LStoreUtil.getFolderPath(context = this, mfolderName = "ZZZTestDownloader")
         logD("getDownloader path $path")
         val map = HashMap<String, String>()
         map["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwOGQ3MWQ2Zi0xZTc0LTYwYjQtOWJmMC1mM2E0YzVkMTkwZGUiLCJyb2xlIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAyIiwianRpIjoiMzUxMmZhM2YtYWMzNi00YmM2LWI5ZTEtOTEyMzc5Y2NlZjQ1IiwiRGF0YVR5cGVzIjoiMiIsIm5iZiI6MTU2OTQ3OTc1OSwiZXhwIjoxNTY5NTY5NzU5LCJpYXQiOjE1Njk0Nzk3NTksImlzcyI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biIsImF1ZCI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biJ9.6IfkQkMhI0g-XAbKdHNSH5HiP8fsRAJxnpojjyqwFBI"

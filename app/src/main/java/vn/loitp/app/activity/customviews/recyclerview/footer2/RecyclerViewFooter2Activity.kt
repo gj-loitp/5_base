@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.recyclerview.footer2
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.*
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -19,6 +20,7 @@ import vn.loitp.app.common.Constants
 
 @LayoutId(R.layout.activity_recycler_view_footer_2)
 @LogTag("RecyclerViewFooter2Activity")
+@IsFullScreen(false)
 class RecyclerViewFooter2Activity : BaseFontActivity() {
 
     private var footer2Adapter: Footer2Adapter? = null
@@ -45,7 +47,7 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
                     override fun onLoadMore() {
                     }
                 })
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
         rv.adapter = footer2Adapter
@@ -54,21 +56,21 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
         prepareMovieData()
 
         btSetting.setSafeOnClickListener {
-            LPopupMenu.show(activity = activity, showOnView = it, menuRes = R.menu.menu_recycler_view,
+            LPopupMenu.show(activity = this, showOnView = it, menuRes = R.menu.menu_recycler_view,
                     callBackPopup = object : CallbackPopup {
                         override fun clickOnItem(menuItem: MenuItem) {
                             tvType.text = menuItem.title.toString()
                             when (menuItem.itemId) {
                                 R.id.menuLinearVertical -> {
-                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewFooter2Activity)
                                     rv.layoutManager = lmVertical
                                 }
                                 R.id.menuLinearHorizontal -> {
-                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewFooter2Activity, LinearLayoutManager.HORIZONTAL, false)
                                     rv.layoutManager = lmHorizontal
                                 }
-                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(activity, 2)
-                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(activity, 3)
+                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewFooter2Activity, 2)
+                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewFooter2Activity, 3)
                                 R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                                 R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                             }
@@ -93,10 +95,6 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
             footer2Adapter?.notifyDataSetChanged()
             showShort("Finish loadMore")
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun prepareMovieData() {

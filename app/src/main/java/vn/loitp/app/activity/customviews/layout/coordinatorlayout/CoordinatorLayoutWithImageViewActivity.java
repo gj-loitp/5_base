@@ -4,6 +4,7 @@ import android.graphics.Matrix;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -14,6 +15,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_coordinator_layout)
 @LogTag("CoordinatorLayoutWithImageViewActivity")
+@IsFullScreen(false)
 public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
 
     @Override
@@ -56,10 +58,4 @@ public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
             }
         });
     }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
 }

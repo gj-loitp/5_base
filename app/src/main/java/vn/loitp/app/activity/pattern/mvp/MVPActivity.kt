@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_pattern_mvp)
 @LogTag("MVPActivity")
+@IsFullScreen(false)
 class MVPActivity : BaseFontActivity(), DemoPresenter.View {
 
     private lateinit var demoPresenter: DemoPresenter
@@ -51,10 +53,6 @@ class MVPActivity : BaseFontActivity(), DemoPresenter.View {
         btLongTask.setSafeOnClickListener {
             demoPresenter.doALongTask()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun updateUserInfoTextView(info: String) {

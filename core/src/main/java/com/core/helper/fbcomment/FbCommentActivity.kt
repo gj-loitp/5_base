@@ -20,7 +20,6 @@ import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.views.LToast
 import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 
@@ -47,7 +46,7 @@ class FbCommentActivity : BaseFontActivity() {
         if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {
-            adView = AdView(activity)
+            adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = adUnitId
@@ -59,7 +58,7 @@ class FbCommentActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary))
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(this, R.color.colorPrimary))
 
         postUrl = if (Constants.IS_DEBUG) {
             "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
@@ -69,7 +68,7 @@ class FbCommentActivity : BaseFontActivity() {
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            LToast.show(activity, "The web url shouldn't be empty")
+            showShort("The web url shouldn't be empty")
             onBackPressed()
             return
         }
@@ -92,10 +91,6 @@ class FbCommentActivity : BaseFontActivity() {
             hideBlurView()
             setTvTitle("Facebook Comment")
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     @SuppressLint("SetJavaScriptEnabled")

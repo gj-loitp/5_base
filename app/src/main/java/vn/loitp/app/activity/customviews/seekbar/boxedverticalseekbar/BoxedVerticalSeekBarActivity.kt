@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar
 
 import android.graphics.Color
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,6 +15,7 @@ import java.util.*
 
 @LayoutId(R.layout.activity_seekbar_boxed_vertical)
 @LogTag("BoxedVerticalSeekBarActivity")
+@IsFullScreen(false)
 class BoxedVerticalSeekBarActivity : BaseFontActivity() {
     private val stringList = ArrayList<String>()
     private val x: String? = null
@@ -53,10 +55,6 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
             x += "\n" + s
         }
         textView?.text = x
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 
 @LayoutId(R.layout.activity_api_ttt_add_fav_list)
 @LogTag("TTTAPIAddFavListActivity")
+@IsFullScreen(false)
 class TTTAPIAddFavListActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,10 +42,6 @@ class TTTAPIAddFavListActivity : BaseFontActivity() {
             comic.title = "Black Haze"
             addComic(comic)
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun addComic(comic: Comic) {

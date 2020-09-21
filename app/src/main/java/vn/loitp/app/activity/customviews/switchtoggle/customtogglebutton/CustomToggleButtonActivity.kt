@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -10,10 +11,12 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_switch_custom_toggle_button)
 @LogTag("CustomToggleButtonActivity")
+@IsFullScreen(false)
 class CustomToggleButtonActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         //customToggle.addFirstIcon(R.drawable.l_ic_thumb_down_black_48dp);
         //customToggle.addSecondIcon(R.drawable.l_ic_thumb_up_black_48dp);
         //customToggle.setMagnification(9);
@@ -49,10 +52,6 @@ class CustomToggleButtonActivity : BaseFontActivity() {
                 showShort("onRightToggleEnabled $enabled")
             }
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

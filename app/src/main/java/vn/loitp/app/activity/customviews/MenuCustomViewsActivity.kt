@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -44,10 +45,12 @@ import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
 
 @LayoutId(R.layout.activity_custom_view_menu)
 @LogTag("MenuCustomViewsActivity")
+@IsFullScreen(false)
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btViewPager.setOnClickListener(this)
         btButton.setOnClickListener(this)
         btProgressLoading.setOnClickListener(this)
@@ -81,48 +84,44 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btCalendar.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btViewPager -> intent = Intent(activity, ViewPagerMenuActivity::class.java)
-            btButton -> intent = Intent(activity, ButtonMenuActivity::class.java)
-            btProgressLoading -> intent = Intent(activity, MenuProgressLoadingViewsActivity::class.java)
-            btSwitch -> intent = Intent(activity, SwitchToggleMenuActivity::class.java)
-            btActionBar -> intent = Intent(activity, ActionbarMenuActivity::class.java)
-            btImageView -> intent = Intent(activity, ImageViewMenuActivity::class.java)
-            btTextView -> intent = Intent(activity, TextViewMenuActivity::class.java)
-            btBottomBarBlur -> intent = Intent(activity, BottomNavigationMenuActivity::class.java)
-            btSticker -> intent = Intent(activity, StickerActivity::class.java)
-            btEditText -> intent = Intent(activity, EditTextMenuActivity::class.java)
-            btLayout -> intent = Intent(activity, LayoutMenuActivity::class.java)
-            btVideoView -> intent = Intent(activity, VideoViewMenuActivity::class.java)
-            btSeekBar -> intent = Intent(activity, SeekbarMenuActivity::class.java)
-            btRecyclerView -> intent = Intent(activity, RecyclerViewMenuActivity::class.java)
-            btDialog -> intent = Intent(activity, DialogMenuActivity::class.java)
-            btPopupMenu -> intent = Intent(activity, PopupMenuActivity::class.java)
-            btScratchView -> intent = Intent(activity, ScratchViewMenuActivity::class.java)
-            btNavigation -> intent = Intent(activity, NavigationMenuActivity::class.java)
-            btTreeView -> intent = Intent(activity, TreeViewActivity::class.java)
-            btDraggableFlipView -> intent = Intent(activity, DraggableFlipViewActivity::class.java)
-            btAnswerView -> intent = Intent(activity, AnswerViewActivity::class.java)
-            btBottomSheet -> intent = Intent(activity, BottomSheetMenuActivity::class.java)
-            btCompass -> intent = Intent(activity, CompasActivity::class.java)
-            btScrollablePanel -> intent = Intent(activity, ScrollablePanelActivity::class.java)
-            btFbCmt -> intent = Intent(activity, FacebookCommentActivity::class.java)
-            btWwlMusic -> intent = Intent(activity, WWLActivityMusic::class.java)
-            btWwlVideo -> intent = Intent(activity, WWLVideoActivity::class.java)
-            btLDebugView -> intent = Intent(activity, LDebugViewActivity::class.java)
-            btMenu -> intent = Intent(activity, MenuMenuActivity::class.java)
-            btLCardView -> intent = Intent(activity, LCardViewActivity::class.java)
-            btCalendar -> intent = Intent(activity, CalendarMenuActivity::class.java)
+            btViewPager -> intent = Intent(this, ViewPagerMenuActivity::class.java)
+            btButton -> intent = Intent(this, ButtonMenuActivity::class.java)
+            btProgressLoading -> intent = Intent(this, MenuProgressLoadingViewsActivity::class.java)
+            btSwitch -> intent = Intent(this, SwitchToggleMenuActivity::class.java)
+            btActionBar -> intent = Intent(this, ActionbarMenuActivity::class.java)
+            btImageView -> intent = Intent(this, ImageViewMenuActivity::class.java)
+            btTextView -> intent = Intent(this, TextViewMenuActivity::class.java)
+            btBottomBarBlur -> intent = Intent(this, BottomNavigationMenuActivity::class.java)
+            btSticker -> intent = Intent(this, StickerActivity::class.java)
+            btEditText -> intent = Intent(this, EditTextMenuActivity::class.java)
+            btLayout -> intent = Intent(this, LayoutMenuActivity::class.java)
+            btVideoView -> intent = Intent(this, VideoViewMenuActivity::class.java)
+            btSeekBar -> intent = Intent(this, SeekbarMenuActivity::class.java)
+            btRecyclerView -> intent = Intent(this, RecyclerViewMenuActivity::class.java)
+            btDialog -> intent = Intent(this, DialogMenuActivity::class.java)
+            btPopupMenu -> intent = Intent(this, PopupMenuActivity::class.java)
+            btScratchView -> intent = Intent(this, ScratchViewMenuActivity::class.java)
+            btNavigation -> intent = Intent(this, NavigationMenuActivity::class.java)
+            btTreeView -> intent = Intent(this, TreeViewActivity::class.java)
+            btDraggableFlipView -> intent = Intent(this, DraggableFlipViewActivity::class.java)
+            btAnswerView -> intent = Intent(this, AnswerViewActivity::class.java)
+            btBottomSheet -> intent = Intent(this, BottomSheetMenuActivity::class.java)
+            btCompass -> intent = Intent(this, CompasActivity::class.java)
+            btScrollablePanel -> intent = Intent(this, ScrollablePanelActivity::class.java)
+            btFbCmt -> intent = Intent(this, FacebookCommentActivity::class.java)
+            btWwlMusic -> intent = Intent(this, WWLActivityMusic::class.java)
+            btWwlVideo -> intent = Intent(this, WWLVideoActivity::class.java)
+            btLDebugView -> intent = Intent(this, LDebugViewActivity::class.java)
+            btMenu -> intent = Intent(this, MenuMenuActivity::class.java)
+            btLCardView -> intent = Intent(this, LCardViewActivity::class.java)
+            btCalendar -> intent = Intent(this, CalendarMenuActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

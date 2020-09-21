@@ -6,27 +6,25 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
 import static com.yalantis.ucrop.UCrop.REQUEST_CROP;
 
 @LogTag("TempActivity")
+@IsFullScreen(false)
 public class TempActivity extends BaseFontActivity {
     private PickerManager pickerManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(0);
         this.pickerManager = GlobalHolder.getInstance().getPickerManager();
-        this.pickerManager.setActivity(getActivity());
+        this.pickerManager.setActivity(this);
         this.pickerManager.pickPhotoWithPermission();
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override

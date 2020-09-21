@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.ads.admobinterstitial
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,19 +13,16 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_admob_interstitial)
 @LogTag("AdmobInterstitialActivity")
+@IsFullScreen(false)
 class AdmobInterstitialActivity : BaseFontActivity() {
     private var interstitialAd: InterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false//remove show duplicate ads in BaseActivity
-        interstitialAd = LUIUtil.createAdFull(activity)
-        val s = LStoreUtil.readTxtFromRawFolder(activity, R.raw.ad_full)
+        interstitialAd = LUIUtil.createAdFull(this)
+        val s = LStoreUtil.readTxtFromRawFolder(context = this, nameOfRawFile = R.raw.ad_full)
         textView.text = s
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onBackPressed() {

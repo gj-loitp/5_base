@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.edittext.textwatcher
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -10,6 +11,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_edittext_text_watcher)
 @LogTag("EditTextTextWatcherActivity")
+@IsFullScreen(false)
 class EditTextTextWatcherActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,9 +22,5 @@ class EditTextTextWatcherActivity : BaseFontActivity() {
             text += s + "\n"
             textView.text = text
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 }

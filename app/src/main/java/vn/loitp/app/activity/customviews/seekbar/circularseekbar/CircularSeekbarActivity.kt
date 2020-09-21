@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.seekbar.circularseekbar
 
 import android.graphics.Color
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import java.text.DecimalFormat
 
 @LayoutId(R.layout.activity_seekbar_circular)
 @LogTag("CircularSeekbarActivity")
+@IsFullScreen(false)
 class CircularSeekbarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,10 +49,6 @@ class CircularSeekbarActivity : BaseFontActivity() {
                 // Nothing
             }
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

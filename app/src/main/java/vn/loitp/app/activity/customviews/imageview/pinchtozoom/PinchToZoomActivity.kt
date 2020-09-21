@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.imageview.pinchtozoom
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,16 +12,13 @@ import vn.loitp.app.common.Constants
 
 @LayoutId(R.layout.activity_imageview_pinch_to_zoom)
 @LogTag("PinchToZoomActivity")
+@IsFullScreen(false)
 class PinchToZoomActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LImageUtil.load(context = activity, url = Constants.URL_IMG, imageView = imageView)
+        LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = imageView)
         LImageUtil.setImageViewZoom(imageView)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

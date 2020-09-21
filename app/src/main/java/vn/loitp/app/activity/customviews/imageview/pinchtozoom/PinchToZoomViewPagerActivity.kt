@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,10 +16,12 @@ import java.util.*
 
 @LayoutId(R.layout.activity_imageview_pinch_to_zoom_vp)
 @LogTag("PinchToZoomViewPagerActivity")
+@IsFullScreen(false)
 class PinchToZoomViewPagerActivity : BaseFontActivity() {
     private val list = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         list.add(Constants.URL_IMG)
         list.add(Constants.URL_IMG_1)
         list.add(Constants.URL_IMG_2)
@@ -29,10 +32,6 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
         list.add(Constants.URL_IMG_LARGE_PORTRAIT_O)
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         LUIUtil.setPullLikeIOSHorizontal(vp)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

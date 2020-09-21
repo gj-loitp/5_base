@@ -1,8 +1,10 @@
 package vn.loitp.app.activity.customviews.layout.dragueur;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -16,6 +18,7 @@ import vn.loitp.app.R;
 
 @LayoutId((R.layout.activity_dragueur))
 @LogTag("DragueurActivity")
+@IsFullScreen(false)
 public class DragueurActivity extends BaseFontActivity {
     private DraggableView draggableView;
     private TextView tv;
@@ -23,6 +26,7 @@ public class DragueurActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         draggableView = findViewById(R.id.dragueur);
         tv = findViewById(R.id.textView);
         draggableView.setRotationEnabled(true);
@@ -71,11 +75,7 @@ public class DragueurActivity extends BaseFontActivity {
         });*/
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
+    @SuppressLint("SetTextI18n")
     private void setText(String s) {
         tv.setText("Dragueur can move any view with one finger ;)\n" + s);
     }

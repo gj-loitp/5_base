@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.scratchview.scratchviewimage
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_scratchview_image)
 @LogTag("ScratchViewImageActivity")
+@IsFullScreen(false)
 class ScratchViewImageActivity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n")
@@ -26,10 +28,6 @@ class ScratchViewImageActivity : BaseFontActivity() {
                 textView.text = "onRevealPercentChangedListener percent: $percent"
             }
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

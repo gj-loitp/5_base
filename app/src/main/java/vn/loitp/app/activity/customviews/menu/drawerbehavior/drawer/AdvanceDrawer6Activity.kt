@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -20,10 +21,8 @@ import java.util.*
 
 @LayoutId(R.layout.activity_drawer_behavior_advance6)
 @LogTag("AdvanceDrawer6Activity")
+@IsFullScreen(false)
 class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

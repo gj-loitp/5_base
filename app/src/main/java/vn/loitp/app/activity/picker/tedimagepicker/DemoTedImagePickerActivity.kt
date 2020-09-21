@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -22,6 +23,7 @@ import java.io.File
 
 @LayoutId(R.layout.activity_ted_image_picker_demo)
 @LogTag("DemoTedImagePickerActivity")
+@IsFullScreen(false)
 class DemoTedImagePickerActivity : BaseFontActivity() {
     private var selectedUriList: List<Uri>? = null
 
@@ -29,7 +31,7 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         tvMenu.setSafeOnClickListener {
-            LSocialUtil.openUrlInBrowser(activity, "https://github.com/ParkSangGwon/TedImagePicker")
+            LSocialUtil.openUrlInBrowser(context = this, url = "https://github.com/ParkSangGwon/TedImagePicker")
         }
 
         setNormalSingleButton()
@@ -37,10 +39,6 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         setRxSingleButton()
         setRxSingleButtonThenResize()
         setRxMultiButton()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun setNormalSingleButton() {
@@ -123,7 +121,7 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         //LImageUtil.load(context = this, uri = u, imageView = ivImage)
         u.path?.let { p ->
             val folderPath = ".resizeImage"
-            val fileResize = LImageUtil.resizeImage(context = activity, file = File(p), scaleTo = 1024, folderPath = folderPath)
+            val fileResize = LImageUtil.resizeImage(context = this, file = File(p), scaleTo = 1024, folderPath = folderPath)
             var hasInvalidImg = false
             if (fileResize?.exists() == true) {
                 //LLog.d(TAG, "fileResize: ${fileResize.path}")

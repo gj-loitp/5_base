@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.imageview.strectchyimageview
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,14 +12,12 @@ import vn.loitp.app.common.Constants
 
 @LayoutId(R.layout.activity_imageview_strectchy)
 @LogTag("StrectchyImageViewActivity")
+@IsFullScreen(false)
 class StrectchyImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        LImageUtil.load(context = activity, url = Constants.URL_IMG_LONG, imageView = lStretchyImageView)
-    }
 
-    override fun setFullScreen(): Boolean {
-        return false
+        LImageUtil.load(context = this, url = Constants.URL_IMG_LONG, imageView = lStretchyImageView)
     }
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -17,6 +18,7 @@ import vn.loitp.app.common.Constants;
 
 @LayoutId(R.layout.activity_l_debugview)
 @LogTag("LDebugViewActivity")
+@IsFullScreen(false)
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;
     private Button btStop;
@@ -44,20 +46,15 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        LDebug.checkPermission(getActivity(), requestCode, resultCode);
+        LDebug.checkPermission(this, requestCode, resultCode);
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btStart:
-                LDebug.init(getActivity());
+                LDebug.init(this);
                 btStop.setEnabled(true);
                 btSendD.setEnabled(true);
                 btSendI.setEnabled(true);

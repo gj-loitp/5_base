@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.textview.extratextview
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_text_view_extra)
 @LogTag("ExtraTextViewActivity")
+@IsFullScreen(false)
 class ExtraTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +35,6 @@ class ExtraTextViewActivity : BaseFontActivity() {
                 toggleTxt.setState(LToggleLExtraTextView.State.ACTIVE)
             }
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

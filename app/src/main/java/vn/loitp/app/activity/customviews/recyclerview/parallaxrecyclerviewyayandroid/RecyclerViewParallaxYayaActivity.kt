@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayan
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,6 +12,7 @@ import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayand
 
 @LayoutId(R.layout.activity_recycler_view__parallax_yaya)
 @LogTag("RecyclerViewParallaxYayaActivity")
+@IsFullScreen(false)
 class RecyclerViewParallaxYayaActivity : BaseFontActivity() {
 
     private var yayaParallaxAdapter: YayaParallaxAdapter? = null
@@ -47,10 +49,6 @@ class RecyclerViewParallaxYayaActivity : BaseFontActivity() {
                 })
         recyclerView.adapter = yayaParallaxAdapter
         //LUIUtil.setPullLikeIOSVertical(recyclerView)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

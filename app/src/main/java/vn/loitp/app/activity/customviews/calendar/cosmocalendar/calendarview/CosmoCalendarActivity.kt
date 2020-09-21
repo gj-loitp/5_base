@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.widget.RadioGroup
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.OrientationHelper
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -29,6 +30,7 @@ import kotlin.collections.ArrayList
 
 @LayoutId(R.layout.activity_calendar_cosmo)
 @LogTag("CosmoCalendarActivity")
+@IsFullScreen(false)
 class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeListener {
     private var threeMonthsCriteriaList = ArrayList<BaseCriteria>()
     private var fridayCriteria: WeekDayCriteria? = null
@@ -54,10 +56,6 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
         calendarView.maxDate = c*/
 
         //calendarView.currentDayIconRes = R.drawable.circle
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun initViews() {

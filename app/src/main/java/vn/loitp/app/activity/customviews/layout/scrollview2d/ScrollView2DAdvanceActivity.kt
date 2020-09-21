@@ -10,11 +10,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-import com.views.LToast.showShort
 import com.views.scrollview.LHorizontalScrollView
 import com.views.scrollview.LScrollView
 import kotlinx.android.synthetic.main.activity_layout_scrollview_2d_advance.*
@@ -22,12 +22,14 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_layout_scrollview_2d_advance)
 @LogTag("ScrollView2DAdvanceActivity")
+@IsFullScreen(false)
 class ScrollView2DAdvanceActivity : BaseFontActivity() {
     companion object {
         private const val WIDTH_PX = 300
         private const val HEIGHT_PX = 150
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -65,10 +67,6 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     //TODO convert coroutine
     private inner class Render internal constructor(private val column: Int, private val row: Int) : AsyncTask<Void, View, Void>() {
         override fun onPreExecute() {
@@ -103,40 +101,40 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
         private fun genLine(column: Int, row: Int) {
             //gen view group 2
             for (i in 0 until column) {
-                val button = Button(activity)
+                val button = Button(this@ScrollView2DAdvanceActivity)
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                 button.text = "Date $i"
                 button.setOnClickListener {
-                    showShort(activity, "Click " + button.text.toString(), R.drawable.l_bkg_horizontal)
+                    showShort("Click " + button.text.toString())
                 }
                 publishProgress(button, ll2)
             }
 
             //gen view group 3
             for (i in 0 until row) {
-                val button = Button(activity)
+                val button = Button(this@ScrollView2DAdvanceActivity)
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                 button.text = "$i:00:00"
                 button.setOnClickListener {
-                    showShort(activity, "Click " + button.text.toString(), R.drawable.l_bkg_horizontal)
+                    showShort("Click " + button.text.toString())
                 }
                 publishProgress(button, ll3)
             }
 
             //gen view group 4
             for (i in 0 until row) {
-                val linearLayout = LinearLayout(activity)
+                val linearLayout = LinearLayout(this@ScrollView2DAdvanceActivity)
                 val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
                 layoutParams.setMargins(0, HEIGHT_PX * i, 0, 0)
                 linearLayout.layoutParams = layoutParams
                 linearLayout.orientation = LinearLayout.HORIZONTAL
                 for (j in 0 until column) {
-                    val button = Button(activity)
+                    val button = Button(this@ScrollView2DAdvanceActivity)
                     button.setBackgroundResource(R.drawable.bg_square)
                     button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                     button.text = "Pos $i - $j"
                     button.setOnClickListener {
-                        showShort(activity, "Click " + button.text.toString(), R.drawable.l_bkg_horizontal)
+                        showShort("Click " + button.text.toString())
                     }
                     linearLayout.addView(button)
                 }
@@ -144,14 +142,14 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
             }
 
             //add sticker img
-            val sticker0 = ImageView(activity)
+            val sticker0 = ImageView(this@ScrollView2DAdvanceActivity)
             sticker0.setImageResource(R.drawable.loitp)
             sticker0.scaleType = ImageView.ScaleType.CENTER_CROP
             val rl0 = RelativeLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
             rl0.setMargins(WIDTH_PX, HEIGHT_PX * 7, 0, 0)
             sticker0.layoutParams = rl0
             publishProgress(sticker0, rl4)
-            val sticker1 = ImageView(activity)
+            val sticker1 = ImageView(this@ScrollView2DAdvanceActivity)
             sticker1.setImageResource(R.drawable.loitp)
             sticker1.scaleType = ImageView.ScaleType.CENTER_CROP
             val rl1 = RelativeLayout.LayoutParams((WIDTH_PX * 2.5).toInt(), (HEIGHT_PX * 2.5).toInt())

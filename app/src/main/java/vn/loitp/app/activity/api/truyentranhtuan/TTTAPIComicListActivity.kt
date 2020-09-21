@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType
 
 @LayoutId(R.layout.activity_api_ttt_comic_list)
 @LogTag("TTTAPIComicListActivity")
+@IsFullScreen(false)
 class TTTAPIComicListActivity : BaseFontActivity() {
     private var comicTypeList = ArrayList<ComicType>()
 
@@ -31,12 +33,8 @@ class TTTAPIComicListActivity : BaseFontActivity() {
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     private fun showDialogSelect() {
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle("Chọn thể loại:")
         val items = arrayOfNulls<String>(comicTypeList.size)
         for (i in comicTypeList.indices) {

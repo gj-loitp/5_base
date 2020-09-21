@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -24,6 +25,7 @@ import java.util.*
 
 @LayoutId(R.layout.activity_recycler_view)
 @LogTag("RecyclerViewActivity")
+@IsFullScreen(false)
 class RecyclerViewActivity : BaseFontActivity() {
 
     private val movieList: MutableList<Movie> = ArrayList()
@@ -66,7 +68,7 @@ class RecyclerViewActivity : BaseFontActivity() {
                         loadMore()
                     }
                 })
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
 
         //rv.setAdapter(mAdapter);
@@ -85,7 +87,7 @@ class RecyclerViewActivity : BaseFontActivity() {
         //LUIUtil.setPullLikeIOSVertical(recyclerView = rv)
         prepareMovieData()
         btSetting.setOnClickListener {
-            LPopupMenu.show(activity = activity,
+            LPopupMenu.show(activity = this,
                     showOnView = it,
                     menuRes = R.menu.menu_recycler_view,
                     callBackPopup = object : CallbackPopup {
@@ -93,15 +95,15 @@ class RecyclerViewActivity : BaseFontActivity() {
                             tvType.text = menuItem.title.toString()
                             when (menuItem.itemId) {
                                 R.id.menuLinearVertical -> {
-                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewActivity)
                                     rv.layoutManager = lmVertical
                                 }
                                 R.id.menuLinearHorizontal -> {
-                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewActivity, LinearLayoutManager.HORIZONTAL, false)
                                     rv.layoutManager = lmHorizontal
                                 }
-                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(activity, 2)
-                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(activity, 3)
+                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewActivity, 2)
+                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewActivity, 3)
                                 R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                                 R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                             }
@@ -120,10 +122,6 @@ class RecyclerViewActivity : BaseFontActivity() {
             mAdapter?.notifyDataSetChanged()
             showShort("Finish loadMore")
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun prepareMovieData() {

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.pattern.observerpattern
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_pattern_observer)
 @LogTag("ObserverPatternActivity")
+@IsFullScreen(false)
 class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, RepositoryObserver {
     private var mUserDataRepository: Subject? = null
 
@@ -23,10 +25,6 @@ class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, Reposi
         mUserDataRepository?.registerObserver(this)
 
         bt.setOnClickListener(this)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     @SuppressLint("SetTextI18n")

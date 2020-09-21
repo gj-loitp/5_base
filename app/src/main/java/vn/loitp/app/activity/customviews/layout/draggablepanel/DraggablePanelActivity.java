@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.draggablepanel;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -14,6 +15,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_draggable_panel)
 @LogTag("DraggablePanelActivity")
+@IsFullScreen(false)
 public class DraggablePanelActivity extends BaseFontActivity {
     private DraggablePanel draggablePanel;
 
@@ -44,11 +46,6 @@ public class DraggablePanelActivity extends BaseFontActivity {
                 LLog.d(getLogTag(), "onClosedToRight");
             }
         });
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     private void initializeDraggablePanel() throws Resources.NotFoundException {

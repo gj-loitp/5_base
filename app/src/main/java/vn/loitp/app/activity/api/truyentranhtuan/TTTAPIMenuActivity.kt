@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.content.Intent
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,43 +12,41 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_api_ttt_menu)
 @LogTag("TTTAPIMenuActivity")
+@IsFullScreen(false)
 class TTTAPIMenuActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         btComicList.setOnClickListener {
-            val intent = Intent(activity, TTTAPIComicListActivity::class.java)
+            val intent = Intent(this, TTTAPIComicListActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btChapList.setOnClickListener {
-            val intent = Intent(activity, TTTAPIChapListActivity::class.java)
+            val intent = Intent(this, TTTAPIChapListActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btPageList.setOnClickListener {
-            val intent = Intent(activity, TTTAPIPageListActivity::class.java)
+            val intent = Intent(this, TTTAPIPageListActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btFavList.setOnClickListener {
-            val intent = Intent(activity, TTTAPIFavListActivity::class.java)
+            val intent = Intent(this, TTTAPIFavListActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btAddToFavList.setOnClickListener {
-            val intent = Intent(activity, TTTAPIAddFavListActivity::class.java)
+            val intent = Intent(this, TTTAPIAddFavListActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btRemoveToFavList.setOnClickListener {
-            val intent = Intent(activity, TTTAPIRemoveFavListActivity::class.java)
+            val intent = Intent(this, TTTAPIRemoveFavListActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 }

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,6 +13,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.helper.pagelist.GetReadImgTask
 
 @LayoutId(R.layout.activity_api_ttt_page_list)
 @LogTag("TTTAPIPageListActivity")
+@IsFullScreen(false)
 class TTTAPIPageListActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +37,6 @@ class TTTAPIPageListActivity : BaseFontActivity() {
                         indicatorView.smoothToHide()
                     }
                 }).execute()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

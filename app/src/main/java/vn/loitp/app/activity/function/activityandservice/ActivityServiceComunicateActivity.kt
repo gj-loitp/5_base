@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -16,6 +17,7 @@ import vn.loitp.app.activity.demo.floatingwidget.CommunicateMng
 
 @LayoutId(R.layout.activity_func_service_communicate)
 @LogTag("ActivityServiceComunicateActivity")
+@IsFullScreen(false)
 class ActivityServiceComunicateActivity : BaseFontActivity() {
 
     companion object {
@@ -45,12 +47,8 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
         } else {
             showShort("onClick TestService")
             textView.text = ""
-            startService(Intent(activity, TestService::class.java))
+            startService(Intent(this, TestService::class.java))
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

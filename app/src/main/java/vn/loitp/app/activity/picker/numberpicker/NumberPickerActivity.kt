@@ -2,6 +2,7 @@ package vn.loitp.app.activity.picker.numberpicker
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,11 +13,8 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_picker_number_picker)
 @LogTag("NumberPickerActivity")
+@IsFullScreen(false)
 class NumberPickerActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

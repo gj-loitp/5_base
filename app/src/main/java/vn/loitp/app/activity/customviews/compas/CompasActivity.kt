@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.compas
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,10 +15,12 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_compas)
 @LogTag("CompasActivity")
+@IsFullScreen(false)
 class CompasActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         compassView.setListener(object : CompassListener {
             override fun onSensorChanged(event: SensorEvent) {
                 logD("onSensorChanged : $event")
@@ -28,10 +31,6 @@ class CompasActivity : BaseFontActivity() {
                 logD("onAccuracyChanged : accuracy : $accuracy")
             }
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

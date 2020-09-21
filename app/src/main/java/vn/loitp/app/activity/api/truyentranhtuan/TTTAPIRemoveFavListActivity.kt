@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,6 +13,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 
 @LayoutId(R.layout.activity_api_ttt_remove_fav_list)
 @LogTag("TTTAPIRemoveFavListActivity")
+@IsFullScreen(false)
 class TTTAPIRemoveFavListActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,13 +43,9 @@ class TTTAPIRemoveFavListActivity : BaseFontActivity() {
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     private fun removeComic(comic: Comic) {
         indicatorView.smoothToShow()
-        RemoveComicFavListTask(activity, comic, object : RemoveComicFavListTask.Callback {
+        RemoveComicFavListTask(context = this, mComic = comic, callback = object : RemoveComicFavListTask.Callback {
             override fun onRemoveComicSuccess(mComic: Comic, comicList: List<Comic>) {
                 showShort("onRemoveComicSuccess")
                 LUIUtil.printBeautyJson(o = comicList, textView = textView)

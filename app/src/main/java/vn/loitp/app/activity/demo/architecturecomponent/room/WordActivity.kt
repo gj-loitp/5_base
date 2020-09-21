@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -20,18 +21,16 @@ import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_demo_database_room_work)
 @LogTag("WordActivity")
+@IsFullScreen(false)
 class WordActivity : BaseFontActivity() {
     private var wordViewModel: WordViewModel? = null
     private var wordListAdapter: WordListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setupViews()
         setupViewModels()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun setupViews() {

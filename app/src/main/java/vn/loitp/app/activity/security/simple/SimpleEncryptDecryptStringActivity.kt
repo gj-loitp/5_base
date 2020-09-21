@@ -2,6 +2,7 @@ package vn.loitp.app.activity.security.simple
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_encrypt_decrypt_string)
 @LogTag("SimpleEncryptDecryptStringActivity")
+@IsFullScreen(false)
 class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
 
     private val password = "Loitp@123KawasakiZ1000R"
@@ -42,10 +44,6 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
             btEncodeBase64.visibility = View.VISIBLE
             btDecodeBase64.visibility = View.GONE
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun encrypt() {

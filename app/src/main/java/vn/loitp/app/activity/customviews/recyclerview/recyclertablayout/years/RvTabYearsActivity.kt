@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import java.util.*
 
 @LayoutId(R.layout.activity_recycler_tablayout)
 @LogTag("RvTabYearsActivity")
+@IsFullScreen(false)
 class RvTabYearsActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,10 +52,6 @@ class RvTabYearsActivity : BaseFontActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     companion object {

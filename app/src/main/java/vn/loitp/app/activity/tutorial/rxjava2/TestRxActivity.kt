@@ -3,6 +3,7 @@ package vn.loitp.app.activity.tutorial.rxjava2
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -25,10 +26,8 @@ import java.util.concurrent.TimeUnit
 //https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
 @LayoutId(R.layout.activity_test_rx)
 @LogTag("TestRxActivity")
+@IsFullScreen(false)
 class TestRxActivity : BaseFontActivity(), View.OnClickListener {
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

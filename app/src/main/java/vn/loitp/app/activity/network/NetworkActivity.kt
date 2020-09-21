@@ -2,6 +2,7 @@ package vn.loitp.app.activity.network
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,15 +13,12 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_network)
 @LogTag("NetworkActivity")
+@IsFullScreen(false)
 class NetworkActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        showStatus(LConnectivityUtil.isConnected(activity))
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
+        showStatus(LConnectivityUtil.isConnected(this))
     }
 
     override fun onNetworkChange(event: EventBusData.ConnectEvent) {

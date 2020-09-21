@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.utilities.LActivityUtil;
@@ -25,6 +26,7 @@ import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseRec
 
 @LayoutId(R.layout.activity_database_firebase)
 @LogTag("DatabaseFirebaseActivity")
+@IsFullScreen(false)
 public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
@@ -70,15 +72,10 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
         findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DatabaseFirebaseNewPostActivity.class));
-                LActivityUtil.tranIn(getActivity());
+                startActivity(new Intent(DatabaseFirebaseActivity.this, DatabaseFirebaseNewPostActivity.class));
+                LActivityUtil.tranIn(DatabaseFirebaseActivity.this);
             }
         });
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override

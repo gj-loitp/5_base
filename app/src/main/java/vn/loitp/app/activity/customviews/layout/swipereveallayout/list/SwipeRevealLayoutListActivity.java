@@ -6,6 +6,7 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -19,19 +20,16 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_swipe_reveal_layout_list)
 @LogTag("SwipeRevealLayoutListActivity")
+@IsFullScreen(false)
 public class SwipeRevealLayoutListActivity extends BaseFontActivity {
     private ListAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setupActionBar();
         setupList();
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override

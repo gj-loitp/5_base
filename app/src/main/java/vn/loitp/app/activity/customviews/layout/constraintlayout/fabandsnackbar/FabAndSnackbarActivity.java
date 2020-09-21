@@ -5,6 +5,7 @@ import android.widget.Button;
 
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -14,8 +15,8 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_fab_and_snackbar)
 @LogTag("FabAndSnackbarActivity")
+@IsFullScreen(false)
 public class FabAndSnackbarActivity extends BaseFontActivity {
-    private Button mShowSnackbarButton;
     private CoordinatorLayout mCoordinatorLayout;
 
     @Override
@@ -23,7 +24,7 @@ public class FabAndSnackbarActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         mCoordinatorLayout = findViewById(R.id.coordinatorLayout);
 
-        mShowSnackbarButton = findViewById(R.id.showSnackbarButton);
+        Button mShowSnackbarButton = findViewById(R.id.showSnackbarButton);
         mShowSnackbarButton.setOnClickListener(view -> Snackbar.make(mCoordinatorLayout,
                 "This is a simple Snackbar", Snackbar.LENGTH_LONG)
                 .setAction("CLOSE", v -> {
@@ -31,8 +32,4 @@ public class FabAndSnackbarActivity extends BaseFontActivity {
                 }).show());
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
 }

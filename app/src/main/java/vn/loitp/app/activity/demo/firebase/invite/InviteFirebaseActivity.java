@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -25,6 +26,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_invite_firebase)
 @LogTag("InviteFirebaseActivity")
+@IsFullScreen(false)
 public class InviteFirebaseActivity extends BaseFontActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
@@ -68,11 +70,6 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
                     // [END_EXCLUDE]
                 })
                 .addOnFailureListener(this, e -> Log.w(getLogTag(), "getDynamicLink:onFailure", e));
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override

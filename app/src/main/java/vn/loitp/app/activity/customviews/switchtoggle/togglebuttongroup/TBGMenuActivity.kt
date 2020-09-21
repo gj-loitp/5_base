@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup
 
 import android.content.Intent
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,33 +13,31 @@ import vn.loitp.app.R
 //https://github.com/nex3z/ToggleButtonGroup
 @LayoutId(R.layout.activity_switch_tbg_menu)
 @LogTag("TBGMenuActivity")
+@IsFullScreen(false)
 class TBGMenuActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
         btnMultiSelectSample.setOnClickListener {
-            val intent = Intent(activity, TBGMultiSelectActivity::class.java)
+            val intent = Intent(this, TBGMultiSelectActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btnSingleSelectSample.setOnClickListener {
-            val intent = Intent(activity, TBGSingleSelectActivity::class.java)
+            val intent = Intent(this, TBGSingleSelectActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btnLabelSample.setOnClickListener {
-            val intent = Intent(activity, TBGFlowLabelActivity::class.java)
+            val intent = Intent(this, TBGFlowLabelActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btnCustomButtonSample.setOnClickListener {
-            val intent = Intent(activity, TBGCustomButtonActivity::class.java)
+            val intent = Intent(this, TBGCustomButtonActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

@@ -4,6 +4,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_dialog_pretty)
 @LogTag("PrettyDialogActivity")
+@IsFullScreen(false)
 class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     private var prettyDialog: PrettyDialog? = null
 
@@ -24,10 +26,6 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
         btShow2.setOnClickListener(this)
         btShow3.setOnClickListener(this)
         btShow4.setOnClickListener(this)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onClick(v: View) {
@@ -40,12 +38,12 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show1() {
-        prettyDialog = PrettyDialog(activity)
+        prettyDialog = PrettyDialog(this)
         prettyDialog?.setTitle("PrettyDialog Title")?.setMessage("PrettyDialog Message")?.show()
     }
 
     private fun show2() {
-        prettyDialog = PrettyDialog(activity)
+        prettyDialog = PrettyDialog(this)
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
                     .setMessage("PrettyDialog Message")
@@ -60,7 +58,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show3() {
-        prettyDialog = PrettyDialog(activity)
+        prettyDialog = PrettyDialog(this)
         // button OnClick listener
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
@@ -105,7 +103,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show4() {
-        prettyDialog = PrettyDialog(activity)
+        prettyDialog = PrettyDialog(this)
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
                     .setTitleColor(R.color.blue)

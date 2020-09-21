@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import androidx.core.app.NotificationCompat;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -33,6 +34,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
 @LayoutId(R.layout.activity_alarm_notification)
 @LogTag("AlarmNotification")
+@IsFullScreen(false)
 public class AlarmNotification extends BaseFontActivity {
     private Ringtone mRingtone;
     private Vibrator mVibrator;
@@ -113,7 +115,7 @@ public class AlarmNotification extends BaseFontActivity {
 
     public void onDismissClick(View view) {
         finish();
-        LActivityUtil.tranIn(getActivity());
+        LActivityUtil.tranIn(this);
     }
 
     private void readPreferences() {
@@ -153,7 +155,7 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     public void onBackPressed() {
         finish();
-        LActivityUtil.tranIn(getActivity());
+        LActivityUtil.tranIn(this);
     }
 
     private class PlayTimerTask extends TimerTask {
@@ -162,13 +164,8 @@ public class AlarmNotification extends BaseFontActivity {
             LLog.d(getLogTag(), "AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
-            LActivityUtil.tranIn(getActivity());
+            LActivityUtil.tranIn(AlarmNotification.this);
         }
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 }
 

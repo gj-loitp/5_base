@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.sticker
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 
@@ -13,26 +14,23 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_sticker)
 @LogTag("StickerActivity")
+@IsFullScreen(false)
 class StickerActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // add a stickerImage to canvas
-        val ivSticker = StickerImageView(activity)
+        val ivSticker = StickerImageView(this)
         //iv_sticker.setImageDrawable(((ImageView) view.findViewById(R.id.iv_sticker)).getDrawable());
         ivSticker.setBackgroundResource(R.drawable.logo)
         flCanvas.addView(ivSticker)
 
         // add a stickerText to canvas
-        val tvSticker = StickerTextView(activity)
+        val tvSticker = StickerTextView(this)
         tvSticker.text = "Demo StickerText"
         flCanvas.addView(tvSticker)
 
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

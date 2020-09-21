@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -38,6 +39,7 @@ import vn.loitp.app.app.LApplication;
 
 @LayoutId(R.layout.activity_auth_firebase_google)
 @LogTag("AuthFirebaseGoogleActivity")
+@IsFullScreen(false)
 public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View.OnClickListener {
     private static final int RC_SIGN_IN = 9001;
 
@@ -72,11 +74,6 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
         // [START initialize_auth]
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override
@@ -193,7 +190,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                 String url = user.getPhotoUrl().toString();
                 //String url= FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
                 url = url.replace("/s96-c/", "/s300-c/");
-                LImageUtil.Companion.load(getActivity(), url, findViewById(R.id.google_icon));
+                LImageUtil.Companion.load(this, url, findViewById(R.id.google_icon));
             } catch (Exception e) {
                 //who cares?
             }

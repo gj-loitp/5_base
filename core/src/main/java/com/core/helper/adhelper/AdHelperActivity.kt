@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.R
+import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -24,13 +25,10 @@ import life.sabujak.roundedbutton.RoundedButton
 import java.util.*
 
 @LogTag("AdHelperActivity")
+@IsFullScreen(false)
 class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,13 +43,13 @@ class AdHelperActivity : BaseFontActivity() {
 
         btBack.setSafeOnClickListener {
             finish()
-            LActivityUtil.tranOut(activity)
+            LActivityUtil.tranOut(this)
         }
         btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
         btNextScreen.setSafeOnClickListener {
             if (viewPager.currentItem == adPageList.size - 1) {
                 finish()
-                LActivityUtil.tranOut(activity)
+                LActivityUtil.tranOut(this)
             } else {
                 viewPager.currentItem = viewPager.currentItem + 1
             }
@@ -132,9 +130,10 @@ class AdHelperActivity : BaseFontActivity() {
 
     private inner class SlidePagerAdapter : PagerAdapter() {
 
+        @SuppressLint("SetTextI18n")
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val adPage = adPageList[position]
-            val inflater = LayoutInflater.from(activity)
+            val inflater = LayoutInflater.from(this@AdHelperActivity)
             val layout = inflater.inflate(R.layout.l_item_photo_ad_helper, collection, false) as ViewGroup
 
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
@@ -143,14 +142,14 @@ class AdHelperActivity : BaseFontActivity() {
             val btOkay = layout.findViewById<RoundedButton>(R.id.btOkay)
 
             adPage.urlAd?.let {
-                LImageUtil.load(activity, it, imageView)
+                LImageUtil.load(this@AdHelperActivity, it, imageView)
             }
 
             tv.text = adPage.title
-            LUIUtil.setTextShadow(tv, ContextCompat.getColor(activity, R.color.white))
+            LUIUtil.setTextShadow(textView = tv, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
 
             tvMsg.text = adPage.msg
-            LUIUtil.setTextShadow(tvMsg, ContextCompat.getColor(activity, R.color.white))
+            LUIUtil.setTextShadow(textView = tvMsg, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
 
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"
@@ -164,7 +163,7 @@ class AdHelperActivity : BaseFontActivity() {
             }
             btOkay.setSafeOnClickListener {
                 finish()
-                LActivityUtil.tranOut(activity)
+                LActivityUtil.tranOut(this@AdHelperActivity)
             }
 
             collection.addView(layout)

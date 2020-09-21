@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_rxjava2_flowable)
 @LogTag("SingleObserverExampleActivity")
+@IsFullScreen(false)
 class SingleObserverExampleActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,9 +49,5 @@ class SingleObserverExampleActivity : BaseFontActivity() {
                 logD("onError : " + e.message)
             }
         }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
 }

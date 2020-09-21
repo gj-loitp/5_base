@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.videoview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.videoview.youtube.YoutubeActivity
 
 @LayoutId(R.layout.activity_video_menu)
 @LogTag("VideoViewMenuActivity")
+@IsFullScreen(false)
 class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,29 +31,25 @@ class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         btYoutube.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
             btExoPlayer2 -> {
-                intent = Intent(activity, ExoPlayerActivity::class.java)
+                intent = Intent(this, ExoPlayerActivity::class.java)
                 intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd")
             }
             btExoPlayer2IMA -> {
-                intent = Intent(activity, ExoPlayerActivity::class.java)
+                intent = Intent(this, ExoPlayerActivity::class.java)
                 intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd")
                 intent.putExtra(Constants.KEY_VIDEO_LINK_IMA_AD, getString(R.string.ad_tag_url))
             }
-            bt2 -> intent = Intent(activity, ExoPlayerActivity2::class.java)
-            bt3 -> intent = Intent(activity, ExoPlayerActivity3::class.java)
-            btYoutube -> intent = Intent(activity, YoutubeActivity::class.java)
+            bt2 -> intent = Intent(this, ExoPlayerActivity2::class.java)
+            bt3 -> intent = Intent(this, ExoPlayerActivity3::class.java)
+            btYoutube -> intent = Intent(this, YoutubeActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.actionbar
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -17,6 +18,7 @@ import vn.loitp.app.activity.customviews.actionbar.navigationviewwithtext.Naviga
 
 @LayoutId(R.layout.activity_menu_action_bar)
 @LogTag("ActionbarMenuActivity")
+@IsFullScreen(false)
 class ActionbarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,27 +31,23 @@ class ActionbarMenuActivity : BaseFontActivity(), View.OnClickListener {
         bt_navigation_view_with_text.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
             bt_collapsingtoolbarlayout ->
-                intent = Intent(activity, CollapsingToolbarLayoutActivity::class.java)
+                intent = Intent(this, CollapsingToolbarLayoutActivity::class.java)
             bt_collapsingtoolbarwithtablayout ->
-                intent = Intent(activity, CollapsingToolbarWithTabLayoutActivity::class.java)
+                intent = Intent(this, CollapsingToolbarWithTabLayoutActivity::class.java)
             bt_l_actionbar ->
-                intent = Intent(activity, LActionbarActivity::class.java)
+                intent = Intent(this, LActionbarActivity::class.java)
             bt_navigation_view ->
-                intent = Intent(activity, NavigationViewActivity::class.java)
+                intent = Intent(this, NavigationViewActivity::class.java)
             bt_navigation_view_with_text ->
-                intent = Intent(activity, NavigationViewWithTextActivity::class.java)
+                intent = Intent(this, NavigationViewWithTextActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.layout.shapeofview
 
 import android.animation.ValueAnimator
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -16,13 +17,14 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_layout_shape_of_view)
 @LogTag("ShapeOfViewActivity")
+@IsFullScreen(false)
 class ShapeOfViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         tvMenu.setSafeOnClickListener {
-            LSocialUtil.openUrlInBrowser(context = activity, url = "https://github.com/florent37/ShapeOfView")
+            LSocialUtil.openUrlInBrowser(context = this, url = "https://github.com/florent37/ShapeOfView")
         }
 
         ValueAnimator.ofFloat(0f, 200f, 0f).apply {
@@ -32,11 +34,7 @@ class ShapeOfViewActivity : BaseFontActivity() {
             repeatMode = ValueAnimator.REVERSE
         }.start()
 
-        LImageUtil.load(context = activity, url = Constants.URL_IMG, imageView = kbv)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
+        LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = kbv)
     }
 
 }

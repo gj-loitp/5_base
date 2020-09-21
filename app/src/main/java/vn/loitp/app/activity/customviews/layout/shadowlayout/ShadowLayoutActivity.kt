@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_layout_shadow)
 @LogTag("ShadowLayoutActivity")
+@IsFullScreen(false)
 class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +24,6 @@ class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {
         tvChangeOval.setOnClickListener(this)
         tvChangeRadius.setOnClickListener(this)
         tvChangeRectangle.setOnClickListener(this)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onClick(v: View) {

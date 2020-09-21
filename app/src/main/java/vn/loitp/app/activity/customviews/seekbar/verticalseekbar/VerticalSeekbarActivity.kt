@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.seekbar.verticalseekbar
 
 import android.os.Bundle
 import android.widget.SeekBar
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_seekbar_vertical)
 @LogTag("VerticalSeekbarActivity")
+@IsFullScreen(false)
 class VerticalSeekbarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +35,4 @@ class VerticalSeekbarActivity : BaseFontActivity() {
         btSetProgress.setOnClickListener { _ -> seekBar1.progress = 30 }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 }

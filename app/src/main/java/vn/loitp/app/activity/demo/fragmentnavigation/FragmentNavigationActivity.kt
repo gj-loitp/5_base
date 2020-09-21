@@ -4,6 +4,7 @@ import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,16 +14,13 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_fragment_navigation)
 @LogTag("FragmentNavigationActivity")
+@IsFullScreen(false)
 class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     val T = "FragmentNavigationActivity"
 
     val navController: NavController
-        get() = Navigation.findNavController(activity, R.id.fragmentContainerView)
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
+        get() = Navigation.findNavController(this, R.id.fragmentContainerView)
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
         LLog.d(T, "onNavigationItemSelected " + menuItem.title)

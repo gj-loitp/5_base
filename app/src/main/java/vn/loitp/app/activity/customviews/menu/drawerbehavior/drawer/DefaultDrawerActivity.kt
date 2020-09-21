@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -16,13 +17,12 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_drawer_behavior_default)
 @LogTag("DefaultDrawerActivity")
+@IsFullScreen(false)
 class DefaultDrawerActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)

@@ -11,13 +11,13 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LPrefUtil;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.views.LToast;
 
 import java.util.ArrayList;
 
@@ -33,6 +33,7 @@ import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
 @LayoutId(R.layout.activity_ebook_with_realm)
 @LogTag("EbookWithRealmActivity")
+@IsFullScreen(false)
 public class EbookWithRealmActivity extends BaseFontActivity {
     private BooksAdapter booksAdapter;
     private Realm realm;
@@ -50,7 +51,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         setupRecycler();
 
-        if (!LPrefUtil.Companion.getPreLoad(getActivity())) {
+        if (!LPrefUtil.Companion.getPreLoad(this)) {
             setRealmData();
         }
 
@@ -61,15 +62,10 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        LToast.showLong(getActivity(), "Press card item for edit, long press to remove item", R.drawable.l_bkg_horizontal);
+        showShort("Press card item for edit, long press to remove item");
 
         //add new item
         floatingActionButton.setOnClickListener(v -> addItem());
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     private void setRealmAdapter(RealmResults<Book> books) {
@@ -144,9 +140,10 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             realm.commitTransaction();
         }
 
-        LPrefUtil.Companion.setPreLoad(getActivity(), true);
+        LPrefUtil.Companion.setPreLoad(this, true);
     }
 
+    @SuppressLint("SetTextI18n")
     private void addItem() {
         layoutInflater = getLayoutInflater();
         @SuppressLint("InflateParams") final View view = layoutInflater.inflate(R.layout.real_edit_item, null);
@@ -156,7 +153,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         editThumbnail.setText("https://kenh14cdn.com/2016/photo-4-1470640589710.jpg");
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(view)
                 .setTitle("Add book")
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
@@ -188,7 +185,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
     }
 
     private void updateItem(final Book book, final int position) {
-        layoutInflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View content = layoutInflater.inflate(R.layout.real_edit_item, null);
         final EditText editTitle = content.findViewById(R.id.title);
         final EditText editAuthor = content.findViewById(R.id.author);
@@ -198,7 +195,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         editAuthor.setText(book.getAuthor());
         editThumbnail.setText(book.getImageUrl());
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(content)
                 .setTitle("Edit Book")
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
@@ -233,7 +230,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPrefUtil.Companion.setPreLoad(getActivity(), false);
+            LPrefUtil.Companion.setPreLoad(this, false);
         }
 
         booksAdapter.notifyItemRemoved(position);

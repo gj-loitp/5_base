@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -18,6 +19,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_constraint_set)
 @LogTag("ConstraintSetActivity")
+@IsFullScreen(false)
 public class ConstraintSetActivity extends BaseFontActivity {
     private static final String SHOW_BIG_IMAGE = "showBigImage";
     private boolean mShowBigImage = false;
@@ -40,11 +42,6 @@ public class ConstraintSetActivity extends BaseFontActivity {
         }
 
         findViewById(R.id.imageView).setOnClickListener(this::toggleMode);
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override

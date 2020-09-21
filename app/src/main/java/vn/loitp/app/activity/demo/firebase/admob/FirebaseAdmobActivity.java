@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -20,6 +21,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_firebase_admob)
 @LogTag("FirebaseAdmobActivity")
+@IsFullScreen(false)
 public class FirebaseAdmobActivity extends BaseFontActivity {
     private AdView mAdView;
     // [START_EXCLUDE]
@@ -89,11 +91,6 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
 
         // Disable button if an interstitial ad is not loaded yet.
         mLoadInterstitialButton.setEnabled(mInterstitialAd.isLoaded());
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     /**

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -18,6 +20,7 @@ import java.util.*
 
 @LayoutId(R.layout.activity_viewpager_parallax)
 @LogTag("ParallaxViewPagerActivity")
+@IsFullScreen(false)
 class ParallaxViewPagerActivity : BaseFontActivity() {
     private val resList: MutableList<Int> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,14 +33,12 @@ class ParallaxViewPagerActivity : BaseFontActivity() {
         viewPager.adapter = SlidePagerAdapter()
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
     private inner class SlidePagerAdapter : PagerAdapter() {
+        @SuppressLint("SetTextI18n")
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
             val res = resList[position]
             logD("res $res")
-            val inflater = LayoutInflater.from(activity)
+            val inflater = LayoutInflater.from(this@ParallaxViewPagerActivity)
             val layout = inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
             if (position % 2 == 0) {

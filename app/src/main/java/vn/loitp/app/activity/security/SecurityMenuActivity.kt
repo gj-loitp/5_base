@@ -3,6 +3,7 @@ package vn.loitp.app.activity.security
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.activity.security.simple.SimpleEncryptDecryptStringActivity
 
 @LayoutId(R.layout.activity_security_menu)
 @LogTag("SecurityMenuActivity")
+@IsFullScreen(false)
 class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,18 +22,14 @@ class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
         bt0.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            bt0 -> intent = Intent(activity, SimpleEncryptDecryptStringActivity::class.java)
+            bt0 -> intent = Intent(this, SimpleEncryptDecryptStringActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.animation
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -22,6 +23,7 @@ import vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity
 
 @LayoutId(R.layout.activity_menu_animation)
 @LogTag("MenuAnimationActivity")
+@IsFullScreen(false)
 class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,27 +41,23 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         btValueAnimator.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAnimationView -> intent = Intent(activity, AnimationViewActivity::class.java)
-            btOverScroll -> intent = Intent(activity, OverScrollActivity::class.java)
-            btFlySchool -> intent = Intent(activity, FlySchoolActivity::class.java)
-            btActivityTransition -> intent = Intent(activity, Animation1Activity::class.java)
-            btShadowViewHelper -> intent = Intent(activity, ShadowViewHelperActivity::class.java)
-            btBasicTransitionFrm -> intent = Intent(activity, BasicTransitionActivity::class.java)
-            btBasicTransitionActivity -> intent = Intent(activity, SceneTransitionBasicActivity::class.java)
-            btBasicTransition -> intent = Intent(activity, BasicTransition0Activity::class.java)
-            btLottie -> intent = Intent(activity, MenuLottieActivity::class.java)
-            btValueAnimator -> intent = Intent(activity, ValueAnimatorActivity::class.java)
+            btAnimationView -> intent = Intent(this, AnimationViewActivity::class.java)
+            btOverScroll -> intent = Intent(this, OverScrollActivity::class.java)
+            btFlySchool -> intent = Intent(this, FlySchoolActivity::class.java)
+            btActivityTransition -> intent = Intent(this, Animation1Activity::class.java)
+            btShadowViewHelper -> intent = Intent(this, ShadowViewHelperActivity::class.java)
+            btBasicTransitionFrm -> intent = Intent(this, BasicTransitionActivity::class.java)
+            btBasicTransitionActivity -> intent = Intent(this, SceneTransitionBasicActivity::class.java)
+            btBasicTransition -> intent = Intent(this, BasicTransition0Activity::class.java)
+            btLottie -> intent = Intent(this, MenuLottieActivity::class.java)
+            btValueAnimator -> intent = Intent(this, ValueAnimatorActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

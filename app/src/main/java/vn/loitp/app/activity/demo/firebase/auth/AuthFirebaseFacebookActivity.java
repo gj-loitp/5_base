@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -31,7 +32,6 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.views.LToast;
 
 import java.security.MessageDigest;
 
@@ -42,6 +42,7 @@ import vn.loitp.app.app.LApplication;
 
 @LayoutId(R.layout.activity_auth_firebase_facebook)
 @LogTag("AuthFirebaseFacebookActivity")
+@IsFullScreen(false)
 public class AuthFirebaseFacebookActivity extends BaseFontActivity implements View.OnClickListener {
     private TextView mStatusTextView;
     private TextView mDetailTextView;
@@ -99,11 +100,6 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
     }
 
     @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -140,7 +136,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                     } else {
                         // If sign in fails, display a message to the user.
                         LLog.d(getLogTag(), "signInWithCredential:failure " + task.getException());
-                        LToast.show(getActivity(), "Authentication failed " + task.getException());
+                        showShort("Authentication failed " + task.getException());
                         updateUI(null);
                     }
 
@@ -169,7 +165,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
             LLog.d(getLogTag(), "updateUI " + LApplication.Companion.getGson().toJson(user));
             LLog.d(getLogTag(), "user.getPhotoUrl() " + user.getPhotoUrl());
             try {
-                LImageUtil.Companion.load(getActivity(), user.getPhotoUrl() + "?height=500", findViewById(R.id.icon));
+                LImageUtil.Companion.load(this, user.getPhotoUrl() + "?height=500", findViewById(R.id.icon));
             } catch (Exception e) {
                 //who cares?
             }

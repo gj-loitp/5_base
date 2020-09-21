@@ -1,21 +1,24 @@
 package vn.loitp.app.activity.database.readsqliteasset
 
 import android.os.Bundle
-import android.widget.TextView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_read_sqlite_asset.*
 import vn.loitp.app.R
 import java.util.*
 
 @LayoutId(R.layout.activity_read_sqlite_asset)
 @LogTag("ReadSqliteAssetActivity")
+@IsFullScreen(false)
 class ReadSqliteAssetActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val vocabularyManager = VocabularyManager(activity)
+
+        val vocabularyManager = VocabularyManager(this)
         try {
             vocabularyManager.createDatabase()
             logD("init dtb success")
@@ -29,12 +32,7 @@ class ReadSqliteAssetActivity : BaseFontActivity() {
         val vocabularyList = ArrayList(vocabularyManager.allVocabulary)
         logD("size: " + vocabularyList.size)
 
-        val tv = findViewById<TextView>(R.id.textView)
-        LUIUtil.printBeautyJson(vocabularyList[0], tv)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
+        LUIUtil.printBeautyJson(o = vocabularyList[0], textView = textView)
     }
 
 }

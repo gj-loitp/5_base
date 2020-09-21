@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
 import android.view.Surface
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -24,6 +25,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_video)
 @LogTag("VideoActivity")
+@IsFullScreen(false)
 class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
     private var player: SimpleExoPlayer? = null
 
@@ -132,10 +134,6 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
         player.prepare(dashMediaSource);
 
         */
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onVideoEnabled(counters: DecoderCounters) {

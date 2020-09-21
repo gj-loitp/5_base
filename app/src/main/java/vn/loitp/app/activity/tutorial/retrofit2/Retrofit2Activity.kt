@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -18,6 +19,7 @@ import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_retrofit_2)
 @LogTag("Retrofit2Activity")
+@IsFullScreen(false)
 class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     private var retrofit2Adapter: Retrofit2Adapter? = null
     private var retroCryptoArrayList = ArrayList<RetroCrypto>()
@@ -60,10 +62,6 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
 
     override fun onItemClick(retroCrypto: RetroCrypto) {
         showShort("You clicked: ${retroCrypto.currency}")
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

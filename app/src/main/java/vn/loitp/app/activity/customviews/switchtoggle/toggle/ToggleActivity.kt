@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.switchtoggle.toggle
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_switch_toggle)
 @LogTag("ToggleActivity")
+@IsFullScreen(false)
 class ToggleActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +25,5 @@ class ToggleActivity : BaseFontActivity() {
                 showShort("isOn $isOn")
             }
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 }

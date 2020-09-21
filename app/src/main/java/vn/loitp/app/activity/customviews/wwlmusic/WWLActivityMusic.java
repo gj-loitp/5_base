@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.wwlmusic;
 
 import android.os.Bundle;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -18,6 +19,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
 @LayoutId(R.layout.activity_wwl_music)
 @LogTag("WWLActivityMusic")
+@IsFullScreen(false)
 public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.Listener, FragmentHost {
     private LWWLMusic LWWLMusic;
     private float mLastAlpha;
@@ -36,11 +38,6 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
     }
 
     @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
     public void WWL_onSliding(float offset) {
         float alpha;
         if (offset > 2.0f) {
@@ -52,7 +49,7 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
                 alpha = 1.0f;
             }
             if (offset >= 0.0f && offset <= 1.0f) {
-                LWWLMusicUiUtil.updateStatusBarAlpha(getActivity(), 1.0f - offset);
+                LWWLMusicUiUtil.updateStatusBarAlpha(this, 1.0f - offset);
             }
         }
         this.mLastAlpha = alpha;
@@ -110,7 +107,7 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
 
     @Override
     public void onVideoCollapse() {
-        LWWLMusicUiUtil.showSystemUI(getActivity());
+        LWWLMusicUiUtil.showSystemUI(this);
         this.LWWLMusic.exitFullscreenToMinimize();
         this.watchFragment.switchFullscreen(false);
         this.LWWLMusic.minimize(false);
@@ -119,10 +116,10 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            LWWLMusicUiUtil.hideSystemUI(getActivity());
+            LWWLMusicUiUtil.hideSystemUI(this);
             this.LWWLMusic.enterFullscreen();
         } else {
-            LWWLMusicUiUtil.showSystemUI(getActivity());
+            LWWLMusicUiUtil.showSystemUI(this);
             this.LWWLMusic.exitFullscreen();
         }
         this.watchFragment.switchFullscreen(selected);

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -21,6 +22,7 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.years.Rv
 
 @LayoutId(R.layout.activity_recycler_tablayout_menu)
 @LogTag("RecyclerTabLayoutMenuActivity")
+@IsFullScreen(false)
 class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,10 +50,6 @@ class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClic
             Demo.TAB_SCROLL_DISABLED -> RvTabScrollDisabledActivity.startActivity(this, demo)
             Demo.TAB_ON_SCREEN_LIMIT -> RvTabOnScreenLimitActivity.startActivity(this, demo)
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

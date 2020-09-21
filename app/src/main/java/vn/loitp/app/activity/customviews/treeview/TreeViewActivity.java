@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -19,6 +20,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_tree_view)
 @LogTag("TreeViewActivity")
+@IsFullScreen(false)
 public class TreeViewActivity extends BaseFontActivity {
     private int nodeCount = 0;
 
@@ -57,11 +59,6 @@ public class TreeViewActivity extends BaseFontActivity {
         rootNode.addChild(child4);
 
         adapter.setRootNode(rootNode);
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     private String getNodeText() {

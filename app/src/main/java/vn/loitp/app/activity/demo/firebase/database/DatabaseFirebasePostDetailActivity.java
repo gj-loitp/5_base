@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.utilities.LLog;
@@ -21,7 +22,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.views.LToast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +33,7 @@ import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LayoutId(R.layout.activity_post_detail)
 @LogTag("DatabaseFirebasePostDetailActivity")
+@IsFullScreen(false)
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
 
     public static final String EXTRA_POST_KEY = "post_key";
@@ -102,7 +103,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                 // Getting Post failed, log a message
                 LLog.d(getLogTag(), "loadPost:onCancelled " + databaseError.toException());
                 // [START_EXCLUDE]
-                LToast.show(getActivity(), "Failed to load post.");
+                showShort("Failed to load post.");
                 // [END_EXCLUDE]
             }
         };
@@ -271,7 +272,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     LLog.d(getLogTag(), "postComments:onCancelled " + databaseError.toException());
-                    LToast.show(getActivity(), "Failed to load comments.");
+                    showShort("Failed to load comments.");
                 }
             };
             ref.addChildEventListener(childEventListener);
@@ -306,11 +307,6 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             }
         }
 
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
 }

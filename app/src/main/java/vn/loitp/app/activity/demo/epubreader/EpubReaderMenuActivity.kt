@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.epubreader
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -18,6 +19,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_epub_reader)
 @LogTag("EpubReaderMenuActivity")
+@IsFullScreen(false)
 class EpubReaderMenuActivity : BaseFontActivity() {
     private var getListBookFromDeviceAndAssetTask: GetListBookFromDeviceAndAssetTask? = null
     private var getListBookAllAssetTask: GetListBookAllAssetTask? = null
@@ -31,7 +33,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         gridBookInfo.onItemClickListener = AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
             val bookInfo = adapterView.adapter.getItem(i) as BookInfo
-            LReaderUtil.readEpub(activity = activity, bookInfo = bookInfo, admobAdIdBanner = getString(R.string.str_b))
+            LReaderUtil.readEpub(activity = this, bookInfo = bookInfo, admobAdIdBanner = getString(R.string.str_b))
         }
         LUIUtil.setDelay(mls = 1000, runnable = Runnable {
             ask()
@@ -39,7 +41,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     }
 
     private fun ask() {
-        LDialogUtil.showDialog2(context = activity,
+        LDialogUtil.showDialog2(context = this,
                 title = "Chọn",
                 msg = "Có 2 option",
                 button1 = "Load tất cả epub có trong device và 1 file ở asset",
@@ -47,7 +49,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                 callback2 = object : Callback2 {
                     override fun onClick1() {
                         //lấy list epub ở trên all device và 1 file ở asset folder rồi show lên UI
-                        getListBookFromDeviceAndAssetTask = GetListBookFromDeviceAndAssetTask(activity, object : GetListBookFromDeviceAndAssetTask.Callback {
+                        getListBookFromDeviceAndAssetTask = GetListBookFromDeviceAndAssetTask(this@EpubReaderMenuActivity, object : GetListBookFromDeviceAndAssetTask.Callback {
                             override fun onPreExecute() {
                                 LDialogUtil.showProgress(progressBar)
                             }
@@ -55,7 +57,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                             override fun onPostExecute(bookInfoList: List<BookInfo>) {
                                 logD("onPostExecute " + bookInfoList.size)
                                 LDialogUtil.hideProgress(progressBar)
-                                val adapter = BookInfoGridAdapter(activity, bookInfoList)
+                                val adapter = BookInfoGridAdapter(this@EpubReaderMenuActivity, bookInfoList)
                                 gridBookInfo.adapter = adapter
                             }
                         })
@@ -81,7 +83,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                                         bookInfoList.addAll(bookInfoList);
                                         bookInfoList.addAll(bookInfoList);
                                         bookInfoList.addAll(bookInfoList);*/
-                                val adapter = BookInfoGridAdapter(activity, bookInfoList)
+                                val adapter = BookInfoGridAdapter(this@EpubReaderMenuActivity, bookInfoList)
                                 gridBookInfo.adapter = adapter
                             }
                         })
@@ -94,10 +96,6 @@ class EpubReaderMenuActivity : BaseFontActivity() {
         getListBookFromDeviceAndAssetTask?.cancel(true)
         getListBookAllAssetTask?.cancel(true)
         super.onDestroy()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

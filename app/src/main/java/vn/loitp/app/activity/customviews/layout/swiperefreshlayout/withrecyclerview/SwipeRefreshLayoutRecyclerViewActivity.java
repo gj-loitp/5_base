@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -23,10 +24,10 @@ import vn.loitp.app.common.Constants;
 
 @LayoutId(R.layout.activity_swipe_refresh_recycler_view_layout)
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")
+@IsFullScreen(false)
 public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private List<Movie> movieList = new ArrayList<>();
-    private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
 
     @Override
@@ -36,7 +37,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
         swipeRefreshLayout.setOnRefreshListener(this::refresh);
         LUIUtil.Companion.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
-        recyclerView = findViewById(R.id.rv);
+        RecyclerView recyclerView = findViewById(R.id.rv);
 
         mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
             @Override
@@ -87,11 +88,6 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
             mAdapter.notifyDataSetChanged();
             showShort("Finish loadMore");
         });
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     private void prepareMovieData() {

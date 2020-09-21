@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseActivity;
-import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
 import com.views.layout.floatdraglayout.FloatDragLayout;
 
@@ -17,6 +17,7 @@ import vn.loitp.app.R;
 
 @LayoutId(R.layout.activity_splash_v3)
 @LogTag("FloatDragNoTitleActivity")
+@IsFullScreen(false)
 public class FloatDragNoTitleActivity extends BaseActivity {
     private View mDecorView;
 
@@ -36,12 +37,9 @@ public class FloatDragNoTitleActivity extends BaseActivity {
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
         rootView.addView(floatDragLayout, layoutParams);
 
-        floatDragLayout.setOnClickListener(v -> LToast.show(getActivity(), "Click on the hover and drag buttons"));
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
+        floatDragLayout.setOnClickListener(v ->
+                showShort("Click on the hover and drag buttons")
+        );
     }
 
     @Override

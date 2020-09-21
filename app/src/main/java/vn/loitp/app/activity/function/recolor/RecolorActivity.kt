@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.function.recolor
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_fun_recolor)
 @LogTag("RecolorActivity")
+@IsFullScreen(false)
 class RecolorActivity : BaseFontActivity() {
     private var imageViewColorSetNumber = 0
     private var textViewColorSetNumber = 0
@@ -27,12 +29,8 @@ class RecolorActivity : BaseFontActivity() {
         logAListOfColors()
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     private fun logAListOfColors() {
-        val colorList = ReColor(activity).getColorIntArray("E91E63", "1E88E5", 20)
+        val colorList = ReColor(this).getColorIntArray("E91E63", "1E88E5", 20)
         for (i in colorList.indices) {
             logD(colorList[i].toString())
         }
@@ -43,19 +41,19 @@ class RecolorActivity : BaseFontActivity() {
         imageView.setOnClickListener {
             when (imageViewColorSetNumber) {
                 0 -> {
-                    ReColor(activity).setImageViewColorFilter(imageView, "ffffff", "388E3C", 300)
+                    ReColor(this).setImageViewColorFilter(imageView, "ffffff", "388E3C", 300)
                     imageViewColorSetNumber = 1
                 }
                 1 -> {
-                    ReColor(activity).setImageViewColorFilter(imageView, "388E3C", "00838F", 300)
+                    ReColor(this).setImageViewColorFilter(imageView, "388E3C", "00838F", 300)
                     imageViewColorSetNumber = 2
                 }
                 2 -> {
-                    ReColor(activity).setImageViewColorFilter(imageView, "00838F", "F4511E", 300)
+                    ReColor(this).setImageViewColorFilter(imageView, "00838F", "F4511E", 300)
                     imageViewColorSetNumber = 3
                 }
                 3 -> {
-                    ReColor(activity).setImageViewColorFilter(imageView, "F4511E", "FFFFFF", 300)
+                    ReColor(this).setImageViewColorFilter(imageView, "F4511E", "FFFFFF", 300)
                     imageViewColorSetNumber = 0
                 }
             }
@@ -65,33 +63,33 @@ class RecolorActivity : BaseFontActivity() {
         textView.setOnClickListener {
             when (textViewColorSetNumber) {
                 0 -> {
-                    ReColor(activity).setTextViewColor(textView, "ffffff", "81D4FA", 300)
+                    ReColor(this).setTextViewColor(textView, "ffffff", "81D4FA", 300)
                     textViewColorSetNumber = 1
                 }
                 1 -> {
-                    ReColor(activity).setTextViewColor(textView, "81D4FA", "ef9a9a", 300)
+                    ReColor(this).setTextViewColor(textView, "81D4FA", "ef9a9a", 300)
                     textViewColorSetNumber = 2
                 }
                 2 -> {
-                    ReColor(activity).setTextViewColor(textView, "ef9a9a", "FFAB91", 300)
+                    ReColor(this).setTextViewColor(textView, "ef9a9a", "FFAB91", 300)
                     textViewColorSetNumber = 3
                 }
                 3 -> {
-                    ReColor(activity).setTextViewColor(textView, "FFAB91", "ffffff", 300)
+                    ReColor(this).setTextViewColor(textView, "FFAB91", "ffffff", 300)
                     textViewColorSetNumber = 0
                 }
             }
         }
         linReColorBackground.setOnClickListener {
             isRootViewColorChanged = if (!isRootViewColorChanged) {
-                ReColor(activity).setViewBackgroundColor(rootView, "004D40", "#880E4F", 10000)
+                ReColor(this).setViewBackgroundColor(rootView, "004D40", "#880E4F", 10000)
                 !isRootViewColorChanged
             } else {
-                ReColor(activity).setViewBackgroundColor(rootView, "880E4F", "#004D40", 10000)
+                ReColor(this).setViewBackgroundColor(rootView, "880E4F", "#004D40", 10000)
                 !isRootViewColorChanged
             }
         }
-        val reColorCardView = ReColor(activity)
+        val reColorCardView = ReColor(this)
         reColorCardView.setOnReColorFinish {
             logD("onReColorFinishCallBack It listens")
         }
@@ -110,10 +108,10 @@ class RecolorActivity : BaseFontActivity() {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
                 // if starting color is null, color will be automatically retrieved from status bar
                 // same is true for navigation bar
-                ReColor(activity).setStatusBarColor(null, "880E4F", 2000)
+                ReColor(this).setStatusBarColor(null, "880E4F", 2000)
                 !isStatusBarColorChanged
             } else {
-                ReColor(activity).setStatusBarColor(null, "004D40", 2000)
+                ReColor(this).setStatusBarColor(null, "004D40", 2000)
                 !isStatusBarColorChanged
             }
         }
@@ -121,10 +119,10 @@ class RecolorActivity : BaseFontActivity() {
         // changing navigationBar color
         linRecolorNavigationBar.setOnClickListener {
             isNavigationBarColorChanged = if (!isNavigationBarColorChanged) {
-                ReColor(activity).setNavigationBarColor(null, "880E4F", 2000)
+                ReColor(this).setNavigationBarColor(null, "880E4F", 2000)
                 !isNavigationBarColorChanged
             } else {
-                ReColor(activity).setNavigationBarColor(null, "000000", 2000)
+                ReColor(this).setNavigationBarColor(null, "000000", 2000)
                 !isNavigationBarColorChanged
             }
         }
@@ -132,35 +130,35 @@ class RecolorActivity : BaseFontActivity() {
         // changing both statusBar and navigationBar colors
         linRecolorBoth.setOnClickListener {
             isStatusBarColorChanged = if (!isStatusBarColorChanged) {
-                ReColor(activity).setStatusBarColor(null, "880E4F", 2000)
+                ReColor(this).setStatusBarColor(null, "880E4F", 2000)
                 !isStatusBarColorChanged
             } else {
-                ReColor(activity).setStatusBarColor(null, "004D40", 2000)
+                ReColor(this).setStatusBarColor(null, "004D40", 2000)
                 !isStatusBarColorChanged
             }
             isNavigationBarColorChanged = if (!isNavigationBarColorChanged) {
-                ReColor(activity).setNavigationBarColor(null, "880E4F", 2000)
+                ReColor(this).setNavigationBarColor(null, "880E4F", 2000)
                 !isNavigationBarColorChanged
             } else {
-                ReColor(activity).setNavigationBarColor(null, "000000", 2000)
+                ReColor(this).setNavigationBarColor(null, "000000", 2000)
                 !isNavigationBarColorChanged
             }
         }
 
         // pulsing statusBar to an orange color for 2 times
         linPulseStatusBar.setOnClickListener {
-            ReColor(activity).pulseStatusBar("E64A19", 200, 2)
+            ReColor(this).pulseStatusBar("E64A19", 200, 2)
         }
 
         // pulsing navigationBar to an orange color for 2 times
         linPulseNavigationBar.setOnClickListener {
-            ReColor(activity).pulseNavigationBar("e64a19", 200, 2)
+            ReColor(this).pulseNavigationBar("e64a19", 200, 2)
         }
 
         // pulsing both colors' to an orange color for 5 times really fast
         linPulseBoth.setOnClickListener {
-            ReColor(activity).pulseStatusBar("E64A19", 80, 5)
-            ReColor(activity).pulseNavigationBar("e64a19", 80, 5)
+            ReColor(this).pulseStatusBar("E64A19", 80, 5)
+            ReColor(this).pulseNavigationBar("e64a19", 80, 5)
         }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -22,11 +23,8 @@ import vn.loitp.app.activity.customviews.layout.expansionpanel.Utils.dpToPx
 
 @LayoutId(R.layout.activity_expansion_panel_sample_programmatically)
 @LogTag("ExpansionPanelSampleActivityProgrammatically")
+@IsFullScreen(false)
 class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

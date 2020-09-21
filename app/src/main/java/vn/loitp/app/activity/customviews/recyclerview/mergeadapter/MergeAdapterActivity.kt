@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -22,6 +23,7 @@ import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Ne
 
 @LayoutId(R.layout.activity_recycler_view_merge_adapter)
 @LogTag("MergeAdapterActivity")
+@IsFullScreen(false)
 class MergeAdapterActivity : BaseFontActivity() {
     private var mergeAdapter: MergeAdapter? = null
     private var aboutMeAdapter: AboutMeAdapter? = null
@@ -33,10 +35,6 @@ class MergeAdapterActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setupDataInRecyclerView()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun setupDataInRecyclerView() {

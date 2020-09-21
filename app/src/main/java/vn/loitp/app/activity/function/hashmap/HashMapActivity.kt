@@ -2,6 +2,7 @@ package vn.loitp.app.activity.function.hashmap
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,6 +12,7 @@ import java.util.*
 
 @LayoutId(R.layout.activity_func_hashmap)
 @LogTag("HashMapActivity")
+@IsFullScreen(false)
 class HashMapActivity : BaseFontActivity(), View.OnClickListener {
     private val map: MutableMap<String, String> = HashMap()
     private var autoKey = 0
@@ -21,10 +23,6 @@ class HashMapActivity : BaseFontActivity(), View.OnClickListener {
         btAdd.setOnClickListener(this)
         btGetKey0.setOnClickListener(this)
         btRemoveKey0.setOnClickListener(this)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onClick(v: View) {

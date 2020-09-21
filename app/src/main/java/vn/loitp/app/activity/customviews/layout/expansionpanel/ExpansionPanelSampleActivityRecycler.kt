@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -17,11 +18,8 @@ import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionPanelSam
 
 @LayoutId(R.layout.activity_expansion_panel_sample_recycler)
 @LogTag("ExpansionPanelSampleActivityRecycler")
+@IsFullScreen(false)
 class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 
 @LayoutId(R.layout.activity_api_ttt_fav_list)
 @LogTag("TTTAPIFavListActivity")
+@IsFullScreen(false)
 class TTTAPIFavListActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,14 +24,10 @@ class TTTAPIFavListActivity : BaseFontActivity() {
         favList
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     private val favList: Unit
         @SuppressLint("SetTextI18n")
         get() {
-            GetFavListTask(mActivity = activity,
+            GetFavListTask(mActivity = this,
                     callback = object : GetFavListTask.Callback {
                         override fun onSuccess(comicList: List<Comic>) {
                             LUIUtil.printBeautyJson(o = comicList, textView = textView)

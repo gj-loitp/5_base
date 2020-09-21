@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.button.circularimageclick
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,15 +12,15 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_button_circular_image_click)
 @LogTag("CircularImageClickActivity")
+@IsFullScreen(false)
 class CircularImageClickActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        circleButton.setOnCircleClickListener { showShort("onClick") }
-    }
 
-    override fun setFullScreen(): Boolean {
-        return false
+        circleButton.setOnCircleClickListener {
+            showShort("onClick")
+        }
     }
 
 }

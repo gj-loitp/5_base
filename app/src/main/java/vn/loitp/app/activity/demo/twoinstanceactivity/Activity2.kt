@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,21 +15,23 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_2)
 @LogTag("Activity2")
+@IsFullScreen(false)
 class Activity2 : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         logD("suzuki onCreate")
+
         btGoTo1.setOnClickListener {
             val intent = Intent(this@Activity2, Activity1::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btGoTo3.setOnClickListener {
             val intent = Intent(this@Activity2, Activity3::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 
@@ -57,7 +60,4 @@ class Activity2 : BaseFontActivity() {
         super.onDestroy()
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 }

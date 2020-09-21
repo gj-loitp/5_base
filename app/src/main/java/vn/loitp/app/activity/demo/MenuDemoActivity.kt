@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -35,6 +36,7 @@ import java.util.*
 
 @LayoutId(R.layout.activity_demo_menu)
 @LogTag("MenuDemoActivity")
+@IsFullScreen(false)
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -78,23 +80,19 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btMapTracker.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAlarm -> intent = Intent(activity, AlarmMeActivity::class.java)
-            btEbookWithRealm -> intent = Intent(activity, EbookWithRealmActivity::class.java)
-            btVideo -> intent = Intent(activity, VideoActivity::class.java)
-            btSound -> intent = Intent(activity, SoundActivity::class.java)
-            btTextToSpeech -> intent = Intent(activity, TextToSpeechActivity::class.java)
-            btFloatingWidget -> intent = Intent(activity, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java)
-            btFloatingVideo -> intent = Intent(activity, FloatingWidgetActivity::class.java)
-            btFirebase -> intent = Intent(activity, MenuFirebaseActivity::class.java)
+            btAlarm -> intent = Intent(this, AlarmMeActivity::class.java)
+            btEbookWithRealm -> intent = Intent(this, EbookWithRealmActivity::class.java)
+            btVideo -> intent = Intent(this, VideoActivity::class.java)
+            btSound -> intent = Intent(this, SoundActivity::class.java)
+            btTextToSpeech -> intent = Intent(this, TextToSpeechActivity::class.java)
+            btFloatingWidget -> intent = Intent(this, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java)
+            btFloatingVideo -> intent = Intent(this, FloatingWidgetActivity::class.java)
+            btFirebase -> intent = Intent(this, MenuFirebaseActivity::class.java)
             btGalleryCore -> {
-                intent = Intent(activity, GalleryCoreSplashActivity::class.java)
+                intent = Intent(this, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg")
                 //neu muon remove albumn nao thi cu pass id cua albumn do
@@ -106,7 +104,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumFlickrList)
             }
             btGalleryCoreAlbum -> {
-                intent = Intent(activity, GalleryCorePhotosOnlyActivity::class.java)
+                intent = Intent(this, GalleryCorePhotosOnlyActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
@@ -116,25 +114,25 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
             }
             btGalleryMember -> {
-                intent = Intent(activity, GalleryMemberActivity::class.java)
+                intent = Intent(this, GalleryMemberActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_ROOT_VIEW, R.drawable.l_bkg_primary_black)
             }
-            btEpubReader -> intent = Intent(activity, EpubReaderMenuActivity::class.java)
-            bt2InstanceActivity -> intent = Intent(activity, Activity1::class.java)
-            btFragmentNavigation -> intent = Intent(activity, FragmentNavigationActivity::class.java)
-            btPdf -> intent = Intent(activity, PdfDemoActivity::class.java)
-            btFragmentFlow -> intent = Intent(activity, FragmentFlowActivity::class.java)
-            btDeepLinks -> intent = Intent(activity, DeepLinksActivity::class.java)
-            btGalleryCoreAlbumFrm -> intent = Intent(activity, GalleryCoreAlbumFrmActivity::class.java)
-            btArchitectureComponent -> intent = Intent(activity, MenuAndroidArchitectureComponentActivity::class.java)
-            btNFC -> intent = Intent(activity, NFCActivity::class.java)
-            btGirl -> intent = Intent(activity, GirlActivity::class.java)
-            btMapTracker -> intent = Intent(activity, MapTrackerActivity::class.java)
+            btEpubReader -> intent = Intent(this, EpubReaderMenuActivity::class.java)
+            bt2InstanceActivity -> intent = Intent(this, Activity1::class.java)
+            btFragmentNavigation -> intent = Intent(this, FragmentNavigationActivity::class.java)
+            btPdf -> intent = Intent(this, PdfDemoActivity::class.java)
+            btFragmentFlow -> intent = Intent(this, FragmentFlowActivity::class.java)
+            btDeepLinks -> intent = Intent(this, DeepLinksActivity::class.java)
+            btGalleryCoreAlbumFrm -> intent = Intent(this, GalleryCoreAlbumFrmActivity::class.java)
+            btArchitectureComponent -> intent = Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
+            btNFC -> intent = Intent(this, NFCActivity::class.java)
+            btGirl -> intent = Intent(this, GirlActivity::class.java)
+            btMapTracker -> intent = Intent(this, MapTrackerActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

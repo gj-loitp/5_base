@@ -6,6 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.core.content.ContextCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,18 +14,18 @@ import com.core.utilities.LPopupMenu
 import com.google.android.material.snackbar.Snackbar
 import com.interfaces.CallbackPopup
 import com.views.LAppBarLayout
-import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_collapsingtoolbar)
 @LogTag("CollapsingToolbarLayoutActivity")
+@IsFullScreen(false)
 class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary))
+        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(this, R.color.colorPrimary))
 
         setSupportActionBar(toolbar)
 
@@ -52,17 +53,16 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
         btMenu.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         when (v) {
-            btMenu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : CallbackPopup {
-                override fun clickOnItem(menuItem: MenuItem) {
-                    LToast.show(activity, menuItem.title.toString())
-                }
-            })
+            btMenu -> LPopupMenu.show(activity = this,
+                    showOnView = v,
+                    menuRes = R.menu.menu_popup,
+                    callBackPopup = object : CallbackPopup {
+                        override fun clickOnItem(menuItem: MenuItem) {
+                            showShort(menuItem.title.toString())
+                        }
+                    })
         }
     }
 }

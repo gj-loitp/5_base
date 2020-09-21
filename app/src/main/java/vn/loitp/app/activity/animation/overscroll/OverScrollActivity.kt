@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.animation.overscroll
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,18 +12,14 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_animation_over_scroll)
 @LogTag("OverScrollActivity")
+@IsFullScreen(false)
 class OverScrollActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         LUIUtil.setPullLikeIOSVertical(scrollView = nsv)
-
-        textView.text = LStoreUtil.readTxtFromRawFolder(context = activity, nameOfRawFile = R.raw.overscroll)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
+        textView.text = LStoreUtil.readTxtFromRawFolder(context = this, nameOfRawFile = R.raw.overscroll)
     }
 
 }

@@ -33,17 +33,13 @@ abstract class BaseFragment : Fragment() {
         private const val DEFAULT_CHILD_ANIMATION_DURATION = 400
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val layoutId = javaClass.getAnnotation(LayoutId::class.java)
         layoutId?.value?.let {
             frmRootView = inflater.inflate(it, container, false)
         }
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
-        logTag = "logTag$tmpLogTag"
+        logTag = "logTag" + tmpLogTag?.value
         EventBus.getDefault().register(this)
         return frmRootView
     }

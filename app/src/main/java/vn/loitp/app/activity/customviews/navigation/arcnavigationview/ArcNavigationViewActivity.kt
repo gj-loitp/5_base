@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -16,6 +17,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_menu_arc_navigation_view)
 @LogTag("ArcNavigationViewActivity")
+@IsFullScreen(false)
 class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +31,6 @@ class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigatio
 
         navViewRight.setNavigationItemSelectedListener(this)
         navView.setNavigationItemSelectedListener(this)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onBackPressed() {

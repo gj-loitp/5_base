@@ -3,6 +3,7 @@ package vn.loitp.app.activity.picker
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -18,6 +19,7 @@ import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
 
 @LayoutId(R.layout.activity_picker_menu)
 @LogTag("MenuPickerActivity")
+@IsFullScreen(false)
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,23 +32,19 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         btNumbePicker.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btBsImagePicker -> intent = Intent(activity, BSImagePickerActivity::class.java)
-            btImagePickerWithCrop -> intent = Intent(activity, ImageWithCropActivity::class.java)
-            btCrop -> intent = Intent(activity, CropActivity::class.java)
-            btTedImagePicker -> intent = Intent(activity, DemoTedImagePickerActivity::class.java)
-            btTimePicker -> intent = Intent(activity, TimePickerActivity::class.java)
-            btNumbePicker -> intent = Intent(activity, NumberPickerActivity::class.java)
+            btBsImagePicker -> intent = Intent(this, BSImagePickerActivity::class.java)
+            btImagePickerWithCrop -> intent = Intent(this, ImageWithCropActivity::class.java)
+            btCrop -> intent = Intent(this, CropActivity::class.java)
+            btTedImagePicker -> intent = Intent(this, DemoTedImagePickerActivity::class.java)
+            btTimePicker -> intent = Intent(this, TimePickerActivity::class.java)
+            btNumbePicker -> intent = Intent(this, NumberPickerActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

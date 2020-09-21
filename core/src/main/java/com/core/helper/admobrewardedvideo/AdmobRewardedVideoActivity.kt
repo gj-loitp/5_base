@@ -60,10 +60,6 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
         rootView.setSafeOnClickListener { displayRewardAd() }
     }
 
-    override fun setFullScreen(): Boolean {
-        return true
-    }
-
     private fun loadRewardedVideoAd() {
         //LLog.d(TAG, "loadRewardedVideoAd");
         //avLoadingIndicatorView.smoothToShow();

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.architecturecomponent
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActiv
 
 @LayoutId(R.layout.activity_demo_architecture_component_menu)
 @LogTag("MenuAndroidArchitectureComponentActivity")
+@IsFullScreen(false)
 class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,10 +25,6 @@ class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClic
         btCoroutine.setOnClickListener(this)
         btRoom.setOnClickListener(this)
         btViewModel.setOnClickListener(this)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onClick(v: View) {
@@ -38,7 +36,7 @@ class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClic
         }
         intent?.let { i ->
             startActivity(i)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

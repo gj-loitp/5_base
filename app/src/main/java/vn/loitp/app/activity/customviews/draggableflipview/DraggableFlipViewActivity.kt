@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.draggableflipview
 
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -9,10 +10,5 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_draggable_flipview)
 @LogTag("DraggableFlipViewActivity")
-class DraggableFlipViewActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-}
+@IsFullScreen(false)
+class DraggableFlipViewActivity : BaseFontActivity()

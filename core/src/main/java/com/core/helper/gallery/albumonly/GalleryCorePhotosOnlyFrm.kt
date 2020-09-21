@@ -38,9 +38,12 @@ import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
 @LogTag("GalleryCorePhotosOnlyFrm")
 class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
+    companion object {
+        private const val PER_PAGE_SIZE = 100
+    }
+
     private var currentPage = 0
     private var totalPage = 1
-    private val PER_PAGE_SIZE = 100
     private var isLoading: Boolean = false
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var photosetID: String? = null
@@ -49,17 +52,20 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        logD("onCreate")
         RestClient.init(getString(R.string.flickr_URL))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        inflater.inflate(R.layout.l_frm_flickr_gallery_core_photos_only, container, false)
+//        logD("onCreateView")
+        frmRootView = inflater.inflate(R.layout.l_frm_flickr_gallery_core_photos_only, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+//        logD("onViewCreated")
         val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
         LUIUtil.setTextShadow(tvTitle)
@@ -68,9 +74,9 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
             handleException(Exception(getString(R.string.err_unknow)))
             return
         }
-        logD("photosetID $photosetID")
+//        logD("photosetID $photosetID")
         photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
-        logD("photosSize $photosSize")
+//        logD("photosSize $photosSize")
 
         /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(1000);
@@ -272,6 +278,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
+//        logD("onResume")
         if (!isShowDialogCheck) {
             checkPermission()
         }

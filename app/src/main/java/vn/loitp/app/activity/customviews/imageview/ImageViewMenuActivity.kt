@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -27,10 +28,12 @@ import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewAc
 
 @LayoutId(R.layout.activity_imageview_menu)
 @LogTag("ImageViewMenuActivity")
+@IsFullScreen(false)
 class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btBlurImageView.setOnClickListener(this)
         btCirleImageView.setOnClickListener(this)
         btStretchyImageView.setOnClickListener(this)
@@ -47,31 +50,27 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         btKenburnView.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btBlurImageView -> intent = Intent(activity, BlurImageViewActivity::class.java)
-            btCirleImageView -> intent = Intent(activity, CircleImageViewActivity::class.java)
-            btStretchyImageView -> intent = Intent(activity, StrectchyImageViewActivity::class.java)
-            btTouchImageView -> intent = Intent(activity, TouchImageViewActivity::class.java)
-            btZoomImageView -> intent = Intent(activity, ZoomImageViewActivity::class.java)
-            btFidgetSpinner -> intent = Intent(activity, FidgetSpinnerImageViewActivity::class.java)
-            btContinuousScrollableImageView -> intent = Intent(activity, ContinuousScrollableImageViewActivity::class.java)
-            btScrollParallaxImageView -> intent = Intent(activity, ScrollParallaxImageViewActivity::class.java)
-            btPanoramaImageView -> intent = Intent(activity, PanoramaImageViewActivity::class.java)
-            btBigImageView -> intent = Intent(activity, BigImageViewActivity::class.java)
-            btBigImageViewWithScrollView -> intent = Intent(activity, BigImageViewWithScrollViewActivity::class.java)
-            btPinchToZoom -> intent = Intent(activity, PinchToZoomActivity::class.java)
-            btPinchToZoomWithViewPager -> intent = Intent(activity, PinchToZoomViewPagerActivity::class.java)
-            btKenburnView -> intent = Intent(activity, KenburnViewActivity::class.java)
+            btBlurImageView -> intent = Intent(this, BlurImageViewActivity::class.java)
+            btCirleImageView -> intent = Intent(this, CircleImageViewActivity::class.java)
+            btStretchyImageView -> intent = Intent(this, StrectchyImageViewActivity::class.java)
+            btTouchImageView -> intent = Intent(this, TouchImageViewActivity::class.java)
+            btZoomImageView -> intent = Intent(this, ZoomImageViewActivity::class.java)
+            btFidgetSpinner -> intent = Intent(this, FidgetSpinnerImageViewActivity::class.java)
+            btContinuousScrollableImageView -> intent = Intent(this, ContinuousScrollableImageViewActivity::class.java)
+            btScrollParallaxImageView -> intent = Intent(this, ScrollParallaxImageViewActivity::class.java)
+            btPanoramaImageView -> intent = Intent(this, PanoramaImageViewActivity::class.java)
+            btBigImageView -> intent = Intent(this, BigImageViewActivity::class.java)
+            btBigImageViewWithScrollView -> intent = Intent(this, BigImageViewWithScrollViewActivity::class.java)
+            btPinchToZoom -> intent = Intent(this, PinchToZoomActivity::class.java)
+            btPinchToZoomWithViewPager -> intent = Intent(this, PinchToZoomViewPagerActivity::class.java)
+            btKenburnView -> intent = Intent(this, KenburnViewActivity::class.java)
         }
         intent?.let { i ->
             startActivity(i)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

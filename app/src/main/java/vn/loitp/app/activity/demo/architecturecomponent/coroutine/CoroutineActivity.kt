@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -22,11 +23,8 @@ import kotlin.system.measureTimeMillis
 
 @LayoutId(R.layout.activity_demo_coroutine)
 @LogTag("CoroutineActivity")
+@IsFullScreen(false)
 class CoroutineActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

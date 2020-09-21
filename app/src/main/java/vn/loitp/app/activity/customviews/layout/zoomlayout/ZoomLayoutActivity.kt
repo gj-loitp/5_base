@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.zoomlayout
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,6 +13,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_layout_zoom)
 @LogTag("ZoomLayoutActivity")
+@IsFullScreen(false)
 class ZoomLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +31,6 @@ class ZoomLayoutActivity : BaseFontActivity() {
         zoomLayout.getEngine().zoomBy(factor, true);
         zoomLayout.getEngine().realZoomTo(realZoom, true);
         zoomLayout.getEngine().moveTo(zoom, x, y, true);*/
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap
 
 @LayoutId(R.layout.activity_api_ttt_chap_list)
 @LogTag("TTTAPIChapListActivity")
+@IsFullScreen(false)
 class TTTAPIChapListActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +39,4 @@ class TTTAPIChapListActivity : BaseFontActivity() {
                 }).execute()
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 }

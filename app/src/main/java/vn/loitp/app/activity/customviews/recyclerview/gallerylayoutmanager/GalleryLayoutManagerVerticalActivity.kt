@@ -6,6 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -21,6 +22,7 @@ import vn.loitp.app.common.Constants
 
 @LayoutId(R.layout.activity_recycler_view_menu_gallery_layout_manager)
 @LogTag("GalleryLayoutManagerVerticalActivity")
+@IsFullScreen(false)
 class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
     private var mAdapter: GalleryAdapterVertical? = null
 
@@ -28,7 +30,7 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAdapter = GalleryAdapterVertical(context = activity, moviesList = instance.movieList,
+        mAdapter = GalleryAdapterVertical(context = this, moviesList = instance.movieList,
                 callback = object : GalleryAdapterVertical.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShort("onClick " + movie.title)
@@ -42,7 +44,7 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
                         //do nothing
                     }
                 })
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
         //recyclerView.setAdapter(mAdapter);
@@ -59,10 +61,6 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
         // Apply ItemTransformer just like ViewPager
         layoutManager.setItemTransformer(ScaleTransformer())
         prepareMovieData()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun prepareMovieData() {

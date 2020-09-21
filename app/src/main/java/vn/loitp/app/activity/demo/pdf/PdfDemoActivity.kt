@@ -2,6 +2,7 @@ package vn.loitp.app.activity.demo.pdf
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -20,15 +21,12 @@ import java.io.File
 
 @LayoutId(R.layout.activity_demo_pdf)
 @LogTag("PdfDemoActivity")
+@IsFullScreen(false)
 class PdfDemoActivity : BaseFontActivity() {
     private var asyncTaskDownloadPdf: AsyncTaskDownloadPdf? = null
     private var asyncTaskDownloadPdfStream: AsyncTaskDownloadPdfStream? = null
     private var getPdfCoroutine: GetPdfCoroutine? = null
     private var pdfStreamCoroutine: PdfStreamCoroutine? = null
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +77,7 @@ class PdfDemoActivity : BaseFontActivity() {
         //val url = "http://www.pdf995.com/samples/pdf.pdf";
         //val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-        val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
+        val folderPath = LStoreUtil.getFolderPath(context = this, mfolderName = "ZZZDemoPDF")
         val folderName = "PDFDemo"
         updateUIProgress(isLoadding = true)
         asyncTaskDownloadPdf = AsyncTaskDownloadPdf(folderPath, url, folderName, object : AsyncTaskDownloadPdf.Callback {
@@ -130,7 +128,7 @@ class PdfDemoActivity : BaseFontActivity() {
         //val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
         //val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
         //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-        val folderPath = LStoreUtil.getFolderPath(activity, "ZZZDemoPDF")
+        val folderPath = LStoreUtil.getFolderPath(context = this, mfolderName = "ZZZDemoPDF")
         val folderName = "PDFDemo"
         getPdfCoroutine = GetPdfCoroutine()
         getPdfCoroutine?.startTask(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName,

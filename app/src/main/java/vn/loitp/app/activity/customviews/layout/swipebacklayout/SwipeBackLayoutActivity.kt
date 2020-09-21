@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout.swipebacklayout
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioGroup
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -17,13 +18,11 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_swipeback_layout)
 @LogTag("SwipeBackLayoutActivity")
+@IsFullScreen(false)
 class SwipeBackLayoutActivity : BaseFontActivity() {
     private var screenW = 0
     private var screenH = 0
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,7 +44,7 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
                 logD("onViewSwipeFinished")
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(activity)
+                    LActivityUtil.transActivityNoAniamtion(this@SwipeBackLayoutActivity)
                 }
             }
         })

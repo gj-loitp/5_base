@@ -2,6 +2,7 @@ package vn.loitp.app.activity.function.keyboard
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_func_keyboard)
 @LogTag("KeyboardActivity")
+@IsFullScreen(false)
 class KeyboardActivity : BaseFontActivity() {
 
     @SuppressLint("CheckResult", "SetTextI18n")
@@ -28,15 +30,11 @@ class KeyboardActivity : BaseFontActivity() {
                 }, { throwable -> throwable.printStackTrace() })
 
         btShow.setSafeOnClickListener {
-            LKeyBoardUtil.show(activity)
+            LKeyBoardUtil.show(this)
         }
         btHide.setSafeOnClickListener {
-            LKeyBoardUtil.hide(activity)
+            LKeyBoardUtil.hide(this)
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

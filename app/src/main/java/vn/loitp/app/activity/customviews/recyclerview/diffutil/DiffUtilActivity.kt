@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.diffutil
 
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -12,11 +13,8 @@ import java.util.*
 
 @LayoutId(R.layout.activity_recycler_view_diff_util)
 @LogTag("DiffUtilActivity")
+@IsFullScreen(false)
 class DiffUtilActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     private var items: MutableList<Content> = mutableListOf()
 

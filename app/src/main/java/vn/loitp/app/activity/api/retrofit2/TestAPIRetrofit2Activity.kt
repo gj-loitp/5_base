@@ -5,6 +5,7 @@ import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -19,6 +20,7 @@ import java.util.*
 
 @LayoutId(R.layout.activity_retrofit2_test_api)
 @LogTag("TestAPIRetrofit2Activity")
+@IsFullScreen(false)
 class TestAPIRetrofit2Activity : BaseFontActivity() {
     private var mService: SOService? = null
     private var mAdapter: AnswersAdapter? = null
@@ -43,10 +45,6 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
         }
 
         loadAnswers()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun loadAnswers() {

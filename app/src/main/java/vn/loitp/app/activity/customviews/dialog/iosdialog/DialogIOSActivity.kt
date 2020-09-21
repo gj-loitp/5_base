@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.dialog.iosdialog
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,6 +15,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_dialog_ios)
 @LogTag("DialogIOSActivity")
+@IsFullScreen(false)
 class DialogIOSActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,10 +23,6 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
 
         btShow1.setOnClickListener(this)
         btShow2.setOnClickListener(this)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onClick(v: View) {
@@ -35,7 +33,7 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show1() {
-        LDialogUtil.showIOSDialog1(activity = activity,
+        LDialogUtil.showIOSDialog1(activity = this,
                 title = "Allow \"Calendar\" to access your location while you use the app?",
                 subtitle = "This is a subtitle",
                 label1 = "Allow",
@@ -48,7 +46,7 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show2() {
-        LDialogUtil.showIOSDialog2(activity = this.activity,
+        LDialogUtil.showIOSDialog2(activity = this,
                 title = "Allow \"Calendar\" to access your location while you use the app?",
                 subtitle = "This is a subtitle",
                 label1 = "Don't Allow",

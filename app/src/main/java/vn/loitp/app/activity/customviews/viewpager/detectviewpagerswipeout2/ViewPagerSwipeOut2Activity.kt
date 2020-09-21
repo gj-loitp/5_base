@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv.Companion
 
 @LayoutId(R.layout.activity_view_pager_swipe_out_2)
 @LogTag("ViewPagerSwipeOut2Activity")
+@IsFullScreen(false)
 class ViewPagerSwipeOut2Activity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +35,6 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
         LUIUtil.setPullLikeIOSHorizontal(vp)
         tabLayout.setupWithViewPager(vp)
         LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.FONT_PATH)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

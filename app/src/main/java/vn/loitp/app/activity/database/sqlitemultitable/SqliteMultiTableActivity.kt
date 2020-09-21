@@ -2,6 +2,7 @@ package vn.loitp.app.activity.database.sqlitemultitable
 
 import android.os.Bundle
 import android.widget.TextView
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -17,16 +18,13 @@ import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_sqlite_multi_table)
 @LogTag("SqliteMultiTableActivity")
+@IsFullScreen(false)
 class SqliteMultiTableActivity : BaseFontActivity() {
     private lateinit var db: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         test()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun test() {
@@ -139,7 +137,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
 
     private fun showMsg(msg: String) {
         logD(msg)
-        val tv = TextView(activity)
+        val tv = TextView(this)
         tv.text = msg
         LUIUtil.setTextSize(textView = tv, size = resources.getDimension(R.dimen.txt_small))
         ll.addView(tv)

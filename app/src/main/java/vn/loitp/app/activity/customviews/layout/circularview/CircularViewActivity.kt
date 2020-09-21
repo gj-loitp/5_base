@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.layout.circularview
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_layout_circular_view)
 @LogTag("CircularViewActivity")
+@IsFullScreen(false)
 class CircularViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,10 +31,6 @@ class CircularViewActivity : BaseFontActivity() {
                 showShort("onClick $position")
             }
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

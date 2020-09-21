@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.utilities.LLog;
@@ -19,13 +20,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.views.LToast;
 
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LayoutId(R.layout.activity_sign_in)
 @LogTag("DatabaseFirebaseSignInActivity")
+@IsFullScreen(false)
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
@@ -83,7 +84,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.show(getActivity(), "Sign In Failed");
+                            showShort("Sign In Failed");
                         }
                     }
                 });
@@ -109,7 +110,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            LToast.show(getActivity(), "Sign Up Failed");
+                            showShort("Sign Up Failed");
                         }
                     }
                 });
@@ -122,7 +123,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         writeNewUser(user.getUid(), username, user.getEmail());
 
         // Go to MenuMotionLayoutActivity
-        startActivity(new Intent(getActivity(), DatabaseFirebaseActivity.class));
+        startActivity(new Intent(this, DatabaseFirebaseActivity.class));
         finish();
     }
 
@@ -168,11 +169,6 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         } else if (i == R.id.button_sign_up) {
             signUp();
         }
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
 }

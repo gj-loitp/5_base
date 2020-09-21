@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -17,11 +18,9 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_drawer_behavior_advance4)
 @LogTag("AdvanceDrawer4Activity")
+@IsFullScreen(false)
 class AdvanceDrawer4Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(toolbar)

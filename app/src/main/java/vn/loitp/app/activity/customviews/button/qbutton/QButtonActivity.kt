@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.button.qbutton
 
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -10,11 +11,8 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_button_q)
 @LogTag("QButtonActivity")
+@IsFullScreen(false)
 class QButtonActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +21,7 @@ class QButtonActivity : BaseFontActivity() {
         btn.setStrokeWidth(5)
         btn.setStrokeDashGap(5)
         btn.setStrokeDashWidth(90)
-        btn.setBackgroundColor(ContextCompat.getColor(activity, R.color.colorPrimary))
-        btn.setStrokeColor(ContextCompat.getColor(activity, R.color.colorPrimaryDark))
+        btn.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary))
+        btn.setStrokeColor(ContextCompat.getColor(this, R.color.colorPrimaryDark))
     }
 }

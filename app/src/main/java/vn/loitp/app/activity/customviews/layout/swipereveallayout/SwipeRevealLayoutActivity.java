@@ -8,6 +8,7 @@ import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -21,6 +22,7 @@ import vn.loitp.app.activity.customviews.layout.swipereveallayout.recycler.Swipe
 //https://github.com/chthai64/SwipeRevealLayout
 @LayoutId(R.layout.activity_swipe_reveal_layout)
 @LogTag("SwipeRevealLayoutActivity")
+@IsFullScreen(false)
 public class SwipeRevealLayoutActivity extends BaseFontActivity {
 
     @Override
@@ -28,11 +30,6 @@ public class SwipeRevealLayoutActivity extends BaseFontActivity {
         super.onCreate(savedInstanceState);
         final Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override
@@ -46,17 +43,17 @@ public class SwipeRevealLayoutActivity extends BaseFontActivity {
         switch (item.getItemId()) {
             case R.id.action_recycler_view:
                 startActivity(new Intent(this, SwipeRevealLayoutRecyclerActivity.class));
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.tranIn(this);
                 return true;
 
             case R.id.action_list_view:
                 startActivity(new Intent(this, SwipeRevealLayoutListActivity.class));
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.tranIn(this);
                 return true;
 
             case R.id.action_grid_view:
                 startActivity(new Intent(this, SwipeRevealLayoutGridActivity.class));
-                LActivityUtil.tranIn(activity);
+                LActivityUtil.tranIn(this);
                 return true;
         }
 

@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.actionbar.lactionbar
 
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_l_action_bar)
 @LogTag("LActionbarActivity")
+@IsFullScreen(false)
 class LActionbarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,12 +22,8 @@ class LActionbarActivity : BaseFontActivity() {
         setupActionBar()
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     private fun setupActionBar() {
-        textView.text = LStoreUtil.readTxtFromRawFolder(activity, R.raw.lactionbar)
+        textView.text = LStoreUtil.readTxtFromRawFolder(context = this, nameOfRawFile = R.raw.lactionbar)
 
         lActionBar.setOnClickBack(object : LActionBar.Callback {
             override fun onClickBack(view: View) {
@@ -33,7 +31,7 @@ class LActionbarActivity : BaseFontActivity() {
             }
 
             override fun onClickMenu(view: View) {
-                LToast.show(activity, "onClickMenu")
+                LToast.show(this@LActionbarActivity, "onClickMenu")
             }
         })
         lActionBar.showMenuIcon()

@@ -7,6 +7,7 @@ import android.view.animation.OvershootInterpolator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
@@ -17,7 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.views.LToast;
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
@@ -29,6 +29,7 @@ import vn.loitp.app.common.Constants;
 
 @LayoutId(R.layout.activity_menu_firebase_simple)
 @LogTag("DatabaseSimpleFirebaseActivity")
+@IsFullScreen(false)
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";
     private FirebaseDatabase mFirebaseInstance;
@@ -81,11 +82,6 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     }
 
     @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btAdd) {
             addData();
@@ -116,10 +112,10 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         recyclerView.setItemAnimator(animator);
         //recyclerView.getItemAnimator().setAddDuration(1000);
 
-        mAdapter = new UserAdapter(getActivity(), userList, new UserAdapter.Callback() {
+        mAdapter = new UserAdapter(this, userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                LToast.show(getActivity(), "onClick To Edit Data: " + user.getMsg());
+                showShort("onClick To Edit Data: " + user.getMsg());
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
@@ -129,7 +125,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onLongClick(User user, int position) {
-                LToast.show(getActivity(), "onLongClick " + user.getMsg());
+                showShort("onLongClick " + user.getMsg());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });

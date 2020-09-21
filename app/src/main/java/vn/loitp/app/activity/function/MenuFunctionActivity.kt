@@ -3,6 +3,7 @@ package vn.loitp.app.activity.function
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -27,6 +28,7 @@ import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleA
 
 @LayoutId(R.layout.activity_function_menu)
 @LogTag("MenuFunctionActivity")
+@IsFullScreen(false)
 class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,32 +51,28 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         btDownloadManager.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btSimpleFingerGesture -> intent = Intent(activity, SimpleFingerGesturesActivity::class.java)
-            btHashmap -> intent = Intent(activity, HashMapActivity::class.java)
-            btDragDropSample -> intent = Intent(activity, DragDropSampleActivity::class.java)
-            btToggleFullScreen -> intent = Intent(activity, FullScreenActivity::class.java)
-            btViewDragHelper -> intent = Intent(activity, ViewDragHelperActivity::class.java)
-            btRecolor -> intent = Intent(activity, RecolorActivity::class.java)
-            btActivityServiceComunicate -> intent = Intent(activity, ActivityServiceComunicateActivity::class.java)
-            btLocation -> intent = Intent(activity, LocationActivity::class.java)
-            btNotification -> intent = Intent(activity, MenuNotificationActivity::class.java)
-            btViewDragHelperSimple -> intent = Intent(activity, ViewDragHelperSimpleActivity::class.java)
-            btViewDragHelperSimple1 -> intent = Intent(activity, ViewDragHelperSimpleActivity1::class.java)
-            btSensor -> intent = Intent(activity, SensorActivity::class.java)
-            btGlide -> intent = Intent(activity, GlideActivity::class.java)
-            btKeyboard -> intent = Intent(activity, KeyboardActivity::class.java)
-            btDownloadManager -> intent = Intent(activity, DownloadManagerActivity::class.java)
+            btSimpleFingerGesture -> intent = Intent(this, SimpleFingerGesturesActivity::class.java)
+            btHashmap -> intent = Intent(this, HashMapActivity::class.java)
+            btDragDropSample -> intent = Intent(this, DragDropSampleActivity::class.java)
+            btToggleFullScreen -> intent = Intent(this, FullScreenActivity::class.java)
+            btViewDragHelper -> intent = Intent(this, ViewDragHelperActivity::class.java)
+            btRecolor -> intent = Intent(this, RecolorActivity::class.java)
+            btActivityServiceComunicate -> intent = Intent(this, ActivityServiceComunicateActivity::class.java)
+            btLocation -> intent = Intent(this, LocationActivity::class.java)
+            btNotification -> intent = Intent(this, MenuNotificationActivity::class.java)
+            btViewDragHelperSimple -> intent = Intent(this, ViewDragHelperSimpleActivity::class.java)
+            btViewDragHelperSimple1 -> intent = Intent(this, ViewDragHelperSimpleActivity1::class.java)
+            btSensor -> intent = Intent(this, SensorActivity::class.java)
+            btGlide -> intent = Intent(this, GlideActivity::class.java)
+            btKeyboard -> intent = Intent(this, KeyboardActivity::class.java)
+            btDownloadManager -> intent = Intent(this, DownloadManagerActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

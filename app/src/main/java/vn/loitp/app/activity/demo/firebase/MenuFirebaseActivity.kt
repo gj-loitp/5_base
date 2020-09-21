@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.firebase
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -24,45 +25,43 @@ import java.io.IOException
 
 @LayoutId(R.layout.activity_menu_firebase)
 @LogTag("MenuFirebaseActivity")
+@IsFullScreen(false)
 class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_admob).setOnClickListener(this)
-        findViewById<View>(R.id.bt_auth).setOnClickListener(this)
-        findViewById<View>(R.id.bt_config).setOnClickListener(this)
-        findViewById<View>(R.id.btDatabase).setOnClickListener(this)
-        findViewById<View>(R.id.bt_invite).setOnClickListener(this)
-        findViewById<View>(R.id.bt_database_simple).setOnClickListener(this)
-        findViewById<View>(R.id.bt_fcm).setOnClickListener(this)
+
+        bt_admob.setOnClickListener(this)
+        bt_auth.setOnClickListener(this)
+        bt_config.setOnClickListener(this)
+        btDatabase.setOnClickListener(this)
+        bt_invite.setOnClickListener(this)
+        bt_database_simple.setOnClickListener(this)
+        bt_fcm.setOnClickListener(this)
         btGetFCMToken.setOnClickListener(this)
         btResetInstanceId.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
-        when (v.id) {
-            R.id.bt_admob -> intent = Intent(activity, FirebaseAdmobActivity::class.java)
-            R.id.bt_auth -> intent = Intent(activity, AuthFirebaseMenuActivity::class.java)
-            R.id.bt_config -> intent = Intent(activity, ConfigFirebaseActivity::class.java)
-            R.id.btDatabase -> intent = Intent(activity, DatabaseFirebaseSignInActivity::class.java)
-            R.id.bt_invite -> intent = Intent(activity, InviteFirebaseActivity::class.java)
-            R.id.bt_database_simple -> intent = Intent(activity, DatabaseSimpleFirebaseActivity::class.java)
-            R.id.bt_fcm -> intent = Intent(activity, FCMFirebaseActivity::class.java)
-            R.id.btGetFCMToken -> {
+        when (v) {
+            bt_admob -> intent = Intent(this, FirebaseAdmobActivity::class.java)
+            bt_auth -> intent = Intent(this, AuthFirebaseMenuActivity::class.java)
+            bt_config -> intent = Intent(this, ConfigFirebaseActivity::class.java)
+            btDatabase -> intent = Intent(this, DatabaseFirebaseSignInActivity::class.java)
+            bt_invite -> intent = Intent(this, InviteFirebaseActivity::class.java)
+            bt_database_simple -> intent = Intent(this, DatabaseSimpleFirebaseActivity::class.java)
+            bt_fcm -> intent = Intent(this, FCMFirebaseActivity::class.java)
+            btGetFCMToken -> {
                 getFCMToken()
             }
-            R.id.btResetInstanceId -> {
+            btResetInstanceId -> {
                 resetInstanceId()
             }
         }
-        if (intent != null) {
-            startActivity(intent)
-            LActivityUtil.tranIn(activity)
+        intent?.let {
+            startActivity(it)
+            LActivityUtil.tranIn(this)
         }
     }
 

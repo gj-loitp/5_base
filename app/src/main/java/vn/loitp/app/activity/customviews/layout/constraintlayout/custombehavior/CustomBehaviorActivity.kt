@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior
 
 import android.os.Bundle
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,6 +12,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_custom_behavior)
 @LogTag("CustomBehaviorActivity")
+@IsFullScreen(false)
 class CustomBehaviorActivity : BaseFontActivity() {
     private var mShowFabButton: FloatingActionButton? = null
     private var mCoordinatorLayout: CoordinatorLayout? = null
@@ -27,10 +29,6 @@ class CustomBehaviorActivity : BaseFontActivity() {
 
                     }.show()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.edittext
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -20,10 +21,12 @@ import vn.loitp.app.activity.customviews.edittext.textwatcher.EditTextTextWatche
 
 @LayoutId(R.layout.activity_edittext_menu)
 @LogTag("EditTextMenuActivity")
+@IsFullScreen(false)
 class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btAnimatedExpandableEditText.setOnClickListener(this)
         btAutoResizeEditText.setOnClickListener(this)
         btMaterialTextField.setOnClickListener(this)
@@ -34,25 +37,22 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
         btCurrencyEditText.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAnimatedExpandableEditText -> intent = Intent(activity, AnimatedExpandableEditTextActivity::class.java)
-            btAutoResizeEditText -> intent = Intent(activity, AutoResizeEditTextActivity::class.java)
-            btMaterialTextField -> intent = Intent(activity, MaterialTextFieldActivity::class.java)
-            btBiuEditText -> intent = Intent(activity, BiuEditTextActivity::class.java)
-            btAutoSuggestEditText -> intent = Intent(activity, EditTextAutoSuggestActivity::class.java)
-            btLEditText -> intent = Intent(activity, LEditTextActivity::class.java)
-            btEditextTextWatcher -> intent = Intent(activity, EditTextTextWatcherActivity::class.java)
-            btCurrencyEditText -> intent = Intent(activity, CurrencyEditTextActivity::class.java)
+            btAnimatedExpandableEditText -> intent = Intent(this, AnimatedExpandableEditTextActivity::class.java)
+            btAutoResizeEditText -> intent = Intent(this, AutoResizeEditTextActivity::class.java)
+            btMaterialTextField -> intent = Intent(this, MaterialTextFieldActivity::class.java)
+            btBiuEditText -> intent = Intent(this, BiuEditTextActivity::class.java)
+            btAutoSuggestEditText -> intent = Intent(this, EditTextAutoSuggestActivity::class.java)
+            btLEditText -> intent = Intent(this, LEditTextActivity::class.java)
+            btEditextTextWatcher -> intent = Intent(this, EditTextTextWatcherActivity::class.java)
+            btCurrencyEditText -> intent = Intent(this, CurrencyEditTextActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
+            this
         }
     }
 }

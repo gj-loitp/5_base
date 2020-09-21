@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 
+import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseActivity;
@@ -24,6 +25,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
 @LayoutId(R.layout.wwl_video_activity)
 @LogTag("WWLVideoActivity")
+@IsFullScreen(false)
 public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener, FragmentHost {
     private LWWLVideo LWWLVideo;
     private float mLastAlpha;
@@ -43,11 +45,6 @@ public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener
         this.wwlVideoPlayerFragment = (WWLVideoPlayerFragment) getSupportFragmentManager().findFragmentById(R.id.player_fragment);
         this.wwlVideoUpNextFragment = (WWLVideoUpNextFragment) getSupportFragmentManager().findFragmentById(R.id.up_next_fragment);
         this.wwlVideoMetaInfoFragment = (WWLVideoMetaInfoFragment) getSupportFragmentManager().findFragmentById(R.id.meta_info_fragment);
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
     }
 
     @Override
@@ -127,7 +124,7 @@ public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener
 
     @Override
     public void onVideoCollapse() {
-        LWWLMusicUiUtil.showSystemUI(getActivity());
+        LWWLMusicUiUtil.showSystemUI(this);
         this.LWWLVideo.exitFullscreenToMinimize();
         this.wwlVideoPlayerFragment.switchFullscreen(false);
         this.LWWLVideo.minimize(false);
@@ -136,10 +133,10 @@ public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener
     @Override
     public void onVideoFullscreen(boolean selected) {
         if (selected) {
-            LWWLMusicUiUtil.hideSystemUI(getActivity());
+            LWWLMusicUiUtil.hideSystemUI(this);
             this.LWWLVideo.enterFullscreen();
         } else {
-            LWWLMusicUiUtil.showSystemUI(getActivity());
+            LWWLMusicUiUtil.showSystemUI(this);
             this.LWWLVideo.exitFullscreen();
         }
         this.wwlVideoPlayerFragment.switchFullscreen(selected);

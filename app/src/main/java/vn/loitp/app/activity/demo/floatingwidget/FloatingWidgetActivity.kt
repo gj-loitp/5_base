@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_floating_widget)
 @LogTag("FloatingWidgetActivity")
+@IsFullScreen(false)
 class FloatingWidgetActivity : BaseFontActivity() {
 
     companion object {
@@ -31,7 +33,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
 
     private fun startService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-            LDialogUtil.showDialog2(context = activity,
+            LDialogUtil.showDialog2(context = this,
                     title = "Permission",
                     msg = "Please open overlay permission",
                     button1 = "Yes",
@@ -47,13 +49,9 @@ class FloatingWidgetActivity : BaseFontActivity() {
                         }
                     })
         } else {
-            startService(Intent(activity, FloatingViewService::class.java))
+            startService(Intent(this, FloatingViewService::class.java))
             onBackPressed()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

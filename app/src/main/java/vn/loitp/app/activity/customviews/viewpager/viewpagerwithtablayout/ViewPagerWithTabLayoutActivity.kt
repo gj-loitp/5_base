@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -24,6 +25,7 @@ import java.util.*
 //https://github.com/geftimov/android-viewpager-transformers
 @LayoutId(R.layout.activity_viewpager_with_tablayout)
 @LogTag("ViewPagerWithTabLayoutActivity")
+@IsFullScreen(false)
 class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
     private val resList: MutableList<Int> = ArrayList()
 
@@ -82,7 +84,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         stringList.add(ZoomOutTranformer)
         val arr = stringList.toTypedArray()
 
-        LDialogUtil.showDialogList(context = activity,
+        LDialogUtil.showDialogList(context = this,
                 title = "Select",
                 arr = arr,
                 callbackList = object : CallbackList {
@@ -111,15 +113,11 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
                 })
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     private inner class SlidePagerAdapter : PagerAdapter() {
         @SuppressLint("SetTextI18n")
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
 //            val res = resList[position]
-            val inflater = LayoutInflater.from(activity)
+            val inflater = LayoutInflater.from(this@ViewPagerWithTabLayoutActivity)
             val layout = inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
             if (position % 2 == 0) {

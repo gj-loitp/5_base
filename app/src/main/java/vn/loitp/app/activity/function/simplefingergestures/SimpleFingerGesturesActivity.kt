@@ -3,6 +3,7 @@ package vn.loitp.app.activity.function.simplefingergestures
 import android.annotation.SuppressLint
 import android.graphics.Point
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_func_simple_finger_gestures)
 @LogTag("SimpleFingerGesturesActivity")
+@IsFullScreen(false)
 class SimpleFingerGesturesActivity : BaseFontActivity() {
     private val mySfg = SimpleFingerGestures()
 
@@ -66,10 +68,6 @@ class SimpleFingerGesturesActivity : BaseFontActivity() {
             }
         })
         iv.setOnTouchListener(sfg)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
 }

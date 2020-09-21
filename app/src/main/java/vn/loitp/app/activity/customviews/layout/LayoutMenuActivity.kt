@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.layout
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -40,6 +41,7 @@ import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
 @LayoutId(R.layout.activity_layout_menu)
 @LogTag("LayoutMenuActivity")
+@IsFullScreen(false)
 class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,45 +77,41 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btSplitPanelLayout.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAspectRatioLayout -> intent = Intent(activity, AspectRatioLayoutActivity::class.java)
-            btDraggablePanel -> intent = Intent(activity, DraggablePanelActivity::class.java)
-            btDraggablePanelFree -> intent = Intent(activity, DraggablePanelFreeActivity::class.java)
-            btDraggableView -> intent = Intent(activity, DraggableViewActivity::class.java)
-            btZoomLayout -> intent = Intent(activity, ZoomLayoutActivity::class.java)
-            btRippleLayout -> intent = Intent(activity, RippleLayoutActivity::class.java)
-            btSwipeRefreshLayout -> intent = Intent(activity, SwipeRefreshLayoutMenuActivity::class.java)
-            btDragueur -> intent = Intent(activity, DragueurActivity::class.java)
-            btElasticDragDismissLayout -> intent = Intent(activity, ElasticDragDismissLayoutActivity::class.java)
-            btCircularView -> intent = Intent(activity, CircularViewActivity::class.java)
-            btAutoLinearLayout -> intent = Intent(activity, AutoLinearLayoutActivity::class.java)
-            btConstraintLayout -> intent = Intent(activity, ConstraintlayoutMenuActivity::class.java)
-            btSwipebackLayout -> intent = Intent(activity, SwipeBackLayoutActivity::class.java)
-            btHeartLayout -> intent = Intent(activity, HeartLayoutActivity::class.java)
-            btFloatDragLayout -> intent = Intent(activity, FloatDragLayoutActivity::class.java)
-            btRotateLayout -> intent = Intent(activity, RotateLayoutActivity::class.java)
-            btCoordinatorLayout -> intent = Intent(activity, CoordinatorLayoutMenuActivity::class.java)
-            btSquareLayout -> intent = Intent(activity, SquareLayoutActivity::class.java)
-            btRelativePopupWindow -> intent = Intent(activity, RelativePopupWindowActivity::class.java)
-            btExpansionPanel -> intent = Intent(activity, ExpansionLayoutMenuActivity::class.java)
-            btScrollView2d -> intent = Intent(activity, ScrollView2DActivity::class.java)
-            btScrollView2dAdvance -> intent = Intent(activity, ScrollView2DAdvanceActivity::class.java)
-            btSwipeRevealLayout -> intent = Intent(activity, SwipeRevealLayoutActivity::class.java)
-            btShadowLayout -> intent = Intent(activity, ShadowLayoutActivity::class.java)
-            btShapeOfView -> intent = Intent(activity, ShapeOfViewActivity::class.java)
-            btRoundableLayout -> intent = Intent(activity, RoundableLayoutActivity::class.java)
-            btFlowLayout -> intent = Intent(activity, FlowLayoutActivity::class.java)
-            btSplitPanelLayout -> intent = Intent(activity, SplitPanelLayoutActivity::class.java)
+            btAspectRatioLayout -> intent = Intent(this, AspectRatioLayoutActivity::class.java)
+            btDraggablePanel -> intent = Intent(this, DraggablePanelActivity::class.java)
+            btDraggablePanelFree -> intent = Intent(this, DraggablePanelFreeActivity::class.java)
+            btDraggableView -> intent = Intent(this, DraggableViewActivity::class.java)
+            btZoomLayout -> intent = Intent(this, ZoomLayoutActivity::class.java)
+            btRippleLayout -> intent = Intent(this, RippleLayoutActivity::class.java)
+            btSwipeRefreshLayout -> intent = Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
+            btDragueur -> intent = Intent(this, DragueurActivity::class.java)
+            btElasticDragDismissLayout -> intent = Intent(this, ElasticDragDismissLayoutActivity::class.java)
+            btCircularView -> intent = Intent(this, CircularViewActivity::class.java)
+            btAutoLinearLayout -> intent = Intent(this, AutoLinearLayoutActivity::class.java)
+            btConstraintLayout -> intent = Intent(this, ConstraintlayoutMenuActivity::class.java)
+            btSwipebackLayout -> intent = Intent(this, SwipeBackLayoutActivity::class.java)
+            btHeartLayout -> intent = Intent(this, HeartLayoutActivity::class.java)
+            btFloatDragLayout -> intent = Intent(this, FloatDragLayoutActivity::class.java)
+            btRotateLayout -> intent = Intent(this, RotateLayoutActivity::class.java)
+            btCoordinatorLayout -> intent = Intent(this, CoordinatorLayoutMenuActivity::class.java)
+            btSquareLayout -> intent = Intent(this, SquareLayoutActivity::class.java)
+            btRelativePopupWindow -> intent = Intent(this, RelativePopupWindowActivity::class.java)
+            btExpansionPanel -> intent = Intent(this, ExpansionLayoutMenuActivity::class.java)
+            btScrollView2d -> intent = Intent(this, ScrollView2DActivity::class.java)
+            btScrollView2dAdvance -> intent = Intent(this, ScrollView2DAdvanceActivity::class.java)
+            btSwipeRevealLayout -> intent = Intent(this, SwipeRevealLayoutActivity::class.java)
+            btShadowLayout -> intent = Intent(this, ShadowLayoutActivity::class.java)
+            btShapeOfView -> intent = Intent(this, ShapeOfViewActivity::class.java)
+            btRoundableLayout -> intent = Intent(this, RoundableLayoutActivity::class.java)
+            btFlowLayout -> intent = Intent(this, FlowLayoutActivity::class.java)
+            btSplitPanelLayout -> intent = Intent(this, SplitPanelLayoutActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

@@ -65,7 +65,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         if (adUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
-            adView = AdView(activity)
+            adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = adUnitId
@@ -85,15 +85,15 @@ class GalleryMemberActivity : BaseFontActivity() {
         }
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
 
-        recyclerView.layoutManager = GridLayoutManager(activity, 2)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.setHasFixedSize(true)
-        memberAdapter = MemberAdapter(context = activity,
+        memberAdapter = MemberAdapter(context = this,
                 callback = object : MemberAdapter.Callback {
                     override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
-                        val intent = Intent(activity, GalleryMemberDetailActivity::class.java)
+                        val intent = Intent(this@GalleryMemberActivity, GalleryMemberDetailActivity::class.java)
                         intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
                         startActivity(intent)
-                        LActivityUtil.tranIn(activity)
+                        LActivityUtil.tranIn(this@GalleryMemberActivity)
                     }
 
                     override fun onLongClick(photo: Photo, pos: Int) {
@@ -118,7 +118,7 @@ class GalleryMemberActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(activity)
+                    LActivityUtil.transActivityNoAniamtion(this@GalleryMemberActivity)
                 }
             }
         })
@@ -130,10 +130,6 @@ class GalleryMemberActivity : BaseFontActivity() {
         } else {
             init()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     private fun init() {
@@ -297,7 +293,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(context = activity,
+        val alertDialog = LDialogUtil.showDialog2(context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
                 button1 = "Okay",
@@ -315,7 +311,7 @@ class GalleryMemberActivity : BaseFontActivity() {
     }
 
     private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(context = activity,
+        val alertDialog = LDialogUtil.showDialog2(context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",

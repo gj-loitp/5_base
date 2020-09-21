@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.database.sharedprefs
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -11,6 +12,7 @@ import vn.loitp.app.activity.pattern.mvp.User
 
 @LayoutId(R.layout.activity_shared_prefs)
 @LogTag("SharedPrefsActivity")
+@IsFullScreen(false)
 class SharedPrefsActivity : BaseFontActivity() {
 
     companion object {
@@ -84,9 +86,5 @@ class SharedPrefsActivity : BaseFontActivity() {
             val value = LSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
             showLong("Value: $value")
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 }

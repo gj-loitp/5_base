@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.switchtoggle
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -16,6 +17,7 @@ import vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.TBGMenuA
 
 @LayoutId(R.layout.activity_switch_menu)
 @LogTag("SwitchToggleMenuActivity")
+@IsFullScreen(false)
 class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,21 +29,17 @@ class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
         btToggleButtonGroup.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAppcompatSwitch -> intent = Intent(activity, AppcompatSwitchActivity::class.java)
-            btCustomToggleButton -> intent = Intent(activity, CustomToggleButtonActivity::class.java)
-            btToggle -> intent = Intent(activity, ToggleActivity::class.java)
-            btToggleButtonGroup -> intent = Intent(activity, TBGMenuActivity::class.java)
+            btAppcompatSwitch -> intent = Intent(this, AppcompatSwitchActivity::class.java)
+            btCustomToggleButton -> intent = Intent(this, CustomToggleButtonActivity::class.java)
+            btToggle -> intent = Intent(this, ToggleActivity::class.java)
+            btToggleButtonGroup -> intent = Intent(this, TBGMenuActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.service
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,6 +15,7 @@ import vn.loitp.app.activity.service.endlessservice.EndlessServiceActivity
 
 @LayoutId(R.layout.activity_service_menu)
 @LogTag("MenuServiceActivity")
+@IsFullScreen(false)
 class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,19 +25,15 @@ class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
 
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btDemoService -> intent = Intent(activity, DemoServiceActivity::class.java)
-            btEndlessService -> intent = Intent(activity, EndlessServiceActivity::class.java)
+            btDemoService -> intent = Intent(this, DemoServiceActivity::class.java)
+            btEndlessService -> intent = Intent(this, EndlessServiceActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

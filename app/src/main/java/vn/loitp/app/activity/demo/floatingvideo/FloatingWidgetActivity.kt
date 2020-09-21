@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +16,7 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_floating_video)
 @LogTag("FloatingWidgetActivity")
+@IsFullScreen(false)
 class FloatingWidgetActivity : BaseFontActivity() {
 
     companion object {
@@ -35,7 +37,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
 
     private fun handleShow() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this@FloatingWidgetActivity)) {
-            LDialogUtil.showDialog2(context = activity,
+            LDialogUtil.showDialog2(context = this,
                     title = "Permission",
                     msg = "Plz open overlay permisson",
                     button1 = "Yes",
@@ -50,14 +52,14 @@ class FloatingWidgetActivity : BaseFontActivity() {
                         }
                     })
         } else {
-            startService(Intent(activity, FloatingViewVideoService::class.java))
+            startService(Intent(this, FloatingViewVideoService::class.java))
             onBackPressed()
         }
     }
 
     private fun handleEdge() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this@FloatingWidgetActivity)) {
-            LDialogUtil.showDialog2(context = activity,
+            LDialogUtil.showDialog2(context = this,
                     title = "Permission",
                     msg = "Plz open overlay permisson",
                     button1 = "Yes",
@@ -72,13 +74,9 @@ class FloatingWidgetActivity : BaseFontActivity() {
                         }
                     })
         } else {
-            startService(Intent(activity, FloatingViewEdgeService::class.java))
+            startService(Intent(this, FloatingViewEdgeService::class.java))
             onBackPressed()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

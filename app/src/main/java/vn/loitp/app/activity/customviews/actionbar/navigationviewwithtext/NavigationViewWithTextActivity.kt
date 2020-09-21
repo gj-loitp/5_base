@@ -1,8 +1,10 @@
 package vn.loitp.app.activity.customviews.actionbar.navigationviewwithtext
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,11 +15,8 @@ import java.util.*
 
 @LayoutId(R.layout.activity_navigation_view_with_text)
 @LogTag("NavigationViewWithTextActivity")
+@IsFullScreen(false)
 class NavigationViewWithTextActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,8 +25,8 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
             setTextNext("Next")
             setTextPrev("Prev Prev Prev")
             setTextSize(dpPrev = 22f, dpText = 18f, dpNext = 22f)
-            colorOn = ContextCompat.getColor(activity, R.color.red)
-            colorOff = ContextCompat.getColor(activity, R.color.gray)
+            colorOn = ContextCompat.getColor(this@NavigationViewWithTextActivity, R.color.red)
+            colorOff = ContextCompat.getColor(this@NavigationViewWithTextActivity, R.color.gray)
             tv?.setTextColor(Color.BLACK)
         }
 
@@ -38,6 +37,7 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
 
         nv.setStringList(stringList)
         nv.setNVCallback(object : LTextNavigationView.NVCallback {
+            @SuppressLint("SetTextI18n")
             override fun onIndexChange(index: Int, s: String?) {
                 tvMsg?.text = "$index -> $s"
             }

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.edittext.materialtextfield
 
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -9,10 +10,5 @@ import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_editext_material_textfield)
 @LogTag("MaterialTextFieldActivity")
-class MaterialTextFieldActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-}
+@IsFullScreen(false)
+class MaterialTextFieldActivity : BaseFontActivity()

@@ -3,6 +3,7 @@ package vn.loitp.app.activity.customviews.viewpager
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -19,6 +20,7 @@ import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPa
 
 @LayoutId(R.layout.activity_view_pager_menu)
 @LogTag("ViewPagerMenuActivity")
+@IsFullScreen(false)
 class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,24 +35,20 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
         btRefreshViewPager.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAutoViewPager -> intent = Intent(activity, ViewPagerAutoActivity::class.java)
-            btParallaxViewPager -> intent = Intent(activity, ParallaxViewPagerActivity::class.java)
-            btDetectViewPagerSwipeOut -> intent = Intent(activity, DetectViewPagerSwipeOutActivity::class.java)
-            btViewPagerTabLayout -> intent = Intent(activity, ViewPagerWithTabLayoutActivity::class.java)
-            btDetectViewPagerSwipeOut2 -> intent = Intent(activity, ViewPagerSwipeOut2Activity::class.java)
-            btLockableViewPager -> intent = Intent(activity, LockableViewPagerActivity::class.java)
-            btRefreshViewPager -> intent = Intent(activity, RefreshViewPagerActivity::class.java)
+            btAutoViewPager -> intent = Intent(this, ViewPagerAutoActivity::class.java)
+            btParallaxViewPager -> intent = Intent(this, ParallaxViewPagerActivity::class.java)
+            btDetectViewPagerSwipeOut -> intent = Intent(this, DetectViewPagerSwipeOutActivity::class.java)
+            btViewPagerTabLayout -> intent = Intent(this, ViewPagerWithTabLayoutActivity::class.java)
+            btDetectViewPagerSwipeOut2 -> intent = Intent(this, ViewPagerSwipeOut2Activity::class.java)
+            btLockableViewPager -> intent = Intent(this, LockableViewPagerActivity::class.java)
+            btRefreshViewPager -> intent = Intent(this, RefreshViewPagerActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }
