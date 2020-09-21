@@ -111,7 +111,8 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
-                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
+//                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
+                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_CUNGHOANGDAOHEHEHORO)
             }
             btGalleryMember -> {
                 intent = Intent(this, GalleryMemberActivity::class.java)
