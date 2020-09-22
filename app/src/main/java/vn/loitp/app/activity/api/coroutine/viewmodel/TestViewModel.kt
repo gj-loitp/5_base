@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.coroutine.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.core.base.BaseViewModel
 import com.service.livedata.ActionData
@@ -17,8 +16,8 @@ import vn.loitp.app.activity.api.coroutine.service.TestApiClient
  * www.muathu@gmail.com
  */
 
-class TestViewModel(application: Application) : BaseViewModel() {
-    private val TAG = javaClass.simpleName
+class TestViewModel : BaseViewModel() {
+    private val logTag = javaClass.simpleName
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
     // action
