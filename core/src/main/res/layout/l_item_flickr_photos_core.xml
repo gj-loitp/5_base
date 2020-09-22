@@ -23,5 +23,7 @@
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_small" />
+        android:textSize="@dimen/text_small"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 </com.views.layout.squarelayout.LSquareFrameLayout>

@@ -48,6 +48,10 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
 //            val color = photoset.colorBackground
 //            LLog.d(logTag, "$bindingAdapterPosition -> $color")
 
+            itemView.tvUpdate.visibility = View.INVISIBLE
+            itemView.tvLabel.visibility = View.INVISIBLE
+            itemView.tvNumber.visibility = View.INVISIBLE
+
             LImageUtil.load(context = itemView.imageView.context,
                     url = photoset.flickrLinkO(),
                     imageView = itemView.imageView,
@@ -59,6 +63,9 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                            itemView.tvUpdate?.visibility = View.VISIBLE
+                            itemView.tvLabel?.visibility = View.VISIBLE
+                            itemView.tvNumber?.visibility = View.VISIBLE
                             setAnimation(viewToAnimate = itemView.frameLayout, position = bindingAdapterPosition)
                             return false
                         }

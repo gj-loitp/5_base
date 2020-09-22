@@ -1,6 +1,7 @@
 package com.core.helper.gallery.member
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LImageUtil
@@ -40,7 +45,24 @@ class MemberAdapter(private val context: Context, private val callback: Callback
 
         fun bind(photo: Photo) {
 
-            LImageUtil.load(context = itemView.circleImageView.context, url = photo.urlO, imageView = itemView.circleImageView, resPlaceHolder = R.color.gray)
+            itemView.tvTitle.visibility = View.INVISIBLE
+
+            LImageUtil.load(context = itemView.circleImageView.context,
+                    url = photo.urlO,
+                    imageView = itemView.circleImageView,
+                    resPlaceHolder = R.color.black,
+                    resError = R.color.black,
+                    drawableRequestListener = object : RequestListener<Drawable> {
+                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                            itemView.tvTitle?.visibility = View.VISIBLE
+                            setAnimation(viewToAnimate = itemView.fl, position = bindingAdapterPosition)
+                            return false
+                        }
+                    })
 
             if (photo.title.toLowerCase(Locale.getDefault()).startsWith("null")) {
                 itemView.tvTitle.visibility = View.INVISIBLE
@@ -56,8 +78,6 @@ class MemberAdapter(private val context: Context, private val callback: Callback
                 callback?.onLongClick(photo = photo, pos = bindingAdapterPosition)
                 true
             }
-
-            setAnimation(viewToAnimate = itemView.fl, position = bindingAdapterPosition)
         }
     }
 

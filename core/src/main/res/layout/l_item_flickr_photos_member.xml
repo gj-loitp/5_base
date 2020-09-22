@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.views.layout.squarelayout.LSquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fl"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,8 +16,9 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        app:civ_border_color="@color/white"
-        app:civ_border_width="@dimen/w_1" />
+        app:civ_border_color="@color/black"
+        app:civ_border_width="@dimen/w_1"
+        tools:src="@color/colorPrimary" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -27,6 +29,8 @@
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_medium" />
+        android:textSize="@dimen/text_medium"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 
 </com.views.layout.squarelayout.LSquareFrameLayout>

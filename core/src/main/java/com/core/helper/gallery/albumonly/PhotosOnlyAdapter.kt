@@ -45,11 +45,15 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
 
         internal fun bind(p: Photo, position: Int) {
 
+            itemView.layoutControl.visibility = View.INVISIBLE
+            itemView.viewLine.visibility = View.INVISIBLE
+            itemView.tvTitle.visibility = View.INVISIBLE
+
             LImageUtil.load(context = itemView.iv.context,
                     url = p.urlO,
                     imageView = itemView.iv,
-                    resPlaceHolder = R.color.gray,
-                    resError = R.color.gray,
+                    resPlaceHolder = R.color.black,
+                    resError = R.color.black,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false
@@ -58,6 +62,8 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
                             itemView.layoutControl?.visibility = View.VISIBLE
                             itemView.viewLine?.visibility = View.VISIBLE
+                            itemView.tvTitle?.visibility = View.VISIBLE
+                            setAnimation(viewToAnimate = itemView.layoutRoot, position = bindingAdapterPosition)
                             return false
                         }
                     })
@@ -92,8 +98,6 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
                 LAnimationUtil.play(view = it, techniques = Techniques.Flash)
                 callback?.onClickCmt(photo = p, pos = position)
             }
-
-            setAnimation(viewToAnimate = itemView.layoutRoot, position = bindingAdapterPosition)
         }
 
     }

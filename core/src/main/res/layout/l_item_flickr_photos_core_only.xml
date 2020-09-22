@@ -21,19 +21,11 @@
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
         android:textColor="@color/white"
+        android:visibility="invisible"
+        tools:visibility="visible"
         android:textSize="@dimen/text_medium"
         tools:text="@string/app_name"
         tools:textColor="@color/black" />
-
-    <!--    <com.github.piasy.biv.view.BigImageView-->
-    <!--        android:id="@+id/biv"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        app:failureImage="@drawable/l_error_404"-->
-    <!--        app:failureImageInitScaleType="center"-->
-    <!--        app:initScaleType="custom"-->
-    <!--        app:optimizeDisplay="true"-->
-    <!--        app:thumbnailScaleType="fitCenter" />-->
 
     <ImageView
         android:id="@+id/iv"

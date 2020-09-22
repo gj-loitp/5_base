@@ -2,11 +2,16 @@ package com.core.helper.gallery.photos
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.core.utilities.LImageUtil
@@ -40,7 +45,26 @@ class PhotosAdapter internal constructor(private val context: Context, private v
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         @SuppressLint("SetTextI18n")
         fun bind(photo: Photo) {
-            LImageUtil.load(context = itemView.imageView.context, url = photo.flickrLink1024, imageView = itemView.imageView, resPlaceHolder = R.color.gray)
+
+            itemView.tvSize.visibility = View.INVISIBLE
+
+            LImageUtil.load(context = itemView.imageView.context,
+                    url = photo.flickrLink1024,
+                    imageView = itemView.imageView,
+                    resPlaceHolder = R.color.black,
+                    resError = R.color.black,
+                    drawableRequestListener = object : RequestListener<Drawable> {
+                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                            itemView.tvSize?.visibility = View.VISIBLE
+                            setAnimation(viewToAnimate = itemView.layoutRootView, position = bindingAdapterPosition)
+                            return false
+                        }
+                    })
+
             itemView.tvSize.text = "${photo.widthO} x ${photo.heightO}"
             LUIUtil.setTextShadow(textView = itemView.tvSize)
 
@@ -51,8 +75,6 @@ class PhotosAdapter internal constructor(private val context: Context, private v
                 callback?.onLongClick(photo = photo, pos = bindingAdapterPosition)
                 true
             }
-
-            setAnimation(viewToAnimate = itemView.layoutRootView, position = bindingAdapterPosition)
         }
     }
 
