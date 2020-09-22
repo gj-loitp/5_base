@@ -8,12 +8,18 @@ import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 
-@LogTag("FrmGirl")
-class FrmGirl : BaseFragment() {
+@LogTag("loitppFrmInformation")
+class FrmInformation : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_girl, container, false)
+        frmRootView = inflater.inflate(R.layout.l_frm_girl_information, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        logD("onViewCreated")
     }
 
 }

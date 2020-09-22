@@ -55,22 +55,8 @@ class GirlActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        expandableBottomBar.addItems(
-                ExpandableBottomBarMenuItem.Builder(context = this)
-                        .addItem(itemId = listMenuGirl[0].itemId, iconId = listMenuGirl[0].iconId, textId = listMenuGirl[0].textId, activeColor = listMenuGirl[0].activeColor)
-                        .addItem(itemId = listMenuGirl[1].itemId, iconId = listMenuGirl[1].iconId, textId = listMenuGirl[1].textId, activeColor = listMenuGirl[1].activeColor)
-                        .addItem(itemId = listMenuGirl[2].itemId, iconId = listMenuGirl[2].iconId, textId = listMenuGirl[2].textId, activeColor = listMenuGirl[2].activeColor)
-                        .build()
-        )
-        expandableBottomBar.onItemSelectedListener = { view, menuItem ->
-            logD("onItemSelectedListener " + menuItem.itemId)
-        }
-
-        expandableBottomBar.onItemReselectedListener = { view, menuItem ->
-            logD("onItemReselectedListener" + menuItem.itemId)
-        }
-
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
+        viewPager.offscreenPageLimit = listMenuGirl.size
         viewPager.setPageTransformer(true, CubeInTransformer())
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
@@ -83,11 +69,51 @@ class GirlActivity : BaseFontActivity() {
                 expandableBottomBar.select(listMenuGirl[position].itemId)
             }
         })
+        expandableBottomBar.addItems(
+                ExpandableBottomBarMenuItem.Builder(context = this)
+                        .addItem(itemId = listMenuGirl[0].itemId, iconId = listMenuGirl[0].iconId, textId = listMenuGirl[0].textId, activeColor = listMenuGirl[0].activeColor)
+                        .addItem(itemId = listMenuGirl[1].itemId, iconId = listMenuGirl[1].iconId, textId = listMenuGirl[1].textId, activeColor = listMenuGirl[1].activeColor)
+                        .addItem(itemId = listMenuGirl[2].itemId, iconId = listMenuGirl[2].iconId, textId = listMenuGirl[2].textId, activeColor = listMenuGirl[2].activeColor)
+                        .build()
+        )
+        expandableBottomBar.onItemSelectedListener = { view, menuItem ->
+            logD("onItemSelectedListener " + menuItem.itemId)
+            val index = getIndexOfListMenuGirl(itemId = menuItem.itemId)
+            index?.let {
+                viewPager.currentItem = it
+            }
+        }
+
+        expandableBottomBar.onItemReselectedListener = { view, menuItem ->
+            logD("onItemReselectedListener" + menuItem.itemId)
+        }
+    }
+
+    private fun getIndexOfListMenuGirl(itemId: Int): Int? {
+        for (i in 0 until listMenuGirl.size) {
+            if (listMenuGirl[i].itemId == itemId) {
+                return i
+            }
+        }
+        return null
     }
 
     private inner class SlidePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
-            return FrmGirl()
+            return when (position) {
+                0 -> {
+                    FrmHome()
+                }
+                1 -> {
+                    FrmFavourite()
+                }
+                2 -> {
+                    FrmInformation()
+                }
+                else -> {
+                    FrmHome()
+                }
+            }
         }
 
         override fun getCount(): Int {
