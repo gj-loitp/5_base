@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/black">
 
     <ImageView
         android:id="@+id/ivBkg"
@@ -28,21 +28,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_55"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium"
-                android:text="@string/copyright_team"
-                android:textColor="@color/black"
+                android:text="@string/copyright"
+                android:textColor="@color/white"
                 android:textSize="@dimen/txt_medium" />
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvCopyright"
+                android:layout_centerInParent="true"
                 android:gravity="center"
                 android:padding="@dimen/padding_medium"
-                android:text="@string/app_name_girl"
-                android:textColor="@color/black"
+                android:text="@string/lgallery"
+                android:textColor="@color/white"
                 android:textSize="@dimen/txt_50" />
 
             <com.wang.avi.AVLoadingIndicatorView
@@ -50,9 +50,11 @@
                 style="@style/AVLoadingIndicatorView"
                 android:layout_width="@dimen/w_40"
                 android:layout_height="@dimen/w_40"
-                android:layout_centerInParent="true"
-                app:indicatorColor="@color/black"
-                app:indicatorName="BallClipRotateIndicator" />
+                android:layout_below="@+id/tvName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/margin_55"
+                app:indicatorColor="@color/white"
+                app:indicatorName="PacmanIndicator" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
