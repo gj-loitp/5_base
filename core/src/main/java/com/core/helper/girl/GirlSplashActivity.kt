@@ -12,6 +12,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
@@ -64,11 +65,12 @@ class GirlSplashActivity : BaseFontActivity() {
 
     private fun goToHome() {
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
-//            val intent = Intent(this, GirlActivity::class.java)
-//            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
-//            startActivity(intent)
-//            LActivityUtil.tranIn(this)
-//            finish()
+            val intent = Intent(this, GirlActivity::class.java)
+            //TODO iplm ad for next screen
+            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
+            startActivity(intent)
+            LActivityUtil.tranIn(this)
+            finish()
         })
     }
 

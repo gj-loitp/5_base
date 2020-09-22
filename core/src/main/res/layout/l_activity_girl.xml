@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <FrameLayout
         android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <github.com.st235.lib_expandablebottombar.ExpandableBottomBar
+        android:id="@+id/expandableBottomBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_large"
+        app:exb_backgroundColor="@color/white"
+        app:exb_backgroundCornerRadius="@dimen/round_45"
+        app:exb_elevation="@dimen/w_5"
+        app:exb_itemInactiveColor="@color/black"
+        app:exb_item_horizontal_margin="@dimen/margin_medium"
+        app:exb_item_horizontal_padding="@dimen/padding_medium"
+        app:exb_item_vertical_margin="@dimen/margin_medium"
+        app:exb_item_vertical_padding="@dimen/padding_medium" />
 </RelativeLayout>
