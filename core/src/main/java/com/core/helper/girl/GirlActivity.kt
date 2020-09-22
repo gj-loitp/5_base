@@ -80,7 +80,7 @@ class GirlActivity : BaseFontActivity() {
             logD("onItemSelectedListener " + menuItem.itemId)
             val index = getIndexOfListMenuGirl(itemId = menuItem.itemId)
             index?.let {
-                viewPager.currentItem = it
+                viewPager.setCurrentItem(it, true)
             }
         }
 
