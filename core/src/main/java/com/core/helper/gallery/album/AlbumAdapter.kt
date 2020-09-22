@@ -40,7 +40,9 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(photoset: Photoset) {
-            LImageUtil.load(context = itemView.imageView.context, url = photoset.flickrLinkO(), imageView = itemView.imageView)
+//            val color = photoset.colorBackground
+//            LLog.d(logTag, "$bindingAdapterPosition -> $color")
+            LImageUtil.load(context = itemView.imageView.context, url = photoset.flickrLinkO(), imageView = itemView.imageView, resPlaceHolder = R.color.gray)
             itemView.tvLabel.text = photoset.title?.content
 
             val update = LDateUtil.getDateCurrentTimeZone(timestamp = photoset.dateUpdate, format = "dd-MM-yyyy HH:mm:ss")

@@ -92,4 +92,6 @@ class Photoset {
             LImageUtil.getFlickrLink1024(primaryPhotoExtras?.urlM ?: "")
         }
     }
+
+//    val colorBackground = LStoreUtil.randomColorLight
 }
