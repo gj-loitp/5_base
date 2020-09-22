@@ -50,7 +50,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/margin_medium"
         android:background="@drawable/l_bkg_flickr_controller"
-        android:gravity="center">
+        android:gravity="center"
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btReport"
@@ -114,8 +116,11 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/viewLine"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_1"
         android:layout_marginTop="@dimen/margin_medium"
-        android:background="@color/white" />
+        android:background="@color/white"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 </LinearLayout>
