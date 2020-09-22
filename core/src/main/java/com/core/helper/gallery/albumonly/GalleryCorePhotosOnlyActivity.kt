@@ -9,6 +9,8 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
@@ -35,10 +37,16 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
+@LogTag("GalleryCorePhotosOnlyActivity")
+@IsFullScreen(false)
 class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
+    companion object {
+        private const val PER_PAGE_SIZE = 100
+    }
+
     private var currentPage = 0
     private var totalPage = 1
-    private val PER_PAGE_SIZE = 100
+
     private var isLoading: Boolean = false
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var adView: AdView? = null
@@ -48,6 +56,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_gallery_core_photos_only)
 
         RestClient.init(getString(R.string.flickr_URL))
 //        setTransparentStatusNavigationBar()
@@ -59,7 +68,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         if (adUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
-            adView = AdView(activity)
+            adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.BANNER
                 it.adUnitId = adUnitId
@@ -85,11 +94,11 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         animator.setAddDuration(1000);
         recyclerView.setItemAnimator(animator);*/
 
-        recyclerView.layoutManager = LinearLayoutManager(activity)
+        recyclerView.layoutManager = LinearLayoutManager(this)
         //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
 
         recyclerView.setHasFixedSize(true)
-        photosOnlyAdapter = PhotosOnlyAdapter(context = activity, callback = object : PhotosOnlyAdapter.Callback {
+        photosOnlyAdapter = PhotosOnlyAdapter(context = this, callback = object : PhotosOnlyAdapter.Callback {
             override fun onClick(photo: Photo, pos: Int) {
             }
 
@@ -97,19 +106,19 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
 
             override fun onClickDownload(photo: Photo, pos: Int) {
-                AsyncTaskDownloadImage(activity, photo.urlO).execute()
+                AsyncTaskDownloadImage(this@GalleryCorePhotosOnlyActivity, photo.urlO).execute()
             }
 
             override fun onClickShare(photo: Photo, pos: Int) {
-                LSocialUtil.share(activity = activity, msg = photo.urlO)
+                LSocialUtil.share(activity = this@GalleryCorePhotosOnlyActivity, msg = photo.urlO)
             }
 
             override fun onClickReport(photo: Photo, pos: Int) {
-                LSocialUtil.sendEmail(context = activity)
+                LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
             }
 
             override fun onClickCmt(photo: Photo, pos: Int) {
-                LSocialUtil.openFacebookComment(context = activity, url = photo.urlO, adUnitId = adUnitId)
+                LSocialUtil.openFacebookComment(context = this@GalleryCorePhotosOnlyActivity, url = photo.urlO, adUnitId = adUnitId)
             }
         })
         recyclerView.adapter = photosOnlyAdapter
@@ -145,7 +154,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(activity)
+                    LActivityUtil.transActivityNoAniamtion(this@GalleryCorePhotosOnlyActivity)
                 }
             }
         })
@@ -157,7 +166,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(context = activity,
+        LDialogUtil.showDialogList(context = this,
                 title = "Select page",
                 arr = arr,
                 callbackList = object : CallbackList {
@@ -178,18 +187,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         } else {
             init()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos_only
     }
 
     private fun init() {
@@ -219,7 +216,13 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, noJsonCallBack)
+        compositeDisposable.add(service.getListPhotoset(method = method,
+                apiKey = apiKey,
+                userId = userID,
+                page = page,
+                perPage = perPage,
+                primaryPhotoExtras = primaryPhotoExtras,
+                format = format, noJsonCallback = noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
@@ -344,7 +347,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(context = activity,
+        val alertDialog = LDialogUtil.showDialog2(context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
                 button1 = "Okay",
@@ -362,7 +365,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(context = activity,
+        val alertDialog = LDialogUtil.showDialog2(context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",

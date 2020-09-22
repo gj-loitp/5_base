@@ -1,6 +1,5 @@
 package com.core.base
 
-import android.app.Activity
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -13,6 +12,9 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
@@ -29,8 +31,7 @@ import org.greenrobot.eventbus.ThreadMode
 //animation https://github.com/dkmeteor/SmoothTransition
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
-    protected lateinit var activity: Activity
-    protected var TAG: String? = null
+    protected var logTag: String? = null
 
     protected var delayMlsIdleTime: Long = 60 * 1000//60s
     private var handlerIdleTime: Handler? = null
@@ -49,40 +50,35 @@ abstract class BaseActivity : AppCompatActivity() {
         )
     }
 
-    protected abstract fun setFullScreen(): Boolean
-
-    protected abstract fun setTag(): String?
-
-    protected abstract fun setLayoutResourceId(): Int
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        activity = this
-        TAG = "TAG" + setTag()
-        if (setFullScreen()) {
+        val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
+        logTag = "logTag" + tmpLogTag?.value
+
+        val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java) ?: false
+        if (isFullScreen == true) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             //LActivityUtil.hideSystemUI(getWindow().getDecorView());
         }
-        setCustomStatusBar(ContextCompat.getColor(activity, R.color.colorPrimary), ContextCompat.getColor(activity, R.color.colorPrimary))
+        setCustomStatusBar(colorStatusBar = ContextCompat.getColor(this, R.color.colorPrimary), colorNavigationBar = ContextCompat.getColor(this, R.color.colorPrimary))
 
         super.onCreate(savedInstanceState)
-
         EventBus.getDefault().register(this)
-
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-        if (setLayoutResourceId() != 0) {
-            setContentView(setLayoutResourceId())
-        }
 
+        val layoutId = javaClass.getAnnotation(LayoutId::class.java)
+        layoutId?.value?.let {
+            setContentView(it)
+        }
         CheckNetworkConnectionHelper
                 .getInstance()
                 .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
                     override fun onConnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(context = activity, isConnected = true)
+                        LConnectivityUtil.onNetworkConnectionChanged(context = this@BaseActivity, isConnected = true)
                     }
 
                     override fun onDisconnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(context = activity, isConnected = false)
+                        LConnectivityUtil.onNetworkConnectionChanged(context = this@BaseActivity, isConnected = false)
                     }
 
                     override fun getContext(): Context {
@@ -94,7 +90,7 @@ abstract class BaseActivity : AppCompatActivity() {
         //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
         if (isShowAdWhenExit) {
-            interstitialAd = LUIUtil.createAdFull(activity)
+            interstitialAd = LUIUtil.createAdFull(this)
         }
     }
 
@@ -171,7 +167,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogError(errMsg: String) {
-        val alertDialog = LDialogUtil.showDialog1(context = activity,
+        val alertDialog = LDialogUtil.showDialog1(context = this,
                 title = getString(R.string.warning),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
@@ -184,7 +180,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showDialogMsg(errMsg: String, runnable: Runnable? = null) {
-        LDialogUtil.showDialog1(context = activity,
+        LDialogUtil.showDialog1(context = this,
                 title = getString(R.string.app_name),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
@@ -198,7 +194,7 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onBackPressed() {
         super.onBackPressed()
         if (isShowAnimWhenExit) {
-            LActivityUtil.tranOut(activity)
+            LActivityUtil.tranOut(this)
         }
         if (isShowAdWhenExit && !Constants.IS_DEBUG) {
             interstitialAd?.let {
@@ -206,7 +202,7 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         } else {
             //dont use LLog here
-            Log.d(TAG, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
+            Log.d(logTag, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
         }
     }
 
@@ -218,11 +214,11 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     protected fun showShort(msg: String?) {
-        LToast.showShort(activity, msg, R.drawable.l_bkg_horizontal)
+        LToast.showShort(context = this, msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
     }
 
     protected fun showLong(msg: String?) {
-        LToast.showLong(activity, msg, R.drawable.l_bkg_horizontal)
+        LToast.showLong(context = this, msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
     }
 
     protected fun showShortDebug(msg: String?) {
@@ -242,13 +238,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun logD(msg: String) {
-        TAG?.let {
+        logTag?.let {
             LLog.d(it, msg)
         }
     }
 
     protected fun logE(msg: String) {
-        TAG?.let {
+        logTag?.let {
             LLog.e(it, msg)
         }
     }

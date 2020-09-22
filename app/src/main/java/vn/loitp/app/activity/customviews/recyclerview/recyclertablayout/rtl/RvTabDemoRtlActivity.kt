@@ -3,6 +3,9 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.rtl
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_demo_rtl.*
@@ -13,6 +16,9 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.basic.Rv
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData
 import java.util.*
 
+@LayoutId(R.layout.activity_recycler_tablayout_demo_rtl)
+@LogTag("RvTabDemoRtlActivity")
+@IsFullScreen(false)
 class RvTabDemoRtlActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,18 +38,6 @@ class RvTabDemoRtlActivity : BaseFontActivity() {
         viewPager.adapter = adapter
 
         recyclerTabLayout.setUpWithViewPager(viewPager)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout_demo_rtl
     }
 
     companion object {

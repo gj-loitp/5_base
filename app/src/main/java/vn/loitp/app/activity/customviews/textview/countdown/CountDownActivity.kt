@@ -1,11 +1,17 @@
 package vn.loitp.app.activity.customviews.textview.countdown
 
 import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.textview.countdown.LCountDownView
 import kotlinx.android.synthetic.main.activity_text_view_count_down.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_text_view_count_down)
+@LogTag("CountDownActivity")
+@IsFullScreen(false)
 class CountDownActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,15 +36,4 @@ class CountDownActivity : BaseFontActivity() {
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_count_down
-    }
 }

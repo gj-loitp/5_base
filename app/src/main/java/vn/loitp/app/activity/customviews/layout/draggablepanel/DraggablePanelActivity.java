@@ -3,6 +3,9 @@ package vn.loitp.app.activity.customviews.layout.draggablepanel;
 import android.content.res.Resources;
 import android.os.Bundle;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.views.layout.draggablepanel.DraggableListener;
@@ -10,6 +13,9 @@ import com.views.layout.draggablepanel.DraggablePanel;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_draggable_panel)
+@LogTag("DraggablePanelActivity")
+@IsFullScreen(false)
 public class DraggablePanelActivity extends BaseFontActivity {
     private DraggablePanel draggablePanel;
 
@@ -22,39 +28,24 @@ public class DraggablePanelActivity extends BaseFontActivity {
         draggablePanel.setDraggableListener(new DraggableListener() {
             @Override
             public void onMaximized() {
-                LLog.d(getTAG(), "onMaximized");
+                LLog.d(getLogTag(), "onMaximized");
             }
 
             @Override
             public void onMinimized() {
-                LLog.d(getTAG(), "onMinimized");
+                LLog.d(getLogTag(), "onMinimized");
             }
 
             @Override
             public void onClosedToLeft() {
-                LLog.d(getTAG(), "onClosedToLeft");
+                LLog.d(getLogTag(), "onClosedToLeft");
             }
 
             @Override
             public void onClosedToRight() {
-                LLog.d(getTAG(), "onClosedToRight");
+                LLog.d(getLogTag(), "onClosedToRight");
             }
         });
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_draggable_panel;
     }
 
     private void initializeDraggablePanel() throws Resources.NotFoundException {

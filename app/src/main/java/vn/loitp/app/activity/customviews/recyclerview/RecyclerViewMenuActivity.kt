@@ -3,6 +3,9 @@ package vn.loitp.app.activity.customviews.recyclerview
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_view_menu.*
@@ -21,6 +24,9 @@ import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.Paral
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.RecyclerViewParallaxYayaActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutMenuActivity
 
+@LayoutId(R.layout.activity_recycler_view_menu)
+@LogTag("RecyclerViewMenuActivity")
+@IsFullScreen(false)
 class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,38 +47,26 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         btFooter2.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_menu
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btParallaxRecyclerView -> intent = Intent(activity, ParallaxRecyclerViewActivity::class.java)
-            btNormalRecyclerView -> intent = Intent(activity, RecyclerViewActivity::class.java)
-            btNormalRecyclerViewWithSpanSize -> intent = Intent(activity, RecyclerViewWithSpanSizeActivity::class.java)
-            btParallaxRecyclerViewYayandroid -> intent = Intent(activity, RecyclerViewParallaxYayaActivity::class.java)
-            btNormalRecyclerViewWithSingletonData -> intent = Intent(activity, RecyclerViewWithSingletonDataActivity::class.java)
-            btGalleryLayoutManager -> intent = Intent(activity, GalleryLayoutManagerHorizontalActivity::class.java)
-            btGalleryLayoutManagerVertical -> intent = Intent(activity, GalleryLayoutManagerVerticalActivity::class.java)
-            btBookView -> intent = Intent(activity, BookViewActivity::class.java)
-            btDiffUtil -> intent = Intent(activity, DiffUtilActivity::class.java)
-            btRecyclerTabLayout -> intent = Intent(activity, RecyclerTabLayoutMenuActivity::class.java)
-            btMergeAdapter -> intent = Intent(activity, MergeAdapterActivity::class.java)
-            btFooter -> intent = Intent(activity, RecyclerViewFooterActivity::class.java)
-            btFooter2 -> intent = Intent(activity, RecyclerViewFooter2Activity::class.java)
+            btParallaxRecyclerView -> intent = Intent(this, ParallaxRecyclerViewActivity::class.java)
+            btNormalRecyclerView -> intent = Intent(this, RecyclerViewActivity::class.java)
+            btNormalRecyclerViewWithSpanSize -> intent = Intent(this, RecyclerViewWithSpanSizeActivity::class.java)
+            btParallaxRecyclerViewYayandroid -> intent = Intent(this, RecyclerViewParallaxYayaActivity::class.java)
+            btNormalRecyclerViewWithSingletonData -> intent = Intent(this, RecyclerViewWithSingletonDataActivity::class.java)
+            btGalleryLayoutManager -> intent = Intent(this, GalleryLayoutManagerHorizontalActivity::class.java)
+            btGalleryLayoutManagerVertical -> intent = Intent(this, GalleryLayoutManagerVerticalActivity::class.java)
+            btBookView -> intent = Intent(this, BookViewActivity::class.java)
+            btDiffUtil -> intent = Intent(this, DiffUtilActivity::class.java)
+            btRecyclerTabLayout -> intent = Intent(this, RecyclerTabLayoutMenuActivity::class.java)
+            btMergeAdapter -> intent = Intent(this, MergeAdapterActivity::class.java)
+            btFooter -> intent = Intent(this, RecyclerViewFooterActivity::class.java)
+            btFooter2 -> intent = Intent(this, RecyclerViewFooter2Activity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

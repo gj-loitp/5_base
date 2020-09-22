@@ -3,6 +3,9 @@ package vn.loitp.app.activity.api
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.restapi.restclient.RestClient
@@ -13,6 +16,9 @@ import vn.loitp.app.activity.api.galleryAPI.GalleryAPIActivity
 import vn.loitp.app.activity.api.retrofit2.TestAPIRetrofit2Activity
 import vn.loitp.app.activity.api.truyentranhtuan.TTTAPIMenuActivity
 
+@LayoutId(R.layout.activity_api_menu)
+@LogTag("MenuAPIActivity")
+@IsFullScreen(false)
 class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,38 +30,26 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
         btTestRetrofit2.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_menu
-    }
-
     override fun onClick(v: View?) {
         var intent: Intent? = null
         when (v) {
             btCoroutineAPI -> {
-                intent = Intent(activity, CoroutineAPIActivity::class.java)
+                intent = Intent(this, CoroutineAPIActivity::class.java)
             }
             btGalleryAPI -> {
                 RestClient.init(getString(R.string.flickr_URL))
-                intent = Intent(activity, GalleryAPIActivity::class.java)
+                intent = Intent(this, GalleryAPIActivity::class.java)
             }
             btComicAPI -> {
-                intent = Intent(activity, TTTAPIMenuActivity::class.java)
+                intent = Intent(this, TTTAPIMenuActivity::class.java)
             }
             btTestRetrofit2 -> {
-                intent = Intent(activity, TestAPIRetrofit2Activity::class.java)
+                intent = Intent(this, TestAPIRetrofit2Activity::class.java)
             }
         }
         intent?.let { i ->
             startActivity(i)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

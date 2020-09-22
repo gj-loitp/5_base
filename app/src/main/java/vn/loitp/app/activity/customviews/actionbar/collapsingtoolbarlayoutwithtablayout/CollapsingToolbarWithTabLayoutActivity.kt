@@ -12,6 +12,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LPopupMenu
@@ -22,24 +25,15 @@ import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_collapsingtoolbar_withtablayout)
+@LogTag("CollapsingToolbarWithTabLayoutActivity")
+@IsFullScreen(false)
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_collapsingtoolbar_withtablayout
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(activity, R.color.colorPrimary))
+        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(this, R.color.colorPrimary))
 
         setSupportActionBar(toolbar)
 
@@ -83,9 +77,9 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         when (v.id) {
             R.id.fab -> Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
-            R.id.btMenu -> LPopupMenu.show(activity, v, R.menu.menu_popup, object : CallbackPopup {
+            R.id.btMenu -> LPopupMenu.show(this, v, R.menu.menu_popup, object : CallbackPopup {
                 override fun clickOnItem(menuItem: MenuItem) {
-                    LToast.show(activity, menuItem.title.toString())
+                    LToast.show(this@CollapsingToolbarWithTabLayoutActivity, menuItem.title.toString())
                 }
             })
         }

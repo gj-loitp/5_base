@@ -3,10 +3,16 @@ package vn.loitp.app.activity.customviews.textview.autofittextview
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_text_view_autofit.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_text_view_autofit)
+@LogTag("AutoFitTextViewActivity")
+@IsFullScreen(false)
 class AutoFitTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,18 +31,6 @@ class AutoFitTextViewActivity : BaseFontActivity() {
                 // do nothing
             }
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_autofit
     }
 
 }

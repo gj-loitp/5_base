@@ -6,17 +6,23 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
-import com.views.LToast;
 
 import vn.loitp.app.BuildConfig;
 import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
+
+@LayoutId(R.layout.activity_config_firebase)
+@LogTag("ConfigFirebaseActivity")
+@IsFullScreen(false)
 public class ConfigFirebaseActivity extends BaseFontActivity {
     // Remote Config keys
     private static final String LOADING_PHRASE_CONFIG_KEY = "loading_phrase";
@@ -60,21 +66,6 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
         fetchWelcome();
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_config_firebase;
-    }
-
     /**
      * Fetch a welcome message from the Remote Config service, and then activate it.
      */
@@ -98,13 +89,13 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            LToast.show(getActivity(), "Fetch Succeeded");
+                            showShort("Fetch Succeeded");
 
                             // After config data is successfully fetched, it must be activated before newly fetched
                             // values are returned.
                             mFirebaseRemoteConfig.activateFetched();
                         } else {
-                            LToast.show(getActivity(), "Fetch Failed");
+                            showShort("Fetch Failed");
                         }
                         displayWelcomeMessage();
                     }

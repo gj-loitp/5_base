@@ -3,6 +3,9 @@ package vn.loitp.app.activity.animation.animationview
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
@@ -11,6 +14,9 @@ import kotlinx.android.synthetic.main.activity_animation_view.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_animation_view)
+@LogTag("AnimationViewActivity")
+@IsFullScreen(false)
 class AnimationViewActivity : BaseFontActivity() {
     private var listAnim: List<Techniques> = ArrayList()
     private var listString: Array<String?>? = null
@@ -33,20 +39,8 @@ class AnimationViewActivity : BaseFontActivity() {
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_view
-    }
-
     private fun showDialogSelectAnim() {
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose:")
         builder.setItems(listString) { _, position ->
             if (tvGuide.visibility != View.VISIBLE) {

@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import com.R
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.album.GalleryCoreAlbumActivity
@@ -24,10 +26,11 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
-import com.views.layout.floatdraglayout.DisplayUtil
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 import java.util.*
 
+@LogTag("GalleryCoreSplashActivity")
+@IsFullScreen(false)
 class GalleryCoreSplashActivity : BaseFontActivity() {
     private var adView: AdView? = null
     private var admobBannerUnitId: String? = null
@@ -35,6 +38,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_gallery_core_splash)
 
 //        setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
@@ -44,22 +48,22 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         if (admobBannerUnitId == null || admobBannerUnitId!!.isEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
-            adView = AdView(activity)
+            adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.BANNER
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
-                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-                LUIUtil.setMargins(view = it, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
+//                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
+//                LUIUtil.setMargins(view = it, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
 
         var urlCoverSplashScreen: String? = intent.getStringExtra(Constants.BKG_SPLASH_SCREEN)
-        if (urlCoverSplashScreen == null || urlCoverSplashScreen.isEmpty()) {
+        if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
-        LImageUtil.load(context = activity, url = urlCoverSplashScreen, imageView = ivBkg)
+        LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
         LUIUtil.setTextShadow(textView = tvCopyright)
         tvName.text = AppUtils.getAppName()
         LUIUtil.setTextShadow(tvName)
@@ -68,26 +72,14 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     private fun goToHome() {
         val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
-            val intent = Intent(activity, GalleryCoreAlbumActivity::class.java)
+            val intent = Intent(this, GalleryCoreAlbumActivity::class.java)
             intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
             intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList
                     ?: ArrayList())
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
             finish()
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_splash
     }
 
     override fun onResume() {
@@ -145,7 +137,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     }
 
     private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(context = activity,
+        val alertDialog = LDialogUtil.showDialog2(context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
                 button1 = "Okay",
@@ -163,7 +155,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     }
 
     private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(context = activity,
+        val alertDialog = LDialogUtil.showDialog2(context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",

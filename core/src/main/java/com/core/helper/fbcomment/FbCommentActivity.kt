@@ -14,15 +14,16 @@ import android.webkit.*
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.views.LToast
 import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 
+@LogTag("FbCommentActivity")
 class FbCommentActivity : BaseFontActivity() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
@@ -37,6 +38,7 @@ class FbCommentActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_fb_cmt_core)
 
         setupActionBar()
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
@@ -44,7 +46,7 @@ class FbCommentActivity : BaseFontActivity() {
         if (adUnitId.isNullOrEmpty()) {
             lnAdview.visibility = View.GONE
         } else {
-            adView = AdView(activity)
+            adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = adUnitId
@@ -56,7 +58,7 @@ class FbCommentActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(activity, R.color.colorPrimary))
+        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(this, R.color.colorPrimary))
 
         postUrl = if (Constants.IS_DEBUG) {
             "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
@@ -66,7 +68,7 @@ class FbCommentActivity : BaseFontActivity() {
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            LToast.show(activity, "The web url shouldn't be empty")
+            showShort("The web url shouldn't be empty")
             onBackPressed()
             return
         }
@@ -89,18 +91,6 @@ class FbCommentActivity : BaseFontActivity() {
             hideBlurView()
             setTvTitle("Facebook Comment")
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_fb_cmt_core
     }
 
     @SuppressLint("SetJavaScriptEnabled")

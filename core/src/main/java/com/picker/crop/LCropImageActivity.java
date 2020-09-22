@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.picker.crop;
 
 import android.content.Intent;
@@ -31,6 +19,8 @@ import android.widget.LinearLayout;
 import androidx.annotation.RequiresApi;
 
 import com.R;
+import com.annotation.IsFullScreen;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
 import java.io.File;
@@ -39,17 +29,11 @@ import java.io.IOException;
 /**
  * Built-in activity for image cropping.<br>
  */
+@LogTag("LCropImageActivity")
+@IsFullScreen(false)
 public class LCropImageActivity extends BaseFontActivity implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
         View.OnClickListener {
 
-    /**
-     * The crop image view library widget used in the activity
-     */
-    //private CropImageView cropImageView;
-
-    /**
-     * the options that were set for the crop image
-     */
     private CropImageOptions mOptions;
 
     //private LinearLayout ll_layout;
@@ -70,6 +54,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.l_activity_l_crop_image);
         changeSystembarColor();
         LCropImageView = findViewById(R.id.cropImageView);
         ll_layout = findViewById(R.id.ll_layout);
@@ -88,21 +73,6 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
             LCropImageView.setImageUriAsync(source);
         }
         setEvents();
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.l_activity_l_crop_image;
     }
 
     private void setEvents() {

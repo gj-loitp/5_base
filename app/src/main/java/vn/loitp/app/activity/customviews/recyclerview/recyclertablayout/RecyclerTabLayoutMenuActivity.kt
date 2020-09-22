@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_recycler_tablayout_menu.*
 import vn.loitp.app.R
@@ -17,6 +20,9 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.tabonscr
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.tabscrolldisabled.RvTabScrollDisabledActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.years.RvTabYearsActivity
 
+@LayoutId(R.layout.activity_recycler_tablayout_menu)
+@LogTag("RecyclerTabLayoutMenuActivity")
+@IsFullScreen(false)
 class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,15 +52,4 @@ class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClic
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout_menu
-    }
 }

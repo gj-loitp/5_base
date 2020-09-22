@@ -8,6 +8,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.EditText
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.interfaces.Callback1
@@ -17,6 +20,9 @@ import com.interfaces.CallbackList
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_dialog_original)
+@LogTag("DialogOriginalActivity")
+@IsFullScreen(false)
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private var testRun: TestRun? = null
 
@@ -36,18 +42,6 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         testRun?.cancel(true)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_dialog_original
-    }
-
     override fun onClick(v: View) {
         when (v) {
             btShow1 -> show1()
@@ -62,7 +56,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show1() {
-        LDialogUtil.showDialog1(context = activity,
+        LDialogUtil.showDialog1(context = this,
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1"
@@ -74,7 +68,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show2() {
-        LDialogUtil.showDialog2(context = activity,
+        LDialogUtil.showDialog2(context = this,
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1",
@@ -91,7 +85,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show3() {
-        LDialogUtil.showDialog3(context = activity,
+        LDialogUtil.showDialog3(context = this,
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1",
@@ -118,7 +112,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        LDialogUtil.showDialogList(context = activity,
+        LDialogUtil.showDialogList(context = this,
                 title = "Title",
                 arr = arr,
                 callbackList = object : CallbackList {
@@ -130,7 +124,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
     private fun showProgress() {
         testRun?.cancel(true)
-        testRun = TestRun(activity)
+        testRun = TestRun(this)
         testRun?.execute()
     }
 
@@ -178,10 +172,10 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun showInputDialog() {
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle("Title")
 
-        val input = EditText(activity)
+        val input = EditText(this)
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)
 

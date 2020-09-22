@@ -3,6 +3,9 @@ package vn.loitp.app.activity.customviews.bottomsheet
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
@@ -12,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_bottomsheet_menu)
+@LogTag("BottomSheetMenuActivity")
+@IsFullScreen(false)
 class BottomSheetMenuActivity : BaseFontActivity() {
     private var sheetBehavior: BottomSheetBehavior<*>? = null
 
@@ -23,22 +29,10 @@ class BottomSheetMenuActivity : BaseFontActivity() {
         click2()
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_bottomsheet_menu
-    }
-
     @SuppressLint("SetTextI18n")
     private fun click0() {
         btPayment.setOnClickListener {
-            show(activity, "Click layoutBottomSheet R.id.bt_payment")
+            show(this, "Click layoutBottomSheet R.id.bt_payment")
         }
         sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
         sheetBehavior?.setBottomSheetCallback(object : BottomSheetCallback() {
@@ -88,7 +82,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
     private fun click1() {
         bt1.setOnClickListener {
             @SuppressLint("InflateParams") val view = layoutInflater.inflate(R.layout.fragment_bottom_sheet_dialog, null)
-            val dialog = BottomSheetDialog(activity)
+            val dialog = BottomSheetDialog(this)
             dialog.setContentView(view)
             dialog.show()
         }

@@ -1,19 +1,25 @@
 package vn.loitp.app.activity.database.realm
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.views.LToast
 import com.views.setSafeOnClickListener
 import io.realm.Realm
 import kotlinx.android.synthetic.main.activity_realm.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 
+@LayoutId(R.layout.activity_realm)
+@LogTag("RealmActivity")
+@IsFullScreen(false)
 class RealmActivity : BaseFontActivity() {
     private lateinit var mRealm: Realm
 
@@ -27,33 +33,21 @@ class RealmActivity : BaseFontActivity() {
         getAllMyBook()
 
         btRealm.setSafeOnClickListener {
-            val intent = Intent(activity, EbookWithRealmActivity::class.java)
+            val intent = Intent(this, EbookWithRealmActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
         btAdd.setSafeOnClickListener {
             addMyBook()
         }
         btClearAll.setSafeOnClickListener {
             clearUI()
-            RealmController.getInstance(activity).clearAllMyBook()
+            RealmController.getInstance(this).clearAllMyBook()
             getAllMyBook()
         }
         btSearchById.setSafeOnClickListener {
             searchById()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_realm
     }
 
     private fun addMyBook() {
@@ -71,8 +65,9 @@ class RealmActivity : BaseFontActivity() {
         printTotalSize()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun addViewMyBook(myBook: MyBook) {
-        val button = Button(activity)
+        val button = Button(this)
         button.text = "${myBook.title} - ${myBook.author}"
         button.textSize = 10f
         button.isAllCaps = false
@@ -100,14 +95,14 @@ class RealmActivity : BaseFontActivity() {
     }
 
     private fun getAllMyBook() {
-        val myBookList = RealmController.getInstance(activity).myBookListSortByID
+        val myBookList = RealmController.getInstance(this).myBookListSortByID
         printUI(myBookList)
         printTotalSize()
     }
 
     private fun removeMyBook(myBook: MyBook, button: Button) {
         mRealm.beginTransaction()
-        val mb = RealmController.getInstance(activity).getMyBook(myBook)
+        val mb = RealmController.getInstance(this).getMyBook(myBook)
         if (!mb.isEmpty()) {
             for (i in mb.indices.reversed()) {
                 mb[i].removeFromRealm()
@@ -118,9 +113,10 @@ class RealmActivity : BaseFontActivity() {
         printTotalSize()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateMyBook(myBook: MyBook, button: Button) {
         mRealm.beginTransaction()
-        val mb = RealmController.getInstance(activity).getMyBook(myBook.id)
+        val mb = RealmController.getInstance(this).getMyBook(myBook.id)
         mb.title = "Title ${System.currentTimeMillis()}"
         mb.author = "Author ${System.currentTimeMillis()}"
         mRealm.commitTransaction()
@@ -128,14 +124,14 @@ class RealmActivity : BaseFontActivity() {
     }
 
     private fun printTotalSize() {
-        LToast.showShort(activity, "Total size: " + RealmController.getInstance(activity).myBookList.size)
+        showShort("Total size: " + RealmController.getInstance(this).myBookList.size)
     }
 
     private fun showInputDialog(ipb: InputCallback) {
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(this)
         builder.setTitle("Title")
 
-        val input = EditText(activity)
+        val input = EditText(this)
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)
 
@@ -155,10 +151,10 @@ class RealmActivity : BaseFontActivity() {
                     logD("searchById $it")
                     try {
                         val id: Long = it.toLong()
-                        val mb = RealmController.getInstance(activity).getMyBook(id)
-                        LToast.showLong(activity, "searchById -> ${mb.title}")
+                        val mb = RealmController.getInstance(this@RealmActivity).getMyBook(id)
+                        showShort("searchById -> ${mb.title}")
                     } catch (e: Exception) {
-                        LToast.showShort(activity, "searchById $e")
+                        showShort("searchById $e")
                     }
                 }
             }

@@ -16,6 +16,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.core.utilities.LLog;
 
@@ -28,6 +30,8 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
  * Created by thangn on 3/1/17.
  */
 
+@LayoutId(R.layout.wwl_music_watch_fragment)
+@LogTag("WWLWatchFragment")
 public class WWLWatchFragment extends BaseFragment implements TextureView.SurfaceTextureListener, WWLMusicControlsOverlay.Listener {
     private final String TAG = getClass().getSimpleName();
     private TextureView mPlayerView;
@@ -51,11 +55,6 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
         ((ViewGroup) getFrmRootView()).addView(this.mPlayerWWLMusicControlsOverlay);
         this.mTitleView = getFrmRootView().findViewById(R.id.li_title);
         this.mSubTitleView = getFrmRootView().findViewById(R.id.li_subtitle);
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.wwl_music_watch_fragment;
     }
 
     @Override
@@ -170,9 +169,4 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
         }
     }
 
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
 }

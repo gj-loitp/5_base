@@ -10,6 +10,9 @@ import android.widget.ImageView;
 
 import androidx.core.content.ContextCompat;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LDialogUtil;
 import com.core.utilities.LLog;
@@ -27,6 +30,9 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_image_picker_with_crop)
+@LogTag("ImageWithCropActivity")
+@IsFullScreen(false)
 public class ImageWithCropActivity extends BaseFontActivity {
     private ImageView imageView;
     private boolean isShowDialogCheck;
@@ -40,27 +46,27 @@ public class ImageWithCropActivity extends BaseFontActivity {
         //check permission
         checkPermission();
 
-        (findViewById(R.id.startGalleryBtn)).setOnClickListener(v -> new PickerBuilder(getActivity(), PickerBuilder.SELECT_FROM_GALLERY)
+        (findViewById(R.id.startGalleryBtn)).setOnClickListener(v -> new PickerBuilder(this, PickerBuilder.SELECT_FROM_GALLERY)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    LToast.showShort(getActivity(), "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
+                    LToast.showShort(this, "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
-                .setCropScreenColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary))
+                .setCropScreenColor(ContextCompat.getColor(this, R.color.colorPrimary))
                 .setOnPermissionRefusedListener(() -> {
                 })
                 .start());
 
-        (findViewById(R.id.startCameraBtn)).setOnClickListener(v -> new PickerBuilder(getActivity(), PickerBuilder.SELECT_FROM_CAMERA)
+        (findViewById(R.id.startCameraBtn)).setOnClickListener(v -> new PickerBuilder(this, PickerBuilder.SELECT_FROM_CAMERA)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    LToast.showShort(getActivity(), "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
+                    LToast.showShort(this, "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
                 .withTimeStamp(false)
-                .setCropScreenColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary))
+                .setCropScreenColor(ContextCompat.getColor(this, R.color.colorPrimary))
                 .start());
     }
 
@@ -70,21 +76,6 @@ public class ImageWithCropActivity extends BaseFontActivity {
         if (!isShowDialogCheck) {
             checkPermission();
         }
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_image_picker_with_crop;
     }
 
     private void checkPermission() {
@@ -98,15 +89,15 @@ public class ImageWithCropActivity extends BaseFontActivity {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(getTAG(), "onPermissionsChecked do you work now");
+                            LLog.d(getLogTag(), "onPermissionsChecked do you work now");
                         } else {
-                            LLog.d(getTAG(), "!areAllPermissionsGranted");
+                            LLog.d(getLogTag(), "!areAllPermissionsGranted");
                             showShouldAcceptPermission();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.d(getTAG(), "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            LLog.d(getLogTag(), "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
                             showSettingsDialog();
                         }
                         isShowDialogCheck = true;
@@ -114,7 +105,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.d(getTAG(), "onPermissionRationaleShouldBeShown");
+                        LLog.d(getLogTag(), "onPermissionRationaleShouldBeShown");
                         token.continuePermissionRequest();
                     }
                 })
@@ -123,7 +114,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
     }
 
     private void showShouldAcceptPermission() {
-        final AlertDialog alertDialog = LDialogUtil.Companion.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.Companion.showDialog2(this, "Need Permissions", "This app needs permission to use this feature.", "Okay", "Cancel", new Callback2() {
             @Override
             public void onClick1() {
                 checkPermission();
@@ -138,7 +129,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
     }
 
     private void showSettingsDialog() {
-        final AlertDialog alertDialog = LDialogUtil.Companion.showDialog2(getActivity(), "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new Callback2() {
+        final AlertDialog alertDialog = LDialogUtil.Companion.showDialog2(this, "Need Permissions", "This app needs permission to use this feature. You can grant them in app settings.", "GOTO SETTINGS", "Cancel", new Callback2() {
             @Override
             public void onClick1() {
                 isShowDialogCheck = false;

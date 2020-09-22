@@ -9,25 +9,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 
 import java.util.ArrayList;
 
 import vn.loitp.app.R;
 
-/**
- * User: special
- * Date: 13-12-22
- * Time: 下午3:26
- * Mail: specialcyci@gmail.com
- */
+@LayoutId(R.layout.reside_menu_calendar)
+@LogTag("DatabaseFirebaseSignInActivity")
 public class CalendarFragment extends BaseFragment {
     private ListView listView;
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.reside_menu_calendar;
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -68,9 +61,4 @@ public class CalendarFragment extends BaseFragment {
         return calendarList;
     }
 
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
 }

@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.widget.Button
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import io.reactivex.Single
@@ -13,6 +16,9 @@ import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
 import vn.loitp.app.R
 import vn.loitp.app.app.LApplication
 
+@LayoutId( R.layout.activity_sqlite_encryption)
+@LogTag("SqliteEncryptionActivity")
+@IsFullScreen(false)
 class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private lateinit var db: BikeDatabase
 
@@ -33,18 +39,6 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
 
     private fun hideProgress() {
         pb.visibility = View.GONE
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return "TAG" + javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sqlite_encryption
     }
 
     override fun onClick(v: View) {
@@ -93,7 +87,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun addButtonById(idBike: Long?) {
-        val button = Button(activity)
+        val button = Button(this)
         val bike = db.getBike(idBike)
         logD("addButton bike " + LApplication.gson.toJson(bike))
         if (bike != null) {

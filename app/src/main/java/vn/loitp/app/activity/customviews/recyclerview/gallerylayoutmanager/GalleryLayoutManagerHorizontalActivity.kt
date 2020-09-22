@@ -6,6 +6,9 @@ import android.view.View
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.views.recyclerview.gallery.GalleryLayoutManager
@@ -16,13 +19,17 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 
 //https://github.com/BCsl/GalleryLayoutManager
+
+@LayoutId(R.layout.activity_recycler_view_menu_gallery_layout_manager)
+@LogTag("GalleryLayoutManagerHorizontalActivity")
+@IsFullScreen(false)
 class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
     private var mAdapter: GalleryAdapter? = null
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAdapter = GalleryAdapter(context = activity, moviesList = instance.movieList,
+        mAdapter = GalleryAdapter(context = this, moviesList = instance.movieList,
                 callback = object : GalleryAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShort("Click " + movie.title)
@@ -36,7 +43,7 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
                         //do nothing
                     }
                 })
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
         //rv.setAdapter(mAdapter);
@@ -53,18 +60,6 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
         // Apply ItemTransformer just like ViewPager
         layoutManager.setItemTransformer(ScaleTransformer())
         prepareMovieData()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view_menu_gallery_layout_manager
     }
 
     private fun prepareMovieData() {

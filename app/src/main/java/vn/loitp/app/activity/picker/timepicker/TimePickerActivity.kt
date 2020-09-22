@@ -3,28 +3,22 @@ package vn.loitp.app.activity.picker.timepicker
 import android.annotation.SuppressLint
 import android.app.TimePickerDialog
 import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_time_picker.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId(R.layout.activity_time_picker)
+@LogTag("TimePickerActivity")
+@IsFullScreen(false)
 class TimePickerActivity : BaseFontActivity() {
 
     private var picker: TimePickerDialog? = null
     private var pickerRange: RangeTimePickerDialog? = null
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_time_picker
-    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +36,7 @@ class TimePickerActivity : BaseFontActivity() {
             val cal: Calendar = Calendar.getInstance()
             val hour: Int = cal.get(Calendar.HOUR_OF_DAY)
             val minutes: Int = cal.get(Calendar.MINUTE)
-            picker = TimePickerDialog(activity,
+            picker = TimePickerDialog(this,
                     TimePickerDialog.OnTimeSetListener { _, sHour, sMinute ->
                         btDialog.text = "$sHour - $sMinute"
                     }, hour, minutes, true)
@@ -53,7 +47,7 @@ class TimePickerActivity : BaseFontActivity() {
             val cal: Calendar = Calendar.getInstance()
             val hour: Int = cal.get(Calendar.HOUR_OF_DAY)
             val minutes: Int = cal.get(Calendar.MINUTE)
-            pickerRange = RangeTimePickerDialog(activity,
+            pickerRange = RangeTimePickerDialog(this,
                     TimePickerDialog.OnTimeSetListener { _, sHour, sMinute ->
                         btDialogRange.text = "$sHour - $sMinute"
                         logD("$sHour - $sMinute")

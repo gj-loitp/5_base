@@ -1,24 +1,12 @@
 package vn.loitp.app.activity
 
-import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-class EmptyActivity : BaseFontActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_splash_v3
-    }
-}
+@LayoutId(R.layout.activity_splash_v3)
+@LogTag("EmptyActivity")
+@IsFullScreen(false)
+class EmptyActivity : BaseFontActivity()

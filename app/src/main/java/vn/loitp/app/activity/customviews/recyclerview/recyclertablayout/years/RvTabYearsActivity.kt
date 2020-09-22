@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout.*
@@ -11,6 +14,9 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import java.util.*
 
+@LayoutId(R.layout.activity_recycler_tablayout)
+@LogTag("RvTabYearsActivity")
+@IsFullScreen(false)
 class RvTabYearsActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,18 +52,6 @@ class RvTabYearsActivity : BaseFontActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_tablayout
     }
 
     companion object {

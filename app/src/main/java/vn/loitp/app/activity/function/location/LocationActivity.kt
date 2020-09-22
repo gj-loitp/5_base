@@ -12,7 +12,10 @@ import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
-import com.core.base.BaseActivity
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -28,7 +31,10 @@ import vn.loitp.app.R
 import java.text.DateFormat
 import java.util.*
 
-class LocationActivity : BaseActivity() {
+@LayoutId(R.layout.activity_func_location)
+@LogTag("LocationActivity")
+@IsFullScreen(false)
+class LocationActivity : BaseFontActivity() {
 
     companion object {
         // location updates interval - 10sec
@@ -72,18 +78,6 @@ class LocationActivity : BaseActivity() {
         btGetLastLocation.setOnClickListener {
             showLastKnownLocation()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_location
     }
 
     private fun init() {
@@ -194,7 +188,7 @@ class LocationActivity : BaseActivity() {
                                     // Show the dialog by calling startResolutionForResult(), and check the
                                     // result in onActivityResult().
                                     val rae = e as ResolvableApiException
-                                    rae.startResolutionForResult(activity, REQUEST_CHECK_SETTINGS)
+                                    rae.startResolutionForResult(this, REQUEST_CHECK_SETTINGS)
                                 } catch (sie: SendIntentException) {
                                     sie.printStackTrace()
                                 }

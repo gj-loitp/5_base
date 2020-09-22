@@ -8,19 +8,25 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
-import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
 import com.views.layout.floatdraglayout.FloatDragLayout;
 import com.views.layout.floatdraglayout.FloatDragPopupWindow;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_float_drag_layout)
+@LogTag("FloatDragLayoutActivity")
+@IsFullScreen(false)
 public class FloatDragLayoutActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         ViewGroup rootView = (ViewGroup) getWindow().getDecorView();
         rootView = rootView.findViewById(android.R.id.content);
 
@@ -33,7 +39,9 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
         rootView.addView(floatDragLayout, layoutParams);
 
-        floatDragLayout.setOnClickListener(v -> LToast.show(getActivity(), "Click on the hover and drag buttons"));
+        floatDragLayout.setOnClickListener(v ->
+                showShort("Click on the hover and drag buttons")
+        );
 
         findViewById(R.id.bt_change_to_fullscreen).setOnClickListener(this);
         findViewById(R.id.bt_change_to_no_title).setOnClickListener(this);
@@ -42,31 +50,16 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
     }
 
     @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_float_drag_layout;
-    }
-
-    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.bt_change_to_fullscreen:
-                startActivity(new Intent(getActivity(), FloatDragFullScreenActivity.class));
+                startActivity(new Intent(this, FloatDragFullScreenActivity.class));
                 break;
             case R.id.bt_change_to_no_title:
-                startActivity(new Intent(getActivity(), FloatDragNoTitleActivity.class));
+                startActivity(new Intent(this, FloatDragNoTitleActivity.class));
                 break;
             case R.id.bt_change_to_windows:
-                startActivity(new Intent(getActivity(), FloatDragWindowModeActivity.class));
+                startActivity(new Intent(this, FloatDragWindowModeActivity.class));
                 break;
             case R.id.bt_show_floatDragPopupWindow:
                 showFloatDragPopupWindow();
@@ -89,7 +82,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            LToast.show(getActivity(), "Click on FloatDragPopupWindow");
+                            showShort("Click on FloatDragPopupWindow");
                         }
                     })
                     .build();

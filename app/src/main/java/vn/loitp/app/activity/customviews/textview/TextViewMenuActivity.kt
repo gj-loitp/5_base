@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_text_view_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity
 import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity
@@ -26,10 +27,14 @@ import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterT
 import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity
 
+@LayoutId(R.layout.activity_text_view_menu)
+@LogTag("TextViewMenuActivity")
+@IsFullScreen(false)
 class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btAutofitTextView.setOnClickListener(this)
         btCircleTextView.setOnClickListener(this)
         btScoreText.setOnClickListener(this)
@@ -47,40 +52,28 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         btStrokedTextView.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_menu
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAutofitTextView -> intent = Intent(activity, AutoFitTextViewActivity::class.java)
-            btCircleTextView -> intent = Intent(activity, CircleTextViewActivity::class.java)
-            btScoreText -> intent = Intent(activity, ScoreTextViewActivity::class.java)
-            btCountDown -> intent = Intent(activity, CountDownActivity::class.java)
-            btColorTextView -> intent = Intent(activity, ColorTextViewActivity::class.java)
-            btScrollNumber -> intent = Intent(activity, ScrollNumberActivity::class.java)
-            btSelectableTextView -> intent = Intent(activity, SelectableTextViewActivity::class.java)
-            btZoomTextView -> intent = Intent(activity, ZoomTextViewActivity::class.java)
-            btVerticalMarqueeTextView -> intent = Intent(activity, VerticalMarqueeTextViewActivity::class.java)
-            btTranslucentView -> intent = Intent(activity, TranslucentViewActivity::class.java)
-            btTypeWriterTextView -> intent = Intent(activity, TypeWriterTextViewActivity::class.java)
-            btTextDecorator -> intent = Intent(activity, TextDecoratorActivity::class.java)
-            btJustifieldTextView -> intent = Intent(activity, JustifiedTextViewActivity::class.java)
-            btExtraTextview -> intent = Intent(activity, ExtraTextViewActivity::class.java)
-            btStrokedTextView -> intent = Intent(activity, StrokedTextViewActivity::class.java)
+            btAutofitTextView -> intent = Intent(this, AutoFitTextViewActivity::class.java)
+            btCircleTextView -> intent = Intent(this, CircleTextViewActivity::class.java)
+            btScoreText -> intent = Intent(this, ScoreTextViewActivity::class.java)
+            btCountDown -> intent = Intent(this, CountDownActivity::class.java)
+            btColorTextView -> intent = Intent(this, ColorTextViewActivity::class.java)
+            btScrollNumber -> intent = Intent(this, ScrollNumberActivity::class.java)
+            btSelectableTextView -> intent = Intent(this, SelectableTextViewActivity::class.java)
+            btZoomTextView -> intent = Intent(this, ZoomTextViewActivity::class.java)
+            btVerticalMarqueeTextView -> intent = Intent(this, VerticalMarqueeTextViewActivity::class.java)
+            btTranslucentView -> intent = Intent(this, TranslucentViewActivity::class.java)
+            btTypeWriterTextView -> intent = Intent(this, TypeWriterTextViewActivity::class.java)
+            btTextDecorator -> intent = Intent(this, TextDecoratorActivity::class.java)
+            btJustifieldTextView -> intent = Intent(this, JustifiedTextViewActivity::class.java)
+            btExtraTextview -> intent = Intent(this, ExtraTextViewActivity::class.java)
+            btStrokedTextView -> intent = Intent(this, StrokedTextViewActivity::class.java)
         }
         intent?.let {
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

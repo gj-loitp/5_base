@@ -9,6 +9,9 @@ import android.nfc.Tag
 import android.nfc.tech.*
 import android.os.Bundle
 import android.provider.Settings
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDateUtil
@@ -24,23 +27,14 @@ import java.nio.charset.Charset
 import java.util.*
 import kotlin.experimental.and
 
+@LayoutId(R.layout.activity_demo_nfc)
+@LogTag("NFCActivity")
+@IsFullScreen(false)
 class NFCActivity : BaseFontActivity() {
     private val tags: ArrayList<TagWrapper> = ArrayList()
 
     private var adapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_nfc
-    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,14 +49,14 @@ class NFCActivity : BaseFontActivity() {
         super.onResume()
 
         if (adapter?.isEnabled == false) {
-            val dialog = LDialogUtil.showDialog1(context = activity,
+            val dialog = LDialogUtil.showDialog1(context = this,
                     title = "NFC is disabled",
                     msg = "You must enable NFC to use this app.",
                     button1 = "OK",
                     callback1 = object : Callback1 {
                         override fun onClick1() {
                             startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
-                            LActivityUtil.tranIn(activity)
+                            LActivityUtil.tranIn(this@NFCActivity)
                         }
                     })
             dialog.setCancelable(false)
@@ -78,7 +72,7 @@ class NFCActivity : BaseFontActivity() {
 
     override fun onPause() {
         super.onPause()
-        adapter?.disableForegroundDispatch(activity)
+        adapter?.disableForegroundDispatch(this)
     }
 
     override fun onNewIntent(intent: Intent) {

@@ -5,6 +5,9 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
@@ -12,6 +15,9 @@ import org.greenrobot.eventbus.ThreadMode
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.floatingwidget.CommunicateMng
 
+@LayoutId(R.layout.activity_func_service_communicate)
+@LogTag("ActivityServiceComunicateActivity")
+@IsFullScreen(false)
 class ActivityServiceComunicateActivity : BaseFontActivity() {
 
     companion object {
@@ -41,20 +47,8 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
         } else {
             showShort("onClick TestService")
             textView.text = ""
-            startService(Intent(activity, TestService::class.java))
+            startService(Intent(this, TestService::class.java))
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_service_communicate
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

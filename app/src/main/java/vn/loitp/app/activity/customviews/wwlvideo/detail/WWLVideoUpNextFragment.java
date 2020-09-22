@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
@@ -23,6 +25,9 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 /**
  * Created by thangn on 2/26/17.
  */
+
+@LayoutId(R.layout.wwl_video_up_next_fragment)
+@LogTag("WWLVideoUpNextFragment")
 public class WWLVideoUpNextFragment extends BaseFragment {
     private FragmentHost mFragmentHost;
     private RecyclerView mRecyclerView;
@@ -55,11 +60,6 @@ public class WWLVideoUpNextFragment extends BaseFragment {
         });
 
         updateLayoutIfNeed();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.wwl_video_up_next_fragment;
     }
 
     private int getSpanSize(int position) {
@@ -121,12 +121,6 @@ public class WWLVideoUpNextFragment extends BaseFragment {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.goToDetail(item);
         }
-    }
-
-    @org.jetbrains.annotations.Nullable
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
     }
 
     public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {

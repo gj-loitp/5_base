@@ -9,6 +9,9 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
 import com.core.utilities.LScreenUtil
@@ -16,15 +19,18 @@ import com.views.edittext.leditext.LEditText
 import kotlinx.android.synthetic.main.activity_editext_l_edit_text.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_editext_l_edit_text)
+@LogTag("LEditTextActivity")
+@IsFullScreen(false)
 class LEditTextActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         lEditTextId.apply {
-            colorFocus = ContextCompat.getColor(activity, R.color.black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.blue)
-            colorError = ContextCompat.getColor(activity, R.color.red)
+            colorFocus = ContextCompat.getColor(this@LEditTextActivity, R.color.black)
+            colorUnfocus = ContextCompat.getColor(this@LEditTextActivity, R.color.blue)
+            colorError = ContextCompat.getColor(this@LEditTextActivity, R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.ic_close_black_48dp)
             setStrokeWidth(5)
@@ -63,9 +69,9 @@ class LEditTextActivity : BaseFontActivity() {
         }
         var isShowPw = false
         lEditTextPw.apply {
-            colorFocus = ContextCompat.getColor(activity, R.color.black)
-            colorUnfocus = ContextCompat.getColor(activity, R.color.blue)
-            colorError = ContextCompat.getColor(activity, R.color.red)
+            colorFocus = ContextCompat.getColor(this@LEditTextActivity, R.color.black)
+            colorUnfocus = ContextCompat.getColor(this@LEditTextActivity, R.color.blue)
+            colorError = ContextCompat.getColor(this@LEditTextActivity, R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
             setStrokeWidth(5)
@@ -77,7 +83,7 @@ class LEditTextActivity : BaseFontActivity() {
             setMaxLines(1)
             setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
             setImeiActionEditText(EditorInfo.IME_ACTION_DONE, Runnable {
-                LKeyBoardUtil.hide(activity)
+                LKeyBoardUtil.hide(this@LEditTextActivity)
             })
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
@@ -132,15 +138,4 @@ class LEditTextActivity : BaseFontActivity() {
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_editext_l_edit_text
-    }
 }

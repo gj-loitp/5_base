@@ -7,6 +7,9 @@ import android.view.animation.OvershootInterpolator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
@@ -15,7 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.views.LToast;
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
@@ -25,6 +27,9 @@ import java.util.List;
 import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
+@LayoutId(R.layout.activity_menu_firebase_simple)
+@LogTag("DatabaseSimpleFirebaseActivity")
+@IsFullScreen(false)
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";
     private FirebaseDatabase mFirebaseInstance;
@@ -47,7 +52,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot == null || dataSnapshot.getValue() == null) {
-                    LLog.d(getTAG(), "onDataChange null => return");
+                    LLog.d(getLogTag(), "onDataChange null => return");
                     userList.clear();
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
@@ -63,7 +68,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                     }*/
                     userList.add(user);
                 }
-                LLog.d(getTAG(), "userList.size: " + userList.size());
+                LLog.d(getLogTag(), "userList.size: " + userList.size());
                 if (mAdapter != null) {
                     mAdapter.notifyDataSetChanged();
                 }
@@ -71,24 +76,9 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onCancelled(DatabaseError error) {
-                LLog.e(getTAG(), "Failed to read app title value " + error.toException());
+                LLog.e(getLogTag(), "Failed to read app title value " + error.toException());
             }
         });
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_menu_firebase_simple;
     }
 
     @Override
@@ -122,10 +112,10 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         recyclerView.setItemAnimator(animator);
         //recyclerView.getItemAnimator().setAddDuration(1000);
 
-        mAdapter = new UserAdapter(getActivity(), userList, new UserAdapter.Callback() {
+        mAdapter = new UserAdapter(this, userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                LToast.show(getActivity(), "onClick To Edit Data: " + user.getMsg());
+                showShort("onClick To Edit Data: " + user.getMsg());
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
@@ -135,7 +125,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onLongClick(User user, int position) {
-                LToast.show(getActivity(), "onLongClick " + user.getMsg());
+                showShort("onLongClick " + user.getMsg());
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });

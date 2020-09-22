@@ -6,6 +6,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.StrictMode
 import android.widget.ImageView
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.asksira.bsimagepicker.BSImagePicker
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
@@ -14,11 +17,18 @@ import kotlinx.android.synthetic.main.activity_picker_bs_image.*
 import vn.loitp.app.R
 
 //https://github.com/siralam/BSImagePicker
+
+@LayoutId(R.layout.activity_picker_bs_image)
+@LogTag("BSImagePickerActivity")
+@IsFullScreen(false)
 class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSelectedListener,
         BSImagePicker.OnMultiImageSelectedListener, BSImagePicker.ImageLoaderDelegate, BSImagePicker.OnSelectImageCancelledListener {
     private val providerAuthority = ".activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
     private var isCropEnable = false
-    private val CROP_PIC_REQUEST_CODE = 56789
+
+    companion object {
+        private const val CROP_PIC_REQUEST_CODE = 56789
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,18 +59,6 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_picker_bs_image
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CROP_PIC_REQUEST_CODE) {
@@ -81,9 +79,9 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
             val aspectY = 1
             val outputX = 500
             val outputY = 500
-            LPickerUtil.cropImage(activity = activity, picUri = uri, CROP_PIC_REQUEST_CODE = CROP_PIC_REQUEST_CODE, aspectX = aspectX, aspectY = aspectY, outputX = outputX, outputY = outputY)
+            LPickerUtil.cropImage(activity = this, picUri = uri, CROP_PIC_REQUEST_CODE = CROP_PIC_REQUEST_CODE, aspectX = aspectX, aspectY = aspectY, outputX = outputX, outputY = outputY)
         } else {
-            LImageUtil.load(context = activity, uri = uri, imageView = ivImage2)
+            LImageUtil.load(context = this, uri = uri, imageView = ivImage2)
         }
     }
 
@@ -102,13 +100,13 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
                 5 -> ivImage6
                 else -> ivImage6
             }
-            LImageUtil.load(context = activity, uri = uriList[i], imageView = iv)
+            LImageUtil.load(context = this, uri = uriList[i], imageView = iv)
         }
     }
 
     override fun loadImage(imageUri: Uri?, ivImage: ImageView?) {
         logD("loadImage imageUri $imageUri")
-        LImageUtil.load(context = activity, uri = imageUri, imageView = ivImage)
+        LImageUtil.load(context = this, uri = imageUri, imageView = ivImage)
     }
 
     override fun onCancelled(isMultiSelecting: Boolean, tag: String?) {

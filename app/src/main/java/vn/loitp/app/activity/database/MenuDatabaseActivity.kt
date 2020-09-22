@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
-
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_database_menu.*
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
@@ -21,6 +22,9 @@ import vn.loitp.app.activity.database.sqlitemultitable.SqliteMultiTableActivity
 import vn.loitp.app.activity.database.sqlitemultitableadvance.SqliteMultiTableAdvanceActivity
 import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
 
+@LayoutId(R.layout.activity_database_menu)
+@LogTag("MenuDatabaseActivity")
+@IsFullScreen(false)
 class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,35 +41,23 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
         btRoom2.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_database_menu
-    }
-
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btSqlite -> intent = Intent(activity, SqliteActivity::class.java)
-            btRealm -> intent = Intent(activity, RealmActivity::class.java)
-            btSqliteAsset -> intent = Intent(activity, ReadSqliteAssetActivity::class.java)
-            btSharedPrefs -> intent = Intent(activity, SharedPrefsActivity::class.java)
-            btSharedPrefsEncryption -> intent = Intent(activity, EnctyptionSharedPrefsActivity::class.java)
-            btSqliteEncryption -> intent = Intent(activity, SqliteEncryptionActivity::class.java)
-            btSqliteMultiTable -> intent = Intent(activity, SqliteMultiTableActivity::class.java)
-            btSqliteMultiTableAdvance -> intent = Intent(activity, SqliteMultiTableAdvanceActivity::class.java)
-            btRoom -> intent = Intent(activity, WordActivity::class.java)
-            btRoom2 -> intent = Intent(activity, RoomActivity::class.java)
+            btSqlite -> intent = Intent(this, SqliteActivity::class.java)
+            btRealm -> intent = Intent(this, RealmActivity::class.java)
+            btSqliteAsset -> intent = Intent(this, ReadSqliteAssetActivity::class.java)
+            btSharedPrefs -> intent = Intent(this, SharedPrefsActivity::class.java)
+            btSharedPrefsEncryption -> intent = Intent(this, EnctyptionSharedPrefsActivity::class.java)
+            btSqliteEncryption -> intent = Intent(this, SqliteEncryptionActivity::class.java)
+            btSqliteMultiTable -> intent = Intent(this, SqliteMultiTableActivity::class.java)
+            btSqliteMultiTableAdvance -> intent = Intent(this, SqliteMultiTableAdvanceActivity::class.java)
+            btRoom -> intent = Intent(this, WordActivity::class.java)
+            btRoom2 -> intent = Intent(this, RoomActivity::class.java)
         }
         intent?.let{
             startActivity(it)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 }

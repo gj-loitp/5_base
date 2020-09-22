@@ -1,8 +1,12 @@
 package vn.loitp.app.activity.customviews.layout.dragueur;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 import com.views.layout.dragueur.Direction;
@@ -11,6 +15,10 @@ import com.views.layout.dragueur.DraggableView;
 import vn.loitp.app.R;
 
 //https://github.com/Meetic/Dragueur?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3534
+
+@LayoutId((R.layout.activity_dragueur))
+@LogTag("DragueurActivity")
+@IsFullScreen(false)
 public class DragueurActivity extends BaseFontActivity {
     private DraggableView draggableView;
     private TextView tv;
@@ -18,6 +26,7 @@ public class DragueurActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         draggableView = findViewById(R.id.dragueur);
         tv = findViewById(R.id.textView);
         draggableView.setRotationEnabled(true);
@@ -28,19 +37,19 @@ public class DragueurActivity extends BaseFontActivity {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
-                LLog.d(getTAG(), "onDrag " + percentX + " x " + percentY);
+                LLog.d(getLogTag(), "onDrag " + percentX + " x " + percentY);
             }
 
             @Override
             public void onDraggedStarted(DraggableView draggableView, Direction direction) {
                 setText("onDraggedStarted");
-                LLog.d(getTAG(), "onDraggedStarted " + direction.name());
+                LLog.d(getLogTag(), "onDraggedStarted " + direction.name());
             }
 
             @Override
             public void onDraggedEnded(DraggableView draggableView, Direction direction) {
                 setText("onDraggedEnded");
-                LLog.d(getTAG(), "onDraggedEnded " + direction.name());
+                LLog.d(getLogTag(), "onDraggedEnded " + direction.name());
             }
 
             @Override
@@ -66,21 +75,7 @@ public class DragueurActivity extends BaseFontActivity {
         });*/
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_dragueur;
-    }
-
+    @SuppressLint("SetTextI18n")
     private void setText(String s) {
         tv.setText("Dragueur can move any view with one finger ;)\n" + s);
     }

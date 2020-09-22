@@ -6,6 +6,8 @@ import android.view.View
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.GalleryCorePhotosActivity
@@ -25,6 +27,8 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import java.util.*
 
+@LogTag("GalleryCoreAlbumActivity")
+@IsFullScreen(false)
 class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()
@@ -33,6 +37,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView( R.layout.l_activity_flickr_gallery_core_album)
 
         intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
@@ -43,7 +48,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         if (admobBannerUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
-            adView = AdView(activity)
+            adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.BANNER
                 it.adUnitId = admobBannerUnitId
@@ -59,20 +64,20 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 
         recyclerView.apply {
             itemAnimator = animator
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = LinearLayoutManager(this@GalleryCoreAlbumActivity)
             setHasFixedSize(true)
         }
 
-        albumAdapter = AlbumAdapter(context = activity,
+        albumAdapter = AlbumAdapter(context = this,
                 photosetList = listPhotoSet,
                 callback = object : AlbumAdapter.Callback {
                     override fun onClick(pos: Int) {
-                        val intent = Intent(activity, GalleryCorePhotosActivity::class.java)
+                        val intent = Intent(this@GalleryCoreAlbumActivity, GalleryCorePhotosActivity::class.java)
                         intent.apply {
                             putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
                             putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
                             startActivity(this)
-                            LActivityUtil.tranIn(activity)
+                            LActivityUtil.tranIn(this@GalleryCoreAlbumActivity)
                         }
                     }
 
@@ -100,24 +105,12 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(activity)
+                    LActivityUtil.transActivityNoAniamtion(this@GalleryCoreAlbumActivity)
                 }
             }
         })
 
         getListPhotosets()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_album
     }
 
     private fun getListPhotosets() {

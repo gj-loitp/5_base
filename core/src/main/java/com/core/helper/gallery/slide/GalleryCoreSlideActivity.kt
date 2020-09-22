@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.R
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
@@ -16,10 +18,13 @@ import com.interfaces.CallbackAnimation
 import com.task.AsyncTaskDownloadImage
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 
+@LogTag("GalleryCoreSlideActivity")
+@IsFullScreen(false)
 class GalleryCoreSlideActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_gallery_core_slide)
 
         val slidePagerAdapter = SlidePagerAdapter(supportFragmentManager)
         viewPager.adapter = slidePagerAdapter
@@ -37,24 +42,12 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         }
         btShare.setOnClickListener {
             instance.getPhoto(viewPager.currentItem)?.urlO?.let {
-                LSocialUtil.share(activity = activity, msg = it)
+                LSocialUtil.share(activity = this, msg = it)
             }
         }
         btReport.setOnClickListener {
-            LSocialUtil.sendEmail(context = activity)
+            LSocialUtil.sendEmail(context = this)
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return true
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_slide
     }
 
     private inner class SlidePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

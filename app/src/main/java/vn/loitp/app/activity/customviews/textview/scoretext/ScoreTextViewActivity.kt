@@ -3,10 +3,16 @@ package vn.loitp.app.activity.customviews.textview.scoretext
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_text_view_score.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_text_view_score)
+@LogTag("ScoreTextViewActivity")
+@IsFullScreen(false)
 class ScoreTextViewActivity : BaseFontActivity() {
     private val maxScore = 200
 
@@ -18,18 +24,6 @@ class ScoreTextViewActivity : BaseFontActivity() {
             bt.isEnabled = false
             updateScore(maxScore)
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_score
     }
 
     private var currentScore = 0

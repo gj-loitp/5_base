@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.appinvite.AppInviteInvitation;
 import com.google.android.gms.common.ConnectionResult;
@@ -20,6 +23,10 @@ import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
 import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
+
+@LayoutId(R.layout.activity_invite_firebase)
+@LogTag("InviteFirebaseActivity")
+@IsFullScreen(false)
 public class InviteFirebaseActivity extends BaseFontActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
@@ -37,7 +44,7 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
         FirebaseDynamicLinks.getInstance().getDynamicLink(getIntent())
                 .addOnSuccessListener(this, data -> {
                     if (data == null) {
-                        Log.d(getTAG(), "getInvitation: no data");
+                        Log.d(getLogTag(), "getInvitation: no data");
                         return;
                     }
 
@@ -52,7 +59,7 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
 
                     // Handle the deep link
                     // [START_EXCLUDE]
-                    Log.d(getTAG(), "deepLink:" + deepLink);
+                    Log.d(getLogTag(), "deepLink:" + deepLink);
                     if (deepLink != null) {
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setPackage(getPackageName());
@@ -62,27 +69,12 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
                     }
                     // [END_EXCLUDE]
                 })
-                .addOnFailureListener(this, e -> Log.w(getTAG(), "getDynamicLink:onFailure", e));
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_invite_firebase;
+                .addOnFailureListener(this, e -> Log.w(getLogTag(), "getDynamicLink:onFailure", e));
     }
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-        Log.d(getTAG(), "onConnectionFailed:" + connectionResult);
+        Log.d(getLogTag(), "onConnectionFailed:" + connectionResult);
         showMessage(getString(R.string.google_play_services_error));
     }
 
@@ -106,14 +98,14 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(getTAG(), "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode);
+        Log.d(getLogTag(), "onActivityResult: requestCode=" + requestCode + ", resultCode=" + resultCode);
 
         if (requestCode == REQUEST_INVITE) {
             if (resultCode == RESULT_OK) {
                 // Get the invitation IDs of all sent messages
                 String[] ids = AppInviteInvitation.getInvitationIds(resultCode, data);
                 for (String id : ids) {
-                    Log.d(getTAG(), "onActivityResult: sent invitation " + id);
+                    Log.d(getLogTag(), "onActivityResult: sent invitation " + id);
                 }
             } else {
                 // Sending failed or it was canceled, show failure message to the user

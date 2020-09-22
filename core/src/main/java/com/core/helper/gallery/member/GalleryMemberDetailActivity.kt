@@ -3,6 +3,8 @@ package com.core.helper.gallery.member
 import android.os.Bundle
 import android.view.View
 import com.R
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
@@ -11,6 +13,8 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
+@LogTag("GalleryMemberDetailActivity")
+@IsFullScreen(false)
 class GalleryMemberDetailActivity : BaseFontActivity() {
 
     companion object {
@@ -19,6 +23,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_member_detail)
 
         LUIUtil.setTextShadow(textView = tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
@@ -33,27 +38,15 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(activity)
+                    LActivityUtil.transActivityNoAniamtion(this@GalleryMemberDetailActivity)
                 }
             }
         })
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_member_detail
-    }
-
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
-        LImageUtil.load(context = activity, url = photo.urlO, imageView = imageView)
-        LImageUtil.load(context = activity, url = photo.urlS, imageView = imageViewBlur)
+        LImageUtil.load(context = this, url = photo.urlO, imageView = imageView)
+        LImageUtil.load(context = this, url = photo.urlS, imageView = imageViewBlur)
     }
 }

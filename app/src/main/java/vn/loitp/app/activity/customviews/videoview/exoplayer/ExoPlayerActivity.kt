@@ -2,6 +2,9 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer
 
 import android.content.res.Configuration
 import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LScreenUtil
@@ -11,6 +14,10 @@ import kotlinx.android.synthetic.main.exo_playback_control_view.*
 import vn.loitp.app.R
 
 //custom UI exo_playback_control_view.xml
+
+@LayoutId(R.layout.activity_video_exo_player)
+@LogTag("ExoPlayerActivity")
+@IsFullScreen(false)
 class ExoPlayerActivity : BaseFontActivity() {
     private var playerManager: PlayerManager? = null
     private var linkPlay = ""
@@ -22,24 +29,14 @@ class ExoPlayerActivity : BaseFontActivity() {
         val linkIMAAd = intent.getStringExtra(Constants.KEY_VIDEO_LINK_IMA_AD)
 
         playerManager = linkIMAAd?.let {
-            PlayerManager(activity, it)
-        } ?: PlayerManager(activity)
-        playerManager?.updateSizePlayerView(activity = activity, playerView = playerView, exoFullscreen = exo_fullscreen)
+            PlayerManager(context = this, urlIMAAd = it)
+        } ?: PlayerManager(this)
+
+        //warning: do not change id exo_fullscreen, exo_fullscreen
+        playerManager?.updateSizePlayerView(activity = this, playerView = playerView, exoFullscreen = exo_fullscreen)
         exo_fullscreen.setOnClickListener {
-            playerManager?.toggleFullscreen(activity)
+            playerManager?.toggleFullscreen(this)
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_video_exo_player
     }
 
     public override fun onResume() {
@@ -58,8 +55,8 @@ class ExoPlayerActivity : BaseFontActivity() {
     }
 
     override fun onBackPressed() {
-        if (LScreenUtil.isLandscape(activity)) {
-            playerManager?.toggleFullscreen(activity)
+        if (LScreenUtil.isLandscape(this)) {
+            playerManager?.toggleFullscreen(this)
         } else {
             super.onBackPressed()
         }
@@ -69,9 +66,9 @@ class ExoPlayerActivity : BaseFontActivity() {
         super.onConfigurationChanged(newConfig)
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager?.updateSizePlayerView(activity = activity, playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(activity = this, playerView = playerView, exoFullscreen = exo_fullscreen)
         } else {
-            playerManager?.updateSizePlayerView(activity = activity, playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(activity = this, playerView = playerView, exoFullscreen = exo_fullscreen)
         }
     }
 }

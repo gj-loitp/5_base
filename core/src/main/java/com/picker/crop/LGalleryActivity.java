@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.R;
+import com.annotation.IsFullScreen;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
@@ -27,6 +29,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@LogTag("LGalleryActivity")
+@IsFullScreen(false)
 public class LGalleryActivity extends BaseFontActivity implements View.OnClickListener {
     private ArrayList<String> thumbsDataList = new ArrayList<>();
     public static final String RETURN_VALUE = "RETURN_VALUE";
@@ -34,11 +38,12 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.l_activity_l_gallery);
         getStoreImage();
         final GalleryAdapter mAdapter = new GalleryAdapter();
         mAdapter.addAllDataList(thumbsDataList);
         final ImageButton btnClose = findViewById(R.id.btn_close);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
         final RecyclerView galleryList = findViewById(R.id.gallery_list);
         galleryList.setLayoutManager(gridLayoutManager);
         galleryList.setAdapter(mAdapter);
@@ -96,21 +101,6 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
         }
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return "TAG" + getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.l_activity_l_gallery;
-    }
-
     /**
      * GalleryAdapter
      */
@@ -130,21 +120,21 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            final View itemView = LayoutInflater.from(getActivity()).inflate(R.layout.l_item_l_gallery, parent, false);
+            final View itemView = LayoutInflater.from(LGalleryActivity.this).inflate(R.layout.l_item_l_gallery, parent, false);
             return new PhotoItemHolder(itemView);
         }
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             final PhotoItemHolder listHolder = (PhotoItemHolder) holder;
-            final DisplayMetrics metrics = getActivity().getResources().getDisplayMetrics();
+            final DisplayMetrics metrics = getResources().getDisplayMetrics();
             float imgW = (metrics.widthPixels - (ConvertUtils.dp2px(CONTENT_PADDING))) / 3;
 
             final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, (int) imgW);
             listHolder.rlPhoto.setLayoutParams(params);
 
             final File file = new File(thumbsDataList.get(position));
-            LImageUtil.Companion.load(getActivity(), file, listHolder.ivPhoto);
+            LImageUtil.Companion.load(LGalleryActivity.this, file, listHolder.ivPhoto);
             listHolder.ivPhoto.setOnClickListener(v -> {
                 /*CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.OFF)
@@ -160,7 +150,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
                 intent.putExtra(RETURN_VALUE, file.getPath());
                 setResult(RESULT_OK, intent);
                 finish();
-                LActivityUtil.tranOut(getActivity());
+                LActivityUtil.tranOut(LGalleryActivity.this);
             });
         }
     }

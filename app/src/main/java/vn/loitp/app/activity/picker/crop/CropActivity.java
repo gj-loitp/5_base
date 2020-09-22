@@ -9,6 +9,9 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
@@ -29,6 +32,9 @@ import java.io.File;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_crop)
+@LogTag("CropActivity")
+@IsFullScreen(false)
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
     private final int REQUEST_CODE_GET_FILE = 1;
@@ -37,6 +43,7 @@ public class CropActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         iv = findViewById(R.id.imageView);
         findViewById(R.id.bt_crop_oval).setOnClickListener(view -> {
             isOvalOption = true;
@@ -48,70 +55,55 @@ public class CropActivity extends BaseFontActivity {
         });
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return "TAG" + getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_crop;
-    }
-
     private void crop() {
         Dexter.withActivity(this)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse response) {
-                        startActivityForResult(new Intent(getActivity(), LGalleryActivity.class), REQUEST_CODE_GET_FILE);
-                        LActivityUtil.tranIn(getActivity());
+                        startActivityForResult(new Intent(CropActivity.this, LGalleryActivity.class), REQUEST_CODE_GET_FILE);
+                        LActivityUtil.tranIn(CropActivity.this);
                     }
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse response) {
-                        LToast.showShort(getActivity(), "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
+                        LToast.showShort(CropActivity.this, "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
                     }
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        LToast.showShort(getActivity(), "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
+                        LToast.showShort(CropActivity.this, "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
                     }
                 }).check();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        LLog.d(getTAG(), "onActivityResult requestCode " + requestCode);
+        LLog.d(getLogTag(), "onActivityResult requestCode " + requestCode);
         super.onActivityResult(requestCode, resultCode, data);
         if (data == null) {
-            LLog.e(getTAG(), "data == null return");
+            LLog.e(getLogTag(), "data == null return");
             return;
         }
         if (requestCode == REQUEST_CODE_GET_FILE) {
             if (data.getExtras() == null) {
-                LLog.e(getTAG(), "data.getExtras() == null return");
+                LLog.e(getLogTag(), "data.getExtras() == null return");
                 return;
             }
             final String filePath = data.getExtras().getString(LGalleryActivity.RETURN_VALUE);
             if (filePath == null) {
-                LLog.e(getTAG(), "filePath == null return");
+                LLog.e(getLogTag(), "filePath == null return");
                 return;
             }
-            LLog.d(getTAG(), "filePath " + filePath);
+            LLog.d(getLogTag(), "filePath " + filePath);
             final File file = new File(filePath);
             if (!file.exists()) {
-                LLog.e(getTAG(), "file is not exists");
+                LLog.e(getLogTag(), "file is not exists");
                 return;
             }
             final Uri imageUri = Uri.fromFile(file);
             if (imageUri == null) {
-                LLog.e(getTAG(), "imageUri == null");
+                LLog.e(getLogTag(), "imageUri == null");
                 return;
             }
             if (isOvalOption) {
@@ -123,7 +115,7 @@ public class CropActivity extends BaseFontActivity {
                         .setCropShape(LCropImageView.CropShape.OVAL)
                         .setCircleColor(Color.WHITE)
                         .setBackgroundColor(Color.argb(200, 0, 0, 0))
-                        .start(getActivity());
+                        .start(this);
             } else {
                 CropImage.activity(imageUri)
                         .setGuidelines(LCropImageView.Guidelines.OFF)
@@ -137,7 +129,7 @@ public class CropActivity extends BaseFontActivity {
                         .setAutoZoomEnabled(true)
                         .setBorderCornerColor(Color.BLUE)
                         .setGuidelinesColor(Color.GREEN)
-                        .start(getActivity());
+                        .start(this);
             }
         } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             final CropImage.ActivityResult result = CropImage.getActivityResult(data);
@@ -147,8 +139,8 @@ public class CropActivity extends BaseFontActivity {
                     return;
                 }
                 final File file = new File(realPath);
-                LLog.d(getTAG(), "onActivityResult file " + file.getPath());
-                LImageUtil.Companion.load(getActivity(), file, iv);
+                LLog.d(getLogTag(), "onActivityResult file " + file.getPath());
+                LImageUtil.Companion.load(this, file, iv);
             }
         }
     }

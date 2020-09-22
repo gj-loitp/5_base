@@ -7,6 +7,7 @@ import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.slide.GalleryCoreSlideActivity
@@ -25,6 +26,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
 
+@LogTag("GalleryCorePhotosActivity")
 class GalleryCorePhotosActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
@@ -35,6 +37,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.l_activity_flickr_gallery_core_photos)
 
 //        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
@@ -66,18 +69,18 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         animator.addDuration = 1000
         recyclerView.itemAnimator = animator
         val column = 2
-        recyclerView.layoutManager = GridLayoutManager(activity, column)
+        recyclerView.layoutManager = GridLayoutManager(this, column)
         recyclerView.setHasFixedSize(true)
-        photosAdapter = PhotosAdapter(context = activity, callback = object : PhotosAdapter.Callback {
+        photosAdapter = PhotosAdapter(context = this, callback = object : PhotosAdapter.Callback {
             override fun onClick(photo: Photo, pos: Int) {
-                val intent = Intent(activity, GalleryCoreSlideActivity::class.java)
+                val intent = Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
                 intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
                 startActivity(intent)
-                LActivityUtil.tranIn(activity)
+                LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
             }
 
             override fun onLongClick(photo: Photo, pos: Int) {
-                LSocialUtil.share(activity = activity, msg = photo.urlO)
+                LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
             }
         })
 
@@ -113,7 +116,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(activity)
+                    LActivityUtil.transActivityNoAniamtion(this@GalleryCorePhotosActivity)
                 }
             }
         })
@@ -125,7 +128,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(context = activity,
+        LDialogUtil.showDialogList(context = this,
                 title = "Select page",
                 arr = arr,
                 callbackList = object : CallbackList {
@@ -136,18 +139,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                         photosetsGetPhotos(photosetID)
                     }
                 })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_flickr_gallery_core_photos
     }
 
     private fun photosetsGetPhotos(photosetID: String?) {

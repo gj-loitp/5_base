@@ -6,19 +6,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseActivity;
-import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
 import com.views.layout.floatdraglayout.FloatDragLayout;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_splash_v3)
+@LogTag("FloatDragFullScreenActivity")
+@IsFullScreen(false)
 public class FloatDragFullScreenActivity extends BaseActivity {
     private View mDecorView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mDecorView = getWindow().getDecorView();
         ViewGroup rootView = mDecorView.findViewById(android.R.id.content);
 
@@ -31,22 +37,9 @@ public class FloatDragFullScreenActivity extends BaseActivity {
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
         rootView.addView(floatDragLayout, layoutParams);
 
-        floatDragLayout.setOnClickListener(v -> LToast.show(getActivity(), "Click on the hover and drag buttons"));
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_splash_v3;
+        floatDragLayout.setOnClickListener(v ->
+                showShort("Click on the hover and drag buttons")
+        );
     }
 
     @Override

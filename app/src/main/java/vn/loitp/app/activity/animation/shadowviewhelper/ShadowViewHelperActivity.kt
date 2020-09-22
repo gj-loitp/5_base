@@ -3,6 +3,9 @@ package vn.loitp.app.activity.animation.shadowviewhelper
 import android.graphics.Color
 import android.os.Bundle
 import androidx.core.view.ViewCompat
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDisplayUtil
 import com.views.shadowviewhelper.ShadowProperty
@@ -11,9 +14,14 @@ import kotlinx.android.synthetic.main.activity_animation_shadowview_helper.*
 import vn.loitp.app.R
 
 //https://github.com/wangjiegulu/ShadowViewHelper?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1884
+@LayoutId(R.layout.activity_animation_shadowview_helper)
+@LogTag("ShadowViewHelperActivity")
+@IsFullScreen(false)
 class ShadowViewHelperActivity : BaseFontActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setAllSide()
         setCustomSide()
         setCustomSide2()
@@ -55,15 +63,4 @@ class ShadowViewHelperActivity : BaseFontActivity() {
         ViewCompat.setLayerType(imageView, ViewCompat.LAYER_TYPE_SOFTWARE, null)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_shadowview_helper
-    }
 }

@@ -7,11 +7,17 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_relative_popup_window_layout)
+@LogTag("RelativePopupWindowActivity")
+@IsFullScreen(false)
 public class RelativePopupWindowActivity extends BaseFontActivity {
 
     @Override
@@ -128,18 +134,4 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
         });
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_relative_popup_window_layout;
-    }
 }

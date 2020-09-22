@@ -15,6 +15,9 @@ import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LMathUtil
@@ -42,6 +45,9 @@ import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
 
+@LayoutId(R.layout.activity_map_tracker)
+@LogTag("MapTrackerActivity")
+@IsFullScreen(false)
 class MapTrackerActivity : BaseFontActivity(),
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -63,18 +69,6 @@ class MapTrackerActivity : BaseFontActivity(),
     private var mCurrentLocation: Location? = null
     private val listLoc = ArrayList<Loc>()
     private var isShowDialogCheck = false
-
-    override fun setTag(): String? {
-        return "loitpp" + javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_map_tracker
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -143,7 +137,7 @@ class MapTrackerActivity : BaseFontActivity(),
 
     private fun showSettingsDialog() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = activity,
+                context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",
@@ -166,7 +160,7 @@ class MapTrackerActivity : BaseFontActivity(),
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = activity,
+                context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
                 button1 = "Okay",

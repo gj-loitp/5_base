@@ -2,6 +2,9 @@ package vn.loitp.app.activity.customviews.recyclerview.bookview
 
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_bookview.*
 import vn.loitp.app.R
@@ -9,6 +12,9 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.common.Constants
 import java.util.*
 
+@LayoutId(R.layout.activity_bookview)
+@LogTag("BookViewActivity")
+@IsFullScreen(false)
 class BookViewActivity : BaseFontActivity() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var mAdapter: BookAdapter? = null
@@ -16,7 +22,7 @@ class BookViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAdapter = BookAdapter(context = activity, column = 3, moviesList = movieList,
+        mAdapter = BookAdapter(context = this, column = 3, moviesList = movieList,
                 callback = object : BookAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShort("Click " + movie.title)
@@ -35,21 +41,9 @@ class BookViewActivity : BaseFontActivity() {
 
                     override fun onLoadMore() {}
                 })
-        rv.layoutManager = GridLayoutManager(activity, 3)
+        rv.layoutManager = GridLayoutManager(this, 3)
         rv.adapter = mAdapter
         prepareMovieData()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_bookview
     }
 
     private fun prepareMovieData() {

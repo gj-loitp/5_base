@@ -1,10 +1,14 @@
 package vn.loitp.app.activity.database.sqlite;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LLog;
 
@@ -13,6 +17,9 @@ import java.util.List;
 import vn.loitp.app.R;
 import vn.loitp.app.app.LApplication;
 
+@LayoutId(R.layout.activity_sqlite)
+@LogTag("SqliteActivity")
+@IsFullScreen(false)
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;
     private LinearLayout ll;
@@ -32,21 +39,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         findViewById(R.id.btAdd100).setOnClickListener(this);
 
         getAllContact();
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_sqlite;
     }
 
     @Override
@@ -77,8 +69,9 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void addButton(Contact contact) {
-        Button button = new Button(getActivity());
+        Button button = new Button(this);
         button.setText(contact.getId() + " " + contact.getName());
         button.setOnClickListener(v -> {
             //LLog.d(TAG, "onClick " + button.getText().toString());
@@ -91,8 +84,9 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         ll.addView(button);
     }
 
+    @SuppressLint("SetTextI18n")
     private void addButton() {
-        Button button = new Button(getActivity());
+        Button button = new Button(this);
         Contact contact = db.getContact(db.getContactsCount());
         if (contact != null) {
             button.setText(contact.getId() + " - " + contact.getName());
@@ -110,7 +104,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void addContact() {
         int size = db.getContactsCount();
-        LLog.d(getTAG(), "size: " + size);
+        LLog.d(getLogTag(), "size: " + size);
         Contact contact = new Contact();
         contact.setName("name " + (size + 1));
         contact.setPhoneNumber("phone: " + (size + 1));
@@ -121,7 +115,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void add100Contact() {
         for (int i = 0; i < 100; i++) {
             int size = db.getContactsCount();
-            LLog.d(getTAG(), "size: " + size);
+            LLog.d(getLogTag(), "size: " + size);
             Contact contact = new Contact();
             contact.setName("name " + (size + 1));
             contact.setPhoneNumber("phone: " + (size + 1));
@@ -131,7 +125,7 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void clearAllContact() {
-        LLog.d(getTAG(), "clearAllContact");
+        LLog.d(getLogTag(), "clearAllContact");
         ll.removeAllViews();
         db.clearAllContact();
         getAllContact();
@@ -149,13 +143,13 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void updateContact(Contact contact, Button button) {
         contact.setName("Updated " + contact.getName());
         int result = db.updateContact(contact);
-        LLog.d(getTAG(), "updateContact result " + result);
+        LLog.d(getLogTag(), "updateContact result " + result);
         button.setText(contact.getId() + " " + contact.getName());
     }
 
     private void deleteContact(Contact contact, Button button) {
         int result = db.deleteContact(contact);
-        LLog.d(getTAG(), "deleteContact result " + result);
+        LLog.d(getLogTag(), "deleteContact result " + result);
         ll.removeView(button);
     }
 

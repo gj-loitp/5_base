@@ -3,6 +3,8 @@ package vn.loitp.app.activity.api.coroutine.activity
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
@@ -12,19 +14,13 @@ import kotlinx.android.synthetic.main.frm_coroutine_user.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 
+@LayoutId(R.layout.frm_coroutine_user)
+@LogTag("FrmUser")
 class FrmUser : BaseFragment() {
     lateinit var testViewModel: TestViewModel
 
     companion object {
         const val KEY_USER = "KEY_USER"
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.frm_coroutine_user
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

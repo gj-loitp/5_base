@@ -4,12 +4,18 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_viewpager_refresh.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_viewpager_refresh)
+@LogTag("RefreshViewPagerActivity")
+@IsFullScreen(false)
 class RefreshViewPagerActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,18 +25,6 @@ class RefreshViewPagerActivity : BaseFontActivity() {
         LUIUtil.setPullLikeIOSHorizontal(vp)
         tabLayout.setupWithViewPager(vp)
         LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_viewpager_refresh
     }
 
     private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_SET_USER_VISIBLE_HINT) {

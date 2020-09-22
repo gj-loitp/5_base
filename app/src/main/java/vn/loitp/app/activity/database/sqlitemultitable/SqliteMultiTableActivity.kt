@@ -2,6 +2,9 @@ package vn.loitp.app.activity.database.sqlitemultitable
 
 import android.os.Bundle
 import android.widget.TextView
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table.*
@@ -12,24 +15,16 @@ import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
 import vn.loitp.app.app.LApplication
 
 //https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
+
+@LayoutId(R.layout.activity_sqlite_multi_table)
+@LogTag("SqliteMultiTableActivity")
+@IsFullScreen(false)
 class SqliteMultiTableActivity : BaseFontActivity() {
     private lateinit var db: DatabaseHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         test()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_sqlite_multi_table
     }
 
     private fun test() {
@@ -142,7 +137,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
 
     private fun showMsg(msg: String) {
         logD(msg)
-        val tv = TextView(activity)
+        val tv = TextView(this)
         tv.text = msg
         LUIUtil.setTextSize(textView = tv, size = resources.getDimension(R.dimen.txt_small))
         ll.addView(tv)

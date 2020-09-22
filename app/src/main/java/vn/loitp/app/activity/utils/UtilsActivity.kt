@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
@@ -11,6 +14,9 @@ import com.utils.util.*
 import kotlinx.android.synthetic.main.activity_utils.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_utils)
+@LogTag("UtilsActivity")
+@IsFullScreen(false)
 class UtilsActivity : BaseFontActivity() {
 
     private val listClass = ArrayList<String>()
@@ -40,18 +46,6 @@ class UtilsActivity : BaseFontActivity() {
         listClass.add(ActivityUtils::class.java.simpleName)
 
         viewPager.adapter?.notifyDataSetChanged()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_utils
     }
 
     private inner class SlidePagerAdapter internal constructor(fm: FragmentManager)

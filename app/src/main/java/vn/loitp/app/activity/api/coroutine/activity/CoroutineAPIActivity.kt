@@ -1,19 +1,12 @@
 package vn.loitp.app.activity.api.coroutine.activity
 
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-class CoroutineAPIActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_api_coroutine
-    }
-}
+@LayoutId(R.layout.activity_api_coroutine)
+@LogTag("ShadowViewHelperActivity")
+@IsFullScreen(false)
+class CoroutineAPIActivity : BaseFontActivity()

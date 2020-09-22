@@ -9,6 +9,9 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.LToast;
 import com.views.menu.residemenu.ResideMenu;
@@ -16,27 +19,15 @@ import com.views.menu.residemenu.ResideMenuItem;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.reside_menu)
+@LogTag("ResideMenuActivity")
+@IsFullScreen(false)
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {
     private ResideMenu resideMenu;
     private ResideMenuItem itemHome;
     private ResideMenuItem itemProfile;
     private ResideMenuItem itemCalendar;
     private ResideMenuItem itemSettings;
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.reside_menu;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +48,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         resideMenu.getRealtimeBlurView().setBlurRadius(50);
-        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(getActivity(), R.color.black65));
+        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(this, R.color.black65));
         resideMenu.setUse3D(true);
         resideMenu.setBackground(R.drawable.iv);
         resideMenu.attachToActivity(this);
@@ -117,12 +108,12 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            LToast.show(getActivity(), "Menu is opened!");
+            LToast.show(getBaseContext(), "Menu is opened!");
         }
 
         @Override
         public void closeMenu() {
-            LToast.show(getActivity(), "Menu is closed!");
+            LToast.show(getBaseContext(), "Menu is closed!");
         }
     };
 

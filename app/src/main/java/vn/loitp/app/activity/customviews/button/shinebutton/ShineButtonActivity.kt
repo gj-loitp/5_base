@@ -1,24 +1,12 @@
 package vn.loitp.app.activity.customviews.button.shinebutton
 
-import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-class ShineButtonActivity : BaseFontActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_button_shine
-    }
-}
+@LayoutId(R.layout.activity_button_shine)
+@LogTag("ShineButtonActivity")
+@IsFullScreen(false)
+class ShineButtonActivity : BaseFontActivity()

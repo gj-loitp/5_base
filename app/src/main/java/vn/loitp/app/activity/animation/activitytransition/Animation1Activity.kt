@@ -4,6 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
@@ -11,9 +14,13 @@ import com.data.ActivityData
 import kotlinx.android.synthetic.main.activity_animation_1.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_animation_1)
+@LogTag("Animation1Activity")
+@IsFullScreen(false)
 class Animation1Activity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btNoAnim.setOnClickListener(this)
         btSystemDefault.setOnClickListener(this)
         btSlideLeft.setOnClickListener(this)
@@ -27,62 +34,50 @@ class Animation1Activity : BaseFontActivity(), OnClickListener {
         btSpin.setOnClickListener(this)
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_1
-    }
-
     override fun onClick(v: View) {
-        val intent = Intent(activity, Animation2Activity::class.java)
+        val intent = Intent(this, Animation2Activity::class.java)
         startActivity(intent)
         when (v) {
             btNoAnim -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
-                LActivityUtil.transActivityNoAniamtion(activity)
+                LActivityUtil.transActivityNoAniamtion(this)
             }
             btSystemDefault -> ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
             btSlideLeft -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
-                LActivityUtil.slideLeft(activity)
+                LActivityUtil.slideLeft(this)
             }
             btSlideRight -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT
-                LActivityUtil.slideRight(activity)
+                LActivityUtil.slideRight(this)
             }
             btSlideDown -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN
-                LActivityUtil.slideDown(activity)
+                LActivityUtil.slideDown(this)
             }
             btSlideUp -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP
-                LActivityUtil.slideUp(activity)
+                LActivityUtil.slideUp(this)
             }
             btFade -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_FADE
-                LActivityUtil.fade(activity)
+                LActivityUtil.fade(this)
             }
             btZoom -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_ZOOM
-                LActivityUtil.zoom(activity)
+                LActivityUtil.zoom(this)
             }
             btWindMill -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL
-                LActivityUtil.windmill(activity)
+                LActivityUtil.windmill(this)
             }
             btDiagonal -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL
-                LActivityUtil.diagonal(activity)
+                LActivityUtil.diagonal(this)
             }
             btSpin -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SPIN
-                LActivityUtil.spin(activity)
+                LActivityUtil.spin(this)
             }
         }
     }

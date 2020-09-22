@@ -1,9 +1,13 @@
 package vn.loitp.app.activity.demo.architecturecomponent.viewmodel
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
 import kotlinx.android.synthetic.main.activity_demo_view_model.*
@@ -13,12 +17,17 @@ import vn.loitp.app.app.LApplication
 import java.util.*
 
 //https://codinginfinite.com/architecture-component-viewmodel-example/
+
+@LayoutId(R.layout.activity_demo_view_model)
+@LogTag("ViewModelActivity")
+@IsFullScreen(false)
 class ViewModelActivity : BaseFontActivity() {
 
     private lateinit var colorChangerViewModel: ColorChangerViewModel
     private lateinit var userViewModel: UserViewModel
     private lateinit var timeChangerViewModel: TimeChangerViewModel
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -57,18 +66,6 @@ class ViewModelActivity : BaseFontActivity() {
             }
             tvTime.text = "countToStop: $countToStop -> $it -> " + LDateUtil.getDateCurrentTimeZoneMls(it, "yyyy-MM-dd HH:mm:ss")
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_view_model
     }
 
     private fun generateRandomColor(): Int {

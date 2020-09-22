@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
 import com.data.EventBusData
@@ -22,29 +24,25 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
-/**
- * Created by loitp on 2019/7/12
- */
 abstract class BaseFragment : Fragment() {
-    protected var TAG: String? = null
+    protected var logTag: String? = null
     protected var compositeDisposable = CompositeDisposable()
     protected var frmRootView: View? = null
 
-    private val DEFAULT_CHILD_ANIMATION_DURATION = 400
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//    }
+    companion object {
+        private const val DEFAULT_CHILD_ANIMATION_DURATION = 400
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
-        TAG = "TAG" + setTag()
+        val layoutId = javaClass.getAnnotation(LayoutId::class.java)
+        layoutId?.value?.let {
+            frmRootView = inflater.inflate(it, container, false)
+        }
+        val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
+        logTag = "logTag" + tmpLogTag?.value
         EventBus.getDefault().register(this)
         return frmRootView
     }
-
-    protected abstract fun setLayoutResourceId(): Int
-    protected abstract fun setTag(): String?
 
     override fun onDestroyView() {
         LDialogUtil.clearAll()
@@ -54,24 +52,20 @@ abstract class BaseFragment : Fragment() {
     }
 
     protected fun logD(msg: String) {
-        TAG?.let {
-            LLog.d(it, msg)
+        logTag?.let {
+            LLog.d(tag = it, msg = msg)
         }
     }
 
     protected fun logE(msg: String) {
-        TAG?.let {
-            LLog.e(it, msg)
+        logTag?.let {
+            LLog.e(tag = it, msg = msg)
         }
     }
 
-    /*override fun onAttach(context: Context?) {
-        super.onAttach(context)
-    }*/
-
     open fun handleException(throwable: Throwable) {
         throwable.message?.let {
-            showDialogError(it)
+            showDialogError(errMsg = it)
         }
     }
 
@@ -103,10 +97,6 @@ abstract class BaseFragment : Fragment() {
             )
         }
     }
-
-//    interface FragmentCallback {
-//        fun onViewCreated()
-//    }
 
     //https://stackoverflow.com/questions/14900738/nested-fragments-disappear-during-transition-animation
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
@@ -156,13 +146,10 @@ abstract class BaseFragment : Fragment() {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
-        //TAG = "onMessageEvent"
-        //logD(TAG, "onMessageEvent " + event.isConnected())
         onNetworkChange(event)
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {
-        //showToastLongDebug("onNetworkChange isConnected: ${event.isConnected}")
     }
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T {

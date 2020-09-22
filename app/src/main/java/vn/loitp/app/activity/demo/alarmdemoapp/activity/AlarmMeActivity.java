@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LLog;
@@ -21,8 +24,10 @@ import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
 
+@LayoutId(R.layout.activity_alarm_list)
+@LogTag("AlarmMeActivity")
+@IsFullScreen(false)
 public class AlarmMeActivity extends BaseFontActivity {
-    private ListView mAlarmList;
     private AlarmListAdapter mAlarmListAdapter;
     private Alarm mCurrentAlarm;
 
@@ -39,9 +44,9 @@ public class AlarmMeActivity extends BaseFontActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        LLog.d(getTAG(), "AlarmMeActivity.onCreate()");
+        LLog.d(getLogTag(), "AlarmMeActivity.onCreate()");
 
-        mAlarmList = findViewById(R.id.lv_alarm);
+        ListView mAlarmList = findViewById(R.id.lv_alarm);
         LUIUtil.Companion.setPullLikeIOSVertical(mAlarmList);
 
         mAlarmListAdapter = new AlarmListAdapter(this);
@@ -55,28 +60,13 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LLog.d(getTAG(), "AlarmMeActivity.onDestroy()");
-    }
-
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_alarm_list;
+        LLog.d(getLogTag(), "AlarmMeActivity.onDestroy()");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        LLog.d(getTAG(), "AlarmMeActivity.onResume()");
+        LLog.d(getLogTag(), "AlarmMeActivity.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 
@@ -85,11 +75,12 @@ public class AlarmMeActivity extends BaseFontActivity {
         mCurrentAlarm = new Alarm(this);
         mCurrentAlarm.toIntent(intent);
         AlarmMeActivity.this.startActivityForResult(intent, NEW_ALARM_ACTIVITY);
-        LActivityUtil.tranIn(getActivity());
+        LActivityUtil.tranIn(this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == NEW_ALARM_ACTIVITY) {
             if (resultCode == RESULT_OK) {
                 mCurrentAlarm.fromIntent(data);
@@ -119,7 +110,7 @@ public class AlarmMeActivity extends BaseFontActivity {
         if (R.id.menu_settings == item.getItemId()) {
             Intent intent = new Intent(getBaseContext(), Preferences.class);
             startActivityForResult(intent, PREFERENCES_ACTIVITY);
-            LActivityUtil.tranIn(getActivity());
+            LActivityUtil.tranIn(this);
             return true;
         } else {
             return super.onOptionsItemSelected(item);
@@ -149,7 +140,7 @@ public class AlarmMeActivity extends BaseFontActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(info.position);
             mCurrentAlarm.toIntent(intent);
             startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.tranIn(getActivity());
+            LActivityUtil.tranIn(this);
         } else if (index == CONTEXT_MENU_DELETE) {
             mAlarmListAdapter.delete(info.position);
         } else if (index == CONTEXT_MENU_DUPLICATE) {
@@ -172,7 +163,7 @@ public class AlarmMeActivity extends BaseFontActivity {
             mCurrentAlarm = mAlarmListAdapter.getItem(position);
             mCurrentAlarm.toIntent(intent);
             AlarmMeActivity.this.startActivityForResult(intent, EDIT_ALARM_ACTIVITY);
-            LActivityUtil.tranIn(getActivity());
+            LActivityUtil.tranIn(AlarmMeActivity.this);
         }
     };
 

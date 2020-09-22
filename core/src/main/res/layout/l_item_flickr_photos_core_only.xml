@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="false"
@@ -9,45 +10,41 @@
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
+    android:paddingTop="@dimen/padding_medium"
+    android:paddingBottom="@dimen/padding_medium"
     tools:ignore="UnusedAttribute">
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_5"
-        android:max="100"
-        android:progress="1"
-        android:progressDrawable="@drawable/l_custom_progressbar" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_80" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
         android:singleLine="true"
         android:textColor="@color/white"
-        android:textSize="@dimen/text_medium" />
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:textSize="@dimen/text_medium"
+        tools:text="@string/app_name"
+        tools:textColor="@color/black" />
 
-    <com.github.piasy.biv.view.BigImageView
-        android:id="@+id/biv"
+    <ImageView
+        android:id="@+id/iv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:failureImage="@drawable/l_error_404"
-        app:failureImageInitScaleType="center"
-        app:initScaleType="custom"
-        app:optimizeDisplay="true"
-        app:thumbnailScaleType="fitCenter" />
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        tools:src="@drawable/logo" />
 
     <LinearLayout
         android:id="@+id/layoutControl"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/l_bkg_flickr_controller"
         android:gravity="center"
-        android:padding="@dimen/padding_medium">
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btReport"
@@ -79,7 +76,7 @@
             app:useCompatPadding="true" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/bt_cmt"
+            android:id="@+id/btCmt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
@@ -111,11 +108,11 @@
     </LinearLayout>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_80" />
-
-    <View
+        android:id="@+id/viewLine"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_1"
-        android:background="@color/white" />
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/white"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 </LinearLayout>

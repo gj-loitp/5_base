@@ -3,10 +3,16 @@ package vn.loitp.app.activity.function.viewdraghelpersimple
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_func_view_draghelper_simple_1.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_func_view_draghelper_simple_1)
+@LogTag("ViewDragHelperSimpleActivity1")
+@IsFullScreen(false)
 class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,18 +71,6 @@ class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
         btDisappear.setOnClickListener {
             vdhv.dissappear()
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_func_view_draghelper_simple_1
     }
 
     @SuppressLint("SetTextI18n")

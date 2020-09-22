@@ -1,27 +1,12 @@
 package vn.loitp.app.activity.customviews.layout.squarelayout
 
-import android.os.Bundle
-
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-
 import vn.loitp.app.R
 
-class SquareLayoutActivity : BaseFontActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_square
-    }
-}
+@LayoutId(R.layout.activity_layout_square)
+@LogTag("SquareLayoutActivity")
+@IsFullScreen(false)
+class SquareLayoutActivity : BaseFontActivity()

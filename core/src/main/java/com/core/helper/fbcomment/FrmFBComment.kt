@@ -8,21 +8,21 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
 
+@LogTag("FrmFBComment")
 class FrmFBComment : BaseFragment() {
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     private var isLoading: Boolean = false
     private var mWebviewPop: WebView? = null
@@ -32,6 +32,11 @@ class FrmFBComment : BaseFragment() {
         // the default number of comments should be visible
         // on page load.
         private const val NUMBER_OF_COMMENTS = 50
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater.inflate(R.layout.l_frm_fb_cmt, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,10 +57,6 @@ class FrmFBComment : BaseFragment() {
             setLoading(true)
             loadComments()
         }
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_fb_cmt
     }
 
     @SuppressLint("SetJavaScriptEnabled")

@@ -3,6 +3,9 @@ package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsin
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.*
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
@@ -14,6 +17,9 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesA
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
+@LayoutId(R.layout.activity_recycler_view)
+@LogTag("RecyclerViewWithSingletonDataActivity")
+@IsFullScreen(false)
 class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
 
     private var mAdapter: MoviesAdapter? = null
@@ -41,28 +47,28 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
                         loadMore()
                     }
                 })
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
         rv.adapter = mAdapter
         //LUIUtil.setPullLikeIOSVertical(rv)
         prepareMovieData()
         btSetting.setOnClickListener {
-            LPopupMenu.show(activity = activity, showOnView = it, menuRes = R.menu.menu_recycler_view,
+            LPopupMenu.show(activity = this, showOnView = it, menuRes = R.menu.menu_recycler_view,
                     callBackPopup = object : CallbackPopup {
                         override fun clickOnItem(menuItem: MenuItem) {
                             tvType.text = menuItem.title.toString()
                             when (menuItem.itemId) {
                                 R.id.menuLinearVertical -> {
-                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(activity)
+                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewWithSingletonDataActivity)
                                     rv.layoutManager = lmVertical
                                 }
                                 R.id.menuLinearHorizontal -> {
-                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewWithSingletonDataActivity, LinearLayoutManager.HORIZONTAL, false)
                                     rv.layoutManager = lmHorizontal
                                 }
-                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(activity, 2)
-                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(activity, 3)
+                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewWithSingletonDataActivity, 2)
+                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewWithSingletonDataActivity, 3)
                                 R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                                 R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                             }
@@ -81,18 +87,6 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
             mAdapter?.notifyDataSetChanged()
             showShort("Finish loadMore")
         })
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_view
     }
 
     private fun prepareMovieData() {

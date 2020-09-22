@@ -5,10 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.albumonly.PhotosOnlyAdapter
@@ -33,10 +36,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_frm_girl.*
 
+@LogTag("FrmGirl")
 class FrmGirl : BaseFragment() {
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
 
     private var currentPage = 0
     private var totalPage = 1
@@ -47,13 +48,14 @@ class FrmGirl : BaseFragment() {
     private var photosSize: Int = 0
     private var isShowDialogCheck: Boolean = false
 
-    override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_girl
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         RestClient.init(getString(R.string.flickr_URL))
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater.inflate(R.layout.l_frm_girl, container, false)
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

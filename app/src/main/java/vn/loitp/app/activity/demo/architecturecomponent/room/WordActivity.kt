@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_database_room_work.*
@@ -15,26 +18,19 @@ import vn.loitp.app.app.LApplication
 //https://codinginfinite.com/android-room-tutorial-persistence/
 //https://codinginfinite.com/android-room-persistent-rxjava/
 //https://codinginfinite.com/android-room-persistence-livedata-example/
+
+@LayoutId(R.layout.activity_demo_database_room_work)
+@LogTag("WordActivity")
+@IsFullScreen(false)
 class WordActivity : BaseFontActivity() {
     private var wordViewModel: WordViewModel? = null
     private var wordListAdapter: WordListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setupViews()
         setupViewModels()
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return "loitpp" + javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_demo_database_room_work
     }
 
     private fun setupViews() {

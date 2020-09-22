@@ -14,6 +14,9 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import androidx.core.app.NotificationCompat
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LNotification
 import com.function.notification.Notti
@@ -28,9 +31,12 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.SplashActivity
 import java.util.*
 
+@LayoutId(R.layout.activity_notification_menu)
+@LogTag("MenuNotificationActivity")
+@IsFullScreen(false)
 class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
     companion object {
-        val KEY_NOTI_DATA_INTENT = "KEY_NOTI_DATA_INTENT"
+        const val KEY_NOTI_DATA_INTENT = "KEY_NOTI_DATA_INTENT"
     }
 
     private var notti: Notti? = null
@@ -55,7 +61,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         btNotificationHeadsup.setOnClickListener(this)
         btNotificationHeadsupNice.setOnClickListener(this)
 
-        goToNotificationSettings(activity)
+        goToNotificationSettings(this)
     }
 
     private fun goToNotificationSettings(context: Context) {
@@ -94,19 +100,6 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-    }
-
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_notification_menu
     }
 
     override fun onClick(v: View) {

@@ -2,40 +2,34 @@ package vn.loitp.app.activity.customviews.layout.swiperefreshlayout
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-
+import kotlinx.android.synthetic.main.activity_swipe_refresh_menu_layout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview.SwipeRefreshLayoutRecyclerViewActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview.SwipeRefreshLayoutScrollViewActivity
 
+@LayoutId(R.layout.activity_swipe_refresh_menu_layout)
+@LogTag("SwipeRefreshLayoutMenuActivity")
+@IsFullScreen(false)
 class SwipeRefreshLayoutMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        findViewById<View>(R.id.bt_with_scroll_view).setOnClickListener { _ ->
-            val intent = Intent(activity, SwipeRefreshLayoutScrollViewActivity::class.java)
+
+        bt_with_scroll_view.setOnClickListener { _ ->
+            val intent = Intent(this, SwipeRefreshLayoutScrollViewActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
-        findViewById<View>(R.id.bt_with_recycler_view).setOnClickListener { _ ->
-            val intent = Intent(activity, SwipeRefreshLayoutRecyclerViewActivity::class.java)
+        bt_with_recycler_view.setOnClickListener { _ ->
+            val intent = Intent(this, SwipeRefreshLayoutRecyclerViewActivity::class.java)
             startActivity(intent)
-            LActivityUtil.tranIn(activity)
+            LActivityUtil.tranIn(this)
         }
     }
 
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_swipe_refresh_menu_layout
-    }
 }

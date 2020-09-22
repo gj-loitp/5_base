@@ -1,20 +1,12 @@
 package vn.loitp.app.activity.customviews.textview.translucentview
 
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-class TranslucentViewActivity : BaseFontActivity() {
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_text_view_translucent
-    }
-
-}
+@LayoutId(R.layout.activity_text_view_translucent)
+@LogTag("TranslucentViewActivity")
+@IsFullScreen(false)
+class TranslucentViewActivity : BaseFontActivity()

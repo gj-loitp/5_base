@@ -11,12 +11,12 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_0_1"
+            android:id="@+id/bt0To1"
             style="@style/ButtonMenu"
             android:text="Switch 0-1" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_1_0"
+            android:id="@+id/bt1To0"
             style="@style/ButtonMenu"
             android:text="Switch 1_0" />
 

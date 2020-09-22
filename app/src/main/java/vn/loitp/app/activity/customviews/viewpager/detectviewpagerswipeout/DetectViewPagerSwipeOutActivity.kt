@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
@@ -12,6 +15,9 @@ import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
 import vn.loitp.app.R
 import java.util.*
 
+@LayoutId( R.layout.activity_view_pager_detect_swipe_out)
+@LogTag("DetectViewPagerSwipeOutActivity")
+@IsFullScreen(false)
 class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
     private val vpPhotoList: MutableList<VPPhoto> = ArrayList()
 
@@ -45,18 +51,6 @@ class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
         })
         val adapter = ViewPagerAdapter(supportFragmentManager)
         viewPager.adapter = adapter
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String? {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_view_pager_detect_swipe_out
     }
 
     private inner class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

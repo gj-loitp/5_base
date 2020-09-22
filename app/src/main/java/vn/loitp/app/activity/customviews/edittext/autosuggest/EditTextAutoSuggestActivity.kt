@@ -3,9 +3,11 @@ package vn.loitp.app.activity.customviews.edittext.autosuggest
 import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
-import com.views.LToast
 import com.views.edittext.autosuggest.LAutoSuggestEditText
 import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import io.reactivex.Single
@@ -15,6 +17,9 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_editext_auto_suggest.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_editext_auto_suggest)
+@LogTag("EditTextAutoSuggestActivity")
+@IsFullScreen(false)
 class EditTextAutoSuggestActivity : BaseFontActivity() {
     private var disposableSearch: Disposable? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +33,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet0.setColorProgressBar(Color.RED)
         aet0.setBackgroundResource(R.drawable.bkg_et)
         aet0.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
-            LToast.show(activity, "Text ${aet0.editText.text}")
+            showShort("Text ${aet0.editText.text}")
         })
         aet0.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
@@ -46,25 +51,13 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet1.setColorProgressBar(Color.WHITE)
         aet1.setBackgroundResource(R.drawable.l_bkg_horizontal)
         aet1.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
-            LToast.show(activity, "Text ${aet1.editText.text}")
+            showShort("Text ${aet1.editText.text}")
         })
         aet1.callback = object : LAutoSuggestEditText.Callback {
             override fun onTextChanged(text: String) {
                 fakeCallAPI1(text)
             }
         }
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_editext_auto_suggest
     }
 
     private fun fakeCallAPI0(text: String) {

@@ -11,30 +11,25 @@ import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
+import com.annotation.IsFullScreen
+import com.annotation.LayoutId
+import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic.*
 import vn.loitp.app.R
 
+@LayoutId(R.layout.activity_animation_scene_transition_basic)
+@LogTag("SceneTransitionBasicActivity")
+@IsFullScreen(false)
 class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         gridView.onItemClickListener = this
         val gridAdapter = GridAdapter()
         gridView.adapter = gridAdapter
-    }
-
-    override fun setFullScreen(): Boolean {
-        return false
-    }
-
-    override fun setTag(): String {
-        return javaClass.simpleName
-    }
-
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_animation_scene_transition_basic
     }
 
     override fun onItemClick(adapterView: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -80,7 +75,7 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
 
             // Load the thumbnail image
             val imageViewItem = view?.findViewById<ImageView>(R.id.imageViewItem)
-            LImageUtil.load(context = activity, url = item.photoUrl, imageView = imageViewItem)
+            LImageUtil.load(context = this@SceneTransitionBasicActivity, url = item.photoUrl, imageView = imageViewItem)
 
             // Set the TextView's contents
             val textViewName = view?.findViewById<TextView>(R.id.textViewName)

@@ -4,20 +4,25 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.FrameLayout;
 
+import com.annotation.IsFullScreen;
+import com.annotation.LayoutId;
+import com.annotation.LogTag;
 import com.core.base.BaseActivity;
-import com.views.LToast;
 import com.views.layout.floatdraglayout.DisplayUtil;
 import com.views.layout.floatdraglayout.FloatDragLayout;
 
 import vn.loitp.app.R;
 
+@LayoutId(R.layout.activity_splash_v3)
+@LogTag("FloatDragWindowModeActivity")
+@IsFullScreen(false)
 public class FloatDragWindowModeActivity extends BaseActivity {
-    private FrameLayout containerWindows;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        containerWindows = findViewById(R.id.flWindows);
+
+        FrameLayout containerWindows = findViewById(R.id.flWindows);
         FloatDragLayout floatDragLayout = new FloatDragLayout(this);
         floatDragLayout.setBackgroundResource(R.mipmap.ic_launcher);
         int size = DisplayUtil.dp2px(this, 45);
@@ -27,21 +32,9 @@ public class FloatDragWindowModeActivity extends BaseActivity {
         layoutParams.gravity = Gravity.CENTER_VERTICAL;
         containerWindows.addView(floatDragLayout, layoutParams);
 
-        floatDragLayout.setOnClickListener(v -> LToast.show(getActivity(), "Click on the hover and drag buttons"));
+        floatDragLayout.setOnClickListener(v ->
+                showShort("Click on the hover and drag buttons")
+        );
     }
 
-    @Override
-    protected boolean setFullScreen() {
-        return false;
-    }
-
-    @Override
-    protected String setTag() {
-        return getClass().getSimpleName();
-    }
-
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_splash_v3;
-    }
 }
