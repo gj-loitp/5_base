@@ -93,10 +93,10 @@
             android:name=".picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.GirlSplashActivity"
+            android:name="com.core.helper.girl.ui.GirlSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.GirlActivity"
+            android:name="com.core.helper.girl.ui.GirlActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 

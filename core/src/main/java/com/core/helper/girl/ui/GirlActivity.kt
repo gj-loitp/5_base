@@ -1,4 +1,4 @@
-package com.core.helper.girl
+package com.core.helper.girl.ui
 
 import android.graphics.Color
 import android.os.Bundle

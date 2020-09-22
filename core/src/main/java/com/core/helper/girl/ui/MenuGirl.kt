@@ -1,4 +1,4 @@
-package com.core.helper.girl
+package com.core.helper.girl.ui
 
 data class MenuGirl(
         val itemId: Int,

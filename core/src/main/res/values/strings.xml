@@ -36,4 +36,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_favourite">Favourite</string>
     <string name="menu_infor">Information</string>
+    <string name="today_s">Today\'s</string>
+    <string name="hottest_shot">Hottest shot</string>
 </resources>

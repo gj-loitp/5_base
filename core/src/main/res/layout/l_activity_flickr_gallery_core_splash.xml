@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/whiteSmoke">
 
     <ImageView
         android:id="@+id/ivBkg"
@@ -17,6 +17,7 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/lnAdView"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -28,31 +29,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_55"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium"
-                android:text="@string/copyright_team"
-                android:textColor="@color/black"
+                android:text="@string/copyright"
+                android:textColor="@color/white"
                 android:textSize="@dimen/txt_medium" />
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvCopyright"
-                android:gravity="center"
-                android:padding="@dimen/padding_medium"
-                android:text="@string/app_name_girl"
-                android:textColor="@color/black"
-                android:textSize="@dimen/txt_50" />
 
             <com.wang.avi.AVLoadingIndicatorView
                 android:id="@+id/indicatorView"
                 style="@style/AVLoadingIndicatorView"
                 android:layout_width="@dimen/w_40"
                 android:layout_height="@dimen/w_40"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_55"
+                app:indicatorColor="@color/white"
+                app:indicatorName="LineScalePulseOutRapidIndicator" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                app:indicatorColor="@color/black"
-                app:indicatorName="BallClipRotateIndicator" />
+                android:gravity="center"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/lgallery"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_50" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 

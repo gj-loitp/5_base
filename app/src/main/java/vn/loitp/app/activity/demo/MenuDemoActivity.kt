@@ -11,7 +11,7 @@ import com.core.common.Constants
 import com.core.helper.gallery.GalleryCoreSplashActivity
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
-import com.core.helper.girl.GirlSplashActivity
+import com.core.helper.girl.ui.GirlSplashActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R

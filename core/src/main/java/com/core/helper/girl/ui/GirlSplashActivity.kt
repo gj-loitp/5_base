@@ -1,4 +1,4 @@
-package com.core.helper.girl
+package com.core.helper.girl.ui
 
 import android.Manifest
 import android.content.Intent
@@ -37,9 +37,9 @@ class GirlSplashActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_flickr_gallery_core_splash)
+        setContentView(R.layout.l_activity_girl_splash)
 
-        RestClient.init(getString(R.string.flickr_URL))
+        RestClient.init(getString(R.string.girl_URL))
         admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 
         if (admobBannerUnitId.isNullOrEmpty()) {
