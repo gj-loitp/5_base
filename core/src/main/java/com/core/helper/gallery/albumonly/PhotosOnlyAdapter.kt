@@ -45,12 +45,12 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
 
         internal fun bind(p: Photo, position: Int) {
 
-            LImageUtil.load(itemView.iv.context,
-                    p.urlO,
-                    itemView.iv,
-                    R.color.gray,
-                    R.color.gray,
-                    object : RequestListener<Drawable> {
+            LImageUtil.load(context = itemView.iv.context,
+                    url = p.urlO,
+                    imageView = itemView.iv,
+                    resPlaceHolder = R.color.gray,
+                    resError = R.color.gray,
+                    drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false
                         }

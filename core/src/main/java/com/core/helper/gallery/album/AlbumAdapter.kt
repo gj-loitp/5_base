@@ -1,11 +1,16 @@
 package com.core.helper.gallery.album
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
@@ -42,7 +47,23 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
         fun bind(photoset: Photoset) {
 //            val color = photoset.colorBackground
 //            LLog.d(logTag, "$bindingAdapterPosition -> $color")
-            LImageUtil.load(context = itemView.imageView.context, url = photoset.flickrLinkO(), imageView = itemView.imageView, resPlaceHolder = R.color.gray)
+
+            LImageUtil.load(context = itemView.imageView.context,
+                    url = photoset.flickrLinkO(),
+                    imageView = itemView.imageView,
+                    resPlaceHolder = R.color.black,
+                    resError = R.color.black,
+                    drawableRequestListener = object : RequestListener<Drawable> {
+                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                            setAnimation(viewToAnimate = itemView.frameLayout, position = bindingAdapterPosition)
+                            return false
+                        }
+                    })
+
             itemView.tvLabel.text = photoset.title?.content
 
             val update = LDateUtil.getDateCurrentTimeZone(timestamp = photoset.dateUpdate, format = "dd-MM-yyyy HH:mm:ss")
@@ -60,8 +81,6 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
                 callback?.onLongClick(bindingAdapterPosition)
                 true
             }
-
-            setAnimation(viewToAnimate = itemView.frameLayout, position = bindingAdapterPosition)
         }
     }
 
