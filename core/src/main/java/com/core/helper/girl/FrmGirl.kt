@@ -12,7 +12,7 @@ import com.core.base.BaseFragment
 class FrmGirl : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        inflater.inflate(R.layout.l_frm_girl, container, false)
+        frmRootView = inflater.inflate(R.layout.l_frm_girl, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
