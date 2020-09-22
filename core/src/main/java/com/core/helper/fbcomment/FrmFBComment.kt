@@ -35,7 +35,7 @@ class FrmFBComment : BaseFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        inflater.inflate(R.layout.l_frm_fb_cmt, container, false)
+        frmRootView = inflater.inflate(R.layout.l_frm_fb_cmt, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 

@@ -22,7 +22,7 @@ class FrmDonate : BaseFragment() {
     private var colors: IntArray? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        inflater.inflate(R.layout.l_frm_donate, container, false)
+        frmRootView = inflater.inflate(R.layout.l_frm_donate, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 

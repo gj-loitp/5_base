@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.l_frm_more.*
 class FrmMore : BaseFragment(), View.OnClickListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        inflater.inflate(R.layout.l_frm_more, container, false)
+        frmRootView = inflater.inflate(R.layout.l_frm_more, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
