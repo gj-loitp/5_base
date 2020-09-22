@@ -12,13 +12,18 @@ import vn.loitp.app.R
 
 class FrmRefresh : Fragment() {
     private var mPosition = 0
-    private val TAG = "loitpp" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
+
+
+    companion object {
+        const val KEY_POSITION = "KEY_POSITION"
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         arguments?.let { bundle ->
             mPosition = bundle.getInt(KEY_POSITION)
         }
-                return inflater.inflate(R.layout.frm_view_pager_refresh, container, false)
+        return inflater.inflate(R.layout.frm_view_pager_refresh, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,16 +53,13 @@ class FrmRefresh : Fragment() {
         avl.smoothToShow()
 
         context?.let {
-            LToast.showShort(context = it, msg = "loadData $mPosition")
+            LToast.showShort(context = it, msg = "loadData")
         }
 
         LUIUtil.setDelay(1000, Runnable {
-            textView.visibility = View.VISIBLE
-            avl.smoothToHide()
+            textView?.visibility = View.VISIBLE
+            avl?.smoothToHide()
         })
     }
 
-    companion object {
-        const val KEY_POSITION = "KEY_POSITION"
-    }
 }
