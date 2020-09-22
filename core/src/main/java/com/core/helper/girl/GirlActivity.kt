@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -17,7 +18,8 @@ import kotlinx.android.synthetic.main.l_activity_girl.*
 @IsFullScreen(false)
 class GirlActivity : BaseFontActivity() {
 
-    val listPage = ArrayList<String>()
+    val listMenuGirl = ArrayList<MenuGirl>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl)
@@ -27,17 +29,37 @@ class GirlActivity : BaseFontActivity() {
     }
 
     private fun setupData() {
-        listPage.add(getString(R.string.menu_home))
-        listPage.add(getString(R.string.menu_favourite))
-        listPage.add(getString(R.string.menu_infor))
+        val menuGirlHome = MenuGirl(
+                itemId = R.id.menuHome,
+                iconId = R.drawable.baseline_home_black_24dp,
+                textId = R.string.menu_home,
+                activeColor = Color.GRAY
+        )
+        listMenuGirl.add(menuGirlHome)
+
+        val menuGirlFavourite = MenuGirl(
+                itemId = R.id.menuFavourite,
+                iconId = R.drawable.baseline_favorite_black_24dp,
+                textId = R.string.menu_favourite,
+                activeColor = Color.GRAY
+        )
+        listMenuGirl.add(menuGirlFavourite)
+
+        val menuGirlInformation = MenuGirl(
+                itemId = R.id.menuInformation,
+                iconId = R.drawable.baseline_info_black_24dp,
+                textId = R.string.menu_infor,
+                activeColor = Color.GRAY
+        )
+        listMenuGirl.add(menuGirlInformation)
     }
 
     private fun setupViews() {
         expandableBottomBar.addItems(
                 ExpandableBottomBarMenuItem.Builder(context = this)
-                        .addItem(itemId = R.id.menuHome, iconId = R.drawable.baseline_home_black_24dp, textId = R.string.menu_home, activeColor = Color.GRAY)
-                        .addItem(itemId = R.id.menuFavourite, iconId = R.drawable.baseline_favorite_black_24dp, textId = R.string.menu_favourite, activeColor = Color.GRAY)
-                        .addItem(itemId = R.id.menuInformation, iconId = R.drawable.baseline_info_black_24dp, textId = R.string.menu_infor, activeColor = Color.GRAY)
+                        .addItem(itemId = listMenuGirl[0].itemId, iconId = listMenuGirl[0].iconId, textId = listMenuGirl[0].textId, activeColor = listMenuGirl[0].activeColor)
+                        .addItem(itemId = listMenuGirl[1].itemId, iconId = listMenuGirl[1].iconId, textId = listMenuGirl[1].textId, activeColor = listMenuGirl[1].activeColor)
+                        .addItem(itemId = listMenuGirl[2].itemId, iconId = listMenuGirl[2].iconId, textId = listMenuGirl[2].textId, activeColor = listMenuGirl[2].activeColor)
                         .build()
         )
         expandableBottomBar.onItemSelectedListener = { view, menuItem ->
@@ -50,6 +72,17 @@ class GirlActivity : BaseFontActivity() {
 
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
         viewPager.setPageTransformer(true, CubeInTransformer())
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            }
+
+            override fun onPageSelected(position: Int) {
+                expandableBottomBar.select(listMenuGirl[position].itemId)
+            }
+        })
     }
 
     private inner class SlidePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
@@ -58,7 +91,7 @@ class GirlActivity : BaseFontActivity() {
         }
 
         override fun getCount(): Int {
-            return listPage.size
+            return listMenuGirl.size
         }
     }
 }
