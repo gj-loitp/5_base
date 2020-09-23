@@ -26,6 +26,8 @@ class FrmHome : BaseFragment() {
     private var mergeAdapter: MergeAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
     private var girlAlbumAdapter: GirlAlbumAdapter? = null
+    private var currentPageIndex = 0
+    private var totalPage = Int.MAX_VALUE
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(R.layout.l_frm_girl_home, container, false)
@@ -37,22 +39,27 @@ class FrmHome : BaseFragment() {
 
         setupViews()
         setupViewModels()
-        girlViewModel?.getPage(pageIndex = 0, keyWord = null)
+        getPage(isSwipeToRefresh = false)
+    }
+
+    private fun getPage(isSwipeToRefresh: Boolean) {
+        val keyword = ""//TODO
+        girlViewModel?.getPage(pageIndex = currentPageIndex, keyWord = keyword, isSwipeToRefresh = isSwipeToRefresh)
     }
 
     private fun setupViews() {
-//        LUIUtil.setTextShadow(textView = tvToday, color = Color.WHITE)
-//        LUIUtil.setTextShadow(textView = tvHottestShot, color = Color.WHITE)
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
-            //TODO
+            currentPageIndex = 0
+            getPage(isSwipeToRefresh = true)
         }
         girlHeaderAdapter = GirlHeaderAdapter()
         girlAlbumAdapter = GirlAlbumAdapter()
 
         girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
             logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
+            //TODO
         }
 
         girlHeaderAdapter?.let { gha ->
@@ -72,8 +79,11 @@ class FrmHome : BaseFragment() {
                     }
 
                     override fun onBottom() {
-                        logD("onBottom")
-                        //TODO
+                        logD("onBottom $currentPageIndex/$totalPage")
+                        if (currentPageIndex < totalPage) {
+                            currentPageIndex++
+                            getPage(isSwipeToRefresh = false)
+                        }
                     }
                 })
     }
@@ -86,17 +96,20 @@ class FrmHome : BaseFragment() {
                 val isDoing = actionData.isDoing
                 swipeRefreshLayout.isRefreshing = isDoing == true
 
-                if (isDoing == false) {
+                if (isDoing == false && actionData.isSuccess == true) {
                     val listGirlPage = actionData.data
-                    logD("listGirlPage " + Gson().toJson(listGirlPage))
+//                    logD("listGirlPage " + Gson().toJson(listGirlPage))
                     if (listGirlPage.isNullOrEmpty()) {
                         tvNoData.visibility = View.VISIBLE
                         recyclerView.visibility = View.GONE
                     } else {
+                        totalPage = actionData.totalPages ?: 0
+
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
                         girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
-                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage)
+                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh
+                                ?: false)
                     }
                 }
             })

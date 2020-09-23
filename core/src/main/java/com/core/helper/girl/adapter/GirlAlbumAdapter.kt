@@ -24,8 +24,10 @@ class GirlAlbumAdapter : AnimationAdapter() {
     private var listGirlPage = ArrayList<GirlPage>()
     var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
 
-    fun setData(listGirlPage: ArrayList<GirlPage>) {
-        this.listGirlPage.clear()
+    fun setData(listGirlPage: ArrayList<GirlPage>, isSwipeToRefresh: Boolean) {
+        if (isSwipeToRefresh) {
+            this.listGirlPage.clear()
+        }
         this.listGirlPage.addAll(listGirlPage)
         notifyDataSetChanged()
     }

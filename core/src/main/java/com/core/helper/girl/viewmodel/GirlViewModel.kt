@@ -4,6 +4,8 @@ import com.core.base.BaseViewModel
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.service.GirlApiClient
 import com.core.helper.girl.service.GirlRepository
+import com.core.utilities.LLog
+import com.google.gson.Gson
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
@@ -21,16 +23,16 @@ class GirlViewModel : BaseViewModel() {
 
     val userActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
 
-    fun getPage(pageIndex: Int, keyWord: String?) {
+    fun getPage(pageIndex: Int, keyWord: String?, isSwipeToRefresh: Boolean) {
         userActionLiveData.set(ActionData(isDoing = true))
 
         ioScope.launch {
-//            LLog.d(logTag, ">>>getPage pageIndex $pageIndex, keyWord: $keyWord")
+            LLog.d(logTag, ">>>getPage pageIndex $pageIndex, keyWord: $keyWord, isSwipeToRefresh: $isSwipeToRefresh")
             val response = repository.getPage(
                     pageIndex = pageIndex,
                     keyWord = keyWord
             )
-//            LLog.d(logTag, "<<<getPage " + Gson().toJson(response))
+            LLog.d(logTag, "<<<getPage " + Gson().toJson(response))
             if (response.items == null) {
                 userActionLiveData.postAction(
                         getErrorRequestGirl(response)
@@ -40,7 +42,11 @@ class GirlViewModel : BaseViewModel() {
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
-                                data = response.items
+                                data = response.items,
+                                total = response.total,
+                                totalPages = response.totalPages,
+                                page = response.page,
+                                isSwipeToRefresh = isSwipeToRefresh
                         )
                 )
             }

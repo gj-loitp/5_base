@@ -62,7 +62,7 @@ class GirlSplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
+        LUIUtil.setDelay(mls = 3000, runnable = Runnable {
             val intent = Intent(this, GirlActivity::class.java)
             //TODO iplm ad for next screen
             intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)

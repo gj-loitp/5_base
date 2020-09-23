@@ -16,5 +16,8 @@ data class ActionData<T>(
         var data: T? = null,
 
         var message: String? = null,
+        var total: Int? = null,
+        var page: Int? = null,
+        var totalPages: Int? = null,
         val errorResponse: ErrorResponse? = null
 )
