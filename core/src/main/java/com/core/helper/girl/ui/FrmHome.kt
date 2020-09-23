@@ -59,10 +59,12 @@ class FrmHome : BaseFragment() {
             getPage(isSwipeToRefresh = true)
         }
         girlHeaderAdapter = GirlHeaderAdapter()
-        girlAlbumAdapter = GirlAlbumAdapter()
-        girlProgressAdapter = GirlProgressAdapter()
+        val girlTitleAdapterTopUser = GirlTitleAdapter()
+        girlTitleAdapterTopUser.setTitle(getString(R.string.top_user))
         val girlTitleAdapterAlbum = GirlTitleAdapter()
         girlTitleAdapterAlbum.setTitle(getString(R.string.album))
+        girlAlbumAdapter = GirlAlbumAdapter()
+        girlProgressAdapter = GirlProgressAdapter()
 
         girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
             logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
@@ -70,10 +72,12 @@ class FrmHome : BaseFragment() {
         }
 
         girlHeaderAdapter?.let { gha ->
-            girlTitleAdapterAlbum.let { gtaa ->
-                girlAlbumAdapter?.let { gaa ->
-                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtaa, gaa)
-                    mergeAdapter = MergeAdapter(listOfAdapters)
+            girlTitleAdapterTopUser.let { gtatu ->
+                girlTitleAdapterAlbum.let { gtaa ->
+                    girlAlbumAdapter?.let { gaa ->
+                        val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtaa, gaa)
+                        mergeAdapter = MergeAdapter(listOfAdapters)
+                    }
                 }
             }
         }

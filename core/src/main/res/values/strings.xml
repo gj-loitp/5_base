@@ -40,4 +40,5 @@
     <string name="today_s">Today\'s</string>
     <string name="hottest_shot">Hottest shot</string>
     <string name="album">Album</string>
+    <string name="top_user">Top user</string>
 </resources>
