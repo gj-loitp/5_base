@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
+import com.core.helper.girl.adapter.GirlAlbumAdapter
 import com.core.helper.girl.adapter.GirlHeaderAdapter
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LUIUtil
@@ -24,6 +25,7 @@ class FrmHome : BaseFragment() {
     private var girlViewModel: GirlViewModel? = null
     private var mergeAdapter: MergeAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
+    private var girlAlbumAdapter: GirlAlbumAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(R.layout.l_frm_girl_home, container, false)
@@ -47,9 +49,17 @@ class FrmHome : BaseFragment() {
             //TODO
         }
         girlHeaderAdapter = GirlHeaderAdapter()
+        girlAlbumAdapter = GirlAlbumAdapter()
+
+        girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
+            logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
+        }
+
         girlHeaderAdapter?.let { gha ->
-            val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha)
-            mergeAdapter = MergeAdapter(listOfAdapters)
+            girlAlbumAdapter?.let { gaa ->
+                val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gaa)
+                mergeAdapter = MergeAdapter(listOfAdapters)
+            }
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = mergeAdapter
@@ -63,6 +73,7 @@ class FrmHome : BaseFragment() {
 
                     override fun onBottom() {
                         logD("onBottom")
+                        //TODO
                     }
                 })
     }
@@ -85,6 +96,7 @@ class FrmHome : BaseFragment() {
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
                         girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
+                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage)
                     }
                 }
             })
