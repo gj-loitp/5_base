@@ -1,6 +1,5 @@
 package com.core.helper.girl.adapter
 
-import android.animation.ValueAnimator
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
@@ -47,23 +46,11 @@ class GirlAlbumAdapter : AnimationAdapter() {
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-//                            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
-
-                            itemView.roundRect?.let { rrv ->
-                                ValueAnimator.ofFloat(0f, 200f, 0f).apply {
-                                    addUpdateListener { animation ->
-                                        rrv.bottomLeftRadius = (animation.animatedValue as Float)
-                                    }
-                                    duration = 800
-                                    repeatCount = ValueAnimator.INFINITE
-                                    repeatMode = ValueAnimator.REVERSE
-                                }.start()
-                            }
-
+                            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
                             return false
                         }
                     })
-            itemView.imageView.setSafeOnClickListener {
+            itemView.cardView.setSafeOnClickListener {
                 onClickRootListener?.invoke(girlPage, bindingAdapterPosition)
             }
         }

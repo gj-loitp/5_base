@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.github.florent37.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/roundRect"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_medium"
-    android:layout_marginTop="@dimen/margin_50"
-    android:elevation="@dimen/w_3"
-    app:shape_roundRect_borderColor="@color/whiteSmoke"
-    app:shape_roundRect_borderWidth="@dimen/w_1"
-    app:shape_roundRect_bottomLeftRadius="0dp"
-    app:shape_roundRect_bottomRightRadius="10dp"
-    app:shape_roundRect_topLeftRadius="@dimen/round_medium"
-    app:shape_roundRect_topRightRadius="@dimen/round_medium"
+    android:layout_marginStart="@dimen/margin_medium"
+    android:layout_marginTop="@dimen/margin_small"
+    android:layout_marginEnd="@dimen/margin_medium"
+    android:layout_marginBottom="@dimen/margin_small"
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="@color/whiteSmoke"
+    app:cardCornerRadius="@dimen/round_medium"
+    app:cardElevation="@dimen/w_3"
+    app:cardUseCompatPadding="true"
     tools:ignore="UnusedAttribute">
 
-    <com.views.imageview.kenburnview.LKenBurnsView
-        android:id="@+id/imageView"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/app_name"
-        android:foreground="?selectableItemBackground"
-        tools:src="@drawable/logo" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_medium" />
+        <com.views.imageview.kenburnview.LKenBurnsView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            tools:src="@drawable/logo" />
 
-</com.github.florent37.shapeofview.shapes.RoundRectView>
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:padding="@dimen/padding_medium"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
+    </FrameLayout>
+
+</androidx.cardview.widget.CardView>
