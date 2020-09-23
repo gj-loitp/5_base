@@ -1,8 +1,8 @@
 package com.core.helper.girl.viewmodel
 
 import com.core.base.BaseViewModel
-import com.core.helper.girl.service.TestApiClient
-import com.core.helper.girl.service.TestRepository
+import com.core.helper.girl.service.GirlApiClient
+import com.core.helper.girl.service.GirlRepository
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import com.service.model.UserTest
@@ -15,9 +15,9 @@ import kotlinx.coroutines.launch
  * www.muathu@gmail.com
  */
 
-class TestViewModel : BaseViewModel() {
+class GirlViewModel : BaseViewModel() {
     private val logTag = javaClass.simpleName
-    private val repository: TestRepository = TestRepository(TestApiClient.apiService)
+    private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
     val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
 

@@ -6,10 +6,10 @@ package com.core.helper.girl.service
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-class ApiConfiguration {
+class GirlApiConfiguration {
     companion object {
         // authentication
-        const val BASE_AUTHEN_URL = "https://reqres.in/api/"
+        const val BASE_URL = "https://reqres.in/api/"
 
         // API Param
         const val AUTHORIZATION_HEADER = "Authorization"

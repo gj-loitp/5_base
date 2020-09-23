@@ -16,10 +16,10 @@ import java.util.concurrent.TimeUnit
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-class TestApiClient {
+class GirlApiClient {
 
     companion object {
-        private fun getBaseUrl() = ApiConfiguration.BASE_AUTHEN_URL
+        private fun getBaseUrl() = GirlApiConfiguration.BASE_URL
         private var restRequestInterceptor: RestRequestInterceptor? = null
 
         private fun getClient(url: String): Retrofit {
@@ -32,9 +32,9 @@ class TestApiClient {
             restRequestInterceptor = RestRequestInterceptor()
 
             builder.apply {
-                connectTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-                readTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-                writeTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+                connectTimeout(GirlApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+                readTimeout(GirlApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+                writeTimeout(GirlApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
                 //addInterceptor(AuthenticationInterceptor())
                 restRequestInterceptor?.let { rri ->
                     addInterceptor(rri)
@@ -55,18 +55,18 @@ class TestApiClient {
             }.build()
         }
 
-        val apiService = getClient(getBaseUrl()).create(ApiService::class.java)
+        val apiService = getClient(getBaseUrl()).create(GirlApiService::class.java)
 
         fun addHeader(name: String, value: String) {
             restRequestInterceptor?.addHeader(name, value)
         }
 
         fun addAuthorization(token: String) {
-            addHeader(ApiConfiguration.AUTHORIZATION_HEADER, token)
+            addHeader(GirlApiConfiguration.AUTHORIZATION_HEADER, token)
         }
 
         fun removeAuthorization() {
-            removeHeader(ApiConfiguration.AUTHORIZATION_HEADER)
+            removeHeader(GirlApiConfiguration.AUTHORIZATION_HEADER)
         }
 
         fun removeHeader(name: String) {

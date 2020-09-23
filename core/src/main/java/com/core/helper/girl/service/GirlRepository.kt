@@ -10,9 +10,9 @@ import com.service.repository.BaseRepository
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-class TestRepository(private val apiService: ApiService) : BaseRepository() {
+class GirlRepository(private val girlApiService: GirlApiService) : BaseRepository() {
 
     suspend fun getUserTest(page: Int): ApiResponse<ArrayList<UserTest>> = makeApiCall {
-        apiService.getUserTestAsync(page).await()
+        girlApiService.getUserTestAsync(page).await()
     }
 }

@@ -24,7 +24,6 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import com.restapi.restclient.RestClient
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 
 @LogTag("GirlActivity")
@@ -39,7 +38,6 @@ class GirlSplashActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl_splash)
 
-        RestClient.init(getString(R.string.girl_URL))
         admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 
         if (admobBannerUnitId.isNullOrEmpty()) {
