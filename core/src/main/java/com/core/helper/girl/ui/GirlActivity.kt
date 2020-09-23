@@ -10,6 +10,7 @@ import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.helper.girl.model.MenuGirl
 import com.views.viewpager.viewpagertransformers.CubeInTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
 import kotlinx.android.synthetic.main.l_activity_girl.*

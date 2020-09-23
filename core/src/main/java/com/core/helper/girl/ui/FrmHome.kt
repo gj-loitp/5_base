@@ -24,7 +24,7 @@ class FrmHome : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupViewModels()
-        girlViewModel?.getUserTestListByPage(0, true)
+        girlViewModel?.getPage(pageIndex = 0, keyWord = null)
     }
 
     private fun setupViewModels() {

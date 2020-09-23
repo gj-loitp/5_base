@@ -1,7 +1,5 @@
 package com.core.helper.girl.service
 
-import com.service.model.ApiResponse
-import com.service.model.UserTest
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
@@ -9,7 +7,10 @@ import retrofit2.http.Query
 
 interface GirlApiService {
 
-    @GET("users/")
-    fun getUserTestAsync(@Query("page") page: Int):
-            Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
+    @GET("news/")
+    fun getPageAsync(
+            @Query("PageIndex") pageIndex: Int,
+            @Query("PageSize") pageSize: Int,
+            @Query("Keyword") keyword: String?
+    ): Deferred<Response<GirlApiResponse<Any>>>
 }

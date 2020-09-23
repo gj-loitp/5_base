@@ -5,7 +5,6 @@ import com.core.helper.girl.service.GirlApiClient
 import com.core.helper.girl.service.GirlRepository
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
-import com.service.model.UserTest
 import kotlinx.coroutines.launch
 
 /**
@@ -16,27 +15,33 @@ import kotlinx.coroutines.launch
  */
 
 class GirlViewModel : BaseViewModel() {
-    private val logTag = javaClass.simpleName
+    private val logTag = "loitpp" + javaClass.simpleName
     private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
-    val userActionLiveData: ActionLiveData<ActionData<ArrayList<UserTest>>> = ActionLiveData()
+    val userActionLiveData: ActionLiveData<ActionData<Any>> = ActionLiveData()
 
-    fun getUserTestListByPage(page: Int, isRefresh: Boolean) {
+    fun getPage(pageIndex: Int, keyWord: String?) {
         userActionLiveData.set(ActionData(isDoing = true))
 
         ioScope.launch {
-            val response = repository.getUserTest(page = page)
-            if (response.data != null) {
+//            LLog.d(logTag, ">>>getPage pageIndex $pageIndex, keyWord: $keyWord")
+            val response = repository.getPage(
+                    pageIndex = pageIndex,
+                    keyWord = keyWord
+            )
+//            LLog.d(logTag, "<<<getPage " + Gson().toJson(response))
+            if (response.items == null) {
+                userActionLiveData.postAction(
+                        getErrorRequestGirl(response)
+                )
+            } else {
                 userActionLiveData.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
-                                isSwipeToRefresh = isRefresh,
-                                data = response.data
+                                data = response.items
                         )
                 )
-            } else {
-                userActionLiveData.postAction(getErrorRequest(response))
             }
         }
 
