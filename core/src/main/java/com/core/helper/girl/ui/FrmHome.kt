@@ -13,6 +13,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.GirlAlbumAdapter
 import com.core.helper.girl.adapter.GirlHeaderAdapter
+import com.core.helper.girl.adapter.GirlProgressAdapter
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LUIUtil
 import com.google.gson.Gson
@@ -26,6 +27,7 @@ class FrmHome : BaseFragment() {
     private var mergeAdapter: MergeAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
     private var girlAlbumAdapter: GirlAlbumAdapter? = null
+    private var girlProgressAdapter: GirlProgressAdapter? = null
     private var currentPageIndex = 0
     private var totalPage = Int.MAX_VALUE
 
@@ -56,6 +58,7 @@ class FrmHome : BaseFragment() {
         }
         girlHeaderAdapter = GirlHeaderAdapter()
         girlAlbumAdapter = GirlAlbumAdapter()
+        girlProgressAdapter = GirlProgressAdapter()
 
         girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
             logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
@@ -64,8 +67,10 @@ class FrmHome : BaseFragment() {
 
         girlHeaderAdapter?.let { gha ->
             girlAlbumAdapter?.let { gaa ->
-                val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gaa)
-                mergeAdapter = MergeAdapter(listOfAdapters)
+                girlProgressAdapter?.let { gpa ->
+                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gaa)
+                    mergeAdapter = MergeAdapter(listOfAdapters)
+                }
             }
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -82,6 +87,9 @@ class FrmHome : BaseFragment() {
                         logD("onBottom $currentPageIndex/$totalPage")
                         if (currentPageIndex < totalPage) {
                             currentPageIndex++
+                            girlProgressAdapter?.let {
+                                mergeAdapter?.addAdapter(it)
+                            }
                             getPage(isSwipeToRefresh = false)
                         }
                     }
@@ -110,6 +118,10 @@ class FrmHome : BaseFragment() {
                         girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
                         girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh
                                 ?: false)
+
+                        girlProgressAdapter?.let {
+                            //mergeAdapter?.removeAdapter(it)
+                        }
                     }
                 }
             })
