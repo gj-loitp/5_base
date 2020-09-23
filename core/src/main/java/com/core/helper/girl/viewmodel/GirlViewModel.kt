@@ -1,6 +1,7 @@
 package com.core.helper.girl.viewmodel
 
 import com.core.base.BaseViewModel
+import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.service.GirlApiClient
 import com.core.helper.girl.service.GirlRepository
 import com.service.livedata.ActionData
@@ -18,7 +19,7 @@ class GirlViewModel : BaseViewModel() {
     private val logTag = "loitpp" + javaClass.simpleName
     private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
-    val userActionLiveData: ActionLiveData<ActionData<Any>> = ActionLiveData()
+    val userActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
 
     fun getPage(pageIndex: Int, keyWord: String?) {
         userActionLiveData.set(ActionData(isDoing = true))

@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-<!--    <com.github.mmin18.widget.RealtimeBlurView-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/tvHottestShot"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:realtimeBlurRadius="@dimen/round_5"-->
-<!--        app:realtimeOverlayColor="@color/black35" />-->
+    <!--    <com.github.mmin18.widget.RealtimeBlurView-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/tvHottestShot"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:realtimeBlurRadius="@dimen/round_5"-->
+    <!--        app:realtimeOverlayColor="@color/black35" />-->
 
     <TextView
         android:id="@+id/tvToday"
@@ -51,9 +51,15 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UnusedAttribute" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        style="@style/ScrollVertical"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            style="@style/ScrollVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
