@@ -90,12 +90,10 @@ class FrmGetListUser : BaseFragment() {
             tvm.userActionLiveData.observe(viewLifecycleOwner, Observer { action ->
                 logD("userAction.observe action.isDoing ${action.isDoing}")
                 action.isDoing?.let { isDoing ->
-                    //LLog.d(TAG, "observe isDoing $isDoing")
                     swipeRefreshLayout.isRefreshing = isDoing
                 }
 
                 action.data?.let { userTestList ->
-                    //LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
                     val isRefresh = action.isSwipeToRefresh
                     tvm.addUserList(userTestList = userTestList, isRefresh = isRefresh)
                 }
