@@ -293,6 +293,10 @@ class LUIUtil {
                     R.color.vip3, R.color.vip4, R.color.vip5)
         }
 
+        fun setProgressViewOffset(swipeRefreshLayout: SwipeRefreshLayout?, topMargin: Int) {
+            swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
+        }
+
         fun setTextShadow(textView: TextView?, color: Int = Color.BLACK) {
             textView?.setShadowLayer(1f, // radius
                     1f, // dx

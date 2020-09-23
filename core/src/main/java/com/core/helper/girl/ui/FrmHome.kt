@@ -51,6 +51,7 @@ class FrmHome : BaseFragment() {
 
     private fun setupViews() {
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
+        LUIUtil.setProgressViewOffset(swipeRefreshLayout = swipeRefreshLayout, topMargin = 120)
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
             currentPageIndex = 0
@@ -87,8 +88,11 @@ class FrmHome : BaseFragment() {
                         logD("onBottom $currentPageIndex/$totalPage")
                         if (currentPageIndex < totalPage) {
                             currentPageIndex++
-                            girlProgressAdapter?.let {
-                                mergeAdapter?.addAdapter(it)
+                            girlProgressAdapter?.let { gpa ->
+                                mergeAdapter?.let { ma ->
+                                    ma.addAdapter(gpa)
+                                    recyclerView.smoothScrollToPosition(ma.itemCount - 1)
+                                }
                             }
                             getPage(isSwipeToRefresh = false)
                         }
@@ -115,13 +119,13 @@ class FrmHome : BaseFragment() {
 
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
+                        girlProgressAdapter?.let {
+                            mergeAdapter?.removeAdapter(it)
+                        }
                         girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
                         girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh
                                 ?: false)
 
-                        girlProgressAdapter?.let {
-                            //mergeAdapter?.removeAdapter(it)
-                        }
                     }
                 }
             })
