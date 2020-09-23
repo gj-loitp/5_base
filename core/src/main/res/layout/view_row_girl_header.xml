@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.florent37.shapeofview.shapes.ArcView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/w_250"
+    android:elevation="@dimen/w_3"
+    app:shape_arc_height="20dp"
+    app:shape_arc_position="bottom"
+    tools:ignore="UnusedAttribute">
+
+    <com.views.imageview.kenburnview.LKenBurnsView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/app_name"
+        tools:src="@drawable/logo" />
+
+</com.github.florent37.shapeofview.shapes.ArcView>
