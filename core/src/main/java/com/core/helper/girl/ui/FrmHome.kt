@@ -14,6 +14,7 @@ import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.GirlAlbumAdapter
 import com.core.helper.girl.adapter.GirlHeaderAdapter
 import com.core.helper.girl.adapter.GirlProgressAdapter
+import com.core.helper.girl.adapter.GirlTitleAdapter
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LUIUtil
 import com.google.gson.Gson
@@ -60,6 +61,8 @@ class FrmHome : BaseFragment() {
         girlHeaderAdapter = GirlHeaderAdapter()
         girlAlbumAdapter = GirlAlbumAdapter()
         girlProgressAdapter = GirlProgressAdapter()
+        val girlTitleAdapterAlbum = GirlTitleAdapter()
+        girlTitleAdapterAlbum.setTitle(getString(R.string.album))
 
         girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
             logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
@@ -67,9 +70,9 @@ class FrmHome : BaseFragment() {
         }
 
         girlHeaderAdapter?.let { gha ->
-            girlAlbumAdapter?.let { gaa ->
-                girlProgressAdapter?.let { gpa ->
-                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gaa)
+            girlTitleAdapterAlbum.let { gtaa ->
+                girlAlbumAdapter?.let { gaa ->
+                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtaa, gaa)
                     mergeAdapter = MergeAdapter(listOfAdapters)
                 }
             }
