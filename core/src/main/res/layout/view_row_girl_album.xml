@@ -16,7 +16,7 @@
     app:shape_roundRect_topRightRadius="@dimen/round_medium"
     tools:ignore="UnusedAttribute">
 
-    <ImageView
+    <com.views.imageview.kenburnview.LKenBurnsView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
