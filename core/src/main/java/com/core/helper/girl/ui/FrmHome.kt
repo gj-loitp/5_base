@@ -13,6 +13,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.*
 import com.core.helper.girl.model.GirlTopUser
+import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LUIUtil
 import com.google.gson.Gson
@@ -26,6 +27,7 @@ class FrmHome : BaseFragment() {
     private var mergeAdapter: MergeAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
     private var girlTopUserAdapter: GirlTopUserAdapter? = null
+    private var girlTopVideoAdapter: GirlTopVideoAdapter? = null
     private var girlAlbumAdapter: GirlAlbumAdapter? = null
     private var girlProgressAdapter: GirlProgressAdapter? = null
     private var currentPageIndex = 0
@@ -39,11 +41,11 @@ class FrmHome : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        logD("onViewCreated")
         setupViews()
         setupViewModels()
         getPage(isSwipeToRefresh = false)
         getListGirlTopUser()
+        getListGirlTopVideo()
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {
@@ -87,6 +89,40 @@ class FrmHome : BaseFragment() {
         girlTopUserAdapter?.setListGirlTopUser(listGirlTopUser)
     }
 
+    private fun getListGirlTopVideo() {
+        val listGirlTopVideo = ArrayList<GirlTopVideo>()
+
+        var girlTopVideo = GirlTopVideo(
+                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+                title = "'24/365 with BLACKPINK' EP.12",
+                link = "https://www.youtube.com/watch?v=Is0iob8lz4w"
+        )
+        listGirlTopVideo.add(element = girlTopVideo)
+
+        girlTopVideo = GirlTopVideo(
+                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+                title = "'How You Like That' M/V",
+                link = "https://www.youtube.com/watch?v=ioNng23DkIM"
+        )
+        listGirlTopVideo.add(element = girlTopVideo)
+
+        girlTopVideo = GirlTopVideo(
+                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+                title = "LIKEY M/V",
+                link = "https://www.youtube.com/watch?v=V2hlQkVJZhE"
+        )
+        listGirlTopVideo.add(element = girlTopVideo)
+
+        girlTopVideo = GirlTopVideo(
+                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+                title = "'붐바야'(BOOMBAYAH) M/V",
+                link = "https://www.youtube.com/watch?v=bwmSjveL3Lc"
+        )
+        listGirlTopVideo.add(element = girlTopVideo)
+
+        girlTopVideoAdapter?.setListGirlTopUser(listGirlTopVideo)
+    }
+
     private fun setupViews() {
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
         LUIUtil.setProgressViewOffset(swipeRefreshLayout = swipeRefreshLayout, topMargin = 120)
@@ -101,6 +137,7 @@ class FrmHome : BaseFragment() {
         girlTopUserAdapter = GirlTopUserAdapter()
         val girlTitleAdapterVideo = GirlTitleAdapter()
         girlTitleAdapterVideo.setTitle(getString(R.string.video))
+        girlTopVideoAdapter = GirlTopVideoAdapter()
         val girlTitleAdapterAlbum = GirlTitleAdapter()
         girlTitleAdapterAlbum.setTitle(getString(R.string.album))
         girlAlbumAdapter = GirlAlbumAdapter()
@@ -113,15 +150,20 @@ class FrmHome : BaseFragment() {
         girlTopUserAdapter?.onClickRootView = { girlTopUser ->
             //TODO
         }
+        girlTopVideoAdapter?.onClickRootView = { girlTopVideo ->
+            LUIUtil.playYoutube(activity = activity, url = girlTopVideo.link)
+        }
 
         girlHeaderAdapter?.let { gha ->
             girlTitleAdapterTopUser.let { gtatu ->
                 girlTopUserAdapter?.let { gtua ->
                     girlTitleAdapterVideo.let { gtav ->
-                        girlTitleAdapterAlbum.let { gtaa ->
-                            girlAlbumAdapter?.let { gaa ->
-                                val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtav, gtaa, gaa)
-                                mergeAdapter = MergeAdapter(listOfAdapters)
+                        girlTopVideoAdapter?.let { gtva ->
+                            girlTitleAdapterAlbum.let { gtaa ->
+                                girlAlbumAdapter?.let { gaa ->
+                                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtav, gtva, gtaa, gaa)
+                                    mergeAdapter = MergeAdapter(listOfAdapters)
+                                }
                             }
                         }
                     }

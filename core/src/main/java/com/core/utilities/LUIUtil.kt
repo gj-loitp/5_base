@@ -656,9 +656,9 @@ class LUIUtil {
         }
 
         //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
-        fun playYoutube(activity: Activity?, url: String) {
+        fun playYoutube(activity: Activity?, url: String?) {
             activity?.let { a ->
-                if (url.isEmpty()) {
+                if (url.isNullOrEmpty()) {
                     return
                 }
                 a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))

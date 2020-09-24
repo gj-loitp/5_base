@@ -15,7 +15,7 @@
         android:layout_width="@dimen/w_200"
         android:layout_height="@dimen/w_200"
         android:contentDescription="@string/app_name"
-        app:civ_border_color="@color/whiteSmoke"
+        app:civ_border_color="@color/gray"
         app:civ_border_width="@dimen/w_1"
         tools:src="@drawable/logo" />
 
