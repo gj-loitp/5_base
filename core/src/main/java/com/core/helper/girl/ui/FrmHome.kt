@@ -53,12 +53,37 @@ class FrmHome : BaseFragment() {
 
     private fun getListGirlTopUser() {
         val listGirlTopUser = ArrayList<GirlTopUser>()
+
         val girlTopUserLoi = GirlTopUser(
                 avatar = "https://live.staticflickr.com/8612/28213046065_796c678f46_q.jpg",
                 name = "Lợi Dubai"
         )
         listGirlTopUser.add(element = girlTopUserLoi)
-        
+
+        val girlTopUserToai = GirlTopUser(
+                avatar = "https://live.staticflickr.com/5712/30595575736_2f7825cdec_q.jpg",
+                name = "Toại Titu"
+        )
+        listGirlTopUser.add(element = girlTopUserToai)
+
+        val girlTopUserHung = GirlTopUser(
+                avatar = "https://live.staticflickr.com/65535/49424976107_5e9e680df8_q.jpg",
+                name = "Hưng Cu Đen"
+        )
+        listGirlTopUser.add(element = girlTopUserHung)
+
+        val girlTopUserTuan = GirlTopUser(
+                avatar = "https://live.staticflickr.com/65535/49424972522_254064a97d_q.jpg",
+                name = "Tuấn Liệt"
+        )
+        listGirlTopUser.add(element = girlTopUserTuan)
+
+        val girlTopUserTien = GirlTopUser(
+                avatar = "https://live.staticflickr.com/65535/48111902461_f316050394_q.jpg",
+                name = "Tiên Giả"
+        )
+        listGirlTopUser.add(element = girlTopUserTien)
+
         girlTopUserAdapter?.setListGirlTopUser(listGirlTopUser)
     }
 

@@ -9,7 +9,6 @@ import com.core.adapter.AnimationAdapter
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.view.ViewGirlTopUser
 import com.core.utilities.LImageUtil
-import com.core.utilities.LLog
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_girl_top_user.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_user.view.*
@@ -30,7 +29,7 @@ class GirlTopUserAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind() {
-            LLog.d(logTag, "bind $bindingAdapterPosition")
+//            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.layoutHorizontal.removeAllViews()
             listGirlTopUser.forEach { girlTopUser ->
                 val viewGirlTopUser = ViewGirlTopUser(itemView.context)
