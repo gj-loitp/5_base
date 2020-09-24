@@ -41,7 +41,10 @@ class LActivityUtil {
         }
 
         @JvmStatic
-        fun tranIn(context: Context) {
+        fun tranIn(context: Context?) {
+            if (context == null) {
+                return
+            }
             when (ActivityData.instance.type) {
                 Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
                     transActivityNoAniamtion(context as Activity)

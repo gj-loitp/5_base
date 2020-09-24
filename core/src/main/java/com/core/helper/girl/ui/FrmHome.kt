@@ -1,5 +1,6 @@
 package com.core.helper.girl.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,8 +16,8 @@ import com.core.helper.girl.adapter.*
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.viewmodel.GirlViewModel
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
-import com.google.gson.Gson
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
@@ -145,8 +146,10 @@ class FrmHome : BaseFragment() {
         girlProgressAdapter = GirlProgressAdapter()
 
         girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
-            logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
-            //TODO
+            //logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
+            val intent = Intent(activity, GirlDetailActivity::class.java)
+            startActivity(intent)
+            LActivityUtil.tranIn(activity)
         }
         girlTopUserAdapter?.onClickRootView = { girlTopUser ->
             //TODO
