@@ -42,4 +42,5 @@
     <string name="album">Album</string>
     <string name="top_user">Top user</string>
     <string name="video">Video</string>
+    <string name="search">Search…</string>
 </resources>

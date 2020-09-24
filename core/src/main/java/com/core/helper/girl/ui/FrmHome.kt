@@ -194,6 +194,18 @@ class FrmHome : BaseFragment() {
                         }
                     }
                 })
+
+        ivSearch.setOnClickListener {
+            if (cardViewSearch.visibility == View.VISIBLE) {
+                cardViewSearch.visibility = View.INVISIBLE
+                tvToday.visibility = View.VISIBLE
+                tvHottestShot.visibility = View.VISIBLE
+            } else {
+                cardViewSearch.visibility = View.VISIBLE
+                tvToday.visibility = View.INVISIBLE
+                tvHottestShot.visibility = View.INVISIBLE
+            }
+        }
     }
 
     private fun setupViewModels() {
