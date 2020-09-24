@@ -42,19 +42,19 @@ class LAnimationUtil {
         }
 
         fun play(view: View?, techniques: Techniques) {
-            play(view, 500, 1, techniques, 0, null)
+            play(view, 300, 1, techniques, 0, null)
         }
 
         fun playRepeatCount(view: View?, techniques: Techniques, count: Int) {
-            play(view, 500, count, techniques, 0, null)
+            play(view, 300, count, techniques, 0, null)
         }
 
         fun play(view: View?, techniques: Techniques, delayInMls: Int) {
-            play(view, 500, 1, techniques, delayInMls, null)
+            play(view, 300, 1, techniques, delayInMls, null)
         }
 
         fun play(view: View?, techniques: Techniques, callbackAnimation: CallbackAnimation) {
-            play(view, 500, 1, techniques, 0, callbackAnimation)
+            play(view, 300, 1, techniques, 0, callbackAnimation)
         }
 
         fun playDuration(view: View?, techniques: Techniques, duration: Int) {
@@ -72,7 +72,7 @@ class LAnimationUtil {
                 anim.interpolator = LinearInterpolator()
                 anim.fillAfter = true
                 //anim.setRepeatCount(Animation.INFINITE); //Repeat animation indefinitely
-                anim.duration = 500 //Put desired duration per anim cycle here, in milliseconds
+                anim.duration = 300 //Put desired duration per anim cycle here, in milliseconds
                 anim.setAnimationListener(animationListener)
                 it.startAnimation(anim)
             }

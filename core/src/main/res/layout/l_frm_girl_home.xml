@@ -21,80 +21,54 @@
     <com.github.mmin18.widget.RealtimeBlurView
         android:id="@+id/realtimeBlurView"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvHottestShot"
+        android:layout_height="@dimen/w_70"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:realtimeBlurRadius="@dimen/round_5"
         app:realtimeOverlayColor="@color/whiteTrans" />
 
-    <TextView
-        android:id="@+id/tvToday"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_large"
-        android:layout_marginTop="@dimen/margin_large"
-        android:text="@string/today_s"
-        android:textColor="@color/black"
-        android:textSize="@dimen/txt_30"
-        android:textStyle="bold"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/w_1"
+        android:background="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/realtimeBlurView" />
 
-    <TextView
-        android:id="@+id/tvHottestShot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hottest_shot"
-        android:textColor="@color/gray"
-        android:textSize="@dimen/txt_medium"
-        app:layout_constraintStart_toStartOf="@+id/tvToday"
-        app:layout_constraintTop_toBottomOf="@+id/tvToday" />
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        android:hint="@string/search"
+        android:paddingStart="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingEnd="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/text_large"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
+        app:layout_constraintEnd_toStartOf="@+id/ivSearch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/realtimeBlurView" />
 
     <ImageView
         android:id="@+id/ivSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_large"
         android:layout_marginEnd="@dimen/margin_large"
         android:contentDescription="@string/app_name"
         android:foreground="?selectableItemBackgroundBorderless"
         android:src="@drawable/ic_search_black_48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="UnusedAttribute" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewSearch"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/margin_small"
-        android:visibility="gone"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="@dimen/round_medium"
-        app:cardElevation="@dimen/w_3"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
-        app:layout_constraintEnd_toStartOf="@+id/ivSearch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/realtimeBlurView"
-        tools:visibility="visible">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:background="@color/transparent"
-            android:gravity="center_vertical"
-            android:hint="@string/search"
-            android:padding="@dimen/padding_medium"
-            android:singleLine="true"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="@dimen/text_medium" />
-    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tvNoData"

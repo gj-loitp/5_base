@@ -15,11 +15,8 @@ import com.core.helper.girl.adapter.*
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.viewmodel.GirlViewModel
-import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
-import com.daimajia.androidanimations.library.Techniques
 import com.google.gson.Gson
-import com.interfaces.CallbackAnimation
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
@@ -36,6 +33,7 @@ class FrmHome : BaseFragment() {
     private var girlProgressAdapter: GirlProgressAdapter? = null
     private var currentPageIndex = 0
     private var totalPage = Int.MAX_VALUE
+    private var currentKeyword: String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(R.layout.l_frm_girl_home, container, false)
@@ -53,8 +51,7 @@ class FrmHome : BaseFragment() {
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {
-        val keyword = ""//TODO
-        girlViewModel?.getPage(pageIndex = currentPageIndex, keyWord = keyword, isSwipeToRefresh = isSwipeToRefresh)
+        girlViewModel?.getPage(pageIndex = currentPageIndex, keyWord = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
     }
 
     private fun getListGirlTopUser() {
@@ -202,6 +199,9 @@ class FrmHome : BaseFragment() {
         ivSearch.setOnClickListener {
             handleSearch()
         }
+        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
+            ivSearch.performClick()
+        })
     }
 
     private fun setupViewModels() {
@@ -237,59 +237,13 @@ class FrmHome : BaseFragment() {
     }
 
     private fun handleSearch() {
-        if (cardViewSearch.visibility == View.VISIBLE) {
-            LAnimationUtil.play(view = cardViewSearch, techniques = Techniques.FadeOut, callbackAnimation = object : CallbackAnimation {
-                override fun onCancel() {
-                }
-
-                override fun onEnd() {
-                    etSearch.setText("")
-                    cardViewSearch?.visibility = View.INVISIBLE
-                }
-
-                override fun onRepeat() {
-                }
-
-                override fun onStart() {
-                }
-            })
-            tvToday.visibility = View.VISIBLE
-            tvHottestShot.visibility = View.VISIBLE
-            LAnimationUtil.play(view = tvToday, techniques = Techniques.FadeIn)
-            LAnimationUtil.play(view = tvHottestShot, techniques = Techniques.FadeIn)
-            KeyboardUtils.hideSoftInput(context, etSearch)
-        } else {
-            cardViewSearch.visibility = View.VISIBLE
-            LAnimationUtil.play(view = cardViewSearch, techniques = Techniques.FadeIn)
-            LAnimationUtil.play(view = tvToday, techniques = Techniques.FadeOut, callbackAnimation = object : CallbackAnimation {
-                override fun onCancel() {
-                }
-
-                override fun onEnd() {
-                    tvToday.visibility = View.INVISIBLE
-                }
-
-                override fun onRepeat() {
-                }
-
-                override fun onStart() {
-                }
-            })
-            LAnimationUtil.play(view = tvHottestShot, techniques = Techniques.FadeOut, callbackAnimation = object : CallbackAnimation {
-                override fun onCancel() {
-                }
-
-                override fun onEnd() {
-                    tvHottestShot.visibility = View.INVISIBLE
-                }
-
-                override fun onRepeat() {
-                }
-
-                override fun onStart() {
-                }
-            })
-            KeyboardUtils.showSoftInput(etSearch)
+        if (etSearch.text.toString().trim().isEmpty()) {
+            return
         }
+        KeyboardUtils.hideSoftInput(context, etSearch)
+        etSearch.apply {
+            currentKeyword = this.text.toString().trim()
+        }
+        getPage(isSwipeToRefresh = true)
     }
 }
