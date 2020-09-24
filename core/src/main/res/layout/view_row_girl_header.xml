@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/w_250"
+    android:layout_height="wrap_content"
     android:elevation="@dimen/w_3"
+    android:paddingTop="@dimen/padding_100"
     app:shape_arc_height="20dp"
     app:shape_arc_position="bottom"
     tools:ignore="UnusedAttribute">
@@ -12,7 +13,7 @@
     <com.views.imageview.kenburnview.LKenBurnsView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/w_250"
         android:contentDescription="@string/app_name"
         tools:src="@drawable/logo" />
 
