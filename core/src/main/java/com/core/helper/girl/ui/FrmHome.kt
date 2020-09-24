@@ -11,10 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
-import com.core.helper.girl.adapter.GirlAlbumAdapter
-import com.core.helper.girl.adapter.GirlHeaderAdapter
-import com.core.helper.girl.adapter.GirlProgressAdapter
-import com.core.helper.girl.adapter.GirlTitleAdapter
+import com.core.helper.girl.adapter.*
+import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LUIUtil
 import com.google.gson.Gson
@@ -27,6 +25,7 @@ class FrmHome : BaseFragment() {
     private var girlViewModel: GirlViewModel? = null
     private var mergeAdapter: MergeAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
+    private var girlTopUserAdapter: GirlTopUserAdapter? = null
     private var girlAlbumAdapter: GirlAlbumAdapter? = null
     private var girlProgressAdapter: GirlProgressAdapter? = null
     private var currentPageIndex = 0
@@ -40,14 +39,27 @@ class FrmHome : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        logD("onViewCreated")
         setupViews()
         setupViewModels()
         getPage(isSwipeToRefresh = false)
+        getListGirlTopUser()
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {
         val keyword = ""//TODO
         girlViewModel?.getPage(pageIndex = currentPageIndex, keyWord = keyword, isSwipeToRefresh = isSwipeToRefresh)
+    }
+
+    private fun getListGirlTopUser() {
+        val listGirlTopUser = ArrayList<GirlTopUser>()
+        val girlTopUserLoi = GirlTopUser(
+                avatar = "https://live.staticflickr.com/8612/28213046065_796c678f46_q.jpg",
+                name = "Lợi Dubai"
+        )
+        listGirlTopUser.add(element = girlTopUserLoi)
+        
+        girlTopUserAdapter?.setListGirlTopUser(listGirlTopUser)
     }
 
     private fun setupViews() {
@@ -61,6 +73,7 @@ class FrmHome : BaseFragment() {
         girlHeaderAdapter = GirlHeaderAdapter()
         val girlTitleAdapterTopUser = GirlTitleAdapter()
         girlTitleAdapterTopUser.setTitle(getString(R.string.top_user))
+        girlTopUserAdapter = GirlTopUserAdapter()
         val girlTitleAdapterAlbum = GirlTitleAdapter()
         girlTitleAdapterAlbum.setTitle(getString(R.string.album))
         girlAlbumAdapter = GirlAlbumAdapter()
@@ -70,13 +83,18 @@ class FrmHome : BaseFragment() {
             logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
             //TODO
         }
+        girlTopUserAdapter?.onClickRootView = { girlTopUser ->
+            //TODO
+        }
 
         girlHeaderAdapter?.let { gha ->
             girlTitleAdapterTopUser.let { gtatu ->
-                girlTitleAdapterAlbum.let { gtaa ->
-                    girlAlbumAdapter?.let { gaa ->
-                        val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtaa, gaa)
-                        mergeAdapter = MergeAdapter(listOfAdapters)
+                girlTopUserAdapter?.let { gtua ->
+                    girlTitleAdapterAlbum.let { gtaa ->
+                        girlAlbumAdapter?.let { gaa ->
+                            val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtaa, gaa)
+                            mergeAdapter = MergeAdapter(listOfAdapters)
+                        }
                     }
                 }
             }

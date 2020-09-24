@@ -38,7 +38,7 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 git push -f*/
 
 class LApplication : MultiDexApplication() {
-    private val TAG = LApplication::class.java.simpleName
+    private val logTag = LApplication::class.java.simpleName
 
     companion object {
         val gson: Gson = Gson()

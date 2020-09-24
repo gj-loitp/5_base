@@ -31,7 +31,7 @@ class GirlViewModel : BaseViewModel() {
         ioScope.launch {
             LLog.d(logTag, ">>>getPage pageIndex $pageIndex, keyWord: $keyWord, isSwipeToRefresh: $isSwipeToRefresh")
             if (BuildConfig.DEBUG) {
-                delay(5000)
+                delay(2000)
             }
             val response = repository.getPage(
                     pageIndex = pageIndex,
