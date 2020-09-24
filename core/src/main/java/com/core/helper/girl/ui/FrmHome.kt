@@ -99,6 +99,8 @@ class FrmHome : BaseFragment() {
         val girlTitleAdapterTopUser = GirlTitleAdapter()
         girlTitleAdapterTopUser.setTitle(getString(R.string.top_user))
         girlTopUserAdapter = GirlTopUserAdapter()
+        val girlTitleAdapterVideo = GirlTitleAdapter()
+        girlTitleAdapterVideo.setTitle(getString(R.string.video))
         val girlTitleAdapterAlbum = GirlTitleAdapter()
         girlTitleAdapterAlbum.setTitle(getString(R.string.album))
         girlAlbumAdapter = GirlAlbumAdapter()
@@ -115,10 +117,12 @@ class FrmHome : BaseFragment() {
         girlHeaderAdapter?.let { gha ->
             girlTitleAdapterTopUser.let { gtatu ->
                 girlTopUserAdapter?.let { gtua ->
-                    girlTitleAdapterAlbum.let { gtaa ->
-                        girlAlbumAdapter?.let { gaa ->
-                            val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtaa, gaa)
-                            mergeAdapter = MergeAdapter(listOfAdapters)
+                    girlTitleAdapterVideo.let { gtav ->
+                        girlTitleAdapterAlbum.let { gtaa ->
+                            girlAlbumAdapter?.let { gaa ->
+                                val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtav, gtaa, gaa)
+                                mergeAdapter = MergeAdapter(listOfAdapters)
+                            }
                         }
                     }
                 }
