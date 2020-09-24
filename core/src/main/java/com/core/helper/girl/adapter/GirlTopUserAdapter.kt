@@ -8,7 +8,9 @@ import com.R
 import com.core.adapter.AnimationAdapter
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.view.ViewGirlTopUser
+import com.core.utilities.LAnimationUtil
 import com.core.utilities.LImageUtil
+import com.daimajia.androidanimations.library.Techniques
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_girl_top_user.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_user.view.*
@@ -36,6 +38,7 @@ class GirlTopUserAdapter : AnimationAdapter() {
                 LImageUtil.load(context = viewGirlTopUser.imageView.context, url = girlTopUser.avatar, imageView = viewGirlTopUser.imageView)
                 viewGirlTopUser.tv.text = girlTopUser.name
                 viewGirlTopUser.layoutRootView.setSafeOnClickListener {
+                    LAnimationUtil.play(view = it, techniques = Techniques.Pulse)
                     onClickRootView?.invoke(girlTopUser)
                 }
                 itemView.layoutHorizontal.addView(viewGirlTopUser)
