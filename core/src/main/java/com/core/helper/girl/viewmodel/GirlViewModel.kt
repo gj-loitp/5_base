@@ -58,13 +58,28 @@ class GirlViewModel : BaseViewModel() {
 
     fun getDetail(id: String?) {
         pageDetailActionLiveData.set(ActionData(isDoing = true))
-
         ioScope.launch {
-            LLog.d(logTag, ">>>getDetail id $id")
+//            LLog.d(logTag, ">>>getDetail id $id")
             val response = repository.getPageDetail(
                     id = id
             )
-            LLog.d(logTag, "<<<getDetail " + Gson().toJson(response))
+//            LLog.d(logTag, "<<<getDetail " + Gson().toJson(response))
+            if (response.items == null) {
+                pageDetailActionLiveData.postAction(
+                        getErrorRequestGirl(response)
+                )
+            } else {
+                pageDetailActionLiveData.post(
+                        ActionData(
+                                isDoing = false,
+                                isSuccess = true,
+                                data = response.items,
+                                total = response.total,
+                                totalPages = response.totalPages,
+                                page = response.page
+                        )
+                )
+            }
         }
 
     }

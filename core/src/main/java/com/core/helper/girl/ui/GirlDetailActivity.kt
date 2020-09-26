@@ -2,6 +2,8 @@ package com.core.helper.girl.ui
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.Observer
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -9,9 +11,10 @@ import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LImageUtil
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
-@LogTag("GirlActivity")
+@LogTag("loitppGirlActivity")
 @IsFullScreen(false)
 class GirlDetailActivity : BaseFontActivity() {
 
@@ -50,7 +53,26 @@ class GirlDetailActivity : BaseFontActivity() {
     private fun setupViewModels() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
+            vm.pageDetailActionLiveData.observe(this, Observer { actionData ->
+                logD("pageDetailActionLiveData " + Gson().toJson(actionData))
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
 
+                if (isDoing == false && actionData.isSuccess == true) {
+                    val listGirlPageDetail = actionData.data
+                    if (listGirlPageDetail.isNullOrEmpty()) {
+                        tvNoData.visibility = View.VISIBLE
+                        recyclerView.visibility = View.GONE
+                    } else {
+                        tvNoData.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
+                    }
+                }
+            })
         }
     }
 }
