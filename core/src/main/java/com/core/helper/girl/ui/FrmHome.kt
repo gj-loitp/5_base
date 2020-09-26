@@ -17,6 +17,7 @@ import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
@@ -127,7 +128,7 @@ class FrmHome : BaseFragment() {
 
     private fun setupViews() {
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
-        LUIUtil.setProgressViewOffset(swipeRefreshLayout = swipeRefreshLayout, topMargin = 120)
+        LUIUtil.setProgressViewOffset(swipeRefreshLayout = swipeRefreshLayout, topMargin = LScreenUtil.screenHeight / 6)
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
             currentPageIndex = 0
@@ -213,7 +214,7 @@ class FrmHome : BaseFragment() {
             tvm.userActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
 //                logD("userActionLiveData $actionData")
                 val isDoing = actionData.isDoing
-                swipeRefreshLayout.isRefreshing = isDoing == true
+//                swipeRefreshLayout.isRefreshing = isDoing == true
 
                 if (isDoing == false && actionData.isSuccess == true) {
                     val listGirlPage = actionData.data
