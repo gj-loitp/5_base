@@ -10,8 +10,10 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.viewmodel.GirlViewModel
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.google.gson.Gson
+import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
 @LogTag("loitppGirlActivity")
@@ -48,6 +50,17 @@ class GirlDetailActivity : BaseFontActivity() {
         collapsingToolbarLayout.title = girlPage?.title
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE)
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAniamtion(this@GirlDetailActivity)
+                }
+            }
+        })
     }
 
     private fun setupViewModels() {
