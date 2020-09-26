@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:realtimeBlurRadius="@dimen/round_5"
+        app:realtimeBlurRadius="@dimen/round_45"
         app:realtimeOverlayColor="@color/whiteTrans" />
 
     <View
