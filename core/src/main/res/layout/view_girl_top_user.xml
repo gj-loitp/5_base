@@ -12,11 +12,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
-        android:layout_width="@dimen/w_200"
-        android:layout_height="@dimen/w_200"
+        android:layout_width="@dimen/w_150"
+        android:layout_height="@dimen/w_150"
         android:contentDescription="@string/app_name"
-        app:civ_border_color="@color/gray"
-        app:civ_border_width="@dimen/w_1"
+        app:civ_border_color="@color/black"
+        app:civ_border_width="@dimen/w_3"
         tools:src="@drawable/logo" />
 
     <TextView
