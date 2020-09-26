@@ -1,5 +1,6 @@
 package com.core.helper.girl.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import com.R
 import com.annotation.IsFullScreen
@@ -36,5 +37,8 @@ class GirlDetailActivity : BaseFontActivity() {
 
     private fun setupViews() {
         LImageUtil.load(context = this, url = girlPage?.src, imageView = ivCover)
+        collapsingToolbarLayout.title = girlPage?.title
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
+        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE)
     }
 }
