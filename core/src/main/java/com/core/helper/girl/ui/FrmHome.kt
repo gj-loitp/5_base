@@ -211,8 +211,8 @@ class FrmHome : BaseFragment() {
 
     private fun setupViewModels() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
-        girlViewModel?.let { tvm ->
-            tvm.userActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+        girlViewModel?.let { vm ->
+            vm.pageActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
 //                logD("userActionLiveData $actionData")
                 val isDoing = actionData.isDoing
 //                swipeRefreshLayout.isRefreshing = isDoing == true

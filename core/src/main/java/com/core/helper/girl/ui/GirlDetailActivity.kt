@@ -7,6 +7,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPage
+import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 class GirlDetailActivity : BaseFontActivity() {
 
     private var girlPage: GirlPage? = null
+    private var girlViewModel: GirlViewModel? = null
 
     companion object {
         const val KEY_GIRL_PAGE = "KEY_GIRL_PAGE"
@@ -26,6 +28,9 @@ class GirlDetailActivity : BaseFontActivity() {
 
         getData()
         setupViews()
+        setupViewModels()
+
+        girlViewModel?.getDetail(id = girlPage?.id)
     }
 
     private fun getData() {
@@ -40,5 +45,12 @@ class GirlDetailActivity : BaseFontActivity() {
         collapsingToolbarLayout.title = girlPage?.title
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE)
+    }
+
+    private fun setupViewModels() {
+        girlViewModel = getViewModel(GirlViewModel::class.java)
+        girlViewModel?.let { vm ->
+
+        }
     }
 }

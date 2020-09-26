@@ -1,6 +1,7 @@
 package com.core.helper.girl.service
 
 import com.core.helper.girl.model.GirlPage
+import com.core.helper.girl.model.GirlPageDetail
 
 /**
  * Created by Loitp on 24,December,2019
@@ -15,6 +16,14 @@ class GirlRepository(private val girlApiService: GirlApiService) : GirlBaseRepos
                 pageIndex = pageIndex,
                 pageSize = GirlApiConfiguration.PAGE_SIZE,
                 keyword = keyWord
+        ).await()
+    }
+
+    suspend fun getPageDetail(pageIndex: Int = 0, id: String?): GirlApiResponse<ArrayList<GirlPageDetail>> = makeApiCall {
+        girlApiService.getPageDetailAsync(
+                pageIndex = pageIndex,
+                pageSize = GirlApiConfiguration.PAGE_SIZE,
+                id = id
         ).await()
     }
 }
