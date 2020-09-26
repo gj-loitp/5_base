@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.github.florent37.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardView"
+    android:id="@+id/roundRect"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/margin_medium"
     android:layout_marginTop="@dimen/margin_small"
     android:layout_marginEnd="@dimen/margin_medium"
-    android:layout_marginBottom="@dimen/margin_small"
+    android:elevation="@dimen/w_3"
     android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="@color/whiteSmoke"
-    app:cardCornerRadius="@dimen/round_medium"
-    app:cardElevation="@dimen/w_3"
-    app:cardUseCompatPadding="true"
+    app:shape_roundRect_borderColor="@color/black"
+    app:shape_roundRect_borderWidth="@dimen/w_3"
+    app:shape_roundRect_bottomLeftRadius="0dp"
+    app:shape_roundRect_bottomRightRadius="@dimen/round_45"
+    app:shape_roundRect_topLeftRadius="@dimen/round_45"
+    app:shape_roundRect_topRightRadius="0dp"
     tools:ignore="UnusedAttribute">
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/app_name"
+        tools:src="@drawable/logo" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
-            tools:src="@drawable/logo" />
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:padding="@dimen/padding_medium"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium" />
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:padding="@dimen/padding_medium"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt_medium" />
-    </FrameLayout>
-
-</androidx.cardview.widget.CardView>
+</com.github.florent37.shapeofview.shapes.RoundRectView>

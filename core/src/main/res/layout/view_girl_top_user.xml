@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="@dimen/w_200"
+        android:layout_width="@dimen/w_150"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:singleLine="true"

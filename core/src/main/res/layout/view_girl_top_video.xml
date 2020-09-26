@@ -9,6 +9,7 @@
     android:layout_marginTop="@dimen/margin_medium"
     android:layout_marginEnd="@dimen/margin_medium"
     android:elevation="@dimen/w_3"
+    android:foreground="?selectableItemBackground"
     app:shape_roundRect_borderColor="@color/black"
     app:shape_roundRect_borderWidth="@dimen/w_3"
     app:shape_roundRect_bottomLeftRadius="0dp"

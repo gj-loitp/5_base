@@ -52,7 +52,7 @@ class GirlAlbumAdapter : AnimationAdapter() {
                             return false
                         }
                     })
-            itemView.cardView.setSafeOnClickListener {
+            itemView.roundRect.setSafeOnClickListener {
                 onClickRootListener?.invoke(girlPage, bindingAdapterPosition)
             }
         }
