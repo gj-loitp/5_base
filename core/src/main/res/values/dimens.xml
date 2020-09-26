@@ -95,6 +95,7 @@
     <dimen name="w_80">80dp</dimen>
     <dimen name="w_100">100dp</dimen>
     <dimen name="w_150">150dp</dimen>
+    <dimen name="w_170">170dp</dimen>
     <dimen name="w_300">300dp</dimen>
     <dimen name="w_350">350dp</dimen>
 

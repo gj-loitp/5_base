@@ -11,5 +11,6 @@
         android:layout_marginStart="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:animateLayoutChanges="true"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/padding_large" />
 </HorizontalScrollView>

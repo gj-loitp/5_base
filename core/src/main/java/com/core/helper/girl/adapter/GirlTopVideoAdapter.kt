@@ -36,7 +36,7 @@ class GirlTopVideoAdapter : AnimationAdapter() {
                 LImageUtil.load(context = viewGirlTopVideo.ivCover.context, url = girlTopVideo.cover, imageView = viewGirlTopVideo.ivCover)
                 LUIUtil.setTextShadow(textView = viewGirlTopVideo.tvTitle, color = Color.BLACK)
                 viewGirlTopVideo.tvTitle.text = girlTopVideo.title
-                viewGirlTopVideo.cardView.setSafeOnClickListener {
+                viewGirlTopVideo.roundRect.setSafeOnClickListener {
                     onClickRootView?.invoke(girlTopVideo)
                 }
                 itemView.layoutHorizontal.addView(viewGirlTopVideo)
