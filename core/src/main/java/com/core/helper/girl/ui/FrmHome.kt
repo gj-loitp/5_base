@@ -149,6 +149,7 @@ class FrmHome : BaseFragment() {
         girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
             //logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
             val intent = Intent(activity, GirlDetailActivity::class.java)
+            intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
             startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
