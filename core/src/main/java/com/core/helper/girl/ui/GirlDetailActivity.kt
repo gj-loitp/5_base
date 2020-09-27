@@ -3,6 +3,8 @@ package com.core.helper.girl.ui
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import androidx.core.graphics.BlendModeColorFilterCompat
+import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.Observer
 import com.R
 import com.annotation.IsFullScreen
@@ -50,6 +52,15 @@ class GirlDetailActivity : BaseFontActivity() {
         collapsingToolbarLayout.title = girlPage?.title
         collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
         collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE)
+        setSupportActionBar(toolbar)
+        supportActionBar?.apply {
+            this.setDisplayHomeAsUpEnabled(true)
+            this.setDisplayShowTitleEnabled(true)
+        }
+        toolbar.navigationIcon?.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
             }
