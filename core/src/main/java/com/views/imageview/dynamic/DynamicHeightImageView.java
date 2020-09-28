@@ -1,10 +1,11 @@
-package com.core.helper.girl.view;
+package com.views.imageview.dynamic;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-public class DynamicHeightImageView extends ImageView {
+import androidx.appcompat.widget.AppCompatImageView;
+
+public class DynamicHeightImageView extends AppCompatImageView {
     private float mAspectRatio = 1.5f;
 
     public DynamicHeightImageView(Context context) {

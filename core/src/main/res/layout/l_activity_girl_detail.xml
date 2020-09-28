@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <com.core.helper.girl.view.DynamicHeightKenBurnsView
+                <com.views.imageview.kenburnview.DynamicHeightKenBurnsView
                     android:id="@+id/ivCover"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

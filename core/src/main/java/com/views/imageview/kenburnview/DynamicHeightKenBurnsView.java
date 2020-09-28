@@ -1,9 +1,7 @@
-package com.core.helper.girl.view;
+package com.views.imageview.kenburnview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-
-import com.views.imageview.kenburnview.LKenBurnsView;
 
 public class DynamicHeightKenBurnsView extends LKenBurnsView {
     private float mAspectRatio = 1.5f;
