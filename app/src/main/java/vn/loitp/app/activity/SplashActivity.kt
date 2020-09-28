@@ -40,6 +40,7 @@ class SplashActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         LUIUtil.setDelay(mls = 2500, runnable = Runnable {
             isAnimDone = true
             goToHome()
@@ -56,7 +57,6 @@ class SplashActivity : BaseFontActivity() {
 
         startIdleTimeHandler(10 * 1000)
         //val getAddressLog = DebugDB.getAddressLog()
-        //LLog.d(TAG, "getAddressLog $getAddressLog")
     }
 
     override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
