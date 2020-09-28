@@ -24,7 +24,6 @@ public class LBlurImageView {
     private Context context;
     private float intensity = 08f;
     private float MAX_RADIUS = 25;
-
     private float MIN_RADIUS = 0;
     private boolean async = false;
 
@@ -136,5 +135,5 @@ public class LBlurImageView {
 
         }
     }
-    
+
 }
