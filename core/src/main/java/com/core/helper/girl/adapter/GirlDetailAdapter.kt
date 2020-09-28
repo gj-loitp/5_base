@@ -33,6 +33,10 @@ class GirlDetailAdapter : AnimationAdapter() {
         notifyDataSetChanged()
     }
 
+    fun getData(): ArrayList<GirlPageDetail> {
+        return listGirlPageDetail
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(girlPageDetail: GirlPageDetail) {
@@ -46,8 +50,8 @@ class GirlDetailAdapter : AnimationAdapter() {
             LImageUtil.load(context = itemView.imageView.context,
                     url = src,
                     imageView = itemView.imageView,
-                    resPlaceHolder = R.color.whiteSmoke,
-                    resError = R.color.whiteSmoke,
+                    resPlaceHolder = R.color.black,
+                    resError = R.color.black,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false

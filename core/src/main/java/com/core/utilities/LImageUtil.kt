@@ -167,20 +167,32 @@ class LImageUtil {
         }
 
         fun load(context: Context?, url: String?, imageView: ImageView?,
-                 resPlaceHolder: Int, resError: Int, drawableRequestListener: RequestListener<Drawable>) {
+                 resPlaceHolder: Int, resError: Int, drawableRequestListener: RequestListener<Drawable>?) {
             if (context == null || url.isNullOrEmpty() || imageView == null) {
                 return
             }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    .placeholder(resPlaceHolder)
-                                    .error(resError)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .listener(drawableRequestListener)
-                    .into(imageView)
+            if (drawableRequestListener == null) {
+                Glide.with(context).load(url)
+                        //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                        .apply(
+                                RequestOptions()
+                                        .placeholder(resPlaceHolder)
+                                        .error(resError)
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        )
+                        .into(imageView)
+            } else {
+                Glide.with(context).load(url)
+                        //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                        .apply(
+                                RequestOptions()
+                                        .placeholder(resPlaceHolder)
+                                        .error(resError)
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        )
+                        .listener(drawableRequestListener)
+                        .into(imageView)
+            }
         }
 
         @SuppressLint("ResourceType")

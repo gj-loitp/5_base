@@ -102,6 +102,9 @@
             android:name="com.core.helper.girl.ui.GirlDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/Theme.Swipe.Back.NoActionBar" />
+        <activity
+            android:name=".core.helper.girl.ui.GirlSlideActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

@@ -40,7 +40,12 @@ class GirlTopVideoAdapter : AnimationAdapter() {
                 } else {
                     girlTopVideo.cover
                 }
-                LImageUtil.load(context = viewGirlTopVideo.ivCover.context, url = src, imageView = viewGirlTopVideo.ivCover)
+                LImageUtil.load(context = viewGirlTopVideo.ivCover.context,
+                        url = src,
+                        imageView = viewGirlTopVideo.ivCover,
+                        resError = R.color.black,
+                        resPlaceHolder = R.color.black,
+                        drawableRequestListener = null)
                 LUIUtil.setTextShadow(textView = viewGirlTopVideo.tvTitle, color = Color.BLACK)
                 viewGirlTopVideo.tvTitle.text = girlTopVideo.title
                 viewGirlTopVideo.roundRect.setSafeOnClickListener {

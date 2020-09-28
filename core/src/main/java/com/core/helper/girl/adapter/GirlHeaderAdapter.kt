@@ -31,7 +31,12 @@ class GirlHeaderAdapter : AnimationAdapter() {
             } else {
                 girlPage.src
             }
-            LImageUtil.load(context = itemView.imageView.context, url = src, imageView = itemView.imageView)
+            LImageUtil.load(context = itemView.imageView.context,
+                    url = src,
+                    imageView = itemView.imageView,
+                    resError = R.color.black,
+                    resPlaceHolder = R.color.black,
+                    drawableRequestListener = null)
 //            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }

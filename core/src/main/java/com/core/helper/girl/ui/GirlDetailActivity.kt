@@ -1,5 +1,6 @@
 package com.core.helper.girl.ui
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -20,6 +21,7 @@ import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
+import com.google.gson.Gson
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
@@ -56,9 +58,9 @@ class GirlDetailActivity : BaseFontActivity() {
 
     private fun setupViews() {
         if (BuildConfig.DEBUG) {
-            LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = ivCover)
+            LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
         } else {
-            LImageUtil.load(context = this, url = girlPage?.src, imageView = ivCover)
+            LImageUtil.load(context = this, url = girlPage?.src, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
         }
         ivCover.setAspectRatio(16f / 9f)
         collapsingToolbarLayout.title = girlPage?.title
@@ -86,8 +88,16 @@ class GirlDetailActivity : BaseFontActivity() {
         })
         girlDetailAdapter = GirlDetailAdapter()
         girlDetailAdapter?.let { gda ->
-            gda.onClickRootListener = { girlPageDetail, position ->
-                //TODO
+            gda.onClickRootListener = { _, position ->
+                val list = girlDetailAdapter?.getData()
+                logD("onClickRootListener list " + Gson().toJson(list))
+                list?.let {
+                    val intent = Intent(this, GirlSlideActivity::class.java)
+                    intent.putExtra(GirlSlideActivity.KEY_POSITION, position)
+                    intent.putExtra(GirlSlideActivity.KEY_LIST_DATA, it)
+                    startActivity(intent)
+                    LActivityUtil.tranIn(this)
+                }
             }
 
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gda)

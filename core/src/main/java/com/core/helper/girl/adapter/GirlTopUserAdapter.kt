@@ -42,7 +42,12 @@ class GirlTopUserAdapter : AnimationAdapter() {
                 } else {
                     girlTopUser.avatar
                 }
-                LImageUtil.load(context = viewGirlTopUser.imageView.context, url = src, imageView = viewGirlTopUser.imageView)
+                LImageUtil.load(context = viewGirlTopUser.imageView.context,
+                        url = src,
+                        imageView = viewGirlTopUser.imageView,
+                        resError = R.color.black,
+                        resPlaceHolder = R.color.black,
+                        drawableRequestListener = null)
                 viewGirlTopUser.tv.text = girlTopUser.name
                 viewGirlTopUser.layoutRootView.setSafeOnClickListener {
                     LAnimationUtil.play(view = it, techniques = Techniques.Pulse)
