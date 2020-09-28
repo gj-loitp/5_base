@@ -13,6 +13,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.helper.girl.model.GirlPage
+import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
@@ -36,7 +37,9 @@ class GirlAlbumAdapter : AnimationAdapter() {
 
         fun bind(girlPage: GirlPage) {
             itemView.tvTitle.text = girlPage.title
-            LUIUtil.setTextShadow(itemView.tvTitle, Color.BLACK)
+            itemView.tvCreatedDate.text = LDateUtil.convertFormatDate(strDate = girlPage.createdDate, fromFormat = "yyyy-MM-dd'T'HH:mm:ss", toFormat = "HH:mm:ss dd/MM/yyyy")
+            LUIUtil.setTextShadow(textView = itemView.tvCreatedDate, color = Color.BLACK)
+            LUIUtil.setTextShadow(textView = itemView.tvTitle, color = Color.BLACK)
             LImageUtil.load(context = itemView.imageView.context,
                     url = girlPage.src,
                     imageView = itemView.imageView,

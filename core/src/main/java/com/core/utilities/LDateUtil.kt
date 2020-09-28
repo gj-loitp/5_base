@@ -9,7 +9,7 @@ import java.util.*
 class LDateUtil {
 
     companion object {
-        private val TAG = LDateUtil::class.java.simpleName
+        private val logTag = LDateUtil::class.java.simpleName
 
         val currentDate: String
             get() {
@@ -39,12 +39,15 @@ class LDateUtil {
             return df.format(Date())
         }
 
-        fun convertFormatDate(strDate: String, fromFormat: String, toFormat: String): String? {
-            val date = stringToDate(strDate, fromFormat)
-            if (date != null) {
+        fun convertFormatDate(strDate: String?, fromFormat: String, toFormat: String): String? {
+            if (strDate.isNullOrEmpty()) {
+                return null
+            }
+            val date = stringToDate(text = strDate, format = fromFormat)
+            date?.let {
                 val simpleDateFormat = SimpleDateFormat(toFormat, Locale.ENGLISH)
                 //simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-                return simpleDateFormat.format(date)
+                return simpleDateFormat.format(it)
             }
             return null
         }
@@ -156,7 +159,7 @@ class LDateUtil {
             return try {
                 date = dateFormat.parse(datetime)
                 val time = date!!.time
-                LLog.d(TAG, "time:$time")
+                LLog.d(logTag, "time:$time")
                 time
                 //new Timestamp(time).getTime();
             } catch (e: ParseException) {

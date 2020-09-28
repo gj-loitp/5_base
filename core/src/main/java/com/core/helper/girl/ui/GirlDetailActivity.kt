@@ -14,7 +14,6 @@ import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
-import com.google.gson.Gson
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
@@ -78,7 +77,7 @@ class GirlDetailActivity : BaseFontActivity() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
             vm.pageDetailActionLiveData.observe(this, Observer { actionData ->
-                logD("pageDetailActionLiveData " + Gson().toJson(actionData))
+//                logD("pageDetailActionLiveData " + Gson().toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     indicatorView.smoothToShow()
