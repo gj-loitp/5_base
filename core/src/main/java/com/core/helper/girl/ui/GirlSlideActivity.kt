@@ -10,6 +10,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPageDetail
 import com.core.utilities.LSocialUtil
+import com.task.AsyncTaskDownloadImage
 import kotlinx.android.synthetic.main.l_activity_girl_slide.*
 
 @LogTag("GalleryCoreSlideActivity")
@@ -45,16 +46,16 @@ class GirlSlideActivity : BaseFontActivity() {
         viewPager.currentItem = currentPosition
 
         btDownload.setOnClickListener {
-            //TODO
-//            instance.getPhoto(viewPager.currentItem)?.urlO?.let {
-//                AsyncTaskDownloadImage(applicationContext, it).execute()
-//            }
+            val src = listData[currentPosition].src
+            src?.let {
+                AsyncTaskDownloadImage(applicationContext, it).execute()
+            }
         }
         btShare.setOnClickListener {
-            //TODO
-//            instance.getPhoto(viewPager.currentItem)?.urlO?.let {
-//                LSocialUtil.share(activity = this, msg = it)
-//            }
+            val src = listData[currentPosition].src
+            src?.let {
+                LSocialUtil.share(activity = this, msg = it)
+            }
         }
         btReport.setOnClickListener {
             LSocialUtil.sendEmail(context = this)
