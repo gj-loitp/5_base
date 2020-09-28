@@ -6,10 +6,14 @@ import android.view.View
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.MergeAdapter
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.helper.girl.adapter.GirlDetailAdapter
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
@@ -23,6 +27,8 @@ class GirlDetailActivity : BaseFontActivity() {
 
     private var girlPage: GirlPage? = null
     private var girlViewModel: GirlViewModel? = null
+    private var mergeAdapter: MergeAdapter? = null
+    private var girlDetailAdapter: GirlDetailAdapter? = null
 
     companion object {
         const val KEY_GIRL_PAGE = "KEY_GIRL_PAGE"
@@ -71,6 +77,17 @@ class GirlDetailActivity : BaseFontActivity() {
                 }
             }
         })
+        girlDetailAdapter = GirlDetailAdapter()
+        girlDetailAdapter?.let { gda ->
+            gda.onClickRootListener = { girlPageDetail, position ->
+                //TODO
+            }
+
+            val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gda)
+            mergeAdapter = MergeAdapter(listOfAdapters)
+        }
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.adapter = mergeAdapter
     }
 
     private fun setupViewModels() {
@@ -93,6 +110,7 @@ class GirlDetailActivity : BaseFontActivity() {
                     } else {
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
+                        girlDetailAdapter?.setData(listGirlPageDetail = listGirlPageDetail)
                     }
                 }
             })
