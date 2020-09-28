@@ -6,9 +6,9 @@ import android.view.View
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
@@ -93,7 +93,7 @@ class GirlDetailActivity : BaseFontActivity() {
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gda)
             mergeAdapter = MergeAdapter(listOfAdapters)
         }
-        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = GridLayoutManager(this, 3)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = mergeAdapter
     }
