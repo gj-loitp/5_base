@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.BuildConfig
 import com.R
 import com.core.adapter.AnimationAdapter
+import com.core.common.Constants
 import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.view.ViewGirlTopVideo
 import com.core.utilities.LImageUtil
@@ -33,7 +35,12 @@ class GirlTopVideoAdapter : AnimationAdapter() {
             itemView.layoutHorizontal.removeAllViews()
             listGirlTopVideo.forEach { girlTopVideo ->
                 val viewGirlTopVideo = ViewGirlTopVideo(itemView.context)
-                LImageUtil.load(context = viewGirlTopVideo.ivCover.context, url = girlTopVideo.cover, imageView = viewGirlTopVideo.ivCover)
+                val src = if (BuildConfig.DEBUG) {
+                    Constants.URL_IMG
+                } else {
+                    girlTopVideo.cover
+                }
+                LImageUtil.load(context = viewGirlTopVideo.ivCover.context, url = src, imageView = viewGirlTopVideo.ivCover)
                 LUIUtil.setTextShadow(textView = viewGirlTopVideo.tvTitle, color = Color.BLACK)
                 viewGirlTopVideo.tvTitle.text = girlTopVideo.title
                 viewGirlTopVideo.roundRect.setSafeOnClickListener {

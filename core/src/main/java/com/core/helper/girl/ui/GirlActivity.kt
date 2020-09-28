@@ -34,7 +34,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuHome,
                 iconId = R.drawable.baseline_home_black_24dp,
                 textId = R.string.menu_home,
-                activeColor = Color.GRAY
+                activeColor = Color.WHITE
         )
         listMenuGirl.add(menuGirlHome)
 
@@ -42,7 +42,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuFavourite,
                 iconId = R.drawable.baseline_favorite_black_24dp,
                 textId = R.string.menu_favourite,
-                activeColor = Color.GRAY
+                activeColor = Color.WHITE
         )
         listMenuGirl.add(menuGirlFavourite)
 
@@ -50,7 +50,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuInformation,
                 iconId = R.drawable.baseline_info_black_24dp,
                 textId = R.string.menu_infor,
-                activeColor = Color.GRAY
+                activeColor = Color.WHITE
         )
         listMenuGirl.add(menuGirlInformation)
     }

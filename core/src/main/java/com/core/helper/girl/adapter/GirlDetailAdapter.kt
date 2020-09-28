@@ -6,12 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.BuildConfig
 import com.R
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
+import com.core.common.Constants
 import com.core.helper.girl.model.GirlPageDetail
 import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
@@ -36,8 +38,13 @@ class GirlDetailAdapter : AnimationAdapter() {
         fun bind(girlPageDetail: GirlPageDetail) {
             itemView.tvCreatedDate.text = LDateUtil.convertFormatDate(strDate = girlPageDetail.createdDate, fromFormat = "yyyy-MM-dd'T'HH:mm:ss", toFormat = "HH:mm:ss dd/MM/yyyy")
             LUIUtil.setTextShadow(textView = itemView.tvCreatedDate, color = Color.BLACK)
+            val src = if (BuildConfig.DEBUG) {
+                Constants.URL_IMG
+            } else {
+                girlPageDetail.src
+            }
             LImageUtil.load(context = itemView.imageView.context,
-                    url = girlPageDetail.src,
+                    url = src,
                     imageView = itemView.imageView,
                     resPlaceHolder = R.color.whiteSmoke,
                     resError = R.color.whiteSmoke,

@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.BuildConfig
 import com.R
 import com.core.adapter.AnimationAdapter
+import com.core.common.Constants
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.view.ViewGirlTopUser
 import com.core.utilities.LAnimationUtil
@@ -35,7 +37,12 @@ class GirlTopUserAdapter : AnimationAdapter() {
             itemView.layoutHorizontal.removeAllViews()
             listGirlTopUser.forEach { girlTopUser ->
                 val viewGirlTopUser = ViewGirlTopUser(itemView.context)
-                LImageUtil.load(context = viewGirlTopUser.imageView.context, url = girlTopUser.avatar, imageView = viewGirlTopUser.imageView)
+                val src = if (BuildConfig.DEBUG) {
+                    Constants.URL_IMG
+                } else {
+                    girlTopUser.avatar
+                }
+                LImageUtil.load(context = viewGirlTopUser.imageView.context, url = src, imageView = viewGirlTopUser.imageView)
                 viewGirlTopUser.tv.text = girlTopUser.name
                 viewGirlTopUser.layoutRootView.setSafeOnClickListener {
                     LAnimationUtil.play(view = it, techniques = Techniques.Pulse)
