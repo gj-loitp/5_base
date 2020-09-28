@@ -2,20 +2,21 @@ package com.core.helper.girl.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-public class DynamicHeightNetworkImageView extends ImageView {
+import com.views.imageview.kenburnview.LKenBurnsView;
+
+public class DynamicHeightKenBurnsView extends LKenBurnsView {
     private float mAspectRatio = 1.5f;
 
-    public DynamicHeightNetworkImageView(Context context) {
+    public DynamicHeightKenBurnsView(Context context) {
         super(context);
     }
 
-    public DynamicHeightNetworkImageView(Context context, AttributeSet attrs) {
+    public DynamicHeightKenBurnsView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public DynamicHeightNetworkImageView(Context context, AttributeSet attrs, int defStyle) {
+    public DynamicHeightKenBurnsView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

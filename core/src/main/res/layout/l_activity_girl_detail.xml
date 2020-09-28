@@ -24,13 +24,11 @@
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <com.core.helper.girl.view.DynamicHeightNetworkImageView
+                <com.core.helper.girl.view.DynamicHeightKenBurnsView
                     android:id="@+id/ivCover"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="false"
                     android:contentDescription="@string/app_name"
-                    android:scaleType="centerCrop"
                     tools:src="@drawable/logo" />
 
                 <androidx.appcompat.widget.Toolbar

@@ -18,7 +18,7 @@
     app:shape_roundRect_topRightRadius="0dp"
     tools:ignore="UnusedAttribute">
 
-    <com.core.helper.girl.view.DynamicHeightNetworkImageView
+    <com.core.helper.girl.view.DynamicHeightImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
