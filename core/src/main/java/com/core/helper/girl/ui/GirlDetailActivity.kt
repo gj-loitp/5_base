@@ -9,10 +9,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.common.Constants
 import com.core.helper.girl.adapter.GirlDetailAdapter
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.viewmodel.GirlViewModel
@@ -53,16 +55,21 @@ class GirlDetailActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LImageUtil.load(context = this, url = girlPage?.src, imageView = ivCover)
+        if (BuildConfig.DEBUG) {
+            LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = ivCover)
+        } else {
+            LImageUtil.load(context = this, url = girlPage?.src, imageView = ivCover)
+        }
+        ivCover.setAspectRatio(16f / 9f)
         collapsingToolbarLayout.title = girlPage?.title
-        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.WHITE)
-        collapsingToolbarLayout.setExpandedTitleColor(Color.WHITE)
+        collapsingToolbarLayout.setCollapsedTitleTextColor(Color.BLACK)
+        collapsingToolbarLayout.setExpandedTitleColor(Color.BLACK)
         setSupportActionBar(toolbar)
         supportActionBar?.apply {
             this.setDisplayHomeAsUpEnabled(true)
             this.setDisplayShowTitleEnabled(true)
         }
-        toolbar.navigationIcon?.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.WHITE, BlendModeCompat.SRC_ATOP)
+        toolbar.navigationIcon?.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.BLACK, BlendModeCompat.SRC_ATOP)
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
