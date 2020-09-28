@@ -57,8 +57,8 @@ class GirlSplashActivity : BaseFontActivity() {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
         LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
-        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.WHITE)
-        LUIUtil.setTextShadow(textView = tvName, color = Color.WHITE)
+        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.BLACK)
+        LUIUtil.setTextShadow(textView = tvName, color = Color.BLACK)
     }
 
     private fun goToHome() {
