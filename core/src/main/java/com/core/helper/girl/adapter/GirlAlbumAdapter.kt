@@ -43,21 +43,22 @@ class GirlAlbumAdapter : AnimationAdapter() {
             LImageUtil.load(context = itemView.imageView.context,
                     url = girlPage.src,
                     imageView = itemView.imageView,
-                    resPlaceHolder = R.color.whiteSmoke,
-                    resError = R.color.whiteSmoke,
+                    resPlaceHolder = R.color.black,
+                    resError = R.color.black,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
                             return false
                         }
                     })
+            itemView.imageView.setAspectRatio(16f / 9f)
             itemView.roundRect.setSafeOnClickListener {
                 onClickRootListener?.invoke(girlPage, bindingAdapterPosition)
             }
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

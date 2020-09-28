@@ -86,7 +86,8 @@ class GirlDetailActivity : BaseFontActivity() {
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gda)
             mergeAdapter = MergeAdapter(listOfAdapters)
         }
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = layoutManager
         recyclerView.adapter = mergeAdapter
     }
 

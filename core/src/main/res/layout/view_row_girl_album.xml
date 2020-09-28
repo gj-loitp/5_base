@@ -18,12 +18,12 @@
     app:shape_roundRect_topRightRadius="0dp"
     tools:ignore="UnusedAttribute">
 
-    <ImageView
+    <com.core.helper.girl.view.DynamicHeightNetworkImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
         tools:src="@drawable/logo" />
 
     <TextView
