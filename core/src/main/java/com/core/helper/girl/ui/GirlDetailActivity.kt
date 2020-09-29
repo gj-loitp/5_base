@@ -20,8 +20,11 @@ import com.core.helper.girl.adapter.GirlDetailAdapter
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LAnimationUtil
 import com.core.utilities.LImageUtil
+import com.daimajia.androidanimations.library.Techniques
 import com.google.gson.Gson
+import com.views.LAppBarLayout
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
@@ -107,6 +110,24 @@ class GirlDetailActivity : BaseFontActivity() {
         val layoutManager = GridLayoutManager(this, 3)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = mergeAdapter
+
+        layoutAppBar.setOnStateChangeListener(object : LAppBarLayout.OnStateChangeListener {
+            override fun onStateChange(toolbarChange: LAppBarLayout.State) {
+                when (toolbarChange) {
+                    LAppBarLayout.State.COLLAPSED -> {
+                        //COLLAPSED appBarLayout min
+                        LAnimationUtil.playDuration(view = btLike, techniques = Techniques.ZoomOut, duration = 500)
+                    }
+                    LAppBarLayout.State.EXPANDED -> {
+                        //EXPANDED appBarLayout max
+                        LAnimationUtil.playDuration(view = btLike, techniques = Techniques.ZoomIn, duration = 500)
+                    }
+                    else -> {
+                        //IDLE appBarLayout not min not max
+                    }
+                }
+            }
+        })
 
         btLike.setSafeOnClickListener {
             //TODO

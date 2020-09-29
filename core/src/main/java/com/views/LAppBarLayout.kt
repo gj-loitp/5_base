@@ -17,9 +17,9 @@ class LAppBarLayout : AppBarLayout, AppBarLayout.OnOffsetChangedListener {
     private var state: State? = null
     private var onStateChangeListener: OnStateChangeListener? = null
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()

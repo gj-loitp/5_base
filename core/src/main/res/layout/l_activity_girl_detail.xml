@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:background="@color/dark900">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <com.views.LAppBarLayout
             android:id="@+id/layoutAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
                     app:layout_collapseMode="pin" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
+        </com.views.LAppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
