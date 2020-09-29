@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.view_girl_top_user.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_user.view.*
 
 class GirlTopUserAdapter : AnimationAdapter() {
-    private val logTag = "loitpp" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     private val listGirlTopUser = ArrayList<GirlTopUser>()
     var onClickRootView: ((GirlTopUser) -> Unit?)? = null

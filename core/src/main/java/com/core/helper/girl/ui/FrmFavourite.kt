@@ -8,7 +8,7 @@ import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 
-@LogTag("loitppFrmFavourite")
+@LogTag("FrmFavourite")
 class FrmFavourite : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

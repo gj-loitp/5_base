@@ -25,7 +25,7 @@ import com.google.gson.Gson
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
-@LogTag("loitppGirlActivity")
+@LogTag("GirlActivity")
 @IsFullScreen(false)
 class GirlDetailActivity : BaseFontActivity() {
 

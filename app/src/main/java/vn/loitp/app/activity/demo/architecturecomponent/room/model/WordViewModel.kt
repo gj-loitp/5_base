@@ -11,7 +11,7 @@ import vn.loitp.app.activity.demo.architecturecomponent.room.repository.WordRepo
 import vn.loitp.app.app.LApplication
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
-    private val TAG = "loitpp" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private val repository: WordRepository
     var listWord: LiveData<List<Word>>? = null
     var wordFind: LiveData<Word>? = null
@@ -24,7 +24,6 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun getAlphabetizedWords() {
-        Log.d(TAG, "getAlphabetizedWords")
         listWord = repository.getAlphabetizedWords()
     }
 
@@ -38,7 +37,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun insert(word: Word) = viewModelScope.launch {
-        Log.d(TAG, "insert " + LApplication.gson.toJson(word))
+        Log.d(logTag, "insert " + LApplication.gson.toJson(word))
         repository.insert(word)
     }
 
@@ -55,7 +54,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun findWord(id: String) = viewModelScope.launch {
-        Log.d(TAG, "findWord id $id")
+        Log.d(logTag, "findWord id $id")
         wordFind = repository.findWord(id)
     }
 }

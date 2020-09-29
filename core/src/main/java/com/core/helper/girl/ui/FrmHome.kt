@@ -23,7 +23,7 @@ import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
 
-@LogTag("loitppFrmHome")
+@LogTag("FrmHome")
 class FrmHome : BaseFragment() {
 
     private var girlViewModel: GirlViewModel? = null
