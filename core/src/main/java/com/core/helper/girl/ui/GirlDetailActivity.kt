@@ -7,8 +7,8 @@ import android.view.View
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.R
@@ -31,7 +31,7 @@ class GirlDetailActivity : BaseFontActivity() {
 
     private var girlPage: GirlPage? = null
     private var girlViewModel: GirlViewModel? = null
-    private var mergeAdapter: MergeAdapter? = null
+    private var mergeAdapter: ConcatAdapter? = null
     private var girlDetailAdapter: GirlDetailAdapter? = null
 
     companion object {
@@ -101,7 +101,7 @@ class GirlDetailActivity : BaseFontActivity() {
             }
 
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gda)
-            mergeAdapter = MergeAdapter(listOfAdapters)
+            mergeAdapter = ConcatAdapter(listOfAdapters)
         }
         val layoutManager = GridLayoutManager(this, 3)
         recyclerView.layoutManager = layoutManager

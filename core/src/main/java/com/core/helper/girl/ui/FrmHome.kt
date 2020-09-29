@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.l_frm_girl_home.*
 class FrmHome : BaseFragment() {
 
     private var girlViewModel: GirlViewModel? = null
-    private var mergeAdapter: MergeAdapter? = null
+    private var mergeAdapter: ConcatAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
     private var girlTopUserAdapter: GirlTopUserAdapter? = null
     private var girlTopVideoAdapter: GirlTopVideoAdapter? = null
@@ -168,7 +168,7 @@ class FrmHome : BaseFragment() {
                             girlTitleAdapterAlbum.let { gtaa ->
                                 girlAlbumAdapter?.let { gaa ->
                                     val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtav, gtva, gtaa, gaa)
-                                    mergeAdapter = MergeAdapter(listOfAdapters)
+                                    mergeAdapter = ConcatAdapter(listOfAdapters)
                                 }
                             }
                         }
