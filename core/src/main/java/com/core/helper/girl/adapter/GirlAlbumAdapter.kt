@@ -65,6 +65,7 @@ class GirlAlbumAdapter : AnimationAdapter() {
             itemView.roundRect.setSafeOnClickListener {
                 onClickRootListener?.invoke(girlPage, bindingAdapterPosition)
             }
+//            itemView.btLike.isChecked = true
             setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }

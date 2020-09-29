@@ -26,24 +26,40 @@
         android:scaleType="centerCrop"
         tools:src="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_medium" />
+        android:orientation="vertical"
+        android:padding="@dimen/padding_medium">
 
-    <TextView
-        android:id="@+id/tvCreatedDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|end"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_small" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
+
+        <TextView
+            android:id="@+id/tvCreatedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_small" />
+    </LinearLayout>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:id="@+id/btLike"
+        android:layout_width="@dimen/w_50"
+        android:layout_height="@dimen/w_50"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:allow_random_color="true"
+        app:btn_color="@color/gray"
+        app:btn_fill_color="@color/green"
+        app:siShape="@raw/smile" />
 
 </com.github.florent37.shapeofview.shapes.RoundRectView>
