@@ -185,13 +185,13 @@ dependencies {
 
     //endregion
 
-    //TODO try to put all dependencies of architecture component inside core library
     //region architecture component
     //Room components
-    api "androidx.room:room-runtime:2.2.2"
-    api "androidx.room:room-ktx:2.2.2"
+//    api "androidx.room:room-runtime:2.2.2" //defined in core module
+//    api "androidx.room:room-ktx:2.2.2" //defined in core module
     kapt "androidx.room:room-compiler:2.2.2"
-    androidTestImplementation "androidx.room:room-testing:2.2.2"
+//    androidTestImplementation "androidx.room:room-testing:2.2.2" //defined in core module
+
     //endregion
 
     //https://github.com/nex3z/ToggleButtonGroup
