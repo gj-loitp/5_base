@@ -14,6 +14,7 @@
         android:background="@color/dark900">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/layoutAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary">
@@ -50,6 +51,18 @@
             android:paddingEnd="@dimen/padding_small"
             android:paddingBottom="@dimen/padding_medium"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/btLike"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_marginEnd="@dimen/margin_large"
+            app:allow_random_color="true"
+            app:btn_color="@color/gray"
+            app:btn_fill_color="@color/green"
+            app:layout_anchor="@id/layoutAppBar"
+            app:layout_anchorGravity="bottom|end"
+            app:siShape="@raw/smile" />
 
         <TextView
             android:id="@+id/tvNoData"

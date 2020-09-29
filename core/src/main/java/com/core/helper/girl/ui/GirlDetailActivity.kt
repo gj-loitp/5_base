@@ -23,6 +23,7 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.google.gson.Gson
 import com.views.layout.swipeback.SwipeBackLayout
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
 @LogTag("GirlActivity")
@@ -106,6 +107,10 @@ class GirlDetailActivity : BaseFontActivity() {
         val layoutManager = GridLayoutManager(this, 3)
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = mergeAdapter
+
+        btLike.setSafeOnClickListener {
+            //TODO
+        }
     }
 
     private fun setupViewModels() {
