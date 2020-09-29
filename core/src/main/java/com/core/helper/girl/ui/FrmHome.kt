@@ -202,8 +202,12 @@ class FrmHome : BaseFragment() {
                 })
 
         ivSearch.setOnClickListener {
-            handleSearch()
+            handleSearch(isAutoSearch = false)
         }
+        LUIUtil.addTextChangedListener(editText = etSearch, delayInMls = 2000, afterTextChanged = {
+//            logD("addTextChangedListener $it")
+            handleSearch(isAutoSearch = true)
+        })
         LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
             ivSearch.performClick()
         })
@@ -241,11 +245,12 @@ class FrmHome : BaseFragment() {
         }
     }
 
-    private fun handleSearch() {
-        if (etSearch.text.toString().trim().isEmpty()) {
-            return
+    private fun handleSearch(isAutoSearch: Boolean) {
+        if(isAutoSearch){
+            //do nothing
+        }else{
+            KeyboardUtils.hideSoftInput(context, etSearch)
         }
-        KeyboardUtils.hideSoftInput(context, etSearch)
         etSearch.apply {
             currentKeyword = this.text.toString().trim()
         }
