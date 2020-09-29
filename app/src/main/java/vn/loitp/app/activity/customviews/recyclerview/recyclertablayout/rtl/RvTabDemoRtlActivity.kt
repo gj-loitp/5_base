@@ -24,7 +24,12 @@ class RvTabDemoRtlActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val demo = Demo.valueOf(intent.getStringExtra(RvTabDemoBasicActivity.KEY_DEMO))
+        val keyDemo = intent.getStringExtra(RvTabDemoBasicActivity.KEY_DEMO)
+        if (keyDemo.isNullOrEmpty()) {
+            onBackPressed()
+            return
+        }
+        val demo = Demo.valueOf(keyDemo)
 
         toolbar.setTitle(demo.titleResId)
         setSupportActionBar(toolbar)

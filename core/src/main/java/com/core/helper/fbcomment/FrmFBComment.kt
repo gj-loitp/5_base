@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
 class FrmFBComment : BaseFragment() {
 
     private var isLoading: Boolean = false
-    private var mWebviewPop: WebView? = null
+    private var mWebViewPop: WebView? = null
     private var postUrl: String? = null
 
     companion object {
@@ -45,7 +45,9 @@ class FrmFBComment : BaseFragment() {
         commentsWebView.setBackgroundColor(Color.TRANSPARENT)
         commentsWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
 
-        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(context!!, R.color.colorPrimary))
+        context?.let {
+            LUIUtil.setColorProgressBar(progressBar = progressBar, color = ContextCompat.getColor(it, R.color.colorPrimary))
+        }
         val bundle = arguments ?: return
         postUrl = bundle.getString(Constants.FACEBOOK_COMMENT_URL)
         if (Constants.IS_DEBUG) {
@@ -114,7 +116,7 @@ class FrmFBComment : BaseFragment() {
                 val handler = Handler()
                 handler.postDelayed({
                     //Do something after 100ms
-                    rlWebview.removeView(mWebviewPop)
+                    rlWebview.removeView(mWebViewPop)
                     loadComments()
                 }, 600)
             }
@@ -129,8 +131,8 @@ class FrmFBComment : BaseFragment() {
 
         @SuppressLint("SetJavaScriptEnabled")
         override fun onCreateWindow(view: WebView, isDialog: Boolean, isUserGesture: Boolean, resultMsg: Message): Boolean {
-            mWebviewPop = WebView(activity)
-            mWebviewPop?.let {
+            mWebViewPop = context?.let { WebView(it) }
+            mWebViewPop?.let {
                 it.isVerticalScrollBarEnabled = false
                 it.isHorizontalScrollBarEnabled = false
                 it.webViewClient = UriWebViewClient()
@@ -141,10 +143,10 @@ class FrmFBComment : BaseFragment() {
                 it.settings.builtInZoomControls = false
                 it.settings.setSupportMultipleWindows(true)
                 it.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-                rlWebview.addView(mWebviewPop)
+                rlWebview.addView(mWebViewPop)
             }
             val transport = resultMsg.obj as WebView.WebViewTransport
-            transport.webView = mWebviewPop
+            transport.webView = mWebViewPop
             resultMsg.sendToTarget()
             return true
         }
