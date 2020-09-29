@@ -9,7 +9,6 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_button_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.button.autosizebutton.AutoSizeButtonActivity
@@ -17,7 +16,6 @@ import vn.loitp.app.activity.customviews.button.circularimageclick.CircularImage
 import vn.loitp.app.activity.customviews.button.goodview.GoodViewActivity
 import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity
 import vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity
-import vn.loitp.app.activity.customviews.button.roundedbutton.RoundedButtonActivity
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity
 
 @LayoutId(R.layout.activity_button_menu)
@@ -28,14 +26,13 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LUIUtil.setPullLikeIOSVertical(nestedScrollView)
+//        LUIUtil.setPullLikeIOSVertical(nestedScrollView)
 
         btShineButton.setOnClickListener(this)
         btCircularImageClick.setOnClickListener(this)
         btGoodView.setOnClickListener(this)
         btlButton.setOnClickListener(this)
         btAutoSizeButton.setOnClickListener(this)
-        btRoundedButton.setOnClickListener(this)
         btQButton.setOnClickListener(this)
     }
 
@@ -47,7 +44,6 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
             btGoodView -> intent = Intent(this, GoodViewActivity::class.java)
             btlButton -> intent = Intent(this, LButtonActivity::class.java)
             btAutoSizeButton -> intent = Intent(this, AutoSizeButtonActivity::class.java)
-            btRoundedButton -> intent = Intent(this, RoundedButtonActivity::class.java)
             btQButton -> intent = Intent(this, QButtonActivity::class.java)
         }
         intent?.let {
