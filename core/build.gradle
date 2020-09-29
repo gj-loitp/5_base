@@ -131,7 +131,7 @@ dependencies {
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
     api 'com.google.android.gms:play-services-maps:17.0.0'//gg map
     api 'com.google.android.gms:play-services-ads:18.3.0'
-    api 'com.google.android.gms:play-services-location:17.0.0'
+    api 'com.google.android.gms:play-services-location:17.1.0'
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
     //endregion
 
