@@ -111,7 +111,7 @@ dependencies {
 
     //region animation
     api 'com.daimajia.easing:library:2.0@aar'
-    api 'com.daimajia.androidanimations:library:2.2@aar'
+    api 'com.daimajia.androidanimations:library:2.3@aar'
 
     api 'com.daasuu:EasingInterpolator:1.3.0'//need for shine button
 

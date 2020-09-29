@@ -23,6 +23,7 @@ class AnimationViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setupAnimList()
         btSelectAnim.setOnClickListener {
             showDialogSelectAnim()
@@ -46,8 +47,8 @@ class AnimationViewActivity : BaseFontActivity() {
             if (tvGuide.visibility != View.VISIBLE) {
                 tvGuide.visibility = View.VISIBLE
             }
-            LUIUtil.setDelay(mls = 1000, runnable = Runnable {
-                LAnimationUtil.play(view = tvAnim, techniques = listAnim[position])
+            LUIUtil.setDelay(mls = 500, runnable = Runnable {
+                LAnimationUtil.playDuration(view = tvAnim, techniques = listAnim[position], duration = 1_000)
             })
         }
         val dialog = builder.create()
