@@ -1,5 +1,6 @@
 package com.core.helper.girl.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.*
+import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.viewmodel.GirlViewModel
@@ -26,6 +28,11 @@ import kotlinx.android.synthetic.main.l_frm_girl_home.*
 
 @LogTag("loitppFrmHome")
 class FrmHome : BaseFragment() {
+
+    companion object {
+        const val REQUEST_CODE_DETAIL = 69
+        const val RESULT_DETAIL = "RESULT_DETAIL"
+    }
 
     private var girlViewModel: GirlViewModel? = null
     private var mergeAdapter: ConcatAdapter? = null
@@ -151,7 +158,7 @@ class FrmHome : BaseFragment() {
             it.onClickRootListener = { girlPage, _ ->
                 val intent = Intent(activity, GirlDetailActivity::class.java)
                 intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
-                startActivity(intent)
+                startActivityForResult(intent, REQUEST_CODE_DETAIL)
                 LActivityUtil.tranIn(activity)
             }
             it.onClickLikeListener = { girlPage, _ ->
@@ -284,5 +291,19 @@ class FrmHome : BaseFragment() {
             currentKeyword = this.text.toString().trim()
         }
         getPage(isSwipeToRefresh = true)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        logD("onActivityResult")
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == REQUEST_CODE_DETAIL) {
+                val returnGirlPage = data?.getSerializableExtra(RESULT_DETAIL)
+                logD("onActivityResult returnGirlPage " + BaseApplication.gson.toJson(returnGirlPage))
+                if (returnGirlPage != null && returnGirlPage is GirlPage) {
+                    girlAlbumAdapter?.updateData(girlPage = returnGirlPage)
+                }
+            }
+        }
     }
 }

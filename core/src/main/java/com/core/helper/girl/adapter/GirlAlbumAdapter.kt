@@ -36,6 +36,16 @@ class GirlAlbumAdapter : AnimationAdapter() {
         notifyDataSetChanged()
     }
 
+    fun updateData(girlPage: GirlPage) {
+        val findGirlPage = this.listGirlPage.find {
+            it.id == girlPage.id
+        }
+        findGirlPage?.let {
+            it.isFavorites = girlPage.isFavorites
+        }
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(girlPage: GirlPage) {
