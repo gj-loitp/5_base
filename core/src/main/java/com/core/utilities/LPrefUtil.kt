@@ -1,8 +1,8 @@
 package com.core.utilities
 
 import android.content.Context
+import com.core.base.BaseApplication
 import com.core.common.Constants
-import com.google.gson.Gson
 import com.model.App
 import com.utils.util.AppUtils
 
@@ -13,34 +13,34 @@ import com.utils.util.AppUtils
  */
 class LPrefUtil {
     companion object {
-        private val TAG = LPrefUtil::class.java.simpleName
+        private val logTag = LPrefUtil::class.java.simpleName
 
-        private val PREFERENCES_FILE_NAME = "loitp"
-        private val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.getAppVersionCode()
-        private val PRE_LOAD = "PRE_LOAD"
-        val JSON_LIST_DATA = "JSON_LIST_DATA"
-        val JSON_FAV_DATA = "JSON_FAV_DATA"
-        val JSON_AD_DATA = "JSON_AD_DATA"
-        val FIRST_RUN_APP = "FIRST_RUN_APP"
-        val SAVED_NUMBER_VERSION = "saved.number.version"
-        val NOT_READY_USE_APPLICATION = "not.ready.use.application"
-        val TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB"
+        private const val PREFERENCES_FILE_NAME = "loitp"
+        private  val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.getAppVersionCode()
+        private const val PRE_LOAD = "PRE_LOAD"
+        const val JSON_LIST_DATA = "JSON_LIST_DATA"
+        const val JSON_FAV_DATA = "JSON_FAV_DATA"
+        const val JSON_AD_DATA = "JSON_AD_DATA"
+        const val FIRST_RUN_APP = "FIRST_RUN_APP"
+        const val SAVED_NUMBER_VERSION = "saved.number.version"
+        const val NOT_READY_USE_APPLICATION = "not.ready.use.application"
+        const val TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB"
         var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
-        val INDEX = "INDEX"
-        val PASS_CODE = "PASS_CODE"
-        val GG_APP_SETTING = "GG_APP_SETTING"
-        val GG_APP_MSG = "GG_APP_MSG"
-        val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
+        const val INDEX = "INDEX"
+        const val PASS_CODE = "PASS_CODE"
+        const val GG_APP_SETTING = "GG_APP_SETTING"
+        const val GG_APP_MSG = "GG_APP_MSG"
+        const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
 
         //region object
         fun getGGAppSetting(context: Context): App {
             val pref = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return Gson().fromJson(pref.getString(GG_APP_SETTING, ""), App::class.java)
+            return BaseApplication.gson.fromJson(pref.getString(GG_APP_SETTING, ""), App::class.java)
         }
 
         fun setGGAppSetting(context: Context, user: App) {
             val editor = context.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-            editor.putString(GG_APP_SETTING, Gson().toJson(user))
+            editor.putString(GG_APP_SETTING, BaseApplication.gson.toJson(user))
             editor.apply()
         }
         //endregion

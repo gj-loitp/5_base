@@ -11,7 +11,6 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
-import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,6 +19,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
 import com.views.recyclerview.animator.animators.SlideInRightAnimator;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +53,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot == null || dataSnapshot.getValue() == null) {
-                    LLog.d(getLogTag(), "onDataChange null => return");
+                    logD("onDataChange null => return");
                     userList.clear();
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
@@ -62,21 +63,20 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
                 userList.clear();
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
                     User user = data.getValue(User.class);
-                    //LLog.d(TAG, "onDataChange: " + LApplication.getInstance().getGson().toJson(user));
                     /*if (!userList.contains(user)) {
                         userList.add(user);
                     }*/
                     userList.add(user);
                 }
-                LLog.d(getLogTag(), "userList.size: " + userList.size());
+                logD("userList.size: " + userList.size());
                 if (mAdapter != null) {
                     mAdapter.notifyDataSetChanged();
                 }
             }
 
             @Override
-            public void onCancelled(DatabaseError error) {
-                LLog.e(getLogTag(), "Failed to read app title value " + error.toException());
+            public void onCancelled(@NotNull DatabaseError error) {
+                logE("Failed to read app title value " + error.toException());
             }
         });
     }
@@ -96,11 +96,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         user.setMsg("dummy msg " + user.getTimestamp());
         mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").setValue(user)
                 .addOnCompleteListener(task -> {
-                    /*if (task.isSuccessful()) {
-                        LLog.d(TAG, "onClick isSuccessful");
-                    } else {
-                        LLog.d(TAG, "onClick !isSuccessful");
-                    }*/
+                    //do nothing
                 });
     }
 

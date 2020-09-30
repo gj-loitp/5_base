@@ -11,8 +11,6 @@ import com.core.utilities.LLog;
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.app.LApplication;
-
 public class DatabaseHandler extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     // Database Version
@@ -157,7 +155,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             Contact contact = tmpContactList.get(i);
             contactList.add(contact);
         }
-        //LLog.d(TAG, ">>>getContactListWithPage " + LApplication.Companion.getGson().toJson(contactList));
         return contactList;
     }
 

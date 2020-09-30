@@ -147,7 +147,6 @@ class FrmHome : BaseFragment() {
         girlProgressAdapter = GirlProgressAdapter()
 
         girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
-            //logD("onClickRootListener girlAlbumAdapter $position -> " + Gson().toJson(girlPage))
             val intent = Intent(activity, GirlDetailActivity::class.java)
             intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
             startActivity(intent)
@@ -223,7 +222,6 @@ class FrmHome : BaseFragment() {
 
                 if (isDoing == false && actionData.isSuccess == true) {
                     val listGirlPage = actionData.data
-//                    logD("listGirlPage " + Gson().toJson(listGirlPage))
                     if (listGirlPage.isNullOrEmpty()) {
                         tvNoData.visibility = View.VISIBLE
                         recyclerView.visibility = View.GONE

@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
-import com.google.gson.Gson
 import com.interfaces.Callback2
 import com.interfaces.CallbackList
 import com.karumi.dexter.Dexter
@@ -252,7 +252,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
-                    logD("photosetsGetPhotos onSuccess " + Gson().toJson(wrapperPhotosetGetPhotos))
+                    logD("photosetsGetPhotos onSuccess " + BaseApplication.gson.toJson(wrapperPhotosetGetPhotos))
 
                     val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s

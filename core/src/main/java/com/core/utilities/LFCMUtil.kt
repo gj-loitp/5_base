@@ -32,7 +32,6 @@ class LFCMUtil {
                 json.put("notification", dataJson)
                 json.put("to", Constants.FCM_TOPIC)
                 val jsonBody = json.toString().toRequestBody(JSON)
-                //LLog.d(TAG, "body:" + LApplication.getGson().toJson(body));
                 val request = Request.Builder()
                         .header("Authorization", "key=$key")
                         .url("https://fcm.googleapis.com/fcm/send")

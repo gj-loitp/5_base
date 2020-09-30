@@ -16,7 +16,6 @@ import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
-import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -33,7 +32,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 import vn.loitp.app.R;
-import vn.loitp.app.app.LApplication;
 
 //https://github.com/firebase/quickstart-android
 
@@ -99,7 +97,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                LLog.d(getLogTag(), "Google sign in failed" + e.toString());
+                logE("Google sign in failed" + e.toString());
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -110,7 +108,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
 
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        LLog.d(getLogTag(), "firebaseAuthWithGoogle:" + acct.getId());
+        logD("firebaseAuthWithGoogle:" + acct.getId());
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
@@ -122,12 +120,12 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            LLog.d(getLogTag(), "signInWithCredential:success");
+                            logD("signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            LLog.d(getLogTag(), "signInWithCredential:failure " + task.getException());
+                            logD("signInWithCredential:failure " + task.getException());
                             Snackbar.make(findViewById(R.id.rootView), "Authentication Failed.", Snackbar.LENGTH_SHORT).show();
                             updateUI(null);
                         }
@@ -180,11 +178,9 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
         if (user != null) {
             mStatusTextView.setText(getString(R.string.google_status_fmt, user.getEmail()));
             //mDetailTextView.setText(getString(R.string.firebase_status_fmt, user.getUid()));
-            //mDetailTextView.setText(LApplication.getInstance().getGson().toJson(user));
             LUIUtil.Companion.printBeautyJson(user, mDetailTextView);
 
-            LLog.d(getLogTag(), "updateUI " + LApplication.Companion.getGson().toJson(user));
-            LLog.d(getLogTag(), "user.getPhotoUrl() " + user.getPhotoUrl());
+            logD("user.getPhotoUrl() " + user.getPhotoUrl());
 
             try {
                 String url = user.getPhotoUrl().toString();

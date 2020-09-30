@@ -2,8 +2,8 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.favlist
 
 import android.content.Context
 import android.os.AsyncTask
+import com.core.base.BaseApplication
 import com.core.utilities.LStoreUtil
-import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils.Companion.isComicExistIn
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
@@ -15,11 +15,14 @@ class AddComicFavListTask(private val context: Context,
                           private val callback: Callback?)
     : AsyncTask<Void, Void, Int>() {
 
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var comicList = ArrayList<Comic>()
-    private val RESULT_ADD_COMIC_SUCCESS = 69
-    private val RESULT_COMIC_IS_EXIST = 96
-    private val RESULT_ADD_COMIC_ERROR = 66
+
+    companion object {
+        private const val RESULT_ADD_COMIC_SUCCESS = 69
+        private const val RESULT_COMIC_IS_EXIST = 96
+        private const val RESULT_ADD_COMIC_ERROR = 66
+    }
 
     interface Callback {
         fun onAddComicSuccess(mComic: Comic, comicList: List<Comic>)
@@ -29,12 +32,11 @@ class AddComicFavListTask(private val context: Context,
 
     override fun doInBackground(vararg voids: Void): Int {
         val json = LStoreUtil.readTxtFromFolder(context = context, folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE)
-        val gson = Gson()
         var mResult = 0
 
         if (json.isEmpty()) {
             comicList.add(mComic)
-            val newJson = gson.toJson(comicList)
+            val newJson = BaseApplication.gson.toJson(comicList)
             val isSaved = LStoreUtil.writeToFile(context = context, folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, body = newJson)
             mResult = if (isSaved) {
                 RESULT_ADD_COMIC_SUCCESS
@@ -42,11 +44,11 @@ class AddComicFavListTask(private val context: Context,
                 RESULT_ADD_COMIC_ERROR
             }
         } else {
-            comicList = gson.fromJson(json, object : TypeToken<List<Comic?>?>() {}.type)
+            comicList = BaseApplication.gson.fromJson(json, object : TypeToken<List<Comic?>?>() {}.type)
             val isExist = isComicExistIn(comic = mComic, comicList = comicList)
             mResult = if (!isExist) {
                 comicList.add(mComic)
-                val newJson = gson.toJson(comicList)
+                val newJson = BaseApplication.gson.toJson(comicList)
                 val isSaved = LStoreUtil.writeToFile(context = context, folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, body = newJson)
                 if (isSaved) {
                     RESULT_ADD_COMIC_SUCCESS

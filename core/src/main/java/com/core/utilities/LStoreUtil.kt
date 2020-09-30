@@ -5,7 +5,7 @@ import android.content.Context
 import android.graphics.Color
 import android.os.AsyncTask
 import android.os.Environment
-import com.google.gson.Gson
+import com.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
 import com.interfaces.*
 import com.model.App
@@ -18,17 +18,16 @@ import kotlin.collections.ArrayList
 
 class LStoreUtil {
     companion object {
-        internal var TAG = LStoreUtil::class.java.simpleName
+        internal var logTag = LStoreUtil::class.java.simpleName
 
-        var FOLDER_TRANSLATE = ".Loitp"
-        var FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
-
-        private val EXTENSION = ".txt"
-        val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
-        val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
-        val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
-        val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
-        val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
+        const val FOLDER_TRANSLATE = ".Loitp"
+        const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
+        private const val EXTENSION = ".txt"
+        const val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
+        const val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
+        const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
+        const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
+        const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
 
         val isSdPresent: Boolean
             get() = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
@@ -115,7 +114,7 @@ class LStoreUtil {
                 }
 
             }
-            //LLog.d(TAG, "isSdPresent: $isSdPresent, getFolderPath: $folderPath")
+            //LLog.d(logTag, "isSdPresent: $isSdPresent, getFolderPath: $folderPath")
             return folderPath
         }
 
@@ -137,22 +136,22 @@ class LStoreUtil {
                 if (folder != null) {
                     path = "$path$folder/"
                 }
-                //LLog.d(TAG, "writeToFile path: $path")
+                //LLog.d(logTag, "writeToFile path: $path")
                 val dir = File(path)
                 val dirExist = dir.exists()
-                //LLog.d(TAG, "writeToFile dirExist: $dirExist")
+                //LLog.d(logTag, "writeToFile dirExist: $dirExist")
                 if (!dirExist) {
                     if (!dir.mkdirs()) {
-                        //LLog.d(TAG, "writeToFile could not create the directories")
+                        //LLog.d(logTag, "writeToFile could not create the directories")
                         return false
                     }
                 }
                 val myFile = File(dir, fileName)
                 val myFileExist = myFile.exists()
-                //LLog.d(TAG, "writeToFile myFileExist: $myFileExist")
+                //LLog.d(logTag, "writeToFile myFileExist: $myFileExist")
                 if (!myFileExist) {
                     val isSuccess = myFile.createNewFile()
-                    LLog.d(TAG, "writeToFile isSuccess: $isSuccess")
+                    LLog.d(logTag, "writeToFile isSuccess: $isSuccess")
                 }
                 fos = FileOutputStream(myFile)
                 fos.write(body.toByteArray())
@@ -176,7 +175,7 @@ class LStoreUtil {
 
                 override fun onPostExecute(aVoid: Void) {
                     super.onPostExecute(aVoid)
-                    //LLog.d(TAG, "writeToFile onPostExecute isSuccess: $isSuccess")
+                    //LLog.d(logTag, "writeToFile onPostExecute isSuccess: $isSuccess")
                     callbackWriteFile?.onFinish(isSuccess)
                 }
             }.execute()
@@ -187,7 +186,7 @@ class LStoreUtil {
          */
         fun readTxtFromFolder(context: Context, folderName: String?, fileName: String): String {
             val path = getFolderPath(context) + (if (folderName == null) "/" else "$folderName/") + fileName
-            //LLog.d(TAG, "path: $path")
+            //LLog.d(logTag, "path: $path")
             val txtFile = File(path)
             val text = StringBuilder()
             try {
@@ -235,7 +234,7 @@ class LStoreUtil {
                 private var runTaskSuccess = true
 
                 override fun onPreExecute() {
-                    LLog.d(TAG, "readTxtFromFolder onPreExecute")
+                    LLog.d(logTag, "readTxtFromFolder onPreExecute")
                     super.onPreExecute()
                 }
 
@@ -244,7 +243,7 @@ class LStoreUtil {
                         "/"
                     else
                         "$folderName/") + fileName
-                    LLog.d(TAG, "path: $path")
+                    LLog.d(logTag, "path: $path")
                     val txtFile = File(path)
                     text = StringBuilder()
                     try {
@@ -259,7 +258,7 @@ class LStoreUtil {
                         reader.close()
                     } catch (e: IOException) {
                         runTaskSuccess = false
-                        LLog.d(TAG, "readTxtFromFolder===$e")
+                        LLog.d(logTag, "readTxtFromFolder===$e")
                         e.printStackTrace()
                     }
 
@@ -332,7 +331,7 @@ class LStoreUtil {
                 }
                 br.close()
                 ins.close()
-                //LLog.d(TAG, "writeToFile saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString())
+                //LLog.d(logTag, "writeToFile saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString())
                 writeToFile(context, folderName, fileName, stringBuilder.toString())
                 state = true
             } catch (e: Exception) {
@@ -418,12 +417,12 @@ class LStoreUtil {
             if (context == null || linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
                 return
             }
-//            LLog.d(TAG, "getSettingFromGGDrive")
+//            LLog.d(logTag, "getSettingFromGGDrive")
             val request = Request.Builder().url(linkGGDriveSetting).build()
             val okHttpClient = OkHttpClient()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-//                    LLog.d(TAG, "getSettingFromGGDrive onFailure $e")
+//                    LLog.d(logTag, "getSettingFromGGDrive onFailure $e")
                     ggSettingCallback?.onGGFailure(call, e)
                 }
 
@@ -432,8 +431,7 @@ class LStoreUtil {
                     if (response.isSuccessful) {
                         val responseBody = response.body ?: return
                         val json = responseBody.string()
-//                        LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful $json")
-                        val app = Gson().fromJson(json, App::class.java)
+                        val app = BaseApplication.gson.fromJson(json, App::class.java)
                         if (app == null) {
                             ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
                         } else {
@@ -450,7 +448,7 @@ class LStoreUtil {
                         }
 
                     } else {
-//                        LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: $response")
+//                        LLog.d(logTag, "getSettingFromGGDriveonResponse !isSuccessful: $response")
                         ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
                     }
                 }
@@ -461,12 +459,12 @@ class LStoreUtil {
             if (context == null || linkGGDrive == null || linkGGDrive.isEmpty()) {
                 return
             }
-//            LLog.d(TAG, "getTextFromGGDrive")
+//            LLog.d(logTag, "getTextFromGGDrive")
             val request = Request.Builder().url(linkGGDrive).build()
             val okHttpClient = OkHttpClient()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    LLog.d(TAG, "getTextFromGGDrive onFailure $e")
+                    LLog.d(logTag, "getTextFromGGDrive onFailure $e")
                     ggCallback?.onGGFailure(call = call, e = e)
                 }
 
@@ -478,14 +476,13 @@ class LStoreUtil {
                         if (json.isNullOrEmpty()) {
                             ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody isNullOrEmpty"))
                         } else {
-//                            LLog.d(TAG, "getTextFromGGDrive onResponse isSuccessful $json")
-                            val g = Gson()
-                            val listGG: ArrayList<GG> = g.fromJson(json, object : TypeToken<List<GG?>?>() {}.type)
-//                            LLog.d(TAG, "getTextFromGGDrive listGG " + g.toJson(listGG))
+//                            LLog.d(logTag, "getTextFromGGDrive onResponse isSuccessful $json")
+                            val listGG: ArrayList<GG> = BaseApplication.gson.fromJson(json, object : TypeToken<List<GG?>?>() {}.type)
+//                            LLog.d(logTag, "getTextFromGGDrive listGG " + g.toJson(listGG))
                             ggCallback?.onGGResponse(listGG = listGG)
                         }
                     } else {
-//                        LLog.d(TAG, "getTextFromGGDrive !isSuccessful: $response")
+//                        LLog.d(logTag, "getTextFromGGDrive !isSuccessful: $response")
                         ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody !isSuccessful"))
                     }
                 }
