@@ -60,6 +60,6 @@
         app:allow_random_color="true"
         app:btn_color="@color/gray"
         app:btn_fill_color="@color/green"
-        app:siShape="@raw/smile" />
+        app:siShape="@raw/star" />
 
 </com.github.florent37.shapeofview.shapes.RoundRectView>

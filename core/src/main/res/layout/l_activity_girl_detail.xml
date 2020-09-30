@@ -63,7 +63,7 @@
             app:btn_fill_color="@color/green"
             app:layout_anchor="@id/layoutAppBar"
             app:layout_anchorGravity="bottom|end"
-            app:siShape="@raw/smile"
+            app:siShape="@raw/star"
             tools:visibility="visible" />
 
         <TextView
