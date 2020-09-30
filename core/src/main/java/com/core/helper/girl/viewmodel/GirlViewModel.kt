@@ -42,11 +42,18 @@ class GirlViewModel : BaseViewModel() {
                         getErrorRequestGirl(response)
                 )
             } else {
+                val data = response.items
+                data.forEach { girlPage ->
+                    val findGirlPage = GirlDatabase.instance?.girlPageDao()?.find(girlPage.id)
+                    LLog.d(logTag, ">>>findGirlPage " + BaseApplication.gson.toJson(findGirlPage))
+                    girlPage.isFavorites = !(findGirlPage == null || !findGirlPage.isFavorites)
+                }
+
                 pageActionLiveData.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
-                                data = response.items,
+                                data = data,
                                 total = response.total,
                                 totalPages = response.totalPages,
                                 page = response.page,
