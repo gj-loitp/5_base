@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -20,6 +19,7 @@ import com.core.common.Constants
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
+import com.manojbhadane.QButton
 import com.utils.util.AppUtils
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
@@ -153,19 +153,27 @@ class AdHelperActivity : BaseFontActivity() {
             val layout = inflater.inflate(R.layout.l_item_photo_ad_helper, collection, false) as ViewGroup
 
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
-            val tv = layout.findViewById<TextView>(R.id.textView)
+            val textView = layout.findViewById<TextView>(R.id.textView)
             val tvMsg = layout.findViewById<TextView>(R.id.tvMsg)
-            val btOkay = layout.findViewById<Button>(R.id.btOkay)
+            val btOkay = layout.findViewById<QButton>(R.id.btOkay)
+
+            if (isDarkTheme) {
+                textView.setTextColor(Color.WHITE)
+                tvMsg.setTextColor(Color.WHITE)
+                btOkay.setTextColor(Color.BLACK)
+                btOkay.setBackgroundColor(Color.WHITE)
+                btOkay.setStrokeColor(Color.GRAY)
+            } else {
+                LUIUtil.setTextShadow(textView = textView, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
+                LUIUtil.setTextShadow(textView = tvMsg, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
+            }
 
             adPage.urlAd?.let {
                 LImageUtil.load(this@AdHelperActivity, it, imageView)
             }
 
-            tv.text = adPage.title
-            LUIUtil.setTextShadow(textView = tv, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
-
+            textView.text = adPage.title
             tvMsg.text = adPage.msg
-            LUIUtil.setTextShadow(textView = tvMsg, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
 
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"
