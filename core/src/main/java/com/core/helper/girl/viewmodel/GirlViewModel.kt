@@ -92,6 +92,9 @@ class GirlViewModel : BaseViewModel() {
             val id = GirlDatabase.instance?.girlPageDao()?.insert(girlPage)
             LLog.d(logTag, "<<<likeGirlPage id $id")
             likeGirlPageActionLiveData.post(ActionData(isDoing = false, data = girlPage, isSuccess = true))
+
+            val listGirlPageFavorites = GirlDatabase.instance?.girlPageDao()?.getListGirlPage()
+            LLog.d(logTag, "listGirlPageFavorites " + BaseApplication.gson.toJson(listGirlPageFavorites))
         }
     }
 }
