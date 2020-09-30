@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.*
 import com.core.helper.girl.model.GirlTopUser
@@ -23,7 +24,7 @@ import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
 
-@LogTag("FrmHome")
+@LogTag("loitppFrmHome")
 class FrmHome : BaseFragment() {
 
     private var girlViewModel: GirlViewModel? = null
@@ -146,12 +147,18 @@ class FrmHome : BaseFragment() {
         girlAlbumAdapter = GirlAlbumAdapter()
         girlProgressAdapter = GirlProgressAdapter()
 
-        girlAlbumAdapter?.onClickRootListener = { girlPage, position ->
-            val intent = Intent(activity, GirlDetailActivity::class.java)
-            intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
-            startActivity(intent)
-            LActivityUtil.tranIn(activity)
+        girlAlbumAdapter?.let {
+            it.onClickRootListener = { girlPage, _ ->
+                val intent = Intent(activity, GirlDetailActivity::class.java)
+                intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
+                startActivity(intent)
+                LActivityUtil.tranIn(activity)
+            }
+            it.onClickLikeListener = { girlPage, _ ->
+                girlViewModel?.likeGirlPage(girlPage = girlPage)
+            }
         }
+
         girlTopUserAdapter?.onClickRootView = { girlTopUser ->
             //TODO
         }
@@ -220,6 +227,12 @@ class FrmHome : BaseFragment() {
                 val isDoing = actionData.isDoing
 //                swipeRefreshLayout.isRefreshing = isDoing == true
 
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+
                 if (isDoing == false && actionData.isSuccess == true) {
                     val listGirlPage = actionData.data
                     if (listGirlPage.isNullOrEmpty()) {
@@ -240,13 +253,31 @@ class FrmHome : BaseFragment() {
                     }
                 }
             })
+            vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+//                logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+                if (isDoing == false && actionData.isSuccess == true) {
+                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
+//                    girlPage = actionData.data
+//                    if (girlPage?.isFavorites == true) {
+//                        showLong(getString(R.string.added_to_favorites))
+//                    } else {
+//                        showLong(getString(R.string.removed_from_favorites))
+//                    }
+                }
+            })
         }
     }
 
     private fun handleSearch(isAutoSearch: Boolean) {
-        if(isAutoSearch){
+        if (isAutoSearch) {
             //do nothing
-        }else{
+        } else {
             KeyboardUtils.hideSoftInput(context, etSearch)
         }
         etSearch.apply {

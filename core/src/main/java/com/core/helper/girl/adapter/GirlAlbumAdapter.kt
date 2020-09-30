@@ -26,6 +26,7 @@ class GirlAlbumAdapter : AnimationAdapter() {
 
     private var listGirlPage = ArrayList<GirlPage>()
     var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
+    var onClickLikeListener: ((GirlPage, Int) -> Unit)? = null
 
     fun setData(listGirlPage: ArrayList<GirlPage>, isSwipeToRefresh: Boolean) {
         if (isSwipeToRefresh) {
@@ -66,6 +67,9 @@ class GirlAlbumAdapter : AnimationAdapter() {
                 onClickRootListener?.invoke(girlPage, bindingAdapterPosition)
             }
             itemView.btLike.isChecked = girlPage.isFavorites
+            itemView.btLike.setSafeOnClickListener {
+                onClickLikeListener?.invoke(girlPage, bindingAdapterPosition)
+            }
             setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
