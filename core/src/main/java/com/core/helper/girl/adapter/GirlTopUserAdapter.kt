@@ -26,7 +26,6 @@ class GirlTopUserAdapter : AnimationAdapter() {
     fun setListGirlTopUser(listGirlTopUser: ArrayList<GirlTopUser>) {
         this.listGirlTopUser.clear()
         this.listGirlTopUser.addAll(listGirlTopUser)
-//        LLog.d(logTag, "setListGirlTopUser " + Gson().toJson(listGirlTopUser))
         notifyDataSetChanged()
     }
 

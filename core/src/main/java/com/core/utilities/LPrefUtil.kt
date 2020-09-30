@@ -16,7 +16,7 @@ class LPrefUtil {
         private val logTag = LPrefUtil::class.java.simpleName
 
         private const val PREFERENCES_FILE_NAME = "loitp"
-        private  val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.getAppVersionCode()
+        private val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.getAppVersionCode()
         private const val PRE_LOAD = "PRE_LOAD"
         const val JSON_LIST_DATA = "JSON_LIST_DATA"
         const val JSON_FAV_DATA = "JSON_FAV_DATA"
@@ -24,13 +24,13 @@ class LPrefUtil {
         const val FIRST_RUN_APP = "FIRST_RUN_APP"
         const val SAVED_NUMBER_VERSION = "saved.number.version"
         const val NOT_READY_USE_APPLICATION = "not.ready.use.application"
-        const val TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB"
+        private const val TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB"
         var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
-        const val INDEX = "INDEX"
-        const val PASS_CODE = "PASS_CODE"
-        const val GG_APP_SETTING = "GG_APP_SETTING"
-        const val GG_APP_MSG = "GG_APP_MSG"
-        const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
+        private const val INDEX = "INDEX"
+        private const val PASS_CODE = "PASS_CODE"
+        private const val GG_APP_SETTING = "GG_APP_SETTING"
+        private const val GG_APP_MSG = "GG_APP_MSG"
+        private const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
 
         //region object
         fun getGGAppSetting(context: Context): App {

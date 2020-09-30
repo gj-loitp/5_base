@@ -39,13 +39,13 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
         this.maxBookAsset = maxBookAsset;
         this.extensionEpub = extensionEpub;
         this.callback = callback;
-        LLog.d(logTag, "GetListBookAllAssetTask maxBookAsset " + maxBookAsset + ", extensionEpub: " + extensionEpub);
+//        LLog.d(logTag, "GetListBookAl/lAssetTask maxBookAsset " + maxBookAsset + ", extensionEpub: " + extensionEpub);
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        LLog.d(logTag, ">>>>>>>>>>>>>>>>>>onPreExecute asset");
+//        LLog.d(logTag, ">>>>>>>>>>>>>>>>>>onPreExecute asset");
         if (callback != null) {
             callback.onPreExecute();
         }
@@ -53,7 +53,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-        LLog.d(logTag, ">>>>>>>>>>>>>>>>>>doInBackground");
+//        LLog.d(logTag, ">>>>>>>>>>>>>>>>>>doInBackground");
         String jsonBookAsset = LPrefUtil.Companion.getJsonBookAsset(context);
         if (jsonBookAsset == null || jsonBookAsset.isEmpty()) {
             bookInfoList.addAll(searchForFiles());
@@ -66,7 +66,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 bookInfoList.addAll(searchForFiles());
             }
         }
-        LLog.d(logTag, "doInBackground searchForPdfFiles " + bookInfoList.size());
+//        LLog.d(logTag, "doInBackground searchForPdfFiles " + bookInfoList.size());
         Reader reader = new Reader();
         for (int i = 0; i < bookInfoList.size(); i++) {
             try {
@@ -85,7 +85,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 }
                 bookInfo.setCoverImage(reader.getCoverImage());
             } catch (ReadingException e) {
-                LLog.e(logTag, "doInBackground ReadingException " + e.toString());
+//                LLog.e(logTag, "doInBackground ReadingException " + e.toString());
                 e.printStackTrace();
             }
         }
@@ -95,7 +95,7 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        LLog.d(logTag, ">>>>>>>>>>>>>>>>>>onPostExecute asset " + bookInfoList.size());
+//        LLog.d(logTag, ">>>>>>>>>>>>>>>>>>onPostExecute asset " + bookInfoList.size());
         if (callback != null) {
             callback.onPostExecute(bookInfoList);
         }
@@ -104,7 +104,8 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
 
     private void sortABC() {
         if (bookInfoList == null || bookInfoList.isEmpty()) {
-            LLog.e(logTag, "sortABC bookInfoList==null||isEmpty return");
+//            LLog.e(logTag, "sortABC bookInfoList==null||isEmpty return");
+            return;
         }
         Collections.sort(bookInfoList, new Comparator<BookInfo>() {
             @Override
@@ -148,11 +149,11 @@ public class GetListBookAllAssetTask extends AsyncTask<Void, Void, Void> {
                 fos.write(buffer);
                 fos.close();
             } catch (Exception e) {
-                LLog.e(logTag, "getFileFromAssets " + e.toString());
+//                LLog.e(logTag, "getFileFromAssets " + e.toString());
                 return null;
             }
         }
-        LLog.d(logTag, "getFileFromAssets fileName " + fileName);
+//        LLog.d(logTag, "getFileFromAssets fileName " + fileName);
         return file;
     }
 }

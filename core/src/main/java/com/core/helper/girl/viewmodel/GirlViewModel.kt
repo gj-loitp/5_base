@@ -1,5 +1,6 @@
 package com.core.helper.girl.viewmodel
 
+import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
 import com.core.helper.girl.db.GirlDatabase
 import com.core.helper.girl.model.GirlPage
@@ -7,7 +8,6 @@ import com.core.helper.girl.model.GirlPageDetail
 import com.core.helper.girl.service.GirlApiClient
 import com.core.helper.girl.service.GirlRepository
 import com.core.utilities.LLog
-import com.google.gson.Gson
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
@@ -36,7 +36,7 @@ class GirlViewModel : BaseViewModel() {
                     pageIndex = pageIndex,
                     keyWord = keyWord
             )
-            LLog.d(logTag, "<<<getPage " + Gson().toJson(response))
+            LLog.d(logTag, "<<<getPage " + BaseApplication.gson.toJson(response))
             if (response.items == null) {
                 pageActionLiveData.postAction(
                         getErrorRequestGirl(response)
@@ -65,7 +65,6 @@ class GirlViewModel : BaseViewModel() {
             val response = repository.getPageDetail(
                     id = id
             )
-//            LLog.d(logTag, "<<<getDetail " + Gson().toJson(response))
             if (response.items == null) {
                 pageDetailActionLiveData.postAction(
                         getErrorRequestGirl(response)
@@ -87,7 +86,7 @@ class GirlViewModel : BaseViewModel() {
     }
 
     fun likeGirlPage(girlPage: GirlPage) {
-        LLog.d(logTag, ">>>likeGirlPage " + Gson().toJson(girlPage))
+        LLog.d(logTag, ">>>likeGirlPage " + BaseApplication.gson.toJson(girlPage))
         likeGirlPageActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
             val id = GirlDatabase.instance?.girlPageDao()?.insert(girlPage)

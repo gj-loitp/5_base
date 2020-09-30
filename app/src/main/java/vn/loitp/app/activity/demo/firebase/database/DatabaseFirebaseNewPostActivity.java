@@ -8,7 +8,6 @@ import android.widget.EditText;
 import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
-import com.core.base.BaseApplication;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -91,7 +90,6 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         // Get user value
                         User user = dataSnapshot.getValue(User.class);
 
-                        logD("onDataChange user: " + BaseApplication.Companion.getGson().toJson(user));
                         // [START_EXCLUDE]
                         if (user == null) {
                             // User is null, error out

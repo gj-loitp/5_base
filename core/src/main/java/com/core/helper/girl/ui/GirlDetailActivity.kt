@@ -14,6 +14,7 @@ import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.girl.adapter.GirlDetailAdapter
@@ -23,7 +24,6 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LImageUtil
 import com.daimajia.androidanimations.library.Techniques
-import com.google.gson.Gson
 import com.views.LAppBarLayout
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
@@ -94,7 +94,6 @@ class GirlDetailActivity : BaseFontActivity() {
         girlDetailAdapter?.let { gda ->
             gda.onClickRootListener = { _, position ->
                 val list = girlDetailAdapter?.getData()
-                logD("onClickRootListener list " + Gson().toJson(list))
                 list?.let {
                     val intent = Intent(this, GirlSlideActivity::class.java)
                     intent.putExtra(GirlSlideActivity.KEY_POSITION, position)
@@ -140,7 +139,6 @@ class GirlDetailActivity : BaseFontActivity() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
             vm.pageDetailActionLiveData.observe(this, Observer { actionData ->
-//                logD("pageDetailActionLiveData " + Gson().toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     indicatorView.smoothToShow()
@@ -168,7 +166,7 @@ class GirlDetailActivity : BaseFontActivity() {
                     indicatorView.smoothToHide()
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
-                    logD("<<<likeGirlPageActionLiveData observe " + Gson().toJson(actionData.data))
+                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
                 }
             })
         }
