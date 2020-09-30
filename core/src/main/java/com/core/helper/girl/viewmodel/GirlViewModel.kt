@@ -91,7 +91,7 @@ class GirlViewModel : BaseViewModel() {
         ioScope.launch {
             val id = GirlDatabase.instance?.girlPageDao()?.insert(girlPage)
             LLog.d(logTag, "<<<likeGirlPage id $id")
-            likeGirlPageActionLiveData.post(ActionData(isDoing = false, data = girlPage))
+            likeGirlPageActionLiveData.post(ActionData(isDoing = false, data = girlPage, isSuccess = true))
         }
     }
 }

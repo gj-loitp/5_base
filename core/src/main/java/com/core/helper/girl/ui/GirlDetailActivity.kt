@@ -14,7 +14,6 @@ import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
-import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.girl.adapter.GirlDetailAdapter
@@ -159,6 +158,7 @@ class GirlDetailActivity : BaseFontActivity() {
                 }
             })
             vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+//                logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     indicatorView.smoothToShow()
@@ -166,7 +166,8 @@ class GirlDetailActivity : BaseFontActivity() {
                     indicatorView.smoothToHide()
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
-                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
+//                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
+                    showLong(getString(R.string.added_to_favorites))
                 }
             })
         }
