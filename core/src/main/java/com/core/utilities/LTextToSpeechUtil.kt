@@ -10,7 +10,7 @@ import java.util.*
  */
 
 class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var tts: TextToSpeech? = null
     private var context: Context? = null
 
@@ -23,7 +23,7 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
         if (status == TextToSpeech.SUCCESS) {
             val result = tts?.setLanguage(Locale.US)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                LLog.d(TAG, "This Language is not supported")
+                LLog.d(logTag, "This Language is not supported")
             } else {
                 //speakOut("Example");
             }

@@ -17,7 +17,7 @@ import kotlin.coroutines.CoroutineContext
  * www.muathu@gmail.com
  */
 class PdfStreamCoroutine : CoroutineScope {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job // to run code in Main(UI) Thread
@@ -25,11 +25,11 @@ class PdfStreamCoroutine : CoroutineScope {
     // call this method to cancel a coroutine when you don't need it anymore,
     fun cancel() {
         job.cancel()
-        LLog.d(TAG, "cancel " + job.isCancelled)
+        LLog.d(logTag, "cancel " + job.isCancelled)
     }
 
     fun startTask(urlPdf: String, result: (InputStream?) -> Unit) = launch {
-        LLog.d(TAG, "startTask")
+        LLog.d(logTag, "startTask")
         val inputStream = doInBackground(urlPdf)
         result.invoke(inputStream)
     }
@@ -37,13 +37,13 @@ class PdfStreamCoroutine : CoroutineScope {
     private suspend fun doInBackground(urlPdf: String): InputStream? = withContext(Dispatchers.IO) {
         // to run code in Background Thread
         // do async work
-        LLog.d(TAG, "doInBackground")
+        LLog.d(logTag, "doInBackground")
         var inputStream: InputStream? = null
         var url: URL? = null
         try {
             url = URL(urlPdf)
         } catch (e: MalformedURLException) {
-            LLog.e(TAG, "doInBackground MalformedURLException $e")
+            LLog.e(logTag, "doInBackground MalformedURLException $e")
         }
 
         try {
