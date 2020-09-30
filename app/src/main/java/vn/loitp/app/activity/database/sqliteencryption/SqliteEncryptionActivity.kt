@@ -7,6 +7,7 @@ import android.widget.Button
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import io.reactivex.Single
@@ -14,7 +15,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_sqlite_encryption.*
 import vn.loitp.app.R
-import vn.loitp.app.app.LApplication
 
 @LayoutId( R.layout.activity_sqlite_encryption)
 @LogTag("SqliteEncryptionActivity")
@@ -89,7 +89,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private fun addButtonById(idBike: Long?) {
         val button = Button(this)
         val bike = db.getBike(idBike)
-        logD("addButton bike " + LApplication.gson.toJson(bike))
+        logD("addButton bike " + BaseApplication.gson.toJson(bike))
         if (bike != null) {
             LUIUtil.printBeautyJson(bike, button)
             button.isAllCaps = false
@@ -161,7 +161,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                 }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 { bike ->
-                                    showShort("Found: " + LApplication.gson.toJson(bike))
+                                    showShort("Found: " + BaseApplication.gson.toJson(bike))
                                     hideProgress()
                                 },
                                 { t ->

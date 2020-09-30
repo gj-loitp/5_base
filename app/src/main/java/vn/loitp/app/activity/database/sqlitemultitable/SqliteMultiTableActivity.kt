@@ -5,6 +5,7 @@ import android.widget.TextView
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table.*
@@ -12,7 +13,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.database.sqlitemultitable.helper.DatabaseHelper
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
-import vn.loitp.app.app.LApplication
 
 //https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
@@ -51,7 +51,7 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         showMsg("tagList size: " + tagList.size)
         for (i in tagList.indices) {
             val t = tagList[i]
-            showMsg("tagList -> " + i + " -> " + LApplication.gson.toJson(t))
+            showMsg("tagList -> " + i + " -> " + BaseApplication.gson.toJson(t))
         }
 
         // Creating note
@@ -101,14 +101,14 @@ class SqliteMultiTableActivity : BaseFontActivity() {
         showMsg("noteList size: " + noteList.size)
         for (i in noteList.indices) {
             val td = noteList[i]
-            showMsg(">noteList " + i + " -> " + LApplication.gson.toJson(td))
+            showMsg(">noteList " + i + " -> " + BaseApplication.gson.toJson(td))
         }
 
         // Getting note under "Watchlist" tag name
         val tagsWatchList = db.getAllNoteByTag(tag3.tagName)
         for (i in tagsWatchList.indices) {
             val td = tagsWatchList[i]
-            showMsg(">tagsWatchList " + i + " -> " + LApplication.gson.toJson(td))
+            showMsg(">tagsWatchList " + i + " -> " + BaseApplication.gson.toJson(td))
         }
 
         // Deleting

@@ -5,10 +5,10 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.core.base.BaseApplication
 import kotlinx.coroutines.launch
 import vn.loitp.app.activity.demo.architecturecomponent.room.db.WordRoomDatabase
 import vn.loitp.app.activity.demo.architecturecomponent.room.repository.WordRepository
-import vn.loitp.app.app.LApplication
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
     private val logTag = javaClass.simpleName
@@ -37,7 +37,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun insert(word: Word) = viewModelScope.launch {
-        Log.d(logTag, "insert " + LApplication.gson.toJson(word))
+        Log.d(logTag, "insert " + BaseApplication.gson.toJson(word))
         repository.insert(word)
     }
 

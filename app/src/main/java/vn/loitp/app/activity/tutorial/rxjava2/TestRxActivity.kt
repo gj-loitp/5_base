@@ -6,6 +6,7 @@ import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LThreadUtil.Companion.isUIThread
 import com.google.gson.reflect.TypeToken
@@ -19,7 +20,6 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_test_rx.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
-import vn.loitp.app.app.LApplication.Companion.gson
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -186,11 +186,11 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
 
     //for test 5
     private fun searchBike(): Observable<String> {
-        return Observable.just(gson.toJson(bikeList))
+        return Observable.just(BaseApplication.gson.toJson(bikeList))
     }
 
     private fun parse(json: String): List<Bike> {
-        return gson.fromJson(json, object : TypeToken<List<Bike?>?>() {}.type)
+        return BaseApplication.gson.fromJson(json, object : TypeToken<List<Bike?>?>() {}.type)
     }
 
     @SuppressLint("SetTextI18n")

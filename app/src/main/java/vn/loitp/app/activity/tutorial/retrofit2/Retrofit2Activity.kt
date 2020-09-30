@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.restapi.restclient.RestClient2
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit_2.*
 import vn.loitp.app.R
-import vn.loitp.app.app.LApplication
 
 //https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
 
@@ -47,7 +47,7 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
-                    logD("loadData success " + LApplication.gson.toJson(it))
+                    logD("loadData success " + BaseApplication.gson.toJson(it))
                     retroCryptoArrayList.clear()
                     retroCryptoArrayList.addAll(it)
                     retrofit2Adapter = Retrofit2Adapter(cryptoList = retroCryptoArrayList, listener = this)

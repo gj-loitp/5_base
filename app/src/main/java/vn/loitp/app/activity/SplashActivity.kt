@@ -9,6 +9,7 @@ import android.provider.Settings
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.Callback1
@@ -26,7 +27,6 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
-import vn.loitp.app.app.LApplication
 import java.io.IOException
 
 @LayoutId(R.layout.activity_splash)
@@ -253,7 +253,7 @@ class SplashActivity : BaseFontActivity() {
                     }
 
                     override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
-                        logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
+                        logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + BaseApplication.gson.toJson(app))
                     }
                 })
     }
@@ -269,7 +269,7 @@ class SplashActivity : BaseFontActivity() {
                     }
 
                     override fun onGGResponse(listGG: ArrayList<GG>) {
-                        logD("getGG listGG: -> " + LApplication.gson.toJson(listGG))
+                        logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
                     }
                 })
     }

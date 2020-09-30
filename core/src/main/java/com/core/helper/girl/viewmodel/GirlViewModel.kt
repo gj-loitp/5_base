@@ -1,6 +1,7 @@
 package com.core.helper.girl.viewmodel
 
 import com.core.base.BaseViewModel
+import com.core.helper.girl.db.GirlDatabase
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.model.GirlPageDetail
 import com.core.helper.girl.service.GirlApiClient
@@ -19,11 +20,12 @@ import kotlinx.coroutines.launch
  */
 
 class GirlViewModel : BaseViewModel() {
-    private val logTag = javaClass.simpleName
+    private val logTag = "loitpp" + javaClass.simpleName
     private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
     val pageActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
     val pageDetailActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPageDetail>>> = ActionLiveData()
+    val likeGirlPageActionLiveData: ActionLiveData<ActionData<GirlPage>> = ActionLiveData()
 
     fun getPage(pageIndex: Int, keyWord: String?, isSwipeToRefresh: Boolean) {
         pageActionLiveData.set(ActionData(isDoing = true))
@@ -84,4 +86,13 @@ class GirlViewModel : BaseViewModel() {
 
     }
 
+    fun likeGirlPage(girlPage: GirlPage) {
+        LLog.d(logTag, ">>>likeGirlPage " + Gson().toJson(girlPage))
+        likeGirlPageActionLiveData.set(ActionData(isDoing = true))
+        ioScope.launch {
+            val id = GirlDatabase.instance?.girlPageDao()?.insert(girlPage)
+            LLog.d(logTag, "<<<likeGirlPage id $id")
+            likeGirlPageActionLiveData.post(ActionData(isDoing = false, data = girlPage))
+        }
+    }
 }

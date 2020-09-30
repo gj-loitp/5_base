@@ -4,13 +4,13 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionSharedPrefsUtil
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
-import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_shared_prefs_encryption)
 @LogTag("EnctyptionSharedPrefsActivity")
@@ -84,7 +84,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         }
         btGetObject.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
-            showLong("Value: " + LApplication.gson.toJson(value))
+            showLong("Value: " + BaseApplication.gson.toJson(value))
         }
         btPutListObject.setOnClickListener {
             val list = ArrayList<User>()
@@ -104,7 +104,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")
             }
-            showLong("Value: " + LApplication.gson.toJson(value))
+            showLong("Value: " + BaseApplication.gson.toJson(value))
         }
     }
 

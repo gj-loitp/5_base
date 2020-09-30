@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.OrientationHelper
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
@@ -21,7 +22,6 @@ import com.views.calendar.cosmocalendar.selection.criteria.month.PreviousMonthCr
 import com.views.calendar.cosmocalendar.utils.SelectionType
 import kotlinx.android.synthetic.main.activity_calendar_cosmo.*
 import vn.loitp.app.R
-import vn.loitp.app.app.LApplication
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -206,7 +206,7 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun addDefaultRange() {
         calendarView.selectionManager = RangeSelectionManager {
-            logD("logSelectedDaysMenuClick " + LApplication.gson.toJson(calendarView.selectedDays))
+            logD("logSelectedDaysMenuClick " + BaseApplication.gson.toJson(calendarView.selectedDays))
         }
         if (calendarView.selectionManager is RangeSelectionManager) {
             calendarView.clearSelections()

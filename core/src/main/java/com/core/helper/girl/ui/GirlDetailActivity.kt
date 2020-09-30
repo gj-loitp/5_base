@@ -29,7 +29,7 @@ import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
-@LogTag("GirlActivity")
+@LogTag("loitppGirlDetailActivity")
 @IsFullScreen(false)
 class GirlDetailActivity : BaseFontActivity() {
 
@@ -130,7 +130,9 @@ class GirlDetailActivity : BaseFontActivity() {
         })
 
         btLike.setSafeOnClickListener {
-            //TODO
+            girlPage?.let {
+                girlViewModel?.likeGirlPage(girlPage = it)
+            }
         }
     }
 
@@ -156,6 +158,17 @@ class GirlDetailActivity : BaseFontActivity() {
                         recyclerView.visibility = View.VISIBLE
                         girlDetailAdapter?.setData(listGirlPageDetail = listGirlPageDetail)
                     }
+                }
+            })
+            vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+                if (isDoing == false && actionData.isSuccess == true) {
+                    logD("<<<likeGirlPageActionLiveData observe " + Gson().toJson(actionData.data))
                 }
             })
         }

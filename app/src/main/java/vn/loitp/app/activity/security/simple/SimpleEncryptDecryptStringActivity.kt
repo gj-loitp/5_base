@@ -5,12 +5,12 @@ import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LEncryptionUtil
 import kotlinx.android.synthetic.main.activity_encrypt_decrypt_string.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
-import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_encrypt_decrypt_string)
 @LogTag("SimpleEncryptDecryptStringActivity")
@@ -25,7 +25,7 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
         val user = User()
         user.fullName = "Name " + System.currentTimeMillis()
         user.email = "Mail " + System.currentTimeMillis()
-        tv0.text = LApplication.gson.toJson(user)
+        tv0.text = BaseApplication.gson.toJson(user)
 
         bt0.setOnClickListener { encrypt() }
         bt1.setOnClickListener { decrypt() }
