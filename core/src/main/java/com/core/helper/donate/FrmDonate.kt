@@ -32,6 +32,10 @@ Tên tài khoản: TRAN PHU LOI
 Số tài khoản: 0371000106443
 Ngân hàng Vietcombank, Chi nhánh Tân Định, Q1, TPHCM.
 
+❤ Techcombank
+Tên tài khoản: TRAN PHU LOI
+Số tài khoản: 19034585806016
+
 ❤ Viet Capital Bank - Ngân hàng TMCP Bản Việt
 Tên tài khoản: TRAN PHU LOI
 Số tài khoản: 8007041105519
