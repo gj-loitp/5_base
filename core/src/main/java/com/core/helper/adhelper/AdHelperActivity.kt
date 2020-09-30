@@ -135,9 +135,10 @@ class AdHelperActivity : BaseFontActivity() {
 
     private fun setTheme() {
         if (isDarkTheme) {
-            layoutRootView.setBackgroundColor(Color.BLACK)
+            val colorDark900 = ContextCompat.getColor(this, R.color.dark900)
+            layoutRootView.setBackgroundColor(colorDark900)
             btBack.setColorFilter(Color.WHITE)
-            layoutControl.setBackgroundColor(Color.BLACK)
+            layoutControl.setBackgroundColor(colorDark900)
             btPrevScreen.setColorFilter(Color.WHITE)
             tvPage.setTextColor(Color.WHITE)
             btNextScreen.setColorFilter(Color.WHITE)
@@ -158,9 +159,10 @@ class AdHelperActivity : BaseFontActivity() {
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
             if (isDarkTheme) {
+                val colorDark900 = ContextCompat.getColor(this@AdHelperActivity, R.color.dark900)
                 textView.setTextColor(Color.WHITE)
                 tvMsg.setTextColor(Color.WHITE)
-                btOkay.setTextColor(Color.BLACK)
+                btOkay.setTextColor(colorDark900)
                 btOkay.setBackgroundColor(Color.WHITE)
                 btOkay.setStrokeColor(Color.GRAY)
             } else {
@@ -169,7 +171,7 @@ class AdHelperActivity : BaseFontActivity() {
             }
 
             adPage.urlAd?.let {
-                LImageUtil.load(this@AdHelperActivity, it, imageView)
+                LImageUtil.load(context = this@AdHelperActivity, url = it, imageView = imageView)
             }
 
             textView.text = adPage.title
