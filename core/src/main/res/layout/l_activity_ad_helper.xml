@@ -37,8 +37,8 @@
 
         <ImageButton
             android:id="@+id/btPrevScreen"
-            android:layout_width="@dimen/w_40"
-            android:layout_height="@dimen/w_40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/margin_medium"
             android:background="?selectableItemBackgroundBorderless"
@@ -60,8 +60,8 @@
 
         <ImageButton
             android:id="@+id/btNextScreen"
-            android:layout_width="@dimen/w_40"
-            android:layout_height="@dimen/w_40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/margin_medium"
