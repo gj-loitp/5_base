@@ -37,28 +37,27 @@ class FrmInformation : BaseFragment(), View.OnClickListener {
         btSupport.setOnClickListener(this)
         btAdHelper.setOnClickListener(this)
 
-        val text = "Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: \n" +
-                "\n" +
-                "❤ Vietcombank\n" +
-                "Tên tài khoản: Trần Phú Lợi\n" +
-                "Số tài khoản: 0371000106443\n" +
-                "Ngân hàng Vietcombank, Chi nhánh Tân Định, Q1, TPHCM.\n\n" +
-                "❤ VPBank\n" +
-                "Tên tài khoản: Trần Phú Lợi\n" +
-                "Số tài khoản: 166210585\n" +
-                "Ngân hàng VPBank, chi nhánh Bà Chiểu, Bình Thạnh, TPHCM.\n\n" +
-                "❤ Timo\n" +
-                "Tên tài khoản: Trần Phú Lợi\n" +
-                "Số tài khoản: 164205468\n\n" +
-                "❤ Momo:\n" +
-                "Số điện thoại 0764088864\n" +
-                "\n\n" +
-                "Những đóng góp của mọi người là động lực và trách nhiệm để mình có thể cho ra nhiều ứng dụng hay hơn nữa. Chân thành cảm ơn!"
+        val text = Constants.DONATION_INFOR_LOITP
 
         LTextDecorator
                 .decorate(textView, text)
-                .setTextColor(R.color.red, "❤", "Trần Phú Lợi", "0371000106443", "166210585", "164205468", "0764088864")
+                .setTextColor(R.color.red,
+                        "❤ Vietcombank", "0371000106443",
+                        "❤ Techcombank", "19034585806016",
+                        "❤ Viet Capital Bank - Ngân hàng TMCP Bản Việt", "8007041105519",
+                        "❤ VPBank", "166210585",
+                        "❤ Momo", "0764088864")
+                //.setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
+                //.strikethrough("Duis", "Praesent")
                 .underline("Chân thành cảm ơn!")
+                //.setSubscript("vitae")
+                //.makeTextClickable(new OnTextClickListener() {
+                //    @Override
+                //    public void onClick(View view, String text) {
+                //
+                //    }
+                //}, false, "porta", "commodo", "tempor venenatis nulla")
+                //.setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build()
     }
 

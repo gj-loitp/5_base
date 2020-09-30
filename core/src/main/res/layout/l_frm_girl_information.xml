@@ -216,8 +216,9 @@
                 android:paddingStart="@dimen/padding_medium"
                 android:paddingTop="@dimen/padding_medium"
                 android:paddingEnd="@dimen/padding_medium"
-                android:paddingBottom="@dimen/padding_100"
-                android:textSize="@dimen/txt_medium"
+                android:paddingBottom="@dimen/padding_200"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_large"
                 tools:text="Hello World!" />
 
         </LinearLayout>

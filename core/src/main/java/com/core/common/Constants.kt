@@ -196,5 +196,34 @@ class Constants {
         fun setIsDebug(isDebug: Boolean) {
             IS_DEBUG = isDebug
         }
+
+        const val DONATION_INFOR_LOITP = """Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: 
+
+❤ Vietcombank
+Tên tài khoản: TRAN PHU LOI
+Số tài khoản: 0371000106443
+Ngân hàng Vietcombank, Chi nhánh Tân Định, Q1, TPHCM.
+
+❤ Techcombank
+Tên tài khoản: TRAN PHU LOI
+Số tài khoản: 19034585806016
+
+❤ Viet Capital Bank - Ngân hàng TMCP Bản Việt
+Tên tài khoản: TRAN PHU LOI
+Số tài khoản: 8007041105519
+Chi nhánh: Hồ Chí Minh
+Tỉnh/ Thành phố: Hồ Chí Minh
+
+❤ VPBank
+Tên tài khoản: TRAN PHU LOI
+Số tài khoản: 166210585
+Ngân hàng VPBank, chi nhánh Bà Chiểu, Bình Thạnh, TPHCM.
+
+❤ Momo:
+Tên tài khoản: TRAN PHU LOI
+Số điện thoại: 0764088864
+
+
+Những đóng góp của mọi người là động lực và trách nhiệm để mình có thể cho ra nhiều ứng dụng hay hơn nữa. Chân thành cảm ơn!"""
     }
 }
