@@ -1,6 +1,7 @@
 package com.core.helper.adhelper
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,56 +30,18 @@ import java.util.*
 class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
+    private var isDarkTheme: Boolean = false
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_ad_helper)
 
-        isShowAdWhenExit = false
-
         isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
+        isDarkTheme = intent.getBooleanExtra(Constants.IS_DARK_THEME, false)
 
         setupData()
-
-        btBack.setSafeOnClickListener {
-            finish()
-            LActivityUtil.tranOut(this)
-        }
-        btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
-        btNextScreen.setSafeOnClickListener {
-            if (viewPager.currentItem == adPageList.size - 1) {
-                finish()
-                LActivityUtil.tranOut(this)
-            } else {
-                viewPager.currentItem = viewPager.currentItem + 1
-            }
-        }
-
-        viewPager.adapter = SlidePagerAdapter()
-        LUIUtil.setPullLikeIOSHorizontal(viewPager)
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                //do nothing
-            }
-
-            override fun onPageSelected(position: Int) {
-                tvPage.text = (position + 1).toString() + "/" + adPageList.size
-                when (position) {
-                    0 -> btPrevScreen.visibility = View.INVISIBLE
-                    adPageList.size - 1 -> btNextScreen.visibility = View.INVISIBLE
-                    else -> {
-                        btPrevScreen.visibility = View.VISIBLE
-                        btNextScreen.visibility = View.VISIBLE
-                    }
-                }
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                //do nothing
-            }
-        })
-        tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
+        setupViews()
+        setTheme()
     }
 
     private fun setupData() {
@@ -126,6 +89,59 @@ class AdHelperActivity : BaseFontActivity() {
             adPage3.msg = "Chúng tôi cần quảng cáo, giống như bạn cần $appName cho cuộc sống thường nhật của mình.\n\nChúng tôi sẽ nỗ lực để khiến bạn ngày một hài lòng khi sử dụng $appName\n\nXin chân thành cảm ơn."
         }
         adPageList.add(adPage3)
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setupViews() {
+        btBack.setSafeOnClickListener {
+            finish()
+            LActivityUtil.tranOut(this)
+        }
+        btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
+        btNextScreen.setSafeOnClickListener {
+            if (viewPager.currentItem == adPageList.size - 1) {
+                finish()
+                LActivityUtil.tranOut(this)
+            } else {
+                viewPager.currentItem = viewPager.currentItem + 1
+            }
+        }
+
+        viewPager.adapter = SlidePagerAdapter()
+        LUIUtil.setPullLikeIOSHorizontal(viewPager)
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                //do nothing
+            }
+
+            override fun onPageSelected(position: Int) {
+                tvPage.text = (position + 1).toString() + "/" + adPageList.size
+                when (position) {
+                    0 -> btPrevScreen.visibility = View.INVISIBLE
+                    adPageList.size - 1 -> btNextScreen.visibility = View.INVISIBLE
+                    else -> {
+                        btPrevScreen.visibility = View.VISIBLE
+                        btNextScreen.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                //do nothing
+            }
+        })
+        tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
+    }
+
+    private fun setTheme() {
+        if (isDarkTheme) {
+            layoutRootView.setBackgroundColor(Color.BLACK)
+            btBack.setColorFilter(Color.WHITE)
+            layoutControl.setBackgroundColor(Color.BLACK)
+            btPrevScreen.setColorFilter(Color.WHITE)
+            tvPage.setTextColor(Color.WHITE)
+            btNextScreen.setColorFilter(Color.WHITE)
+        }
     }
 
     private inner class SlidePagerAdapter : PagerAdapter() {
