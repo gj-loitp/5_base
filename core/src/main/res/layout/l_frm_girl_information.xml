@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -197,6 +198,27 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_55"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/l_donation" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/padding_medium"
+                android:paddingTop="@dimen/padding_medium"
+                android:paddingEnd="@dimen/padding_medium"
+                android:paddingBottom="@dimen/padding_100"
+                android:textSize="@dimen/txt_medium"
+                tools:text="Hello World!" />
 
         </LinearLayout>
 
