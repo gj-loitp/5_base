@@ -21,5 +21,9 @@ data class GirlPageDetail(
 
         @SerializedName("createdDate")
         @Expose
-        val createdDate: String?
+        val createdDate: String?,
+
+        @SerializedName("isFavorites")
+        @Expose
+        var isFavorites: Boolean = false
 ) : Serializable

@@ -57,12 +57,14 @@
             android:layout_width="@dimen/w_50"
             android:layout_height="@dimen/w_50"
             android:layout_marginEnd="@dimen/margin_large"
+            android:visibility="invisible"
             app:allow_random_color="true"
             app:btn_color="@color/gray"
             app:btn_fill_color="@color/green"
             app:layout_anchor="@id/layoutAppBar"
             app:layout_anchorGravity="bottom|end"
-            app:siShape="@raw/smile" />
+            app:siShape="@raw/smile"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/tvNoData"

@@ -11,4 +11,6 @@ interface GirlPageDao : BaseDao<GirlPage> {
     @Query("SELECT * FROM GirlPage")
     fun getListGirlPage(): List<GirlPage>
 
+    @Query("SELECT * FROM GirlPage WHERE id=:id")
+    fun find(id: String?): GirlPage?
 }

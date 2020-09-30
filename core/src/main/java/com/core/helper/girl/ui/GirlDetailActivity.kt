@@ -14,6 +14,7 @@ import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.girl.adapter.GirlDetailAdapter
@@ -147,6 +148,7 @@ class GirlDetailActivity : BaseFontActivity() {
 
                 if (isDoing == false && actionData.isSuccess == true) {
                     val listGirlPageDetail = actionData.data
+                    logD("<<<pageDetailActionLiveData observe " + BaseApplication.gson.toJson(listGirlPageDetail))
                     if (listGirlPageDetail.isNullOrEmpty()) {
                         tvNoData.visibility = View.VISIBLE
                         recyclerView.visibility = View.GONE
@@ -154,6 +156,15 @@ class GirlDetailActivity : BaseFontActivity() {
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
                         girlDetailAdapter?.setData(listGirlPageDetail = listGirlPageDetail)
+
+                        val isFavorites = listGirlPageDetail.all {
+                            it.isFavorites
+                        }
+                        girlPage?.isFavorites = isFavorites
+                        if (btLike.visibility != View.VISIBLE) {
+                            btLike.visibility = View.VISIBLE
+                            btLike.isChecked = isFavorites
+                        }
                     }
                 }
             })
@@ -167,7 +178,12 @@ class GirlDetailActivity : BaseFontActivity() {
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
 //                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
-                    showLong(getString(R.string.added_to_favorites))
+                    girlPage = actionData.data
+                    if (girlPage?.isFavorites == true) {
+                        showLong(getString(R.string.added_to_favorites))
+                    } else {
+                        showLong(getString(R.string.removed_from_favorites))
+                    }
                 }
             })
         }

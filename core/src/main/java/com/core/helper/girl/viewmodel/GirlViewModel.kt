@@ -61,7 +61,7 @@ class GirlViewModel : BaseViewModel() {
     fun getDetail(id: String?) {
         pageDetailActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
-//            LLog.d(logTag, ">>>getDetail id $id")
+            LLog.d(logTag, ">>>getDetail id $id")
             val response = repository.getPageDetail(
                     id = id
             )
@@ -70,11 +70,23 @@ class GirlViewModel : BaseViewModel() {
                         getErrorRequestGirl(response)
                 )
             } else {
+                val findGirlPage = GirlDatabase.instance?.girlPageDao()?.find(id)
+                LLog.d(logTag, ">>>findGirlPage " + BaseApplication.gson.toJson(findGirlPage))
+                val data = response.items
+                if (findGirlPage == null || !findGirlPage.isFavorites) {
+                    data.forEach {
+                        it.isFavorites = false
+                    }
+                } else {
+                    data.forEach {
+                        it.isFavorites = true
+                    }
+                }
                 pageDetailActionLiveData.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
-                                data = response.items,
+                                data = data,
                                 total = response.total,
                                 totalPages = response.totalPages,
                                 page = response.page
@@ -86,7 +98,9 @@ class GirlViewModel : BaseViewModel() {
     }
 
     fun likeGirlPage(girlPage: GirlPage) {
-        LLog.d(logTag, ">>>likeGirlPage " + BaseApplication.gson.toJson(girlPage))
+        LLog.d(logTag, ">>>likeGirlPage before " + BaseApplication.gson.toJson(girlPage))
+        girlPage.isFavorites = !girlPage.isFavorites
+        LLog.d(logTag, ">>>likeGirlPage after " + BaseApplication.gson.toJson(girlPage))
         likeGirlPageActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
             val id = GirlDatabase.instance?.girlPageDao()?.insert(girlPage)
