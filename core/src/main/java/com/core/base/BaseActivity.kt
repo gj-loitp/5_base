@@ -73,11 +73,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 .getInstance()
                 .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
                     override fun onConnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(context = this@BaseActivity, isConnected = true)
+                        LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
                     }
 
                     override fun onDisconnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(context = this@BaseActivity, isConnected = false)
+                        LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
                     }
 
                     override fun getContext(): Context {

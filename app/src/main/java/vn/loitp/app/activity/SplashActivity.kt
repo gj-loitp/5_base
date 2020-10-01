@@ -146,7 +146,7 @@ class SplashActivity : BaseFontActivity() {
 
     private fun showDialogNotReady() {
         runOnUiThread {
-            val title = if (LConnectivityUtil.isConnected(this)) {
+            val title = if (LConnectivityUtil.isConnected()) {
                 "This app is not available now"
             } else {
                 getString(R.string.check_ur_connection)

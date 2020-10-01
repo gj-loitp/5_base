@@ -38,7 +38,7 @@ open class BaseApplication : MultiDexApplication() {
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
         //network
-        LConnectivityUtil.initOnNetworkChange(applicationContext)
+        LConnectivityUtil.initOnNetworkChange()
 
         //room database
         GirlDatabase.getInstance(this)

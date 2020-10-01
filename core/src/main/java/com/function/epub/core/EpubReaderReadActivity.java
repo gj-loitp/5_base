@@ -139,16 +139,16 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         });
         mViewPager.setAdapter(mSectionsPagerAdapter);
         final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        LinearLayout lnAdview = findViewById(R.id.lnAdView);
-        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.Companion.isConnected(this)) {
-            lnAdview.setVisibility(View.GONE);
+        LinearLayout lnAdView = findViewById(R.id.lnAdView);
+        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.Companion.isConnected()) {
+            lnAdView.setVisibility(View.GONE);
         } else {
             adView = new AdView(this);
             adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(adUnitId);
             LUIUtil.Companion.createAdBanner(adView);
-            lnAdview.addView(adView);
-            lnAdview.requestLayout();
+            lnAdView.addView(adView);
+            lnAdView.requestLayout();
             //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, 0);
