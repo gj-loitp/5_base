@@ -8,12 +8,11 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.ImageView;
 
-import androidx.core.content.ContextCompat;
-
 import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
+import com.core.utilities.LAppResource;
 import com.core.utilities.LDialogUtil;
 import com.core.utilities.LLog;
 import com.interfaces.Callback2;
@@ -53,7 +52,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
-                .setCropScreenColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                .setCropScreenColor(LAppResource.INSTANCE.getColor(R.color.colorPrimary))
                 .setOnPermissionRefusedListener(() -> {
                 })
                 .start());
@@ -66,7 +65,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
                 .withTimeStamp(false)
-                .setCropScreenColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                .setCropScreenColor(LAppResource.INSTANCE.getColor(R.color.colorPrimary))
                 .start());
     }
 

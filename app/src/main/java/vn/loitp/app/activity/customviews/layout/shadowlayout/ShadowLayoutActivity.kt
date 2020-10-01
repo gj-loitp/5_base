@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.layout.shadowlayout
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
 import com.utils.util.ConvertUtils
 import kotlinx.android.synthetic.main.activity_layout_shadow.*
 import vn.loitp.app.R
@@ -28,7 +28,7 @@ class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            tvChangeOval -> slOval.setShadowColor(ContextCompat.getColor(this, R.color.black50))
+            tvChangeOval -> slOval.setShadowColor(LAppResource.getColor(R.color.black50))
             tvChangeRadius -> slRectangle.setShadowColor(Color.parseColor("#EE00FF7F"))
             tvChangeRectangle -> slRadius.setShadowRadius(ConvertUtils.dp2px(12f).toFloat())
         }

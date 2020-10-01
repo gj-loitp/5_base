@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.customviews.bottomnavigationbar.bottombar
 
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
@@ -42,10 +42,10 @@ class BottomBarActivity : BaseFontActivity() {
             })
         }
         btBlurViewRed.setOnClickListener {
-            bottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(this, R.color.red50))
+            bottomBar.realtimeBlurView.setOverlayColor(LAppResource.getColor(R.color.red50))
         }
         btBlurViewGreen.setOnClickListener {
-            bottomBar.realtimeBlurView.setOverlayColor(ContextCompat.getColor(this, R.color.green33))
+            bottomBar.realtimeBlurView.setOverlayColor(LAppResource.getColor(R.color.green33))
         }
         btCount1.setOnClickListener {
             bottomBar.setCount(1)

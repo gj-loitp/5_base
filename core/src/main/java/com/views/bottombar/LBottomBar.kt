@@ -6,9 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import com.R
 import com.core.utilities.LAnimationUtil
+import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.github.mmin18.widget.RealtimeBlurView
@@ -273,13 +273,13 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
             LAnimationUtil.play(textView, it)
         }
 
-        tvIcon0.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
-        tvIcon1.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
-        tvIcon2.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
-        tvIcon3.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
-        tvIcon4.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
-        tvIcon5.setTextColor(ContextCompat.getColor(context, this.colorIvOff))
-        textView.setTextColor(ContextCompat.getColor(context, this.colorIvOn))
+        tvIcon0.setTextColor(LAppResource.getColor(this.colorIvOff))
+        tvIcon1.setTextColor(LAppResource.getColor(this.colorIvOff))
+        tvIcon2.setTextColor(LAppResource.getColor(this.colorIvOff))
+        tvIcon3.setTextColor(LAppResource.getColor(this.colorIvOff))
+        tvIcon4.setTextColor(LAppResource.getColor(this.colorIvOff))
+        tvIcon5.setTextColor(LAppResource.getColor(this.colorIvOff))
+        textView.setTextColor(LAppResource.getColor(this.colorIvOn))
 
         if (isAlwayShowText) {
             tvIcon0.visibility = View.VISIBLE
@@ -297,32 +297,32 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
             tvIcon5.visibility = View.GONE
         }
         ivIcon0.let {
-            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon1.let {
-            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon2.let {
-            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon3.let {
-            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon4.let {
-            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
         ivIcon5.let {
-            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOff))
+            it.setColorFilter(LAppResource.getColor(this.colorIvOff))
             it.setPadding(paddingOffInDp, paddingOffInDp, paddingOffInDp, paddingOffInDp)
         }
 
         imageView.let {
-            it.setColorFilter(ContextCompat.getColor(context, this.colorIvOn))
+            it.setColorFilter(LAppResource.getColor(this.colorIvOn))
             it.setPadding(paddingOnInDp, paddingOnInDp, paddingOnInDp, paddingOnInDp)
         }
         textView.visibility = View.VISIBLE

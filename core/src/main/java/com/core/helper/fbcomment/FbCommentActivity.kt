@@ -12,11 +12,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
-import androidx.core.content.ContextCompat
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -58,7 +58,7 @@ class FbCommentActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setColorProgressBar(progressBar, ContextCompat.getColor(this, R.color.colorPrimary))
+        LUIUtil.setColorProgressBar(progressBar = progressBar, color = LAppResource.getColor(R.color.colorPrimary))
 
         postUrl = if (Constants.IS_DEBUG) {
             "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"

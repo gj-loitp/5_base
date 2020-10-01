@@ -15,7 +15,6 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.ProgressBar
-import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.daimajia.androidanimations.library.Techniques
@@ -53,7 +52,7 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val color = ContextCompat.getColor(context, R.color.colorPrimary)
+            val color = LAppResource.getColor(R.color.colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
 
             LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
@@ -81,7 +80,7 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val colorPrimary = ContextCompat.getColor(context, R.color.colorPrimary)
+            val colorPrimary = LAppResource.getColor(R.color.colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
 
@@ -117,7 +116,7 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val color = ContextCompat.getColor(context, R.color.colorPrimary)
+            val color = LAppResource.getColor(R.color.colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
@@ -289,7 +288,7 @@ class LDialogUtil {
             }
             dialog.window?.let {
                 //it.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                it.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.black65)))
+                it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black65)))
                 it.setDimAmount(amount)
 
                 val wlp = it.attributes

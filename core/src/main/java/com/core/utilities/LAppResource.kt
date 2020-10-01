@@ -25,7 +25,7 @@ object LAppResource {
         ContextCompat.getColor(it, colorRes)
     }
 
-    fun getColorTintList(@ColorRes colorRes: Int): ColorStateList? = application.let {
+    fun getColorStateList(@ColorRes colorRes: Int): ColorStateList? = application.let {
         ContextCompat.getColorStateList(it, colorRes)
     }
 

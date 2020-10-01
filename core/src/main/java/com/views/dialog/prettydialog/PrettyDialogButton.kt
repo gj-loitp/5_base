@@ -13,8 +13,8 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import com.R
+import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import kotlin.math.min
 
@@ -43,9 +43,11 @@ internal class PrettyDialogButton(
         tv?.let {
             it.text = text
             if (textColor == null) {
-                it.setTextColor(ContextCompat.getColor(mContext, defaultTextColor))
+                it.setTextColor(LAppResource.getColor(defaultTextColor))
             } else {
-                it.setTextColor(ContextCompat.getColor(mContext, textColor!!))
+                textColor?.let { color ->
+                    it.setTextColor(LAppResource.getColor(color))
+                }
             }
         }
         tf?.let {
@@ -93,9 +95,11 @@ internal class PrettyDialogButton(
 
     private fun setBackground() {
         if (backgroundColor == null) {
-            setBackgroundDrawable(makeSelector(ContextCompat.getColor(mContext, defaultBackgroundColor)))
+            setBackgroundDrawable(makeSelector(LAppResource.getColor(defaultBackgroundColor)))
         } else {
-            setBackgroundDrawable(makeSelector(ContextCompat.getColor(mContext, backgroundColor!!)))
+            backgroundColor?.let {
+                setBackgroundDrawable(makeSelector(LAppResource.getColor(it)))
+            }
         }
     }
 

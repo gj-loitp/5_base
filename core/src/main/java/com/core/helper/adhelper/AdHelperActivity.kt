@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.R
@@ -17,6 +16,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LAppResource
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.manojbhadane.QButton
@@ -135,7 +135,7 @@ class AdHelperActivity : BaseFontActivity() {
 
     private fun setTheme() {
         if (isDarkTheme) {
-            val colorDark900 = ContextCompat.getColor(this, R.color.dark900)
+            val colorDark900 = LAppResource.getColor(R.color.dark900)
             layoutRootView.setBackgroundColor(colorDark900)
             btBack.setColorFilter(Color.WHITE)
             layoutControl.setBackgroundColor(colorDark900)
@@ -159,15 +159,15 @@ class AdHelperActivity : BaseFontActivity() {
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
             if (isDarkTheme) {
-                val colorDark900 = ContextCompat.getColor(this@AdHelperActivity, R.color.dark900)
+                val colorDark900 = LAppResource.getColor(R.color.dark900)
                 textView.setTextColor(Color.WHITE)
                 tvMsg.setTextColor(Color.WHITE)
                 btOkay.setTextColor(colorDark900)
                 btOkay.setBackgroundColor(Color.WHITE)
                 btOkay.setStrokeColor(Color.GRAY)
             } else {
-                LUIUtil.setTextShadow(textView = textView, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
-                LUIUtil.setTextShadow(textView = tvMsg, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
+                LUIUtil.setTextShadow(textView = textView, color = LAppResource.getColor(R.color.white))
+                LUIUtil.setTextShadow(textView = tvMsg, color = R.color.white)
             }
 
             adPage.urlAd?.let {

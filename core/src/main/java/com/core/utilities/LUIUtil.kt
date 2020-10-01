@@ -23,7 +23,6 @@ import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
-import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -508,7 +507,7 @@ class LUIUtil {
         fun getColor(context: Context): Int {
             val random = Random()
             val c = random.nextInt(colors.size)
-            return ContextCompat.getColor(context, colors[c])
+            return LAppResource.getColor(colors[c])
         }
 
         //it.imeOptions = EditorInfo.IME_ACTION_SEARCH

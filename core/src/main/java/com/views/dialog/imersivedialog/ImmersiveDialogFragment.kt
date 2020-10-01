@@ -33,8 +33,6 @@ class ImmersiveDialogFragment : DialogFragment() {
                 LToast.show(c, "Touch OK")
             }
         }
-        //int color = ContextCompat.getColor(getActivity(), R.color.colorPrimary);
-        //alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
         return alertDialog
     }
 

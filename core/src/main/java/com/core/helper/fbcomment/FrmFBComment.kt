@@ -13,11 +13,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
-import androidx.core.content.ContextCompat
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
+import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_fb_cmt.*
 
@@ -46,7 +46,7 @@ class FrmFBComment : BaseFragment() {
         commentsWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
 
         context?.let {
-            LUIUtil.setColorProgressBar(progressBar = progressBar, color = ContextCompat.getColor(it, R.color.colorPrimary))
+            LUIUtil.setColorProgressBar(progressBar = progressBar, color = LAppResource.getColor(R.color.colorPrimary))
         }
         val bundle = arguments ?: return
         postUrl = bundle.getString(Constants.FACEBOOK_COMMENT_URL)

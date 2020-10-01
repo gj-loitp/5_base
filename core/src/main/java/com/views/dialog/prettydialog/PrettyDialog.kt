@@ -23,8 +23,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDialog
-import androidx.core.content.ContextCompat
 import com.R
+import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import java.util.*
 
@@ -136,7 +136,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setTitleColor(color: Int?): PrettyDialog {
-        tvTitle?.setTextColor(ContextCompat.getColor(context, color ?: R.color.black))
+        tvTitle?.setTextColor(LAppResource.getColor(color ?: R.color.black))
         return this
     }
 
@@ -151,7 +151,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setMessageColor(color: Int?): PrettyDialog {
-        tvMessage?.setTextColor(ContextCompat.getColor(context, color ?: R.color.black))
+        tvMessage?.setTextColor(LAppResource.getColor(color ?: R.color.black))
         return this
     }
 
@@ -164,8 +164,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setIconTint(color: Int?): PrettyDialog {
-        ivIcon?.setColorFilter(ContextCompat.getColor(context, color
-                ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
+        ivIcon?.setColorFilter(LAppResource.getColor(color ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
         return this
     }
 
@@ -196,8 +195,7 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         iconAnimation = false
         ivIcon?.let {
             it.setImageResource(icon ?: R.drawable.ic_close_black_48dp)
-            it.setColorFilter(ContextCompat.getColor(context, iconTint
-                    ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
+            it.setColorFilter(LAppResource.getColor(iconTint ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
             it.setOnTouchListener(null)
         }
         callback?.let {
