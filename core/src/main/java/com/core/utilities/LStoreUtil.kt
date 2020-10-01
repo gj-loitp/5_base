@@ -18,7 +18,7 @@ import kotlin.collections.ArrayList
 
 class LStoreUtil {
     companion object {
-        internal var logTag = LStoreUtil::class.java.simpleName
+        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
 
         const val FOLDER_TRANSLATE = ".Loitp"
         const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
@@ -76,18 +76,18 @@ class LStoreUtil {
         }
 
         @JvmOverloads
-        fun getFolderPath(context: Context, mfolderName: String = "Loitp"): String {
+        fun getFolderPath(context: Context, folderName: String = "Loitp"): String {
             var folderPath = ""
             if (isSdPresent) {
                 try {
-                    //val sdPath = File(Environment.getExternalStorageDirectory().absolutePath + "/" + mfolderName)
-                    ///storage/emulated/0/Loitpzloitpbestcomic/
+//                    val sdPath = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
+//                    ex: /storage/emulated/0/ZZZTestDownloader
 
-                    val sdPath = File(context.getExternalFilesDir(null)?.absolutePath + "/" + mfolderName)
-                    ///storage/emulated/0/Android/data/loitp.basemaster/files/Loitpzloitpbestcomic/
+                    val sdPath = File(context.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
+                    //ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
-                    //val sdPath = File(context.getExternalFilesDir(null)?.path + "/" + mfolderName)
-                    ///storage/emulated/0/Android/data/loitp.basemaster/files/Loitpzloitpbestcomic/
+//                    val sdPath = File(context.getExternalFilesDir(null)?.path + "/" + folderName)
+//                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
                     if (!sdPath.exists()) {
                         sdPath.mkdirs()
@@ -98,11 +98,9 @@ class LStoreUtil {
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-
-                //folderPath = Environment.getExternalStorageDirectory().path + "/" + mfolderName + "/"
             } else {
                 try {
-                    val cacheDir = File(context.cacheDir, "$mfolderName/")
+                    val cacheDir = File(context.cacheDir, "$folderName/")
                     if (!cacheDir.exists()) {
                         cacheDir.mkdirs()
                         folderPath = cacheDir.absolutePath
@@ -114,6 +112,7 @@ class LStoreUtil {
                 }
 
             }
+            LLog.d(logTag, "getFolderPath folderPath $folderPath")
             return folderPath
         }
 

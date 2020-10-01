@@ -173,9 +173,6 @@ dependencies {
     //https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
 
-    //https://github.com/alirezat775/downloader
-    api 'com.github.alirezat775:downloader:1.0.2'
-
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
