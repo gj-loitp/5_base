@@ -2,7 +2,6 @@ package com.core.utilities
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.ActivityManager
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
@@ -10,7 +9,6 @@ import android.os.Vibrator
 import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
-import java.io.File
 import java.util.*
 
 
@@ -37,26 +35,26 @@ class LDeviceUtil {
 
         @Suppress("DEPRECATION")
         @SuppressLint("ObsoleteSdkInt")
-        fun setClipboard(context: Context, text: String) {
+        fun setClipboard(text: String) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
+                val clipboard = LAppResource.application.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
                 clipboard.text = text
             } else {
-                val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clipboard = LAppResource.application.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
                 val clip = android.content.ClipData.newPlainText("Copy", text)
                 clipboard.setPrimaryClip(clip)
             }
         }
 
         @JvmStatic
-        fun vibrate(context: Context, length: Int = 300) {
-            val v = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        fun vibrate(length: Int = 300) {
+            val v = LAppResource.application.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             v.vibrate(length.toLong())
         }
 
         @JvmStatic
-        fun vibrate(context: Context) {
-            vibrate(context, 200)
+        fun vibrate() {
+            vibrate(length = 200)
         }
 
         fun getRandomNumber(max: Int): Int {
@@ -92,24 +90,6 @@ class LDeviceUtil {
                     || Build.MANUFACTURER.contains("Genymotion")
                     || Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
                     || "google_sdk" == Build.PRODUCT)
-        }
-
-        fun getAvailableSpaceInMb(context: Context): Int {
-            val freeBytesExternal = File(context.getExternalFilesDir(null).toString()).freeSpace
-            val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
-            //val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
-            //val totalMb = (totalSize / (1024 * 1024)).toInt()
-            return freeMb
-        }
-
-        fun getAvailableRAM(context: Context): Long {
-            val memoryInfo = ActivityManager.MemoryInfo()
-            val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-            activityManager.getMemoryInfo(memoryInfo)
-            val availableMegs = memoryInfo.availMem / 1048576L
-            val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
-//            Log.d(logTag, "percentAvail $percentAvail")
-            return availableMegs
         }
     }
 }

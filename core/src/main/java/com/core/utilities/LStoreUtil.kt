@@ -1,5 +1,7 @@
 package com.core.utilities
 
+import android.app.ActivityManager
+import android.content.Context
 import android.graphics.Color
 import android.media.MediaScannerConnection
 import android.os.Environment
@@ -492,6 +494,24 @@ class LStoreUtil {
                 s = String.format("%.2f", tb) + " TB"
             }
             return s
+        }
+
+        fun getAvailableSpaceInMb(): Int {
+            val freeBytesExternal = File(LAppResource.application.getExternalFilesDir(null).toString()).freeSpace
+            val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
+            //val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
+            //val totalMb = (totalSize / (1024 * 1024)).toInt()
+            return freeMb
+        }
+
+        fun getAvailableRAM(): Long {
+            val memoryInfo = ActivityManager.MemoryInfo()
+            val activityManager = LAppResource.application.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            activityManager.getMemoryInfo(memoryInfo)
+            val availableMegs = memoryInfo.availMem / 1048576L
+            val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
+//            Log.d(logTag, "percentAvail $percentAvail")
+            return availableMegs
         }
     }
 }

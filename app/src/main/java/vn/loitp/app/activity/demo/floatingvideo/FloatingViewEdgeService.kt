@@ -202,7 +202,7 @@ class FloatingViewEdgeService : Service() {
             pos = tmpPos
             when (pos) {
                 POS.TOP_LEFT, POS.TOP_RIGHT, POS.BOTTOM_LEFT, POS.BOTTOM_RIGHT -> {
-                    LDeviceUtil.vibrate(baseContext)
+                    LDeviceUtil.vibrate()
                     viewBkgDestroy.visibility = View.VISIBLE
                 }
                 else -> if (viewBkgDestroy.visibility != View.GONE) {
