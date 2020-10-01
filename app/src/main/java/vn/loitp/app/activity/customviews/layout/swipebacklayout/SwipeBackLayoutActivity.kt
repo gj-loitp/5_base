@@ -44,7 +44,7 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
                 logD("onViewSwipeFinished")
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(this@SwipeBackLayoutActivity)
+                    LActivityUtil.transActivityNoAnimation(this@SwipeBackLayoutActivity)
                 }
             }
         })

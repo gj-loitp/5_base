@@ -88,7 +88,7 @@ class GirlDetailActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(this@GirlDetailActivity)
+                    LActivityUtil.transActivityNoAnimation(this@GirlDetailActivity)
                 }
             }
         })

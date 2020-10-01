@@ -105,7 +105,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(this@GalleryCoreAlbumActivity)
+                    LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)
                 }
             }
         })
