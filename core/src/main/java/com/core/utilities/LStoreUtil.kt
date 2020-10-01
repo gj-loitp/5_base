@@ -135,15 +135,8 @@ class LStoreUtil {
             return folderPath
         }
 
-        /*fun checkSDCardFreeSize(): Int {
-            val stat = StatFs(Environment.getExternalStorageDirectory().path)
-            val bytesAvailable = stat.blockSize.toLong() * stat.availableBlocks.toLong()
-            val megAvailable = bytesAvailable / (1024 * 1024)
-            return megAvailable.toInt()
-        }*/
-
         /*
-        save tring json to sdcard
+        save string json to sdcard
         ex: writeToFile("module.json", strJson);
          */
         fun writeToFile(context: Context, folder: String?, fileName: String, body: String): Boolean {

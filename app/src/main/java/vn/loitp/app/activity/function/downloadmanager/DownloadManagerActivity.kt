@@ -4,7 +4,6 @@ import alirezat775.lib.downloader.Downloader
 import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.os.Handler
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
@@ -20,12 +19,13 @@ import java.io.File
 @IsFullScreen(false)
 class DownloadManagerActivity : BaseFontActivity() {
     private var downloader: Downloader? = null
-    private val handler: Handler = Handler()
+    private var lStoreUtilModel: LStoreUtilModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupViews()
+        setupViewModels()
     }
 
     private fun setupViews() {
@@ -53,6 +53,10 @@ class DownloadManagerActivity : BaseFontActivity() {
         }
     }
 
+    private fun setupViewModels() {
+        lStoreUtilModel = getViewModel(LStoreUtilModel::class.java)
+    }
+
     @SuppressLint("SetTextI18n")
     private fun getDownloader() {
         val path = LStoreUtil.getFolderPath(context = this, folderName = "ZZZTestDownloader")
@@ -68,57 +72,43 @@ class DownloadManagerActivity : BaseFontActivity() {
                 //.timeOut(10000)
                 .downloadListener(object : OnDownloadListener {
                     override fun onStart() {
-                        handler.post {
-                            tvCurrentStatus.text = "onStart"
-                        }
+                        tvCurrentStatus.text = "onStart"
                         logD("onStart")
                     }
 
                     override fun onPause() {
-                        handler.post {
-                            tvCurrentStatus.text = "onPause"
-                        }
+                        tvCurrentStatus.text = "onPause"
                         logD("onPause")
                     }
 
                     override fun onResume() {
-                        handler.post {
-                            tvCurrentStatus.text = "onResume"
-                        }
+                        tvCurrentStatus.text = "onResume"
                         logD("onResume")
                     }
 
                     override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
-                        handler.post {
-                            tvCurrentStatus.text = "onProgressUpdate"
-                            tvPercent.text = percent.toString().plus("%")
-                            tvSize.text = LStoreUtil.getSize(downloadedSize)
-                            tvTotalSize.text = LStoreUtil.getSize(totalSize)
-                            sbDownloadProgress.progress = percent
-                        }
+                        tvCurrentStatus.text = "onProgressUpdate"
+                        tvPercent.text = percent.toString().plus("%")
+                        tvSize.text = LStoreUtil.getSize(downloadedSize)
+                        tvTotalSize.text = LStoreUtil.getSize(totalSize)
+                        sbDownloadProgress.progress = percent
                         logD("onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
                     }
 
                     override fun onCompleted(file: File?) {
-                        handler.post {
-                            tvCurrentStatus.text = "onCompleted ${file?.path}"
-                        }
+                        tvCurrentStatus.text = "onCompleted ${file?.path}"
                         logD("onCompleted: file --> $file")
 
                         LStoreUtil.sendBroadcastMediaScan(file)
                     }
 
                     override fun onFailure(reason: String?) {
-                        handler.post {
-                            tvCurrentStatus.text = "onFailure: reason --> $reason"
-                        }
+                        tvCurrentStatus.text = "onFailure: reason --> $reason"
                         logE("onFailure: reason --> $reason")
                     }
 
                     override fun onCancel() {
-                        handler.post {
-                            tvCurrentStatus.text = "onCancel"
-                        }
+                        tvCurrentStatus.text = "onCancel"
                         logD("onCancel")
                     }
                 }).build()
