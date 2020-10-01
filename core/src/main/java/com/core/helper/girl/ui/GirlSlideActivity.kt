@@ -11,6 +11,7 @@ import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPageDetail
 import com.core.utilities.LSocialUtil
 import com.task.AsyncTaskDownloadImage
+import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import kotlinx.android.synthetic.main.l_activity_girl_slide.*
 
 @LogTag("GalleryCoreSlideActivity")
@@ -42,6 +43,7 @@ class GirlSlideActivity : BaseFontActivity() {
 
     private fun setupViews() {
         val slidePagerAdapter = SlidePagerAdapter(supportFragmentManager)
+        viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
         viewPager.adapter = slidePagerAdapter
         viewPager.currentItem = currentPosition
 
