@@ -2,6 +2,7 @@ package com.core.base
 
 import androidx.multidex.MultiDexApplication
 import com.core.helper.girl.db.GirlDatabase
+import com.core.utilities.LAppResource
 import com.core.utilities.LConnectivityUtil
 import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
@@ -25,6 +26,7 @@ open class BaseApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
+        LAppResource.init(this)
         Utils.init(this)
 
         //big image view

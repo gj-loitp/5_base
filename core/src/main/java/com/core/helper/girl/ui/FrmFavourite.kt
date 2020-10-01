@@ -13,6 +13,7 @@ import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.GirlAlbumAdapter
 import com.core.helper.girl.adapter.GirlTitleAdapter
 import com.core.helper.girl.viewmodel.GirlViewModel
+import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
@@ -40,6 +41,9 @@ class FrmFavourite : BaseFragment() {
 
     private fun setupViews() {
         val girlTitleAdapterTopUser = GirlTitleAdapter()
+        val marginTop = LAppResource.getDimenValue(R.dimen.w_86)
+        val marginStartEnd = LAppResource.getDimenValue(R.dimen.margin_medium)
+        girlTitleAdapterTopUser.setMargin(marginStartEnd = marginStartEnd, marginTop = marginTop)
         girlTitleAdapterTopUser.setTitle(getString(R.string.menu_favourite))
         girlAlbumAdapter = GirlAlbumAdapter()
 
