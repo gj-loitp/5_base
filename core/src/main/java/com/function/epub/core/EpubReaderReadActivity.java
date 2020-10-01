@@ -451,7 +451,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             webView.loadDataWithBaseURL(null, getStyledFont(data), mimeType, encoding, null);
             webView.setScrollBarSize(ConvertUtils.dp2px(2));
             webView.setLayoutParams(layoutParams);
-            int size = LPrefUtil.Companion.getTextSizeEpub(this);
+            int size = LPrefUtil.Companion.getTextSizeEpub();
             updateUIWevViewSize(webView, size);
             return webView;
         } else {
@@ -508,7 +508,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             if (size > 250) {
                 size = 250;
             }
-            LPrefUtil.Companion.setTextSizeEpub(this, size);
+            LPrefUtil.Companion.setTextSizeEpub(size);
             updateUIWevViewSize(webView, size);
         }
     }
@@ -530,7 +530,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             if (size < 50) {
                 size = 50;
             }
-            LPrefUtil.Companion.setTextSizeEpub(this, size);
+            LPrefUtil.Companion.setTextSizeEpub(size);
             updateUIWevViewSize(webView, size);
         }
     }

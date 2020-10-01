@@ -29,7 +29,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
         LUIUtil.Companion.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         TextView textView = findViewById(R.id.textView);
-        String poem = LStoreUtil.Companion.readTxtFromRawFolder(this, R.raw.loitp);
+        String poem = LStoreUtil.Companion.readTxtFromRawFolder(R.raw.loitp);
         textView.setText(poem);
     }
 

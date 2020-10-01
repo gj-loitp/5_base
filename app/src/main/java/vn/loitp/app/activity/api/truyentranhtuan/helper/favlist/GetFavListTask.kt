@@ -20,7 +20,7 @@ class GetFavListTask(private val mActivity: Activity,
     }
 
     override fun doInBackground(vararg voids: Void): Void? {
-        val json = LStoreUtil.readTxtFromFolder(context = mActivity, folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE)
+        val json = LStoreUtil.readTxtFromFolder(folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE)
         if (json.isEmpty()) {
         } else {
             comicList = BaseApplication.gson.fromJson(json, object : TypeToken<List<Comic?>?>() {}.type)

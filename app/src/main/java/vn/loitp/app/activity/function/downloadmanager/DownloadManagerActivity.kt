@@ -51,6 +51,9 @@ class DownloadManagerActivity : BaseFontActivity() {
             val randomColor = LStoreUtil.randomColorLight
             btTestRandomColorLight.setBackgroundColor(randomColor)
         }
+        btTestwriteToFile.setSafeOnClickListener {
+
+        }
     }
 
     private fun setupViewModels() {
@@ -59,7 +62,7 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun getDownloader() {
-        val path = LStoreUtil.getFolderPath(context = this, folderName = "ZZZTestDownloader")
+        val path = LStoreUtil.getFolderPath(folderName = "ZZZTestDownloader")
         logD("getDownloader path $path")
         val map = HashMap<String, String>()
         map["Authorization"] = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwOGQ3MWQ2Zi0xZTc0LTYwYjQtOWJmMC1mM2E0YzVkMTkwZGUiLCJyb2xlIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAyIiwianRpIjoiMzUxMmZhM2YtYWMzNi00YmM2LWI5ZTEtOTEyMzc5Y2NlZjQ1IiwiRGF0YVR5cGVzIjoiMiIsIm5iZiI6MTU2OTQ3OTc1OSwiZXhwIjoxNTY5NTY5NzU5LCJpYXQiOjE1Njk0Nzk3NTksImlzcyI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biIsImF1ZCI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biJ9.6IfkQkMhI0g-XAbKdHNSH5HiP8fsRAJxnpojjyqwFBI"

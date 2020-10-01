@@ -37,14 +37,14 @@ class GetComicTask(private val context: Context,
             getComicSuccess = false
         } else {
             //restore comic list with img cover url
-            var jsonTTTComic: String = LStoreUtil.readTxtFromFolder(context = context, folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST)
+            var jsonTTTComic: String = LStoreUtil.readTxtFromFolder(folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST)
             if (jsonTTTComic.isEmpty()) {
                 val tttComic = TTTComic()
                 val comics = Comics()
                 comics.comic = comicList
                 tttComic.comics = comics
                 jsonTTTComic = BaseApplication.gson.toJson(tttComic)
-                LStoreUtil.writeToFile(context = context, folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, body = jsonTTTComic)
+                LStoreUtil.writeToFile(folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, body = jsonTTTComic)
                 getComicSuccess = true
             } else {
                 if (jsonTTTComic.isNotEmpty()) {
@@ -81,7 +81,7 @@ class GetComicTask(private val context: Context,
                     comics.comic = comicList
                     tttComic.comics = comics
                     jsonTTTComic = BaseApplication.gson.toJson(tttComic)
-                    LStoreUtil.writeToFile(context = context, folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, body = jsonTTTComic)
+                    LStoreUtil.writeToFile(folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST, body = jsonTTTComic)
                     getComicSuccess = true
                 }
             }
@@ -102,7 +102,7 @@ class GetComicTask(private val context: Context,
     private fun doTask(link: String): List<Comic> {
         var comicList: List<Comic> = ArrayList()
         //luu tru danh sach truyen duoi dang html code
-        val state = LStoreUtil.saveHTMLCodeFromURLToSDCard(context = context, link = link, folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_HTML_CODE)
+        val state = LStoreUtil.saveHTMLCodeFromURLToSDCard(link = link, folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_HTML_CODE)
         //state = true -> luu tru thanh cong
         //state = false -> luu tru that bai
         if (state) {
@@ -129,7 +129,7 @@ class GetComicTask(private val context: Context,
             //document = Jsoup.connect(link).get();
 
             /*parse jsoup from sdcard*/
-            val pathMainComicsListHTMLCode = LStoreUtil.getPathOfFileNameMainComicsListHTMLCode(context)
+            val pathMainComicsListHTMLCode = LStoreUtil.getPathOfFileNameMainComicsListHTMLCode()
             val input = File(pathMainComicsListHTMLCode)
             document = Jsoup.parse(input, "UTF-8", "http://example.com/")
             for (eMangaFocus in document.select("div[class=manga-focus]")) {

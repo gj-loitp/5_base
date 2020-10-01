@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.content.Context
 import android.graphics.Color
 import android.media.MediaScannerConnection
 import android.os.Environment
@@ -92,7 +91,7 @@ class LStoreUtil {
         }
 
         @JvmOverloads
-        fun getFolderPath(context: Context, folderName: String = "Loitp"): String {
+        fun getFolderPath(folderName: String = "Loitp"): String {
             var folderPath = ""
             if (isSdPresent) {
                 try {
@@ -101,11 +100,11 @@ class LStoreUtil {
 //                        ex: /storage/emulated/0/ZZZTestDownloader
 
 //                    C2
-//                    val file = File(context.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
+//                    val file = File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
 //                    C3
-                    val path = context.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
+                    val path = LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
                     val file = File("$path/$folderName")
 
                     if (!file.exists()) {
@@ -119,7 +118,7 @@ class LStoreUtil {
                 }
             } else {
                 try {
-                    val cacheDir = File(context.cacheDir, "$folderName/")
+                    val cacheDir = File(LAppResource.application.cacheDir, "$folderName/")
                     if (!cacheDir.exists()) {
                         cacheDir.mkdirs()
                         folderPath = cacheDir.absolutePath
@@ -139,10 +138,10 @@ class LStoreUtil {
         save string json to sdcard
         ex: writeToFile("module.json", strJson);
          */
-        fun writeToFile(context: Context, folder: String?, fileName: String, body: String): Boolean {
+        fun writeToFile(folder: String?, fileName: String, body: String): Boolean {
             val fos: FileOutputStream?
             try {
-                var path = getFolderPath(context = context)
+                var path = getFolderPath()
                 if (folder != null) {
                     path = "$path$folder/"
                 }
@@ -188,8 +187,8 @@ class LStoreUtil {
         /*
          * read text file from folder
          */
-        fun readTxtFromFolder(context: Context, folderName: String?, fileName: String): String {
-            val path = getFolderPath(context = context) + (if (folderName == null) "/" else "$folderName/") + fileName
+        fun readTxtFromFolder(folderName: String?, fileName: String): String {
+            val path = getFolderPath() + (if (folderName == null) "/" else "$folderName/") + fileName
             val txtFile = File(path)
             val text = StringBuilder()
             try {
@@ -275,8 +274,8 @@ class LStoreUtil {
         /*
          * read text file in raw folder
          */
-        fun readTxtFromRawFolder(context: Context, nameOfRawFile: Int): String {
-            val inputStream = context.resources.openRawResource(nameOfRawFile)
+        fun readTxtFromRawFolder(nameOfRawFile: Int): String {
+            val inputStream = LAppResource.application.resources.openRawResource(nameOfRawFile)
             val byteArrayOutputStream = ByteArrayOutputStream()
             var i: Int
             try {
@@ -310,7 +309,7 @@ class LStoreUtil {
 //            }.execute()
 //        }
 
-        fun saveHTMLCodeFromURLToSDCard(context: Context, link: String, folderName: String, fileName: String): Boolean {
+        fun saveHTMLCodeFromURLToSDCard(link: String, folderName: String, fileName: String): Boolean {
             var state = false
             val ins: InputStream?
             try {
@@ -327,7 +326,7 @@ class LStoreUtil {
                 }
                 br.close()
                 ins.close()
-                writeToFile(context, folderName, fileName, stringBuilder.toString())
+                writeToFile(folder = folderName, fileName = fileName, body = stringBuilder.toString())
                 state = true
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -339,11 +338,11 @@ class LStoreUtil {
         /*
          * get random quote
          */
-        fun readTxtFromAsset(context: Context, assetFile: String): String {
+        fun readTxtFromAsset(assetFile: String): String {
             val ins: InputStream
             var str = ""
             try {
-                ins = context.assets.open(assetFile)
+                ins = LAppResource.application.assets.open(assetFile)
                 val buffer = ByteArray(ins.available())
                 ins.read(buffer)
                 ins.close()
@@ -364,18 +363,16 @@ class LStoreUtil {
             return r.nextInt(length)
         }
 
-        fun getPathOfFileNameMainComicsListHTMLCode(context: Context): String {
-            return getFolderPath(context = context) + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
+        fun getPathOfFileNameMainComicsListHTMLCode(): String {
+            return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
         }
 
-        fun getFileFromAssets(context: Context?, fileName: String): File? {
-            if (context == null) {
-                return null
-            }
-            val file = File(context.cacheDir.toString() + "/" + fileName)
+        fun getFileFromAssets(fileName: String): File? {
+
+            val file = File(LAppResource.application.cacheDir.toString() + "/" + fileName)
             if (!file.exists())
                 try {
-                    val ins = context.assets.open(fileName)
+                    val ins = LAppResource.application.assets.open(fileName)
                     val size = ins.available()
                     val buffer = ByteArray(size)
                     ins.read(buffer)
@@ -408,8 +405,8 @@ class LStoreUtil {
             return inFiles
         }
 
-        fun getSettingFromGGDrive(context: Context?, linkGGDriveSetting: String?, ggSettingCallback: GGSettingCallback?) {
-            if (context == null || linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
+        fun getSettingFromGGDrive(linkGGDriveSetting: String?, ggSettingCallback: GGSettingCallback?) {
+            if (linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
                 return
             }
             val request = Request.Builder().url(linkGGDriveSetting).build()
@@ -428,14 +425,14 @@ class LStoreUtil {
                         if (app == null) {
                             ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
                         } else {
-                            val localMsg = LPrefUtil.getGGAppMsg(context)
+                            val localMsg = LPrefUtil.getGGAppMsg()
                             val serverMsg = app.config?.msg
-                            LPrefUtil.setGGAppMsg(context, serverMsg)
+                            LPrefUtil.setGGAppMsg(serverMsg)
                             val isNeedToShowMsg: Boolean
-                            if (serverMsg.isNullOrEmpty()) {
-                                isNeedToShowMsg = false
+                            isNeedToShowMsg = if (serverMsg.isNullOrEmpty()) {
+                                false
                             } else {
-                                isNeedToShowMsg = !localMsg?.trim { it <= ' ' }.equals(serverMsg, ignoreCase = true)
+                                !localMsg?.trim { it <= ' ' }.equals(serverMsg, ignoreCase = true)
                             }
                             ggSettingCallback?.onGGResponse(app, isNeedToShowMsg)
                         }
@@ -447,8 +444,8 @@ class LStoreUtil {
             })
         }
 
-        fun getTextFromGGDrive(context: Context?, linkGGDrive: String?, ggCallback: GGCallback?) {
-            if (context == null || linkGGDrive == null || linkGGDrive.isEmpty()) {
+        fun getTextFromGGDrive(linkGGDrive: String?, ggCallback: GGCallback?) {
+            if (linkGGDrive.isNullOrEmpty()) {
                 return
             }
             val request = Request.Builder().url(linkGGDrive).build()

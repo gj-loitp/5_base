@@ -65,7 +65,7 @@ class GetChapTask(private val context: Context,
 
                     """.trimIndent()
 
-                getChapSuccess = LStoreUtil.writeToFile(context = context,
+                getChapSuccess = LStoreUtil.writeToFile(
                         folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN,
                         fileName = LStoreUtil.getFileNameComic(url),
                         body = BaseApplication.gson.toJson(tttChap))

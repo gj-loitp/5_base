@@ -165,7 +165,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun checkReady() {
-        if (LPrefUtil.getCheckAppReady(this)) {
+        if (LPrefUtil.getCheckAppReady()) {
             isCheckReadyDone = true
             goToHome()
             return
@@ -186,7 +186,7 @@ class SplashActivity : BaseFontActivity() {
                     logD("onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true
-                        LPrefUtil.setCheckAppReady(this@SplashActivity, true)
+                        LPrefUtil.setCheckAppReady(true)
                         goToHome()
                     } else {
                         showDialogNotReady()
@@ -244,7 +244,6 @@ class SplashActivity : BaseFontActivity() {
     private fun getSettingFromGGDrive() {
         val linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
         LStoreUtil.getSettingFromGGDrive(
-                context = this,
                 linkGGDriveSetting = linkGGDriveConfigSetting,
                 ggSettingCallback = object : GGSettingCallback {
                     override fun onGGFailure(call: Call, e: IOException) {
@@ -259,7 +258,6 @@ class SplashActivity : BaseFontActivity() {
     private fun getGG() {
         val linkGGDrive = "https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI"
         LStoreUtil.getTextFromGGDrive(
-                context = this,
                 linkGGDrive = linkGGDrive,
                 ggCallback = object : GGCallback {
                     override fun onGGFailure(call: Call, e: Exception) {
