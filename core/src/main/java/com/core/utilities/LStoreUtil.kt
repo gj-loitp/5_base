@@ -1,9 +1,8 @@
 package com.core.utilities
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
-import android.net.Uri
+import android.media.MediaScannerConnection
 import android.os.Environment
 import com.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
@@ -79,10 +78,15 @@ class LStoreUtil {
 
         fun sendBroadcastMediaScan(file: File?) {
             file?.let {
-                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
-                val contentUri = Uri.fromFile(file)
-                mediaScanIntent.data = contentUri
-                LAppResource.application.sendBroadcast(mediaScanIntent)
+//                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+//                val contentUri = Uri.fromFile(file)
+//                mediaScanIntent.data = contentUri
+//                LAppResource.application.sendBroadcast(mediaScanIntent)
+
+                MediaScannerConnection.scanFile(LAppResource.application,
+                        arrayOf(file.toString()),
+                        arrayOf(it.name),
+                        null)
             }
         }
 
@@ -95,9 +99,6 @@ class LStoreUtil {
 //                        ex: /storage/emulated/0/ZZZTestDownloader
 
 //                    val file = File(context.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
-//                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
-
-//                    val file = File(context.getExternalFilesDir(null)?.path + "/" + folderName)
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
                     if (!file.exists()) {
