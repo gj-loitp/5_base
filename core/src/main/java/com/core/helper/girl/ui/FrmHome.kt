@@ -167,7 +167,7 @@ class FrmHome : BaseFragment() {
         }
 
         girlTopUserAdapter?.onClickRootView = { girlTopUser ->
-            //TODO
+            //TODO do sth
         }
         girlTopVideoAdapter?.onClickRootView = { girlTopVideo ->
             LUIUtil.playYoutube(activity = activity, url = girlTopVideo.link)

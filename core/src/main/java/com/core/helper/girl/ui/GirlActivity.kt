@@ -12,6 +12,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.MenuGirl
+import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
 import kotlinx.android.synthetic.main.l_activity_girl.*
 
@@ -58,7 +59,7 @@ class GirlActivity : BaseFontActivity() {
     private fun setupViews() {
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
         viewPager.offscreenPageLimit = listMenuGirl.size
-//        viewPager.setPageTransformer(true, CubeInTransformer())
+        viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }

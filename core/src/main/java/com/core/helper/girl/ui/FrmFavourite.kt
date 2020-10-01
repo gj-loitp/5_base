@@ -4,12 +4,27 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
+import com.core.helper.girl.adapter.GirlAlbumAdapter
+import com.core.helper.girl.adapter.GirlTitleAdapter
+import com.core.helper.girl.viewmodel.GirlViewModel
+import com.core.utilities.LUIUtil
+import com.interfaces.CallbackRecyclerView
+import com.utils.util.KeyboardUtils
+import kotlinx.android.synthetic.main.l_frm_girl_favourite.*
 
-@LogTag("FrmFavourite")
+@LogTag("loitppFrmFavourite")
 class FrmFavourite : BaseFragment() {
+
+    private var girlViewModel: GirlViewModel? = null
+    private var mergeAdapter: ConcatAdapter? = null
+    private var girlAlbumAdapter: GirlAlbumAdapter? = null
+    private var currentKeyword: String = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         frmRootView = inflater.inflate(R.layout.l_frm_girl_favourite, container, false)
@@ -19,8 +34,100 @@ class FrmFavourite : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        logD("onViewCreated")
+        setupViews()
+        setupViewModels()
     }
 
+    private fun setupViews() {
+        val girlTitleAdapterTopUser = GirlTitleAdapter()
+        girlTitleAdapterTopUser.setTitle(getString(R.string.menu_favourite))
+        girlAlbumAdapter = GirlAlbumAdapter()
+
+        girlAlbumAdapter?.let {
+            it.onClickRootListener = { girlPage, _ ->
+                //TODO
+            }
+            it.onClickLikeListener = { girlPage, _ ->
+                //TODO
+            }
+        }
+
+        girlTitleAdapterTopUser.let { gtatu ->
+            girlAlbumAdapter?.let { gaa ->
+                val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gtatu, gaa)
+                mergeAdapter = ConcatAdapter(listOfAdapters)
+            }
+        }
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = mergeAdapter
+
+        LUIUtil.setScrollChange(
+                recyclerView = recyclerView,
+                callbackRecyclerView = object : CallbackRecyclerView {
+                    override fun onTop() {
+                    }
+
+                    override fun onBottom() {
+                        //TODO
+                    }
+                })
+
+        ivSearch.setOnClickListener {
+            handleSearch(isAutoSearch = false)
+        }
+        LUIUtil.addTextChangedListener(editText = etSearch, delayInMls = 2000, afterTextChanged = {
+            handleSearch(isAutoSearch = true)
+        })
+        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
+            ivSearch.performClick()
+        })
+    }
+
+    private fun setupViewModels() {
+        girlViewModel = getViewModel(GirlViewModel::class.java)
+        girlViewModel?.let { vm ->
+//            vm.pageActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+//                val isDoing = actionData.isDoing
+//                if (isDoing == true) {
+//                    indicatorView.smoothToShow()
+//                } else {
+//                    indicatorView.smoothToHide()
+//                }
+//
+//                if (isDoing == false && actionData.isSuccess == true) {
+//                    val listGirlPage = actionData.data
+//                    if (listGirlPage.isNullOrEmpty()) {
+//                        tvNoData.visibility = View.VISIBLE
+//                        recyclerView.visibility = View.GONE
+//                    } else {
+//                        totalPage = actionData.totalPages ?: 0
+//
+//                        tvNoData.visibility = View.GONE
+//                        recyclerView.visibility = View.VISIBLE
+//                        girlProgressAdapter?.let {
+//                            mergeAdapter?.removeAdapter(it)
+//                        }
+//                        girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
+//                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh
+//                                ?: false)
+//
+//                    }
+//                }
+//            })
+        }
+    }
+
+    private fun handleSearch(isAutoSearch: Boolean) {
+        if (isAutoSearch) {
+            //do nothing
+        } else {
+            KeyboardUtils.hideSoftInput(context, etSearch)
+        }
+        etSearch.apply {
+            currentKeyword = this.text.toString().trim()
+        }
+        logD("handleSearch currentKeyword $currentKeyword")
+        //TODO
+    }
 
 }

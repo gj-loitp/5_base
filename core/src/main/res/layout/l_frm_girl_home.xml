@@ -18,15 +18,24 @@
             android:layout_height="match_parent" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <com.github.mmin18.widget.RealtimeBlurView
+<!--    <com.github.mmin18.widget.RealtimeBlurView-->
+<!--        android:id="@+id/realtimeBlurView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="@dimen/w_70"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:realtimeBlurRadius="@dimen/round_45"-->
+<!--        app:realtimeOverlayColor="@color/black65" />-->
+
+    <View
         android:id="@+id/realtimeBlurView"
         android:layout_width="0dp"
         android:layout_height="@dimen/w_70"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:realtimeBlurRadius="@dimen/round_45"
-        app:realtimeOverlayColor="@color/black65" />
+        android:background="@color/black85"/>
 
     <View
         android:layout_width="match_parent"

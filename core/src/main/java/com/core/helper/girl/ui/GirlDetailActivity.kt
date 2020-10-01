@@ -30,7 +30,7 @@ import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
-@LogTag("loitppGirlDetailActivity")
+@LogTag("GirlDetailActivity")
 @IsFullScreen(false)
 class GirlDetailActivity : BaseFontActivity() {
 

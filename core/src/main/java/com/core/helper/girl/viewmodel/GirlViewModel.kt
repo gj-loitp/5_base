@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
  */
 
 class GirlViewModel : BaseViewModel() {
-    private val logTag = "loitpp" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
     val pageActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
