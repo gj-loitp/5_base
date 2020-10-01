@@ -76,6 +76,7 @@ class LStoreUtil {
             return "p$i$EXTENSION"
         }
 
+        //dung de bao hieu cho gallery load lai photo vi co anh moi
         fun sendBroadcastMediaScan(file: File?) {
             file?.let {
 //                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)

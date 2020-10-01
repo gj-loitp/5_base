@@ -10,6 +10,7 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_download_manager.*
 import vn.loitp.app.R
 import java.io.File
@@ -27,20 +28,28 @@ class DownloadManagerActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews(){
-        btStartDownload.setOnClickListener {
+    private fun setupViews() {
+        btStartDownload.setSafeOnClickListener {
             getDownloader()
             downloader?.download()
         }
-        btCancelDownload.setOnClickListener {
+        btCancelDownload.setSafeOnClickListener {
             downloader?.cancelDownload()
         }
-        btPauseDownload.setOnClickListener {
+        btPauseDownload.setSafeOnClickListener {
             downloader?.pauseDownload()
         }
-        btResumeDownload.setOnClickListener {
+        btResumeDownload.setSafeOnClickListener {
             getDownloader()
             downloader?.resumeDownload()
+        }
+        btTestRandomColor.setOnClickListener {
+            val randomColor = LStoreUtil.randomColor
+            btTestRandomColor.setBackgroundColor(randomColor)
+        }
+        btTestRandomColorLight.setOnClickListener {
+            val randomColor = LStoreUtil.randomColorLight
+            btTestRandomColorLight.setBackgroundColor(randomColor)
         }
     }
 
