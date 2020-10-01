@@ -93,6 +93,8 @@ class DownloadManagerActivity : BaseFontActivity() {
                             tvCurrentStatus.text = "onCompleted ${file?.path}"
                         }
                         logD("onCompleted: file --> $file")
+
+                        LStoreUtil.sendBroadcastMediaScan(file)
                     }
 
                     override fun onFailure(reason: String?) {

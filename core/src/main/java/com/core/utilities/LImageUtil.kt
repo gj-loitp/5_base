@@ -461,7 +461,7 @@ class LImageUtil {
             }
             try {
                 val srcFilePath = file.path
-                val destFilePath = LStoreUtil.getFolderPath(context, folderPath) + "/" + file.name
+                val destFilePath = LStoreUtil.getFolderPath(context = context, folderName = folderPath) + "/" + file.name
                 val resultCopy = FileUtils.copyFile(srcFilePath, destFilePath)
 
                 val copiedFile = File(destFilePath)

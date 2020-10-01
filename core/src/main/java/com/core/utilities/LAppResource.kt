@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat
  */
 object LAppResource {
 
-    private lateinit var application: Application
+    lateinit var application: Application
 
     fun init(application: Application) {
         this.application = application

@@ -1,13 +1,14 @@
 package com.core.utilities
 
-import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
-import android.os.AsyncTask
+import android.net.Uri
 import android.os.Environment
 import com.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
-import com.interfaces.*
+import com.interfaces.GGCallback
+import com.interfaces.GGSettingCallback
 import com.model.App
 import com.model.GG
 import okhttp3.*
@@ -15,6 +16,7 @@ import java.io.*
 import java.net.URL
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class LStoreUtil {
     companion object {
@@ -75,25 +77,34 @@ class LStoreUtil {
             return "p$i$EXTENSION"
         }
 
+        fun sendBroadcastMediaScan(file: File?) {
+            file?.let {
+                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+                val contentUri = Uri.fromFile(file)
+                mediaScanIntent.data = contentUri
+                LAppResource.application.sendBroadcast(mediaScanIntent)
+            }
+        }
+
         @JvmOverloads
         fun getFolderPath(context: Context, folderName: String = "Loitp"): String {
             var folderPath = ""
             if (isSdPresent) {
                 try {
-//                    val sdPath = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
-//                    ex: /storage/emulated/0/ZZZTestDownloader
+                    val file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
+//                        ex: /storage/emulated/0/ZZZTestDownloader
 
-                    val sdPath = File(context.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
-                    //ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
-
-//                    val sdPath = File(context.getExternalFilesDir(null)?.path + "/" + folderName)
+//                    val file = File(context.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
-                    if (!sdPath.exists()) {
-                        sdPath.mkdirs()
-                        folderPath = sdPath.absolutePath
-                    } else if (sdPath.exists()) {
-                        folderPath = sdPath.absolutePath
+//                    val file = File(context.getExternalFilesDir(null)?.path + "/" + folderName)
+//                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
+
+                    if (!file.exists()) {
+                        file.mkdirs()
+                        folderPath = file.absolutePath
+                    } else if (file.exists()) {
+                        folderPath = file.absolutePath
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -112,7 +123,7 @@ class LStoreUtil {
                 }
 
             }
-            LLog.d(logTag, "getFolderPath folderPath $folderPath")
+            LLog.d(logTag, "return getFolderPath folderPath $folderPath")
             return folderPath
         }
 
@@ -130,7 +141,7 @@ class LStoreUtil {
         fun writeToFile(context: Context, folder: String?, fileName: String, body: String): Boolean {
             val fos: FileOutputStream?
             try {
-                var path = getFolderPath(context)
+                var path = getFolderPath(context = context)
                 if (folder != null) {
                     path = "$path$folder/"
                 }
@@ -156,28 +167,28 @@ class LStoreUtil {
             }
         }
 
-        fun writeToFile(activity: Activity, folder: String, fileName: String, body: String, callbackWriteFile: CallbackWriteFile?) {
-            //TODO convert to coroutine
-            object : AsyncTask<Void, Void, Void>() {
-                var isSuccess: Boolean = false
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    isSuccess = writeToFile(activity, folder, fileName, body)
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    super.onPostExecute(aVoid)
-                    callbackWriteFile?.onFinish(isSuccess)
-                }
-            }.execute()
-        }
+//        fun writeToFile(activity: Activity, folder: String, fileName: String, body: String, callbackWriteFile: CallbackWriteFile?) {
+//            //TODO convert to coroutine
+//            object : AsyncTask<Void, Void, Void>() {
+//                var isSuccess: Boolean = false
+//
+//                override fun doInBackground(vararg params: Void): Void? {
+//                    isSuccess = writeToFile(activity, folder, fileName, body)
+//                    return null
+//                }
+//
+//                override fun onPostExecute(aVoid: Void) {
+//                    super.onPostExecute(aVoid)
+//                    callbackWriteFile?.onFinish(isSuccess)
+//                }
+//            }.execute()
+//        }
 
         /*
          * read text file from folder
          */
         fun readTxtFromFolder(context: Context, folderName: String?, fileName: String): String {
-            val path = getFolderPath(context) + (if (folderName == null) "/" else "$folderName/") + fileName
+            val path = getFolderPath(context = context) + (if (folderName == null) "/" else "$folderName/") + fileName
             val txtFile = File(path)
             val text = StringBuilder()
             try {
@@ -198,67 +209,67 @@ class LStoreUtil {
             return text.toString()
         }
 
-        fun readTxtFromFolder(activity: Activity, folderName: String, fileName: String, callbackReadFile: CallbackReadFile) {
-            //TODO convert to rx
-            object : AsyncTask<Void, Void, Void>() {
-                var result = ""
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    result = readTxtFromFolder(activity, folderName, fileName)
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    super.onPostExecute(aVoid)
-                    callbackReadFile.onFinish(result)
-                }
-            }.execute()
-        }
+//        fun readTxtFromFolder(activity: Activity, folderName: String, fileName: String, callbackReadFile: CallbackReadFile) {
+//            //TODO convert to rx
+//            object : AsyncTask<Void, Void, Void>() {
+//                var result = ""
+//
+//                override fun doInBackground(vararg params: Void): Void? {
+//                    result = readTxtFromFolder(activity, folderName, fileName)
+//                    return null
+//                }
+//
+//                override fun onPostExecute(aVoid: Void) {
+//                    super.onPostExecute(aVoid)
+//                    callbackReadFile.onFinish(result)
+//                }
+//            }.execute()
+//        }
 
         /*
          * read text file from folder in background
          */
-        fun readTxtFromFolder(activity: Activity, folderName: String?, fileName: String, eventReadFromFolder: EventReadFromFolder) {
-            //TODO convert to rx
-            object : AsyncTask<Void, Void, Void>() {
-                private var text: StringBuilder? = null
-                private var runTaskSuccess = true
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    val path = getFolderPath(activity) + (if (folderName == null)
-                        "/"
-                    else
-                        "$folderName/") + fileName
-                    val txtFile = File(path)
-                    text = StringBuilder()
-                    try {
-                        val reader = BufferedReader(FileReader(txtFile))
-                        var line: String? = null
-                        /*while ((line = reader.readLine()) != null) {
-                            text?.append(line + '\n')
-                        }*/
-                        while ({ line = reader.readLine(); line }() != null) {
-                            text?.append(line + '\n')
-                        }
-                        reader.close()
-                    } catch (e: IOException) {
-                        runTaskSuccess = false
-                        e.printStackTrace()
-                    }
-
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    if (runTaskSuccess) {
-                        eventReadFromFolder.onSuccess(text?.toString())
-                    } else {
-                        eventReadFromFolder.onError()
-                    }
-                    super.onPostExecute(aVoid)
-                }
-            }.execute()
-        }
+//        fun readTxtFromFolder(activity: Activity, folderName: String?, fileName: String, eventReadFromFolder: EventReadFromFolder) {
+//            //TODO convert to rx
+//            object : AsyncTask<Void, Void, Void>() {
+//                private var text: StringBuilder? = null
+//                private var runTaskSuccess = true
+//
+//                override fun doInBackground(vararg params: Void): Void? {
+//                    val path = getFolderPath(activity) + (if (folderName == null)
+//                        "/"
+//                    else
+//                        "$folderName/") + fileName
+//                    val txtFile = File(path)
+//                    text = StringBuilder()
+//                    try {
+//                        val reader = BufferedReader(FileReader(txtFile))
+//                        var line: String? = null
+//                        /*while ((line = reader.readLine()) != null) {
+//                            text?.append(line + '\n')
+//                        }*/
+//                        while ({ line = reader.readLine(); line }() != null) {
+//                            text?.append(line + '\n')
+//                        }
+//                        reader.close()
+//                    } catch (e: IOException) {
+//                        runTaskSuccess = false
+//                        e.printStackTrace()
+//                    }
+//
+//                    return null
+//                }
+//
+//                override fun onPostExecute(aVoid: Void) {
+//                    if (runTaskSuccess) {
+//                        eventReadFromFolder.onSuccess(text?.toString())
+//                    } else {
+//                        eventReadFromFolder.onError()
+//                    }
+//                    super.onPostExecute(aVoid)
+//                }
+//            }.execute()
+//        }
 
         /*
          * read text file in raw folder
@@ -281,22 +292,22 @@ class LStoreUtil {
             return byteArrayOutputStream.toString()
         }
 
-        fun readTxtFromRawFolder(context: Context, nameOfRawFile: Int, callbackReadFromRaw: CallbackReadFromRaw) {
-            //TODO convert to rx
-            object : AsyncTask<Void, Void, Void>() {
-                var result: String? = null
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    result = readTxtFromRawFolder(context, nameOfRawFile)
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    super.onPostExecute(aVoid)
-                    callbackReadFromRaw.onFinish(result)
-                }
-            }.execute()
-        }
+//        fun readTxtFromRawFolder(context: Context, nameOfRawFile: Int, callbackReadFromRaw: CallbackReadFromRaw) {
+//            //TODO convert to rx
+//            object : AsyncTask<Void, Void, Void>() {
+//                var result: String? = null
+//
+//                override fun doInBackground(vararg params: Void): Void? {
+//                    result = readTxtFromRawFolder(context, nameOfRawFile)
+//                    return null
+//                }
+//
+//                override fun onPostExecute(aVoid: Void) {
+//                    super.onPostExecute(aVoid)
+//                    callbackReadFromRaw.onFinish(result)
+//                }
+//            }.execute()
+//        }
 
         fun saveHTMLCodeFromURLToSDCard(context: Context, link: String, folderName: String, fileName: String): Boolean {
             var state = false
@@ -353,7 +364,7 @@ class LStoreUtil {
         }
 
         fun getPathOfFileNameMainComicsListHTMLCode(context: Context): String {
-            return getFolderPath(context) + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
+            return getFolderPath(context = context) + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
         }
 
         fun getFileFromAssets(context: Context?, fileName: String): File? {
