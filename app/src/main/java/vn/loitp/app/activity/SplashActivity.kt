@@ -134,7 +134,6 @@ class SplashActivity : BaseFontActivity() {
 
     private fun goToHome() {
         //String s = LStoreUtil.readTxtFromAsset(activity, "news.json");
-        //LLog.d(TAG, "goToHome " + s);
         if (isAnimDone && isCheckReadyDone) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
@@ -183,7 +182,6 @@ class SplashActivity : BaseFontActivity() {
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful && response.body != null) {
-                    //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     val versionServer = Integer.parseInt(response.body!!.string())
                     logD("onResponse $versionServer")
                     if (versionServer == 1) {

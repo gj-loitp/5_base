@@ -1,5 +1,6 @@
 package vn.loitp.app.app
 
+import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
@@ -29,8 +30,8 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 /*git reset --soft HEAD~2
 git push -f*/
 
+@LogTag("LApplication")
 class LApplication : BaseApplication() {
-    private val logTag = LApplication::class.java.simpleName
 
     override fun onCreate() {
         super.onCreate()
@@ -59,5 +60,7 @@ class LApplication : BaseApplication() {
 
         //room database
         FNBDatabase.getInstance(this)
+
+//        logD("LApplication onCreate")
     }
 }

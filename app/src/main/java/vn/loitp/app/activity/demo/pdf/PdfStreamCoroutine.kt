@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.demo.pdf
 
-import com.core.utilities.LLog
 import kotlinx.coroutines.*
 import java.io.BufferedInputStream
 import java.io.IOException
@@ -25,11 +24,9 @@ class PdfStreamCoroutine : CoroutineScope {
     // call this method to cancel a coroutine when you don't need it anymore,
     fun cancel() {
         job.cancel()
-        LLog.d(logTag, "cancel " + job.isCancelled)
     }
 
     fun startTask(urlPdf: String, result: (InputStream?) -> Unit) = launch {
-        LLog.d(logTag, "startTask")
         val inputStream = doInBackground(urlPdf)
         result.invoke(inputStream)
     }
@@ -37,13 +34,12 @@ class PdfStreamCoroutine : CoroutineScope {
     private suspend fun doInBackground(urlPdf: String): InputStream? = withContext(Dispatchers.IO) {
         // to run code in Background Thread
         // do async work
-        LLog.d(logTag, "doInBackground")
         var inputStream: InputStream? = null
         var url: URL? = null
         try {
             url = URL(urlPdf)
         } catch (e: MalformedURLException) {
-            LLog.e(logTag, "doInBackground MalformedURLException $e")
+            e.printStackTrace()
         }
 
         try {
