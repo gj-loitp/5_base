@@ -95,11 +95,17 @@ class LStoreUtil {
             var folderPath = ""
             if (isSdPresent) {
                 try {
-                    val file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
+//                    C1
+//                    val file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
 //                        ex: /storage/emulated/0/ZZZTestDownloader
 
+//                    C2
 //                    val file = File(context.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
+
+//                    C3
+                    val path = context.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
+                    val file = File("$path/$folderName")
 
                     if (!file.exists()) {
                         file.mkdirs()
