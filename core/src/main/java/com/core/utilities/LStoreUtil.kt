@@ -481,5 +481,26 @@ class LStoreUtil {
                 }
             })
         }
+
+        @Suppress("INTEGER_OVERFLOW")
+        fun getSize(size: Int): String {
+            var s = ""
+            val kb = (size / 1024).toDouble()
+            val mb = kb / 1024
+            val gb = kb / 1024
+            val tb = kb / 1024
+            if (size < 1024) {
+                s = "$size Bytes"
+            } else if (size >= 1024 && size < 1024 * 1024) {
+                s = String.format("%.2f", kb) + " KB"
+            } else if (size >= 1024 * 1024 && size < 1024 * 1024 * 1024) {
+                s = String.format("%.2f", mb) + " MB"
+            } else if (size >= 1024 * 1024 * 1024 && size < 1024 * 1024 * 1024 * 1024) {
+                s = String.format("%.2f", gb) + " GB"
+            } else if (size >= 1024 * 1024 * 1024 * 1024) {
+                s = String.format("%.2f", tb) + " TB"
+            }
+            return s
+        }
     }
 }

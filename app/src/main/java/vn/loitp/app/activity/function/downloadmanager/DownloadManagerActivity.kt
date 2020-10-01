@@ -24,8 +24,10 @@ class DownloadManagerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        getDownloader()
+        setupViews()
+    }
 
+    private fun setupViews(){
         btStartDownload.setOnClickListener {
             getDownloader()
             downloader?.download()
@@ -81,8 +83,8 @@ class DownloadManagerActivity : BaseFontActivity() {
                         handler.post {
                             tvCurrentStatus.text = "onProgressUpdate"
                             tvPercent.text = percent.toString().plus("%")
-                            tvSize.text = getSize(downloadedSize)
-                            tvTotalSize.text = getSize(totalSize)
+                            tvSize.text = LStoreUtil.getSize(downloadedSize)
+                            tvTotalSize.text = LStoreUtil.getSize(totalSize)
                             sbDownloadProgress.progress = percent
                         }
                         logD("onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
@@ -111,26 +113,5 @@ class DownloadManagerActivity : BaseFontActivity() {
                         logD("onCancel")
                     }
                 }).build()
-    }
-
-    @Suppress("INTEGER_OVERFLOW")
-    fun getSize(size: Int): String {
-        var s = ""
-        val kb = (size / 1024).toDouble()
-        val mb = kb / 1024
-        val gb = kb / 1024
-        val tb = kb / 1024
-        if (size < 1024) {
-            s = "$size Bytes"
-        } else if (size >= 1024 && size < 1024 * 1024) {
-            s = String.format("%.2f", kb) + " KB"
-        } else if (size >= 1024 * 1024 && size < 1024 * 1024 * 1024) {
-            s = String.format("%.2f", mb) + " MB"
-        } else if (size >= 1024 * 1024 * 1024 && size < 1024 * 1024 * 1024 * 1024) {
-            s = String.format("%.2f", gb) + " GB"
-        } else if (size >= 1024 * 1024 * 1024 * 1024) {
-            s = String.format("%.2f", tb) + " TB"
-        }
-        return s
     }
 }
