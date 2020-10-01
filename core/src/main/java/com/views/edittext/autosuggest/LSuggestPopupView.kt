@@ -10,7 +10,6 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import com.R
-import com.core.utilities.LLog
 import com.core.utilities.LUIUtil
 import com.utils.util.ConvertUtils
 import com.views.layout.relativepopupwindow.LRelativePopupWindow
@@ -18,7 +17,7 @@ import kotlin.math.hypot
 import kotlin.math.max
 
 class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : LRelativePopupWindow() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var ll: LinearLayout
     private var sv: ScrollView
 
@@ -86,7 +85,6 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
             LUIUtil.setTextSize(button, context.resources.getDimension(R.dimen.text_medium))
             LUIUtil.setRipple(context, button)
             button.setOnClickListener {
-                LLog.d(TAG, "onClick $s")
                 callback?.onClick(s)
             }
             ll.addView(button)

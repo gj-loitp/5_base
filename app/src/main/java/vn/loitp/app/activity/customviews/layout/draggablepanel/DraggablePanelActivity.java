@@ -7,7 +7,6 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
-import com.core.utilities.LLog;
 import com.views.layout.draggablepanel.DraggableListener;
 import com.views.layout.draggablepanel.DraggablePanel;
 
@@ -28,22 +27,18 @@ public class DraggablePanelActivity extends BaseFontActivity {
         draggablePanel.setDraggableListener(new DraggableListener() {
             @Override
             public void onMaximized() {
-                LLog.d(getLogTag(), "onMaximized");
             }
 
             @Override
             public void onMinimized() {
-                LLog.d(getLogTag(), "onMinimized");
             }
 
             @Override
             public void onClosedToLeft() {
-                LLog.d(getLogTag(), "onClosedToLeft");
             }
 
             @Override
             public void onClosedToRight() {
-                LLog.d(getLogTag(), "onClosedToRight");
             }
         });
     }

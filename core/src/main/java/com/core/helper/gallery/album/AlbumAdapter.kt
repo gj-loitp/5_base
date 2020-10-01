@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -18,10 +19,9 @@ import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetlist.Photoset
 import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
+@LogTag("AlbumAdapter")
 class AlbumAdapter(private val context: Context, private val photosetList: List<Photoset>, private val callback: Callback?)
     : AnimationAdapter() {
-
-    private val logTag = javaClass.simpleName
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_album_core, viewGroup, false))
@@ -46,7 +46,6 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(photoset: Photoset) {
 //            val color = photoset.colorBackground
-//            LLog.d(logTag, "$bindingAdapterPosition -> $color")
 
             itemView.tvUpdate.visibility = View.INVISIBLE
             itemView.tvLabel.visibility = View.INVISIBLE

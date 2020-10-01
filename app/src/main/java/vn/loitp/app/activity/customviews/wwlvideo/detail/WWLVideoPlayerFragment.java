@@ -10,7 +10,8 @@ import androidx.annotation.Nullable;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFragment;
-import com.views.LToast;
+
+import org.jetbrains.annotations.NotNull;
 
 import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
@@ -28,15 +29,13 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     private String entityIdDefaultVOD = "7699e10e-5ce3-4dab-a5ad-a615a711101e";
     private String entityIdDefaultLIVE = "1759f642-e062-4e88-b5f2-e3022bd03b57";
 
-    @Nullable
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(@NotNull Activity activity) {
         super.onAttach(activity);
         this.mFragmentHost = (FragmentHost) activity;
     }
@@ -64,7 +63,7 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     }*/
 
     public void switchFullscreen(boolean selected) {
-        LToast.showShort(getActivity(), "Loitp switchFullscreen " + selected);
+        showShort("Loitp switchFullscreen " + selected);
         /*if (this.mPlayerWWLVideoControlsOverlay != null) {
             this.mPlayerWWLVideoControlsOverlay.switchFullscreen(selected);
         }*/
@@ -74,7 +73,7 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     }
 
     public void toggleControls() {
-        LToast.showShort(getActivity(), "Loitp toggleControls");
+        showShort("Loitp toggleControls");
         /*if (this.mPlayerWWLVideoControlsOverlay != null) {
             this.mPlayerWWLVideoControlsOverlay.toggleControls();
         }*/
@@ -91,7 +90,6 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     @Override
     protected void onNetworkChange(EventBusData.ConnectEvent event) {
         super.onNetworkChange(event);
-        //LLog.d(TAG, "onNetworkChange isConnected " + event.isConnected());
         if (uzVideo != null) {
             uzVideo.onNetworkChange(event);
         }

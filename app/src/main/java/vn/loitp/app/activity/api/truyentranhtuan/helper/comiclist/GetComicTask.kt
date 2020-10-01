@@ -135,14 +135,11 @@ class GetComicTask(private val context: Context,
             for (eMangaFocus in document.select("div[class=manga-focus]")) {
                 val comic = Comic()
                 val eTitle = eMangaFocus.select("span[class=manga]")
-                //LLog.d(TAG, "tieu de: " + eTitle.text());//Tieu de: +Anima
                 comic.title = eTitle.text()
                 val urlComic = eTitle.select("a")
-                //LLog.d(TAG, "tmpLink: " + urlComic.attr("href"));//url:
                 // http://truyentranhtuan.com/anima/
                 comic.url = urlComic.attr("href")
                 val eDate = eMangaFocus.select("span[class=current-date]")
-                //LLog.d(TAG, "eDate: " + eDate.text());//04.10.2016
                 comic.date = eDate.text()
                 comicList.add(comic)
             }

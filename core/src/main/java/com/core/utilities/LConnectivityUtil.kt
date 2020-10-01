@@ -49,21 +49,15 @@ class LConnectivityUtil {
             if (context == null) {
                 return
             }
-            //LLog.d(TAG, "onNetworkConnectionChanged $isConnected")
             if (isConnected == true) {
                 val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
-                //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
                 if (prevIsConnectedNetwork != isConnected) {
-                    //LLog.d(TAG, "onNetworkChange")
                     LSharedPrefsUtil.instance.putBoolean(key = LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, data = true)
                     EventBusData.instance.sendConnectChange(isConnected = true)
                 }
             } else {
-                //LLog.d(TAG, "!isConnected")
                 val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
-                //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
                 if (prevIsConnectedNetwork != isConnected) {
-                    //LLog.d(TAG, "onNetworkChange")
                     LSharedPrefsUtil.instance.putBoolean(key = LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, data = false)
                     EventBusData.instance.sendConnectChange(isConnected = false)
                 }

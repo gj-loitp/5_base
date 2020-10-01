@@ -12,7 +12,6 @@ import androidx.annotation.NonNull;
 import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
-import com.core.utilities.LLog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -33,8 +32,6 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
 
     private EditText mEmailField;
     private EditText mPasswordField;
-    private Button mSignInButton;
-    private Button mSignUpButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +43,8 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         // Views
         mEmailField = findViewById(R.id.field_email);
         mPasswordField = findViewById(R.id.field_password);
-        mSignInButton = findViewById(R.id.button_sign_in);
-        mSignUpButton = findViewById(R.id.button_sign_up);
+        Button mSignInButton = findViewById(R.id.button_sign_in);
+        Button mSignUpButton = findViewById(R.id.button_sign_up);
 
         // Click listeners
         mSignInButton.setOnClickListener(this);
@@ -65,7 +62,6 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signIn() {
-        LLog.d(getLogTag(), "signIn");
         if (!validateForm()) {
             return;
         }
@@ -78,7 +74,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(getLogTag(), "signIn:onComplete:" + task.isSuccessful());
+                        logD("signIn:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {
@@ -91,7 +87,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     }
 
     private void signUp() {
-        LLog.d(getLogTag(), "signUp");
+        logD("signUp");
         if (!validateForm()) {
             return;
         }
@@ -104,7 +100,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        LLog.d(getLogTag(), "createUser:onComplete:" + task.isSuccessful());
+                        logD("createUser:onComplete:" + task.isSuccessful());
                         hideProgressDialog();
 
                         if (task.isSuccessful()) {

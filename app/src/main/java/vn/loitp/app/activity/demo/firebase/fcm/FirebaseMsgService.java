@@ -28,8 +28,6 @@ public class FirebaseMsgService extends FirebaseMessagingService {
             if (remoteMessage.getNotification() == null) {
                 return;
             }
-//            LLog.d(logTag, "From: " + remoteMessage.getFrom());
-//            LLog.d(logTag, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
             //THIS CODE BELOWS SEND A NOTIFICATION
             if (Constants.Companion.getIS_DEBUG()) {

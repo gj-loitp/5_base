@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.core.adapter.AnimationAdapter
-import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.row_movie_list.view.*
 import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
 import vn.loitp.app.R
@@ -14,8 +13,6 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 class Footer2Adapter(private val moviesList: List<Movie>, private val callback: Callback?) :
         AnimationAdapter() {
-
-    private val logTag = javaClass.simpleName
 
     companion object {
         const val TYPE_ITEM = 1
@@ -30,7 +27,7 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) {
-            LLog.d(logTag, "bind MovieViewHolder: $bindingAdapterPosition")
+//            logD("bind MovieViewHolder: $bindingAdapterPosition")
             itemView.title.text = movie.title
             itemView.genre.text = movie.genre
             itemView.year.text = movie.year
@@ -51,7 +48,7 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
     inner class BannerViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         @SuppressLint("SetTextI18n")
         fun bind(movie: Movie) {
-            LLog.d(logTag, "bind BannerViewHolder: $bindingAdapterPosition")
+//            logD("bind BannerViewHolder: $bindingAdapterPosition")
             itemView.textViewUser.text = "BANNER-" + movie.title
             itemView.textViewAboutMe.text = movie.cover
             if (bindingAdapterPosition == moviesList.size - 1) {

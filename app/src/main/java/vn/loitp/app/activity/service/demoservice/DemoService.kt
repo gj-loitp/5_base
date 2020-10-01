@@ -3,8 +3,6 @@ package vn.loitp.app.activity.service.demoservice
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import com.core.utilities.LLog
-
 import com.views.LToast
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,22 +12,21 @@ import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 
 class DemoService : Service() {
-    private val TAG = "TAG" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private val disposables = CompositeDisposable()
+
     override fun onBind(intent: Intent): IBinder? {
-        LLog.d(TAG, "Service onBind")
+//        Log.d(logTag, "Service onBind")
         return null
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         LToast.show(this, "Service onStartCommand")
-        LLog.d(TAG, "Service onStartCommand")
         run()
         return START_STICKY
     }
 
     override fun onDestroy() {
-        LLog.d(TAG, "Service onDestroy")
         LToast.show(this, "Service onDestroy")
         disposables.clear()
         run()
@@ -51,16 +48,14 @@ class DemoService : Service() {
         return object : DisposableObserver<Long>() {
 
             override fun onNext(value: Long) {
-                LLog.d(TAG, "onNext : value : $value")
                 LToast.show(applicationContext, "onNext : value : $value")
             }
 
             override fun onError(e: Throwable) {
-                LLog.d(TAG, "onError : " + e.message)
+                e.printStackTrace()
             }
 
             override fun onComplete() {
-                LLog.d(TAG, "onComplete")
             }
         }
     }

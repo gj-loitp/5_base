@@ -126,7 +126,7 @@ class GetChapTask(private val context: Context,
             //url, ngay release chap, tam thoi chua can dung
             /*Elements url = document.select("span[class=url-name]");
               for (Element d : url) {
-                LLog.d(TAG, "url: " + d.text());//24.07.2015
+                Log.d(TAG, "url: " + d.text());//24.07.2015
               }*/
             val chaps = Chaps()
             chaps.chap = chapList

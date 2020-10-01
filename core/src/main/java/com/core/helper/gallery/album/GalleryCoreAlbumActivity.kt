@@ -149,7 +149,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         }
                     }
 
-                    //LLog.d(TAG, "after size: " + photosetList.size());
                     listPhotoSet.sortWith(Comparator { o1, o2 ->
                         java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
                     })

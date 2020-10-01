@@ -29,8 +29,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.core.utilities.LLog;
-
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DataSource;
@@ -38,7 +36,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver;
 
 public class AlarmListAdapter extends BaseAdapter {
-    private final String TAG = "AlarmMeActivity";
+    private final String logTag = "AlarmMeActivity";
 
     private Context mContext;
     private DataSource mDataSource;
@@ -51,8 +49,6 @@ public class AlarmListAdapter extends BaseAdapter {
     public AlarmListAdapter(Context context) {
         mContext = context;
         mDataSource = DataSource.getInstance(context);
-
-        LLog.d(TAG, "AlarmListAdapter.create()");
 
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
@@ -75,7 +71,6 @@ public class AlarmListAdapter extends BaseAdapter {
     }
 
     public void updateAlarms() {
-        LLog.d(TAG, "AlarmListAdapter.updateAlarms()");
         for (int i = 0; i < DataSource.size(); i++)
             DataSource.update(DataSource.get(i));
         dataSetChanged();
@@ -152,7 +147,6 @@ public class AlarmListAdapter extends BaseAdapter {
             alarm.toIntent(intent);
             sender = PendingIntent.getBroadcast(mContext, (int) alarm.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
             mAlarmManager.setExact(AlarmManager.RTC_WAKEUP, alarm.getDate(), sender);
-            LLog.d(TAG, "AlarmListAdapter.setAlarm(" + alarm.getId() + ", '" + alarm.getTitle() + "', " + alarm.getDate() + ")");
         }
     }
 
@@ -170,4 +164,3 @@ public class AlarmListAdapter extends BaseAdapter {
         TextView details;
     }
 }
-

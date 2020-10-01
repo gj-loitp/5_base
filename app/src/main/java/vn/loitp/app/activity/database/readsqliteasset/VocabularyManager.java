@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.core.utilities.LLog;
 import com.utils.util.AppUtils;
 
 import java.io.FileOutputStream;
@@ -77,7 +76,7 @@ public class VocabularyManager extends SQLiteOpenHelper {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
         } catch (SQLiteException e) {
-            LLog.d(TAG, "checkDatabase " + e.toString());
+            e.printStackTrace();
         }
         if (checkDB != null) checkDB.close();
         return checkDB != null;
@@ -146,7 +145,6 @@ public class VocabularyManager extends SQLiteOpenHelper {
         if (jsonFavVocabulary != null && !jsonFavVocabulary.isEmpty()) {
             List<Integer> idList = BaseApplication.Companion.getGson().fromJson(jsonFavVocabulary, new TypeToken<List<Integer>>() {
             }.getType());
-            LLog.d(TAG, "getFavVocabulary " + idList.size());
             if (idList != null) {
                 for (Integer integer : idList) {
                     Vocabulary v = getVocabularyInListByID(integer, vocabularyList);
@@ -156,7 +154,6 @@ public class VocabularyManager extends SQLiteOpenHelper {
                 }
             }
         }
-        LLog.d(TAG, ">>> favVocabularyList " + favVocabularyList.size());
         return favVocabularyList;
     }*/
 

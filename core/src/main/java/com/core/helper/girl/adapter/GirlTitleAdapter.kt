@@ -10,7 +10,6 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_girl_title.view.*
 
 class GirlTitleAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
     private var title: String = ""
     private var marginStartEndPx: Int? = null
     private var marginTopPx: Int? = null

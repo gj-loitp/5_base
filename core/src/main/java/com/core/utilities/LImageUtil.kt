@@ -31,7 +31,7 @@ import kotlin.math.min
 
 class LImageUtil {
     companion object {
-        private val TAG = "LImageUtil"
+        private val logTag = "LImageUtil"
 
         val randomUrlFlickr: String
             get() {
@@ -39,7 +39,7 @@ class LImageUtil {
                 return Constants.ARR_URL_BKG_FLICKR[r]
             }
 
-        //for flide
+        //for glide
         fun clear(context: Context?, target: View?) {
             if (context == null || target == null) {
                 return
@@ -463,9 +463,6 @@ class LImageUtil {
                 val srcFilePath = file.path
                 val destFilePath = LStoreUtil.getFolderPath(context, folderPath) + "/" + file.name
                 val resultCopy = FileUtils.copyFile(srcFilePath, destFilePath)
-                //LLog.d(TAG, "resizeImage srcFilePath: $srcFilePath")
-                //LLog.d(TAG, "resizeImage destFilePath: $destFilePath")
-                LLog.d(TAG, "resizeImage -> resultCopy: $resultCopy")
 
                 val copiedFile = File(destFilePath)
                 if (!copiedFile.exists()) {

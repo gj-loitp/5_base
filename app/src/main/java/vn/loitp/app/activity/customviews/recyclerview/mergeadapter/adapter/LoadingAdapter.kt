@@ -8,11 +8,9 @@ import com.core.adapter.AnimationAdapter
 import vn.loitp.app.R
 
 class LoadingAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
-//            LLog.d(logTag, "bind $bindingAdapterPosition")
             setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }

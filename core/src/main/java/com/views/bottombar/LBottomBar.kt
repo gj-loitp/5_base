@@ -341,7 +341,6 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     }
 
     fun setPerformItemClick(position: Int, invokedOnClickItem: Boolean = true) {
-        //LLog.d(TAG, "setPerformItemClick " + position);
         previousPos = currentPos
         currentPos = position
         when (position) {

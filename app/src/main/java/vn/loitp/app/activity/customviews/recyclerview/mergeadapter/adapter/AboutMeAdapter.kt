@@ -11,7 +11,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
 
 class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
+
     var onClickRootListener: ((AboutMe, Int) -> Unit)? = null
 
     fun setData(aboutMe: ArrayList<AboutMe>) {
@@ -23,7 +23,6 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : AnimationAda
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(aboutMe: AboutMe) {
-//            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.textViewUser.text = aboutMe.name
             itemView.textViewAboutMe.text = aboutMe.aboutMe
 

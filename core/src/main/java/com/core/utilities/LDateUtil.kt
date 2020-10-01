@@ -159,9 +159,7 @@ class LDateUtil {
             return try {
                 date = dateFormat.parse(datetime)
                 val time = date!!.time
-                LLog.d(logTag, "time:$time")
                 time
-                //new Timestamp(time).getTime();
             } catch (e: ParseException) {
                 e.printStackTrace()
                 0
@@ -226,7 +224,6 @@ class LDateUtil {
          * -> 2018-04-20 02:36:09
          */
         fun getDateCurrentTimeZoneMls(timestampMls: Long, format: String): String {
-            //LLog.d(TAG, "getDateCurrentTimeZoneMls " + timestampMls);
             return try {
                 val calendar = Calendar.getInstance()
                 //TimeZone tz = TimeZone.getDefault();
@@ -234,8 +231,8 @@ class LDateUtil {
                 calendar.timeInMillis = timestampMls
                 calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.timeInMillis))
                 val sdf = SimpleDateFormat(format, Locale.getDefault())
-                val currenTimeZone = calendar.time as Date
-                sdf.format(currenTimeZone)
+                val currentTimeZone = calendar.time as Date
+                sdf.format(currentTimeZone)
             } catch (e: Exception) {
                 e.printStackTrace()
                 ""

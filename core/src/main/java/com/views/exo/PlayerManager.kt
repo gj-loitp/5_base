@@ -3,11 +3,9 @@ package com.views.exo
 import android.app.Activity
 import android.content.Context
 import android.net.Uri
-import android.util.Log
 import android.view.ViewGroup
 import android.widget.ImageButton
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.C.ContentType
@@ -30,7 +28,7 @@ import com.google.android.exoplayer2.video.VideoListener
 import com.utils.util.AppUtils
 
 class PlayerManager : AdsMediaSource.MediaSourceFactory {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var adsLoader: ImaAdsLoader? = null
     private var dataSourceFactory: DataSource.Factory? = null
     var player: SimpleExoPlayer? = null
@@ -62,8 +60,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     @JvmOverloads
     fun init(context: Context, playerView: PlayerView, linkPlay: String, contentPosition: Long = 0) {
         if (linkPlay.isEmpty()) {
-            Log.e(TAG, "init failed -> return")
-            return
+            throw IllegalArgumentException("linkPlay is empty")
         }
         playerView.controllerShowTimeoutMs = 8000
         playerView.controllerHideOnTouch = true
@@ -101,18 +98,15 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             }
             it.playWhenReady = true
             it.seekTo(contentPosition)
-            LLog.d(TAG, "seekTo contentPosition: $contentPosition")
             it.addListener(object : Player.EventListener {
                 override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
 
                 override fun onLoadingChanged(isLoading: Boolean) {
-                    //LLog.d(TAG, "onLoadingChanged " + isLoading);
                 }
 
                 override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
                     when (playbackState) {
                         Player.STATE_BUFFERING -> {
-                            //LLog.d(TAG, "onPlayerStateChanged STATE_BUFFERING");
                             if (playerView.controllerShowTimeoutMs == 0) {
                                 playerView.controllerShowTimeoutMs = 8000
                             }
@@ -125,7 +119,6 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
                         Player.STATE_READY -> {
                         }
                         Player.STATE_ENDED -> {
-                            //LLog.d(TAG, "onPlayerStateChanged STATE_ENDED");
                             playerView.apply {
                                 showController()
                                 controllerShowTimeoutMs = 0
@@ -133,8 +126,6 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
                             }
                         }
                     }
-                    //LLog.d(TAG, "onPlayerStateChanged STATE_IDLE");
-                    //LLog.d(TAG, "onPlayerStateChanged STATE_READY");
                 }
 
                 override fun onPlayerError(error: ExoPlaybackException?) {}
@@ -149,7 +140,6 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
                 }
 
                 override fun onSurfaceSizeChanged(width: Int, height: Int) {
-                    //LLog.d(TAG, "onSurfaceSizeChanged " + width + "x" + height);
                 }
 
                 override fun onRenderedFirstFrame() {}
@@ -206,7 +196,6 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
 
     //for other sample not UZVideo
     fun updateSizePlayerView(activity: Activity, playerView: PlayerView, exoFullscreen: ImageButton) {
-        //LLog.d(TAG, "updateSizePlayerView screenW " + screenW);
         if (LScreenUtil.isLandscape(activity)) {
             playerView.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             playerView.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
@@ -216,7 +205,6 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_enter)
         }
         playerView.requestLayout()
-        //LLog.d(TAG, "requestLayout");
     }
 
     fun pauseVideo() {

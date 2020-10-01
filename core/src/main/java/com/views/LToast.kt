@@ -8,11 +8,10 @@ import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import com.R
-import com.core.utilities.LLog
 import java.util.*
 
 object LToast {
-    private val TAG = LToast::class.java.simpleName
+    private val logTag = LToast::class.java.simpleName
 
     private val toastList = ArrayList<Toast>()
 

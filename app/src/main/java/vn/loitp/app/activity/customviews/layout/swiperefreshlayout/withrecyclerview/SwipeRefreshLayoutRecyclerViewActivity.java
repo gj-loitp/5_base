@@ -11,8 +11,9 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
-import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,12 +42,12 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
 
         mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
             @Override
-            public void onClick(Movie movie, int position) {
+            public void onClick(@NotNull Movie movie, int position) {
                 showShort("Click " + movie.getTitle());
             }
 
             @Override
-            public void onLongClick(Movie movie, int position) {
+            public void onLongClick(@NotNull Movie movie, int position) {
 
             }
 
@@ -76,7 +77,6 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     }
 
     private void loadMore() {
-        LLog.d(getLogTag(), "loadMore");
         swipeRefreshLayout.setRefreshing(true);
         LUIUtil.Companion.setDelay(2000, () -> {
             swipeRefreshLayout.setRefreshing(false);

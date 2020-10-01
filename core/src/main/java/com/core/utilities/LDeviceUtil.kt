@@ -22,7 +22,7 @@ import java.util.*
 class LDeviceUtil {
 
     companion object {
-        private val TAG = LDeviceUtil::class.java.simpleName
+        private val logTag = LDeviceUtil::class.java.simpleName
 
         val isNavigationBarAvailable: Boolean
             get() {
@@ -108,7 +108,7 @@ class LDeviceUtil {
             activityManager.getMemoryInfo(memoryInfo)
             val availableMegs = memoryInfo.availMem / 1048576L
             val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
-            LLog.d(TAG, "percentAvail $percentAvail")
+//            Log.d(logTag, "percentAvail $percentAvail")
             return availableMegs
         }
     }

@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.view_girl_top_user.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_user.view.*
 
 class GirlTopUserAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     private val listGirlTopUser = ArrayList<GirlTopUser>()
     var onClickRootView: ((GirlTopUser) -> Unit?)? = null
@@ -32,7 +31,6 @@ class GirlTopUserAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind() {
-//            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.layoutHorizontal.removeAllViews()
             listGirlTopUser.forEach { girlTopUser ->
                 val viewGirlTopUser = ViewGirlTopUser(itemView.context)

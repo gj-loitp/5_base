@@ -15,7 +15,6 @@ import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
 import com.core.utilities.LImageUtil;
-import com.core.utilities.LLog;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -79,31 +78,31 @@ public class CropActivity extends BaseFontActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        LLog.d(getLogTag(), "onActivityResult requestCode " + requestCode);
+        logD("onActivityResult requestCode " + requestCode);
         super.onActivityResult(requestCode, resultCode, data);
         if (data == null) {
-            LLog.e(getLogTag(), "data == null return");
+            logD("data == null return");
             return;
         }
         if (requestCode == REQUEST_CODE_GET_FILE) {
             if (data.getExtras() == null) {
-                LLog.e(getLogTag(), "data.getExtras() == null return");
+                logD("data.getExtras() == null return");
                 return;
             }
             final String filePath = data.getExtras().getString(LGalleryActivity.RETURN_VALUE);
             if (filePath == null) {
-                LLog.e(getLogTag(), "filePath == null return");
+                logD("filePath == null return");
                 return;
             }
-            LLog.d(getLogTag(), "filePath " + filePath);
+            logD("filePath " + filePath);
             final File file = new File(filePath);
             if (!file.exists()) {
-                LLog.e(getLogTag(), "file is not exists");
+                logD("file is not exists");
                 return;
             }
             final Uri imageUri = Uri.fromFile(file);
             if (imageUri == null) {
-                LLog.e(getLogTag(), "imageUri == null");
+                logD("imageUri == null");
                 return;
             }
             if (isOvalOption) {
@@ -139,7 +138,7 @@ public class CropActivity extends BaseFontActivity {
                     return;
                 }
                 final File file = new File(realPath);
-                LLog.d(getLogTag(), "onActivityResult file " + file.getPath());
+                logD("onActivityResult file " + file.getPath());
                 LImageUtil.Companion.load(this, file, iv);
             }
         }

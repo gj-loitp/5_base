@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.view_girl_top_video.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_video.view.*
 
 class GirlTopVideoAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     private val listGirlTopVideo = ArrayList<GirlTopVideo>()
     var onClickRootView: ((GirlTopVideo) -> Unit?)? = null

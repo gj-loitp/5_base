@@ -15,8 +15,6 @@ import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import com.core.utilities.LLog;
-
 import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 /**
@@ -25,7 +23,7 @@ import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
  * Created by chensuilun on 2016/11/18.
  */
 public class GalleryLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
-    private static final String TAG = "GalleryLayoutManager";
+    private static final String logTag = "GalleryLayoutManager";
     final static int LAYOUT_START = -1;
 
     final static int LAYOUT_END = 1;
@@ -408,7 +406,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     private float calculateToCenterFraction(View child, float pendingOffset) {
         int distance = calculateDistanceCenter(child, pendingOffset);
         int childLength = mOrientation == GalleryLayoutManager.HORIZONTAL ? child.getWidth() : child.getHeight();
-        LLog.d(TAG, "calculateToCenterFraction: distance:" + distance + ",childLength:" + childLength);
+//        Log.d(logTag, "calculateToCenterFraction: distance:" + distance + ",childLength:" + childLength);
         return Math.max(-1.f, Math.min(1.f, distance * 1.f / childLength));
     }
 
@@ -434,7 +432,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
      * @param dy
      */
     private void fillWithVertical(RecyclerView.Recycler recycler, RecyclerView.State state, int dy) {
-        LLog.d(TAG, "fillWithVertical: dy:" + dy);
+//        Log.d(logTag, "fillWithVertical: dy:" + dy);
         int topEdge = getOrientationHelper().getStartAfterPadding();
         int bottomEdge = getOrientationHelper().getEndAfterPadding();
 
@@ -944,7 +942,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
                         mOnItemSelectedListener.onItemSelected(recyclerView, snap, mCurSelectedPosition);
                     }
                 } else {
-                    Log.e(TAG, "onScrollStateChanged: snap null");
+                    Log.e(logTag, "onScrollStateChanged: snap null");
                 }
             }
         }

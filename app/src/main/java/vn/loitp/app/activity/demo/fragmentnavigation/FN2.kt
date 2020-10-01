@@ -5,12 +5,11 @@ import android.view.View
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFragment
-import com.core.utilities.LLog
 import kotlinx.android.synthetic.main.frm_fn_2.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.frm_fn_2)
-@LogTag("FN2")
+@LogTag("fragmentNavigationActivity")
 class FN2 : BaseFragment(), OnBackPressedListener {
 
     private var fragmentNavigationActivity: FragmentNavigationActivity? = null
@@ -31,11 +30,11 @@ class FN2 : BaseFragment(), OnBackPressedListener {
 
     override fun onResume() {
         super.onResume()
-        LLog.d(fragmentNavigationActivity!!.T, "onResume FN2")
+        logD("onResume FN2")
     }
 
     override fun onBackPressed() {
-        LLog.d(fragmentNavigationActivity!!.T, "onBackPressed FN2")
+        logD("onBackPressed FN2")
         fragmentNavigationActivity?.popThisFragment()
     }
 }

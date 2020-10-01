@@ -14,7 +14,6 @@ import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LAppResource;
 import com.core.utilities.LDialogUtil;
-import com.core.utilities.LLog;
 import com.interfaces.Callback2;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -88,15 +87,15 @@ public class ImageWithCropActivity extends BaseFontActivity {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(getLogTag(), "onPermissionsChecked do you work now");
+                            logD("onPermissionsChecked do you work now");
                         } else {
-                            LLog.d(getLogTag(), "!areAllPermissionsGranted");
+                            logD("!areAllPermissionsGranted");
                             showShouldAcceptPermission();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.d(getLogTag(), "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings");
                             showSettingsDialog();
                         }
                         isShowDialogCheck = true;
@@ -104,7 +103,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.d(getLogTag(), "onPermissionRationaleShouldBeShown");
+                        logD("onPermissionRationaleShouldBeShown");
                         token.continuePermissionRequest();
                     }
                 })

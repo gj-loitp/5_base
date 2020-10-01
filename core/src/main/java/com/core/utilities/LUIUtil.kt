@@ -54,7 +54,7 @@ import java.util.*
  */
 class LUIUtil {
     companion object {
-        private val TAG = LUIUtil::class.java.simpleName
+        private val logTag = LUIUtil::class.java.simpleName
 
         private var lastOffset = 0.0f
         private var isUp = false
@@ -134,18 +134,18 @@ class LUIUtil {
                     if (x < maxNumber) {
                         i.show()
                     } else {
-                        //dont use LLog here
+                        //don't use LLog here
                         Log.d("interstitial", "displayInterstitial: interstitial isLoaded() but $x > $maxNumber")
                     }
                 } else {
-                    //dont use LLog here
+                    //don't use LLog here
                     Log.d("interstitial", "displayInterstitial: interstitial !isLoaded()")
                 }
             }
         }
 
         /*
-         * settext marquee
+         * set text marquee
          */
         fun setMarquee(tv: TextView?, text: String?) {
             tv?.let { t ->
@@ -229,13 +229,12 @@ class LUIUtil {
                             iv.setImageDrawable(it)
                         }
                     } catch (e: Exception) {
-                        Log.e(TAG, "setImageFromAsset: $e")
+                        Log.e(logTag, "setImageFromAsset: $e")
                         e.printStackTrace()
                     } finally {
                         try {
                             stream?.close()
                         } catch (e: Exception) {
-                            LLog.d(TAG, "setImageFromAsset: $e")
                             e.printStackTrace()
                         }
 
@@ -361,20 +360,16 @@ class LUIUtil {
                             // 'view' is currently being over-scrolled from the top.
                             lastOffset = offset
                             isUp = true
-                            //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
                         }
                         offset < 0 -> {
                             // 'view' is currently being over-scrolled from the bottom.
                             lastOffset = offset
                             isUp = false
-                            //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
                         }
                         else -> {
                             // No over-scroll is in-effect.
                             // This is synonymous with having (state == STATE_IDLE).
-                            //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
                             if (isUp) {
-                                //LLog.d(TAG, "________________ up " + lastOffset);
                                 if (lastOffset > 1.8f) {
                                     callbackPull.onUpOrLeftRefresh(lastOffset)
                                     LSoundUtil.startMusicFromAsset(viewPager.context, "ting.ogg")
@@ -382,7 +377,6 @@ class LUIUtil {
                                     callbackPull.onUpOrLeft(lastOffset)
                                 }
                             } else {
-                                //LLog.d(TAG, "________________ down " + lastOffset);
                                 if (lastOffset < -1.8f) {
                                     callbackPull.onDownOrRightRefresh(lastOffset)
                                 } else {
@@ -433,20 +427,16 @@ class LUIUtil {
                             // 'view' is currently being over-scrolled from the top.
                             lastOffset = offset
                             isUp = true
-                            //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
                         }
                         offset < 0 -> {
                             // 'view' is currently being over-scrolled from the bottom.
                             lastOffset = offset
                             isUp = false
-                            //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
                         }
                         else -> {
                             // No over-scroll is in-effect.
                             // This is synonymous with having (state == STATE_IDLE).
-                            //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
                             if (isUp) {
-                                //LLog.d(TAG, "________________ up " + lastOffset);
                                 if (lastOffset > 1.8f) {
                                     callbackPull.onUpOrLeftRefresh(lastOffset)
                                     LSoundUtil.startMusicFromAsset(recyclerView.context, "ting.ogg")
@@ -454,7 +444,6 @@ class LUIUtil {
                                     callbackPull.onUpOrLeft(lastOffset)
                                 }
                             } else {
-                                //LLog.d(TAG, "________________ down " + lastOffset);
                                 if (lastOffset < -1.8f) {
                                     callbackPull.onDownOrRightRefresh(lastOffset)
                                 } else {

@@ -22,7 +22,6 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_girl_detail.view.*
 
 class GirlDetailAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     private var listGirlPageDetail = ArrayList<GirlPageDetail>()
     var onClickRootListener: ((GirlPageDetail, Int) -> Unit)? = null

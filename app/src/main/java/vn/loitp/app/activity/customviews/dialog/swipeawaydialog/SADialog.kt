@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.widget.Button
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
-import com.core.utilities.LLog
 import com.interfaces.Callback1
 import com.interfaces.Callback2
 import com.interfaces.Callback3
@@ -21,7 +20,17 @@ import com.views.dialog.swipeawaydialog.support.SwipeAwayDialogFragment
 import vn.loitp.app.R
 
 class SADialog : SwipeAwayDialogFragment() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
+
+    companion object {
+        val KEY: String? = null
+        const val KEY_1 = 1
+        const val KEY_2 = 2
+        const val KEY_3 = 3
+        const val KEY_4 = 4
+        const val KEY_5 = 5
+        const val KEY_6 = 6
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val bundle = arguments
@@ -29,7 +38,6 @@ class SADialog : SwipeAwayDialogFragment() {
         if (bundle != null) {
             key = bundle.getInt(KEY)
         }
-        LLog.d(TAG, "key $key")
         return when (key) {
             KEY_1 -> show1()
             KEY_2 -> show2()
@@ -42,43 +50,54 @@ class SADialog : SwipeAwayDialogFragment() {
     }
 
     private fun show1(): AlertDialog {
-        return LDialogUtil.showDialog1(context = context!!,
+        return LDialogUtil.showDialog1(context = requireContext(),
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1",
                 callback1 = object : Callback1 {
                     override fun onClick1() {
-                        LToast.show(context!!, R.drawable.l_bkg_horizontal)
+                        LToast.show(requireContext(), R.drawable.l_bkg_horizontal)
                     }
                 })
     }
 
     private fun show2(): AlertDialog {
-        return LDialogUtil.showDialog2(context!!, "Title", "Msg", "Button 1", "Button 2", object : Callback2 {
-            override fun onClick1() {
-                LToast.showShort(context!!, "Click 1", R.drawable.l_bkg_horizontal)
-            }
+        return LDialogUtil.showDialog2(context = requireContext(),
+                title = "Title",
+                msg = "Msg",
+                button1 = "Button 1",
+                button2 = "Button 2",
+                callback2 = object : Callback2 {
+                    override fun onClick1() {
+                        LToast.showShort(requireContext(), "Click 1", R.drawable.l_bkg_horizontal)
+                    }
 
-            override fun onClick2() {
-                LToast.showShort(context!!, "Click 2", R.drawable.l_bkg_horizontal)
-            }
-        })
+                    override fun onClick2() {
+                        LToast.showShort(requireContext(), "Click 2", R.drawable.l_bkg_horizontal)
+                    }
+                })
     }
 
     private fun show3(): AlertDialog {
-        return LDialogUtil.showDialog3(context!!, "Title", "Msg", "Button 1", "Button 2", "Button 3", object : Callback3 {
-            override fun onClick1() {
-                LToast.showShort(context!!, "Click 1", R.drawable.l_bkg_horizontal)
-            }
+        return LDialogUtil.showDialog3(context = requireContext(),
+                title = "Title",
+                msg = "Msg",
+                button1 = "Button 1",
+                button2 = "Button 2",
+                button3 = "Button 3",
+                callback3 = object : Callback3 {
+                    override fun onClick1() {
+                        LToast.showShort(requireContext(), "Click 1", R.drawable.l_bkg_horizontal)
+                    }
 
-            override fun onClick2() {
-                LToast.showShort(context!!, "Click 2", R.drawable.l_bkg_horizontal)
-            }
+                    override fun onClick2() {
+                        LToast.showShort(requireContext(), "Click 2", R.drawable.l_bkg_horizontal)
+                    }
 
-            override fun onClick3() {
-                LToast.showShort(context!!, "Click 3", R.drawable.l_bkg_horizontal)
-            }
-        })
+                    override fun onClick3() {
+                        LToast.showShort(requireContext(), "Click 3", R.drawable.l_bkg_horizontal)
+                    }
+                })
     }
 
     private fun showList(): AlertDialog {
@@ -87,15 +106,25 @@ class SADialog : SwipeAwayDialogFragment() {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        return LDialogUtil.showDialogList(context!!, "Title", arr, object : CallbackList {
-            override fun onClick(position: Int) {
-                LToast.show(context!!, "Click position " + position + ", item: " + arr[position], R.drawable.l_bkg_horizontal)
-            }
-        })
+        return LDialogUtil.showDialogList(context = requireContext(),
+                title = "Title",
+                arr = arr,
+                callbackList = object : CallbackList {
+                    override fun onClick(position: Int) {
+                        LToast.show(requireContext(), "Click position " + position + ", item: " + arr[position], R.drawable.l_bkg_horizontal)
+                    }
+                })
     }
 
     private fun showProgress(): AlertDialog {
-        val progressDialog = LDialogUtil.showProgressDialog(activity!!, 100, "Title", "Message", false, ProgressDialog.STYLE_HORIZONTAL, null, null)
+        val progressDialog = LDialogUtil.showProgressDialog(context = requireContext(),
+                max = 100,
+                title = "Title",
+                msg = "Message",
+                isCancelAble = false,
+                style = ProgressDialog.STYLE_HORIZONTAL,
+                buttonTitle = null,
+                callback1 = null)
         //TODO convert asynctask to rx
         object : AsyncTask<Void, Int, Void>() {
             var i = 0
@@ -134,34 +163,22 @@ class SADialog : SwipeAwayDialogFragment() {
     @SuppressLint("InflateParams")
     private fun showCustom(): AlertDialog {
         val builder = AlertDialog.Builder(activity)
-        val inflater = activity!!.layoutInflater
+        val inflater = requireActivity().layoutInflater
         val view = inflater.inflate(R.layout.dlg_swipe_away_custom, null)
 
         val btY = view.findViewById<Button>(R.id.btYes)
         btY.setOnClickListener {
-            LToast.show(activity!!, "Click yes")
+            LToast.show(requireContext(), "Click yes")
         }
 
         val btN = view.findViewById<Button>(R.id.btNo)
         btN.setOnClickListener {
-            LToast.show(activity!!, "Click no")
+            LToast.show(requireContext(), "Click no")
         }
 
         builder.setView(view)
         val dialog = builder.create()
-        if (dialog.window != null) {
-            dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        }
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return dialog
-    }
-
-    companion object {
-        val KEY: String? = null
-        const val KEY_1 = 1
-        const val KEY_2 = 2
-        const val KEY_3 = 3
-        const val KEY_4 = 4
-        const val KEY_5 = 5
-        const val KEY_6 = 6
     }
 }

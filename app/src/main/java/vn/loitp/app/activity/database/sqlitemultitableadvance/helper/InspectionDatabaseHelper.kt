@@ -5,7 +5,6 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.core.base.BaseApplication
-import com.core.utilities.LLog
 import com.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
@@ -37,7 +36,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        LLog.d(TAG, "onCreate")
         // Table Create Statements
         val queryCreateTableInspection = ("CREATE TABLE " + TABLE_INSPECTION + "("
                 + KEY_ID + " INTEGER PRIMARY KEY, "
@@ -55,7 +53,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        LLog.d(TAG, "onUpgrade oldVersion: $oldVersion, newVersion: $newVersion")
         // on upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS $TABLE_INSPECTION")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_ACTION")
@@ -143,23 +140,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
     fun getActionListByPage(page: Int, pageSize: Int): List<Action> {
 //        SELECT * FROM table limit 100` -- get 1st 100 records
 //        SELECT * FROM table limit 100, 200` -- get 200 records beginning with row 101
-
-
-        //for test
-        /*val count = getActionCount()
-        LLog.d(TAG, "page: $page, pageSize: $pageSize")
-        LLog.d(TAG, "getActionCount: $count ")
-
-        val totalPage = if (count % pageSize == 0) {
-            count / pageSize
-        } else {
-            count / pageSize + 1
-        }
-        LLog.d(TAG, "totalPage: $totalPage")
-        for (i in 0 until totalPage) {
-            val startIndexByPage = i * pageSize
-            LLog.d(TAG, "i: $i -> startIndexByPage: $startIndexByPage")
-        }*/
 
         val startIndexByPage = page * pageSize
         val actionList = ArrayList<Action>()

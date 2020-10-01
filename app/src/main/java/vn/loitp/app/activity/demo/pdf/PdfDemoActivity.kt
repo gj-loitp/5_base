@@ -172,20 +172,20 @@ class PdfDemoActivity : BaseFontActivity() {
         //                .swipeHorizontal(false)
         //                .enableDoubletap(true)
         //                .defaultPage(0)
-        //                .onLoad(nbPages -> LLog.d(TAG, "loadComplete " + nbPages)) // called after document is loaded and starts to be rendered
+        //                .onLoad(nbPages -> Log.d(TAG, "loadComplete " + nbPages)) // called after document is loaded and starts to be rendered
         //                .onPageChange((page, pageCount) -> {
-        //                    LLog.d(TAG, "onPageChange " + page + "/" + pageCount);
+        //                    Log.d(TAG, "onPageChange " + page + "/" + pageCount);
         //                })
-        //                .onPageScroll((page, positionOffset) -> LLog.d(TAG, "onPageScrolled " + page + " - " + positionOffset))
-        //                .onError(t -> LLog.e(TAG, "onError " + t.toString()))
-        //                .onPageError((page, t) -> LLog.e(TAG, "onPageError " + page + " -> " + t.toString()))
-        //                .onRender(nbPages -> LLog.d(TAG, "onInitiallyRendered nbPages " + nbPages)) // called after document is rendered for the first time
+        //                .onPageScroll((page, positionOffset) -> Log.d(TAG, "onPageScrolled " + page + " - " + positionOffset))
+        //                .onError(t -> Log.e(TAG, "onError " + t.toString()))
+        //                .onPageError((page, t) -> Log.e(TAG, "onPageError " + page + " -> " + t.toString()))
+        //                .onRender(nbPages -> Log.d(TAG, "onInitiallyRendered nbPages " + nbPages)) // called after document is rendered for the first time
         //                // called on single tap, return true if handled, false to toggle scroll handle visibility
         //                .onTap(e -> {
-        //                    LLog.d(TAG, "onTap");
+        //                    Log.d(TAG, "onTap");
         //                    return false;
         //                })
-        //                .onLongPress(e -> LLog.d(TAG, "OnLongPressListener"))
+        //                .onLongPress(e -> Log.d(TAG, "OnLongPressListener"))
         //                .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)
         //                .password(null)
         //                .scrollHandle(new DefaultScrollHandle(this))

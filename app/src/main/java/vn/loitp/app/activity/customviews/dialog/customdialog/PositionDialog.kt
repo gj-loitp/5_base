@@ -11,7 +11,6 @@ import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
-import com.core.utilities.LLog
 import vn.loitp.app.R
 
 class PositionDialog : DialogFragment() {
@@ -29,7 +28,6 @@ class PositionDialog : DialogFragment() {
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        //LLog.d(TAG, "onCreateDialog")
         val dialogBuilder = AlertDialog.Builder(context, R.style.FullDialogTheme)
         val inflater = LayoutInflater.from(context)
         val dialogView = inflater.inflate(R.layout.dialog_position, null)
@@ -83,7 +81,6 @@ class PositionDialog : DialogFragment() {
                         //do nothing
                     }
                 }
-                LLog.d(logTag, "posX: $posX, posY: $posY")
                 if (posX != null && posY != null) {
                     w.attributes?.let { a ->
                         a.gravity = Gravity.TOP or Gravity.START

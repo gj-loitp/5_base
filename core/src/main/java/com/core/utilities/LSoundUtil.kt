@@ -26,7 +26,6 @@ class LSoundUtil {
                     var mPlayer = player
                     mPlayer?.let {
                         it.stop()
-                        //LLog.d(TAG, "onCompletion >>> release");
                         it.reset()
                         it.release()
                         mPlayer = null

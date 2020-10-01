@@ -31,7 +31,7 @@ import vn.loitp.app.activity.demo.firebase.database.viewholder.PostViewHolder;
 
 public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
-    private static final String TAG = "DbFbPostListFragment";
+    private static final String logTag = "DbFbPostListFragment";
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
@@ -154,7 +154,7 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
             @Override
             public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
                 // Transaction completed
-                Log.d(TAG, "postTransaction:onComplete:" + databaseError);
+                Log.d(logTag, "postTransaction:onComplete:" + databaseError);
             }
         });
     }

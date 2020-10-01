@@ -61,7 +61,6 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
             /* if specified not exist create new */
             if (!myDir.exists()) {
                 myDir.mkdir();
-                //LLog.d(TAG, "inside mkdir");
             }
 
             /* checks the file and if it already exist delete */
@@ -91,12 +90,10 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
 
                 // pb.setProgress((int) downloadedSize * 100 / totalSize);
 
-                // LLog.d(TAG, "downloadedSize:" + downloadedSize +
                 // "===totalSize:" + totalSize);
             }
 
             fos.close();
-            // LLog.d(TAG, "Image Saved in sdcard..");
         } catch (Exception e) {
             downComplete = false;
             e.printStackTrace();
@@ -105,7 +102,6 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
 
     @Override
     protected void onPostExecute(Bitmap result) {
-        //LLog.d("onPostExecute", "onPostExecute downComplete: " + downComplete);
         if (downComplete) {
             LToast.show(mContext, "Download successful " + sdCard + fileName, R.drawable.l_bkg_horizontal);
             LSoundUtil.Companion.startMusicFromAsset(mContext, "ting.ogg");

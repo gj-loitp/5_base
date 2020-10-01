@@ -13,7 +13,6 @@ import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_row_girl_header.view.*
 
 class GirlHeaderAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     private var girlPage: GirlPage? = null
 //    var onClickRootListener: ((GirlPage, Int) -> Unit)? = null

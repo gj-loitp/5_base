@@ -351,12 +351,6 @@ class LScreenUtil {
             var retVal = true
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 retVal = Settings.System.canWrite(context)
-                //LLog.d(TAG, "Can Write Settings: " + retVal);
-                /*if (retVal) {
-                    LLog.d(TAG, "Write allowed");
-                } else {
-                    LLog.d(TAG, "Write not allowed");
-                }*/
             }
             return retVal
         }

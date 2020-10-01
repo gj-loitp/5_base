@@ -194,7 +194,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 LUIUtil.displayInterstitial(interstitial = it, maxNumber = 70)
             }
         } else {
-            //dont use LLog here
+            //don't use LLog here
             Log.d(logTag, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
         }
     }

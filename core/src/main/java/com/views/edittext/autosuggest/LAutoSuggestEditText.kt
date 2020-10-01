@@ -13,7 +13,7 @@ import com.core.utilities.LUIUtil
 import com.views.layout.relativepopupwindow.LRelativePopupWindow
 
 class LAutoSuggestEditText : RelativeLayout {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     lateinit var editText: EditText
     lateinit var progressBar: ProgressBar
@@ -121,9 +121,7 @@ class LAutoSuggestEditText : RelativeLayout {
         }
         popupSuggestPopupView?.let {
             it.setStringList(this.resultList)
-            //LLog.d(TAG, "showSuggestPopup size: ${resultList.size} - $vertPos - $horizPos")
             if (!it.isShowing) {
-                //LLog.d(TAG, "showSuggestPopup")
                 //it.showOnAnchor(this, vertPos, horizPos, true)
             }
         }
@@ -132,7 +130,6 @@ class LAutoSuggestEditText : RelativeLayout {
     fun hideSuggestPopup() {
         popupSuggestPopupView?.let {
             if (it.isShowing) {
-                //LLog.d(TAG, "hideSuggestPopup")
                 it.dismiss()
             }
         }

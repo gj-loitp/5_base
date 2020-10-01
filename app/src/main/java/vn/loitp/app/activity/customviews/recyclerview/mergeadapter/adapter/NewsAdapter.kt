@@ -16,7 +16,6 @@ class NewsAdapter(
         private val listNews: ArrayList<News>
 ) : AnimationAdapter() {
 
-    private val logTag = javaClass.simpleName
     var onClickRootListener: ((News, Int) -> Unit)? = null
 
     fun addData(listNews: ArrayList<News>) {
@@ -26,7 +25,6 @@ class NewsAdapter(
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(news: News) {
-//            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.textViewNews.text = news.title
             LImageUtil.load(context = itemView.imageView.context,
                     url = news.image,
