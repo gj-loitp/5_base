@@ -84,8 +84,8 @@ class LDialogUtil {
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
 
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
 
             alertDialogList.add(dialog)
             return dialog
@@ -121,9 +121,9 @@ class LDialogUtil {
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
 
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
 
             alertDialogList.add(dialog)
             return dialog
@@ -216,12 +216,12 @@ class LDialogUtil {
         @SuppressLint("InflateParams")
         @JvmOverloads
         fun showCustomProgressDialog(context: Context?, amount: Float = 0f): AlertDialog? {
-            if (context == null) {
+            if (context == null || context !is Activity) {
                 return null
             }
             clearAll()
             val builder = AlertDialog.Builder(context)
-            val inflater = (context as Activity).layoutInflater
+            val inflater = context.layoutInflater
             val view = inflater.inflate(R.layout.l_dlg_custom_progress, null)
             builder.setView(view)
             val dialog = builder.create()

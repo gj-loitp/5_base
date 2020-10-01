@@ -6,23 +6,23 @@ import android.view.inputmethod.InputMethodManager
 
 class LDisplayUtil {
     companion object {
-        fun dip2px(context: Context, dpValue: Float): Int {
-            val scale = context.resources.displayMetrics.density
+        fun dip2px(dpValue: Float): Int {
+            val scale = LAppResource.application.resources.displayMetrics.density
             return (dpValue * scale + 0.5f).toInt()
         }
 
-        fun px2dip(context: Context, pxValue: Float): Int {
-            val scale = context.resources.displayMetrics.density
+        fun px2dip(pxValue: Float): Int {
+            val scale = LAppResource.application.resources.displayMetrics.density
             return (pxValue / scale + 0.5f).toInt()
         }
 
-        fun px2sp(context: Context, pxValue: Float): Int {
-            val fontScale = context.resources.displayMetrics.scaledDensity
+        fun px2sp(pxValue: Float): Int {
+            val fontScale = LAppResource.application.resources.displayMetrics.scaledDensity
             return (pxValue / fontScale + 0.5f).toInt()
         }
 
-        fun sp2px(context: Context, spValue: Float): Int {
-            val fontScale = context.resources.displayMetrics.scaledDensity
+        fun sp2px(spValue: Float): Int {
+            val fontScale = LAppResource.application.resources.displayMetrics.scaledDensity
             return (spValue * fontScale + 0.5f).toInt()
         }
 
@@ -41,8 +41,8 @@ class LDisplayUtil {
             return dm.heightPixels
         }
 
-        fun toggleKeyboard(context: Context) {
-            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        fun toggleKeyboard() {
+            val imm = LAppResource.application.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             if (imm.isActive) {
                 imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS)
             }

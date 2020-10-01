@@ -5,15 +5,14 @@ import android.content.SharedPreferences
 import com.core.base.BaseApplication
 import com.utils.util.AppUtils
 import com.utils.util.DeviceUtils
-import com.utils.util.Utils
 import java.lang.reflect.Type
 
 class LEncryptionSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences
 
     companion object {
-        private const val TAG = "EncryptionSharedPrefs"
-        private val PREFS_NAME = TAG + AppUtils.getAppPackageName()
+        private const val logTag = "EncryptionSharedPrefs"
+        private val PREFS_NAME = logTag + AppUtils.getAppPackageName()
         private var mInstance: LEncryptionSharedPrefsUtil? = null
         private val pw = LEncryptionUtil.encodeBase64(PREFS_NAME + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress()) + "1993"
 
@@ -27,7 +26,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
     }
 
     init {
-        mSharedPreferences = Utils.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        mSharedPreferences = LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
     fun getString(key: String): String {
