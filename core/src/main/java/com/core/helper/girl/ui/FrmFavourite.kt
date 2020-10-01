@@ -37,6 +37,8 @@ class FrmFavourite : BaseFragment() {
 
         setupViews()
         setupViewModels()
+
+        girlViewModel?.getListLikeGirlPage()
     }
 
     private fun setupViews() {
