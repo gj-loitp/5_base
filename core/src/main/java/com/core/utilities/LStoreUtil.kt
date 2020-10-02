@@ -111,15 +111,19 @@ class LStoreUtil {
                     val path = LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
                             ?: ""
                     val file = File("$path/$folderName")
+                    LLog.d(logTag, "file ${file.path}")
+                    LLog.d(logTag, "file exists " + file.exists())
 
-                    if (!file.exists()) {
+                    folderPath = if (file.exists()) {
+                        file.absolutePath
+                    } else {
                         file.mkdirs()
-                        folderPath = file.absolutePath
-                    } else if (file.exists()) {
-                        folderPath = file.absolutePath
+                        file.absolutePath
                     }
+
                 } catch (e: Exception) {
                     e.printStackTrace()
+                    LLog.e(logTag, "err isSdPresent $e")
                 }
             } else {
                 try {
@@ -132,6 +136,7 @@ class LStoreUtil {
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
+                    LLog.e(logTag, "err !isSdPresent $e")
                 }
 
             }
@@ -423,7 +428,7 @@ class LStoreUtil {
                           onDownloadListener: OnDownloadListener
         ): Downloader? {
             val path = getFolderPath(folderName = folderName)
-//            LLog.d(logTag, "getDownloader path $path")
+            LLog.d(logTag, "getDownloader path $path")
             val map = HashMap<String, String>()
             token?.let {
                 map["Authorization"] = it
