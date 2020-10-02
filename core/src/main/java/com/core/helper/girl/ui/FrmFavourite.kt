@@ -1,5 +1,6 @@
 package com.core.helper.girl.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.GirlAlbumAdapter
 import com.core.helper.girl.adapter.GirlTitleAdapter
 import com.core.helper.girl.viewmodel.GirlViewModel
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
@@ -54,7 +56,11 @@ class FrmFavourite : BaseFragment() {
 
         girlAlbumAdapter?.let {
             it.onClickRootListener = { girlPage, _ ->
-                //TODO
+                val intent = Intent(activity, GirlDetailActivity::class.java)
+                intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
+                //ko can dung startActivityForResult vi onResume luon load lai data
+                startActivity(intent)
+                LActivityUtil.tranIn(activity)
             }
             it.onClickLikeListener = { girlPage, _ ->
                 //TODO
