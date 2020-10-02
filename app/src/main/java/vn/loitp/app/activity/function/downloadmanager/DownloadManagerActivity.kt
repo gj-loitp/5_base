@@ -4,9 +4,11 @@ import alirezat775.lib.downloader.Downloader
 import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.views.setSafeOnClickListener
@@ -15,9 +17,14 @@ import vn.loitp.app.R
 import java.io.File
 
 @LayoutId(R.layout.activity_download_manager)
-@LogTag("DownloadManagerActivity")
+@LogTag("loitppDownloadManagerActivity")
 @IsFullScreen(false)
 class DownloadManagerActivity : BaseFontActivity() {
+
+    companion object {
+        const val FOLDER = ".DownloadManager"
+    }
+
     private var downloader: Downloader? = null
     private var lStoreUtilModel: LStoreUtilModel? = null
 
@@ -51,13 +58,18 @@ class DownloadManagerActivity : BaseFontActivity() {
             val randomColor = LStoreUtil.randomColorLight
             btTestRandomColorLight.setBackgroundColor(randomColor)
         }
-        btTestwriteToFile.setSafeOnClickListener {
-
+        btTestWriteToFile.setSafeOnClickListener {
+            lStoreUtilModel?.writeToFile(folder = FOLDER, fileName = "Test" + System.currentTimeMillis() + ".txt", body = "Body btTestWriteToFile setSafeOnClickListener")
         }
     }
 
     private fun setupViewModels() {
         lStoreUtilModel = getViewModel(LStoreUtilModel::class.java)
+        lStoreUtilModel?.let { vm ->
+            vm.writeToFileActionLiveData.observe(this, Observer { actionData ->
+                logD("<<<writeToFileActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+            })
+        }
     }
 
     @SuppressLint("SetTextI18n")

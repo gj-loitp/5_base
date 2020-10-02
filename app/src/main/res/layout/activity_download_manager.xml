@@ -104,7 +104,7 @@
             android:text="randomColorLight"
             android:textSize="@dimen/txt_medium" />
         <TextView
-            android:id="@+id/btTestwriteToFile"
+            android:id="@+id/btTestWriteToFile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_medium"

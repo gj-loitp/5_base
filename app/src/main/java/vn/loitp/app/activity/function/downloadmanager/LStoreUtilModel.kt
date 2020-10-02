@@ -4,7 +4,7 @@ import com.annotation.LogTag
 import com.core.base.BaseViewModel
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
-import java.io.File
+import kotlinx.coroutines.launch
 
 /**
  * Created by Loitp on 24,December,2019
@@ -16,23 +16,34 @@ import java.io.File
 @LogTag("LStoreUtilModel")
 class LStoreUtilModel : BaseViewModel() {
 
-    val writeToFileActionLiveData: ActionLiveData<ActionData<File>> = ActionLiveData()
+    val writeToFileActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
 
-    fun writeToFile() {
+    fun writeToFile(folder: String, fileName: String, body: String) {
         writeToFileActionLiveData.set(ActionData(isDoing = true))
 
-//        ioScope.launch {
-//
-//            LStoreUtil.writeToFile()
-//            writeToFileActionLiveData.post(
-//                    ActionData(
-//                            isDoing = false,
-//                            isSuccess = true,
-//                            data = data
-//                    )
-//            )
-//
-//        }
+        ioScope.launch {
+
+//            val isSuccess = LStoreUtil.writeToFile(
+//                    folder = folder,
+//                    fileName = fileName,
+//                    body = body)
+//            if (isSuccess) {
+//                writeToFileActionLiveData.post(
+//                        ActionData(
+//                                isDoing = false,
+//                                isSuccess = true,
+//                                data = body
+//                        )
+//                )
+//            } else {
+//                writeToFileActionLiveData.post(
+//                        ActionData(
+//                                isDoing = false,
+//                                isSuccess = false
+//                        )
+//                )
+//            }
+        }
 
     }
 }
