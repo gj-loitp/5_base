@@ -158,6 +158,7 @@ class FrmHome : BaseFragment() {
             it.onClickRootListener = { girlPage, _ ->
                 val intent = Intent(activity, GirlDetailActivity::class.java)
                 intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
+                startActivity(intent)
                 LActivityUtil.tranIn(activity)
             }
             it.onClickLikeListener = { girlPage, _ ->
