@@ -85,17 +85,17 @@ class FrmHome : BaseFragment() {
         )
         listGirlTopUser.add(element = girlTopUserHung)
 
-        val girlTopUserTuan = GirlTopUser(
-                avatar = "https://live.staticflickr.com/65535/49424972522_254064a97d_q.jpg",
-                name = "Tuấn Liệt"
-        )
-        listGirlTopUser.add(element = girlTopUserTuan)
+//        val girlTopUserTuan = GirlTopUser(
+//                avatar = "https://live.staticflickr.com/65535/49424972522_254064a97d_q.jpg",
+//                name = "Tuấn Liệt"
+//        )
+//        listGirlTopUser.add(element = girlTopUserTuan)
 
-        val girlTopUserTien = GirlTopUser(
-                avatar = "https://live.staticflickr.com/65535/48111902461_f316050394_q.jpg",
-                name = "Tiên Giả"
-        )
-        listGirlTopUser.add(element = girlTopUserTien)
+//        val girlTopUserTien = GirlTopUser(
+//                avatar = "https://live.staticflickr.com/65535/48111902461_f316050394_q.jpg",
+//                name = "Tiên Giả"
+//        )
+//        listGirlTopUser.add(element = girlTopUserTien)
 
         girlTopUserAdapter?.setListGirlTopUser(listGirlTopUser)
     }
@@ -110,26 +110,26 @@ class FrmHome : BaseFragment() {
         )
         listGirlTopVideo.add(element = girlTopVideo)
 
-        girlTopVideo = GirlTopVideo(
-                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
-                title = "'How You Like That' M/V",
-                link = "https://www.youtube.com/watch?v=ioNng23DkIM"
-        )
-        listGirlTopVideo.add(element = girlTopVideo)
+//        girlTopVideo = GirlTopVideo(
+//                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+//                title = "'How You Like That' M/V",
+//                link = "https://www.youtube.com/watch?v=ioNng23DkIM"
+//        )
+//        listGirlTopVideo.add(element = girlTopVideo)
 
-        girlTopVideo = GirlTopVideo(
-                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
-                title = "LIKEY M/V",
-                link = "https://www.youtube.com/watch?v=V2hlQkVJZhE"
-        )
-        listGirlTopVideo.add(element = girlTopVideo)
+//        girlTopVideo = GirlTopVideo(
+//                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+//                title = "LIKEY M/V",
+//                link = "https://www.youtube.com/watch?v=V2hlQkVJZhE"
+//        )
+//        listGirlTopVideo.add(element = girlTopVideo)
 
-        girlTopVideo = GirlTopVideo(
-                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
-                title = "'붐바야'(BOOMBAYAH) M/V",
-                link = "https://www.youtube.com/watch?v=bwmSjveL3Lc"
-        )
-        listGirlTopVideo.add(element = girlTopVideo)
+//        girlTopVideo = GirlTopVideo(
+//                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+//                title = "'붐바야'(BOOMBAYAH) M/V",
+//                link = "https://www.youtube.com/watch?v=bwmSjveL3Lc"
+//        )
+//        listGirlTopVideo.add(element = girlTopVideo)
 
         girlTopVideoAdapter?.setListGirlTopUser(listGirlTopVideo)
     }
