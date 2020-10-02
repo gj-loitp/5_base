@@ -12,9 +12,6 @@ import android.location.LocationProvider;
 import android.os.Bundle;
 import android.provider.Settings;
 
-import com.R;
-import com.views.LToast;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
@@ -85,8 +82,7 @@ public final class LocationUtils {
         mLocationManager = (LocationManager) Utils.getContext().getSystemService(Context.LOCATION_SERVICE);
         mListener = listener;
         if (!isLocationEnabled()) {
-            LToast.showShort("Unable to locate, please open the location service", R.drawable.l_bkg_toast);
-            return false;
+            throw new IllegalArgumentException("Unable to locate, please open the location service");
         }
         String provider = mLocationManager.getBestProvider(getCriteria(), true);
         Location location = mLocationManager.getLastKnownLocation(provider);

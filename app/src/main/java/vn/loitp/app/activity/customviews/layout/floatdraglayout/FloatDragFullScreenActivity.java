@@ -38,7 +38,7 @@ public class FloatDragFullScreenActivity extends BaseActivity {
         rootView.addView(floatDragLayout, layoutParams);
 
         floatDragLayout.setOnClickListener(v ->
-                showShort("Click on the hover and drag buttons")
+                showShort("Click on the hover and drag buttons", true)
         );
     }
 

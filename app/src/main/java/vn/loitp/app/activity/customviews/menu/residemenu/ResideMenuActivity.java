@@ -107,12 +107,12 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            showShort("Menu is opened!");
+            showShort("Menu is opened!", true);
         }
 
         @Override
         public void closeMenu() {
-            showShort("Menu is closed!");
+            showShort("Menu is closed!", true);
         }
     };
 

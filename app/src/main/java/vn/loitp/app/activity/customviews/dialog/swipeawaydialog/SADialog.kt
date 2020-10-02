@@ -111,7 +111,7 @@ class SADialog : SwipeAwayDialogFragment() {
                 arr = arr,
                 callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
-                        LToast.show("Click position " + position + ", item: " + arr[position], R.drawable.l_bkg_toast)
+                        LToast.show(msg = "Click position " + position + ", item: " + arr[position], length = R.drawable.l_bkg_toast)
                     }
                 })
     }

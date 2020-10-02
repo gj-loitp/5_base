@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.R
 import com.core.utilities.LAppResource
+import com.core.utilities.LUIUtil
 import java.util.*
 
 object LToast {
@@ -17,68 +18,68 @@ object LToast {
     private val toastList = ArrayList<Toast>()
 
     @JvmStatic
-    fun show(s: String) {
-        show(msg = s, length = 0)
+    fun show(s: String, isTopAnchor: Boolean = true) {
+        show(msg = s, length = 0, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
-    fun show(resource: Int) {
-        show(resource, 0)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun showShort(msg: String?) {
-        show(msg, Toast.LENGTH_SHORT, R.drawable.l_bkg_toast)
+    fun show(resource: Int, isTopAnchor: Boolean = true) {
+        show(resource = resource, length = 0, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showLong(msg: String?) {
-        show(msg, Toast.LENGTH_LONG, R.drawable.l_bkg_toast)
+    fun showShort(msg: String?, isTopAnchor: Boolean = true) {
+        show(msg = msg, length = Toast.LENGTH_SHORT, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showShort(msg: String?, backgroundRes: Int) {
-        show(msg, Toast.LENGTH_SHORT, backgroundRes)
+    fun showLong(msg: String?, isTopAnchor: Boolean = true) {
+        show(msg = msg, length = Toast.LENGTH_LONG, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showShort(msgRes: Int, backgroundRes: Int) {
-        show(LAppResource.getString(msgRes), Toast.LENGTH_SHORT, backgroundRes)
+    fun showShort(msg: String?, backgroundRes: Int, isTopAnchor: Boolean = true) {
+        show(msg = msg, length = Toast.LENGTH_SHORT, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showLong(msg: String?, backgroundRes: Int) {
-        show(msg, Toast.LENGTH_LONG, backgroundRes)
+    fun showShort(msgRes: Int, backgroundRes: Int, isTopAnchor: Boolean = true) {
+        show(msg = LAppResource.getString(msgRes), length = Toast.LENGTH_SHORT, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun showLong(msgRes: Int, backgroundRes: Int) {
-        show(LAppResource.getString(msgRes), Toast.LENGTH_LONG, backgroundRes)
+    fun showLong(msg: String?, backgroundRes: Int, isTopAnchor: Boolean = true) {
+        show(msg = msg, length = Toast.LENGTH_LONG, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun show(resource: Int, length: Int) {
-        show(LAppResource.application.resources.getString(resource), length, R.drawable.l_bkg_toast)
+    fun showLong(msgRes: Int, backgroundRes: Int, isTopAnchor: Boolean = true) {
+        show(msg = LAppResource.getString(msgRes), length = Toast.LENGTH_LONG, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
-    fun show(resource: Int, length: Int, backgroundRes: Int) {
-        show(LAppResource.application.resources.getString(resource), length, backgroundRes)
+    fun show(resource: Int, length: Int, isTopAnchor: Boolean = true) {
+        show(msg = LAppResource.application.resources.getString(resource), length = length, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
+    }
+
+    @JvmStatic
+    @SuppressLint("InflateParams")
+    fun show(resource: Int, length: Int, backgroundRes: Int, isTopAnchor: Boolean = true) {
+        show(msg = LAppResource.application.resources.getString(resource), length = length, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
     @JvmOverloads
-    fun show(msg: String?, length: Int, backgroundRes: Int = R.drawable.l_bkg_toast) {
-        if (msg == null) {
+    fun show(msg: String?, length: Int, backgroundRes: Int = R.drawable.l_bkg_toast, isTopAnchor: Boolean = true) {
+        if (msg.isNullOrEmpty()) {
             return
         }
         clear()
@@ -88,8 +89,13 @@ object LToast {
             val textView = layout.findViewById<View>(R.id.tv_loading) as TextView
             textView.text = msg
             textView.setBackgroundResource(backgroundRes)
+            LUIUtil.setTextShadow(textView)
             val toast = Toast(LAppResource.application)
-            toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.BOTTOM, 0, 0)
+            if (isTopAnchor) {
+                toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
+            } else {
+                toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.BOTTOM, 0, 0)
+            }
             toast.duration = length
             toast.view = layout
             toast.show()

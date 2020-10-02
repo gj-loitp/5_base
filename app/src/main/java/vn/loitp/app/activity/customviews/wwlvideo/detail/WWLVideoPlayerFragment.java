@@ -63,7 +63,7 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     }*/
 
     public void switchFullscreen(boolean selected) {
-        showShort("Loitp switchFullscreen " + selected);
+        showShort("Loitp switchFullscreen " + selected, true);
         /*if (this.mPlayerWWLVideoControlsOverlay != null) {
             this.mPlayerWWLVideoControlsOverlay.switchFullscreen(selected);
         }*/
@@ -73,7 +73,7 @@ public class WWLVideoPlayerFragment extends BaseFragment {
     }
 
     public void toggleControls() {
-        showShort("Loitp toggleControls");
+        showShort("Loitp toggleControls", true);
         /*if (this.mPlayerWWLVideoControlsOverlay != null) {
             this.mPlayerWWLVideoControlsOverlay.toggleControls();
         }*/

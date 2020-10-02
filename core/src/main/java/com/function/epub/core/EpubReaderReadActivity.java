@@ -108,7 +108,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         LUIUtil.Companion.setTextShadow(tvTitle);
         bookInfo = BookInfoData.getInstance().getBookInfo();
         if (bookInfo == null) {
-            showShort(getString(R.string.err_unknow));
+            showShort(getString(R.string.err_unknow), true);
             onBackPressed();
         }
         setCoverBitmap();
@@ -239,7 +239,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             e.printStackTrace();
             this.pageCount = e.getPageCount();
             if (isSkippedToPage) {
-                showShort("Max page number is: " + this.pageCount);
+                showShort("Max page number is: " + this.pageCount, true);
             }
             mSectionsPagerAdapter.notifyDataSetChanged();
         } catch (Exception e) {
@@ -278,7 +278,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
             } catch (ReadingException e) {
                 logE("doInBackground " + e.toString());
-                showShort("Error: " + e.getMessage());
+                showShort("Error: " + e.getMessage(), true);
             }
             return null;
         }
@@ -391,13 +391,13 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         super.onStop();
         try {
             reader.saveProgress(mViewPager.getCurrentItem());
-            showShort("Saved page: " + mViewPager.getCurrentItem() + "...");
+            showShort("Saved page: " + mViewPager.getCurrentItem() + "...", true);
         } catch (ReadingException e) {
             e.printStackTrace();
-            showShort("Progress is not saved: " + e.getMessage());
+            showShort("Progress is not saved: " + e.getMessage(), true);
         } catch (OutOfPagesException e) {
             e.printStackTrace();
-            showShort("Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount());
+            showShort("Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount(), true);
         }
     }
 

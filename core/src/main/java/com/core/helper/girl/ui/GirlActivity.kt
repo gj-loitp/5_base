@@ -130,7 +130,7 @@ class GirlActivity : BaseFontActivity() {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShort(getString(R.string.press_again_to_exit))
+        showShort(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
         Handler().postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)

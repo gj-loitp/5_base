@@ -102,7 +102,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                 // Getting Post failed, log a message
                 logE("loadPost:onCancelled " + databaseError.toException());
                 // [START_EXCLUDE]
-                showShort("Failed to load post.");
+                showShort("Failed to load post.", true);
                 // [END_EXCLUDE]
             }
         };
@@ -271,7 +271,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     logE("postComments:onCancelled " + databaseError.toException());
-                    showShort("Failed to load comments.");
+                    showShort("Failed to load comments.", true);
                 }
             };
             ref.addChildEventListener(childEventListener);

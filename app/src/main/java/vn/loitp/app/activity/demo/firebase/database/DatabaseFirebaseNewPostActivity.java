@@ -14,7 +14,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.views.LToast;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -77,7 +76,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
-        LToast.show("Posting...");
+        showShort("Posting...", true);
 
         // [START single_value_read]
         final String userId = getUid();
@@ -94,7 +93,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         if (user == null) {
                             // User is null, error out
                             logD("User " + userId + " is unexpectedly null");
-                            showShort("Error: could not fetch user.");
+                            showShort("Error: could not fetch user.", true);
                         } else {
                             // Write new post
                             writeNewPost(userId, user.username, title, body);

@@ -141,12 +141,12 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun showShort(msg: String?) {
-        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast)
+    open fun showShort(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
     }
 
-    open fun showLong(msg: String?) {
-        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast)
+    open fun showLong(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
     }
 
     open fun showShortDebug(msg: String?) {

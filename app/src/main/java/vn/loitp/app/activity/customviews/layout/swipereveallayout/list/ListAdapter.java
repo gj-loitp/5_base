@@ -58,7 +58,7 @@ public class ListAdapter extends ArrayAdapter<String> {
             holder.deleteView.setOnClickListener(v -> remove(item));
             holder.frontView.setOnClickListener(view -> {
                 String displayText = "" + item + " clicked";
-                LToast.showShort(displayText);
+                LToast.showShort(displayText, true);
             });
         }
 

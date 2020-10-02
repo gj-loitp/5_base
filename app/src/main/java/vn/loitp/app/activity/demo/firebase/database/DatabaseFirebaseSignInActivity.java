@@ -80,7 +80,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            showShort("Sign In Failed");
+                            showShort("Sign In Failed", true);
                         }
                     }
                 });
@@ -106,7 +106,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            showShort("Sign Up Failed");
+                            showShort("Sign Up Failed", true);
                         }
                     }
                 });
