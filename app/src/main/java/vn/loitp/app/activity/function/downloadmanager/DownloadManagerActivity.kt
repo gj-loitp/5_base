@@ -69,6 +69,9 @@ class DownloadManagerActivity : BaseFontActivity() {
         btReadTxtFromRawFolder.setSafeOnClickListener {
             lStoreUtilModel?.readTxtFromRawFolder(R.raw.loitp)
         }
+        btReadTxtFromAsset.setSafeOnClickListener {
+            lStoreUtilModel?.readTxtFromAsset("colors.json")
+        }
     }
 
     private fun setupViewModels() {
@@ -110,6 +113,19 @@ class DownloadManagerActivity : BaseFontActivity() {
                     if (actionData.isSuccess == true) {
                         val data = actionData.data
                         showLong("readTxtFromRawFolderActionLiveData:\n$data")
+                    }
+                }
+            })
+            vm.readTxtFromAssetActionLiveData.observe(this, Observer { actionData ->
+                logD("<<<readTxtFromAssetActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    layoutProgress.visibility = View.VISIBLE
+                } else {
+                    layoutProgress.visibility = View.GONE
+                    if (actionData.isSuccess == true) {
+                        val data = actionData.data
+                        showLong("readTxtFromAssetActionLiveData:\n$data")
                     }
                 }
             })

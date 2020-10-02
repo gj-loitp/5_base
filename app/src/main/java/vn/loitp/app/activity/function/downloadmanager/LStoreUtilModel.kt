@@ -21,6 +21,7 @@ class LStoreUtilModel : BaseViewModel() {
     val writeToFileActionLiveData: ActionLiveData<ActionData<File>> = ActionLiveData()
     val readTxtFromFolderActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
     val readTxtFromRawFolderActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
+    val readTxtFromAssetActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
 
     fun writeToFile(folder: String, fileName: String, body: String) {
         writeToFileActionLiveData.set(ActionData(isDoing = true))
@@ -82,6 +83,26 @@ class LStoreUtilModel : BaseViewModel() {
             )
             logD("<<<readTxtFromRawFolderActionLiveData string $string")
             readTxtFromRawFolderActionLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = string
+                    )
+            )
+        }
+
+    }
+
+    fun readTxtFromAsset(assetFile: String) {
+        readTxtFromAssetActionLiveData.set(ActionData(isDoing = true))
+        logD(">>>readTxtFromAsset assetFile $assetFile")
+        ioScope.launch {
+
+            val string = LStoreUtil.readTxtFromAsset(
+                    assetFile = assetFile
+            )
+            logD("<<<readTxtFromAsset string $string")
+            readTxtFromAssetActionLiveData.post(
                     ActionData(
                             isDoing = false,
                             isSuccess = true,
