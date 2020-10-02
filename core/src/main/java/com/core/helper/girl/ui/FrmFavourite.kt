@@ -128,7 +128,23 @@ class FrmFavourite : BaseFragment() {
                     indicatorView.smoothToHide()
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
-                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
+                    val data = actionData.data
+                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(data))
+                    data?.let { girlPage ->
+                        val listDataFromAdapter = girlAlbumAdapter?.getData()
+                        listDataFromAdapter?.forEach {
+                            if (it.id == girlPage.id) {
+                                it.isFavorites = girlPage.isFavorites
+                            }
+                        }
+                        val isAllDataNotFavorite = listDataFromAdapter?.all {
+                            !it.isFavorites
+                        }
+                        if (isAllDataNotFavorite == true) {
+                            tvNoData.visibility = View.VISIBLE
+                            girlAlbumAdapter?.setData(listGirlPage = emptyList(), isSwipeToRefresh = true)
+                        }
+                    }
                 }
             })
         }
@@ -147,7 +163,7 @@ class FrmFavourite : BaseFragment() {
         getListLikeGirlPage()
     }
 
-    private fun getListLikeGirlPage(){
+    private fun getListLikeGirlPage() {
         girlViewModel?.getListLikeGirlPage(currentKeyword)
     }
 
