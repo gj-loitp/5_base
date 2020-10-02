@@ -33,6 +33,8 @@ class GirlSlideActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl_slide)
 
+        isShowAdWhenExit = true
+
         setupData()
         setupViews()
     }

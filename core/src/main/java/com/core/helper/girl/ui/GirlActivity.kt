@@ -26,6 +26,8 @@ class GirlActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl)
 
+        isShowAdWhenExit = true
+
         setupData()
         setupViews()
     }
