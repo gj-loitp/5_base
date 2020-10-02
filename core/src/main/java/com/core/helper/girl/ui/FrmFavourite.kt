@@ -18,7 +18,6 @@ import com.core.helper.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_favourite.*
 
@@ -43,7 +42,7 @@ class FrmFavourite : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        girlViewModel?.getListLikeGirlPage()
+        getListLikeGirlPage()
     }
 
     private fun setupViews() {
@@ -76,16 +75,15 @@ class FrmFavourite : BaseFragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = mergeAdapter
 
-        LUIUtil.setScrollChange(
-                recyclerView = recyclerView,
-                callbackRecyclerView = object : CallbackRecyclerView {
-                    override fun onTop() {
-                    }
-
-                    override fun onBottom() {
-                        //TODO
-                    }
-                })
+//        LUIUtil.setScrollChange(
+//                recyclerView = recyclerView,
+//                callbackRecyclerView = object : CallbackRecyclerView {
+//                    override fun onTop() {
+//                    }
+//
+//                    override fun onBottom() {
+//                    }
+//                })
 
         ivSearch.setOnClickListener {
             handleSearch(isAutoSearch = false)
@@ -134,7 +132,11 @@ class FrmFavourite : BaseFragment() {
             currentKeyword = this.text.toString().trim()
         }
         logD("handleSearch currentKeyword $currentKeyword")
-        //TODO
+        getListLikeGirlPage()
+    }
+
+    private fun getListLikeGirlPage(){
+        girlViewModel?.getListLikeGirlPage(currentKeyword)
     }
 
 }

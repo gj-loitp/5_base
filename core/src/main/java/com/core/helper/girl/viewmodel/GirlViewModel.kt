@@ -118,11 +118,11 @@ class GirlViewModel : BaseViewModel() {
         }
     }
 
-    fun getListLikeGirlPage() {
+    fun getListLikeGirlPage(currentKeyword: String) {
         pageLikedActionLiveData.set(ActionData(isDoing = true))
-        logD(">>>getListLikeGirlPage")
+        logD(">>>getListLikeGirlPage currentKeyword $currentKeyword")
         ioScope.launch {
-            val listGirlPageFavorites = GirlDatabase.instance?.girlPageDao()?.getListGirlPage()
+            val listGirlPageFavorites = GirlDatabase.instance?.girlPageDao()?.getListGirlPage(currentKeyword)
             logD("<<<getListLikeGirlPage " + BaseApplication.gson.toJson(listGirlPageFavorites))
             pageLikedActionLiveData.postAction(
                     ActionData(isDoing = false, data = listGirlPageFavorites, isSuccess = true)

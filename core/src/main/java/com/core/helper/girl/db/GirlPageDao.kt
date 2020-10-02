@@ -8,8 +8,8 @@ import com.core.helper.girl.model.GirlPage
 @Dao
 interface GirlPageDao : BaseDao<GirlPage> {
 
-    @Query("SELECT * FROM GirlPage WHERE isFavorites==1")
-    fun getListGirlPage(): List<GirlPage>
+    @Query("SELECT * FROM GirlPage WHERE isFavorites==1 AND title LIKE '%' || :currentKeyword || '%'")
+    fun getListGirlPage(currentKeyword: String): List<GirlPage>
 
     @Query("SELECT * FROM GirlPage WHERE id=:id")
     fun find(id: String?): GirlPage?
