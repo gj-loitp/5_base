@@ -10,6 +10,7 @@ import com.core.helper.girl.service.GirlApiClient
 import com.core.helper.girl.service.GirlRepository
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
@@ -118,10 +119,13 @@ class GirlViewModel : BaseViewModel() {
         }
     }
 
-    fun getListLikeGirlPage(currentKeyword: String) {
+    fun getListLikeGirlPage(currentKeyword: String, isDelay: Boolean) {
         pageLikedActionLiveData.set(ActionData(isDoing = true))
         logD(">>>getListLikeGirlPage currentKeyword $currentKeyword")
         ioScope.launch {
+            if (isDelay) {
+                delay(300)
+            }
             val listGirlPageFavorites = GirlDatabase.instance?.girlPageDao()?.getListGirlPage(currentKeyword)
             logD("<<<getListLikeGirlPage " + BaseApplication.gson.toJson(listGirlPageFavorites))
             pageLikedActionLiveData.postAction(

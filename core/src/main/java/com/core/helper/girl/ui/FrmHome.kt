@@ -57,7 +57,7 @@ class FrmHome : BaseFragment() {
         super.onResume()
         logD("onResume")
 
-        girlViewModel?.getListLikeGirlPage(currentKeyword = "")
+        girlViewModel?.getListLikeGirlPage(currentKeyword = "", isDelay = false)
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {

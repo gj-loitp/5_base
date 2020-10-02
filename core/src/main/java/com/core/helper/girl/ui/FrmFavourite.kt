@@ -43,7 +43,7 @@ class FrmFavourite : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        getListLikeGirlPage()
+        getListLikeGirlPage(isDelay = false)
     }
 
     private fun setupViews() {
@@ -130,20 +130,8 @@ class FrmFavourite : BaseFragment() {
                 if (isDoing == false && actionData.isSuccess == true) {
                     val data = actionData.data
                     logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(data))
-                    data?.let { girlPage ->
-                        val listDataFromAdapter = girlAlbumAdapter?.getData()
-                        listDataFromAdapter?.forEach {
-                            if (it.id == girlPage.id) {
-                                it.isFavorites = girlPage.isFavorites
-                            }
-                        }
-                        val isAllDataNotFavorite = listDataFromAdapter?.all {
-                            !it.isFavorites
-                        }
-                        if (isAllDataNotFavorite == true) {
-                            tvNoData.visibility = View.VISIBLE
-                            girlAlbumAdapter?.setData(listGirlPage = emptyList(), isSwipeToRefresh = true)
-                        }
+                    if (data?.isFavorites == false) {
+                        getListLikeGirlPage(isDelay = true)
                     }
                 }
             })
@@ -160,11 +148,11 @@ class FrmFavourite : BaseFragment() {
             currentKeyword = this.text.toString().trim()
         }
         logD("handleSearch currentKeyword $currentKeyword")
-        getListLikeGirlPage()
+        getListLikeGirlPage(isDelay = false)
     }
 
-    private fun getListLikeGirlPage() {
-        girlViewModel?.getListLikeGirlPage(currentKeyword)
+    private fun getListLikeGirlPage(isDelay: Boolean) {
+        girlViewModel?.getListLikeGirlPage(currentKeyword = currentKeyword, isDelay = isDelay)
     }
 
 }
