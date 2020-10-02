@@ -93,7 +93,7 @@ class LStoreUtil {
         }
 
         @JvmOverloads
-        fun getFolderPath(folderName: String = "Loitp"): String {
+        fun getFolderPath(folderName: String = "z1000"): String {
             var folderPath = ""
             if (isSdPresent) {
                 try {
@@ -138,20 +138,19 @@ class LStoreUtil {
 
         /*
         save string json to sdcard
-        ex: writeToFile("module.json", strJson);
          */
-        fun writeToFile(folder: String?, fileName: String, body: String): Boolean {
+        fun writeToFile(folder: String?, fileName: String, body: String): File? {
             val fos: FileOutputStream?
             try {
                 var path = getFolderPath()
                 if (folder != null) {
-                    path = "$path$folder/"
+                    path = "$path/$folder/"
                 }
                 val dir = File(path)
                 val dirExist = dir.exists()
                 if (!dirExist) {
                     if (!dir.mkdirs()) {
-                        return false
+                        return null
                     }
                 }
                 val myFile = File(dir, fileName)
@@ -162,10 +161,11 @@ class LStoreUtil {
                 fos = FileOutputStream(myFile)
                 fos.write(body.toByteArray())
                 fos.close()
-                return true
+                LLog.d(logTag, "<<<writeToFile myFile path: " + myFile.path)
+                return myFile
             } catch (e: IOException) {
                 e.printStackTrace()
-                return false
+                return null
             }
         }
 

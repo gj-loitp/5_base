@@ -4,6 +4,7 @@ import alirezat775.lib.downloader.Downloader
 import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
@@ -68,6 +69,16 @@ class DownloadManagerActivity : BaseFontActivity() {
         lStoreUtilModel?.let { vm ->
             vm.writeToFileActionLiveData.observe(this, Observer { actionData ->
                 logD("<<<writeToFileActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    layoutProgress.visibility = View.VISIBLE
+                } else {
+                    layoutProgress.visibility = View.GONE
+                    if (actionData.isSuccess == true) {
+                        val data = actionData.data
+                        showLong("Saved: " + data?.path)
+                    }
+                }
             })
         }
     }

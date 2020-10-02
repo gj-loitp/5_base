@@ -32,7 +32,7 @@ class RemoveComicFavListTask(private val context: Context,
     }
 
     override fun doInBackground(vararg voids: Void): Int {
-        val json = LStoreUtil.readTxtFromFolder( folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE)
+        val json = LStoreUtil.readTxtFromFolder(folderName = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE)
         var mResult = 0
 
         if (json.isEmpty()) {
@@ -43,11 +43,11 @@ class RemoveComicFavListTask(private val context: Context,
             mResult = if (pos != Constants.NOT_FOUND) {
                 comicList.removeAt(pos)
                 val newJson = BaseApplication.gson.toJson(comicList)
-                val isSaved = LStoreUtil.writeToFile( folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, body = newJson)
-                if (isSaved) {
-                    RESULT_REMOVE_COMIC_SUCCESS
-                } else {
+                val fileSaved = LStoreUtil.writeToFile(folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN, fileName = LStoreUtil.FILE_NAME_MAIN_COMICS_LIST_FAVOURITE, body = newJson)
+                if (fileSaved == null) {
                     RESULT_ADD_COMIC_ERROR
+                } else {
+                    RESULT_REMOVE_COMIC_SUCCESS
                 }
             } else {
                 RESULT_COMIC_IS_NOT_EXIST
