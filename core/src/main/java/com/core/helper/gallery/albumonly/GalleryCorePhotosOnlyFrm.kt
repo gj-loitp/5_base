@@ -1,5 +1,6 @@
 package com.core.helper.gallery.albumonly
 
+import alirezat775.lib.downloader.core.OnDownloadListener
 import android.Manifest
 import android.content.Intent
 import android.net.Uri
@@ -16,9 +17,7 @@ import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LSocialUtil
-import com.core.utilities.LUIUtil
+import com.core.utilities.*
 import com.interfaces.Callback2
 import com.interfaces.CallbackList
 import com.karumi.dexter.Dexter
@@ -33,6 +32,7 @@ import com.restapi.restclient.RestClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
+import java.io.File
 
 @LogTag("GalleryCorePhotosOnlyFrm")
 class GalleryCorePhotosOnlyFrm : BaseFragment() {
@@ -94,8 +94,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                 }
 
                 override fun onClickDownload(photo: Photo, pos: Int) {
-                    //TODO
-                    //AsyncTaskDownloadImage(photo.urlO).execute()
+                    save(url = photo.urlO)
                 }
 
                 override fun onClickShare(photo: Photo, pos: Int) {
@@ -361,5 +360,43 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                     })
             alertDialog.setCancelable(false)
         }
+    }
+
+    private fun save(url: String) {
+        val downloader = LStoreUtil.getDownloader(
+                folderName = LAppResource.getString(R.string.app_name),
+                url = url,
+                fileName = "Img" + System.currentTimeMillis(),
+                fileNameExtension = "png",
+                onDownloadListener = object : OnDownloadListener {
+                    override fun onCancel() {
+                    }
+
+                    override fun onCompleted(file: File?) {
+                        file?.let {
+                            showLong("Saved in ${it.path}")
+                            LStoreUtil.sendBroadcastMediaScan(it)
+                        }
+                    }
+
+                    override fun onFailure(reason: String?) {
+                        showLong("Download failed $reason")
+                    }
+
+                    override fun onPause() {
+                    }
+
+                    override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
+                    }
+
+                    override fun onResume() {
+                    }
+
+                    override fun onStart() {
+                    }
+
+                }
+        )
+        downloader?.download()
     }
 }
