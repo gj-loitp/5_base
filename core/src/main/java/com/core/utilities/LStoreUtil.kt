@@ -189,69 +189,7 @@ class LStoreUtil {
             }
             return text.toString()
         }
-
-//        fun readTxtFromFolder(activity: Activity, folderName: String, fileName: String, callbackReadFile: CallbackReadFile) {
-//            //TODO convert to rx
-//            object : AsyncTask<Void, Void, Void>() {
-//                var result = ""
-//
-//                override fun doInBackground(vararg params: Void): Void? {
-//                    result = readTxtFromFolder(activity, folderName, fileName)
-//                    return null
-//                }
-//
-//                override fun onPostExecute(aVoid: Void) {
-//                    super.onPostExecute(aVoid)
-//                    callbackReadFile.onFinish(result)
-//                }
-//            }.execute()
-//        }
-
-        /*
-         * read text file from folder in background
-         */
-//        fun readTxtFromFolder(activity: Activity, folderName: String?, fileName: String, eventReadFromFolder: EventReadFromFolder) {
-//            //TODO convert to rx
-//            object : AsyncTask<Void, Void, Void>() {
-//                private var text: StringBuilder? = null
-//                private var runTaskSuccess = true
-//
-//                override fun doInBackground(vararg params: Void): Void? {
-//                    val path = getFolderPath(activity) + (if (folderName == null)
-//                        "/"
-//                    else
-//                        "$folderName/") + fileName
-//                    val txtFile = File(path)
-//                    text = StringBuilder()
-//                    try {
-//                        val reader = BufferedReader(FileReader(txtFile))
-//                        var line: String? = null
-//                        /*while ((line = reader.readLine()) != null) {
-//                            text?.append(line + '\n')
-//                        }*/
-//                        while ({ line = reader.readLine(); line }() != null) {
-//                            text?.append(line + '\n')
-//                        }
-//                        reader.close()
-//                    } catch (e: IOException) {
-//                        runTaskSuccess = false
-//                        e.printStackTrace()
-//                    }
-//
-//                    return null
-//                }
-//
-//                override fun onPostExecute(aVoid: Void) {
-//                    if (runTaskSuccess) {
-//                        eventReadFromFolder.onSuccess(text?.toString())
-//                    } else {
-//                        eventReadFromFolder.onError()
-//                    }
-//                    super.onPostExecute(aVoid)
-//                }
-//            }.execute()
-//        }
-
+        
         /*
          * read text file in raw folder
          */
