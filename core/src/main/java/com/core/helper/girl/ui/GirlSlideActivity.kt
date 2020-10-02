@@ -10,7 +10,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPageDetail
 import com.core.utilities.LSocialUtil
-import com.task.AsyncTaskDownloadImage
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import kotlinx.android.synthetic.main.l_activity_girl_slide.*
 
@@ -51,7 +50,7 @@ class GirlSlideActivity : BaseFontActivity() {
             val src = listData[currentPosition].src
             src?.let {
                 //TODO
-                AsyncTaskDownloadImage(it).execute()
+                //AsyncTaskDownloadImage(it).execute()
             }
         }
         btShare.setOnClickListener {

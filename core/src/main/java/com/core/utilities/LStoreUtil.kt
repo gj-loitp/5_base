@@ -1,5 +1,7 @@
 package com.core.utilities
 
+import alirezat775.lib.downloader.Downloader
+import alirezat775.lib.downloader.core.OnDownloadListener
 import android.app.ActivityManager
 import android.content.Context
 import android.graphics.Color
@@ -409,6 +411,29 @@ class LStoreUtil {
             val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
 //            Log.d(logTag, "percentAvail $percentAvail")
             return availableMegs
+        }
+
+        fun getDownloader(folderName: String,
+                          token: String? = null,
+                          url: String,
+                          fileName: String,
+                          fileNameExtension: String,
+                          timeOut: Int = 10000,
+                          onDownloadListener: OnDownloadListener
+        ): Downloader? {
+            val path = getFolderPath(folderName = folderName)
+//            LLog.d(logTag, "getDownloader path $path")
+            val map = HashMap<String, String>()
+            token?.let {
+                map["Authorization"] = it
+            }
+            return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
+                    .downloadDirectory(path)
+                    .fileName(fileName = fileName, extension = fileNameExtension)
+                    .header(map)
+                    .timeOut(timeOut)
+                    .downloadListener(onDownloadListener)
+                    .build()
         }
     }
 }

@@ -15,7 +15,6 @@ import com.core.utilities.LAnimationUtil
 import com.core.utilities.LSocialUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.interfaces.CallbackAnimation
-import com.task.AsyncTaskDownloadImage
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 
 @LogTag("GalleryCoreSlideActivity")
@@ -37,7 +36,8 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 
         btDownload.setOnClickListener {
             instance.getPhoto(viewPager.currentItem)?.urlO?.let {
-                AsyncTaskDownloadImage(it).execute()
+                //TODO
+                //AsyncTaskDownloadImage(it).execute()
             }
         }
         btShare.setOnClickListener {

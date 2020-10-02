@@ -30,7 +30,6 @@ import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
-import com.task.AsyncTaskDownloadImage
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
@@ -95,7 +94,8 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                 }
 
                 override fun onClickDownload(photo: Photo, pos: Int) {
-                    AsyncTaskDownloadImage(photo.urlO).execute()
+                    //TODO
+                    //AsyncTaskDownloadImage(photo.urlO).execute()
                 }
 
                 override fun onClickShare(photo: Photo, pos: Int) {
