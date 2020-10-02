@@ -26,7 +26,7 @@ class GirlViewModel : BaseViewModel() {
     val pageActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
     val pageDetailActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPageDetail>>> = ActionLiveData()
     val likeGirlPageActionLiveData: ActionLiveData<ActionData<GirlPage>> = ActionLiveData()
-    val pageLikedActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
+    val pageLikedActionLiveData: ActionLiveData<ActionData<List<GirlPage>>> = ActionLiveData()
 
     fun getPage(pageIndex: Int, keyWord: String?, isSwipeToRefresh: Boolean) {
         pageActionLiveData.set(ActionData(isDoing = true))
@@ -112,7 +112,9 @@ class GirlViewModel : BaseViewModel() {
         ioScope.launch {
             val id = GirlDatabase.instance?.girlPageDao()?.insert(girlPage)
             logD("<<<likeGirlPage id $id")
-            likeGirlPageActionLiveData.post(ActionData(isDoing = false, data = girlPage, isSuccess = true))
+            likeGirlPageActionLiveData.post(
+                    ActionData(isDoing = false, data = girlPage, isSuccess = true)
+            )
         }
     }
 
@@ -122,6 +124,9 @@ class GirlViewModel : BaseViewModel() {
         ioScope.launch {
             val listGirlPageFavorites = GirlDatabase.instance?.girlPageDao()?.getListGirlPage()
             logD("<<<getListLikeGirlPage " + BaseApplication.gson.toJson(listGirlPageFavorites))
+            pageLikedActionLiveData.postAction(
+                    ActionData(isDoing = false, data = listGirlPageFavorites, isSuccess = true)
+            )
         }
     }
 }

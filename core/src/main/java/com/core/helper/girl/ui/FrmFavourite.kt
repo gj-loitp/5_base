@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,10 +35,12 @@ class FrmFavourite : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupViews()
         setupViewModels()
+    }
 
+    override fun onResume() {
+        super.onResume()
         girlViewModel?.getListLikeGirlPage()
     }
 
@@ -92,34 +95,26 @@ class FrmFavourite : BaseFragment() {
     private fun setupViewModels() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
-//            vm.pageActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
-//                val isDoing = actionData.isDoing
-//                if (isDoing == true) {
-//                    indicatorView.smoothToShow()
-//                } else {
-//                    indicatorView.smoothToHide()
-//                }
-//
-//                if (isDoing == false && actionData.isSuccess == true) {
-//                    val listGirlPage = actionData.data
-//                    if (listGirlPage.isNullOrEmpty()) {
-//                        tvNoData.visibility = View.VISIBLE
-//                        recyclerView.visibility = View.GONE
-//                    } else {
-//                        totalPage = actionData.totalPages ?: 0
-//
-//                        tvNoData.visibility = View.GONE
-//                        recyclerView.visibility = View.VISIBLE
-//                        girlProgressAdapter?.let {
-//                            mergeAdapter?.removeAdapter(it)
-//                        }
-//                        girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
-//                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh
-//                                ?: false)
-//
-//                    }
-//                }
-//            })
+            vm.pageLikedActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+
+                if (isDoing == false && actionData.isSuccess == true) {
+                    val listGirlPage = actionData.data
+                    if (listGirlPage.isNullOrEmpty()) {
+                        tvNoData.visibility = View.VISIBLE
+                        recyclerView.visibility = View.GONE
+                    } else {
+                        tvNoData.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
+                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = true)
+                    }
+                }
+            })
         }
     }
 
