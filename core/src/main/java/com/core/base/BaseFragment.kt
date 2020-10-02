@@ -142,11 +142,11 @@ abstract class BaseFragment : Fragment() {
     }
 
     open fun showShort(msg: String?) {
-        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast)
     }
 
     open fun showLong(msg: String?) {
-        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast)
     }
 
     open fun showShortDebug(msg: String?) {

@@ -29,13 +29,13 @@ object LToast {
     @JvmStatic
     @SuppressLint("InflateParams")
     fun showShort(msg: String?) {
-        show(msg, Toast.LENGTH_SHORT, R.drawable.l_bkg_horizontal)
+        show(msg, Toast.LENGTH_SHORT, R.drawable.l_bkg_toast)
     }
 
     @JvmStatic
     @SuppressLint("InflateParams")
     fun showLong(msg: String?) {
-        show(msg, Toast.LENGTH_LONG, R.drawable.l_bkg_horizontal)
+        show(msg, Toast.LENGTH_LONG, R.drawable.l_bkg_toast)
     }
 
     @JvmStatic
@@ -65,7 +65,7 @@ object LToast {
     @JvmStatic
     @SuppressLint("InflateParams")
     fun show(resource: Int, length: Int) {
-        show(LAppResource.application.resources.getString(resource), length, R.drawable.l_bkg_horizontal)
+        show(LAppResource.application.resources.getString(resource), length, R.drawable.l_bkg_toast)
     }
 
     @JvmStatic
@@ -77,7 +77,7 @@ object LToast {
     @JvmStatic
     @SuppressLint("InflateParams")
     @JvmOverloads
-    fun show(msg: String?, length: Int, backgroundRes: Int = R.drawable.l_bkg_horizontal) {
+    fun show(msg: String?, length: Int, backgroundRes: Int = R.drawable.l_bkg_toast) {
         if (msg == null) {
             return
         }
@@ -89,7 +89,7 @@ object LToast {
             textView.text = msg
             textView.setBackgroundResource(backgroundRes)
             val toast = Toast(LAppResource.application)
-            toast.setGravity(Gravity.BOTTOM, 0, 0)
+            toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.BOTTOM, 0, 0)
             toast.duration = length
             toast.view = layout
             toast.show()

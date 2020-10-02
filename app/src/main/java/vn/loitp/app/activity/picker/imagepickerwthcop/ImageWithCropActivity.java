@@ -22,7 +22,6 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.picker.imagepickerwithcrop.PickerBuilder;
 import com.utils.util.AppUtils;
-import com.views.LToast;
 
 import java.util.List;
 
@@ -59,7 +58,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
         (findViewById(R.id.startCameraBtn)).setOnClickListener(v -> new PickerBuilder(this, PickerBuilder.SELECT_FROM_CAMERA)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    LToast.showShort("Got image - " + imageUri, R.drawable.l_bkg_horizontal);
+                    showShort("Got image - " + imageUri);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)

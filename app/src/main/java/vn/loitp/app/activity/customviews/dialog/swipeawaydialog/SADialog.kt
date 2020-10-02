@@ -56,7 +56,7 @@ class SADialog : SwipeAwayDialogFragment() {
                 button1 = "Button 1",
                 callback1 = object : Callback1 {
                     override fun onClick1() {
-                        LToast.show(R.drawable.l_bkg_horizontal)
+                        LToast.show(R.drawable.l_bkg_toast)
                     }
                 })
     }
@@ -69,11 +69,11 @@ class SADialog : SwipeAwayDialogFragment() {
                 button2 = "Button 2",
                 callback2 = object : Callback2 {
                     override fun onClick1() {
-                        LToast.showShort("Click 1", R.drawable.l_bkg_horizontal)
+                        LToast.showShort("Click 1", R.drawable.l_bkg_toast)
                     }
 
                     override fun onClick2() {
-                        LToast.showShort("Click 2", R.drawable.l_bkg_horizontal)
+                        LToast.showShort("Click 2", R.drawable.l_bkg_toast)
                     }
                 })
     }
@@ -87,15 +87,15 @@ class SADialog : SwipeAwayDialogFragment() {
                 button3 = "Button 3",
                 callback3 = object : Callback3 {
                     override fun onClick1() {
-                        LToast.showShort("Click 1", R.drawable.l_bkg_horizontal)
+                        LToast.showShort("Click 1", R.drawable.l_bkg_toast)
                     }
 
                     override fun onClick2() {
-                        LToast.showShort("Click 2", R.drawable.l_bkg_horizontal)
+                        LToast.showShort("Click 2", R.drawable.l_bkg_toast)
                     }
 
                     override fun onClick3() {
-                        LToast.showShort("Click 3", R.drawable.l_bkg_horizontal)
+                        LToast.showShort("Click 3", R.drawable.l_bkg_toast)
                     }
                 })
     }
@@ -111,7 +111,7 @@ class SADialog : SwipeAwayDialogFragment() {
                 arr = arr,
                 callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
-                        LToast.show("Click position " + position + ", item: " + arr[position], R.drawable.l_bkg_horizontal)
+                        LToast.show("Click position " + position + ", item: " + arr[position], R.drawable.l_bkg_toast)
                     }
                 })
     }

@@ -24,7 +24,6 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import com.picker.crop.CropImage;
 import com.picker.crop.LCropImageView;
 import com.picker.crop.LGalleryActivity;
-import com.views.LToast;
 import com.yalantis.ucrop.util.FileUtils;
 
 import java.io.File;
@@ -71,7 +70,7 @@ public class CropActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        LToast.showShort("Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
+                        showShort("Error onPermissionDenied WRITE_EXTERNAL_STORAGE");
                     }
                 }).check();
     }
