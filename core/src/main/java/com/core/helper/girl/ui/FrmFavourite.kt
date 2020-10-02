@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.GirlAlbumAdapter
 import com.core.helper.girl.adapter.GirlTitleAdapter
@@ -62,7 +63,7 @@ class FrmFavourite : BaseFragment() {
                 LActivityUtil.tranIn(activity)
             }
             it.onClickLikeListener = { girlPage, _ ->
-                //TODO
+                girlViewModel?.likeGirlPage(girlPage = girlPage)
             }
         }
 
@@ -111,12 +112,23 @@ class FrmFavourite : BaseFragment() {
                     val listGirlPage = actionData.data
                     if (listGirlPage.isNullOrEmpty()) {
                         tvNoData.visibility = View.VISIBLE
-                        recyclerView.visibility = View.GONE
+                        girlAlbumAdapter?.setData(listGirlPage = emptyList(), isSwipeToRefresh = true)
                     } else {
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
                         girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = true)
                     }
+                }
+            })
+            vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+                if (isDoing == false && actionData.isSuccess == true) {
+                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
                 }
             })
         }
