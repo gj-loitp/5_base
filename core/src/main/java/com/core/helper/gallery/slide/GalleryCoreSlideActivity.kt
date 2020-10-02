@@ -37,7 +37,7 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 
         btDownload.setOnClickListener {
             instance.getPhoto(viewPager.currentItem)?.urlO?.let {
-                AsyncTaskDownloadImage(applicationContext, it).execute()
+                AsyncTaskDownloadImage(it).execute()
             }
         }
         btShare.setOnClickListener {

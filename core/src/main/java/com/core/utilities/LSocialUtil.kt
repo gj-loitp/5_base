@@ -77,7 +77,7 @@ class LSocialUtil {
         fun likeFacebookFanpage(activity: Activity?) {
             activity?.let {
                 val facebookIntent = Intent(Intent.ACTION_VIEW)
-                val facebookUrl = getFacebookPageURL(it)
+                val facebookUrl = getFacebookPageURL()
                 facebookIntent.data = Uri.parse(facebookUrl)
                 it.startActivity(facebookIntent)
                 LActivityUtil.tranIn(it)
@@ -87,10 +87,10 @@ class LSocialUtil {
         /*
         get url fb fanpage
          */
-        private fun getFacebookPageURL(context: Context): String {
+        private fun getFacebookPageURL(): String {
             val facebookUrl = "https://www.facebook.com/hoidammedocsach"
             val facebookPageId = "hoidammedocsach"
-            val packageManager = context.packageManager
+            val packageManager = LAppResource.application.packageManager
             return try {
                 val versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode
                 if (versionCode >= 3002850) {
@@ -119,7 +119,7 @@ class LSocialUtil {
             }
 
             if (!isFBInstalled) {
-                LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null)
+                LDialogUtil.showDialog1(context = activity, title = activity.getString(R.string.err), msg = activity.getString(R.string.cannot_find_messenger_app), button1 = activity.getString(R.string.ok), callback1 = null)
             } else {
                 var uri = Uri.parse("fb-messenger://user/")
                 uri = ContentUris.withAppendedId(uri, java.lang.Long.valueOf("947139732073591"))
@@ -129,7 +129,7 @@ class LSocialUtil {
                     LActivityUtil.tranIn(activity)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    LDialogUtil.showDialog1(activity, activity.getString(R.string.err), activity.getString(R.string.cannot_find_messenger_app), activity.getString(R.string.ok), null)
+                    LDialogUtil.showDialog1(context = activity, title = activity.getString(R.string.err), msg = activity.getString(R.string.cannot_find_messenger_app), button1 = activity.getString(R.string.ok), callback1 = null)
                 }
             }
         }
@@ -144,7 +144,7 @@ class LSocialUtil {
         }
 
         fun openBrowserPolicy(context: Context) {
-            openUrlInBrowser(context, Constants.URL_POLICY)
+            openUrlInBrowser(context = context, url = Constants.URL_POLICY)
         }
 
         fun openUrlInBrowser(context: Context?, url: String?) {

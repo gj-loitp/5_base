@@ -2,9 +2,12 @@ package com.core.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.R
 import com.annotation.LogTag
+import com.core.common.Constants
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LLog
+import com.views.LToast
 
 abstract class AnimationAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var lastPosition = -1
@@ -33,6 +36,26 @@ abstract class AnimationAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     protected fun logE(msg: String) {
         logTag?.let {
             LLog.e(it, msg)
+        }
+    }
+
+    protected fun showShort(msg: String?) {
+        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+    }
+
+    protected fun showLong(msg: String?) {
+        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+    }
+
+    protected fun showShortDebug(msg: String?) {
+        if (Constants.IS_DEBUG) {
+            showShort(msg)
+        }
+    }
+
+    protected fun showLongDebug(msg: String?) {
+        if (Constants.IS_DEBUG) {
+            showLong(msg)
         }
     }
 }

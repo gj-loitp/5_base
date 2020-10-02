@@ -127,14 +127,14 @@ public class ScrollablePanelAdapter extends PanelAdapter {
                 viewHolder.itemView.setClickable(true);
                 viewHolder.itemView.setOnClickListener(v -> {
                     if (orderInfo.isBegin()) {
-                        LToast.show(v.getContext(), "name:" + orderInfo.getGuestName());
+                        LToast.show("name:" + orderInfo.getGuestName());
                     } else {
                         int i = 2;
                         while (column - i >= 0 && ordersList.get(row - 1).get(column - i).getId() == orderInfo.getId()) {
                             i++;
                         }
                         final OrderInfo info = ordersList.get(row - 1).get(column - i + 1);
-                        LToast.show(v.getContext(), "name:" + info.getGuestName());
+                        LToast.show("name:" + info.getGuestName());
                     }
                 });
             } else {

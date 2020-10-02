@@ -30,13 +30,13 @@ public class AnswerViewActivity extends BaseFontActivity {
     private void useXML() {
         LAnswerView LAnswerView1 = findViewById(R.id.av_1);
         LAnswerView1.setNumber(1);
-        LAnswerView1.setOnAnswerChange((view, index) -> LToast.show(this, "Click: " + index));
+        LAnswerView1.setOnAnswerChange((view, index) -> LToast.show("Click: " + index));
         LAnswerView1.setActiveChar('A');
         //answerView1.resize(2);
 
         LAnswerView LAnswerView2 = findViewById(R.id.av_2);
         LAnswerView2.setNumber(2);
-        LAnswerView2.setOnAnswerChange((view, index) -> LToast.show(this, "Click: " + index));
+        LAnswerView2.setOnAnswerChange((view, index) -> LToast.show("Click: " + index));
     }
 
     private void useJava() {
@@ -44,7 +44,7 @@ public class AnswerViewActivity extends BaseFontActivity {
         for (int i = 0; i < 10; i++) {
             LAnswerView LAnswerView = new LAnswerView(this);
             LAnswerView.init(i + 3, 6, true, true, true, true);
-            LAnswerView.setOnAnswerChange((view, index) -> LToast.show(this, "Click: " + index));
+            LAnswerView.setOnAnswerChange((view, index) -> LToast.show("Click: " + index));
             ll.addView(LAnswerView);
         }
     }

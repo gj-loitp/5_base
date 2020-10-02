@@ -33,7 +33,7 @@ public class ExampleCardPopupL extends LRelativePopupWindow {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             setAnimationStyle(0);
         }
-        layout.findViewById(R.id.ll).setOnClickListener(view -> LToast.show(context, "On Click"));
+        layout.findViewById(R.id.ll).setOnClickListener(view -> LToast.show("On Click"));
     }
 
     @Override

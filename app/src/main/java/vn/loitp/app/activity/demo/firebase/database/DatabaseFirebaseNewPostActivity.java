@@ -77,7 +77,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
-        LToast.show(this, "Posting...");
+        LToast.show("Posting...");
 
         // [START single_value_read]
         final String userId = getUid();
@@ -94,7 +94,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         if (user == null) {
                             // User is null, error out
                             logD("User " + userId + " is unexpectedly null");
-                            LToast.show(DatabaseFirebaseNewPostActivity.this, "Error: could not fetch user.");
+                            showShort("Error: could not fetch user.");
                         } else {
                             // Write new post
                             writeNewPost(userId, user.username, title, body);

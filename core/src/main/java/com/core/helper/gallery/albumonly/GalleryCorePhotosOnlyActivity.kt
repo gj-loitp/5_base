@@ -106,7 +106,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
 
             override fun onClickDownload(photo: Photo, pos: Int) {
-                AsyncTaskDownloadImage(this@GalleryCorePhotosOnlyActivity, photo.urlO).execute()
+                AsyncTaskDownloadImage(photo.urlO).execute()
             }
 
             override fun onClickShare(photo: Photo, pos: Int) {

@@ -4,13 +4,12 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.core.base.BaseApplication
 import com.utils.util.AppUtils
-import com.utils.util.Utils
 
 class LSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences
 
     init {
-        mSharedPreferences = Utils.getContext().getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        mSharedPreferences = LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
     fun getString(key: String): String {

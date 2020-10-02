@@ -13,7 +13,6 @@ import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LAppResource;
-import com.views.LToast;
 import com.views.menu.residemenu.ResideMenu;
 import com.views.menu.residemenu.ResideMenuItem;
 
@@ -108,12 +107,12 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            LToast.show(getBaseContext(), "Menu is opened!");
+            showShort("Menu is opened!");
         }
 
         @Override
         public void closeMenu() {
-            LToast.show(getBaseContext(), "Menu is closed!");
+            showShort("Menu is closed!");
         }
     };
 

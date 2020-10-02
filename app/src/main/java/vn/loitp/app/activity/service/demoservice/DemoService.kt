@@ -21,13 +21,13 @@ class DemoService : Service() {
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
-        LToast.show(this, "Service onStartCommand")
+        LToast.show("Service onStartCommand")
         run()
         return START_STICKY
     }
 
     override fun onDestroy() {
-        LToast.show(this, "Service onDestroy")
+        LToast.show("Service onDestroy")
         disposables.clear()
         run()
         super.onDestroy()
@@ -48,7 +48,7 @@ class DemoService : Service() {
         return object : DisposableObserver<Long>() {
 
             override fun onNext(value: Long) {
-                LToast.show(applicationContext, "onNext : value : $value")
+                LToast.show("onNext : value : $value")
             }
 
             override fun onError(e: Throwable) {

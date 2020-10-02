@@ -28,9 +28,7 @@ class ImmersiveDialogFragment : DialogFragment() {
         alertDialog.window?.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
 
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK") { _, _ ->
-            context?.let { c ->
-                LToast.show(c, "Touch OK")
-            }
+            LToast.show("Touch OK")
         }
         return alertDialog
     }

@@ -73,7 +73,7 @@ class SplashActivity : BaseFontActivity() {
 
     private fun checkPermission() {
         isShowDialogCheck = true
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission(context = this)
+        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
         if (isCanWriteSystem) {
             Dexter.withActivity(this)
                     .withPermissions(

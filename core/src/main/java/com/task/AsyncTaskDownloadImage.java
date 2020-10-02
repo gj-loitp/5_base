@@ -1,6 +1,5 @@
 package com.task;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 
@@ -20,7 +19,6 @@ import java.net.URLConnection;
 
 //TODO convert corountine
 public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
-    private Context mContext;
     private String mURL;
     private String fileName;
     //private String description;
@@ -29,8 +27,7 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
 
     private String sdCard;
 
-    public AsyncTaskDownloadImage(@NonNull final Context c, @NonNull final String url) {
-        this.mContext = c;
+    public AsyncTaskDownloadImage(@NonNull final String url) {
         this.mURL = url;
         //this.description = des;
         try {
@@ -103,10 +100,10 @@ public class AsyncTaskDownloadImage extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected void onPostExecute(Bitmap result) {
         if (downComplete) {
-            LToast.show(mContext, "Download successful " + sdCard + fileName, R.drawable.l_bkg_horizontal);
-            LSoundUtil.Companion.startMusicFromAsset(mContext, "ting.ogg");
+            LToast.show("Download successful " + sdCard + fileName, R.drawable.l_bkg_horizontal);
+            LSoundUtil.Companion.startMusicFromAsset("ting.ogg");
         } else {
-            LToast.show(mContext, R.string.download_failed, R.drawable.l_bkg_horizontal);
+            LToast.show(R.string.download_failed, R.drawable.l_bkg_horizontal);
         }
         super.onPostExecute(result);
     }

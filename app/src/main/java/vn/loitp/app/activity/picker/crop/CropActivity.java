@@ -66,12 +66,12 @@ public class CropActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse response) {
-                        LToast.showShort(CropActivity.this, "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
+                        showShort("Error onPermissionDenied WRITE_EXTERNAL_STORAGE");
                     }
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        LToast.showShort(CropActivity.this, "Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
+                        LToast.showShort("Error onPermissionDenied WRITE_EXTERNAL_STORAGE", R.drawable.l_bkg_horizontal);
                     }
                 }).check();
     }

@@ -95,7 +95,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                 }
 
                 override fun onClickDownload(photo: Photo, pos: Int) {
-                    AsyncTaskDownloadImage(a, photo.urlO).execute()
+                    AsyncTaskDownloadImage(photo.urlO).execute()
                 }
 
                 override fun onClickShare(photo: Photo, pos: Int) {

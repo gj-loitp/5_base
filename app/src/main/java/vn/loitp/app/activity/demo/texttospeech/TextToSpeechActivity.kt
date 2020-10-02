@@ -21,7 +21,7 @@ class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LTextToSpeechUtil.instance.setupTTS(this)
+        LTextToSpeechUtil.instance.setupTTS()
 
         btILoveYou.setOnClickListener(this)
         btYouLoveMe.setOnClickListener(this)

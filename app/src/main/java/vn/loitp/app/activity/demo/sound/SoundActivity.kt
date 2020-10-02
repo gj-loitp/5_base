@@ -23,7 +23,7 @@ class SoundActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            btPlay -> LSoundUtil.startMusicFromAsset(context = this, fileName = "ting.ogg")
+            btPlay -> LSoundUtil.startMusicFromAsset(fileName = "ting.ogg")
         }
     }
 }

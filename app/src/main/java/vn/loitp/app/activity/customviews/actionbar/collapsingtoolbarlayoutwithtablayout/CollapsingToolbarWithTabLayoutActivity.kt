@@ -56,7 +56,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
                     .setAction("Action", null).show()
             R.id.btMenu -> LPopupMenu.show(this, v, R.menu.menu_popup, object : CallbackPopup {
                 override fun clickOnItem(menuItem: MenuItem) {
-                    LToast.show(this@CollapsingToolbarWithTabLayoutActivity, menuItem.title.toString())
+                    LToast.show(menuItem.title.toString())
                 }
             })
         }

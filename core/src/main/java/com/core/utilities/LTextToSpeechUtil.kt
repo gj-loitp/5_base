@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.content.Context
 import android.os.Build
 import android.speech.tts.TextToSpeech
 import java.util.*
@@ -12,11 +11,9 @@ import java.util.*
 class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
     private val logTag = javaClass.simpleName
     private var tts: TextToSpeech? = null
-    private var context: Context? = null
 
-    fun setupTTS(context: Context) {
-        this.context = context
-        tts = TextToSpeech(context, this)
+    fun setupTTS() {
+        tts = TextToSpeech(LAppResource.application, this)
     }
 
     override fun onInit(status: Int) {

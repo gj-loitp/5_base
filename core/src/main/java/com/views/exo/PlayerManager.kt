@@ -183,20 +183,20 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     }
 
     fun toggleFullscreen(activity: Activity) {
-        if (LScreenUtil.isLandscape(activity)) {
+        if (LScreenUtil.isLandscape()) {
             //land -> port
-            LScreenUtil.toggleFullscreen(activity, false)
+            LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = false)
             LActivityUtil.changeScreenPortrait(activity)
         } else {
             //port -> land
-            LScreenUtil.toggleFullscreen(activity, true)
+            LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = true)
             LActivityUtil.changeScreenLandscape(activity)
         }
     }
 
     //for other sample not UZVideo
-    fun updateSizePlayerView(activity: Activity, playerView: PlayerView, exoFullscreen: ImageButton) {
-        if (LScreenUtil.isLandscape(activity)) {
+    fun updateSizePlayerView(playerView: PlayerView, exoFullscreen: ImageButton) {
+        if (LScreenUtil.isLandscape()) {
             playerView.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             playerView.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
             exoFullscreen.setImageResource(R.drawable.exo_controls_fullscreen_exit)

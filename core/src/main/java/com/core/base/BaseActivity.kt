@@ -207,11 +207,11 @@ abstract class BaseActivity : AppCompatActivity() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
     protected fun showShort(msg: String?) {
-        LToast.showShort(context = this, msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
     }
 
     protected fun showLong(msg: String?) {
-        LToast.showLong(context = this, msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
     }
 
     protected fun showShortDebug(msg: String?) {

@@ -51,7 +51,7 @@ class GirlSlideActivity : BaseFontActivity() {
             val src = listData[currentPosition].src
             src?.let {
                 //TODO
-                AsyncTaskDownloadImage(applicationContext, it).execute()
+                AsyncTaskDownloadImage(it).execute()
             }
         }
         btShare.setOnClickListener {

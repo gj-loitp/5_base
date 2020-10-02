@@ -42,7 +42,7 @@ class FloatingViewEdgeService : Service() {
 
         screenWidth = LScreenUtil.screenWidth
         screenHeight = LScreenUtil.screenHeight
-        statusBarHeight = LScreenUtil.getStatusBarHeight(applicationContext)
+        statusBarHeight = LScreenUtil.getStatusBarHeight()
 
         //Inflate the floating view layout we created
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_view_edge, null)

@@ -40,7 +40,7 @@ class ValueAnimatorActivity : BaseFontActivity() {
             va.duration = duration.toLong()
             va.interpolator = DecelerateInterpolator()
             val spaceW = (LScreenUtil.screenWidth - view.width) / range
-            val spaceH = (LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight(this) - LScreenUtil.getBottomBarHeight(this) - view.height) / range
+            val spaceH = (LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight() - LScreenUtil.getBottomBarHeight() - view.height) / range
             
             va.addUpdateListener { animation: ValueAnimator ->
                 val value = animation.animatedValue as Int

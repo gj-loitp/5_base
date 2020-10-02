@@ -217,13 +217,13 @@ class LUIUtil {
             }
         }
 
-        fun setImageFromAsset(context: Context, fileName: String, imageView: ImageView?) {
+        fun setImageFromAsset(fileName: String, imageView: ImageView?) {
             imageView?.let { iv ->
                 run {
                     val drawable: Drawable?
                     var stream: InputStream? = null
                     try {
-                        stream = context.assets.open("img/$fileName")
+                        stream = LAppResource.application.assets.open("img/$fileName")
                         drawable = Drawable.createFromStream(stream, null)
                         drawable?.let {
                             iv.setImageDrawable(it)
@@ -372,7 +372,7 @@ class LUIUtil {
                             if (isUp) {
                                 if (lastOffset > 1.8f) {
                                     callbackPull.onUpOrLeftRefresh(lastOffset)
-                                    LSoundUtil.startMusicFromAsset(viewPager.context, "ting.ogg")
+                                    LSoundUtil.startMusicFromAsset("ting.ogg")
                                 } else {
                                     callbackPull.onUpOrLeft(lastOffset)
                                 }
@@ -439,7 +439,7 @@ class LUIUtil {
                             if (isUp) {
                                 if (lastOffset > 1.8f) {
                                     callbackPull.onUpOrLeftRefresh(lastOffset)
-                                    LSoundUtil.startMusicFromAsset(recyclerView.context, "ting.ogg")
+                                    LSoundUtil.startMusicFromAsset("ting.ogg")
                                 } else {
                                     callbackPull.onUpOrLeft(lastOffset)
                                 }
@@ -493,7 +493,7 @@ class LUIUtil {
             OverScrollDecoratorHelper.setUpStaticOverScroll(view, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
         }
 
-        fun getColor(context: Context): Int {
+        fun getColor(): Int {
             val random = Random()
             val c = random.nextInt(colors.size)
             return LAppResource.getColor(colors[c])
