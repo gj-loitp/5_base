@@ -35,14 +35,27 @@ class GirlAlbumAdapter : AnimationAdapter() {
         notifyDataSetChanged()
     }
 
-    fun updateData(girlPage: GirlPage) {
+    fun getData(): ArrayList<GirlPage> {
+        return listGirlPage
+    }
+
+    fun updateData(listGirlPage: List<GirlPage>) {
+        this.listGirlPage.forEach {
+            it.isFavorites = false
+        }
+        listGirlPage.forEach {
+            updateData(it)
+        }
+        notifyDataSetChanged()
+    }
+
+    private fun updateData(girlPage: GirlPage) {
         val findGirlPage = this.listGirlPage.find {
             it.id == girlPage.id
         }
         findGirlPage?.let {
             it.isFavorites = girlPage.isFavorites
         }
-        notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

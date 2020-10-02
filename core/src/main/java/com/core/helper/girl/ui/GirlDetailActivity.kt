@@ -1,6 +1,5 @@
 package com.core.helper.girl.ui
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -38,7 +37,6 @@ class GirlDetailActivity : BaseFontActivity() {
     private var girlViewModel: GirlViewModel? = null
     private var mergeAdapter: ConcatAdapter? = null
     private var girlDetailAdapter: GirlDetailAdapter? = null
-    private var clickLikeCount = 0
 
     companion object {
         const val KEY_GIRL_PAGE = "KEY_GIRL_PAGE"
@@ -132,7 +130,6 @@ class GirlDetailActivity : BaseFontActivity() {
 
         btLike.setSafeOnClickListener {
             girlPage?.let {
-                clickLikeCount++
                 girlViewModel?.likeGirlPage(girlPage = it)
             }
         }
@@ -190,14 +187,5 @@ class GirlDetailActivity : BaseFontActivity() {
                 }
             })
         }
-    }
-
-    override fun onBackPressed() {
-        if (clickLikeCount > 0) {
-            val returnIntent = Intent()
-            returnIntent.putExtra(FrmHome.RESULT_DETAIL, girlPage)
-            setResult(Activity.RESULT_OK, returnIntent)
-        }
-        super.onBackPressed()
     }
 }
