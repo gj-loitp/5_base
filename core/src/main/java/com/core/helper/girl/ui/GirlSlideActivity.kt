@@ -1,5 +1,6 @@
 package com.core.helper.girl.ui
 
+import alirezat775.lib.downloader.core.OnDownloadListener
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -9,9 +10,12 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPageDetail
+import com.core.utilities.LAppResource
 import com.core.utilities.LSocialUtil
+import com.core.utilities.LStoreUtil
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import kotlinx.android.synthetic.main.l_activity_girl_slide.*
+import java.io.File
 
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
@@ -49,8 +53,7 @@ class GirlSlideActivity : BaseFontActivity() {
         btDownload.setOnClickListener {
             val src = listData[currentPosition].src
             src?.let {
-                //TODO
-                //AsyncTaskDownloadImage(it).execute()
+                save(url = it)
             }
         }
         btShare.setOnClickListener {
@@ -78,5 +81,43 @@ class GirlSlideActivity : BaseFontActivity() {
         override fun getCount(): Int {
             return listData.size
         }
+    }
+
+    private fun save(url: String) {
+        val downloader = LStoreUtil.getDownloader(
+                folderName = LAppResource.getString(R.string.app_name),
+                url = url,
+                fileName = "Img" + System.currentTimeMillis(),
+                fileNameExtension = "png",
+                onDownloadListener = object : OnDownloadListener {
+                    override fun onCancel() {
+                    }
+
+                    override fun onCompleted(file: File?) {
+                        file?.let {
+                            showLong("Saved in ${it.path}")
+                            LStoreUtil.sendBroadcastMediaScan(it)
+                        }
+                    }
+
+                    override fun onFailure(reason: String?) {
+                        showLong("Download failed $reason")
+                    }
+
+                    override fun onPause() {
+                    }
+
+                    override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
+                    }
+
+                    override fun onResume() {
+                    }
+
+                    override fun onStart() {
+                    }
+
+                }
+        )
+        downloader?.download()
     }
 }
