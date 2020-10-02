@@ -109,6 +109,7 @@ class LStoreUtil {
 
 //                    C3
                     val path = LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
+                            ?: ""
                     val file = File("$path/$folderName")
 
                     if (!file.exists()) {
