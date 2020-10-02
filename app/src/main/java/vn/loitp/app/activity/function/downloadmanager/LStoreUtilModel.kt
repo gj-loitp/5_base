@@ -19,6 +19,7 @@ import java.io.File
 class LStoreUtilModel : BaseViewModel() {
 
     val writeToFileActionLiveData: ActionLiveData<ActionData<File>> = ActionLiveData()
+    val readTxtFromFolderActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
 
     fun writeToFile(folder: String, fileName: String, body: String) {
         writeToFileActionLiveData.set(ActionData(isDoing = true))
@@ -45,6 +46,27 @@ class LStoreUtilModel : BaseViewModel() {
                         )
                 )
             }
+        }
+
+    }
+
+    fun readTxtFromFolder(folderName: String, fileName: String) {
+        readTxtFromFolderActionLiveData.set(ActionData(isDoing = true))
+        logD(">>>readTxtFromFolder folderName $folderName, fileName $fileName")
+        ioScope.launch {
+
+            val string = LStoreUtil.readTxtFromFolder(
+                    folderName = folderName,
+                    fileName = fileName
+            )
+            logD("<<<readTxtFromFolder string $string")
+            readTxtFromFolderActionLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = string
+                    )
+            )
         }
 
     }

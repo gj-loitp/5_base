@@ -119,6 +119,15 @@
                 android:padding="@dimen/padding_medium"
                 android:text="writeToFile"
                 android:textSize="@dimen/txt_medium" />
+
+            <TextView
+                android:id="@+id/btReadTxtFromFolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="readTxtFromFolder"
+                android:textSize="@dimen/txt_medium" />
         </LinearLayout>
 
         <LinearLayout

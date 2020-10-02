@@ -24,6 +24,7 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     companion object {
         const val FOLDER = ".DownloadManager"
+        const val FILE_NAME = "LoiDepTrai.txt"
     }
 
     private var downloader: Downloader? = null
@@ -60,7 +61,10 @@ class DownloadManagerActivity : BaseFontActivity() {
             btTestRandomColorLight.setBackgroundColor(randomColor)
         }
         btTestWriteToFile.setSafeOnClickListener {
-            lStoreUtilModel?.writeToFile(folder = FOLDER, fileName = "Test" + System.currentTimeMillis() + ".txt", body = "Body btTestWriteToFile setSafeOnClickListener")
+            lStoreUtilModel?.writeToFile(folder = FOLDER, fileName = FILE_NAME, body = "Body btTestWriteToFile setSafeOnClickListener\n${System.currentTimeMillis()}")
+        }
+        btReadTxtFromFolder.setSafeOnClickListener {
+            lStoreUtilModel?.readTxtFromFolder(folderName = FOLDER, fileName = FILE_NAME)
         }
     }
 
@@ -77,6 +81,19 @@ class DownloadManagerActivity : BaseFontActivity() {
                     if (actionData.isSuccess == true) {
                         val data = actionData.data
                         showLong("Saved: " + data?.path)
+                    }
+                }
+            })
+            vm.readTxtFromFolderActionLiveData.observe(this, Observer { actionData ->
+                logD("<<<readTxtFromFolderActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    layoutProgress.visibility = View.VISIBLE
+                } else {
+                    layoutProgress.visibility = View.GONE
+                    if (actionData.isSuccess == true) {
+                        val data = actionData.data
+                        showLong("Read: $data")
                     }
                 }
             })

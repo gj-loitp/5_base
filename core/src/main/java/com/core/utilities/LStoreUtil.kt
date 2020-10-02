@@ -169,36 +169,16 @@ class LStoreUtil {
             }
         }
 
-//        fun writeToFile(activity: Activity, folder: String, fileName: String, body: String, callbackWriteFile: CallbackWriteFile?) {
-//            //TODO convert to coroutine
-//            object : AsyncTask<Void, Void, Void>() {
-//                var isSuccess: Boolean = false
-//
-//                override fun doInBackground(vararg params: Void): Void? {
-//                    isSuccess = writeToFile(activity, folder, fileName, body)
-//                    return null
-//                }
-//
-//                override fun onPostExecute(aVoid: Void) {
-//                    super.onPostExecute(aVoid)
-//                    callbackWriteFile?.onFinish(isSuccess)
-//                }
-//            }.execute()
-//        }
-
         /*
          * read text file from folder
          */
         fun readTxtFromFolder(folderName: String?, fileName: String): String {
-            val path = getFolderPath() + (if (folderName == null) "/" else "$folderName/") + fileName
+            val path = getFolderPath() + (if (folderName == null) "/" else "/$folderName/") + fileName
             val txtFile = File(path)
+            LLog.d(logTag, "readTxtFromFolder txtFile ${txtFile.path}")
             val text = StringBuilder()
             try {
                 val reader = BufferedReader(FileReader(txtFile))
-                /*var line: String
-                while ((line = reader.readLine()) != null) {
-                    text.append(line + '\n')
-                }*/
                 var line: String? = null
                 while ({ line = reader.readLine(); line }() != null) {
                     text.append(line + '\n')
@@ -207,7 +187,6 @@ class LStoreUtil {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-
             return text.toString()
         }
 
