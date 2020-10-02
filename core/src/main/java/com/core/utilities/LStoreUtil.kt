@@ -237,9 +237,6 @@ class LStoreUtil {
             return state
         }
 
-        /*
-         * get random quote
-         */
         fun readTxtFromAsset(assetFile: String): String {
             val ins: InputStream
             var str = ""
