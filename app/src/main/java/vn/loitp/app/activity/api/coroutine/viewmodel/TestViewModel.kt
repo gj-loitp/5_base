@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.coroutine.viewmodel
 
-import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.core.base.BaseViewModel
 import com.service.livedata.ActionData
@@ -17,8 +16,8 @@ import vn.loitp.app.activity.api.coroutine.service.TestApiClient
  * www.muathu@gmail.com
  */
 
-class TestViewModel(application: Application) : BaseViewModel() {
-    private val TAG = javaClass.simpleName
+class TestViewModel : BaseViewModel() {
+    private val logTag = javaClass.simpleName
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
     // action
@@ -30,7 +29,6 @@ class TestViewModel(application: Application) : BaseViewModel() {
 
         ioScope.launch {
             val response = repository.getUserTest(page = page)
-            //LLog.d(TAG, "getUserList page: $page -> " + LApplication.gson.toJson(response))
             if (response.data != null) {
                 userActionLiveData.post(
                         ActionData(
@@ -48,7 +46,6 @@ class TestViewModel(application: Application) : BaseViewModel() {
     }
 
     fun addUserList(userTestList: ArrayList<UserTest>, isRefresh: Boolean?) {
-        //LLog.d(TAG, "addUserList size: ${userTestList.size}, isRefresh: $isRefresh")
         var currentUserTestList = userTestListLiveData.value
         if (isRefresh == true) {
             currentUserTestList?.clear()
@@ -57,7 +54,6 @@ class TestViewModel(application: Application) : BaseViewModel() {
             currentUserTestList = ArrayList()
         }
         currentUserTestList.addAll(userTestList)
-        //LLog.d(TAG, "addUserList currentUserTestList " + LApplication.gson.toJson(currentUserTestList))
         userTestListLiveData.post(currentUserTestList)
     }
 }

@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.recyclerview.mergeadapter
 
 import android.os.Bundle
+import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.MergeAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
@@ -25,7 +25,7 @@ import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Ne
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
 class MergeAdapterActivity : BaseFontActivity() {
-    private var mergeAdapter: MergeAdapter? = null
+    private var mergeAdapter: ConcatAdapter? = null
     private var aboutMeAdapter: AboutMeAdapter? = null
     private var usersAdapter: UsersAdapter? = null
     private var bannerAdapter: BannerAdapter? = null
@@ -71,7 +71,7 @@ class MergeAdapterActivity : BaseFontActivity() {
                 bannerAdapter?.let { ba ->
                     newsAdapter?.let { na ->
                         val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(ama, ua, ba, na)
-                        mergeAdapter = MergeAdapter(listOfAdapters)
+                        mergeAdapter = ConcatAdapter(listOfAdapters)
                     }
                 }
             }

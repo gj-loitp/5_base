@@ -24,8 +24,6 @@ import java.util.*
 class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
         AnimationAdapter() {
 
-    private val logTag = javaClass.simpleName
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_core_only, viewGroup, false))
     }

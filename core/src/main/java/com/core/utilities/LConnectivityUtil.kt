@@ -9,15 +9,15 @@ import com.data.EventBusData
 class LConnectivityUtil {
 
     companion object {
-        fun initOnNetworkChange(context: Context) {
-            val isConnected = isConnected(context)
+        fun initOnNetworkChange() {
+            val isConnected = isConnected()
             LSharedPrefsUtil.instance.putBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, isConnected)
         }
 
         @Suppress("DEPRECATION")
-        fun isConnected(context: Context): Boolean {
+        fun isConnected(): Boolean {
             var result = false
-            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val connectivityManager = LAppResource.application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 val networkCapabilities = connectivityManager.activeNetwork ?: return false
                 val actNw = connectivityManager.getNetworkCapabilities(networkCapabilities)
@@ -45,25 +45,16 @@ class LConnectivityUtil {
             return result
         }
 
-        fun onNetworkConnectionChanged(context: Context?, isConnected: Boolean?) {
-            if (context == null) {
-                return
-            }
-            //LLog.d(TAG, "onNetworkConnectionChanged $isConnected")
+        fun onNetworkConnectionChanged(isConnected: Boolean?) {
             if (isConnected == true) {
                 val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
-                //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
                 if (prevIsConnectedNetwork != isConnected) {
-                    //LLog.d(TAG, "onNetworkChange")
                     LSharedPrefsUtil.instance.putBoolean(key = LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, data = true)
                     EventBusData.instance.sendConnectChange(isConnected = true)
                 }
             } else {
-                //LLog.d(TAG, "!isConnected")
                 val prevIsConnectedNetwork = LSharedPrefsUtil.instance.getBoolean(LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK)
-                //LLog.d(TAG, "prevIsConnectedNetwork $prevIsConnectedNetwork")
                 if (prevIsConnectedNetwork != isConnected) {
-                    //LLog.d(TAG, "onNetworkChange")
                     LSharedPrefsUtil.instance.putBoolean(key = LSharedPrefsUtil.KEY_BOOLEAN_IS_CONNECTED_NETWORK, data = false)
                     EventBusData.instance.sendConnectChange(isConnected = false)
                 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.florent37.shapeofview.shapes.RoundRectView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/roundRect"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_medium"
+    android:layout_marginTop="@dimen/margin_medium"
+    android:layout_marginEnd="@dimen/margin_medium"
+    android:elevation="@dimen/w_3"
+    android:foreground="?selectableItemBackground"
+    app:shape_roundRect_borderColor="@color/gray"
+    app:shape_roundRect_borderWidth="@dimen/w_3"
+    app:shape_roundRect_bottomLeftRadius="0dp"
+    app:shape_roundRect_bottomRightRadius="@dimen/round_45"
+    app:shape_roundRect_topLeftRadius="@dimen/round_45"
+    app:shape_roundRect_topRightRadius="0dp"
+    tools:ignore="UnusedAttribute">
+
+    <com.views.imageview.dynamic.DynamicHeightImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_medium">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium" />
+
+        <TextView
+            android:id="@+id/tvCreatedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_small" />
+    </LinearLayout>
+
+    <com.sackcentury.shinebuttonlib.ShineButton
+        android:id="@+id/btLike"
+        android:layout_width="@dimen/w_50"
+        android:layout_height="@dimen/w_50"
+        android:layout_centerInParent="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_large"
+        app:allow_random_color="true"
+        app:btn_color="@color/gray"
+        app:btn_fill_color="@color/green"
+        app:siShape="@raw/star" />
+
+</com.github.florent37.shapeofview.shapes.RoundRectView>

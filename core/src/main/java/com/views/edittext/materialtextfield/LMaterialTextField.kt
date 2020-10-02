@@ -15,10 +15,10 @@ import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.ViewPropertyAnimatorListener
 import com.R
+import com.core.utilities.LAppResource
 
 open class LMaterialTextField : FrameLayout {
     private lateinit var inputMethodManager: InputMethodManager
@@ -253,7 +253,7 @@ open class LMaterialTextField : FrameLayout {
             this.label?.setTextColor(labelColor)
         }
         if (imageDrawableId != -1) {
-            this.image?.setImageDrawable(ContextCompat.getDrawable(context, imageDrawableId))
+            this.image?.setImageDrawable(LAppResource.getDrawable(imageDrawableId))
         }
     }
 }

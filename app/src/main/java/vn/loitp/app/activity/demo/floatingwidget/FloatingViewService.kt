@@ -68,19 +68,19 @@ class FloatingViewService : Service() {
         //Set the play button.
 
         ivPlay?.setOnClickListener {
-            LToast.show(baseContext, "Playing the song.")
+            LToast.show("Playing the song.")
         }
 
 
         //Set the next button.
         nextButton?.setOnClickListener {
-            LToast.show(baseContext, "Playing next song.")
+            LToast.show("Playing next song.")
         }
 
 
         //Set the pause button.
         ivPrev?.setOnClickListener {
-            LToast.show(baseContext, "Playing previous song.")
+            LToast.show("Playing previous song.")
         }
 
         //Set the close button

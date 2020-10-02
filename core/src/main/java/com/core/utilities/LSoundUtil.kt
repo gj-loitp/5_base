@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.content.Context
 import android.media.MediaPlayer
 import java.io.IOException
 
@@ -10,10 +9,10 @@ import java.io.IOException
 
 class LSoundUtil {
     companion object {
-        fun startMusicFromAsset(context: Context, fileName: String) {
+        fun startMusicFromAsset(fileName: String) {
             val mediaPlayer = MediaPlayer()
             try {
-                val assetFileDescriptor = context.assets.openFd(fileName)
+                val assetFileDescriptor = LAppResource.application.assets.openFd(fileName)
                 mediaPlayer.setDataSource(
                         assetFileDescriptor.fileDescriptor,
                         assetFileDescriptor.startOffset,
@@ -26,7 +25,6 @@ class LSoundUtil {
                     var mPlayer = player
                     mPlayer?.let {
                         it.stop()
-                        //LLog.d(TAG, "onCompletion >>> release");
                         it.reset()
                         it.release()
                         mPlayer = null

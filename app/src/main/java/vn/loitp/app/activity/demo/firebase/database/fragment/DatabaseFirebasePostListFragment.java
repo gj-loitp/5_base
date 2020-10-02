@@ -23,6 +23,8 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
 
+import org.jetbrains.annotations.NotNull;
+
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity;
 import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebasePostDetailActivity;
@@ -31,7 +33,7 @@ import vn.loitp.app.activity.demo.firebase.database.viewholder.PostViewHolder;
 
 public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
-    private static final String TAG = "DbFbPostListFragment";
+    private static final String logTag = "DbFbPostListFragment";
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
@@ -39,13 +41,12 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
     private FirebaseRecyclerAdapter<Post, PostViewHolder> mAdapter;
     private RecyclerView mRecycler;
-    private LinearLayoutManager mManager;
 
     public DatabaseFirebasePostListFragment() {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View rootView = inflater.inflate(R.layout.fragment_all_posts, container, false);
@@ -65,7 +66,7 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         // Set up Layout Manager, reverse layout
-        mManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager mManager = new LinearLayoutManager(getActivity());
         mManager.setReverseLayout(true);
         mManager.setStackFromEnd(true);
         mRecycler.setLayoutManager(mManager);
@@ -154,7 +155,7 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
             @Override
             public void onComplete(DatabaseError databaseError, boolean b, DataSnapshot dataSnapshot) {
                 // Transaction completed
-                Log.d(TAG, "postTransaction:onComplete:" + databaseError);
+                Log.d(logTag, "postTransaction:onComplete:" + databaseError);
             }
         });
     }

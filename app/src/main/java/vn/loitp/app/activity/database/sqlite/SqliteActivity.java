@@ -9,13 +9,12 @@ import android.widget.LinearLayout;
 import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
+import com.core.base.BaseApplication;
 import com.core.base.BaseFontActivity;
-import com.core.utilities.LLog;
 
 import java.util.List;
 
 import vn.loitp.app.R;
-import vn.loitp.app.app.LApplication;
 
 @LayoutId(R.layout.activity_sqlite)
 @LogTag("SqliteActivity")
@@ -74,7 +73,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         Button button = new Button(this);
         button.setText(contact.getId() + " " + contact.getName());
         button.setOnClickListener(v -> {
-            //LLog.d(TAG, "onClick " + button.getText().toString());
             updateContact(contact, button);
         });
         button.setOnLongClickListener(v -> {
@@ -91,7 +89,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
         if (contact != null) {
             button.setText(contact.getId() + " - " + contact.getName());
             button.setOnClickListener(v -> {
-                //LLog.d(TAG, "onClick " + button.getText().toString());
                 updateContact(contact, button);
             });
             button.setOnLongClickListener(v -> {
@@ -104,7 +101,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
 
     private void addContact() {
         int size = db.getContactsCount();
-        LLog.d(getLogTag(), "size: " + size);
         Contact contact = new Contact();
         contact.setName("name " + (size + 1));
         contact.setPhoneNumber("phone: " + (size + 1));
@@ -115,7 +111,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void add100Contact() {
         for (int i = 0; i < 100; i++) {
             int size = db.getContactsCount();
-            LLog.d(getLogTag(), "size: " + size);
             Contact contact = new Contact();
             contact.setName("name " + (size + 1));
             contact.setPhoneNumber("phone: " + (size + 1));
@@ -125,7 +120,6 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     }
 
     private void clearAllContact() {
-        LLog.d(getLogTag(), "clearAllContact");
         ll.removeAllViews();
         db.clearAllContact();
         getAllContact();
@@ -134,28 +128,27 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void getContactWithId(int id) {
         Contact contact = db.getContact(id);
         if (contact == null) {
-            showShort("Contact with ID=" + id + " not found");
+            showShort("Contact with ID=" + id + " not found", true);
         } else {
-            showShort("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber());
+            showShort("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber(), true);
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void updateContact(Contact contact, Button button) {
         contact.setName("Updated " + contact.getName());
         int result = db.updateContact(contact);
-        LLog.d(getLogTag(), "updateContact result " + result);
         button.setText(contact.getId() + " " + contact.getName());
     }
 
     private void deleteContact(Contact contact, Button button) {
         int result = db.deleteContact(contact);
-        LLog.d(getLogTag(), "deleteContact result " + result);
         ll.removeView(button);
     }
 
     private void getContactListPage(int page) {
         int PAGE_SIZE = 5;
         List<Contact> contactList = db.getContactListWithPage(page, PAGE_SIZE);
-        showDialogMsg("getContactListPage page: " + page + "\n" + LApplication.Companion.getGson().toJson(contactList), null);
+        showDialogMsg("getContactListPage page: " + page + "\n" + BaseApplication.Companion.getGson().toJson(contactList), null);
     }
 }

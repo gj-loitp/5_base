@@ -21,7 +21,7 @@ import kotlin.math.abs
  * Created by loitp on 3/27/2018.
  */
 class FloatingViewEdgeService : Service() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     private var mWindowManager: WindowManager? = null
     private var screenWidth = 0
@@ -42,7 +42,7 @@ class FloatingViewEdgeService : Service() {
 
         screenWidth = LScreenUtil.screenWidth
         screenHeight = LScreenUtil.screenHeight
-        statusBarHeight = LScreenUtil.getStatusBarHeight(applicationContext)
+        statusBarHeight = LScreenUtil.getStatusBarHeight()
 
         //Inflate the floating view layout we created
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_view_edge, null)
@@ -96,10 +96,10 @@ class FloatingViewEdgeService : Service() {
     private fun slideToPosition(goToPosX: Int, goToPosY: Int) {
         val currentPosX = params.x
         val currentPosY = params.y
-        //LLog.d(TAG, "slideToPosition current Point: " + currentPosX + " x " + currentPosY);
+
         val a = abs(goToPosX - currentPosX)
         val b = abs(goToPosY - currentPosY)
-        //LLog.d(TAG, "slideToPosition " + goToPosX + " x " + goToPosY + " -> a x b: " + a + " x " + b);
+
         countDownTimer = object : CountDownTimer(300, 3) {
             override fun onTick(t: Long) {
                 val step = (300 - t) / 3.toFloat()
@@ -122,12 +122,10 @@ class FloatingViewEdgeService : Service() {
                         tmpY = currentPosY + (b * step / 100).toInt()
                     }
                 }
-                //LLog.d(TAG, "slideToLeft onTick step: " + step + ", " + tmpX + " x " + tmpY);
                 updateUISlide(tmpX, tmpY)
             }
 
             override fun onFinish() {
-                //LLog.d(TAG, "slideToLeft onFinish " + goToPosX + " x " + goToPosY);
                 updateUISlide(goToPosX, goToPosY)
             }
         }.start()
@@ -179,7 +177,6 @@ class FloatingViewEdgeService : Service() {
                         return true
                     }
                     MotionEvent.ACTION_MOVE -> {
-                        //LLog.d(TAG, "ACTION_MOVE " + (int) event.getRawX() + " - " + (int) event.getRawY() + "___" + (initialX + (int) (event.getRawX() - initialTouchX) + " - " + (initialY + (int) (event.getRawY() - initialTouchY))));
                         //Calculate the X and Y coordinates of the view.
                         params.x = initialX + (event.rawX - initialTouchX).toInt()
                         params.y = initialY + (event.rawY - initialTouchY).toInt()
@@ -205,7 +202,7 @@ class FloatingViewEdgeService : Service() {
             pos = tmpPos
             when (pos) {
                 POS.TOP_LEFT, POS.TOP_RIGHT, POS.BOTTOM_LEFT, POS.BOTTOM_RIGHT -> {
-                    LDeviceUtil.vibrate(baseContext)
+                    LDeviceUtil.vibrate()
                     viewBkgDestroy.visibility = View.VISIBLE
                 }
                 else -> if (viewBkgDestroy.visibility != View.GONE) {
@@ -224,66 +221,52 @@ class FloatingViewEdgeService : Service() {
         val posBottom = posTop + view.height
         val centerX = (posLeft + posRight) / 2
         val centerY = (posTop + posBottom) / 2
-        //LLog.d(TAG, "getLocationOnScreen " + posLeft + " - " + posTop + " - " + posRight + " - " + posBottom);
         if (centerX < 0) {
             when {
                 centerY < 0 -> {
-                    //LLog.d(TAG, "TOP_LEFT");
                     notiPos(POS.TOP_LEFT)
                 }
                 centerY > screenHeight -> {
-                    //LLog.d(TAG, "BOTTOM_LEFT");
                     notiPos(POS.BOTTOM_LEFT)
                 }
                 else -> {
-                    //LLog.d(TAG, "CENTER_LEFT");
                     notiPos(POS.CENTER_LEFT)
                 }
             }
         } else if (centerX > screenWidth) {
             when {
                 centerY < 0 -> {
-                    //LLog.d(TAG, "TOP_RIGHT");
                     notiPos(POS.TOP_RIGHT)
                 }
                 centerY > screenHeight -> {
-                    //LLog.d(TAG, "BOTTOM_RIGHT");
                     notiPos(POS.BOTTOM_RIGHT)
                 }
                 else -> {
-                    //LLog.d(TAG, "CENTER_RIGHT");
                     notiPos(POS.CENTER_RIGHT)
                 }
             }
         } else {
             when {
                 centerY < 0 -> {
-                    //LLog.d(TAG, "CENTER_TOP");
                     notiPos(POS.CENTER_TOP)
                 }
                 centerY > screenHeight -> {
-                    //LLog.d(TAG, "CENTER_BOTTOM");
                     notiPos(POS.CENTER_BOTTOM)
                 }
                 else -> {
                     if (posLeft < 0) {
-                        //LLog.d(TAG, "LEFT");
                         notiPos(POS.LEFT)
                     } else if (posRight > screenWidth) {
-                        //LLog.d(TAG, "RIGHT");
                         notiPos(POS.RIGHT)
                     } else {
                         when {
                             posTop < 0 -> {
-                                //LLog.d(TAG, "TOP");
                                 notiPos(POS.TOP)
                             }
                             posBottom > screenHeight -> {
-                                //LLog.d(TAG, "BOTTOM");
                                 notiPos(POS.BOTTOM)
                             }
                             else -> {
-                                //LLog.d(TAG, "CENTER");
                                 notiPos(POS.CENTER)
                             }
                         }
@@ -294,7 +277,6 @@ class FloatingViewEdgeService : Service() {
     }
 
     private fun onMoveUp() {
-        //LLog.d(TAG, "onMoveUp " + pos.name());
         if (pos == null) {
             return
         }
@@ -345,21 +327,16 @@ class FloatingViewEdgeService : Service() {
                 posY = params.y
                 centerPosX = posX + moveViewWidth / 2
                 centerPosY = posY + moveViewHeight / 2
-                //LLog.d(TAG, "CENTER " + centerPosX + "x" + centerPosY);
                 if (centerPosX < screenWidth / 2) {
                     if (centerPosY < screenHeight / 2) {
-                        //LLog.d(TAG, "top left part");
                         slideToPosition(goToPosX = 0, goToPosY = 0)
                     } else {
-                        //LLog.d(TAG, "bottom left part");
                         slideToPosition(goToPosX = 0, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
                     }
                 } else {
                     if (centerPosY < screenHeight / 2) {
-                        //LLog.d(TAG, "top right part");
                         slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = 0)
                     } else {
-                        //LLog.d(TAG, "bottom right part");
                         slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
                     }
                 }
@@ -407,7 +384,6 @@ class FloatingViewEdgeService : Service() {
         if (w != 0 && h != 0) {
             rlMove.layoutParams.width = w
             rlMove.layoutParams.height = h
-            //LLog.d(TAG, "setSizeMoveView isFirstSizeInit:" + isFirstSizeInit + ",isLarger: " + isLarger + ", " + w + "x" + h);
             rlMove.requestLayout()
         }
     }

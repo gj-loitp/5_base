@@ -29,6 +29,27 @@ import java.util.*
 class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
     private val resList: MutableList<Int> = ArrayList()
 
+    companion object {
+        private const val AccordionTransformer = "AccordionTransformer"
+        private const val BackgroundToForegroundTransformer = "BackgroundToForegroundTransformer"
+        private const val CubeInTransformer = "CubeInTransformer"
+        private const val CubeOutTransformer = "CubeOutTransformer"
+        private const val DefaultTransformer = "DefaultTransformer"
+        private const val DepthPageTransformer = "DepthPageTransformer"
+        private const val DrawFromBackTransformer = "DrawFromBackTransformer"
+        private const val FlipHorizontalTransformer = "FlipHorizontalTransformer"
+        private const val FlipVerticalTransformer = "FlipVerticalTransformer"
+        private const val ForegroundToBackgroundTransformer = "ForegroundToBackgroundTransformer"
+        private const val ParallaxPageTransformer = "ParallaxPageTransformer"
+        private const val RotateUpTransformer = "RotateUpTransformer"
+        private const val RotateDownTransformer = "RotateDownTransformer"
+        private const val StackTransformer = "StackTransformer"
+        private const val TabletTransformer = "TabletTransformer"
+        private const val ZoomInTransformer = "ZoomInTransformer"
+        private const val ZoomOutSlideTransformer = "ZoomOutSlideTransformer"
+        private const val ZoomOutTranformer = "ZoomOutTranformer"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,25 +63,6 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
             showDialogAnim()
         }
     }
-
-    private val AccordionTransformer = "AccordionTransformer"
-    private val BackgroundToForegroundTransformer = "BackgroundToForegroundTransformer"
-    private val CubeInTransformer = "CubeInTransformer"
-    private val CubeOutTransformer = "CubeOutTransformer"
-    private val DefaultTransformer = "DefaultTransformer"
-    private val DepthPageTransformer = "DepthPageTransformer"
-    private val DrawFromBackTransformer = "DrawFromBackTransformer"
-    private val FlipHorizontalTransformer = "FlipHorizontalTransformer"
-    private val FlipVerticalTransformer = "FlipVerticalTransformer"
-    private val ForegroundToBackgroundTransformer = "ForegroundToBackgroundTransformer"
-    private val ParallaxPageTransformer = "ParallaxPageTransformer"
-    private val RotateUpTransformer = "RotateUpTransformer"
-    private val RotateDownTransformer = "RotateDownTransformer"
-    private val StackTransformer = "StackTransformer"
-    private val TabletTransformer = "TabletTransformer"
-    private val ZoomInTransformer = "ZoomInTransformer"
-    private val ZoomOutSlideTransformer = "ZoomOutSlideTransformer"
-    private val ZoomOutTranformer = "ZoomOutTranformer"
 
     private fun showDialogAnim() {
         val stringList: MutableList<String?> = ArrayList()

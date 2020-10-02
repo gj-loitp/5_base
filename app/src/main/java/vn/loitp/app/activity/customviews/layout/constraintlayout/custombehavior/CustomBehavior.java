@@ -7,8 +7,6 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
-import com.core.utilities.LLog;
-
 import org.jetbrains.annotations.NotNull;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -18,7 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class CustomBehavior extends CoordinatorLayout.Behavior<CircleImageView> {
 
-    private final String TAG = getClass().getSimpleName();
+    private final String logTag = getClass().getSimpleName();
 
     public CustomBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -40,7 +38,6 @@ public class CustomBehavior extends CoordinatorLayout.Behavior<CircleImageView> 
         float diff = childLocation[1] - dependencyLocation[1];
         if (diff > 0) {
             float scale = diff / (float) childLocation[1];
-            LLog.d(TAG, "scale == " + scale);
             child.setScaleX(1 + scale);
             child.setScaleY(1 + scale);
         }

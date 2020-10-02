@@ -11,6 +11,7 @@ import com.core.common.Constants
 import com.core.helper.gallery.GalleryCoreSplashActivity
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
+import com.core.helper.girl.ui.GirlSplashActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
@@ -24,7 +25,6 @@ import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
 import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
-import vn.loitp.app.activity.demo.girl.GirlActivity
 import vn.loitp.app.activity.demo.maptracker.MapTrackerActivity
 import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
@@ -32,7 +32,6 @@ import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
 import vn.loitp.app.activity.demo.video.VideoActivity
-import java.util.*
 
 @LayoutId(R.layout.activity_demo_menu)
 @LogTag("MenuDemoActivity")
@@ -128,7 +127,18 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryCoreAlbumFrm -> intent = Intent(this, GalleryCoreAlbumFrmActivity::class.java)
             btArchitectureComponent -> intent = Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
             btNFC -> intent = Intent(this, NFCActivity::class.java)
-            btGirl -> intent = Intent(this, GirlActivity::class.java)
+            btGirl -> {
+                intent = Intent(this, GirlSplashActivity::class.java)
+                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
+
+                val listBkg = ArrayList<String>()
+                listBkg.add("https://live.staticflickr.com/4657/26146170428_894243ab3c_b.jpg")
+                listBkg.add("https://live.staticflickr.com/4782/26128440717_a00e7cbec1_h.jpg")
+                listBkg.add("https://live.staticflickr.com/817/26128440867_1a90f7f8ec_h.jpg")
+                listBkg.add("https://live.staticflickr.com/789/26128436937_84ecab7cdf_h.jpg")
+                listBkg.add("https://live.staticflickr.com/4794/26128436737_69e5dfca7b_h.jpg")
+                intent.putExtra(Constants.BKG_SPLASH_SCREEN, listBkg.random())
+            }
             btMapTracker -> intent = Intent(this, MapTrackerActivity::class.java)
         }
         intent?.let {

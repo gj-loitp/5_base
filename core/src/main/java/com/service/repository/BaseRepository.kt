@@ -1,6 +1,6 @@
 package com.service.repository
 
-import com.google.gson.Gson
+import com.core.base.BaseApplication
 import com.service.RequestStatus
 import com.service.model.ApiResponse
 import com.service.model.ErrorJson
@@ -54,7 +54,7 @@ open class BaseRepository {
             try {
                 // parser error body
                 val jsonError = it.string()
-                val errorJson = Gson().fromJson(jsonError, ErrorJson::class.java) as ErrorJson
+                val errorJson = BaseApplication.gson.fromJson(jsonError, ErrorJson::class.java) as ErrorJson
                 errorResponse = errorJson.errors?.firstOrNull()
 
             } catch (e: Exception) {

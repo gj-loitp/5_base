@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.content.Context
 import android.view.View
 import android.view.animation.*
 import com.R
@@ -16,6 +15,8 @@ import kotlin.random.Random
 class LAnimationUtil {
 
     companion object {
+        private const val DEFAULT_ANIMATION_DURATION = 300//mls
+
         fun play(view: View?, duration: Int, repeatCount: Int, techniques: Techniques, delayInMls: Int, callbackAnimation: CallbackAnimation?) {
             if (view == null) {
                 return
@@ -42,50 +43,55 @@ class LAnimationUtil {
         }
 
         fun play(view: View?, techniques: Techniques) {
-            play(view, 500, 1, techniques, 0, null)
+            play(view = view, duration = DEFAULT_ANIMATION_DURATION, repeatCount = 0, techniques = techniques, delayInMls = 0, callbackAnimation = null)
         }
 
         fun playRepeatCount(view: View?, techniques: Techniques, count: Int) {
-            play(view, 500, count, techniques, 0, null)
+            play(view = view, duration = DEFAULT_ANIMATION_DURATION, repeatCount = count, techniques = techniques, delayInMls = 0, callbackAnimation = null)
         }
 
         fun play(view: View?, techniques: Techniques, delayInMls: Int) {
-            play(view, 500, 1, techniques, delayInMls, null)
+            play(view = view, duration = DEFAULT_ANIMATION_DURATION, repeatCount = 0, techniques = techniques, delayInMls = delayInMls, callbackAnimation = null)
         }
 
         fun play(view: View?, techniques: Techniques, callbackAnimation: CallbackAnimation) {
-            play(view, 500, 1, techniques, 0, callbackAnimation)
+            play(view = view, duration = DEFAULT_ANIMATION_DURATION, repeatCount = 0, techniques = techniques, delayInMls = 0, callbackAnimation = callbackAnimation)
         }
 
         fun playDuration(view: View?, techniques: Techniques, duration: Int) {
-            play(view, duration, 1, techniques, 0, null)
+            play(view = view, duration = duration, repeatCount = 0, techniques = techniques, delayInMls = 0, callbackAnimation = null)
         }
 
         fun playDuration(view: View?, techniques: Techniques, duration: Int, callbackAnimation: CallbackAnimation) {
-            play(view, duration, 1, techniques, 0, callbackAnimation)
+            play(view = view, duration = duration, repeatCount = 0, techniques = techniques, delayInMls = 0, callbackAnimation = callbackAnimation)
         }
 
         fun playRotate(view: View?, animationListener: Animation.AnimationListener) {
             view?.let {
                 val anim = RotateAnimation(0.0f, 90.0f,
-                        Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+                        Animation.RELATIVE_TO_SELF, 0.5f,
+                        Animation.RELATIVE_TO_SELF, 0.5f)
                 anim.interpolator = LinearInterpolator()
                 anim.fillAfter = true
                 //anim.setRepeatCount(Animation.INFINITE); //Repeat animation indefinitely
-                anim.duration = 500 //Put desired duration per anim cycle here, in milliseconds
+                anim.duration = DEFAULT_ANIMATION_DURATION.toLong() //Put desired duration per anim cycle here, in milliseconds
                 anim.setAnimationListener(animationListener)
                 it.startAnimation(anim)
             }
         }
 
-        fun slideInDown(context: Context, view: View?) {
-            val slideDown = AnimationUtils.loadAnimation(context, R.anim.l_slide_down)
-            view?.startAnimation(slideDown)
+        fun slideInDown(view: View?) {
+            view?.let {
+                val slideDown = AnimationUtils.loadAnimation(it.context, R.anim.l_slide_down)
+                it.startAnimation(slideDown)
+            }
         }
 
-        fun slideInUp(context: Context, view: View?) {
-            val slideDown = AnimationUtils.loadAnimation(context, R.anim.l_slide_up)
-            view?.startAnimation(slideDown)
+        fun slideInUp(view: View?) {
+            view?.let {
+                val slideDown = AnimationUtils.loadAnimation(it.context, R.anim.l_slide_up)
+                it.startAnimation(slideDown)
+            }
         }
 
         fun playAnimRandomDuration(viewToAnimate: View) {

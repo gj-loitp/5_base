@@ -8,9 +8,9 @@ import android.view.Gravity;
 import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
 import com.R;
+import com.core.utilities.LAppResource;
 
 import java.util.ArrayList;
 
@@ -63,8 +63,7 @@ public class WP10ProgressBar extends RelativeLayout {
         animationDuration = typedArray.getInt(R.styleable.WP7ProgressBar_wpAnimationDuration, ANIMATION_DURATION_DEF);
         indicatorHeight = typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorHeight, INDICATOR_HEIGHT_DEF);
         indicatorRadius = typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorRadius, INDICATOR_RADIUS_DEF);
-        indicatorColor = typedArray.getColor(R.styleable.WP7ProgressBar_wpIndicatorColor,
-                ContextCompat.getColor(getContext(), R.color.colorAccent));
+        indicatorColor = typedArray.getColor(R.styleable.WP7ProgressBar_wpIndicatorColor, LAppResource.INSTANCE.getColor(R.color.colorAccent));
         typedArray.recycle();
     }
 

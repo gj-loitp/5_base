@@ -18,7 +18,7 @@ class NetworkActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        showStatus(LConnectivityUtil.isConnected(this))
+        showStatus(LConnectivityUtil.isConnected())
     }
 
     override fun onNetworkChange(event: EventBusData.ConnectEvent) {

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -8,13 +9,11 @@
         android:id="@+id/tv_loading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_20"
         android:gravity="center"
-        android:paddingLeft="@dimen/padding_10"
-        android:paddingTop="@dimen/padding_5"
-        android:paddingRight="@dimen/padding_10"
-        android:paddingBottom="@dimen/padding_5"
+        android:padding="@dimen/padding_medium"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_18" />
+        android:textSize="@dimen/txt_large"
+        tools:background="@drawable/l_bkg_toast"
+        tools:text="@string/app_name" />
 
 </LinearLayout>

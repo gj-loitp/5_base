@@ -33,7 +33,6 @@ import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
 import com.core.utilities.LAnimationUtil;
 import com.core.utilities.LConnectivityUtil;
-import com.core.utilities.LLog;
 import com.core.utilities.LPrefUtil;
 import com.core.utilities.LReaderUtil;
 import com.core.utilities.LUIUtil;
@@ -64,7 +63,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     //private SearchView searchView;
     private BookInfo bookInfo;
     private TextView tvPage;
-    private TextView tvTitle;
     private ImageView ivCover;
     private RelativeLayout rlSplash;
     private AdView adView;
@@ -104,13 +102,13 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
         rlSplash = findViewById(R.id.rl_splash);
-        tvTitle = findViewById(R.id.tvTitle);
+        TextView tvTitle = findViewById(R.id.tvTitle);
         ivCover = findViewById(R.id.iv_cover);
         llGuide = findViewById(R.id.ll_guide);
         LUIUtil.Companion.setTextShadow(tvTitle);
         bookInfo = BookInfoData.getInstance().getBookInfo();
         if (bookInfo == null) {
-            showShort(getString(R.string.err_unknow));
+            showShort(getString(R.string.err_unknow), true);
             onBackPressed();
         }
         setCoverBitmap();
@@ -141,19 +139,17 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         });
         mViewPager.setAdapter(mSectionsPagerAdapter);
         final String adUnitId = getIntent().getStringExtra(Constants.AD_UNIT_ID_BANNER);
-        //LLog.d(TAG, "adUnitId " + adUnitId);
-        LinearLayout lnAdview = findViewById(R.id.lnAdView);
-        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.Companion.isConnected(this)) {
-            lnAdview.setVisibility(View.GONE);
+        LinearLayout lnAdView = findViewById(R.id.lnAdView);
+        if (adUnitId == null || adUnitId.isEmpty() || !LConnectivityUtil.Companion.isConnected()) {
+            lnAdView.setVisibility(View.GONE);
         } else {
             adView = new AdView(this);
             adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(adUnitId);
             LUIUtil.Companion.createAdBanner(adView);
-            lnAdview.addView(adView);
-            lnAdview.requestLayout();
+            lnAdView.addView(adView);
+            lnAdView.requestLayout();
             //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
-            //LLog.d(TAG, "navigationHeight " + navigationHeight);
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, 0);
         }
@@ -243,11 +239,11 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             e.printStackTrace();
             this.pageCount = e.getPageCount();
             if (isSkippedToPage) {
-                showShort("Max page number is: " + this.pageCount);
+                showShort("Max page number is: " + this.pageCount, true);
             }
             mSectionsPagerAdapter.notifyDataSetChanged();
         } catch (Exception e) {
-            LLog.e(getLogTag(), "onFragmentReady " + e.toString());
+            logE("onFragmentReady " + e.toString());
         }
         isSkippedToPage = false;
         if (bookSection != null) {
@@ -261,13 +257,11 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
         @Override
         protected void onPreExecute() {
-            //LLog.d(TAG, "onPreExecute");
             super.onPreExecute();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-            //LLog.d(TAG, "doInBackground");
             try {
                 // Setting optionals once per file is enough.
                 reader.setMaxContentPerSection(1250);
@@ -283,15 +277,14 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 }
 
             } catch (ReadingException e) {
-                LLog.e(getLogTag(), "doInBackground " + e.toString());
-                showShort("Error: " + e.getMessage());
+                logE("doInBackground " + e.toString());
+                showShort("Error: " + e.getMessage(), true);
             }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            //LLog.d(TAG, "onPostExecute");
             super.onPostExecute(aVoid);
             LUIUtil.Companion.setDelay(1000, () -> {
                 rlSplash.setVisibility(View.GONE);
@@ -305,7 +298,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 tvPage.setText("0");
             }
             llGuide.setVisibility(View.VISIBLE);
-            LLog.d(getLogTag(), "onPostExecute setCurrentItem " + lastSavedPage);
+            logD("onPostExecute setCurrentItem " + lastSavedPage);
         }
     }
 
@@ -398,13 +391,13 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         super.onStop();
         try {
             reader.saveProgress(mViewPager.getCurrentItem());
-            showShort("Saved page: " + mViewPager.getCurrentItem() + "...");
+            showShort("Saved page: " + mViewPager.getCurrentItem() + "...", true);
         } catch (ReadingException e) {
             e.printStackTrace();
-            showShort("Progress is not saved: " + e.getMessage());
+            showShort("Progress is not saved: " + e.getMessage(), true);
         } catch (OutOfPagesException e) {
             e.printStackTrace();
-            showShort("Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount());
+            showShort("Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount(), true);
         }
     }
 
@@ -458,7 +451,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             webView.loadDataWithBaseURL(null, getStyledFont(data), mimeType, encoding, null);
             webView.setScrollBarSize(ConvertUtils.dp2px(2));
             webView.setLayoutParams(layoutParams);
-            int size = LPrefUtil.Companion.getTextSizeEpub(this);
+            int size = LPrefUtil.Companion.getTextSizeEpub();
             updateUIWevViewSize(webView, size);
             return webView;
         } else {
@@ -499,12 +492,11 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
 
     private void zoomIn(PageFragment pageFragment) {
         if (pageFragment == null || pageFragment.getView() == null) {
-            //LLog.d(TAG, "getView null");
             return;
         }
         WebView webView = pageFragment.getView().findViewById(idWebview);
         if (webView == null) {
-            LLog.d(getLogTag(), "webView null");
+            logE("webView null");
             return;
         }
         WebSettings settings = webView.getSettings();
@@ -516,20 +508,17 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             if (size > 250) {
                 size = 250;
             }
-            //LLog.d(TAG, "webView size " + size);
-            LPrefUtil.Companion.setTextSizeEpub(this, size);
+            LPrefUtil.Companion.setTextSizeEpub(size);
             updateUIWevViewSize(webView, size);
         }
     }
 
     private void zoomOut(PageFragment pageFragment) {
         if (pageFragment == null || pageFragment.getView() == null) {
-            //LLog.d(TAG, "getView null");
             return;
         }
         WebView webView = pageFragment.getView().findViewById(idWebview);
         if (webView == null) {
-            //LLog.d(TAG, "webView null");
             return;
         }
         WebSettings settings = webView.getSettings();
@@ -541,16 +530,15 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             if (size < 50) {
                 size = 50;
             }
-            //LLog.d(TAG, "webView size " + size);
-            LPrefUtil.Companion.setTextSizeEpub(this, size);
+            LPrefUtil.Companion.setTextSizeEpub(size);
             updateUIWevViewSize(webView, size);
         }
     }
 
     private void updateUIWevViewSize(WebView webView, int size) {
         WebSettings settings = webView.getSettings();
-        int currentapiVersion = Build.VERSION.SDK_INT;
-        if (currentapiVersion <= 14) {
+        int currentApiVersion = Build.VERSION.SDK_INT;
+        if (currentApiVersion <= 14) {
             settings.setTextSize(WebSettings.TextSize.LARGER);
         } else {
             settings.setTextZoom(size);

@@ -23,7 +23,6 @@ import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
-import com.core.utilities.LLog;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -72,15 +71,12 @@ public class AlarmNotification extends BaseFontActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        LLog.d(getLogTag(), "AlarmNotification.onDestroy()");
-
         stop();
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        LLog.d(getLogTag(), "AlarmNotification.onNewIntent()");
 
         addNotification(mAlarm);
 
@@ -92,7 +88,7 @@ public class AlarmNotification extends BaseFontActivity {
         mAlarm = new Alarm(this);
         mAlarm.fromIntent(intent);
 
-        LLog.d(getLogTag(), "AlarmNotification.start('" + mAlarm.getTitle() + "')");
+        logD("AlarmNotification.start('" + mAlarm.getTitle() + "')");
 
         mTextView.setText(mAlarm.getTitle());
 
@@ -105,7 +101,7 @@ public class AlarmNotification extends BaseFontActivity {
     }
 
     private void stop() {
-        LLog.d(getLogTag(), "AlarmNotification.stop()");
+        logD("AlarmNotification.stop()");
 
         mTimer.cancel();
         mRingtone.stop();
@@ -132,7 +128,7 @@ public class AlarmNotification extends BaseFontActivity {
         PendingIntent activity;
         Intent intent;
 
-        LLog.d(getLogTag(), "AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
+        logD("AlarmNotification.addNotification(" + alarm.getId() + ", '" + alarm.getTitle() + "', '" + mDateTime.formatDetails(alarm) + "')");
 
         intent = new Intent(this.getApplicationContext(), AlarmMeActivity.class);
         intent.setAction(Intent.ACTION_MAIN);
@@ -161,11 +157,10 @@ public class AlarmNotification extends BaseFontActivity {
     private class PlayTimerTask extends TimerTask {
         @Override
         public void run() {
-            LLog.d(getLogTag(), "AlarmNotification.PalyTimerTask.run()");
+            logD("AlarmNotification.PalyTimerTask.run()");
             addNotification(mAlarm);
             finish();
             LActivityUtil.tranIn(AlarmNotification.this);
         }
     }
 }
-

@@ -14,9 +14,9 @@ import android.widget.TextView;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.IntRange;
-import androidx.core.content.ContextCompat;
 
 import com.R;
+import com.core.utilities.LAppResource;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,8 +79,7 @@ public class MultiScrollNumber extends LinearLayout {
         for (int i = mTargetNumbers.size() - 1; i >= 0; i--) {
             if (mTargetNumbers.get(i) != -1) {
                 ScrollNumber scrollNumber = new ScrollNumber(mContext);
-                scrollNumber.setTextColor(ContextCompat
-                        .getColor(mContext, mTextColors[i % mTextColors.length]));
+                scrollNumber.setTextColor(LAppResource.INSTANCE.getColor(mTextColors[i % mTextColors.length]));
                 scrollNumber.setVelocity(mVelocity);
                 scrollNumber.setTextSize(mTextSize);
                 scrollNumber.setInterpolator(mInterpolator);
@@ -95,8 +94,7 @@ public class MultiScrollNumber extends LinearLayout {
                 TextView point = new TextView(mContext);
                 point.setText(" . ");
                 point.setGravity(Gravity.BOTTOM);
-                point.setTextColor(ContextCompat
-                        .getColor(mContext, mTextColors[i % mTextColors.length]));
+                point.setTextColor(LAppResource.INSTANCE.getColor(mTextColors[i % mTextColors.length]));
                 point.setTextSize(mTextSize / 3);
                 addView(point, params);
             }
@@ -115,8 +113,7 @@ public class MultiScrollNumber extends LinearLayout {
 
         for (int i = mTargetNumbers.size() - 1; i >= 0; i--) {
             ScrollNumber scrollNumber = new ScrollNumber(mContext);
-            scrollNumber.setTextColor(ContextCompat
-                    .getColor(mContext, mTextColors[i % mTextColors.length]));
+            scrollNumber.setTextColor(LAppResource.INSTANCE.getColor(mTextColors[i % mTextColors.length]));
             scrollNumber.setVelocity(mVelocity);
             scrollNumber.setTextSize(mTextSize);
             scrollNumber.setInterpolator(mInterpolator);
@@ -159,8 +156,7 @@ public class MultiScrollNumber extends LinearLayout {
 
         for (int i = mTargetNumbers.size() - 1; i >= 0; i--) {
             ScrollNumber scrollNumber = new ScrollNumber(mContext);
-            scrollNumber.setTextColor(ContextCompat
-                    .getColor(mContext, mTextColors[i % mTextColors.length]));
+            scrollNumber.setTextColor(LAppResource.INSTANCE.getColor(mTextColors[i % mTextColors.length]));
             scrollNumber.setTextSize(mTextSize);
             if (!TextUtils.isEmpty(mFontFileName))
                 scrollNumber.setTextFont(mFontFileName);
@@ -177,8 +173,7 @@ public class MultiScrollNumber extends LinearLayout {
         mTextColors = textColors;
         for (int i = mScrollNumbers.size() - 1; i >= 0; i--) {
             ScrollNumber scrollNumber = mScrollNumbers.get(i);
-            scrollNumber.setTextColor(ContextCompat
-                    .getColor(mContext, mTextColors[i % mTextColors.length]));
+            scrollNumber.setTextColor(LAppResource.INSTANCE.getColor(mTextColors[i % mTextColors.length]));
         }
     }
 

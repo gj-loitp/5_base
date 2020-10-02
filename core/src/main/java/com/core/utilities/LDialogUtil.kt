@@ -15,7 +15,6 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.ProgressBar
-import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.daimajia.androidanimations.library.Techniques
@@ -53,7 +52,7 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val color = ContextCompat.getColor(context, R.color.colorPrimary)
+            val color = LAppResource.getColor(R.color.colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
 
             LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
@@ -81,12 +80,12 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val colorPrimary = ContextCompat.getColor(context, R.color.colorPrimary)
+            val colorPrimary = LAppResource.getColor(R.color.colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
 
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
 
             alertDialogList.add(dialog)
             return dialog
@@ -117,14 +116,14 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val color = ContextCompat.getColor(context, R.color.colorPrimary)
+            val color = LAppResource.getColor(R.color.colorPrimary)
             dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
             dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
 
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
 
             alertDialogList.add(dialog)
             return dialog
@@ -217,12 +216,12 @@ class LDialogUtil {
         @SuppressLint("InflateParams")
         @JvmOverloads
         fun showCustomProgressDialog(context: Context?, amount: Float = 0f): AlertDialog? {
-            if (context == null) {
+            if (context == null || context !is Activity) {
                 return null
             }
             clearAll()
             val builder = AlertDialog.Builder(context)
-            val inflater = (context as Activity).layoutInflater
+            val inflater = context.layoutInflater
             val view = inflater.inflate(R.layout.l_dlg_custom_progress, null)
             builder.setView(view)
             val dialog = builder.create()
@@ -289,7 +288,7 @@ class LDialogUtil {
             }
             dialog.window?.let {
                 //it.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                it.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(context, R.color.black65)))
+                it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black65)))
                 it.setDimAmount(amount)
 
                 val wlp = it.attributes

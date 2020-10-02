@@ -8,14 +8,12 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.ImageView;
 
-import androidx.core.content.ContextCompat;
-
 import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
+import com.core.utilities.LAppResource;
 import com.core.utilities.LDialogUtil;
-import com.core.utilities.LLog;
 import com.interfaces.Callback2;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
@@ -24,7 +22,6 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.picker.imagepickerwithcrop.PickerBuilder;
 import com.utils.util.AppUtils;
-import com.views.LToast;
 
 import java.util.List;
 
@@ -49,11 +46,11 @@ public class ImageWithCropActivity extends BaseFontActivity {
         (findViewById(R.id.startGalleryBtn)).setOnClickListener(v -> new PickerBuilder(this, PickerBuilder.SELECT_FROM_GALLERY)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    LToast.showShort(this, "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
+                    showShort("Got image - " + imageUri, true);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
-                .setCropScreenColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                .setCropScreenColor(LAppResource.INSTANCE.getColor(R.color.colorPrimary))
                 .setOnPermissionRefusedListener(() -> {
                 })
                 .start());
@@ -61,12 +58,12 @@ public class ImageWithCropActivity extends BaseFontActivity {
         (findViewById(R.id.startCameraBtn)).setOnClickListener(v -> new PickerBuilder(this, PickerBuilder.SELECT_FROM_CAMERA)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    LToast.showShort(this, "Got image - " + imageUri, R.drawable.l_bkg_horizontal);
+                    showShort("Got image - " + imageUri, true);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
                 .withTimeStamp(false)
-                .setCropScreenColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                .setCropScreenColor(LAppResource.INSTANCE.getColor(R.color.colorPrimary))
                 .start());
     }
 
@@ -89,15 +86,15 @@ public class ImageWithCropActivity extends BaseFontActivity {
                     public void onPermissionsChecked(MultiplePermissionsReport report) {
                         // check if all permissions are granted
                         if (report.areAllPermissionsGranted()) {
-                            LLog.d(getLogTag(), "onPermissionsChecked do you work now");
+                            logD("onPermissionsChecked do you work now");
                         } else {
-                            LLog.d(getLogTag(), "!areAllPermissionsGranted");
+                            logD("!areAllPermissionsGranted");
                             showShouldAcceptPermission();
                         }
 
                         // check for permanent denial of any permission
                         if (report.isAnyPermissionPermanentlyDenied()) {
-                            LLog.d(getLogTag(), "onPermissionsChecked permission is denied permenantly, navigate user to app settings");
+                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings");
                             showSettingsDialog();
                         }
                         isShowDialogCheck = true;
@@ -105,7 +102,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                        LLog.d(getLogTag(), "onPermissionRationaleShouldBeShown");
+                        logD("onPermissionRationaleShouldBeShown");
                         token.continuePermissionRequest();
                     }
                 })

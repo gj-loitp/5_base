@@ -25,10 +25,12 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/txt_20" />
 
-            <com.views.imageview.strectchy.LStretchyImageView
+            <ImageView
                 android:id="@+id/lStretchyImageView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
                 tools:src="@drawable/loitp" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

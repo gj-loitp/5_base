@@ -118,13 +118,11 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
     private fun resize(u: Uri) {
         ivImage.visibility = View.VISIBLE
         containerSelectedPhotos.visibility = View.GONE
-        //LImageUtil.load(context = this, uri = u, imageView = ivImage)
         u.path?.let { p ->
             val folderPath = ".resizeImage"
             val fileResize = LImageUtil.resizeImage(context = this, file = File(p), scaleTo = 1024, folderPath = folderPath)
             var hasInvalidImg = false
             if (fileResize?.exists() == true) {
-                //LLog.d(TAG, "fileResize: ${fileResize.path}")
                 val uResize = Uri.fromFile(fileResize)
                 if (uResize == null) {
                     hasInvalidImg = true

@@ -51,7 +51,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
         setupRecycler();
 
-        if (!LPrefUtil.Companion.getPreLoad(this)) {
+        if (!LPrefUtil.Companion.getPreLoad()) {
             setRealmData();
         }
 
@@ -62,7 +62,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        showShort("Press card item for edit, long press to remove item");
+        showShort("Press card item for edit, long press to remove item", true);
 
         //add new item
         floatingActionButton.setOnClickListener(v -> addItem());
@@ -140,7 +140,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
             realm.commitTransaction();
         }
 
-        LPrefUtil.Companion.setPreLoad(this, true);
+        LPrefUtil.Companion.setPreLoad(true);
     }
 
     @SuppressLint("SetTextI18n")
@@ -164,7 +164,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
                     book.setImageUrl(editThumbnail.getText().toString());
 
                     if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                        showShort("Entry not saved, missing title");
+                        showShort("Entry not saved, missing title", true);
                     } else {
                         // Persist your data easily
                         realm.beginTransaction();
@@ -230,16 +230,16 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         realm.commitTransaction();
 
         if (results.size() == 0) {
-            LPrefUtil.Companion.setPreLoad(this, false);
+            LPrefUtil.Companion.setPreLoad(false);
         }
 
         booksAdapter.notifyItemRemoved(position);
         booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
 
-        showShort("Removed book: " + title);
+        showShort("Removed book: " + title, true);
 
         if (RealmController.getInstance().getBooks().isEmpty()) {
-            showShort("getMyBookList().isEmpty()");
+            showShort("getMyBookList().isEmpty()", true);
         }
     }
 }

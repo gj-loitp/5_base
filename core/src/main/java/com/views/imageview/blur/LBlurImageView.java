@@ -24,7 +24,6 @@ public class LBlurImageView {
     private Context context;
     private float intensity = 08f;
     private float MAX_RADIUS = 25;
-
     private float MIN_RADIUS = 0;
     private boolean async = false;
 
@@ -33,9 +32,9 @@ public class LBlurImageView {
     }
 
     /*
-    *  This method is creating a blur bitmap , this method use renderscript which efficient
+     *  This method is creating a blur bitmap , this method use renderscript which efficient
      *  and here we use scriptIntrinsicBlur for performing blurring
-    * */
+     * */
     private Bitmap blur() {
 
         if (image == null) {
@@ -70,8 +69,8 @@ public class LBlurImageView {
     }
 
     /*
-    * Here we get bitmap on which we apply the blur process
-    * */
+     * Here we get bitmap on which we apply the blur process
+     * */
 
     public LBlurImageView load(Bitmap bitmap) {
         this.image = bitmap;
@@ -136,6 +135,5 @@ public class LBlurImageView {
 
         }
     }
-
 
 }

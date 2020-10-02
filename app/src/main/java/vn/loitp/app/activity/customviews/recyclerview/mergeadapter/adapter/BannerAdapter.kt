@@ -13,7 +13,6 @@ import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Ba
 class BannerAdapter(
         private val listBanner: ArrayList<Banner>
 ) : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     fun setData(listBanner: ArrayList<Banner>) {
         this.listBanner.clear()
@@ -23,7 +22,6 @@ class BannerAdapter(
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: Banner) {
-//            LLog.d(logTag, "bind $bindingAdapterPosition")
             LImageUtil.load(context = itemView.imageViewBanner.context,
                     drawableRes = user.bannerImage,
                     imageView = itemView.imageViewBanner)

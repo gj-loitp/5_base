@@ -8,12 +8,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDateUtil
 import kotlinx.android.synthetic.main.activity_demo_view_model.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
-import vn.loitp.app.app.LApplication
 import java.util.*
 
 //https://codinginfinite.com/architecture-component-viewmodel-example/
@@ -44,13 +44,13 @@ class ViewModelActivity : BaseFontActivity() {
         defUser.email = "www.muathu@gmail.com"
         val factory = UserViewModel.CustomViewModelFactory(defUser)
         userViewModel = ViewModelProvider(this, factory).get(UserViewModel::class.java)
-        textView.text = LApplication.gson.toJson(userViewModel.mUser)
+        textView.text = BaseApplication.gson.toJson(userViewModel.mUser)
         btChangeUser.setOnClickListener {
             val user = User()
             user.fullName = "Loitp" + System.currentTimeMillis()
             user.email = "www.muathu@gmail.com" + System.currentTimeMillis()
             userViewModel.mUser = user
-            textView.text = LApplication.gson.toJson(userViewModel.mUser)
+            textView.text = BaseApplication.gson.toJson(userViewModel.mUser)
         }
 
         timeChangerViewModel = ViewModelProvider(this).get(TimeChangerViewModel::class.java)

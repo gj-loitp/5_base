@@ -17,7 +17,7 @@ class AppcompatSwitchActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        textView.text = LStoreUtil.readTxtFromRawFolder(context = this, nameOfRawFile = R.raw.lswitch)
+        textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lswitch)
     }
 
 }

@@ -31,8 +31,8 @@ class ShadowViewHelperActivity : BaseFontActivity() {
         // all side shadow
         val sp = ShadowProperty()
                 .setShadowColor(0x77000000)
-                .setShadowDy(LDisplayUtil.dip2px(context = this, dpValue = 0.5f))
-                .setShadowRadius(LDisplayUtil.dip2px(context = this, dpValue = 3f))
+                .setShadowDy(LDisplayUtil.dip2px(dpValue = 0.5f))
+                .setShadowRadius(LDisplayUtil.dip2px(dpValue = 3f))
                 .setShadowSide(ShadowProperty.ALL)
         val sd = ShadowViewDrawable(sp, Color.WHITE, 0f, 0f)
         ViewCompat.setBackground(ll0, sd)
@@ -43,8 +43,8 @@ class ShadowViewHelperActivity : BaseFontActivity() {
         // only all sides except top shadow
         val sp = ShadowProperty()
                 .setShadowColor(0x77ff0000)
-                .setShadowDy(LDisplayUtil.dip2px(context = this, dpValue = 0.5f))
-                .setShadowRadius(LDisplayUtil.dip2px(context = this, dpValue = 3f))
+                .setShadowDy(LDisplayUtil.dip2px(dpValue = 0.5f))
+                .setShadowRadius(LDisplayUtil.dip2px(dpValue = 3f))
                 .setShadowSide(ShadowProperty.LEFT or ShadowProperty.RIGHT or ShadowProperty.BOTTOM)
         val sd = ShadowViewDrawable(sp, Color.TRANSPARENT, 0f, 0f)
         ViewCompat.setBackground(ll1, sd)
@@ -55,8 +55,8 @@ class ShadowViewHelperActivity : BaseFontActivity() {
         // only all sides except top shadow
         val sp = ShadowProperty()
                 .setShadowColor(0x7700ff00)
-                .setShadowDy(LDisplayUtil.dip2px(context = this, dpValue = 0.5f))
-                .setShadowRadius(LDisplayUtil.dip2px(context = this, dpValue = 3f))
+                .setShadowDy(LDisplayUtil.dip2px(dpValue = 0.5f))
+                .setShadowRadius(LDisplayUtil.dip2px(dpValue = 3f))
                 .setShadowSide(ShadowProperty.RIGHT or ShadowProperty.BOTTOM)
         val sd = ShadowViewDrawable(sp, Color.TRANSPARENT, 0f, 0f)
         ViewCompat.setBackground(imageView, sd)

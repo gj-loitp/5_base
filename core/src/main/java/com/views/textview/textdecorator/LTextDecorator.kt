@@ -17,7 +17,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
+import com.core.utilities.LAppResource
 
 class LTextDecorator private constructor(private val textView: TextView, private val content: String) {
     private val decoratedContent: SpannableString = SpannableString(content)
@@ -55,8 +55,7 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun setTextColor(@ColorRes resColorId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(ForegroundColorSpan(ContextCompat.getColor(textView.context, resColorId)), start, end,
-                flags)
+        decoratedContent.setSpan(ForegroundColorSpan(LAppResource.getColor(resColorId)), start, end, flags)
 
         return this
     }
@@ -67,7 +66,7 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(ForegroundColorSpan(ContextCompat.getColor(textView.context, resColorId)), index, index + text.length, flags)
+                decoratedContent.setSpan(ForegroundColorSpan(LAppResource.getColor(resColorId)), index, index + text.length, flags)
             }
         }
 
@@ -76,7 +75,7 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun setBackgroundColor(@ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(BackgroundColorSpan(ContextCompat.getColor(textView.context, colorResId)), start, end, 0)
+        decoratedContent.setSpan(BackgroundColorSpan(LAppResource.getColor(colorResId)), start, end, 0)
 
         return this
     }
@@ -87,7 +86,7 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(BackgroundColorSpan(ContextCompat.getColor(textView.context, colorResId)), index, index + text.length, flags)
+                decoratedContent.setSpan(BackgroundColorSpan(LAppResource.getColor(colorResId)), index, index + text.length, flags)
             }
         }
 
@@ -110,7 +109,7 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun insertBullet(gapWidth: Int, @ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(BulletSpan(gapWidth, ContextCompat.getColor(textView.context, colorResId)), start, end,
+        decoratedContent.setSpan(BulletSpan(gapWidth, LAppResource.getColor(colorResId)), start, end,
                 flags)
 
         return this
@@ -210,7 +209,7 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun quote(@ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(QuoteSpan(ContextCompat.getColor(textView.context, colorResId)), start, end,
+        decoratedContent.setSpan(QuoteSpan(LAppResource.getColor(colorResId)), start, end,
                 flags)
 
         return this
@@ -222,7 +221,7 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(QuoteSpan(ContextCompat.getColor(textView.context, colorResId)), index, index + text.length, flags)
+                decoratedContent.setSpan(QuoteSpan(LAppResource.getColor(colorResId)), index, index + text.length, flags)
             }
         }
 

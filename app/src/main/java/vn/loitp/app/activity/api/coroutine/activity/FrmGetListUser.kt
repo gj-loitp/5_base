@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
@@ -16,7 +17,6 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
-import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.frm_coroutine_get_list)
 @LogTag("FrmGetListUser")
@@ -90,18 +90,16 @@ class FrmGetListUser : BaseFragment() {
             tvm.userActionLiveData.observe(viewLifecycleOwner, Observer { action ->
                 logD("userAction.observe action.isDoing ${action.isDoing}")
                 action.isDoing?.let { isDoing ->
-                    //LLog.d(TAG, "observe isDoing $isDoing")
                     swipeRefreshLayout.isRefreshing = isDoing
                 }
 
                 action.data?.let { userTestList ->
-                    //LLog.d(TAG, "observe data " + LApplication.gson.toJson(userTestList))
                     val isRefresh = action.isSwipeToRefresh
                     tvm.addUserList(userTestList = userTestList, isRefresh = isRefresh)
                 }
 
                 action.errorResponse?.let { error ->
-                    logE("observe error " + LApplication.gson.toJson(error))
+                    logE("observe error " + BaseApplication.gson.toJson(error))
                     error.message?.let {
                         showDialogError(it, Runnable {
                             //do nothing

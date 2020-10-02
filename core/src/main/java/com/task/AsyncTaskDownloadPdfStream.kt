@@ -1,7 +1,6 @@
 package com.task
 
 import android.os.AsyncTask
-import com.core.utilities.LLog
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.io.InputStream
@@ -10,16 +9,16 @@ import java.net.MalformedURLException
 import java.net.URL
 
 class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) : AsyncTask<String, Void, InputStream>() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     override fun doInBackground(vararg strings: String): InputStream? {
-        LLog.d(TAG, "doInBackground")
         var inputStream: InputStream? = null
         var url: URL? = null
         try {
             url = URL(strings[0])
         } catch (e: MalformedURLException) {
-            LLog.e(TAG, "doInBackground MalformedURLException $e")
+            e.printStackTrace()
+//            Log.e(logTag, "doInBackground MalformedURLException $e")
         }
 
         try {
@@ -31,7 +30,7 @@ class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) : AsyncTask
                 inputStream = BufferedInputStream(httpURLConnection.inputStream)
             }
         } catch (e: IOException) {
-            LLog.d(TAG, "doInBackground IOException $e")
+//            Log.e(logTag, "doInBackground IOException $e")
             return null
         }
 
@@ -39,7 +38,7 @@ class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) : AsyncTask
     }
 
     override fun onPostExecute(inputStream: InputStream) {
-        LLog.d(TAG, "onPostExecute")
+//        Log.d(logTag, "onPostExecute")
         result.invoke(inputStream)
     }
 }

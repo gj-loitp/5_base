@@ -1,13 +1,16 @@
 package com.core.utilities
 
-import android.app.Activity
+import alirezat775.lib.downloader.Downloader
+import alirezat775.lib.downloader.core.OnDownloadListener
+import android.app.ActivityManager
 import android.content.Context
 import android.graphics.Color
-import android.os.AsyncTask
+import android.media.MediaScannerConnection
 import android.os.Environment
-import com.google.gson.Gson
+import com.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
-import com.interfaces.*
+import com.interfaces.GGCallback
+import com.interfaces.GGSettingCallback
 import com.model.App
 import com.model.GG
 import okhttp3.*
@@ -16,19 +19,19 @@ import java.net.URL
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class LStoreUtil {
     companion object {
-        internal var TAG = LStoreUtil::class.java.simpleName
+        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
 
-        var FOLDER_TRANSLATE = ".Loitp"
-        var FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
-
-        private val EXTENSION = ".txt"
-        val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
-        val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
-        val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
-        val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
-        val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
+        const val FOLDER_TRANSLATE = ".Loitp"
+        const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
+        private const val EXTENSION = ".txt"
+        const val FOLDER_TRUYENTRANHTUAN = "zloitpbestcomic"
+        const val FILE_NAME_MAIN_COMICS_LIST_HTML_CODE = "filenamemaincomicslisthtmlcode$EXTENSION"
+        const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
+        const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
+        const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
 
         val isSdPresent: Boolean
             get() = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
@@ -76,34 +79,51 @@ class LStoreUtil {
             return "p$i$EXTENSION"
         }
 
+        //dung de bao hieu cho gallery load lai photo vi co anh moi
+        fun sendBroadcastMediaScan(file: File?) {
+            file?.let {
+//                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
+//                val contentUri = Uri.fromFile(file)
+//                mediaScanIntent.data = contentUri
+//                LAppResource.application.sendBroadcast(mediaScanIntent)
+
+                MediaScannerConnection.scanFile(LAppResource.application,
+                        arrayOf(file.toString()),
+                        arrayOf(it.name),
+                        null)
+            }
+        }
+
         @JvmOverloads
-        fun getFolderPath(context: Context, mfolderName: String = "Loitp"): String {
+        fun getFolderPath(folderName: String = "z1000"): String {
             var folderPath = ""
             if (isSdPresent) {
                 try {
-                    //val sdPath = File(Environment.getExternalStorageDirectory().absolutePath + "/" + mfolderName)
-                    ///storage/emulated/0/Loitpzloitpbestcomic/
+//                    C1
+//                    val file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
+//                        ex: /storage/emulated/0/ZZZTestDownloader
 
-                    val sdPath = File(context.getExternalFilesDir(null)?.absolutePath + "/" + mfolderName)
-                    ///storage/emulated/0/Android/data/loitp.basemaster/files/Loitpzloitpbestcomic/
+//                    C2
+//                    val file = File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
+//                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
-                    //val sdPath = File(context.getExternalFilesDir(null)?.path + "/" + mfolderName)
-                    ///storage/emulated/0/Android/data/loitp.basemaster/files/Loitpzloitpbestcomic/
+//                    C3
+                    val path = LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
+                            ?: ""
+                    val file = File("$path/$folderName")
 
-                    if (!sdPath.exists()) {
-                        sdPath.mkdirs()
-                        folderPath = sdPath.absolutePath
-                    } else if (sdPath.exists()) {
-                        folderPath = sdPath.absolutePath
+                    if (!file.exists()) {
+                        file.mkdirs()
+                        folderPath = file.absolutePath
+                    } else if (file.exists()) {
+                        folderPath = file.absolutePath
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
-
-                //folderPath = Environment.getExternalStorageDirectory().path + "/" + mfolderName + "/"
             } else {
                 try {
-                    val cacheDir = File(context.cacheDir, "$mfolderName/")
+                    val cacheDir = File(LAppResource.application.cacheDir, "$folderName/")
                     if (!cacheDir.exists()) {
                         cacheDir.mkdirs()
                         folderPath = cacheDir.absolutePath
@@ -115,87 +135,53 @@ class LStoreUtil {
                 }
 
             }
-            //LLog.d(TAG, "isSdPresent: $isSdPresent, getFolderPath: $folderPath")
+            LLog.d(logTag, "return getFolderPath folderPath $folderPath")
             return folderPath
         }
 
-        /*fun checkSDCardFreeSize(): Int {
-            val stat = StatFs(Environment.getExternalStorageDirectory().path)
-            val bytesAvailable = stat.blockSize.toLong() * stat.availableBlocks.toLong()
-            val megAvailable = bytesAvailable / (1024 * 1024)
-            return megAvailable.toInt()
-        }*/
-
         /*
-        save tring json to sdcard
-        ex: writeToFile("module.json", strJson);
+        save string json to sdcard
          */
-        fun writeToFile(context: Context, folder: String?, fileName: String, body: String): Boolean {
+        fun writeToFile(folder: String?, fileName: String, body: String): File? {
             val fos: FileOutputStream?
             try {
-                var path = getFolderPath(context)
+                var path = getFolderPath()
                 if (folder != null) {
-                    path = "$path$folder/"
+                    path = "$path/$folder/"
                 }
-                //LLog.d(TAG, "writeToFile path: $path")
                 val dir = File(path)
                 val dirExist = dir.exists()
-                //LLog.d(TAG, "writeToFile dirExist: $dirExist")
                 if (!dirExist) {
                     if (!dir.mkdirs()) {
-                        //LLog.d(TAG, "writeToFile could not create the directories")
-                        return false
+                        return null
                     }
                 }
                 val myFile = File(dir, fileName)
                 val myFileExist = myFile.exists()
-                //LLog.d(TAG, "writeToFile myFileExist: $myFileExist")
                 if (!myFileExist) {
                     val isSuccess = myFile.createNewFile()
-                    LLog.d(TAG, "writeToFile isSuccess: $isSuccess")
                 }
                 fos = FileOutputStream(myFile)
                 fos.write(body.toByteArray())
                 fos.close()
-                return true
+                LLog.d(logTag, "<<<writeToFile myFile path: " + myFile.path)
+                return myFile
             } catch (e: IOException) {
                 e.printStackTrace()
-                return false
+                return null
             }
-        }
-
-        fun writeToFile(activity: Activity, folder: String, fileName: String, body: String, callbackWriteFile: CallbackWriteFile?) {
-            //TODO convert to coroutine
-            object : AsyncTask<Void, Void, Void>() {
-                var isSuccess: Boolean = false
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    isSuccess = writeToFile(activity, folder, fileName, body)
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    super.onPostExecute(aVoid)
-                    //LLog.d(TAG, "writeToFile onPostExecute isSuccess: $isSuccess")
-                    callbackWriteFile?.onFinish(isSuccess)
-                }
-            }.execute()
         }
 
         /*
          * read text file from folder
          */
-        fun readTxtFromFolder(context: Context, folderName: String?, fileName: String): String {
-            val path = getFolderPath(context) + (if (folderName == null) "/" else "$folderName/") + fileName
-            //LLog.d(TAG, "path: $path")
+        fun readTxtFromFolder(folderName: String?, fileName: String): String {
+            val path = getFolderPath() + (if (folderName == null) "/" else "/$folderName/") + fileName
             val txtFile = File(path)
+            LLog.d(logTag, "readTxtFromFolder txtFile ${txtFile.path}")
             val text = StringBuilder()
             try {
                 val reader = BufferedReader(FileReader(txtFile))
-                /*var line: String
-                while ((line = reader.readLine()) != null) {
-                    text.append(line + '\n')
-                }*/
                 var line: String? = null
                 while ({ line = reader.readLine(); line }() != null) {
                     text.append(line + '\n')
@@ -204,84 +190,14 @@ class LStoreUtil {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
-
             return text.toString()
-        }
-
-        fun readTxtFromFolder(activity: Activity, folderName: String, fileName: String, callbackReadFile: CallbackReadFile) {
-            //TODO convert to rx
-            object : AsyncTask<Void, Void, Void>() {
-                var result = ""
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    result = readTxtFromFolder(activity, folderName, fileName)
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    super.onPostExecute(aVoid)
-                    callbackReadFile.onFinish(result)
-                }
-            }.execute()
-        }
-
-        /*
-         * read text file from folder in background
-         */
-        fun readTxtFromFolder(activity: Activity, folderName: String?, fileName: String, eventReadFromFolder: EventReadFromFolder) {
-            //TODO convert to rx
-            object : AsyncTask<Void, Void, Void>() {
-                private var text: StringBuilder? = null
-                private var runTaskSuccess = true
-
-                override fun onPreExecute() {
-                    LLog.d(TAG, "readTxtFromFolder onPreExecute")
-                    super.onPreExecute()
-                }
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    val path = getFolderPath(activity) + (if (folderName == null)
-                        "/"
-                    else
-                        "$folderName/") + fileName
-                    LLog.d(TAG, "path: $path")
-                    val txtFile = File(path)
-                    text = StringBuilder()
-                    try {
-                        val reader = BufferedReader(FileReader(txtFile))
-                        var line: String? = null
-                        /*while ((line = reader.readLine()) != null) {
-                            text?.append(line + '\n')
-                        }*/
-                        while ({ line = reader.readLine(); line }() != null) {
-                            text?.append(line + '\n')
-                        }
-                        reader.close()
-                    } catch (e: IOException) {
-                        runTaskSuccess = false
-                        LLog.d(TAG, "readTxtFromFolder===$e")
-                        e.printStackTrace()
-                    }
-
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    if (runTaskSuccess) {
-                        eventReadFromFolder.onSuccess(text?.toString())
-                    } else {
-                        eventReadFromFolder.onError()
-                    }
-                    super.onPostExecute(aVoid)
-                }
-            }.execute()
         }
 
         /*
          * read text file in raw folder
          */
-        fun readTxtFromRawFolder(context: Context, nameOfRawFile: Int): String {
-            val inputStream = context.resources.openRawResource(nameOfRawFile)
+        fun readTxtFromRawFolder(nameOfRawFile: Int): String {
+            val inputStream = LAppResource.application.resources.openRawResource(nameOfRawFile)
             val byteArrayOutputStream = ByteArrayOutputStream()
             var i: Int
             try {
@@ -298,24 +214,7 @@ class LStoreUtil {
             return byteArrayOutputStream.toString()
         }
 
-        fun readTxtFromRawFolder(context: Context, nameOfRawFile: Int, callbackReadFromRaw: CallbackReadFromRaw) {
-            //TODO convert to rx
-            object : AsyncTask<Void, Void, Void>() {
-                var result: String? = null
-
-                override fun doInBackground(vararg params: Void): Void? {
-                    result = readTxtFromRawFolder(context, nameOfRawFile)
-                    return null
-                }
-
-                override fun onPostExecute(aVoid: Void) {
-                    super.onPostExecute(aVoid)
-                    callbackReadFromRaw.onFinish(result)
-                }
-            }.execute()
-        }
-
-        fun saveHTMLCodeFromURLToSDCard(context: Context, link: String, folderName: String, fileName: String): Boolean {
+        fun saveHTMLCodeFromURLToSDCard(link: String, folderName: String, fileName: String): Boolean {
             var state = false
             val ins: InputStream?
             try {
@@ -332,8 +231,7 @@ class LStoreUtil {
                 }
                 br.close()
                 ins.close()
-                //LLog.d(TAG, "writeToFile saveHTMLCodeFromURLToSDCard success: " + stringBuilder.toString())
-                writeToFile(context, folderName, fileName, stringBuilder.toString())
+                writeToFile(folder = folderName, fileName = fileName, body = stringBuilder.toString())
                 state = true
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -342,14 +240,11 @@ class LStoreUtil {
             return state
         }
 
-        /*
-         * get random quote
-         */
-        fun readTxtFromAsset(context: Context, assetFile: String): String {
+        fun readTxtFromAsset(assetFile: String): String {
             val ins: InputStream
             var str = ""
             try {
-                ins = context.assets.open(assetFile)
+                ins = LAppResource.application.assets.open(assetFile)
                 val buffer = ByteArray(ins.available())
                 ins.read(buffer)
                 ins.close()
@@ -370,18 +265,16 @@ class LStoreUtil {
             return r.nextInt(length)
         }
 
-        fun getPathOfFileNameMainComicsListHTMLCode(context: Context): String {
-            return getFolderPath(context) + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
+        fun getPathOfFileNameMainComicsListHTMLCode(): String {
+            return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
         }
 
-        fun getFileFromAssets(context: Context?, fileName: String): File? {
-            if (context == null) {
-                return null
-            }
-            val file = File(context.cacheDir.toString() + "/" + fileName)
+        fun getFileFromAssets(fileName: String): File? {
+
+            val file = File(LAppResource.application.cacheDir.toString() + "/" + fileName)
             if (!file.exists())
                 try {
-                    val ins = context.assets.open(fileName)
+                    val ins = LAppResource.application.assets.open(fileName)
                     val size = ins.available()
                     val buffer = ByteArray(size)
                     ins.read(buffer)
@@ -414,16 +307,14 @@ class LStoreUtil {
             return inFiles
         }
 
-        fun getSettingFromGGDrive(context: Context?, linkGGDriveSetting: String?, ggSettingCallback: GGSettingCallback?) {
-            if (context == null || linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
+        fun getSettingFromGGDrive(linkGGDriveSetting: String?, ggSettingCallback: GGSettingCallback?) {
+            if (linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
                 return
             }
-//            LLog.d(TAG, "getSettingFromGGDrive")
             val request = Request.Builder().url(linkGGDriveSetting).build()
             val okHttpClient = OkHttpClient()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-//                    LLog.d(TAG, "getSettingFromGGDrive onFailure $e")
                     ggSettingCallback?.onGGFailure(call, e)
                 }
 
@@ -432,41 +323,37 @@ class LStoreUtil {
                     if (response.isSuccessful) {
                         val responseBody = response.body ?: return
                         val json = responseBody.string()
-//                        LLog.d(TAG, "getSettingFromGGDrive onResponse isSuccessful $json")
-                        val app = Gson().fromJson(json, App::class.java)
+                        val app = BaseApplication.gson.fromJson(json, App::class.java)
                         if (app == null) {
                             ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
                         } else {
-                            val localMsg = LPrefUtil.getGGAppMsg(context)
+                            val localMsg = LPrefUtil.getGGAppMsg()
                             val serverMsg = app.config?.msg
-                            LPrefUtil.setGGAppMsg(context, serverMsg)
+                            LPrefUtil.setGGAppMsg(serverMsg)
                             val isNeedToShowMsg: Boolean
-                            if (serverMsg.isNullOrEmpty()) {
-                                isNeedToShowMsg = false
+                            isNeedToShowMsg = if (serverMsg.isNullOrEmpty()) {
+                                false
                             } else {
-                                isNeedToShowMsg = !localMsg?.trim { it <= ' ' }.equals(serverMsg, ignoreCase = true)
+                                !localMsg?.trim { it <= ' ' }.equals(serverMsg, ignoreCase = true)
                             }
                             ggSettingCallback?.onGGResponse(app, isNeedToShowMsg)
                         }
 
                     } else {
-//                        LLog.d(TAG, "getSettingFromGGDriveonResponse !isSuccessful: $response")
                         ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
                     }
                 }
             })
         }
 
-        fun getTextFromGGDrive(context: Context?, linkGGDrive: String?, ggCallback: GGCallback?) {
-            if (context == null || linkGGDrive == null || linkGGDrive.isEmpty()) {
+        fun getTextFromGGDrive(linkGGDrive: String?, ggCallback: GGCallback?) {
+            if (linkGGDrive.isNullOrEmpty()) {
                 return
             }
-//            LLog.d(TAG, "getTextFromGGDrive")
             val request = Request.Builder().url(linkGGDrive).build()
             val okHttpClient = OkHttpClient()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    LLog.d(TAG, "getTextFromGGDrive onFailure $e")
                     ggCallback?.onGGFailure(call = call, e = e)
                 }
 
@@ -478,18 +365,76 @@ class LStoreUtil {
                         if (json.isNullOrEmpty()) {
                             ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody isNullOrEmpty"))
                         } else {
-//                            LLog.d(TAG, "getTextFromGGDrive onResponse isSuccessful $json")
-                            val g = Gson()
-                            val listGG: ArrayList<GG> = g.fromJson(json, object : TypeToken<List<GG?>?>() {}.type)
-//                            LLog.d(TAG, "getTextFromGGDrive listGG " + g.toJson(listGG))
+                            val listGG: ArrayList<GG> = BaseApplication.gson.fromJson(json, object : TypeToken<List<GG?>?>() {}.type)
                             ggCallback?.onGGResponse(listGG = listGG)
                         }
                     } else {
-//                        LLog.d(TAG, "getTextFromGGDrive !isSuccessful: $response")
                         ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody !isSuccessful"))
                     }
                 }
             })
+        }
+
+        @Suppress("INTEGER_OVERFLOW")
+        fun getSize(size: Int): String {
+            var s = ""
+            val kb = (size / 1024).toDouble()
+            val mb = kb / 1024
+            val gb = kb / 1024
+            val tb = kb / 1024
+            if (size < 1024) {
+                s = "$size Bytes"
+            } else if (size >= 1024 && size < 1024 * 1024) {
+                s = String.format("%.2f", kb) + " KB"
+            } else if (size >= 1024 * 1024 && size < 1024 * 1024 * 1024) {
+                s = String.format("%.2f", mb) + " MB"
+            } else if (size >= 1024 * 1024 * 1024 && size < 1024 * 1024 * 1024 * 1024) {
+                s = String.format("%.2f", gb) + " GB"
+            } else if (size >= 1024 * 1024 * 1024 * 1024) {
+                s = String.format("%.2f", tb) + " TB"
+            }
+            return s
+        }
+
+        fun getAvailableSpaceInMb(): Int {
+            val freeBytesExternal = File(LAppResource.application.getExternalFilesDir(null).toString()).freeSpace
+            val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
+            //val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
+            //val totalMb = (totalSize / (1024 * 1024)).toInt()
+            return freeMb
+        }
+
+        fun getAvailableRAM(): Long {
+            val memoryInfo = ActivityManager.MemoryInfo()
+            val activityManager = LAppResource.application.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            activityManager.getMemoryInfo(memoryInfo)
+            val availableMegs = memoryInfo.availMem / 1048576L
+            val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
+//            Log.d(logTag, "percentAvail $percentAvail")
+            return availableMegs
+        }
+
+        fun getDownloader(folderName: String,
+                          token: String? = null,
+                          url: String,
+                          fileName: String,
+                          fileNameExtension: String,
+                          timeOut: Int = 10000,
+                          onDownloadListener: OnDownloadListener
+        ): Downloader? {
+            val path = getFolderPath(folderName = folderName)
+//            LLog.d(logTag, "getDownloader path $path")
+            val map = HashMap<String, String>()
+            token?.let {
+                map["Authorization"] = it
+            }
+            return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
+                    .downloadDirectory(path)
+                    .fileName(fileName = fileName, extension = fileNameExtension)
+                    .header(map)
+                    .timeOut(timeOut)
+                    .downloadListener(onDownloadListener)
+                    .build()
         }
     }
 }

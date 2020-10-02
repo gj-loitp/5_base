@@ -1,27 +1,6 @@
-/**************************************************************************
- *
- * Copyright (C) 2012-2015 Alex Taradov <alex@taradov.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- *************************************************************************/
-
 package vn.loitp.app.activity.demo.alarmdemoapp.model;
 
 import android.content.Context;
-
-import com.core.utilities.LLog;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -30,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class DataSource {
-    private static final String TAG = "AlarmMeActivity";
+    private static final String logTag = "AlarmMeActivity";
 
     private static final DataSource mDataSource = new DataSource();
     private static Context mContext = null;
@@ -52,8 +31,6 @@ public class DataSource {
     }
 
     private static void load() {
-        LLog.d(TAG, "DataSource.load()");
-
         mList = new ArrayList<Alarm>();
         mNextId = 1;
 
@@ -75,12 +52,11 @@ public class DataSource {
 
             dis.close();
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public static void save() {
-        LLog.d(TAG, "DataSource.save()");
-
         try {
             DataOutputStream dos = new DataOutputStream(mContext.openFileOutput(DATA_FILE_NAME, Context.MODE_PRIVATE));
 
@@ -123,4 +99,3 @@ public class DataSource {
         save();
     }
 }
-

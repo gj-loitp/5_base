@@ -69,14 +69,14 @@ class SensorActivity : BaseFontActivity() {
                 rotation = ROTATION_270
                 rotateLayout.angle = 90
                 val w = LScreenUtil.screenWidth
-                val h = LScreenUtil.getScreenHeightIncludeNavigationBar(this@SensorActivity)
+                val h = LScreenUtil.getScreenHeightIncludeNavigationBar()
                 setSizeRelativeLayout(view = rotateLayout, w = w, h = h)
                 LScreenUtil.toggleFullscreen(activity = this@SensorActivity, isFullScreen = true)
             } else if (orientation in 236..304 && rotation != ROTATION_90) { //LANDSCAPE
                 rotation = ROTATION_90
                 rotateLayout.angle = -90
                 val w = LScreenUtil.screenWidth
-                val h = LScreenUtil.getScreenHeightIncludeNavigationBar(this@SensorActivity)
+                val h = LScreenUtil.getScreenHeightIncludeNavigationBar()
                 setSizeRelativeLayout(rotateLayout, w, h)
                 LScreenUtil.toggleFullscreen(activity = this@SensorActivity, isFullScreen = true)
             }

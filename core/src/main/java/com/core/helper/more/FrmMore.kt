@@ -14,11 +14,11 @@ import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_more.*
 
-@LogTag("BaseFragment")
+@LogTag("FrmMore")
 class FrmMore : BaseFragment(), View.OnClickListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        inflater.inflate(R.layout.l_frm_more, container, false)
+        frmRootView = inflater.inflate(R.layout.l_frm_more, container, false)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 

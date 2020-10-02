@@ -8,7 +8,7 @@ import kotlin.collections.ArrayList
 
 //TODO croutine
 class GetReadImgTask(link: String, callback: Callback?) : AsyncTask<Void, Void, Void>() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     private var imagesListOfOneChap = ArrayList<String>() //list img per chap
     private var link = ""
@@ -74,7 +74,6 @@ class GetReadImgTask(link: String, callback: Callback?) : AsyncTask<Void, Void, 
                     originalString = node.wholeData
                     //fileHelper.writeToFile(null, "test.txt", string);
                     if (originalString.contains("slides_page_url_path")) {
-                        //LLog.d(TAG, "string: " + string);
                         var firstIndex = originalString.indexOf(subFirstString_0)
                         var lastIndex = originalString.indexOf(subLastString_0)
 

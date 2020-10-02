@@ -17,10 +17,8 @@ class MyRxTask2(val tv: TextView?) {
     fun execute(): Disposable {
         val publishSubject = PublishSubject.create<Int>()
         publishSubject.observeOn(AndroidSchedulers.mainThread()).subscribe {
-            LLog.d(logTag, "onProgressUpdate value = $it")
             tv?.append("\nonProgressUpdate value = $it")
         }
-        LLog.d(logTag, "onPreExecute")
         tv?.text = "\nonPreExecute"
         return Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
                 .doOnNext {
@@ -33,14 +31,13 @@ class MyRxTask2(val tv: TextView?) {
                 .applySchedulers()
                 /*.subscribe {
                     // onNext
-                    LLog.d(TAG, "onPostExecute")
                     tv?.append("onPostExecute\n")
                 }*/
                 .subscribe({
                     LLog.d(logTag, "onPostExecute onNext")
                     tv?.append("\nonPostExecute")
                 }, {
-                    LLog.d(logTag, "onPostExecute onError")
+                    LLog.d(logTag, "onPostExecute onError " + it.printStackTrace())
                 }, {
                     LLog.d(logTag, "onPostExecute onComplete")
                 })

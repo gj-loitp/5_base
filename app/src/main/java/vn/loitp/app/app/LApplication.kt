@@ -1,16 +1,12 @@
 package vn.loitp.app.app
 
-import androidx.multidex.MultiDexApplication
+import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.common.Constants
-import com.core.utilities.LConnectivityUtil
 import com.core.utilities.LUIUtil
 import com.data.ActivityData
 import com.data.AdmobData
-import com.github.piasy.biv.BigImageViewer
-import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.firebase.messaging.FirebaseMessaging
-import com.google.gson.Gson
-import com.utils.util.Utils
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.R
@@ -19,9 +15,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 //build release de check
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
 //TODO is debug
-
-//TODO core flickr
-
 //TODO demo -> youtube parser ko vao list video dc
 //TODO demo -> floating view crash
 //TODO demo firebase -> auth
@@ -37,20 +30,17 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 /*git reset --soft HEAD~2
 git push -f*/
 
-class LApplication : MultiDexApplication() {
-    private val TAG = LApplication::class.java.simpleName
-
-    companion object {
-        val gson: Gson = Gson()
-    }
+@LogTag("LApplication")
+class LApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
 
         Constants.setIsDebug(isDebug = true)
-        Utils.init(this)
+
         //config admob id
         AdmobData.instance.idAdmobFull = getString(R.string.str_f)
+
         //config activity transition default
         ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
 
@@ -68,12 +58,9 @@ class LApplication : MultiDexApplication() {
         //fcm
         FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC)
 
-        //big imageview
-        BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
-
-        LConnectivityUtil.initOnNetworkChange(applicationContext)
-
         //room database
         FNBDatabase.getInstance(this)
+
+//        logD("LApplication onCreate")
     }
 }

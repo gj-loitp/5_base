@@ -14,9 +14,9 @@ import android.widget.PopupWindow;
 import android.widget.ScrollView;
 
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 
 import com.R;
+import com.core.utilities.LAppResource;
 
 public class CustomTextView extends AppCompatTextView {
 
@@ -53,7 +53,7 @@ public class CustomTextView extends AppCompatTextView {
     }
 
     private void init() {
-        setDefaultSelectionColor(ContextCompat.getColor(getContext(), R.color.gray));
+        setDefaultSelectionColor(LAppResource.INSTANCE.getColor(R.color.gray));
         mCursorSelection = new CustomInfo();
         mSelectionController = new SelectionCursorController();
 
@@ -511,7 +511,7 @@ public class CustomTextView extends AppCompatTextView {
 
             mController = controller;
 
-            mDrawable = ContextCompat.getDrawable(getContext(), R.drawable.l_cursor);
+            mDrawable = LAppResource.INSTANCE.getDrawable(R.drawable.l_cursor);
 
             mContainer = new PopupWindow(this);
             // mContainer.setSplitTouchEnabled(true);

@@ -23,7 +23,6 @@ import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.appcompat.widget.AppCompatCheckBox
-import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -55,7 +54,7 @@ import java.util.*
  */
 class LUIUtil {
     companion object {
-        private val TAG = LUIUtil::class.java.simpleName
+        private val logTag = LUIUtil::class.java.simpleName
 
         private var lastOffset = 0.0f
         private var isUp = false
@@ -135,18 +134,18 @@ class LUIUtil {
                     if (x < maxNumber) {
                         i.show()
                     } else {
-                        //dont use LLog here
+                        //don't use LLog here
                         Log.d("interstitial", "displayInterstitial: interstitial isLoaded() but $x > $maxNumber")
                     }
                 } else {
-                    //dont use LLog here
+                    //don't use LLog here
                     Log.d("interstitial", "displayInterstitial: interstitial !isLoaded()")
                 }
             }
         }
 
         /*
-         * settext marquee
+         * set text marquee
          */
         fun setMarquee(tv: TextView?, text: String?) {
             tv?.let { t ->
@@ -218,25 +217,24 @@ class LUIUtil {
             }
         }
 
-        fun setImageFromAsset(context: Context, fileName: String, imageView: ImageView?) {
+        fun setImageFromAsset(fileName: String, imageView: ImageView?) {
             imageView?.let { iv ->
                 run {
                     val drawable: Drawable?
                     var stream: InputStream? = null
                     try {
-                        stream = context.assets.open("img/$fileName")
+                        stream = LAppResource.application.assets.open("img/$fileName")
                         drawable = Drawable.createFromStream(stream, null)
                         drawable?.let {
                             iv.setImageDrawable(it)
                         }
                     } catch (e: Exception) {
-                        Log.e(TAG, "setImageFromAsset: $e")
+                        Log.e(logTag, "setImageFromAsset: $e")
                         e.printStackTrace()
                     } finally {
                         try {
                             stream?.close()
                         } catch (e: Exception) {
-                            LLog.d(TAG, "setImageFromAsset: $e")
                             e.printStackTrace()
                         }
 
@@ -291,6 +289,10 @@ class LUIUtil {
         fun setColorForSwipeRefreshLayout(swipeRefreshLayout: SwipeRefreshLayout?) {
             swipeRefreshLayout?.setColorSchemeResources(R.color.colorPrimary, R.color.vip1, R.color.vip2,
                     R.color.vip3, R.color.vip4, R.color.vip5)
+        }
+
+        fun setProgressViewOffset(swipeRefreshLayout: SwipeRefreshLayout?, topMargin: Int) {
+            swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
         }
 
         fun setTextShadow(textView: TextView?, color: Int = Color.BLACK) {
@@ -358,28 +360,23 @@ class LUIUtil {
                             // 'view' is currently being over-scrolled from the top.
                             lastOffset = offset
                             isUp = true
-                            //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
                         }
                         offset < 0 -> {
                             // 'view' is currently being over-scrolled from the bottom.
                             lastOffset = offset
                             isUp = false
-                            //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
                         }
                         else -> {
                             // No over-scroll is in-effect.
                             // This is synonymous with having (state == STATE_IDLE).
-                            //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
                             if (isUp) {
-                                //LLog.d(TAG, "________________ up " + lastOffset);
                                 if (lastOffset > 1.8f) {
                                     callbackPull.onUpOrLeftRefresh(lastOffset)
-                                    LSoundUtil.startMusicFromAsset(viewPager.context, "ting.ogg")
+                                    LSoundUtil.startMusicFromAsset("ting.ogg")
                                 } else {
                                     callbackPull.onUpOrLeft(lastOffset)
                                 }
                             } else {
-                                //LLog.d(TAG, "________________ down " + lastOffset);
                                 if (lastOffset < -1.8f) {
                                     callbackPull.onDownOrRightRefresh(lastOffset)
                                 } else {
@@ -430,28 +427,23 @@ class LUIUtil {
                             // 'view' is currently being over-scrolled from the top.
                             lastOffset = offset
                             isUp = true
-                            //LLog.d(TAG, "________________>0 " + lastOffset + " " + isUp);
                         }
                         offset < 0 -> {
                             // 'view' is currently being over-scrolled from the bottom.
                             lastOffset = offset
                             isUp = false
-                            //LLog.d(TAG, "________________<0 " + lastOffset + " " + isUp);
                         }
                         else -> {
                             // No over-scroll is in-effect.
                             // This is synonymous with having (state == STATE_IDLE).
-                            //LLog.d(TAG, "________________STATE_IDLE" + lastOffset + " " + isUp);
                             if (isUp) {
-                                //LLog.d(TAG, "________________ up " + lastOffset);
                                 if (lastOffset > 1.8f) {
                                     callbackPull.onUpOrLeftRefresh(lastOffset)
-                                    LSoundUtil.startMusicFromAsset(recyclerView.context, "ting.ogg")
+                                    LSoundUtil.startMusicFromAsset("ting.ogg")
                                 } else {
                                     callbackPull.onUpOrLeft(lastOffset)
                                 }
                             } else {
-                                //LLog.d(TAG, "________________ down " + lastOffset);
                                 if (lastOffset < -1.8f) {
                                     callbackPull.onDownOrRightRefresh(lastOffset)
                                 } else {
@@ -501,10 +493,10 @@ class LUIUtil {
             OverScrollDecoratorHelper.setUpStaticOverScroll(view, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
         }
 
-        fun getColor(context: Context): Int {
+        fun getColor(): Int {
             val random = Random()
             val c = random.nextInt(colors.size)
-            return ContextCompat.getColor(context, colors[c])
+            return LAppResource.getColor(colors[c])
         }
 
         //it.imeOptions = EditorInfo.IME_ACTION_SEARCH
@@ -652,9 +644,9 @@ class LUIUtil {
         }
 
         //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
-        fun playYoutube(activity: Activity?, url: String) {
+        fun playYoutube(activity: Activity?, url: String?) {
             activity?.let { a ->
-                if (url.isEmpty()) {
+                if (url.isNullOrEmpty()) {
                     return
                 }
                 a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))

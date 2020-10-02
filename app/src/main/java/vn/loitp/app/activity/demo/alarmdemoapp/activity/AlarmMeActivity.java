@@ -16,7 +16,6 @@ import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
-import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 
 import vn.loitp.app.R;
@@ -44,8 +43,6 @@ public class AlarmMeActivity extends BaseFontActivity {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        LLog.d(getLogTag(), "AlarmMeActivity.onCreate()");
-
         ListView mAlarmList = findViewById(R.id.lv_alarm);
         LUIUtil.Companion.setPullLikeIOSVertical(mAlarmList);
 
@@ -60,13 +57,13 @@ public class AlarmMeActivity extends BaseFontActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LLog.d(getLogTag(), "AlarmMeActivity.onDestroy()");
+        logD("AlarmMeActivity.onDestroy()");
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        LLog.d(getLogTag(), "AlarmMeActivity.onResume()");
+        logD("AlarmMeActivity.onResume()");
         mAlarmListAdapter.updateAlarms();
     }
 

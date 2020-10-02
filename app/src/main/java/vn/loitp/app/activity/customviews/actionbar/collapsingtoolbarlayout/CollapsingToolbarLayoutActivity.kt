@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
-import androidx.core.content.ContextCompat
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
 import com.core.utilities.LPopupMenu
 import com.google.android.material.snackbar.Snackbar
 import com.interfaces.CallbackPopup
@@ -25,7 +25,7 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(this, R.color.colorPrimary))
+        setCustomStatusBar(colorStatusBar = Color.TRANSPARENT, colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
         setSupportActionBar(toolbar)
 

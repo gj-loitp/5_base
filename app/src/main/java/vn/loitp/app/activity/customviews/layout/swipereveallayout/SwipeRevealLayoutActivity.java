@@ -61,42 +61,42 @@ public class SwipeRevealLayoutActivity extends BaseFontActivity {
     }
 
     public void layoutOneOnClick(View v) {
-        showShort("Layout 1 clicked");
+        showShort("Layout 1 clicked", true);
     }
 
     public void layoutTwoOnClick(View v) {
-        showShort("Layout 2 clicked");
+        showShort("Layout 2 clicked", true);
     }
 
     public void layoutThreeOnClick(View v) {
-        showShort("Layout 3 clicked");
+        showShort("Layout 3 clicked", true);
     }
 
     public void layoutFourOnClick(View v) {
-        showShort("Layout 4 clicked");
+        showShort("Layout 4 clicked", true);
     }
 
     public void moreOnClick(View v) {
-        showShort("More clicked");
+        showShort("More clicked", true);
     }
 
     public void deleteOnClick(View v) {
-        showShort("Delete clicked");
+        showShort("Delete clicked", true);
     }
 
     public void archiveOnClick(View v) {
-        showShort("Archive clicked");
+        showShort("Archive clicked", true);
     }
 
     public void helpOnClick(View v) {
-        showShort("Help clicked");
+        showShort("Help clicked", true);
     }
 
     public void searchOnClick(View v) {
-        showShort("Search clicked");
+        showShort("Search clicked", true);
     }
 
     public void starOnClick(View v) {
-        showShort("Star clicked");
+        showShort("Star clicked", true);
     }
 }

@@ -21,7 +21,7 @@ class AdmobInterstitialActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         isShowAdWhenExit = false//remove show duplicate ads in BaseActivity
         interstitialAd = LUIUtil.createAdFull(this)
-        val s = LStoreUtil.readTxtFromRawFolder(context = this, nameOfRawFile = R.raw.ad_full)
+        val s = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.ad_full)
         textView.text = s
     }
 

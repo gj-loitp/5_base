@@ -10,8 +10,6 @@ import vn.loitp.app.R
 class MoviesAdapter(private val moviesList: List<Movie>, private val callback: Callback?) :
         com.core.adapter.AnimationAdapter() {
 
-    private val logTag = javaClass.simpleName
-
     interface Callback {
         fun onClick(movie: Movie, position: Int)
         fun onLongClick(movie: Movie, position: Int)
@@ -20,7 +18,6 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
 
     inner class MovieViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) {
-//            LLog.d(logTag, "bind: $bindingAdapterPosition")
             itemView.title.text = movie.title
             itemView.genre.text = movie.genre
             itemView.year.text = movie.year

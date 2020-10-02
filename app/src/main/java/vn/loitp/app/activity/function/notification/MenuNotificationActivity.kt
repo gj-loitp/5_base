@@ -149,7 +149,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 pendingIntent.putExtra(KEY_NOTI_DATA_INTENT, "KEY_NOTI_DATA_INTENT " + System.currentTimeMillis())
                 //pendingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 pendingIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-                LNotification.showNotification(context = this, title = title, body = body, iconRes = iconRes, intent = pendingIntent)
+                LNotification.showNotification(title = title, body = body, iconRes = iconRes, intent = pendingIntent)
             }
         }
     }

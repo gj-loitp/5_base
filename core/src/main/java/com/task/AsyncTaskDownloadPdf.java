@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.core.utilities.LDateUtil;
-import com.core.utilities.LLog;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,7 +16,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
-    private final String TAG = getClass().getSimpleName();
+    private final String logTag = getClass().getSimpleName();
     private String mURL;
     private String folderPath;
     private String fileName;
@@ -57,14 +56,14 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
 
             if (!dir.exists()) {
                 boolean isMkDirResult = dir.mkdir();
-                LLog.d(TAG, "isMkDirResult " + isMkDirResult);
+//                Log.d(logTag, "isMkDirResult " + isMkDirResult);
             }
 
             /* checks the file and if it already exist delete */
             final File file = new File(dir, fileName);
             if (file.exists()) {
                 boolean isDeleted = file.delete();
-                LLog.d(TAG, "isDeleted " + isDeleted);
+//                Log.d(logTag, "isDeleted " + isDeleted);
             }
 
             /* Open a connection */
@@ -82,13 +81,13 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
             }
             final FileOutputStream fos = new FileOutputStream(file);
             final int totalSize = httpURLConnection.getContentLength();
-            LLog.d(TAG, "totalSize " + totalSize);
+//            Log.d(logTag, "totalSize " + totalSize);
             int downloadedSize = 0;
             final byte[] buffer = new byte[1024 * 2];
             int bufferLength;
             while ((bufferLength = inputStream.read(buffer)) > 0) {
                 if (isCancelled()) {
-                    LLog.d(TAG, "isCancelled -> return false");
+//                    Log.d(logTag, "isCancelled -> return false");
                     return null;
                 }
                 fos.write(buffer, 0, bufferLength);
@@ -97,15 +96,17 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
             }
 
             fos.close();
-            LLog.d(TAG, "File saved in sdcard..");
+//            Log.d(logTag, "File saved in sdcard..");
             return file;
         } catch (IOException ioException) {
+            ioException.printStackTrace();
             exception = ioException;
-            LLog.e(TAG, "IOException" + ioException.toString());
+//            Log.e(logTag, "IOException" + ioException.toString());
             return null;
         } catch (Exception e) {
+            e.printStackTrace();
             exception = e;
-            LLog.e(TAG, "Exception" + e.toString());
+//            Log.e(logTag, "Exception" + e.toString());
             return null;
         }
     }
@@ -116,7 +117,7 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
         final int downloadedSize = values[0];
         final int totalSize = values[1];
         final float percent = (float) downloadedSize * 100 / (float) totalSize;
-        //LLog.d(TAG, "onProgressUpdate: " + downloadedSize + "-" + totalSize + " -> " + ((float) downloadedSize * 100 / (float) totalSize) + "%");
+//        Log.d(TAG, "onProgressUpdate: " + downloadedSize + "-" + totalSize + " -> " + ((float) downloadedSize * 100 / (float) totalSize) + "%");
         if (callback != null) {
             callback.onProgressUpdate(downloadedSize, totalSize, percent);
         }
@@ -125,13 +126,13 @@ public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
     @Override
     protected void onPostExecute(File file) {
         boolean isDownloaded = file != null && file.exists();
-        LLog.d(TAG, "onPostExecute isDownloaded: " + isDownloaded);
+//        Log.d(logTag, "onPostExecute isDownloaded: " + isDownloaded);
         if (isDownloaded) {
             if (callback != null) {
                 final long endTime = System.currentTimeMillis();
                 final long durationSec = (endTime - startTime) / 1000;
                 final String duration = LDateUtil.Companion.convertSToFormat(durationSec, "HH:mm:ss");
-                LLog.d(TAG, "onPostExecute duration: " + duration);
+//                Log.d(logTag, "onPostExecute duration: " + duration);
                 callback.onSuccess(durationSec, duration, file);
             }
         } else {

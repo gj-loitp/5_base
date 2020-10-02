@@ -8,7 +8,7 @@ import com.utils.util.ConvertUtils
 import com.utils.util.ScreenUtils
 
 class ImageButtonWithSize : AppCompatImageButton {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
@@ -63,9 +63,6 @@ class ImageButtonWithSize : AppCompatImageButton {
 
     private fun updateSize() {
         val isPortrait = ScreenUtils.isPortrait()
-        //LLog.d(TAG, "updateSize isPortrait " + isPortrait);
-        //LLog.d(TAG, "size portrait: " + portraitSizeW + "x" + portraitSizeH);
-        //LLog.d(TAG, "size landscape: " + landscapeSizeW + "x" + landscapeSizeH);
         if (isPortrait) {
             this.layoutParams.width = portraitSizeW
             this.layoutParams.height = portraitSizeH

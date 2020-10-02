@@ -4,17 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
-
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImagePagerAdapter
@@ -28,7 +25,12 @@ class RvTabCustomView02Activity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val demo = Demo.valueOf(intent.getStringExtra(KEY_DEMO))
+        val keyDemo = intent.getStringExtra(KEY_DEMO)
+        if (keyDemo.isNullOrEmpty()) {
+            onBackPressed()
+            return
+        }
+        val demo = Demo.valueOf(keyDemo)
 
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         toolbar.setTitle(demo.titleResId)

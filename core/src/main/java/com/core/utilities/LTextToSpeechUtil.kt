@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.content.Context
 import android.os.Build
 import android.speech.tts.TextToSpeech
 import java.util.*
@@ -10,25 +9,23 @@ import java.util.*
  */
 
 class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var tts: TextToSpeech? = null
-    private var context: Context? = null
 
-    fun setupTTS(context: Context) {
-        this.context = context
-        tts = TextToSpeech(context, this)
+    fun setupTTS() {
+        tts = TextToSpeech(LAppResource.application, this)
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             val result = tts?.setLanguage(Locale.US)
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                LLog.d(TAG, "This Language is not supported")
+//                Log.d(logTag, "This Language is not supported")
             } else {
                 //speakOut("Example");
             }
         } else {
-            LLog.d("TTS", "Initilization Failed!")
+//            Log.d("TTS", "Initilization Failed!")
         }
     }
 

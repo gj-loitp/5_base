@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -13,7 +12,7 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
-import com.views.LToast;
+import com.core.utilities.LAppResource;
 import com.views.menu.residemenu.ResideMenu;
 import com.views.menu.residemenu.ResideMenuItem;
 
@@ -48,7 +47,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         // attach to current activity;
         resideMenu = new ResideMenu(this);
         resideMenu.getRealtimeBlurView().setBlurRadius(50);
-        resideMenu.getRealtimeBlurView().setOverlayColor(ContextCompat.getColor(this, R.color.black65));
+        resideMenu.getRealtimeBlurView().setOverlayColor(LAppResource.INSTANCE.getColor(R.color.black65));
         resideMenu.setUse3D(true);
         resideMenu.setBackground(R.drawable.iv);
         resideMenu.attachToActivity(this);
@@ -108,12 +107,12 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
         @Override
         public void openMenu() {
-            LToast.show(getBaseContext(), "Menu is opened!");
+            showShort("Menu is opened!", true);
         }
 
         @Override
         public void closeMenu() {
-            LToast.show(getBaseContext(), "Menu is closed!");
+            showShort("Menu is closed!", true);
         }
     };
 

@@ -10,14 +10,13 @@ import androidx.annotation.AttrRes
 import androidx.core.view.MotionEventCompat
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
-import com.core.utilities.LLog
 import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
 class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr: Int = 0)
     : LinearLayout(context, attrs, defStyleAttr) {
 
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private lateinit var headerView: View
     private lateinit var bodyView: View
     private lateinit var mViewDragHelper: ViewDragHelper
@@ -74,7 +73,6 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
             sizeHHeaderViewOriginal = headerView.measuredHeight
             sizeWHeaderViewMin = sizeWHeaderViewOriginal / 2
             sizeHHeaderViewMin = sizeHHeaderViewOriginal / 2
-            //LLog.d(TAG, "size original: " + sizeWHeaderViewOriginal + "x" + sizeHHeaderViewOriginal + " -> " + sizeWHeaderViewMin + "x" + sizeHHeaderViewMin);
         }
     }
 
@@ -126,7 +124,6 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
             mCenterX = left + sizeWHeaderViewOriginal / 2
             mCenterY = top + newSizeHHeaderView / 2 + sizeHHeaderViewOriginal - newSizeHHeaderView
 
-//            LLog.d(TAG, "onViewPositionChanged left: " + left + ", top: " + top + ", mDragOffset: " + mDragOffset + " => newSizeW " + newSizeWHeaderView + "x" + newSizeHHeaderView + "=> mCenterX: " + mCenterX + ", mCenterY: " + mCenterY)
             when (mDragOffset) {
                 0f -> {
                     //top_left, top, top_right
@@ -200,7 +197,6 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
             val scaledY = child.scaleY
             val sizeHScaled = (scaledY * child.height).toInt()
             val maxY = height - sizeHScaled * 3 / 2
-//            LLog.d(TAG, "clampViewPositionVertical getHeight:" + getHeight() + ", scaledY:" + scaledY + ", sizeHScaled: " + sizeHScaled + ", top:" + top + ", minY: " + minY + ", maxY: " + maxY);
             return when {
                 top <= minY -> {
                     minY
@@ -243,7 +239,6 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
     private fun changeState(newState: State) {
         if (state != newState) {
             state = newState
-//            LLog.d(TAG, "changeState: $newState")
             state?.let {
                 callback?.onStateChange(it)
             }
@@ -253,7 +248,6 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
     private fun changePart(newPart: Part) {
         if (part != newPart) {
             part = newPart
-//            LLog.d(TAG, "changePart: $part")
             part?.let {
                 callback?.onPartChange(it)
             }
@@ -278,9 +272,7 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
         val isViewUnder = mViewDragHelper.isViewUnder(headerView, x.toInt(), y.toInt())
         when (event.action and MotionEventCompat.ACTION_MASK) {
             MotionEvent.ACTION_UP -> {
-//                LLog.d(TAG, "onTouchEvent ACTION_UP state:" + state?.name + ", mCenterX: " + mCenterX)
                 if (state == State.TOP_LEFT || state == State.TOP_RIGHT || state == State.BOTTOM_LEFT || state == State.BOTTOM_RIGHT) {
-//                    LLog.d(TAG, "destroy state: " + state?.name)
                     callback?.onOverScroll(state = state, part = part)
                 } else {
                     if (part == Part.BOTTOM_LEFT) {
@@ -315,7 +307,6 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
         mDragRange = height - headerView.height
         mAutoBackViewX = headerView.left
         mAutoBackViewY = headerView.top
-//        LLog.d(TAG, "onLayout l:$l, t:$t, r:$r, b:$b, mAutoBackViewX: $mAutoBackViewX, mAutoBackViewY: $mAutoBackViewY");
     }
 
     enum class State {
@@ -332,52 +323,46 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
     fun maximize() {
         if (isEnableRevertMaxSize) {
             smoothSlideTo(0, 0)
-        } else {
-            LLog.e(TAG, "Error: cannot maximize because isEnableRevertMaxSize is true")
         }
     }
 
     fun minimizeBottomLeft() {
         val posX = width - sizeWHeaderViewOriginal - sizeWHeaderViewMin / 2
         val posY = height - sizeHHeaderViewOriginal
-//        LLog.d(TAG, "minimize " + posX + "x" + posY);
         smoothSlideTo(posX, posY)
     }
 
     fun minimizeBottomRight() {
         val posX = width - sizeWHeaderViewOriginal + sizeWHeaderViewMin / 2
         val posY = height - sizeHHeaderViewOriginal
-//        LLog.d(TAG, "minimize " + posX + "x" + posY);
         smoothSlideTo(posX, posY)
     }
 
     fun minimizeTopRight() {
         if (isEnableRevertMaxSize) {
-//            LLog.e(TAG, "Error: cannot minimizeTopRight because isEnableRevertMaxSize is true")
+//            Log.e(TAG, "Error: cannot minimizeTopRight because isEnableRevertMaxSize is true")
             return
         }
         if (!isMinimized) {
-//            LLog.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM")
+//            Log.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM")
             return
         }
         val posX = screenW - sizeWHeaderViewMin * 3 / 2
         val posY = -sizeHHeaderViewMin
-//        LLog.d(TAG, "minimizeTopRight " + posX + "x" + posY);
         smoothSlideTo(posX, posY)
     }
 
     fun minimizeTopLeft() {
         if (isEnableRevertMaxSize) {
-//            LLog.e(TAG, "Error: cannot minimizeTopRight because isEnableRevertMaxSize is true")
+//            Log.e(TAG, "Error: cannot minimizeTopRight because isEnableRevertMaxSize is true")
             return
         }
         if (!isMinimized) {
-//            LLog.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM")
+//            Log.e(TAG, "Error: cannot minimizeTopRight because isMinimized is false. This function only works if the header view is scrolled BOTTOM")
             return
         }
         val posX = -sizeWHeaderViewMin / 2
         val posY = -sizeHHeaderViewMin
-//        LLog.d(TAG, "minimizeTopRight " + posX + "x" + posY);
         smoothSlideTo(positionX = posX, positionY = posY)
     }
 

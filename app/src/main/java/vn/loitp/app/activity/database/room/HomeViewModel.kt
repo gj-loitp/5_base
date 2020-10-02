@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.database.room
 
-import android.app.Application
 import com.core.base.BaseViewModel
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
@@ -10,8 +9,8 @@ import vn.loitp.app.activity.database.room.model.Area
 import vn.loitp.app.activity.database.room.model.FloorPlan
 import vn.loitp.app.activity.database.room.model.Table
 
-class HomeViewModel(application: Application) : BaseViewModel() {
-    private val TAG = "loitpp" + javaClass.simpleName
+class HomeViewModel : BaseViewModel() {
+    private val logTag = javaClass.simpleName
     val saveFloorPlanActionLiveData: ActionLiveData<ActionData<ArrayList<FloorPlan>>> = ActionLiveData()
     val getFloorPlanActionLiveData: ActionLiveData<ActionData<List<FloorPlan>>> = ActionLiveData()
     val getByIndexFloorPlanActionLiveData: ActionLiveData<ActionData<List<FloorPlan>>> = ActionLiveData()

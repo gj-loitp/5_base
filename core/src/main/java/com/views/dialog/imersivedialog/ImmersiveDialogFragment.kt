@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
-import com.core.utilities.LLog
 import com.views.LToast
 
 /**
@@ -15,7 +14,7 @@ import com.views.LToast
  */
 
 class ImmersiveDialogFragment : DialogFragment() {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
@@ -29,20 +28,15 @@ class ImmersiveDialogFragment : DialogFragment() {
         alertDialog.window?.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
 
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK") { _, _ ->
-            context?.let { c ->
-                LToast.show(c, "Touch OK")
-            }
+            LToast.show("Touch OK")
         }
-        //int color = ContextCompat.getColor(getActivity(), R.color.colorPrimary);
-        //alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
         return alertDialog
     }
 
     fun showImmersive(activity: Activity) {
         if (activity is BaseActivity) {
             activity.supportFragmentManager.let { fm ->
-                show(fm, TAG)
-                LLog.d(TAG, "show")
+                show(fm, logTag)
 
                 // It is necessary to call executePendingTransactions() on the FragmentManager
                 // before hiding the navigation bar, because otherwise getWindow() would raise a

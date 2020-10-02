@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.demo.architecturecomponent.room.dao
+package com.core.base
 
 import androidx.room.*
 

@@ -4,14 +4,13 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
-import com.R
-import com.views.LToast
 
 class LPickerUtil {
 
     companion object {
         fun cropImage(activity: Activity?, picUri: Uri?, CROP_PIC_REQUEST_CODE: Int,
-                      aspectX: Int, aspectY: Int, outputX: Int, outputY: Int) {
+                      aspectX: Int, aspectY: Int, outputX: Int, outputY: Int,
+                      error: ((String) -> Unit)? = null) {
 
             if (activity == null || picUri == null) {
                 return
@@ -31,7 +30,7 @@ class LPickerUtil {
             } catch (activityNotFoundException: ActivityNotFoundException) {
                 activityNotFoundException.printStackTrace()
                 val errorMessage = "Whoops - your device doesn't support the crop action!"
-                LToast.showShort(context = activity, msg = errorMessage, backgroundRes = R.drawable.l_bkg_horizontal)
+                error?.invoke(errorMessage)
             }
         }
     }

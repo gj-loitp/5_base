@@ -24,8 +24,6 @@ import java.util.*
 class MemberAdapter(private val context: Context, private val callback: Callback?)
     : AnimationAdapter() {
 
-    private val logTag = javaClass.simpleName
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
     }

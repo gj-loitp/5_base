@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.R;
 import com.core.utilities.LDateUtil;
-import com.core.utilities.LLog;
 import com.core.utilities.LScreenUtil;
 import com.core.utilities.LUIUtil;
 
@@ -28,7 +27,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 public class LDebugViewService extends Service implements View.OnTouchListener {
-    private final String TAG = getClass().getSimpleName();
+    private final String logTag = getClass().getSimpleName();
     private WindowManager mWindowManager;
     private View mFloatingView;
     private WindowManager.LayoutParams params;
@@ -178,10 +177,10 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         TextView textView = new TextView(this);
 
         if (msgFromActivity.getObject() == null) {
-            LLog.d(TAG, "msgFromActivity.getObject() == null");
+//            Log.d(logTag, "msgFromActivity.getObject() == null");
             textView.setText(currentTime + " : " + msgFromActivity.getMsg());
         } else {
-            LLog.d(TAG, "msgFromActivity.getObject() != null");
+//            Log.d(logTag, "msgFromActivity.getObject() != null");
             LUIUtil.Companion.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
         }
 
@@ -213,7 +212,6 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
     //listen msg from activity
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(LComunicateDebug.MsgFromActivity msg) {
-        //LLog.d(TAG, "onEvent " + msg.getMsg());
         print(msg);
     }
 }

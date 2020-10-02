@@ -61,7 +61,6 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     }
 
     private fun loadRewardedVideoAd() {
-        //LLog.d(TAG, "loadRewardedVideoAd");
         //avLoadingIndicatorView.smoothToShow();
         textView.setText(R.string.loading)
         mAd?.loadAd(strReward, AdRequest.Builder()

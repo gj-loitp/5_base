@@ -23,7 +23,7 @@ class LActionbarActivity : BaseFontActivity() {
     }
 
     private fun setupActionBar() {
-        textView.text = LStoreUtil.readTxtFromRawFolder(context = this, nameOfRawFile = R.raw.lactionbar)
+        textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lactionbar)
 
         lActionBar.setOnClickBack(object : LActionBar.Callback {
             override fun onClickBack(view: View) {
@@ -31,7 +31,7 @@ class LActionbarActivity : BaseFontActivity() {
             }
 
             override fun onClickMenu(view: View) {
-                LToast.show(this@LActionbarActivity, "onClickMenu")
+                LToast.show("onClickMenu")
             }
         })
         lActionBar.showMenuIcon()

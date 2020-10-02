@@ -9,6 +9,7 @@ import android.provider.Settings
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.Callback1
@@ -26,7 +27,6 @@ import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
-import vn.loitp.app.app.LApplication
 import java.io.IOException
 
 @LayoutId(R.layout.activity_splash)
@@ -40,6 +40,7 @@ class SplashActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         LUIUtil.setDelay(mls = 2500, runnable = Runnable {
             isAnimDone = true
             goToHome()
@@ -56,7 +57,6 @@ class SplashActivity : BaseFontActivity() {
 
         startIdleTimeHandler(10 * 1000)
         //val getAddressLog = DebugDB.getAddressLog()
-        //LLog.d(TAG, "getAddressLog $getAddressLog")
     }
 
     override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
@@ -73,7 +73,7 @@ class SplashActivity : BaseFontActivity() {
 
     private fun checkPermission() {
         isShowDialogCheck = true
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission(context = this)
+        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
         if (isCanWriteSystem) {
             Dexter.withActivity(this)
                     .withPermissions(
@@ -134,7 +134,6 @@ class SplashActivity : BaseFontActivity() {
 
     private fun goToHome() {
         //String s = LStoreUtil.readTxtFromAsset(activity, "news.json");
-        //LLog.d(TAG, "goToHome " + s);
         if (isAnimDone && isCheckReadyDone) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
@@ -147,7 +146,7 @@ class SplashActivity : BaseFontActivity() {
 
     private fun showDialogNotReady() {
         runOnUiThread {
-            val title = if (LConnectivityUtil.isConnected(this)) {
+            val title = if (LConnectivityUtil.isConnected()) {
                 "This app is not available now"
             } else {
                 getString(R.string.check_ur_connection)
@@ -166,7 +165,7 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun checkReady() {
-        if (LPrefUtil.getCheckAppReady(this)) {
+        if (LPrefUtil.getCheckAppReady()) {
             isCheckReadyDone = true
             goToHome()
             return
@@ -183,12 +182,11 @@ class SplashActivity : BaseFontActivity() {
             @Throws(IOException::class)
             override fun onResponse(call: Call, response: Response) {
                 if (response.isSuccessful && response.body != null) {
-                    //LLog.d(TAG, "onResponse isSuccessful " + response.toString());
                     val versionServer = Integer.parseInt(response.body!!.string())
                     logD("onResponse $versionServer")
                     if (versionServer == 1) {
                         isCheckReadyDone = true
-                        LPrefUtil.setCheckAppReady(this@SplashActivity, true)
+                        LPrefUtil.setCheckAppReady(true)
                         goToHome()
                     } else {
                         showDialogNotReady()
@@ -246,14 +244,13 @@ class SplashActivity : BaseFontActivity() {
     private fun getSettingFromGGDrive() {
         val linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
         LStoreUtil.getSettingFromGGDrive(
-                context = this,
                 linkGGDriveSetting = linkGGDriveConfigSetting,
                 ggSettingCallback = object : GGSettingCallback {
                     override fun onGGFailure(call: Call, e: IOException) {
                     }
 
                     override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
-                        logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + LApplication.gson.toJson(app))
+                        logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + BaseApplication.gson.toJson(app))
                     }
                 })
     }
@@ -261,7 +258,6 @@ class SplashActivity : BaseFontActivity() {
     private fun getGG() {
         val linkGGDrive = "https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI"
         LStoreUtil.getTextFromGGDrive(
-                context = this,
                 linkGGDrive = linkGGDrive,
                 ggCallback = object : GGCallback {
                     override fun onGGFailure(call: Call, e: Exception) {
@@ -269,7 +265,7 @@ class SplashActivity : BaseFontActivity() {
                     }
 
                     override fun onGGResponse(listGG: ArrayList<GG>) {
-                        logD("getGG listGG: -> " + LApplication.gson.toJson(listGG))
+                        logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
                     }
                 })
     }
