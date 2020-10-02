@@ -189,7 +189,7 @@ class LStoreUtil {
             }
             return text.toString()
         }
-        
+
         /*
          * read text file in raw folder
          */
@@ -210,23 +210,6 @@ class LStoreUtil {
 
             return byteArrayOutputStream.toString()
         }
-
-//        fun readTxtFromRawFolder(context: Context, nameOfRawFile: Int, callbackReadFromRaw: CallbackReadFromRaw) {
-//            //TODO convert to rx
-//            object : AsyncTask<Void, Void, Void>() {
-//                var result: String? = null
-//
-//                override fun doInBackground(vararg params: Void): Void? {
-//                    result = readTxtFromRawFolder(context, nameOfRawFile)
-//                    return null
-//                }
-//
-//                override fun onPostExecute(aVoid: Void) {
-//                    super.onPostExecute(aVoid)
-//                    callbackReadFromRaw.onFinish(result)
-//                }
-//            }.execute()
-//        }
 
         fun saveHTMLCodeFromURLToSDCard(link: String, folderName: String, fileName: String): Boolean {
             var state = false
