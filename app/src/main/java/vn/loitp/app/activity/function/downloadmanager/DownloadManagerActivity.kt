@@ -5,6 +5,7 @@ import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Environment
+import android.os.Handler
 import android.view.View
 import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
@@ -30,6 +31,7 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     private var downloader: Downloader? = null
     private var lStoreUtilModel: LStoreUtilModel? = null
+    private val handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +41,7 @@ class DownloadManagerActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        btStartDownload.setSafeOnClickListener {
+        btStartDownload.setOnClickListener {
             getDownloader()
             downloader?.download()
         }
@@ -143,43 +145,58 @@ class DownloadManagerActivity : BaseFontActivity() {
                 fileNameExtension = "jpg",
                 onDownloadListener = object : OnDownloadListener {
                     override fun onCancel() {
-                        tvCurrentStatus.text = "onCancel"
+                        handler.post {
+                            tvCurrentStatus?.text = "onCancel"
+                        }
                         logD("onCancel")
                     }
 
                     override fun onCompleted(file: File?) {
-                        tvCurrentStatus.text = "onCompleted ${file?.path}"
+                        handler.post {
+                            file?.let {
+                                tvCurrentStatus?.text = "onCompleted ${it.path}"
+                                LStoreUtil.sendBroadcastMediaScan(it)
+                            }
+                        }
                         logD("onCompleted: file --> $file")
-
-                        LStoreUtil.sendBroadcastMediaScan(file)
                     }
 
                     override fun onFailure(reason: String?) {
-                        tvCurrentStatus.text = "onFailure: reason --> $reason"
+                        handler.post {
+                            tvCurrentStatus?.text = "onFailure: reason --> $reason"
+                        }
                         logE("onFailure: reason --> $reason")
                     }
 
                     override fun onPause() {
-                        tvCurrentStatus.text = "onPause"
+                        handler.post {
+                            tvCurrentStatus?.text = "onPause"
+                        }
                         logD("onPause")
                     }
 
                     override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
-                        tvCurrentStatus.text = "onProgressUpdate"
-                        tvPercent.text = percent.toString().plus("%")
-                        tvSize.text = LStoreUtil.getSize(downloadedSize)
-                        tvTotalSize.text = LStoreUtil.getSize(totalSize)
-                        sbDownloadProgress.progress = percent
-                        logD("onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
+                        handler.post {
+                            tvCurrentStatus?.text = "onProgressUpdate"
+                            tvPercent?.text = percent.toString().plus("%")
+                            tvSize?.text = LStoreUtil.getSize(downloadedSize)
+                            tvTotalSize?.text = LStoreUtil.getSize(totalSize)
+                            sbDownloadProgress?.progress = percent
+                        }
+//                        logD("onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
                     }
 
                     override fun onResume() {
-                        tvCurrentStatus.text = "onResume"
+                        handler.post {
+                            tvCurrentStatus?.text = "onResume"
+                        }
                         logD("onResume")
                     }
 
                     override fun onStart() {
-                        tvCurrentStatus.text = "onStart"
+                        handler.post {
+                            tvCurrentStatus?.text = "onStart"
+                        }
                         logD("onStart")
                     }
 
