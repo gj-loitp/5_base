@@ -32,6 +32,7 @@ class LStoreUtil {
         const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
         const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
         const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
+        const val FOLDER_PICTURES = "Pictures"
 
         val isSdPresent: Boolean
             get() = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
@@ -428,6 +429,7 @@ class LStoreUtil {
                           onDownloadListener: OnDownloadListener
         ): Downloader? {
             val path = getFolderPath(folderName = folderName)
+            LLog.d(logTag, "getDownloader url $url")
             LLog.d(logTag, "getDownloader path $path")
             val map = HashMap<String, String>()
             token?.let {

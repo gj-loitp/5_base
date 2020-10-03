@@ -384,7 +384,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(
-                folderName = LAppResource.getString(R.string.app_name),
+                folderName = LStoreUtil.FOLDER_PICTURES + "/" + LAppResource.getString(R.string.app_name),
                 url = url,
                 fileName = "Img" + System.currentTimeMillis(),
                 fileNameExtension = "png",
