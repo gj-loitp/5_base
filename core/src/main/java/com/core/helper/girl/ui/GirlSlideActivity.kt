@@ -53,7 +53,8 @@ class GirlSlideActivity : BaseFontActivity() {
         viewPager.currentItem = currentPosition
 
         btDownload.setOnClickListener {
-            val src = listData[currentPosition].src
+            val pos = viewPager.currentItem
+            val src = listData[pos].src
             src?.let {
                 save(url = it)
             }
