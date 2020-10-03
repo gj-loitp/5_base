@@ -2,6 +2,7 @@ package com.core.helper.gallery.slide
 
 import alirezat775.lib.downloader.core.OnDownloadListener
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -98,7 +99,7 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(
-                folderName = LStoreUtil.FOLDER_PICTURES + "/" + LAppResource.getString(R.string.app_name),
+                folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
                 url = url,
                 fileName = "Img" + System.currentTimeMillis(),
                 fileNameExtension = "png",

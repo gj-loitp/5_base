@@ -5,6 +5,7 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.Settings
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -384,7 +385,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(
-                folderName = LStoreUtil.FOLDER_PICTURES + "/" + LAppResource.getString(R.string.app_name),
+                folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
                 url = url,
                 fileName = "Img" + System.currentTimeMillis(),
                 fileNameExtension = "png",

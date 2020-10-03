@@ -4,6 +4,7 @@ import alirezat775.lib.downloader.Downloader
 import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
@@ -135,7 +136,7 @@ class DownloadManagerActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun getDownloader() {
         downloader = LStoreUtil.getDownloader(
-                folderName = LStoreUtil.FOLDER_PICTURES + "/" + "ZZZTestDownloader",
+                folderName = Environment.DIRECTORY_PICTURES + "/" + "ZZZTestDownloader",
                 token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwOGQ3MWQ2Zi0xZTc0LTYwYjQtOWJmMC1mM2E0YzVkMTkwZGUiLCJyb2xlIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAyIiwianRpIjoiMzUxMmZhM2YtYWMzNi00YmM2LWI5ZTEtOTEyMzc5Y2NlZjQ1IiwiRGF0YVR5cGVzIjoiMiIsIm5iZiI6MTU2OTQ3OTc1OSwiZXhwIjoxNTY5NTY5NzU5LCJpYXQiOjE1Njk0Nzk3NTksImlzcyI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biIsImF1ZCI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biJ9.6IfkQkMhI0g-XAbKdHNSH5HiP8fsRAJxnpojjyqwFBI,",
                 url = "https://images.unsplash.com/photo-1499909762747-883b3641e787?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80",
                 fileName = "abc" + System.currentTimeMillis(),

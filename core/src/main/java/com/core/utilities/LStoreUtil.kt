@@ -19,6 +19,8 @@ import java.net.URL
 import java.util.*
 import kotlin.collections.ArrayList
 
+//https://gist.github.com/lopspower/76421751b21594c69eb2
+//https://github.com/lopspower/BestAndroidGists
 
 class LStoreUtil {
     companion object {
@@ -32,7 +34,6 @@ class LStoreUtil {
         const val FILE_NAME_MAIN_COMICS_LIST = "filenamemaincomicslist$EXTENSION"
         const val FILE_NAME_MAIN_COMICS_LIST_FAVOURITE = "filenamemaincomicslistfavourite$EXTENSION"
         const val FILE_NAME_TRUYENTRANHTUAN_DOWNLOADED_COMIC = "filenamedownloadedcomic$EXTENSION"
-        const val FOLDER_PICTURES = "Pictures"
 
         val isSdPresent: Boolean
             get() = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
