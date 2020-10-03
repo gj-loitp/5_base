@@ -42,6 +42,7 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     private fun setupViews() {
         btStartDownload.setOnClickListener {
+//            downloader?.cancelDownload()
             getDownloader()
             downloader?.download()
         }
