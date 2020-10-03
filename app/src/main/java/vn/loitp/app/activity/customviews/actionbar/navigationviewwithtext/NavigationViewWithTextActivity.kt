@@ -3,11 +3,11 @@ package vn.loitp.app.activity.customviews.actionbar.navigationviewwithtext
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import androidx.core.content.ContextCompat
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
 import com.views.navigationview.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
 import vn.loitp.app.R
@@ -25,8 +25,8 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
             setTextNext("Next")
             setTextPrev("Prev Prev Prev")
             setTextSize(dpPrev = 22f, dpText = 18f, dpNext = 22f)
-            colorOn = ContextCompat.getColor(this@NavigationViewWithTextActivity, R.color.red)
-            colorOff = ContextCompat.getColor(this@NavigationViewWithTextActivity, R.color.gray)
+            colorOn = LAppResource.getColor(R.color.red)
+            colorOff = LAppResource.getColor(R.color.gray)
             tv?.setTextColor(Color.BLACK)
         }
 

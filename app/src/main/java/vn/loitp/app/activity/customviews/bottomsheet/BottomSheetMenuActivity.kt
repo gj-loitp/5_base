@@ -32,7 +32,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun click0() {
         btPayment.setOnClickListener {
-            show(this, "Click layoutBottomSheet R.id.bt_payment")
+            show("Click layoutBottomSheet R.id.bt_payment")
         }
         sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
         sheetBehavior?.setBottomSheetCallback(object : BottomSheetCallback() {

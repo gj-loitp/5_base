@@ -22,7 +22,7 @@ class AdmobBannerActivity : BaseFontActivity() {
 
         LUIUtil.createAdBanner(adView)
 
-        val poem = LStoreUtil.readTxtFromRawFolder(this, R.raw.loitp)
+        val poem = LStoreUtil.readTxtFromRawFolder(R.raw.loitp)
         textView.text = poem
     }
 

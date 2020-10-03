@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.BuildConfig
 import com.R
 import com.core.adapter.AnimationAdapter
+import com.core.common.Constants
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.view.ViewGirlTopUser
 import com.core.utilities.LAnimationUtil
@@ -16,7 +18,6 @@ import kotlinx.android.synthetic.main.view_girl_top_user.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_user.view.*
 
 class GirlTopUserAdapter : AnimationAdapter() {
-    private val logTag = "loitpp" + javaClass.simpleName
 
     private val listGirlTopUser = ArrayList<GirlTopUser>()
     var onClickRootView: ((GirlTopUser) -> Unit?)? = null
@@ -24,18 +25,26 @@ class GirlTopUserAdapter : AnimationAdapter() {
     fun setListGirlTopUser(listGirlTopUser: ArrayList<GirlTopUser>) {
         this.listGirlTopUser.clear()
         this.listGirlTopUser.addAll(listGirlTopUser)
-//        LLog.d(logTag, "setListGirlTopUser " + Gson().toJson(listGirlTopUser))
         notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind() {
-//            LLog.d(logTag, "bind $bindingAdapterPosition")
             itemView.layoutHorizontal.removeAllViews()
             listGirlTopUser.forEach { girlTopUser ->
                 val viewGirlTopUser = ViewGirlTopUser(itemView.context)
-                LImageUtil.load(context = viewGirlTopUser.imageView.context, url = girlTopUser.avatar, imageView = viewGirlTopUser.imageView)
+                val src = if (BuildConfig.DEBUG) {
+                    Constants.URL_IMG
+                } else {
+                    girlTopUser.avatar
+                }
+                LImageUtil.load(context = viewGirlTopUser.imageView.context,
+                        url = src,
+                        imageView = viewGirlTopUser.imageView,
+                        resError = R.color.black,
+                        resPlaceHolder = R.color.black,
+                        drawableRequestListener = null)
                 viewGirlTopUser.tv.text = girlTopUser.name
                 viewGirlTopUser.layoutRootView.setSafeOnClickListener {
                     LAnimationUtil.play(view = it, techniques = Techniques.Pulse)

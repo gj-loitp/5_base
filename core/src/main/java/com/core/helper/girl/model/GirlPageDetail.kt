@@ -1,9 +1,11 @@
 package com.core.helper.girl.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
+@Keep
 data class GirlPageDetail(
         @SerializedName("src")
         @Expose
@@ -19,5 +21,9 @@ data class GirlPageDetail(
 
         @SerializedName("createdDate")
         @Expose
-        val createdDate: String?
+        val createdDate: String?,
+
+        @SerializedName("isFavorites")
+        @Expose
+        var isFavorites: Boolean = false
 ) : Serializable

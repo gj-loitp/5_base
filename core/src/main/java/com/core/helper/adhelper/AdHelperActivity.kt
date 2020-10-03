@@ -1,13 +1,13 @@
 package com.core.helper.adhelper
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.R
@@ -16,12 +16,13 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LAppResource
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
+import com.manojbhadane.QButton
 import com.utils.util.AppUtils
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_ad_helper.*
-import life.sabujak.roundedbutton.RoundedButton
 import java.util.*
 
 @LogTag("AdHelperActivity")
@@ -29,56 +30,18 @@ import java.util.*
 class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
+    private var isDarkTheme: Boolean = false
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_ad_helper)
 
-        isShowAdWhenExit = false
-
         isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
+        isDarkTheme = intent.getBooleanExtra(Constants.IS_DARK_THEME, false)
 
         setupData()
-
-        btBack.setSafeOnClickListener {
-            finish()
-            LActivityUtil.tranOut(this)
-        }
-        btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
-        btNextScreen.setSafeOnClickListener {
-            if (viewPager.currentItem == adPageList.size - 1) {
-                finish()
-                LActivityUtil.tranOut(this)
-            } else {
-                viewPager.currentItem = viewPager.currentItem + 1
-            }
-        }
-
-        viewPager.adapter = SlidePagerAdapter()
-        LUIUtil.setPullLikeIOSHorizontal(viewPager)
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                //do nothing
-            }
-
-            override fun onPageSelected(position: Int) {
-                tvPage.text = (position + 1).toString() + "/" + adPageList.size
-                when (position) {
-                    0 -> btPrevScreen.visibility = View.INVISIBLE
-                    adPageList.size - 1 -> btNextScreen.visibility = View.INVISIBLE
-                    else -> {
-                        btPrevScreen.visibility = View.VISIBLE
-                        btNextScreen.visibility = View.VISIBLE
-                    }
-                }
-            }
-
-            override fun onPageScrollStateChanged(state: Int) {
-                //do nothing
-            }
-        })
-        tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
+        setupViews()
+        setTheme()
     }
 
     private fun setupData() {
@@ -128,6 +91,60 @@ class AdHelperActivity : BaseFontActivity() {
         adPageList.add(adPage3)
     }
 
+    @SuppressLint("SetTextI18n")
+    private fun setupViews() {
+        btBack.setSafeOnClickListener {
+            finish()
+            LActivityUtil.tranOut(this)
+        }
+        btPrevScreen.setSafeOnClickListener { viewPager.currentItem = viewPager.currentItem - 1 }
+        btNextScreen.setSafeOnClickListener {
+            if (viewPager.currentItem == adPageList.size - 1) {
+                finish()
+                LActivityUtil.tranOut(this)
+            } else {
+                viewPager.currentItem = viewPager.currentItem + 1
+            }
+        }
+
+        viewPager.adapter = SlidePagerAdapter()
+        LUIUtil.setPullLikeIOSHorizontal(viewPager)
+        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                //do nothing
+            }
+
+            override fun onPageSelected(position: Int) {
+                tvPage.text = (position + 1).toString() + "/" + adPageList.size
+                when (position) {
+                    0 -> btPrevScreen.visibility = View.INVISIBLE
+                    adPageList.size - 1 -> btNextScreen.visibility = View.INVISIBLE
+                    else -> {
+                        btPrevScreen.visibility = View.VISIBLE
+                        btNextScreen.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                //do nothing
+            }
+        })
+        tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
+    }
+
+    private fun setTheme() {
+        if (isDarkTheme) {
+            val colorDark900 = LAppResource.getColor(R.color.dark900)
+            layoutRootView.setBackgroundColor(colorDark900)
+            btBack.setColorFilter(Color.WHITE)
+            layoutControl.setBackgroundColor(colorDark900)
+            btPrevScreen.setColorFilter(Color.WHITE)
+            tvPage.setTextColor(Color.WHITE)
+            btNextScreen.setColorFilter(Color.WHITE)
+        }
+    }
+
     private inner class SlidePagerAdapter : PagerAdapter() {
 
         @SuppressLint("SetTextI18n")
@@ -137,19 +154,28 @@ class AdHelperActivity : BaseFontActivity() {
             val layout = inflater.inflate(R.layout.l_item_photo_ad_helper, collection, false) as ViewGroup
 
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
-            val tv = layout.findViewById<TextView>(R.id.textView)
+            val textView = layout.findViewById<TextView>(R.id.textView)
             val tvMsg = layout.findViewById<TextView>(R.id.tvMsg)
-            val btOkay = layout.findViewById<RoundedButton>(R.id.btOkay)
+            val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
-            adPage.urlAd?.let {
-                LImageUtil.load(this@AdHelperActivity, it, imageView)
+            if (isDarkTheme) {
+                val colorDark900 = LAppResource.getColor(R.color.dark900)
+                textView.setTextColor(Color.WHITE)
+                tvMsg.setTextColor(Color.WHITE)
+                btOkay.setTextColor(colorDark900)
+                btOkay.setBackgroundColor(Color.WHITE)
+                btOkay.setStrokeColor(Color.GRAY)
+            } else {
+                LUIUtil.setTextShadow(textView = textView, color = LAppResource.getColor(R.color.white))
+                LUIUtil.setTextShadow(textView = tvMsg, color = R.color.white)
             }
 
-            tv.text = adPage.title
-            LUIUtil.setTextShadow(textView = tv, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
+            adPage.urlAd?.let {
+                LImageUtil.load(context = this@AdHelperActivity, url = it, imageView = imageView)
+            }
 
+            textView.text = adPage.title
             tvMsg.text = adPage.msg
-            LUIUtil.setTextShadow(textView = tvMsg, color = ContextCompat.getColor(this@AdHelperActivity, R.color.white))
 
             if (isEnglishLanguage) {
                 btOkay.text = "I understand"

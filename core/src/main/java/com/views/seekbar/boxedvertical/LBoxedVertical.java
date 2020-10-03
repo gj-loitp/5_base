@@ -15,9 +15,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import androidx.core.content.ContextCompat;
-
 import com.R;
+import com.core.utilities.LAppResource;
 
 public class LBoxedVertical extends View {
     private static final String TAG = LBoxedVertical.class.getSimpleName();
@@ -116,10 +115,10 @@ public class LBoxedVertical extends View {
         float density = getResources().getDisplayMetrics().density;
 
         // Defaults, may need to link this into theme settings
-        progressColor = ContextCompat.getColor(context, R.color.red);
-        backgroundColor = ContextCompat.getColor(context, R.color.whiteSmoke);
+        progressColor = LAppResource.INSTANCE.getColor(R.color.red);
+        backgroundColor = LAppResource.INSTANCE.getColor(R.color.whiteSmoke);
 
-        int textColor = ContextCompat.getColor(context, R.color.black);
+        int textColor = LAppResource.INSTANCE.getColor(R.color.black);
         mTextSize = (int) (mTextSize * density);
         mDefaultValue = mMax / 2;
 

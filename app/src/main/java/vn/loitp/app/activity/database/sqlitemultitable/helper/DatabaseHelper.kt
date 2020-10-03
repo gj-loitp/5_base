@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.core.utilities.LLog
 import com.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
@@ -12,7 +11,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-    private val TAG = DatabaseHelper::class.java.name
+    private val logTag = DatabaseHelper::class.java.name
 
     companion object {
         // Database Version
@@ -108,7 +107,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        LLog.d(TAG, "onCreate")
         // Table Create Statements
         val CREATE_TABLE_TODO = ("CREATE TABLE " + TABLE_NOTE + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
@@ -135,7 +133,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        LLog.d(TAG, "onUpgrade oldVersion: $oldVersion, newVersion: $newVersion")
         // on upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS $TABLE_NOTE")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_TAG")
@@ -182,8 +179,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val selectQuery = ("SELECT  * FROM " + TABLE_NOTE + " WHERE "
                 + KEY_ID + " = " + noteId)
 
-        //LLog.d(TAG, selectQuery);
-
         val c = db.rawQuery(selectQuery, null)
         c?.moveToFirst() ?: return null
 
@@ -206,8 +201,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                 "WHERE tg." + KEY_TAG_NAME + " = '" + tagName + "'"
         " AND tg." + KEY_ID + " = " + "tt." + KEY_TAG_ID +
                 " AND td." + KEY_ID + " = " + "tt." + KEY_NOTE_ID
-
-        //LLog.d(TAG, selectQuery);
 
         val db = this.readableDatabase
         val c = db.rawQuery(selectQuery, null)

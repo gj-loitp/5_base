@@ -11,9 +11,10 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="@color/dark900">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <com.views.LAppBarLayout
+            android:id="@+id/layoutAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary">
@@ -24,11 +25,10 @@
                 android:layout_height="match_parent"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <ImageView
+                <com.views.imageview.kenburnview.DynamicHeightKenBurnsView
                     android:id="@+id/ivCover"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="false"
                     android:contentDescription="@string/app_name"
                     tools:src="@drawable/logo" />
 
@@ -39,14 +39,32 @@
                     app:layout_collapseMode="pin" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
+        </com.views.LAppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_small"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingEnd="@dimen/padding_small"
+            android:paddingBottom="@dimen/padding_medium"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <com.sackcentury.shinebuttonlib.ShineButton
+            android:id="@+id/btLike"
+            android:layout_width="@dimen/w_50"
+            android:layout_height="@dimen/w_50"
+            android:layout_marginEnd="@dimen/margin_large"
+            android:visibility="invisible"
+            app:allow_random_color="true"
+            app:btn_color="@color/gray"
+            app:btn_fill_color="@color/green"
+            app:layout_anchor="@id/layoutAppBar"
+            app:layout_anchorGravity="bottom|end"
+            app:siShape="@raw/star"
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/tvNoData"
@@ -54,7 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/no_data_eng"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="@dimen/txt_medium"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +88,7 @@
             android:layout_height="@dimen/w_40"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
-            app:indicatorColor="@color/black"
+            app:indicatorColor="@color/white"
             app:indicatorName="BallClipRotatePulseIndicator" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -42,133 +42,156 @@ class LActivityUtil {
 
         @JvmStatic
         fun tranIn(context: Context?) {
-            if (context == null) {
+            if (context == null || context !is Activity) {
                 return
             }
             when (ActivityData.instance.type) {
                 Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
-                    transActivityNoAniamtion(context as Activity)
+                    transActivityNoAnimation(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
                     //do nothing
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT -> {
-                    slideLeft(context as Activity)
+                    slideLeft(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT -> {
-                    slideRight(context as Activity)
+                    slideRight(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN -> {
-                    slideDown(context as Activity)
+                    slideDown(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP -> {
-                    slideUp(context as Activity)
+                    slideUp(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {
-                    fade(context as Activity)
+                    fade(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_ZOOM -> {
-                    zoom(context as Activity)
+                    zoom(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
-                    windmill(context as Activity)
+                    windmill(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
-                    diagonal(context as Activity)
+                    diagonal(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SPIN -> {
-                    spin(context as Activity)
+                    spin(context)
                 }
             }
         }
 
         @JvmStatic
         fun tranOut(context: Context) {
+            if (context !is Activity) {
+                return
+            }
             when (ActivityData.instance.type) {
                 Constants.TYPE_ACTIVITY_TRANSITION_NO_ANIM -> {
-                    transActivityNoAniamtion(context as Activity)
+                    transActivityNoAnimation(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT -> {
                     //do nothing
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT -> {
-                    slideRight(context as Activity)
+                    slideRight(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDERIGHT -> {
-                    slideLeft(context as Activity)
+                    slideLeft(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDEDOWN -> {
-                    slideUp(context as Activity)
+                    slideUp(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SLIDEUP -> {
-                    slideDown(context as Activity)
+                    slideDown(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_FADE -> {
-                    fade(context as Activity)
+                    fade(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_ZOOM -> {
-                    zoom(context as Activity)
+                    zoom(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_WINDMILL -> {
-                    windmill(context as Activity)
+                    windmill(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_DIAGONAL -> {
-                    diagonal(context as Activity)
+                    diagonal(context)
                 }
                 Constants.TYPE_ACTIVITY_TRANSITION_SPIN -> {
-                    spin(context as Activity)
+                    spin(context)
                 }
             }
         }
 
         @JvmStatic
-        fun transActivityNoAniamtion(context: Context) {
-            (context as Activity).overridePendingTransition(0, 0)
+        fun transActivityNoAnimation(context: Context) {
+            if (context is Activity) {
+                context.overridePendingTransition(0, 0)
+            }
         }
 
         @JvmStatic
         fun slideLeft(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_slide_left_enter, R.anim.l_slide_left_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_slide_left_enter, R.anim.l_slide_left_exit)
+            }
         }
 
         @JvmStatic
         fun slideRight(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_slide_in_left, R.anim.l_slide_out_right)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_slide_in_left, R.anim.l_slide_out_right)
+            }
         }
 
         @JvmStatic
         fun slideDown(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_slide_down_enter, R.anim.l_slide_down_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_slide_down_enter, R.anim.l_slide_down_exit)
+            }
         }
 
         @JvmStatic
         fun slideUp(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_slide_up_enter, R.anim.l_slide_up_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_slide_up_enter, R.anim.l_slide_up_exit)
+            }
         }
 
         @JvmStatic
         fun zoom(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_zoom_enter, R.anim.l_zoom_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_zoom_enter, R.anim.l_zoom_exit)
+            }
         }
 
         @JvmStatic
         fun fade(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_fade_enter, R.anim.l_fade_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_fade_enter, R.anim.l_fade_exit)
+            }
         }
 
         @JvmStatic
         fun windmill(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_windmill_enter, R.anim.l_windmill_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_windmill_enter, R.anim.l_windmill_exit)
+            }
         }
 
         @JvmStatic
         fun spin(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_spin_enter, R.anim.l_spin_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_spin_enter, R.anim.l_spin_exit)
+            }
         }
 
         @JvmStatic
         fun diagonal(context: Context) {
-            (context as Activity).overridePendingTransition(R.anim.l_diagonal_right_enter, R.anim.l_diagonal_right_exit)
+            if (context is Activity) {
+                context.overridePendingTransition(R.anim.l_diagonal_right_enter, R.anim.l_diagonal_right_exit)
+            }
         }
 
         @JvmStatic

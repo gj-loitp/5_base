@@ -12,7 +12,6 @@ import android.view.*
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import com.core.utilities.LLog
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.decoder.DecoderCounters
 import com.google.android.exoplayer2.source.LoopingMediaSource
@@ -32,7 +31,7 @@ import vn.loitp.app.R
  * Created by loitp on 3/27/2018.
  */
 class FloatingViewVideoService : Service(), VideoRendererEventListener {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
 
     private var mWindowManager: WindowManager? = null
     private lateinit var mFloatingView: View
@@ -193,24 +192,24 @@ class FloatingViewVideoService : Service(), VideoRendererEventListener {
         player?.addListener(object : ExoPlayer.EventListener {
             override fun onTimelineChanged(timeline: Timeline, manifest: Any?, reason: Int) {}
             override fun onTracksChanged(trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {
-                LLog.d(TAG, "Listener-onTracksChanged...")
+//                Log.d(logTag, "Listener-onTracksChanged...")
             }
 
             override fun onLoadingChanged(isLoading: Boolean) {
-                LLog.d(TAG, "Listener-onLoadingChanged...isLoading:$isLoading")
+//                Log.d(logTag, "Listener-onLoadingChanged...isLoading:$isLoading")
             }
 
             override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-                LLog.d(TAG, "Listener-onPlayerStateChanged...$playbackState")
+//                Log.d(logTag, "Listener-onPlayerStateChanged...$playbackState")
             }
 
             override fun onRepeatModeChanged(repeatMode: Int) {
-                LLog.d(TAG, "Listener-onRepeatModeChanged...")
+//                Log.d(logTag, "Listener-onRepeatModeChanged...")
             }
 
             override fun onShuffleModeEnabledChanged(shuffleModeEnabled: Boolean) {}
             override fun onPlayerError(error: ExoPlaybackException) {
-                LLog.d(TAG, "Listener-onPlayerError...")
+//                Log.d(logTag, "Listener-onPlayerError...")
                 player?.let {
                     it.stop()
                     it.prepare(loopingSource)
@@ -220,7 +219,7 @@ class FloatingViewVideoService : Service(), VideoRendererEventListener {
 
             override fun onPositionDiscontinuity(reason: Int) {}
             override fun onPlaybackParametersChanged(playbackParameters: PlaybackParameters) {
-                LLog.d(TAG, "Listener-onPlaybackParametersChanged...")
+//                Log.d(logTag, "Listener-onPlaybackParametersChanged...")
             }
 
             override fun onSeekProcessed() {}
@@ -245,30 +244,30 @@ class FloatingViewVideoService : Service(), VideoRendererEventListener {
     }
 
     override fun onVideoEnabled(counters: DecoderCounters) {
-        LLog.d(TAG, "onVideoEnabled")
+//        Log.d(logTag, "onVideoEnabled")
     }
 
     override fun onVideoDecoderInitialized(decoderName: String, initializedTimestampMs: Long, initializationDurationMs: Long) {
-        LLog.d(TAG, "onVideoDecoderInitialized")
+//        Log.d(logTag, "onVideoDecoderInitialized")
     }
 
     override fun onVideoInputFormatChanged(format: Format) {
-        LLog.d(TAG, "onVideoInputFormatChanged")
+//        Log.d(logTag, "onVideoInputFormatChanged")
     }
 
     override fun onDroppedFrames(count: Int, elapsedMs: Long) {
-        LLog.d(TAG, "onDroppedFrames")
+//        Log.d(logTag, "onDroppedFrames")
     }
 
     override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
-        LLog.d(TAG, "onVideoSizeChanged [ width: $width height: $height]")
+//        Log.d(logTag, "onVideoSizeChanged [ width: $width height: $height]")
     }
 
     override fun onRenderedFirstFrame(surface: Surface?) {
-        LLog.d(TAG, "onRenderedFirstFrame")
+//        Log.d(logTag, "onRenderedFirstFrame")
     }
 
     override fun onVideoDisabled(counters: DecoderCounters) {
-        LLog.d(TAG, "onVideoDisabled")
+//        Log.d(logTag, "onVideoDisabled")
     }
 }

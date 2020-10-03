@@ -6,6 +6,7 @@ import android.widget.TextView
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_sqlite_multi_table_advance.*
@@ -13,7 +14,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.database.sqlitemultitableadvance.helper.InspectionDatabaseHelper
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
-import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_sqlite_multi_table_advance)
 @LogTag("SqliteMultiTableAdvanceActivity")
@@ -63,7 +63,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 showMsg("inspectionList size: " + inspectionList.size)
                 for (i in inspectionList.indices) {
                     val inspection = inspectionList[i]
-                    showMsg("inspectionList: -> " + LApplication.gson.toJson(inspection))
+                    showMsg("inspectionList: -> " + BaseApplication.gson.toJson(inspection))
                 }
             }
             R.id.btGetInspectionCount -> {
@@ -75,7 +75,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 showMsg("actionList size: " + actionList.size)
                 for (i in actionList.indices) {
                     val action = actionList[i]
-                    showMsg("actionList: -> " + LApplication.gson.toJson(action))
+                    showMsg("actionList: -> " + BaseApplication.gson.toJson(action))
                 }
             }
             R.id.btCreateInspection -> {
@@ -83,11 +83,11 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 inspection.inspectionId = "inspectionId " + System.currentTimeMillis()
                 inspection.content = "dummy content inspection " + System.currentTimeMillis()
                 val id = db.createInspection(inspection)
-                showMsg("createInspection id: $id -> " + LApplication.gson.toJson(inspection))
+                showMsg("createInspection id: $id -> " + BaseApplication.gson.toJson(inspection))
             }
             R.id.btGetInspection -> {
                 val inspection = db.getInspection(2)
-                showMsg("getInspection id = 2 -> " + LApplication.gson.toJson(inspection))
+                showMsg("getInspection id = 2 -> " + BaseApplication.gson.toJson(inspection))
             }
             R.id.btUpdateInspection -> {
                 val inspection = db.getInspection(1)
@@ -97,7 +97,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                     inspection.inspectionId = "update inspectionId " + System.currentTimeMillis()
                     inspection.content = "update content inspection " + System.currentTimeMillis()
                     val id = db.updateInspection(inspection)
-                    showMsg("updateInspection success with id = $id -> " + LApplication.gson.toJson(inspection))
+                    showMsg("updateInspection success with id = $id -> " + BaseApplication.gson.toJson(inspection))
                 }
             }
             R.id.btDeleteInspection -> {
@@ -113,7 +113,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 action.inspection = inspection
 
                 val id = db.createAction(action)
-                showMsg("createAction with id = $id -> " + LApplication.gson.toJson(action))
+                showMsg("createAction with id = $id -> " + BaseApplication.gson.toJson(action))
 
                 //add to inspection table
                 val inspectionId = db.createInspection(inspection)
@@ -127,12 +127,12 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                     action.actionType = Action.ACTION_EDIT
                     action.inspection?.content = "Update content " + System.currentTimeMillis()
                     val number = db.updateAction(action)
-                    showMsg("updateAction number: $number -> " + LApplication.gson.toJson(action))
+                    showMsg("updateAction number: $number -> " + BaseApplication.gson.toJson(action))
                 }
             }
             R.id.btGetAction -> {
                 val action = db.getAction(1)
-                showMsg("getAction: " + LApplication.gson.toJson(action))
+                showMsg("getAction: " + BaseApplication.gson.toJson(action))
             }
             R.id.btDeleteAction -> {
                 val action = db.getAction(1)
@@ -153,8 +153,8 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 for (i in 0 until totalPage) {
                     showMsg("------------$i------------")
                     val list = db.getActionListByPage(i, pageSize)
-                    logD("$i/$totalPage -> size: ${list.size} -> btGetActionListPage " + LApplication.gson.toJson(list))
-                    showMsg("$i/$totalPage -> size: ${list.size} -> list: " + LApplication.gson.toJson(list))
+                    logD("$i/$totalPage -> size: ${list.size} -> btGetActionListPage " + BaseApplication.gson.toJson(list))
+                    showMsg("$i/$totalPage -> size: ${list.size} -> list: " + BaseApplication.gson.toJson(list))
                 }
                 showMsg("=========================================")
                 showMsg("=========================================")

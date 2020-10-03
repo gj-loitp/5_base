@@ -7,12 +7,11 @@ import android.widget.TextView;
 
 import com.R;
 import com.core.utilities.LAnimationUtil;
-import com.core.utilities.LLog;
 import com.daimajia.androidanimations.library.Techniques;
 import com.interfaces.CallbackAnimation;
 
 public class LCountDownView extends RelativeLayout {
-    private final String TAG = getClass().getSimpleName();
+    private final String logTag = getClass().getSimpleName();
     private TextView tvCountDown;
 
     public LCountDownView(Context context, AttributeSet attrs) {
@@ -67,7 +66,6 @@ public class LCountDownView extends RelativeLayout {
                 @Override
                 public void onEnd() {
                     number--;
-                    //LLog.d(TAG, "number " + number);
                     if (number == 0) {
                         tvCountDown.setText("GO");
                         LAnimationUtil.Companion.play(tvCountDown, Techniques.Flash, new CallbackAnimation() {
@@ -80,7 +78,7 @@ public class LCountDownView extends RelativeLayout {
                             public void onEnd() {
                                 tvCountDown.setVisibility(GONE);
                                 //tvCountDown = null;
-                                LLog.d(TAG, "number == 0 -> STOP");
+//                                Log.d(logTag, "number == 0 -> STOP");
                                 if (callback != null) {
                                     callback.onEnd();
                                 }

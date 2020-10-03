@@ -33,15 +33,15 @@ public class FrmCoordinator1 extends BaseFragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 if (tabLayout.getSelectedTabPosition() == 0) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort("Tab " + tabLayout.getSelectedTabPosition(), true);
                 } else if (tabLayout.getSelectedTabPosition() == 1) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort("Tab " + tabLayout.getSelectedTabPosition(), true);
                 } else if (tabLayout.getSelectedTabPosition() == 2) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort("Tab " + tabLayout.getSelectedTabPosition(), true);
                 } else if (tabLayout.getSelectedTabPosition() == 3) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort("Tab " + tabLayout.getSelectedTabPosition(), true);
                 } else if (tabLayout.getSelectedTabPosition() == 4) {
-                    LToast.showShort(getActivity(), "Tab " + tabLayout.getSelectedTabPosition());
+                    LToast.showShort("Tab " + tabLayout.getSelectedTabPosition(), true);
                 }
             }
 

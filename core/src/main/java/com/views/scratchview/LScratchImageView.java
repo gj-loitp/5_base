@@ -17,19 +17,19 @@ import android.os.AsyncTask;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.ImageView;
 
-import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.R;
+import com.core.utilities.LAppResource;
 
-public class LScratchImageView extends ImageView {
+public class LScratchImageView extends AppCompatImageView {
 
 
     public interface IRevealListener {
-        public void onRevealed(LScratchImageView iv);
+        void onRevealed(LScratchImageView iv);
 
-        public void onRevealPercentChangedListener(LScratchImageView siv, float percent);
+        void onRevealPercentChangedListener(LScratchImageView siv, float percent);
     }
 
     public static final float STROKE_WIDTH = 12f;
@@ -154,8 +154,8 @@ public class LScratchImageView extends ImageView {
         Rect rect = new Rect(0, 0, mScratchBitmap.getWidth(), mScratchBitmap.getHeight());
         mDrawable.setBounds(rect);
 
-        int startGradientColor = ContextCompat.getColor(getContext(), R.color.scratchStartGradient);
-        int endGradientColor = ContextCompat.getColor(getContext(), R.color.scratchEndGradient);
+        int startGradientColor = LAppResource.INSTANCE.getColor(R.color.scratchStartGradient);
+        int endGradientColor = LAppResource.INSTANCE.getColor(R.color.scratchEndGradient);
 
         mGradientBgPaint.setShader(new LinearGradient(0, 0, 0, getHeight(), startGradientColor, endGradientColor, Shader.TileMode.MIRROR));
 

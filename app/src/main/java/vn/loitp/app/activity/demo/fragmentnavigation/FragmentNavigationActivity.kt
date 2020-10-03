@@ -8,7 +8,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.google.android.material.navigation.NavigationView
 import vn.loitp.app.R
 
@@ -23,7 +22,7 @@ class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigati
         get() = Navigation.findNavController(this, R.id.fragmentContainerView)
 
     override fun onNavigationItemSelected(menuItem: MenuItem): Boolean {
-        LLog.d(T, "onNavigationItemSelected " + menuItem.title)
+        logD("onNavigationItemSelected " + menuItem.title)
         return true
     }
 

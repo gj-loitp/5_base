@@ -31,7 +31,7 @@ import kotlin.math.min
 
 class LImageUtil {
     companion object {
-        private val TAG = "LImageUtil"
+        private val logTag = "LImageUtil"
 
         val randomUrlFlickr: String
             get() {
@@ -39,7 +39,7 @@ class LImageUtil {
                 return Constants.ARR_URL_BKG_FLICKR[r]
             }
 
-        //for flide
+        //for glide
         fun clear(context: Context?, target: View?) {
             if (context == null || target == null) {
                 return
@@ -167,20 +167,32 @@ class LImageUtil {
         }
 
         fun load(context: Context?, url: String?, imageView: ImageView?,
-                 resPlaceHolder: Int, resError: Int, drawableRequestListener: RequestListener<Drawable>) {
+                 resPlaceHolder: Int, resError: Int, drawableRequestListener: RequestListener<Drawable>?) {
             if (context == null || url.isNullOrEmpty() || imageView == null) {
                 return
             }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    .placeholder(resPlaceHolder)
-                                    .error(resError)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .listener(drawableRequestListener)
-                    .into(imageView)
+            if (drawableRequestListener == null) {
+                Glide.with(context).load(url)
+                        //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                        .apply(
+                                RequestOptions()
+                                        .placeholder(resPlaceHolder)
+                                        .error(resError)
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        )
+                        .into(imageView)
+            } else {
+                Glide.with(context).load(url)
+                        //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                        .apply(
+                                RequestOptions()
+                                        .placeholder(resPlaceHolder)
+                                        .error(resError)
+                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        )
+                        .listener(drawableRequestListener)
+                        .into(imageView)
+            }
         }
 
         @SuppressLint("ResourceType")
@@ -449,11 +461,8 @@ class LImageUtil {
             }
             try {
                 val srcFilePath = file.path
-                val destFilePath = LStoreUtil.getFolderPath(context, folderPath) + "/" + file.name
+                val destFilePath = LStoreUtil.getFolderPath(folderName = folderPath) + "/" + file.name
                 val resultCopy = FileUtils.copyFile(srcFilePath, destFilePath)
-                //LLog.d(TAG, "resizeImage srcFilePath: $srcFilePath")
-                //LLog.d(TAG, "resizeImage destFilePath: $destFilePath")
-                LLog.d(TAG, "resizeImage -> resultCopy: $resultCopy")
 
                 val copiedFile = File(destFilePath)
                 if (!copiedFile.exists()) {

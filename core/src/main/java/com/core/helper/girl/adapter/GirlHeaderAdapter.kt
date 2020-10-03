@@ -4,14 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.BuildConfig
 import com.R
 import com.core.adapter.AnimationAdapter
+import com.core.common.Constants
 import com.core.helper.girl.model.GirlPage
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_row_girl_header.view.*
 
 class GirlHeaderAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     private var girlPage: GirlPage? = null
 //    var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
@@ -24,7 +25,17 @@ class GirlHeaderAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(girlPage: GirlPage) {
-            LImageUtil.load(context = itemView.imageView.context, url = girlPage.src, imageView = itemView.imageView)
+            val src = if (BuildConfig.DEBUG) {
+                Constants.URL_IMG
+            } else {
+                girlPage.src
+            }
+            LImageUtil.load(context = itemView.imageView.context,
+                    url = src,
+                    imageView = itemView.imageView,
+                    resError = R.color.black,
+                    resPlaceHolder = R.color.black,
+                    drawableRequestListener = null)
 //            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }

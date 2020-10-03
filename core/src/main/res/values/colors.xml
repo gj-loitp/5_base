@@ -21,6 +21,8 @@
     <color name="black65">#A6000000</color>
     <color name="black85">#D9000000</color>
 
+    <color name="dark900">#212121</color>
+
     <color name="grey">#818181</color>
 
     <color name="white">#FFFFFF</color>

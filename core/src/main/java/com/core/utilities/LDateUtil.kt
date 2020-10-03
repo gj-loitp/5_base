@@ -9,7 +9,7 @@ import java.util.*
 class LDateUtil {
 
     companion object {
-        private val TAG = LDateUtil::class.java.simpleName
+        private val logTag = LDateUtil::class.java.simpleName
 
         val currentDate: String
             get() {
@@ -39,12 +39,15 @@ class LDateUtil {
             return df.format(Date())
         }
 
-        fun convertFormatDate(strDate: String, fromFormat: String, toFormat: String): String? {
-            val date = stringToDate(strDate, fromFormat)
-            if (date != null) {
+        fun convertFormatDate(strDate: String?, fromFormat: String, toFormat: String): String? {
+            if (strDate.isNullOrEmpty()) {
+                return null
+            }
+            val date = stringToDate(text = strDate, format = fromFormat)
+            date?.let {
                 val simpleDateFormat = SimpleDateFormat(toFormat, Locale.ENGLISH)
                 //simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-                return simpleDateFormat.format(date)
+                return simpleDateFormat.format(it)
             }
             return null
         }
@@ -156,9 +159,7 @@ class LDateUtil {
             return try {
                 date = dateFormat.parse(datetime)
                 val time = date!!.time
-                LLog.d(TAG, "time:$time")
                 time
-                //new Timestamp(time).getTime();
             } catch (e: ParseException) {
                 e.printStackTrace()
                 0
@@ -223,7 +224,6 @@ class LDateUtil {
          * -> 2018-04-20 02:36:09
          */
         fun getDateCurrentTimeZoneMls(timestampMls: Long, format: String): String {
-            //LLog.d(TAG, "getDateCurrentTimeZoneMls " + timestampMls);
             return try {
                 val calendar = Calendar.getInstance()
                 //TimeZone tz = TimeZone.getDefault();
@@ -231,8 +231,8 @@ class LDateUtil {
                 calendar.timeInMillis = timestampMls
                 calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.timeInMillis))
                 val sdf = SimpleDateFormat(format, Locale.getDefault())
-                val currenTimeZone = calendar.time as Date
-                sdf.format(currenTimeZone)
+                val currentTimeZone = calendar.time as Date
+                sdf.format(currentTimeZone)
             } catch (e: Exception) {
                 e.printStackTrace()
                 ""

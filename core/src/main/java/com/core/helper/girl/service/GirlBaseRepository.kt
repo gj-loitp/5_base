@@ -1,6 +1,6 @@
 package com.core.helper.girl.service
 
-import com.google.gson.Gson
+import com.core.base.BaseApplication
 import com.service.RequestStatus
 import com.service.model.ErrorJson
 import com.service.model.ErrorResponse
@@ -53,7 +53,7 @@ open class GirlBaseRepository {
             try {
                 // parser error body
                 val jsonError = it.string()
-                val errorJson = Gson().fromJson(jsonError, ErrorJson::class.java) as ErrorJson
+                val errorJson = BaseApplication.gson.fromJson(jsonError, ErrorJson::class.java) as ErrorJson
                 errorResponse = errorJson.errors?.firstOrNull()
 
             } catch (e: Exception) {

@@ -19,9 +19,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 
 import com.R;
+import com.core.utilities.LAppResource;
 
 import java.text.DecimalFormat;
 
@@ -161,7 +161,7 @@ public class LCompass extends RelativeLayout implements SensorEventListener {
 
     private void updateNeedle() {
         if (mNeedle == null) {
-            mNeedle = ContextCompat.getDrawable(getContext(), R.drawable.l_ic_needle);
+            mNeedle = LAppResource.INSTANCE.getDrawable(R.drawable.l_ic_needle);
         }
         mNeedleImageView = findViewById(R.id.iv_needle);
         mNeedleImageView.setImageDrawable(mNeedle);
@@ -198,13 +198,13 @@ public class LCompass extends RelativeLayout implements SensorEventListener {
         DecimalFormat decimalFormat = new DecimalFormat("###.#");
         String value;
         if (deg > 0 && deg <= 90) {
-            value = String.format("%s%s NE", String.valueOf(decimalFormat.format(-degree)), DEGREE);
+            value = String.format("%s%s NE", decimalFormat.format(-degree), DEGREE);
         } else if (deg > 90 && deg <= 180) {
-            value = String.format("%s%s ES", String.valueOf(decimalFormat.format(-degree)), DEGREE);
+            value = String.format("%s%s ES", decimalFormat.format(-degree), DEGREE);
         } else if (deg > 180 && deg <= 270) {
-            value = String.format("%s%s SW", String.valueOf(decimalFormat.format(-degree)), DEGREE);
+            value = String.format("%s%s SW", decimalFormat.format(-degree), DEGREE);
         } else {
-            value = String.format("%s%s WN", String.valueOf(decimalFormat.format(-degree)), DEGREE);
+            value = String.format("%s%s WN", decimalFormat.format(-degree), DEGREE);
         }
         mDegreeTextView.setText(value);
     }

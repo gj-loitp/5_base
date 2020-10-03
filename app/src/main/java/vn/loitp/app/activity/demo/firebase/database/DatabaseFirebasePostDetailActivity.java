@@ -15,13 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
-import com.core.utilities.LLog;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,14 +42,12 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
     private DatabaseReference mPostReference;
     private DatabaseReference mCommentsReference;
     private ValueEventListener mPostListener;
-    private String mPostKey;
     private CommentAdapter mAdapter;
 
     private TextView mAuthorView;
     private TextView mTitleView;
     private TextView mBodyView;
     private EditText mCommentField;
-    private Button mCommentButton;
     private RecyclerView mCommentsRecycler;
 
     @Override
@@ -56,7 +55,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
         super.onCreate(savedInstanceState);
 
         // Get post key from intent
-        mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
+        String mPostKey = getIntent().getStringExtra(EXTRA_POST_KEY);
         if (mPostKey == null) {
             throw new IllegalArgumentException("Must pass EXTRA_POST_KEY");
         }
@@ -72,7 +71,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
         mTitleView = findViewById(R.id.post_title);
         mBodyView = findViewById(R.id.post_body);
         mCommentField = findViewById(R.id.field_comment_text);
-        mCommentButton = findViewById(R.id.button_post_comment);
+        Button mCommentButton = findViewById(R.id.button_post_comment);
         mCommentsRecycler = findViewById(R.id.recycler_comments);
 
         mCommentButton.setOnClickListener(this);
@@ -101,9 +100,9 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 // Getting Post failed, log a message
-                LLog.d(getLogTag(), "loadPost:onCancelled " + databaseError.toException());
+                logE("loadPost:onCancelled " + databaseError.toException());
                 // [START_EXCLUDE]
-                showShort("Failed to load post.");
+                showShort("Failed to load post.", true);
                 // [END_EXCLUDE]
             }
         };
@@ -198,7 +197,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             ChildEventListener childEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(getLogTag(), "onChildAdded:" + dataSnapshot.getKey());
+                    logD("onChildAdded:" + dataSnapshot.getKey());
 
                     // A new comment has been added, add it to the displayed list
                     Comment comment = dataSnapshot.getValue(Comment.class);
@@ -213,7 +212,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
 
                 @Override
                 public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(getLogTag(), "onChildChanged:" + dataSnapshot.getKey());
+                    logD("onChildChanged:" + dataSnapshot.getKey());
 
                     // A comment has changed, use the key to determine if we are displaying this
                     // comment and if so displayed the changed comment.
@@ -229,14 +228,14 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                         // Update the RecyclerView
                         notifyItemChanged(commentIndex);
                     } else {
-                        LLog.d(getLogTag(), "onChildChanged:unknown_child:" + commentKey);
+                        logD("onChildChanged:unknown_child:" + commentKey);
                     }
                     // [END_EXCLUDE]
                 }
 
                 @Override
                 public void onChildRemoved(DataSnapshot dataSnapshot) {
-                    LLog.d(getLogTag(), "onChildRemoved:" + dataSnapshot.getKey());
+                    logD("onChildRemoved:" + dataSnapshot.getKey());
 
                     // A comment has changed, use the key to determine if we are displaying this
                     // comment and if so remove it.
@@ -252,14 +251,14 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                         // Update the RecyclerView
                         notifyItemRemoved(commentIndex);
                     } else {
-                        LLog.d(getLogTag(), "onChildRemoved:unknown_child:" + commentKey);
+                        logD("onChildRemoved:unknown_child:" + commentKey);
                     }
                     // [END_EXCLUDE]
                 }
 
                 @Override
                 public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-                    LLog.d(getLogTag(), "onChildMoved:" + dataSnapshot.getKey());
+                    logD("onChildMoved:" + dataSnapshot.getKey());
 
                     // A comment has changed position, use the key to determine if we are
                     // displaying this comment and if so move it.
@@ -271,8 +270,8 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    LLog.d(getLogTag(), "postComments:onCancelled " + databaseError.toException());
-                    showShort("Failed to load comments.");
+                    logE("postComments:onCancelled " + databaseError.toException());
+                    showShort("Failed to load comments.", true);
                 }
             };
             ref.addChildEventListener(childEventListener);
@@ -282,8 +281,9 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
             mChildEventListener = childEventListener;
         }
 
+        @NotNull
         @Override
-        public CommentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public CommentViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
             LayoutInflater inflater = LayoutInflater.from(mContext);
             View view = inflater.inflate(R.layout.item_comment, parent, false);
             return new CommentViewHolder(view);

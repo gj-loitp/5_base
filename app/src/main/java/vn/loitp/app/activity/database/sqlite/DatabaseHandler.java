@@ -6,15 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.core.utilities.LLog;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import vn.loitp.app.app.LApplication;
-
 public class DatabaseHandler extends SQLiteOpenHelper {
-    private final String TAG = getClass().getSimpleName();
+    private final String logTag = getClass().getSimpleName();
     // Database Version
     private static final int DATABASE_VERSION = 1;
 
@@ -111,31 +107,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             return contactList;
         }
         int rowCount = getContactsCount();
-        //LLog.d(TAG, "getContactListWithPage rowCount: " + rowCount);
 
-        /*int pageCount;
-        if (rowCount % pageSize == 0) {
-            pageCount = rowCount / pageSize;
-        } else {
-            pageCount = rowCount / pageSize + 1;
-        }
-        LLog.d(TAG, "getContactListWithPage pageCount: " + pageCount);*/
-
-        /*for (int i = 0; i < pageCount; i++) {
-            page = i;
-            int indexStart = pageSize * page;
-            int indexEnd = indexStart + pageSize;
-            if (indexEnd >= rowCount) {
-                indexEnd = rowCount;
-            }
-            LLog.d(TAG, "getContactListWithPage " + page + " -> " + indexStart + " - " + indexEnd);
-        }*/
         int indexStart = pageSize * page;
         int indexEnd = indexStart + pageSize;
         if (indexEnd >= rowCount) {
             indexEnd = rowCount;
         }
-        LLog.d(TAG, "getContactListWithPage " + page + " -> " + indexStart + " - " + indexEnd);
 
         String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
 
@@ -157,7 +134,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             Contact contact = tmpContactList.get(i);
             contactList.add(contact);
         }
-        //LLog.d(TAG, ">>>getContactListWithPage " + LApplication.Companion.getGson().toJson(contactList));
         return contactList;
     }
 

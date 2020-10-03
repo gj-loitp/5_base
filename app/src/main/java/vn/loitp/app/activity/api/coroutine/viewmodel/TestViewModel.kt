@@ -29,7 +29,6 @@ class TestViewModel : BaseViewModel() {
 
         ioScope.launch {
             val response = repository.getUserTest(page = page)
-            //LLog.d(TAG, "getUserList page: $page -> " + LApplication.gson.toJson(response))
             if (response.data != null) {
                 userActionLiveData.post(
                         ActionData(
@@ -47,7 +46,6 @@ class TestViewModel : BaseViewModel() {
     }
 
     fun addUserList(userTestList: ArrayList<UserTest>, isRefresh: Boolean?) {
-        //LLog.d(TAG, "addUserList size: ${userTestList.size}, isRefresh: $isRefresh")
         var currentUserTestList = userTestListLiveData.value
         if (isRefresh == true) {
             currentUserTestList?.clear()
@@ -56,7 +54,6 @@ class TestViewModel : BaseViewModel() {
             currentUserTestList = ArrayList()
         }
         currentUserTestList.addAll(userTestList)
-        //LLog.d(TAG, "addUserList currentUserTestList " + LApplication.gson.toJson(currentUserTestList))
         userTestListLiveData.post(currentUserTestList)
     }
 }

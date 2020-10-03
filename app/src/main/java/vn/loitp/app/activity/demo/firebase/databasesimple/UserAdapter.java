@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.core.utilities.LImageUtil;
-import com.core.utilities.LLog;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -20,7 +19,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import vn.loitp.app.R;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
-    private final String TAG = getClass().getSimpleName();
+    private final String logTag = getClass().getSimpleName();
 
     public interface Callback {
         void onClick(User user, int position);
@@ -72,7 +71,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LLog.d(TAG, "onClick");
                 if (callback != null) {
                     callback.onClick(user, position);
                 }
@@ -81,7 +79,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                LLog.d(TAG, "onLongClick");
                 if (callback != null) {
                     callback.onLongClick(user, position);
                 }

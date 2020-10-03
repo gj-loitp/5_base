@@ -33,7 +33,7 @@ class ExoPlayerActivity : BaseFontActivity() {
         } ?: PlayerManager(this)
 
         //warning: do not change id exo_fullscreen, exo_fullscreen
-        playerManager?.updateSizePlayerView(activity = this, playerView = playerView, exoFullscreen = exo_fullscreen)
+        playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
         exo_fullscreen.setOnClickListener {
             playerManager?.toggleFullscreen(this)
         }
@@ -55,7 +55,7 @@ class ExoPlayerActivity : BaseFontActivity() {
     }
 
     override fun onBackPressed() {
-        if (LScreenUtil.isLandscape(this)) {
+        if (LScreenUtil.isLandscape()) {
             playerManager?.toggleFullscreen(this)
         } else {
             super.onBackPressed()
@@ -66,9 +66,9 @@ class ExoPlayerActivity : BaseFontActivity() {
         super.onConfigurationChanged(newConfig)
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager?.updateSizePlayerView(activity = this, playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
         } else {
-            playerManager?.updateSizePlayerView(activity = this, playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
         }
     }
 }

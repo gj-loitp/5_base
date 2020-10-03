@@ -33,25 +33,25 @@ class LScreenUtil {
         val screenHeight: Int
             get() = Resources.getSystem().displayMetrics.heightPixels
 
-        fun getStatusBarHeight(mContext: Context): Int {
+        fun getStatusBarHeight(): Int {
             var result = 0
-            val resourceId = mContext.resources.getIdentifier("status_bar_height", "dimen", "android")
+            val resourceId = LAppResource.application.resources.getIdentifier("status_bar_height", "dimen", "android")
             if (resourceId > 0) {
-                result = mContext.resources.getDimensionPixelSize(resourceId)
+                result = LAppResource.application.resources.getDimensionPixelSize(resourceId)
             }
             return result
         }
 
-        fun getBottomBarHeight(mContext: Context): Int {
-            val hasMenuKey = ViewConfiguration.get(mContext).hasPermanentMenuKey()
+        fun getBottomBarHeight(): Int {
+            val hasMenuKey = ViewConfiguration.get(LAppResource.application).hasPermanentMenuKey()
             val hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK)
 
             if (!hasMenuKey && !hasBackKey) {
                 // Do whatever you need to do, this device has a navigation bar
                 var result = 0
-                val resourceId = mContext.resources.getIdentifier("design_bottom_navigation_height", "dimen", mContext.packageName)
+                val resourceId = LAppResource.application.resources.getIdentifier("design_bottom_navigation_height", "dimen", LAppResource.application.packageName)
                 if (resourceId > 0) {
-                    result = mContext.resources.getDimensionPixelSize(resourceId)
+                    result = LAppResource.application.resources.getDimensionPixelSize(resourceId)
                 }
                 //Log.d(TAG,"result botbar height: "+result);
                 return result
@@ -60,8 +60,8 @@ class LScreenUtil {
             return 0
         }
 
-        fun getScreenHeightIncludeNavigationBar(context: Context): Int {
-            val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        fun getScreenHeightIncludeNavigationBar(): Int {
+            val windowManager = LAppResource.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager
             val display = windowManager.defaultDisplay
             val outPoint = Point()
             if (Build.VERSION.SDK_INT >= 19) {
@@ -275,8 +275,8 @@ class LScreenUtil {
             FragmentUtils.removeAllFragments((activity as BaseActivity).supportFragmentManager)
         }
 
-        fun isLandscape(context: Context): Boolean {
-            val rotation = (context.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation
+        fun isLandscape(): Boolean {
+            val rotation = (LAppResource.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation
             return when (rotation) {
                 Surface.ROTATION_0 -> false
                 Surface.ROTATION_90 -> true
@@ -291,7 +291,7 @@ class LScreenUtil {
                 return
             }
 
-            val isCanWriteSystem = checkSystemWritePermission(context)
+            val isCanWriteSystem = checkSystemWritePermission()
 
             if (!isCanWriteSystem) {
                 LDialogUtil.showDialog1(context = context,
@@ -335,28 +335,19 @@ class LScreenUtil {
 
         }
 
-        fun getCurrentBrightness(context: Context?): Int {
-            if (context == null) {
-                return 0
-            }
+        fun getCurrentBrightness(): Int {
             return try {
-                Settings.System.getInt(context.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
+                Settings.System.getInt(LAppResource.application.contentResolver, Settings.System.SCREEN_BRIGHTNESS)
             } catch (e: Exception) {
                 e.printStackTrace()
                 0
             }
         }
 
-        fun checkSystemWritePermission(context: Context): Boolean {
+        fun checkSystemWritePermission(): Boolean {
             var retVal = true
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                retVal = Settings.System.canWrite(context)
-                //LLog.d(TAG, "Can Write Settings: " + retVal);
-                /*if (retVal) {
-                    LLog.d(TAG, "Write allowed");
-                } else {
-                    LLog.d(TAG, "Write not allowed");
-                }*/
+                retVal = Settings.System.canWrite(LAppResource.application)
             }
             return retVal
         }

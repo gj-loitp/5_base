@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_database_room2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.model.FloorPlan
-import vn.loitp.app.app.LApplication
 
 @LayoutId(R.layout.activity_database_room2)
 @LogTag("RoomActivity")
@@ -33,8 +33,8 @@ class RoomActivity : BaseFontActivity() {
         floorPlanAdapter = FloorPlanAdapter()
         floorPlanAdapter?.apply {
             onClickRootView = {
-                logD(LApplication.gson.toJson(it))
-                showShort(LApplication.gson.toJson(it))
+                logD(BaseApplication.gson.toJson(it))
+                showShort(BaseApplication.gson.toJson(it))
             }
             onClickUpDate = {
                 handleUpdate(it)
@@ -82,7 +82,7 @@ class RoomActivity : BaseFontActivity() {
                     }
                 }
                 actionData.data?.let {
-                    logD("floorPlanActionLiveData observe " + LApplication.gson.toJson(it))
+                    logD("floorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
                     handleGetList()
                 }
             })
@@ -96,7 +96,7 @@ class RoomActivity : BaseFontActivity() {
                     }
                 }
                 actionData.data?.let {
-                    logD("getFloorPlanActionLiveData observe " + LApplication.gson.toJson(it))
+                    logD("getFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
                     floorPlanAdapter?.setListFloorPlan(it)
                 }
             })
@@ -110,8 +110,8 @@ class RoomActivity : BaseFontActivity() {
                     }
                 }
                 actionData.data?.let {
-                    logD("getByIndexFloorPlanActionLiveData observe " + LApplication.gson.toJson(it))
-                    showShort("getByIndexFloorPlanActionLiveData:\n" + LApplication.gson.toJson(it))
+                    logD("getByIndexFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
+                    showShort("getByIndexFloorPlanActionLiveData:\n" + BaseApplication.gson.toJson(it))
                 }
             })
 
@@ -180,7 +180,7 @@ class RoomActivity : BaseFontActivity() {
                 }
 //                val data = actionData.data
                 if (isDoing == false) {
-                    showShort("findFloorPlanActionLiveData observe " + LApplication.gson.toJson(actionData.data))
+                    showShort("findFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
                 }
             })
         }

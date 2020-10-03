@@ -51,13 +51,12 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
         if (imgObject == null || ivGift == null || ivAvatar == null) {
             return;
         }
-        //LLog.d(TAG, "drawableRes " + drawableRes);
         if (drawableRes == 0) {
             try {
                 String urlGift = imgObject.getUrl();
                 LImageUtil.Companion.load(getContext(), urlGift, ivGift);
             } catch (NullPointerException e) {
-                //do nothing
+                e.printStackTrace();
             }
         } else {
             LImageUtil.Companion.load(getContext(), drawableRes, ivGift);

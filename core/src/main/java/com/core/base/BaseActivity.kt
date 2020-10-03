@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
@@ -60,7 +59,7 @@ abstract class BaseActivity : AppCompatActivity() {
             window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
             //LActivityUtil.hideSystemUI(getWindow().getDecorView());
         }
-        setCustomStatusBar(colorStatusBar = ContextCompat.getColor(this, R.color.colorPrimary), colorNavigationBar = ContextCompat.getColor(this, R.color.colorPrimary))
+        setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
         super.onCreate(savedInstanceState)
         EventBus.getDefault().register(this)
@@ -74,11 +73,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 .getInstance()
                 .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
                     override fun onConnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(context = this@BaseActivity, isConnected = true)
+                        LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
                     }
 
                     override fun onDisconnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(context = this@BaseActivity, isConnected = false)
+                        LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
                     }
 
                     override fun getContext(): Context {
@@ -129,27 +128,21 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun setCustomStatusBar(colorStatusBar: Int, colorNavigationBar: Int) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            //getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
-            //getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.colorPrimary));
-
             window.statusBarColor = colorStatusBar
             window.navigationBarColor = colorNavigationBar
         }
 
         //set color for status bar
-        //StatusBarCompat.setStatusBarColor(activity, ContextCompat.getColor(activity, R.color.Red));
+//        StatusBarCompat.setStatusBarColor(activity = this, statusColor = LAppResource.getColor(R.color.red))
 
         //add alpha to color
-        //StatusBarCompat.setStatusBarColor(activity, ContextCompat.getColor(activity, R.color.Red), 50);
+//        StatusBarCompat.setStatusBarColor(activity = this, statusColor = LAppResource.getColor(R.color.red), alpha = 50)
 
         //translucent status bar
-        //StatusBarCompat.translucentStatusBar(activity);
+//        StatusBarCompat.translucentStatusBar(activity = this)
 
         //should hide status bar background (default black background) when SDK >= 21
-        //StatusBarCompat.translucentStatusBar(activity, true);
-
-        //set color for CollapsingToolbarLayout
-        //setStatusBarColorForCollapsingToolbar(Activity activity, AppBarLayout appBarLayout, CollapsingToolbarLayout collapsingToolbarLayout, Toolbar toolbar, int statusColor)
+//        StatusBarCompat.translucentStatusBar(activity = this, hideStatusBarBackground = true)
     }
 
     override fun onDestroy() {
@@ -201,7 +194,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 LUIUtil.displayInterstitial(interstitial = it, maxNumber = 70)
             }
         } else {
-            //dont use LLog here
+            //don't use LLog here
             Log.d(logTag, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
         }
     }
@@ -213,12 +206,12 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
-    protected fun showShort(msg: String?) {
-        LToast.showShort(context = this, msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+    protected fun showShort(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLong(msg: String?) {
-        LToast.showLong(context = this, msg = msg, backgroundRes = R.drawable.l_bkg_horizontal)
+    protected fun showLong(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
     }
 
     protected fun showShortDebug(msg: String?) {

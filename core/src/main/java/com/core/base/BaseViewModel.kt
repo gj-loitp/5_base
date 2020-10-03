@@ -3,7 +3,9 @@ package com.core.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.annotation.LogTag
 import com.core.helper.girl.service.GirlApiResponse
+import com.core.utilities.LLog
 import com.service.RequestStatus
 import com.service.livedata.ActionData
 import com.service.model.ApiResponse
@@ -20,7 +22,11 @@ import kotlinx.coroutines.Job
  */
 
 open class BaseViewModel : ViewModel() {
-    private val logTag = javaClass.simpleName
+    private var logTag: String? = null
+
+    init {
+        logTag = javaClass.getAnnotation(LogTag::class.java)?.value
+    }
 
     protected fun <T> LiveData<T>.post(data: T) = (this as MutableLiveData<T>).postValue(data)
     protected fun <T> LiveData<T>.set(data: T) {
@@ -126,6 +132,18 @@ open class BaseViewModel : ViewModel() {
                         errorResponse = error
                 )
             }
+        }
+    }
+
+    protected fun logD(msg: String) {
+        logTag?.let {
+            LLog.d(it, msg)
+        }
+    }
+
+    protected fun logE(msg: String) {
+        logTag?.let {
+            LLog.e(it, msg)
         }
     }
 }

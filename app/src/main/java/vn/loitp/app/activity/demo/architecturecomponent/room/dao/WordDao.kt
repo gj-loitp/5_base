@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.architecturecomponent.room.dao
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import com.core.base.BaseDao
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 
 @Dao

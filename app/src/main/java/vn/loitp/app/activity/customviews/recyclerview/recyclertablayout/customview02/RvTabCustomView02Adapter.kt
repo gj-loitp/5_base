@@ -1,16 +1,15 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.customview02
 
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
-import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
+import com.core.utilities.LAppResource
 import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImagePagerAdapter
@@ -28,15 +27,15 @@ class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) : Recy
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val drawable = loadIconWithTint(holder.imageView.context, mAdapter.getImageResourceId(position))
+        val drawable = loadIconWithTint(resourceId = mAdapter.getImageResourceId(position))
 
         holder.imageView.setImageDrawable(drawable)
         holder.imageView.isSelected = position == currentIndicatorPosition
     }
 
-    private fun loadIconWithTint(context: Context, @DrawableRes resourceId: Int): Drawable {
-        var icon = ContextCompat.getDrawable(context, resourceId)
-        val colorStateList = ContextCompat.getColorStateList(context, R.color.custom_view02_tint)
+    private fun loadIconWithTint(@DrawableRes resourceId: Int): Drawable {
+        var icon = LAppResource.getDrawable(resourceId)
+        val colorStateList = LAppResource.getColorStateList(R.color.custom_view02_tint)
         icon = DrawableCompat.wrap(icon!!)
         DrawableCompat.setTintList(icon, colorStateList)
         return icon

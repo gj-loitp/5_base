@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.R
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.common.Constants
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
 import com.data.EventBusData
@@ -140,8 +141,24 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun showShort(msg: String) {
-        context?.let { LToast.showShort(it, msg, R.drawable.l_bkg_horizontal) }
+    open fun showShort(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
+    }
+
+    open fun showLong(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
+    }
+
+    open fun showShortDebug(msg: String?) {
+        if (Constants.IS_DEBUG) {
+            showShort(msg)
+        }
+    }
+
+    open fun showLongDebug(msg: String?) {
+        if (Constants.IS_DEBUG) {
+            showLong(msg)
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

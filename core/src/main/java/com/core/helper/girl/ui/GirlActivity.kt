@@ -12,6 +12,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.MenuGirl
+import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
 import kotlinx.android.synthetic.main.l_activity_girl.*
 
@@ -25,6 +26,8 @@ class GirlActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl)
 
+        isShowAdWhenExit = true
+
         setupData()
         setupViews()
     }
@@ -34,7 +37,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuHome,
                 iconId = R.drawable.baseline_home_black_24dp,
                 textId = R.string.menu_home,
-                activeColor = Color.GRAY
+                activeColor = Color.WHITE
         )
         listMenuGirl.add(menuGirlHome)
 
@@ -42,7 +45,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuFavourite,
                 iconId = R.drawable.baseline_favorite_black_24dp,
                 textId = R.string.menu_favourite,
-                activeColor = Color.GRAY
+                activeColor = Color.WHITE
         )
         listMenuGirl.add(menuGirlFavourite)
 
@@ -50,7 +53,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuInformation,
                 iconId = R.drawable.baseline_info_black_24dp,
                 textId = R.string.menu_infor,
-                activeColor = Color.GRAY
+                activeColor = Color.WHITE
         )
         listMenuGirl.add(menuGirlInformation)
     }
@@ -58,7 +61,7 @@ class GirlActivity : BaseFontActivity() {
     private fun setupViews() {
         viewPager.adapter = SlidePagerAdapter(supportFragmentManager)
         viewPager.offscreenPageLimit = listMenuGirl.size
-//        viewPager.setPageTransformer(true, CubeInTransformer())
+        viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
             }
@@ -129,7 +132,7 @@ class GirlActivity : BaseFontActivity() {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShort(getString(R.string.press_again_to_exit))
+        showShort(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
         Handler().postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)

@@ -9,7 +9,6 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseActivity;
-import com.core.utilities.LLog;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 import com.views.wwlmusic.utils.LWWLMusicViewHelper;
 import com.views.wwlvideo.LWWLVideo;
@@ -49,7 +48,6 @@ public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener
 
     @Override
     public void WWL_onSliding(float offset) {
-        LLog.d(getLogTag(), "WWL_onSliding offset " + offset);
         float alpha;
         if (offset > 2.0f) {
             alpha = this.mLastAlpha * (3.0f - offset);
@@ -69,7 +67,6 @@ public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener
 
     @Override
     public void WWL_onClicked() {
-        LLog.d(getLogTag(), "WWL_onClicked");
         if (this.LWWLVideo.mState == com.views.wwlvideo.LWWLVideo.STATE_MINIMIZED) {
             this.LWWLVideo.maximize(false);
         }
@@ -80,7 +77,6 @@ public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener
 
     @Override
     public void WWL_onHided() {
-        LLog.d(getLogTag(), "WWL_onHided");
         this.wwlVideoPlayerFragment.stopPlay();
     }
 

@@ -1,14 +1,16 @@
 package com.core.helper.girl.viewmodel
 
+import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
+import com.core.helper.girl.db.GirlDatabase
 import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.model.GirlPageDetail
 import com.core.helper.girl.service.GirlApiClient
 import com.core.helper.girl.service.GirlRepository
-import com.core.utilities.LLog
-import com.google.gson.Gson
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 /**
@@ -18,33 +20,41 @@ import kotlinx.coroutines.launch
  * www.muathu@gmail.com
  */
 
+@LogTag("loitppGirlViewModel")
 class GirlViewModel : BaseViewModel() {
-    private val logTag = "loitpp" + javaClass.simpleName
     private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
     val pageActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
     val pageDetailActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPageDetail>>> = ActionLiveData()
+    val likeGirlPageActionLiveData: ActionLiveData<ActionData<GirlPage>> = ActionLiveData()
+    val pageLikedActionLiveData: ActionLiveData<ActionData<List<GirlPage>>> = ActionLiveData()
 
     fun getPage(pageIndex: Int, keyWord: String?, isSwipeToRefresh: Boolean) {
         pageActionLiveData.set(ActionData(isDoing = true))
 
         ioScope.launch {
-//            LLog.d(logTag, ">>>getPage pageIndex $pageIndex, keyWord: $keyWord, isSwipeToRefresh: $isSwipeToRefresh")
             val response = repository.getPage(
                     pageIndex = pageIndex,
                     keyWord = keyWord
             )
-            LLog.d(logTag, "<<<getPage " + Gson().toJson(response))
+            logD("<<<getPage " + BaseApplication.gson.toJson(response))
             if (response.items == null) {
                 pageActionLiveData.postAction(
                         getErrorRequestGirl(response)
                 )
             } else {
+                val data = response.items
+                data.forEach { girlPage ->
+                    val findGirlPage = GirlDatabase.instance?.girlPageDao()?.find(girlPage.id)
+//                    logD(">>>findGirlPage " + BaseApplication.gson.toJson(findGirlPage))
+                    girlPage.isFavorites = !(findGirlPage == null || !findGirlPage.isFavorites)
+                }
+
                 pageActionLiveData.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
-                                data = response.items,
+                                data = data,
                                 total = response.total,
                                 totalPages = response.totalPages,
                                 page = response.page,
@@ -59,21 +69,32 @@ class GirlViewModel : BaseViewModel() {
     fun getDetail(id: String?) {
         pageDetailActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
-//            LLog.d(logTag, ">>>getDetail id $id")
+            logD(">>>getDetail id $id")
             val response = repository.getPageDetail(
                     id = id
             )
-//            LLog.d(logTag, "<<<getDetail " + Gson().toJson(response))
             if (response.items == null) {
                 pageDetailActionLiveData.postAction(
                         getErrorRequestGirl(response)
                 )
             } else {
+                val findGirlPage = GirlDatabase.instance?.girlPageDao()?.find(id)
+                logD(">>>findGirlPage " + BaseApplication.gson.toJson(findGirlPage))
+                val data = response.items
+                if (findGirlPage == null || !findGirlPage.isFavorites) {
+                    data.forEach {
+                        it.isFavorites = false
+                    }
+                } else {
+                    data.forEach {
+                        it.isFavorites = true
+                    }
+                }
                 pageDetailActionLiveData.post(
                         ActionData(
                                 isDoing = false,
                                 isSuccess = true,
-                                data = response.items,
+                                data = data,
                                 total = response.total,
                                 totalPages = response.totalPages,
                                 page = response.page
@@ -82,6 +103,35 @@ class GirlViewModel : BaseViewModel() {
             }
         }
 
+    }
+
+    fun likeGirlPage(girlPage: GirlPage) {
+        logD(">>>likeGirlPage before " + BaseApplication.gson.toJson(girlPage))
+        girlPage.isFavorites = !girlPage.isFavorites
+        logD(">>>likeGirlPage after " + BaseApplication.gson.toJson(girlPage))
+        likeGirlPageActionLiveData.set(ActionData(isDoing = true))
+        ioScope.launch {
+            val id = GirlDatabase.instance?.girlPageDao()?.insert(girlPage)
+            logD("<<<likeGirlPage id $id")
+            likeGirlPageActionLiveData.post(
+                    ActionData(isDoing = false, data = girlPage, isSuccess = true)
+            )
+        }
+    }
+
+    fun getListLikeGirlPage(currentKeyword: String, isDelay: Boolean) {
+        pageLikedActionLiveData.set(ActionData(isDoing = true))
+        logD(">>>getListLikeGirlPage currentKeyword $currentKeyword")
+        ioScope.launch {
+            if (isDelay) {
+                delay(300)
+            }
+            val listGirlPageFavorites = GirlDatabase.instance?.girlPageDao()?.getListGirlPage(currentKeyword)
+            logD("<<<getListLikeGirlPage " + BaseApplication.gson.toJson(listGirlPageFavorites))
+            pageLikedActionLiveData.postAction(
+                    ActionData(isDoing = false, data = listGirlPageFavorites, isSuccess = true)
+            )
+        }
     }
 
 }

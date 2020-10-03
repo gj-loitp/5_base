@@ -64,6 +64,6 @@ class TestAsyncKotlin(private val count: Int) {
     }
 
     private fun log(s: String) {
-        LLog.d("loitptestt", s + " ->isUI=" + (Looper.myLooper() == Looper.getMainLooper()))
+        LLog.d("TestAsyncKotlin", s + " ->isUI=" + (Looper.myLooper() == Looper.getMainLooper()))
     }
 }

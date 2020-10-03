@@ -146,3 +146,6 @@
 #https://github.com/mmin18/RealtimeBlurView
 -keep class android.support.v8.renderscript.** { *; }
 -keep class androidx.renderscript.** { *; }
+
+#-keep class com.veyo.** { *; }
+#-keep interface com.veyo.** { *; }

@@ -21,7 +21,6 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
@@ -29,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
 import com.R;
+import com.core.utilities.LAppResource;
 import com.views.calendar.cosmocalendar.FetchMonthsAsyncTask;
 import com.views.calendar.cosmocalendar.adapter.MonthAdapter;
 import com.views.calendar.cosmocalendar.listeners.OnMonthChangeListener;
@@ -156,24 +156,24 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         boolean showDaysOfWeekTitle = orientation != LinearLayoutManager.HORIZONTAL;
         boolean showDaysOfWeek = orientation == LinearLayoutManager.HORIZONTAL;
         boolean showFlBottomSelectionBar = orientation == LinearLayoutManager.HORIZONTAL;
-        int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarView_calendarBackgroundColor, ContextCompat.getColor(getContext(), R.color.default_calendar_background_color));
-        int monthTextColor = typedArray.getColor(R.styleable.CalendarView_monthTextColor, ContextCompat.getColor(getContext(), R.color.default_month_text_color));
-        int otherDayTextColor = typedArray.getColor(R.styleable.CalendarView_otherDayTextColor, ContextCompat.getColor(getContext(), R.color.default_other_day_text_color));
-        int dayTextColor = typedArray.getColor(R.styleable.CalendarView_dayTextColor, ContextCompat.getColor(getContext(), R.color.default_day_text_color));
-        int weekendDayTextColor = typedArray.getColor(R.styleable.CalendarView_weekendDayTextColor, ContextCompat.getColor(getContext(), R.color.default_weekend_day_text_color));
-        int weekDayTitleTextColor = typedArray.getColor(R.styleable.CalendarView_weekDayTitleTextColor, ContextCompat.getColor(getContext(), R.color.default_week_day_title_text_color));
-        int selectedDayTextColor = typedArray.getColor(R.styleable.CalendarView_selectedDayTextColor, ContextCompat.getColor(getContext(), R.color.default_selected_day_text_color));
-        int selectedDayBackgroundColor = typedArray.getColor(R.styleable.CalendarView_selectedDayBackgroundColor, ContextCompat.getColor(getContext(), R.color.default_selected_day_background_color));
-        int selectedDayBackgroundStartColor = typedArray.getColor(R.styleable.CalendarView_selectedDayBackgroundStartColor, ContextCompat.getColor(getContext(), R.color.default_selected_day_background_start_color));
-        int selectedDayBackgroundEndColor = typedArray.getColor(R.styleable.CalendarView_selectedDayBackgroundEndColor, ContextCompat.getColor(getContext(), R.color.default_selected_day_background_end_color));
-        int currentDayTextColor = typedArray.getColor(R.styleable.CalendarView_currentDayTextColor, ContextCompat.getColor(getContext(), R.color.default_day_text_color));
+        int calendarBackgroundColor = typedArray.getColor(R.styleable.CalendarView_calendarBackgroundColor, LAppResource.INSTANCE.getColor(R.color.default_calendar_background_color));
+        int monthTextColor = typedArray.getColor(R.styleable.CalendarView_monthTextColor, LAppResource.INSTANCE.getColor(R.color.default_month_text_color));
+        int otherDayTextColor = typedArray.getColor(R.styleable.CalendarView_otherDayTextColor, LAppResource.INSTANCE.getColor(R.color.default_other_day_text_color));
+        int dayTextColor = typedArray.getColor(R.styleable.CalendarView_dayTextColor, LAppResource.INSTANCE.getColor(R.color.default_day_text_color));
+        int weekendDayTextColor = typedArray.getColor(R.styleable.CalendarView_weekendDayTextColor, LAppResource.INSTANCE.getColor(R.color.default_weekend_day_text_color));
+        int weekDayTitleTextColor = typedArray.getColor(R.styleable.CalendarView_weekDayTitleTextColor, LAppResource.INSTANCE.getColor(R.color.default_week_day_title_text_color));
+        int selectedDayTextColor = typedArray.getColor(R.styleable.CalendarView_selectedDayTextColor, LAppResource.INSTANCE.getColor(R.color.default_selected_day_text_color));
+        int selectedDayBackgroundColor = typedArray.getColor(R.styleable.CalendarView_selectedDayBackgroundColor, LAppResource.INSTANCE.getColor(R.color.default_selected_day_background_color));
+        int selectedDayBackgroundStartColor = typedArray.getColor(R.styleable.CalendarView_selectedDayBackgroundStartColor, LAppResource.INSTANCE.getColor(R.color.default_selected_day_background_start_color));
+        int selectedDayBackgroundEndColor = typedArray.getColor(R.styleable.CalendarView_selectedDayBackgroundEndColor, LAppResource.INSTANCE.getColor(R.color.default_selected_day_background_end_color));
+        int currentDayTextColor = typedArray.getColor(R.styleable.CalendarView_currentDayTextColor, LAppResource.INSTANCE.getColor(R.color.default_day_text_color));
         int currentDayIconRes = typedArray.getResourceId(R.styleable.CalendarView_currentDayIconRes, R.drawable.ic_triangle_green);
         int currentDaySelectedIconRes = typedArray.getResourceId(R.styleable.CalendarView_currentDaySelectedIconRes, R.drawable.ic_triangle_white);
         int connectedDayIconRes = typedArray.getResourceId(R.styleable.CalendarView_connectedDayIconRes, 0);
         int connectedDaySelectedIconRes = typedArray.getResourceId(R.styleable.CalendarView_connectedDaySelectedIconRes, 0);
         int connectedDayIconPosition = typedArray.getInteger(R.styleable.CalendarView_connectedDayIconPosition, SettingsManager.DEFAULT_CONNECTED_DAY_ICON_POSITION);
-        int disabledDayTextColor = typedArray.getColor(R.styleable.CalendarView_disabledDayTextColor, ContextCompat.getColor(getContext(), R.color.default_disabled_day_text_color));
-        int selectionBarMonthTextColor = typedArray.getColor(R.styleable.CalendarView_selectionBarMonthTextColor, ContextCompat.getColor(getContext(), R.color.default_selection_bar_month_title_text_color));
+        int disabledDayTextColor = typedArray.getColor(R.styleable.CalendarView_disabledDayTextColor, LAppResource.INSTANCE.getColor(R.color.default_disabled_day_text_color));
+        int selectionBarMonthTextColor = typedArray.getColor(R.styleable.CalendarView_selectionBarMonthTextColor, LAppResource.INSTANCE.getColor(R.color.default_selection_bar_month_title_text_color));
         int previousMonthIconRes = typedArray.getResourceId(R.styleable.CalendarView_previousMonthIconRes, R.drawable.ic_chevron_left_black_48dp);
         int nextMonthIconRes = typedArray.getResourceId(R.styleable.CalendarView_nextMonthIconRes, R.drawable.ic_chevron_right_black_48dp);
 
@@ -739,7 +739,6 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
      * Sets selection bar layout visibility
      */
     private void setSelectionBarVisibility() {
-        //LLog.d(TAG, "setSelectionBarVisibility isShowFlBottomSelectionBar: " + settingsManager.isShowFlBottomSelectionBar());
         flBottomSelectionBar.setVisibility((getCalendarOrientation() == OrientationHelper.HORIZONTAL && settingsManager.isShowFlBottomSelectionBar()) ? View.VISIBLE : View.GONE);
         rvMultipleSelectedList.setVisibility(getCalendarOrientation() == OrientationHelper.HORIZONTAL && getSelectionType() == SelectionType.MULTIPLE ? View.VISIBLE : View.GONE);
         llRangeSelection.setVisibility(needToShowSelectedDaysRange() ? View.VISIBLE : View.GONE);

@@ -8,7 +8,6 @@ import com.R
 import com.core.adapter.AnimationAdapter
 
 class GirlProgressAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

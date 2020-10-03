@@ -74,7 +74,7 @@ public class GetListBookFromDeviceAndAssetTask extends AsyncTask<Object, Object,
         if (isSDPresent) {
             bookInfoList = new ArrayList<>();
             List<File> files = LStoreUtil.Companion.getListEpubFiles(new File(Environment.getExternalStorageDirectory().getAbsolutePath()));
-            File sampleFile = LStoreUtil.Companion.getFileFromAssets(activity, "a (1).sqlite");
+            File sampleFile = LStoreUtil.Companion.getFileFromAssets("a (1).sqlite");
             files.add(0, sampleFile);
             for (File file : files) {
                 if (file == null) {

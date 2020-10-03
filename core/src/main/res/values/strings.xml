@@ -20,11 +20,16 @@
     <string name="copyright">© Loitp</string>
     <string name="copyright_team">© Múp\'s Team</string>
     <string name="rate_app">Đánh giá</string>
+    <string name="rate_app_en">Rate app</string>
     <string name="more_app">Thêm ứng dụng hay</string>
+    <string name="more_app_en">More apps</string>
     <string name="why_u_see_ad">Tại sao bạn nhìn thấy quảng cáo?</string>
+    <string name="why_u_see_ad_en">Why did you see ad?</string>
     <string name="share_app">Chia sẻ ứng dụng</string>
+    <string name="share_app_en">Share app</string>
     <string name="like_facebook_fanpage">Like Facebook Fanpage</string>
     <string name="support_24_7">Hỗ trợ trực tiếp 24/7</string>
+    <string name="support_24_7_en">Support 24/7</string>
     <string name="loading">Loading…</string>
     <string name="open_gift">Open gift</string>
     <string name="no_data">Không có dữ liệu</string>
@@ -133,4 +138,6 @@
     <string name="video">Video</string>
     <string name="search">Search…</string>
     <string name="press_again_to_exit">Press again to exit</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
 </resources>

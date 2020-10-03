@@ -38,7 +38,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(this@GalleryMemberDetailActivity)
+                    LActivityUtil.transActivityNoAnimation(this@GalleryMemberDetailActivity)
                 }
             }
         })

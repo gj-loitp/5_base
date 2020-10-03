@@ -19,7 +19,6 @@ import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LImageUtil;
-import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -36,7 +35,6 @@ import com.google.firebase.auth.FirebaseUser;
 import java.security.MessageDigest;
 
 import vn.loitp.app.R;
-import vn.loitp.app.app.LApplication;
 
 //https://github.com/firebase/quickstart-android
 
@@ -76,13 +74,13 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
         loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                LLog.d(getLogTag(), "facebook:onSuccess:" + loginResult);
+                logD("facebook:onSuccess:" + loginResult);
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
             @Override
             public void onCancel() {
-                LLog.d(getLogTag(), "facebook:onCancel");
+                logD("facebook:onCancel");
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -90,7 +88,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             @Override
             public void onError(FacebookException error) {
-                LLog.d(getLogTag(), "facebook:onError " + error.toString());
+                logD("facebook:onError " + error.toString());
                 // [START_EXCLUDE]
                 updateUI(null);
                 // [END_EXCLUDE]
@@ -120,7 +118,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
     // [START auth_with_facebook]
     private void handleFacebookAccessToken(AccessToken token) {
-        LLog.d(getLogTag(), "handleFacebookAccessToken:" + token);
+        logD("handleFacebookAccessToken:" + token);
         // [START_EXCLUDE silent]
         showProgressDialog();
         // [END_EXCLUDE]
@@ -130,13 +128,13 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        LLog.d(getLogTag(), "signInWithCredential:success");
+                        logD("signInWithCredential:success");
                         FirebaseUser user = mAuth.getCurrentUser();
                         updateUI(user);
                     } else {
                         // If sign in fails, display a message to the user.
-                        LLog.d(getLogTag(), "signInWithCredential:failure " + task.getException());
-                        showShort("Authentication failed " + task.getException());
+                        logD("signInWithCredential:failure " + task.getException());
+                        showShort("Authentication failed " + task.getException(), true);
                         updateUI(null);
                     }
 
@@ -162,8 +160,6 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
 
             LUIUtil.Companion.printBeautyJson(user, mDetailTextView);
 
-            LLog.d(getLogTag(), "updateUI " + LApplication.Companion.getGson().toJson(user));
-            LLog.d(getLogTag(), "user.getPhotoUrl() " + user.getPhotoUrl());
             try {
                 LImageUtil.Companion.load(this, user.getPhotoUrl() + "?height=500", findViewById(R.id.icon));
             } catch (Exception e) {
@@ -228,10 +224,10 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
                 String hashKey = new String(Base64.encode(md.digest(), 0));
-                LLog.d(getLogTag(), "printHashKey() Hash Key: " + hashKey);
+                logD("printHashKey() Hash Key: " + hashKey);
             }
         } catch (Exception e) {
-            LLog.e(getLogTag(), "printHashKey() " + e.toString());
+            logE("printHashKey() " + e.toString());
         }
     }
 }

@@ -8,11 +8,11 @@ import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
 import com.core.utilities.LKeyBoardUtil
 import com.core.utilities.LScreenUtil
 import com.views.edittext.leditext.LEditText
@@ -28,9 +28,9 @@ class LEditTextActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         lEditTextId.apply {
-            colorFocus = ContextCompat.getColor(this@LEditTextActivity, R.color.black)
-            colorUnfocus = ContextCompat.getColor(this@LEditTextActivity, R.color.blue)
-            colorError = ContextCompat.getColor(this@LEditTextActivity, R.color.red)
+            colorFocus = LAppResource.getColor(R.color.black)
+            colorUnfocus = LAppResource.getColor(R.color.blue)
+            colorError = LAppResource.getColor(R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.ic_close_black_48dp)
             setStrokeWidth(5)
@@ -69,9 +69,9 @@ class LEditTextActivity : BaseFontActivity() {
         }
         var isShowPw = false
         lEditTextPw.apply {
-            colorFocus = ContextCompat.getColor(this@LEditTextActivity, R.color.black)
-            colorUnfocus = ContextCompat.getColor(this@LEditTextActivity, R.color.blue)
-            colorError = ContextCompat.getColor(this@LEditTextActivity, R.color.red)
+            colorFocus = LAppResource.getColor(R.color.black)
+            colorUnfocus = LAppResource.getColor(R.color.blue)
+            colorError = LAppResource.getColor(R.color.red)
             ivLeft.setImageResource(R.mipmap.ic_launcher)
             ivRight.setImageResource(R.drawable.ic_visibility_black_48dp)
             setStrokeWidth(5)

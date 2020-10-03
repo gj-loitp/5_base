@@ -13,7 +13,7 @@
         android:layout_height="@dimen/w_150"
         android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/margin_5"
+        android:layout_marginBottom="@dimen/margin_medium"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         tools:src="@drawable/ic_launcher" />
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_medium"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/txt_22"
         tools:text="@string/app_name" />
@@ -36,25 +36,26 @@
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/padding_medium"
         android:textColor="@color/black"
         android:textSize="@dimen/txt_14"
         android:textStyle="bold"
         tools:text="@string/app_name" />
 
-    <life.sabujak.roundedbutton.RoundedButton
+    <com.manojbhadane.QButton
         android:id="@+id/btOkay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_medium"
+        android:enabled="true"
         android:gravity="center"
-        android:padding="@dimen/padding_10"
+        android:padding="@dimen/padding_medium"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_18"
-        app:buttonCornerRadius="0dp"
-        app:buttonGradientEndColor="@color/colorPrimary2"
-        app:buttonGradientStartColor="@color/colorPrimary"
-        app:buttonRippleAlpha="10"
-        app:buttonRippleColor="@color/colorPrimary"
+        android:textSize="@dimen/txt_medium"
+        app:qb_backgroundColor="@color/colorPrimary"
+        app:qb_radius="100"
+        app:qb_strokeColor="@color/white"
+        app:qb_strokeWidth="1"
         tools:text="@string/app_name" />
 </RelativeLayout>

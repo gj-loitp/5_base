@@ -1,60 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ScrollVertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
-    android:orientation="vertical">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/tvCurrentStatus"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium" />
+        android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btStartDownload"
-        style="@style/ButtonMenu"
-        android:text="start download" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/whiteSmoke"
+            android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btCancelDownload"
-        style="@style/ButtonMenu"
-        android:text="cancel download" />
+            <TextView
+                android:id="@+id/tvCurrentStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/txt_medium" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btPauseDownload"
-        style="@style/ButtonMenu"
-        android:text="pause download" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btStartDownload"
+                style="@style/ButtonMenu"
+                android:text="start download"
+                android:textSize="@dimen/txt_medium" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btResumeDownload"
-        style="@style/ButtonMenu"
-        android:text="resume download" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCancelDownload"
+                style="@style/ButtonMenu"
+                android:text="cancel download"
+                android:textSize="@dimen/txt_medium" />
 
-    <ProgressBar
-        android:id="@+id/sbDownloadProgress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminateOnly="false"
-        android:padding="@dimen/padding_medium" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPauseDownload"
+                style="@style/ButtonMenu"
+                android:text="pause download"
+                android:textSize="@dimen/txt_medium" />
 
-    <TextView
-        android:id="@+id/tvPercent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btResumeDownload"
+                style="@style/ButtonMenu"
+                android:text="resume download"
+                android:textSize="@dimen/txt_medium" />
 
-    <TextView
-        android:id="@+id/tvSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium" />
+            <ProgressBar
+                android:id="@+id/sbDownloadProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminateOnly="false"
+                android:padding="@dimen/padding_medium" />
 
-    <TextView
-        android:id="@+id/tvTotalSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium" />
+            <TextView
+                android:id="@+id/tvPercent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/txt_medium"
+                tools:text="@string/app_name" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/tvSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/txt_medium"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tvTotalSize"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:textSize="@dimen/txt_medium"
+                tools:text="@string/app_name" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_1"
+                android:background="@color/gray" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:text="Test LStore Util"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_large"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btTestRandomColor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="randomColor"
+                android:textSize="@dimen/txt_medium" />
+
+            <TextView
+                android:id="@+id/btTestRandomColorLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="randomColorLight"
+                android:textSize="@dimen/txt_medium" />
+
+            <TextView
+                android:id="@+id/btTestWriteToFile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="writeToFile"
+                android:textSize="@dimen/txt_medium" />
+
+            <TextView
+                android:id="@+id/btReadTxtFromFolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="readTxtFromFolder"
+                android:textSize="@dimen/txt_medium" />
+
+            <TextView
+                android:id="@+id/btReadTxtFromRawFolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="readTxtFromRawFolder"
+                android:textSize="@dimen/txt_medium" />
+
+            <TextView
+                android:id="@+id/btReadTxtFromAsset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="readTxtFromAsset"
+                android:textSize="@dimen/txt_medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutProgress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black65"
+            android:gravity="center"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/white"
+                tools:ignore="UnusedAttribute" />
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.core.widget.NestedScrollView>

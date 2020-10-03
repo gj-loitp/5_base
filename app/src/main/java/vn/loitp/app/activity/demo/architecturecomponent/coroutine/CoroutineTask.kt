@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.demo.architecturecomponent.coroutine
 
-import com.core.utilities.LLog
+import android.util.Log
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
@@ -11,7 +11,7 @@ import kotlin.coroutines.CoroutineContext
  * www.muathu@gmail.com
  */
 class CoroutineTask : CoroutineScope {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private var job: Job = Job()
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job // to run code in Main(UI) Thread
@@ -19,11 +19,9 @@ class CoroutineTask : CoroutineScope {
     // call this method to cancel a coroutine when you don't need it anymore,
     fun cancel() {
         job.cancel()
-        LLog.d(TAG, "cancel " + job.isCancelled)
     }
 
     fun startTask() = launch {
-        LLog.d(TAG, "startTask")
         val result = doSomeBackgroundWork() // runs in background thread without blocking the Main Thread
         doUiStuff(result)
     }
@@ -37,7 +35,7 @@ class CoroutineTask : CoroutineScope {
 
     // Runs in Main(UI) Thread
     private fun doUiStuff(result: String) {
-        LLog.d(TAG, "doUiStuff result: $result")
+        Log.d(logTag, "doUiStuff result: $result")
     }
 
 }

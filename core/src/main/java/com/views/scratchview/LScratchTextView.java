@@ -1,4 +1,5 @@
 package com.views.scratchview;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,17 +19,16 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
-
 import com.R;
+import com.core.utilities.LAppResource;
 
 public class LScratchTextView extends TextView {
 
 
     public interface IRevealListener {
-        public void onRevealed(LScratchTextView tv);
+        void onRevealed(LScratchTextView tv);
 
-        public void onRevealPercentChangedListener(LScratchTextView stv, float percent);
+        void onRevealPercentChangedListener(LScratchTextView stv, float percent);
     }
 
     public static final float STROKE_WIDTH = 12f;
@@ -156,8 +156,8 @@ public class LScratchTextView extends TextView {
         Rect rect = new Rect(0, 0, mScratchBitmap.getWidth(), mScratchBitmap.getHeight());
         mDrawable.setBounds(rect);
 
-        int startGradientColor = ContextCompat.getColor(getContext(), R.color.scratchStartGradient);
-        int endGradientColor = ContextCompat.getColor(getContext(), R.color.scratchEndGradient);
+        int startGradientColor = LAppResource.INSTANCE.getColor(R.color.scratchStartGradient);
+        int endGradientColor = LAppResource.INSTANCE.getColor(R.color.scratchEndGradient);
 
 
         mGradientBgPaint.setShader(new LinearGradient(0, 0, 0, getHeight(), startGradientColor, endGradientColor, Shader.TileMode.MIRROR));

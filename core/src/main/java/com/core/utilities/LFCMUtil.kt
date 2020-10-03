@@ -18,11 +18,14 @@ import org.json.JSONObject
 
 class LFCMUtil {
     companion object {
-        private val TAG = LFCMUtil::class.java.simpleName
+        private val logTag = LFCMUtil::class.java.simpleName
         private val JSON = "application/json; charset=utf-8".toMediaTypeOrNull()
 
         @SuppressLint("CheckResult")
-        fun sendNotification(key: String, body: String) {
+        fun sendNotification(key: String,
+                             body: String,
+                             onComplete: ((Unit) -> Unit)?,
+                             onError: ((Unit) -> Unit)?) {
             Completable.fromAction {
                 val client = OkHttpClient()
                 val json = JSONObject()
@@ -32,7 +35,6 @@ class LFCMUtil {
                 json.put("notification", dataJson)
                 json.put("to", Constants.FCM_TOPIC)
                 val jsonBody = json.toString().toRequestBody(JSON)
-                //LLog.d(TAG, "body:" + LApplication.getGson().toJson(body));
                 val request = Request.Builder()
                         .header("Authorization", "key=$key")
                         .url("https://fcm.googleapis.com/fcm/send")
@@ -40,13 +42,12 @@ class LFCMUtil {
                         .build()
                 val response = client.newCall(request).execute()
                 val finalResponse = response.body
-                LLog.d(TAG, "finalResponse:" + finalResponse.toString())
             }.subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        LLog.d(TAG, "onComplete")
+                        onComplete?.invoke(Unit)
                     }, {
-                        LLog.d(TAG, "onError $it")
+                        onError?.invoke(Unit)
                     })
         }
 

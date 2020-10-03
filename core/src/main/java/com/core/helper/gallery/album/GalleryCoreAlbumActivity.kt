@@ -105,7 +105,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAniamtion(this@GalleryCoreAlbumActivity)
+                    LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)
                 }
             }
         })
@@ -149,7 +149,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         }
                     }
 
-                    //LLog.d(TAG, "after size: " + photosetList.size());
                     listPhotoSet.sortWith(Comparator { o1, o2 ->
                         java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
                     })

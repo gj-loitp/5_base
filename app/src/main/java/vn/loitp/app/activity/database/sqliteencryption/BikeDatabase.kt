@@ -9,8 +9,27 @@ import com.utils.util.DeviceUtils
 import java.util.*
 
 class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-    private val TAG = javaClass.simpleName
-    private val pw = LEncryptionUtil.encodeBase64(TAG + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress()) + "1993"
+
+    companion object {
+        private const val DATABASE_VERSION = 1
+        private val DATABASE_NAME = BikeDatabase::class.java.simpleName
+        private val TABLE_BIKE = Bike::class.java.simpleName
+
+        // Contacts Table Columns names
+        private const val KEY_ID = "id"
+        private const val KEY_NAME = "name"
+        private const val KEY_BRANCH = "branch"
+        private const val KEY_HP = "hp"
+        private const val KEY_PRICE = "price"
+        private const val KEY_IMG_PATH_0 = "imgPath0"
+        private const val KEY_IMG_PATH_1 = "imgPath1"
+        private const val KEY_IMG_PATH_2 = "imgPath2"
+        const val RESULT_SUCCESS: Long = 1
+        const val RESULT_FAILED: Long = -1
+    }
+
+    private val logTag = javaClass.simpleName
+    private val pw = LEncryptionUtil.encodeBase64(logTag + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress()) + "1993"
 
     // Getting All Bike
     val allBike: List<Bike>
@@ -87,7 +106,6 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     // Adding new bike
     //return id
     fun addBike(bike: Bike?): Long {
-        //LLog.d(TAG, "addBike " + LApplication.gson.toJson(bike))
         if (bike == null) {
             return RESULT_FAILED
         }
@@ -110,7 +128,6 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         values.put(KEY_IMG_PATH_1, encryptImgPath1)
         values.put(KEY_IMG_PATH_2, encryptImgPath2)
         val result = db.insert(TABLE_BIKE, null, values)
-        //LLog.d(TAG, "->addBike success result: $result")
         db.close()
         return result
     }
@@ -157,7 +174,6 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     //return 1 if success
     //return -1 if input is null
     fun updateBike(bike: Bike?): Long {
-        //LLog.d(TAG, "updateBike " + LApplication.gson.toJson(bike))
         if (bike == null) {
             return RESULT_FAILED
         }
@@ -206,23 +222,5 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         val db = writableDatabase
         db.execSQL("DELETE FROM $TABLE_BIKE")
         db.close()
-    }
-
-    companion object {
-        private const val DATABASE_VERSION = 1
-        private val DATABASE_NAME = BikeDatabase::class.java.simpleName
-        private val TABLE_BIKE = Bike::class.java.simpleName
-
-        // Contacts Table Columns names
-        private const val KEY_ID = "id"
-        private const val KEY_NAME = "name"
-        private const val KEY_BRANCH = "branch"
-        private const val KEY_HP = "hp"
-        private const val KEY_PRICE = "price"
-        private const val KEY_IMG_PATH_0 = "imgPath0"
-        private const val KEY_IMG_PATH_1 = "imgPath1"
-        private const val KEY_IMG_PATH_2 = "imgPath2"
-        const val RESULT_SUCCESS: Long = 1
-        const val RESULT_FAILED: Long = -1
     }
 }

@@ -8,7 +8,6 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
-import com.core.utilities.LLog;
 import com.views.layout.dragueur.Direction;
 import com.views.layout.dragueur.DraggableView;
 
@@ -20,14 +19,13 @@ import vn.loitp.app.R;
 @LogTag("DragueurActivity")
 @IsFullScreen(false)
 public class DragueurActivity extends BaseFontActivity {
-    private DraggableView draggableView;
     private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        draggableView = findViewById(R.id.dragueur);
+        DraggableView draggableView = findViewById(R.id.dragueur);
         tv = findViewById(R.id.textView);
         draggableView.setRotationEnabled(true);
         //draggableView.setAnimating(true);
@@ -37,19 +35,19 @@ public class DragueurActivity extends BaseFontActivity {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
-                LLog.d(getLogTag(), "onDrag " + percentX + " x " + percentY);
+                logD("onDrag " + percentX + " x " + percentY);
             }
 
             @Override
             public void onDraggedStarted(DraggableView draggableView, Direction direction) {
                 setText("onDraggedStarted");
-                LLog.d(getLogTag(), "onDraggedStarted " + direction.name());
+                logD("onDraggedStarted " + direction.name());
             }
 
             @Override
             public void onDraggedEnded(DraggableView draggableView, Direction direction) {
                 setText("onDraggedEnded");
-                LLog.d(getLogTag(), "onDraggedEnded " + direction.name());
+                logD("onDraggedEnded " + direction.name());
             }
 
             @Override
@@ -57,22 +55,6 @@ public class DragueurActivity extends BaseFontActivity {
                 setText("onDragCancelled");
             }
         });
-        /*draggableView.setViewAnimator(new ViewAnimator() {
-            @Override
-            public boolean animateExit(@NonNull DraggableView draggableView, Direction direction, int duration) {
-                return false;
-            }
-
-            @Override
-            public boolean animateToOrigin(@NonNull DraggableView draggableView, int duration) {
-                return false;
-            }
-
-            @Override
-            public void update(@NonNull DraggableView draggableView, float percentX, float percentY) {
-                //do nothing
-            }
-        });*/
     }
 
     @SuppressLint("SetTextI18n")

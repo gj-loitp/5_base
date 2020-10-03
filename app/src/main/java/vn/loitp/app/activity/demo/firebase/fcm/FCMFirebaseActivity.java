@@ -27,7 +27,7 @@ public class FCMFirebaseActivity extends BaseFontActivity {
 
         findViewById(R.id.bt_send_fcm).setOnClickListener(v -> {
             if (Constants.Companion.getIS_DEBUG()) {
-                LFCMUtil.Companion.sendNotification(fcmKey, "Hello! This is a notification! " + System.currentTimeMillis());
+                LFCMUtil.Companion.sendNotification(fcmKey, "Hello! This is a notification! " + System.currentTimeMillis(), null, null);
             } else {
                 LDialogUtil.Companion.showDialog1(FCMFirebaseActivity.this, "Message", "This feature is disabled by Loitp", "Okay", new Callback1() {
                     @Override

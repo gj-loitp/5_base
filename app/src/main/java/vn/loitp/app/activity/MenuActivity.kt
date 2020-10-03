@@ -78,7 +78,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShort("Press again to exit")
+        showShort(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
         Handler().postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)

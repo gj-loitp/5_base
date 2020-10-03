@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -56,9 +57,12 @@ class GirlSplashActivity : BaseFontActivity() {
         if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
+        if (BuildConfig.DEBUG) {
+            urlCoverSplashScreen = Constants.URL_IMG
+        }
         LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
-        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.WHITE)
-        LUIUtil.setTextShadow(textView = tvName, color = Color.WHITE)
+        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.BLACK)
+        LUIUtil.setTextShadow(textView = tvName, color = Color.BLACK)
     }
 
     private fun goToHome() {

@@ -6,16 +6,17 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.core.utilities.LLog
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val TAG = "loitpp" + javaClass.simpleName
+    private val logTag = javaClass.simpleName
     private val moviesList = ArrayList<Movie>()
 
-    private val TYPE_MOVIE = 1
-    private val TYPE_MOVIE_BOTTOM = 2
+    companion object{
+        private const val TYPE_MOVIE = 1
+        private const val TYPE_MOVIE_BOTTOM = 2
+    }
 
     fun setList(moviesList: ArrayList<Movie>) {
         this.moviesList.clear()
@@ -61,7 +62,6 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        LLog.d(TAG, "onBindViewHolder position $position")
         val movie = moviesList[position]
         if (holder.itemViewType == TYPE_MOVIE) {
             (holder as MovieViewHolder).bind(movie)
@@ -71,10 +71,10 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (moviesList[position].isBottom) {
-            return TYPE_MOVIE_BOTTOM
+        return if (moviesList[position].isBottom) {
+            TYPE_MOVIE_BOTTOM
         } else {
-            return TYPE_MOVIE
+            TYPE_MOVIE
         }
     }
 

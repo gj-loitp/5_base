@@ -8,7 +8,6 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -17,6 +16,7 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.core.utilities.LAppResource
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.google.android.material.snackbar.Snackbar
@@ -33,35 +33,12 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setCustomStatusBar(Color.TRANSPARENT, ContextCompat.getColor(this, R.color.colorPrimary))
+        setCustomStatusBar(colorStatusBar = Color.TRANSPARENT, colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
         setSupportActionBar(toolbar)
 
         toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
         toolbar.setNavigationOnClickListener { onBackPressed() }
-
-//        CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-//        collapsingToolbarLayout.setTitle(getString(R.string.list_comic));
-//        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(activity, R.color.White));
-//        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(activity, R.color.White));
-
-//        LAppBarLayout appBarLayout = (LAppBarLayout) findViewById(R.id.app_bar);
-//        appBarLayout.setOnStateChangeListener(new LAppBarLayout.OnStateChangeListener() {
-//            @Override
-//            public void onStateChange(LAppBarLayout.State toolbarChange) {
-//                //LLog.d(TAG, "toolbarChange: " + toolbarChange);
-//                if (toolbarChange.equals(LAppBarLayout.State.COLLAPSED)) {
-//                    //COLLAPSED appBarLayout min
-//                    LLog.d(TAG, "COLLAPSED toolbarChange: " + toolbarChange);
-//                } else if (toolbarChange.equals(LAppBarLayout.State.EXPANDED)) {
-//                    //EXPANDED appBarLayout max
-//                    LLog.d(TAG, "EXPANDED toolbarChange: " + toolbarChange);
-//                } else {
-//                    //IDLE appBarLayout not min not max
-//                    LLog.d(TAG, "IDLE toolbarChange: " + toolbarChange);
-//                }
-//            }
-//        });
 
         fab.setOnClickListener(this)
 
@@ -79,7 +56,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
                     .setAction("Action", null).show()
             R.id.btMenu -> LPopupMenu.show(this, v, R.menu.menu_popup, object : CallbackPopup {
                 override fun clickOnItem(menuItem: MenuItem) {
-                    LToast.show(this@CollapsingToolbarWithTabLayoutActivity, menuItem.title.toString())
+                    LToast.show(menuItem.title.toString())
                 }
             })
         }

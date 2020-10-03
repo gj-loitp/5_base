@@ -5,7 +5,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.utilities.LLog
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup.OnCheckedStateChangeListener
 import com.nex3z.togglebuttongroup.SingleSelectToggleGroup
@@ -19,6 +18,7 @@ class TBGCustomButtonActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         init()
     }
 
@@ -29,15 +29,15 @@ class TBGCustomButtonActivity : BaseFontActivity() {
         groupSingleCustomCompoundToggleButton.setOnCheckedChangeListener(SingleSelectListener())
     }
 
-    private class SingleSelectListener : SingleSelectToggleGroup.OnCheckedChangeListener {
+    private inner class SingleSelectListener : SingleSelectToggleGroup.OnCheckedChangeListener {
         override fun onCheckedChanged(group: SingleSelectToggleGroup, checkedId: Int) {
-            LLog.d("SingleSelectListener", "onCheckedChanged(): $checkedId")
+            logD("onCheckedChanged")
         }
     }
 
-    private class MultiSelectListener : OnCheckedStateChangeListener {
+    private inner class MultiSelectListener : OnCheckedStateChangeListener {
         override fun onCheckedStateChanged(group: MultiSelectToggleGroup, checkedId: Int, isChecked: Boolean) {
-            LLog.d("MultiSelectListener", "onCheckedStateChanged(): $checkedId, isChecked = $isChecked")
+            logD("onCheckedStateChanged(): $checkedId, isChecked = $isChecked")
         }
     }
 }

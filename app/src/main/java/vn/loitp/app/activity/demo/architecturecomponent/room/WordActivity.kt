@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_database_room_work.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
-import vn.loitp.app.app.LApplication
 
 //https://codinginfinite.com/android-room-tutorial-persistence/
 //https://codinginfinite.com/android-room-persistent-rxjava/
@@ -60,14 +60,14 @@ class WordActivity : BaseFontActivity() {
         wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
         wordViewModel?.let { vm ->
             vm.listWord?.observe(this, Observer { allWords ->
-                logD("allWords observe " + LApplication.gson.toJson(allWords))
+                logD("allWords observe " + BaseApplication.gson.toJson(allWords))
                 allWords?.let {
                     wordListAdapter?.setWords(it)
                 }
                 genFirstData()
             })
             vm.wordFind?.observe(this, Observer {
-                logD("wordFind observe " + LApplication.gson.toJson(it))
+                logD("wordFind observe " + BaseApplication.gson.toJson(it))
             })
         }
     }

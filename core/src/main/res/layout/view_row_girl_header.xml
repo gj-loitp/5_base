@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:elevation="@dimen/w_3"
     android:paddingTop="@dimen/w_70"
-    app:shape_arc_height="20dp"
+    app:shape_arc_height="30dp"
     app:shape_arc_position="bottom"
     tools:ignore="UnusedAttribute">
 

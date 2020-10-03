@@ -12,14 +12,12 @@ class StickyFooterItemDecoration : ItemDecoration() {
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
         val position = parent.getChildAdapterPosition(view)
-//        LLog.d(logTag, ">>>getItemOffsets position $position")
         parent.adapter?.let { a ->
             val adapterItemCount = a.itemCount
             if (adapterItemCount == RecyclerView.NO_POSITION || adapterItemCount - 1 != position) {
                 return
             }
             val topOffset = calculateTopOffset(parent = parent, footerView = view, itemCount = adapterItemCount)
-//            LLog.d(logTag, "-------------------------> topOffset: $topOffset")
             outRect.top = topOffset
         }
     }

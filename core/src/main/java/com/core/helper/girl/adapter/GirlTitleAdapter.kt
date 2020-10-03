@@ -6,14 +6,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.core.adapter.AnimationAdapter
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_girl_title.view.*
 
 class GirlTitleAdapter : AnimationAdapter() {
-    private val logTag = javaClass.simpleName
     private var title: String = ""
+    private var marginStartEndPx: Int? = null
+    private var marginTopPx: Int? = null
 
     fun setTitle(title: String) {
         this.title = title
+        notifyDataSetChanged()
+    }
+
+    fun setMargin(marginStartEnd: Int?, marginTop: Int?) {
+        this.marginStartEndPx = marginStartEnd
+        this.marginTopPx = marginTop
         notifyDataSetChanged()
     }
 
@@ -21,6 +29,11 @@ class GirlTitleAdapter : AnimationAdapter() {
 
         fun bind() {
             itemView.tvTitle.text = title
+            marginStartEndPx?.let { leftRight ->
+                marginTopPx?.let { top ->
+                    LUIUtil.setMargins(view = itemView.roundRect, leftPx = leftRight, topPx = top, rightPx = leftRight, bottomPx = 0)
+                }
+            }
         }
     }
 

@@ -4,11 +4,10 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.core.utilities.LLog
+import com.core.base.BaseApplication
 import com.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
-import vn.loitp.app.app.LApplication
 
 class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private val TAG = InspectionDatabaseHelper::class.java.name
@@ -37,7 +36,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
     }
 
     override fun onCreate(db: SQLiteDatabase) {
-        LLog.d(TAG, "onCreate")
         // Table Create Statements
         val queryCreateTableInspection = ("CREATE TABLE " + TABLE_INSPECTION + "("
                 + KEY_ID + " INTEGER PRIMARY KEY, "
@@ -55,7 +53,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        LLog.d(TAG, "onUpgrade oldVersion: $oldVersion, newVersion: $newVersion")
         // on upgrade drop older tables
         db.execSQL("DROP TABLE IF EXISTS $TABLE_INSPECTION")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_ACTION")
@@ -111,7 +108,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 action.id = c.getInt(c.getColumnIndex(KEY_ID))
                 action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
                 val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
-                val inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+                val inspection = BaseApplication.gson.fromJson(sInspection, Inspection::class.java)
                 action.inspection = inspection
                 actionList.add(action)
             } while (c.moveToNext())
@@ -144,23 +141,6 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 //        SELECT * FROM table limit 100` -- get 1st 100 records
 //        SELECT * FROM table limit 100, 200` -- get 200 records beginning with row 101
 
-
-        //for test
-        /*val count = getActionCount()
-        LLog.d(TAG, "page: $page, pageSize: $pageSize")
-        LLog.d(TAG, "getActionCount: $count ")
-
-        val totalPage = if (count % pageSize == 0) {
-            count / pageSize
-        } else {
-            count / pageSize + 1
-        }
-        LLog.d(TAG, "totalPage: $totalPage")
-        for (i in 0 until totalPage) {
-            val startIndexByPage = i * pageSize
-            LLog.d(TAG, "i: $i -> startIndexByPage: $startIndexByPage")
-        }*/
-
         val startIndexByPage = page * pageSize
         val actionList = ArrayList<Action>()
         val selectQuery = "SELECT  * FROM $TABLE_ACTION LIMIT $startIndexByPage, $pageSize "
@@ -173,7 +153,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
                 action.id = c.getInt(c.getColumnIndex(KEY_ID))
                 action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
                 val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
-                val inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+                val inspection = BaseApplication.gson.fromJson(sInspection, Inspection::class.java)
                 action.inspection = inspection
                 actionList.add(action)
             } while (c.moveToNext())
@@ -235,7 +215,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_ACTION_TYPE, action.actionType)
-        values.put(KEY_ACTION_INSPECTION, LApplication.gson.toJson(action.inspection))
+        values.put(KEY_ACTION_INSPECTION, BaseApplication.gson.toJson(action.inspection))
         return db.insert(TABLE_ACTION, null, values)
     }
 
@@ -249,7 +229,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
             action.id = c.getInt(c.getColumnIndex(KEY_ID))
             action.actionType = c.getInt(c.getColumnIndex(KEY_ACTION_TYPE))
             val sInspection = c.getString(c.getColumnIndex(KEY_ACTION_INSPECTION))
-            action.inspection = LApplication.gson.fromJson(sInspection, Inspection::class.java)
+            action.inspection = BaseApplication.gson.fromJson(sInspection, Inspection::class.java)
             c.close()
             return action
         }
@@ -260,7 +240,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         val db = this.writableDatabase
         val values = ContentValues()
         values.put(KEY_ACTION_TYPE, action.actionType)
-        val sInspection = LApplication.gson.toJson(action.inspection)
+        val sInspection = BaseApplication.gson.toJson(action.inspection)
         values.put(KEY_ACTION_INSPECTION, sInspection)
         return db.update(TABLE_ACTION, values, "$KEY_ID = ?",
                 arrayOf(action.id.toString()))

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/black">
+
+    <com.github.piasy.biv.view.BigImageView
+        android:id="@+id/biv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:failureImage="@drawable/l_error_404"
+        app:failureImageInitScaleType="center"
+        app:initScaleType="fitCenter"
+        app:optimizeDisplay="true"
+        app:thumbnailScaleType="fitCenter" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/indicatorView"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:layout_margin="@dimen/margin_10"
+            app:indicatorColor="@color/white"
+            app:indicatorName="PacmanIndicator" />
+
+        <TextView
+            android:id="@+id/tvProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_medium"
+            tools:text="@string/loading" />
+    </LinearLayout>
+</RelativeLayout>

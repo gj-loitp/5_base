@@ -4,13 +4,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.2'
 
     defaultConfig {
         applicationId "loitp.basemaster"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 12
         versionName "1.1.12"
         multiDexEnabled true
@@ -58,8 +58,12 @@ android {
 
     buildTypes {
         release {
-            debuggable true
+            debuggable false
             minifyEnabled true
+
+//            debuggable false
+//            minifyEnabled true
+
             //useProguard true //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
@@ -108,9 +112,9 @@ dependencies {
     api project(':core')
 //    api 'com.github.tplloi:basemaster:4.4.11'
 
-    //region database
     api "com.squareup.retrofit2:converter-moshi:2.7.2"
 
+    //region database
     //realm
     api 'io.realm:realm-android:0.82.1'
 
@@ -138,7 +142,7 @@ dependencies {
     //Firebase remote config
     api 'com.google.firebase:firebase-config:19.0.2'
 
-    //Firebasedatabase
+    //Firebase database
     api 'com.firebaseui:firebase-ui-database:4.0.0'
     //implementation 'com.google.firebase:firebase-auth:16.0.1'
     api 'com.google.firebase:firebase-database:19.1.0'
@@ -164,30 +168,23 @@ dependencies {
 
     //endregion
 
-    //https://github.com/JakeWharton/butterknife
-    //api 'com.jakewharton:butterknife:10.1.0'
-    //kapt 'com.jakewharton:butterknife-compiler:10.1.0'
-
     //region util
 
     //https://github.com/barteksc/AndroidPdfViewer
     api 'com.github.barteksc:android-pdf-viewer:3.2.0-beta.1'
-
-    //https://github.com/alirezat775/downloader
-    api 'com.github.alirezat775:downloader:1.0.2'
 
     //https://github.com/ParkSangGwon/TedKeyboardObserver
     api 'gun0912.ted:tedkeyboardobserver:1.0.2'
 
     //endregion
 
-    //TODO try to put all dependencies of architecture component inside core library
     //region architecture component
     //Room components
-    api "androidx.room:room-runtime:2.2.2"
-    api "androidx.room:room-ktx:2.2.2"
-    kapt "androidx.room:room-compiler:2.2.2"
-    androidTestImplementation "androidx.room:room-testing:2.2.2"
+//    api "androidx.room:room-runtime:2.2.2" //defined in core module
+//    api "androidx.room:room-ktx:2.2.2" //defined in core module
+    kapt "androidx.room:room-compiler:2.2.5"
+//    androidTestImplementation "androidx.room:room-testing:2.2.2" //defined in core module
+
     //endregion
 
     //https://github.com/nex3z/ToggleButtonGroup

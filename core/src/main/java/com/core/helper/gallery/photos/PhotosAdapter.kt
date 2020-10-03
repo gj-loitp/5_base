@@ -25,8 +25,6 @@ import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
 class PhotosAdapter internal constructor(private val context: Context, private val callback: Callback?)
     : AnimationAdapter() {
 
-    private val logTag = javaClass.simpleName
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_core, viewGroup, false))
     }

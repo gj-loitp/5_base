@@ -14,18 +14,18 @@ import com.utils.util.AppUtils
 class LNotification {
     companion object {
         @Suppress("DEPRECATION")
-        fun showNotification(context: Context, title: String, body: String, iconRes: Int, intent: Intent) {
+        fun showNotification(title: String, body: String, iconRes: Int, intent: Intent) {
             if (title.isEmpty() || body.isEmpty()) {
                 return
             }
-            val notifManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notifManager = LAppResource.application.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val NOTIFY_ID = System.currentTimeMillis().toInt()
             val name = AppUtils.getAppPackageName()
             val id = "id$name"
             val description = "description$name"
 
             intent.action = System.currentTimeMillis().toString()
-            val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+            val pendingIntent = PendingIntent.getActivity(LAppResource.application, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
             val builder: NotificationCompat.Builder
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -39,7 +39,7 @@ class LNotification {
                     mChannel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
                     notifManager.createNotificationChannel(mChannel)
                 }
-                builder = NotificationCompat.Builder(context, id)
+                builder = NotificationCompat.Builder(LAppResource.application, id)
                 //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
                 builder.setContentTitle(title)  // required
@@ -51,7 +51,7 @@ class LNotification {
                         .setTicker(title)
                         .setVibrate(longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400))
             } else {
-                builder = NotificationCompat.Builder(context)
+                builder = NotificationCompat.Builder(LAppResource.application)
                 //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
 
                 builder.setContentTitle(title)

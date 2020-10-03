@@ -2,8 +2,8 @@ package vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist
 
 import android.content.Context
 import android.os.AsyncTask
+import com.core.base.BaseApplication
 import com.core.utilities.LStoreUtil
-import com.google.gson.Gson
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chap
@@ -18,10 +18,13 @@ class GetChapTask(private val context: Context,
                   private val callback: Callback?)
     : AsyncTask<Void, Void, Boolean>() {
 
-    private val TAG = javaClass.simpleName
+    companion object {
+        private const val MAX_TRY_AGAIN = 5
+    }
+
+    private val logTag = javaClass.simpleName
     private var tttChap: TTTChap? = null
     private var chapList: List<Chap> = ArrayList()
-    private val MAX_TRY_AGAIN = 5
     private var stringInfo = ""
 
     interface Callback {
@@ -62,12 +65,11 @@ class GetChapTask(private val context: Context,
 
                     """.trimIndent()
 
-                val gson = Gson()
-
-                getChapSuccess = LStoreUtil.writeToFile(context = context,
+                val fileSaved = LStoreUtil.writeToFile(
                         folder = LStoreUtil.FOLDER_TRUYENTRANHTUAN,
                         fileName = LStoreUtil.getFileNameComic(url),
-                        body = gson.toJson(tttChap))
+                        body = BaseApplication.gson.toJson(tttChap))
+                getChapSuccess = fileSaved != null
             }
         }
         return getChapSuccess
@@ -125,7 +127,7 @@ class GetChapTask(private val context: Context,
             //url, ngay release chap, tam thoi chua can dung
             /*Elements url = document.select("span[class=url-name]");
               for (Element d : url) {
-                LLog.d(TAG, "url: " + d.text());//24.07.2015
+                Log.d(TAG, "url: " + d.text());//24.07.2015
               }*/
             val chaps = Chaps()
             chaps.chap = chapList

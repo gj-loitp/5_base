@@ -21,8 +21,8 @@ import kotlin.math.abs
 internal class StatusBarCompatKitKat {
 
     companion object {
-        private val TAG_FAKE_STATUS_BAR_VIEW = "statusBarView"
-        private val TAG_MARGIN_ADDED = "marginAdded"
+        private const val TAG_FAKE_STATUS_BAR_VIEW = "statusBarView"
+        private const val TAG_MARGIN_ADDED = "marginAdded"
 
         /**
          * return statusBar's Height in pixels
