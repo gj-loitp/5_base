@@ -11,10 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
-import com.annotation.IsFullScreen
-import com.annotation.IsShowAdWhenExit
-import com.annotation.LayoutId
-import com.annotation.LogTag
+import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
@@ -40,8 +37,8 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var isIdleTime = false
 
     private var interstitialAd: InterstitialAd? = null
-    protected var isShowAdWhenExit = false
-    protected var isShowAnimWhenExit = true
+    private var isShowAdWhenExit = false
+    private var isShowAnimWhenExit = true
 
     protected fun setTransparentStatusNavigationBar() {
         //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -121,6 +118,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 }
             }
         }
+        isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
     }
 
     override fun onUserInteraction() {

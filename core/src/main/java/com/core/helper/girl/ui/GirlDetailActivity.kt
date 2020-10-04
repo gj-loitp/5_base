@@ -47,7 +47,7 @@ class GirlDetailActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl_detail)
-        
+
         getData()
         setupViews()
         setupViewModels()
