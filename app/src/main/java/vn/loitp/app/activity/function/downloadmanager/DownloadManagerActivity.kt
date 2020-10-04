@@ -5,7 +5,6 @@ import alirezat775.lib.downloader.core.OnDownloadListener
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Environment
-import android.os.Handler
 import android.view.View
 import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
@@ -31,7 +30,6 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     private var downloader: Downloader? = null
     private var lStoreUtilModel: LStoreUtilModel? = null
-    private val handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -146,14 +144,14 @@ class DownloadManagerActivity : BaseFontActivity() {
                 fileNameExtension = "jpg",
                 onDownloadListener = object : OnDownloadListener {
                     override fun onCancel() {
-                        handler.post {
+                        runOnUiThread {
                             tvCurrentStatus?.text = "onCancel"
                         }
                         logD("onCancel")
                     }
 
                     override fun onCompleted(file: File?) {
-                        handler.post {
+                        runOnUiThread {
                             file?.let {
                                 tvCurrentStatus?.text = "onCompleted ${it.path}"
                                 LStoreUtil.sendBroadcastMediaScan(it)
@@ -163,21 +161,21 @@ class DownloadManagerActivity : BaseFontActivity() {
                     }
 
                     override fun onFailure(reason: String?) {
-                        handler.post {
+                        runOnUiThread {
                             tvCurrentStatus?.text = "onFailure: reason --> $reason"
                         }
                         logE("onFailure: reason --> $reason")
                     }
 
                     override fun onPause() {
-                        handler.post {
+                        runOnUiThread {
                             tvCurrentStatus?.text = "onPause"
                         }
                         logD("onPause")
                     }
 
                     override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
-                        handler.post {
+                        runOnUiThread {
                             tvCurrentStatus?.text = "onProgressUpdate"
                             tvPercent?.text = percent.toString().plus("%")
                             tvSize?.text = LStoreUtil.getSize(downloadedSize)
@@ -188,14 +186,14 @@ class DownloadManagerActivity : BaseFontActivity() {
                     }
 
                     override fun onResume() {
-                        handler.post {
+                        runOnUiThread {
                             tvCurrentStatus?.text = "onResume"
                         }
                         logD("onResume")
                     }
 
                     override fun onStart() {
-                        handler.post {
+                        runOnUiThread {
                             tvCurrentStatus?.text = "onStart"
                         }
                         logD("onStart")
