@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.MenuGirl
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.l_activity_girl.*
 
 @LogTag("GirlActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class GirlActivity : BaseFontActivity() {
 
     val listMenuGirl = ArrayList<MenuGirl>()
@@ -25,8 +27,6 @@ class GirlActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl)
-
-        isShowAdWhenExit = true
 
         setupData()
         setupViews()

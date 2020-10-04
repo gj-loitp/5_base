@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -31,6 +32,7 @@ import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
 @LogTag("GirlDetailActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class GirlDetailActivity : BaseFontActivity() {
 
     private var girlPage: GirlPage? = null
@@ -45,9 +47,7 @@ class GirlDetailActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_girl_detail)
-
-        isShowAdWhenExit = true
-
+        
         getData()
         setupViews()
         setupViewModels()
