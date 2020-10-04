@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPageDetail
@@ -20,6 +21,7 @@ import java.io.File
 
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class GirlSlideActivity : BaseFontActivity() {
 
     companion object {
