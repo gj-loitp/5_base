@@ -24,7 +24,7 @@ import kotlin.collections.ArrayList
 
 class LStoreUtil {
     companion object {
-        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
+        internal var logTag = LStoreUtil::class.java.simpleName
 
         const val FOLDER_TRANSLATE = ".Loitp"
         const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
@@ -438,9 +438,9 @@ class LStoreUtil {
             }
             return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
                     .downloadDirectory(path)
-                    .fileName(fileName = fileName, extension = fileNameExtension)
-                    .header(map)
-                    .timeOut(timeOut)
+//                    .fileName(fileName = fileName, extension = fileNameExtension)
+//                    .header(map)
+//                    .timeOut(timeOut)
                     .downloadListener(onDownloadListener)
                     .build()
         }
