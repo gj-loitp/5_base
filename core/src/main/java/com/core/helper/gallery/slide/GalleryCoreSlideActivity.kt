@@ -101,8 +101,6 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         val downloader = LStoreUtil.getDownloader(
                 folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
                 url = url,
-                fileName = "Img" + System.currentTimeMillis(),
-                fileNameExtension = "png",
                 onDownloadListener = object : OnDownloadListener {
                     override fun onCancel() {
                     }

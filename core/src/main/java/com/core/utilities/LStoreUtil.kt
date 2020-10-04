@@ -424,23 +424,21 @@ class LStoreUtil {
         fun getDownloader(folderName: String,
                           token: String? = null,
                           url: String,
-                          fileName: String,
-                          fileNameExtension: String,
                           timeOut: Int = 10000,
                           onDownloadListener: OnDownloadListener
         ): Downloader? {
             val path = getFolderPath(folderName = folderName)
-            LLog.d(logTag, "getDownloader url $url")
-            LLog.d(logTag, "getDownloader path $path")
+//            LLog.d(logTag, "getDownloader url $url")
+//            LLog.d(logTag, "getDownloader path $path")
             val map = HashMap<String, String>()
             token?.let {
                 map["Authorization"] = it
             }
             return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
                     .downloadDirectory(path)
-//                    .fileName(fileName = fileName, extension = fileNameExtension)
-//                    .header(map)
-//                    .timeOut(timeOut)
+//                    .fileName(fileName = fileName, extension = fileNameExtension)//dung cai nay se bi loi neu multiple download
+                    .header(map)
+                    .timeOut(timeOut)
                     .downloadListener(onDownloadListener)
                     .build()
         }
