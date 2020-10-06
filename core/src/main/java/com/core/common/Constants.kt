@@ -66,6 +66,7 @@ class Constants {
         const val PREFIXS_SHORT = "https:"
         const val FCM_TOPIC = "/topics/loitp"
         const val URL_POLICY = "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/"
+        const val URL_GIRL = "https://www.facebook.com/freuss1/posts/3399843230131155"
 
         //region flickr
         const val SK_PHOTOSET_ID = "SK_PHOTOSET_ID"
