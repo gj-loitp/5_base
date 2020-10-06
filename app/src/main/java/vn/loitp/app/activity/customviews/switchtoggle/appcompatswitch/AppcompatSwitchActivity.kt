@@ -8,6 +8,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LStoreUtil
+import com.data.EventBusData
 import kotlinx.android.synthetic.main.activity_switch_appcompat.*
 import vn.loitp.app.R
 
@@ -30,6 +31,7 @@ class AppcompatSwitchActivity : BaseFontActivity() {
             } else {
                 LSharedPrefsUtil.instance.putBoolean(Constants.KEY_IS_DARK_THEME, false)
             }
+            EventBusData.instance.sendThemeChange(isChecked)
         }
     }
 

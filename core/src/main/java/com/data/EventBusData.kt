@@ -8,6 +8,10 @@ import org.greenrobot.eventbus.EventBus
 
 class EventBusData private constructor() {
 
+    companion object {
+        val instance = EventBusData()
+    }
+
     class ConnectEvent {
         var isConnected: Boolean = false
     }
@@ -18,7 +22,13 @@ class EventBusData private constructor() {
         EventBus.getDefault().post(connectEvent)
     }
 
-    companion object {
-        val instance = EventBusData()
+    class ThemeEvent {
+        var isDarkTheme: Boolean = false
+    }
+
+    fun sendThemeChange(isDarkTheme: Boolean) {
+        val themeEvent = ThemeEvent()
+        themeEvent.isDarkTheme = isDarkTheme
+        EventBus.getDefault().post(themeEvent)
     }
 }
