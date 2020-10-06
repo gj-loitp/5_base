@@ -5,8 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 
+@LogTag("GirlProgressAdapter")
 class GirlProgressAdapter : AnimationAdapter() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
