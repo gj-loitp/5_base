@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_row_item_banner.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.Banner
 
+@LogTag("BannerAdapter")
 class BannerAdapter(
         private val listBanner: ArrayList<Banner>
 ) : AnimationAdapter() {

@@ -4,12 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
 
+@LogTag("AboutMeAdapter")
 class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : AnimationAdapter() {
 
     var onClickRootListener: ((AboutMe, Int) -> Unit)? = null

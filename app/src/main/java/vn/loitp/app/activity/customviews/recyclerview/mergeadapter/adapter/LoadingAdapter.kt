@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import vn.loitp.app.R
 
+@LogTag("LoadingAdapter")
 class LoadingAdapter : AnimationAdapter() {
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

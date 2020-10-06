@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.view_row_item_user.view.layoutRoot
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.News
 
+@LogTag("NewsAdapter")
 class NewsAdapter(
         private val listNews: ArrayList<News>
 ) : AnimationAdapter() {

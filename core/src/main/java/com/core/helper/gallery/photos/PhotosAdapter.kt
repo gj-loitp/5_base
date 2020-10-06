@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -22,6 +23,7 @@ import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
 /**
  * Created by loitp on 14/04/15.
  */
+@LogTag("PhotosAdapter")
 class PhotosAdapter internal constructor(private val context: Context, private val callback: Callback?)
     : AnimationAdapter() {
 
