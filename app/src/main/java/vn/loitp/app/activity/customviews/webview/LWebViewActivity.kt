@@ -52,12 +52,11 @@ class LWebViewActivity : BaseFontActivity() {
         }
         btLoadDataCustom.setSafeOnClickListener {
             val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
-            logD("fontSizePx $fontSizePx")
             webView.loadDataString(bodyContent = getString(R.string.large_dummy_text),
                     backgroundColor = "black",
                     textColor = "white",
                     textAlign = "justify",
-                    fontSizePx = fontSizePx.toString()
+                    fontSizePx = fontSizePx
             )
         }
         btLoadDataFromAsset.setSafeOnClickListener {

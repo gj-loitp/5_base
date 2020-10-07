@@ -102,7 +102,7 @@ class LWebView : WebView {
                        backgroundColor: String = "coral",
                        textColor: String = "black",
                        textAlign: String = "justify",
-                       fontSizePx: String = "15"
+                       fontSizePx: Int = 15
     ) {
         val style = """<style>
 body {
