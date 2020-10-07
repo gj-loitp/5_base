@@ -105,10 +105,15 @@ class LWebView : WebView {
                        fontSizePx: Int = 15,
                        paddingPx: Int = 15
     ) {
-        val style = """<style>
+        val style = """<style type="text/css">
+@font-face{
+  font-family: MyFont;
+  src: url("file:///android_asset/fonts/android_font.TTF");
+}
 body {
   background-color: $backgroundColor;
   color: $textColor;
+  font-family: MyFont;
   text-align: $textAlign;
   font-size: ${fontSizePx}px;
   padding-top: ${paddingPx}px;
@@ -119,6 +124,8 @@ body {
 </style>"""
         val bodyContentString = "<html>$style<body>$bodyContent</body></html>"
         logD("bodyContentString $bodyContentString")
-        this.loadData(bodyContentString, "text/html", "UTF-8")
+//        this.loadData(bodyContentString, "text/html", "UTF-8")
+        this.loadDataWithBaseURL(null, bodyContentString , "text/html", "UTF-8", "about:blank")
+
     }
 }
