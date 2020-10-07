@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.webview
 
 import android.os.Bundle
+import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
@@ -31,7 +32,13 @@ class LWebViewActivity : BaseFontActivity() {
             }
 
             override fun onProgressChanged(progress: Int) {
-                logD("onProgressChanged")
+                logD("onProgressChanged $progress")
+                pb.progress = progress
+                if (progress == 100) {
+                    pb.visibility = View.GONE
+                } else {
+                    pb.visibility = View.VISIBLE
+                }
             }
         }
 
