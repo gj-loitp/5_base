@@ -49,6 +49,9 @@ class LWebViewActivity : BaseFontActivity() {
         btLoadData.setSafeOnClickListener {
             webView.loadData("<html><body>Hello, world!</body></html>", "text/html", "UTF-8")
         }
+        btLoadDataFromAsset.setSafeOnClickListener {
+            webView.loadUrl("file:///android_asset/web/policy.html")
+        }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
