@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_web_view.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_web_view)
-@LogTag("loitppLWebViewActivity")
+@LogTag("LWebViewActivity")
 @IsFullScreen(false)
 class LWebViewActivity : BaseFontActivity() {
 
@@ -45,6 +45,9 @@ class LWebViewActivity : BaseFontActivity() {
 
         btLoadUrl.setSafeOnClickListener {
             webView.loadUrl("http://truyentranhtuan.com/")
+        }
+        btLoadData.setSafeOnClickListener {
+            webView.loadData("<html><body>Hello, world!</body></html>", "text/html", "UTF-8")
         }
     }
 
