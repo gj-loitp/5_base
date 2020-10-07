@@ -125,7 +125,7 @@ body {
         val bodyContentString = "<html>$style<body>$bodyContent</body></html>"
         logD("bodyContentString $bodyContentString")
 //        this.loadData(bodyContentString, "text/html", "UTF-8")
-        this.loadDataWithBaseURL(null, bodyContentString , "text/html", "UTF-8", "about:blank")
+        this.loadDataWithBaseURL(null, bodyContentString, "text/html", "UTF-8", "about:blank")
 
     }
 }
