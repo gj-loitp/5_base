@@ -6,6 +6,7 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.LWebView
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_web_view.*
 import vn.loitp.app.R
 
@@ -30,7 +31,9 @@ class LWebViewActivity : BaseFontActivity() {
             }
         }
 
-        webView.loadUrl("http://truyentranhtuan.com/")
+        btLoadUrl.setSafeOnClickListener {
+            webView.loadUrl("http://truyentranhtuan.com/")
+        }
     }
 
 }
