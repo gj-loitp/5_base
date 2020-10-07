@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.webview
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
@@ -45,6 +46,14 @@ class LWebViewActivity : BaseFontActivity() {
         btLoadUrl.setSafeOnClickListener {
             webView.loadUrl("http://truyentranhtuan.com/")
         }
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack()
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
     }
 
 }
