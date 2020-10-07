@@ -29,6 +29,10 @@ class LWebViewActivity : BaseFontActivity() {
             override fun onScrollBottomToTop() {
                 logD("onScrollBottomToTop")
             }
+
+            override fun onProgressChanged(progress: Int) {
+                logD("onProgressChanged")
+            }
         }
 
         btLoadUrl.setSafeOnClickListener {
