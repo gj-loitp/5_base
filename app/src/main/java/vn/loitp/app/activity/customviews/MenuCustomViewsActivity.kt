@@ -40,6 +40,7 @@ import vn.loitp.app.activity.customviews.textview.TextViewMenuActivity
 import vn.loitp.app.activity.customviews.treeview.TreeViewActivity
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity
+import vn.loitp.app.activity.customviews.webview.LWebViewActivity
 import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
 
@@ -82,6 +83,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btMenu.setOnClickListener(this)
         btLCardView.setOnClickListener(this)
         btCalendar.setOnClickListener(this)
+        btWebView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -118,6 +120,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btMenu -> intent = Intent(this, MenuMenuActivity::class.java)
             btLCardView -> intent = Intent(this, LCardViewActivity::class.java)
             btCalendar -> intent = Intent(this, CalendarMenuActivity::class.java)
+            btWebView -> intent = Intent(this, LWebViewActivity::class.java)
         }
         intent?.let {
             startActivity(it)

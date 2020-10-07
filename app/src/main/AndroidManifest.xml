@@ -1139,5 +1139,8 @@
             android:name=".activity.demo.maptracker.MapTrackerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--endregion-->
+        <activity
+            android:name=".activity.customviews.webview.LWebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>
