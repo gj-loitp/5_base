@@ -42,6 +42,12 @@
                 android:text="Load Data" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadDataCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Load Data Custom" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoadDataFromAsset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

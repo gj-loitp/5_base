@@ -47,12 +47,10 @@ class LWebViewActivity : BaseFontActivity() {
             webView.loadUrl("http://truyentranhtuan.com/")
         }
         btLoadData.setSafeOnClickListener {
-            val style = """<style>
-body {
-  background-color: coral;
-}
-</style>"""
-            webView.loadData("<html>$style<body>Hello, world!</body></html>", "text/html", "UTF-8")
+            webView.loadData(bodyContent = "Hello, world!")
+        }
+        btLoadDataCustom.setSafeOnClickListener {
+            webView.loadData(bodyContent = "Hello, world!", backgroundColor = "coral")
         }
         btLoadDataFromAsset.setSafeOnClickListener {
             webView.loadUrl("file:///android_asset/web/policy.html")
