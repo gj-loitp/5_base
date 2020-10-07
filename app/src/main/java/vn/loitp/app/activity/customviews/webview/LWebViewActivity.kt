@@ -52,7 +52,9 @@ class LWebViewActivity : BaseFontActivity() {
         btLoadDataCustom.setSafeOnClickListener {
             webView.loadDataString(bodyContent = getString(R.string.large_dummy_text),
                     backgroundColor = "black",
-                    textColor = "white")
+                    textColor = "white",
+                    textAlign = "justify"
+            )
         }
         btLoadDataFromAsset.setSafeOnClickListener {
             webView.loadUrl("file:///android_asset/web/policy.html")
