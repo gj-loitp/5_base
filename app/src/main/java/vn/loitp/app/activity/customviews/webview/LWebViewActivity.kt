@@ -7,6 +7,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
 import com.views.LWebView
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_web_view.*
@@ -50,10 +51,13 @@ class LWebViewActivity : BaseFontActivity() {
             webView.loadDataString(bodyContent = "Hello, world!")
         }
         btLoadDataCustom.setSafeOnClickListener {
+            val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
+            logD("fontSizePx $fontSizePx")
             webView.loadDataString(bodyContent = getString(R.string.large_dummy_text),
                     backgroundColor = "black",
                     textColor = "white",
-                    textAlign = "justify"
+                    textAlign = "justify",
+                    fontSizePx = fontSizePx.toString()
             )
         }
         btLoadDataFromAsset.setSafeOnClickListener {

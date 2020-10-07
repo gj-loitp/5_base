@@ -101,13 +101,15 @@ class LWebView : WebView {
     fun loadDataString(bodyContent: String = "",
                        backgroundColor: String = "coral",
                        textColor: String = "black",
-                       textAlign: String = "justify"
+                       textAlign: String = "justify",
+                       fontSizePx: String = "15"
     ) {
         val style = """<style>
 body {
   background-color: $backgroundColor;
   color: $textColor;
   text-align: $textAlign;
+  font-size: ${fontSizePx}px;
 }
 </style>"""
         val bodyContentString = "<html>$style<body>$bodyContent</body></html>"
