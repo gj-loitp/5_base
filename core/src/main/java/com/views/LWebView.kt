@@ -102,7 +102,8 @@ class LWebView : WebView {
                        backgroundColor: String = "coral",
                        textColor: String = "black",
                        textAlign: String = "justify",
-                       fontSizePx: Int = 15
+                       fontSizePx: Int = 15,
+                       paddingPx: Int = 15
     ) {
         val style = """<style>
 body {
@@ -110,6 +111,10 @@ body {
   color: $textColor;
   text-align: $textAlign;
   font-size: ${fontSizePx}px;
+  padding-top: ${paddingPx}px;
+  padding-right: ${paddingPx}px;
+  padding-bottom: ${paddingPx}px;
+  padding-left: ${paddingPx}px;
 }
 </style>"""
         val bodyContentString = "<html>$style<body>$bodyContent</body></html>"
