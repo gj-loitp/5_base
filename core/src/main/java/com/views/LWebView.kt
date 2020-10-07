@@ -59,15 +59,18 @@ class LWebView : WebView {
                 onScrollChangedCallback?.onProgressChanged(newProgress)
             }
         }
+
+        //default disable copy content
+        setEnableCopyContent(false)
     }
 
-    fun setEnableCopyContent(isEnable: Boolean) {
-        if (isEnable) {
-            setOnLongClickListener { true }
-            isLongClickable = false
-        } else {
+    fun setEnableCopyContent(isEnableCopyContent: Boolean) {
+        if (isEnableCopyContent) {
             setOnLongClickListener { false }
             isLongClickable = true
+        } else {
+            setOnLongClickListener { true }
+            isLongClickable = false
         }
     }
 
