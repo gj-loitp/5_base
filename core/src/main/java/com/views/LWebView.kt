@@ -61,6 +61,16 @@ class LWebView : WebView {
         }
     }
 
+    fun setEnableCopyContent(isEnable: Boolean) {
+        if (isEnable) {
+            setOnLongClickListener { true }
+            isLongClickable = false
+        } else {
+            setOnLongClickListener { false }
+            isLongClickable = true
+        }
+    }
+
     override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
         super.onScrollChanged(l, t, oldl, oldt)
 

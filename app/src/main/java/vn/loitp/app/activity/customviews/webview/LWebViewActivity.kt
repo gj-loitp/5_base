@@ -52,6 +52,9 @@ class LWebViewActivity : BaseFontActivity() {
         btLoadDataFromAsset.setSafeOnClickListener {
             webView.loadUrl("file:///android_asset/web/policy.html")
         }
+        swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
+            webView.setEnableCopyContent(isChecked)
+        }
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
