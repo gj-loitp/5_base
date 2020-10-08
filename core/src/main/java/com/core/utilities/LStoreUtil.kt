@@ -421,26 +421,32 @@ class LStoreUtil {
             return availableMegs
         }
 
-        fun getDownloader(folderName: String,
+        fun getDownloader(folderName: String? = null,
                           token: String? = null,
                           url: String,
-                          timeOut: Int = 10000,
                           onDownloadListener: OnDownloadListener
         ): Downloader? {
-            val path = getFolderPath(folderName = folderName)
-//            LLog.d(logTag, "getDownloader url $url")
-//            LLog.d(logTag, "getDownloader path $path")
-            val map = HashMap<String, String>()
-            token?.let {
-                map["Authorization"] = it
+            if (folderName.isNullOrEmpty()) {
+                val map = HashMap<String, String>()
+                token?.let {
+                    map["Authorization"] = it
+                }
+                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
+                        .header(map)
+                        .downloadListener(onDownloadListener)
+                        .build()
+            } else {
+                val path = getFolderPath(folderName = folderName)
+                val map = HashMap<String, String>()
+                token?.let {
+                    map["Authorization"] = it
+                }
+                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
+                        .downloadDirectory(path)
+                        .header(map)
+                        .downloadListener(onDownloadListener)
+                        .build()
             }
-            return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                    .downloadDirectory(path)
-//                    .fileName(fileName = fileName, extension = fileNameExtension)//dung cai nay se bi loi neu multiple download
-                    .header(map)
-                    .timeOut(timeOut)
-                    .downloadListener(onDownloadListener)
-                    .build()
         }
     }
 }

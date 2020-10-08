@@ -212,7 +212,6 @@ class DownloadManagerActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun getDownloaderZipGoogle() {
         downloaderZip = LStoreUtil.getDownloader(
-                folderName = Environment.DIRECTORY_DOCUMENTS + "/" + "ZZZTestDownloader",
                 url = "https://drive.google.com/uc?export=download&id=0B0-bfr9v36LUenRQNXZmWWIyS2c",
                 onDownloadListener = object : OnDownloadListener {
                     override fun onCancel() {
