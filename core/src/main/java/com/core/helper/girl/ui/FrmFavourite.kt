@@ -22,7 +22,7 @@ import com.core.utilities.LUIUtil
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_favourite.*
 
-@LogTag("loitppFrmFavourite")
+@LogTag("FrmFavourite")
 class FrmFavourite : BaseFragment() {
 
     private var girlViewModel: GirlViewModel? = null

@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
  * www.muathu@gmail.com
  */
 
-@LogTag("loitppGirlViewModel")
+@LogTag("GirlViewModel")
 class GirlViewModel : BaseViewModel() {
     private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 

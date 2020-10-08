@@ -25,7 +25,7 @@ import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
 import kotlinx.android.synthetic.main.l_frm_girl_home.recyclerView
 
-@LogTag("loitppFrmHome")
+@LogTag("FrmHome")
 class FrmHome : BaseFragment() {
     private var girlViewModel: GirlViewModel? = null
     private var mergeAdapter: ConcatAdapter? = null

@@ -12,7 +12,7 @@ import com.core.utilities.LLog
 class LWebView : WebView {
 
     companion object {
-        const val logTag = "loitppLWebView"
+        const val logTag = "LWebView"
     }
 
     private fun logD(msg: String) {
