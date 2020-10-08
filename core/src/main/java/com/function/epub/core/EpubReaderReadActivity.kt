@@ -3,7 +3,6 @@ package com.function.epub.core
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -35,13 +34,13 @@ import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.function.epub.BookSection
-import com.function.epub.CssStatus
 import com.function.epub.Reader
 import com.function.epub.core.PageFragment.OnFragmentReadyListener
 import com.function.epub.exception.OutOfPagesException
 import com.function.epub.exception.ReadingException
 import com.function.epub.model.BookInfo
-import com.function.epub.model.BookInfoData.Companion.instance
+import com.function.epub.model.BookInfoData
+import com.function.epub.viewmodels.EpubViewModel
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.interfaces.CallbackAnimation
@@ -52,7 +51,7 @@ import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 import java.util.*
 
-@LogTag("EpubReaderReadActivity")
+@LogTag("loitppEpubReaderReadActivity")
 @IsFullScreen(false)
 class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
@@ -67,19 +66,24 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var pxScreenWidth = LScreenUtil.screenWidth
     private var bookInfo: BookInfo? = null
     private var adView: AdView? = null
-    private var loadData: LoadData? = null
+    private var epubViewModel: EpubViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_epub_reader_read)
 
-        bookInfo = instance.bookInfo
+        bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
             showShort(getString(R.string.err_unknow), true)
             onBackPressed()
         }
 
         setupViews()
+        setupViewModels()
+
+        bookInfo?.let {
+            epubViewModel?.loadData(reader = reader, bookInfo = it)
+        }
     }
 
     private fun setupViews() {
@@ -168,8 +172,30 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 override fun onStart() {}
             })
         }
-        loadData = LoadData()
-        loadData?.execute()
+    }
+
+    private fun setupViewModels() {
+        epubViewModel = getViewModel(EpubViewModel::class.java)
+        epubViewModel?.let { vm ->
+            vm.loadDataActionLiveData.observe(this, androidx.lifecycle.Observer { actionData ->
+//                logD("loadDataActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+                
+                if (isDoing == false && isSuccess == true) {
+                    LUIUtil.setDelay(mls = 1000, runnable = Runnable {
+                        rlSplash?.visibility = View.GONE
+                    })
+                    sectionsPagerAdapter?.notifyDataSetChanged()
+                    val lastSavedPage = actionData.data ?: 0
+                    viewPager?.currentItem = lastSavedPage
+                    if (lastSavedPage == 0) {
+                        tvPage?.text = "0"
+                    }
+                    llGuide?.visibility = View.VISIBLE
+                }
+            })
+        }
     }
 
     private fun setCoverBitmap() {
@@ -185,7 +211,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                         bi.isCoverImageNotExists = true
                         ivCover.setImageResource(defaultCover)
                     } else {
-                        val bitmap = decodeBitmapFromByteArray(coverImageAsBytes, 100, 200)
+                        val bitmap = decodeBitmapFromByteArray(coverImage = coverImageAsBytes, reqWidth = 100, reqHeight = 200)
                         bi.coverImageBitmap = bitmap
                         bi.coverImage = null
                         ivCover.setImageBitmap(bitmap)
@@ -227,43 +253,6 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
     }
 
-    private inner class LoadData : AsyncTask<Void?, Void?, Void?>() {
-        private var lastSavedPage = 0
-
-        override fun doInBackground(vararg voids: Void?): Void? {
-            try {
-                // Setting optionals once per file is enough.
-                reader.setMaxContentPerSection(1250)
-                //reader.setMaxContentPerSection(1250 * 10);
-                reader.setCssStatus(CssStatus.INCLUDE)
-                reader.setIsIncludingTextContent(true)
-                reader.setIsOmittingTitleTag(true)
-                // This method must be called before readSection.
-                reader.setFullContent(bookInfo?.filePath)
-                // int lastSavedPage = reader.setFullContentWithProgress(filePath);
-                if (reader.isSavedProgressFound) {
-                    lastSavedPage = reader.loadProgress()
-                }
-            } catch (e: ReadingException) {
-                e.printStackTrace()
-            }
-            return null
-        }
-
-        override fun onPostExecute(aVoid: Void?) {
-            super.onPostExecute(aVoid)
-            LUIUtil.setDelay(mls = 1000, runnable = Runnable {
-                rlSplash?.visibility = View.GONE
-            })
-            sectionsPagerAdapter?.notifyDataSetChanged()
-            viewPager?.currentItem = lastSavedPage
-            if (lastSavedPage == 0) {
-                tvPage?.text = "0"
-            }
-            llGuide?.visibility = View.VISIBLE
-        }
-    }
-
     public override fun onPause() {
         adView?.pause()
         super.onPause()
@@ -275,9 +264,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     }
 
     override fun onDestroy() {
-        loadData?.cancel(true)
         adView?.destroy()
-        instance.bookInfo = null
+        BookInfoData.instance.bookInfo = null
         super.onDestroy()
     }
 
