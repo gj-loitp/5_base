@@ -1,6 +1,6 @@
-package com.function.epub;
+package com.function.epub
 
 // TODO: Distribute has some problems. Fix them.
-public enum CssStatus {
+enum class CssStatus {
     INCLUDE, OMIT, DISTRIBUTE
 }
