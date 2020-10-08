@@ -31,11 +31,12 @@ class EpubReaderMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         gridBookInfo.onItemClickListener = AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
             val bookInfo = adapterView.adapter.getItem(i) as BookInfo
             LReaderUtil.readEpub(activity = this, bookInfo = bookInfo, admobAdIdBanner = getString(R.string.str_b))
         }
-        LUIUtil.setDelay(mls = 1000, runnable = Runnable {
+        LUIUtil.setDelay(mls = 500, runnable = Runnable {
             ask()
         })
     }
@@ -74,15 +75,6 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                                 logD("onPostExecute " + bookInfoList.size)
                                 LDialogUtil.hideProgress(progressBar)
                                 bookInfoList.addAll(bookInfoList)
-                                /*bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);
-                                        bookInfoList.addAll(bookInfoList);*/
                                 val adapter = BookInfoGridAdapter(this@EpubReaderMenuActivity, bookInfoList)
                                 gridBookInfo.adapter = adapter
                             }

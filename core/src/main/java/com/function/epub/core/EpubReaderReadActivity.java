@@ -59,8 +59,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private int pageCount = Integer.MAX_VALUE;
     private int pxScreenWidth;
-    //private MenuItem searchMenuItem;
-    //private SearchView searchView;
     private BookInfo bookInfo;
     private TextView tvPage;
     private ImageView ivCover;
