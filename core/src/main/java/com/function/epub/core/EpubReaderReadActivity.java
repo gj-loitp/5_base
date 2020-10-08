@@ -104,7 +104,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         ivCover = findViewById(R.id.iv_cover);
         llGuide = findViewById(R.id.ll_guide);
         LUIUtil.Companion.setTextShadow(tvTitle);
-        bookInfo = BookInfoData.getInstance().getBookInfo();
+        bookInfo = BookInfoData.Companion.getInstance().getBookInfo();
         if (bookInfo == null) {
             showShort(getString(R.string.err_unknow), true);
             onBackPressed();
@@ -324,7 +324,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         if (adView != null) {
             adView.destroy();
         }
-        BookInfoData.getInstance().setBookInfo(null);
+        BookInfoData.Companion.getInstance().setBookInfo(null);
         super.onDestroy();
     }
 

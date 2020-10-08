@@ -54,7 +54,7 @@ class LReaderUtil {
                 throw NullPointerException("activity == null || bookInfo == null")
             }
             val intent = Intent(activity, EpubReaderReadActivity::class.java)
-            BookInfoData.getInstance().bookInfo = bookInfo
+            BookInfoData.instance.bookInfo = bookInfo
             intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobAdIdBanner)
             activity.startActivity(intent)
             LActivityUtil.tranIn(activity)
