@@ -1,7 +1,7 @@
 package com.function.epub
 
 internal object Constants {
-    
+
     // Core files
     const val FILE_NAME_CONTAINER_XML = "container.xml"
     const val EXTENSION_NCX = ".ncx"
