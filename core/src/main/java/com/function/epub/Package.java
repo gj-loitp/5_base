@@ -296,7 +296,7 @@ public class Package extends BaseFindings {
     }
 
     @Override
-    boolean fillContent(Node node) throws ReadingException {
+    public boolean fillContent(Node node) throws ReadingException {
 
         String nodeName = node.getNodeName();
 

@@ -253,7 +253,7 @@ public class Toc extends BaseFindings implements Serializable {
     }
 
     @Override
-    boolean fillContent(Node node) throws ReadingException {
+    public boolean fillContent(Node node) throws ReadingException {
 
         String nodeName = node.getNodeName();
 
