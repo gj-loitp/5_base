@@ -2,10 +2,12 @@ package com.function.epub.model;
 
 import android.graphics.Bitmap;
 
+import com.core.base.BaseModel;
+
 /**
  * Created by loitp on 08.09.2016.
  */
-public class BookInfo {
+public class BookInfo extends BaseModel {
     private String title;
     private byte[] coverImage;
     private String filePath;

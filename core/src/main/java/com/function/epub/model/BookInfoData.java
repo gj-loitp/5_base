@@ -1,6 +1,8 @@
 package com.function.epub.model;
 
-public class BookInfoData {
+import com.core.base.BaseModel;
+
+public class BookInfoData extends BaseModel {
     private static final BookInfoData ourInstance = new BookInfoData();
 
     public static BookInfoData getInstance() {

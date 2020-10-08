@@ -1,13 +1,11 @@
 package com.restapi.flickr.model.photosetgetphotos
 
-import androidx.annotation.Keep
+import com.core.base.BaseModel
 import com.core.utilities.LImageUtil
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
-@Keep
-class Photo : Serializable {
+class Photo : BaseModel() {
     @SerializedName("id")
     @Expose
     var id: String? = null

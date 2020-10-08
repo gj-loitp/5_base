@@ -1,5 +1,6 @@
 package com.data
 
+import com.core.base.BaseModel
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -12,7 +13,7 @@ class EventBusData private constructor() {
         val instance = EventBusData()
     }
 
-    class ConnectEvent {
+    class ConnectEvent : BaseModel() {
         var isConnected: Boolean = false
     }
 
@@ -22,7 +23,7 @@ class EventBusData private constructor() {
         EventBus.getDefault().post(connectEvent)
     }
 
-    class ThemeEvent {
+    class ThemeEvent : BaseModel() {
         var isDarkTheme: Boolean = false
     }
 

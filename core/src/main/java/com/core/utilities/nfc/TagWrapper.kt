@@ -1,6 +1,8 @@
 package com.core.utilities.nfc
 
-class TagWrapper(val id: String) {
+import com.core.base.BaseModel
+
+class TagWrapper(val id: String) : BaseModel() {
     var techList = TagTechList()
 
 }

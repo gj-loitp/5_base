@@ -12,7 +12,7 @@ class AdmobData private constructor() {
 
     var idAdmobFull: String? = ""
         get() {
-            if (field == null || field!!.isEmpty()) {
+            if (field.isNullOrEmpty()) {
 //                Log.e(javaClass.simpleName, "idAdmobFull == null || idAdmobFull.isEmpty()")
                 return ""
             }

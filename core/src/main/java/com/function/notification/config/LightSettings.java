@@ -1,6 +1,8 @@
 package com.function.notification.config;
 
-public class LightSettings {
+import com.core.base.BaseModel;
+
+public class LightSettings extends BaseModel {
     private int argb;
     private int onMs = 300;
     private int offMs = 3000;

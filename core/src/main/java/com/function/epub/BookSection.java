@@ -1,8 +1,8 @@
 package com.function.epub;
 
-import java.io.Serializable;
+import com.core.base.BaseModel;
 
-public class BookSection implements Serializable {
+public class BookSection extends BaseModel {
 
     private String label;
     private String extension;

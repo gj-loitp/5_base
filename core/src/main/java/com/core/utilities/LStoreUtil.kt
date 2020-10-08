@@ -448,5 +448,42 @@ class LStoreUtil {
                         .build()
             }
         }
+
+//        fun unzip() {
+//            try {
+//                val inputStream = FileInputStream(filePath)
+//                val zipStream = ZipInputStream(inputStream)
+//                var zEntry: ZipEntry? = null
+//                while (zipStream.getNextEntry().also({ zEntry = it }) != null) {
+//                    LLog.d("Unzip", "Unzipping " + zEntry.getName().toString() + " at " + destination)
+//                    if (zEntry.isDirectory()) {
+//                        hanldeDirectory(zEntry.getName())
+//                    } else {
+//                        val fout = FileOutputStream(this.destination.toString() + "/" + zEntry.getName())
+//                        val bufout = BufferedOutputStream(fout)
+//                        val buffer = ByteArray(1024)
+//                        var read = 0
+//                        while (zipStream.read(buffer).also({ read = it }) != -1) {
+//                            bufout.write(buffer, 0, read)
+//                        }
+//                        zipStream.closeEntry()
+//                        bufout.close()
+//                        fout.close()
+//                    }
+//                }
+//                zipStream.close()
+//                LLog.d(logTag, "Unzipping complete. path :  $destination")
+//            } catch (e: java.lang.Exception) {
+//                LLog.d(logTag, "Unzipping failed")
+//                e.printStackTrace()
+//            }
+//        }
+//
+//        fun hanldeDirectory(dir: String) {
+//            val f = File(this.destination.toString() + dir)
+//            if (!f.isDirectory) {
+//                f.mkdirs()
+//            }
+//        }
     }
 }

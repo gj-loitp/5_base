@@ -1,8 +1,8 @@
 package com.function.epub;
 
-import java.io.Serializable;
+import com.core.base.BaseModel;
 
-class Tag implements Serializable {
+class Tag extends BaseModel {
 
     private static final long serialVersionUID = -7115489705388170603L;
 

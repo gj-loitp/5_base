@@ -1,6 +1,7 @@
 package com.core.helper.girl.model
 
 import androidx.annotation.Keep
+import java.io.Serializable
 
 @Keep
 data class MenuGirl(
@@ -8,4 +9,4 @@ data class MenuGirl(
         val iconId: Int,
         val textId: Int,
         val activeColor: Int
-)
+) : Serializable
