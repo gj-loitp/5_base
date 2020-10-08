@@ -29,12 +29,15 @@ class DownloadManagerActivity : BaseFontActivity() {
     }
 
     private var downloaderPhoto: Downloader? = null
+    private var downloaderZip: Downloader? = null
     private var lStoreUtilModel: LStoreUtilModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 //        getDownloaderPhoto()
+//        getDownloaderZipGoogle()
+
         setupViews()
         setupViewModels()
     }
@@ -75,7 +78,8 @@ class DownloadManagerActivity : BaseFontActivity() {
             lStoreUtilModel?.readTxtFromAsset("colors.json")
         }
         btStartDownloadZipGoogle.setSafeOnClickListener {
-
+            getDownloaderZipGoogle()
+            downloaderZip?.download()
         }
     }
 
@@ -199,6 +203,71 @@ class DownloadManagerActivity : BaseFontActivity() {
                             tvCurrentStatus?.text = "onStart"
                         }
                         logD("onStart")
+                    }
+
+                }
+        )
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun getDownloaderZipGoogle() {
+        downloaderZip = LStoreUtil.getDownloader(
+                folderName = Environment.DIRECTORY_DOCUMENTS + "/" + "ZZZTestDownloader",
+                url = "https://drive.google.com/uc?export=download&id=0B0-bfr9v36LUenRQNXZmWWIyS2c",
+                onDownloadListener = object : OnDownloadListener {
+                    override fun onCancel() {
+                        runOnUiThread {
+                            tvCurrentStatusZip?.text = "onCancel"
+                        }
+                        logD("getDownloaderZipGoogle onCancel")
+                    }
+
+                    override fun onCompleted(file: File?) {
+                        runOnUiThread {
+                            file?.let {
+                                tvCurrentStatusZip?.text = "onCompleted ${it.path}"
+                            }
+                        }
+                        logD("getDownloaderZipGoogle onCompleted: file --> $file")
+                    }
+
+                    override fun onFailure(reason: String?) {
+                        runOnUiThread {
+                            tvCurrentStatusZip?.text = "onFailure: reason --> $reason"
+                        }
+                        logE("getDownloaderZipGoogle onFailure: reason --> $reason")
+                    }
+
+                    override fun onPause() {
+                        runOnUiThread {
+                            tvCurrentStatusZip?.text = "onPause"
+                        }
+                        logD("getDownloaderZipGoogle onPause")
+                    }
+
+                    override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
+                        runOnUiThread {
+                            tvCurrentStatusZip?.text = "onProgressUpdate"
+                            tvPercentZip?.text = percent.toString().plus("%")
+                            tvSizeZip?.text = LStoreUtil.getSize(downloadedSize)
+                            tvTotalSizeZip?.text = LStoreUtil.getSize(totalSize)
+                            sbDownloadProgressZip?.progress = percent
+                        }
+                        logD("getDownloaderZipGoogle onProgressUpdate: percent --> $percent downloadedSize --> $downloadedSize totalSize --> $totalSize ")
+                    }
+
+                    override fun onResume() {
+                        runOnUiThread {
+                            tvCurrentStatusZip?.text = "onResume"
+                        }
+                        logD("getDownloaderZipGoogle onResume")
+                    }
+
+                    override fun onStart() {
+                        runOnUiThread {
+                            tvCurrentStatusZip?.text = "onStart"
+                        }
+                        logD("getDownloaderZipGoogle onStart")
                     }
 
                 }
