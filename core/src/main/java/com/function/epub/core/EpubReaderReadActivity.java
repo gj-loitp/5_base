@@ -99,10 +99,10 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         setContentView(R.layout.l_activity_epub_reader_read);
 
         pxScreenWidth = getResources().getDisplayMetrics().widthPixels;
-        rlSplash = findViewById(R.id.rl_splash);
+        rlSplash = findViewById(R.id.rlSplash);
         TextView tvTitle = findViewById(R.id.tvTitle);
-        ivCover = findViewById(R.id.iv_cover);
-        llGuide = findViewById(R.id.ll_guide);
+        ivCover = findViewById(R.id.ivCover);
+        llGuide = findViewById(R.id.llGuide);
         LUIUtil.Companion.setTextShadow(tvTitle);
         bookInfo = BookInfoData.Companion.getInstance().getBookInfo();
         if (bookInfo == null) {
@@ -116,9 +116,9 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         }
         tvTitle.setText(titleBook);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mViewPager = findViewById(R.id.container);
+        mViewPager = findViewById(R.id.viewPager);
         LUIUtil.Companion.setPullLikeIOSHorizontal(mViewPager);
-        tvPage = findViewById(R.id.tv_page);
+        tvPage = findViewById(R.id.tvPage);
         mViewPager.setOffscreenPageLimit(0);
         mViewPager.setPageTransformer(true, new ZoomOutSlideTransformer());
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -152,13 +152,13 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             //LUIUtil.setMargins(lnAdview, 0, 0, 0, 0);
         }
 
-        findViewById(R.id.bt_back).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btBack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
             }
         });
-        findViewById(R.id.bt_zoom_in).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btZoomIn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LAnimationUtil.Companion.play(view, Techniques.Pulse);
@@ -176,7 +176,7 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
                 }
             }
         });
-        findViewById(R.id.bt_zoom_out).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btZoomOut).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LAnimationUtil.Companion.play(view, Techniques.Pulse);
@@ -328,62 +328,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
         super.onDestroy();
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_epub_reader, menu);
-
-        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchMenuItem = menu.findItem(R.id.action_search);
-        searchView = (SearchView) MenuItemCompat.getActionView(searchMenuItem);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-
-                if (query != null && !query.equals("")) {
-
-                    if (TextUtils.isDigitsOnly(query)) {
-                        loseFocusOnSearchView();
-
-                        int skippingPage = Integer.valueOf(query);
-
-                        if (skippingPage >= 0) {
-                            isSkippedToPage = true;
-                            mViewPager.setCurrentItem(skippingPage);
-                        } else {
-                            Toast.makeText(activity, "Page number can't be less than 0", Toast.LENGTH_LONG).show();
-                        }
-
-                    } else {
-                        loseFocusOnSearchView();
-                        Toast.makeText(activity, "Only numbers are allowed", Toast.LENGTH_LONG).show();
-                    }
-
-                    return true;
-                }
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-        return true;
-    }*/
-
-    /*@Override
-    public void onBackPressed() {
-        if (!searchView.isIconified()) {
-            loseFocusOnSearchView();
-        } else {
-            super.onBackPressed();
-        }
-    }*/
-
     @Override
     public void onStop() {
         super.onStop();
@@ -398,22 +342,6 @@ public class EpubReaderReadActivity extends BaseFontActivity implements PageFrag
             showShort("Progress is not saved. Out of Bounds. Page Count: " + e.getPageCount(), true);
         }
     }
-
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_search) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
-
-    /*private void loseFocusOnSearchView() {
-        searchView.setQuery("", false);
-        searchView.clearFocus();
-        searchView.setIconified(true);
-        MenuItemCompat.collapseActionView(searchMenuItem);
-    }*/
 
     public class SectionsPagerAdapter extends FragmentStatePagerAdapter {
 

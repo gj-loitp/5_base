@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/rootView"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -10,67 +10,62 @@
     <LinearLayout
         android:id="@+id/layoutControl"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:padding="@dimen/padding_5">
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/white"
+        android:gravity="center_vertical">
 
         <ImageButton
-            android:id="@+id/bt_back"
-            android:layout_width="@dimen/w_30"
-            android:layout_height="@dimen/w_30"
-            android:background="@color/transparent"
+            android:id="@+id/btBack"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
             android:src="@drawable/ic_chevron_left_black_48dp"
             android:tint="@color/black" />
 
         <TextView
-            android:id="@+id/tv_page"
+            android:id="@+id/tvPage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_5"
             android:layout_weight="1"
+            android:singleLine="true"
             android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:textSize="@dimen/txt_medium"
+            android:textStyle="bold"
+            tools:text="@string/app_name" />
 
         <ImageButton
-            android:id="@+id/bt_zoom_in"
-            android:layout_width="@dimen/w_30"
-            android:layout_height="@dimen/w_30"
-            android:background="@color/transparent"
+            android:id="@+id/btZoomIn"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
             android:src="@drawable/ic_add_black_48dp"
             android:tint="@color/black" />
 
         <ImageButton
-            android:id="@+id/bt_zoom_out"
-            android:layout_width="@dimen/w_30"
-            android:layout_height="@dimen/w_30"
-            android:layout_marginStart="@dimen/margin_5"
-            android:background="@color/transparent"
+            android:id="@+id/btZoomOut"
+            android:layout_width="?android:attr/actionBarSize"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="centerInside"
             android:src="@drawable/ic_remove_black_48dp"
             android:tint="@color/black" />
     </LinearLayout>
 
     <View
-        android:id="@+id/v_line"
+        android:id="@+id/viewLine"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_1"
         android:layout_below="@+id/layoutControl"
-        android:background="@color/whiteSmoke" />
+        android:background="@color/gray" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/container"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/lnAdView"
-        android:layout_below="@+id/v_line" />
+        android:layout_below="@+id/viewLine" />
 
     <LinearLayout
         android:id="@+id/lnAdView"
@@ -82,61 +77,63 @@
         android:orientation="vertical" />
 
     <LinearLayout
-        android:id="@+id/ll_guide"
+        android:id="@+id/llGuide"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black85"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        tools:visibility="invisible">
 
         <ImageView
             android:layout_width="@dimen/w_100"
             android:layout_height="@dimen/w_100"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_gesture"
-            android:tint="@color/white" />
+            app:tint="@color/white" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="@dimen/padding_5"
-            android:text="Swipe left/right to another page\n\n\nTouch anywhere to hide."
+            android:padding="@dimen/padding_medium"
+            android:text="@string/touch_anywhere_to_hide"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_22"
+            android:textSize="@dimen/txt_medium"
             android:textStyle="bold" />
 
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_splash"
+        android:id="@+id/rlSplash"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:visibility="invisible">
 
         <ImageView
-            android:id="@+id/iv_cover"
+            android:id="@+id/ivCover"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            tools:src="@drawable/logo" />
 
         <com.github.mmin18.widget.RealtimeBlurView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_5"
+            app:realtimeBlurRadius="@dimen/round_medium"
             app:realtimeOverlayColor="@color/black35" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
             android:gravity="center"
-            android:padding="@dimen/padding_5"
+            android:padding="@dimen/padding_medium"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_40" />
+            android:textSize="@dimen/txt_large"
+            tools:text="@string/app_name" />
     </RelativeLayout>
 
 </RelativeLayout>
-

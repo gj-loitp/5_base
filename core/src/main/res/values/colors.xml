@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00ff00</color>
-    <color name="colorPrimary2">#00ffff</color>
-    <color name="colorPrimaryTrans">#00ff00</color>
-    <color name="colorEdgeEffect">#00ff00</color>
-    <color name="colorPrimary60">#9900FF00</color>
-    <color name="colorPrimaryDark">#00ff00</color>
-    <color name="colorAccent">#00ff00</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimary2">#0000ff</color>
+    <color name="colorPrimaryTrans">#80000000</color>
+    <color name="colorEdgeEffect">#000000</color>
+    <color name="colorPrimary60">#99000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#000000</color>
 
     <color name="vip1">#d3131f</color>
     <color name="vip2">#19875c</color>
