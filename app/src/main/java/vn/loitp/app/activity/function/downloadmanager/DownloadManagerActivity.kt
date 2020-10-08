@@ -33,14 +33,15 @@ class DownloadManagerActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getDownloader()
+
+//        getDownloaderPhoto()
         setupViews()
         setupViewModels()
     }
 
     private fun setupViews() {
         btStartDownload.setOnClickListener {
-            getDownloader()
+            getDownloaderPhoto()
             downloaderPhoto?.download()
         }
         btCancelDownload.setSafeOnClickListener {
@@ -50,7 +51,7 @@ class DownloadManagerActivity : BaseFontActivity() {
             downloaderPhoto?.pauseDownload()
         }
         btResumeDownload.setSafeOnClickListener {
-            getDownloader()
+            getDownloaderPhoto()
             downloaderPhoto?.resumeDownload()
         }
         btTestRandomColor.setOnClickListener {
@@ -137,7 +138,7 @@ class DownloadManagerActivity : BaseFontActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun getDownloader() {
+    private fun getDownloaderPhoto() {
         downloaderPhoto = LStoreUtil.getDownloader(
                 folderName = Environment.DIRECTORY_PICTURES + "/" + "ZZZTestDownloader",
                 token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwOGQ3MWQ2Zi0xZTc0LTYwYjQtOWJmMC1mM2E0YzVkMTkwZGUiLCJyb2xlIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAyIiwianRpIjoiMzUxMmZhM2YtYWMzNi00YmM2LWI5ZTEtOTEyMzc5Y2NlZjQ1IiwiRGF0YVR5cGVzIjoiMiIsIm5iZiI6MTU2OTQ3OTc1OSwiZXhwIjoxNTY5NTY5NzU5LCJpYXQiOjE1Njk0Nzk3NTksImlzcyI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biIsImF1ZCI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biJ9.6IfkQkMhI0g-XAbKdHNSH5HiP8fsRAJxnpojjyqwFBI,",
