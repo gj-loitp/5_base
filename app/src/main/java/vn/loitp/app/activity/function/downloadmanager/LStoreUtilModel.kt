@@ -120,7 +120,24 @@ class LStoreUtilModel : BaseViewModel() {
         ioScope.launch {
             logD(">>>unzip file ${file.path}")
             if (file.exists()) {
-                LStoreUtil.unzip(file = file)
+                val destinationFileUnzip = LStoreUtil.unzip(file = file)
+                if (destinationFileUnzip == null) {
+                    unzipActionLiveData.post(
+                            ActionData(
+                                    isDoing = false,
+                                    isSuccess = false,
+                                    errorResponse = ErrorResponse("Unzip failed")
+                            )
+                    )
+                } else {
+                    unzipActionLiveData.post(
+                            ActionData(
+                                    isDoing = false,
+                                    isSuccess = true,
+                                    data = destinationFileUnzip
+                            )
+                    )
+                }
             } else {
                 unzipActionLiveData.post(
                         ActionData(

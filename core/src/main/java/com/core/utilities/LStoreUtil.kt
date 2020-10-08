@@ -451,7 +451,8 @@ class LStoreUtil {
             }
         }
 
-        fun unzip(file: File): Boolean {
+        //return destination file path
+        fun unzip(file: File): String? {
             try {
                 val filePath = file.path
                 val destination = "${file.parent}/"
@@ -483,11 +484,11 @@ class LStoreUtil {
                 }
                 zipStream.close()
 //                LLog.d(logTag, "Unzipping complete, path :  $destination")
-                return true
+                return destination
             } catch (e: java.lang.Exception) {
 //                LLog.e(logTag, "Unzipping failed $e")
                 e.printStackTrace()
-                return false
+                return null
             }
         }
 
