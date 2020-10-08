@@ -120,7 +120,7 @@ class LStoreUtilModel : BaseViewModel() {
         ioScope.launch {
             logD(">>>unzip file ${file.path}")
             if (file.exists()) {
-//                LStoreUtil.unz
+                LStoreUtil.unzip(file = file)
             } else {
                 unzipActionLiveData.post(
                         ActionData(

@@ -17,6 +17,8 @@ import okhttp3.*
 import java.io.*
 import java.net.URL
 import java.util.*
+import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
 import kotlin.collections.ArrayList
 
 //https://gist.github.com/lopspower/76421751b21594c69eb2
@@ -24,7 +26,7 @@ import kotlin.collections.ArrayList
 
 class LStoreUtil {
     companion object {
-        internal var logTag = LStoreUtil::class.java.simpleName
+        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
 
         const val FOLDER_TRANSLATE = ".Loitp"
         const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
@@ -449,41 +451,56 @@ class LStoreUtil {
             }
         }
 
-//        fun unzip() {
-//            try {
-//                val inputStream = FileInputStream(filePath)
-//                val zipStream = ZipInputStream(inputStream)
-//                var zEntry: ZipEntry? = null
-//                while (zipStream.getNextEntry().also({ zEntry = it }) != null) {
-//                    LLog.d("Unzip", "Unzipping " + zEntry.getName().toString() + " at " + destination)
-//                    if (zEntry.isDirectory()) {
-//                        hanldeDirectory(zEntry.getName())
-//                    } else {
-//                        val fout = FileOutputStream(this.destination.toString() + "/" + zEntry.getName())
-//                        val bufout = BufferedOutputStream(fout)
-//                        val buffer = ByteArray(1024)
-//                        var read = 0
-//                        while (zipStream.read(buffer).also({ read = it }) != -1) {
-//                            bufout.write(buffer, 0, read)
-//                        }
-//                        zipStream.closeEntry()
-//                        bufout.close()
-//                        fout.close()
-//                    }
-//                }
-//                zipStream.close()
-//                LLog.d(logTag, "Unzipping complete. path :  $destination")
-//            } catch (e: java.lang.Exception) {
-//                LLog.d(logTag, "Unzipping failed")
-//                e.printStackTrace()
-//            }
-//        }
-//
-//        fun hanldeDirectory(dir: String) {
-//            val f = File(this.destination.toString() + dir)
-//            if (!f.isDirectory) {
-//                f.mkdirs()
-//            }
-//        }
+        fun unzip(file: File): Boolean {
+            try {
+                val filePath = file.path
+                val destination = "${file.parent}/"
+//                LLog.d(logTag, ">>>unzip filePath $filePath")
+//                LLog.d(logTag, ">>>unzip destination $destination")
+                val inputStream = FileInputStream(filePath)
+                val zipStream = ZipInputStream(inputStream)
+                var zipEntry: ZipEntry?
+                while (zipStream.nextEntry.also {
+                            zipEntry = it
+                        } != null) {
+//                    LLog.d(logTag, "Unzipping " + zipEntry?.name + " at " + destination)
+                    zipEntry?.let { ze ->
+                        if (ze.isDirectory) {
+                            handleDirectory(dir = ze.name, destination = destination)
+                        } else {
+                            val fileOutputStream = FileOutputStream(destination + "/" + ze.name)
+                            val bufferedOutputStream = BufferedOutputStream(fileOutputStream)
+                            val buffer = ByteArray(1024)
+                            var read: Int
+                            while (zipStream.read(buffer).also { read = it } != -1) {
+                                bufferedOutputStream.write(buffer, 0, read)
+                            }
+                            zipStream.closeEntry()
+                            bufferedOutputStream.close()
+                            fileOutputStream.close()
+                        }
+                    }
+                }
+                zipStream.close()
+//                LLog.d(logTag, "Unzipping complete, path :  $destination")
+                return true
+            } catch (e: java.lang.Exception) {
+//                LLog.e(logTag, "Unzipping failed $e")
+                e.printStackTrace()
+                return false
+            }
+        }
+
+        private fun handleDirectory(dir: String, destination: String) {
+            val file = File(destination + dir)
+//            LLog.d(logTag, "handleDirectory file ${file.path}")
+            if (!file.isDirectory) {
+//                LLog.d(logTag, "handleDirectory !file.isDirectory")
+                val isSuccess = file.mkdirs()
+//                LLog.d(logTag, "handleDirectory !file.isDirectory isSuccess $isSuccess")
+            } else {
+//                LLog.d(logTag, "handleDirectory file.isDirectory")
+            }
+        }
     }
 }
