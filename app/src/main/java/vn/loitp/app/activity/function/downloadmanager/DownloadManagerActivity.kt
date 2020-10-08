@@ -138,6 +138,22 @@ class DownloadManagerActivity : BaseFontActivity() {
                     }
                 }
             })
+            vm.unzipActionLiveData.observe(this, Observer { actionData ->
+                logD("<<<unzipActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    layoutProgress.visibility = View.VISIBLE
+                } else {
+                    layoutProgress.visibility = View.GONE
+                    if (actionData.isSuccess == true) {
+                        val data = actionData.data
+                        showLong("unzipActionLiveData:\n$data")
+
+                    } else {
+                        showLong(actionData?.errorResponse?.message)
+                    }
+                }
+            })
         }
     }
 
@@ -225,6 +241,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                         runOnUiThread {
                             file?.let {
                                 tvCurrentStatusZip?.text = "onCompleted ${it.path}"
+                                lStoreUtilModel?.unzip(file = it)
                             }
                         }
                         logD("getDownloaderZipGoogle onCompleted: file --> $file")
