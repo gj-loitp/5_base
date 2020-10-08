@@ -6,7 +6,7 @@ import org.w3c.dom.NodeList
 import java.util.*
 
 // Helper classes and methods used in Findings
-internal abstract class BaseFindings {
+abstract class BaseFindings {
     @Throws(ReadingException::class)
 
     abstract fun fillContent(node: Node?): Boolean
