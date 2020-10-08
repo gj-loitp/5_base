@@ -81,7 +81,7 @@ class Content extends BaseModel {
     // TODO: A new method for only getting (approx.) count of book sections. That will also be useful for pre-loading the whole book.
     private BookSection getBookSection(int index) throws ReadingException, OutOfPagesException {
 
-        BookSection bookSection = null;
+        BookSection bookSection;
 
         NavPoint navPoint = getNavPoint(index);
 
@@ -238,7 +238,7 @@ class Content extends BaseModel {
 
         String fileContent = readFileContent(entryName);
         String htmlBody = getHtmlBody(fileContent);
-        String htmlBodyToReplace = null;
+        String htmlBodyToReplace;
 
         if (!entryNavPoint.isCalculated()) { // Not calculated before.
             String nextAnchor = getNextAnchor(index, entryName);
@@ -322,7 +322,7 @@ class Content extends BaseModel {
         this.entryTagPositions.put(entryName, tagList);
 
         List<Tag> openedTags = null;
-        ListIterator<Tag> listIterator = null;
+        ListIterator<Tag> listIterator;
 
         boolean isPossiblyTagOpened = false;
         StringBuilder possiblyTag = new StringBuilder();
@@ -447,7 +447,7 @@ class Content extends BaseModel {
         boolean isNavigatingToNextFile = false;
 
         String currentAnchor = null;
-        String nextAnchor = null;
+        String nextAnchor;
 
         boolean isFileReadFirstTime = isFileReadFirstTime(index, entryName);
 
@@ -642,8 +642,8 @@ class Content extends BaseModel {
 
         StringBuilder openingTagsBuilder = new StringBuilder();
 
-        for (ListIterator<Tag> iterator = openedTags.listIterator(); iterator.hasNext(); ) {
-            openingTagsBuilder.append(Constants.TAG_OPENING).append(iterator.next().getFullTagName()).append(Constants.TAG_CLOSING);
+        for (Tag openedTag : openedTags) {
+            openingTagsBuilder.append(Constants.TAG_OPENING).append(openedTag.getFullTagName()).append(Constants.TAG_CLOSING);
         }
 
         return openingTagsBuilder.toString();
@@ -1141,7 +1141,7 @@ class Content extends BaseModel {
 
                         int styleIndex = tag.indexOf("style=\"");
 
-                        String tagToReplace = null;
+                        String tagToReplace;
                         if (styleIndex != -1) { // Already has a style tag. Put the value into it.
                             tagToReplace = tag.substring(0, styleIndex + 6) + cssEntry.getValue() + tag.substring(styleIndex + 6);
                         } else {
@@ -1356,7 +1356,7 @@ class Content extends BaseModel {
     // Warning: May devour anchors.
     private void searchForTableTags(String entryName, String htmlBody, int trimStartPosition, int trimEndPosition) {
 
-        String htmlBodyToReplace = null;
+        String htmlBodyToReplace;
 
         if (trimEndPosition == 0) {
             htmlBodyToReplace = htmlBody.substring(trimStartPosition);
@@ -1543,7 +1543,7 @@ class Content extends BaseModel {
             return htmlBody;
         }
 
-        String htmlBodyToReplace = null;
+        String htmlBodyToReplace;
 
         List<Tag> prevOpenedNotClosedYetTags = new ArrayList<>(); // Previously opened in this scope and not yet closed tags. Appending opening and closing tags.
         List<Tag> openedNotClosedYetTags = new ArrayList<>(); // Opened in this scope and not yet closed tags. Appending only closing tags.
