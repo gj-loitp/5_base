@@ -98,6 +98,7 @@ class LUIUtil {
                     .addTestDevice(Constants.TEST_10)
                     .addTestDevice(Constants.TEST_11)
                     .addTestDevice(Constants.TEST_12)
+                    .addTestDevice(Constants.TEST_13)
                     .build())
             return adView
         }
@@ -120,6 +121,7 @@ class LUIUtil {
                     .addTestDevice(Constants.TEST_10)
                     .addTestDevice(Constants.TEST_11)
                     .addTestDevice(Constants.TEST_12)
+                    .addTestDevice(Constants.TEST_13)
                     .build()
             interstitial.loadAd(adRequest)
             return interstitial
