@@ -322,8 +322,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 val paddingPx = LAppResource.getDimenValue(R.dimen.padding_small)
                 logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
                 loadDataString(bodyContent = data,
-                        backgroundColor = "black",
-                        textColor = "white",
+                        backgroundColor = "white",
+                        textColor = "black",
                         textAlign = "justify",
                         fontSizePx = fontSizePx,
                         paddingPx = paddingPx
