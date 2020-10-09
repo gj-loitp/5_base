@@ -62,7 +62,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                     LDialogUtil.hideProgress(progressBar = progressBar)
                     if (isSuccess == true) {
                         actionData.data?.let { bookInfoList ->
-                            val adapter = BookInfoGridAdapter(context = this@EpubReaderMenuActivity, bookInfoList = bookInfoList)
+                            val adapter = BookInfoGridAdapter(bookInfoList = bookInfoList)
                             gridBookInfo.adapter = adapter
                         }
                     }

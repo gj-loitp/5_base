@@ -11,8 +11,8 @@ import com.core.utilities.LReaderUtil
 import com.function.epub.model.BookInfo
 import vn.loitp.app.R
 
-class BookInfoGridAdapter(private val context: Context,
-                          private val bookInfoList: ArrayList<BookInfo>)
+class BookInfoGridAdapter(
+        private val bookInfoList: ArrayList<BookInfo>)
     : BaseAdapter() {
 
     private class ViewHolder {
@@ -36,7 +36,7 @@ class BookInfoGridAdapter(private val context: Context,
         var view = convertView
         val viewHolder: ViewHolder
         if (view == null) {
-            val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val inflater = parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             view = inflater.inflate(R.layout.row_item_book_epub_reader, parent, false)
             viewHolder = ViewHolder()
             viewHolder.tvBookTitle = view.findViewById(R.id.tvBookTitle)
