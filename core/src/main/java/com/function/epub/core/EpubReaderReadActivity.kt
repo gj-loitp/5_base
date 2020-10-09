@@ -22,6 +22,7 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.*
@@ -135,7 +136,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         epubViewModel = getViewModel(EpubViewModel::class.java)
         epubViewModel?.let { vm ->
             vm.loadDataActionLiveData.observe(this, androidx.lifecycle.Observer { actionData ->
-//                logD("loadDataActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                logD("loadDataActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -144,7 +145,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                         rlSplash?.visibility = View.GONE
                     })
                     sectionsPagerAdapter?.notifyDataSetChanged()
-                    val lastSavedPage = actionData.data ?: 0
+                    val lastSavedPage = actionData.data ?: 1
+                    logD("loadDataActionLiveData lastSavedPage $lastSavedPage")
                     viewPager?.currentItem = lastSavedPage
                     if (lastSavedPage == 0) {
                         tvPage?.text = "0"
@@ -267,20 +269,21 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     }
 
     override fun onFragmentReady(position: Int): View? {
+        logD("onFragmentReady position $position")
         var bookSection: BookSection? = null
         try {
             bookSection = reader.readSection(position)
         } catch (e: ReadingException) {
-            e.printStackTrace()
+            logE("onFragmentReady ReadingException $e")
         } catch (e: OutOfPagesException) {
-            e.printStackTrace()
+            logE("onFragmentReady OutOfPagesException $e")
             pageCount = e.pageCount
             if (isSkippedToPage) {
                 showShort("Max page number is: $pageCount")
             }
             sectionsPagerAdapter?.notifyDataSetChanged()
         } catch (e: Exception) {
-            logE("onFragmentReady $e")
+            logE("onFragmentReady Exception $e")
         }
         isSkippedToPage = false
         return if (bookSection == null) {
@@ -338,6 +341,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     @Suppress("DEPRECATION")
     private fun setFragmentView(isContentStyled: Boolean, data: String, mimeType: String, encoding: String): View {
         val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        logD("setFragmentView data $data")
         return if (isContentStyled) {
             val lWebView = LWebView(this)
             lWebView.apply {
