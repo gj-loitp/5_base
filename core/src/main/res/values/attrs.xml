@@ -784,4 +784,17 @@
         <attr name="numberLength" format="integer" />
     </declare-styleable>
 
+    <declare-styleable name="LStrokedTextView">
+        <attr name="strokeThickness" format="dimension" />
+        <attr name="strokeColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ElasticDragDismissFrameLayout">
+        <attr name="dragDismissDistance" format="dimension" />
+        <attr name="dragDismissFraction" format="float" />
+        <attr name="dragDismissScale" format="float" />
+        <attr name="dragElasticity" format="float" />
+        <attr name="ignoreNestedScrollWarnings" format="boolean" />
+        <attr name="enableScaleX" format="boolean" />
+    </declare-styleable>
 </resources>
