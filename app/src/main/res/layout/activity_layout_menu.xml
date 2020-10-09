@@ -62,11 +62,6 @@
                 android:text="@string/dragueur" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btElasticDragDismissLayout"
-                style="@style/ButtonMenu"
-                android:text="@string/elasticdragdismisslayout" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btExpansionPanel"
                 style="@style/ButtonMenu"
                 android:text="Expansion Panel" />

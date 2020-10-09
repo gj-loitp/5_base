@@ -19,7 +19,6 @@ import vn.loitp.app.activity.customviews.layout.draggablepanel.DraggablePanelAct
 import vn.loitp.app.activity.customviews.layout.draggablepanelfree.DraggablePanelFreeActivity
 import vn.loitp.app.activity.customviews.layout.draggableview.DraggableViewActivity
 import vn.loitp.app.activity.customviews.layout.dragueur.DragueurActivity
-import vn.loitp.app.activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity
 import vn.loitp.app.activity.customviews.layout.expansionpanel.ExpansionLayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.floatdraglayout.FloatDragLayoutActivity
 import vn.loitp.app.activity.customviews.layout.flowlayout.FlowLayoutActivity
@@ -55,7 +54,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btRippleLayout.setOnClickListener(this)
         btSwipeRefreshLayout.setOnClickListener(this)
         btDragueur.setOnClickListener(this)
-        btElasticDragDismissLayout.setOnClickListener(this)
         btCircularView.setOnClickListener(this)
         btAutoLinearLayout.setOnClickListener(this)
         btConstraintLayout.setOnClickListener(this)
@@ -88,7 +86,6 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btRippleLayout -> intent = Intent(this, RippleLayoutActivity::class.java)
             btSwipeRefreshLayout -> intent = Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
             btDragueur -> intent = Intent(this, DragueurActivity::class.java)
-            btElasticDragDismissLayout -> intent = Intent(this, ElasticDragDismissLayoutActivity::class.java)
             btCircularView -> intent = Intent(this, CircularViewActivity::class.java)
             btAutoLinearLayout -> intent = Intent(this, AutoLinearLayoutActivity::class.java)
             btConstraintLayout -> intent = Intent(this, ConstraintlayoutMenuActivity::class.java)
