@@ -317,44 +317,45 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         return if (isContentStyled) {
             val lWebView = LWebView(this)
-            lWebView.shouldOverrideUrlLoading(shouldOverrideUrlLoading = true)
-            lWebView.setEnableCopyContent(isEnableCopyContent = true)
-            lWebView.id = idWebView
-            //lWebView.loadDataWithBaseURL(null, getStyledFont(data), mimeType, encoding, null)
+            lWebView.apply {
+                shouldOverrideUrlLoading(shouldOverrideUrlLoading = true)
+                setEnableCopyContent(isEnableCopyContent = true)
+                id = idWebView
+                logD(">>>setFragmentView data $data")
+                val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
+                val paddingPx = LAppResource.getDimenValue(R.dimen.padding_small)
+                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
+                loadDataString(bodyContent = data,
+                        backgroundColor = "black",
+                        textColor = "white",
+                        textAlign = "justify",
+                        fontSizePx = fontSizePx,
+                        paddingPx = paddingPx
+                )
 
-            logD(">>>setFragmentView data $data")
-            val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
-            val paddingPx = LAppResource.getDimenValue(R.dimen.padding_small)
-            lWebView.loadDataString(bodyContent = data,
-                    backgroundColor = "black",
-                    textColor = "white",
-                    textAlign = "justify",
-                    fontSizePx = fontSizePx,
-                    paddingPx = paddingPx
-            )
+                scrollBarSize = ConvertUtils.dp2px(2f)
+                this.layoutParams = layoutParams
+                callback = object : LWebView.Callback {
+                    override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
+                    }
 
-            lWebView.scrollBarSize = ConvertUtils.dp2px(2f)
-            lWebView.layoutParams = layoutParams
-            lWebView.callback = object : LWebView.Callback {
-                override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
-                }
-
-                override fun onScrollTopToBottom() {
+                    override fun onScrollTopToBottom() {
 //                    logD("onScrollTopToBottom")
-                }
+                    }
 
-                override fun onScrollBottomToTop() {
+                    override fun onScrollBottomToTop() {
 //                    logD("onScrollBottomToTop")
-                }
+                    }
 
-                override fun onProgressChanged(progress: Int) {
+                    override fun onProgressChanged(progress: Int) {
 //                    logD("onProgressChanged $progress")
-                }
+                    }
 
-                override fun shouldOverrideUrlLoading(url: String) {
+                    override fun shouldOverrideUrlLoading(url: String) {
 //                    logD("shouldOverrideUrlLoading $url")
-                }
+                    }
 
+                }
             }
 
             val size = getTextSizeEpub()

@@ -12,7 +12,7 @@ import com.core.utilities.LLog
 class LWebView : WebView {
 
     companion object {
-        const val logTag = "LWebView"
+        const val logTag = "loitppLWebView"
     }
 
     private fun logD(msg: String) {
@@ -130,7 +130,6 @@ body {
 </style>"""
         val bodyContentString = "<html>$style<body>$bodyContent</body></html>"
         logD("bodyContentString $bodyContentString")
-//        this.loadData(bodyContentString, "text/html", "UTF-8")
         this.loadDataWithBaseURL(null, bodyContentString, "text/html", "UTF-8", "about:blank")
 
     }
