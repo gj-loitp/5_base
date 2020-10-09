@@ -21,6 +21,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -47,6 +48,7 @@ import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 
 @LogTag("loitppEpubReaderReadActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
     companion object {
@@ -63,7 +65,6 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var epubViewModel: EpubViewModel? = null
 
     private val isDarkTheme = LSharedPrefsUtil.instance.getBoolean(Constants.KEY_IS_DARK_THEME, true)
-//    private val isDarkTheme = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -166,6 +167,9 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             btZoomOut.setColorFilter(Color.WHITE)
             blurView.setOverlayColor(LAppResource.getColor(R.color.white35))
             tvTitle.setTextColor(Color.BLACK)
+            llGuide.setBackgroundColor(LAppResource.getColor(R.color.white85))
+            ivGesture.setColorFilter(Color.BLACK)
+            tvGesture.setTextColor(Color.BLACK)
         } else {
             layoutRootViewEpub.setBackgroundColor(Color.WHITE)
             layoutControl.setBackgroundColor(Color.WHITE)
@@ -175,6 +179,9 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             btZoomOut.setColorFilter(Color.BLACK)
             blurView.setOverlayColor(LAppResource.getColor(R.color.black35))
             tvTitle.setTextColor(Color.WHITE)
+            llGuide.setBackgroundColor(LAppResource.getColor(R.color.black85))
+            ivGesture.setColorFilter(Color.WHITE)
+            tvGesture.setTextColor(Color.WHITE)
         }
     }
 

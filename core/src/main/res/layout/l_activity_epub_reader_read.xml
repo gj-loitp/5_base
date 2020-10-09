@@ -100,7 +100,7 @@
             android:layout_height="@dimen/w_100"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_gesture"
-            app:tint="@color/white" />
+            tools:tint="@color/white" />
 
         <TextView
             android:id="@+id/tvGesture"
@@ -109,9 +109,9 @@
             android:gravity="center"
             android:padding="@dimen/padding_medium"
             android:text="@string/touch_anywhere_to_hide"
-            android:textColor="@color/white"
             android:textSize="@dimen/txt_medium"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:textColor="@color/white" />
 
     </LinearLayout>
 
