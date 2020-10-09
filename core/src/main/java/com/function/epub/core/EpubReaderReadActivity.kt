@@ -350,6 +350,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         return if (isContentStyled) {
             val lWebView = LWebView(this)
             lWebView.apply {
+                setBackgroundColor(Color.TRANSPARENT)
                 shouldOverrideUrlLoading(shouldOverrideUrlLoading = true)
                 setEnableCopyContent(isEnableCopyContent = true)
                 id = idWebView

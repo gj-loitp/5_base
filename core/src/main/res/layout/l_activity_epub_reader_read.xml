@@ -92,7 +92,7 @@
         android:visibility="invisible"
         tools:background="@color/black85"
         tools:ignore="UseCompoundDrawables"
-        tools:visibility="visible">
+        tools:visibility="invisible">
 
         <ImageView
             android:id="@+id/ivGesture"
