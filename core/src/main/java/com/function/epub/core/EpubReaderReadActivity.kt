@@ -43,7 +43,6 @@ import com.interfaces.CallbackAnimation
 import com.utils.util.ConvertUtils
 import com.views.LWebView
 import com.views.setSafeOnClickListener
-import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 
 @LogTag("loitppEpubReaderReadActivity")
@@ -93,8 +92,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         viewPager.apply {
             LUIUtil.setPullLikeIOSHorizontal(viewPager = this)
-            this.offscreenPageLimit = 0
-            this.setPageTransformer(true, ZoomOutSlideTransformer())
+//            this.offscreenPageLimit = 0
+//            this.setPageTransformer(true, ZoomOutSlideTransformer())
             this.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
                 override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
                 override fun onPageSelected(position: Int) {
@@ -124,7 +123,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         btZoomIn.setSafeOnClickListener {
             handleZoomIn()
         }
-        btZoomOut.setSafeOnClickListener { view ->
+        btZoomOut.setSafeOnClickListener {
             handleZoomOut()
         }
         llGuide.setSafeOnClickListener {
@@ -340,7 +339,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
 
         override fun getItem(position: Int): Fragment {
-            return PageFragment.newInstance(position)
+            return PageFragment.newInstance(tabPosition = position, isDarkTheme = isDarkTheme)
         }
     }
 
