@@ -25,15 +25,15 @@
 <!--        <attr name="rvp_singlePageFling" format="boolean" />-->
 <!--    </declare-styleable>-->
 
-    <declare-styleable name="LSProgressBar">
-        <attr name="filterColor" format="color" />
-    </declare-styleable>
+<!--    <declare-styleable name="LSProgressBar">-->
+<!--        <attr name="filterColor" format="color" />-->
+<!--    </declare-styleable>-->
 
-    <declare-styleable name="GridCenterView">
-        <attr name="dividerHeight" format="dimension" />
-        <attr name="dividerColor" format="reference" />
-        <attr name="spanNumber" format="integer" />
-    </declare-styleable>
+<!--    <declare-styleable name="GridCenterView">-->
+<!--        <attr name="dividerHeight" format="dimension" />-->
+<!--        <attr name="dividerColor" format="reference" />-->
+<!--        <attr name="spanNumber" format="integer" />-->
+<!--    </declare-styleable>-->
 
     <declare-styleable name="LParallaxViewPager">
         <attr name="modeParallaxViewPager">
