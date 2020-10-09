@@ -141,4 +141,6 @@
     <string name="added_to_favorites">Added to favorites</string>
     <string name="removed_from_favorites">Removed from favorites</string>
     <string name="touch_anywhere_to_hide">Swipe left/right to another page\nTouch anywhere to hide.</string>
+    <string name="chat_with_dev">Chat with dev</string>
+    <string name="donation">Donation</string>
 </resources>
