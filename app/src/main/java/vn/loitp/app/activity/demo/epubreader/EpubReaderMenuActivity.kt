@@ -13,7 +13,6 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LReaderUtil
 import com.core.utilities.LUIUtil
 import com.function.epub.model.BookInfo
-import com.function.epub.task.GetListBookFromDeviceAndAssetTask
 import com.function.epub.viewmodels.EpubViewModel
 import com.interfaces.Callback2
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
@@ -29,7 +28,6 @@ class EpubReaderMenuActivity : BaseFontActivity() {
         private const val EXTENSION_EPUB = ".sqlite"
     }
 
-    private var getListBookFromDeviceAndAssetTask: GetListBookFromDeviceAndAssetTask? = null
     private var epubViewModel: EpubViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,6 +66,22 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                     }
                 }
             })
+            vm.loadDeviceAndAssetActionLiveData.observe(this, Observer { actionData ->
+                logD("<<<loadDeviceAndAssetActionLiveData action " + BaseApplication.gson.toJson(actionData))
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+                if (isDoing == true) {
+                    LDialogUtil.showProgress(progressBar = progressBar)
+                } else {
+                    LDialogUtil.hideProgress(progressBar = progressBar)
+                    if (isSuccess == true) {
+                        actionData.data?.let { bookInfoList ->
+                            val adapter = BookInfoGridAdapter(bookInfoList = bookInfoList)
+                            gridBookInfo.adapter = adapter
+                        }
+                    }
+                }
+            })
         }
     }
 
@@ -79,31 +93,13 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                 button2 = "Load tất cả epub trong asset",
                 callback2 = object : Callback2 {
                     override fun onClick1() {
-                        //lấy list epub ở trên all device và 1 file ở asset folder rồi show lên UI
-//                        getListBookFromDeviceAndAssetTask = GetListBookFromDeviceAndAssetTask(this@EpubReaderMenuActivity, object : GetListBookFromDeviceAndAssetTask.Callback {
-//                            override fun onPreExecute() {
-//                                LDialogUtil.showProgress(progressBar)
-//                            }
-//
-//                            override fun onPostExecute(bookInfoList: ArrayList<BookInfo>) {
-//                                logD("onPostExecute " + bookInfoList.size)
-//                                LDialogUtil.hideProgress(progressBar)
-//                                val adapter = BookInfoGridAdapter(this@EpubReaderMenuActivity, bookInfoList)
-//                                gridBookInfo.adapter = adapter
-//                            }
-//                        })
-//                        getListBookFromDeviceAndAssetTask?.execute()
+                        epubViewModel?.getListBookFromDeviceAndAsset()
                     }
 
                     override fun onClick2() {
                         epubViewModel?.getListBookAllAsset(maxBookAsset = MAX_BOOK_ASSET, extensionEpub = EXTENSION_EPUB)
                     }
                 })
-    }
-
-    override fun onDestroy() {
-        getListBookFromDeviceAndAssetTask?.cancel(true)
-        super.onDestroy()
     }
 
 }

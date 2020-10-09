@@ -1,10 +1,13 @@
 package com.function.epub.viewmodels
 
+import android.os.Environment
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
 import com.core.utilities.LAppResource
 import com.core.utilities.LPrefUtil
+import com.core.utilities.LStoreUtil
+import com.core.utilities.LStoreUtil.Companion.getListEpubFiles
 import com.function.epub.CssStatus
 import com.function.epub.Reader
 import com.function.epub.exception.ReadingException
@@ -31,6 +34,7 @@ class EpubViewModel : BaseViewModel() {
 
     val loadDataActionLiveData: ActionLiveData<ActionData<Int>> = ActionLiveData()
     val loadAssetActionLiveData: ActionLiveData<ActionData<ArrayList<BookInfo>>> = ActionLiveData()
+    val loadDeviceAndAssetActionLiveData: ActionLiveData<ActionData<ArrayList<BookInfo>>> = ActionLiveData()
 
     fun loadData(reader: Reader, bookInfo: BookInfo) {
         loadDataActionLiveData.set(ActionData(isDoing = true))
@@ -73,28 +77,47 @@ class EpubViewModel : BaseViewModel() {
 
     }
 
+    private fun searchForFilesAsset(maxBookAsset: Int, extensionEpub: String): ArrayList<BookInfo> {
+        val listFile = ArrayList<File>()
+        val infoList = ArrayList<BookInfo>()
+        var file: File?
+        for (i in 1..maxBookAsset) {
+            file = getFileFromAssets(fileName = "a ($i)$extensionEpub")
+            file?.let {
+                listFile.add(it)
+            }
+        }
+        listFile.forEach { f ->
+            val bookInfo = BookInfo()
+            bookInfo.title = f.name
+            bookInfo.filePath = f.path
+            infoList.add(bookInfo)
+        }
+        return infoList
+    }
+
+    private fun getFileFromAssets(fileName: String): File? {
+        val file = File(LAppResource.application.cacheDir.toString() + "/" + fileName)
+        if (!file.exists()) {
+            try {
+                val inputStream = LAppResource.application.assets.open("b/$fileName")
+                val size = inputStream.available()
+                val buffer = ByteArray(size)
+                inputStream.read(buffer)
+                inputStream.close()
+                val fileOutputStream = FileOutputStream(file)
+                fileOutputStream.write(buffer)
+                fileOutputStream.close()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return null
+            }
+        }
+        return file
+    }
+
     fun getListBookAllAsset(maxBookAsset: Int, extensionEpub: String) {
         loadAssetActionLiveData.set(ActionData(isDoing = true))
-
-        fun getFileFromAssets(fileName: String): File? {
-            val file = File(LAppResource.application.cacheDir.toString() + "/" + fileName)
-            if (!file.exists()) {
-                try {
-                    val inputStream = LAppResource.application.assets.open("b/$fileName")
-                    val size = inputStream.available()
-                    val buffer = ByteArray(size)
-                    inputStream.read(buffer)
-                    inputStream.close()
-                    val fileOutputStream = FileOutputStream(file)
-                    fileOutputStream.write(buffer)
-                    fileOutputStream.close()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    return null
-                }
-            }
-            return file
-        }
 
         fun sortABC(listBookInfo: ArrayList<BookInfo>) {
             if (listBookInfo.isEmpty()) {
@@ -110,33 +133,14 @@ class EpubViewModel : BaseViewModel() {
         ioScope.launch {
             val listBookInfo = ArrayList<BookInfo>()
 
-            fun searchForFiles(): ArrayList<BookInfo> {
-                val listFile = ArrayList<File>()
-                val infoList = ArrayList<BookInfo>()
-                var file: File?
-                for (i in 1..maxBookAsset) {
-                    file = getFileFromAssets(fileName = "a ($i)$extensionEpub")
-                    file?.let {
-                        listFile.add(it)
-                    }
-                }
-                listFile.forEach { f ->
-                    val bookInfo = BookInfo()
-                    bookInfo.title = f.name
-                    bookInfo.filePath = f.path
-                    infoList.add(bookInfo)
-                }
-                return infoList
-            }
-
             val jsonBookAsset = LPrefUtil.getJsonBookAsset()
             if (jsonBookAsset.isNullOrEmpty()) {
-                listBookInfo.addAll(elements = searchForFiles())
+                listBookInfo.addAll(elements = searchForFilesAsset(maxBookAsset = maxBookAsset, extensionEpub = extensionEpub))
             } else {
                 val tmpList = BaseApplication.gson.fromJson<List<BookInfo>>(jsonBookAsset,
                         object : TypeToken<List<BookInfo?>?>() {}.type)
                 if (tmpList == null) {
-                    listBookInfo.addAll(elements = searchForFiles())
+                    listBookInfo.addAll(elements = searchForFilesAsset(maxBookAsset = maxBookAsset, extensionEpub = extensionEpub))
                 } else {
                     listBookInfo.addAll(elements = tmpList)
                 }
@@ -168,6 +172,61 @@ class EpubViewModel : BaseViewModel() {
             sortABC(listBookInfo = listBookInfo)
 
             loadAssetActionLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = listBookInfo
+                    )
+            )
+        }
+    }
+
+    private fun searchForFilesDeviceAndAsset(): ArrayList<BookInfo> {
+        val isSDPresent = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
+        val listBookInfo = ArrayList<BookInfo>()
+        if (isSDPresent) {
+            val listFile = getListEpubFiles(File(Environment.getExternalStorageDirectory().absolutePath))
+
+            //only get 1 file from asset
+            val sampleFile = LStoreUtil.getFileFromAssets(fileName = "a (1).sqlite")
+            sampleFile?.let {
+                listFile.add(index = 0, element = it)
+            }
+
+            listFile.forEach { file ->
+                val bookInfo = BookInfo()
+                bookInfo.title = file.name
+                bookInfo.filePath = file.path
+                listBookInfo.add(bookInfo)
+            }
+        }
+        return listBookInfo
+    }
+
+    fun getListBookFromDeviceAndAsset() {
+        loadDeviceAndAssetActionLiveData.set(ActionData(isDoing = true))
+        ioScope.launch {
+            val listBookInfo = searchForFilesDeviceAndAsset()
+            val reader = Reader()
+            for (bookInfo in listBookInfo) {
+                try {
+                    reader.setInfoContent(bookInfo.filePath)
+                    val title = reader.infoPackage.metadata.title
+                    if (title.isNullOrEmpty()) {
+                        // If title doesn't exist, use fileName instead.
+                        val dotIndex = bookInfo.title?.lastIndexOf(char = '.')
+                        dotIndex?.let {
+                            bookInfo.title = bookInfo.title?.substring(startIndex = 0, endIndex = it)
+                        }
+                    } else {
+                        bookInfo.title = reader.infoPackage.metadata.title
+                    }
+                    bookInfo.coverImage = reader.coverImage
+                } catch (e: ReadingException) {
+                    e.printStackTrace()
+                }
+            }
+            loadDeviceAndAssetActionLiveData.post(
                     ActionData(
                             isDoing = false,
                             isSuccess = true,

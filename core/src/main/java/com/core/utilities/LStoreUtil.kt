@@ -299,21 +299,21 @@ class LStoreUtil {
             return file
         }
 
-        fun getListEpubFiles(parentDir: File): List<File> {
-            val inFiles = ArrayList<File>()
+        fun getListEpubFiles(parentDir: File): ArrayList<File> {
+            val listFile = ArrayList<File>()
             val files = parentDir.listFiles()
             if (files != null) {
                 for (file in files) {
                     if (file.isDirectory) {
-                        inFiles.addAll(getListEpubFiles(file))
+                        listFile.addAll(getListEpubFiles(file))
                     } else {
                         if (file.name.endsWith(".epub")) {
-                            inFiles.add(file)
+                            listFile.add(file)
                         }
                     }
                 }
             }
-            return inFiles
+            return listFile
         }
 
         fun getSettingFromGGDrive(linkGGDriveSetting: String?, ggSettingCallback: GGSettingCallback?) {
