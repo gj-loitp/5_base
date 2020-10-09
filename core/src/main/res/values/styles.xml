@@ -87,22 +87,6 @@
         <item name="color">@android:color/white</item>
     </style>
 
-    <!--    <style name="widget">-->
-    <!--        <item name="android:layout_width">fill_parent</item>-->
-    <!--        <item name="android:layout_height">wrap_content</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="edit_button">-->
-    <!--        <item name="android:layout_width">0sp</item>-->
-    <!--        <item name="android:layout_height">wrap_content</item>-->
-    <!--        <item name="android:layout_weight">1</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="list_item">-->
-    <!--        <item name="android:layout_width">wrap_content</item>-->
-    <!--        <item name="android:layout_height">wrap_content</item>-->
-    <!--    </style>-->
-
     <style name="LabelTextView" parent="@android:style/Widget.TextView">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:singleLine">true</item>
@@ -133,12 +117,6 @@
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
     </style>
-
-    <!--    <color name="aw_cevap_1">#FFFFFF</color>-->
-    <!--    <color name="aw_cevap_border">#D61D7D</color>-->
-    <!--    <color name="aw_cevap_ic">#4fe0bc</color>-->
-    <!--    <color name="aw_cevap_text">@color/aw_cevap_border</color>-->
-    <!--    <color name="aw_cevap_text_sel">@color/aw_cevap_1</color>-->
 
     <declare-styleable name="LAnswerView">
         <attr name="aw_ShowTextWhenActive" format="boolean" />
