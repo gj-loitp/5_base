@@ -2,8 +2,6 @@ package com.function.epub.viewmodels
 
 import com.annotation.LogTag
 import com.core.base.BaseViewModel
-import com.core.helper.girl.service.GirlApiClient
-import com.core.helper.girl.service.GirlRepository
 import com.function.epub.CssStatus
 import com.function.epub.Reader
 import com.function.epub.exception.ReadingException
@@ -22,7 +20,6 @@ import kotlinx.coroutines.launch
 
 @LogTag("GirlViewModel")
 class EpubViewModel : BaseViewModel() {
-    private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
     val loadDataActionLiveData: ActionLiveData<ActionData<Int>> = ActionLiveData()
 

@@ -44,7 +44,7 @@ class BookInfoGridAdapter(private val context: Context, private val bookInfoList
         } else {
             viewHolder = view.tag as ViewHolder
         }
-        
+
         viewHolder.tvBookTitle?.text = bookInfoList[position].title
         val isCoverImageNotExists = bookInfoList[position].isCoverImageNotExists
         if (isCoverImageNotExists) {

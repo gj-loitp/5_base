@@ -16,7 +16,7 @@ import java.io.File
  * www.muathu@gmail.com
  */
 
-@LogTag("loitppLStoreUtilModel")
+@LogTag("LStoreUtilModel")
 class LStoreUtilModel : BaseViewModel() {
 
     val writeToFileActionLiveData: ActionLiveData<ActionData<File>> = ActionLiveData()

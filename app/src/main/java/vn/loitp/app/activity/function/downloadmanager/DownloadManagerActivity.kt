@@ -19,7 +19,7 @@ import vn.loitp.app.R
 import java.io.File
 
 @LayoutId(R.layout.activity_download_manager)
-@LogTag("loitppDownloadManagerActivity")
+@LogTag("DownloadManagerActivity")
 @IsFullScreen(false)
 class DownloadManagerActivity : BaseFontActivity() {
 

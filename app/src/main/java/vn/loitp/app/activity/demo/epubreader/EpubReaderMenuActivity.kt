@@ -13,6 +13,7 @@ import com.core.utilities.LUIUtil
 import com.function.epub.model.BookInfo
 import com.function.epub.task.GetListBookAllAssetTask
 import com.function.epub.task.GetListBookFromDeviceAndAssetTask
+import com.function.epub.viewmodels.EpubViewModel
 import com.interfaces.Callback2
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
@@ -21,24 +22,38 @@ import vn.loitp.app.R
 @LogTag("EpubReaderMenuActivity")
 @IsFullScreen(false)
 class EpubReaderMenuActivity : BaseFontActivity() {
-    private var getListBookFromDeviceAndAssetTask: GetListBookFromDeviceAndAssetTask? = null
-    private var getListBookAllAssetTask: GetListBookAllAssetTask? = null
 
     companion object {
         private const val MAX_BOOK_ASSET = 1
         private const val EXTENSION_EPUB = ".sqlite"
     }
 
+    private var getListBookFromDeviceAndAssetTask: GetListBookFromDeviceAndAssetTask? = null
+    private var getListBookAllAssetTask: GetListBookAllAssetTask? = null
+    private var epubViewModel: EpubViewModel? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        setupViewModels()
+        LUIUtil.setDelay(mls = 500, runnable = Runnable {
+            ask()
+        })
+    }
+
+    private fun setupViews() {
         gridBookInfo.onItemClickListener = AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
             val bookInfo = adapterView.adapter.getItem(i) as BookInfo
             LReaderUtil.readEpub(activity = this, bookInfo = bookInfo, admobAdIdBanner = getString(R.string.str_b))
         }
-        LUIUtil.setDelay(mls = 500, runnable = Runnable {
-            ask()
-        })
+    }
+
+    private fun setupViewModels() {
+        epubViewModel = getViewModel(EpubViewModel::class.java)
+        epubViewModel?.let { vm ->
+
+        }
     }
 
     private fun ask() {
