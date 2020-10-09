@@ -9,11 +9,9 @@ import android.view.ViewGroup
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
+import com.core.common.Constants
 import com.core.helper.adhelper.AdHelperActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LAppResource
-import com.core.utilities.LSocialUtil
-import com.core.utilities.LUIUtil
+import com.core.utilities.*
 import kotlinx.android.synthetic.main.l_frm_more.*
 
 @LogTag("FrmMore")
@@ -43,8 +41,7 @@ class FrmMore : BaseFragment(), View.OnClickListener {
     }
 
     private fun setupThemes() {
-//        val isDarkTheme = LSharedPrefsUtil.instance.getBoolean(Constants.KEY_IS_DARK_THEME, true)
-        val isDarkTheme = true
+        val isDarkTheme = LSharedPrefsUtil.instance.getBoolean(Constants.KEY_IS_DARK_THEME, true)
         if (isDarkTheme) {
             layoutRootViewMore.setBackgroundColor(Color.BLACK)
 
