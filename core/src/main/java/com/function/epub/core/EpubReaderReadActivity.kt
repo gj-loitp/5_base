@@ -102,7 +102,6 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                 override fun onPageScrollStateChanged(state: Int) {}
             })
-            this.adapter = sectionsPagerAdapter
         }
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
@@ -144,7 +143,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                     LUIUtil.setDelay(mls = 1000, runnable = Runnable {
                         rlSplash?.visibility = View.GONE
                     })
-                    sectionsPagerAdapter?.notifyDataSetChanged()
+                    viewPager.adapter = sectionsPagerAdapter
                     val lastSavedPage = actionData.data ?: 1
                     logD("loadDataActionLiveData lastSavedPage $lastSavedPage")
                     viewPager?.currentItem = lastSavedPage
