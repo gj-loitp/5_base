@@ -31,7 +31,7 @@ class BookInfoGridAdapter(private val context: Context, private val bookInfoList
         return 0
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var view = convertView
         val viewHolder: ViewHolder
         if (view == null) {
@@ -44,28 +44,29 @@ class BookInfoGridAdapter(private val context: Context, private val bookInfoList
         } else {
             viewHolder = view.tag as ViewHolder
         }
+        
         viewHolder.tvBookTitle?.text = bookInfoList[position].title
         val isCoverImageNotExists = bookInfoList[position].isCoverImageNotExists
-        if (!isCoverImageNotExists) {
+        if (isCoverImageNotExists) {
+            viewHolder.ivCover?.setImageResource(LReaderUtil.defaultCover)
+        } else {
             val savedBitmap = bookInfoList[position].coverImageBitmap
-            if (savedBitmap != null) {
-                viewHolder.ivCover?.setImageBitmap(savedBitmap)
-            } else {
+            if (savedBitmap == null) {
                 val coverImageAsBytes = bookInfoList[position].coverImage
-                if (coverImageAsBytes != null) {
+                if (coverImageAsBytes == null) {
+                    bookInfoList[position].isCoverImageNotExists = true
+                    viewHolder.ivCover?.setImageResource(LReaderUtil.defaultCover)
+                } else {
                     val bitmap = LReaderUtil.decodeBitmapFromByteArray(coverImage = coverImageAsBytes, reqWidth = 100, reqHeight = 200)
                     bookInfoList[position].coverImageBitmap = bitmap
                     bookInfoList[position].coverImage = null
                     viewHolder.ivCover?.setImageBitmap(bitmap)
-                } else {
-                    bookInfoList[position].isCoverImageNotExists = true
-                    viewHolder.ivCover?.setImageResource(LReaderUtil.defaultCover)
                 }
+            } else {
+                viewHolder.ivCover?.setImageBitmap(savedBitmap)
             }
-        } else {
-            viewHolder.ivCover?.setImageResource(LReaderUtil.defaultCover)
         }
-        return view!!
+        return view
     }
 
 }
