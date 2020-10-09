@@ -92,7 +92,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         viewPager.apply {
             LUIUtil.setPullLikeIOSHorizontal(viewPager = this)
-//            this.offscreenPageLimit = 0
+            this.offscreenPageLimit = 2
 //            this.setPageTransformer(true, ZoomOutSlideTransformer())
             this.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
                 override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}

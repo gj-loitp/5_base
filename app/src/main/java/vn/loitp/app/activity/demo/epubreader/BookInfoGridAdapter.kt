@@ -11,7 +11,8 @@ import com.core.utilities.LReaderUtil
 import com.function.epub.model.BookInfo
 import vn.loitp.app.R
 
-class BookInfoGridAdapter(private val context: Context, private val bookInfoList: List<BookInfo>)
+class BookInfoGridAdapter(private val context: Context,
+                          private val bookInfoList: ArrayList<BookInfo>)
     : BaseAdapter() {
 
     private class ViewHolder {
