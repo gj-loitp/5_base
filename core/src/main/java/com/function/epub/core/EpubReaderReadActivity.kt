@@ -1,6 +1,7 @@
 package com.function.epub.core
 
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -60,6 +61,9 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var adView: AdView? = null
     private var epubViewModel: EpubViewModel? = null
 
+    private val isDarkTheme = LSharedPrefsUtil.instance.getBoolean(Constants.KEY_IS_DARK_THEME, true)
+//    private val isDarkTheme = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_epub_reader_read)
@@ -72,6 +76,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
         setupViews()
         setupViewModels()
+        setupTheme()
 
         bookInfo?.let {
             epubViewModel?.loadData(reader = reader, bookInfo = it)
@@ -147,6 +152,28 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                     llGuide?.visibility = View.VISIBLE
                 }
             })
+        }
+    }
+
+    private fun setupTheme() {
+        if (isDarkTheme) {
+            layoutRootViewEpub.setBackgroundColor(Color.BLACK)
+            layoutControl.setBackgroundColor(Color.BLACK)
+            btBack.setColorFilter(Color.WHITE)
+            tvPage.setTextColor(Color.WHITE)
+            btZoomIn.setColorFilter(Color.WHITE)
+            btZoomOut.setColorFilter(Color.WHITE)
+            blurView.setOverlayColor(LAppResource.getColor(R.color.white35))
+            tvTitle.setTextColor(Color.BLACK)
+        } else {
+            layoutRootViewEpub.setBackgroundColor(Color.WHITE)
+            layoutControl.setBackgroundColor(Color.WHITE)
+            btBack.setColorFilter(Color.BLACK)
+            tvPage.setTextColor(Color.BLACK)
+            btZoomIn.setColorFilter(Color.BLACK)
+            btZoomOut.setColorFilter(Color.BLACK)
+            blurView.setOverlayColor(LAppResource.getColor(R.color.black35))
+            tvTitle.setTextColor(Color.WHITE)
         }
     }
 
@@ -320,14 +347,24 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 //                logD(">>>setFragmentView data $data")
                 val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
                 val paddingPx = LAppResource.getDimenValue(R.dimen.padding_small)
-                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
-                loadDataString(bodyContent = data,
-                        backgroundColor = "white",
-                        textColor = "black",
-                        textAlign = "justify",
-                        fontSizePx = fontSizePx,
-                        paddingPx = paddingPx
-                )
+//                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
+                if (isDarkTheme) {
+                    loadDataString(bodyContent = data,
+                            backgroundColor = "black",
+                            textColor = "white",
+                            textAlign = "justify",
+                            fontSizePx = fontSizePx,
+                            paddingPx = paddingPx
+                    )
+                } else {
+                    loadDataString(bodyContent = data,
+                            backgroundColor = "white",
+                            textColor = "black",
+                            textAlign = "justify",
+                            fontSizePx = fontSizePx,
+                            paddingPx = paddingPx
+                    )
+                }
 
                 scrollBarSize = ConvertUtils.dp2px(2f)
                 this.layoutParams = layoutParams

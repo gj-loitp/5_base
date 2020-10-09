@@ -26,6 +26,8 @@
     <color name="grey">#818181</color>
 
     <color name="white">#FFFFFF</color>
+    <color name="white35">#59FFFFFF</color>
+    <color name="white85">#D9FFFFFF</color>
     <color name="whiteTrans">#55FFFFFF</color>
     <color name="whiteTrans99">#FCFFFFFF</color>
 

@@ -2,17 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRootViewEpub"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/white">
+    tools:background="@color/white">
 
     <LinearLayout
         android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        tools:background="@color/white">
 
         <ImageButton
             android:id="@+id/btBack"
@@ -20,8 +21,10 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
+            android:padding="@dimen/padding_small"
+            android:scaleType="centerInside"
             android:src="@drawable/ic_chevron_left_black_48dp"
-            android:tint="@color/black" />
+            tools:tint="@color/black" />
 
         <TextView
             android:id="@+id/tvPage"
@@ -29,10 +32,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:singleLine="true"
-            android:textColor="@color/black"
             android:textSize="@dimen/txt_medium"
             android:textStyle="bold"
-            tools:text="@string/app_name" />
+            tools:text="@string/app_name"
+            tools:textColor="@color/black" />
 
         <ImageButton
             android:id="@+id/btZoomIn"
@@ -40,8 +43,10 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
+            android:padding="@dimen/padding_small"
+            android:scaleType="centerInside"
             android:src="@drawable/ic_add_black_48dp"
-            android:tint="@color/black" />
+            tools:tint="@color/black" />
 
         <ImageButton
             android:id="@+id/btZoomOut"
@@ -49,8 +54,10 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
+            android:padding="@dimen/padding_small"
+            android:scaleType="centerInside"
             android:src="@drawable/ic_remove_black_48dp"
-            android:tint="@color/black" />
+            tools:tint="@color/black" />
     </LinearLayout>
 
     <View
@@ -80,13 +87,15 @@
         android:id="@+id/llGuide"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black85"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="invisible"
-        tools:visibility="invisible">
+        tools:background="@color/black85"
+        tools:ignore="UseCompoundDrawables"
+        tools:visibility="visible">
 
         <ImageView
+            android:id="@+id/ivGesture"
             android:layout_width="@dimen/w_100"
             android:layout_height="@dimen/w_100"
             android:contentDescription="@string/app_name"
@@ -94,6 +103,7 @@
             app:tint="@color/white" />
 
         <TextView
+            android:id="@+id/tvGesture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -120,10 +130,11 @@
             tools:src="@drawable/logo" />
 
         <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/blurView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:realtimeBlurRadius="@dimen/round_medium"
-            app:realtimeOverlayColor="@color/black35" />
+            tools:realtimeOverlayColor="@color/black35" />
 
         <TextView
             android:id="@+id/tvTitle"
@@ -131,9 +142,10 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:padding="@dimen/padding_medium"
-            android:textColor="@color/white"
             android:textSize="@dimen/txt_large"
-            tools:text="@string/app_name" />
+            android:textStyle="bold"
+            tools:text="@string/app_name"
+            tools:textColor="@color/white" />
     </RelativeLayout>
 
 </RelativeLayout>
