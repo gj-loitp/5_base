@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <attr name="direction">
         <enum name="up" value="0" />
         <enum name="right" value="1" />
         <enum name="down" value="2" />
         <enum name="left" value="3" />
     </attr>
+
     <attr name="scaleType">
         <enum name="matrix" value="0" />
         <enum name="fitXy" value="1" />
@@ -17,11 +19,11 @@
         <enum name="centerInside" value="7" />
     </attr>
 
-    <declare-styleable name="RecyclerViewPager">
-        <attr name="rvp_triggerOffset" format="float" />
-        <attr name="rvp_flingFactor" format="float" />
-        <attr name="rvp_singlePageFling" format="boolean" />
-    </declare-styleable>
+<!--    <declare-styleable name="RecyclerViewPager">-->
+<!--        <attr name="rvp_triggerOffset" format="float" />-->
+<!--        <attr name="rvp_flingFactor" format="float" />-->
+<!--        <attr name="rvp_singlePageFling" format="boolean" />-->
+<!--    </declare-styleable>-->
 
     <declare-styleable name="LSProgressBar">
         <attr name="filterColor" format="color" />
