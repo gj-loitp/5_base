@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRootViewMore"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/whiteSmoke">
+    tools:background="@color/whiteSmoke">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -28,18 +30,20 @@
                 android:padding="@dimen/padding_medium">
 
                 <ImageView
+                    android:id="@+id/ivWhySeeAd"
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_help_black_48dp" />
 
                 <TextView
+                    android:id="@+id/tvWhySeeAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/why_u_see_ad"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/txt_medium" />
+                    android:textSize="@dimen/txt_medium"
+                    tools:textColor="@color/black" />
             </LinearLayout>
 
             <View
@@ -58,18 +62,20 @@
                 android:padding="@dimen/padding_medium">
 
                 <ImageView
+                    android:id="@+id/ivRate"
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_rate_review_black_48dp" />
 
                 <TextView
+                    android:id="@+id/tvRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/rate_app"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/txt_medium" />
+                    android:textSize="@dimen/txt_medium"
+                    tools:textColor="@color/black" />
             </LinearLayout>
 
             <View
@@ -88,18 +94,20 @@
                 android:padding="@dimen/padding_medium">
 
                 <ImageView
+                    android:id="@+id/ivMore"
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_card_giftcard_black_48dp" />
 
                 <TextView
+                    android:id="@+id/tvMore"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/more_app"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/txt_medium" />
+                    android:textSize="@dimen/txt_medium"
+                    tools:textColor="@color/black" />
             </LinearLayout>
 
             <View
@@ -118,18 +126,20 @@
                 android:padding="@dimen/padding_medium">
 
                 <ImageView
+                    android:id="@+id/ivShare"
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_share_black_48dp" />
 
                 <TextView
+                    android:id="@+id/tvShare"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/share_app"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/txt_medium" />
+                    android:textSize="@dimen/txt_medium"
+                    tools:textColor="@color/black" />
             </LinearLayout>
 
             <View
@@ -148,18 +158,20 @@
                 android:padding="@dimen/padding_medium">
 
                 <ImageView
+                    android:id="@+id/ivLikeFbFanpage"
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_favorite_black_48dp" />
 
                 <TextView
+                    android:id="@+id/tvLikeFbFanpage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/like_facebook_fanpage"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/txt_medium" />
+                    android:textSize="@dimen/txt_medium"
+                    tools:textColor="@color/black" />
             </LinearLayout>
 
             <View
@@ -178,18 +190,20 @@
                 android:padding="@dimen/padding_medium">
 
                 <ImageView
+                    android:id="@+id/ivSupport"
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_live_help_black_48dp" />
 
                 <TextView
+                    android:id="@+id/tvSupport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/support_24_7"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/txt_medium" />
+                    android:textSize="@dimen/txt_medium"
+                    tools:textColor="@color/black" />
             </LinearLayout>
 
         </LinearLayout>
