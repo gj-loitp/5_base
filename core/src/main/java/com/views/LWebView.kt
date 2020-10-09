@@ -133,4 +133,14 @@ body {
         this.loadDataWithBaseURL(null, bodyContentString, "text/html", "UTF-8", "about:blank")
 
     }
+
+    fun setTextSize(size: Int) {
+        logD("setTextSize size $size")
+        val currentApiVersion = Build.VERSION.SDK_INT
+        if (currentApiVersion <= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            settings.textSize = WebSettings.TextSize.NORMAL
+        } else {
+            settings.textZoom = size
+        }
+    }
 }

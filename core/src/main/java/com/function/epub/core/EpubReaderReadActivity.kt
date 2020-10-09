@@ -11,7 +11,6 @@ import android.util.Base64
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebSettings
-import android.webkit.WebView
 import android.widget.FrameLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -25,8 +24,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.*
-import com.core.utilities.LPrefUtil.Companion.getTextSizeEpub
-import com.core.utilities.LPrefUtil.Companion.setTextSizeEpub
 import com.core.utilities.LReaderUtil.Companion.defaultCover
 import com.daimajia.androidanimations.library.Techniques
 import com.function.epub.BookSection
@@ -45,7 +42,6 @@ import com.views.LWebView
 import com.views.setSafeOnClickListener
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
-import java.util.*
 
 @LogTag("loitppEpubReaderReadActivity")
 @IsFullScreen(false)
@@ -335,6 +331,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                 scrollBarSize = ConvertUtils.dp2px(2f)
                 this.layoutParams = layoutParams
+                lWebView.setTextSize(size = LPrefUtil.getTextSizeEpub())
                 callback = object : LWebView.Callback {
                     override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
                     }
@@ -357,9 +354,6 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                 }
             }
-
-            val size = getTextSizeEpub()
-            updateUIWevViewSize(webView = lWebView, size = size)
             lWebView
         } else {
             val scrollView = ScrollView(this)
@@ -383,23 +377,12 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
     }
 
-    private fun getStyledFont(html: String?): String {
-        val addBodyStart = html?.toLowerCase(Locale.getDefault())?.contains("<body>") ?: true
-        val addBodyEnd = html?.toLowerCase(Locale.getDefault())?.contains("</body") ?: true
-        return "<style type=\"text/css\">@font-face {font-family: CustomFont;" +
-                "src: url(\"file:///android_asset/" +
-                LUIUtil.fontForAll +
-                "\")}" +
-                "body {font-family: CustomFont;font-size: medium;text-align: justify;}</style>" +
-                (if (addBodyStart) "<body>" else "") + html + if (addBodyEnd) "</body>" else ""
-    }
-
     @Suppress("DEPRECATION")
     private fun zoomIn(pageFragment: PageFragment?) {
         if (pageFragment == null || pageFragment.view == null) {
             return
         }
-        val webView = pageFragment.view?.findViewById<WebView>(idWebView)
+        val webView = pageFragment.view?.findViewById<LWebView>(idWebView)
         if (webView == null) {
             logE("webView null")
             return
@@ -413,8 +396,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             if (size > 250) {
                 size = 250
             }
-            setTextSizeEpub(value = size)
-            updateUIWevViewSize(webView = webView, size = size)
+            LPrefUtil.setTextSizeEpub(value = size)
+            webView.setTextSize(size = size)
         }
     }
 
@@ -423,7 +406,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         if (pageFragment == null || pageFragment.view == null) {
             return
         }
-        val webView = pageFragment.view?.findViewById<WebView>(idWebView) ?: return
+        val webView = pageFragment.view?.findViewById<LWebView>(idWebView) ?: return
         val settings = webView.settings
         val currentAiVersion = Build.VERSION.SDK_INT
         if (currentAiVersion <= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
@@ -433,19 +416,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             if (size < 50) {
                 size = 50
             }
-            setTextSizeEpub(value = size)
-            updateUIWevViewSize(webView = webView, size = size)
-        }
-    }
-
-    @Suppress("DEPRECATION")
-    private fun updateUIWevViewSize(webView: WebView, size: Int) {
-        val settings = webView.settings
-        val currentApiVersion = Build.VERSION.SDK_INT
-        if (currentApiVersion <= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            settings.textSize = WebSettings.TextSize.LARGER
-        } else {
-            settings.textZoom = size
+            LPrefUtil.setTextSizeEpub(value = size)
+            webView.setTextSize(size = size)
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.core.utilities
 
 import android.content.Context
+import com.R
 import com.core.base.BaseApplication
 import com.core.common.Constants
 import com.model.App
@@ -107,7 +108,7 @@ class LPrefUtil {
 
         fun getTextSizeEpub(): Int {
             val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return prefs.getInt(TEXT_SIZE_EPUB, 110)
+            return prefs.getInt(TEXT_SIZE_EPUB, LAppResource.getDimenValue(R.dimen.text_medium))
         }
 
         fun setTextSizeEpub(value: Int) {
