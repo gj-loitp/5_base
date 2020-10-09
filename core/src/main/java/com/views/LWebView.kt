@@ -19,14 +19,15 @@ class LWebView : WebView {
         LLog.d(logTag, msg)
     }
 
-    interface OnScrollChangedCallback {
+    interface Callback {
         fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int)
         fun onScrollTopToBottom()
         fun onScrollBottomToTop()
         fun onProgressChanged(progress: Int)
+        fun shouldOverrideUrlLoading(url: String)
     }
 
-    var onScrollChangedCallback: OnScrollChangedCallback? = null
+    var callback: Callback? = null
 
     private var isScrollBottomToTop = true
 
@@ -44,24 +45,29 @@ class LWebView : WebView {
             settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         }
 
-        webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                //return true load with system-default-browser or other browsers, false with your webView
-                logD("shouldOverrideUrlLoading url $url")
-                return false
-            }
-
-        }
+        shouldOverrideUrlLoading(shouldOverrideUrlLoading = false)
 
         webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView, newProgress: Int) {
 //                logD("onProgressChanged: $newProgress")
-                onScrollChangedCallback?.onProgressChanged(newProgress)
+                callback?.onProgressChanged(newProgress)
             }
         }
 
         //default disable copy content
         setEnableCopyContent(false)
+    }
+
+    fun shouldOverrideUrlLoading(shouldOverrideUrlLoading: Boolean) {
+        webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                //return true load with system-default-browser or other browsers, false with your webView
+                logD("shouldOverrideUrlLoading url $url")
+                callback?.shouldOverrideUrlLoading(url = url)
+                return shouldOverrideUrlLoading
+            }
+
+        }
     }
 
     fun setEnableCopyContent(isEnableCopyContent: Boolean) {
@@ -77,19 +83,19 @@ class LWebView : WebView {
     override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
         super.onScrollChanged(l, t, oldl, oldt)
 
-        onScrollChangedCallback?.onScroll(l, t, oldl, oldt)
+        callback?.onScroll(l, t, oldl, oldt)
 
         if (oldt > t) {
 //            logD("bottom to top")
             if (!isScrollBottomToTop) {
                 isScrollBottomToTop = true
-                onScrollChangedCallback?.onScrollBottomToTop()
+                callback?.onScrollBottomToTop()
             }
         } else {
 //            logD("top to bottom")
             if (isScrollBottomToTop) {
                 isScrollBottomToTop = false
-                onScrollChangedCallback?.onScrollTopToBottom()
+                callback?.onScrollTopToBottom()
             }
         }
     }

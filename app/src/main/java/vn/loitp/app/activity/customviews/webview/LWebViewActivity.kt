@@ -21,7 +21,7 @@ class LWebViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        webView.onScrollChangedCallback = object : LWebView.OnScrollChangedCallback {
+        webView.callback = object : LWebView.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
 
@@ -41,6 +41,9 @@ class LWebViewActivity : BaseFontActivity() {
                 } else {
                     pb.visibility = View.VISIBLE
                 }
+            }
+
+            override fun shouldOverrideUrlLoading(url: String) {
             }
         }
 

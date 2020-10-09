@@ -24,14 +24,10 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.utilities.LAnimationUtil
-import com.core.utilities.LConnectivityUtil
+import com.core.utilities.*
 import com.core.utilities.LPrefUtil.Companion.getTextSizeEpub
 import com.core.utilities.LPrefUtil.Companion.setTextSizeEpub
-import com.core.utilities.LReaderUtil.Companion.decodeBitmapFromByteArray
 import com.core.utilities.LReaderUtil.Companion.defaultCover
-import com.core.utilities.LScreenUtil
-import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.function.epub.BookSection
 import com.function.epub.Reader
@@ -63,7 +59,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var isSkippedToPage = false
     private var sectionsPagerAdapter: SectionsPagerAdapter? = null
     private var pageCount = Int.MAX_VALUE
-    private var pxScreenWidth = LScreenUtil.screenWidth
+    private val pxScreenWidth = LScreenUtil.screenWidth
     private var bookInfo: BookInfo? = null
     private var adView: AdView? = null
     private var epubViewModel: EpubViewModel? = null
@@ -74,7 +70,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
         bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
-            showShort(getString(R.string.err_unknow), true)
+            showShort(getString(R.string.err_unknow))
             onBackPressed()
         }
 
@@ -87,24 +83,25 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     }
 
     private fun setupViews() {
-        LUIUtil.setTextShadow(textView = tvTitle)
         setCoverBitmap()
-        val titleBook = bookInfo?.title ?: "Loading..."
+        val titleBook = bookInfo?.title ?: getString(R.string.loading)
         tvTitle.text = titleBook
 
         sectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
-        LUIUtil.setPullLikeIOSHorizontal(viewPager = viewPager)
-        viewPager.offscreenPageLimit = 0
-        viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
-        viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
-            override fun onPageSelected(position: Int) {
-                tvPage.text = "$position"
-            }
+        viewPager.apply {
+            LUIUtil.setPullLikeIOSHorizontal(viewPager = this)
+            this.offscreenPageLimit = 0
+            this.setPageTransformer(true, ZoomOutSlideTransformer())
+            this.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+                override fun onPageSelected(position: Int) {
+                    tvPage.text = "$position"
+                }
 
-            override fun onPageScrollStateChanged(state: Int) {}
-        })
-        viewPager.adapter = sectionsPagerAdapter
+                override fun onPageScrollStateChanged(state: Int) {}
+            })
+            this.adapter = sectionsPagerAdapter
+        }
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         if (adUnitId.isNullOrEmpty() || !LConnectivityUtil.isConnected()) {
@@ -122,55 +119,14 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         btBack.setSafeOnClickListener {
             onBackPressed()
         }
-        btZoomIn.setSafeOnClickListener { view ->
-            LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
-
-            sectionsPagerAdapter?.let { adapter ->
-                val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)
-                if (pageFragment is PageFragment) {
-                    zoomIn(pageFragment = pageFragment)
-                }
-
-                val pageFragmentNext = adapter.instantiateItem(viewPager, viewPager.currentItem + 1)
-                if (pageFragmentNext is PageFragment) {
-                    zoomIn(pageFragment = pageFragmentNext)
-                }
-
-                val pageFragmentPrev = adapter.instantiateItem(viewPager, viewPager.currentItem - 1)
-                if (pageFragmentPrev is PageFragment) {
-                    zoomIn(pageFragment = pageFragmentPrev)
-                }
-            }
+        btZoomIn.setSafeOnClickListener {
+            handleZoomIn()
         }
         btZoomOut.setSafeOnClickListener { view ->
-            LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
-            sectionsPagerAdapter?.let { adapter ->
-                val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)
-                if (pageFragment is PageFragment) {
-                    zoomOut(pageFragment)
-                }
-
-                val pageFragmentNext = adapter.instantiateItem(viewPager, viewPager.currentItem + 1)
-                if (pageFragmentNext is PageFragment) {
-                    zoomOut(pageFragmentNext)
-                }
-
-                val pageFragmentPrev = adapter.instantiateItem(viewPager, viewPager.currentItem - 1)
-                if (pageFragmentPrev is PageFragment) {
-                    zoomOut(pageFragmentPrev)
-                }
-            }
+            handleZoomOut()
         }
         llGuide.setSafeOnClickListener {
-            LAnimationUtil.play(view = llGuide, techniques = Techniques.SlideOutLeft, callbackAnimation = object : CallbackAnimation {
-                override fun onCancel() {}
-                override fun onEnd() {
-                    llGuide?.visibility = View.GONE
-                }
-
-                override fun onRepeat() {}
-                override fun onStart() {}
-            })
+            handleGuide()
         }
     }
 
@@ -181,7 +137,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 //                logD("loadDataActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
-                
+
                 if (isDoing == false && isSuccess == true) {
                     LUIUtil.setDelay(mls = 1000, runnable = Runnable {
                         rlSplash?.visibility = View.GONE
@@ -198,10 +154,74 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
     }
 
+    private fun handleZoomIn() {
+        LAnimationUtil.play(view = btZoomIn, techniques = Techniques.Pulse)
+
+        sectionsPagerAdapter?.let { adapter ->
+            try {
+                val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)
+                if (pageFragment is PageFragment) {
+                    zoomIn(pageFragment = pageFragment)
+                }
+
+                val pageFragmentNext = adapter.instantiateItem(viewPager, viewPager.currentItem + 1)
+                if (pageFragmentNext is PageFragment) {
+                    zoomIn(pageFragment = pageFragmentNext)
+                }
+
+                val pageFragmentPrev = adapter.instantiateItem(viewPager, viewPager.currentItem - 1)
+                if (pageFragmentPrev is PageFragment) {
+                    zoomIn(pageFragment = pageFragmentPrev)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun handleZoomOut() {
+        LAnimationUtil.play(view = btZoomOut, techniques = Techniques.Pulse)
+        sectionsPagerAdapter?.let { adapter ->
+            try {
+                val pageFragment = adapter.instantiateItem(viewPager, viewPager.currentItem)
+                if (pageFragment is PageFragment) {
+                    zoomOut(pageFragment)
+                }
+
+                val pageFragmentNext = adapter.instantiateItem(viewPager, viewPager.currentItem + 1)
+                if (pageFragmentNext is PageFragment) {
+                    zoomOut(pageFragmentNext)
+                }
+
+                val pageFragmentPrev = adapter.instantiateItem(viewPager, viewPager.currentItem - 1)
+                if (pageFragmentPrev is PageFragment) {
+                    zoomOut(pageFragmentPrev)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun handleGuide() {
+        LAnimationUtil.play(view = llGuide, techniques = Techniques.SlideOutLeft, callbackAnimation = object : CallbackAnimation {
+            override fun onCancel() {}
+            override fun onEnd() {
+                llGuide?.visibility = View.GONE
+            }
+
+            override fun onRepeat() {}
+            override fun onStart() {}
+        })
+    }
+
     private fun setCoverBitmap() {
         bookInfo?.let { bi ->
             val isCoverImageNotExists = bi.isCoverImageNotExists
-            if (!isCoverImageNotExists) {
+            if (isCoverImageNotExists) {
+                // Searched before and not found.
+                ivCover.setImageResource(defaultCover)
+            } else {
                 // Not searched for coverImage for this position yet. It may exist.
                 val savedBitmap = bi.coverImageBitmap
                 if (savedBitmap == null) {
@@ -211,7 +231,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                         bi.isCoverImageNotExists = true
                         ivCover.setImageResource(defaultCover)
                     } else {
-                        val bitmap = decodeBitmapFromByteArray(coverImage = coverImageAsBytes, reqWidth = 100, reqHeight = 200)
+                        val bitmap = LReaderUtil.decodeBitmapFromByteArray(coverImage = coverImageAsBytes, reqWidth = 100, reqHeight = 200)
                         bi.coverImageBitmap = bitmap
                         bi.coverImage = null
                         ivCover.setImageBitmap(bitmap)
@@ -219,9 +239,6 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 } else {
                     ivCover.setImageBitmap(savedBitmap)
                 }
-            } else {
-                // Searched before and not found.
-                ivCover.setImageResource(defaultCover)
             }
         }
     }
@@ -243,13 +260,13 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             logE("onFragmentReady $e")
         }
         isSkippedToPage = false
-        return if (bookSection != null) {
+        return if (bookSection == null) {
+            null
+        } else {
             setFragmentView(isContentStyled = true,
                     data = bookSection.sectionContent,
                     mimeType = "text/html",
                     encoding = "UTF-8")
-        } else {
-            null
         }
     }
 
@@ -283,7 +300,9 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
     }
 
-    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager)
+        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
         override fun getCount(): Int {
             return pageCount
         }
@@ -298,11 +317,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
         return if (isContentStyled) {
             val lWebView = LWebView(this)
-//            lWebView.webViewClient = object : WebViewClient() {
-//                override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-//                    return true
-//                }
-//            }
+            lWebView.shouldOverrideUrlLoading(shouldOverrideUrlLoading = true)
+            lWebView.setEnableCopyContent(isEnableCopyContent = true)
             lWebView.id = idWebView
             lWebView.loadDataWithBaseURL(null, getStyledFont(data), mimeType, encoding, null)
             lWebView.scrollBarSize = ConvertUtils.dp2px(2f)
