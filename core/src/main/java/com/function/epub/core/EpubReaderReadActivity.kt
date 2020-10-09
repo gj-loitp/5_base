@@ -317,7 +317,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 shouldOverrideUrlLoading(shouldOverrideUrlLoading = true)
                 setEnableCopyContent(isEnableCopyContent = true)
                 id = idWebView
-                logD(">>>setFragmentView data $data")
+//                logD(">>>setFragmentView data $data")
                 val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
                 val paddingPx = LAppResource.getDimenValue(R.dimen.padding_small)
                 logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
@@ -331,7 +331,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                 scrollBarSize = ConvertUtils.dp2px(2f)
                 this.layoutParams = layoutParams
-                lWebView.setTextSize(size = LPrefUtil.getTextSizeEpub())
+                lWebView.setTextSize(sizePercent = LPrefUtil.getTextSizePercentEpub())
                 callback = object : LWebView.Callback {
                     override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
                     }
@@ -356,6 +356,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             }
             lWebView
         } else {
+            //this case wont occur
             val scrollView = ScrollView(this)
             scrollView.layoutParams = layoutParams
             val textView = TextView(this)
@@ -396,8 +397,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             if (size > 250) {
                 size = 250
             }
-            LPrefUtil.setTextSizeEpub(value = size)
-            webView.setTextSize(size = size)
+            LPrefUtil.setTextSizePercentEpub(value = size)
+            webView.setTextSize(sizePercent = size)
         }
     }
 
@@ -416,8 +417,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             if (size < 50) {
                 size = 50
             }
-            LPrefUtil.setTextSizeEpub(value = size)
-            webView.setTextSize(size = size)
+            LPrefUtil.setTextSizePercentEpub(value = size)
+            webView.setTextSize(sizePercent = size)
         }
     }
 }

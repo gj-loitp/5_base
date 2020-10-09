@@ -1,7 +1,6 @@
 package com.core.utilities
 
 import android.content.Context
-import com.R
 import com.core.base.BaseApplication
 import com.core.common.Constants
 import com.model.App
@@ -25,7 +24,7 @@ class LPrefUtil {
         const val FIRST_RUN_APP = "FIRST_RUN_APP"
         const val SAVED_NUMBER_VERSION = "saved.number.version"
         const val NOT_READY_USE_APPLICATION = "not.ready.use.application"
-        private const val TEXT_SIZE_EPUB = "TEXT_SIZE_EPUB"
+        private const val TEXT_SIZE_EPUB_PERCENT = "TEXT_SIZE_EPUB"
         var JSON_BOOK_ASSET = "JSON_BOOK_ASSET"
         private const val INDEX = "INDEX"
         private const val PASS_CODE = "PASS_CODE"
@@ -106,14 +105,14 @@ class LPrefUtil {
             editor.apply()
         }
 
-        fun getTextSizeEpub(): Int {
+        fun getTextSizePercentEpub(): Int {
             val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return prefs.getInt(TEXT_SIZE_EPUB, LAppResource.getDimenValue(R.dimen.text_medium))
+            return prefs.getInt(TEXT_SIZE_EPUB_PERCENT, 100)//100%
         }
 
-        fun setTextSizeEpub(value: Int) {
+        fun setTextSizePercentEpub(value: Int) {
             val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
-            editor.putInt(TEXT_SIZE_EPUB, value)
+            editor.putInt(TEXT_SIZE_EPUB_PERCENT, value)
             editor.apply()
         }
         //endregion

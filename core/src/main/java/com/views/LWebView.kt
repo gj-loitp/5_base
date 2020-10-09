@@ -129,18 +129,18 @@ body {
 }
 </style>"""
         val bodyContentString = "<html>$style<body>$bodyContent</body></html>"
-        logD("bodyContentString $bodyContentString")
+//        logD("bodyContentString $bodyContentString")
         this.loadDataWithBaseURL(null, bodyContentString, "text/html", "UTF-8", "about:blank")
 
     }
 
-    fun setTextSize(size: Int) {
-        logD("setTextSize size $size")
+    fun setTextSize(sizePercent: Int = 100) {
+        logD("setTextSize sizePercent $sizePercent")
         val currentApiVersion = Build.VERSION.SDK_INT
         if (currentApiVersion <= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             settings.textSize = WebSettings.TextSize.NORMAL
         } else {
-            settings.textZoom = size
+            settings.textZoom = sizePercent
         }
     }
 }
