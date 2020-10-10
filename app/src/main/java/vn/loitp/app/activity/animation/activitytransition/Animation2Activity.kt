@@ -14,9 +14,14 @@ import vn.loitp.app.R
 @LogTag("Animation2Activity")
 @IsFullScreen(false)
 class Animation2Activity : BaseFontActivity(), OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         tvExit.setOnClickListener(this)
     }
 

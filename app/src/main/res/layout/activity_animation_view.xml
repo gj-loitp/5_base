@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <TextView
         android:id="@+id/tvGuide"
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/animation_will_appear_after_1s"
-        android:textColor="@color/grey"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         android:visibility="gone"
         tools:visibility="visible" />
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/animation_none"
-        android:textColor="@color/blue"
+        android:textColor="@color/red"
         android:textSize="@dimen/txt_large"
         android:textStyle="bold" />
 

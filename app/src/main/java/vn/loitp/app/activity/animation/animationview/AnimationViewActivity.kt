@@ -24,6 +24,10 @@ class AnimationViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         setupAnimList()
         btSelectAnim.setOnClickListener {
             showDialogSelectAnim()
