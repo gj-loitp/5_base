@@ -22,7 +22,9 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btChangeTheme"
                 style="@style/ButtonMenu"
-                android:text="Change theme" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Change theme"
+                android:textColor="?attr/themeTextColor" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
