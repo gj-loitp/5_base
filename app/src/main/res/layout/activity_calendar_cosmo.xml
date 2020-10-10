@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
@@ -39,13 +40,17 @@
                     android:id="@+id/rbShowFlBottomSelectionBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Show FlBottomSelectionBar" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="Show FlBottomSelectionBar"
+                    tools:ignore="UnusedAttribute" />
 
                 <RadioButton
                     android:id="@+id/rbHideFlBottomSelectionBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hide FlBottomSelectionBar" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="Hide FlBottomSelectionBar"
+                    tools:ignore="UnusedAttribute" />
             </RadioGroup>
 
             <RadioGroup
@@ -58,13 +63,17 @@
                     android:id="@+id/rbHorizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="horizontal" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="horizontal"
+                    tools:ignore="UnusedAttribute" />
 
                 <RadioButton
                     android:id="@+id/rbVertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="vertical" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="vertical"
+                    tools:ignore="UnusedAttribute" />
 
             </RadioGroup>
 
@@ -78,25 +87,33 @@
                     android:id="@+id/rbSingle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="single" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="single"
+                    tools:ignore="UnusedAttribute" />
 
                 <RadioButton
                     android:id="@+id/rbMultiple"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="multiple" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="multiple"
+                    tools:ignore="UnusedAttribute" />
 
                 <RadioButton
                     android:id="@+id/rbRange"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="range" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="range"
+                    tools:ignore="UnusedAttribute" />
 
                 <RadioButton
                     android:id="@+id/rbNone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="none" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="none"
+                    tools:ignore="UnusedAttribute" />
             </RadioGroup>
         </LinearLayout>
     </HorizontalScrollView>
