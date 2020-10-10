@@ -562,9 +562,7 @@
             android:screenOrientation="sensorLandscape"
             android:theme="@style/FullscreenTheme" />
         <!--service for FCM-->
-        <activity
-            android:name=".activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity"
-            android:theme="@style/NoTitleTheme" />
+        <activity android:name=".activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity" />
         <activity
             android:name=".activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -817,8 +815,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.edittext.ledittext.LEditTextActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:theme="@style/AppThemeMaterialComponents" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.fragmentflow.FragmentFlowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />

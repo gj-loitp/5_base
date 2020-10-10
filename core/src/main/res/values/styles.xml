@@ -25,27 +25,27 @@
     <!--        </item>-->
     <!--    </style>-->
 
-    <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
-        </item>
-    </style>
+<!--    <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="android:windowContentOverlay">@null</item>-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--        <item name="android:windowIsTranslucent">true</item>-->
+<!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
+<!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+<!--        </item>-->
+<!--    </style>-->
 
-    <style name="NoTitleTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:background">@color/transparent</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
-        </item>
-    </style>
+<!--    <style name="NoTitleTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="android:background">@color/transparent</item>-->
+<!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+<!--        </item>-->
+<!--    </style>-->
 
     <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
@@ -240,5 +240,5 @@
         <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
         </item>
     </style>
-    
+
 </resources>
