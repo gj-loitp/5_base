@@ -3,7 +3,6 @@ package vn.loitp.app.app
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.common.Constants
-import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
 import com.data.ActivityData
 import com.data.AdmobData
@@ -63,7 +62,5 @@ class LApplication : BaseApplication() {
         FNBDatabase.getInstance(this)
 
 //        logD("LApplication onCreate")
-
-        LSharedPrefsUtil.instance.putBoolean(Constants.KEY_IS_DARK_THEME, true)
     }
 }

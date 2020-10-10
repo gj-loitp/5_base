@@ -10,7 +10,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.utilities.LAppResource
-import com.core.utilities.LSharedPrefsUtil
+import com.core.utilities.LUIUtil
 import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_donate.*
 
@@ -45,7 +45,7 @@ class FrmDonate : BaseFragment() {
     }
 
     private fun setupTheme() {
-        val isDarkTheme = LSharedPrefsUtil.instance.getBoolean(Constants.KEY_IS_DARK_THEME, true)
+        val isDarkTheme = LUIUtil.isDarkTheme()
         if (isDarkTheme) {
             layoutRootViewDonate.setBackgroundColor(Color.BLACK)
             textView.setTextColor(Color.WHITE)

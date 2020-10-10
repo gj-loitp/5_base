@@ -63,7 +63,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private var adView: AdView? = null
     private var epubViewModel: EpubViewModel? = null
 
-    private val isDarkTheme = LSharedPrefsUtil.instance.getBoolean(Constants.KEY_IS_DARK_THEME, true)
+    private val isDarkTheme = LUIUtil.isDarkTheme()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
