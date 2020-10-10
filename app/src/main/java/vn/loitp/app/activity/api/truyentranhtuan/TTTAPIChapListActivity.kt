@@ -21,7 +21,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         val urlComic = "http://truyentranhtuan.com/one-piece/"
-        GetChapTask(context = applicationContext,
+        GetChapTask(
                 url = urlComic,
                 callback = object : GetChapTask.Callback {
                     @SuppressLint("SetTextI18n")

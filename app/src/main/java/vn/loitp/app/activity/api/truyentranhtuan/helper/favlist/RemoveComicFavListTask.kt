@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.truyentranhtuan.helper.favlist
 
-import android.content.Context
 import android.os.AsyncTask
 import com.core.base.BaseApplication
 import com.core.common.Constants
@@ -11,9 +10,9 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 import java.util.*
 
 //TODO convert croutine
-class RemoveComicFavListTask(private val context: Context,
-                             private val mComic: Comic,
-                             private val callback: Callback?) :
+class RemoveComicFavListTask(
+        private val mComic: Comic,
+        private val callback: Callback?) :
         AsyncTask<Void, Void, Int>() {
 
     private val logTag = javaClass.simpleName

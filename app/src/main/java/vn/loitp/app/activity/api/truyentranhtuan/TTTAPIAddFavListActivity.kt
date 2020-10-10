@@ -46,7 +46,7 @@ class TTTAPIAddFavListActivity : BaseFontActivity() {
 
     private fun addComic(comic: Comic) {
         indicatorView.smoothToShow()
-        AddComicFavListTask(context = applicationContext,
+        AddComicFavListTask(
                 mComic = comic,
                 callback = object : AddComicFavListTask.Callback {
                     override fun onAddComicSuccess(mComic: Comic, comicList: List<Comic>) {

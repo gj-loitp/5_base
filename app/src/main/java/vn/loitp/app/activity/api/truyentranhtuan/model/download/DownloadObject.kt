@@ -1,9 +1,11 @@
 package vn.loitp.app.activity.api.truyentranhtuan.model.download
 
+import com.core.base.BaseModel
+
 /**
  * Created by Loitp on 4/8/2017.
  */
-class DownloadObject {
+class DownloadObject : BaseModel() {
     var url: String = ""
     var tit: String = ""
     var status: String = ""

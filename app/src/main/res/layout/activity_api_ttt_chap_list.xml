@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -21,14 +21,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/black"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
         </LinearLayout>
@@ -40,6 +40,6 @@
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerInParent="true"
-        app:indicatorColor="@color/colorPrimary"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="PacmanIndicator" />
 </RelativeLayout>

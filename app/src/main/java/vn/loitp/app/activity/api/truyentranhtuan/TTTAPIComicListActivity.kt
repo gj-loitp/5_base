@@ -45,7 +45,7 @@ class TTTAPIComicListActivity : BaseFontActivity() {
             tvTitle.text = ""
 
             indicatorView.smoothToShow()
-            GetComicTask(context = applicationContext,
+            GetComicTask(
                     link = comicTypeList[position].url,
                     callback = object : GetComicTask.Callback {
                         @SuppressLint("SetTextI18n")
