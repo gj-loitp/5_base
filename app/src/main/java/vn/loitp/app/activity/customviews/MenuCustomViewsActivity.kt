@@ -52,6 +52,10 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         btViewPager.setOnClickListener(this)
         btButton.setOnClickListener(this)
         btProgressLoading.setOnClickListener(this)
