@@ -17,7 +17,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:theme="@style/AppThemeAndroidO"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:name">
 
