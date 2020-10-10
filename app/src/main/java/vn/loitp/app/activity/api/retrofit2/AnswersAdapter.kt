@@ -1,21 +1,22 @@
 package vn.loitp.app.activity.api.retrofit2
 
-import android.R
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import vn.loitp.app.R
 
 /**
  * Created by LENOVO on 2/23/2018.
  */
-class AnswersAdapter(private val mContext: Context, private var mItems: List<Item>, private val mItemListener: PostItemListener) : RecyclerView.Adapter<AnswersAdapter.ViewHolder>() {
+class AnswersAdapter(private var mItems: List<Item>,
+                     private val mItemListener: PostItemListener)
+    : RecyclerView.Adapter<AnswersAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View, postItemListener: PostItemListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
         var titleTv: TextView = itemView.findViewById<View>(R.id.text1) as TextView
-        var mItemListener: PostItemListener = postItemListener
+        private var mItemListener: PostItemListener = postItemListener
 
         override fun onClick(view: View) {
             val item = getItem(bindingAdapterPosition)
@@ -33,7 +34,7 @@ class AnswersAdapter(private val mContext: Context, private var mItems: List<Ite
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
-        val postView = inflater.inflate(R.layout.simple_list_item_1, parent, false)
+        val postView = inflater.inflate(R.layout.view_row_test_retrofit, parent, false)
         return ViewHolder(postView, mItemListener)
     }
 

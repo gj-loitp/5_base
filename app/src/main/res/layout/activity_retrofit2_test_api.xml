@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -17,5 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Loading..." />
+        android:text="Loading..."
+        android:textColor="?attr/themeTextColor" />
 </RelativeLayout>

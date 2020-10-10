@@ -29,6 +29,10 @@ class GalleryAPIActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         indicatorView.smoothToHide()
         bt1.setOnClickListener {
             getPhotosets()

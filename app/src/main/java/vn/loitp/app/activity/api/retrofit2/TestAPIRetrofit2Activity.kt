@@ -29,7 +29,7 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         mService = sOService
 
-        mAdapter = AnswersAdapter(this, ArrayList(0), object : PostItemListener {
+        mAdapter = AnswersAdapter(mItems = ArrayList(0), mItemListener = object : PostItemListener {
             override fun onPostClick(id: Long) {
                 showShort("Post id is$id")
             }

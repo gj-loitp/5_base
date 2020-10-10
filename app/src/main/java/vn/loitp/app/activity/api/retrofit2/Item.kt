@@ -1,9 +1,10 @@
 package vn.loitp.app.activity.api.retrofit2
 
+import com.core.base.BaseModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Item {
+class Item : BaseModel() {
     @SerializedName("owner")
     @Expose
     var owner: Owner? = null
