@@ -47,15 +47,15 @@
 <!--        </item>-->
 <!--    </style>-->
 
-    <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowActionBar">false</item>
-        <!--<item name="android:windowFullscreen">true</item>-->
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowDisablePreview">true</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
-        </item>
-    </style>
+<!--    <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">-->
+<!--        <item name="android:windowNoTitle">true</item>-->
+<!--        <item name="android:windowActionBar">false</item>-->
+<!--        &lt;!&ndash;<item name="android:windowFullscreen">true</item>&ndash;&gt;-->
+<!--        <item name="android:windowContentOverlay">@null</item>-->
+<!--        <item name="android:windowDisablePreview">true</item>-->
+<!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+<!--        </item>-->
+<!--    </style>-->
 
     <style name="FullscreenTheme" parent="AppTheme">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
