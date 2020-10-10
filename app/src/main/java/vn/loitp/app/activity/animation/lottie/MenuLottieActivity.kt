@@ -31,6 +31,11 @@ class MenuLottieActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        prepareData()
+    }
+
+    private fun setupViews() {
         val slidePagerAdapter = SlidePagerAdapter()
         viewPager.adapter = slidePagerAdapter
         tabLayout.setupWithViewPager(viewPager)
@@ -52,10 +57,8 @@ class MenuLottieActivity : BaseFontActivity() {
 
             override fun onPageScrollStateChanged(i: Int) {}
         })
-
-        prepareData()
     }
-    
+
     private fun prepareData() {
         getListAssetFiles("lottie")
         for (i in stringList.indices) {
