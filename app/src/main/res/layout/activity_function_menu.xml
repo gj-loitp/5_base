@@ -45,7 +45,7 @@
                 android:text="@string/glide" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btHashmap"
+                android:id="@+id/btHashMap"
                 style="@style/ButtonMenu"
                 android:text="@string/hashmap" />
 
@@ -78,6 +78,11 @@
                 android:id="@+id/btSimpleFingerGesture"
                 style="@style/ButtonMenu"
                 android:text="@string/simple_finger_gestures" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTheme"
+                style="@style/ButtonMenu"
+                android:text="Theme" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewDragHelper"
