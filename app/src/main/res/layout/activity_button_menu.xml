@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -41,11 +41,6 @@
                 android:id="@+id/btQButton"
                 style="@style/ButtonMenu"
                 android:text="QButton" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btRoundedButton"
-                style="@style/ButtonMenu"
-                android:text="Rounded Button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShineButton"
