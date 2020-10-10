@@ -16,15 +16,20 @@ import vn.loitp.app.R
 @IsFullScreen(false)
 class BasicTransition1Activity : BaseFontActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        LImageUtil.load(context = this, url = Constants.URL_IMG_2, imageView = imageViewItem)
-        ViewCompat.setTransitionName(imageViewItem, IV)
-        ViewCompat.setTransitionName(textView, TV)
-    }
-
     companion object {
         const val IV = "iv"
         const val TV = "tv"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        LImageUtil.load(context = this, url = Constants.URL_IMG_2, imageView = imageViewItem)
+        ViewCompat.setTransitionName(imageViewItem, IV)
+        ViewCompat.setTransitionName(textView, TV)
     }
 }
