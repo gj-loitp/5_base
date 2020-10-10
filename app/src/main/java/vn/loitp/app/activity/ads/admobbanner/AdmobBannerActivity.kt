@@ -18,7 +18,7 @@ class AdmobBannerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LUIUtil.createAdBanner(adView)
+        LUIUtil.createAdBanner(adView = adView)
         val poem = LStoreUtil.readTxtFromRawFolder(R.raw.loitp)
         textView.text = poem
     }

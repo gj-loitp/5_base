@@ -44,15 +44,15 @@ class FbCommentActivity : BaseFontActivity() {
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("adUnitId $adUnitId")
         if (adUnitId.isNullOrEmpty()) {
-            lnAdview.visibility = View.GONE
+            lnAdView.visibility = View.GONE
         } else {
             adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(it)
-                lnAdview.addView(it)
-                lnAdview.requestLayout()
+                lnAdView.addView(it)
+                lnAdView.requestLayout()
                 //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
                 //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
             }
