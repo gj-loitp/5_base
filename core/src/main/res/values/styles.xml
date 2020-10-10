@@ -1,16 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-<!--    <style name="AppThemeAndroidO" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--        <item name="android:windowContentOverlay">@null</item>-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
-<!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-<!--        </item>-->
-<!--    </style>-->
+    <!--    <style name="AppThemeAndroidO" parent="Theme.MaterialComponents.Light.NoActionBar">-->
+    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+    <!--        <item name="colorAccent">@color/colorAccent</item>-->
+    <!--        <item name="android:windowContentOverlay">@null</item>-->
+    <!--        <item name="windowActionBar">false</item>-->
+    <!--        <item name="windowNoTitle">true</item>-->
+    <!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
+    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+    <!--        </item>-->
+    <!--    </style>-->
 
     <!--    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->
     <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
@@ -25,51 +25,49 @@
     <!--        </item>-->
     <!--    </style>-->
 
-<!--    <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--        <item name="android:windowContentOverlay">@null</item>-->
-<!--        <item name="windowActionBar">false</item>-->
-<!--        <item name="windowNoTitle">true</item>-->
-<!--        <item name="android:windowIsTranslucent">true</item>-->
-<!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
-<!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-<!--        </item>-->
-<!--    </style>-->
+    <!--    <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">-->
+    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+    <!--        <item name="colorAccent">@color/colorAccent</item>-->
+    <!--        <item name="android:windowContentOverlay">@null</item>-->
+    <!--        <item name="windowActionBar">false</item>-->
+    <!--        <item name="windowNoTitle">true</item>-->
+    <!--        <item name="android:windowIsTranslucent">true</item>-->
+    <!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
+    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+    <!--        </item>-->
+    <!--    </style>-->
 
-<!--    <style name="NoTitleTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">-->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
-<!--        <item name="android:background">@color/transparent</item>-->
-<!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-<!--        </item>-->
-<!--    </style>-->
+    <!--    <style name="NoTitleTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">-->
+    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+    <!--        <item name="colorAccent">@color/colorAccent</item>-->
+    <!--        <item name="android:background">@color/transparent</item>-->
+    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+    <!--        </item>-->
+    <!--    </style>-->
 
-<!--    <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-<!--        <item name="android:windowNoTitle">true</item>-->
-<!--        <item name="android:windowActionBar">false</item>-->
-<!--        &lt;!&ndash;<item name="android:windowFullscreen">true</item>&ndash;&gt;-->
-<!--        <item name="android:windowContentOverlay">@null</item>-->
-<!--        <item name="android:windowDisablePreview">true</item>-->
-<!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-<!--        </item>-->
-<!--    </style>-->
+    <!--    <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">-->
+    <!--        <item name="android:windowNoTitle">true</item>-->
+    <!--        <item name="android:windowActionBar">false</item>-->
+    <!--        &lt;!&ndash;<item name="android:windowFullscreen">true</item>&ndash;&gt;-->
+    <!--        <item name="android:windowContentOverlay">@null</item>-->
+    <!--        <item name="android:windowDisablePreview">true</item>-->
+    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+    <!--        </item>-->
+    <!--    </style>-->
 
-    <style name="FullscreenTheme" parent="AppTheme">
-        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@null</item>
-        <!--<item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
-        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>-->
-    </style>
+    <!--    <style name="FullscreenTheme" parent="AppTheme">-->
+    <!--        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>-->
+    <!--        <item name="android:windowActionBarOverlay">true</item>-->
+    <!--        <item name="android:windowBackground">@null</item>-->
+    <!--    </style>-->
 
-    <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">
-        <item name="android:background">@color/black35</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
-        </item>
-    </style>
+    <!--    <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">-->
+    <!--        <item name="android:background">@color/black35</item>-->
+    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
+    <!--        </item>-->
+    <!--    </style>-->
 
     <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
@@ -140,13 +138,17 @@
     </style>
 
     <style name="MusicPlayerButton">
-        <item name="android:background">@drawable/abc_item_background_holo_light</item>
+        <item name="android:background" tools:ignore="PrivateResource">
+            @drawable/abc_item_background_holo_light
+        </item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
     </style>
 
     <style name="MusicImageView">
-        <item name="android:background">@drawable/abc_item_background_holo_light</item>
+        <item name="android:background" tools:ignore="PrivateResource">
+            @drawable/abc_item_background_holo_light
+        </item>
         <item name="android:padding">16.0dip</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
