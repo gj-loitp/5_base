@@ -4,29 +4,35 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.core.utilities.LImageUtil
 import com.service.model.UserTest
 import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.item_user_1.view.*
 import vn.loitp.app.R
 
 class UserListAdapter(private val context: Context,
                       private val callback: (Int, UserTest) -> Unit) :
         RecyclerView.Adapter<UserListAdapter.UserTestViewHolder>() {
-    private val TAG = javaClass.simpleName
+
+    private val logTag = javaClass.simpleName
 
     private var userTestList = ArrayList<UserTest>()
 
     inner class UserTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        var rootView: RelativeLayout = view.findViewById(R.id.rootView)
-        var ivAvt: ImageView = view.findViewById(R.id.ivAvt)
-        var tvEmail: TextView = view.findViewById(R.id.tvEmail)
-        var tvFirstName: TextView = view.findViewById(R.id.tvFirstName)
-        var tvId: TextView = view.findViewById(R.id.tvId)
-        var tvLastName: TextView = view.findViewById(R.id.tvLastName)
+
+        fun bind(userTest: UserTest) {
+            userTest.avatar?.let {
+                LImageUtil.load(context, it, itemView.ivAvt)
+            }
+            itemView.tvEmail.text = userTest.email
+            itemView.tvFirstName.text = userTest.firstName
+            itemView.tvId.text = "Id ${userTest.id}"
+            itemView.tvLastName.text = userTest.lastName
+            itemView.rootView.setSafeOnClickListener {
+                callback.invoke(bindingAdapterPosition, userTest)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserTestViewHolder {
@@ -36,16 +42,7 @@ class UserListAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: UserTestViewHolder, position: Int) {
         val userTest = userTestList[position]
-        userTest.avatar?.let {
-            LImageUtil.load(context, it, holder.ivAvt)
-        }
-        holder.tvEmail.text = userTest.email
-        holder.tvFirstName.text = userTest.firstName
-        holder.tvId.text = "Id ${userTest.id}"
-        holder.tvLastName.text = userTest.lastName
-        holder.rootView.setSafeOnClickListener {
-            callback.invoke(position, userTest)
-        }
+        holder.bind(userTest)
     }
 
     override fun getItemCount(): Int {

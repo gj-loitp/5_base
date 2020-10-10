@@ -26,12 +26,12 @@ class FrmGetListUser : BaseFragment() {
     private var page = 1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (frmRootView == null) {
+        return if (frmRootView == null) {
             logD("onViewCreated frmRootView == null")
-            return super.onCreateView(inflater, container, savedInstanceState)
+            super.onCreateView(inflater, container, savedInstanceState)
         } else {
             logD("onViewCreated frmRootView != null")
-            return frmRootView
+            frmRootView
         }
     }
 

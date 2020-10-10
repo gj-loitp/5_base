@@ -19,14 +19,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/ivAvt"
-        android:background="@color/colorPrimary"
+        android:background="?attr/themeBackgroundColor"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_8"
             tools:text="@string/app_name" />
 
@@ -34,7 +34,7 @@
             android:id="@+id/tvFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_8"
             tools:text="@string/app_name" />
 
@@ -42,7 +42,7 @@
             android:id="@+id/tvId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_18"
             android:textStyle="bold"
             tools:text="@string/app_name" />
@@ -51,7 +51,7 @@
             android:id="@+id/tvLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_8"
             tools:text="@string/app_name" />
     </LinearLayout>
