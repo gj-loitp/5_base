@@ -20,6 +20,7 @@ public class AnswerViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //use xml
         useXML();
 
