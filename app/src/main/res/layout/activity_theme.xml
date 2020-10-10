@@ -20,14 +20,9 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btLightTheme"
+                android:id="@+id/btChangeTheme"
                 style="@style/ButtonMenu"
-                android:text="Light theme" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDarkTheme"
-                style="@style/ButtonMenu"
-                android:text="Dark theme" />
+                android:text="Change theme" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
