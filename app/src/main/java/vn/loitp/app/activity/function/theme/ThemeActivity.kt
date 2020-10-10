@@ -2,11 +2,11 @@ package vn.loitp.app.activity.function.theme
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatDelegate
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_theme.*
 import vn.loitp.app.R
@@ -25,10 +25,11 @@ class ThemeActivity : BaseFontActivity() {
 
     private fun setupViews() {
         btChangeTheme.setSafeOnClickListener {
-            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            val isDarkTheme = LUIUtil.isDarkTheme()
+            if (isDarkTheme) {
+                LUIUtil.setDarkTheme(isDarkTheme = false)
             } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                LUIUtil.setDarkTheme(isDarkTheme = true)
             }
             finish()
             startActivity(Intent(this, ThemeActivity::class.java))

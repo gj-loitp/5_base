@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
@@ -50,7 +49,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+        if (LUIUtil.isDarkTheme()) {
             setTheme(R.style.DarkTheme)
         } else {
             setTheme(R.style.LightTheme)

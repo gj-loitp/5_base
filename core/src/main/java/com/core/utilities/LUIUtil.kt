@@ -22,6 +22,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -770,6 +771,18 @@ class LUIUtil {
             val bottom = lastChild.bottom + paddingBottom
             val delta = bottom - (scrollY + height)
             smoothScrollBy(0, delta)
+        }
+
+        fun isDarkTheme(): Boolean {
+            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+        }
+
+        fun setDarkTheme(isDarkTheme: Boolean) {
+            if (isDarkTheme) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         }
     }
 }
