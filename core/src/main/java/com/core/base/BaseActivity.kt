@@ -49,6 +49,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val isDarkTheme = LSharedPrefsUtil.instance.getBoolean(Constants.KEY_IS_DARK_THEME, true)
+        if (isDarkTheme) {
+            setTheme(R.style.DarkTheme)
+        } else {
+            setTheme(R.style.LightTheme)
+        }
+
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
 

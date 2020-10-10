@@ -8,7 +8,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
     </style>
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -208,4 +209,13 @@
         <item name="android:textColorPrimary">@color/colorPrimary</item>
     </style>
 
+    <style name="LightTheme" parent="AppTheme">
+        <item name="themeTextColor">#000000</item>
+        <item name="themeBackgroundColor">#ffffff</item>
+    </style>
+
+    <style name="DarkTheme" parent="AppTheme">
+        <item name="themeTextColor">#ffffff</item>
+        <item name="themeBackgroundColor">#000000</item>
+    </style>
 </resources>
