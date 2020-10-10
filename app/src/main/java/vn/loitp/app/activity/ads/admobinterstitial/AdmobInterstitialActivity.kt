@@ -20,6 +20,10 @@ class AdmobInterstitialActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         interstitialAd = LUIUtil.createAdFull(this)
         val s = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.ad_full)
         textView.text = s
