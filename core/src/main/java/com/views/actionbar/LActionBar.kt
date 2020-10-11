@@ -19,7 +19,7 @@ class LActionBar : RelativeLayout {
     var ivIconBack: ImageView? = null
     var ivIconMenu: ImageView? = null
     var tvTitle: TextView? = null
-    private var realtimeBlurView: RealtimeBlurView? = null
+    var realtimeBlurView: RealtimeBlurView? = null
     private var shadowView: View? = null
     private var callback: Callback? = null
 

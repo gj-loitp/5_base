@@ -1,6 +1,7 @@
 package com.core.helper.fbcomment
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.net.Uri
 import android.net.http.SslError
 import android.os.Build
@@ -79,6 +80,16 @@ class FbCommentActivity : BaseFontActivity() {
 
     private fun setupActionBar() {
         lActionBar.apply {
+            if (LUIUtil.isDarkTheme()) {
+                ivIconBack?.setColorFilter(Color.WHITE)
+                tvTitle?.setTextColor(Color.WHITE)
+                realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.black65))
+            } else {
+                ivIconBack?.setColorFilter(Color.BLACK)
+                tvTitle?.setTextColor(Color.BLACK)
+                realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.white85))
+            }
+
             setOnClickBack(object : LActionBar.Callback {
                 override fun onClickBack(view: View) {
                     onBackPressed()

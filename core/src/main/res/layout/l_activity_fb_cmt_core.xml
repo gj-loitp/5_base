@@ -10,7 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="?attr/themeBackgroundColorMedium"
         android:fitsSystemWindows="true">
 
         <com.views.actionbar.LActionBar
@@ -35,7 +35,8 @@
                 android:id="@+id/progressBar"
                 android:layout_width="@dimen/w_50"
                 android:layout_height="@dimen/w_50"
-                android:layout_centerInParent="true" />
+                android:layout_centerInParent="true"
+                android:indeterminateTint="?attr/themeTextColor" />
 
             <LinearLayout
                 android:id="@+id/lnAdView"
