@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeTextColor"
+    android:background="?attr/themeBackgroundColorMedium"
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="?attr/themeTextColor"
+        android:background="?attr/themeBackgroundColor"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/view_drawer_behavior_nav_header_main"
         app:menu="@menu/activity_drawer_behavior_drawer" />
