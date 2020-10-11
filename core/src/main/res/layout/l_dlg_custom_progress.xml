@@ -3,14 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/indicatorView"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
         android:layout_centerInParent="true"
-        app:indicatorColor="@color/colorPrimary"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="LineScaleIndicator" />
 
 </RelativeLayout>
