@@ -5,8 +5,8 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium"
     android:fitsSystemWindows="true"
-    android:background="@color/white"
     tools:openDrawer="start">
 
     <include
@@ -19,19 +19,20 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:background="?attr/themeTextColor"
         android:fitsSystemWindows="true"
-        android:background="@color/white"
         app:headerLayout="@layout/view_drawer_behavior_nav_header_main"
         app:menu="@menu/activity_drawer_behavior_drawer" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navViewNotification"
-        android:background="@color/colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        android:background="?attr/themeBackgroundColor"
         android:fitsSystemWindows="false">
-        <include layout="@layout/view_drawer_behavior_content_notification"/>
+
+        <include layout="@layout/view_drawer_behavior_content_notification" />
     </com.google.android.material.navigation.NavigationView>
 
 </com.infideap.drawerbehavior.AdvanceDrawerLayout>

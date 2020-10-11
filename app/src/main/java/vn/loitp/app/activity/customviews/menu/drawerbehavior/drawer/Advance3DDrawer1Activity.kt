@@ -23,6 +23,11 @@ class Advance3DDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigation
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews(){
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
