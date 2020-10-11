@@ -20,6 +20,10 @@ class BigImageViewWithScrollViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         biv0.setImageViewFactory(GlideImageViewFactory())
         biv1.setImageViewFactory(GlideImageViewFactory())
         biv2.setImageViewFactory(GlideImageViewFactory())

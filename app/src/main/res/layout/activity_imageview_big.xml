@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.github.piasy.biv.view.BigImageView
         android:id="@+id/bigImageView"
@@ -21,8 +21,8 @@
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerInParent="true"
-        android:layout_margin="@dimen/margin_10"
-        app:indicatorColor="@color/white"
+        android:layout_margin="@dimen/margin_medium"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="BallPulseIndicator" />
 
     <LinearLayout
@@ -36,27 +36,38 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/load_0" />
+            android:background="?attr/themeBackgroundColor"
+            android:text="@string/load_0"
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
             android:layout_weight="1"
-            android:text="@string/load_1" />
+            android:background="?attr/themeBackgroundColor"
+            android:text="@string/load_1"
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
             android:layout_weight="1"
-            android:text="@string/load_2" />
+            android:background="?attr/themeBackgroundColor"
+            android:text="@string/load_2"
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
             android:layout_weight="1"
-            android:text="@string/gif" />
+            android:background="?attr/themeBackgroundColor"
+            android:text="@string/gif"
+            android:textColor="?attr/themeTextColor" />
     </LinearLayout>
 </RelativeLayout>

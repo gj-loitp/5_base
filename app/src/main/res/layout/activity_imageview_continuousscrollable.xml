@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -40,13 +40,14 @@
                 app:imageSrc="@drawable/bus"
                 app:scaleType="centerInside" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/padding_15"
+                android:padding="@dimen/padding_medium"
                 android:text="Library for animating images with continuous scrolling effects
 
-Simple android view to display images with continuous scrolling effects efficiently. You can set image source, scaleType, duration and direction. Example usages can be found in sample project." />
+Simple android view to display images with continuous scrolling effects efficiently. You can set image source, scaleType, duration and direction. Example usages can be found in sample project."
+                android:textColor="?attr/themeTextColor" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

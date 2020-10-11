@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <TextView
         android:id="@+id/tvMenu"
@@ -24,12 +24,17 @@
             android:id="@+id/btPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pause" />
+            android:background="?attr/themeBackgroundColor"
+            android:text="Pause"
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btResume"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Resume" />
+            android:layout_marginStart="@dimen/margin_medium"
+            android:background="?attr/themeBackgroundColor"
+            android:text="Resume"
+            android:textColor="?attr/themeTextColor" />
     </LinearLayout>
 </RelativeLayout>

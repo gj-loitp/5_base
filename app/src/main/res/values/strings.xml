@@ -495,4 +495,5 @@ Likewise may someone love you next.
     <string name="clear_selections">Clear selections</string>
     <string name="log_selected_days">Log selected days</string>
     <string name="anchor">Anchor</string>
+    <string name="an_imageview_can_auto_scroll_with_device_rotating_vertical_or_horizontal">An imageView can auto scroll with device rotating: Vertical or Horizontal</string>
 </resources>
