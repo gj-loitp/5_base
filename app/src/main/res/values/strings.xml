@@ -494,4 +494,5 @@ Likewise may someone love you next.
     <string name="unselect_three_months">Unselect Prev/Curr/Next Months</string>
     <string name="clear_selections">Clear selections</string>
     <string name="log_selected_days">Log selected days</string>
+    <string name="anchor">Anchor</string>
 </resources>

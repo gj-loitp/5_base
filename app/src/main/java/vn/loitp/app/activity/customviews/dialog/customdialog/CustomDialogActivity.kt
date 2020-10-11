@@ -6,6 +6,7 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_custom.*
 import vn.loitp.app.R
 
@@ -18,38 +19,43 @@ class CustomDialogActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        btToggleFullScreen.setOnClickListener {
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        btToggleFullScreen.setSafeOnClickListener {
             isFullScreen = !isFullScreen
             LScreenUtil.toggleFullscreen(activity = this, isFullScreen = isFullScreen)
         }
-        btDefault.setOnClickListener {
+        btDefault.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.DEFAULT)
         }
-        btTopLeft.setOnClickListener {
+        btTopLeft.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_LEFT)
         }
-        btTopCenter.setOnClickListener {
+        btTopCenter.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_CENTER)
         }
-        btTopRight.setOnClickListener {
+        btTopRight.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.TOP_RIGHT)
         }
-        btCenterLeft.setOnClickListener {
+        btCenterLeft.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_LEFT)
         }
-        btCenterCenter.setOnClickListener {
+        btCenterCenter.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_CENTER)
         }
-        btCenterRight.setOnClickListener {
+        btCenterRight.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.CENTER_RIGHT)
         }
-        btBottomLeft.setOnClickListener {
+        btBottomLeft.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_LEFT)
         }
-        btBottomCenter.setOnClickListener {
+        btBottomCenter.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_CENTER)
         }
-        btBottomRight.setOnClickListener {
+        btBottomRight.setSafeOnClickListener {
             PositionDialog().showImmersivePos(activity = this, anchorView = btAnchorView, sizeWidthPx = null, sizeHeightPx = null, position = PositionDialog.Position.BOTTOM_RIGHT)
         }
     }

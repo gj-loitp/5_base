@@ -3,12 +3,11 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btToggleFullScreen"
         style="@style/ButtonMenu"
-        android:background="@drawable/bt_primary"
         android:text="@string/toggle_fullscreen" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -16,8 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="@drawable/bt_primary"
-        android:text="Anchor" />
+        android:background="?attr/themeBackgroundColor"
+        android:text="@string/anchor" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -33,71 +32,81 @@
                 android:id="@+id/btDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Default" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Default"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTopLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Top left" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Top left"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTopCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Top Center" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Top Center"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTopRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Top Right" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Top Right"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCenterLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Center left" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Center left"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCenterCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Center center" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Center center"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCenterRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Center right" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Center right"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBottomLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Bottom left" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Bottom left"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBottomCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Bottom center" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Bottom center"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBottomRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bt_primary"
-                android:text="Bottom right" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Bottom right"
+                android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </HorizontalScrollView>
 </RelativeLayout>

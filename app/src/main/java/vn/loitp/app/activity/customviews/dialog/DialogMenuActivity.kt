@@ -26,6 +26,10 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         btIosDialog.setOnClickListener(this)
         btOriginalDialog.setOnClickListener(this)
         btPrettyDialog.setOnClickListener(this)

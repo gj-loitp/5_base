@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/white" />
+            <solid android:color="?attr/themeBackgroundColor" />
 
             <size
                 android:width="900dp"
@@ -14,5 +15,6 @@
         android:width="@dimen/w_120"
         android:height="@dimen/w_120"
         android:drawable="@mipmap/ic_launcher"
-        android:gravity="center" />
+        android:gravity="center"
+        tools:ignore="UnusedAttribute" />
 </layer-list>
