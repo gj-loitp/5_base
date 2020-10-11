@@ -25,37 +25,46 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        aet0.popupHeight = LScreenUtil.screenHeight / 2
-        aet0.vertPos = LRelativePopupWindow.VerticalPosition.BELOW
-        aet0.horizPos = LRelativePopupWindow.HorizontalPosition.CENTER
-        aet0.setHintText("1/2 screen")
-        aet0.setHinTextColor(Color.BLUE)
-        aet0.setColorProgressBar(Color.RED)
-        aet0.setBackgroundResource(R.drawable.bkg_et)
-        aet0.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
-            showShort("Text ${aet0.editText.text}")
-        })
-        aet0.callback = object : LAutoSuggestEditText.Callback {
-            override fun onTextChanged(text: String) {
-                fakeCallAPI0(text)
+        setupViews()
+    }
+
+    private fun setupViews() {
+        aet0.apply {
+            this.popupHeight = LScreenUtil.screenHeight / 2
+            this.vertPos = LRelativePopupWindow.VerticalPosition.BELOW
+            this.horizPos = LRelativePopupWindow.HorizontalPosition.CENTER
+            this.setHintText("1/2 screen")
+            this.setHinTextColor(Color.BLUE)
+            this.editText.setTextColor(Color.YELLOW)
+            this.setColorProgressBar(Color.RED)
+            this.setBackgroundResource(R.drawable.bkg_et)
+            this.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
+                showShort("Text ${aet0.editText.text}")
+            })
+            this.callback = object : LAutoSuggestEditText.Callback {
+                override fun onTextChanged(text: String) {
+                    fakeCallAPI0(text)
+                }
             }
         }
 
-        aet1.popupWidth = LScreenUtil.screenWidth * 1 / 2
-        aet1.popupHeight = LScreenUtil.screenHeight * 1 / 4
-        aet1.vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
-        aet1.horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT
-        aet1.setHintText("3/4 screen")
-        aet1.setHinTextColor(Color.WHITE)
-        aet1.editText.setTextColor(Color.WHITE)
-        aet1.setColorProgressBar(Color.WHITE)
-        aet1.setBackgroundResource(R.drawable.l_bkg_horizontal)
-        aet1.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
-            showShort("Text ${aet1.editText.text}")
-        })
-        aet1.callback = object : LAutoSuggestEditText.Callback {
-            override fun onTextChanged(text: String) {
-                fakeCallAPI1(text)
+        aet1.apply {
+            this.popupWidth = LScreenUtil.screenWidth * 1 / 2
+            this.popupHeight = LScreenUtil.screenHeight * 1 / 4
+            this.vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
+            this.horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT
+            this.setHintText("3/4 screen")
+            this.setHinTextColor(Color.RED)
+            this.editText.setTextColor(Color.BLUE)
+            this.setColorProgressBar(Color.GREEN)
+            this.setBackgroundResource(R.drawable.l_bkg_horizontal)
+            this.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
+                showShort("Text ${aet1.editText.text}")
+            })
+            this.callback = object : LAutoSuggestEditText.Callback {
+                override fun onTextChanged(text: String) {
+                    fakeCallAPI1(text)
+                }
             }
         }
     }
