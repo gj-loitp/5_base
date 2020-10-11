@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:fitsSystemWindows="true">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -21,31 +21,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingTop="24dp">
+                android:paddingTop="@dimen/padding_medium">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_15">
+                    android:layout_margin="@dimen/margin_medium">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/padding_15">
+                        android:padding="@dimen/padding_medium">
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="First"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                            android:textColor="?attr/themeTextColor" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/i_love_you"
-                            android:textSize="20sp" />
+                            android:textColor="?attr/themeTextColor"
+                            android:textSize="@dimen/txt_medium" />
 
                     </LinearLayout>
 
@@ -54,27 +55,28 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_15"
-                    android:layout_marginRight="@dimen/margin_15"
-                    android:layout_marginBottom="@dimen/margin_15">
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_medium">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="@dimen/padding_15">
+                        android:padding="@dimen/padding_medium">
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Second"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                            android:textColor="?attr/themeTextColor" />
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/large_text"
-                            android:textSize="20sp" />
+                            android:textColor="?attr/themeTextColor"
+                            android:textSize="@dimen/txt_medium" />
 
                     </LinearLayout>
 
@@ -94,17 +96,18 @@
                         android:orientation="vertical"
                         android:padding="@dimen/padding_15">
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Third"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+                            android:textColor="?attr/themeTextColor" />
 
-                        <TextView
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/large_text"
-                            android:textSize="20sp" />
+                            android:textColor="?attr/themeTextColor"
+                            android:textSize="@dimen/txt_medium" />
 
                     </LinearLayout>
 
@@ -117,9 +120,9 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_margin="@dimen/margin_medium"
             android:src="@drawable/ic_play_arrow_black_48dp"
-            android:tint="@color/white"
+            android:tint="?attr/themeTextColor"
             app:layout_anchor="@id/cardView1"
             app:layout_anchorGravity="bottom|end" />
 

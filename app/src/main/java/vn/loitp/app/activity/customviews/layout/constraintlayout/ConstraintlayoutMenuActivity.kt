@@ -25,21 +25,25 @@ class ConstraintlayoutMenuActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bt_constraint_set.setOnClickListener(this)
+        setupViews()
+    }
+
+    private fun setupViews() {
+        btConstraintSet.setOnClickListener(this)
         btDemo.setOnClickListener(this)
-        bt_fab_n_snackbar.setOnClickListener(this)
-        bt_fab_follow_widget.setOnClickListener(this)
-        bt_custom_behavior.setOnClickListener(this)
+        btFabAndSnackBar.setOnClickListener(this)
+        btFabFollowWidget.setOnClickListener(this)
+        btCustomBehavior.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
             btDemo -> intent = Intent(this, ConstraintlayoutDemoActivity::class.java)
-            bt_fab_n_snackbar -> intent = Intent(this, FabAndSnackbarActivity::class.java)
-            bt_fab_follow_widget -> intent = Intent(this, FabFollowWidgetActivity::class.java)
-            bt_custom_behavior -> intent = Intent(this, CustomBehaviorActivity::class.java)
-            bt_constraint_set -> intent = Intent(this, ConstraintSetActivity::class.java)
+            btFabAndSnackBar -> intent = Intent(this, FabAndSnackbarActivity::class.java)
+            btFabFollowWidget -> intent = Intent(this, FabFollowWidgetActivity::class.java)
+            btCustomBehavior -> intent = Intent(this, CustomBehaviorActivity::class.java)
+            btConstraintSet -> intent = Intent(this, ConstraintSetActivity::class.java)
         }
         intent?.let {
             startActivity(it)

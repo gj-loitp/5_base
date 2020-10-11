@@ -44,8 +44,12 @@ import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews(){
         btAspectRatioLayout.setOnClickListener(this)
         btDraggablePanel.setOnClickListener(this)
         btDraggablePanelFree.setOnClickListener(this)

@@ -20,8 +20,12 @@ class CircularViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val mAdapter = SimpleCircularViewAdapter()
-        circularView.adapter = mAdapter
+        setupViews()
+    }
+
+    private fun setupViews() {
+        val simpleCircularViewAdapter = SimpleCircularViewAdapter()
+        circularView.adapter = simpleCircularViewAdapter
         circularView.setOnCircularViewObjectClickListener(object : CircularView.OnClickListener {
             override fun onClick(view: CircularView, isLongClick: Boolean) {
                 showShort("onClick")
