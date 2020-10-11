@@ -31,6 +31,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setUpMenu();
         if (savedInstanceState == null)
             changeFragment(new HomeFragment());
@@ -79,7 +80,7 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
         // You can disable a direction by setting ->
         // resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 
-        findViewById(R.id.title_bar_left_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
+        findViewById(R.id.titleBarLeftMenu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
         findViewById(R.id.title_bar_right_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_RIGHT));
     }
 

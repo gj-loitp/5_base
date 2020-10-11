@@ -29,7 +29,7 @@ public class HomeFragment extends BaseFragment {
         final ResideMenuActivity parentActivity = (ResideMenuActivity) getActivity();
         resideMenu = parentActivity.getResideMenu();
 
-        getFrmRootView().findViewById(R.id.btn_open_menu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
+        getFrmRootView().findViewById(R.id.btOpenMenu).setOnClickListener(view -> resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
 
         FrameLayout ignored_view = getFrmRootView().findViewById(R.id.ignored_view);
         resideMenu.addIgnoredView(ignored_view);

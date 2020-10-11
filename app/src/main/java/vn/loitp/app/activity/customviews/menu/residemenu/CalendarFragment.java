@@ -25,6 +25,7 @@ public class CalendarFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         listView = getFrmRootView().findViewById(R.id.listView);
         initView();
     }
@@ -32,7 +33,7 @@ public class CalendarFragment extends BaseFragment {
     private void initView() {
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(
                 getActivity(),
-                android.R.layout.simple_list_item_1,
+                R.layout.view_row_test_retrofit,
                 getCalendarData());
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener((adapterView, view, i, l) -> Toast.makeText(getActivity(), "Clicked item!", Toast.LENGTH_LONG).show());
