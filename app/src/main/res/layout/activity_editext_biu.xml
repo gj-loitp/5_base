@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -21,10 +21,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/type_something"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
+                android:textColor="?attr/themeTextColor"
+                android:textColorHint="?attr/themeTextColor"
                 app:biu_duration="800"
-                app:biu_text_color="@color/black"
+                app:biu_text_color="?attr/themeTextColor"
                 app:biu_text_scale="1"
                 app:biu_text_start_size="12sp"
                 app:biu_type="flyup" />
