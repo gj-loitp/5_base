@@ -22,6 +22,10 @@ class LCardViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         lCardView0.apply {
             callback = object : LCardView.Callback {
                 override fun onClickRoot(v: View) {

@@ -10,6 +10,7 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
+import com.core.base.BaseModel;
 import com.views.ldebugview.LComunicateDebug;
 import com.views.ldebugview.LDebug;
 
@@ -30,6 +31,11 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setupViews();
+    }
+
+    private void setupViews() {
         btStart = findViewById(R.id.btStart);
         btStop = findViewById(R.id.bt_stop);
         btSendD = findViewById(R.id.bt_send_d);
@@ -89,7 +95,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
         }
     }
 
-    public class User {
+    public static class User extends BaseModel {
         private String avatar;
         private String address;
         private String cover;
