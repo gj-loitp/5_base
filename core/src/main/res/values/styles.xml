@@ -237,17 +237,11 @@
     </style>
 
     <style name="LightThemeSwipe" parent="LightTheme">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
-        </item>
+        <item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
 
     <style name="DarkThemeSwipe" parent="DarkTheme">
-        <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
-        </item>
     </style>
 
 </resources>

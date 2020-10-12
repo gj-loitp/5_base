@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.Window
+import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -49,30 +50,39 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value ?: false
-        logD("onCreate isSwipeActivity $isSwipeActivity")
-        logD("onCreate isDarkTheme " + LUIUtil.isDarkTheme())
-        if (isSwipeActivity) {
-            if (LUIUtil.isDarkTheme()) {
-                setTheme(R.style.DarkThemeSwipe)
-            } else {
-                setTheme(R.style.LightThemeSwipe)
-            }
-        } else {
-            if (LUIUtil.isDarkTheme()) {
-                setTheme(R.style.DarkTheme)
-            } else {
-                setTheme(R.style.LightTheme)
-            }
-        }
-
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
+
+        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value ?: false
+        logD("loitpp onCreate isSwipeActivity $isSwipeActivity")
+        logD("loitpp onCreate isDarkTheme " + LUIUtil.isDarkTheme())
+//        if (isSwipeActivity) {
+//            if (LUIUtil.isDarkTheme()) {
+//                setTheme(R.style.DarkThemeSwipe)
+//            } else {
+//                setTheme(R.style.LightThemeSwipe)
+//            }
+//        } else {
+//            if (LUIUtil.isDarkTheme()) {
+//                setTheme(R.style.DarkTheme)
+//            } else {
+//                setTheme(R.style.LightTheme)
+//            }
+//        }
+        setTheme(R.style.LightThemeSwipe)
 
         val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
         if (isFullScreen) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
-            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                window.insetsController?.hide(WindowInsets.Type.statusBars())
+            } else {
+                @Suppress("DEPRECATION")
+                window.setFlags(
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN
+                )
+            }
         }
         setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
