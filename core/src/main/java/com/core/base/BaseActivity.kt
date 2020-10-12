@@ -49,10 +49,21 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if (LUIUtil.isDarkTheme()) {
-            setTheme(R.style.DarkTheme)
+        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value ?: false
+        logD("onCreate isSwipeActivity $isSwipeActivity")
+        logD("onCreate isDarkTheme " + LUIUtil.isDarkTheme())
+        if (isSwipeActivity) {
+            if (LUIUtil.isDarkTheme()) {
+                setTheme(R.style.DarkThemeSwipe)
+            } else {
+                setTheme(R.style.LightThemeSwipe)
+            }
         } else {
-            setTheme(R.style.LightTheme)
+            if (LUIUtil.isDarkTheme()) {
+                setTheme(R.style.DarkTheme)
+            } else {
+                setTheme(R.style.LightTheme)
+            }
         }
 
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
 @LogTag("GalleryMemberDetailActivity")
 @IsFullScreen(false)
+@IsSwipeActivity(true)
 class GalleryMemberDetailActivity : BaseFontActivity() {
 
     companion object {

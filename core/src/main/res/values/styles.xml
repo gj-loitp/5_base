@@ -69,13 +69,6 @@
     <!--        </item>-->
     <!--    </style>-->
 
-    <style name="Theme.Swipe.Back.NoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
-        </item>
-    </style>
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
         </item>
@@ -239,6 +232,20 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
+    </style>
+
+    <style name="LightThemeSwipe" parent="LightTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
+    </style>
+
+    <style name="DarkThemeSwipe" parent="DarkTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
         </item>
     </style>

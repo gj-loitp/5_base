@@ -12,8 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/themeBackgroundColorMedium"
-        android:orientation="vertical">
+        android:background="?attr/themeBackgroundColorMedium">
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -30,10 +29,10 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
+                android:buttonTint="?attr/themeTextColor"
                 android:checked="true"
                 android:text="Left"
-                android:textColor="?attr/themeTextColor"
-                app:buttonTint="?attr/themeTextColor" />
+                android:textColor="?attr/themeTextColor" />
 
             <RadioButton
                 android:id="@+id/fromTopRb"
@@ -43,9 +42,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
+                android:buttonTint="?attr/themeTextColor"
                 android:text="Top"
-                android:textColor="?attr/themeTextColor"
-                app:buttonTint="?attr/themeTextColor" />
+                android:textColor="?attr/themeTextColor" />
 
             <RadioButton
                 android:id="@+id/fromRightRb"
@@ -55,9 +54,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
+                android:buttonTint="?attr/themeTextColor"
                 android:text="Right"
-                android:textColor="?attr/themeTextColor"
-                app:buttonTint="?attr/themeTextColor" />
+                android:textColor="?attr/themeTextColor" />
 
             <RadioButton
                 android:id="@+id/fromBottomRb"
@@ -67,9 +66,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
+                android:buttonTint="?attr/themeTextColor"
                 android:text="Bottom"
-                android:textColor="?attr/themeTextColor"
-                app:buttonTint="?attr/themeTextColor" />
+                android:textColor="?attr/themeTextColor" />
         </RadioGroup>
 
         <androidx.core.widget.NestedScrollView

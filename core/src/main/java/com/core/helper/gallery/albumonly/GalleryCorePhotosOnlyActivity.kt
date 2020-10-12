@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -38,6 +39,7 @@ import java.io.File
 
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
+@IsSwipeActivity(true)
 class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     companion object {
         private const val PER_PAGE_SIZE = 100

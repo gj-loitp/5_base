@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import com.R
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -25,6 +26,7 @@ import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 
 @LogTag("FbCommentActivity")
+@IsSwipeActivity(true)
 class FbCommentActivity : BaseFontActivity() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null

@@ -14,6 +14,7 @@ import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -33,6 +34,7 @@ import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 @LogTag("GirlDetailActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
+@IsSwipeActivity(true)
 class GirlDetailActivity : BaseFontActivity() {
 
     private var girlPage: GirlPage? = null
