@@ -21,6 +21,10 @@ class ExpansionLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btSample.setOnClickListener(this)
         btSampleViewgroup.setOnClickListener(this)
         btProgrammatically.setOnClickListener(this)
