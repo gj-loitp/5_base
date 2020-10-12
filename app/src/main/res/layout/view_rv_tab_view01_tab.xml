@@ -13,13 +13,13 @@
         android:layout_height="@dimen/w_10"
         android:background="@mipmap/ic_launcher" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textColor="@android:color/white" />
+        android:textColor="@color/darkCyan" />
 
 </LinearLayout>
