@@ -14,20 +14,22 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/genre"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textColor="?attr/themeTextColor" />
 
     <TextView
         android:id="@+id/year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end" />
+        android:layout_gravity="end"
+        android:textColor="?attr/themeTextColor" />
 
     <View
         android:layout_width="match_parent"

@@ -20,6 +20,7 @@ class FrmCoordinator4 : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         mAdapter = MultiAdapter()
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(context)
         recyclerView.layoutManager = mLayoutManager
@@ -30,7 +31,7 @@ class FrmCoordinator4 : BaseFragment() {
 
     private fun prepareMovieData() {
         val movieList = ArrayList<Movie>()
-        for (i in 0..200) {
+        for (i in 0..20) {
             val movie = Movie("Loitp $i", "Action & Adventure $i", "Year: $i", Constants.URL_IMG)
             movieList.add(movie)
         }
