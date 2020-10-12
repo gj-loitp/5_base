@@ -25,6 +25,10 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         circularProgress.maxProgress = 10000.0
 
         progressColor.setOnClickListener(this)
