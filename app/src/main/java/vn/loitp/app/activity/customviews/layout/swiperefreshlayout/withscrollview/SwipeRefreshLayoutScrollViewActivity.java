@@ -24,7 +24,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        swipeRefreshLayout = findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(this::doTask);
         LUIUtil.Companion.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
