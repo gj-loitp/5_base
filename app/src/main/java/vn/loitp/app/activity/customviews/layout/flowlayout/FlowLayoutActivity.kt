@@ -17,9 +17,14 @@ class FlowLayoutActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        for (i in 0..50) {
+
+        setupViews()
+    }
+
+    private fun setupViews() {
+        for (i in 0..20) {
             val tv = TextView(this)
-            tv.text = LDeviceUtil.getRandomString(15)
+            tv.text = LDeviceUtil.getRandomString(maxLeng = 15)
             tv.setBackgroundResource(R.drawable.bt_tag)
             flowLayout.addView(tv)
         }

@@ -20,7 +20,7 @@ class HeartLayoutActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         rootView.setOnClickListener {
-            heart_layout.addHeart(randomColor())
+            heartLayout.addHeart(randomColor())
         }
     }
 
