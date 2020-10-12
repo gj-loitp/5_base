@@ -61,18 +61,18 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isSwipeActivity) {
             if (isDarkTheme) {
                 setTheme(R.style.DarkSwipeTheme)
-                logD("loitpp onCreate setTheme DarkSwipeTheme")
+//                logD("onCreate setTheme DarkSwipeTheme")
             } else {
                 setTheme(R.style.LightSwipeTheme)
-                logD("loitpp onCreate setTheme LightSwipeTheme")
+//                logD("onCreate setTheme LightSwipeTheme")
             }
         } else {
             if (isDarkTheme) {
                 setTheme(R.style.DarkTheme)
-                logD("loitpp onCreate setTheme DarkTheme")
+//                logD("onCreate setTheme DarkTheme")
             } else {
                 setTheme(R.style.LightTheme)
-                logD("loitpp onCreate setTheme LightTheme")
+//                logD("onCreate setTheme LightTheme")
             }
         }
 

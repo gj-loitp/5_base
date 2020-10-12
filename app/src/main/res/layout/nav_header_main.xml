@@ -9,7 +9,7 @@
     android:padding="@dimen/padding_medium"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,17 +17,20 @@
         android:paddingTop="@dimen/padding_medium"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/padding_medium"
         android:text="Android Studio"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="android.studio@android.com" />
+        android:text="android.studio@android.com"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
 
 </LinearLayout>
