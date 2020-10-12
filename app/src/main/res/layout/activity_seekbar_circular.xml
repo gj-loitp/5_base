@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -28,9 +28,9 @@
                 app:maxCircularSeekBar="100"
                 app:minCircularSeekBar="0"
                 app:progress="15"
-                app:progressTextColor="@android:color/black"
+                app:progressTextColor="?attr/themeTextColor"
                 app:progressTextSize="26"
-                app:ringColor="@color/colorAccent"
+                app:ringColor="@color/red"
                 app:ringWidth="0.5"
                 app:showIndicator_circular_seekbar="true"
                 app:showInnerCircle="true"

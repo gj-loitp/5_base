@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -14,17 +14,19 @@
         tools:context=".MainActivity">
 
         <!-- LVerticalSeekBar in non-ScrollView -->
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/text_in_non_scroll_view"
-            android:textAppearance="@android:style/TextAppearance.Small" />
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btSetProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set progress 30 for seekbar1" />
+            android:background="@color/red"
+            android:text="Set progress 30 for seekbar1"
+            android:textColor="?attr/themeTextColor" />
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -68,11 +70,14 @@
         </RelativeLayout>
 
         <!-- LVerticalSeekBar in ScrollView -->
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@color/green"
             android:text="@string/text_in_scroll_view"
-            android:textAppearance="@android:style/TextAppearance.Small" />
+            android:textAppearance="@android:style/TextAppearance.Small"
+            android:textColor="?attr/themeTextColor" />
 
         <ScrollView
             android:layout_width="wrap_content"
