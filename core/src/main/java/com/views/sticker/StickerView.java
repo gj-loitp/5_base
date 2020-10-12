@@ -17,14 +17,15 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.R;
+import com.core.utilities.LUIUtil;
 
 public abstract class StickerView extends FrameLayout {
 
-    public static final String TAG = "com.knef.stickerView";
-    private BorderView iv_border;
-    private ImageView iv_scale;
-    private ImageView iv_delete;
-    private ImageView iv_flip;
+    public static final String logTag = "com.knef.stickerView";
+    private BorderView ivBorder;
+    private ImageView ivScale;
+    private ImageView ivDelete;
+    private ImageView ivFlip;
 
     // For scalling
     private float this_orgX = -1, this_orgY = -1;
@@ -57,75 +58,85 @@ public abstract class StickerView extends FrameLayout {
     }
 
     private void init(Context context) {
-        this.iv_border = new BorderView(context);
-        this.iv_scale = new ImageView(context);
-        this.iv_delete = new ImageView(context);
-        this.iv_flip = new ImageView(context);
+        this.ivBorder = new BorderView(context);
+        this.ivScale = new ImageView(context);
+        this.ivDelete = new ImageView(context);
+        this.ivFlip = new ImageView(context);
 
-        this.iv_scale.setImageResource(R.drawable.ic_zoom_out_map_black_48dp);
-        this.iv_delete.setImageResource(R.drawable.ic_close_black_48dp);
-        this.iv_flip.setImageResource(R.drawable.l_flip);
+        this.ivScale.setImageResource(R.drawable.ic_zoom_out_map_black_48dp);
+        this.ivDelete.setImageResource(R.drawable.ic_close_black_48dp);
+        this.ivFlip.setImageResource(R.drawable.l_flip);
+
+        if (LUIUtil.Companion.isDarkTheme()) {
+            this.ivScale.setColorFilter(Color.WHITE);
+            this.ivDelete.setColorFilter(Color.WHITE);
+            this.ivFlip.setColorFilter(Color.WHITE);
+        } else {
+            this.ivScale.setColorFilter(Color.BLACK);
+            this.ivDelete.setColorFilter(Color.BLACK);
+            this.ivFlip.setColorFilter(Color.BLACK);
+        }
 
         this.setTag("DraggableViewGroup");
-        this.iv_border.setTag("iv_border");
-        this.iv_scale.setTag("iv_scale");
-        this.iv_delete.setTag("iv_delete");
-        this.iv_flip.setTag("iv_flip");
+        this.ivBorder.setTag("iv_border");
+        this.ivScale.setTag("iv_scale");
+        this.ivDelete.setTag("iv_delete");
+        this.ivFlip.setTag("iv_flip");
 
         int margin = convertDpToPixel(BUTTON_SIZE_DP, getContext()) / 2;
         int size = convertDpToPixel(SELF_SIZE_DP, getContext());
 
-        LayoutParams this_params =
+        LayoutParams thisParams =
                 new LayoutParams(
                         size,
                         size
                 );
-        this_params.gravity = Gravity.CENTER;
+        thisParams.gravity = Gravity.CENTER;
 
-        LayoutParams iv_main_params =
+        LayoutParams ivMainParams =
                 new LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT
                 );
-        iv_main_params.setMargins(margin, margin, margin, margin);
+        ivMainParams.setMargins(margin, margin, margin, margin);
 
-        LayoutParams iv_border_params =
+        LayoutParams ivBorderParams =
                 new LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT
                 );
-        iv_border_params.setMargins(margin, margin, margin, margin);
+        ivBorderParams.setMargins(margin, margin, margin, margin);
 
-        LayoutParams iv_scale_params =
+        LayoutParams ivScaleParams =
                 new LayoutParams(
                         convertDpToPixel(BUTTON_SIZE_DP, getContext()),
                         convertDpToPixel(BUTTON_SIZE_DP, getContext())
                 );
-        iv_scale_params.gravity = Gravity.BOTTOM | Gravity.RIGHT;
+        ivScaleParams.gravity = Gravity.BOTTOM | Gravity.RIGHT;
 
-        LayoutParams iv_delete_params =
+        LayoutParams ivDeleteParams =
                 new LayoutParams(
                         convertDpToPixel(BUTTON_SIZE_DP, getContext()),
                         convertDpToPixel(BUTTON_SIZE_DP, getContext())
                 );
-        iv_delete_params.gravity = Gravity.TOP | Gravity.RIGHT;
+        ivDeleteParams.gravity = Gravity.TOP | Gravity.RIGHT;
 
-        LayoutParams iv_flip_params =
+        LayoutParams ivFlipParams =
                 new LayoutParams(
                         convertDpToPixel(BUTTON_SIZE_DP, getContext()),
                         convertDpToPixel(BUTTON_SIZE_DP, getContext())
                 );
-        iv_flip_params.gravity = Gravity.TOP | Gravity.LEFT;
+        ivFlipParams.gravity = Gravity.TOP | Gravity.LEFT;
 
-        this.setLayoutParams(this_params);
-        this.addView(getMainView(), iv_main_params);
-        this.addView(iv_border, iv_border_params);
-        this.addView(iv_scale, iv_scale_params);
-        this.addView(iv_delete, iv_delete_params);
-        this.addView(iv_flip, iv_flip_params);
+        this.setLayoutParams(thisParams);
+        this.addView(getMainView(), ivMainParams);
+        this.addView(ivBorder, ivBorderParams);
+        this.addView(ivScale, ivScaleParams);
+        this.addView(ivDelete, ivDeleteParams);
+        this.addView(ivFlip, ivFlipParams);
         this.setOnTouchListener(mTouchListener);
-        this.iv_scale.setOnTouchListener(mTouchListener);
-        this.iv_delete.setOnClickListener(new OnClickListener() {
+        this.ivScale.setOnTouchListener(mTouchListener);
+        this.ivDelete.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (StickerView.this.getParent() != null) {
@@ -134,7 +145,7 @@ public abstract class StickerView extends FrameLayout {
                 }
             }
         });
-        this.iv_flip.setOnClickListener(new OnClickListener() {
+        this.ivFlip.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -159,12 +170,12 @@ public abstract class StickerView extends FrameLayout {
             if (view.getTag().equals("DraggableViewGroup")) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        Log.v(TAG, "sticker view action down");
+                        Log.v(logTag, "sticker view action down");
                         move_orgX = event.getRawX();
                         move_orgY = event.getRawY();
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        Log.v(TAG, "sticker view action move");
+                        Log.v(logTag, "sticker view action move");
                         float offsetX = event.getRawX() - move_orgX;
                         float offsetY = event.getRawY() - move_orgY;
                         StickerView.this.setX(StickerView.this.getX() + offsetX);
@@ -173,13 +184,13 @@ public abstract class StickerView extends FrameLayout {
                         move_orgY = event.getRawY();
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.v(TAG, "sticker view action up");
+                        Log.v(logTag, "sticker view action up");
                         break;
                 }
             } else if (view.getTag().equals("iv_scale")) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        Log.v(TAG, "iv_scale action down");
+                        Log.v(logTag, "iv_scale action down");
 
                         this_orgX = StickerView.this.getX();
                         this_orgY = StickerView.this.getY();
@@ -211,7 +222,7 @@ public abstract class StickerView extends FrameLayout {
 
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        Log.v(TAG, "iv_scale action move");
+                        Log.v(logTag, "iv_scale action move");
 
                         rotate_newX = event.getRawX();
                         rotate_newY = event.getRawY();
@@ -220,7 +231,7 @@ public abstract class StickerView extends FrameLayout {
                                 Math.atan2(event.getRawY() - scale_orgY, event.getRawX() - scale_orgX)
                                         - Math.atan2(scale_orgY - centerY, scale_orgX - centerX)) * 180 / Math.PI;
 
-                        Log.v(TAG, "angle_diff: " + angle_diff);
+                        Log.v(logTag, "angle_diff: " + angle_diff);
 
                         double length1 = getLength(centerX, centerY, scale_orgX, scale_orgY);
                         double length2 = getLength(centerX, centerY, event.getRawX(), event.getRawY());
@@ -228,7 +239,7 @@ public abstract class StickerView extends FrameLayout {
                         int size = convertDpToPixel(SELF_SIZE_DP, getContext());
                         if (length2 > length1
                                 && (angle_diff < 25 || Math.abs(angle_diff - 180) < 25)
-                                ) {
+                        ) {
                             //scale up
                             double offsetX = Math.abs(event.getRawX() - scale_orgX);
                             double offsetY = Math.abs(event.getRawY() - scale_orgY);
@@ -256,11 +267,11 @@ public abstract class StickerView extends FrameLayout {
                         //rotate
 
                         double angle = Math.atan2(event.getRawY() - centerY, event.getRawX() - centerX) * 180 / Math.PI;
-                        Log.v(TAG, "log angle: " + angle);
+                        Log.v(logTag, "log angle: " + angle);
 
                         //setRotation((float) angle - 45);
                         setRotation((float) angle - 45);
-                        Log.v(TAG, "getRotation(): " + getRotation());
+                        Log.v(logTag, "getRotation(): " + getRotation());
 
                         onRotating();
 
@@ -274,7 +285,7 @@ public abstract class StickerView extends FrameLayout {
                         requestLayout();
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.v(TAG, "iv_scale action up");
+                        Log.v(logTag, "iv_scale action up");
                         break;
                 }
             }
@@ -298,27 +309,27 @@ public abstract class StickerView extends FrameLayout {
                 absX - ((View) this.getParent()).getX(),
                 absY - ((View) this.getParent()).getY()
         };
-        Log.v(TAG, "getRelativePos absY:" + absY);
-        Log.v(TAG, "getRelativePos relativeY:" + pos[1]);
+        Log.v(logTag, "getRelativePos absY:" + absY);
+        Log.v(logTag, "getRelativePos relativeY:" + pos[1]);
         return pos;
     }
 
     public void setControlItemsHidden(boolean isHidden) {
         if (isHidden) {
-            iv_border.setVisibility(View.INVISIBLE);
-            iv_scale.setVisibility(View.INVISIBLE);
-            iv_delete.setVisibility(View.INVISIBLE);
-            iv_flip.setVisibility(View.INVISIBLE);
+            ivBorder.setVisibility(View.INVISIBLE);
+            ivScale.setVisibility(View.INVISIBLE);
+            ivDelete.setVisibility(View.INVISIBLE);
+            ivFlip.setVisibility(View.INVISIBLE);
         } else {
-            iv_border.setVisibility(View.VISIBLE);
-            iv_scale.setVisibility(View.VISIBLE);
-            iv_delete.setVisibility(View.VISIBLE);
-            iv_flip.setVisibility(View.VISIBLE);
+            ivBorder.setVisibility(View.VISIBLE);
+            ivScale.setVisibility(View.VISIBLE);
+            ivDelete.setVisibility(View.VISIBLE);
+            ivFlip.setVisibility(View.VISIBLE);
         }
     }
 
     protected View getImageViewFlip() {
-        return iv_flip;
+        return ivFlip;
     }
 
     protected void onScaling(boolean scaleUp) {
@@ -327,7 +338,7 @@ public abstract class StickerView extends FrameLayout {
     protected void onRotating() {
     }
 
-    private class BorderView extends View {
+    private static class BorderView extends View {
 
         public BorderView(Context context) {
             super(context);
@@ -348,7 +359,7 @@ public abstract class StickerView extends FrameLayout {
 
             LayoutParams params = (LayoutParams) this.getLayoutParams();
 
-            Log.v(TAG, "params.leftMargin: " + params.leftMargin);
+            Log.v(logTag, "params.leftMargin: " + params.leftMargin);
 
             Rect border = new Rect();
             border.left = (int) this.getLeft() - params.leftMargin;
@@ -357,7 +368,11 @@ public abstract class StickerView extends FrameLayout {
             border.bottom = (int) this.getBottom() - params.bottomMargin;
             Paint borderPaint = new Paint();
             borderPaint.setStrokeWidth(6);
-            borderPaint.setColor(Color.WHITE);
+            if (LUIUtil.Companion.isDarkTheme()) {
+                borderPaint.setColor(Color.WHITE);
+            } else {
+                borderPaint.setColor(Color.BLACK);
+            }
             borderPaint.setStyle(Paint.Style.STROKE);
             canvas.drawRect(border, borderPaint);
 
@@ -373,15 +388,15 @@ public abstract class StickerView extends FrameLayout {
 
     public void setControlsVisibility(boolean isVisible) {
         if (!isVisible) {
-            iv_border.setVisibility(View.GONE);
-            iv_delete.setVisibility(View.GONE);
-            iv_flip.setVisibility(View.GONE);
-            iv_scale.setVisibility(View.GONE);
+            ivBorder.setVisibility(View.GONE);
+            ivDelete.setVisibility(View.GONE);
+            ivFlip.setVisibility(View.GONE);
+            ivScale.setVisibility(View.GONE);
         } else {
-            iv_border.setVisibility(View.VISIBLE);
-            iv_delete.setVisibility(View.VISIBLE);
-            iv_flip.setVisibility(View.VISIBLE);
-            iv_scale.setVisibility(View.VISIBLE);
+            ivBorder.setVisibility(View.VISIBLE);
+            ivDelete.setVisibility(View.VISIBLE);
+            ivFlip.setVisibility(View.VISIBLE);
+            ivScale.setVisibility(View.VISIBLE);
         }
 
     }
