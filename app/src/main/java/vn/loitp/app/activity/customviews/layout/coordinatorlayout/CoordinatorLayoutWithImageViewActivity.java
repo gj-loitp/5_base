@@ -21,8 +21,9 @@ public class CoordinatorLayoutWithImageViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ImageView imageView = findViewById(R.id.img_hero);
-        AppBarLayout appBarLayout = findViewById(R.id.app_bar);
+
+        final ImageView imageView = findViewById(R.id.imgHero);
+        AppBarLayout appBarLayout = findViewById(R.id.appBar);
         appBarLayout.addOnOffsetChangedListener((appBarLayout1, verticalOffset) -> {
             Matrix matrix = new Matrix(imageView.getImageMatrix());
 
