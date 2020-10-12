@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 app:angle="45">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_250"
                     android:layout_height="@dimen/w_150"
                     android:contentDescription="@string/app_name"
@@ -36,7 +36,7 @@
                 android:layout_marginTop="@dimen/margin_30"
                 app:angle="270">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_250"
                     android:layout_height="@dimen/w_150"
                     android:contentDescription="@string/app_name"
@@ -50,7 +50,7 @@
                 android:layout_marginTop="@dimen/margin_30"
                 app:angle="180">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_250"
                     android:layout_height="@dimen/w_150"
                     android:contentDescription="@string/app_name"
@@ -64,5 +64,8 @@
         android:id="@+id/btRandomRotate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Random rotate" />
+        android:background="?attr/themeBackgroundColor"
+        android:text="Random rotate"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
 </RelativeLayout>

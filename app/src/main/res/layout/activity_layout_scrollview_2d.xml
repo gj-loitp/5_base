@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.scrollview.TwoDScrollView
         android:id="@+id/twoDScrollView"
@@ -16,18 +16,18 @@
             android:orientation="vertical"
             tools:ignore="UseCompoundDrawables">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/loitp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_15"
+                android:padding="@dimen/padding_medium"
                 android:text="@string/large_text"
-                android:textColor="@color/black"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/text_medium"
                 tools:ignore="SpUsage" />
         </LinearLayout>

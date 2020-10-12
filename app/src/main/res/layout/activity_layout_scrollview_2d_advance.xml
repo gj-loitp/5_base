@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
         android:id="@+id/layoutControl"
@@ -19,15 +19,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Line"
-            android:textColor="@color/black" />
+            android:textColor="@color/red" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="true"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_10"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/txt_medium"
             tools:ignore="SpUsage" />
     </LinearLayout>
 
@@ -44,12 +44,13 @@
             android:gravity="center_vertical"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:singleLine="true"
-                android:text="Viewgroup 1" />
+                android:text="Viewgroup 1"
+                android:textColor="@color/red" />
         </LinearLayout>
 
         <com.views.scrollview.LHorizontalScrollView
@@ -104,5 +105,6 @@
         android:id="@+id/pb"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
-        android:layout_centerInParent="true" />
+        android:layout_centerInParent="true"
+        android:progressTint="?attr/themeTextColor" />
 </RelativeLayout>
