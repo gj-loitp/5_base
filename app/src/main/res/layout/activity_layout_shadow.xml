@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -17,11 +17,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangeOval"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dynamic_change_oval_color" />
+                android:text="@string/dynamic_change_oval_color"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <com.views.layout.shadowlayout.LShadowLayout
                 android:id="@+id/slOval"
@@ -37,7 +39,7 @@
                 app:shadowShape="oval"
                 app:shadowSide="all">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="@dimen/w_100"
                     android:layout_height="@dimen/w_100"
                     android:background="@drawable/l_circle_black"
@@ -47,15 +49,17 @@
                     android:paddingEnd="48dp"
                     android:paddingRight="48dp"
                     android:text="Oval shadow"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangeRadius"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dynamic_change_shadow_radius" />
+                android:text="@string/dynamic_change_shadow_radius"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <com.views.layout.shadowlayout.LShadowLayout
                 android:id="@+id/slRectangle"
@@ -71,22 +75,24 @@
                 app:shadowShape="rectangle"
                 app:shadowSide="left|right|bottom">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="@dimen/w_100"
                     android:layout_height="@dimen/w_100"
                     android:background="@android:color/holo_blue_light"
                     android:gravity="center"
                     android:padding="48dp"
                     android:text="Rectangle shadow"
-                    android:textColor="@android:color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangeRectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/dynamic_change_rectangle_color" />
+                android:text="@string/dynamic_change_rectangle_color"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <com.views.layout.shadowlayout.LShadowLayout
                 android:id="@+id/slRadius"
@@ -102,14 +108,14 @@
                 app:shadowShape="rectangle"
                 app:shadowSide="all">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="@dimen/w_100"
                     android:layout_height="@dimen/w_100"
                     android:background="@android:color/holo_blue_light"
                     android:gravity="center"
                     android:padding="48dp"
                     android:text="Radius shadow"
-                    android:textColor="@android:color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>
         </LinearLayout>

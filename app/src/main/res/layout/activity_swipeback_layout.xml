@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="?attr/themeBackgroundColorMedium"
         android:orientation="vertical">
 
         <RadioGroup
@@ -31,7 +31,9 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
                 android:checked="true"
-                android:text="Left" />
+                android:text="Left"
+                android:textColor="?attr/themeTextColor"
+                app:buttonTint="?attr/themeTextColor" />
 
             <RadioButton
                 android:id="@+id/fromTopRb"
@@ -41,7 +43,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="Top" />
+                android:text="Top"
+                android:textColor="?attr/themeTextColor"
+                app:buttonTint="?attr/themeTextColor" />
 
             <RadioButton
                 android:id="@+id/fromRightRb"
@@ -51,7 +55,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="Right" />
+                android:text="Right"
+                android:textColor="?attr/themeTextColor"
+                app:buttonTint="?attr/themeTextColor" />
 
             <RadioButton
                 android:id="@+id/fromBottomRb"
@@ -61,7 +67,9 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginBottom="16dp"
-                android:text="Bottom" />
+                android:text="Bottom"
+                android:textColor="?attr/themeTextColor"
+                app:buttonTint="?attr/themeTextColor" />
         </RadioGroup>
 
         <androidx.core.widget.NestedScrollView
@@ -70,11 +78,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/radioGroup">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_10"
-                android:text="@string/large_text" />
+                android:padding="@dimen/padding_medium"
+                android:text="@string/large_text"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
         </androidx.core.widget.NestedScrollView>
 
         <View

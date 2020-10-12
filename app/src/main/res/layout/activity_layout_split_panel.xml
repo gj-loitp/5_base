@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.layout.splitpanellayout.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
         android:id="@+id/splitPaneLayout"
@@ -15,22 +15,22 @@
         spl:splitterPosition="69%"
         spl:splitterSize="4dip">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvFirst"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/hello_world"
-            android:textColor="@color/black"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSecond"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/hello_world"
-            android:textColor="@color/black"
+            android:textColor="@color/red"
             android:textSize="@dimen/txt_medium" />
 
     </com.views.layout.splitpanellayout.SplitPaneLayout>
