@@ -11,9 +11,10 @@
     android:paddingStart="@dimen/padding_medium"
     android:paddingTop="@dimen/padding_small"
     android:paddingEnd="@dimen/padding_medium"
-    android:paddingBottom="@dimen/padding_small">
+    android:paddingBottom="@dimen/padding_small"
+    tools:ignore="UnusedAttribute">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/w_150"
         android:layout_height="match_parent"
@@ -29,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
-        android:textColor="@color/black"
+        android:textColor="@color/red"
         android:textSize="@dimen/txt_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

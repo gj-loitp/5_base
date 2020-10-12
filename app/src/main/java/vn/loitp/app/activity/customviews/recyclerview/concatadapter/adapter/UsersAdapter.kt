@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter
+package vn.loitp.app.activity.customviews.recyclerview.concatadapter.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,31 +8,31 @@ import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.view_row_item_news.view.*
-import kotlinx.android.synthetic.main.view_row_item_user.view.layoutRoot
+import kotlinx.android.synthetic.main.view_row_item_user.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.News
+import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.User
 
-@LogTag("NewsAdapter")
-class NewsAdapter(
-        private val listNews: ArrayList<News>
+@LogTag("UsersAdapter")
+class UsersAdapter(
+        private val listUser: ArrayList<User>
 ) : AnimationAdapter() {
 
-    var onClickRootListener: ((News, Int) -> Unit)? = null
+    var onClickRootListener: ((User, Int) -> Unit)? = null
 
-    fun addData(listNews: ArrayList<News>) {
-        this.listNews.addAll(listNews)
+    fun setData(listUser: ArrayList<User>) {
+        this.listUser.clear()
+        this.listUser.addAll(listUser)
         notifyDataSetChanged()
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(news: News) {
-            itemView.textViewNews.text = news.title
-            LImageUtil.load(context = itemView.imageView.context,
-                    url = news.image,
-                    imageView = itemView.imageView)
+        fun bind(user: User) {
+            itemView.textViewUserName.text = user.name
+            LImageUtil.load(context = itemView.imageViewAvatar.context,
+                    url = user.avatar,
+                    imageView = itemView.imageViewAvatar)
             itemView.layoutRoot.setSafeOnClickListener {
-                onClickRootListener?.invoke(news, bindingAdapterPosition)
+                onClickRootListener?.invoke(user, bindingAdapterPosition)
             }
             setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
@@ -41,16 +41,15 @@ class NewsAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             DataViewHolder(
                     LayoutInflater.from(parent.context).inflate(
-                            R.layout.view_row_item_news, parent,
+                            R.layout.view_row_item_user, parent,
                             false
                     )
             )
 
-    override fun getItemCount(): Int = listNews.size
-
+    override fun getItemCount(): Int = listUser.size
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is DataViewHolder) {
-            holder.bind(listNews[position])
+            holder.bind(listUser[position])
         }
     }
 

@@ -1,7 +1,10 @@
-package vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model
+package vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
+@Keep
 data class News(
         @SerializedName("id")
         val id: Long = 0,
@@ -11,4 +14,4 @@ data class News(
 
         @SerializedName("image")
         var image: String = ""
-)
+) : Serializable

@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter
+package vn.loitp.app.activity.customviews.recyclerview.concatadapter.adapter
 
 import android.view.LayoutInflater
 import android.view.View

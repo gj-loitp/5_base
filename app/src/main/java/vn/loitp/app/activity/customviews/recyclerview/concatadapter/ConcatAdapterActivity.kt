@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.customviews.recyclerview.mergeadapter
+package vn.loitp.app.activity.customviews.recyclerview.concatadapter
 
 import android.os.Bundle
 import androidx.recyclerview.widget.ConcatAdapter
@@ -12,20 +12,20 @@ import com.core.common.Constants
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_recycler_view_merge_adapter.*
+import kotlinx.android.synthetic.main.activity_recycler_view_concat_adapter.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.adapter.*
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.DataSource
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.AboutMe
-import vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model.News
+import vn.loitp.app.activity.customviews.recyclerview.concatadapter.adapter.*
+import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.DataSource
+import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.AboutMe
+import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.News
 
 //https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial
 
-@LayoutId(R.layout.activity_recycler_view_merge_adapter)
+@LayoutId(R.layout.activity_recycler_view_concat_adapter)
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
-class MergeAdapterActivity : BaseFontActivity() {
-    private var mergeAdapter: ConcatAdapter? = null
+class ConcatAdapterActivity : BaseFontActivity() {
+    private var concatAdapter: ConcatAdapter? = null
     private var aboutMeAdapter: AboutMeAdapter? = null
     private var usersAdapter: UsersAdapter? = null
     private var bannerAdapter: BannerAdapter? = null
@@ -71,13 +71,13 @@ class MergeAdapterActivity : BaseFontActivity() {
                 bannerAdapter?.let { ba ->
                     newsAdapter?.let { na ->
                         val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(ama, ua, ba, na)
-                        mergeAdapter = ConcatAdapter(listOfAdapters)
+                        concatAdapter = ConcatAdapter(listOfAdapters)
                     }
                 }
             }
         }
 
-        recyclerView.adapter = mergeAdapter
+        recyclerView.adapter = concatAdapter
 
         LUIUtil.setScrollChange(recyclerView, object : CallbackRecyclerView {
             override fun onTop() {
@@ -92,7 +92,7 @@ class MergeAdapterActivity : BaseFontActivity() {
         })
 
         btClearAll.setSafeOnClickListener {
-            mergeAdapter?.let { a ->
+            concatAdapter?.let { a ->
                 a.adapters.let { list ->
                     list.forEach { childAdapter ->
                         a.removeAdapter(childAdapter)
@@ -115,7 +115,7 @@ class MergeAdapterActivity : BaseFontActivity() {
         btAddBannerAt0.setSafeOnClickListener {
             val newBannerAdapter = BannerAdapter(ArrayList())
             newBannerAdapter.setData(DataSource.getBanner())
-            mergeAdapter?.addAdapter(0, newBannerAdapter)
+            concatAdapter?.addAdapter(0, newBannerAdapter)
         }
         btAddAboutMeAtLast.setSafeOnClickListener {
             val newAboutMeAdapter = AboutMeAdapter(ArrayList())
@@ -123,11 +123,11 @@ class MergeAdapterActivity : BaseFontActivity() {
             val listAboutMe = ArrayList<AboutMe>()
             listAboutMe.add(aboutMe)
             newAboutMeAdapter.setData(listAboutMe)
-            mergeAdapter?.addAdapter(newAboutMeAdapter)
+            concatAdapter?.addAdapter(newAboutMeAdapter)
         }
         btRemoveAdapterListUser.setSafeOnClickListener {
             usersAdapter?.let { ua ->
-                mergeAdapter?.removeAdapter(ua)
+                concatAdapter?.removeAdapter(ua)
             }
         }
 
@@ -135,7 +135,7 @@ class MergeAdapterActivity : BaseFontActivity() {
     }
 
     private fun isLoading(): Boolean {
-        mergeAdapter?.let {
+        concatAdapter?.let {
             it.adapters.forEach { childAdapter ->
                 if (childAdapter == loadingAdapter) {
                     return true
@@ -147,8 +147,8 @@ class MergeAdapterActivity : BaseFontActivity() {
 
     private fun genNewsData() {
         if (!isLoading()) {
-            mergeAdapter?.addAdapter(loadingAdapter)
-            mergeAdapter?.itemCount?.let {
+            concatAdapter?.addAdapter(loadingAdapter)
+            concatAdapter?.itemCount?.let {
                 recyclerView.scrollToPosition(it - 1)
             }
 
@@ -162,7 +162,7 @@ class MergeAdapterActivity : BaseFontActivity() {
                     )
                     listNews.add(news)
                 }
-                mergeAdapter?.removeAdapter(loadingAdapter)
+                concatAdapter?.removeAdapter(loadingAdapter)
                 newsAdapter?.addData(listNews)
             })
         }

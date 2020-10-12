@@ -1,7 +1,10 @@
-package vn.loitp.app.activity.customviews.recyclerview.mergeadapter.data.model
+package vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
+@Keep
 data class User(
         @SerializedName("id")
         val id: Int = 0,
@@ -11,4 +14,4 @@ data class User(
 
         @SerializedName("avatar")
         var avatar: String = ""
-)
+) : Serializable
