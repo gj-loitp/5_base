@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu Toggle Button Group" />
@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="S"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
@@ -30,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="M"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
@@ -37,6 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="T"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
@@ -44,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="W"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
@@ -51,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="T"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
@@ -58,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="F"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
@@ -65,6 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="S"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>

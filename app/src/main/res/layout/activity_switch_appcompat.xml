@@ -4,14 +4,14 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             style="@style/TextMenu"
             android:gravity="center"
             android:text="Change the color of a SwitchCompat" />
@@ -37,12 +37,12 @@
 
         </LinearLayout>
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/txt_medium"
-            android:textColor="@color/black"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
     </LinearLayout>
 
