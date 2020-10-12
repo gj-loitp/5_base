@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview
 
+import com.core.base.BaseModel
+
 /**
  * Created by www.muathu@gmail.com on 12/8/2017.
  */
 
-class Movie {
+class Movie : BaseModel {
     var title: String? = null
     var genre: String? = null
     var year: String? = null

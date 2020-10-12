@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
@@ -16,23 +16,26 @@
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/whiteSmoke"
+        android:background="?attr/themeBackgroundColorMedium"
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="LinearLayoutManager vertical"
+            android:textColor="?attr/themeTextColor"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Setting" />
+            android:background="@color/red"
+            android:text="Setting"
+            android:textColor="?attr/themeTextColor" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,19 +43,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ll"
-        android:background="@color/whiteSmoke"
+        android:background="?attr/themeBackgroundColorMedium"
         android:orientation="horizontal">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAdd3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add to position 3" />
+            android:background="@color/green"
+            android:text="Add to position 3"
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btRemove1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Remove position 1" />
+            android:background="@color/deepPink"
+            android:text="Remove position 1"
+            android:textColor="?attr/themeTextColor" />
     </LinearLayout>
 </RelativeLayout>
