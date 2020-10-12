@@ -21,7 +21,8 @@ public class DraggablePanelActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        draggablePanel = findViewById(R.id.draggable_panel);
+
+        draggablePanel = findViewById(R.id.draggablePanel);
         initializeDraggablePanel();
 
         draggablePanel.setDraggableListener(new DraggableListener() {

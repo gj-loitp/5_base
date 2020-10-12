@@ -62,5 +62,6 @@ class LApplication : BaseApplication() {
         FNBDatabase.getInstance(this)
 
 //        logD("LApplication onCreate")
+        LUIUtil.setDarkTheme(isDarkTheme = true)
     }
 }

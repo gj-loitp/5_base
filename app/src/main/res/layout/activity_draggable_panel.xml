@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <ScrollView
         style="@style/ScrollVertical"
@@ -12,13 +12,15 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/padding_15"
-            android:text="@string/large_text" />
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_medium"
+            android:text="@string/large_text"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
     </ScrollView>
 
     <com.views.layout.draggablepanel.DraggablePanel
-        android:id="@+id/draggable_panel"
+        android:id="@+id/draggablePanel"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>
