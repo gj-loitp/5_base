@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginEnd="@dimen/margin_100"
@@ -16,10 +17,10 @@
     <com.github.mmin18.widget.RealtimeBlurView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:realtimeBlurRadius="@dimen/round_5"
-        app:realtimeOverlayColor="@color/black35" />
+        app:realtimeBlurRadius="@dimen/round_medium"
+        app:realtimeOverlayColor="?attr/themeBackgroundColor50" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/w_250"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
@@ -36,27 +37,29 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginBottom="@dimen/margin_medium"
-        app:indicatorColor="@color/white"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="PacmanIndicator" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewVersion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/tvPolicy"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPolicy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:foreground="?selectableItemBackground"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:text="@string/policy"
-        android:textColor="@drawable/text_white_black"
-        android:textSize="@dimen/txt_medium" />
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        tools:ignore="UnusedAttribute" />
 </RelativeLayout>

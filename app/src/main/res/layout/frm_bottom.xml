@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -15,20 +15,21 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
-                android:textColor="@color/black"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 android:textStyle="bold" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
-                android:text="@string/i_love_you" />
+                android:text="@string/i_love_you"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv"
@@ -43,17 +44,18 @@
 
                 <LinearLayout
                     android:id="@+id/ll_horizontal"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" />
             </HorizontalScrollView>
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:padding="@dimen/padding_medium"
-                android:text="@string/large_text" />
+                android:text="@string/large_text"
+                android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

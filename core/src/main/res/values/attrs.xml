@@ -785,6 +785,7 @@
     <!--    style-->
     <attr name="themeBackgroundColorMedium" format="color" />
     <attr name="themeBackgroundColor" format="color" />
+    <attr name="themeBackgroundColor50" format="color" />
     <attr name="themeTextColor" format="color" />
 
 </resources>
