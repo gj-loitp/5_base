@@ -26,6 +26,11 @@
                 android:text="Bookview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btConcatAdapter"
+                style="@style/ButtonMenu"
+                android:text="Merge Adapter" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDiffUtil"
                 style="@style/ButtonMenu"
                 android:text="Diff Util" />
@@ -49,11 +54,6 @@
                 android:id="@+id/btGalleryLayoutManagerVertical"
                 style="@style/ButtonMenu"
                 android:text="GalleryLayoutManager Vertical" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btMergeAdapter"
-                style="@style/ButtonMenu"
-                android:text="Merge Adapter" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNormalRecyclerView"
