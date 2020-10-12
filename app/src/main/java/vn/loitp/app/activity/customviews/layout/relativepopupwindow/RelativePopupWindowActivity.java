@@ -23,35 +23,40 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final Spinner spinnerVertical = findViewById(R.id.spinner_vertical);
+
+        setupViews();
+    }
+
+    private void setupViews() {
+        final Spinner spinner_vertical = findViewById(R.id.spinnerVertical);
         final ArrayAdapter<String> adapterVertical = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         adapterVertical.addAll(getResources().getStringArray(R.array.vertical_positions));
         adapterVertical.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerVertical.setAdapter(adapterVertical);
+        spinner_vertical.setAdapter(adapterVertical);
 
-        final Spinner spinnerHorizontal = findViewById(R.id.spinner_horizontal);
+        final Spinner spinner_horizontal = findViewById(R.id.spinnerHorizontal);
         final ArrayAdapter<String> adapterHorizontal = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         adapterHorizontal.addAll(getResources().getStringArray(R.array.horizontal_positions));
         adapterHorizontal.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerHorizontal.setAdapter(adapterHorizontal);
+        spinner_horizontal.setAdapter(adapterHorizontal);
 
-        final Spinner spinnerWidth = findViewById(R.id.spinner_width);
+        final Spinner spinner_width = findViewById(R.id.spinnerWidth);
         final ArrayAdapter<String> adapterWidth = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         adapterWidth.addAll(getResources().getStringArray(R.array.width));
         adapterWidth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerWidth.setAdapter(adapterWidth);
+        spinner_width.setAdapter(adapterWidth);
 
-        final Spinner spinnerHeight = findViewById(R.id.spinner_height);
+        final Spinner spinner_height = findViewById(R.id.spinnerHeight);
         final ArrayAdapter<String> adapterHeight = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
         adapterHeight.addAll(getResources().getStringArray(R.array.height));
         adapterHeight.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerHeight.setAdapter(adapterHeight);
+        spinner_height.setAdapter(adapterHeight);
 
-        final CheckBox checkboxFitInScreen = findViewById(R.id.checkbox_fit_in_screen);
+        final CheckBox checkbox_fit_in_screen = findViewById(R.id.checkboxFitInScreen);
 
         findViewById(R.id.button1).setOnClickListener(view -> {
             final ExampleCardPopupL popup = new ExampleCardPopupL(view.getContext());
-            switch (spinnerWidth.getSelectedItemPosition()) {
+            switch (spinner_width.getSelectedItemPosition()) {
                 case 0:
                     popup.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
                     break;
@@ -70,7 +75,7 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
                 default:
                     throw new IllegalStateException();
             }
-            switch (spinnerWidth.getSelectedItemPosition()) {
+            switch (spinner_width.getSelectedItemPosition()) {
                 case 0:
                     popup.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
                     break;
@@ -90,7 +95,7 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
                     throw new IllegalStateException();
             }
             final int vertPos;
-            switch (spinnerVertical.getSelectedItemPosition()) {
+            switch (spinner_vertical.getSelectedItemPosition()) {
                 case 0:
                     vertPos = LRelativePopupWindow.VerticalPosition.ABOVE;
                     break;
@@ -110,7 +115,7 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
                     throw new IllegalStateException();
             }
             final int horizPos;
-            switch (spinnerHorizontal.getSelectedItemPosition()) {
+            switch (spinner_horizontal.getSelectedItemPosition()) {
                 case 0:
                     horizPos = LRelativePopupWindow.HorizontalPosition.LEFT;
                     break;
@@ -129,7 +134,7 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
                 default:
                     throw new IllegalStateException();
             }
-            final boolean fitInScreen = checkboxFitInScreen.isChecked();
+            final boolean fitInScreen = checkbox_fit_in_screen.isChecked();
             popup.showOnAnchor(view, vertPos, horizPos, fitInScreen);
         });
     }
