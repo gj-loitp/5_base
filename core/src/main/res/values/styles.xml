@@ -236,12 +236,34 @@
         </item>
     </style>
 
-    <style name="LightThemeSwipe" parent="LightTheme">
-        <item name="android:windowBackground">@android:color/transparent</item>-->
+    <style name="SwipeTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
+        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
+        </item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
     </style>
 
-    <style name="DarkThemeSwipe" parent="DarkTheme">
-        <item name="android:windowBackground">@android:color/transparent</item>
+    <style name="LightSwipeTheme" parent="SwipeTheme">
+        <item name="themeTextColor">@color/black</item>
+        <item name="themeBackgroundColorMedium">@color/whiteSmoke</item>
+        <item name="themeBackgroundColor">@color/white</item>
+    </style>
+
+    <style name="DarkSwipeTheme" parent="SwipeTheme">
+        <item name="themeTextColor">@color/white</item>
+        <item name="themeBackgroundColorMedium">@color/dark900</item>
+        <item name="themeBackgroundColor">@color/black</item>
     </style>
 
 </resources>
