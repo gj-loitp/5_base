@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView xmlns:autofit="http://schemas.android.com/apk/res-auto"
         style="@style/ScrollVertical"
@@ -15,31 +15,37 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_medium">
 
-            <EditText
+            <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_hint"
                 android:singleLine="true"
-                android:text="@string/example" />
+                android:text="@string/example"
+                android:textColor="?attr/themeTextColor"
+                android:textColorHint="?attr/themeTextColor"
+                android:textCursorDrawable="?attr/themeTextColor" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_normal" />
+                android:text="@string/label_normal"
+                android:textColor="?attr/themeTextColor" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvOutput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/example"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="50sp" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_autofit" />
+                android:text="@string/label_autofit"
+                android:textColor="?attr/themeTextColor" />
 
             <com.views.textview.autofit.LAutofitTextView
                 android:id="@+id/textViewAutoFit"
@@ -48,6 +54,7 @@
                 android:gravity="center"
                 android:singleLine="true"
                 android:text="@string/example"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="50sp"
                 autofit:minTextSizeTv="8sp" />
         </LinearLayout>
