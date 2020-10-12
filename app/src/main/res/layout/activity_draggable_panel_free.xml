@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeTextColor">
 
     <ScrollView
         style="@style/ScrollVertical"
@@ -19,27 +19,35 @@
                 android:id="@+id/btMaximize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Maximize" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Maximize"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_minimize"
+                android:id="@+id/btMinimize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Minimize" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Minimize"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
-            <TextView
-                android:id="@+id/tv_state"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvState"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_5" />
+                android:padding="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/darkCyan"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/padding_medium"
                 android:text="@string/large_text"
-                android:textColor="@color/white" />
+                android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </ScrollView>
 
@@ -49,14 +57,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/view_header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_250"
-            android:background="@color/black85"
+            android:background="@color/red50"
             android:gravity="center"
             android:text="view_header"
-            android:textColor="@color/white" />
+            android:textColor="?attr/themeTextColor" />
 
         <ScrollView
             android:id="@+id/view_desc"
@@ -69,9 +77,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/whiteTrans99"
-                android:padding="@dimen/padding_15"
+                android:padding="@dimen/padding_medium"
                 android:text="@string/large_text"
-                android:textColor="@color/black" />
+                android:textColor="@color/red" />
         </ScrollView>
 
     </com.views.layout.draggablepanelfree.DraggablePanelFreeLayout>

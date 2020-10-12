@@ -6,6 +6,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_draggable_panel_free.*
 import vn.loitp.app.R
 
@@ -18,14 +19,18 @@ class DraggablePanelFreeActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btMaximize.setOnClickListener {
+        setupViews()
+    }
+
+    private fun setupViews(){
+        btMaximize.setSafeOnClickListener {
             dpfl.maximize()
         }
-        bt_minimize.setOnClickListener {
+        btMinimize.setSafeOnClickListener {
             dpfl.minimize()
         }
         dpfl?.setCallback { state ->
-            tv_state.text = "onStateChange " + state.name
+            tvState.text = "onStateChange " + state.name
         }
     }
 
