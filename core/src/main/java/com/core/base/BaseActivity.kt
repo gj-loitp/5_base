@@ -53,23 +53,28 @@ abstract class BaseActivity : AppCompatActivity() {
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
 
-        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value ?: false
-        logD("loitpp onCreate isSwipeActivity $isSwipeActivity")
-        logD("loitpp onCreate isDarkTheme " + LUIUtil.isDarkTheme())
-//        if (isSwipeActivity) {
-//            if (LUIUtil.isDarkTheme()) {
-//                setTheme(R.style.DarkThemeSwipe)
-//            } else {
-//                setTheme(R.style.LightThemeSwipe)
-//            }
-//        } else {
-//            if (LUIUtil.isDarkTheme()) {
-//                setTheme(R.style.DarkTheme)
-//            } else {
-//                setTheme(R.style.LightTheme)
-//            }
-//        }
-        setTheme(R.style.LightThemeSwipe)
+        val isDarkTheme = LUIUtil.isDarkTheme()
+//        logD("onCreate isDarkTheme $isDarkTheme")
+        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value
+                ?: false
+//        logD("onCreate isSwipeActivity $isSwipeActivity")
+        if (isSwipeActivity) {
+            if (isDarkTheme) {
+                setTheme(R.style.DarkThemeSwipe)
+                logD("loitpp onCreate setTheme DarkThemeSwipe")
+            } else {
+                setTheme(R.style.LightThemeSwipe)
+                logD("loitpp onCreate setTheme LightThemeSwipe")
+            }
+        } else {
+            if (isDarkTheme) {
+                setTheme(R.style.DarkTheme)
+                logD("loitpp onCreate setTheme DarkTheme")
+            } else {
+                setTheme(R.style.LightTheme)
+                logD("loitpp onCreate setTheme LightTheme")
+            }
+        }
 
         val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
         if (isFullScreen) {
