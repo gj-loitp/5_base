@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingTop="16dp"
@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/subtitle"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:paddingLeft="12dp"

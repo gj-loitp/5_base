@@ -13,12 +13,12 @@
 
         <View
             android:id="@+id/separator"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="1.0dip"
             android:background="@color/colorPrimaryDark" />
 
         <RelativeLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="56.0dip"
             android:padding="4.0dip">
@@ -32,14 +32,14 @@
                 android:src="@drawable/ic_more_vert_black_48dp" />
 
             <FrameLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignWithParentIfMissing="true"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/overflow_menu">
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
@@ -54,7 +54,7 @@
 
                         <TextView
                             android:id="@+id/li_title"
-                            android:layout_width="fill_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
@@ -65,7 +65,7 @@
 
                         <TextView
                             android:id="@+id/li_subtitle"
-                            android:layout_width="fill_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="2"

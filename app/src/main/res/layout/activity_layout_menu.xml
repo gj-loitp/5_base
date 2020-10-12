@@ -49,14 +49,14 @@
                 android:text="@string/draggablepanel" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDraggableView"
-                style="@style/ButtonMenu"
-                android:text="@string/draggableview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDraggablePanelFree"
                 style="@style/ButtonMenu"
                 android:text="@string/draggablepanel_free" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDraggableView"
+                style="@style/ButtonMenu"
+                android:text="@string/draggableview" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDragueur"
