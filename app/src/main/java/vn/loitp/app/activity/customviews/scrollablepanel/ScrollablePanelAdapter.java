@@ -161,8 +161,8 @@ public class ScrollablePanelAdapter extends PanelAdapter {
 
         RoomViewHolder(View view) {
             super(view);
-            this.roomTypeTextView = view.findViewById(R.id.room_type);
-            this.roomNameTextView = view.findViewById(R.id.room_name);
+            this.roomTypeTextView = view.findViewById(R.id.roomType);
+            this.roomNameTextView = view.findViewById(R.id.roomName);
         }
     }
 
@@ -175,7 +175,7 @@ public class ScrollablePanelAdapter extends PanelAdapter {
             super(view);
             this.view = view;
             this.statusTextView = view.findViewById(R.id.status);
-            this.nameTextView = view.findViewById(R.id.guest_name);
+            this.nameTextView = view.findViewById(R.id.guestName);
         }
     }
 

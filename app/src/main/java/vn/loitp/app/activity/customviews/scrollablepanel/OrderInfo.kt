@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.customviews.scrollablepanel
 
+import com.core.base.BaseModel
 import java.util.*
 
 /**
  * Created by kelin on 16-11-18.
  */
 
-class OrderInfo {
+class OrderInfo : BaseModel() {
     var id: Long = 0
     var guestName: String? = null
     var status: Status? = null

@@ -6,15 +6,15 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/room_type"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/roomType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="12sp" />
 
-    <TextView
-        android:id="@+id/room_name"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/roomName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
