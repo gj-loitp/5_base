@@ -65,7 +65,7 @@ public abstract class StickerView extends FrameLayout {
 
         this.ivScale.setImageResource(R.drawable.ic_zoom_out_map_black_48dp);
         this.ivDelete.setImageResource(R.drawable.ic_close_black_48dp);
-        this.ivFlip.setImageResource(R.drawable.l_flip);
+        this.ivFlip.setImageResource(R.drawable.ic_autorenew_black_48dp);
 
         if (LUIUtil.Companion.isDarkTheme()) {
             this.ivScale.setColorFilter(Color.WHITE);
