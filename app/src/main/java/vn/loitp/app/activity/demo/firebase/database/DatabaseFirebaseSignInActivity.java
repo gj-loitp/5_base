@@ -41,8 +41,8 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         mAuth = FirebaseAuth.getInstance();
 
         // Views
-        mEmailField = findViewById(R.id.field_email);
-        mPasswordField = findViewById(R.id.field_password);
+        mEmailField = findViewById(R.id.fieldEmail);
+        mPasswordField = findViewById(R.id.fieldPassword);
         Button mSignInButton = findViewById(R.id.button_sign_in);
         Button mSignUpButton = findViewById(R.id.button_sign_up);
 

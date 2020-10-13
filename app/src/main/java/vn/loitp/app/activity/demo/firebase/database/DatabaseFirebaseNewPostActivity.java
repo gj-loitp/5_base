@@ -46,7 +46,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END initialize_database_ref]
 
-        mTitleField = findViewById(R.id.field_title);
+        mTitleField = findViewById(R.id.fieldTitle);
         mBodyField = findViewById(R.id.field_body);
         mSubmitButton = findViewById(R.id.fab_submit_post);
 

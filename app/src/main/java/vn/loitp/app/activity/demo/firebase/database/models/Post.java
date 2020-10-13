@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.firebase.database.models;
 
+import com.core.base.BaseModel;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
@@ -8,7 +9,7 @@ import java.util.Map;
 
 // [START post_class]
 @IgnoreExtraProperties
-public class Post {
+public class Post extends BaseModel {
 
     public String uid;
     public String author;

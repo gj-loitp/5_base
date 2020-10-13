@@ -69,7 +69,7 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         // Button launches DatabaseFirebaseNewPostActivity
-        findViewById(R.id.fab_new_post).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.fabNewPost).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(DatabaseFirebaseActivity.this, DatabaseFirebaseNewPostActivity.class));

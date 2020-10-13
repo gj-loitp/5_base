@@ -72,7 +72,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
         mBodyView = findViewById(R.id.post_body);
         mCommentField = findViewById(R.id.field_comment_text);
         Button mCommentButton = findViewById(R.id.button_post_comment);
-        mCommentsRecycler = findViewById(R.id.recycler_comments);
+        mCommentsRecycler = findViewById(R.id.recyclerComments);
 
         mCommentButton.setOnClickListener(this);
         mCommentsRecycler.setLayoutManager(new LinearLayoutManager(this));
