@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.demo.firebase.databasesimple;
 
+import com.core.base.BaseModel;
+
 /**
  * Created by LENOVO on 6/5/2018.
  */
 
-public class User {
+public class User extends BaseModel {
     private String name;
     private String avt;
     private String msg;
