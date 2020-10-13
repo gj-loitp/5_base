@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
     <HorizontalScrollView
@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Copy content"
+                android:textColor="?attr/themeTextColor"
                 app:bgOffColor="@color/vip1"
                 app:bgOnColor="@color/vip2"
                 app:toggleOffColor="@color/vip3"
@@ -33,25 +34,37 @@
                 android:id="@+id/btLoadUrl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Load Url" />
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Url"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoadData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Load Data" />
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Data"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoadDataCustom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Load Data Custom" />
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Data Custom"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoadDataFromAsset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Load Url From Asset" />
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Url From Asset"
+                android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </HorizontalScrollView>
 
@@ -60,7 +73,8 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:indeterminateOnly="false" />
+        android:indeterminateOnly="false"
+        android:progressTint="?attr/themeTextColor" />
 
     <com.views.LWebView
         android:id="@+id/webView"

@@ -20,24 +20,24 @@
         android:layout_width="0.0dip"
         android:layout_height="0.0dip">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/play_button"
             style="@style/MusicPlayerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/large_text"
             android:padding="@dimen/item_small_spacing"
             android:src="@drawable/ic_play_arrow_black_48dp"
             android:visibility="invisible" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/pause_button"
             style="@style/MusicPlayerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/app_name"
             android:padding="@dimen/item_small_spacing"
@@ -47,13 +47,13 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/play_button"
+            android:layout_toStartOf="@+id/play_button"
             android:orientation="vertical"
-            android:paddingLeft="@dimen/item_small_spacing">
+            android:paddingStart="@dimen/item_small_spacing">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/li_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 android:textSize="@dimen/medium_font_size"
                 android:textStyle="bold" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/li_subtitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

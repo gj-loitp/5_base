@@ -21,6 +21,10 @@ class LWebViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         webView.callback = object : LWebView.Callback {
             override fun onScroll(l: Int, t: Int, oldl: Int, oldt: Int) {
             }
