@@ -45,8 +45,9 @@
         android:tint="@color/black"
         android:visibility="invisible"
         app:backgroundTint="@color/white"
-        app:borderWidth="@dimen/w_1"
-        app:elevation="@dimen/w_1"
+        app:borderWidth="@dimen/w_3"
+        app:elevation="@dimen/w_3"
         app:fabSize="normal"
+        app:useCompatPadding="true"
         tools:visibility="visible" />
 </RelativeLayout>

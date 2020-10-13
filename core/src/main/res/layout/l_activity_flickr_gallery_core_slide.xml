@@ -28,11 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/margin_small"
-        android:background="@drawable/bt_round_transparent"
-        android:paddingStart="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_small"
-        android:paddingEnd="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_small">
+        android:baselineAligned="false">
 
         <FrameLayout
             android:layout_width="0dp"
@@ -49,9 +45,10 @@
                 android:src="@drawable/ic_bug_report_black_48dp"
                 android:tint="@color/black"
                 app:backgroundTint="@color/white"
-                app:borderWidth="@dimen/w_1"
-                app:elevation="@dimen/w_1"
-                app:fabSize="normal" />
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="normal"
+                app:useCompatPadding="true" />
         </FrameLayout>
 
         <FrameLayout
@@ -69,9 +66,10 @@
                 android:src="@drawable/ic_cloud_download_black_48dp"
                 android:tint="@color/black"
                 app:backgroundTint="@color/white"
-                app:borderWidth="@dimen/w_1"
-                app:elevation="@dimen/w_1"
-                app:fabSize="normal" />
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="normal"
+                app:useCompatPadding="true" />
         </FrameLayout>
 
         <FrameLayout
@@ -89,9 +87,10 @@
                 android:src="@drawable/ic_share_black_48dp"
                 android:tint="@color/black"
                 app:backgroundTint="@color/white"
-                app:borderWidth="@dimen/w_1"
-                app:elevation="@dimen/w_1"
-                app:fabSize="normal" />
+                app:borderWidth="@dimen/w_3"
+                app:elevation="@dimen/w_3"
+                app:fabSize="normal"
+                app:useCompatPadding="true" />
         </FrameLayout>
 
     </LinearLayout>
