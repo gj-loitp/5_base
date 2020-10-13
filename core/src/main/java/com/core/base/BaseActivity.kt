@@ -260,13 +260,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onMessageEvent(event: EventBusData.ThemeEvent) {
-        onThemeChange(event = event)
-    }
-
-    open fun onThemeChange(event: EventBusData.ThemeEvent) {}
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         onNetworkChange(event = event)
     }

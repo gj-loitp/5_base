@@ -23,13 +23,13 @@ class EventBusData private constructor() {
         EventBus.getDefault().post(connectEvent)
     }
 
-    class ThemeEvent : BaseModel() {
-        var isDarkTheme: Boolean = false
-    }
-
-    fun sendThemeChange(isDarkTheme: Boolean) {
-        val themeEvent = ThemeEvent()
-        themeEvent.isDarkTheme = isDarkTheme
-        EventBus.getDefault().post(themeEvent)
-    }
+//    class ThemeEvent : BaseModel() {
+//        var isDarkTheme: Boolean = false
+//    }
+//
+//    fun sendThemeChange(isDarkTheme: Boolean) {
+//        val themeEvent = ThemeEvent()
+//        themeEvent.isDarkTheme = isDarkTheme
+//        EventBus.getDefault().post(themeEvent)
+//    }
 }

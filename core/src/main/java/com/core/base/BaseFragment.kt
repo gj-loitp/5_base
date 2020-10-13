@@ -172,11 +172,4 @@ abstract class BaseFragment : Fragment() {
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
         return ViewModelProvider(this).get(className)
     }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onMessageEvent(event: EventBusData.ThemeEvent) {
-        onThemeChange(event = event)
-    }
-
-    open fun onThemeChange(event: EventBusData.ThemeEvent) {}
 }
