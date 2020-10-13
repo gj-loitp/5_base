@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
 import vn.loitp.app.R
 import java.util.*
 
-@LayoutId( R.layout.activity_view_pager_detect_swipe_out)
+@LayoutId(R.layout.activity_view_pager_detect_swipe_out)
 @LogTag("DetectViewPagerSwipeOutActivity")
 @IsFullScreen(false)
 class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
@@ -23,6 +23,11 @@ class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         val max = 3
         for (i in 0 until max) {
             val vpPhoto = VPPhoto()

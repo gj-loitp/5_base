@@ -2,20 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.viewpager.parrallax.LParallaxViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/black85"
+        android:background="@color/red"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:text="Choose one: Mode.RIGHT_OVERLAY|LEFT_OVERLAY"
-        android:textColor="@color/white" />
+        android:textColor="?attr/themeTextColor" />
 </RelativeLayout>

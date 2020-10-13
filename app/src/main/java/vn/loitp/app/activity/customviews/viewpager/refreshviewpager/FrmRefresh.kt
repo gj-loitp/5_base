@@ -11,13 +11,13 @@ import kotlinx.android.synthetic.main.frm_view_pager_refresh.*
 import vn.loitp.app.R
 
 class FrmRefresh : Fragment() {
-    private var mPosition = 0
-    private val logTag = javaClass.simpleName
-
 
     companion object {
         const val KEY_POSITION = "KEY_POSITION"
     }
+
+    private var mPosition = 0
+    private val logTag = javaClass.simpleName
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         arguments?.let { bundle ->
