@@ -1,6 +1,5 @@
 package com.core.helper.donate
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +8,6 @@ import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
-import com.core.utilities.LAppResource
-import com.core.utilities.LUIUtil
 import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_donate.*
 
@@ -26,7 +23,6 @@ class FrmDonate : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
-        setupTheme()
     }
 
     private fun setupViews() {
@@ -42,16 +38,5 @@ class FrmDonate : BaseFragment() {
                         "❤ Momo", "0764088864")
                 .underline("Chân thành cảm ơn!")
                 .build()
-    }
-
-    private fun setupTheme() {
-        val isDarkTheme = LUIUtil.isDarkTheme()
-        if (isDarkTheme) {
-            layoutRootViewDonate.setBackgroundColor(Color.BLACK)
-            textView.setTextColor(Color.WHITE)
-        } else {
-            layoutRootViewDonate.setBackgroundColor(LAppResource.getColor(R.color.whiteSmoke))
-            textView.setTextColor(Color.BLACK)
-        }
     }
 }
