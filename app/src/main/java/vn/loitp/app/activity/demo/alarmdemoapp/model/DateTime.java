@@ -23,14 +23,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.core.base.BaseModel;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
-import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
-
-public class DateTime {
+public class DateTime extends BaseModel {
     private Context mContext;
     private String[] mFullDayNames;
     private String[] mShortDayNames;
@@ -49,18 +50,18 @@ public class DateTime {
         mWeekStartsOnMonday = prefs.getBoolean("week_starts_pref", false);
         m24hClock = prefs.getBoolean("use_24h_pref", false);
 
-        mDateFormat = new SimpleDateFormat("E MMM d, yyyy");
+        mDateFormat = new SimpleDateFormat("E MMM d, yyyy", Locale.getDefault());
 
         if (m24hClock)
-            mTimeFormat = new SimpleDateFormat("H:mm");
+            mTimeFormat = new SimpleDateFormat("H:mm", Locale.getDefault());
         else
-            mTimeFormat = new SimpleDateFormat("h:mm a");
+            mTimeFormat = new SimpleDateFormat("h:mm a", Locale.getDefault());
 
         mFullDayNames = new String[7];
         mShortDayNames = new String[7];
 
-        SimpleDateFormat fullFormat = new SimpleDateFormat("EEEE");
-        SimpleDateFormat shortFormat = new SimpleDateFormat("E");
+        SimpleDateFormat fullFormat = new SimpleDateFormat("EEEE", Locale.getDefault());
+        SimpleDateFormat shortFormat = new SimpleDateFormat("E", Locale.getDefault());
         Calendar calendar;
 
         if (mWeekStartsOnMonday)
@@ -91,9 +92,9 @@ public class DateTime {
         boolean[] days = getDays(alarm);
         String res = "";
 
-        if (alarm.getDays() == alarm.NEVER)
+        if (alarm.getDays() == Alarm.NEVER)
             res = "Never";
-        else if (alarm.getDays() == alarm.EVERY_DAY)
+        else if (alarm.getDays() == Alarm.EVERY_DAY)
             res = "Every day";
         else {
             for (int i = 0; i < 7; i++)
@@ -146,4 +147,3 @@ public class DateTime {
         return mShortDayNames;
     }
 }
-
