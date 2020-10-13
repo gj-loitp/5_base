@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.textview.scoretext
 
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
@@ -14,6 +15,12 @@ import vn.loitp.app.R
 @LogTag("ScoreTextViewActivity")
 @IsFullScreen(false)
 class ScoreTextViewActivity : BaseFontActivity() {
+
+    companion object {
+        const val KEY_UPDATE_SCORE = 1
+        const val DELTA_T = 20 //msecond
+    }
+
     private val maxScore = 200
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +34,7 @@ class ScoreTextViewActivity : BaseFontActivity() {
     }
 
     private var currentScore = 0
-    private var handler: Handler = object : Handler() {
+    private var handler: Handler = object : Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             when (msg.what) {
                 KEY_UPDATE_SCORE -> {
@@ -48,8 +55,4 @@ class ScoreTextViewActivity : BaseFontActivity() {
         }
     }
 
-    companion object {
-        const val KEY_UPDATE_SCORE = 1
-        const val DELTA_T = 20 //msecond
-    }
 }

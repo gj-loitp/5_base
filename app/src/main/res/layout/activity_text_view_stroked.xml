@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.textview.stroked.LStrokedTextView
         android:id="@+id/stv"
@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
         android:text="@string/app_name"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_large"
-        app:strokeColor="@color/black"
+        app:strokeColor="@color/red"
         app:strokeThickness="3dp" />
 
     <androidx.core.widget.NestedScrollView

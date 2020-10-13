@@ -17,6 +17,10 @@ class SelectableTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         selectableView.setActivity(this)
         selectableView.setText(getString(R.string.i_love_you))
         selectableView.addOnSaveClickListener { text: String? ->

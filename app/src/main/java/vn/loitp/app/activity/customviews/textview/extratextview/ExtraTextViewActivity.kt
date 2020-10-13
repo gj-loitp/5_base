@@ -5,6 +5,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.setSafeOnClickListener
 import com.views.textview.extra.LToggleLExtraTextView
 import kotlinx.android.synthetic.main.activity_text_view_extra.*
 import vn.loitp.app.R
@@ -18,9 +19,16 @@ class ExtraTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        toggleTxt.setOnClickListener { toggleTxt.toggle() }
 
-        btWaiting.setOnClickListener {
+        setupViews()
+    }
+
+    private fun setupViews() {
+        toggleTxt.setSafeOnClickListener {
+            toggleTxt.toggle()
+        }
+
+        btWaiting.setSafeOnClickListener {
             if (toggleTxt.getState() == LToggleLExtraTextView.State.WAITING) {
                 toggleTxt.setState(LToggleLExtraTextView.State.IDLE)
             } else {
@@ -28,7 +36,7 @@ class ExtraTextViewActivity : BaseFontActivity() {
             }
         }
 
-        btActive.setOnClickListener {
+        btActive.setSafeOnClickListener {
             if (toggleTxt.getState() == LToggleLExtraTextView.State.ACTIVE) {
                 toggleTxt.setState(LToggleLExtraTextView.State.IDLE)
             } else {
