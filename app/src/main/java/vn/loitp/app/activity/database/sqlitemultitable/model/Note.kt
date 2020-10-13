@@ -1,14 +1,14 @@
 package vn.loitp.app.activity.database.sqlitemultitable.model
 
-class Note {
+import com.core.base.BaseModel
+
+class Note : BaseModel {
     var id: Int = 0
     var note: String? = null
     var status: Int = 0
     var createdAt: String? = null
 
-    constructor(){
-
-    }
+    constructor()
 
     constructor(note: String, status: Int) {
         this.note = note

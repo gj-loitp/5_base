@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/padding_10">
 
     <ImageView
-        android:id="@+id/iv_icon"
+        android:id="@+id/ivIcon"
         android:layout_width="@dimen/w_30"
         android:layout_height="@dimen/w_30"
         android:contentDescription="@string/app_name"

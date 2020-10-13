@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.database.sqliteencryption
 
-class Bike {
+import com.core.base.BaseModel
+
+class Bike : BaseModel() {
     var id: Long? = 0
     var name: String? = ""
     var branch: String? = ""

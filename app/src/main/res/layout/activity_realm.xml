@@ -6,7 +6,7 @@
     android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
-        android:id="@+id/ll_buttons"
+        android:id="@+id/llButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -38,7 +38,7 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_buttons"
+        android:layout_below="@+id/llButtons"
         android:fillViewport="true"
         android:padding="@dimen/padding_5">
 

@@ -3,13 +3,16 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
-        android:id="@+id/ll_buttons"
+        android:id="@+id/llButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAll"
@@ -31,7 +34,7 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/ll_buttons"
+        android:layout_below="@+id/llButtons"
         android:fillViewport="true">
 
         <LinearLayout
@@ -39,19 +42,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/demo_sqlite_encryption_nclick_to_edit_long_click_to_delete"
-                android:textColor="@color/black"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_20" />
 
             <ProgressBar
                 android:id="@+id/pb"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:indeterminateTint="?attr/themeTextColor" />
 
             <LinearLayout
                 android:id="@+id/ll"

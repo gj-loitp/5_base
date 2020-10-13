@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.database.sqlitemultitableadvance.model
 
-class Action {
+import com.core.base.BaseModel
+
+class Action : BaseModel() {
     companion object {
         val ACTION_CREATE = 0
         val ACTION_EDIT = 1

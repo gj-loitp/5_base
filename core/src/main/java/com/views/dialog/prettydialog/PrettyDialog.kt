@@ -59,9 +59,9 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun setupviewsBase() {
-        llContent = findViewById(R.id.ll_content)
-        llButtons = findViewById(R.id.ll_buttons)
-        ivIcon = findViewById(R.id.iv_icon)
+        llContent = findViewById(R.id.llContent)
+        llButtons = findViewById(R.id.llButtons)
+        ivIcon = findViewById(R.id.ivIcon)
 
         val lp = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         lp.setMargins(0, resources.getDimensionPixelSize(R.dimen.pdlg_icon_size) / 2, 0, 0)

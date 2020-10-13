@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.database.sqlitemultitableadvance
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
@@ -24,6 +25,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         db = InspectionDatabaseHelper(applicationContext)
         btClearUI.setOnClickListener(this)
         btDeleteAllDatabase.setOnClickListener(this)
@@ -46,6 +48,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
         val tv = TextView(this)
         tv.text = msg
         LUIUtil.setTextSize(textView = tv, size = resources.getDimension(R.dimen.text_small))
+        tv.setTextColor(Color.RED)
         ll.addView(tv)
     }
 
