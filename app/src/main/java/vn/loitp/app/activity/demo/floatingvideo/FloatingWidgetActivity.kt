@@ -11,6 +11,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.interfaces.Callback2
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_floating_video.*
 import vn.loitp.app.R
 
@@ -27,10 +28,10 @@ class FloatingWidgetActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btShow.setOnClickListener {
+        btShow.setSafeOnClickListener {
             handleShow()
         }
-        btEdge.setOnClickListener {
+        btEdge.setSafeOnClickListener {
             handleEdge()
         }
     }
