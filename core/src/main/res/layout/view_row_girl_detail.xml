@@ -6,7 +6,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="@color/black"
+    app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
     app:cardCornerRadius="@dimen/round_medium"
     app:cardElevation="@dimen/w_3"
     app:cardUseCompatPadding="true"
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,14 +24,14 @@
             android:scaleType="centerCrop"
             tools:src="@drawable/logo" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvCreatedDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:padding="@dimen/padding_medium"
             android:text="@string/app_name"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/text_tiny" />
     </com.views.layout.squarelayout.LSquareFrameLayout>
 

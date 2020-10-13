@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/dark900">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -28,19 +28,19 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_medium">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_help_black_48dp"
-                    app:tint="@color/white" />
+                    app:tint="?attr/themeTextColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/why_u_see_ad_en"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
@@ -59,19 +59,19 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_medium">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_rate_review_black_48dp"
-                    app:tint="@color/white" />
+                    app:tint="?attr/themeTextColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/rate_app_en"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
@@ -90,19 +90,19 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_medium">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_card_giftcard_black_48dp"
-                    app:tint="@color/white" />
+                    app:tint="?attr/themeTextColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/more_app_en"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
@@ -121,19 +121,19 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_medium">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_share_black_48dp"
-                    app:tint="@color/white" />
+                    app:tint="?attr/themeTextColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/share_app_en"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
@@ -152,19 +152,19 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_medium">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_favorite_black_48dp"
-                    app:tint="@color/white" />
+                    app:tint="?attr/themeTextColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/like_facebook_fanpage"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
@@ -183,23 +183,23 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_medium">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
                     android:layout_height="@dimen/w_40"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_live_help_black_48dp"
-                    app:tint="@color/white" />
+                    app:tint="?attr/themeTextColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:text="@string/support_24_7_en"
-                    android:textColor="@color/white"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_gravity="center"
@@ -208,7 +208,7 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_donation" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -217,7 +217,7 @@
                 android:paddingTop="@dimen/padding_medium"
                 android:paddingEnd="@dimen/padding_medium"
                 android:paddingBottom="@dimen/padding_200"
-                android:textColor="@color/white"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/text_large"
                 tools:text="Hello World!" />
 

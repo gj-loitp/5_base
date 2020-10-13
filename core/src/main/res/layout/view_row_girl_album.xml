@@ -10,7 +10,7 @@
     android:layout_marginEnd="@dimen/margin_medium"
     android:elevation="@dimen/w_3"
     android:foreground="?selectableItemBackground"
-    app:shape_roundRect_borderColor="@color/gray"
+    app:shape_roundRect_borderColor="?attr/themeTextColor"
     app:shape_roundRect_borderWidth="@dimen/w_3"
     app:shape_roundRect_bottomLeftRadius="0dp"
     app:shape_roundRect_bottomRightRadius="@dimen/round_45"
@@ -32,20 +32,21 @@
         android:orientation="vertical"
         android:padding="@dimen/padding_medium">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="@dimen/txt_medium" />
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            android:textStyle="bold" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvCreatedDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_small" />
     </LinearLayout>
 

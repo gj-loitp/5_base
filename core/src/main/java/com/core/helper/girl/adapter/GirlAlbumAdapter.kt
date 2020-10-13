@@ -1,6 +1,5 @@
 package com.core.helper.girl.adapter
 
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +17,6 @@ import com.core.common.Constants
 import com.core.helper.girl.model.GirlPage
 import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_girl_album.view.*
 
@@ -65,8 +63,8 @@ class GirlAlbumAdapter : AnimationAdapter() {
         fun bind(girlPage: GirlPage) {
             itemView.tvTitle.text = girlPage.title
             itemView.tvCreatedDate.text = LDateUtil.convertFormatDate(strDate = girlPage.createdDate, fromFormat = "yyyy-MM-dd'T'HH:mm:ss", toFormat = "HH:mm:ss dd/MM/yyyy")
-            LUIUtil.setTextShadow(textView = itemView.tvCreatedDate, color = Color.BLACK)
-            LUIUtil.setTextShadow(textView = itemView.tvTitle, color = Color.BLACK)
+//            LUIUtil.setTextShadow(textView = itemView.tvCreatedDate, color = Color.BLACK)
+//            LUIUtil.setTextShadow(textView = itemView.tvTitle, color = Color.BLACK)
             val src = if (BuildConfig.DEBUG) {
                 Constants.URL_IMG
             } else {
