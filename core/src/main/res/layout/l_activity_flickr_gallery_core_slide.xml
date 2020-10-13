@@ -26,49 +26,73 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_medium">
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_small"
+        android:background="@drawable/bt_round_transparent"
+        android:paddingStart="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingEnd="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_small">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btReport"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_medium"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_bug_report_black_48dp"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
-            app:borderWidth="@dimen/w_1"
-            app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            android:layout_weight="1">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btDownload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_cloud_download_black_48dp"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
-            app:borderWidth="@dimen/w_1"
-            app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_bug_report_black_48dp"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_1"
+                app:elevation="@dimen/w_1"
+                app:fabSize="normal" />
+        </FrameLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btShare"
-            android:layout_width="wrap_content"
+        <FrameLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin_medium"
-            android:layout_marginRight="@dimen/margin_medium"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_share_black_48dp"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
-            app:borderWidth="@dimen/w_1"
-            app:elevation="@dimen/w_1"
-            app:fabSize="mini" />
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_cloud_download_black_48dp"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_1"
+                app:elevation="@dimen/w_1"
+                app:fabSize="normal" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_share_black_48dp"
+                android:tint="@color/black"
+                app:backgroundTint="@color/white"
+                app:borderWidth="@dimen/w_1"
+                app:elevation="@dimen/w_1"
+                app:fabSize="normal" />
+        </FrameLayout>
+
     </LinearLayout>
 </RelativeLayout>
