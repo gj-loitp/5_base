@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -18,30 +19,32 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/invite_button"
+                android:id="@+id/inviteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="80dp"
-                android:text="@string/invite_friends" />
+                android:text="@string/invite_friends"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <FrameLayout
-                android:id="@+id/snackbar_layout"
+                android:id="@+id/snackbarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp" />
         </LinearLayout>
     </ScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Invite" />

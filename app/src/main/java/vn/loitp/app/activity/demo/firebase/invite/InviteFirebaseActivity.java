@@ -35,7 +35,7 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);// Invite button click listener
-        findViewById(R.id.invite_button).setOnClickListener(this);
+        findViewById(R.id.inviteButton).setOnClickListener(this);
         // [END_EXCLUDE]
 
         // Check for App Invite invitations and launch deep-link activity if possible.
@@ -118,14 +118,14 @@ public class InviteFirebaseActivity extends BaseFontActivity implements
     // [END on_activity_result]
 
     private void showMessage(String msg) {
-        ViewGroup container = findViewById(R.id.snackbar_layout);
+        ViewGroup container = findViewById(R.id.snackbarLayout);
         Snackbar.make(container, msg, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override
     public void onClick(View view) {
         int i = view.getId();
-        if (i == R.id.invite_button) {
+        if (i == R.id.inviteButton) {
             onInviteClicked();
         }
     }
