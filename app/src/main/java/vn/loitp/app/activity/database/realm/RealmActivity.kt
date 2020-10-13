@@ -25,6 +25,7 @@ class RealmActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         mRealm = RealmController.with(application).realm
 
         // refresh the realm instance

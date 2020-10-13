@@ -18,6 +18,10 @@ class ReadSqliteAssetActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val vocabularyManager = VocabularyManager(this)
         try {
             vocabularyManager.createDatabase()

@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.database.readsqliteasset
 
+import com.core.base.BaseModel
+
 /**
  * Created by Loitp on 5/2/2017.
  */
 
-class Vocabulary {
+class Vocabulary : BaseModel {
     var isClose: Boolean = false
     var id: Int = 0
     var sword: String? = null
@@ -13,9 +15,7 @@ class Vocabulary {
     var ssummary: String? = null
     var sisoxfordlist: Int = 0
 
-    constructor() {
-
-    }
+    constructor()
 
     constructor(id: Int, sword: String, sphonetic: String, smeanings: String, ssummary: String, sisoxfordlist: Int, isClose: Boolean) {
         this.id = id
