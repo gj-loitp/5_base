@@ -31,7 +31,7 @@ public class ScrollablePanelActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final LScrollablePanel LScrollablePanel = findViewById(R.id.scrollable_panel);
+        final LScrollablePanel LScrollablePanel = findViewById(R.id.scrollablePanel);
         final ScrollablePanelAdapter scrollablePanelAdapter = new ScrollablePanelAdapter();
         generateTestData(scrollablePanelAdapter);
         LScrollablePanel.setPanelAdapter(scrollablePanelAdapter);

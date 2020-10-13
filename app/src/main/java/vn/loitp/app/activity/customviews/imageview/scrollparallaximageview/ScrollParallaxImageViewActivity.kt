@@ -21,6 +21,10 @@ class ScrollParallaxImageViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         spiv.setParallaxStyles(VerticalMovingStyle()) // or other parallax styles
         for (i in 0..9) {
             val lScrollParallaxImageView = LScrollParallaxImageView(this)

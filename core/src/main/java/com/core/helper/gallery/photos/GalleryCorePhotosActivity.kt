@@ -7,6 +7,7 @@ import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -14,7 +15,6 @@ import com.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
-import com.core.utilities.LUIUtil
 import com.interfaces.CallbackList
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
@@ -27,6 +27,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
 
 @LogTag("GalleryCorePhotosActivity")
+@IsSwipeActivity(true)
 class GalleryCorePhotosActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
@@ -42,7 +43,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 //        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
 
-        LUIUtil.setTextShadow(textView = tvTitle)
+//        LUIUtil.setTextShadow(textView = tvTitle)
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         val photosSize = intent.getStringExtra(Constants.SK_PHOTOSET_SIZE)

@@ -1,6 +1,7 @@
 package com.core.helper.fbcomment
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.net.Uri
 import android.net.http.SslError
 import android.os.Build
@@ -13,6 +14,7 @@ import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
 import com.R
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -24,6 +26,7 @@ import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
 
 @LogTag("FbCommentActivity")
+@IsSwipeActivity(true)
 class FbCommentActivity : BaseFontActivity() {
     internal var isLoading: Boolean = false
     private var postUrl: String? = null
@@ -44,15 +47,15 @@ class FbCommentActivity : BaseFontActivity() {
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
         logD("adUnitId $adUnitId")
         if (adUnitId.isNullOrEmpty()) {
-            lnAdview.visibility = View.GONE
+            lnAdView.visibility = View.GONE
         } else {
             adView = AdView(this)
             adView?.let {
                 it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(it)
-                lnAdview.addView(it)
-                lnAdview.requestLayout()
+                lnAdView.addView(it)
+                lnAdView.requestLayout()
                 //int navigationHeight = DisplayUtil.getNavigationBarHeight(activity);
                 //LUIUtil.setMargins(lnAdview, 0, 0, 0, navigationHeight + navigationHeight / 3);
             }
@@ -79,6 +82,16 @@ class FbCommentActivity : BaseFontActivity() {
 
     private fun setupActionBar() {
         lActionBar.apply {
+            if (LUIUtil.isDarkTheme()) {
+                ivIconBack?.setColorFilter(Color.WHITE)
+                tvTitle?.setTextColor(Color.WHITE)
+                realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.black65))
+            } else {
+                ivIconBack?.setColorFilter(Color.BLACK)
+                tvTitle?.setTextColor(Color.BLACK)
+                realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.white85))
+            }
+
             setOnClickBack(object : LActionBar.Callback {
                 override fun onClickBack(view: View) {
                     onBackPressed()

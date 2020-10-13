@@ -15,7 +15,7 @@
         android:drawablePadding="6dp"
         android:text="@string/loitp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
 
     <androidx.legacy.widget.Space
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="@dimen/padding_medium"
             android:text="Chiều ngày 14/3, UBND TP. HCM vừa có công văn khẩn yêu cầu tạm ngừng hoạt động của các rạp chiếu phim, quán bar, game online, điểm massage, karaoke, vũ trường, sân khấu kể từ 18h ngày 15/3.
 Văn bản chỉ đạo trên được chuyển khẩn đến các Sở ngành và UBND 24 quận/huyện trên địa bàn thành phố.
 
@@ -50,7 +50,7 @@ Trước đó, chiều 14/3, UBND Quận 1 cũng đã có văn bản chỉ đạ
 Theo đó, từ 18 giờ tối nay (14/3), UBND Quận 1 đề nghị các cơ sở kinh doanh dịch vụ rạp chiếu phim, massage, karaoke, quán bar, beerclub, vũ trường hoạt động riêng lẻ và các nhà hàng khách sạn có kinh doanh loại hình dịch vụ trên tạm ngưng hoạt động.
 
 "
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
     </androidx.core.widget.NestedScrollView>

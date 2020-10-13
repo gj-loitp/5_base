@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll"
             app:title="@string/app_name"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="?attr/themeTextColor" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl"
@@ -23,12 +23,12 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="enterAlways|snap"
             app:tabGravity="fill"
-            app:tabIconTint="@color/white"
-            app:tabIndicatorColor="@color/white"
+            app:tabIconTint="@color/red"
+            app:tabIndicatorColor="@color/blue"
             app:tabIndicatorHeight="@dimen/w_3"
             app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/gray" />
+            app:tabSelectedTextColor="@color/green"
+            app:tabTextColor="@color/yellow" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -37,11 +37,13 @@
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_15"
-            android:text="@string/large_text" />
+            android:padding="@dimen/padding_medium"
+            android:text="@string/large_text"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

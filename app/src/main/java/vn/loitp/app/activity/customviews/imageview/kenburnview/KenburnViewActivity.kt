@@ -23,6 +23,11 @@ class KenburnViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = kbv)
         kbv.setTransitionListener(object : LKenBurnsView.TransitionListener {
             override fun onTransitionEnd(LTransition: LTransition?) {
@@ -33,10 +38,10 @@ class KenburnViewActivity : BaseFontActivity() {
                 //
             }
         })
-        btPause.setOnClickListener {
+        btPause.setSafeOnClickListener {
             kbv.pause()
         }
-        btResume.setOnClickListener {
+        btResume.setSafeOnClickListener {
             kbv.resume()
         }
 

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutRootViewDonate"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -17,7 +18,7 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_medium">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_55"
@@ -25,11 +26,12 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/l_donation" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 tools:text="Hello World!" />
 

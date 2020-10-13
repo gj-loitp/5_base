@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <ScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tvPolicy"
+        android:layout_above="@+id/swDarkTheme"
         android:layout_below="@+id/tvMenu"
         android:fillViewport="true">
 
@@ -20,11 +22,6 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btApi"
-                style="@style/ButtonMenu"
-                android:text="@string/api" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAds"
                 style="@style/ButtonMenu"
                 android:text="@string/ads" />
@@ -33,6 +30,11 @@
                 android:id="@+id/btAnimation"
                 style="@style/ButtonMenu"
                 android:text="@string/animation" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btApi"
+                style="@style/ButtonMenu"
+                android:text="@string/api" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCustomView"
@@ -131,19 +133,34 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/main_menu" />
+
+    <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+        android:id="@+id/swDarkTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvPolicy"
+        android:layout_centerHorizontal="true"
+        android:text="Dark theme"
+        android:textColor="?attr/themeTextColor"
+        app:bgOffColor="@color/vip1"
+        app:bgOnColor="@color/vip2"
+        app:toggleOffColor="@color/vip3"
+        app:toggleOnColor="@color/vip4" />
 
     <TextView
         android:id="@+id/tvPolicy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:foreground="?selectableItemBackground"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:text="@string/policy"
-        android:textColor="@drawable/text_black_white"
-        android:textSize="@dimen/txt_10" />
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_10"
+        tools:ignore="UnusedAttribute" />
 </RelativeLayout>

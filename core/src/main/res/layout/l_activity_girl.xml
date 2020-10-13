@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
@@ -17,12 +17,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/margin_large"
-        app:exb_backgroundColor="@color/black"
+        app:exb_backgroundColor="?attr/themeBackgroundColor"
         app:exb_backgroundCornerRadius="@dimen/round_45"
-        app:exb_elevation="@dimen/w_5"
+        app:exb_elevation="@dimen/w_3"
         app:exb_itemInactiveColor="@color/gray"
-        app:exb_item_horizontal_margin="@dimen/margin_medium"
-        app:exb_item_horizontal_padding="@dimen/padding_medium"
-        app:exb_item_vertical_margin="@dimen/margin_medium"
-        app:exb_item_vertical_padding="@dimen/padding_medium" />
+        app:exb_item_horizontal_margin="@dimen/margin_small"
+        app:exb_item_horizontal_padding="@dimen/padding_small"
+        app:exb_item_vertical_margin="@dimen/margin_small"
+        app:exb_item_vertical_padding="@dimen/padding_small" />
 </RelativeLayout>

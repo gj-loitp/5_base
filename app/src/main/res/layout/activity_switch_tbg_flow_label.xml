@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu Toggle Button Group" />
@@ -24,43 +24,50 @@
             android:id="@+id/lbSun"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="SUN" />
+            android:text="SUN"
+            android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/lbMon"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="MON" />
+            android:text="MON"
+            android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/lbTue"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="TUE" />
+            android:text="TUE"
+            android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/lbWed"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="WED" />
+            android:text="WED"
+            android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/lbThu"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="THU" />
+            android:text="THU"
+            android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/lbFri"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="FRI" />
+            android:text="FRI"
+            android:textColor="?attr/themeTextColor" />
 
         <com.nex3z.togglebuttongroup.button.LabelToggle
             android:id="@+id/lbSat"
             android:layout_width="65dp"
             android:layout_height="wrap_content"
-            android:text="SAT" />
+            android:text="SAT"
+            android:textColor="?attr/themeTextColor" />
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 

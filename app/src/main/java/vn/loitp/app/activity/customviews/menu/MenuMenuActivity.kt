@@ -19,6 +19,7 @@ import vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity
 class MenuMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btResideMenu.setOnClickListener(this)
         btDrawerBehavior.setOnClickListener(this)
     }

@@ -33,7 +33,10 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
 
+    private fun setupViews() {
         vg2.setOnScrollListener(object : LHorizontalScrollView.ScrollListener {
             override fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
                 logD("vg2 setOnScrollListener $scrollX")

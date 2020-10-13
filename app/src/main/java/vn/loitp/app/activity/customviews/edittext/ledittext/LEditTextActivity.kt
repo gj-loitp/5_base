@@ -27,6 +27,10 @@ class LEditTextActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         lEditTextId.apply {
             colorFocus = LAppResource.getColor(R.color.black)
             colorUnfocus = LAppResource.getColor(R.color.blue)

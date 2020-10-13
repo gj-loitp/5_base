@@ -6,6 +6,7 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDeviceUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_layout_rotate.*
 import vn.loitp.app.R
 
@@ -17,7 +18,7 @@ class RotateLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btRandomRotate.setOnClickListener {
+        btRandomRotate.setSafeOnClickListener {
             val angle = LDeviceUtil.getRandomNumber(360)
             rotateLayout.angle = angle
         }

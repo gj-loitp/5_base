@@ -34,6 +34,10 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         btBlurImageView.setOnClickListener(this)
         btCirleImageView.setOnClickListener(this)
         btStretchyImageView.setOnClickListener(this)

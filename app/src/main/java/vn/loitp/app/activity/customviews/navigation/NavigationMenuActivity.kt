@@ -19,6 +19,7 @@ class NavigationMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btArcNavigation.setOnClickListener(this)
     }
 

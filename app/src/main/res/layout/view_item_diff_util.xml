@@ -6,14 +6,14 @@
 	android:orientation="vertical"
 	android:padding="2dp">
 
-	<ImageView
+	<androidx.appcompat.widget.AppCompatImageView
 		android:id="@+id/image"
 		android:layout_width="match_parent"
 		android:layout_height="200dp"
 		android:scaleType="centerCrop"
 		tools:src="@mipmap/ic_launcher" />
 
-	<TextView
+	<androidx.appcompat.widget.AppCompatTextView
 		android:id="@+id/text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"

@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -23,7 +23,7 @@
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
                 app:animateProgress="false"
-                app:backgroundStrokeColor="@color/grey"
+                app:backgroundStrokeColor="@color/green"
                 app:backgroundStrokeWidth="5dp"
                 app:drawBackgroundStroke="true"
                 app:foregroundStrokeColor="@color/red"

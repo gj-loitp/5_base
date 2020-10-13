@@ -18,17 +18,33 @@ import vn.loitp.app.R
 @LogTag("SceneTransitionBasicDetailActivity")
 @IsFullScreen(false)
 class SceneTransitionBasicDetailActivity : BaseFontActivity() {
+
+    companion object {
+
+        // Extra name for the ID parameter
+        const val EXTRA_PARAM_ID = "detail:_id"
+
+        // View name of the header image. Used for activity scene transitions
+        const val VIEW_NAME_HEADER_IMAGE = "detail:header:image"
+
+        // View name of the header title. Used for activity scene transitions
+        const val VIEW_NAME_HEADER_TITLE = "detail:header:title"
+    }
+
     private var mItem: Item? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+        loadItem()
+    }
+
+    private fun setupViews() {
         mItem = Item.getItem(intent.getIntExtra(EXTRA_PARAM_ID, 0))
 
         ViewCompat.setTransitionName(imageViewHeader, VIEW_NAME_HEADER_IMAGE)
         ViewCompat.setTransitionName(textViewTitle, VIEW_NAME_HEADER_TITLE)
-
-        loadItem()
     }
 
     private fun loadItem() {
@@ -110,18 +126,6 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
 
         // If we reach here then we have not added a listener
         return false
-    }
-
-    companion object {
-
-        // Extra name for the ID parameter
-        const val EXTRA_PARAM_ID = "detail:_id"
-
-        // View name of the header image. Used for activity scene transitions
-        const val VIEW_NAME_HEADER_IMAGE = "detail:header:image"
-
-        // View name of the header title. Used for activity scene transitions
-        const val VIEW_NAME_HEADER_TITLE = "detail:header:title"
     }
 
 }

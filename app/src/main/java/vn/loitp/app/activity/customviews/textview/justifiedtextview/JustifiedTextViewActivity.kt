@@ -17,7 +17,7 @@ class JustifiedTextViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val jtv = LJustifiedTextView(applicationContext, getString(R.string.large_text))
+        val jtv = LJustifiedTextView(this, getString(R.string.large_text))
         ll.addView(jtv)
     }
 

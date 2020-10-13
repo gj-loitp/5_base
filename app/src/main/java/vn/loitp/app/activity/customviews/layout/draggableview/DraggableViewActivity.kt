@@ -6,19 +6,21 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.layout.draggablepanel.DraggableListener
-import com.views.layout.draggablepanel.DraggableView
+import kotlinx.android.synthetic.main.activity_draggable_view.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_draggable_view)
 @LogTag("DraggableViewActivity")
 @IsFullScreen(false)
 class DraggableViewActivity : BaseFontActivity() {
-    private lateinit var draggableView: DraggableView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        draggableView = findViewById(R.id.draggable_view)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         draggableView.isClickToMaximizeEnabled = true
         draggableView.isClickToMinimizeEnabled = true
         draggableView.setHorizontalAlphaEffectEnabled(true)
@@ -29,7 +31,7 @@ class DraggableViewActivity : BaseFontActivity() {
             }
 
             override fun onMinimized() {
-               logD("onMinimized")
+                logD("onMinimized")
             }
 
             override fun onClosedToLeft() {

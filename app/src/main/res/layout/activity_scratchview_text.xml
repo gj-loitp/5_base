@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.scratchview.LScratchTextView
         android:id="@+id/scratchViewTextView"
@@ -14,11 +14,11 @@
         android:textSize="@dimen/txt_30"
         android:textStyle="bold" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_5"
-        android:textColor="@color/black"
+        android:padding="@dimen/padding_medium"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_14" />
 </RelativeLayout>

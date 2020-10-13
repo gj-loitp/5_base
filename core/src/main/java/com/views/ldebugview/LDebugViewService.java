@@ -18,6 +18,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.R;
+import com.core.utilities.LAppResource;
 import com.core.utilities.LDateUtil;
 import com.core.utilities.LScreenUtil;
 import com.core.utilities.LUIUtil;
@@ -175,6 +176,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         }
         String currentTime = LDateUtil.Companion.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss");
         TextView textView = new TextView(this);
+        LUIUtil.Companion.setTextSize(textView, LAppResource.INSTANCE.getDimenValue(R.dimen.txt_medium));
 
         if (msgFromActivity.getObject() == null) {
 //            Log.d(logTag, "msgFromActivity.getObject() == null");

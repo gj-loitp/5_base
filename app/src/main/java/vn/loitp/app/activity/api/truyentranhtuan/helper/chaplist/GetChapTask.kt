@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.truyentranhtuan.helper.chaplist
 
-import android.content.Context
 import android.os.AsyncTask
 import com.core.base.BaseApplication
 import com.core.utilities.LStoreUtil
@@ -13,9 +12,9 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap
 import java.util.*
 
 //TODO convert coroutine
-class GetChapTask(private val context: Context,
-                  private val url: String,
-                  private val callback: Callback?)
+class GetChapTask(
+        private val url: String,
+        private val callback: Callback?)
     : AsyncTask<Void, Void, Boolean>() {
 
     companion object {

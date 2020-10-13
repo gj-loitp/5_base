@@ -40,9 +40,9 @@ public class GridAdapter extends ArrayAdapter<String> {
             convertView = mInflater.inflate(R.layout.item_swipe_reveal_layout_grid, parent, false);
 
             holder = new ViewHolder();
-            holder.swipeLayout = convertView.findViewById(R.id.swipe_layout);
-            holder.frontView = convertView.findViewById(R.id.front_layout);
-            holder.deleteView = convertView.findViewById(R.id.delete_layout);
+            holder.swipeLayout = convertView.findViewById(R.id.swipeLayout);
+            holder.frontView = convertView.findViewById(R.id.frontLayout);
+            holder.deleteView = convertView.findViewById(R.id.deleteLayout);
             holder.textView = convertView.findViewById(R.id.text);
 
             convertView.setTag(holder);
@@ -73,7 +73,7 @@ public class GridAdapter extends ArrayAdapter<String> {
         binderHelper.restoreStates(inState);
     }
 
-    private class ViewHolder {
+    private static class ViewHolder {
         LSwipeRevealLayout swipeLayout;
         View frontView;
         View deleteView;

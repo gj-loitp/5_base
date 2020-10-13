@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -19,21 +19,30 @@
                 android:id="@+id/btShow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Touch" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Touch"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShow2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="Touch" />
+                android:layout_alignParentEnd="true"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Touch"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShow3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:text="Touch" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Touch"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShow4"
@@ -41,18 +50,24 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:text="Touch" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Touch"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShow5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Touch" />
+                android:background="?attr/themeBackgroundColor"
+                android:text="Touch"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         style="@style/TextMenu"
         android:text="Popup Menu" />

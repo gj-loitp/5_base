@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium"
     android:fitsSystemWindows="true"
     tools:context="vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout.CollapsingToolbarLayoutActivity">
 
@@ -65,7 +66,8 @@
 
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:textColor="?attr/themeTextColor" />
                     </LinearLayout>
 
                     <com.views.button.circularimageclick.LCircularClickImageButton
@@ -90,6 +92,7 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/themeBackgroundColorMedium"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <RelativeLayout
@@ -103,7 +106,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/large_text"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/gray" />
+                android:textColor="?attr/themeTextColor" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 

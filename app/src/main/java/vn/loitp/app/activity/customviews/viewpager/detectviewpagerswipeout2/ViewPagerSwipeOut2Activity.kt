@@ -9,7 +9,7 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-import com.views.viewpager.swipeout.LSwipeOutViewPager.OnSwipeOutListener
+import com.views.viewpager.swipeout.LSwipeOutViewPager
 import kotlinx.android.synthetic.main.activity_view_pager_swipe_out_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv.Companion.newInstance
@@ -22,8 +22,12 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
-        vp.setOnSwipeOutListener(object : OnSwipeOutListener {
+        vp.setOnSwipeOutListener(object : LSwipeOutViewPager.OnSwipeOutListener {
             override fun onSwipeOutAtStart() {
                 showShort("onSwipeOutAtStart")
             }

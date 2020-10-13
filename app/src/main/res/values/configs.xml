@@ -1,9 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--<string name="webService_URL">http://dev.livestar.vn:1010/api/</string>
-    <string name="yup_URL">https://api.yuptv.vn/api/</string>
-    <string name="flickr_URL">https://api.flickr.com/services/</string>
-    <string name="wtt_URL">https://wtt-api.uiza.io/</string>
-    <string name="uiza_URL">http://dev-api.uiza.io/</string>
-    <string name="uiza_stag_URL">https://uqc-api.uiza.io/</string>-->
 </resources>

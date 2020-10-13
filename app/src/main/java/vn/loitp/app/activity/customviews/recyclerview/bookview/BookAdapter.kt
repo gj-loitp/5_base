@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
@@ -13,6 +14,7 @@ import kotlinx.android.synthetic.main.view_row_item_book.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
+@LogTag("BookAdapter")
 class BookAdapter(private val context: Context,
                   private val column: Int,
                   private val moviesList: MutableList<Movie>,

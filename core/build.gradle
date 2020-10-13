@@ -159,8 +159,9 @@ dependencies {
     api 'io.github.inflationx:viewpump:2.0.3'
     //endregion
 
-    //crop image
+    //crop image https://github.com/Yalantis/uCrop
     api 'com.yalantis:ucrop:2.2.0'
+//    api 'com.yalantis:ucrop:2.2.6'
 
     //https://github.com/nuonveyo/AutoRefreshNetworkConnection
     api 'com.veyo:autorefreshnetworkconnection:1.0.6'

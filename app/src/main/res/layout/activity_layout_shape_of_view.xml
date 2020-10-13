@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -27,19 +27,19 @@
                 app:shape_circle_borderColor="@color/black"
                 app:shape_circle_borderWidth="2dp">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/themeTextColor" />
 
             </com.github.florent37.shapeofview.shapes.CircleView>
 
@@ -55,19 +55,19 @@
                 app:shape_roundRect_topLeftRadius="10dp"
                 app:shape_roundRect_topRightRadius="10dp">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/themeTextColor" />
 
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
@@ -84,19 +84,19 @@
                 app:shape_roundRect_topLeftRadius="10dp"
                 app:shape_roundRect_topRightRadius="10dp">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/themeTextColor" />
 
             </com.github.florent37.shapeofview.shapes.RoundRectView>
 
@@ -107,19 +107,19 @@
                 android:elevation="4dp"
                 app:shape_cutCorner_bottomRightSize="20dp">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/red" />
 
             </com.github.florent37.shapeofview.shapes.CutCornerView>
 
@@ -131,19 +131,19 @@
                 app:shape_arc_height="20dp"
                 app:shape_arc_position="bottom">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/blue" />
 
             </com.github.florent37.shapeofview.shapes.ArcView>
 
@@ -155,19 +155,19 @@
                 app:shape_diagonal_angle="10"
                 app:shape_diagonal_position="bottom">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/themeTextColor" />
 
             </com.github.florent37.shapeofview.shapes.DiagonalView>
 
@@ -180,19 +180,19 @@
                 app:shape_triangle_percentLeft="0"
                 app:shape_triangle_percentRight="0">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/red" />
 
             </com.github.florent37.shapeofview.shapes.TriangleView>
 
@@ -206,19 +206,19 @@
                 app:shape_bubble_arrowWidth="10dp"
                 app:shape_bubble_borderRadius="20dp">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/themeTextColor" />
 
             </com.github.florent37.shapeofview.shapes.BubbleView>
 
@@ -228,19 +228,19 @@
                 android:layout_marginTop="@dimen/margin_50"
                 app:shape_star_noOfPoints="5">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/red" />
 
             </com.github.florent37.shapeofview.shapes.StarView>
 
@@ -250,19 +250,19 @@
                 android:layout_marginTop="@dimen/margin_50"
                 app:shape_polygon_noOfSides="9">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/themeTextColor" />
 
             </com.github.florent37.shapeofview.shapes.PolygonView>
 
@@ -276,19 +276,19 @@
                 app:shape_dottedEdgesCutCorner_bottomRightSize="8dp"
                 app:shape_edge_position="right|left">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:src="@drawable/loitp" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="?attr/themeTextColor" />
             </com.github.florent37.shapeofview.shapes.DottedEdgesCutCornerView>
 
             <com.github.florent37.shapeofview.shapes.ArcView
@@ -305,18 +305,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/app_name"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/red" />
 
             </com.github.florent37.shapeofview.shapes.ArcView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="ShapeOfView" />

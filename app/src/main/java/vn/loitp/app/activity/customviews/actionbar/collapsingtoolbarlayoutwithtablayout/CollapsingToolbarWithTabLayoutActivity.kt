@@ -33,6 +33,10 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         setCustomStatusBar(colorStatusBar = Color.TRANSPARENT, colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
         setSupportActionBar(toolbar)

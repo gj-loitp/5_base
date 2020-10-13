@@ -23,6 +23,11 @@ class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = RecyclerAdapter()
         recyclerView.adapter = adapter

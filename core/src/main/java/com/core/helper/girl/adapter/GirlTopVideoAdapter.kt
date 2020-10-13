@@ -1,22 +1,22 @@
 package com.core.helper.girl.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.R
+import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.common.Constants
 import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.view.ViewGirlTopVideo
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_girl_top_video.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_video.view.*
 
+@LogTag("GirlTopVideoAdapter")
 class GirlTopVideoAdapter : AnimationAdapter() {
 
     private val listGirlTopVideo = ArrayList<GirlTopVideo>()
@@ -45,7 +45,7 @@ class GirlTopVideoAdapter : AnimationAdapter() {
                         resError = R.color.black,
                         resPlaceHolder = R.color.black,
                         drawableRequestListener = null)
-                LUIUtil.setTextShadow(textView = viewGirlTopVideo.tvTitle, color = Color.BLACK)
+//                LUIUtil.setTextShadow(textView = viewGirlTopVideo.tvTitle, color = Color.BLACK)
                 viewGirlTopVideo.tvTitle.text = girlTopVideo.title
                 viewGirlTopVideo.roundRect.setSafeOnClickListener {
                     onClickRootView?.invoke(girlTopVideo)

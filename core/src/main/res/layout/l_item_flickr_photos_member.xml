@@ -16,19 +16,20 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        app:civ_border_color="@color/black"
+        app:civ_border_color="?attr/themeBackgroundColor"
         app:civ_border_width="@dimen/w_1"
         tools:src="@color/colorPrimary" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/bt_round_transparent"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_medium"
         android:visibility="invisible"
         tools:visibility="visible" />

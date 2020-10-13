@@ -3,14 +3,14 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.layout.dragueur.DraggableView
         android:id="@+id/dragueur"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_200">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
@@ -25,7 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
@@ -33,11 +33,12 @@
             android:src="@drawable/logo" />
     </com.views.layout.dragueur.DraggableView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_5" />
+        android:padding="@dimen/padding_medium"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
 
 </RelativeLayout>
-

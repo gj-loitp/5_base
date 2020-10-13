@@ -12,7 +12,7 @@
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_large"
+        android:textSize="@dimen/txt_medium"
         tools:background="@drawable/l_bkg_toast"
         tools:text="@string/app_name" />
 

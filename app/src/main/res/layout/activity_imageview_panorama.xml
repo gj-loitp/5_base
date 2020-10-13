@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.imageview.panorama.LPanoramaImageView
         android:id="@+id/panoramaImageView"
@@ -14,12 +14,12 @@
         app:piv_invertScrollDirection="false"
         app:piv_show_scrollbar="true" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
-        android:text="An imageView can auto scroll with device rotating: Vertical or Horizontal"
-        android:textColor="@color/white"
+        android:text="@string/an_imageview_can_auto_scroll_with_device_rotating_vertical_or_horizontal"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_medium"
         android:textStyle="bold" />
 

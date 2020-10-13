@@ -52,7 +52,7 @@ public class SwipeRevealLayoutGridActivity extends BaseFontActivity {
     }
 
     private void setupGrid() {
-        final GridView gridView = findViewById(R.id.gridview);
+        final GridView gridView = findViewById(R.id.gridView);
         adapter = new GridAdapter(this, createList(20));
         gridView.setAdapter(adapter);
     }

@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.api.truyentranhtuan.helper.comiclist
 
-import android.content.Context
 import android.os.AsyncTask
 import com.core.base.BaseApplication
 import com.core.utilities.LStoreUtil
@@ -13,9 +12,9 @@ import java.io.File
 import java.util.*
 
 //TODO convert croutine
-class GetComicTask(private val context: Context,
-                   private val link: String,
-                   private val callback: Callback?)
+class GetComicTask(
+        private val link: String,
+        private val callback: Callback?)
     : AsyncTask<Void, Void, Boolean>() {
 
     private val logTag = javaClass.simpleName

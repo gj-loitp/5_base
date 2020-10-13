@@ -27,7 +27,7 @@ class TTTAPIFavListActivity : BaseFontActivity() {
     private val favList: Unit
         @SuppressLint("SetTextI18n")
         get() {
-            GetFavListTask(mActivity = this,
+            GetFavListTask(
                     callback = object : GetFavListTask.Callback {
                         override fun onSuccess(comicList: List<Comic>) {
                             LUIUtil.printBeautyJson(o = comicList, textView = textView)

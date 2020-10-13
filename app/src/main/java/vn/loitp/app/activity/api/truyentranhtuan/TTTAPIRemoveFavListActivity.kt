@@ -45,23 +45,24 @@ class TTTAPIRemoveFavListActivity : BaseFontActivity() {
 
     private fun removeComic(comic: Comic) {
         indicatorView.smoothToShow()
-        RemoveComicFavListTask(context = this, mComic = comic, callback = object : RemoveComicFavListTask.Callback {
-            override fun onRemoveComicSuccess(mComic: Comic, comicList: List<Comic>) {
-                showShort("onRemoveComicSuccess")
-                LUIUtil.printBeautyJson(o = comicList, textView = textView)
-                indicatorView.smoothToHide()
-            }
+        RemoveComicFavListTask(mComic = comic,
+                callback = object : RemoveComicFavListTask.Callback {
+                    override fun onRemoveComicSuccess(mComic: Comic, comicList: List<Comic>) {
+                        showShort("onRemoveComicSuccess")
+                        LUIUtil.printBeautyJson(o = comicList, textView = textView)
+                        indicatorView.smoothToHide()
+                    }
 
-            override fun onComicIsNotExist(mComic: Comic, comicList: List<Comic>) {
-                showShort("onComicIsNotExist")
-                LUIUtil.printBeautyJson(o = comicList, textView = textView)
-                indicatorView.smoothToHide()
-            }
+                    override fun onComicIsNotExist(mComic: Comic, comicList: List<Comic>) {
+                        showShort("onComicIsNotExist")
+                        LUIUtil.printBeautyJson(o = comicList, textView = textView)
+                        indicatorView.smoothToHide()
+                    }
 
-            override fun onRemoveComicError() {
-                showShort("onRemoveComicError")
-                indicatorView.smoothToHide()
-            }
-        }).execute()
+                    override fun onRemoveComicError() {
+                        showShort("onRemoveComicError")
+                        indicatorView.smoothToHide()
+                    }
+                }).execute()
     }
 }

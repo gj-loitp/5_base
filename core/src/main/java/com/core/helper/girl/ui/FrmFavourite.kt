@@ -1,25 +1,28 @@
 package com.core.helper.girl.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.GirlAlbumAdapter
 import com.core.helper.girl.adapter.GirlTitleAdapter
 import com.core.helper.girl.viewmodel.GirlViewModel
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_favourite.*
 
-@LogTag("loitppFrmFavourite")
+@LogTag("FrmFavourite")
 class FrmFavourite : BaseFragment() {
 
     private var girlViewModel: GirlViewModel? = null
@@ -34,11 +37,13 @@ class FrmFavourite : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupViews()
         setupViewModels()
+    }
 
-        girlViewModel?.getListLikeGirlPage()
+    override fun onResume() {
+        super.onResume()
+        getListLikeGirlPage(isDelay = false)
     }
 
     private fun setupViews() {
@@ -51,10 +56,14 @@ class FrmFavourite : BaseFragment() {
 
         girlAlbumAdapter?.let {
             it.onClickRootListener = { girlPage, _ ->
-                //TODO
+                val intent = Intent(activity, GirlDetailActivity::class.java)
+                intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
+                //ko can dung startActivityForResult vi onResume luon load lai data
+                startActivity(intent)
+                LActivityUtil.tranIn(activity)
             }
             it.onClickLikeListener = { girlPage, _ ->
-                //TODO
+                girlViewModel?.likeGirlPage(girlPage = girlPage)
             }
         }
 
@@ -67,16 +76,15 @@ class FrmFavourite : BaseFragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = mergeAdapter
 
-        LUIUtil.setScrollChange(
-                recyclerView = recyclerView,
-                callbackRecyclerView = object : CallbackRecyclerView {
-                    override fun onTop() {
-                    }
-
-                    override fun onBottom() {
-                        //TODO
-                    }
-                })
+//        LUIUtil.setScrollChange(
+//                recyclerView = recyclerView,
+//                callbackRecyclerView = object : CallbackRecyclerView {
+//                    override fun onTop() {
+//                    }
+//
+//                    override fun onBottom() {
+//                    }
+//                })
 
         ivSearch.setOnClickListener {
             handleSearch(isAutoSearch = false)
@@ -92,34 +100,41 @@ class FrmFavourite : BaseFragment() {
     private fun setupViewModels() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
-//            vm.pageActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
-//                val isDoing = actionData.isDoing
-//                if (isDoing == true) {
-//                    indicatorView.smoothToShow()
-//                } else {
-//                    indicatorView.smoothToHide()
-//                }
-//
-//                if (isDoing == false && actionData.isSuccess == true) {
-//                    val listGirlPage = actionData.data
-//                    if (listGirlPage.isNullOrEmpty()) {
-//                        tvNoData.visibility = View.VISIBLE
-//                        recyclerView.visibility = View.GONE
-//                    } else {
-//                        totalPage = actionData.totalPages ?: 0
-//
-//                        tvNoData.visibility = View.GONE
-//                        recyclerView.visibility = View.VISIBLE
-//                        girlProgressAdapter?.let {
-//                            mergeAdapter?.removeAdapter(it)
-//                        }
-//                        girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
-//                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh
-//                                ?: false)
-//
-//                    }
-//                }
-//            })
+            vm.pageLikedActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+
+                if (isDoing == false && actionData.isSuccess == true) {
+                    val listGirlPage = actionData.data
+                    if (listGirlPage.isNullOrEmpty()) {
+                        tvNoData.visibility = View.VISIBLE
+                        girlAlbumAdapter?.setData(listGirlPage = emptyList(), isSwipeToRefresh = true)
+                    } else {
+                        tvNoData.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
+                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = true)
+                    }
+                }
+            })
+            vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+                if (isDoing == false && actionData.isSuccess == true) {
+                    val data = actionData.data
+                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(data))
+                    if (data?.isFavorites == false) {
+                        getListLikeGirlPage(isDelay = true)
+                    }
+                }
+            })
         }
     }
 
@@ -133,7 +148,11 @@ class FrmFavourite : BaseFragment() {
             currentKeyword = this.text.toString().trim()
         }
         logD("handleSearch currentKeyword $currentKeyword")
-        //TODO
+        getListLikeGirlPage(isDelay = false)
+    }
+
+    private fun getListLikeGirlPage(isDelay: Boolean) {
+        girlViewModel?.getListLikeGirlPage(currentKeyword = currentKeyword, isDelay = isDelay)
     }
 
 }

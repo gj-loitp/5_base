@@ -22,6 +22,7 @@ import vn.loitp.app.activity.function.notification.MenuNotificationActivity
 import vn.loitp.app.activity.function.recolor.RecolorActivity
 import vn.loitp.app.activity.function.sensor.SensorActivity
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity
+import vn.loitp.app.activity.function.theme.ThemeActivity
 import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1
@@ -34,8 +35,12 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         btSimpleFingerGesture.setOnClickListener(this)
-        btHashmap.setOnClickListener(this)
+        btHashMap.setOnClickListener(this)
         btDragDropSample.setOnClickListener(this)
         btToggleFullScreen.setOnClickListener(this)
         btViewDragHelper.setOnClickListener(this)
@@ -49,13 +54,14 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         btGlide.setOnClickListener(this)
         btKeyboard.setOnClickListener(this)
         btDownloadManager.setOnClickListener(this)
+        btTheme.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
             btSimpleFingerGesture -> intent = Intent(this, SimpleFingerGesturesActivity::class.java)
-            btHashmap -> intent = Intent(this, HashMapActivity::class.java)
+            btHashMap -> intent = Intent(this, HashMapActivity::class.java)
             btDragDropSample -> intent = Intent(this, DragDropSampleActivity::class.java)
             btToggleFullScreen -> intent = Intent(this, FullScreenActivity::class.java)
             btViewDragHelper -> intent = Intent(this, ViewDragHelperActivity::class.java)
@@ -69,6 +75,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
             btGlide -> intent = Intent(this, GlideActivity::class.java)
             btKeyboard -> intent = Intent(this, KeyboardActivity::class.java)
             btDownloadManager -> intent = Intent(this, DownloadManagerActivity::class.java)
+            btTheme -> intent = Intent(this, ThemeActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

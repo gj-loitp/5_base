@@ -17,7 +17,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:theme="@style/AppThemeAndroidO"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:name">
 
@@ -417,9 +416,6 @@
             android:name=".activity.customviews.layout.dragueur.DragueurActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.elasticdragdismisslayout.ElasticDragDismissLayoutActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name=".activity.customviews.layout.circularview.CircularViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
@@ -488,7 +484,8 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity"
-            android:theme="@style/Theme.Swipe.Back.NoActionBar" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:theme="@style/SwipeTheme" />
         <activity
             android:name=".activity.function.location.LocationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -562,13 +559,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.floatdraglayout.FloatDragFullScreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="sensorLandscape"
-            android:theme="@style/FullscreenTheme" />
+            android:configChanges="orientation|keyboardHidden|screenSize" />
         <!--service for FCM-->
-        <activity
-            android:name=".activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity"
-            android:theme="@style/NoTitleTheme" />
+        <activity android:name=".activity.customviews.layout.floatdraglayout.FloatDragNoTitleActivity" />
         <activity
             android:name=".activity.customviews.layout.floatdraglayout.FloatDragWindowModeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -821,8 +814,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.edittext.ledittext.LEditTextActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
-            android:theme="@style/AppThemeMaterialComponents" />
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.fragmentflow.FragmentFlowActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -1117,7 +1109,7 @@
             android:name=".activity.customviews.layout.aspectratiolayout.AspectRatioLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.recyclerview.mergeadapter.MergeAdapterActivity"
+            android:name=".activity.customviews.recyclerview.concatadapter.ConcatAdapterActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.database.room.RoomActivity"
@@ -1139,5 +1131,11 @@
             android:name=".activity.demo.maptracker.MapTrackerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <!--endregion-->
+        <activity
+            android:name=".activity.customviews.webview.LWebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.function.theme.ThemeActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

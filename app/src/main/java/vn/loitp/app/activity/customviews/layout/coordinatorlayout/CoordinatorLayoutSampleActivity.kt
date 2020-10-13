@@ -17,18 +17,6 @@ import vn.loitp.app.R
 @IsFullScreen(false)
 class CoordinatorLayoutSampleActivity : BaseFontActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        when (intent.getStringExtra(KEY)) {
-            VALUE_0 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.fl_container, fragment = FrmCoordinator0(), isAddToBackStack = false)
-            VALUE_1 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.fl_container, fragment = FrmCoordinator1(), isAddToBackStack = false)
-            VALUE_2 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.fl_container, fragment = FrmCoordinator2(), isAddToBackStack = false)
-            VALUE_3 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.fl_container, fragment = FrmCoordinator3(), isAddToBackStack = false)
-            VALUE_4 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.fl_container, fragment = FrmCoordinator4(), isAddToBackStack = false)
-        }
-    }
-
     companion object {
         const val KEY = "KEY"
         const val VALUE_0 = "Standard App bar scrolling with only Toolbar"
@@ -36,6 +24,18 @@ class CoordinatorLayoutSampleActivity : BaseFontActivity() {
         const val VALUE_2 = "App bar scrolling with Flexible space"
         const val VALUE_3 = "App bar scrolling with overlapping content in Flexible space"
         const val VALUE_4 = "Recyclerview"
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        when (intent.getStringExtra(KEY)) {
+            VALUE_0 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmCoordinator0(), isAddToBackStack = false)
+            VALUE_1 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmCoordinator1(), isAddToBackStack = false)
+            VALUE_2 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmCoordinator2(), isAddToBackStack = false)
+            VALUE_3 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmCoordinator3(), isAddToBackStack = false)
+            VALUE_4 -> LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmCoordinator4(), isAddToBackStack = false)
+        }
     }
 
 }

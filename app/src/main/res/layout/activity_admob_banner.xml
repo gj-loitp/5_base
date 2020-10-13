@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/lnAdview"
+        android:layout_above="@+id/lnAdView"
         android:fillViewport="true">
 
         <LinearLayout
@@ -22,14 +23,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
-                android:textColor="@color/black"
-                android:textSize="@dimen/txt_medium" />
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                tools:text="@string/app_name" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <LinearLayout
-        android:id="@+id/lnAdview"
+        android:id="@+id/lnAdView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -44,4 +46,3 @@
             ads:adUnitId="@string/str_b" />
     </LinearLayout>
 </RelativeLayout>
-

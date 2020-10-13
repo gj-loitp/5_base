@@ -4,36 +4,41 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/whiteSmoke"
+        android:background="?attr/themeBackgroundColor"
         android:gravity="center"
         android:orientation="horizontal">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_weight="1"
             android:text="LinearLayoutManager vertical"
+            android:textColor="?attr/themeTextColor"
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btSetting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Setting" />
+            android:background="@color/red"
+            android:text="Setting"
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAddMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add more" />
+            android:background="@color/green"
+            android:text="Add more"
+            android:textColor="?attr/themeTextColor" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -48,6 +53,6 @@
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerInParent="true"
-        app:indicatorColor="@color/colorPrimary"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="PacmanIndicator" />
 </RelativeLayout>

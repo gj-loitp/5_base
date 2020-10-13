@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cyan">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <com.google.android.exoplayer2.ui.PlayerView
             android:id="@+id/playerView"
@@ -29,12 +31,12 @@
             android:layout_height="match_parent"
             android:layout_below="@id/controls">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
                 android:text="@string/large_text"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="?attr/themeTextColor" />
         </androidx.core.widget.NestedScrollView>
     </RelativeLayout>
 </RelativeLayout>

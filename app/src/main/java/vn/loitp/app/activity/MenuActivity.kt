@@ -13,6 +13,7 @@ import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.ads.MenuAdsActivity
@@ -44,8 +45,21 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
-        LUIUtil.setTextShadow(tvPolicy)
-        tvPolicy.setOnClickListener { LSocialUtil.openUrlInBrowser(context = this, url = Constants.URL_POLICY) }
+        tvPolicy.setSafeOnClickListener {
+            LSocialUtil.openUrlInBrowser(context = this, url = Constants.URL_POLICY)
+        }
+
+        swDarkTheme.isChecked = LUIUtil.isDarkTheme()
+        swDarkTheme.setOnCheckedChangeListener { _, isDarkTheme ->
+            if (isDarkTheme) {
+                LUIUtil.setDarkTheme(isDarkTheme = true)
+            } else {
+                LUIUtil.setDarkTheme(isDarkTheme = false)
+            }
+            finish()
+            startActivity(Intent(this, MenuActivity::class.java))
+            overridePendingTransition(0, 0)
+        }
 
         btApi.setOnClickListener(this)
         btAnimation.setOnClickListener(this)

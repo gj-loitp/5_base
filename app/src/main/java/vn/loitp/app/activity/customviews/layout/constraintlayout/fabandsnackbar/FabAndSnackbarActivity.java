@@ -17,15 +17,15 @@ import vn.loitp.app.R;
 @LogTag("FabAndSnackbarActivity")
 @IsFullScreen(false)
 public class FabAndSnackbarActivity extends BaseFontActivity {
-    private CoordinatorLayout mCoordinatorLayout;
+    private CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mCoordinatorLayout = findViewById(R.id.coordinatorLayout);
+        coordinatorLayout = findViewById(R.id.coordinatorLayout);
 
-        Button mShowSnackbarButton = findViewById(R.id.showSnackbarButton);
-        mShowSnackbarButton.setOnClickListener(view -> Snackbar.make(mCoordinatorLayout,
+        Button showSnackbarButton = findViewById(R.id.showSnackbarButton);
+        showSnackbarButton.setOnClickListener(view -> Snackbar.make(coordinatorLayout,
                 "This is a simple Snackbar", Snackbar.LENGTH_LONG)
                 .setAction("CLOSE", v -> {
                     //

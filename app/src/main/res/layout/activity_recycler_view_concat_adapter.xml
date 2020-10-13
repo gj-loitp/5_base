@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/hsv" />
+
+    <HorizontalScrollView
+        android:id="@+id/hsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/yellow"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/padding_medium"
+            android:paddingEnd="@dimen/padding_medium">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btClearAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/red"
+                android:foreground="?selectableItemBackground"
+                android:text="Clear All"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="UnusedAttribute" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGenAboutMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="@color/blue"
+                android:foreground="?selectableItemBackground"
+                android:text="Gen About Me"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="UnusedAttribute" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGenListUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="@color/gray"
+                android:foreground="?selectableItemBackground"
+                android:text="Gen List User"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="UnusedAttribute" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGenBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="@color/pineGreen"
+                android:foreground="?selectableItemBackground"
+                android:text="Gen Banner"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="UnusedAttribute" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAddBannerAt0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="@color/lightGreen"
+                android:foreground="?selectableItemBackground"
+                android:text="Add Banner at 0"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="UnusedAttribute" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAddAboutMeAtLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="@color/deepPink"
+                android:foreground="?selectableItemBackground"
+                android:text="Add About Me at last"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="UnusedAttribute" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRemoveAdapterListUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="@color/cyan"
+                android:foreground="?selectableItemBackground"
+                android:text="Remove adapter list user"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="UnusedAttribute" />
+        </LinearLayout>
+    </HorizontalScrollView>
+</RelativeLayout>

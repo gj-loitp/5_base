@@ -9,12 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_medium"
             android:text="@string/large_text"
+            android:textColor="?attr/themeTextColor"
             android:visibility="invisible"
             tools:visibility="visible" />
     </androidx.core.widget.NestedScrollView>
@@ -25,6 +26,6 @@
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerInParent="true"
-        app:indicatorColor="@color/colorPrimary"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="PacmanIndicator" />
 </RelativeLayout>

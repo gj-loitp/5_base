@@ -52,8 +52,14 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val color = LAppResource.getColor(R.color.colorPrimary)
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+
+            if (LUIUtil.isDarkTheme()) {
+                val color = LAppResource.getColor(R.color.white)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+            } else {
+                val color = LAppResource.getColor(R.color.colorPrimary)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+            }
 
             LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
 
@@ -80,9 +86,15 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val colorPrimary = LAppResource.getColor(R.color.colorPrimary)
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
+            if (LUIUtil.isDarkTheme()) {
+                val colorPrimary = LAppResource.getColor(R.color.white)
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
+            } else {
+                val colorPrimary = LAppResource.getColor(R.color.colorPrimary)
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorPrimary)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
+            }
 
             LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
             LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
@@ -116,10 +128,17 @@ class LDialogUtil {
             }
             val dialog = builder.create()
             dialog.show()
-            val color = LAppResource.getColor(R.color.colorPrimary)
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
-            dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
+            if (LUIUtil.isDarkTheme()) {
+                val color = LAppResource.getColor(R.color.white)
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+                dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
+            } else {
+                val color = LAppResource.getColor(R.color.colorPrimary)
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color)
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
+                dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
+            }
 
             LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
             LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))

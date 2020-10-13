@@ -1,6 +1,5 @@
 package com.core.helper.girl.ui
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -14,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -32,13 +33,14 @@ import kotlinx.android.synthetic.main.l_activity_girl_detail.*
 
 @LogTag("GirlDetailActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
+@IsSwipeActivity(true)
 class GirlDetailActivity : BaseFontActivity() {
 
     private var girlPage: GirlPage? = null
     private var girlViewModel: GirlViewModel? = null
     private var mergeAdapter: ConcatAdapter? = null
     private var girlDetailAdapter: GirlDetailAdapter? = null
-    private var clickLikeCount = 0
 
     companion object {
         const val KEY_GIRL_PAGE = "KEY_GIRL_PAGE"
@@ -132,7 +134,6 @@ class GirlDetailActivity : BaseFontActivity() {
 
         btLike.setSafeOnClickListener {
             girlPage?.let {
-                clickLikeCount++
                 girlViewModel?.likeGirlPage(girlPage = it)
             }
         }
@@ -190,14 +191,5 @@ class GirlDetailActivity : BaseFontActivity() {
                 }
             })
         }
-    }
-
-    override fun onBackPressed() {
-        if (clickLikeCount > 0) {
-            val returnIntent = Intent()
-            returnIntent.putExtra(FrmHome.RESULT_DETAIL, girlPage)
-            setResult(Activity.RESULT_OK, returnIntent)
-        }
-        super.onBackPressed()
     }
 }

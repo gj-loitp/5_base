@@ -30,6 +30,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         btCrop.setOnClickListener(this)
         btTimePicker.setOnClickListener(this)
         btNumbePicker.setOnClickListener(this)
+        btTedImagePicker.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {

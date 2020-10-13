@@ -21,7 +21,7 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:text="Android Studio"
-        android:textColor="@color/black"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
         android:text="www.muathu@gmail.com"
-        android:textColor="@color/black"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
 
 </LinearLayout>

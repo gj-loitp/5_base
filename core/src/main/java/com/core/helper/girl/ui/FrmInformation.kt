@@ -72,7 +72,6 @@ class FrmInformation : BaseFragment(), View.OnClickListener {
                 btAdHelper -> {
                     val intent = Intent(it, AdHelperActivity::class.java)
                     intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
-                    intent.putExtra(Constants.IS_DARK_THEME, true)
                     startActivity(intent)
                     LActivityUtil.tranIn(it)
                 }

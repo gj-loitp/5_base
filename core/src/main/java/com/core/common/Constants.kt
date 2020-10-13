@@ -45,6 +45,7 @@ class Constants {
         const val TEST_10 = "462FEA8E9EF7A8BBC6E2D24CC4945511"
         const val TEST_11 = "D1B593A99FF7E14DF4E2741AFF95645D"
         const val TEST_12 = "0ECE5CECE9A16F33BCAF16AB4DAB3B1D"
+        const val TEST_13 = "1E306613357028F7C4725F9E8C2F1CE2"
 
         const val LOITP = "LoitpDebug"
 
@@ -66,6 +67,7 @@ class Constants {
         const val PREFIXS_SHORT = "https:"
         const val FCM_TOPIC = "/topics/loitp"
         const val URL_POLICY = "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/"
+        const val URL_GIRL = "https://www.facebook.com/freuss1/posts/3399843230131155"
 
         //region flickr
         const val SK_PHOTOSET_ID = "SK_PHOTOSET_ID"
@@ -162,7 +164,6 @@ class Constants {
         //end region
 
         const val AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE"
-        const val IS_DARK_THEME = "IS_DARK_THEME"
         const val AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER"
 
         const val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"

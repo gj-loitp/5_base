@@ -22,6 +22,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -98,6 +99,7 @@ class LUIUtil {
                     .addTestDevice(Constants.TEST_10)
                     .addTestDevice(Constants.TEST_11)
                     .addTestDevice(Constants.TEST_12)
+                    .addTestDevice(Constants.TEST_13)
                     .build())
             return adView
         }
@@ -120,6 +122,7 @@ class LUIUtil {
                     .addTestDevice(Constants.TEST_10)
                     .addTestDevice(Constants.TEST_11)
                     .addTestDevice(Constants.TEST_12)
+                    .addTestDevice(Constants.TEST_13)
                     .build()
             interstitial.loadAd(adRequest)
             return interstitial
@@ -295,7 +298,11 @@ class LUIUtil {
             swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
         }
 
-        fun setTextShadow(textView: TextView?, color: Int = Color.BLACK) {
+        fun setTextShadow(textView: TextView?, color: Int = if (isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }) {
             textView?.setShadowLayer(1f, // radius
                     1f, // dx
                     1f, // dy
@@ -768,6 +775,18 @@ class LUIUtil {
             val bottom = lastChild.bottom + paddingBottom
             val delta = bottom - (scrollY + height)
             smoothScrollBy(0, delta)
+        }
+
+        fun isDarkTheme(): Boolean {
+            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+        }
+
+        fun setDarkTheme(isDarkTheme: Boolean) {
+            if (isDarkTheme) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
         }
     }
 }

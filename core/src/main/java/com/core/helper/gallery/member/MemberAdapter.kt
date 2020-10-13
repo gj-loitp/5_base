@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.LogTag
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -21,8 +22,15 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
 import java.util.*
 
+@LogTag("MemberAdapter")
 class MemberAdapter(private val context: Context, private val callback: Callback?)
     : AnimationAdapter() {
+
+    val color = if (LUIUtil.isDarkTheme()) {
+        R.color.dark900
+    } else {
+        R.color.whiteSmoke
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
@@ -48,8 +56,8 @@ class MemberAdapter(private val context: Context, private val callback: Callback
             LImageUtil.load(context = itemView.circleImageView.context,
                     url = photo.urlO,
                     imageView = itemView.circleImageView,
-                    resPlaceHolder = R.color.black,
-                    resError = R.color.black,
+                    resPlaceHolder = color,
+                    resError = color,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false
@@ -67,7 +75,7 @@ class MemberAdapter(private val context: Context, private val callback: Callback
             } else {
                 itemView.tvTitle.visibility = View.VISIBLE
                 itemView.tvTitle.text = photo.title
-                LUIUtil.setTextShadow(textView = itemView.tvTitle)
+//                LUIUtil.setTextShadow(textView = itemView.tvTitle)
             }
             itemView.fl.setOnClickListener {
                 callback?.onClick(photo = photo, pos = bindingAdapterPosition, imageView = itemView.circleImageView, textView = itemView.tvTitle)

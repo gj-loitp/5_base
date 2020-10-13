@@ -6,17 +6,17 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.Window
+import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
-import com.annotation.IsFullScreen
-import com.annotation.LayoutId
-import com.annotation.LogTag
+import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
+import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
 import com.interfaces.Callback1
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
@@ -38,8 +38,8 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var isIdleTime = false
 
     private var interstitialAd: InterstitialAd? = null
-    protected var isShowAdWhenExit = false
-    protected var isShowAnimWhenExit = true
+    private var isShowAdWhenExit = false
+    private var isShowAnimWhenExit = true
 
     protected fun setTransparentStatusNavigationBar() {
         //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -53,11 +53,41 @@ abstract class BaseActivity : AppCompatActivity() {
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
 
-        val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java) ?: false
-        if (isFullScreen == true) {
+        val isDarkTheme = LUIUtil.isDarkTheme()
+//        logD("onCreate isDarkTheme $isDarkTheme")
+        val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value
+                ?: false
+//        logD("onCreate isSwipeActivity $isSwipeActivity")
+        if (isSwipeActivity) {
+            if (isDarkTheme) {
+                setTheme(R.style.DarkSwipeTheme)
+//                logD("onCreate setTheme DarkSwipeTheme")
+            } else {
+                setTheme(R.style.LightSwipeTheme)
+//                logD("onCreate setTheme LightSwipeTheme")
+            }
+        } else {
+            if (isDarkTheme) {
+                setTheme(R.style.DarkTheme)
+//                logD("onCreate setTheme DarkTheme")
+            } else {
+                setTheme(R.style.LightTheme)
+//                logD("onCreate setTheme LightTheme")
+            }
+        }
+
+        val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
+        if (isFullScreen) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
-            window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-            //LActivityUtil.hideSystemUI(getWindow().getDecorView());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                window.insetsController?.hide(WindowInsets.Type.statusBars())
+            } else {
+                @Suppress("DEPRECATION")
+                window.setFlags(
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN
+                )
+            }
         }
         setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
@@ -88,9 +118,39 @@ abstract class BaseActivity : AppCompatActivity() {
         //autoanimation
         //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
+        isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
             interstitialAd = LUIUtil.createAdFull(this)
+            interstitialAd?.adListener = object : AdListener() {
+                override fun onAdLoaded() {
+                    // Code to be executed when an ad finishes loading.
+//                    logD("onAdLoaded interstitialAd")
+                }
+
+                override fun onAdFailedToLoad(errorCode: Int) {
+                    // Code to be executed when an ad request fails.
+//                    logD("onAdFailedToLoad interstitialAd errorCode $errorCode")
+                }
+
+                override fun onAdOpened() {
+                    // Code to be executed when an ad opens an overlay that
+                    // covers the screen.
+//                    logD("onAdOpened interstitialAd")
+                }
+
+                override fun onAdLeftApplication() {
+                    // Code to be executed when the user has left the app.
+//                    logD("onAdLeftApplication interstitialAd")
+                }
+
+                override fun onAdClosed() {
+                    // Code to be executed when when the user is about to return
+                    // to the app after tapping on an ad.
+//                    logD("onAdClosed interstitialAd")
+                }
+            }
         }
+        isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
     }
 
     override fun onUserInteraction() {
@@ -200,8 +260,15 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onMessageEvent(event: EventBusData.ThemeEvent) {
+        onThemeChange(event = event)
+    }
+
+    open fun onThemeChange(event: EventBusData.ThemeEvent) {}
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
-        onNetworkChange(event)
+        onNetworkChange(event = event)
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}

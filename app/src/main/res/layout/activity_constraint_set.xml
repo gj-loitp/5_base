@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -27,7 +27,7 @@
             tools:layout_constraintBottom_creator="1"
             tools:layout_constraintTop_creator="1" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,12 +35,13 @@
             android:layout_marginTop="16dp"
             android:singleLine="true"
             android:text="@string/app_name"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_50"
             app:layout_constraintLeft_toRightOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_large_text"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLargeText"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -48,6 +49,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:text="@string/large_text"
+            android:textColor="?attr/themeTextColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"

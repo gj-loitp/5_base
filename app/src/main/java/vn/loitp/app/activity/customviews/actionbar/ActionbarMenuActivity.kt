@@ -24,6 +24,10 @@ class ActionbarMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         bt_collapsingtoolbarlayout.setOnClickListener(this)
         bt_l_actionbar.setOnClickListener(this)
         bt_collapsingtoolbarwithtablayout.setOnClickListener(this)

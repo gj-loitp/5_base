@@ -61,16 +61,16 @@ android {
             debuggable false
             minifyEnabled true
 
-//            debuggable false
+//            debuggable true
 //            minifyEnabled true
 
-            //useProguard true //used android.enableR8=true in gradle.properties
+            useProguard true //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
             minifyEnabled false
-            //useProguard false //used android.enableR8=true in gradle.properties
+            useProguard false //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

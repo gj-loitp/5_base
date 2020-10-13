@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@color/whiteSmoke">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@+id/ignored_view"
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView"
             android:layout_width="60dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:contentDescription="@string/app_name"
-            android:scaleType="fitCenter"
             android:src="@drawable/l_gesture" />
 
         <TextView
@@ -27,28 +26,28 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:clickable="false"
-            android:padding="5dp"
+            android:padding="@dimen/padding_medium"
             android:text=" 1. Swipe right/left to open menu"
-            android:textColor="#ffacacac"
-            android:textSize="17sp" />
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_open_menu"
+            android:id="@+id/btOpenMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/l_bt_color_primary"
-            android:padding="12dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="?attr/themeBackgroundColor"
+            android:padding="@dimen/padding_medium"
             android:text="2. Click me to open menu"
-            android:textColor="@android:color/white"
-            android:textSize="17sp" />
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/ignored_view"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"

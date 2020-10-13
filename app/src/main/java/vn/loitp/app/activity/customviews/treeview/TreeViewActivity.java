@@ -27,7 +27,7 @@ public class TreeViewActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LTreeView LTreeView = findViewById(R.id.treeview);
+        LTreeView LTreeView = findViewById(R.id.treeView);
 
         BaseTreeAdapter adapter = new BaseTreeAdapter<ViewHolder>(this, R.layout.node) {
             @NonNull

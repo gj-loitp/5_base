@@ -2,7 +2,6 @@ package com.core.helper.gallery.member
 
 import android.Manifest
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -12,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -37,6 +37,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
 @LogTag("GalleryMemberActivity")
+@IsSwipeActivity(true)
 class GalleryMemberActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
@@ -57,8 +58,10 @@ class GalleryMemberActivity : BaseFontActivity() {
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()
 
-        val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary)
-        rootView.setBackgroundResource(resBkgRootView)
+        val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
+        if (resBkgRootView != Constants.NOT_FOUND) {
+            rootView.setBackgroundResource(resBkgRootView)
+        }
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 //        logD("adUnitId $adUnitId")
@@ -76,7 +79,7 @@ class GalleryMemberActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setTextShadow(textView = tvTitle, color = Color.BLACK)
+//        LUIUtil.setTextShadow(textView = tvTitle, color = Color.BLACK)
 
         photosetID = Constants.FLICKR_ID_MEMBERS
         if (photosetID?.isEmpty() == true) {

@@ -3,20 +3,20 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/padding_15">
+        android:padding="@dimen/padding_medium">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/button1"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
@@ -30,71 +30,71 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="?attr/themeBackgroundColor"
             android:orientation="vertical"
-            android:padding="@dimen/padding_15">
+            android:padding="@dimen/padding_medium">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="VERTICAL POSITION"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/red" />
 
-            <Spinner
-                android:id="@+id/spinner_vertical"
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerVertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:padding="8dp" />
+                android:gravity="end"
+                android:padding="@dimen/padding_medium" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HORIZONTAL POSITION"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/red" />
 
-            <Spinner
-                android:id="@+id/spinner_horizontal"
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:padding="8dp" />
+                android:gravity="end"
+                android:padding="@dimen/padding_medium" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="WIDTH"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/red" />
 
-            <Spinner
-                android:id="@+id/spinner_width"
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerWidth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:padding="8dp" />
+                android:gravity="end"
+                android:padding="@dimen/padding_medium" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HEIGHT"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/red" />
 
-            <Spinner
-                android:id="@+id/spinner_height"
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinnerHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:padding="8dp" />
+                android:gravity="end"
+                android:padding="@dimen/padding_medium" />
 
-            <CheckBox
-                android:id="@+id/checkbox_fit_in_screen"
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkboxFitInScreen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:checked="true"
-                android:text="Fit In Screen" />
+                android:text="Fit In Screen"
+                android:textColor="?attr/themeTextColor" />
 
         </LinearLayout>
 
     </LinearLayout>
 </RelativeLayout>
-

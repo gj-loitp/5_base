@@ -2,11 +2,13 @@ package com.core.helper.girl.ui
 
 import alirezat775.lib.downloader.core.OnDownloadListener
 import android.os.Bundle
+import android.os.Environment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.GirlPageDetail
@@ -19,6 +21,7 @@ import java.io.File
 
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class GirlSlideActivity : BaseFontActivity() {
 
     companion object {
@@ -51,7 +54,8 @@ class GirlSlideActivity : BaseFontActivity() {
         viewPager.currentItem = currentPosition
 
         btDownload.setOnClickListener {
-            val src = listData[currentPosition].src
+            val pos = viewPager.currentItem
+            val src = listData[pos].src
             src?.let {
                 save(url = it)
             }
@@ -85,10 +89,8 @@ class GirlSlideActivity : BaseFontActivity() {
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(
-                folderName = LAppResource.getString(R.string.app_name),
+                folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
                 url = url,
-                fileName = "Img" + System.currentTimeMillis(),
-                fileNameExtension = "png",
                 onDownloadListener = object : OnDownloadListener {
                     override fun onCancel() {
                     }

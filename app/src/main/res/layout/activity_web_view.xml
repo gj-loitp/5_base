@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium"
+    android:orientation="vertical">
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding_medium">
+
+            <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+                android:id="@+id/swEnableCopyContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Copy content"
+                android:textColor="?attr/themeTextColor"
+                app:bgOffColor="@color/vip1"
+                app:bgOnColor="@color/vip2"
+                app:toggleOffColor="@color/vip3"
+                app:toggleOnColor="@color/vip4" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Url"
+                android:textColor="?attr/themeTextColor" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Data"
+                android:textColor="?attr/themeTextColor" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadDataCustom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Data Custom"
+                android:textColor="?attr/themeTextColor" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btLoadDataFromAsset"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColor"
+                android:text="Load Url From Asset"
+                android:textColor="?attr/themeTextColor" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ProgressBar
+        android:id="@+id/pb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="false"
+        android:progressTint="?attr/themeTextColor" />
+
+    <com.views.LWebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+

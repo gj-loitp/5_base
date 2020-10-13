@@ -2,7 +2,6 @@ package com.core.helper.girl.ui
 
 import android.Manifest
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -61,8 +60,8 @@ class GirlSplashActivity : BaseFontActivity() {
             urlCoverSplashScreen = Constants.URL_IMG
         }
         LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
-        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.BLACK)
-        LUIUtil.setTextShadow(textView = tvName, color = Color.BLACK)
+//        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.BLACK)
+//        LUIUtil.setTextShadow(textView = tvName, color = Color.BLACK)
     }
 
     private fun goToHome() {

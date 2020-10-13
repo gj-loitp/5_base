@@ -4,14 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     tools:context="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:id="@+id/rootView"
@@ -25,11 +28,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:background="?attr/themeBackgroundColor"
             android:text="Button"
+            android:textColor="?attr/themeTextColor"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="134dp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,12 +42,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
             android:text="TextView"
+            android:textColor="?attr/themeTextColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.135"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,16 +76,20 @@
                 android:id="@+id/bt0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="?attr/themeBackgroundColor"
                 android:src="@mipmap/ic_launcher"
                 android:text="0"
+                android:textColor="?attr/themeTextColor"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="?attr/themeBackgroundColor"
                 android:src="@mipmap/ic_launcher"
                 android:text="1"
+                android:textColor="?attr/themeTextColor"
                 app:layout_constraintLeft_toRightOf="@id/bt0"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -87,8 +97,10 @@
                 android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="?attr/themeBackgroundColor"
                 android:src="@mipmap/ic_launcher"
                 android:text="2"
+                android:textColor="?attr/themeTextColor"
                 app:layout_constraintLeft_toRightOf="@id/bt1"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -96,8 +108,10 @@
                 android:id="@+id/bt3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="?attr/themeBackgroundColor"
                 android:src="@mipmap/ic_launcher"
                 android:text="3"
+                android:textColor="?attr/themeTextColor"
                 app:layout_constraintLeft_toRightOf="@id/bt2"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,8 +119,10 @@
                 android:id="@+id/bt4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="?attr/themeBackgroundColor"
                 android:src="@mipmap/ic_launcher"
                 android:text="4"
+                android:textColor="?attr/themeTextColor"
                 app:layout_constraintLeft_toRightOf="@id/bt3"
                 app:layout_constraintTop_toTopOf="parent" />
 

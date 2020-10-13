@@ -27,6 +27,10 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         gridView.onItemClickListener = this
         val gridAdapter = GridAdapter()
         gridView.adapter = gridAdapter

@@ -9,7 +9,7 @@
     android:layout_marginTop="@dimen/margin_medium"
     android:layout_marginEnd="@dimen/margin_medium"
     android:elevation="@dimen/w_3"
-    app:shape_roundRect_borderColor="@color/gray"
+    app:shape_roundRect_borderColor="?attr/themeTextColor"
     app:shape_roundRect_borderWidth="@dimen/w_3"
     app:shape_roundRect_bottomLeftRadius="0dp"
     app:shape_roundRect_bottomRightRadius="@dimen/round_45"
@@ -17,17 +17,17 @@
     app:shape_roundRect_topRightRadius="0dp"
     tools:ignore="UnusedAttribute">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
+        android:background="?attr/themeBackgroundColor"
         android:gravity="center"
         android:paddingStart="@dimen/padding_50"
         android:paddingTop="@dimen/padding_medium"
         android:paddingEnd="@dimen/padding_50"
         android:paddingBottom="@dimen/padding_medium"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_large"
         android:textStyle="bold"
         tools:text="@string/app_name" />

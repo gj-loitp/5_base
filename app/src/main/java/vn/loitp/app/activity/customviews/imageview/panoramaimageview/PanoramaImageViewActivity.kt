@@ -20,6 +20,11 @@ class PanoramaImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         gyroscopeObserver = GyroscopeObserver()
 // Set the maximum radian the device should rotate to show image's bounds.
 // It should be set between 0 and π/2.

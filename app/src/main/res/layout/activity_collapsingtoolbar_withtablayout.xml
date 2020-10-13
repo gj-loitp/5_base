@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:fitsSystemWindows="true">
 
     <com.views.LAppBarLayout
@@ -63,7 +63,8 @@
 
                         <EditText
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:textColor="?attr/themeTextColor" />
                     </LinearLayout>
 
                     <com.views.button.circularimageclick.LCircularClickImageButton
@@ -89,7 +90,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             app:layout_anchor="@id/appBar"
-            app:layout_anchorGravity="bottom" />
+            app:layout_anchorGravity="bottom"
+            app:tabIndicatorColor="@color/red"
+            app:tabSelectedTextColor="@color/green"
+            app:tabTextColor="@color/red" />
     </com.views.LAppBarLayout>
 
     <RelativeLayout

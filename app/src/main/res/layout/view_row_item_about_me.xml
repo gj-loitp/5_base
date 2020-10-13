@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
-        android:textColor="@color/black"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/loitp" />
 
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
-        android:textColor="@color/gray"
+        android:textColor="@color/red"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/loitp" />
 </LinearLayout>

@@ -19,19 +19,23 @@ import vn.loitp.app.R;
 @LogTag("DragueurActivity")
 @IsFullScreen(false)
 public class DragueurActivity extends BaseFontActivity {
-    private TextView tv;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DraggableView draggableView = findViewById(R.id.dragueur);
-        tv = findViewById(R.id.textView);
-        draggableView.setRotationEnabled(true);
+        setupViews();
+    }
+
+    private void setupViews() {
+        DraggableView dragueur = findViewById(R.id.dragueur);
+        textView = findViewById(R.id.textView);
+        dragueur.setRotationEnabled(true);
         //draggableView.setAnimating(true);
-        draggableView.setRotationValue(10f);
+        dragueur.setRotationValue(10f);
         //draggableView.setDraggable(true);
-        draggableView.setDragListener(new DraggableView.DraggableViewListener() {
+        dragueur.setDragListener(new DraggableView.DraggableViewListener() {
             @Override
             public void onDrag(DraggableView draggableView, float percentX, float percentY) {
                 setText("draggableView: " + percentX + " - " + percentY);
@@ -59,6 +63,6 @@ public class DragueurActivity extends BaseFontActivity {
 
     @SuppressLint("SetTextI18n")
     private void setText(String s) {
-        tv.setText("Dragueur can move any view with one finger ;)\n" + s);
+        textView.setText("Dragueur can move any view with one finger ;)\n" + s);
     }
 }

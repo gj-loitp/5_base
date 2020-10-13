@@ -18,9 +18,14 @@ import vn.loitp.app.R
 @LogTag("Animation1Activity")
 @IsFullScreen(false)
 class Animation1Activity : BaseFontActivity(), OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         btNoAnim.setOnClickListener(this)
         btSystemDefault.setOnClickListener(this)
         btSlideLeft.setOnClickListener(this)

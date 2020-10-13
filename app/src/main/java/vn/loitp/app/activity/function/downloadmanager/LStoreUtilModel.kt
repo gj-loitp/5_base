@@ -5,6 +5,7 @@ import com.core.base.BaseViewModel
 import com.core.utilities.LStoreUtil
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
+import com.service.model.ErrorResponse
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -15,13 +16,14 @@ import java.io.File
  * www.muathu@gmail.com
  */
 
-@LogTag("loitppLStoreUtilModel")
+@LogTag("LStoreUtilModel")
 class LStoreUtilModel : BaseViewModel() {
 
     val writeToFileActionLiveData: ActionLiveData<ActionData<File>> = ActionLiveData()
     val readTxtFromFolderActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
     val readTxtFromRawFolderActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
     val readTxtFromAssetActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
+    val unzipActionLiveData: ActionLiveData<ActionData<String>> = ActionLiveData()
 
     fun writeToFile(folder: String, fileName: String, body: String) {
         writeToFileActionLiveData.set(ActionData(isDoing = true))
@@ -111,5 +113,40 @@ class LStoreUtilModel : BaseViewModel() {
             )
         }
 
+    }
+
+    fun unzip(file: File) {
+        unzipActionLiveData.set(ActionData(isDoing = true))
+        ioScope.launch {
+            logD(">>>unzip file ${file.path}")
+            if (file.exists()) {
+                val destinationFileUnzip = LStoreUtil.unzip(file = file)
+                if (destinationFileUnzip == null) {
+                    unzipActionLiveData.post(
+                            ActionData(
+                                    isDoing = false,
+                                    isSuccess = false,
+                                    errorResponse = ErrorResponse("Unzip failed")
+                            )
+                    )
+                } else {
+                    unzipActionLiveData.post(
+                            ActionData(
+                                    isDoing = false,
+                                    isSuccess = true,
+                                    data = destinationFileUnzip
+                            )
+                    )
+                }
+            } else {
+                unzipActionLiveData.post(
+                        ActionData(
+                                isDoing = false,
+                                isSuccess = false,
+                                errorResponse = ErrorResponse("File is not exist")
+                        )
+                )
+            }
+        }
     }
 }

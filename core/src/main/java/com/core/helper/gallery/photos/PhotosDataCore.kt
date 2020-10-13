@@ -7,7 +7,7 @@ import java.util.*
  * Created by www.muathu@gmail.com on 10/8/2017.
  */
 class PhotosDataCore private constructor() {
-    private val TAG = PhotosDataCore::class.java.simpleName
+    private val logTag = PhotosDataCore::class.java.simpleName
     private var photoList = ArrayList<Photo>()
 
     companion object {

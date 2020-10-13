@@ -5,20 +5,20 @@
     android:layout_height="match_parent"
     android:background="@color/grey">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/black65"
-        android:padding="@dimen/padding_5"
-        android:textColor="@color/white"
+        android:background="?attr/themeBackgroundColor50"
+        android:padding="@dimen/padding_medium"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_8" />
 </RelativeLayout>

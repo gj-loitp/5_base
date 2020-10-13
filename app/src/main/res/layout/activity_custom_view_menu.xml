@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -164,6 +164,11 @@
                 android:id="@+id/btViewPager"
                 style="@style/ButtonMenu"
                 android:text="@string/view_pager" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btWebView"
+                style="@style/ButtonMenu"
+                android:text="Web View" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWwlMusic"

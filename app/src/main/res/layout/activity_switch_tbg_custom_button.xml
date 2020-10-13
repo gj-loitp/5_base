@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu Toggle Button Group" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
-        android:text="SingleSelectToggleGroup with RadioButton" />
+        android:text="SingleSelectToggleGroup with RadioButton"
+        android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
         android:id="@+id/groupSingleRadioButton"
@@ -56,11 +57,12 @@
 
     </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
-        android:text="MultiSelectToggleGroup with CustomCompoundButton extending CompoundButton" />
+        android:text="MultiSelectToggleGroup with CustomCompoundButton extending CompoundButton"
+        android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
         android:id="@+id/groupMultiCustomCompoundButton"
@@ -73,27 +75,31 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:padding="@dimen/padding_medium"
-            android:text="lorem" />
+            android:text="lorem"
+            android:textColor="?attr/themeTextColor" />
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:padding="@dimen/padding_medium"
-            android:text="ipsum" />
+            android:text="ipsum"
+            android:textColor="?attr/themeTextColor" />
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:padding="@dimen/padding_medium"
-            android:text="dolor" />
+            android:text="dolor"
+            android:textColor="?attr/themeTextColor" />
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
-        android:text="MultiSelectToggleGroup with CustomToggleButton implementing ToggleButton" />
+        android:text="MultiSelectToggleGroup with CustomToggleButton implementing ToggleButton"
+        android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
         android:id="@+id/groupMultiCustomToggleButton"
@@ -128,11 +134,12 @@
 
     </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
-        android:text="SingleSelectToggleGroup with CustomCompoundToggleButton extending CompoundToggleButton" />
+        android:text="SingleSelectToggleGroup with CustomCompoundToggleButton extending CompoundToggleButton"
+        android:textColor="?attr/themeTextColor" />
 
     <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
         android:id="@+id/groupSingleCustomCompoundToggleButton"

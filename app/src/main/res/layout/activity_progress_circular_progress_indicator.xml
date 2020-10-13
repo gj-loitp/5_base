@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -34,13 +34,14 @@
                 android:layout_marginEnd="@dimen/margin_medium"
                 android:orientation="vertical">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/progress" />
+                    android:text="@string/progress"
+                    android:textColor="?attr/themeTextColor" />
 
-                <SeekBar
+                <androidx.appcompat.widget.AppCompatSeekBar
                     android:id="@+id/progress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -49,13 +50,14 @@
                     android:min="0"
                     android:progress="0" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/text_size" />
+                    android:text="@string/text_size"
+                    android:textColor="?attr/themeTextColor" />
 
-                <SeekBar
+                <androidx.appcompat.widget.AppCompatSeekBar
                     android:id="@+id/textSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -64,13 +66,14 @@
                     android:min="8"
                     android:progress="24" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/progress_stroke_width" />
+                    android:text="@string/progress_stroke_width"
+                    android:textColor="?attr/themeTextColor" />
 
-                <SeekBar
+                <androidx.appcompat.widget.AppCompatSeekBar
                     android:id="@+id/progressStrokeWidth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -79,13 +82,14 @@
                     android:min="0"
                     android:progress="8" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/progress_background_stroke_width" />
+                    android:text="@string/progress_background_stroke_width"
+                    android:textColor="?attr/themeTextColor" />
 
-                <SeekBar
+                <androidx.appcompat.widget.AppCompatSeekBar
                     android:id="@+id/progressBackgroundStrokeWidth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -94,35 +98,42 @@
                     android:min="0"
                     android:progress="8" />
 
-                <CheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/drawDot"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
+                    android:buttonTint="?attr/themeTextColor"
                     android:checked="true"
-                    android:text="@string/enable_dot" />
+                    android:text="@string/enable_dot"
+                    android:textColor="?attr/themeTextColor" />
 
-                <CheckBox
+                <androidx.appcompat.widget.AppCompatCheckBox
                     android:id="@+id/useCustomTextAdapter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/use_custom_text_adapter_hh_mm_ss" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/use_custom_text_adapter_hh_mm_ss"
+                    android:textColor="?attr/themeTextColor" />
 
                 <CheckBox
                     android:id="@+id/fillBackground"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/fill_background" />
+                    android:buttonTint="?attr/themeTextColor"
+                    android:text="@string/fill_background"
+                    android:textColor="?attr/themeTextColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@string/progress_dot_width" />
+                    android:text="@string/progress_dot_width"
+                    android:textColor="?attr/themeTextColor" />
 
-                <SeekBar
+                <androidx.appcompat.widget.AppCompatSeekBar
                     android:id="@+id/dotWidth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -131,12 +142,13 @@
                     android:min="0"
                     android:progress="8" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_medium"
                     android:layout_marginBottom="@dimen/margin_medium"
-                    android:text="@string/progress_cap" />
+                    android:text="@string/progress_cap"
+                    android:textColor="?attr/themeTextColor" />
 
                 <RadioGroup
                     android:id="@+id/progressCap"
@@ -147,25 +159,30 @@
                         android:id="@+id/rbCapRound"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="?attr/themeTextColor"
                         android:checked="true"
-                        android:text="@string/round" />
+                        android:text="@string/round"
+                        android:textColor="?attr/themeTextColor" />
 
                     <RadioButton
                         android:id="@+id/rbCapButt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/butt" />
+                        android:buttonTint="?attr/themeTextColor"
+                        android:text="@string/butt"
+                        android:textColor="?attr/themeTextColor" />
 
                 </RadioGroup>
 
-                <Switch
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/animationSwitch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="true"
-                    android:text="@string/enable_animation" />
+                    android:text="@string/enable_animation"
+                    android:textColor="?attr/themeTextColor" />
 
-                <Spinner
+                <androidx.appcompat.widget.AppCompatSpinner
                     android:id="@+id/gradientType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -174,25 +191,33 @@
                     android:id="@+id/progressColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/progress_color" />
+                    android:background="?attr/themeBackgroundColor"
+                    android:text="@string/progress_color"
+                    android:textColor="?attr/themeTextColor" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/progressBackgroundColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/background_color" />
+                    android:background="?attr/themeBackgroundColor"
+                    android:text="@string/background_color"
+                    android:textColor="?attr/themeTextColor" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/textColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_color" />
+                    android:background="?attr/themeBackgroundColor"
+                    android:text="@string/text_color"
+                    android:textColor="?attr/themeTextColor" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/dotColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/dot_color" />
+                    android:background="?attr/themeBackgroundColor"
+                    android:text="@string/dot_color"
+                    android:textColor="?attr/themeTextColor" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

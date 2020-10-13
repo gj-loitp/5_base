@@ -20,7 +20,7 @@ class ScrollView2DActivity : BaseFontActivity() {
         twoDScrollView.setScrollChangeListner { _, x, y, oldx, oldy ->
             logD("setScrollChangeListner $x - $y - $oldx - $oldy")
         }
-        LUIUtil.setDelay(2000, Runnable {
+        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             twoDScrollView.smoothScrollTo(300, 300)
         })
     }

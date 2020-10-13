@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -47,7 +47,7 @@
                 android:layout_marginTop="@dimen/margin_50"
                 android:background="@color/transparent"
                 android:scaleType="centerInside"
-                android:src="@color/colorPrimary" />
+                android:src="@color/red" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

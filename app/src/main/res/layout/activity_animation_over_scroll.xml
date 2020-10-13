@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <ScrollView
         android:id="@+id/nsv"
@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
-                android:textColor="@color/black"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
         </LinearLayout>
     </ScrollView>

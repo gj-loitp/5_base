@@ -7,7 +7,7 @@
     android:foreground="?android:attr/selectableItemBackground"
     tools:ignore="UnusedAttribute">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,14 +15,14 @@
         android:scaleType="centerCrop"
         tools:src="@drawable/logo" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvSize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_small"
         android:visibility="invisible"
         tools:visibility="visible" />

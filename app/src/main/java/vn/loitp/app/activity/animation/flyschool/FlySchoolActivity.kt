@@ -16,9 +16,14 @@ import vn.loitp.app.R
 @LogTag("FlySchoolActivity")
 @IsFullScreen(false)
 class FlySchoolActivity : BaseFontActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         floatingContainer.addPath(PATHS.S_INVERTED_BOTTOM_RIGHT)
         //mShapeFlyer.addPath(PATHS.S_BOTTOM_LEFT)
         btPlay1.setOnClickListener {

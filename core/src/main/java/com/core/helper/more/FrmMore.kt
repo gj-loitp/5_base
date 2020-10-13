@@ -25,6 +25,10 @@ class FrmMore : BaseFragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btRateApp.setOnClickListener(this)
         btMoreApp.setOnClickListener(this)
         btShareApp.setOnClickListener(this)

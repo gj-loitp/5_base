@@ -3,17 +3,17 @@
     android:id="@+id/relativeLayoutParent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/black65"
+        android:background="?attr/themeBackgroundColor50"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_32" />
 </RelativeLayout>

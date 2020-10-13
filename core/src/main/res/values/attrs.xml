@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <attr name="direction">
         <enum name="up" value="0" />
         <enum name="right" value="1" />
         <enum name="down" value="2" />
         <enum name="left" value="3" />
     </attr>
+
     <attr name="scaleType">
         <enum name="matrix" value="0" />
         <enum name="fitXy" value="1" />
@@ -17,21 +19,21 @@
         <enum name="centerInside" value="7" />
     </attr>
 
-    <declare-styleable name="RecyclerViewPager">
-        <attr name="rvp_triggerOffset" format="float" />
-        <attr name="rvp_flingFactor" format="float" />
-        <attr name="rvp_singlePageFling" format="boolean" />
-    </declare-styleable>
+    <!--    <declare-styleable name="RecyclerViewPager">-->
+    <!--        <attr name="rvp_triggerOffset" format="float" />-->
+    <!--        <attr name="rvp_flingFactor" format="float" />-->
+    <!--        <attr name="rvp_singlePageFling" format="boolean" />-->
+    <!--    </declare-styleable>-->
 
-    <declare-styleable name="LSProgressBar">
-        <attr name="filterColor" format="color" />
-    </declare-styleable>
+    <!--    <declare-styleable name="LSProgressBar">-->
+    <!--        <attr name="filterColor" format="color" />-->
+    <!--    </declare-styleable>-->
 
-    <declare-styleable name="GridCenterView">
-        <attr name="dividerHeight" format="dimension" />
-        <attr name="dividerColor" format="reference" />
-        <attr name="spanNumber" format="integer" />
-    </declare-styleable>
+    <!--    <declare-styleable name="GridCenterView">-->
+    <!--        <attr name="dividerHeight" format="dimension" />-->
+    <!--        <attr name="dividerColor" format="reference" />-->
+    <!--        <attr name="spanNumber" format="integer" />-->
+    <!--    </declare-styleable>-->
 
     <declare-styleable name="LParallaxViewPager">
         <attr name="modeParallaxViewPager">
@@ -57,9 +59,9 @@
         <attr name="label_padding" format="dimension" />
     </declare-styleable>
 
-    <declare-styleable name="PorterImageView">
-        <attr name="siShape" format="integer|reference" />
-    </declare-styleable>
+    <!--    <declare-styleable name="PorterImageView">-->
+    <!--        <attr name="siShape" format="integer|reference" />-->
+    <!--    </declare-styleable>-->
 
     <declare-styleable name="LColorSwitchCompat">
         <attr name="toggleOnColor" format="color" />
@@ -86,17 +88,9 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="LRoundedImage">
-        <attr name="rounded_radius" format="float" />
-    </declare-styleable>
-
-<!--    <declare-styleable name="CircleImage">-->
-<!--        <attr name="border_width" format="dimension" />-->
-<!--        <attr name="border_color" format="color" />-->
-<!--        <attr name="add_shadow" format="boolean" />-->
-<!--        <attr name="shadow_color" format="color" />-->
-<!--        <attr name="shadow_radius" format="float" />-->
-<!--    </declare-styleable>-->
+    <!--    <declare-styleable name="LRoundedImage">-->
+    <!--        <attr name="rounded_radius" format="float" />-->
+    <!--    </declare-styleable>-->
 
     <declare-styleable name="LColorTextView">
         <attr name="color_texts" format="string" />
@@ -203,7 +197,6 @@
         <attr name="to_alpha" format="float" />
     </declare-styleable>
 
-    <!--LoadingButton-->
     <declare-styleable name="ParallaxImageView">
         <attr name="parallax_ratio" format="float" />
         <attr name="center_crop" format="boolean" />
@@ -246,24 +239,24 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="buttonLoading">
-        <attr name="BL_enable" format="boolean" />
-        <attr name="BL_idParent" format="integer" />
-        <attr name="BL_font" format="string" />
-        <attr name="BL_text" format="string" />
-        <attr name="BL_textColor" format="color" />
-        <attr name="BL_backgroundColor" format="color" />
-        <attr name="BL_circleColor" format="color" />
-        <attr name="BL_circleColorSecond" format="color" />
-        <attr name="BL_backgroundDisableColor" format="color" />
-        <attr name="BL_textSize" format="dimension" />
-        <attr name="BL_stateShow" format="integer">
-            <enum name="normal" value="1" />
-            <enum name="animationStart" value="2" />
-            <enum name="progress" value="3" />
-            <enum name="animationFinish" value="4" />
-        </attr>
-    </declare-styleable>
+    <!--    <declare-styleable name="buttonLoading">-->
+    <!--        <attr name="BL_enable" format="boolean" />-->
+    <!--        <attr name="BL_idParent" format="integer" />-->
+    <!--        <attr name="BL_font" format="string" />-->
+    <!--        <attr name="BL_text" format="string" />-->
+    <!--        <attr name="BL_textColor" format="color" />-->
+    <!--        <attr name="BL_backgroundColor" format="color" />-->
+    <!--        <attr name="BL_circleColor" format="color" />-->
+    <!--        <attr name="BL_circleColorSecond" format="color" />-->
+    <!--        <attr name="BL_backgroundDisableColor" format="color" />-->
+    <!--        <attr name="BL_textSize" format="dimension" />-->
+    <!--        <attr name="BL_stateShow" format="integer">-->
+    <!--            <enum name="normal" value="1" />-->
+    <!--            <enum name="animationStart" value="2" />-->
+    <!--            <enum name="progress" value="3" />-->
+    <!--            <enum name="animationFinish" value="4" />-->
+    <!--        </attr>-->
+    <!--    </declare-styleable>-->
 
     <declare-styleable name="LContinuousScrollableImageView">
         <attr name="imageSrc" format="reference" />
@@ -377,20 +370,20 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="AutoLinearLayoutTheme">
-        <attr name="autoLinearLayoutStyle" format="reference" />
-    </declare-styleable>
+    <!--    <declare-styleable name="AutoLinearLayoutTheme">-->
+    <!--        <attr name="autoLinearLayoutStyle" format="reference" />-->
+    <!--    </declare-styleable>-->
 
-    <declare-styleable name="SwipeableLayout">
-        <attr name="swipeSpeed" format="float" />
-        <attr name="swipeOrientation" format="enum">
-            <enum name="leftToRight" value="0" />
-            <enum name="bottomToUp" value="1" />
-            <enum name="both" value="2" />
-            <enum name="none" value="3" />
-        </attr>
-        <attr name="scrollAndClickable" format="boolean" />
-    </declare-styleable>
+    <!--    <declare-styleable name="SwipeableLayout">-->
+    <!--        <attr name="swipeSpeed" format="float" />-->
+    <!--        <attr name="swipeOrientation" format="enum">-->
+    <!--            <enum name="leftToRight" value="0" />-->
+    <!--            <enum name="bottomToUp" value="1" />-->
+    <!--            <enum name="both" value="2" />-->
+    <!--            <enum name="none" value="3" />-->
+    <!--        </attr>-->
+    <!--        <attr name="scrollAndClickable" format="boolean" />-->
+    <!--    </declare-styleable>-->
 
     <declare-styleable name="LMovieView">
         <attr name="android:src" />
@@ -783,5 +776,16 @@
     <declare-styleable name="CurrencyEditText">
         <attr name="numberLength" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="LStrokedTextView">
+        <attr name="strokeThickness" format="dimension" />
+        <attr name="strokeColor" format="color" />
+    </declare-styleable>
+
+    <!--    style-->
+    <attr name="themeBackgroundColorMedium" format="color" />
+    <attr name="themeBackgroundColor" format="color" />
+    <attr name="themeBackgroundColor50" format="color" />
+    <attr name="themeTextColor" format="color" />
 
 </resources>

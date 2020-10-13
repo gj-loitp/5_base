@@ -34,6 +34,10 @@ class RecyclerViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
         animator.addDuration = 300
         rv.itemAnimator = animator

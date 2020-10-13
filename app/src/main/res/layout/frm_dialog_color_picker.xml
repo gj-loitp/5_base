@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
     <View
         android:id="@+id/viewColorResult"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#000000" />
+        android:background="?attr/themeBackgroundColor" />
 
-    <SeekBar
+    <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/sbRed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:max="255"
         android:progress="0" />
 
-    <SeekBar
+    <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/sbGreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:max="255"
         android:progress="0" />
 
-    <SeekBar
+    <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/sbBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,6 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/margin_medium"
-        android:text="@string/apply" />
+        android:background="?attr/themeBackgroundColor"
+        android:text="@string/apply"
+        android:textColor="?attr/themeTextColor" />
 
 </LinearLayout>

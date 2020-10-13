@@ -20,6 +20,7 @@ class ScratchViewMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btScratchViewImage.setOnClickListener(this)
         btScratchViewText.setOnClickListener(this)
     }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightBlue">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -18,6 +19,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/activity_1"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_32" />
 
             <com.views.layout.squarelayout.LSquareFrameLayout
@@ -38,12 +40,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/loitp"
+                android:textColor="@color/black"
                 android:textSize="@dimen/txt_32" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/large_text" />
+                android:text="@string/large_text"
+                android:textColor="@color/black" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>

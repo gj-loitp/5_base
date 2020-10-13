@@ -29,6 +29,10 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         btAnimationView.setOnClickListener(this)
         btOverScroll.setOnClickListener(this)
         btFlySchool.setOnClickListener(this)

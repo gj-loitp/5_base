@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
-        android:id="@+id/layout_top"
-        android:layout_width="fill_parent"
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="?attr/themeBackgroundColor"
         android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/white"
+            android:layout_height="@dimen/w_1"
+            android:background="?attr/themeTextColor"
             android:contentDescription="@string/app_name" />
 
         <FrameLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/title_bar_left_menu"
+                android:id="@+id/titleBarLeftMenu"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="left|center_vertical"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:background="@drawable/ic_more_vert_grey"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="?attr/themeTextColor"
+                tools:ignore="RtlHardcoded" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="7dp"
                 android:text="RESideMenu DEMO"
-                android:textColor="@color/white"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="24sp" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -45,15 +47,15 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="10dp"
+                android:layout_marginRight="@dimen/margin_medium"
                 android:background="@drawable/ic_more_vert_grey"
-                android:backgroundTint="@color/white" />
+                android:backgroundTint="?attr/themeTextColor" />
         </FrameLayout>
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="5dp"
-            android:background="@color/white"
+            android:layout_height="@dimen/w_5"
+            android:background="?attr/themeTextColor"
             android:contentDescription="@string/app_name" />
     </LinearLayout>
 
@@ -61,6 +63,6 @@
         android:id="@+id/main_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/layout_top"
+        android:layout_below="@+id/layoutTop"
         android:orientation="vertical" />
 </RelativeLayout>

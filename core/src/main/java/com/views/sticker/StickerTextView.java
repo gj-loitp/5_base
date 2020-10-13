@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class StickerTextView extends StickerView {
-    private AutoResizeTextView tv_main;
+    private AutoResizeTextView tvMain;
 
     public StickerTextView(Context context) {
         super(context);
@@ -28,35 +28,35 @@ public class StickerTextView extends StickerView {
 
     @Override
     public View getMainView() {
-        if (tv_main != null)
-            return tv_main;
+        if (tvMain != null)
+            return tvMain;
 
-        tv_main = new AutoResizeTextView(getContext());
+        tvMain = new AutoResizeTextView(getContext());
         //tv_main.setTextSize(22);
-        tv_main.setTextColor(Color.WHITE);
-        tv_main.setGravity(Gravity.CENTER);
-        tv_main.setTextSize(400);
-        tv_main.setShadowLayer(4, 0, 0, Color.BLACK);
-        tv_main.setMaxLines(1);
+        tvMain.setTextColor(Color.WHITE);
+        tvMain.setGravity(Gravity.CENTER);
+        tvMain.setTextSize(400);
+        tvMain.setShadowLayer(4, 0, 0, Color.BLACK);
+        tvMain.setMaxLines(1);
         LayoutParams params = new LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
         );
         params.gravity = Gravity.CENTER;
-        tv_main.setLayoutParams(params);
+        tvMain.setLayoutParams(params);
         if (getImageViewFlip() != null)
             getImageViewFlip().setVisibility(View.GONE);
-        return tv_main;
+        return tvMain;
     }
 
     public void setText(String text) {
-        if (tv_main != null)
-            tv_main.setText(text);
+        if (tvMain != null)
+            tvMain.setText(text);
     }
 
     public String getText() {
-        if (tv_main != null)
-            return tv_main.getText().toString();
+        if (tvMain != null)
+            return tvMain.getText().toString();
 
         return null;
     }

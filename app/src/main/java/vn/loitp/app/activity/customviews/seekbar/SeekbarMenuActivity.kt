@@ -22,6 +22,7 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btBoxedVerticalSeekbar.setOnClickListener(this)
         btCircularSeekbar.setOnClickListener(this)
         btVerticalSeekBar.setOnClickListener(this)

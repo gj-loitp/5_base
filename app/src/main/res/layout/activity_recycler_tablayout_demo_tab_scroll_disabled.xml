@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
         android:id="@+id/layoutHeader"
@@ -28,7 +28,7 @@
             app:rtl_tabBackground="@color/red"
             app:rtl_tabIndicatorColor="@color/green"
             app:rtl_tabMaxWidth="@dimen/tab_width"
-            app:rtl_tabSelectedTextColor="@android:color/white" />
+            app:rtl_tabSelectedTextColor="@color/deepPink" />
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager

@@ -4,9 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
 import kotlinx.android.synthetic.main.row_movie_list.view.*
 import vn.loitp.app.R
 
+@LogTag("MoviesAdapter")
 class MoviesAdapter(private val moviesList: List<Movie>, private val callback: Callback?) :
         com.core.adapter.AnimationAdapter() {
 

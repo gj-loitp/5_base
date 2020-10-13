@@ -17,7 +17,7 @@ import com.core.helper.fbcomment.FbCommentActivity
  */
 class LSocialUtil {
     companion object {
-        private val TAG = LSocialUtil::class.java.simpleName
+        private val logTag = LSocialUtil::class.java.simpleName
 
         /*
          * rate app
@@ -145,6 +145,10 @@ class LSocialUtil {
 
         fun openBrowserPolicy(context: Context) {
             openUrlInBrowser(context = context, url = Constants.URL_POLICY)
+        }
+
+        fun openBrowserGirl(context: Context) {
+            openUrlInBrowser(context = context, url = Constants.URL_GIRL)
         }
 
         fun openUrlInBrowser(context: Context?, url: String?) {

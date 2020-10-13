@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                 app:progressColor="@color/blue"
                 app:step="1"
                 app:textBottomPadding="20"
-                app:textColor_boxed="@color/white"
+                app:textColor_boxed="@color/red"
                 app:textEnabled_boxed="true"
                 app:textSize_boxed="8sp"
                 app:touchDisabled_boxed="false" />
@@ -44,11 +44,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium" />
+                android:layout_marginStart="@dimen/margin_medium"
+                android:textColor="?attr/themeTextColor" />
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>

@@ -30,6 +30,7 @@ public class ConstraintSetActivity extends BaseFontActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mRootLayout = findViewById(R.id.activity_constraintset_example);
         mConstraintSetNormal.clone(mRootLayout);
         mConstraintSetBig.load(this, R.layout.constraintset_example_big);

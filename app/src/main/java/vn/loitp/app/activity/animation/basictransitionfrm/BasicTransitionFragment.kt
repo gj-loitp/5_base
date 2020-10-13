@@ -13,6 +13,14 @@ import androidx.fragment.app.Fragment
 import vn.loitp.app.R
 
 class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
+
+    companion object {
+
+        fun newInstance(): BasicTransitionFragment {
+            return BasicTransitionFragment()
+        }
+    }
+
     // We transition between these Scenes
     private var mScene1: Scene? = null
     private var mScene2: Scene? = null
@@ -90,13 +98,6 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
                     it.layoutParams = params
                 }
             }// END_INCLUDE(transition_dynamic)
-        }
-    }
-
-    companion object {
-
-        fun newInstance(): BasicTransitionFragment {
-            return BasicTransitionFragment()
         }
     }
 

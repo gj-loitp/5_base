@@ -17,12 +17,16 @@ import okhttp3.*
 import java.io.*
 import java.net.URL
 import java.util.*
+import java.util.zip.ZipEntry
+import java.util.zip.ZipInputStream
 import kotlin.collections.ArrayList
 
+//https://gist.github.com/lopspower/76421751b21594c69eb2
+//https://github.com/lopspower/BestAndroidGists
 
 class LStoreUtil {
     companion object {
-        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
+        internal var logTag = LStoreUtil::class.java.simpleName
 
         const val FOLDER_TRANSLATE = ".Loitp"
         const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
@@ -111,15 +115,19 @@ class LStoreUtil {
                     val path = LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
                             ?: ""
                     val file = File("$path/$folderName")
+                    LLog.d(logTag, "file ${file.path}")
+                    LLog.d(logTag, "file exists " + file.exists())
 
-                    if (!file.exists()) {
+                    folderPath = if (file.exists()) {
+                        file.absolutePath
+                    } else {
                         file.mkdirs()
-                        folderPath = file.absolutePath
-                    } else if (file.exists()) {
-                        folderPath = file.absolutePath
+                        file.absolutePath
                     }
+
                 } catch (e: Exception) {
                     e.printStackTrace()
+                    LLog.e(logTag, "err isSdPresent $e")
                 }
             } else {
                 try {
@@ -132,6 +140,7 @@ class LStoreUtil {
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
+                    LLog.e(logTag, "err !isSdPresent $e")
                 }
 
             }
@@ -290,21 +299,21 @@ class LStoreUtil {
             return file
         }
 
-        fun getListEpubFiles(parentDir: File): List<File> {
-            val inFiles = ArrayList<File>()
+        fun getListEpubFiles(parentDir: File): ArrayList<File> {
+            val listFile = ArrayList<File>()
             val files = parentDir.listFiles()
             if (files != null) {
                 for (file in files) {
                     if (file.isDirectory) {
-                        inFiles.addAll(getListEpubFiles(file))
+                        listFile.addAll(getListEpubFiles(file))
                     } else {
                         if (file.name.endsWith(".epub")) {
-                            inFiles.add(file)
+                            listFile.add(file)
                         }
                     }
                 }
             }
-            return inFiles
+            return listFile
         }
 
         fun getSettingFromGGDrive(linkGGDriveSetting: String?, ggSettingCallback: GGSettingCallback?) {
@@ -414,27 +423,85 @@ class LStoreUtil {
             return availableMegs
         }
 
-        fun getDownloader(folderName: String,
+        fun getDownloader(folderName: String? = null,
                           token: String? = null,
                           url: String,
-                          fileName: String,
-                          fileNameExtension: String,
-                          timeOut: Int = 10000,
                           onDownloadListener: OnDownloadListener
         ): Downloader? {
-            val path = getFolderPath(folderName = folderName)
-//            LLog.d(logTag, "getDownloader path $path")
-            val map = HashMap<String, String>()
-            token?.let {
-                map["Authorization"] = it
+            if (folderName.isNullOrEmpty()) {
+                val map = HashMap<String, String>()
+                token?.let {
+                    map["Authorization"] = it
+                }
+                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
+                        .header(map)
+                        .downloadListener(onDownloadListener)
+                        .build()
+            } else {
+                val path = getFolderPath(folderName = folderName)
+                val map = HashMap<String, String>()
+                token?.let {
+                    map["Authorization"] = it
+                }
+                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
+                        .downloadDirectory(path)
+                        .header(map)
+                        .downloadListener(onDownloadListener)
+                        .build()
             }
-            return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                    .downloadDirectory(path)
-                    .fileName(fileName = fileName, extension = fileNameExtension)
-                    .header(map)
-                    .timeOut(timeOut)
-                    .downloadListener(onDownloadListener)
-                    .build()
+        }
+
+        //return destination file path
+        fun unzip(file: File): String? {
+            try {
+                val filePath = file.path
+                val destination = "${file.parent}/"
+//                LLog.d(logTag, ">>>unzip filePath $filePath")
+//                LLog.d(logTag, ">>>unzip destination $destination")
+                val inputStream = FileInputStream(filePath)
+                val zipStream = ZipInputStream(inputStream)
+                var zipEntry: ZipEntry?
+                while (zipStream.nextEntry.also {
+                            zipEntry = it
+                        } != null) {
+//                    LLog.d(logTag, "Unzipping " + zipEntry?.name + " at " + destination)
+                    zipEntry?.let { ze ->
+                        if (ze.isDirectory) {
+                            handleDirectory(dir = ze.name, destination = destination)
+                        } else {
+                            val fileOutputStream = FileOutputStream(destination + "/" + ze.name)
+                            val bufferedOutputStream = BufferedOutputStream(fileOutputStream)
+                            val buffer = ByteArray(1024)
+                            var read: Int
+                            while (zipStream.read(buffer).also { read = it } != -1) {
+                                bufferedOutputStream.write(buffer, 0, read)
+                            }
+                            zipStream.closeEntry()
+                            bufferedOutputStream.close()
+                            fileOutputStream.close()
+                        }
+                    }
+                }
+                zipStream.close()
+//                LLog.d(logTag, "Unzipping complete, path :  $destination")
+                return destination
+            } catch (e: java.lang.Exception) {
+//                LLog.e(logTag, "Unzipping failed $e")
+                e.printStackTrace()
+                return null
+            }
+        }
+
+        private fun handleDirectory(dir: String, destination: String) {
+            val file = File(destination + dir)
+//            LLog.d(logTag, "handleDirectory file ${file.path}")
+            if (!file.isDirectory) {
+//                LLog.d(logTag, "handleDirectory !file.isDirectory")
+                val isSuccess = file.mkdirs()
+//                LLog.d(logTag, "handleDirectory !file.isDirectory isSuccess $isSuccess")
+            } else {
+//                LLog.d(logTag, "handleDirectory file.isDirectory")
+            }
         }
     }
 }

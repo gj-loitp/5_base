@@ -19,6 +19,7 @@ class LActionbarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setupActionBar()
     }
 

@@ -7,6 +7,7 @@ import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -29,6 +30,7 @@ import java.util.*
 
 @LogTag("GalleryCoreAlbumActivity")
 @IsFullScreen(false)
+@IsSwipeActivity(true)
 class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var albumAdapter: AlbumAdapter? = null
     private val listPhotoSet = ArrayList<Photoset>()

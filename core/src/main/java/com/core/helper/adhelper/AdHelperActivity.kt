@@ -1,7 +1,6 @@
 package com.core.helper.adhelper
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LAppResource
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.manojbhadane.QButton
@@ -30,18 +28,15 @@ import java.util.*
 class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
-    private var isDarkTheme: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_ad_helper)
 
         isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
-        isDarkTheme = intent.getBooleanExtra(Constants.IS_DARK_THEME, false)
 
         setupData()
         setupViews()
-        setTheme()
     }
 
     private fun setupData() {
@@ -133,18 +128,6 @@ class AdHelperActivity : BaseFontActivity() {
         tvPage.text = (viewPager.currentItem + 1).toString() + "/" + adPageList.size
     }
 
-    private fun setTheme() {
-        if (isDarkTheme) {
-            val colorDark900 = LAppResource.getColor(R.color.dark900)
-            layoutRootView.setBackgroundColor(colorDark900)
-            btBack.setColorFilter(Color.WHITE)
-            layoutControl.setBackgroundColor(colorDark900)
-            btPrevScreen.setColorFilter(Color.WHITE)
-            tvPage.setTextColor(Color.WHITE)
-            btNextScreen.setColorFilter(Color.WHITE)
-        }
-    }
-
     private inner class SlidePagerAdapter : PagerAdapter() {
 
         @SuppressLint("SetTextI18n")
@@ -157,18 +140,6 @@ class AdHelperActivity : BaseFontActivity() {
             val textView = layout.findViewById<TextView>(R.id.textView)
             val tvMsg = layout.findViewById<TextView>(R.id.tvMsg)
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
-
-            if (isDarkTheme) {
-                val colorDark900 = LAppResource.getColor(R.color.dark900)
-                textView.setTextColor(Color.WHITE)
-                tvMsg.setTextColor(Color.WHITE)
-                btOkay.setTextColor(colorDark900)
-                btOkay.setBackgroundColor(Color.WHITE)
-                btOkay.setStrokeColor(Color.GRAY)
-            } else {
-                LUIUtil.setTextShadow(textView = textView, color = LAppResource.getColor(R.color.white))
-                LUIUtil.setTextShadow(textView = tvMsg, color = R.color.white)
-            }
 
             adPage.urlAd?.let {
                 LImageUtil.load(context = this@AdHelperActivity, url = it, imageView = imageView)

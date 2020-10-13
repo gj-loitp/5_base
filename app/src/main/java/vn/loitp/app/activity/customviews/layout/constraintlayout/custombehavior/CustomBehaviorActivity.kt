@@ -1,32 +1,33 @@
 package vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior
 
 import android.os.Bundle
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_custom_behavior.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_custom_behavior)
 @LogTag("CustomBehaviorActivity")
 @IsFullScreen(false)
 class CustomBehaviorActivity : BaseFontActivity() {
-    private var mShowFabButton: FloatingActionButton? = null
-    private var mCoordinatorLayout: CoordinatorLayout? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mCoordinatorLayout = findViewById(R.id.coordinatorLayout)
 
-        mShowFabButton = findViewById(R.id.fab)
-        mShowFabButton!!.setOnClickListener { _ ->
-            Snackbar.make(mCoordinatorLayout!!,
+        setupViews()
+    }
+
+    private fun setupViews() {
+
+        fab.setSafeOnClickListener {
+            Snackbar.make(coordinatorLayout,
                     "This is a simple Snackbar", Snackbar.LENGTH_LONG)
                     .setAction("CLOSE") { v ->
-
+                        //do sth
                     }.show()
         }
     }

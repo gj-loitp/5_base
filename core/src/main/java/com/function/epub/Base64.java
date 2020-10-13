@@ -113,11 +113,7 @@ public class Base64 {
     private static boolean isBase64(byte octect) {
         if (octect == PAD) {
             return true;
-        } else if (base64Alphabet[octect] == -1) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return base64Alphabet[octect] != -1;
     }
 
     /**
@@ -156,8 +152,8 @@ public class Base64 {
         int lengthDataBits = binaryData.length * EIGHTBIT;
         int fewerThan24bits = lengthDataBits % TWENTYFOURBITGROUP;
         int numberTriplets = lengthDataBits / TWENTYFOURBITGROUP;
-        byte encodedData[] = null;
-        int encodedDataLength = 0;
+        byte[] encodedData;
+        int encodedDataLength;
         int nbrChunks = 0;
 
         if (fewerThan24bits != 0) {
@@ -180,11 +176,11 @@ public class Base64 {
 
         encodedData = new byte[encodedDataLength];
 
-        byte k = 0, l = 0, b1 = 0, b2 = 0, b3 = 0;
+        byte k, l, b1, b2, b3;
 
         int encodedIndex = 0;
-        int dataIndex = 0;
-        int i = 0;
+        int dataIndex;
+        int i;
         int nextSeparatorIndex = CHUNK_SIZE;
         int chunksSoFar = 0;
 
@@ -302,13 +298,13 @@ public class Base64 {
         }
 
         int numberQuadruple = base64Data.length / FOURBYTE;
-        byte decodedData[] = null;
-        byte b1 = 0, b2 = 0, b3 = 0, b4 = 0, marker0 = 0, marker1 = 0;
+        byte[] decodedData;
+        byte b1, b2, b3, b4, marker0, marker1;
 
         // Throw away anything not in base64Data
 
         int encodedIndex = 0;
-        int dataIndex = 0;
+        int dataIndex;
         {
             // this sizes the output array properly - rlw
             int lastData = base64Data.length;
@@ -362,22 +358,22 @@ public class Base64 {
      * @return The data, less whitespace (see RFC 2045).
      */
     static byte[] discardWhitespace(byte[] data) {
-        byte groomedData[] = new byte[data.length];
+        byte[] groomedData = new byte[data.length];
         int bytesCopied = 0;
 
-        for (int i = 0; i < data.length; i++) {
-            switch (data[i]) {
+        for (byte datum : data) {
+            switch (datum) {
                 case (byte) ' ':
                 case (byte) '\n':
                 case (byte) '\r':
                 case (byte) '\t':
                     break;
                 default:
-                    groomedData[bytesCopied++] = data[i];
+                    groomedData[bytesCopied++] = datum;
             }
         }
 
-        byte packedData[] = new byte[bytesCopied];
+        byte[] packedData = new byte[bytesCopied];
 
         System.arraycopy(groomedData, 0, packedData, 0, bytesCopied);
 
@@ -394,21 +390,20 @@ public class Base64 {
      * @return The data, less non-base64 characters (see RFC 2045).
      */
     static byte[] discardNonBase64(byte[] data) {
-        byte groomedData[] = new byte[data.length];
+        byte[] groomedData = new byte[data.length];
         int bytesCopied = 0;
 
-        for (int i = 0; i < data.length; i++) {
-            if (isBase64(data[i])) {
-                groomedData[bytesCopied++] = data[i];
+        for (byte datum : data) {
+            if (isBase64(datum)) {
+                groomedData[bytesCopied++] = datum;
             }
         }
 
-        byte packedData[] = new byte[bytesCopied];
+        byte[] packedData = new byte[bytesCopied];
 
         System.arraycopy(groomedData, 0, packedData, 0, bytesCopied);
 
         return packedData;
     }
-
 
 }

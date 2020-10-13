@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <ImageView
         android:id="@+id/imageView"
@@ -22,6 +22,7 @@
         android:layout_marginStart="@dimen/margin_20"
         android:layout_marginEnd="@dimen/margin_20"
         android:text="@string/login"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_30"
         android:textStyle="bold" />
 
@@ -33,7 +34,7 @@
         android:layout_marginStart="@dimen/margin_20"
         android:layout_marginEnd="@dimen/margin_20"
         android:text="Id: loitp\nPw: 123456789"
-        android:textColor="@color/grey"
+        android:textColor="@color/red"
         android:textSize="@dimen/txt_22"
         android:textStyle="italic" />
 
@@ -58,6 +59,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/margin_20"
-        android:text="@string/login" />
+        android:background="?attr/themeBackgroundColor"
+        android:text="@string/login"
+        android:textColor="?attr/themeTextColor" />
 
 </RelativeLayout>

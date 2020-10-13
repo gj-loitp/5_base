@@ -1,6 +1,5 @@
 package com.core.helper.girl.adapter
 
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.R
+import com.annotation.LogTag
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
@@ -17,17 +17,17 @@ import com.core.common.Constants
 import com.core.helper.girl.model.GirlPage
 import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_girl_album.view.*
 
+@LogTag("GirlAlbumAdapter")
 class GirlAlbumAdapter : AnimationAdapter() {
 
     private var listGirlPage = ArrayList<GirlPage>()
     var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
     var onClickLikeListener: ((GirlPage, Int) -> Unit)? = null
 
-    fun setData(listGirlPage: ArrayList<GirlPage>, isSwipeToRefresh: Boolean) {
+    fun setData(listGirlPage: List<GirlPage>, isSwipeToRefresh: Boolean) {
         if (isSwipeToRefresh) {
             this.listGirlPage.clear()
         }
@@ -35,14 +35,27 @@ class GirlAlbumAdapter : AnimationAdapter() {
         notifyDataSetChanged()
     }
 
-    fun updateData(girlPage: GirlPage) {
+    fun getData(): ArrayList<GirlPage> {
+        return listGirlPage
+    }
+
+    fun updateData(listGirlPage: List<GirlPage>) {
+        this.listGirlPage.forEach {
+            it.isFavorites = false
+        }
+        listGirlPage.forEach {
+            updateData(it)
+        }
+        notifyDataSetChanged()
+    }
+
+    private fun updateData(girlPage: GirlPage) {
         val findGirlPage = this.listGirlPage.find {
             it.id == girlPage.id
         }
         findGirlPage?.let {
             it.isFavorites = girlPage.isFavorites
         }
-        notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -50,8 +63,8 @@ class GirlAlbumAdapter : AnimationAdapter() {
         fun bind(girlPage: GirlPage) {
             itemView.tvTitle.text = girlPage.title
             itemView.tvCreatedDate.text = LDateUtil.convertFormatDate(strDate = girlPage.createdDate, fromFormat = "yyyy-MM-dd'T'HH:mm:ss", toFormat = "HH:mm:ss dd/MM/yyyy")
-            LUIUtil.setTextShadow(textView = itemView.tvCreatedDate, color = Color.BLACK)
-            LUIUtil.setTextShadow(textView = itemView.tvTitle, color = Color.BLACK)
+//            LUIUtil.setTextShadow(textView = itemView.tvCreatedDate, color = Color.BLACK)
+//            LUIUtil.setTextShadow(textView = itemView.tvTitle, color = Color.BLACK)
             val src = if (BuildConfig.DEBUG) {
                 Constants.URL_IMG
             } else {

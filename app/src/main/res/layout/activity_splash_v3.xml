@@ -4,9 +4,9 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="60dp"
-        android:background="@color/colorPrimary" />
+        android:background="@color/red50" />
 
     <com.wang.avi.AVLoadingIndicatorView
         style="@style/AVLoadingIndicatorView.Large"
@@ -27,26 +27,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/margin_10"
-        app:indicatorColor="@color/white"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="PacmanIndicator" />
-
-    <!--<TextView
-        android:id="@+id/tv_test_api"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/tv_go_to_home"
-        android:gravity="center"
-        android:text="Test API"
-        android:textSize="50dp" />
-
-    <TextView
-        android:id="@+id/tv_go_to_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:text="Go To Main"
-        android:textSize="50dp" />-->
 
 </RelativeLayout>

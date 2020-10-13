@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar"
+            android:id="@+id/appBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
@@ -25,8 +25,8 @@
                 app:contentScrim="@color/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-                <ImageView
-                    android:id="@+id/img_hero"
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgHero"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
@@ -52,11 +52,12 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/padding_15"
-                android:text="@string/large_text" />
+                android:padding="@dimen/padding_medium"
+                android:text="@string/large_text"
+                android:textColor="?attr/themeTextColor" />
         </androidx.core.widget.NestedScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -64,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            app:layout_anchor="@id/app_bar"
+            app:layout_anchor="@id/appBar"
             app:layout_anchorGravity="bottom|end"
             app:srcCompat="@android:drawable/ic_dialog_email" />
 

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -14,7 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAspectRatioLayout"
@@ -47,24 +49,19 @@
                 android:text="@string/draggablepanel" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDraggableView"
-                style="@style/ButtonMenu"
-                android:text="@string/draggableview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDraggablePanelFree"
                 style="@style/ButtonMenu"
                 android:text="@string/draggablepanel_free" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDraggableView"
+                style="@style/ButtonMenu"
+                android:text="@string/draggableview" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDragueur"
                 style="@style/ButtonMenu"
                 android:text="@string/dragueur" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btElasticDragDismissLayout"
-                style="@style/ButtonMenu"
-                android:text="@string/elasticdragdismisslayout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btExpansionPanel"

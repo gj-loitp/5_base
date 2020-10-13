@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -15,21 +15,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_10">
+            android:padding="@dimen/padding_medium">
 
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/type_something" />
+                android:hint="@string/type_something"
+                android:textColor="?attr/themeTextColor"
+                android:textColorHint="?attr/themeTextColor"
+                android:textCursorDrawable="?attr/themeTextColor" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_15"
-                android:textColor="@color/black"
-                android:textSize="@dimen/txt_10" />
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

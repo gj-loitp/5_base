@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,22 +12,22 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/red"
             android:gravity="center"
             android:text="This is recyclerview, not viewpager\nCan use vertical or horizontal"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textStyle="bold" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/red"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView

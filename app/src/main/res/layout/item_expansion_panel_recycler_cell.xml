@@ -15,24 +15,26 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@android:color/white"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp">
+            android:background="?attr/themeBackgroundColor"
+            android:paddingLeft="@dimen/padding_medium"
+            android:paddingRight="@dimen/padding_medium">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:text="Trip name"
-                android:textColor="#3E3E3E" />
+                android:textColor="@color/red"
+                android:textSize="@dimen/txt_medium" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="120dp"
                 android:text="Carribean cruise"
-                android:textColor="#AAA" />
+                android:textColor="@color/blue"
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/headerIndicator"
@@ -40,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
 
@@ -60,12 +62,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:background="#EEE"
+                android:background="@color/green"
                 android:gravity="center"
-                android:text="content" />
+                android:text="content"
+                android:textSize="@dimen/txt_medium" />
 
         </LinearLayout>
 

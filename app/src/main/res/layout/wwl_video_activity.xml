@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
     <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fitsSystemWindows="true">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:ignore="UselessParent">
 
         <com.views.wwlvideo.LWWLVideo
             android:id="@+id/watch_while_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@color/colorPrimaryDark"
             android:fitsSystemWindows="true"
             app:metadataViewId="@+id/up_next_fragment"
@@ -32,15 +34,15 @@
                 <fragment
                     android:id="@+id/player_fragment"
                     android:name="vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent" />
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </FrameLayout>
 
             <fragment
                 android:id="@+id/up_next_fragment"
                 android:name="vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <include layout="@layout/wwl_video_content_panel" />
         </com.views.wwlvideo.LWWLVideo>

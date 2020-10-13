@@ -1,6 +1,5 @@
 package com.core.helper.girl.ui
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +14,6 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.helper.girl.adapter.*
-import com.core.helper.girl.model.GirlPage
 import com.core.helper.girl.model.GirlTopUser
 import com.core.helper.girl.model.GirlTopVideo
 import com.core.helper.girl.viewmodel.GirlViewModel
@@ -25,15 +23,10 @@ import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
+import kotlinx.android.synthetic.main.l_frm_girl_home.recyclerView
 
-@LogTag("loitppFrmHome")
+@LogTag("FrmHome")
 class FrmHome : BaseFragment() {
-
-    companion object {
-        const val REQUEST_CODE_DETAIL = 69
-        const val RESULT_DETAIL = "RESULT_DETAIL"
-    }
-
     private var girlViewModel: GirlViewModel? = null
     private var mergeAdapter: ConcatAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
@@ -58,6 +51,13 @@ class FrmHome : BaseFragment() {
         getPage(isSwipeToRefresh = false)
         getListGirlTopUser()
         getListGirlTopVideo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        logD("onResume")
+
+        girlViewModel?.getListLikeGirlPage(currentKeyword = "", isDelay = false)
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {
@@ -85,17 +85,17 @@ class FrmHome : BaseFragment() {
         )
         listGirlTopUser.add(element = girlTopUserHung)
 
-        val girlTopUserTuan = GirlTopUser(
-                avatar = "https://live.staticflickr.com/65535/49424972522_254064a97d_q.jpg",
-                name = "Tuấn Liệt"
-        )
-        listGirlTopUser.add(element = girlTopUserTuan)
+//        val girlTopUserTuan = GirlTopUser(
+//                avatar = "https://live.staticflickr.com/65535/49424972522_254064a97d_q.jpg",
+//                name = "Tuấn Liệt"
+//        )
+//        listGirlTopUser.add(element = girlTopUserTuan)
 
-        val girlTopUserTien = GirlTopUser(
-                avatar = "https://live.staticflickr.com/65535/48111902461_f316050394_q.jpg",
-                name = "Tiên Giả"
-        )
-        listGirlTopUser.add(element = girlTopUserTien)
+//        val girlTopUserTien = GirlTopUser(
+//                avatar = "https://live.staticflickr.com/65535/48111902461_f316050394_q.jpg",
+//                name = "Tiên Giả"
+//        )
+//        listGirlTopUser.add(element = girlTopUserTien)
 
         girlTopUserAdapter?.setListGirlTopUser(listGirlTopUser)
     }
@@ -110,26 +110,26 @@ class FrmHome : BaseFragment() {
         )
         listGirlTopVideo.add(element = girlTopVideo)
 
-        girlTopVideo = GirlTopVideo(
-                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
-                title = "'How You Like That' M/V",
-                link = "https://www.youtube.com/watch?v=ioNng23DkIM"
-        )
-        listGirlTopVideo.add(element = girlTopVideo)
+//        girlTopVideo = GirlTopVideo(
+//                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+//                title = "'How You Like That' M/V",
+//                link = "https://www.youtube.com/watch?v=ioNng23DkIM"
+//        )
+//        listGirlTopVideo.add(element = girlTopVideo)
 
-        girlTopVideo = GirlTopVideo(
-                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
-                title = "LIKEY M/V",
-                link = "https://www.youtube.com/watch?v=V2hlQkVJZhE"
-        )
-        listGirlTopVideo.add(element = girlTopVideo)
+//        girlTopVideo = GirlTopVideo(
+//                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+//                title = "LIKEY M/V",
+//                link = "https://www.youtube.com/watch?v=V2hlQkVJZhE"
+//        )
+//        listGirlTopVideo.add(element = girlTopVideo)
 
-        girlTopVideo = GirlTopVideo(
-                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
-                title = "'붐바야'(BOOMBAYAH) M/V",
-                link = "https://www.youtube.com/watch?v=bwmSjveL3Lc"
-        )
-        listGirlTopVideo.add(element = girlTopVideo)
+//        girlTopVideo = GirlTopVideo(
+//                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+//                title = "'붐바야'(BOOMBAYAH) M/V",
+//                link = "https://www.youtube.com/watch?v=bwmSjveL3Lc"
+//        )
+//        listGirlTopVideo.add(element = girlTopVideo)
 
         girlTopVideoAdapter?.setListGirlTopUser(listGirlTopVideo)
     }
@@ -158,7 +158,7 @@ class FrmHome : BaseFragment() {
             it.onClickRootListener = { girlPage, _ ->
                 val intent = Intent(activity, GirlDetailActivity::class.java)
                 intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
-                startActivityForResult(intent, REQUEST_CODE_DETAIL)
+                startActivity(intent)
                 LActivityUtil.tranIn(activity)
             }
             it.onClickLikeListener = { girlPage, _ ->
@@ -278,6 +278,15 @@ class FrmHome : BaseFragment() {
 //                    }
                 }
             })
+            vm.pageLikedActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+                if (actionData.isDoing == false && actionData.isSuccess == true) {
+                    val listGirlPageLiked = actionData.data
+                    logD("<<<pageLikedActionLiveData observe " + BaseApplication.gson.toJson(listGirlPageLiked))
+                    listGirlPageLiked?.let {
+                        girlAlbumAdapter?.updateData(listGirlPage = it)
+                    }
+                }
+            })
         }
     }
 
@@ -291,19 +300,5 @@ class FrmHome : BaseFragment() {
             currentKeyword = this.text.toString().trim()
         }
         getPage(isSwipeToRefresh = true)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        logD("onActivityResult")
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == REQUEST_CODE_DETAIL) {
-                val returnGirlPage = data?.getSerializableExtra(RESULT_DETAIL)
-                logD("onActivityResult returnGirlPage " + BaseApplication.gson.toJson(returnGirlPage))
-                if (returnGirlPage != null && returnGirlPage is GirlPage) {
-                    girlAlbumAdapter?.updateData(girlPage = returnGirlPage)
-                }
-            }
-        }
     }
 }

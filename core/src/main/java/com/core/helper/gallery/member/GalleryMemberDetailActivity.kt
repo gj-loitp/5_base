@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.View
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
 
 @LogTag("GalleryMemberDetailActivity")
 @IsFullScreen(false)
+@IsSwipeActivity(true)
 class GalleryMemberDetailActivity : BaseFontActivity() {
 
     companion object {
@@ -25,7 +26,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_flickr_member_detail)
 
-        LUIUtil.setTextShadow(textView = tvTitle)
+//        LUIUtil.setTextShadow(textView = tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
         loadItem(photo = photo)
 

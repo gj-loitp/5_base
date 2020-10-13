@@ -23,6 +23,10 @@ class BasicTransition0Activity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews(){
         LImageUtil.load(context = this, url = Constants.URL_IMG_2, imageView = imageViewItem)
         imageViewItem.setOnClickListener {
             onClickIv()

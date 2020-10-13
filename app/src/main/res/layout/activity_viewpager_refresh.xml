@@ -2,13 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabMode="fixed" />
+        app:tabBackground="@color/red"
+        app:tabGravity="start"
+        app:tabIndicatorColor="@color/green"
+        app:tabMode="fixed"
+        app:tabRippleColor="@color/yellow"
+        app:tabSelectedTextColor="@color/blue"
+        app:tabTextColor="@color/darkCyan" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp"
@@ -16,7 +23,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/tabLayout" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

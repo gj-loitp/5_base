@@ -5,12 +5,14 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.Settings
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -37,6 +39,7 @@ import java.io.File
 
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
+@IsSwipeActivity(true)
 class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     companion object {
         private const val PER_PAGE_SIZE = 100
@@ -77,7 +80,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setTextShadow(textView = tvTitle)
+//        LUIUtil.setTextShadow(textView = tvTitle)
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
@@ -384,10 +387,8 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(
-                folderName = LAppResource.getString(R.string.app_name),
+                folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
                 url = url,
-                fileName = "Img" + System.currentTimeMillis(),
-                fileNameExtension = "png",
                 onDownloadListener = object : OnDownloadListener {
                     override fun onCancel() {
                     }

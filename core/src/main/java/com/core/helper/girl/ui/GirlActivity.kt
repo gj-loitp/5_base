@@ -9,15 +9,18 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.girl.model.MenuGirl
+import com.core.utilities.LUIUtil
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
 import kotlinx.android.synthetic.main.l_activity_girl.*
 
 @LogTag("GirlActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class GirlActivity : BaseFontActivity() {
 
     val listMenuGirl = ArrayList<MenuGirl>()
@@ -31,11 +34,16 @@ class GirlActivity : BaseFontActivity() {
     }
 
     private fun setupData() {
+        val activeColor = if (LUIUtil.isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
         val menuGirlHome = MenuGirl(
                 itemId = R.id.menuHome,
                 iconId = R.drawable.baseline_home_black_24dp,
                 textId = R.string.menu_home,
-                activeColor = Color.WHITE
+                activeColor = activeColor
         )
         listMenuGirl.add(menuGirlHome)
 
@@ -43,7 +51,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuFavourite,
                 iconId = R.drawable.baseline_favorite_black_24dp,
                 textId = R.string.menu_favourite,
-                activeColor = Color.WHITE
+                activeColor = activeColor
         )
         listMenuGirl.add(menuGirlFavourite)
 
@@ -51,7 +59,7 @@ class GirlActivity : BaseFontActivity() {
                 itemId = R.id.menuInformation,
                 iconId = R.drawable.baseline_info_black_24dp,
                 textId = R.string.menu_infor,
-                activeColor = Color.WHITE
+                activeColor = activeColor
         )
         listMenuGirl.add(menuGirlInformation)
     }

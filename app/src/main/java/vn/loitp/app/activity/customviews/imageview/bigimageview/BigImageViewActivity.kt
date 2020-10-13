@@ -8,6 +8,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_imageview_big.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
@@ -22,6 +23,11 @@ class BigImageViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews(){
         indicatorView.hide()
         bigImageView.setImageViewFactory(GlideImageViewFactory())
         bigImageView.setImageLoaderCallback(object : ImageLoader.Callback {
@@ -49,16 +55,16 @@ class BigImageViewActivity : BaseFontActivity() {
             override fun onFail(error: Exception) {}
         })
 
-        bt0.setOnClickListener {
+        bt0.setSafeOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_LAND_S), Uri.parse(Constants.URL_IMG_LARGE_LAND_O))
         }
-        bt1.setOnClickListener {
+        bt1.setSafeOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S), Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O))
         }
-        bt2.setOnClickListener {
+        bt2.setSafeOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_LONG))
         }
-        bt3.setOnClickListener {
+        bt3.setSafeOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_GIFT))
         }
     }

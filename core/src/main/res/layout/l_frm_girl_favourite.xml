@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark900">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -12,24 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-<!--    <com.github.mmin18.widget.RealtimeBlurView-->
-<!--        android:id="@+id/realtimeBlurView"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="@dimen/w_70"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:realtimeBlurRadius="@dimen/round_45"-->
-<!--        app:realtimeOverlayColor="@color/black65" />-->
-
     <View
         android:id="@+id/realtimeBlurView"
         android:layout_width="0dp"
         android:layout_height="@dimen/w_70"
+        android:background="?attr/themeBackgroundColor50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/black85"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:layout_width="match_parent"
@@ -51,9 +41,9 @@
         android:paddingEnd="@dimen/padding_medium"
         android:paddingBottom="@dimen/padding_medium"
         android:singleLine="true"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
-        android:textCursorDrawable="@color/white"
+        android:textColor="?attr/themeTextColor"
+        android:textColorHint="?attr/themeTextColor"
+        android:textCursorDrawable="?attr/themeTextColor"
         android:textSize="@dimen/text_large"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
@@ -61,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/realtimeBlurView" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,15 +62,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white"
+        app:tint="?attr/themeTextColor"
         tools:ignore="UnusedAttribute" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvNoData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_data_eng"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,7 +84,7 @@
         style="@style/AVLoadingIndicatorView"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
-        app:indicatorColor="@color/white"
+        app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="BallClipRotatePulseIndicator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

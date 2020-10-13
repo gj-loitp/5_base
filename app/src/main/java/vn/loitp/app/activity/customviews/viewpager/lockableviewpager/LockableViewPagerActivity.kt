@@ -10,6 +10,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_viewpager_lockable.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv
@@ -21,13 +22,17 @@ class LockableViewPagerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         tabLayout.setupWithViewPager(vp)
-        LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
-        btEnable.setOnClickListener {
+        LUIUtil.changeTabsFont(tabLayout = tabLayout, fontName = Constants.FONT_PATH)
+        btEnable.setSafeOnClickListener {
             vp.swipeLocked = false
         }
-        btDisable.setOnClickListener {
+        btDisable.setSafeOnClickListener {
             vp.swipeLocked = true
         }
     }

@@ -21,6 +21,10 @@ class BottomBarActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.loitp)
         with(bottomBar) {
             paddingOnInDp = context.resources.getDimension(R.dimen.padding_10).toInt()

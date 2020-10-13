@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -14,13 +14,13 @@
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:titleTextColor="@android:color/white" />
+        app:titleTextColor="?attr/themeTextColor" />
 
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:id="@+id/swipe_layout_1"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_medium"
         app:dragEdge="right"
         app:srl_mode="normal">
 
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/darker_gray"
@@ -38,7 +38,7 @@
                 android:text="@string/more"
                 android:textColor="@android:color/white" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_red_dark"
@@ -54,12 +54,13 @@
             android:background="@drawable/border_solid_white"
             android:onClick="layoutOneOnClick">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/my_awesome_layout_1" />
+                android:text="@string/my_awesome_layout_1"
+                android:textColor="@color/black" />
         </FrameLayout>
     </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
@@ -67,7 +68,7 @@
         android:id="@+id/swipe_layout_2"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_medium"
         android:background="@android:color/darker_gray"
         app:dragEdge="left"
         app:srl_mode="same_level">
@@ -77,7 +78,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_green_dark"
@@ -86,7 +87,7 @@
                 android:text="@string/archive"
                 android:textColor="@android:color/white" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_blue_light"
@@ -102,12 +103,13 @@
             android:background="@drawable/border_solid_white"
             android:onClick="layoutTwoOnClick">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/my_awesome_layout_2" />
+                android:text="@string/my_awesome_layout_2"
+                android:textColor="@color/black" />
         </FrameLayout>
     </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
@@ -115,7 +117,7 @@
         android:id="@+id/swipe_layout_3"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_medium"
         android:background="@android:color/darker_gray"
         app:dragEdge="top"
         app:srl_mode="same_level">
@@ -126,13 +128,13 @@
             android:background="#ffbf00"
             android:onClick="searchOnClick">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/search_color"
-                android:tint="@color/white" />
+                android:tint="?attr/themeTextColor" />
         </FrameLayout>
 
         <FrameLayout
@@ -141,12 +143,13 @@
             android:background="@drawable/border_solid_white"
             android:onClick="layoutThreeOnClick">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/my_awesome_layout_3" />
+                android:text="@string/my_awesome_layout_3"
+                android:textColor="@color/black" />
         </FrameLayout>
     </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
@@ -154,7 +157,7 @@
         android:id="@+id/swipe_layout_4"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_medium"
         android:background="@android:color/darker_gray"
         app:dragEdge="bottom"
         app:srl_mode="same_level">
@@ -165,7 +168,7 @@
             android:background="#00264d"
             android:onClick="starOnClick">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -180,12 +183,13 @@
             android:background="@drawable/border_solid_white"
             android:onClick="layoutFourOnClick">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="@string/my_awesome_layout_4" />
+                android:text="@string/my_awesome_layout_4"
+                android:textColor="@color/black" />
         </FrameLayout>
     </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 </LinearLayout>

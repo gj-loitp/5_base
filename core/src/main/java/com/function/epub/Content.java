@@ -1,6 +1,6 @@
 package com.function.epub;
 
-
+import com.core.base.BaseModel;
 import com.function.epub.exception.OutOfPagesException;
 import com.function.epub.exception.ReadingException;
 
@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,7 +27,7 @@ import java.util.zip.ZipFile;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-class Content {
+class Content extends BaseModel {
 
     private String zipFilePath;
 
@@ -80,7 +81,7 @@ class Content {
     // TODO: A new method for only getting (approx.) count of book sections. That will also be useful for pre-loading the whole book.
     private BookSection getBookSection(int index) throws ReadingException, OutOfPagesException {
 
-        BookSection bookSection = null;
+        BookSection bookSection;
 
         NavPoint navPoint = getNavPoint(index);
 
@@ -237,7 +238,7 @@ class Content {
 
         String fileContent = readFileContent(entryName);
         String htmlBody = getHtmlBody(fileContent);
-        String htmlBodyToReplace = null;
+        String htmlBodyToReplace;
 
         if (!entryNavPoint.isCalculated()) { // Not calculated before.
             String nextAnchor = getNextAnchor(index, entryName);
@@ -321,7 +322,7 @@ class Content {
         this.entryTagPositions.put(entryName, tagList);
 
         List<Tag> openedTags = null;
-        ListIterator<Tag> listIterator = null;
+        ListIterator<Tag> listIterator;
 
         boolean isPossiblyTagOpened = false;
         StringBuilder possiblyTag = new StringBuilder();
@@ -446,7 +447,7 @@ class Content {
         boolean isNavigatingToNextFile = false;
 
         String currentAnchor = null;
-        String nextAnchor = null;
+        String nextAnchor;
 
         boolean isFileReadFirstTime = isFileReadFirstTime(index, entryName);
 
@@ -641,8 +642,8 @@ class Content {
 
         StringBuilder openingTagsBuilder = new StringBuilder();
 
-        for (ListIterator<Tag> iterator = openedTags.listIterator(); iterator.hasNext(); ) {
-            openingTagsBuilder.append(Constants.TAG_OPENING).append(iterator.next().getFullTagName()).append(Constants.TAG_CLOSING);
+        for (Tag openedTag : openedTags) {
+            openingTagsBuilder.append(Constants.TAG_OPENING).append(openedTag.getFullTagName()).append(Constants.TAG_CLOSING);
         }
 
         return openingTagsBuilder.toString();
@@ -851,9 +852,8 @@ class Content {
             if (prevHref != null) {
                 String fileName = ContextHelper.encodeToUtf8(ContextHelper.getTextAfterCharacter(entryName, Constants.SLASH));
 
-                if (prevHref.startsWith(fileName)) { // Same content as previous, not reading for the first time. (&& prevHref.replace(fileName, "").startsWith("%23"))
-                    return false;
-                }
+                // Same content as previous, not reading for the first time. (&& prevHref.replace(fileName, "").startsWith("%23"))
+                return !prevHref.startsWith(fileName);
             }
 
         }
@@ -873,7 +873,7 @@ class Content {
             ZipEntry zipEntry = epubFile.getEntry(entryName);
             InputStream inputStream = epubFile.getInputStream(zipEntry);
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
 
             StringBuilder fileContent = new StringBuilder();
 
@@ -1136,17 +1136,17 @@ class Content {
                                 classStartIndex--;
                             }
 
-                            tag = tag.substring(0, classStartIndex) + tag.substring(classEndIndex + classNameLength + 1, tag.length());
+                            tag = tag.substring(0, classStartIndex) + tag.substring(classEndIndex + classNameLength + 1);
                         }
 
                         int styleIndex = tag.indexOf("style=\"");
 
-                        String tagToReplace = null;
+                        String tagToReplace;
                         if (styleIndex != -1) { // Already has a style tag. Put the value into it.
-                            tagToReplace = tag.substring(0, styleIndex + 6) + cssEntry.getValue() + tag.substring(styleIndex + 6, tag.length());
+                            tagToReplace = tag.substring(0, styleIndex + 6) + cssEntry.getValue() + tag.substring(styleIndex + 6);
                         } else {
                             int insertStyleIndex = 1 + tagName.length() + 1; // '<' and ' '
-                            tagToReplace = tag.substring(0, insertStyleIndex) + "style=\"" + cssEntry.getValue() + "\" " + tag.substring(insertStyleIndex, tag.length());
+                            tagToReplace = tag.substring(0, insertStyleIndex) + "style=\"" + cssEntry.getValue() + "\" " + tag.substring(insertStyleIndex);
                         }
 
                         trimmedHtmlBody = trimmedHtmlBody.replaceFirst(tag, tagToReplace);
@@ -1356,7 +1356,7 @@ class Content {
     // Warning: May devour anchors.
     private void searchForTableTags(String entryName, String htmlBody, int trimStartPosition, int trimEndPosition) {
 
-        String htmlBodyToReplace = null;
+        String htmlBodyToReplace;
 
         if (trimEndPosition == 0) {
             htmlBodyToReplace = htmlBody.substring(trimStartPosition);
@@ -1491,7 +1491,7 @@ class Content {
                     htmlBody = htmlBody.substring(0, tag.getOpeningTagStartPosition() - 1) + Constants.STRING_MARKER
                             + htmlBody.substring(tag.getOpeningTagStartPosition() - 1 + Constants.STRING_MARKER.length(),
                             tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 2 - Constants.STRING_MARKER.length())
-                            + Constants.STRING_MARKER + htmlBody.substring(tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 2, htmlBody.length());
+                            + Constants.STRING_MARKER + htmlBody.substring(tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 2);
 
                     stringsToRemove.add(Constants.STRING_MARKER + htmlBody.substring(tag.getOpeningTagStartPosition() - 1 + Constants.STRING_MARKER.length(),
                             tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 2 - Constants.STRING_MARKER.length()) + Constants.STRING_MARKER);
@@ -1502,7 +1502,7 @@ class Content {
                     htmlBody = htmlBody.substring(0, tag.getOpeningTagStartPosition() - 1) + Constants.STRING_MARKER
                             + htmlBody.substring(tag.getOpeningTagStartPosition() - 1 + Constants.STRING_MARKER.length(),
                             tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 1 - Constants.STRING_MARKER.length())
-                            + Constants.STRING_MARKER + htmlBody.substring(tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 1, htmlBody.length());
+                            + Constants.STRING_MARKER + htmlBody.substring(tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 1);
 
                     stringsToRemove.add(Constants.STRING_MARKER + htmlBody.substring(tag.getOpeningTagStartPosition() - 1 + Constants.STRING_MARKER.length(),
                             tag.getOpeningTagStartPosition() + tag.getFullTagName().length() + 1 - Constants.STRING_MARKER.length()) + Constants.STRING_MARKER);
@@ -1513,7 +1513,7 @@ class Content {
                     htmlBody = htmlBody.substring(0, tag.getClosingTagStartPosition() - 1) + Constants.STRING_MARKER
                             + htmlBody.substring(tag.getClosingTagStartPosition() - 1 + Constants.STRING_MARKER.length(),
                             tag.getClosingTagStartPosition() + tag.getTagName().length() + 2 - Constants.STRING_MARKER.length())
-                            + Constants.STRING_MARKER + htmlBody.substring(tag.getClosingTagStartPosition() + tag.getTagName().length() + 2, htmlBody.length());
+                            + Constants.STRING_MARKER + htmlBody.substring(tag.getClosingTagStartPosition() + tag.getTagName().length() + 2);
 
                     stringsToRemove.add(Constants.STRING_MARKER + htmlBody.substring(tag.getClosingTagStartPosition() - 1 + Constants.STRING_MARKER.length(),
                             tag.getClosingTagStartPosition() + tag.getTagName().length() + 2 - Constants.STRING_MARKER.length()) + Constants.STRING_MARKER);
@@ -1543,7 +1543,7 @@ class Content {
             return htmlBody;
         }
 
-        String htmlBodyToReplace = null;
+        String htmlBodyToReplace;
 
         List<Tag> prevOpenedNotClosedYetTags = new ArrayList<>(); // Previously opened in this scope and not yet closed tags. Appending opening and closing tags.
         List<Tag> openedNotClosedYetTags = new ArrayList<>(); // Opened in this scope and not yet closed tags. Appending only closing tags.
@@ -1685,7 +1685,7 @@ class Content {
                 if (fromIndex != -1 && toIndex != -1) {
 
                     htmlBody = htmlBody.substring(0, fromIndex) + Constants.STRING_MARKER + htmlBody.substring(fromIndex + Constants.STRING_MARKER.length(), toIndex - Constants.STRING_MARKER.length())
-                            + Constants.STRING_MARKER + htmlBody.substring(toIndex, htmlBody.length());
+                            + Constants.STRING_MARKER + htmlBody.substring(toIndex);
 
                     if (stringsToRemove == null) {
                         stringsToRemove = new ArrayList<>();
@@ -1708,7 +1708,7 @@ class Content {
             if (fromIndex != -1 && toIndex != -1) {
 
                 htmlBody = htmlBody.substring(0, fromIndex) + Constants.STRING_MARKER + htmlBody.substring(fromIndex + Constants.STRING_MARKER.length(), toIndex - Constants.STRING_MARKER.length())
-                        + Constants.STRING_MARKER + htmlBody.substring(toIndex, htmlBody.length());
+                        + Constants.STRING_MARKER + htmlBody.substring(toIndex);
 
                 if (stringsToRemove == null) {
                     stringsToRemove = new ArrayList<>();
