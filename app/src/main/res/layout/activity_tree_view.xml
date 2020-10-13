@@ -4,16 +4,15 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.treeview.LTreeView
-        android:id="@+id/treeview"
+        android:id="@+id/treeView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:level_separation="50dp"
-        app:line_color="@color/colorPrimary"
+        app:line_color="?attr/themeTextColor"
         app:line_thickness="10dp">
 
     </com.views.treeview.LTreeView>
 </RelativeLayout>
-
