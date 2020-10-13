@@ -8,11 +8,11 @@
     android:orientation="vertical"
     android:padding="@dimen/padding_medium">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvFloorPlan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/app_name" />
 
@@ -22,22 +22,24 @@
         android:gravity="end"
         android:orientation="horizontal">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivUpdate"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_edit_black_48dp" />
+            android:src="@drawable/ic_edit_black_48dp"
+            android:tint="?attr/themeTextColor" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivDelete"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:layout_marginStart="@dimen/margin_medium"
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_delete_forever_black_48dp" />
+            android:src="@drawable/ic_delete_forever_black_48dp"
+            android:tint="?attr/themeTextColor" />
     </LinearLayout>
 
 </LinearLayout>
