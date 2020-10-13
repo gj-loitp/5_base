@@ -2,7 +2,6 @@ package com.core.helper.gallery.member
 
 import android.Manifest
 import android.content.Intent
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -78,7 +77,7 @@ class GalleryMemberActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setTextShadow(textView = tvTitle, color = Color.BLACK)
+//        LUIUtil.setTextShadow(textView = tvTitle, color = Color.BLACK)
 
         photosetID = Constants.FLICKR_ID_MEMBERS
         if (photosetID?.isEmpty() == true) {
