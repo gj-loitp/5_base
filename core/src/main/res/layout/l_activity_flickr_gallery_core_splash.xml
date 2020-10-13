@@ -4,9 +4,9 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBkg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvCopyright"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
                 android:layout_marginTop="@dimen/margin_55"
                 android:gravity="center"
                 android:text="@string/copyright"
-                android:textColor="@color/white"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
             <com.wang.avi.AVLoadingIndicatorView
@@ -44,10 +44,10 @@
                 android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/margin_medium"
                 android:layout_marginBottom="@dimen/margin_55"
-                app:indicatorColor="@color/white"
+                app:indicatorColor="?attr/themeTextColor"
                 app:indicatorName="LineScalePulseOutRapidIndicator" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 android:gravity="center"
                 android:padding="@dimen/padding_medium"
                 android:text="@string/lgallery"
-                android:textColor="@color/white"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_50" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

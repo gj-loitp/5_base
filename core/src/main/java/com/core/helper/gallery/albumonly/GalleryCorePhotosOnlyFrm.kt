@@ -18,7 +18,10 @@ import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.*
+import com.core.utilities.LAppResource
+import com.core.utilities.LDialogUtil
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LStoreUtil
 import com.interfaces.Callback2
 import com.interfaces.CallbackList
 import com.karumi.dexter.Dexter
@@ -68,7 +71,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 //        logD("onViewCreated")
         val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
-        LUIUtil.setTextShadow(tvTitle)
+//        LUIUtil.setTextShadow(tvTitle)
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknow)))

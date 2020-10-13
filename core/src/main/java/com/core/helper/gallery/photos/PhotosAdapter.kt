@@ -16,7 +16,6 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
 
@@ -66,7 +65,7 @@ class PhotosAdapter internal constructor(private val context: Context, private v
                     })
 
             itemView.tvSize.text = "${photo.widthO} x ${photo.heightO}"
-            LUIUtil.setTextShadow(textView = itemView.tvSize)
+//            LUIUtil.setTextShadow(textView = itemView.tvSize)
 
             itemView.layoutRootView.setOnClickListener {
                 callback?.onClick(photo = photo, pos = bindingAdapterPosition)

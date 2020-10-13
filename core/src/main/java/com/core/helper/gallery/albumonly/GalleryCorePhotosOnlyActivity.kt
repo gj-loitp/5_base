@@ -80,7 +80,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
         }
 
-        LUIUtil.setTextShadow(textView = tvTitle)
+//        LUIUtil.setTextShadow(textView = tvTitle)
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {

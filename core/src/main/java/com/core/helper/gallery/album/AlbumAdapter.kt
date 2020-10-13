@@ -15,7 +15,6 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetlist.Photoset
 import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
@@ -76,9 +75,9 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
             itemView.tvUpdate.text = update
             itemView.tvNumber.text = photoset.photos
 
-            LUIUtil.setTextShadow(textView = itemView.tvLabel)
-            LUIUtil.setTextShadow(textView = itemView.tvUpdate)
-            LUIUtil.setTextShadow(textView = itemView.tvNumber)
+//            LUIUtil.setTextShadow(textView = itemView.tvLabel)
+//            LUIUtil.setTextShadow(textView = itemView.tvUpdate)
+//            LUIUtil.setTextShadow(textView = itemView.tvNumber)
 
             itemView.frameLayout.setOnClickListener {
                 callback?.onClick(bindingAdapterPosition)

@@ -17,7 +17,6 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
 import java.util.*
@@ -69,7 +68,7 @@ class MemberAdapter(private val context: Context, private val callback: Callback
             } else {
                 itemView.tvTitle.visibility = View.VISIBLE
                 itemView.tvTitle.text = photo.title
-                LUIUtil.setTextShadow(textView = itemView.tvTitle)
+//                LUIUtil.setTextShadow(textView = itemView.tvTitle)
             }
             itemView.fl.setOnClickListener {
                 callback?.onClick(photo = photo, pos = bindingAdapterPosition, imageView = itemView.circleImageView, textView = itemView.tvTitle)

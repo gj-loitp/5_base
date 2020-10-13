@@ -16,7 +16,6 @@ import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core_only.view.*
@@ -73,7 +72,7 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
             } else {
                 itemView.tvTitle.visibility = View.VISIBLE
                 itemView.tvTitle.text = p.title
-                LUIUtil.setTextShadow(textView = itemView.tvTitle)
+//                LUIUtil.setTextShadow(textView = itemView.tvTitle)
             }
             itemView.layoutRoot.setOnClickListener {
                 callback?.onClick(photo = p, pos = position)

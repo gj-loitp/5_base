@@ -16,11 +16,11 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        app:civ_border_color="@color/black"
+        app:civ_border_color="?attr/themeBackgroundColor"
         app:civ_border_width="@dimen/w_1"
         tools:src="@color/colorPrimary" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_medium"
         android:visibility="invisible"
         tools:visibility="visible" />

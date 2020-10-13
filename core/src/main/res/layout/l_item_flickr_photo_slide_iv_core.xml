@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
-<!--    <ImageView-->
-<!--        android:id="@+id/imageViewBlur"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:contentDescription="@string/app_name"-->
-<!--        android:scaleType="centerCrop" />-->
-
-<!--    <com.github.mmin18.widget.RealtimeBlurView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:realtimeBlurRadius="@dimen/round_medium"-->
-<!--        app:realtimeOverlayColor="@color/black65" />-->
-
     <com.github.piasy.biv.view.BigImageView
         android:id="@+id/biv"
         android:layout_width="match_parent"
@@ -42,15 +29,15 @@
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:layout_margin="@dimen/margin_10"
-            app:indicatorColor="@color/white"
+            app:indicatorColor="?attr/themeTextColor"
             app:indicatorName="PacmanIndicator" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvProgress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
     </LinearLayout>
 </RelativeLayout>

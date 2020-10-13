@@ -14,20 +14,19 @@
     android:paddingBottom="@dimen/padding_medium"
     tools:ignore="UnusedAttribute">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
-        android:textColor="@color/white"
-        android:visibility="invisible"
-        tools:visibility="visible"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_medium"
+        android:visibility="invisible"
         tools:text="@string/app_name"
-        tools:textColor="@color/black" />
+        tools:visibility="visible" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,8 +52,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_bug_report_black_48dp"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
+            android:tint="?attr/themeBackgroundColor"
+            app:backgroundTint="?attr/themeTextColor"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -68,8 +67,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_cloud_download_black_48dp"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
+            android:tint="?attr/themeBackgroundColor"
+            app:backgroundTint="?attr/themeTextColor"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -83,8 +82,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_chat_black_48dp"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
+            android:tint="?attr/themeBackgroundColor"
+            app:backgroundTint="?attr/themeTextColor"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -98,8 +97,8 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_share_black_48dp"
-            android:tint="@color/black"
-            app:backgroundTint="@color/white"
+            android:tint="?attr/themeBackgroundColor"
+            app:backgroundTint="?attr/themeTextColor"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="mini"
@@ -112,7 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_1"
         android:layout_marginTop="@dimen/margin_medium"
-        android:background="@color/white"
+        android:background="?attr/themeTextColor"
         android:visibility="invisible"
         tools:visibility="visible" />
 </LinearLayout>
