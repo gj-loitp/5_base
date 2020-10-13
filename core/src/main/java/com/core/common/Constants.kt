@@ -164,7 +164,6 @@ class Constants {
         //end region
 
         const val AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE"
-        const val IS_DARK_THEME = "IS_DARK_THEME"
         const val AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER"
 
         const val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"

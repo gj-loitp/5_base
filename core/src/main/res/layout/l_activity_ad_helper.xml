@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <com.views.imageview.continuousscrollable.LContinuousScrollableImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/layoutControl"
         app:direction="left"
         app:duration="28000"
         app:imageSrc="@drawable/l_bkg_city"
@@ -26,16 +26,16 @@
         android:contentDescription="@string/app_name"
         android:scaleType="centerInside"
         android:src="@drawable/ic_close_black_48dp"
-        android:tint="@color/colorPrimary" />
+        android:tint="?attr/themeTextColor" />
 
     <RelativeLayout
         android:id="@+id/layoutControl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_50"
         android:layout_alignParentBottom="true"
-        android:background="@color/white">
+        android:background="?attr/themeBackgroundColor50">
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btPrevScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,20 +45,20 @@
             android:contentDescription="@string/app_name"
             android:scaleType="centerInside"
             android:src="@drawable/ic_chevron_left_black_48dp"
-            android:tint="@color/colorPrimary" />
+            android:tint="?attr/themeTextColor" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvPage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_large"
             tools:ignore="RelativeOverlap"
             tools:text="@string/app_name" />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btNextScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:rotation="180"
             android:scaleType="centerInside"
             android:src="@drawable/ic_chevron_left_black_48dp"
-            android:tint="@color/colorPrimary" />
+            android:tint="?attr/themeTextColor" />
     </RelativeLayout>
 
     <androidx.viewpager.widget.ViewPager

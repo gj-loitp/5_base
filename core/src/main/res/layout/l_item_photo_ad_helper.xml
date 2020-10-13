@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:padding="@dimen/padding_10">
+    android:padding="@dimen/padding_medium">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/w_150"
         android:layout_height="@dimen/w_150"
@@ -18,18 +18,18 @@
         android:scaleType="fitXY"
         tools:src="@drawable/ic_launcher" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
-        android:textColor="@color/colorPrimary"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_22"
         tools:text="@string/app_name" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
-        android:textColor="@color/black"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_14"
         android:textStyle="bold"
         tools:text="@string/app_name" />
@@ -51,11 +51,11 @@
         android:enabled="true"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
-        android:textColor="@color/white"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
-        app:qb_backgroundColor="@color/colorPrimary"
+        app:qb_backgroundColor="?attr/themeBackgroundColorMedium"
         app:qb_radius="100"
-        app:qb_strokeColor="@color/white"
+        app:qb_strokeColor="?attr/themeTextColor"
         app:qb_strokeWidth="1"
         tools:text="@string/app_name" />
 </RelativeLayout>
