@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
@@ -9,34 +9,38 @@
     android:layout_marginTop="@dimen/margin_medium"
     android:layout_marginEnd="@dimen/margin_medium"
     android:foreground="?selectableItemBackground"
-    app:cardBackgroundColor="@color/white"
+    app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
     app:cardCornerRadius="@dimen/round_medium"
     app:cardElevation="@dimen/w_5"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    app:strokeColor="?attr/themeTextColor"
+    app:strokeWidth="@dimen/w_1">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="@dimen/padding_medium">
+        android:padding="@dimen/padding_medium"
+        tools:ignore="UseCompoundDrawables">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNote"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="@dimen/padding_medium"
-            android:textColor="@color/black"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             tools:text="@string/app_name" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivDelete"
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_remove_black_48dp" />
+            android:src="@drawable/ic_remove_black_48dp"
+            android:tint="?attr/themeTextColor" />
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

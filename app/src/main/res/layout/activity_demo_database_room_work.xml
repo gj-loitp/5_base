@@ -2,10 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Room" />
@@ -24,19 +24,24 @@
                 android:id="@+id/btAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add" />
+                android:text="Add"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDeleteAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delete All" />
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="Delete All"
+                android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFindWord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Find work with id = 1" />
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="Find work with id = 1"
+                android:textColor="?attr/themeTextColor" />
         </LinearLayout>
     </HorizontalScrollView>
 

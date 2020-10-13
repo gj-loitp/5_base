@@ -3,10 +3,10 @@
     android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="View model" />
@@ -16,23 +16,25 @@
         style="@style/ButtonMenu"
         android:text="Change color" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="@dimen/padding_10"
-        android:textSize="@dimen/txt_18" />
+        android:padding="@dimen/padding_medium"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btChangeUser"
         style="@style/ButtonMenu"
         android:text="Change user" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_10"
-        android:textSize="@dimen/txt_18" />
+        android:padding="@dimen/padding_medium"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium" />
 </LinearLayout>
