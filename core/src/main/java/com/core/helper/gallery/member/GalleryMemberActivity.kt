@@ -58,8 +58,10 @@ class GalleryMemberActivity : BaseFontActivity() {
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()
 
-        val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, R.color.colorPrimary)
-        rootView.setBackgroundResource(resBkgRootView)
+        val resBkgRootView = intent.getIntExtra(Constants.BKG_ROOT_VIEW, Constants.NOT_FOUND)
+        if (resBkgRootView != Constants.NOT_FOUND) {
+            rootView.setBackgroundResource(resBkgRootView)
+        }
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 //        logD("adUnitId $adUnitId")

@@ -16,22 +16,6 @@
         android:animateLayoutChanges="false"
         android:background="?attr/themeBackgroundColor">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            style="@style/ScrollVertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/lnAdView" />
-
-        <LinearLayout
-            android:id="@+id/lnAdView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/transparent"
-            android:gravity="center"
-            android:orientation="vertical" />
-
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
@@ -41,6 +25,23 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_large"
             android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            style="@style/ScrollVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/lnAdView"
+            android:layout_below="@+id/tvTitle" />
+
+        <LinearLayout
+            android:id="@+id/lnAdView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:orientation="vertical" />
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/indicatorView"
