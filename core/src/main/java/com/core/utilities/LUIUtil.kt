@@ -298,7 +298,11 @@ class LUIUtil {
             swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
         }
 
-        fun setTextShadow(textView: TextView?, color: Int = Color.BLACK) {
+        fun setTextShadow(textView: TextView?, color: Int = if (isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }) {
             textView?.setShadowLayer(1f, // radius
                     1f, // dx
                     1f, // dy

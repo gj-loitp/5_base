@@ -36,9 +36,11 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/themeBackgroundColor50"
             android:padding="@dimen/padding_medium"
             android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/txt_20" />
+            android:textSize="@dimen/txt_large"
+            android:textStyle="bold" />
 
         <com.wang.avi.AVLoadingIndicatorView
             android:id="@+id/indicatorView"
@@ -58,9 +60,9 @@
             android:layout_margin="@dimen/margin_medium"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_page"
-            android:tint="?attr/themeBackgroundColor"
+            android:tint="@color/black"
             android:visibility="invisible"
-            app:backgroundTint="?themeTextColor"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="normal" />

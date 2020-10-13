@@ -24,11 +24,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="?attr/themeBackgroundColor50"
             android:padding="@dimen/padding_medium"
             android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/text_medium"
+            android:textSize="@dimen/txt_large"
+            android:textStyle="bold"
             tools:text="@string/app_name" />
 
         <com.wang.avi.AVLoadingIndicatorView
@@ -50,9 +52,9 @@
             android:layout_margin="@dimen/margin_medium"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_page"
-            android:tint="?attr/themeBackgroundColor"
+            android:tint="@color/black"
             android:visibility="invisible"
-            app:backgroundTint="?attr/themeTextColor"
+            app:backgroundTint="@color/white"
             app:borderWidth="@dimen/w_1"
             app:elevation="@dimen/w_1"
             app:fabSize="normal"

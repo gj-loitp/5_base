@@ -16,6 +16,7 @@ import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core_only.view.*
@@ -24,6 +25,12 @@ import java.util.*
 @LogTag("PhotosOnlyAdapter")
 class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
         AnimationAdapter() {
+
+    val color = if (LUIUtil.isDarkTheme()) {
+        R.color.dark900
+    } else {
+        R.color.whiteSmoke
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_core_only, viewGroup, false))
@@ -51,8 +58,8 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
             LImageUtil.load(context = itemView.iv.context,
                     url = p.urlO,
                     imageView = itemView.iv,
-                    resPlaceHolder = R.color.black,
-                    resError = R.color.black,
+                    resPlaceHolder = color,
+                    resError = color,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false

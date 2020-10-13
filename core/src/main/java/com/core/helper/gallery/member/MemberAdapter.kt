@@ -17,6 +17,7 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
 import java.util.*
@@ -24,6 +25,12 @@ import java.util.*
 @LogTag("MemberAdapter")
 class MemberAdapter(private val context: Context, private val callback: Callback?)
     : AnimationAdapter() {
+
+    val color = if (LUIUtil.isDarkTheme()) {
+        R.color.dark900
+    } else {
+        R.color.whiteSmoke
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
@@ -49,8 +56,8 @@ class MemberAdapter(private val context: Context, private val callback: Callback
             LImageUtil.load(context = itemView.circleImageView.context,
                     url = photo.urlO,
                     imageView = itemView.circleImageView,
-                    resPlaceHolder = R.color.black,
-                    resError = R.color.black,
+                    resPlaceHolder = color,
+                    resError = color,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false

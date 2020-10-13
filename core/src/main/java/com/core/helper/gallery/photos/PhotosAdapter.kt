@@ -16,6 +16,7 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
 
@@ -25,6 +26,12 @@ import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
 @LogTag("PhotosAdapter")
 class PhotosAdapter internal constructor(private val context: Context, private val callback: Callback?)
     : AnimationAdapter() {
+
+    val color = if (LUIUtil.isDarkTheme()) {
+        R.color.dark900
+    } else {
+        R.color.whiteSmoke
+    }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_core, viewGroup, false))
@@ -50,8 +57,8 @@ class PhotosAdapter internal constructor(private val context: Context, private v
             LImageUtil.load(context = itemView.imageView.context,
                     url = photo.flickrLink1024,
                     imageView = itemView.imageView,
-                    resPlaceHolder = R.color.black,
-                    resError = R.color.black,
+                    resPlaceHolder = color,
+                    resError = color,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false
