@@ -5,6 +5,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.setSafeOnClickListener
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
@@ -21,7 +22,7 @@ class SingleObserverExampleActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btn.setOnClickListener {
+        btn.setSafeOnClickListener {
             doSomeWork()
         }
     }

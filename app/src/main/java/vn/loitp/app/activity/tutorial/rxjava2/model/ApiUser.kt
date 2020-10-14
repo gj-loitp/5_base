@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.tutorial.rxjava2.model
 
-class ApiUser {
+import com.core.base.BaseModel
+
+class ApiUser : BaseModel() {
     @JvmField
     var id: Long = 0
 

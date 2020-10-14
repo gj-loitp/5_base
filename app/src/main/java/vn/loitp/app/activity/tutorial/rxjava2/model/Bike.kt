@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.tutorial.rxjava2.model
 
-class Bike {
+import com.core.base.BaseModel
+
+class Bike : BaseModel {
     var name: String? = null
     var model: String? = null
     var price: Int = 0

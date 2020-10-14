@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn"
@@ -15,11 +15,11 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/btn">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_medium"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/themeTextColor" />
     </ScrollView>
 </RelativeLayout>

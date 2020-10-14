@@ -42,7 +42,7 @@ class TestAsyncKotlin(private val count: Int) {
                         callback.invoke(it)
                     }
 
-    fun doInBkg(emmiter: SingleEmitter<Boolean>) {
+    private fun doInBkg(emmiter: SingleEmitter<Boolean>) {
         if (count > 15) {
             emmiter.onError(IllegalArgumentException("Count must <=15"))
             return

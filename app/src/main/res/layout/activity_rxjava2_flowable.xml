@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical"
     android:paddingTop="@dimen/padding_medium">
 
@@ -16,11 +16,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_medium"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/themeTextColor" />
     </ScrollView>
 </LinearLayout>
