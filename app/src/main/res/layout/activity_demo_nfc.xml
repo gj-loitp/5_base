@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -16,25 +16,27 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_medium">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/currentTagView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Scan a tag"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 android:textStyle="bold" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Result"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="15sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="NFC" />

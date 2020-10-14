@@ -10,6 +10,7 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_2.*
 import vn.loitp.app.R
 
@@ -21,13 +22,13 @@ class Activity2 : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         logD("suzuki onCreate")
 
-        btGoTo1.setOnClickListener {
+        btGoTo1.setSafeOnClickListener {
             val intent = Intent(this@Activity2, Activity1::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
-        btGoTo3.setOnClickListener {
+        btGoTo3.setSafeOnClickListener {
             val intent = Intent(this@Activity2, Activity3::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)

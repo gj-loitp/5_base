@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -43,7 +43,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="Input an english sentence"
-                    android:maxLines="1" />
+                    android:maxLines="1"
+                    android:textColor="?attr/themeTextColor"
+                    android:textColorHint="?attr/themeTextColor"
+                    android:textCursorDrawable="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btSpeak"
@@ -56,7 +60,7 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvResolution"
         style="@style/TextMenu"
         android:text="Text To Speech" />
