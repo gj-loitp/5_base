@@ -19,6 +19,7 @@ class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         bt0.setOnClickListener(this)
     }
 

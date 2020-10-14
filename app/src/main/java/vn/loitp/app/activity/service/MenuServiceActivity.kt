@@ -20,6 +20,7 @@ class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         btDemoService.setOnClickListener(this)
         btEndlessService.setOnClickListener(this)
 
