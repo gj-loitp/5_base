@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
         <androidx.core.widget.NestedScrollView
             style="@style/ScrollVertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
-                android:text="@string/large_text" />
+                android:text="@string/large_text"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
         </androidx.core.widget.NestedScrollView>
 
         <com.views.layout.youtubelayout.YoutubeLayout
@@ -26,7 +30,7 @@
             android:orientation="vertical"
             android:visibility="visible">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@id/view_header"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_250"
@@ -40,13 +44,15 @@
                 style="@style/ScrollVertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white">
+                android:background="@color/red50">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
-                    android:text="@string/large_text" />
+                    android:text="@string/large_text"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
             </androidx.core.widget.NestedScrollView>
 
         </com.views.layout.youtubelayout.YoutubeLayout>
