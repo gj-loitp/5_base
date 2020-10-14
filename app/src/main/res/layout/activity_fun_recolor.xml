@@ -22,7 +22,7 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_medium">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
@@ -33,7 +33,7 @@
                 android:src="@mipmap/ic_launcher"
                 android:tint="#fff" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                 android:foreground="?selectableItemBackground"
                 tools:ignore="UnusedAttribute">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -75,7 +75,7 @@
                 app:cardCornerRadius="@dimen/round_medium"
                 app:cardElevation="10dp">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
@@ -100,7 +100,7 @@
                     android:foreground="?selectableItemBackground"
                     tools:ignore="UnusedAttribute">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -120,7 +120,7 @@
                     android:foreground="?selectableItemBackground"
                     tools:ignore="UnusedAttribute">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -138,7 +138,7 @@
                     android:foreground="?selectableItemBackground"
                     tools:ignore="UnusedAttribute">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -164,7 +164,7 @@
                     android:foreground="?selectableItemBackground"
                     tools:ignore="UnusedAttribute">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -184,7 +184,7 @@
                     android:foreground="?selectableItemBackground"
                     tools:ignore="UnusedAttribute">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -202,7 +202,7 @@
                     android:foreground="?selectableItemBackground"
                     tools:ignore="UnusedAttribute">
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
