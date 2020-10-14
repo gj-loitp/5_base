@@ -12,10 +12,11 @@
         android:descendantFocusability="blocksDescendants"
         android:theme="@style/DefaultNumberPickerTheme" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=":" />
+        android:text=":"
+        android:textColor="?attr/themeTextColor" />
 
     <NumberPicker
         android:id="@+id/numberPickerM"
@@ -24,10 +25,11 @@
         android:descendantFocusability="blocksDescendants"
         android:theme="@style/DefaultNumberPickerTheme" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=":" />
+        android:text=":"
+        android:textColor="?attr/themeTextColor" />
 
     <NumberPicker
         android:id="@+id/numberPickerS"

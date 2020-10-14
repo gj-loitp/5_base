@@ -133,8 +133,8 @@
     </style>
 
     <style name="DefaultNumberPickerTheme" parent="DarkTheme">
-        <item name="colorControlNormal">@color/colorPrimary</item>
-        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="colorControlNormal">?attr/themeTextColor</item>
+        <item name="android:textColorPrimary">?attr/themeTextColor</item>
     </style>
 
     <style name="LightTheme" parent="Theme.MaterialComponents.Light.NoActionBar">

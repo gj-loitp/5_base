@@ -21,7 +21,7 @@ public class TempActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(0);
+//        setContentView(0);
         this.pickerManager = GlobalHolder.getInstance().getPickerManager();
         this.pickerManager.setActivity(this);
         this.pickerManager.pickPhotoWithPermission();
