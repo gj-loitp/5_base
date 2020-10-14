@@ -52,6 +52,16 @@
                 android:text="@string/demo_app" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDonation"
+                style="@style/ButtonMenu"
+                android:text="@string/donation" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFunction"
+                style="@style/ButtonMenu"
+                android:text="@string/function" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPicker"
                 style="@style/ButtonMenu"
                 android:text="@string/picker" />
@@ -65,11 +75,6 @@
                 android:id="@+id/btService"
                 style="@style/ButtonMenu"
                 android:text="Service" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btFunction"
-                style="@style/ButtonMenu"
-                android:text="@string/function" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNetwork"
@@ -120,11 +125,6 @@
                 android:id="@+id/btFrmMore"
                 style="@style/ButtonMenu"
                 android:text="@string/th_m" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDonation"
-                style="@style/ButtonMenu"
-                android:text="@string/donation" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGithub"

@@ -41,6 +41,10 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btAlarm.setOnClickListener(this)
         btEbookWithRealm.setOnClickListener(this)
         btVideo.setOnClickListener(this)
