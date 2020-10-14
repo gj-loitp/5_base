@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.pattern.mvp
 
-class User {
+import com.core.base.BaseModel
+
+class User : BaseModel {
     var fullName = ""
     var email = ""
 

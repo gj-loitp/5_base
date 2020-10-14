@@ -62,6 +62,21 @@
                 android:text="@string/function" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMoreApp"
+                style="@style/ButtonMenu"
+                android:text="@string/more_app" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNetwork"
+                style="@style/ButtonMenu"
+                android:text="@string/network" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPattern"
+                style="@style/ButtonMenu"
+                android:text="@string/pattern" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPicker"
                 style="@style/ButtonMenu"
                 android:text="@string/picker" />
@@ -77,16 +92,6 @@
                 android:text="Service" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btNetwork"
-                style="@style/ButtonMenu"
-                android:text="@string/network" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btPattern"
-                style="@style/ButtonMenu"
-                android:text="@string/pattern" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTutorial"
                 style="@style/ButtonMenu"
                 android:text="@string/tutorial" />
@@ -100,11 +105,6 @@
                 android:id="@+id/btRateApp"
                 style="@style/ButtonMenu"
                 android:text="@string/rate_app" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btMoreApp"
-                style="@style/ButtonMenu"
-                android:text="@string/more_app" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btChat"
