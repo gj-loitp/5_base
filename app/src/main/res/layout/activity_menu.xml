@@ -47,6 +47,11 @@
                 android:text="@string/database" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDemo"
+                style="@style/ButtonMenu"
+                android:text="@string/demo_app" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPicker"
                 style="@style/ButtonMenu"
                 android:text="@string/picker" />
@@ -60,11 +65,6 @@
                 android:id="@+id/btService"
                 style="@style/ButtonMenu"
                 android:text="Service" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDemo"
-                style="@style/ButtonMenu"
-                android:text="@string/demo_app" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFunction"

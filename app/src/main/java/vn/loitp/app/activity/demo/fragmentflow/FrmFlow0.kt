@@ -10,6 +10,7 @@ import vn.loitp.app.R
 @LayoutId(R.layout.frm_demo_flow_0)
 @LogTag("FrmFlow0")
 class FrmFlow0 : FrmFlowBase() {
+    
     override fun onBackClick(): Boolean {
         print("onBackClick")
         popThisFragment()
