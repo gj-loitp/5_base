@@ -1,78 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!--    <style name="AppThemeAndroidO" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-    <!--        <item name="colorAccent">@color/colorAccent</item>-->
-    <!--        <item name="android:windowContentOverlay">@null</item>-->
-    <!--        <item name="windowActionBar">false</item>-->
-    <!--        <item name="windowNoTitle">true</item>-->
-    <!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
-    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-    <!--        </item>-->
-    <!--    </style>-->
-
-    <!--    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-    <!--        <item name="colorAccent">@color/colorAccent</item>-->
-    <!--        <item name="android:windowContentOverlay">@null</item>-->
-    <!--        <item name="windowActionBar">false</item>-->
-    <!--        <item name="windowNoTitle">true</item>-->
-    <!--        <item name="android:windowIsTranslucent">true</item>-->
-    <!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
-    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-    <!--        </item>-->
-    <!--    </style>-->
-
-    <!--    <style name="AppThemeMaterialComponents" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-    <!--        <item name="colorAccent">@color/colorAccent</item>-->
-    <!--        <item name="android:windowContentOverlay">@null</item>-->
-    <!--        <item name="windowActionBar">false</item>-->
-    <!--        <item name="windowNoTitle">true</item>-->
-    <!--        <item name="android:windowIsTranslucent">true</item>-->
-    <!--        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>-->
-    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-    <!--        </item>-->
-    <!--    </style>-->
-
-    <!--    <style name="NoTitleTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">-->
-    <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-    <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-    <!--        <item name="colorAccent">@color/colorAccent</item>-->
-    <!--        <item name="android:background">@color/transparent</item>-->
-    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-    <!--        </item>-->
-    <!--    </style>-->
-
-    <!--    <style name="Theme.Transparent" parent="Theme.MaterialComponents.Light.NoActionBar">-->
-    <!--        <item name="android:windowNoTitle">true</item>-->
-    <!--        <item name="android:windowActionBar">false</item>-->
-    <!--        &lt;!&ndash;<item name="android:windowFullscreen">true</item>&ndash;&gt;-->
-    <!--        <item name="android:windowContentOverlay">@null</item>-->
-    <!--        <item name="android:windowDisablePreview">true</item>-->
-    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-    <!--        </item>-->
-    <!--    </style>-->
-
-    <!--    <style name="FullscreenTheme" parent="AppTheme">-->
-    <!--        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>-->
-    <!--        <item name="android:windowActionBarOverlay">true</item>-->
-    <!--        <item name="android:windowBackground">@null</item>-->
-    <!--    </style>-->
-
-    <!--    <style name="FullscreenActionBarStyle" parent="@android:style/Theme.Light.NoTitleBar">-->
-    <!--        <item name="android:background">@color/black35</item>-->
-    <!--        <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect-->
-    <!--        </item>-->
-    <!--    </style>-->
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorEdgeEffect" tools:targetApi="lollipop">@color/colorEdgeEffect
         </item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="MaterialDrawer.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">false</item>
@@ -199,7 +132,7 @@
         <item name="textAllCaps">true</item>
     </style>
 
-    <style name="DefaultNumberPickerTheme" parent="AppTheme">
+    <style name="DefaultNumberPickerTheme" parent="DarkTheme">
         <item name="colorControlNormal">@color/colorPrimary</item>
         <item name="android:textColorPrimary">@color/colorPrimary</item>
     </style>
