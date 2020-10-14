@@ -4,6 +4,7 @@
     style="@style/ScrollVertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?themeBackgroundColorMedium"
     android:fillViewport="true">
 
     <FrameLayout
@@ -13,7 +14,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/lightBlue"
             android:orientation="vertical">
 
             <LinearLayout
@@ -21,66 +21,68 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvCurrentStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btStartDownload"
                     style="@style/ButtonMenu"
-                    android:text="start download"
-                    android:textSize="@dimen/txt_medium" />
+                    android:text="start download" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btCancelDownload"
                     style="@style/ButtonMenu"
-                    android:text="cancel download"
-                    android:textSize="@dimen/txt_medium" />
+                    android:text="cancel download" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btPauseDownload"
                     style="@style/ButtonMenu"
-                    android:text="pause download"
-                    android:textSize="@dimen/txt_medium" />
+                    android:text="pause download" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btResumeDownload"
                     style="@style/ButtonMenu"
-                    android:text="resume download"
-                    android:textSize="@dimen/txt_medium" />
+                    android:text="resume download" />
 
                 <ProgressBar
                     android:id="@+id/sbDownloadProgress"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/green"
                     android:indeterminateOnly="false"
-                    android:padding="@dimen/padding_medium" />
+                    android:padding="@dimen/padding_medium"
+                    android:progressTint="@color/red" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvTotalSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
             </LinearLayout>
@@ -88,27 +90,28 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_1"
-                android:background="@color/gray" />
+                android:background="@color/red" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/lightGreen"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/padding_medium">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
                     android:text="Download file zip from google drive, then unzip"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvCurrentStatusZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
                 <ProgressBar
@@ -116,38 +119,43 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/green"
                     android:indeterminateOnly="false"
-                    android:padding="@dimen/padding_medium" />
+                    android:indeterminateTint="@color/red"
+                    android:padding="@dimen/padding_medium"
+                    android:progressTint="@color/deepPink" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvPercentZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvSizeZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvTotalSizeZip"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium"
                     tools:text="@string/app_name" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btStartDownloadZipGoogle"
                     style="@style/ButtonMenu"
-                    android:text="Start download zip google"
-                    android:textSize="@dimen/txt_medium" />
+                    android:text="Start download zip google" />
             </LinearLayout>
 
             <View
@@ -158,71 +166,46 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/lightGrey"
                 android:orientation="vertical">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/padding_medium"
                     android:text="Test LStore Util"
-                    android:textColor="@color/black"
+                    android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/text_large"
                     android:textStyle="bold" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btTestRandomColor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foreground="?selectableItemBackground"
-                    android:padding="@dimen/padding_medium"
-                    android:text="randomColor"
-                    android:textSize="@dimen/txt_medium" />
+                    style="@style/ButtonMenu"
+                    android:text="randomColor" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btTestRandomColorLight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foreground="?selectableItemBackground"
-                    android:padding="@dimen/padding_medium"
-                    android:text="randomColorLight"
-                    android:textSize="@dimen/txt_medium" />
+                    style="@style/ButtonMenu"
+                    android:text="randomColorLight" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btTestWriteToFile"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foreground="?selectableItemBackground"
-                    android:padding="@dimen/padding_medium"
-                    android:text="writeToFile"
-                    android:textSize="@dimen/txt_medium" />
+                    style="@style/ButtonMenu"
+                    android:text="writeToFile" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btReadTxtFromFolder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foreground="?selectableItemBackground"
-                    android:padding="@dimen/padding_medium"
-                    android:text="readTxtFromFolder"
-                    android:textSize="@dimen/txt_medium" />
+                    style="@style/ButtonMenu"
+                    android:text="readTxtFromFolder" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btReadTxtFromRawFolder"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foreground="?selectableItemBackground"
-                    android:padding="@dimen/padding_medium"
-                    android:text="readTxtFromRawFolder"
-                    android:textSize="@dimen/txt_medium" />
+                    style="@style/ButtonMenu"
+                    android:text="readTxtFromRawFolder" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btReadTxtFromAsset"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foreground="?selectableItemBackground"
-                    android:padding="@dimen/padding_medium"
-                    android:text="readTxtFromAsset"
-                    android:textSize="@dimen/txt_medium" />
+                    style="@style/ButtonMenu"
+                    android:text="readTxtFromAsset" />
             </LinearLayout>
         </LinearLayout>
 
@@ -240,7 +223,9 @@
             <ProgressBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:indeterminateTint="@color/white"
+                android:backgroundTint="@color/green"
+                android:indeterminateTint="@color/blue"
+                android:progressTint="@color/deepPink"
                 tools:ignore="UnusedAttribute" />
         </LinearLayout>
     </FrameLayout>

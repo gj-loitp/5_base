@@ -11,6 +11,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_drag_drop_sample.*
 import vn.loitp.app.R
 
@@ -25,7 +26,7 @@ class DragDropSampleActivity : BaseFontActivity() {
         ivTrash.tag = "trash"
 
         ivTrash.setOnDragListener(TrashDragListener(enterShape = R.mipmap.ic_launcher, normalShape = R.drawable.ic_search_black_48dp))
-        ivTrash.setOnClickListener {
+        ivTrash.setSafeOnClickListener {
             ivPaper.visibility = View.VISIBLE
         }
         ivPaper.setOnLongClickListener { view: View ->

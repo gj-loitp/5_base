@@ -9,6 +9,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_service_communicate.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -27,10 +28,10 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btNotifyMe.setOnClickListener {
+        btNotifyMe.setSafeOnClickListener {
             handleNotify()
         }
-        bt0.setOnClickListener {
+        bt0.setSafeOnClickListener {
             CommunicateMng.postFromActivity(CommunicateMng.MsgFromActivity(bt0.text.toString()))
         }
     }
