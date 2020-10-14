@@ -3,16 +3,16 @@
     style="@style/ScrollVertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
         android:text="@string/app_name"
-        android:textColor="@color/black"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_small" />
 
 </androidx.core.widget.NestedScrollView>
