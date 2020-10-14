@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColorMedium">
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
@@ -15,35 +15,45 @@
         android:id="@+id/btLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Location" />
+        android:background="@color/red"
+        android:text="Location"
+        android:textColor="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btAddMaker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btLocation"
-        android:text="Add marker" />
+        android:background="@color/deepPink"
+        android:text="Add marker"
+        android:textColor="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btRouter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btAddMaker"
-        android:text="Router" />
+        android:background="@color/darkCyan"
+        android:text="Router"
+        android:textColor="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btRouterAnim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btRouter"
-        android:text="Router Anim" />
+        android:background="@color/blue"
+        android:text="Router Anim"
+        android:textColor="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btDistance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btRouterAnim"
-        android:text="Distance" />
+        android:background="@color/green"
+        android:text="Distance"
+        android:textColor="?attr/themeTextColor" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nsv"
@@ -52,13 +62,13 @@
         android:layout_alignParentBottom="true"
         android:background="@color/black35">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvLog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="bottom"
             android:padding="@dimen/padding_medium"
-            android:textColor="@color/white"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/text_tiny"
             tools:text="@string/large_dummy_text" />
     </androidx.core.widget.NestedScrollView>
