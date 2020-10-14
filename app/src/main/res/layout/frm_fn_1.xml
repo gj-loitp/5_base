@@ -5,7 +5,7 @@
     android:background="@color/lightBlue"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
         android:text="@string/fn1" />
 
@@ -19,7 +19,7 @@
         style="@style/ButtonMenu"
         android:text="@string/go_to_fn4" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
