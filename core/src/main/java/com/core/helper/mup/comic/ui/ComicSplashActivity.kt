@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import com.BuildConfig
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -14,7 +13,6 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.mup.girl.ui.GirlActivity
 import com.core.utilities.LDialogUtil
-import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -51,15 +49,6 @@ class ComicSplashActivity : BaseFontActivity() {
                 lnAdView.addView(it)
             }
         }
-
-        var urlCoverSplashScreen: String? = intent.getStringExtra(Constants.BKG_SPLASH_SCREEN)
-        if (urlCoverSplashScreen.isNullOrEmpty()) {
-            urlCoverSplashScreen = Constants.URL_IMG_2
-        }
-        if (BuildConfig.DEBUG) {
-            urlCoverSplashScreen = Constants.URL_IMG
-        }
-        LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
     }
 
     private fun goToHome() {
@@ -129,10 +118,10 @@ class ComicSplashActivity : BaseFontActivity() {
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature.",
-                button1 = "Okay",
-                button2 = "Cancel",
+                title = getString(R.string.need_permissions),
+                msg = getString(R.string.need_permission_msg),
+                button1 = getString(R.string.ok),
+                button2 = getString(R.string.cancel),
                 callback2 = object : Callback2 {
                     override fun onClick1() {
                         checkPermission()
@@ -147,10 +136,10 @@ class ComicSplashActivity : BaseFontActivity() {
 
     private fun showSettingsDialog() {
         val alertDialog = LDialogUtil.showDialog2(context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature. You can grant them in app settings.",
-                button1 = "GOTO SETTINGS",
-                button2 = "Cancel",
+                title = getString(R.string.need_permissions),
+                msg = getString(R.string.need_permission_msg_setting),
+                button1 = getString(R.string.go_to_settings),
+                button2 = getString(R.string.cancel),
                 callback2 = object : Callback2 {
                     override fun onClick1() {
                         isShowDialogCheck = false

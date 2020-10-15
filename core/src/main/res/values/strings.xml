@@ -10,6 +10,7 @@
     <string name="err_unknow">Lỗi không xác định, xin vui lòng thử lại sau.</string>
     <string name="err_unknow_en">Unknown error, please try again later.</string>
     <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="fast_forward">Fast forward</string>
@@ -144,4 +145,8 @@
     <string name="touch_anywhere_to_hide">Swipe left/right to another page\nTouch anywhere to hide.</string>
     <string name="chat_with_dev">Chat with dev</string>
     <string name="donation">Donation</string>
+    <string name="go_to_settings">Vào cài đặt</string>
+    <string name="need_permissions">Cấp quyền truy cập</string>
+    <string name="need_permission_msg">Vui lòng cấp quyền để có thể sử dụng ứng dụng.</string>
+    <string name="need_permission_msg_setting">Vui lòng cấp quyền để có thể sử dụng ứng dụng. Vui lòng chọn cài đặt.</string>
 </resources>
