@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_medium">
+
+    <!-- NOTE: This list should be displayed in a list
+    instead of nested layouts -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo"
+            app:tint="?attr/themeTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Preview"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo"
+            app:tint="?attr/themeTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Share"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo"
+            app:tint="?attr/themeTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Get link"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo"
+            android:tint="?attr/themeTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Make a Copy"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/logo"
+            app:tint="?attr/themeTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Email a Copy"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+    </LinearLayout>
+</LinearLayout>

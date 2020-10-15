@@ -37,7 +37,8 @@ class FrmProfile : BaseFragment() {
             //TODO
         }
         btDonation.setSafeOnClickListener {
-            //TODO
+            val bottomSheetDonationFragment = BottomSheetDonationFragment()
+            bottomSheetDonationFragment.show(childFragmentManager, bottomSheetDonationFragment.tag)
         }
     }
 
