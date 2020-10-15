@@ -50,7 +50,7 @@ class ComicActivity : BaseFontActivity() {
 
         val menuComicFavourite = MenuComic(
                 itemId = R.id.menuFavourite,
-                iconId = R.drawable.baseline_favorite_black_24dp,
+                iconId = R.drawable.ic_account_circle_black_48dp,
                 textId = R.string.favourite,
                 activeColor = activeColor
         )
