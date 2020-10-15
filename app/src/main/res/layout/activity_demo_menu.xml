@@ -93,6 +93,11 @@
                 android:text="Girl" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btComic"
+                style="@style/ButtonMenu"
+                android:text="Comic" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btMapTracker"
                 style="@style/ButtonMenu"
                 android:text="Map tracker" />
