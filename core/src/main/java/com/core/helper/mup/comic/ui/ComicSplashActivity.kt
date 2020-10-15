@@ -11,7 +11,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.helper.mup.girl.ui.GirlActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
@@ -24,7 +24,7 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 
-@LogTag("GirlActivity")
+@LogTag("ComicSplashActivity")
 @IsFullScreen(false)
 class ComicSplashActivity : BaseFontActivity() {
 
@@ -52,13 +52,13 @@ class ComicSplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(mls = 3000, runnable = Runnable {
-            val intent = Intent(this, GirlActivity::class.java)
+        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
+            val intent = Intent(this, ComicActivity::class.java)
             //TODO iplm ad for next screen
-//            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
-//            startActivity(intent)
-//            LActivityUtil.tranIn(this)
-//            finish()
+            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
+            startActivity(intent)
+            LActivityUtil.tranIn(this)
+            finish()
         })
     }
 
