@@ -33,6 +33,12 @@ class FrmProfile : BaseFragment() {
         btSetting.setSafeOnClickListener {
             //TODO
         }
+        btInformation.setSafeOnClickListener {
+            //TODO
+        }
+        btDonation.setSafeOnClickListener {
+            //TODO
+        }
     }
 
 
