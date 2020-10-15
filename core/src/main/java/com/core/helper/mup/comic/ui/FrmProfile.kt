@@ -25,8 +25,8 @@ class FrmProfile : BaseFragment() {
     }
 
     fun setupViews() {
-        LImageUtil.load(context = activity, url = "https://media0.giphy.com/media/qzuGfHYC152dG/giphy.gif", imageView = ivBackground)
-        LImageUtil.loadCircle(url = "https://media0.giphy.com/media/qzuGfHYC152dG/giphy.gif", imageView = ivAvatar)
+        LImageUtil.load(context = activity, url = "https://live.staticflickr.com/336/31740727004_7a66635d62_b.jpg", imageView = ivBackground)
+        LImageUtil.loadCircle(url = "https://live.staticflickr.com/8051/28816266454_a7d83db3b2_n.jpg", imageView = ivAvatar)
     }
 
 
