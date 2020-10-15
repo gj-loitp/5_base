@@ -95,15 +95,15 @@ class MenuLottieActivity : BaseFontActivity() {
             val inflater = LayoutInflater.from(this@MenuLottieActivity)
             val layout = inflater.inflate(R.layout.item_lottie_view, collection, false) as ViewGroup
             val rl = layout.findViewById<RelativeLayout>(R.id.rl)
-            val lottieAnimationView: LottieAnimationView = layout.findViewById(R.id.animationView)
-            lottieAnimationView.setAnimation(lottieItem.pathAsset)
+            val animationView: LottieAnimationView = layout.findViewById(R.id.animationView)
+            animationView.setAnimation(lottieItem.pathAsset)
             //lottieAnimationView.useHardwareAcceleration();
             //lottieAnimationView.setScale(0.3f);
 
             //lottieAnimationView.playAnimation();
-            lottieAnimationView.loop(true)
+            animationView.loop(true)
             rl.setOnClickListener {
-                lottieAnimationView.playAnimation()
+                animationView.playAnimation()
             }
             collection.addView(layout)
             return layout
