@@ -165,6 +165,7 @@ class Constants {
 
         const val AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE"
         const val AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER"
+        const val SHOW_DONATION = "SHOW_DONATION"
 
         const val BKG_ROOT_VIEW = "BKG_ROOT_VIEW"
         const val BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN"
@@ -226,5 +227,10 @@ Số điện thoại: 0764088864
 
 
 Những đóng góp của mọi người là động lực và trách nhiệm để mình có thể cho ra nhiều ứng dụng hay hơn nữa. Chân thành cảm ơn!"""
+
+        //start comic
+        const val COMIC_ADMOB_ID_BANNER = "COMIC_ADMOB_ID_BANNER"
+        const val COMIC_SHOW_DONATION = "COMIC_SHOW_DONATION"
+        //end comic
     }
 }

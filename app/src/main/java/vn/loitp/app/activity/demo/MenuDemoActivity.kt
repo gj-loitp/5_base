@@ -148,7 +148,8 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btMapTracker -> intent = Intent(this, MapTrackerActivity::class.java)
             btComic -> {
                 intent = Intent(this, ComicSplashActivity::class.java)
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
+                intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
+                intent.putExtra(Constants.COMIC_SHOW_DONATION, true)
             }
         }
         intent?.let {

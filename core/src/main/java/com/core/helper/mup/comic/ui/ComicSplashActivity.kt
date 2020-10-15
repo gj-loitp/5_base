@@ -13,6 +13,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
+import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -36,7 +37,15 @@ class ComicSplashActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.l_activity_comic_splash)
 
-        admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
+        admobBannerUnitId = intent.getStringExtra(Constants.COMIC_ADMOB_ID_BANNER)
+
+        admobBannerUnitId?.let { id ->
+            LSharedPrefsUtil.instance.putString(Constants.COMIC_ADMOB_ID_BANNER, id)
+        }
+
+        intent.getBooleanExtra(Constants.COMIC_SHOW_DONATION, false).let { isShowDonation ->
+            LSharedPrefsUtil.instance.putBoolean(Constants.COMIC_SHOW_DONATION, isShowDonation)
+        }
 
         if (admobBannerUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
@@ -54,8 +63,6 @@ class ComicSplashActivity : BaseFontActivity() {
     private fun goToHome() {
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             val intent = Intent(this, ComicActivity::class.java)
-            //TODO iplm ad for next screen
-            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
             startActivity(intent)
             LActivityUtil.tranIn(this)
             finish()
