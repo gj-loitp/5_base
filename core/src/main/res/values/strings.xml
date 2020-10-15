@@ -133,6 +133,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_favourite">Favourite</string>
     <string name="menu_infor">Information</string>
+    <string name="menu_profile">Profile</string>
     <string name="today_s">Today\'s</string>
     <string name="hottest_shot">Hottest shot</string>
     <string name="album">Album</string>
@@ -149,4 +150,7 @@
     <string name="need_permissions">Cấp quyền truy cập</string>
     <string name="need_permission_msg">Vui lòng cấp quyền để có thể sử dụng ứng dụng.</string>
     <string name="need_permission_msg_setting">Vui lòng cấp quyền để có thể sử dụng ứng dụng. Vui lòng chọn cài đặt.</string>
+    <string name="home">Trang chủ</string>
+    <string name="favourite">Yêu thích</string>
+    <string name="profile">Cá nhân</string>
 </resources>

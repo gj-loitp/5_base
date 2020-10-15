@@ -43,7 +43,7 @@ class ComicActivity : BaseFontActivity() {
         val menuComicHome = MenuComic(
                 itemId = R.id.menuHome,
                 iconId = R.drawable.baseline_home_black_24dp,
-                textId = R.string.menu_home,
+                textId = R.string.home,
                 activeColor = activeColor
         )
         listMenuComic.add(menuComicHome)
@@ -51,15 +51,15 @@ class ComicActivity : BaseFontActivity() {
         val menuComicFavourite = MenuComic(
                 itemId = R.id.menuFavourite,
                 iconId = R.drawable.baseline_favorite_black_24dp,
-                textId = R.string.menu_favourite,
+                textId = R.string.favourite,
                 activeColor = activeColor
         )
         listMenuComic.add(menuComicFavourite)
 
         val menuComicInformation = MenuComic(
-                itemId = R.id.menuInformation,
+                itemId = R.id.menuProfile,
                 iconId = R.drawable.baseline_info_black_24dp,
-                textId = R.string.menu_infor,
+                textId = R.string.profile,
                 activeColor = activeColor
         )
         listMenuComic.add(menuComicInformation)
@@ -119,7 +119,7 @@ class ComicActivity : BaseFontActivity() {
                     FrmFavourite()
                 }
                 2 -> {
-                    FrmInformation()
+                    FrmProfile()
                 }
                 else -> {
                     FrmHome()
