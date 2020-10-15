@@ -96,17 +96,17 @@
             android:name=".picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.ui.GirlSplashActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.ui.GirlActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.ui.GirlDetailActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.girl.ui.GirlSlideActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlSlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 

@@ -2,7 +2,7 @@ package com.core.base
 
 import androidx.multidex.MultiDexApplication
 import com.annotation.LogTag
-import com.core.helper.girl.db.GirlDatabase
+import com.core.helper.mup.girl.db.GirlDatabase
 import com.core.utilities.LAppResource
 import com.core.utilities.LConnectivityUtil
 import com.core.utilities.LLog

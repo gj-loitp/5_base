@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.annotation.LogTag
-import com.core.helper.girl.service.GirlApiResponse
+import com.core.helper.mup.girl.service.GirlApiResponse
 import com.core.utilities.LLog
 import com.service.RequestStatus
 import com.service.livedata.ActionData
