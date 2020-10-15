@@ -40,6 +40,18 @@
                 android:textSize="@dimen/txt_large"
                 tools:text="@string/app_name_comic" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvUserName"
+                android:layout_marginTop="@dimen/margin_50"
+                android:background="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/setting_vn"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>

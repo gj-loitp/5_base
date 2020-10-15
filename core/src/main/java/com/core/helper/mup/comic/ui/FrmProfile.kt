@@ -8,6 +8,7 @@ import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LImageUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_comic_profile.*
 
 @LogTag("FrmInformation")
@@ -28,6 +29,10 @@ class FrmProfile : BaseFragment() {
         LImageUtil.load(context = activity, url = "https://live.staticflickr.com/336/31740727004_7a66635d62_b.jpg", imageView = ivBackground)
         LImageUtil.loadCircle(url = "https://live.staticflickr.com/8051/28816266454_a7d83db3b2_n.jpg", imageView = ivAvatar)
         tvUserName.text = getString(R.string.app_name_comic)
+
+        btSetting.setSafeOnClickListener {
+            //TODO
+        }
     }
 
 
