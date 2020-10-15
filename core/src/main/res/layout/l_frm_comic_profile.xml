@@ -15,18 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.appcompat.widget.AppCompatImageView
+            <com.views.imageview.kenburnview.LKenBurnsView
                 android:id="@+id/ivBackground"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/w_200"
-                android:scaleType="centerCrop"
                 tools:src="@drawable/logo" />
-
-<!--            <com.github.mmin18.widget.RealtimeBlurView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="@dimen/w_200"-->
-<!--                app:realtimeBlurRadius="@dimen/round_medium"-->
-<!--                app:realtimeOverlayColor="?attr/themeBackgroundColor50" />-->
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivAvatar"
@@ -36,6 +29,16 @@
                 android:layout_marginTop="@dimen/w_150"
                 android:scaleType="centerCrop"
                 tools:src="@drawable/logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivAvatar"
+                android:layout_centerHorizontal="true"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_large"
+                tools:text="@string/app_name_comic" />
 
         </RelativeLayout>
 
