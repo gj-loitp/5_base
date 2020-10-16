@@ -1,4 +1,4 @@
-package com.core.helper.mup.comic.ui
+package com.core.helper.mup.comic.ui.activity
 
 import android.Manifest
 import android.content.Intent

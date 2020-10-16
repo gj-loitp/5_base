@@ -1,4 +1,4 @@
-package com.core.helper.mup.comic.ui
+package com.core.helper.mup.comic.ui.frm
 
 import android.os.Bundle
 import android.view.View

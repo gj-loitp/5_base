@@ -1,4 +1,4 @@
-package com.core.helper.mup.comic.ui
+package com.core.helper.mup.comic.ui.activity
 
 import android.graphics.Color
 import android.os.Bundle
@@ -14,6 +14,9 @@ import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.mup.comic.model.MenuComic
+import com.core.helper.mup.comic.ui.frm.FrmFavourite
+import com.core.helper.mup.comic.ui.frm.FrmHome
+import com.core.helper.mup.comic.ui.frm.FrmProfile
 import com.core.utilities.LUIUtil
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
@@ -109,7 +112,7 @@ class ComicActivity : BaseFontActivity() {
         return null
     }
 
-    private inner class SlidePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> {
