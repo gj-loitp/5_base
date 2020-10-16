@@ -61,7 +61,7 @@ class LDialogUtil {
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             }
 
-            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+//            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
 
             alertDialogList.add(dialog)
             return dialog
@@ -96,8 +96,8 @@ class LDialogUtil {
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorPrimary)
             }
 
-            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
-            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
 
             alertDialogList.add(dialog)
             return dialog
@@ -140,9 +140,9 @@ class LDialogUtil {
                 dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
             }
 
-            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
-            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
-            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
+//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
+//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
+//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
 
             alertDialogList.add(dialog)
             return dialog
