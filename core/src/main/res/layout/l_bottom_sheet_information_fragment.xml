@@ -11,6 +11,16 @@
         android:layout_height="@dimen/w_tiny"
         android:background="@color/lightGrey" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium"
+        android:singleLine="true"
+        android:text="@string/information_vn"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_largest"
+        android:textStyle="bold" />
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         style="@style/ScrollVertical"
