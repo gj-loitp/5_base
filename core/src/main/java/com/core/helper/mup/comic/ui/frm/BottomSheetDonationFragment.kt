@@ -49,11 +49,11 @@ class BottomSheetDonationFragment : LBottomSheetFragment(
                 //.setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build()
 
-        onStateChanged = { _, newState ->
-            logD("onStateChanged newState $newState")
-        }
-        onSlide = { _, slideOffset ->
-            logD("onSlide slideOffset $slideOffset")
-        }
+//        onStateChanged = { _, newState ->
+//            logD("onStateChanged newState $newState")
+//        }
+//        onSlide = { _, slideOffset ->
+//            logD("onSlide slideOffset $slideOffset")
+//        }
     }
 }
