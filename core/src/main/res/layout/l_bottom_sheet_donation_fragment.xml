@@ -1,32 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColorMedium"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="@dimen/w_100"
+        android:layout_height="@dimen/w_100"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside"
+        android:src="@drawable/l_donation" />
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/padding_medium">
+        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="@dimen/w_100"
-            android:layout_height="@dimen/w_100"
-            android:layout_gravity="center"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerInside"
-            android:src="@drawable/l_donation" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/textView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/padding_medium"
-            android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/text_large"
-            tools:text="Hello World!" />
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
 
-    </LinearLayout>
-</androidx.core.widget.NestedScrollView>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/text_large"
+                tools:text="Hello World!" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
