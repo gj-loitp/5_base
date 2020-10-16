@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <com.views.imageview.continuousscrollable.LContinuousScrollableImageView
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         app:imageSrc="@drawable/l_bkg_city"
         app:scaleType="centerCrop" />
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
