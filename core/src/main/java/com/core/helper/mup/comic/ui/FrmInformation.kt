@@ -11,9 +11,7 @@ import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
-import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LSocialUtil
-import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_girl_information.*
 
 @LogTag("FrmInformation")
@@ -37,33 +35,6 @@ class FrmInformation : BaseFragment(), View.OnClickListener {
         btLikeFbFanpage.setOnClickListener(this)
         btSupport.setOnClickListener(this)
         btAdHelper.setOnClickListener(this)
-
-        val isShowDonation = LSharedPrefsUtil.instance.getBoolean(Constants.COMIC_SHOW_DONATION)
-        if (isShowDonation) {
-            textView.visibility = View.VISIBLE
-            val text = Constants.DONATION_INFOR_LOITP
-
-            LTextDecorator
-                    .decorate(textView, text)
-                    .setTextColor(R.color.red,
-                            "❤ Vietcombank", "0371000106443",
-                            "❤ Techcombank", "19034585806016",
-                            "❤ Viet Capital Bank - Ngân hàng TMCP Bản Việt", "8007041105519",
-                            "❤ VPBank", "166210585",
-                            "❤ Momo", "0764088864")
-                    //.setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
-                    //.strikethrough("Duis", "Praesent")
-                    .underline("Chân thành cảm ơn!")
-                    //.setSubscript("vitae")
-                    //.makeTextClickable(new OnTextClickListener() {
-                    //    @Override
-                    //    public void onClick(View view, String text) {
-                    //
-                    //    }
-                    //}, false, "porta", "commodo", "tempor venenatis nulla")
-                    //.setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
-                    .build()
-        }
     }
 
     override fun onClick(v: View) {

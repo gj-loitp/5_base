@@ -86,7 +86,9 @@
                 android:padding="@dimen/padding_medium"
                 android:text="@string/donation"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_medium" />
+                android:textSize="@dimen/txt_medium"
+                android:visibility="gone"
+                tools:visibility="invisible" />
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>

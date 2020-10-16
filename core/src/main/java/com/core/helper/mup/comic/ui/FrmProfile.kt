@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
+import com.core.common.Constants
 import com.core.utilities.LImageUtil
+import com.core.utilities.LSharedPrefsUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_comic_profile.*
 
@@ -36,9 +38,16 @@ class FrmProfile : BaseFragment() {
         btInformation.setSafeOnClickListener {
             //TODO
         }
-        btDonation.setSafeOnClickListener {
-            val bottomSheetDonationFragment = BottomSheetDonationFragment()
-            bottomSheetDonationFragment.show(childFragmentManager, bottomSheetDonationFragment.tag)
+
+        val isShowDonation = LSharedPrefsUtil.instance.getBoolean(Constants.COMIC_SHOW_DONATION)
+        if (isShowDonation) {
+            btDonation.visibility = View.VISIBLE
+            btDonation.setSafeOnClickListener {
+                val bottomSheetDonationFragment = BottomSheetDonationFragment()
+                bottomSheetDonationFragment.show(childFragmentManager, bottomSheetDonationFragment.tag)
+            }
+        } else {
+            btDonation.visibility = View.GONE
         }
     }
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
@@ -198,30 +197,6 @@
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="@dimen/w_100"
-                android:layout_height="@dimen/w_100"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_55"
-                android:contentDescription="@string/app_name"
-                android:scaleType="centerInside"
-                android:src="@drawable/l_donation" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingStart="@dimen/padding_medium"
-                android:paddingTop="@dimen/padding_medium"
-                android:paddingEnd="@dimen/padding_medium"
-                android:paddingBottom="@dimen/padding_200"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_large"
-                android:visibility="gone"
-                tools:text="Hello World!"
-                tools:visibility="visible" />
 
         </LinearLayout>
 
