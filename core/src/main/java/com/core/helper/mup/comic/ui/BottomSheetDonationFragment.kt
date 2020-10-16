@@ -11,11 +11,11 @@ import com.views.bottomsheet.LBottomSheetFragment
 import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_girl_information.*
 
-@LogTag("loitppBottomSheetDonationFragment")
+@LogTag("BottomSheetDonationFragment")
 class BottomSheetDonationFragment : LBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_donation_fragment,
         height = LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight(),
-        isDraggable = false,
+        isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
 ) {
 
