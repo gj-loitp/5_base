@@ -36,7 +36,8 @@ class FrmProfile : BaseFragment() {
             //TODO
         }
         btInformation.setSafeOnClickListener {
-            //TODO
+            val bottomSheetInformationFragment = BottomSheetInformationFragment()
+            bottomSheetInformationFragment.show(childFragmentManager, bottomSheetInformationFragment.tag)
         }
 
         val isShowDonation = LSharedPrefsUtil.instance.getBoolean(Constants.COMIC_SHOW_DONATION)

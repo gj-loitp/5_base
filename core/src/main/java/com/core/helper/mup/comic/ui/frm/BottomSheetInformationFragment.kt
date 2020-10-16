@@ -2,25 +2,25 @@ package com.core.helper.mup.comic.ui.frm
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.view.WindowManager
 import com.R
 import com.annotation.LogTag
-import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.views.bottomsheet.LBottomSheetFragment
 import kotlinx.android.synthetic.main.l_frm_girl_information.*
 
-@LogTag("FrmInformation")
-class FrmInformation : BaseFragment(), View.OnClickListener {
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_comic_information, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
+@LogTag("BottomSheetDonationFragment")
+class BottomSheetInformationFragment : LBottomSheetFragment(
+        layoutId = R.layout.l_bottom_sheet_information_fragment,
+        height = WindowManager.LayoutParams.WRAP_CONTENT,
+        isDraggable = true,
+        firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
+), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,7 +28,7 @@ class FrmInformation : BaseFragment(), View.OnClickListener {
         setupViews()
     }
 
-    fun setupViews() {
+    private fun setupViews() {
         btRateApp.setOnClickListener(this)
         btMoreApp.setOnClickListener(this)
         btShareApp.setOnClickListener(this)
@@ -54,5 +54,4 @@ class FrmInformation : BaseFragment(), View.OnClickListener {
             }
         }
     }
-
 }
