@@ -38,9 +38,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/dark_theme"
-                app:bgOffColor="?attr/themeBackgroundColorMedium"
-                app:bgOnColor="?attr/themeBackgroundColorMedium"
+                android:text="@string/dark_theme_vn"
+                app:bgOffColor="@color/lightGrey"
+                app:bgOnColor="@color/lightGrey"
                 app:toggleOffColor="?attr/themeTextColor"
                 app:toggleOnColor="?attr/themeTextColor" />
 

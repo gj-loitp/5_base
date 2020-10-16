@@ -7,8 +7,10 @@ import android.view.WindowManager
 import com.R
 import com.annotation.LogTag
 import com.core.helper.mup.comic.ui.activity.ComicActivity
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.interfaces.Callback2
 import com.views.bottomsheet.LBottomSheetFragment
 import kotlinx.android.synthetic.main.l_bottom_sheet_setting_fragment.*
 
@@ -31,16 +33,40 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
         sw.isChecked = isDarkTheme
 
         sw.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                LUIUtil.setDarkTheme(isDarkTheme = true)
-            } else {
-                LUIUtil.setDarkTheme(isDarkTheme = false)
+            handleSwitchDarkTheme(isChecked)
+        }
+    }
+
+    private fun handleSwitchDarkTheme(isChecked: Boolean) {
+        context?.let { c ->
+            val isDarkTheme = LUIUtil.isDarkTheme()
+            if (isDarkTheme == isChecked) {
+                return@let
             }
-            activity?.let { a ->
-                a.finish()
-                startActivity(Intent(a, ComicActivity::class.java))
-                a.overridePendingTransition(0, 0)
-            }
+
+            LDialogUtil.showDialog2(context = c,
+                    title = getString(R.string.warning_vn),
+                    msg = getString(R.string.app_will_be_restarted_vn),
+                    button1 = getString(R.string.cancel),
+                    button2 = getString(R.string.ok),
+                    callback2 = object : Callback2 {
+                        override fun onClick1() {
+                            sw.isChecked = LUIUtil.isDarkTheme()
+                        }
+
+                        override fun onClick2() {
+                            if (isChecked) {
+                                LUIUtil.setDarkTheme(isDarkTheme = true)
+                            } else {
+                                LUIUtil.setDarkTheme(isDarkTheme = false)
+                            }
+                            activity?.let { a ->
+                                a.finish()
+                                startActivity(Intent(a, ComicActivity::class.java))
+                                a.overridePendingTransition(0, 0)
+                            }
+                        }
+                    })
         }
     }
 }
