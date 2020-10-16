@@ -17,18 +17,27 @@ import kotlinx.android.synthetic.main.l_frm_girl_information.*
 class BottomSheetDonationFragment : BottomSheetDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val dialog = BottomSheetDialog(requireContext(), theme)
-        dialog.setOnShowListener {
+        val sheetDialog = BottomSheetDialog(requireContext(), theme)
+        sheetDialog.setOnShowListener {
             val bottomSheetDialog = it as BottomSheetDialog
             val parentLayout = bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             parentLayout?.let { layout ->
                 val behaviour = BottomSheetBehavior.from(layout)
                 setupFullHeight(layout)
                 behaviour.state = BottomSheetBehavior.STATE_EXPANDED
-                
+                behaviour.isDraggable = false
+//                behaviour.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+//                    override fun onStateChanged(bottomSheet: View, newState: Int) {
+//                        if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
+//                            behaviour.state = BottomSheetBehavior.STATE_HIDDEN
+//                        }
+//                    }
+//
+//                    override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+//                })
             }
         }
-        return dialog
+        return sheetDialog
     }
 
     private fun setupFullHeight(bottomSheet: View) {
