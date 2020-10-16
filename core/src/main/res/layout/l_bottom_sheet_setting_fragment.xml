@@ -29,10 +29,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/dark_theme"
-                app:bgOffColor="@color/vip1"
-                app:bgOnColor="@color/vip2"
-                app:toggleOffColor="@color/vip3"
-                app:toggleOnColor="@color/vip4" />
+                app:bgOffColor="?attr/themeBackgroundColorMedium"
+                app:bgOnColor="?attr/themeBackgroundColorMedium"
+                app:toggleOffColor="?attr/themeTextColor"
+                app:toggleOnColor="?attr/themeTextColor" />
 
             <View
                 android:layout_width="match_parent"
