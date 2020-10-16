@@ -6,6 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.annotation.LogTag
+import com.core.utilities.LLog
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -16,8 +20,30 @@ open class LBottomSheetFragment(
         private val isDraggable: Boolean = true,
         private val firstBehaviourState: Int = BottomSheetBehavior.STATE_EXPANDED
 ) : BottomSheetDialogFragment() {
+    protected var logTag: String? = null
+    var onStateChanged: ((bottomSheet: View, newState: Int) -> Unit)? = null
+    var onSlide: ((bottomSheet: View, slideOffset: Float) -> Unit)? = null
+
+    protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
+        return ViewModelProvider(this).get(className)
+    }
+
+    protected fun logD(msg: String) {
+        logTag?.let {
+            LLog.d(it, msg)
+        }
+    }
+
+    protected fun logE(msg: String) {
+        logTag?.let {
+            LLog.e(it, msg)
+        }
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
+        logTag = "logTag" + tmpLogTag?.value
+
         val sheetDialog = BottomSheetDialog(requireContext(), theme)
         sheetDialog.setOnShowListener {
             val bottomSheetDialog = it as BottomSheetDialog
@@ -28,15 +54,15 @@ open class LBottomSheetFragment(
                 behaviour.state = firstBehaviourState
                 behaviour.isDraggable = isDraggable
 
-//                behaviour.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-//                    override fun onStateChanged(bottomSheet: View, newState: Int) {
-//                        if (newState == BottomSheetBehavior.STATE_COLLAPSED) {
-//                            behaviour.state = BottomSheetBehavior.STATE_HIDDEN
-//                        }
-//                    }
-//
-//                    override fun onSlide(bottomSheet: View, slideOffset: Float) {}
-//                })
+                behaviour.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+                    override fun onStateChanged(bottomSheet: View, newState: Int) {
+                        onStateChanged?.invoke(bottomSheet, newState)
+                    }
+
+                    override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                        onSlide?.invoke(bottomSheet, slideOffset)
+                    }
+                })
             }
         }
         return sheetDialog

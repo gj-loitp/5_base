@@ -3,6 +3,7 @@ package com.core.helper.mup.comic.ui
 import android.os.Bundle
 import android.view.View
 import com.R
+import com.annotation.LogTag
 import com.core.common.Constants
 import com.core.utilities.LScreenUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -10,6 +11,7 @@ import com.views.bottomsheet.LBottomSheetFragment
 import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_girl_information.*
 
+@LogTag("loitppBottomSheetDonationFragment")
 class BottomSheetDonationFragment : LBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_donation_fragment,
         height = LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight(),
@@ -46,5 +48,12 @@ class BottomSheetDonationFragment : LBottomSheetFragment(
                 //}, false, "porta", "commodo", "tempor venenatis nulla")
                 //.setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
                 .build()
+
+        onStateChanged = { _, newState ->
+            logD("onStateChanged newState $newState")
+        }
+        onSlide = { _, slideOffset ->
+            logD("onSlide slideOffset $slideOffset")
+        }
     }
 }
