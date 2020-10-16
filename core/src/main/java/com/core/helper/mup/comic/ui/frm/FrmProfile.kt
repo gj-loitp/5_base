@@ -33,7 +33,8 @@ class FrmProfile : BaseFragment() {
         tvUserName.text = getString(R.string.app_name_comic)
 
         btSetting.setSafeOnClickListener {
-            //TODO
+            val bottomSheetSettingFragment = BottomSheetSettingFragment()
+            bottomSheetSettingFragment.show(childFragmentManager, bottomSheetSettingFragment.tag)
         }
         btInformation.setSafeOnClickListener {
             val bottomSheetInformationFragment = BottomSheetInformationFragment()
