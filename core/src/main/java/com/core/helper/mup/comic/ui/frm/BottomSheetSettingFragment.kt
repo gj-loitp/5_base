@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.ui.frm
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -22,10 +23,17 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
 ) {
 
+    private var dialog: AlertDialog? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
+    }
+
+    override fun onDestroy() {
+        dialog?.dismiss()
+        super.onDestroy()
     }
 
     private fun setupViews() {
@@ -44,14 +52,14 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
                 return@let
             }
 
-            LDialogUtil.showDialog2(context = c,
+            dialog = LDialogUtil.showDialog2(context = c,
                     title = getString(R.string.warning_vn),
                     msg = getString(R.string.app_will_be_restarted_vn),
                     button1 = getString(R.string.cancel),
                     button2 = getString(R.string.ok),
                     callback2 = object : Callback2 {
                         override fun onClick1() {
-                            sw.isChecked = LUIUtil.isDarkTheme()
+                            sw?.isChecked = LUIUtil.isDarkTheme()
                         }
 
                         override fun onClick2() {
@@ -61,12 +69,16 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
                                 LUIUtil.setDarkTheme(isDarkTheme = false)
                             }
                             activity?.let { a ->
-                                a.finish()
-                                startActivity(Intent(a, ComicActivity::class.java))
+                                val intent = Intent(a, ComicActivity::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                                startActivity(intent)
                                 a.overridePendingTransition(0, 0)
                             }
                         }
                     })
+            dialog?.setOnCancelListener {
+                sw?.isChecked = LUIUtil.isDarkTheme()
+            }
         }
     }
 }
