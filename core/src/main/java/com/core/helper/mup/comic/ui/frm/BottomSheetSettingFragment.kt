@@ -1,13 +1,11 @@
 package com.core.helper.mup.comic.ui.frm
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import com.R
 import com.annotation.LogTag
-import com.core.helper.mup.comic.ui.activity.ComicActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -68,12 +66,9 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
                             } else {
                                 LUIUtil.setDarkTheme(isDarkTheme = false)
                             }
-                            activity?.let { a ->
-                                val intent = Intent(a, ComicActivity::class.java)
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                                startActivity(intent)
-                                a.overridePendingTransition(0, 0)
-                            }
+                            dialog?.dismiss()
+                            this@BottomSheetSettingFragment.dismiss()
+                            activity?.recreate()
                         }
                     })
             dialog?.setOnCancelListener {
