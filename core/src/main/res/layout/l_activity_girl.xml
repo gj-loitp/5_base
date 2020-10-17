@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/margin_large"
+        android:layout_margin="@dimen/margin_medium"
         app:exb_backgroundColor="?attr/themeBackgroundColor"
         app:exb_backgroundCornerRadius="@dimen/round_45"
         app:exb_elevation="@dimen/w_3"
