@@ -40,7 +40,7 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
                 isBold = false,
                 callback1 = object : Callback1 {
                     override fun onClick1() {
-                        showShort("onClick1")
+                        showShortInformation("onClick1")
                     }
                 })
     }
@@ -54,11 +54,11 @@ class DialogIOSActivity : BaseFontActivity(), OnClickListener {
                 isBold = true,
                 callback2 = object : Callback2 {
                     override fun onClick1() {
-                        showShort("onClick1")
+                        showShortInformation("onClick1")
                     }
 
                     override fun onClick2() {
-                        showShort("onClick2")
+                        showShortInformation("onClick2")
                     }
                 })
     }

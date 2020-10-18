@@ -51,7 +51,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
                     .setIconCallback(Runnable {
-                        showShort("onClick setIconCallback")
+                        showShortInformation("onClick setIconCallback")
                         prettyDialog?.cancel()
                     })
                     .show()
@@ -67,7 +67,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
                     .setIconCallback(Runnable {
-                        showShort("onClick setIconCallback")
+                        showShortInformation("onClick setIconCallback")
                     })
                     // OK button
                     .addButton(
@@ -75,7 +75,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.green,
                             Runnable {
-                                showShort("onClick OK")
+                                showShortInformation("onClick OK")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -85,7 +85,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.red,
                             Runnable {
-                                showShort("onClick Cancel")
+                                showShortInformation("onClick Cancel")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -95,7 +95,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.black,
                             R.color.gray,
                             Runnable {
-                                showShort("onClick Option 3")
+                                showShortInformation("onClick Option 3")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -117,7 +117,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setTextSizeTitle(resources.getDimension(R.dimen.txt_medium))
                     .setTextSizeMsg(resources.getDimension(R.dimen.txt_medium))
                     .setIconCallback(Runnable {
-                        showShort("onClick setIconCallback")
+                        showShortInformation("onClick setIconCallback")
                     })
                     // OK button
                     .addButton(
@@ -125,7 +125,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.green,
                             Runnable {
-                                showShort("onClick OK")
+                                showShortInformation("onClick OK")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -135,7 +135,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.red,
                             Runnable {
-                                showShort("onClick Cancel")
+                                showShortInformation("onClick Cancel")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -145,7 +145,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.black,
                             R.color.gray,
                             Runnable {
-                                showShort("onClick Option 3")
+                                showShortInformation("onClick Option 3")
                                 prettyDialog?.cancel()
                             }
                     )

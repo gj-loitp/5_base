@@ -2,7 +2,6 @@ package com.core.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.R
 import com.annotation.LogTag
 import com.core.common.Constants
 import com.core.utilities.LAnimationUtil
@@ -39,23 +38,39 @@ abstract class AnimationAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
         }
     }
 
-    protected fun showShort(msg: String?) {
-        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast)
+    protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLong(msg: String?) {
-        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast)
+    protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showShortDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
-            showShort(msg)
+            LToast.showShortDebug(msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
-            showLong(msg)
+            LToast.showLongInformation(msg)
         }
     }
 }

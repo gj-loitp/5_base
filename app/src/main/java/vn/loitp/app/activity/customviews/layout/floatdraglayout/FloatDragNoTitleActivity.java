@@ -38,7 +38,7 @@ public class FloatDragNoTitleActivity extends BaseActivity {
         rootView.addView(floatDragLayout, layoutParams);
 
         floatDragLayout.setOnClickListener(v ->
-                showShort("Click on the hover and drag buttons", true)
+                showShortInformation("Click on the hover and drag buttons", true)
         );
     }
 

@@ -62,7 +62,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        showShort("Press card item for edit, long press to remove item", true);
+        showShortInformation("Press card item for edit, long press to remove item", true);
 
         //add new item
         floatingActionButton.setOnClickListener(v -> addItem());
@@ -164,7 +164,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
                     book.setImageUrl(editThumbnail.getText().toString());
 
                     if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                        showShort("Entry not saved, missing title", true);
+                        showShortInformation("Entry not saved, missing title", true);
                     } else {
                         // Persist your data easily
                         realm.beginTransaction();
@@ -236,10 +236,10 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         booksAdapter.notifyItemRemoved(position);
         booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
 
-        showShort("Removed book: " + title, true);
+        showShortInformation("Removed book: " + title, true);
 
         if (RealmController.getInstance().getBooks().isEmpty()) {
-            showShort("getMyBookList().isEmpty()", true);
+            showShortInformation("getMyBookList().isEmpty()", true);
         }
     }
 }

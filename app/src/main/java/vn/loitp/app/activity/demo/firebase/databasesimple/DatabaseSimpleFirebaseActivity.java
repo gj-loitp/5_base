@@ -111,7 +111,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mAdapter = new UserAdapter(this, userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                showShort("onClick To Edit Data: " + user.getMsg(), true);
+                showShortInformation("onClick To Edit Data: " + user.getMsg(), true);
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
@@ -121,7 +121,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onLongClick(User user, int position) {
-                showShort("onLongClick " + user.getMsg(), true);
+                showShortInformation("onLongClick " + user.getMsg(), true);
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });

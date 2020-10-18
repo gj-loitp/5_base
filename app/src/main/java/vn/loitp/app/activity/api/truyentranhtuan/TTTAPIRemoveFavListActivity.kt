@@ -48,19 +48,19 @@ class TTTAPIRemoveFavListActivity : BaseFontActivity() {
         RemoveComicFavListTask(mComic = comic,
                 callback = object : RemoveComicFavListTask.Callback {
                     override fun onRemoveComicSuccess(mComic: Comic, comicList: List<Comic>) {
-                        showShort("onRemoveComicSuccess")
+                        showShortInformation("onRemoveComicSuccess")
                         LUIUtil.printBeautyJson(o = comicList, textView = textView)
                         indicatorView.smoothToHide()
                     }
 
                     override fun onComicIsNotExist(mComic: Comic, comicList: List<Comic>) {
-                        showShort("onComicIsNotExist")
+                        showShortInformation("onComicIsNotExist")
                         LUIUtil.printBeautyJson(o = comicList, textView = textView)
                         indicatorView.smoothToHide()
                     }
 
                     override fun onRemoveComicError() {
-                        showShort("onRemoveComicError")
+                        showShortInformation("onRemoveComicError")
                         indicatorView.smoothToHide()
                     }
                 }).execute()

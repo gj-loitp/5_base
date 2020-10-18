@@ -134,7 +134,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
                     } else {
                         // If sign in fails, display a message to the user.
                         logD("signInWithCredential:failure " + task.getException());
-                        showShort("Authentication failed " + task.getException(), true);
+                        showShortInformation("Authentication failed " + task.getException(), true);
                         updateUI(null);
                     }
 

@@ -55,13 +55,13 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                     pb.visibility = View.GONE
                 }, {
                     logE("loadData error $it")
-                    showShort(it.toString())
+                    showShortError(it.toString())
                     pb.visibility = View.GONE
                 }))
     }
 
     override fun onItemClick(retroCrypto: RetroCrypto) {
-        showShort("You clicked: ${retroCrypto.currency}")
+        showShortInformation("You clicked: ${retroCrypto.currency}")
     }
 
 }

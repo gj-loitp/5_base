@@ -33,7 +33,7 @@ class TextDecoratorActivity : BaseFontActivity() {
                 .setSubscript("vitae")
                 .makeTextClickable(object : OnTextClickListener {
                     override fun onClick(view: View, text: String) {
-                        showShort(text)
+                        showShortInformation(text)
                     }
                 }, false,
                         "porta",

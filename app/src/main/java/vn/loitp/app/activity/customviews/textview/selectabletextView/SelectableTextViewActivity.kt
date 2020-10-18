@@ -24,7 +24,7 @@ class SelectableTextViewActivity : BaseFontActivity() {
         selectableView.setActivity(this)
         selectableView.setText(getString(R.string.i_love_you))
         selectableView.addOnSaveClickListener { text: String? ->
-            showShort(msg = text)
+            showShortInformation(msg = text)
         }
         tvEmptyBox.tag = 0
         tvEmptyBox.setOnClickListener { view: View ->

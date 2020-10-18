@@ -33,7 +33,7 @@ class TTTAPIPageListActivity : BaseFontActivity() {
                     }
 
                     override fun onError() {
-                        showShort("onError")
+                        showShortError("onError")
                         indicatorView.smoothToHide()
                     }
                 }).execute()

@@ -71,7 +71,7 @@ class FbCommentActivity : BaseFontActivity() {
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            showShort("The web url shouldn't be empty")
+            showShortError("The web url shouldn't be empty")
             onBackPressed()
             return
         }

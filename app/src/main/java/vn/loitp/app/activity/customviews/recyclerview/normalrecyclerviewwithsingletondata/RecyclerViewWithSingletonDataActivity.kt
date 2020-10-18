@@ -30,7 +30,7 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
         mAdapter = MoviesAdapter(moviesList = instance.movieList,
                 callback = object : MoviesAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
-                        showShort("Click " + movie.title)
+                        showShortInformation("Click " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {
@@ -85,7 +85,7 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
                 instance.movieList.add(movie)
             }
             mAdapter?.notifyDataSetChanged()
-            showShort("Finish loadMore")
+            showShortInformation("Finish loadMore")
         })
     }
 

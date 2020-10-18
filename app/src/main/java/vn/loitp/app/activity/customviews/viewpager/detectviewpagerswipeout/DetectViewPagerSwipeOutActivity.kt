@@ -38,7 +38,7 @@ class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
         LUIUtil.setPullLikeIOSHorizontal(viewPager, object : CallbackPull {
             override fun onUpOrLeft(offset: Float) {
                 logD("onUpOrLeft $offset")
-                showShort("Detect Left")
+                showShortInformation("Detect Left")
             }
 
             override fun onUpOrLeftRefresh(offset: Float) {
@@ -47,7 +47,7 @@ class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
 
             override fun onDownOrRight(offset: Float) {
                 logD("onDownOrRight $offset")
-                showShort("Detect Right")
+                showShortInformation("Detect Right")
             }
 
             override fun onDownOrRightRefresh(offset: Float) {

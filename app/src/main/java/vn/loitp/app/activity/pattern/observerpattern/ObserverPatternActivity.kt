@@ -39,7 +39,7 @@ class ObserverPatternActivity : BaseFontActivity(), View.OnClickListener, Reposi
 
     @SuppressLint("SetTextI18n")
     override fun onUserDataChanged(fullName: String, age: Int) {
-        showShort("onUserDataChanged $fullName - $age")
+        showShortInformation("onUserDataChanged $fullName - $age")
         textView.text = "$fullName - $age"
     }
 

@@ -22,7 +22,7 @@ class ToggleActivity : BaseFontActivity() {
 
         labeledSwitch.setOnToggledListener(object : OnToggledListener {
             override fun onSwitched(labeledSwitch: LabeledSwitch, isOn: Boolean) {
-                showShort("isOn $isOn")
+                showShortInformation("isOn $isOn")
             }
         })
     }

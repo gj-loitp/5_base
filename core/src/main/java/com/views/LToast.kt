@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatTextView
 import com.R
+import com.core.common.Constants
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import java.util.*
@@ -18,67 +18,13 @@ object LToast {
     private val toastList = ArrayList<Toast>()
 
     @JvmStatic
-    fun show(s: String, isTopAnchor: Boolean = true) {
-        show(msg = s, length = 0, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    fun show(resource: Int, isTopAnchor: Boolean = true) {
-        show(resource = resource, length = 0, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun showShort(msg: String?, isTopAnchor: Boolean = true) {
-        show(msg = msg, length = Toast.LENGTH_SHORT, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun showLong(msg: String?, isTopAnchor: Boolean = true) {
-        show(msg = msg, length = Toast.LENGTH_LONG, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun showShort(msg: String?, backgroundRes: Int, isTopAnchor: Boolean = true) {
-        show(msg = msg, length = Toast.LENGTH_SHORT, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun showShort(msgRes: Int, backgroundRes: Int, isTopAnchor: Boolean = true) {
-        show(msg = LAppResource.getString(msgRes), length = Toast.LENGTH_SHORT, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun showLong(msg: String?, backgroundRes: Int, isTopAnchor: Boolean = true) {
-        show(msg = msg, length = Toast.LENGTH_LONG, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun showLong(msgRes: Int, backgroundRes: Int, isTopAnchor: Boolean = true) {
-        show(msg = LAppResource.getString(msgRes), length = Toast.LENGTH_LONG, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun show(resource: Int, length: Int, isTopAnchor: Boolean = true) {
-        show(msg = LAppResource.application.resources.getString(resource), length = length, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
-    @SuppressLint("InflateParams")
-    fun show(resource: Int, length: Int, backgroundRes: Int, isTopAnchor: Boolean = true) {
-        show(msg = LAppResource.application.resources.getString(resource), length = length, backgroundRes = backgroundRes, isTopAnchor = isTopAnchor)
-    }
-
-    @JvmStatic
     @SuppressLint("InflateParams")
     @JvmOverloads
-    fun show(msg: String?, length: Int, backgroundRes: Int = R.drawable.l_bkg_toast, isTopAnchor: Boolean = true) {
+    fun show(msg: String?,
+             length: Int = Toast.LENGTH_SHORT,
+             backgroundResColor: Int = R.color.red,
+             textResColor: Int = R.color.white,
+             isTopAnchor: Boolean = true) {
         if (msg.isNullOrEmpty()) {
             return
         }
@@ -86,10 +32,10 @@ object LToast {
         try {
             val inf = LAppResource.application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val layout = inf.inflate(R.layout.l_toast, null)
-            val textView = layout.findViewById<View>(R.id.tv_loading) as TextView
+            val textView = layout.findViewById<AppCompatTextView>(R.id.tvLoading)
             textView.text = msg
-            textView.setBackgroundResource(backgroundRes)
-            LUIUtil.setTextShadow(textView)
+            textView.setBackgroundColor(LAppResource.getColor(backgroundResColor))
+            textView.setTextColor(LAppResource.getColor(textResColor))
             val toast = Toast(LAppResource.application)
             if (isTopAnchor) {
                 toast.setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
@@ -109,6 +55,121 @@ object LToast {
     private fun clear() {
         for (i in toastList.indices) {
             toastList[i].cancel()
+        }
+        toastList.clear()
+    }
+
+    fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+        val textResColor: Int
+        val backgroundResColor: Int
+        if (LUIUtil.isDarkTheme()) {
+            textResColor = R.color.white
+            backgroundResColor = R.color.blue
+        } else {
+            textResColor = R.color.black
+            backgroundResColor = R.color.lightBlue
+        }
+        show(msg = msg,
+                length = Toast.LENGTH_SHORT,
+                backgroundResColor = backgroundResColor,
+                textResColor = textResColor,
+                isTopAnchor = isTopAnchor)
+    }
+
+    fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+        val textResColor: Int
+        val backgroundResColor: Int
+        if (LUIUtil.isDarkTheme()) {
+            textResColor = R.color.white
+            backgroundResColor = R.color.darkOrange
+        } else {
+            textResColor = R.color.black
+            backgroundResColor = R.color.yellow
+        }
+        show(msg = msg,
+                length = Toast.LENGTH_SHORT,
+                backgroundResColor = backgroundResColor,
+                textResColor = textResColor,
+                isTopAnchor = isTopAnchor)
+    }
+
+    fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+        val textResColor: Int
+        val backgroundResColor: Int
+        if (LUIUtil.isDarkTheme()) {
+            textResColor = R.color.white
+            backgroundResColor = R.color.red
+        } else {
+            textResColor = R.color.black
+            backgroundResColor = R.color.red
+        }
+        show(msg = msg,
+                length = Toast.LENGTH_SHORT,
+                backgroundResColor = backgroundResColor,
+                textResColor = textResColor,
+                isTopAnchor = isTopAnchor)
+    }
+
+    fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+        val textResColor: Int
+        val backgroundResColor: Int
+        if (LUIUtil.isDarkTheme()) {
+            textResColor = R.color.white
+            backgroundResColor = R.color.black
+        } else {
+            textResColor = R.color.black
+            backgroundResColor = R.color.white
+        }
+        show(msg = msg,
+                length = Toast.LENGTH_LONG,
+                backgroundResColor = backgroundResColor,
+                textResColor = textResColor,
+                isTopAnchor = isTopAnchor)
+    }
+
+    fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+        val textResColor: Int
+        val backgroundResColor: Int
+        if (LUIUtil.isDarkTheme()) {
+            textResColor = R.color.white
+            backgroundResColor = R.color.darkOrange
+        } else {
+            textResColor = R.color.black
+            backgroundResColor = R.color.yellow
+        }
+        show(msg = msg,
+                length = Toast.LENGTH_LONG,
+                backgroundResColor = backgroundResColor,
+                textResColor = textResColor,
+                isTopAnchor = isTopAnchor)
+    }
+
+    fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+        val textResColor: Int
+        val backgroundResColor: Int
+        if (LUIUtil.isDarkTheme()) {
+            textResColor = R.color.white
+            backgroundResColor = R.color.red
+        } else {
+            textResColor = R.color.black
+            backgroundResColor = R.color.red
+        }
+        show(msg = msg,
+                length = Toast.LENGTH_LONG,
+                backgroundResColor = backgroundResColor,
+                textResColor = textResColor,
+                isTopAnchor = isTopAnchor)
+    }
+
+    fun showShortDebug(msg: String?) {
+        if (Constants.IS_DEBUG) {
+            showShortDebug(msg)
+        }
+    }
+
+    fun showLongDebug(msg: String?) {
+        if (Constants.IS_DEBUG) {
+            showLongInformation(msg)
         }
     }
 }

@@ -38,7 +38,7 @@ class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
                     menuRes = R.menu.menu_popup,
                     callBackPopup = object : CallbackPopup {
                         override fun clickOnItem(menuItem: MenuItem) {
-                            showShort(menuItem.title.toString())
+                            showShortInformation(menuItem.title.toString())
                         }
                     })
         }

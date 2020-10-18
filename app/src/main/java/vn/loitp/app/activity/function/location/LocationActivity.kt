@@ -171,13 +171,13 @@ class LocationActivity : BaseFontActivity() {
             settingsClient.checkLocationSettings(mLocationSettingsRequest)
                     .addOnSuccessListener(this) {
                         logD("All location settings are satisfied.")
-                        showShort("Started location updates!")
+                        showShortInformation("Started location updates!")
                         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                             mFusedLocationClient?.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper())
                             updateLocationUI()
                         } else {
-                            showShort("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
                         }
                     }
                     .addOnFailureListener(this) { e ->
@@ -196,7 +196,7 @@ class LocationActivity : BaseFontActivity() {
                             LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
                                 val errorMessage = "Location settings are inadequate, and cannot be fixed here. Fix in Settings."
                                 logD(errorMessage)
-                                showShort(errorMessage)
+                                showShortInformation(errorMessage)
                             }
                         }
                         updateLocationUI()
@@ -236,16 +236,16 @@ class LocationActivity : BaseFontActivity() {
     private fun stopLocationUpdates() {
         // Removing location updates
         mFusedLocationClient?.removeLocationUpdates(mLocationCallback)?.addOnCompleteListener(this) {
-            showShort("Location updates stopped!")
+            showShortInformation("Location updates stopped!")
             toggleButtons()
         }
     }
 
     private fun showLastKnownLocation() {
         if (mCurrentLocation != null) {
-            showShort("Lat: " + mCurrentLocation?.latitude + ",Lng: " + mCurrentLocation?.longitude)
+            showShortInformation("Lat: " + mCurrentLocation?.latitude + ",Lng: " + mCurrentLocation?.longitude)
         } else {
-            showShort("Last known location is not available!")
+            showShortInformation("Last known location is not available!")
         }
     }
 

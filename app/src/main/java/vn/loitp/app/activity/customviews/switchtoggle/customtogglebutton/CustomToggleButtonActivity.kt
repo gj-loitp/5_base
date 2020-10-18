@@ -25,31 +25,31 @@ class CustomToggleButtonActivity : BaseFontActivity() {
         //customToggle.setSlideColor(Color.GREEN);
         toggleXml1.setOnToggleClickListener(object : LCustomToggle.OnToggleClickListener {
             override fun onLefToggleEnabled(enabled: Boolean) {
-                showShort("onLefToggleEnabled $enabled")
+                showShortInformation("onLefToggleEnabled $enabled")
             }
 
             override fun onRightToggleEnabled(enabled: Boolean) {
-                showShort("onRightToggleEnabled $enabled")
+                showShortInformation("onRightToggleEnabled $enabled")
             }
         })
 
         toggleXml2.setOnToggleClickListener(object : LCustomToggle.OnToggleClickListener {
             override fun onLefToggleEnabled(enabled: Boolean) {
-                showShort("onLefToggleEnabled $enabled")
+                showShortInformation("onLefToggleEnabled $enabled")
             }
 
             override fun onRightToggleEnabled(enabled: Boolean) {
-                showShort("onRightToggleEnabled $enabled")
+                showShortInformation("onRightToggleEnabled $enabled")
             }
         })
 
         toggleXml3.setOnToggleClickListener(object : LCustomToggle.OnToggleClickListener {
             override fun onLefToggleEnabled(enabled: Boolean) {
-                showShort("onLefToggleEnabled $enabled")
+                showShortInformation("onLefToggleEnabled $enabled")
             }
 
             override fun onRightToggleEnabled(enabled: Boolean) {
-                showShort("onRightToggleEnabled $enabled")
+                showShortInformation("onRightToggleEnabled $enabled")
             }
         })
     }

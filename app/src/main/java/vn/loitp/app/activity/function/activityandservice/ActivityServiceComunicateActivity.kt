@@ -46,7 +46,7 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
             val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
             startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
         } else {
-            showShort("onClick TestService")
+            showShortInformation("onClick TestService")
             textView.text = ""
             startService(Intent(this, TestService::class.java))
         }

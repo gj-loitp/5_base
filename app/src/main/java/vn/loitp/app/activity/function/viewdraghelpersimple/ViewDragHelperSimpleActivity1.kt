@@ -22,7 +22,7 @@ class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
         vdhv.setCallback(this)
 
         btToast.setSafeOnClickListener {
-            showShort("Click")
+            showShortInformation("Click")
         }
         btMaximize.setSafeOnClickListener {
             vdhv.maximize()

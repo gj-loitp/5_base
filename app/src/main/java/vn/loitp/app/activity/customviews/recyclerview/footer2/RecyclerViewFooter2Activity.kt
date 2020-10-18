@@ -31,7 +31,7 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
         footer2Adapter = Footer2Adapter(moviesList = instance.movieList,
                 callback = object : Footer2Adapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
-                        showShort("Click " + movie.title)
+                        showShortInformation("Click " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {
@@ -93,7 +93,7 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
             }
             indicatorView?.smoothToHide()
             footer2Adapter?.notifyDataSetChanged()
-            showShort("Finish loadMore")
+            showShortInformation("Finish loadMore")
         })
     }
 

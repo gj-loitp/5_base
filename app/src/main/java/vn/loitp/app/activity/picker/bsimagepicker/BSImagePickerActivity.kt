@@ -73,7 +73,7 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
 
     override fun onSingleImageSelected(uri: Uri?, tag: String?) {
         logD("onSingleImageSelected $uri, $tag")
-        showShort("onSingleImageSelected $uri, $tag")
+        showShortInformation("onSingleImageSelected $uri, $tag")
         if (isCropEnable) {
             val aspectX = 1
             val aspectY = 1
@@ -110,7 +110,7 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
     }
 
     override fun onCancelled(isMultiSelecting: Boolean, tag: String?) {
-        showShort("Selection is cancelled, Multi-selection is $isMultiSelecting")
+        showShortInformation("Selection is cancelled, Multi-selection is $isMultiSelecting")
     }
 }
 

@@ -18,7 +18,7 @@ class TBGSingleSelectActivity : BaseFontActivity() {
 
         groupChoices.setOnCheckedChangeListener { _, checkedId ->
             logD("onCheckedChanged(): checkedId = $checkedId")
-            showShort("onCheckedChanged(): checkedId = $checkedId")
+            showShortInformation("onCheckedChanged(): checkedId = $checkedId")
         }
     }
 }

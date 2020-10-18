@@ -34,7 +34,7 @@ class TTTAPIChapListActivity : BaseFontActivity() {
                     }
 
                     override fun onError() {
-                        showShort("onError")
+                        showShortError("onError")
                     }
                 }).execute()
     }

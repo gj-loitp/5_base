@@ -137,7 +137,7 @@ class LEditTextActivity : BaseFontActivity() {
                 lEditTextPw.showMessage("Wrong pw!!!")
             }
             if (isCorrectId && isCorrectPw) {
-                showShort("Correct!!!")
+                showShortInformation("Correct!!!")
             }
         }
     }

@@ -33,11 +33,11 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
         mAdapter = GalleryAdapterVertical(context = this, moviesList = instance.movieList,
                 callback = object : GalleryAdapterVertical.Callback {
                     override fun onClick(movie: Movie, position: Int) {
-                        showShort("onClick " + movie.title)
+                        showShortInformation("onClick " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {
-                        showShort("onLongClick " + movie.title)
+                        showShortInformation("onLongClick " + movie.title)
                     }
 
                     override fun onLoadMore() {

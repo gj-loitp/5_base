@@ -43,7 +43,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
         mAdapter = new MoviesAdapter(movieList, new MoviesAdapter.Callback() {
             @Override
             public void onClick(@NotNull Movie movie, int position) {
-                showShort("Click " + movie.getTitle(), true);
+                showShortInformation("Click " + movie.getTitle(), true);
             }
 
             @Override
@@ -72,7 +72,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
         LUIUtil.Companion.setDelay(3000, () -> {
             prepareMovieData();
             swipe_refresh_layout.setRefreshing(false);
-            showShort("Finish refresh", true);
+            showShortInformation("Finish refresh", true);
         });
     }
 
@@ -86,7 +86,7 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
                 movieList.add(movie);
             }
             mAdapter.notifyDataSetChanged();
-            showShort("Finish loadMore", true);
+            showShortInformation("Finish loadMore", true);
         });
     }
 

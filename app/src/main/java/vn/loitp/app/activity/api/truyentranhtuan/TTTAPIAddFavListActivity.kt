@@ -51,19 +51,19 @@ class TTTAPIAddFavListActivity : BaseFontActivity() {
                 callback = object : AddComicFavListTask.Callback {
                     override fun onAddComicSuccess(mComic: Comic, comicList: List<Comic>) {
                         LUIUtil.printBeautyJson(comicList, textView)
-                        showShort("onAddComicSuccess")
+                        showShortInformation("onAddComicSuccess")
                         indicatorView.smoothToHide()
                     }
 
                     override fun onComicIsExist(mComic: Comic, comicList: List<Comic>) {
                         LUIUtil.printBeautyJson(comicList, textView)
-                        showShort("onComicIsExist")
+                        showShortInformation("onComicIsExist")
                         indicatorView.smoothToHide()
                     }
 
                     @SuppressLint("SetTextI18n")
                     override fun onAddComicError() {
-                        showShort("onAddComicError")
+                        showShortError("onAddComicError")
                         textView.text = "add error"
                         indicatorView.smoothToHide()
                     }

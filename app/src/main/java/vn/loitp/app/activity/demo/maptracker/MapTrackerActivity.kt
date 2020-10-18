@@ -96,7 +96,7 @@ class MapTrackerActivity : BaseFontActivity(),
             val startLatLng = LatLng(10.8785614, 106.8107979)
             val endLatLng = LatLng(30.8785614, 145.8107979)
             val distance = getDistance(startLatLng = startLatLng, endLatLng = endLatLng)
-            showShort("distance: $distance (m)")
+            showShortInformation("distance: $distance (m)")
         }
     }
 
@@ -109,7 +109,7 @@ class MapTrackerActivity : BaseFontActivity(),
 
     //region permisson
     private fun checkPermission() {
-        showShort("checkPermission")
+        showShortInformation("checkPermission")
         isShowDialogCheck = true
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -379,17 +379,17 @@ class MapTrackerActivity : BaseFontActivity(),
         mSettingsClient?.let { settingsClient ->
             settingsClient.checkLocationSettings(mLocationSettingsRequest)
                     .addOnSuccessListener(this) {
-                        showShort("All location settings are satisfied.")
+                        showShortInformation("All location settings are satisfied.")
                         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                             mFusedLocationClient?.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper())
                             onChangeLocation()
                         } else {
-                            showShort("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
                         }
                     }
                     .addOnFailureListener(this) { e ->
-                        showShort(e.toString())
+                        showShortError(e.toString())
                         onChangeLocation()
                     }
         }

@@ -29,7 +29,7 @@ class LButtonActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            bt0, bt1, bt2 -> showShort(getString(R.string.click))
+            bt0, bt1, bt2 -> showShortInformation(getString(R.string.click))
         }
     }
 }

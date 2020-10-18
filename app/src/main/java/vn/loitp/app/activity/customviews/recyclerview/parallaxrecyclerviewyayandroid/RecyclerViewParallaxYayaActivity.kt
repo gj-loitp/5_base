@@ -36,7 +36,7 @@ class RecyclerViewParallaxYayaActivity : BaseFontActivity() {
         yayaParallaxAdapter = YayaParallaxAdapter(context = this,
                 callback = object : YayaParallaxAdapter.Callback {
                     override fun onClick(pos: Int) {
-                        showShort("onClick $pos")
+                        showShortInformation("onClick $pos")
                     }
 
                     override fun onLongClick(pos: Int) {

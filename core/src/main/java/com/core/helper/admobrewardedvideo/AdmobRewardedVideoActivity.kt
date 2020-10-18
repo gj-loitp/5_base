@@ -47,7 +47,7 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
         val strAppId = intent.getStringExtra(APP_ID)
         strReward = intent.getStringExtra(ID_REWARD)
         if (strAppId.isNullOrEmpty() || strReward.isNullOrEmpty()) {
-            showShort(getString(R.string.err_unknow))
+            showShortError(getString(R.string.err_unknow))
             onBackPressed()
             return
         }

@@ -31,7 +31,7 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
 
         mAdapter = AnswersAdapter(mItems = ArrayList(0), mItemListener = object : PostItemListener {
             override fun onPostClick(id: Long) {
-                showShort("Post id is$id")
+                showShortInformation("Post id is$id")
             }
         })
 

@@ -85,7 +85,7 @@ class PdfDemoActivity : BaseFontActivity() {
             override fun onSuccess(durationSec: Long, durationHHmmss: String, file: File) {
                 logD("onSuccess $durationSec - $durationHHmmss")
                 logD("onSuccess " + file.path)
-                showShort("onSuccess after $durationSec seconds")
+                showShortInformation("onSuccess after $durationSec seconds")
                 pdfView.visibility = View.VISIBLE
                 showPDF(file)
                 updateUIProgress(isLoadding = false)

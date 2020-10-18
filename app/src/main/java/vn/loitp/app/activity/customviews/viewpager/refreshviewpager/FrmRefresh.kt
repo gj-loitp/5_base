@@ -53,7 +53,7 @@ class FrmRefresh : Fragment() {
         avl.smoothToShow()
 
         context?.let {
-            LToast.showShort(msg = "loadData")
+            LToast.show(msg = "loadData")
         }
 
         LUIUtil.setDelay(1000, Runnable {

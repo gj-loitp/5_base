@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.fragmentflow
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.FragmentManager
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
@@ -52,8 +53,8 @@ class FragmentFlowActivity : BaseFontActivity() {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShort(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
-        Handler().postDelayed({
+        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+        Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)
     }

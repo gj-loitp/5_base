@@ -39,42 +39,42 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         }
         btGetString.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING)
-            showLong(value)
+            showLongInformation(value)
         }
         btPutStringWithDefaultValue.setOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
         }
         btGetStringWithDefaultValue.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
-            showLong(value)
+            showLongInformation(value)
         }
         btPutBoolean.setOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_BOOLEAN, true)
         }
         btGetBoolean.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
-            showLong("Value: $value")
+            showLongInformation("Value: $value")
         }
         btPutFloat.setOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
         btGetFloat.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
-            showLong("Value: $value")
+            showLongInformation("Value: $value")
         }
         btPutInt.setOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_INT, System.currentTimeMillis().toInt())
         }
         btGetInt.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getInt(KEY_INT)
-            showLong("Value: $value")
+            showLongInformation("Value: $value")
         }
         btPutLong.setOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_LONG, System.currentTimeMillis())
         }
         btGetLong.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getLong(KEY_LONG)
-            showLong("Value: $value")
+            showLongInformation("Value: $value")
         }
         btPutObject.setOnClickListener {
             val user = User()
@@ -84,7 +84,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         }
         btGetObject.setOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
-            showLong("Value: " + BaseApplication.gson.toJson(value))
+            showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
         btPutListObject.setOnClickListener {
             val list = ArrayList<User>()
@@ -104,7 +104,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")
             }
-            showLong("Value: " + BaseApplication.gson.toJson(value))
+            showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
     }
 

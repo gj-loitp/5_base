@@ -3,6 +3,7 @@ package com.core.helper.mup.girl.ui
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -138,8 +139,8 @@ class GirlActivity : BaseFontActivity() {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShort(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
-        Handler().postDelayed({
+        showShortError(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+        Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)
     }

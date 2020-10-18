@@ -19,10 +19,10 @@ class ZoomLayoutActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         bt1.setOnClickListener {
-            showShort("Click button bt_1")
+            showShortInformation("Click button bt_1")
         }
         bt2.setOnClickListener {
-            showShort("Click button bt_2")
+            showShortInformation("Click button bt_2")
         }
 
         /*zoomLayout.getEngine().panTo(x, y, true);

@@ -62,7 +62,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
 
         newsAdapter?.let { na ->
             na.onClickRootListener = { _, position ->
-                showShort("Click position $position")
+                showShortInformation("Click position $position")
             }
         }
 
@@ -86,7 +86,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
 
             override fun onBottom() {
                 logD("onBottom")
-                showShort("onBottom")
+                showShortInformation("onBottom")
                 genNewsData()
             }
         })

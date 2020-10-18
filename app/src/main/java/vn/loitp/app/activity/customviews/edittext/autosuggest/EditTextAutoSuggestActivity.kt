@@ -39,7 +39,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             this.setColorProgressBar(Color.RED)
             this.setBackgroundResource(R.drawable.bkg_et)
             this.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
-                showShort("Text ${aet0.editText.text}")
+                showShortInformation("Text ${aet0.editText.text}")
             })
             this.callback = object : LAutoSuggestEditText.Callback {
                 override fun onTextChanged(text: String) {
@@ -59,7 +59,7 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             this.setColorProgressBar(Color.GREEN)
             this.setBackgroundResource(R.drawable.l_bkg_horizontal)
             this.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
-                showShort("Text ${aet1.editText.text}")
+                showShortInformation("Text ${aet1.editText.text}")
             })
             this.callback = object : LAutoSuggestEditText.Callback {
                 override fun onTextChanged(text: String) {

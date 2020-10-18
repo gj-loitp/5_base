@@ -36,7 +36,7 @@ public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     private void doTask() {
         LUIUtil.Companion.setDelay(5000, () -> {
             swipeRefreshLayout.setRefreshing(false);
-            showShort("Finish", true);
+            showShortInformation("Finish", true);
         });
     }
 }

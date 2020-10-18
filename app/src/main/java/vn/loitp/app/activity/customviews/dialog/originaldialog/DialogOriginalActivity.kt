@@ -62,7 +62,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 button1 = "Button 1"
                 , callback1 = object : Callback1 {
             override fun onClick1() {
-                showShort("Click 1")
+                showShortInformation("Click 1")
             }
         })
     }
@@ -75,11 +75,11 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 button2 = "Button 2",
                 callback2 = object : Callback2 {
                     override fun onClick1() {
-                        showShort("Click 1")
+                        showShortInformation("Click 1")
                     }
 
                     override fun onClick2() {
-                        showShort("Click 2")
+                        showShortInformation("Click 2")
                     }
                 })
     }
@@ -93,15 +93,15 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 button3 = "Button 3",
                 callback3 = object : Callback3 {
                     override fun onClick1() {
-                        showShort("Click 1")
+                        showShortInformation("Click 1")
                     }
 
                     override fun onClick2() {
-                        showShort("Click 2")
+                        showShortInformation("Click 2")
                     }
 
                     override fun onClick3() {
-                        showShort("Click 3")
+                        showShortInformation("Click 3")
                     }
                 })
     }
@@ -117,7 +117,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 arr = arr,
                 callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
-                        showShort("Click position " + position + ", item: " + arr[position])
+                        showShortInformation("Click position " + position + ", item: " + arr[position])
                     }
                 })
     }
@@ -181,7 +181,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
         builder.setPositiveButton("OK") { _, _ ->
             val text = input.text.toString()
-            showShort("Text $text")
+            showShortInformation("Text $text")
         }
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
 

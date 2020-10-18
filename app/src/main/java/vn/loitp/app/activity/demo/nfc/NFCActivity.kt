@@ -110,7 +110,7 @@ class NFCActivity : BaseFontActivity() {
             }
 
             if (tags.size == 1) {
-                showShort("Swipe right to see previous tags")
+                showShortInformation("Swipe right to see previous tags")
             }
             tags.add(tagWrapper)
 

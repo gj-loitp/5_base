@@ -108,7 +108,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                 button.text = "Date $i"
                 button.setOnClickListener {
-                    showShort("Click " + button.text.toString())
+                    showShortInformation("Click " + button.text.toString())
                 }
                 publishProgress(button, ll2)
             }
@@ -119,7 +119,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                 button.text = "$i:00:00"
                 button.setOnClickListener {
-                    showShort("Click " + button.text.toString())
+                    showShortInformation("Click " + button.text.toString())
                 }
                 publishProgress(button, ll3)
             }
@@ -137,7 +137,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                     button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                     button.text = "Pos $i - $j"
                     button.setOnClickListener {
-                        showShort("Click " + button.text.toString())
+                        showShortInformation("Click " + button.text.toString())
                     }
                     linearLayout.addView(button)
                 }

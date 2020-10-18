@@ -125,7 +125,7 @@ class RealmActivity : BaseFontActivity() {
     }
 
     private fun printTotalSize() {
-        showShort("Total size: " + RealmController.getInstance(this).myBookList.size)
+        showShortInformation("Total size: " + RealmController.getInstance(this).myBookList.size)
     }
 
     private fun showInputDialog(ipb: InputCallback) {
@@ -153,9 +153,9 @@ class RealmActivity : BaseFontActivity() {
                     try {
                         val id: Long = it.toLong()
                         val mb = RealmController.getInstance(this@RealmActivity).getMyBook(id)
-                        showShort("searchById -> ${mb.title}")
+                        showShortInformation("searchById -> ${mb.title}")
                     } catch (e: Exception) {
-                        showShort("searchById $e")
+                        showShortError("searchById $e")
                     }
                 }
             }

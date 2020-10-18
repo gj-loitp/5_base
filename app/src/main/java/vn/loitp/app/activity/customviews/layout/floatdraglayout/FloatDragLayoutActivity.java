@@ -40,7 +40,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
         rootView.addView(floatDragLayout, layoutParams);
 
         floatDragLayout.setOnClickListener(v ->
-                showShort("Click on the hover and drag buttons", true)
+                showShortInformation("Click on the hover and drag buttons", true)
         );
 
         findViewById(R.id.bt_change_to_fullscreen).setOnClickListener(this);
@@ -82,7 +82,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            showShort("Click on FloatDragPopupWindow", true);
+                            showShortInformation("Click on FloatDragPopupWindow", true);
                         }
                     })
                     .build();

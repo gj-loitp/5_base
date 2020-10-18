@@ -57,7 +57,7 @@ class EndlessService : Service() {
     override fun onDestroy() {
         super.onDestroy()
         log("The service has been destroyed")
-        LToast.showShort("Service destroyed")
+        LToast.showShortInformation("Service destroyed")
         disposable?.dispose()
     }
 
@@ -65,7 +65,7 @@ class EndlessService : Service() {
     private fun startService() {
         if (isServiceStarted) return
         log("Starting the foreground service task")
-        LToast.showShort("Service starting its task")
+        LToast.showShortInformation("Service starting its task")
         isServiceStarted = true
         setServiceState(this, ServiceState.STARTED)
 
@@ -86,7 +86,7 @@ class EndlessService : Service() {
 
                     override fun onNext(value: Long) {
                         log("onNext value $value")
-                        LToast.showShort("onNext value $value")
+                        LToast.showShortInformation("onNext value $value")
                         /*if (value == 5L) {
                             stopService()
                         }*/
@@ -102,7 +102,7 @@ class EndlessService : Service() {
 
     private fun stopService() {
         log("Stopping the foreground service")
-        LToast.showShort("Service stopping")
+        LToast.showShortInformation("Service stopping")
         try {
             wakeLock?.let {
                 if (it.isHeld) {

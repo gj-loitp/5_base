@@ -61,7 +61,7 @@ class SplashActivity : BaseFontActivity() {
 
     override fun onActivityUserIdleAfterTime(delayMlsIdleTime: Long, isIdleTime: Boolean) {
         super.onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
-        showShort("onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime: $isIdleTime")
+        showShortInformation("onActivityUserIdleAfterTime delayMlsIdleTime $delayMlsIdleTime, isIdleTime: $isIdleTime")
     }
 
     override fun onResume() {

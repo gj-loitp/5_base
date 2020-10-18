@@ -395,13 +395,13 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
                     override fun onCompleted(file: File?) {
                         file?.let {
-                            showLong("Saved in ${it.path}")
+                            showLongInformation("Saved in ${it.path}")
                             LStoreUtil.sendBroadcastMediaScan(it)
                         }
                     }
 
                     override fun onFailure(reason: String?) {
-                        showLong("Download failed $reason")
+                        showLongError("Download failed $reason")
                     }
 
                     override fun onPause() {

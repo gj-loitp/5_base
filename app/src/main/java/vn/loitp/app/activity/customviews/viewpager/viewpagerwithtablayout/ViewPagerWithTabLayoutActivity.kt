@@ -91,7 +91,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
                 arr = arr,
                 callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
-                        showShort("Click position " + position + ", item: " + arr[position])
+                        showShortInformation("Click position " + position + ", item: " + arr[position])
                         when (stringList[position]) {
                             AccordionTransformer -> viewPager.setPageTransformer(true, AccordionTransformer())
                             BackgroundToForegroundTransformer -> viewPager.setPageTransformer(true, BackgroundToForegroundTransformer())

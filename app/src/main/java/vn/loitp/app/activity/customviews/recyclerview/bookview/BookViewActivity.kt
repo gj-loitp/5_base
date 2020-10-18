@@ -25,7 +25,7 @@ class BookViewActivity : BaseFontActivity() {
         mAdapter = BookAdapter(context = this, column = 3, moviesList = movieList,
                 callback = object : BookAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
-                        showShort("Click " + movie.title)
+                        showShortInformation("Click " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {

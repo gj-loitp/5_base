@@ -28,11 +28,11 @@ class CircularViewActivity : BaseFontActivity() {
         circularView.adapter = simpleCircularViewAdapter
         circularView.setOnCircularViewObjectClickListener(object : CircularView.OnClickListener {
             override fun onClick(view: CircularView, isLongClick: Boolean) {
-                showShort("onClick")
+                showShortInformation("onClick")
             }
 
             override fun onMarkerClick(view: CircularView, marker: Marker, position: Int, isLongClick: Boolean) {
-                showShort("onClick $position")
+                showShortInformation("onClick $position")
             }
         })
     }

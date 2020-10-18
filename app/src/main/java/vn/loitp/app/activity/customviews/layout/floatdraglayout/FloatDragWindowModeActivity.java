@@ -33,7 +33,7 @@ public class FloatDragWindowModeActivity extends BaseActivity {
         containerWindows.addView(floatDragLayout, layoutParams);
 
         floatDragLayout.setOnClickListener(v ->
-                showShort("Click on the hover and drag buttons", true)
+                showShortInformation("Click on the hover and drag buttons", true)
         );
     }
 

@@ -94,7 +94,7 @@ class WordActivity : BaseFontActivity() {
     private var isGenFirstDataDone = false
     private fun genFirstData() {
         if (!isGenFirstDataDone) {
-            showShort("genFirstData")
+            showShortInformation("genFirstData")
             wordViewModel?.genFirstData()
             isGenFirstDataDone = true
         }

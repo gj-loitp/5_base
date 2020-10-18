@@ -34,7 +34,7 @@ class HashMapActivity : BaseFontActivity(), View.OnClickListener {
             }
             btGetKey0 -> {
                 val value = map[0.toString()]
-                showShort("Click value= $value")
+                showShortInformation("Click value= $value")
             }
             btRemoveKey0 -> {
                 map.remove(0.toString())

@@ -71,7 +71,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
         bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
-            showShort(getString(R.string.err_unknow))
+            showShortError(getString(R.string.err_unknow))
             onBackPressed()
         }
 
@@ -284,7 +284,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             logE("onFragmentReady OutOfPagesException $e")
             pageCount = e.pageCount
             if (isSkippedToPage) {
-                showShort("Max page number is: $pageCount")
+                showShortInformation("Max page number is: $pageCount")
             }
             sectionsPagerAdapter?.notifyDataSetChanged()
         } catch (e: Exception) {
@@ -321,13 +321,13 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         super.onStop()
         try {
             reader.saveProgress(viewPager.currentItem)
-            showShort(msg = "Saved page: " + viewPager.currentItem + "...")
+            showShortInformation(msg = "Saved page: " + viewPager.currentItem + "...")
         } catch (e: ReadingException) {
             e.printStackTrace()
-            showShort(msg = "Progress is not saved: " + e.message)
+            showShortError(msg = "Progress is not saved: " + e.message)
         } catch (e: OutOfPagesException) {
             e.printStackTrace()
-            showShort(msg = "Progress is not saved. Out of Bounds. Page Count: " + e.pageCount)
+            showShortError(msg = "Progress is not saved. Out of Bounds. Page Count: " + e.pageCount)
         }
     }
 

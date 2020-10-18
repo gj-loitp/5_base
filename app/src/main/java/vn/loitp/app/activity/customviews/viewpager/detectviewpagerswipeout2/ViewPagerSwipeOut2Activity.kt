@@ -29,11 +29,11 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         vp.setOnSwipeOutListener(object : LSwipeOutViewPager.OnSwipeOutListener {
             override fun onSwipeOutAtStart() {
-                showShort("onSwipeOutAtStart")
+                showShortInformation("onSwipeOutAtStart")
             }
 
             override fun onSwipeOutAtEnd() {
-                showShort("onSwipeOutAtEnd")
+                showShortInformation("onSwipeOutAtEnd")
             }
         })
         LUIUtil.setPullLikeIOSHorizontal(vp)

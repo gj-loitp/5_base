@@ -50,7 +50,7 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
     private fun encrypt() {
         val str = tv0.text.toString()
         if (str.isEmpty()) {
-            showShort("Empty string")
+            showShortInformation("Empty string")
             return
         }
         val newStr = LEncryptionUtil.encrypt(plaintext = str, password = password)
@@ -61,7 +61,7 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
     private fun decrypt() {
         val str = tv1.text.toString()
         if (str.isEmpty()) {
-            showShort("Empty string")
+            showShortInformation("Empty string")
             return
         }
         val newStr = LEncryptionUtil.decrypt(cipherText = str, password = password)

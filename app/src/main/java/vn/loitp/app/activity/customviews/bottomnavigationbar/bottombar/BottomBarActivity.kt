@@ -41,7 +41,7 @@ class BottomBarActivity : BaseFontActivity() {
             setTechniques(Techniques.Pulse)
             setOnItemClick(object : LBottomBar.Callback {
                 override fun onClickItem(position: Int) {
-                    showShort("Touch $position")
+                    showShortInformation("Touch $position")
                 }
             })
         }

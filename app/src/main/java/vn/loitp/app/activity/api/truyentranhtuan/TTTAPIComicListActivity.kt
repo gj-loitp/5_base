@@ -56,7 +56,7 @@ class TTTAPIComicListActivity : BaseFontActivity() {
                         }
 
                         override fun onError() {
-                            showShort("Error")
+                            showShortError("Error")
                             indicatorView?.smoothToHide()
                         }
                     }).execute()

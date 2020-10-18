@@ -161,9 +161,8 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
         menuThreeMonth.title = getString(R.string.select_three_months)
     }
 
-
     private fun logSelectedDaysMenuClick() {
-        showShort("Selected " + calendarView.selectedDays.size)
+        showShortInformation("Selected " + calendarView.selectedDays.size)
     }
 
     override fun onCheckedChanged(group: RadioGroup, @IdRes checkedId: Int) {

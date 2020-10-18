@@ -97,7 +97,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
             frontLayout.setOnClickListener(view -> {
                 final String displayText = "" + data + " clicked";
-                LToast.showShort(displayText, true);
+                LToast.INSTANCE.showShortInformation(displayText, true);
             });
         }
     }

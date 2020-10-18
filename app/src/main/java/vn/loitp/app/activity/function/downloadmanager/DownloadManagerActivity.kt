@@ -95,7 +95,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     layoutProgress.visibility = View.GONE
                     if (actionData.isSuccess == true) {
                         val data = actionData.data
-                        showLong("Saved: " + data?.path)
+                        showLongInformation("Saved: " + data?.path)
                     }
                 }
             })
@@ -108,7 +108,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     layoutProgress.visibility = View.GONE
                     if (actionData.isSuccess == true) {
                         val data = actionData.data
-                        showLong("readTxtFromFolderActionLiveData:\n$data")
+                        showLongInformation("readTxtFromFolderActionLiveData:\n$data")
                     }
                 }
             })
@@ -121,7 +121,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     layoutProgress.visibility = View.GONE
                     if (actionData.isSuccess == true) {
                         val data = actionData.data
-                        showLong("readTxtFromRawFolderActionLiveData:\n$data")
+                        showLongInformation("readTxtFromRawFolderActionLiveData:\n$data")
                     }
                 }
             })
@@ -134,7 +134,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     layoutProgress.visibility = View.GONE
                     if (actionData.isSuccess == true) {
                         val data = actionData.data
-                        showLong("readTxtFromAssetActionLiveData:\n$data")
+                        showLongInformation("readTxtFromAssetActionLiveData:\n$data")
                     }
                 }
             })
@@ -147,10 +147,10 @@ class DownloadManagerActivity : BaseFontActivity() {
                     layoutProgress.visibility = View.GONE
                     if (actionData.isSuccess == true) {
                         val data = actionData.data
-                        showLong("unzipActionLiveData:\n$data")
+                        showLongInformation("unzipActionLiveData:\n$data")
 
                     } else {
-                        showLong(actionData?.errorResponse?.message)
+                        showLongError(actionData?.errorResponse?.message)
                     }
                 }
             })

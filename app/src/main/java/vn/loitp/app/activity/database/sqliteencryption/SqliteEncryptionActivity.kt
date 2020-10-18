@@ -161,12 +161,12 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                 }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 { bike ->
-                                    showShort("Found: " + BaseApplication.gson.toJson(bike))
+                                    showShortInformation("Found: " + BaseApplication.gson.toJson(bike))
                                     hideProgress()
                                 },
                                 { t ->
                                     logE("addBike failed: $t")
-                                    showShort("addBike failed: $t")
+                                    showShortInformation("addBike failed: $t")
                                     hideProgress()
                                 }
                         ))
@@ -194,7 +194,7 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
                                 },
                                 { t ->
                                     logE("updateBike failed: $t")
-                                    showShort("updateBike failed: $t")
+                                    showShortError("updateBike failed: $t")
                                     hideProgress()
                                 }
                         ))

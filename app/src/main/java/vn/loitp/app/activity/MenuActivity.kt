@@ -3,6 +3,7 @@ package vn.loitp.app.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
@@ -92,8 +93,8 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShort(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
-        Handler().postDelayed({
+        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+        Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)
     }

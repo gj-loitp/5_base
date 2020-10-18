@@ -128,9 +128,9 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void getContactWithId(int id) {
         Contact contact = db.getContact(id);
         if (contact == null) {
-            showShort("Contact with ID=" + id + " not found", true);
+            showShortInformation("Contact with ID=" + id + " not found", true);
         } else {
-            showShort("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber(), true);
+            showShortInformation("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber(), true);
         }
     }
 

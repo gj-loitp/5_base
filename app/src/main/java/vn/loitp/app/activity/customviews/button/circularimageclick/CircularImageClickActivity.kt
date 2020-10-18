@@ -19,7 +19,7 @@ class CircularImageClickActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         circleButton.setOnCircleClickListener {
-            showShort("onClick")
+            showShortInformation("onClick")
         }
     }
 

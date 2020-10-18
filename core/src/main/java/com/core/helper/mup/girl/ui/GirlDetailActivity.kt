@@ -184,9 +184,9 @@ class GirlDetailActivity : BaseFontActivity() {
 //                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
                     girlPage = actionData.data
                     if (girlPage?.isFavorites == true) {
-                        showLong(getString(R.string.added_to_favorites))
+                        showLongInformation(getString(R.string.added_to_favorites))
                     } else {
-                        showLong(getString(R.string.removed_from_favorites))
+                        showLongInformation(getString(R.string.removed_from_favorites))
                     }
                 }
             })
