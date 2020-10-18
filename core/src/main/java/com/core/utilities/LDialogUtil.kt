@@ -35,8 +35,13 @@ class LDialogUtil {
         private val alertDialogList = ArrayList<AlertDialog>()
 
         fun clearAll() {
-            for (i in alertDialogList.indices) {
-                alertDialogList[i].dismiss()
+            try {
+                for (i in alertDialogList.indices) {
+                    alertDialogList[i].dismiss()
+                }
+                alertDialogList.clear()
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
 
