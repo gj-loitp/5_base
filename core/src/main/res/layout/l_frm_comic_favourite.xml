@@ -15,7 +15,7 @@
     <View
         android:id="@+id/realtimeBlurView"
         android:layout_width="0dp"
-        android:layout_height="@dimen/w_70"
+        android:layout_height="?android:attr/actionBarSize"
         android:background="?attr/themeBackgroundColor50"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,11 +53,12 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_width="?android:attr/actionBarSize"
+        android:layout_height="?android:attr/actionBarSize"
         android:contentDescription="@string/app_name"
         android:foreground="?selectableItemBackgroundBorderless"
+        android:padding="@dimen/padding_small"
+        android:scaleType="centerInside"
         android:src="@drawable/ic_search_black_48dp"
         app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
         app:layout_constraintEnd_toEndOf="parent"
