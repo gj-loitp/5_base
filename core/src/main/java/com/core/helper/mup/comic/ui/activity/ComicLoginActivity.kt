@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -9,6 +10,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.mup.comic.viewmodel.ComicLoginViewModel
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
@@ -66,8 +68,15 @@ class ComicLoginActivity : BaseFontActivity() {
                 if (isDoing == false && isSuccess == true) {
                     val data = actionData.data
 //                    logD("<<<loginActionLiveData observe " + BaseApplication.gson.toJson(data))
-                    val token = data.jwtToken
-                    logD("token $token")
+                    val token = data?.jwtToken
+//                    logD("token $token")
+                    if (token.isNullOrEmpty()) {
+                        showDialogError(errMsg = getString(R.string.err_unknow))
+                    } else {
+                        val intent = Intent(this, ComicActivity::class.java)
+                        startActivity(intent)
+                        LActivityUtil.tranIn(context = this)
+                    }
                 }
             })
         }

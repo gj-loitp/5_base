@@ -219,14 +219,18 @@ abstract class BaseActivity : AppCompatActivity() {
         showDialogError("Error: $throwable")
     }
 
-    protected fun showDialogError(errMsg: String) {
+    protected fun showDialogError(errMsg: String, runnable: Runnable? = null) {
         val alertDialog = LDialogUtil.showDialog1(context = this,
                 title = getString(R.string.warning),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
                 callback1 = object : Callback1 {
                     override fun onClick1() {
-                        onBackPressed()
+                        if (runnable == null) {
+                            onBackPressed()
+                        } else {
+                            runnable.run()
+                        }
                     }
                 })
         alertDialog.setCancelable(false)
@@ -246,6 +250,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+
         if (isShowAnimWhenExit) {
             LActivityUtil.tranOut(this)
         }
