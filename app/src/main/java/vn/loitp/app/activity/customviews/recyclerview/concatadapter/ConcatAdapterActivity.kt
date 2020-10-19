@@ -79,17 +79,18 @@ class ConcatAdapterActivity : BaseFontActivity() {
 
         recyclerView.adapter = concatAdapter
 
-        LUIUtil.setScrollChange(recyclerView, object : CallbackRecyclerView {
-            override fun onTop() {
-                logD("onTop")
-            }
+        LUIUtil.setScrollChange(recyclerView = recyclerView,
+                callbackRecyclerView = object : CallbackRecyclerView {
+                    override fun onTop() {
+                        logD("onTop")
+                    }
 
-            override fun onBottom() {
-                logD("onBottom")
-                showShortInformation("onBottom")
-                genNewsData()
-            }
-        })
+                    override fun onBottom() {
+                        logD("onBottom")
+                        showShortInformation("onBottom")
+                        genNewsData()
+                    }
+                })
 
         btClearAll.setSafeOnClickListener {
             concatAdapter?.let { a ->

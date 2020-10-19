@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.l_frm_girl_home.recyclerView
 @LogTag("FrmHome")
 class FrmHome : BaseFragment() {
     private var girlViewModel: GirlViewModel? = null
-    private var mergeAdapter: ConcatAdapter? = null
+    private var concatAdapter: ConcatAdapter? = null
     private var girlHeaderAdapter: GirlHeaderAdapter? = null
     private var girlTopUserAdapter: GirlTopUserAdapter? = null
     private var girlTopVideoAdapter: GirlTopVideoAdapter? = null
@@ -181,7 +181,7 @@ class FrmHome : BaseFragment() {
                             girlTitleAdapterAlbum.let { gtaa ->
                                 girlAlbumAdapter?.let { gaa ->
                                     val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtav, gtva, gtaa, gaa)
-                                    mergeAdapter = ConcatAdapter(listOfAdapters)
+                                    concatAdapter = ConcatAdapter(listOfAdapters)
                                 }
                             }
                         }
@@ -190,7 +190,7 @@ class FrmHome : BaseFragment() {
             }
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = mergeAdapter
+        recyclerView.adapter = concatAdapter
 
         LUIUtil.setScrollChange(
                 recyclerView = recyclerView,
@@ -204,7 +204,7 @@ class FrmHome : BaseFragment() {
                         if (currentPageIndex < totalPage) {
                             currentPageIndex++
                             girlProgressAdapter?.let { gpa ->
-                                mergeAdapter?.let { ma ->
+                                concatAdapter?.let { ma ->
                                     ma.addAdapter(gpa)
                                     recyclerView.smoothScrollToPosition(ma.itemCount - 1)
                                 }
@@ -251,7 +251,7 @@ class FrmHome : BaseFragment() {
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
                         girlProgressAdapter?.let {
-                            mergeAdapter?.removeAdapter(it)
+                            concatAdapter?.removeAdapter(it)
                         }
                         girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
                         girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh

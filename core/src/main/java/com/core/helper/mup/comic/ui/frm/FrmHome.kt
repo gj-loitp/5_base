@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.l_frm_comic_home.*
 @LogTag("loitppFrmHome")
 class FrmHome : BaseFragment() {
     private var comicViewModel: ComicViewModel? = null
-    private var mergeAdapter: ConcatAdapter? = null
+    private var concatAdapter: ConcatAdapter? = null
     private var comicHeaderAdapter: ComicHeaderAdapter? = null
     private var comicAdapter: ComicAdapter? = null
     private var comicProgressAdapter: ComicProgressAdapter? = null
@@ -48,7 +48,7 @@ class FrmHome : BaseFragment() {
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {
-        logD("getPage isSwipeToRefresh $isSwipeToRefresh")
+        logD("getPage isSwipeToRefresh $isSwipeToRefresh, currentPageIndex $currentPageIndex")
         comicViewModel?.getListComic(pageIndex = currentPageIndex, keyword = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
     }
 
@@ -76,12 +76,12 @@ class FrmHome : BaseFragment() {
 
                 comicProgressAdapter?.let { comicProgressA ->
                     val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(comicHeaderA, comicA, comicProgressA)
-                    mergeAdapter = ConcatAdapter(listOfAdapters)
+                    concatAdapter = ConcatAdapter(listOfAdapters)
                 }
             }
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = mergeAdapter
+        recyclerView.adapter = concatAdapter
 
         LUIUtil.setScrollChange(
                 recyclerView = recyclerView,
@@ -90,16 +90,22 @@ class FrmHome : BaseFragment() {
                     }
 
                     override fun onBottom() {
-                        logD("onBottom $currentPageIndex/$totalPage")
-                        if (currentPageIndex < totalPage) {
-                            currentPageIndex++
-                            comicProgressAdapter?.let { gpa ->
-                                mergeAdapter?.let { ma ->
-                                    ma.addAdapter(gpa)
-                                    recyclerView.smoothScrollToPosition(ma.itemCount - 1)
+                        val isExistComicProgressAdapter = concatAdapter?.adapters?.firstOrNull { adapter ->
+                            adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
+                        }
+//                        logD("onBottom isExistComicProgressAdapter $isExistComicProgressAdapter")
+                        if (isExistComicProgressAdapter == null) {
+                            logD("onBottom $currentPageIndex/$totalPage")
+                            if (currentPageIndex < totalPage) {
+                                currentPageIndex++
+                                comicProgressAdapter?.let { gpa ->
+                                    concatAdapter?.let { ma ->
+                                        ma.addAdapter(gpa)
+                                        recyclerView.smoothScrollToPosition(ma.itemCount - 1)
+                                    }
                                 }
+                                getPage(isSwipeToRefresh = false)
                             }
-                            getPage(isSwipeToRefresh = false)
                         }
                     }
                 })
@@ -123,10 +129,12 @@ class FrmHome : BaseFragment() {
                 val isSuccess = actionData.isSuccess
                 val isSwipeToRefresh = actionData.isSwipeToRefresh
 
-                if (isDoing == true) {
-                    indicatorView.smoothToShow()
-                } else {
-                    indicatorView.smoothToHide()
+                if (currentPageIndex == 0) {
+                    if (isDoing == true) {
+                        indicatorView.smoothToShow()
+                    } else {
+                        indicatorView.smoothToHide()
+                    }
                 }
 
                 if (isDoing == false && isSuccess == true) {
@@ -142,7 +150,7 @@ class FrmHome : BaseFragment() {
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
                         comicProgressAdapter?.let {
-                            mergeAdapter?.removeAdapter(it)
+                            concatAdapter?.removeAdapter(it)
                         }
                         comicHeaderAdapter?.setData(comic = listComic.random())
                         comicAdapter?.setData(listComic = listComic, isSwipeToRefresh = isSwipeToRefresh)
