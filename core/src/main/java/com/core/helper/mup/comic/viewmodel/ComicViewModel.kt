@@ -32,23 +32,24 @@ class ComicViewModel : BaseComicViewModel() {
                     keyword = keyword
             )
             logD("<<<getListComic " + BaseApplication.gson.toJson(response))
-//            if (response.items == null || response.isSuccess == false) {
-//                listComicActionLiveData.postAction(
-//                        getErrorRequestComic(response)
-//                )
-//            } else {
-//                val data = response.items
-//                listComicActionLiveData.post(
-//                        ActionData(
-//                                isDoing = false,
-//                                isSuccess = true,
-//                                data = data,
-//                                total = response.total,
-//                                totalPages = response.totalPages,
-//                                page = response.page
-//                        )
-//                )
-//            }
+            if (response.items == null || response.isSuccess == false) {
+                listComicActionLiveData.postAction(
+                        getErrorRequestComic(response)
+                )
+            } else {
+                val data = response.items
+                listComicActionLiveData.post(
+                        ActionData(
+                                isDoing = false,
+                                isSuccess = true,
+                                data = data,
+                                total = response.total,
+                                totalPages = response.totalPages,
+                                page = response.page,
+                                isSwipeToRefresh = isSwipeToRefresh
+                        )
+                )
+            }
         }
 
     }

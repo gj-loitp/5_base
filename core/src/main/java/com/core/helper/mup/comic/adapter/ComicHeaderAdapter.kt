@@ -4,39 +4,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.BuildConfig
 import com.R
 import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
-import com.core.common.Constants
-import com.core.helper.mup.girl.model.GirlPage
+import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.view_row_girl_header.view.*
+import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 
-@LogTag("GirlHeaderAdapter")
+@LogTag("loitppGirlHeaderAdapter")
 class ComicHeaderAdapter : AnimationAdapter() {
 
-    private var girlPage: GirlPage? = null
-//    var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
+    private var comic: Comic? = null
 
-    fun setData(girlPage: GirlPage) {
-        this.girlPage = girlPage
+    fun setData(comic: Comic) {
+        this.comic = comic
         notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(girlPage: GirlPage) {
-            val src = if (BuildConfig.DEBUG) {
-                Constants.URL_IMG
-            } else {
-                girlPage.src
-            }
+        fun bind(comic: Comic) {
             LImageUtil.load(context = itemView.imageView.context,
-                    url = src,
+                    url = comic.imageSrc,
                     imageView = itemView.imageView,
-                    resError = R.color.black,
-                    resPlaceHolder = R.color.black,
+                    resError = R.color.gray,
+                    resPlaceHolder = R.color.gray,
                     drawableRequestListener = null)
 //            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
@@ -52,8 +44,8 @@ class ComicHeaderAdapter : AnimationAdapter() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
-            girlPage?.let {
-                holder.bind(girlPage = it)
+            comic?.let {
+                holder.bind(comic = it)
             }
         }
     }

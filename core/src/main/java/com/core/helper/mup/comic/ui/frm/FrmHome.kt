@@ -18,8 +18,7 @@ import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
-import kotlinx.android.synthetic.main.l_frm_girl_home.*
-import kotlinx.android.synthetic.main.l_frm_girl_home.recyclerView
+import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
 @LogTag("loitppFrmHome")
 class FrmHome : BaseFragment() {
@@ -106,31 +105,32 @@ class FrmHome : BaseFragment() {
         comicViewModel = getViewModel(ComicViewModel::class.java)
         comicViewModel?.let { vm ->
             vm.listComicActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
-//                val isDoing = actionData.isDoing
-//
-//                if (isDoing == true) {
-//                    indicatorView.smoothToShow()
-//                } else {
-//                    indicatorView.smoothToHide()
-//                }
-//
-//                if (isDoing == false && actionData.isSuccess == true) {
-//                    val listGirlPage = actionData.data
-//                    if (listGirlPage.isNullOrEmpty()) {
-//                        tvNoData.visibility = View.VISIBLE
-//                        recyclerView.visibility = View.GONE
-//                    } else {
-//                        totalPage = actionData.totalPages ?: 0
-//
-//                        tvNoData.visibility = View.GONE
-//                        recyclerView.visibility = View.VISIBLE
-//                        comicProgressAdapter?.let {
-//                            mergeAdapter?.removeAdapter(it)
-//                        }
-//                        comicHeaderAdapter?.setData(girlPage = listGirlPage.random())
-//
-//                    }
-//                }
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+
+                if (isDoing == false && isSuccess == true) {
+                    val listComic = actionData.data
+                    if (listComic.isNullOrEmpty()) {
+                        tvNoData.visibility = View.VISIBLE
+                        recyclerView.visibility = View.GONE
+                    } else {
+                        totalPage = actionData.totalPages ?: 0
+
+                        tvNoData.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
+                        comicProgressAdapter?.let {
+                            mergeAdapter?.removeAdapter(it)
+                        }
+                        comicHeaderAdapter?.setData(comic = listComic.random())
+
+                    }
+                }
             })
         }
     }
