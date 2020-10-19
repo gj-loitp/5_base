@@ -1,4 +1,4 @@
-package com.core.helper.mup.girl.service
+package com.core.helper.mup.comic.service
 
 import com.google.gson.GsonBuilder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -17,10 +17,10 @@ import java.util.concurrent.TimeUnit
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-class GirlApiClient {
+class ComicApiClient {
 
     companion object {
-        private fun getBaseUrl() = GirlApiConfiguration.BASE_URL
+        private fun getBaseUrl() = ComicApiConfiguration.BASE_URL
         private var restRequestInterceptor: RestRequestInterceptor? = null
 
         private fun getClient(url: String): Retrofit {
@@ -37,9 +37,9 @@ class GirlApiClient {
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
             builder.apply {
-                connectTimeout(GirlApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-                readTimeout(GirlApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-                writeTimeout(GirlApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+                connectTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+                readTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+                writeTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
                 //addInterceptor(AuthenticationInterceptor())
                 addInterceptor(logging)
                 restRequestInterceptor?.let { rri ->
@@ -61,18 +61,18 @@ class GirlApiClient {
             }.build()
         }
 
-        val apiService = getClient(getBaseUrl()).create(GirlApiService::class.java)
+        val apiService = getClient(getBaseUrl()).create(ComicApiService::class.java)
 
         fun addHeader(name: String, value: String) {
             restRequestInterceptor?.addHeader(name, value)
         }
 
         fun addAuthorization(token: String) {
-            addHeader(GirlApiConfiguration.AUTHORIZATION_HEADER, token)
+            addHeader(ComicApiConfiguration.AUTHORIZATION_HEADER, token)
         }
 
         fun removeAuthorization() {
-            removeHeader(GirlApiConfiguration.AUTHORIZATION_HEADER)
+            removeHeader(ComicApiConfiguration.AUTHORIZATION_HEADER)
         }
 
         fun removeHeader(name: String) {
