@@ -10,6 +10,7 @@ import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 
 @LogTag("loitppGirlHeaderAdapter")
@@ -49,7 +50,9 @@ class ComicHeaderAdapter : AnimationAdapter() {
                 repeatMode = ValueAnimator.REVERSE
             }.start()
 
-            onClickRoot?.invoke(comic)
+            itemView.imageView.setSafeOnClickListener {
+                onClickRoot?.invoke(comic)
+            }
 
 //            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }

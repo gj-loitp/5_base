@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
+import com.core.helper.mup.comic.adapter.ComicAdapter
 import com.core.helper.mup.comic.adapter.ComicHeaderAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Comic
@@ -26,6 +27,7 @@ class FrmHome : BaseFragment() {
     private var comicViewModel: ComicViewModel? = null
     private var mergeAdapter: ConcatAdapter? = null
     private var comicHeaderAdapter: ComicHeaderAdapter? = null
+    private var comicAdapter: ComicAdapter? = null
     private var comicProgressAdapter: ComicProgressAdapter? = null
     private var currentPageIndex = 0
     private var totalPage = Int.MAX_VALUE
@@ -59,17 +61,23 @@ class FrmHome : BaseFragment() {
             getPage(isSwipeToRefresh = true)
         }
         comicHeaderAdapter = ComicHeaderAdapter()
+        comicAdapter = ComicAdapter()
         comicProgressAdapter = ComicProgressAdapter()
 
-        comicHeaderAdapter?.let { comicHeader ->
-
-            comicHeader.onClickRoot = { comic ->
+        comicHeaderAdapter?.let { comicHeaderA ->
+            comicHeaderA.onClickRoot = { comic ->
                 handleClickComicHeader(comic = comic)
             }
 
-            comicProgressAdapter?.let { comicProgress ->
-                val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(comicHeader, comicProgress)
-                mergeAdapter = ConcatAdapter(listOfAdapters)
+            comicAdapter?.let { comicA ->
+                comicA.onClickRoot = { comic ->
+                    handleClickComic(comic = comic)
+                }
+
+                comicProgressAdapter?.let { comicProgressA ->
+                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(comicHeaderA, comicA, comicProgressA)
+                    mergeAdapter = ConcatAdapter(listOfAdapters)
+                }
             }
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -135,6 +143,7 @@ class FrmHome : BaseFragment() {
                             mergeAdapter?.removeAdapter(it)
                         }
                         comicHeaderAdapter?.setData(comic = listComic.random())
+                        comicAdapter?.setData(listComic = listComic, isSwipeToRefresh = isSwipeToRefresh)
 
                     }
                 }
@@ -155,6 +164,10 @@ class FrmHome : BaseFragment() {
     }
 
     private fun handleClickComicHeader(comic: Comic) {
+        //TODO
+    }
+
+    private fun handleClickComic(comic: Comic) {
         //TODO
     }
 }

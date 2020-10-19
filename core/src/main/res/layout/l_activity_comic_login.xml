@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:lottie_autoPlay="true"
+        android:layout_margin="@dimen/w_50"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/red_cat" />
 
