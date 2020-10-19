@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.service
 
+import com.core.helper.mup.comic.model.Login
 import com.core.helper.mup.comic.model.RequestLogin
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
@@ -11,5 +12,5 @@ interface ComicApiService {
     @POST("login/")
     fun loginAsync(
             @Body requestLogin: RequestLogin
-    ): Deferred<Response<ComicApiResponse<Any>>>
+    ): Deferred<Response<ComicApiResponse<Login>>>
 }

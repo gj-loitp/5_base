@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.service
 
+import com.core.helper.mup.comic.model.Login
 import com.core.helper.mup.comic.model.RequestLogin
 
 /**
@@ -10,7 +11,7 @@ import com.core.helper.mup.comic.model.RequestLogin
  */
 class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseRepository() {
 
-    suspend fun login(email: String, password: String): ComicApiResponse<Any> = makeApiCall {
+    suspend fun login(email: String, password: String): ComicApiResponse<Login> = makeApiCall {
         val requestLogin = RequestLogin(
                 email = email,
                 password = password
