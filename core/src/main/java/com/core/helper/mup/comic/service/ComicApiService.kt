@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.service
 
+import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.model.Login
 import com.core.helper.mup.comic.model.RequestLogin
 import kotlinx.coroutines.Deferred
@@ -21,5 +22,5 @@ interface ComicApiService {
             @Query("PageIndex") pageIndex: Int,
             @Query("PageSize") pageSize: Int,
             @Query("Keyword") keyword: String?
-    ): Deferred<Response<ComicApiResponse<Any>>>
+    ): Deferred<Response<ComicApiResponse<List<Comic>>>>
 }

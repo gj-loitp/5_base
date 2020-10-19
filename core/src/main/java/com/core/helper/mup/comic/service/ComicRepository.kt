@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.service
 
+import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.model.Login
 import com.core.helper.mup.comic.model.RequestLogin
 
@@ -24,7 +25,7 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
     suspend fun getListComic(
             pageIndex: Int,
             keyword: String?
-    ): ComicApiResponse<Any> = makeApiCall {
+    ): ComicApiResponse<List<Comic>> = makeApiCall {
         comicApiService.getListComicAsync(
                 pageIndex = pageIndex,
                 pageSize = ComicApiConfiguration.PAGE_SIZE,

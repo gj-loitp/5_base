@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -104,7 +105,7 @@ class FrmHome : BaseFragment() {
     private fun setupViewModels() {
         comicViewModel = getViewModel(ComicViewModel::class.java)
         comicViewModel?.let { vm ->
-//            vm.pageActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+            vm.listComicActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
 //                val isDoing = actionData.isDoing
 //
 //                if (isDoing == true) {
@@ -130,7 +131,7 @@ class FrmHome : BaseFragment() {
 //
 //                    }
 //                }
-//            })
+            })
         }
     }
 
