@@ -231,6 +231,7 @@ Những đóng góp của mọi người là động lực và trách nhiệm đ
         //start comic
         const val COMIC_ADMOB_ID_BANNER = "COMIC_ADMOB_ID_BANNER"
         const val COMIC_SHOW_DONATION = "COMIC_SHOW_DONATION"
+        const val COMIC_TOKEN = "COMIC_TOKEN"
         //end comic
     }
 }

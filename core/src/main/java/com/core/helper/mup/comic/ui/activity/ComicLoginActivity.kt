@@ -73,6 +73,10 @@ class ComicLoginActivity : BaseFontActivity() {
                     if (token.isNullOrEmpty()) {
                         showDialogError(errMsg = getString(R.string.err_unknow))
                     } else {
+
+                        //save comic token
+                        LSharedPrefsUtil.instance.putString(Constants.COMIC_TOKEN, token)
+
                         val intent = Intent(this, ComicActivity::class.java)
                         startActivity(intent)
                         LActivityUtil.tranIn(context = this)

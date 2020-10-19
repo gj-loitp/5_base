@@ -17,71 +17,69 @@ import java.util.concurrent.TimeUnit
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
-class ComicApiClient {
+object ComicApiClient {
 
-    companion object {
-        private fun getBaseUrl() = ComicApiConfiguration.BASE_URL
-        private var restRequestInterceptor: RestRequestInterceptor? = null
+    private fun getBaseUrl() = ComicApiConfiguration.BASE_URL
+    private var restRequestInterceptor: RestRequestInterceptor? = null
 
-        private fun getClient(url: String): Retrofit {
-            val okHttpClient = OkHttpClient.Builder()
-            return getRetrofit(url, okHttpClient)
-        }
+    private fun getClient(url: String): Retrofit {
+        val okHttpClient = OkHttpClient.Builder()
+        return getRetrofit(url, okHttpClient)
+    }
 
-        private fun getRetrofit(url: String, builder: OkHttpClient.Builder): Retrofit {
+    private fun getRetrofit(url: String, builder: OkHttpClient.Builder): Retrofit {
 
-            restRequestInterceptor = RestRequestInterceptor()
+        restRequestInterceptor = RestRequestInterceptor()
 
-            val logging = HttpLoggingInterceptor()
-            // set your desired log level
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        val logging = HttpLoggingInterceptor()
+        // set your desired log level
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
-            builder.apply {
-                connectTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-                readTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-                writeTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-                //addInterceptor(AuthenticationInterceptor())
-                addInterceptor(logging)
-                restRequestInterceptor?.let { rri ->
-                    addInterceptor(rri)
-                }
-                //retryOnConnectionFailure(false)
+        builder.apply {
+            connectTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+            readTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+            writeTimeout(ComicApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
+            //addInterceptor(AuthenticationInterceptor())
+            addInterceptor(logging)
+            restRequestInterceptor?.let { rri ->
+                addInterceptor(rri)
             }
-
-            val gson = GsonBuilder()
-                    .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
-                    .create()
-
-            return Retrofit.Builder().apply {
-                baseUrl(url)
-                addCallAdapterFactory(CoroutineCallAdapterFactory())
-                //addConverterFactory(MoshiConverterFactory.create(moshi))
-                addConverterFactory(GsonConverterFactory.create(gson))
-                client(builder.build())
-            }.build()
+            //retryOnConnectionFailure(false)
         }
 
-        val apiService = getClient(getBaseUrl()).create(ComicApiService::class.java)
+        val gson = GsonBuilder()
+                .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
+                .create()
 
-        fun addHeader(name: String, value: String) {
-            restRequestInterceptor?.addHeader(name, value)
-        }
+        return Retrofit.Builder().apply {
+            baseUrl(url)
+            addCallAdapterFactory(CoroutineCallAdapterFactory())
+            //addConverterFactory(MoshiConverterFactory.create(moshi))
+            addConverterFactory(GsonConverterFactory.create(gson))
+            client(builder.build())
+        }.build()
+    }
 
-        fun addAuthorization(token: String) {
-            addHeader(ComicApiConfiguration.AUTHORIZATION_HEADER, token)
-        }
+    val apiService = getClient(getBaseUrl()).create(ComicApiService::class.java)
 
-        fun removeAuthorization() {
-            removeHeader(ComicApiConfiguration.AUTHORIZATION_HEADER)
-        }
+    fun addHeader(name: String, value: String) {
+        restRequestInterceptor?.addHeader(name, value)
+    }
 
-        fun removeHeader(name: String) {
-            restRequestInterceptor?.removeHeader(name)
-        }
+    fun addAuthorization(token: String) {
+        addHeader(ComicApiConfiguration.AUTHORIZATION_HEADER, token)
+    }
 
-        fun hasHeader(name: String): Boolean {
-            val hasHeader = restRequestInterceptor?.hasHeader(name)
-            return hasHeader == true
-        }
+    fun removeAuthorization() {
+        removeHeader(ComicApiConfiguration.AUTHORIZATION_HEADER)
+    }
+
+    fun removeHeader(name: String) {
+        restRequestInterceptor?.removeHeader(name)
+    }
+
+    fun hasHeader(name: String): Boolean {
+        val hasHeader = restRequestInterceptor?.hasHeader(name)
+        return hasHeader == true
     }
 }
