@@ -20,4 +20,15 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
                 requestLogin = requestLogin
         ).await()
     }
+
+    suspend fun getListComic(
+            pageIndex: Int,
+            keyword: String?
+    ): ComicApiResponse<Any> = makeApiCall {
+        comicApiService.getListComicAsync(
+                pageIndex = pageIndex,
+                pageSize = ComicApiConfiguration.PAGE_SIZE,
+                keyword = keyword
+        ).await()
+    }
 }

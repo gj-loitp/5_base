@@ -1,7 +1,7 @@
 package com.core.helper.mup.comic.viewmodel
 
 import com.annotation.LogTag
-import com.core.helper.mup.comic.model.Login
+import com.core.base.BaseApplication
 import com.core.helper.mup.comic.service.BaseComicViewModel
 import com.core.helper.mup.comic.service.ComicApiClient
 import com.core.helper.mup.comic.service.ComicRepository
@@ -20,34 +20,34 @@ import kotlinx.coroutines.launch
 class ComicViewModel : BaseComicViewModel() {
     private val repository = ComicRepository(ComicApiClient.apiService)
 
-    val loginActionLiveData: ActionLiveData<ActionData<Login>> = ActionLiveData()
+    val listComicActionLiveData: ActionLiveData<ActionData<Any>> = ActionLiveData()
 
-    fun login(email: String, password: String) {
-        loginActionLiveData.set(ActionData(isDoing = true))
-
+    fun getListComic(pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
+        listComicActionLiveData.set(ActionData(isDoing = true))
+        logD(">>>getListComic pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
         ioScope.launch {
-            val response = repository.login(
-                    email = email,
-                    password = password
+            val response = repository.getListComic(
+                    pageIndex = pageIndex,
+                    keyword = keyword
             )
-//            logD("<<<login " + BaseApplication.gson.toJson(response))
-            if (response.items == null || response.isSuccess == false) {
-                loginActionLiveData.postAction(
-                        getErrorRequestComic(response)
-                )
-            } else {
-                val data = response.items
-                loginActionLiveData.post(
-                        ActionData(
-                                isDoing = false,
-                                isSuccess = true,
-                                data = data,
-                                total = response.total,
-                                totalPages = response.totalPages,
-                                page = response.page
-                        )
-                )
-            }
+            logD("<<<getListComic " + BaseApplication.gson.toJson(response))
+//            if (response.items == null || response.isSuccess == false) {
+//                listComicActionLiveData.postAction(
+//                        getErrorRequestComic(response)
+//                )
+//            } else {
+//                val data = response.items
+//                listComicActionLiveData.post(
+//                        ActionData(
+//                                isDoing = false,
+//                                isSuccess = true,
+//                                data = data,
+//                                total = response.total,
+//                                totalPages = response.totalPages,
+//                                page = response.page
+//                        )
+//                )
+//            }
         }
 
     }

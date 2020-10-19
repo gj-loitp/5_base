@@ -20,7 +20,7 @@ import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
 import kotlinx.android.synthetic.main.l_frm_girl_home.recyclerView
 
-@LogTag("FrmHome")
+@LogTag("loitppFrmHome")
 class FrmHome : BaseFragment() {
     private var comicViewModel: ComicViewModel? = null
     private var mergeAdapter: ConcatAdapter? = null
@@ -40,11 +40,13 @@ class FrmHome : BaseFragment() {
 
         setupViews()
         setupViewModels()
+
+        getPage(false)
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {
         logD("getPage isSwipeToRefresh $isSwipeToRefresh")
-        //girlViewModel?.getPage(pageIndex = currentPageIndex, keyWord = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
+        comicViewModel?.getListComic(pageIndex = currentPageIndex, keyword = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
     }
 
     private fun setupViews() {
