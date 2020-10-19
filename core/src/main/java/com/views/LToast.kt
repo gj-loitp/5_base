@@ -63,11 +63,11 @@ object LToast {
         val textResColor: Int
         val backgroundResColor: Int
         if (LUIUtil.isDarkTheme()) {
-            textResColor = R.color.white
-            backgroundResColor = R.color.blue
-        } else {
             textResColor = R.color.black
-            backgroundResColor = R.color.lightBlue
+            backgroundResColor = R.color.white
+        } else {
+            textResColor = R.color.white
+            backgroundResColor = R.color.black
         }
         show(msg = msg,
                 length = Toast.LENGTH_SHORT,

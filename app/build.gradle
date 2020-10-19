@@ -193,8 +193,5 @@ dependencies {
     //https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
 
-    //https://github.com/TakWolf/Android-AspectRatioLayout
-    api 'com.takwolf.android:aspectratio:0.3.0'
-
 }
 apply plugin: 'com.google.gms.google-services'
