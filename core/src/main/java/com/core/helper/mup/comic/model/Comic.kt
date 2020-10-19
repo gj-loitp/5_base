@@ -10,11 +10,20 @@ data class Comic(
         val description: String? = null,
         val id: String? = null,
         val imageId: String? = null,
-        val imageSrc: String? = null,
+        private val imageSrc: String? = null,
         val isDelete: Boolean? = null,
         val modifiedBy: String? = null,
         val modifiedDate: String? = null,
         val title: String? = null,
         val totalChapter: Int? = null,
         val viewCount: Int? = null
-) : Serializable
+) : Serializable {
+
+    fun getImageSrc(): String {
+        return if (imageSrc?.contains("http:/") == true) {
+            imageSrc
+        } else {
+            "http:/$imageSrc"
+        }
+    }
+}

@@ -107,6 +107,7 @@ class FrmHome : BaseFragment() {
             vm.listComicActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
+                val isSwipeToRefresh = actionData.isSwipeToRefresh
 
                 if (isDoing == true) {
                     indicatorView.smoothToShow()

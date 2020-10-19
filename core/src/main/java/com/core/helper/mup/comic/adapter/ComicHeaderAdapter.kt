@@ -25,7 +25,7 @@ class ComicHeaderAdapter : AnimationAdapter() {
 
         fun bind(comic: Comic) {
             LImageUtil.load(context = itemView.imageView.context,
-                    url = comic.imageSrc,
+                    url = comic.getImageSrc(),
                     imageView = itemView.imageView,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
