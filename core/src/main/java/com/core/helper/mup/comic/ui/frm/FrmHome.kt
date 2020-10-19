@@ -144,6 +144,9 @@ class FrmHome : BaseFragment() {
                             tvNoData.visibility = View.VISIBLE
                             recyclerView.visibility = View.GONE
                         }
+                        comicProgressAdapter?.let {
+                            concatAdapter?.removeAdapter(it)
+                        }
                     } else {
                         totalPage = actionData.totalPages ?: 0
 
