@@ -2,6 +2,7 @@ package com.views.autosize.textviewwithsize;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
@@ -42,7 +43,7 @@ public class TextViewWithSize extends AppCompatTextView {
 //    }
 
     private void init() {
-        LUIUtil.Companion.setTextShadow(this);
+        LUIUtil.Companion.setTextShadow(this, Color.RED);
     }
 
     @Override

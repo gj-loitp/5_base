@@ -9,6 +9,7 @@ import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic.view.*
 
@@ -36,7 +37,17 @@ class ComicAdapter : AnimationAdapter() {
                     resPlaceHolder = R.color.gray,
                     drawableRequestListener = null)
 
-            itemView.tvTitle.text = comic.title
+            itemView.tvTitle.apply {
+                this.text = comic.title
+                LUIUtil.setTextShadow(textView = this)
+            }
+
+            comic.totalChapter?.let {
+                itemView.tvTotalChapter.apply {
+                    this.text = "${comic.totalChapter}"
+                    LUIUtil.setTextShadow(textView = this)
+                }
+            }
 
             itemView.cardView.setSafeOnClickListener {
                 onClickRoot?.invoke(comic)

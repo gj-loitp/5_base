@@ -299,9 +299,9 @@ class LUIUtil {
         }
 
         fun setTextShadow(textView: TextView?, color: Int = if (isDarkTheme()) {
-            Color.WHITE
-        } else {
             Color.BLACK
+        } else {
+            Color.WHITE
         }) {
             textView?.setShadowLayer(1f, // radius
                     1f, // dx
@@ -310,13 +310,13 @@ class LUIUtil {
             )
         }
 
-        fun setTextShadow(textView: TextView?) {
-            textView?.setShadowLayer(1f, // radius
-                    1f, // dx
-                    1f, // dy
-                    Color.BLACK // shadow color
-            )
-        }
+//        fun setTextShadow(textView: TextView?) {
+//            textView?.setShadowLayer(1f, // radius
+//                    1f, // dx
+//                    1f, // dy
+//                    Color.BLACK // shadow color
+//            )
+//        }
 
         fun setTextBold(textBold: TextView) {
             textBold.setTypeface(null, Typeface.BOLD)
