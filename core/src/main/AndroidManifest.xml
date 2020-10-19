@@ -114,6 +114,9 @@
         <activity
             android:name=".core.helper.mup.comic.ui.activity.ComicActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".core.helper.mup.comic.ui.activity.ComicLoginActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

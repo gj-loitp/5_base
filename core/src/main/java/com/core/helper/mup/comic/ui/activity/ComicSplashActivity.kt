@@ -52,7 +52,7 @@ class ComicSplashActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.BANNER
+                it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
@@ -62,7 +62,7 @@ class ComicSplashActivity : BaseFontActivity() {
 
     private fun goToHome() {
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
-            val intent = Intent(this, ComicActivity::class.java)
+            val intent = Intent(this, ComicLoginActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
             finish()
