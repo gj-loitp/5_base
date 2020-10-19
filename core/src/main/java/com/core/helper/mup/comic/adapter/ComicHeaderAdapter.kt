@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.adapter
 
+import android.animation.ValueAnimator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,23 @@ class ComicHeaderAdapter : AnimationAdapter() {
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
                     drawableRequestListener = null)
+
+            LImageUtil.load(context = itemView.ivAvatar.context,
+                    url = comic.getImageSrc(),
+                    imageView = itemView.ivAvatar,
+                    resError = R.color.gray,
+                    resPlaceHolder = R.color.gray,
+                    drawableRequestListener = null)
+
+            itemView.tvTitle.text = comic.title
+
+            ValueAnimator.ofFloat(0f, 200f, 0f).apply {
+                addUpdateListener { animation -> itemView.roundRect.bottomLeftRadius = (animation.animatedValue as Float) }
+                duration = 800
+                repeatCount = ValueAnimator.INFINITE
+                repeatMode = ValueAnimator.REVERSE
+            }.start()
+
 //            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }

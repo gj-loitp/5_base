@@ -82,6 +82,7 @@ class ComicLoginActivity : BaseFontActivity() {
                         val intent = Intent(this, ComicActivity::class.java)
                         startActivity(intent)
                         LActivityUtil.tranIn(context = this)
+                        finish()
                     }
                 }
             })
