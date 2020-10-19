@@ -49,6 +49,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLines="2"
             android:padding="@dimen/padding_medium"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
