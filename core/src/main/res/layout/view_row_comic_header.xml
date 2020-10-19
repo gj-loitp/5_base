@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="@dimen/w_70"
+    android:paddingTop="?android:attr/actionBarSize"
     tools:ignore="UnusedAttribute">
 
     <com.views.imageview.kenburnview.LKenBurnsView
