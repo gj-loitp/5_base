@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 class ComicHeaderAdapter : AnimationAdapter() {
 
     private var comic: Comic? = null
+    var onClickRoot: ((Comic) -> Unit)? = null
 
     fun setData(comic: Comic) {
         this.comic = comic
@@ -47,6 +48,8 @@ class ComicHeaderAdapter : AnimationAdapter() {
                 repeatCount = ValueAnimator.INFINITE
                 repeatMode = ValueAnimator.REVERSE
             }.start()
+
+            onClickRoot?.invoke(comic)
 
 //            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }

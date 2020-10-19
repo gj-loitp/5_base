@@ -13,6 +13,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.helper.mup.comic.adapter.ComicHeaderAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
+import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
@@ -61,6 +62,11 @@ class FrmHome : BaseFragment() {
         comicProgressAdapter = ComicProgressAdapter()
 
         comicHeaderAdapter?.let { comicHeader ->
+
+            comicHeader.onClickRoot = { comic ->
+                handleClickComicHeader(comic = comic)
+            }
+
             comicProgressAdapter?.let { comicProgress ->
                 val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(comicHeader, comicProgress)
                 mergeAdapter = ConcatAdapter(listOfAdapters)
@@ -146,5 +152,9 @@ class FrmHome : BaseFragment() {
             currentKeyword = this.text.toString().trim()
         }
         getPage(isSwipeToRefresh = true)
+    }
+
+    private fun handleClickComicHeader(comic: Comic) {
+        //TODO
     }
 }
