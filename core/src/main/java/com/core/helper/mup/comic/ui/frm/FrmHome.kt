@@ -132,8 +132,10 @@ class FrmHome : BaseFragment() {
                 if (isDoing == false && isSuccess == true) {
                     val listComic = actionData.data
                     if (listComic.isNullOrEmpty()) {
-                        tvNoData.visibility = View.VISIBLE
-                        recyclerView.visibility = View.GONE
+                        if (currentPageIndex == 0) {
+                            tvNoData.visibility = View.VISIBLE
+                            recyclerView.visibility = View.GONE
+                        }
                     } else {
                         totalPage = actionData.totalPages ?: 0
 
@@ -144,7 +146,6 @@ class FrmHome : BaseFragment() {
                         }
                         comicHeaderAdapter?.setData(comic = listComic.random())
                         comicAdapter?.setData(listComic = listComic, isSwipeToRefresh = isSwipeToRefresh)
-
                     }
                 }
             })
