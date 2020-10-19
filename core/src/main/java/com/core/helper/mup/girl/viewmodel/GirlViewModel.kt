@@ -2,10 +2,10 @@ package com.core.helper.mup.girl.viewmodel
 
 import com.annotation.LogTag
 import com.core.base.BaseApplication
-import com.core.base.BaseViewModel
 import com.core.helper.mup.girl.db.GirlDatabase
 import com.core.helper.mup.girl.model.GirlPage
 import com.core.helper.mup.girl.model.GirlPageDetail
+import com.core.helper.mup.girl.service.BaseGirlViewModel
 import com.core.helper.mup.girl.service.GirlApiClient
 import com.core.helper.mup.girl.service.GirlRepository
 import com.service.livedata.ActionData
@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
  */
 
 @LogTag("GirlViewModel")
-class GirlViewModel : BaseViewModel() {
+class GirlViewModel : BaseGirlViewModel() {
     private val repository: GirlRepository = GirlRepository(GirlApiClient.apiService)
 
     val pageActionLiveData: ActionLiveData<ActionData<ArrayList<GirlPage>>> = ActionLiveData()
