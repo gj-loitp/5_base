@@ -9,6 +9,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.core.helper.mup.comic.service.ComicApiClient
 import com.core.helper.mup.comic.viewmodel.ComicLoginViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSharedPrefsUtil
@@ -76,6 +77,7 @@ class ComicLoginActivity : BaseFontActivity() {
 
                         //save comic token
                         LSharedPrefsUtil.instance.putString(Constants.COMIC_TOKEN, token)
+                        ComicApiClient.addAuthorization(token)
 
                         val intent = Intent(this, ComicActivity::class.java)
                         startActivity(intent)
