@@ -42,5 +42,9 @@ data class ComicApiResponse<T>(
 
         @SerializedName("errors")
         @Expose
-        val errors: ErrorResponse? = null
+        val errors: ErrorResponse? = null,
+
+        @SerializedName("isSuccess")
+        @Expose
+        val isSuccess: Boolean? = null
 )
