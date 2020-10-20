@@ -22,7 +22,7 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_category_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
-        firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
+        firstBehaviourState = BottomSheetBehavior.STATE_COLLAPSED
 ) {
 
     private var comicViewModel: ComicViewModel? = null

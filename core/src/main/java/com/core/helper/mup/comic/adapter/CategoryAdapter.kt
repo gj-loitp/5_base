@@ -1,6 +1,5 @@
 package com.core.helper.mup.comic.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import com.R
 import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Category
-import com.views.setSafeOnClickListener
+import com.core.utilities.LAppResource
 import kotlinx.android.synthetic.main.view_row_comic_category.view.*
 
 @LogTag("CategoryAdapter")
@@ -31,11 +30,17 @@ class CategoryAdapter : AnimationAdapter() {
             itemView.tvCategory.text = category.title
 
             if (category.isSelected) {
-                itemView.cardView.setCardBackgroundColor(Color.GREEN)
+                itemView.cardView.setCardBackgroundColor(LAppResource.getColor(R.color.cyan))
             }
 
-            itemView.cardView.setSafeOnClickListener {
-                onClickRoot?.invoke(category)
+            itemView.cardView.setOnClickListener {
+                listCategory.forEach {
+                    it.isSelected = false
+                }
+                category.isSelected = true
+                notifyDataSetChanged()
+
+//                onClickRoot?.invoke(category)
             }
         }
     }
