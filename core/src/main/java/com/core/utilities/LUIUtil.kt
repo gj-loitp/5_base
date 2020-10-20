@@ -718,15 +718,33 @@ class LUIUtil {
         }
 
         fun setScrollChange(recyclerView: RecyclerView, callbackRecyclerView: CallbackRecyclerView) {
+            var isScrollDown = false
             recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     super.onScrollStateChanged(recyclerView, newState)
+
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                         if (!recyclerView.canScrollVertically(1)) {
                             callbackRecyclerView.onBottom()
                         }
                         if (!recyclerView.canScrollVertically(-1)) {
                             callbackRecyclerView.onTop()
+                        }
+                    }
+                }
+
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    
+                    if (dy < 0) {
+                        if (isScrollDown) {
+                            Log.d("loitpp", "Recycle view scrolling up...")
+                            isScrollDown = false
+                        }
+                    } else if (dy > 0) {
+                        if (!isScrollDown) {
+                            Log.d("loitpp", "Recycle view scrolling down...")
+                            isScrollDown = true
                         }
                     }
                 }
