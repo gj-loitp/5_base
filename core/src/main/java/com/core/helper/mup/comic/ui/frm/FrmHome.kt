@@ -16,6 +16,7 @@ import com.core.helper.mup.comic.adapter.ComicHeaderAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
+import com.core.utilities.LDeviceUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
@@ -80,15 +81,20 @@ class FrmHome : BaseFragment() {
                 }
             }
         }
-        val gridLayoutManager = GridLayoutManager(context, 2)
+        val spanCount = if (LDeviceUtil.isTablet()) {
+            3
+        } else {
+            2
+        }
+        val gridLayoutManager = GridLayoutManager(context, spanCount)
         gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return when (position) {
                     0 -> {
-                        2
+                        spanCount
                     }
                     (comicAdapter?.itemCount?.plus(1) ?: 0) -> {
-                        2
+                        spanCount
                     }
                     else -> {
                         1
