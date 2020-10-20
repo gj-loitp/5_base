@@ -90,6 +90,9 @@ class ConcatAdapterActivity : BaseFontActivity() {
                         showShortInformation("onBottom")
                         genNewsData()
                     }
+
+                    override fun onScrolled(isScrollDown: Boolean) {
+                    }
                 })
 
         btClearAll.setSafeOnClickListener {

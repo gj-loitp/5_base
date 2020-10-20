@@ -735,16 +735,16 @@ class LUIUtil {
 
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
-                    
+
                     if (dy < 0) {
                         if (isScrollDown) {
-                            Log.d("loitpp", "Recycle view scrolling up...")
                             isScrollDown = false
+                            callbackRecyclerView.onScrolled(isScrollDown)
                         }
                     } else if (dy > 0) {
                         if (!isScrollDown) {
-                            Log.d("loitpp", "Recycle view scrolling down...")
                             isScrollDown = true
+                            callbackRecyclerView.onScrolled(isScrollDown)
                         }
                     }
                 }

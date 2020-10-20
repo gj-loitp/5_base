@@ -212,6 +212,9 @@ class FrmHome : BaseFragment() {
                             getPage(isSwipeToRefresh = false)
                         }
                     }
+
+                    override fun onScrolled(isScrollDown: Boolean) {
+                    }
                 })
 
         ivSearch.setOnClickListener {

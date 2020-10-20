@@ -68,6 +68,9 @@ class FrmGetListUser : BaseFragment() {
                 page += 1
                 testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
             }
+
+            override fun onScrolled(isScrollDown: Boolean) {
+            }
         })
 
         btBack.setSafeOnClickListener {
