@@ -39,8 +39,8 @@ class FrmUser : BaseFragment() {
         bundle?.let { b ->
             val userTest = b.getSerializable(KEY_USER)
             if (userTest is UserTest) {
-                LUIUtil.printBeautyJson(userTest, textView)
-                LImageUtil.loadCircle(userTest.avatar, imageView)
+                LUIUtil.printBeautyJson(o = userTest, textView = textView)
+                LImageUtil.loadCircle(url = userTest.avatar, imageView = imageView)
             }
         }
     }
