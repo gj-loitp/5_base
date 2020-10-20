@@ -32,4 +32,10 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
                 keyword = keyword
         ).await()
     }
+
+    suspend fun getListCategory(
+    ): ComicApiResponse<Any> = makeApiCall {
+        comicApiService.getListCategoryAsync(
+        ).await()
+    }
 }

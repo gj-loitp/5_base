@@ -22,6 +22,7 @@ class ComicViewModel : BaseComicViewModel() {
     private val repository = ComicRepository(ComicApiClient.apiService)
 
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
+    val listCategoryActionLiveData: ActionLiveData<ActionData<Any>> = ActionLiveData()
 
     fun getListComic(pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
         listComicActionLiveData.set(ActionData(isDoing = true))
@@ -54,5 +55,30 @@ class ComicViewModel : BaseComicViewModel() {
 
     }
 
+    fun getListCategory() {
+        listCategoryActionLiveData.set(ActionData(isDoing = true))
+        logD(">>>getListCategory")
+        ioScope.launch {
+            val response = repository.getListCategory()
+            logD("<<<getListCategory " + BaseApplication.gson.toJson(response))
+            if (response.items == null || response.isSuccess == false) {
+                listCategoryActionLiveData.postAction(
+                        getErrorRequestComic(response)
+                )
+            } else {
+                val data = response.items
+                listCategoryActionLiveData.post(
+                        ActionData(
+                                isDoing = false,
+                                isSuccess = true,
+                                data = data,
+                                total = response.total,
+                                totalPages = response.totalPages,
+                                page = response.page
+                        )
+                )
+            }
+        }
 
+    }
 }

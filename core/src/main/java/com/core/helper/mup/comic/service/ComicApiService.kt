@@ -23,4 +23,8 @@ interface ComicApiService {
             @Query("PageSize") pageSize: Int,
             @Query("Keyword") keyword: String?
     ): Deferred<Response<ComicApiResponse<List<Comic>>>>
+
+    @GET("category/")
+    fun getListCategoryAsync(
+    ): Deferred<Response<ComicApiResponse<Any>>>
 }
