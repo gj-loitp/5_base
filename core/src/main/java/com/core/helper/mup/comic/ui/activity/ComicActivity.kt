@@ -39,9 +39,9 @@ class ComicActivity : BaseFontActivity() {
 
     private fun setupData() {
         val activeColor = if (LUIUtil.isDarkTheme()) {
-            Color.WHITE
-        } else {
             Color.BLACK
+        } else {
+            Color.WHITE
         }
         val menuComicHome = MenuComic(
                 itemId = R.id.menuHome,
