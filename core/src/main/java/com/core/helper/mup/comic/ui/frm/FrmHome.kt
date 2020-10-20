@@ -10,10 +10,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.helper.mup.comic.adapter.ComicAdapter
 import com.core.helper.mup.comic.adapter.ComicHeaderAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
+import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LDeviceUtil
@@ -46,6 +48,7 @@ class FrmHome : BaseFragment() {
         setupViews()
         setupViewModels()
 
+        comicViewModel?.postCategorySelected(Category.getCategoryAll())
         getPage(false)
     }
 
@@ -193,6 +196,10 @@ class FrmHome : BaseFragment() {
                         comicAdapter?.setData(listComic = listComic, isSwipeToRefresh = isSwipeToRefresh)
                     }
                 }
+            })
+            vm.categorySelected.observe(viewLifecycleOwner, Observer { category ->
+                logD("<<<categorySelected observe " + BaseApplication.gson.toJson(category))
+                fabCategory.text = category.title
             })
         }
     }

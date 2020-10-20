@@ -161,4 +161,5 @@
     <string name="warning_vn">Thông báo</string>
     <string name="app_will_be_restarted_vn">Ứng dụng sẽ được khởi động lại.</string>
     <string name="all_vn">Tất cả</string>
+    <string name="category_vn">Thể loại</string>
 </resources>

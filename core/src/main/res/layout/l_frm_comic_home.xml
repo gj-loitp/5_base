@@ -105,7 +105,6 @@
         android:layout_gravity="bottom|end"
         android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
-        android:text="@string/all_vn"
         android:textAllCaps="false"
         android:textColor="?attr/themeBackgroundColor"
         app:backgroundTint="?attr/themeTextColor"

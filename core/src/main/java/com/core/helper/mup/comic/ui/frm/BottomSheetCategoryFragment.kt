@@ -17,7 +17,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.bottomsheet.LBottomSheetFragment
 import kotlinx.android.synthetic.main.l_bottom_sheet_category_fragment.*
 
-@LogTag("loitppBottomSheetSettingFragment")
+@LogTag("loitppBottomSheetCategoryFragment")
 class BottomSheetCategoryFragment : LBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_category_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
@@ -72,9 +72,7 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
                     val listCategory = actionData.data
                     logD("<<<listCategory " + BaseApplication.gson.toJson(listCategory))
 
-                    val categoryAll = Category(
-                            title = getString(R.string.all_vn)
-                    )
+                    val categoryAll = Category.getCategoryAll()
                     val listData = ArrayList<Category>()
                     listData.add(categoryAll)
 

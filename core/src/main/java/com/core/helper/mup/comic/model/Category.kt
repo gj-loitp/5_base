@@ -1,6 +1,8 @@
 package com.core.helper.mup.comic.model
 
 import androidx.annotation.Keep
+import com.R
+import com.core.utilities.LAppResource
 import java.io.Serializable
 
 @Keep
@@ -14,4 +16,12 @@ data class Category(
         val modifiedDate: String? = null,
         val title: String? = null,
         val urlSource: String? = null
-) : Serializable
+) : Serializable {
+    companion object {
+        fun getCategoryAll(): Category {
+            return Category(
+                    title = LAppResource.getString(R.string.all_vn)
+            )
+        }
+    }
+}

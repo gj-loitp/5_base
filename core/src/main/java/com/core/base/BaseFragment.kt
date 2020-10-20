@@ -185,7 +185,13 @@ abstract class BaseFragment : Fragment() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {
     }
 
-    protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
+    protected fun <T : ViewModel> getViewModel(className: Class<T>): T? {
+        return activity?.let {
+            ViewModelProvider(it).get(className)
+        }
+    }
+
+    protected fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
         return ViewModelProvider(this).get(className)
     }
 }

@@ -17,7 +17,7 @@ import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 @LayoutId(R.layout.frm_coroutine_user)
 @LogTag("FrmUser")
 class FrmUser : BaseFragment() {
-    lateinit var testViewModel: TestViewModel
+    private var testViewModel: TestViewModel? = null
 
     companion object {
         const val KEY_USER = "KEY_USER"

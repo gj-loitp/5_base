@@ -20,11 +20,18 @@ open class LBottomSheetFragment(
         private val isDraggable: Boolean = true,
         private val firstBehaviourState: Int = BottomSheetBehavior.STATE_EXPANDED
 ) : BottomSheetDialogFragment() {
+
     protected var logTag: String? = null
     var onStateChanged: ((bottomSheet: View, newState: Int) -> Unit)? = null
     var onSlide: ((bottomSheet: View, slideOffset: Float) -> Unit)? = null
 
-    protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
+    protected fun <T : ViewModel> getViewModel(className: Class<T>): T? {
+        return activity?.let {
+            ViewModelProvider(it).get(className)
+        }
+    }
+
+    protected fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
         return ViewModelProvider(this).get(className)
     }
 
