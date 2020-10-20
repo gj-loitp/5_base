@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <View
         android:id="@+id/transition_square"
@@ -12,7 +12,7 @@
         android:background="#990000"
         android:gravity="center" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/transition_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_launcher" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_below="@id/transition_image"
