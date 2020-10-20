@@ -5,12 +5,13 @@ import android.view.View
 import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.helper.mup.comic.adapter.CategoryAdapter
+import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.bottomsheet.LBottomSheetFragment
@@ -40,10 +41,15 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
     private fun setupViews() {
         categoryAdapter = CategoryAdapter()
         categoryAdapter?.let { categoryA ->
+
+            categoryA.onClickRoot = { category ->
+                handleClickCategory(category = category)
+            }
+
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(categoryA)
             concatAdapter = ConcatAdapter(listOfAdapters)
         }
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.adapter = concatAdapter
     }
 
@@ -79,4 +85,7 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
         }
     }
 
+    private fun handleClickCategory(category: Category) {
+        //TODO
+    }
 }
