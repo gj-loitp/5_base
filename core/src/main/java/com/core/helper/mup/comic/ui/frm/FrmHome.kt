@@ -49,10 +49,11 @@ class FrmHome : BaseFragment() {
         setupViewModels()
 
         comicViewModel?.postCategorySelected(Category.getCategoryAll())
-        getPage(false)
+        getListComic(false)
     }
 
-    private fun getPage(isSwipeToRefresh: Boolean) {
+    private fun getListComic(isSwipeToRefresh: Boolean) {
+        //TODO get comic by category
         logD("getPage isSwipeToRefresh $isSwipeToRefresh, currentPageIndex $currentPageIndex")
         comicViewModel?.getListComic(pageIndex = currentPageIndex, keyword = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
     }
@@ -63,7 +64,7 @@ class FrmHome : BaseFragment() {
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
             currentPageIndex = 0
-            getPage(isSwipeToRefresh = true)
+            getListComic(isSwipeToRefresh = true)
         }
         comicHeaderAdapter = ComicHeaderAdapter()
         comicAdapter = ComicAdapter()
@@ -130,7 +131,7 @@ class FrmHome : BaseFragment() {
                                         recyclerView.smoothScrollToPosition(ma.itemCount - 1)
                                     }
                                 }
-                                getPage(isSwipeToRefresh = false)
+                                getListComic(isSwipeToRefresh = false)
                             }
                         }
                     }
@@ -213,7 +214,7 @@ class FrmHome : BaseFragment() {
         etSearch.apply {
             currentKeyword = this.text.toString().trim()
         }
-        getPage(isSwipeToRefresh = true)
+        getListComic(isSwipeToRefresh = true)
     }
 
     private fun handleClickComicHeader(comic: Comic) {
