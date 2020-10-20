@@ -15,7 +15,8 @@ data class Category(
         val modifiedBy: String? = null,
         val modifiedDate: String? = null,
         val title: String? = null,
-        val urlSource: String? = null
+        val urlSource: String? = null,
+        var isSelected: Boolean = false
 ) : Serializable {
     companion object {
         fun getCategoryAll(): Category {

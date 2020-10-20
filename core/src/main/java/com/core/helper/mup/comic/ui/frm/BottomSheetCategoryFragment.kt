@@ -80,6 +80,11 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
                         listData.addAll(elements = it)
                     }
 
+                    val categorySelected = vm.categorySelected.value
+                    listData.forEach { category ->
+                        category.isSelected = category.id == categorySelected?.id
+                    }
+
                     recyclerView.visibility = View.VISIBLE
                     categoryAdapter?.setListData(listCategory = listData)
                 }

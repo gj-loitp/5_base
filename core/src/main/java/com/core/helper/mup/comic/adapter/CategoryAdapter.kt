@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.adapter
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,11 @@ class CategoryAdapter : AnimationAdapter() {
 
         fun bind(category: Category) {
             itemView.tvCategory.text = category.title
+
+            if (category.isSelected) {
+                itemView.cardView.setCardBackgroundColor(Color.GREEN)
+            }
+
             itemView.cardView.setSafeOnClickListener {
                 onClickRoot?.invoke(category)
             }
