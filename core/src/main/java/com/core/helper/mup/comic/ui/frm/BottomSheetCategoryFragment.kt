@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseApplication
+import com.core.helper.mup.comic.adapter.CategoryAdapter
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.bottomsheet.LBottomSheetFragment
@@ -21,6 +25,8 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
 ) {
 
     private var comicViewModel: ComicViewModel? = null
+    private var concatAdapter: ConcatAdapter? = null
+    private var categoryAdapter: CategoryAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,7 +38,13 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
     }
 
     private fun setupViews() {
-
+        categoryAdapter = CategoryAdapter()
+        categoryAdapter?.let { categoryA ->
+            val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(categoryA)
+            concatAdapter = ConcatAdapter(listOfAdapters)
+        }
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = concatAdapter
     }
 
     private fun setupViewModels() {
@@ -53,6 +65,15 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
                 if (isDoing == false && isSuccess == true) {
                     val listCategory = actionData.data
                     logD("<<<listCategory " + BaseApplication.gson.toJson(listCategory))
+
+                    if (listCategory.isNullOrEmpty()) {
+                        tvNoData.visibility = View.VISIBLE
+                        recyclerView.visibility = View.GONE
+                    } else {
+                        tvNoData.visibility = View.GONE
+                        recyclerView.visibility = View.VISIBLE
+                        categoryAdapter?.setListData(listCategory = listCategory)
+                    }
                 }
             })
         }
