@@ -90,6 +90,9 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
     }
 
     private fun handleClickCategory(category: Category) {
-        //TODO
+        comicViewModel?.let { vm ->
+            vm.postCategorySelected(category = category)
+            this.dismiss()
+        }
     }
 }

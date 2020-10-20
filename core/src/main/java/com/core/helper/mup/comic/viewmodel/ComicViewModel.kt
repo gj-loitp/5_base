@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.helper.mup.comic.model.Category
@@ -24,6 +25,8 @@ class ComicViewModel : BaseComicViewModel() {
 
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val listCategoryActionLiveData: ActionLiveData<ActionData<List<Category>>> = ActionLiveData()
+
+    val categorySelected = MutableLiveData<Category>()
 
     fun getListComic(pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
         listComicActionLiveData.set(ActionData(isDoing = true))
@@ -81,5 +84,9 @@ class ComicViewModel : BaseComicViewModel() {
             }
         }
 
+    }
+
+    fun postCategorySelected(category: Category) {
+        categorySelected.postValue(category)
     }
 }
