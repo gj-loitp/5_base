@@ -86,15 +86,32 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-<!--    <com.wang.avi.AVLoadingIndicatorView-->
-<!--        android:id="@+id/indicatorView"-->
-<!--        style="@style/AVLoadingIndicatorView"-->
-<!--        android:layout_width="@dimen/w_40"-->
-<!--        android:layout_height="@dimen/w_40"-->
-<!--        app:indicatorColor="?attr/themeTextColor"-->
-<!--        app:indicatorName="BallClipRotatePulseIndicator"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <com.wang.avi.AVLoadingIndicatorView-->
+    <!--        android:id="@+id/indicatorView"-->
+    <!--        style="@style/AVLoadingIndicatorView"-->
+    <!--        android:layout_width="@dimen/w_40"-->
+    <!--        android:layout_height="@dimen/w_40"-->
+    <!--        app:indicatorColor="?attr/themeTextColor"-->
+    <!--        app:indicatorName="BallClipRotatePulseIndicator"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/w_70"
+        android:text="@string/all_vn"
+        android:textAllCaps="false"
+        android:textColor="?attr/themeBackgroundColor"
+        app:backgroundTint="?attr/themeTextColor"
+        app:icon="@drawable/ic_bookmark_black_48dp"
+        app:iconTint="?attr/themeBackgroundColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

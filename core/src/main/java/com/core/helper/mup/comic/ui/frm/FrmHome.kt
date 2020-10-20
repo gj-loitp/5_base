@@ -21,6 +21,7 @@ import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
 @LogTag("loitppFrmHome")
@@ -132,7 +133,7 @@ class FrmHome : BaseFragment() {
                     }
                 })
 
-        ivSearch.setOnClickListener {
+        ivSearch.setSafeOnClickListener {
             handleSearch(isAutoSearch = false)
         }
         LUIUtil.addTextChangedListener(editText = etSearch, delayInMls = 2000, afterTextChanged = {
@@ -141,6 +142,10 @@ class FrmHome : BaseFragment() {
         LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
             ivSearch.performClick()
         })
+
+        fabCategory.setSafeOnClickListener {
+            handleClickCategory()
+        }
     }
 
     private fun setupViewModels() {
@@ -202,6 +207,10 @@ class FrmHome : BaseFragment() {
     }
 
     private fun handleClickComic(comic: Comic) {
+        //TODO
+    }
+
+    private fun handleClickCategory() {
         //TODO
     }
 }
