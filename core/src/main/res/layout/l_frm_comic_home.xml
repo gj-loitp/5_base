@@ -63,7 +63,7 @@
         android:layout_height="?android:attr/actionBarSize"
         android:contentDescription="@string/app_name"
         android:foreground="?selectableItemBackgroundBorderless"
-        android:padding="@dimen/padding_small"
+        android:padding="@dimen/padding_medium"
         android:scaleType="centerInside"
         android:src="@drawable/ic_search_black_48dp"
         app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
