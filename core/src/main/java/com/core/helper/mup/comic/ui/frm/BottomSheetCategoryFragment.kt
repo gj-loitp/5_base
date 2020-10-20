@@ -10,6 +10,7 @@ import com.core.base.BaseApplication
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.bottomsheet.LBottomSheetFragment
+import kotlinx.android.synthetic.main.l_bottom_sheet_category_fragment.*
 
 @LogTag("loitppBottomSheetSettingFragment")
 class BottomSheetCategoryFragment : LBottomSheetFragment(
@@ -38,7 +39,21 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
         comicViewModel = getViewModel(ComicViewModel::class.java)
         comicViewModel?.let { vm ->
             vm.listCategoryActionLiveData.observe(this, Observer { actionData ->
-                logD("<<<listCategoryActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+//                logD("<<<listCategoryActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+
+                if (isDoing == false && isSuccess == true) {
+                    val listCategory = actionData.data
+                    logD("<<<listCategory " + BaseApplication.gson.toJson(listCategory))
+                }
             })
         }
     }

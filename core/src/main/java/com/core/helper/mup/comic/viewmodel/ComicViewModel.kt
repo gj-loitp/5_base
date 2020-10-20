@@ -2,6 +2,7 @@ package com.core.helper.mup.comic.viewmodel
 
 import com.annotation.LogTag
 import com.core.base.BaseApplication
+import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.service.BaseComicViewModel
 import com.core.helper.mup.comic.service.ComicApiClient
@@ -22,7 +23,7 @@ class ComicViewModel : BaseComicViewModel() {
     private val repository = ComicRepository(ComicApiClient.apiService)
 
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
-    val listCategoryActionLiveData: ActionLiveData<ActionData<Any>> = ActionLiveData()
+    val listCategoryActionLiveData: ActionLiveData<ActionData<List<Category>>> = ActionLiveData()
 
     fun getListComic(pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
         listComicActionLiveData.set(ActionData(isDoing = true))

@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.service
 
+import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.model.Login
 import com.core.helper.mup.comic.model.RequestLogin
@@ -34,7 +35,7 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
     }
 
     suspend fun getListCategory(
-    ): ComicApiResponse<Any> = makeApiCall {
+    ): ComicApiResponse<List<Category>> = makeApiCall {
         comicApiService.getListCategoryAsync(
         ).await()
     }

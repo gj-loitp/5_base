@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/themeBackgroundColor"
@@ -19,6 +20,21 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_largest"
         android:textStyle="bold" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/indicatorView"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="@dimen/w_40"
+        android:layout_height="@dimen/w_40"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_65"
+        android:layout_marginBottom="@dimen/margin_65"
+        app:indicatorColor="?attr/themeTextColor"
+        app:indicatorName="BallClipRotatePulseIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/nestedScrollView"

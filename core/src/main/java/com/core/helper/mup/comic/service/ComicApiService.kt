@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.service
 
+import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.model.Login
 import com.core.helper.mup.comic.model.RequestLogin
@@ -26,5 +27,5 @@ interface ComicApiService {
 
     @GET("category/")
     fun getListCategoryAsync(
-    ): Deferred<Response<ComicApiResponse<Any>>>
+    ): Deferred<Response<ComicApiResponse<List<Category>>>>
 }
