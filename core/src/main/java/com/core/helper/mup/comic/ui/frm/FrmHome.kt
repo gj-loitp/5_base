@@ -151,13 +151,13 @@ class FrmHome : BaseFragment() {
                 val isSuccess = actionData.isSuccess
                 val isSwipeToRefresh = actionData.isSwipeToRefresh
 
-                if (currentPageIndex == 0) {
-                    if (isDoing == true) {
-                        indicatorView.smoothToShow()
-                    } else {
-                        indicatorView.smoothToHide()
-                    }
-                }
+//                if (currentPageIndex == 0) {
+//                    if (isDoing == true) {
+//                        indicatorView.smoothToShow()
+//                    } else {
+//                        indicatorView.smoothToHide()
+//                    }
+//                }
 
                 if (isDoing == false && isSuccess == true) {
                     val listComic = actionData.data
