@@ -110,9 +110,13 @@ class FrmHome : BaseFragment() {
                 recyclerView = recyclerView,
                 callbackRecyclerView = object : CallbackRecyclerView {
                     override fun onTop() {
+                        logD("callbackRecyclerView onTop")
+//                        fabCategory.shrink()
                     }
 
                     override fun onBottom() {
+                        logD("callbackRecyclerView onBottom")
+//                        fabCategory.extend()
                         val isExistComicProgressAdapter = concatAdapter?.adapters?.firstOrNull { adapter ->
                             adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
                         }
@@ -142,8 +146,7 @@ class FrmHome : BaseFragment() {
         LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
             ivSearch.performClick()
         })
-
-        fabCategory.setSafeOnClickListener {
+        fabCategory.setOnClickListener {
             handleClickCategory()
         }
     }
