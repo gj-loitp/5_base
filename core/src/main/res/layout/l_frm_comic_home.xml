@@ -103,15 +103,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        android:layout_marginTop="@dimen/margin_medium"
         android:layout_marginEnd="@dimen/margin_medium"
-        android:layout_marginBottom="@dimen/w_70"
         android:text="@string/all_vn"
         android:textAllCaps="false"
         android:textColor="?attr/themeBackgroundColor"
         app:backgroundTint="?attr/themeTextColor"
         app:icon="@drawable/ic_bookmark_black_48dp"
         app:iconTint="?attr/themeBackgroundColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etSearch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
