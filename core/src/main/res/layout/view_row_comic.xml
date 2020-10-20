@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/padding_small"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_large"
             android:visibility="gone"
@@ -44,10 +44,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:background="?attr/themeBackgroundColor50"
+            android:gravity="center_vertical"
+            android:lines="2"
             android:maxLines="2"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/padding_small"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
+            android:textStyle="bold"
             tools:text="@string/app_name_comic" />
     </com.takwolf.android.aspectratio.AspectRatioLayout>
 
