@@ -218,6 +218,7 @@ class FrmHome : BaseFragment() {
     }
 
     private fun handleClickCategory() {
-        //TODO
+        val bottomSheetCategoryFragment = BottomSheetCategoryFragment()
+        bottomSheetCategoryFragment.show(childFragmentManager, bottomSheetCategoryFragment.tag)
     }
 }
