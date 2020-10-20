@@ -37,15 +37,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvNoData"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_150"
-        android:gravity="center"
-        android:text="@string/no_data"
-        android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_medium"
-        android:visibility="gone" />
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/tvNoData"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/w_150"-->
+<!--        android:gravity="center"-->
+<!--        android:text="@string/no_data"-->
+<!--        android:textColor="?attr/themeTextColor"-->
+<!--        android:textSize="@dimen/txt_medium"-->
+<!--        android:visibility="gone" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

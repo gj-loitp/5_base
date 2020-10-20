@@ -28,7 +28,7 @@ class CategoryAdapter : AnimationAdapter() {
 
         fun bind(category: Category) {
             itemView.tvCategory.text = category.title
-            itemView.tvCategory.setSafeOnClickListener {
+            itemView.cardView.setSafeOnClickListener {
                 onClickRoot?.invoke(category)
             }
         }

@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="@dimen/padding_medium">
+    android:foreground="?selectableItemBackground"
+    app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
+    app:cardCornerRadius="@dimen/round_medium"
+    app:cardElevation="@dimen/w_3"
+    app:cardUseCompatPadding="true"
+    app:strokeColor="?themeTextColor"
+    app:strokeWidth="@dimen/w_tiny">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvCategory"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?selectableItemBackground"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_medium" />
-</LinearLayout>
+        android:textSize="@dimen/txt_medium"
+        tools:ignore="UnusedAttribute"
+        tools:text="@string/app_name" />
+</com.google.android.material.card.MaterialCardView>

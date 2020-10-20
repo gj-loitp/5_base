@@ -49,7 +49,7 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(categoryA)
             concatAdapter = ConcatAdapter(listOfAdapters)
         }
-        recyclerView.layoutManager = StaggeredGridLayoutManager(5, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.adapter = concatAdapter
     }
 
@@ -72,14 +72,18 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
                     val listCategory = actionData.data
                     logD("<<<listCategory " + BaseApplication.gson.toJson(listCategory))
 
-                    if (listCategory.isNullOrEmpty()) {
-                        tvNoData.visibility = View.VISIBLE
-                        recyclerView.visibility = View.GONE
-                    } else {
-                        tvNoData.visibility = View.GONE
-                        recyclerView.visibility = View.VISIBLE
-                        categoryAdapter?.setListData(listCategory = listCategory)
+                    val categoryAll = Category(
+                            title = getString(R.string.all_vn)
+                    )
+                    val listData = ArrayList<Category>()
+                    listData.add(categoryAll)
+
+                    listCategory?.let {
+                        listData.addAll(elements = it)
                     }
+
+                    recyclerView.visibility = View.VISIBLE
+                    categoryAdapter?.setListData(listCategory = listData)
                 }
             })
         }
