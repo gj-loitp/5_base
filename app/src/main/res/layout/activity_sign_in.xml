@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     android:padding="@dimen/padding_medium">
 
     <androidx.appcompat.widget.AppCompatImageView
@@ -34,7 +35,8 @@
             android:maxLines="1"
             android:textColor="?attr/themeTextColor"
             android:textColorHint="?attr/themeTextColor"
-            android:textCursorDrawable="?attr/themeTextColor" />
+            android:textCursorDrawable="?attr/themeTextColor"
+            tools:text="@string/app_name" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/fieldPassword"
@@ -47,7 +49,8 @@
             android:maxLines="1"
             android:textColor="?attr/themeTextColor"
             android:textColorHint="?attr/themeTextColor"
-            android:textCursorDrawable="?attr/themeTextColor" />
+            android:textCursorDrawable="?attr/themeTextColor"
+            tools:text="@string/app_name" />
 
     </LinearLayout>
 
@@ -62,6 +65,7 @@
             android:id="@+id/button_sign_in"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:background="?attr/themeBackgroundColorMedium"
             android:text="@string/sign_in"
             android:textColor="?attr/themeTextColor" />
 
@@ -69,6 +73,8 @@
             android:id="@+id/button_sign_up"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:background="?attr/themeBackgroundColorMedium"
             android:text="@string/sign_up"
             android:textColor="?attr/themeTextColor" />
 
