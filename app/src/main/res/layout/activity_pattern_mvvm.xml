@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/themeBackgroundColorMedium"
+        android:background="?attr/themeBackgroundColor"
         android:padding="@dimen/padding_medium">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -103,6 +103,7 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/themeBackgroundColorMedium"
             android:onClick="@{user::onButtonClick}"
             android:text="Click"
             android:textColor="?attr/themeTextColor"
