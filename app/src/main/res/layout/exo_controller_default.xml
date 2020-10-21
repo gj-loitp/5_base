@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="@color/black"
     android:layoutDirection="ltr"
     android:orientation="vertical">
 
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="exo_controller_default.xml"
-        android:textColor="?attr/themeTextColor"
+        android:textColor="@color/white"
         android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
@@ -74,7 +74,7 @@
             android:includeFontPadding="false"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:textColor="?attr/themeTextColor"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -91,7 +91,7 @@
             android:includeFontPadding="false"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
-            android:textColor="?attr/themeTextColor"
+            android:textColor="@color/white"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -108,7 +108,7 @@
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_fullscreen_black_48dp"
-                android:tint="?attr/themeTextColor" />
+                android:tint="@color/white" />
 
         </FrameLayout>
 
