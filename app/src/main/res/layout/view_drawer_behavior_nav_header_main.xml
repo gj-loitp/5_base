@@ -6,7 +6,7 @@
     android:gravity="bottom"
     android:orientation="vertical">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/w_200"
@@ -14,7 +14,7 @@
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/loitp" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_medium"
@@ -24,7 +24,7 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

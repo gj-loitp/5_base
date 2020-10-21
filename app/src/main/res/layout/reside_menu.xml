@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <LinearLayout
         android:id="@+id/layoutTop"
@@ -13,7 +13,7 @@
         android:background="?attr/themeBackgroundColor"
         android:orientation="vertical">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_1"
             android:background="?attr/themeTextColor"
@@ -52,7 +52,7 @@
                 android:backgroundTint="?attr/themeTextColor" />
         </FrameLayout>
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="@dimen/w_5"
             android:background="?attr/themeTextColor"
