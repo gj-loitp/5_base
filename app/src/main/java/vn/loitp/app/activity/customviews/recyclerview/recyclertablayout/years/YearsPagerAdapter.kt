@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.years
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ class YearsPagerAdapter : PagerAdapter() {
 
     private var mItems: List<String> = ArrayList()
 
+    @SuppressLint("SetTextI18n")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
