@@ -49,7 +49,7 @@ class FrmHome : BaseFragment() {
         setupViewModels()
 
         comicViewModel?.postCategorySelected(Category.getCategoryAll())
-        getListComic(false)
+        getListComic(isSwipeToRefresh = false)
     }
 
     private fun getListComic(isSwipeToRefresh: Boolean) {

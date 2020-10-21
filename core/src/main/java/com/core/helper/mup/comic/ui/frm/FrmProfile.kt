@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.ui.frm
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.common.Constants
+import com.core.helper.mup.comic.ui.activity.ComicActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LSharedPrefsUtil
 import com.views.setSafeOnClickListener
@@ -35,7 +38,12 @@ class FrmProfile : BaseFragment() {
         btSetting.setSafeOnClickListener {
             val bottomSheetSettingFragment = BottomSheetSettingFragment()
             bottomSheetSettingFragment.onSwitchTheme = {
-                activity?.recreate()
+                activity?.let{
+                    val intent = Intent(it, ComicActivity::class.java)
+                    startActivity(intent)
+                    LActivityUtil.tranIn(context = it)
+                    it.finish()
+                }
             }
             bottomSheetSettingFragment.show(childFragmentManager, bottomSheetSettingFragment.tag)
         }
