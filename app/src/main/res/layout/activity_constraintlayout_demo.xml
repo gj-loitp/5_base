@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     tools:context="vn.loitp.app.activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,9 +28,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="?attr/themeBackgroundColor"
+            android:background="?attr/themeBackgroundColorMedium"
             android:text="Button"
             android:textColor="?attr/themeTextColor"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="134dp" />
 
@@ -76,17 +77,20 @@
                 android:id="@+id/bt0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:src="@mipmap/ic_launcher"
                 android:text="0"
                 android:textColor="?attr/themeTextColor"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:src="@mipmap/ic_launcher"
                 android:text="1"
                 android:textColor="?attr/themeTextColor"
@@ -97,7 +101,8 @@
                 android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:src="@mipmap/ic_launcher"
                 android:text="2"
                 android:textColor="?attr/themeTextColor"
@@ -108,7 +113,8 @@
                 android:id="@+id/bt3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:src="@mipmap/ic_launcher"
                 android:text="3"
                 android:textColor="?attr/themeTextColor"
@@ -119,7 +125,8 @@
                 android:id="@+id/bt4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:src="@mipmap/ic_launcher"
                 android:text="4"
                 android:textColor="?attr/themeTextColor"
