@@ -3,7 +3,7 @@
     android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -14,6 +14,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btChangeColor"
         style="@style/ButtonMenu"
+        android:layout_marginTop="@dimen/margin_medium"
         android:text="Change color" />
 
     <androidx.appcompat.widget.AppCompatTextView
