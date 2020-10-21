@@ -3,7 +3,7 @@
     android:id="@+id/relativeLayoutParent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="?attr/themeBackgroundColor50"
+        android:background="@color/red"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
         android:textColor="?attr/themeTextColor"
