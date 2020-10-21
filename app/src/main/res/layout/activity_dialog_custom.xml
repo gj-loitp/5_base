@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btToggleFullScreen"
@@ -15,7 +15,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="?attr/themeBackgroundColor"
+        android:background="@color/blue"
+        android:textColor="?themeTextColor"
         android:text="@string/anchor" />
 
     <HorizontalScrollView
@@ -33,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Default"
                 android:textColor="?attr/themeTextColor" />
 
@@ -42,7 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Top left"
                 android:textColor="?attr/themeTextColor" />
 
@@ -51,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Top Center"
                 android:textColor="?attr/themeTextColor" />
 
@@ -60,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Top Right"
                 android:textColor="?attr/themeTextColor" />
 
@@ -69,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Center left"
                 android:textColor="?attr/themeTextColor" />
 
@@ -78,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Center center"
                 android:textColor="?attr/themeTextColor" />
 
@@ -87,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Center right"
                 android:textColor="?attr/themeTextColor" />
 
@@ -96,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Bottom left"
                 android:textColor="?attr/themeTextColor" />
 
@@ -105,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Bottom center"
                 android:textColor="?attr/themeTextColor" />
 
@@ -114,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="Bottom right"
                 android:textColor="?attr/themeTextColor" />
         </LinearLayout>
