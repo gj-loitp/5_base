@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -29,21 +29,21 @@
                 app:civ_border_color="@color/colorPrimary"
                 app:civ_border_width="@dimen/w_10" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
                 android:layout_width="@dimen/w_350"
                 android:layout_height="@dimen/w_350"
                 android:layout_marginTop="@dimen/margin_30"
                 android:contentDescription="@string/app_name" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv1"
                 android:layout_width="@dimen/w_350"
                 android:layout_height="@dimen/w_350"
                 android:layout_marginTop="@dimen/margin_30"
                 android:contentDescription="@string/app_name" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/iv2"
                 android:layout_width="@dimen/w_350"
                 android:layout_height="@dimen/w_350"
