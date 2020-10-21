@@ -34,6 +34,9 @@ class FrmProfile : BaseFragment() {
 
         btSetting.setSafeOnClickListener {
             val bottomSheetSettingFragment = BottomSheetSettingFragment()
+            bottomSheetSettingFragment.onSwitchTheme = {
+                activity?.recreate()
+            }
             bottomSheetSettingFragment.show(childFragmentManager, bottomSheetSettingFragment.tag)
         }
         btInformation.setSafeOnClickListener {

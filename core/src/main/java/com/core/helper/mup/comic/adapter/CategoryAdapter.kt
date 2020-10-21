@@ -9,12 +9,33 @@ import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Category
 import com.core.utilities.LAppResource
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_comic_category.view.*
 
 @LogTag("CategoryAdapter")
 class CategoryAdapter : AnimationAdapter() {
 
     private val listCategory = ArrayList<Category>()
+    private val colorBackgroundSelected = if (LUIUtil.isDarkTheme()) {
+        LAppResource.getColor(R.color.white)
+    } else {
+        LAppResource.getColor(R.color.black)
+    }
+    private val colorBackgroundUnSelected = if (LUIUtil.isDarkTheme()) {
+        LAppResource.getColor(R.color.black)
+    } else {
+        LAppResource.getColor(R.color.white)
+    }
+    private val colorTextSelected = if (LUIUtil.isDarkTheme()) {
+        LAppResource.getColor(R.color.black)
+    } else {
+        LAppResource.getColor(R.color.white)
+    }
+    private val colorTextUnSelected = if (LUIUtil.isDarkTheme()) {
+        LAppResource.getColor(R.color.white)
+    } else {
+        LAppResource.getColor(R.color.black)
+    }
 
     fun setListData(listCategory: List<Category>) {
         this.listCategory.clear()
@@ -30,14 +51,18 @@ class CategoryAdapter : AnimationAdapter() {
             itemView.tvCategory.text = category.title
 
             if (category.isSelected) {
-                itemView.cardView.setCardBackgroundColor(LAppResource.getColor(R.color.cyan))
+                itemView.cardView.setCardBackgroundColor(colorBackgroundSelected)
+                itemView.tvCategory.setTextColor(colorTextSelected)
+            } else {
+                itemView.cardView.setCardBackgroundColor(colorBackgroundUnSelected)
+                itemView.tvCategory.setTextColor(colorTextUnSelected)
             }
 
             itemView.cardView.setOnClickListener {
                 listCategory.forEach {
                     it.isSelected = false
                 }
-                category.isSelected = true
+                listCategory[bindingAdapterPosition].isSelected = true
                 notifyDataSetChanged()
 
 //                onClickRoot?.invoke(category)

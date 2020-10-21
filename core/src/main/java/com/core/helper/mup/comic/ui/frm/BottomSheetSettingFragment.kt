@@ -22,6 +22,7 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
 ) {
 
     private var dialog: AlertDialog? = null
+    var onSwitchTheme: ((Unit) -> Unit)? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -68,7 +69,7 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
                             }
                             dialog?.dismiss()
                             this@BottomSheetSettingFragment.dismiss()
-                            activity?.recreate()
+                            onSwitchTheme?.invoke(Unit)
                         }
                     })
             dialog?.setOnCancelListener {

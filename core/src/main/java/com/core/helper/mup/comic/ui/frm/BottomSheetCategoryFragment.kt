@@ -5,8 +5,8 @@ import android.view.View
 import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseApplication
@@ -49,7 +49,7 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(categoryA)
             concatAdapter = ConcatAdapter(listOfAdapters)
         }
-        recyclerView.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager = GridLayoutManager(context, 3)
         recyclerView.adapter = concatAdapter
     }
 

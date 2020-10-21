@@ -21,6 +21,7 @@ data class Category(
     companion object {
         fun getCategoryAll(): Category {
             return Category(
+                    id = "69696969",
                     title = LAppResource.getString(R.string.all_vn)
             )
         }
