@@ -65,7 +65,7 @@ class CategoryAdapter : AnimationAdapter() {
                 listCategory[bindingAdapterPosition].isSelected = true
                 notifyDataSetChanged()
 
-//                onClickRoot?.invoke(category)
+                onClickRoot?.invoke(category)
             }
         }
     }
