@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     android:padding="@dimen/padding_medium">
 
     <com.views.switchtoggle.customtogglebutton.LCustomToggle
@@ -28,7 +28,7 @@
         app:ctg_addLeftIcon="@drawable/ic_play_arrow"
         app:ctg_addMagnification="5"
         app:ctg_addRightIcon="@drawable/ic_play_arrow"
-        app:ctg_addSlideBackgroundColor="@color/colorPrimary"
+        app:ctg_addSlideBackgroundColor="@color/yellow"
         app:ctg_addSlideColor="@color/red" />
 
     <com.views.switchtoggle.customtogglebutton.LCustomToggle
