@@ -219,7 +219,10 @@ abstract class BaseActivity : AppCompatActivity() {
         showDialogError("Error: $throwable")
     }
 
-    protected fun showDialogError(errMsg: String, runnable: Runnable? = null) {
+    protected fun showDialogError(errMsg: String?, runnable: Runnable? = null) {
+        if (errMsg.isNullOrEmpty()) {
+            return
+        }
         val alertDialog = LDialogUtil.showDialog1(context = this,
                 title = getString(R.string.warning),
                 msg = errMsg,

@@ -18,6 +18,7 @@ import com.core.helper.mup.comic.ui.frm.FrmFavourite
 import com.core.helper.mup.comic.ui.frm.FrmHome
 import com.core.helper.mup.comic.ui.frm.FrmProfile
 import com.core.utilities.LUIUtil
+import com.utils.util.KeyboardUtils
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
 import kotlinx.android.synthetic.main.l_activity_girl.*
@@ -81,6 +82,7 @@ class ComicActivity : BaseFontActivity() {
 
             override fun onPageSelected(position: Int) {
                 expandableBottomBar.select(listMenuComic[position].itemId)
+                KeyboardUtils.hideSoftInput(this@ComicActivity)
             }
         })
         expandableBottomBar.addItems(

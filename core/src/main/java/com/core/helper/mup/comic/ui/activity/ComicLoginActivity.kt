@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.mup.comic.service.ComicApiClient
@@ -58,31 +59,35 @@ class ComicLoginActivity : BaseFontActivity() {
         comicLoginViewModel = getViewModel(ComicLoginViewModel::class.java)
         comicLoginViewModel?.let { vm ->
             vm.loginActionLiveData.observe(this, Observer { actionData ->
-//                logD("<<<loginActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+                logD("<<<loginActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 if (isDoing == true) {
                     indicatorView.smoothToShow()
                 } else {
                     indicatorView.smoothToHide()
-                }
-                if (isDoing == false && isSuccess == true) {
-                    val data = actionData.data
+
+                    if (isSuccess == true) {
+                        val data = actionData.data
 //                    logD("<<<loginActionLiveData observe " + BaseApplication.gson.toJson(data))
-                    val token = data?.jwtToken
+                        val token = data?.jwtToken
 //                    logD("token $token")
-                    if (token.isNullOrEmpty()) {
-                        showDialogError(errMsg = getString(R.string.err_unknow))
+                        if (token.isNullOrEmpty()) {
+                            showDialogError(errMsg = getString(R.string.err_unknow))
+                        } else {
+
+                            //save comic token
+                            LSharedPrefsUtil.instance.putString(Constants.COMIC_TOKEN, token)
+                            ComicApiClient.addAuthorization(token)
+
+                            val intent = Intent(this, ComicActivity::class.java)
+                            startActivity(intent)
+                            LActivityUtil.tranIn(context = this)
+                            finish()
+                        }
                     } else {
-
-                        //save comic token
-                        LSharedPrefsUtil.instance.putString(Constants.COMIC_TOKEN, token)
-                        ComicApiClient.addAuthorization(token)
-
-                        val intent = Intent(this, ComicActivity::class.java)
-                        startActivity(intent)
-                        LActivityUtil.tranIn(context = this)
-                        finish()
+                        val error = actionData.errorResponse
+                        showDialogError(errMsg = error?.message)
                     }
                 }
             })
