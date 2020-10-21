@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.function.theme
 
-import android.content.Intent
 import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LayoutId
@@ -10,7 +9,6 @@ import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_theme.*
 import vn.loitp.app.R
-
 
 @LayoutId(R.layout.activity_theme)
 @LogTag("ThemeActivity")
@@ -31,9 +29,7 @@ class ThemeActivity : BaseFontActivity() {
             } else {
                 LUIUtil.setDarkTheme(isDarkTheme = true)
             }
-            finish()
-            startActivity(Intent(this, ThemeActivity::class.java))
-            overridePendingTransition(0, 0)
+            recreate()
         }
     }
 }
