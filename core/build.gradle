@@ -213,6 +213,5 @@ dependencies {
     //https://github.com/alirezat775/downloader
     api 'com.github.alirezat775:downloader:1.0.2'
 
-    //https://github.com/TakWolf/Android-AspectRatioLayout
-    api 'com.takwolf.android:aspectratio:0.3.0'
+
 }

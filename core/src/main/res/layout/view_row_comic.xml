@@ -14,11 +14,9 @@
     app:strokeWidth="@dimen/w_tiny"
     tools:ignore="UnusedAttribute">
 
-    <com.takwolf.android.aspectratio.AspectRatioLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:arl_heightRatio="16"
-        app:arl_widthRatio="9">
+        android:layout_height="200dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBackground"
@@ -53,6 +51,6 @@
             android:textSize="@dimen/txt_medium"
             android:textStyle="bold"
             tools:text="@string/app_name_comic" />
-    </com.takwolf.android.aspectratio.AspectRatioLayout>
+    </FrameLayout>
 
 </com.google.android.material.card.MaterialCardView>

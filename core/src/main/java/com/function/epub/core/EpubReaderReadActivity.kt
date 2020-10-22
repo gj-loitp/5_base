@@ -42,6 +42,8 @@ import com.google.android.gms.ads.AdView
 import com.interfaces.CallbackAnimation
 import com.utils.util.ConvertUtils
 import com.views.LWebView
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 
 @LogTag("EpubReaderReadActivity")
 @IsFullScreen(false)

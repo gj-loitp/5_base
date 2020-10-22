@@ -15,6 +15,7 @@ import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.bottomsheet.LBottomSheetFragment
+import kotlinx.android.synthetic.main.l_bottom_sheet_category_fragment.*
 
 @LogTag("BottomSheetCategoryFragment")
 class BottomSheetCategoryFragment : LBottomSheetFragment(

@@ -23,6 +23,8 @@ import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
 @LogTag("FrmHome")
 class FrmHome : BaseFragment() {

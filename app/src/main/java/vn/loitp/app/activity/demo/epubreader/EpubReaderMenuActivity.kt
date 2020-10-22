@@ -15,6 +15,7 @@ import com.core.utilities.LUIUtil
 import com.function.epub.model.BookInfo
 import com.function.epub.viewmodels.EpubViewModel
 import com.interfaces.Callback2
+import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 
 @LayoutId(R.layout.activity_demo_epub_reader)
