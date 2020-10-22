@@ -10,10 +10,8 @@ import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
-import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.view_row_comic.view.*
 
-@LogTag("loitppGirlHeaderAdapter")
+@LogTag("GirlHeaderAdapter")
 class ComicAdapter : AnimationAdapter() {
 
     private var listComic = ArrayList<Comic>()

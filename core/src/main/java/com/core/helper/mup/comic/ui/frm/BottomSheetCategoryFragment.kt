@@ -15,9 +15,8 @@ import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.bottomsheet.LBottomSheetFragment
-import kotlinx.android.synthetic.main.l_bottom_sheet_category_fragment.*
 
-@LogTag("loitppBottomSheetCategoryFragment")
+@LogTag("BottomSheetCategoryFragment")
 class BottomSheetCategoryFragment : LBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_category_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,

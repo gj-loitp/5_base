@@ -42,10 +42,8 @@ import com.google.android.gms.ads.AdView
 import com.interfaces.CallbackAnimation
 import com.utils.util.ConvertUtils
 import com.views.LWebView
-import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.l_activity_epub_reader_read.*
 
-@LogTag("loitppEpubReaderReadActivity")
+@LogTag("EpubReaderReadActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
 class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
@@ -141,16 +139,16 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
                 if (isDoing == false && isSuccess == true) {
                     LUIUtil.setDelay(mls = 1000, runnable = Runnable {
-                        rlSplash?.visibility = View.GONE
+                        rlSplash.visibility = View.GONE
                     })
                     viewPager.adapter = sectionsPagerAdapter
                     val lastSavedPage = actionData.data ?: 1
                     logD("loadDataActionLiveData lastSavedPage $lastSavedPage")
-                    viewPager?.currentItem = lastSavedPage
+                    viewPager.currentItem = lastSavedPage
                     if (lastSavedPage == 0) {
-                        tvPage?.text = "0"
+                        tvPage.text = "0"
                     }
-                    llGuide?.visibility = View.VISIBLE
+                    llGuide.visibility = View.VISIBLE
                 }
             })
         }
@@ -237,7 +235,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         LAnimationUtil.play(view = llGuide, techniques = Techniques.SlideOutLeft, callbackAnimation = object : CallbackAnimation {
             override fun onCancel() {}
             override fun onEnd() {
-                llGuide?.visibility = View.GONE
+                llGuide.visibility = View.GONE
             }
 
             override fun onRepeat() {}

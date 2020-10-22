@@ -10,10 +10,9 @@ import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
-import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.view_row_comic_header.view.*
+import com.nineoldandroids.animation.ValueAnimator
 
-@LogTag("loitppGirlHeaderAdapter")
+@LogTag("GirlHeaderAdapter")
 class ComicHeaderAdapter : AnimationAdapter() {
 
     private var comic: Comic? = null

@@ -17,9 +17,8 @@ import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import kotlinx.android.synthetic.main.l_activity_comic_login.*
 
-@LogTag("loitppComicSplashActivity")
+@LogTag("ComicSplashActivity")
 @IsFullScreen(false)
 class ComicLoginActivity : BaseFontActivity() {
 
