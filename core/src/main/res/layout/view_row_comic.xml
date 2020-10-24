@@ -14,9 +14,11 @@
     app:strokeWidth="@dimen/w_tiny"
     tools:ignore="UnusedAttribute">
 
-    <FrameLayout
+    <com.views.layout.aspectratiolayout.AspectRatioLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="wrap_content"
+        app:arl_heightRatio="4"
+        app:arl_widthRatio="3">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBackground"
@@ -51,6 +53,6 @@
             android:textSize="@dimen/txt_medium"
             android:textStyle="bold"
             tools:text="@string/app_name_comic" />
-    </FrameLayout>
+    </com.views.layout.aspectratiolayout.AspectRatioLayout>
 
 </com.google.android.material.card.MaterialCardView>
