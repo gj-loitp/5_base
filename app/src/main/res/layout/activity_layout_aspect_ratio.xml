@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.takwolf.android.aspectratio.AspectRatioLayout
+            <com.views.layout.aspectratiolayout.AspectRatioLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
@@ -38,9 +38,9 @@
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
 
-            </com.takwolf.android.aspectratio.AspectRatioLayout>
+            </com.views.layout.aspectratiolayout.AspectRatioLayout>
 
-            <com.takwolf.android.aspectratio.AspectRatioLayout
+            <com.views.layout.aspectratiolayout.AspectRatioLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
@@ -61,7 +61,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_medium" />
 
-            </com.takwolf.android.aspectratio.AspectRatioLayout>
+            </com.views.layout.aspectratiolayout.AspectRatioLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
