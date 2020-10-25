@@ -30,13 +30,13 @@ class ComicViewModel : BaseComicViewModel() {
 
     fun getListComic(pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
         listComicActionLiveData.set(ActionData(isDoing = true))
-        logD(">>>getListComic pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
+//        logD(">>>getListComic pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
         ioScope.launch {
             val response = repository.getListComic(
                     pageIndex = pageIndex,
                     keyword = keyword
             )
-            logD("<<<getListComic " + BaseApplication.gson.toJson(response))
+//            logD("<<<getListComic " + BaseApplication.gson.toJson(response))
             if (response.items == null || response.isSuccess == false) {
                 listComicActionLiveData.postAction(
                         getErrorRequestComic(response)
@@ -61,14 +61,14 @@ class ComicViewModel : BaseComicViewModel() {
 
     fun getListComicByCategory(categoryId: String?, pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
         listComicActionLiveData.set(ActionData(isDoing = true))
-        logD(">>>getListComicByCategory categoryId $categoryId, pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
+//        logD(">>>getListComicByCategory categoryId $categoryId, pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
         ioScope.launch {
             val response = repository.getListComicByCategory(
                     categoryId = categoryId,
                     pageIndex = pageIndex,
                     keyword = keyword
             )
-            logD("<<<getListComicByCategory " + BaseApplication.gson.toJson(response))
+//            logD("<<<getListComicByCategory " + BaseApplication.gson.toJson(response))
             if (response.items == null || response.isSuccess == false) {
                 listComicActionLiveData.postAction(
                         getErrorRequestComic(response)

@@ -52,7 +52,6 @@ class FrmHome : BaseFragment() {
     }
 
     private fun getListComic(isSwipeToRefresh: Boolean) {
-        //TODO get comic by category
         logD("getPage isSwipeToRefresh $isSwipeToRefresh, currentPageIndex $currentPageIndex, currentKeyword $currentKeyword")
 
         val categorySelected = comicViewModel?.categorySelected?.value
