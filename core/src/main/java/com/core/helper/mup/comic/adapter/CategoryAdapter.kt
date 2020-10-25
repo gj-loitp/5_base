@@ -59,11 +59,11 @@ class CategoryAdapter : AnimationAdapter() {
             }
 
             itemView.cardView.setOnClickListener {
-                listCategory.forEach {
-                    it.isSelected = false
-                }
-                listCategory[bindingAdapterPosition].isSelected = true
-                notifyDataSetChanged()
+//                listCategory.forEach {
+//                    it.isSelected = false
+//                }
+//                listCategory[bindingAdapterPosition].isSelected = true
+//                notifyDataSetChanged()
 
                 onClickRoot?.invoke(category)
             }
