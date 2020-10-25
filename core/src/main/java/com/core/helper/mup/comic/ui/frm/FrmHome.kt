@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -177,7 +176,7 @@ class FrmHome : BaseFragment() {
     private fun setupViewModels() {
         comicViewModel = getViewModel(ComicViewModel::class.java)
         comicViewModel?.let { vm ->
-            vm.listComicActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+            vm.listComicActionLiveData.observe(viewLifecycleOwner, { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 val isSwipeToRefresh = actionData.isSwipeToRefresh
@@ -213,8 +212,9 @@ class FrmHome : BaseFragment() {
                     }
                 }
             })
-            vm.categorySelected.observe(viewLifecycleOwner, Observer { category ->
+            vm.categorySelected.observe(viewLifecycleOwner, { category ->
                 logD("<<<categorySelected observe " + BaseApplication.gson.toJson(category))
+                etSearch.hint = getString(R.string.search_in_category) + " " + category.title
                 fabCategory.text = category.title
                 handleSearch(isAutoSearch = false)
             })
