@@ -54,15 +54,22 @@ class FrmHome : BaseFragment() {
 
     private fun getListComic(isSwipeToRefresh: Boolean) {
         //TODO get comic by category
-        logD("getPage isSwipeToRefresh $isSwipeToRefresh, currentPageIndex $currentPageIndex")
+        logD("getPage isSwipeToRefresh $isSwipeToRefresh, currentPageIndex $currentPageIndex, currentKeyword $currentKeyword")
 
         val categorySelected = comicViewModel?.categorySelected?.value
         if (categorySelected == null || Category.isCategoryAll(categorySelected)) {
             logD(">>>getListComic !by category")
-            comicViewModel?.getListComic(pageIndex = currentPageIndex, keyword = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
+            comicViewModel?.getListComic(
+                    pageIndex = currentPageIndex,
+                    keyword = currentKeyword,
+                    isSwipeToRefresh = isSwipeToRefresh)
         } else {
             logD(">>>getListComic by category")
-
+            comicViewModel?.getListComicByCategory(
+                    categoryId = categorySelected.id,
+                    pageIndex = currentPageIndex,
+                    keyword = currentKeyword,
+                    isSwipeToRefresh = isSwipeToRefresh)
         }
     }
 

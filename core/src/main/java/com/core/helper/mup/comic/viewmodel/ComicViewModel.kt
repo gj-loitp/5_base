@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
  * www.muathu@gmail.com
  */
 
-@LogTag("ComicLoginViewModel")
+@LogTag("loitppComicLoginViewModel")
 class ComicViewModel : BaseComicViewModel() {
     private val repository = ComicRepository(ComicApiClient.apiService)
 
@@ -37,6 +37,38 @@ class ComicViewModel : BaseComicViewModel() {
                     keyword = keyword
             )
             logD("<<<getListComic " + BaseApplication.gson.toJson(response))
+            if (response.items == null || response.isSuccess == false) {
+                listComicActionLiveData.postAction(
+                        getErrorRequestComic(response)
+                )
+            } else {
+                val data = response.items
+                listComicActionLiveData.post(
+                        ActionData(
+                                isDoing = false,
+                                isSuccess = true,
+                                data = data,
+                                total = response.total,
+                                totalPages = response.totalPages,
+                                page = response.page,
+                                isSwipeToRefresh = isSwipeToRefresh
+                        )
+                )
+            }
+        }
+
+    }
+
+    fun getListComicByCategory(categoryId: String?, pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
+        listComicActionLiveData.set(ActionData(isDoing = true))
+        logD(">>>getListComicByCategory categoryId $categoryId, pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
+        ioScope.launch {
+            val response = repository.getListComicByCategory(
+                    categoryId = categoryId,
+                    pageIndex = pageIndex,
+                    keyword = keyword
+            )
+            logD("<<<getListComicByCategory " + BaseApplication.gson.toJson(response))
             if (response.items == null || response.isSuccess == false) {
                 listComicActionLiveData.postAction(
                         getErrorRequestComic(response)

@@ -6,10 +6,7 @@ import com.core.helper.mup.comic.model.Login
 import com.core.helper.mup.comic.model.RequestLogin
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ComicApiService {
 
@@ -20,6 +17,14 @@ interface ComicApiService {
 
     @GET("comics/")
     fun getListComicAsync(
+            @Query("PageIndex") pageIndex: Int,
+            @Query("PageSize") pageSize: Int,
+            @Query("Keyword") keyword: String?
+    ): Deferred<Response<ComicApiResponse<List<Comic>>>>
+
+    @GET("comics-category/{categoryId}/")
+    fun getListComicByCategoryAsync(
+            @Path("categoryId") categoryId: String?,
             @Query("PageIndex") pageIndex: Int,
             @Query("PageSize") pageSize: Int,
             @Query("Keyword") keyword: String?

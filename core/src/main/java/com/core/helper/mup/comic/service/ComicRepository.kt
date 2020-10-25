@@ -34,6 +34,19 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
         ).await()
     }
 
+    suspend fun getListComicByCategory(
+            categoryId: String?,
+            pageIndex: Int,
+            keyword: String?
+    ): ComicApiResponse<List<Comic>> = makeApiCall {
+        comicApiService.getListComicByCategoryAsync(
+                categoryId = categoryId,
+                pageIndex = pageIndex,
+                pageSize = ComicApiConfiguration.PAGE_SIZE,
+                keyword = keyword
+        ).await()
+    }
+
     suspend fun getListCategory(
     ): ComicApiResponse<List<Category>> = makeApiCall {
         comicApiService.getListCategoryAsync(
