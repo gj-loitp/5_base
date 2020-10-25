@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.ui.frm
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,9 @@ import com.core.helper.mup.comic.adapter.ComicHeaderAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.model.Comic
+import com.core.helper.mup.comic.ui.activity.ChapActivity
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LDeviceUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
@@ -231,11 +234,18 @@ class FrmHome : BaseFragment() {
     }
 
     private fun handleClickComicHeader(comic: Comic) {
-        //TODO
+        goToComicChapScreen(comic = comic)
     }
 
     private fun handleClickComic(comic: Comic) {
-        //TODO
+        goToComicChapScreen(comic = comic)
+    }
+
+    private fun goToComicChapScreen(comic: Comic) {
+        val intent = Intent(context, ChapActivity::class.java)
+        intent.putExtra(ChapActivity.KEY_COMIC, comic)
+        startActivity(intent)
+        LActivityUtil.tranIn(context)
     }
 
     private fun handleClickCategory() {
