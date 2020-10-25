@@ -1,8 +1,6 @@
 package com.core.helper.mup.comic.model
 
 import androidx.annotation.Keep
-import com.R
-import com.core.utilities.LAppResource
 import java.io.Serializable
 
 @Keep
@@ -19,11 +17,21 @@ data class Category(
         var isSelected: Boolean = false
 ) : Serializable {
     companion object {
+        private const val ID_CATEGORY_ALL = "69696969"
+        private const val TITLE_CATEGORY_ALL = "Tất cả"
+
         fun getCategoryAll(): Category {
             return Category(
-                    id = "69696969",
-                    title = LAppResource.getString(R.string.all_vn)
+                    id = ID_CATEGORY_ALL,
+                    title = TITLE_CATEGORY_ALL
             )
+        }
+
+        fun isCategoryAll(category: Category): Boolean {
+            if (category.id == ID_CATEGORY_ALL && category.title == TITLE_CATEGORY_ALL) {
+                return true
+            }
+            return false
         }
     }
 }

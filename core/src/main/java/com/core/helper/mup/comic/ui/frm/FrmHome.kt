@@ -26,7 +26,7 @@ import com.utils.util.KeyboardUtils
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
-@LogTag("FrmHome")
+@LogTag("loitppFrmHome")
 class FrmHome : BaseFragment() {
     private var comicViewModel: ComicViewModel? = null
     private var concatAdapter: ConcatAdapter? = null
@@ -55,7 +55,15 @@ class FrmHome : BaseFragment() {
     private fun getListComic(isSwipeToRefresh: Boolean) {
         //TODO get comic by category
         logD("getPage isSwipeToRefresh $isSwipeToRefresh, currentPageIndex $currentPageIndex")
-        comicViewModel?.getListComic(pageIndex = currentPageIndex, keyword = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
+
+        val categorySelected = comicViewModel?.categorySelected?.value
+        if (categorySelected == null || Category.isCategoryAll(categorySelected)) {
+            logD(">>>getListComic !by category")
+            comicViewModel?.getListComic(pageIndex = currentPageIndex, keyword = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
+        } else {
+            logD(">>>getListComic by category")
+
+        }
     }
 
     private fun setupViews() {
@@ -201,6 +209,7 @@ class FrmHome : BaseFragment() {
             vm.categorySelected.observe(viewLifecycleOwner, Observer { category ->
                 logD("<<<categorySelected observe " + BaseApplication.gson.toJson(category))
                 fabCategory.text = category.title
+                handleSearch(isAutoSearch = false)
             })
         }
     }
@@ -211,9 +220,7 @@ class FrmHome : BaseFragment() {
         } else {
             KeyboardUtils.hideSoftInput(context, etSearch)
         }
-        etSearch.apply {
-            currentKeyword = this.text.toString().trim()
-        }
+        currentKeyword = etSearch.text.toString().trim()
         getListComic(isSwipeToRefresh = true)
     }
 
