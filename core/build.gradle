@@ -168,7 +168,7 @@ dependencies {
 
     //region architecture component
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    kapt "androidx.lifecycle:lifecycle-compiler:2.3.0-alpha07"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.3.0-beta01"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
@@ -180,7 +180,7 @@ dependencies {
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-beta01"
     //Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9"
     //endregion
 
     //https://github.com/florent37/ExpansionPanel
