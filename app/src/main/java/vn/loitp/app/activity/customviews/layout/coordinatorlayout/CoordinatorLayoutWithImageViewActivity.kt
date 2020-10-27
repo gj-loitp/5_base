@@ -21,20 +21,20 @@ class CoordinatorLayoutWithImageViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        appBar.addOnOffsetChangedListener(OnOffsetChangedListener { _: AppBarLayout?, verticalOffset: Int ->
-            val matrix = Matrix(imgHero.imageMatrix)
+        appBarLayout.addOnOffsetChangedListener(OnOffsetChangedListener { _: AppBarLayout?, verticalOffset: Int ->
+            val matrix = Matrix(imgCover.imageMatrix)
 
             //get image's width and height
-            val dWidth = imgHero.drawable.intrinsicWidth
-            val dHeight = imgHero.drawable.intrinsicHeight
+            val dWidth = imgCover.drawable.intrinsicWidth
+            val dHeight = imgCover.drawable.intrinsicHeight
 
             //get view's width and height
-            val vWidth = imgHero.width - imgHero.paddingLeft - imgHero.paddingRight
-            var vHeight = imgHero.height - imgHero.paddingTop - imgHero.paddingBottom
+            val vWidth = imgCover.width - imgCover.paddingLeft - imgCover.paddingRight
+            var vHeight = imgCover.height - imgCover.paddingTop - imgCover.paddingBottom
             val scale: Float
             var dx = 0f
             val dy: Float
-            val parallaxMultiplier = (imgHero.layoutParams as CollapsingToolbarLayout.LayoutParams).parallaxMultiplier
+            val parallaxMultiplier = (imgCover.layoutParams as CollapsingToolbarLayout.LayoutParams).parallaxMultiplier
 
             //maintain the image's aspect ratio depending on offset
             if (dWidth * vHeight > vWidth * dHeight) {
@@ -50,7 +50,7 @@ class CoordinatorLayoutWithImageViewActivity : BaseFontActivity() {
             if (vWidth <= currentWidth) { //compare view width and drawable width to decide, should we scale more or not
                 matrix.setScale(scale, scale)
                 matrix.postTranslate(dx.roundToInt().toFloat(), dy.roundToInt().toFloat())
-                imgHero.imageMatrix = matrix
+                imgCover.imageMatrix = matrix
             }
         })
     }
