@@ -25,29 +25,29 @@ class CoordinatorLayoutWithImageViewActivity : BaseFontActivity() {
             val matrix = Matrix(imgHero.imageMatrix)
 
             //get image's width and height
-            val dwidth = imgHero.drawable.intrinsicWidth
-            val dheight = imgHero.drawable.intrinsicHeight
+            val dWidth = imgHero.drawable.intrinsicWidth
+            val dHeight = imgHero.drawable.intrinsicHeight
 
             //get view's width and height
-            val vwidth = imgHero.width - imgHero.paddingLeft - imgHero.paddingRight
-            var vheight = imgHero.height - imgHero.paddingTop - imgHero.paddingBottom
+            val vWidth = imgHero.width - imgHero.paddingLeft - imgHero.paddingRight
+            var vHeight = imgHero.height - imgHero.paddingTop - imgHero.paddingBottom
             val scale: Float
             var dx = 0f
             val dy: Float
             val parallaxMultiplier = (imgHero.layoutParams as CollapsingToolbarLayout.LayoutParams).parallaxMultiplier
 
             //maintain the image's aspect ratio depending on offset
-            if (dwidth * vheight > vwidth * dheight) {
-                vheight += verticalOffset //calculate view height depending on offset
-                scale = vheight.toFloat() / dheight.toFloat() //calculate scale
-                dx = (vwidth - dwidth * scale) * 0.5f //calculate x value of the center point of scaled drawable
+            if (dWidth * vHeight > vWidth * dHeight) {
+                vHeight += verticalOffset //calculate view height depending on offset
+                scale = vHeight.toFloat() / dHeight.toFloat() //calculate scale
+                dx = (vWidth - dWidth * scale) * 0.5f //calculate x value of the center point of scaled drawable
                 dy = -verticalOffset * (1 - parallaxMultiplier) //calculate y value by compensating parallaxMultiplier
             } else {
-                scale = vwidth.toFloat() / dwidth.toFloat()
-                dy = (vheight - dheight * scale) * 0.5f
+                scale = vWidth.toFloat() / dWidth.toFloat()
+                dy = (vHeight - dHeight * scale) * 0.5f
             }
-            val currentWidth = (scale * dwidth).roundToInt() //calculate current intrinsic width of the drawable
-            if (vwidth <= currentWidth) { //compare view width and drawable width to decide, should we scale more or not
+            val currentWidth = (scale * dWidth).roundToInt() //calculate current intrinsic width of the drawable
+            if (vWidth <= currentWidth) { //compare view width and drawable width to decide, should we scale more or not
                 matrix.setScale(scale, scale)
                 matrix.postTranslate(dx.roundToInt().toFloat(), dy.roundToInt().toFloat())
                 imgHero.imageMatrix = matrix
