@@ -11,7 +11,7 @@ import androidx.annotation.StyleRes
 import com.R
 import kotlin.math.roundToInt
 
-class AspectRatioLayout : FrameLayout {
+class LAspectRatioLayout : FrameLayout {
 
     companion object {
         private const val TAG = "AspectRatioLayout"
@@ -42,9 +42,9 @@ class AspectRatioLayout : FrameLayout {
     }
 
     private fun init(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int, @StyleRes defStyleRes: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.AspectRatioLayout, defStyleAttr, defStyleRes)
-        widthRatio = typedArray.getFloat(R.styleable.AspectRatioLayout_arl_widthRatio, 1f)
-        heightRatio = typedArray.getFloat(R.styleable.AspectRatioLayout_arl_heightRatio, 1f)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LAspectRatioLayout, defStyleAttr, defStyleRes)
+        widthRatio = typedArray.getFloat(R.styleable.LAspectRatioLayout_arl_widthRatio, 1f)
+        heightRatio = typedArray.getFloat(R.styleable.LAspectRatioLayout_arl_heightRatio, 1f)
         typedArray.recycle()
     }
 
