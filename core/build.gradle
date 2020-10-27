@@ -102,13 +102,13 @@ dependencies {
     api 'androidx.navigation:navigation-fragment-ktx:2.3.1'
 
     //jsoup
-    api 'org.jsoup:jsoup:1.10.2'
+    api 'org.jsoup:jsoup:1.13.1'
 
     //multidex
     api 'androidx.multidex:multidex:2.0.1'
 
     //event bus
-    api 'org.greenrobot:eventbus:3.1.1'
+    api 'org.greenrobot:eventbus:3.2.0'
 
     //region animation
     api 'com.daimajia.easing:library:2.0@aar'
@@ -119,7 +119,7 @@ dependencies {
     //recolor https://github.com/SIMMORSAL/ReColor
     api 'com.simmorsal.recolor:recolor:1.1.0'
 
-    api 'com.airbnb.android:lottie:3.0.6'
+    api 'com.airbnb.android:lottie:3.4.4'
 
     //https://github.com/EverythingMe/overscroll-decor
     api 'me.everything:overscroll-decor-android:1.1.0'
