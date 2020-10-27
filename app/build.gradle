@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "loitp.basemaster"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 12
         versionName "1.1.12"
