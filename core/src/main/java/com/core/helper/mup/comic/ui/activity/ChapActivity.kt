@@ -55,6 +55,7 @@ class ChapActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        toolbar.title = comic?.title
         LImageUtil.load(context = this,
                 url = comic?.getImageSrc(),
                 imageView = imgCover,
