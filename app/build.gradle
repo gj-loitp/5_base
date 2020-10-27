@@ -112,7 +112,7 @@ dependencies {
     api project(':core')
 //    api 'com.github.tplloi:basemaster:4.4.11'
 
-    api "com.squareup.retrofit2:converter-moshi:2.7.2"
+    api 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
     //region database
     //realm
