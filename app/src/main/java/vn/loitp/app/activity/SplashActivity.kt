@@ -75,7 +75,7 @@ class SplashActivity : BaseFontActivity() {
         isShowDialogCheck = true
         val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
         if (isCanWriteSystem) {
-            Dexter.withActivity(this)
+            Dexter.withContext(this)
                     .withPermissions(
                             Manifest.permission.READ_EXTERNAL_STORAGE,
                             Manifest.permission.WRITE_EXTERNAL_STORAGE,

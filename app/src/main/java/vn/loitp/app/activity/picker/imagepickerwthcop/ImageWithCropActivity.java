@@ -77,7 +77,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
 
     private void checkPermission() {
         isShowDialogCheck = true;
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.CAMERA)

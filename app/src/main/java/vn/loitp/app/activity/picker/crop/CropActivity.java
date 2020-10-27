@@ -54,7 +54,7 @@ public class CropActivity extends BaseFontActivity {
     }
 
     private void crop() {
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
                     @Override

@@ -206,7 +206,7 @@ class LocationActivity : BaseFontActivity() {
 
     private fun startLocationButtonClick() {
         // Requesting ACCESS_FINE_LOCATION using Dexter library
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {

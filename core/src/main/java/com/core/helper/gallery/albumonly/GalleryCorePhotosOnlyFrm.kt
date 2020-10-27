@@ -289,7 +289,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     private fun checkPermission() {
         isShowDialogCheck = true
-        Dexter.withActivity(activity)
+        Dexter.withContext(context)
                 .withPermissions(
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,

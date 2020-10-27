@@ -111,7 +111,7 @@ class MapTrackerActivity : BaseFontActivity(),
     private fun checkPermission() {
         showShortInformation("checkPermission")
         isShowDialogCheck = true
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {

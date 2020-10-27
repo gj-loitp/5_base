@@ -262,7 +262,7 @@ class GalleryMemberActivity : BaseFontActivity() {
 
     private fun checkPermission() {
         isShowDialogCheck = true
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
