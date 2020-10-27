@@ -27,7 +27,7 @@ class FrmFavourite : BaseFragment() {
     private fun setupViews() {
         //TODO
         tvNoData.visibility = View.VISIBLE
-        tvNoData.text = "Coming soon"
+        tvNoData.text = getString(R.string.coming_soon)
         indicatorView.smoothToHide()
     }
 

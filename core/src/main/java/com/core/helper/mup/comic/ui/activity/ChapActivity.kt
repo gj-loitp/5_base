@@ -18,6 +18,7 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
 import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 import kotlin.math.roundToInt
@@ -70,7 +71,10 @@ class ChapActivity : BaseFontActivity() {
                         return false
                     }
                 })
-
+        fabLike.setSafeOnClickListener {
+            //TODO
+            showLongInformation(getString(R.string.coming_soon))
+        }
     }
 
 }
