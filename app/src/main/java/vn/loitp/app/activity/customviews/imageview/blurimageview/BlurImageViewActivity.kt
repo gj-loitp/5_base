@@ -23,14 +23,6 @@ class BlurImageViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews(){
-        LBlurImageView.with(applicationContext)
-                .load(R.drawable.iv)
-                .intensity(20f)
-                .Async(true)
-                .into(imageView)
-
-        LImageUtil.load(context = this, url = Constants.URL_IMG_5, imageView = imageView2)
-
 //        method (load) :- load(int resource), load(Bitmap bitmap)
 //
 //        method(intesity):- intensity( int value) { Increase Blur and limit of value is in between 0 to 25 }
@@ -41,5 +33,16 @@ class BlurImageViewActivity : BaseFontActivity() {
 //
 //        Direct get Blur Bitmap :- To get direct blur bitmap call the following code .
 //        Bitmap bitmap = LBlurImageView.with(getApplicationContext()).load(R.drawable.mountain).intensity(20).Async(true).getImageBlur();
+
+        //imageView
+        LBlurImageView.with(applicationContext)
+                .load(R.drawable.iv)
+                .intensity(20f)
+                .Async(true)
+                .into(imageView)
+
+        //imageView2
+        LImageUtil.load(context = this, url = Constants.URL_IMG_5, imageView = imageView2)
+
     }
 }
