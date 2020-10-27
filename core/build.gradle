@@ -48,7 +48,7 @@ android {
 }
 
 dependencies {
-    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //region image loader
@@ -57,7 +57,7 @@ dependencies {
     api 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
-    //bigimageview https://github.com/Piasy/BigImageViewer
+    //big imageview https://github.com/Piasy/BigImageViewer
     api 'com.github.piasy:BigImageViewer:1.5.6'
     api 'com.github.piasy:GlideImageLoader:1.5.6'
     api 'com.github.piasy:GlideImageViewFactory:1.5.6'
@@ -89,6 +89,7 @@ dependencies {
     //region view
 
     api 'androidx.appcompat:appcompat:1.2.0'
+//    api 'com.google.android.material:material:1.2.1'
     api 'com.google.android.material:material:1.3.0-alpha03'
     api 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
     api 'androidx.cardview:cardview:1.0.0'
@@ -168,6 +169,7 @@ dependencies {
 
     //region architecture component
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    //noinspection LifecycleAnnotationProcessorWithJava8
     kapt "androidx.lifecycle:lifecycle-compiler:2.3.0-beta01"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
@@ -209,6 +211,5 @@ dependencies {
 
     //https://github.com/alirezat775/downloader
     api 'com.github.alirezat775:downloader:1.0.2'
-
 
 }
