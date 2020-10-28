@@ -47,26 +47,38 @@ class LImageUtil {
             Glide.with(context).clear(target)
         }
 
-        fun load(context: Context?, drawableRes: Int, imageView: ImageView?) {
+        fun load(
+                context: Context?,
+                drawableRes: Int, imageView: ImageView?
+        ) {
             if (context == null || imageView == null) {
                 return
             }
             Glide.with(context).load(drawableRes).into(imageView)
         }
 
-        fun load(context: Context?, url: String?, imageView: ImageView?) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .into(imageView)
-        }
+//        fun load(
+//                context: Context?,
+//                url: String?,
+//                imageView: ImageView?
+//        ) {
+//            if (context == null || url.isNullOrEmpty() || imageView == null) {
+//                return
+//            }
+//            Glide.with(context).load(url)
+//                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+//                    .apply(
+//                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+//                    )
+//                    .into(imageView)
+//        }
 
-        fun load(context: Context?, url: String?, imageView: ImageView?, drawableRequestListener: RequestListener<Drawable>) {
+        fun load(
+                context: Context?,
+                url: String?,
+                imageView: ImageView?,
+                requestListener: RequestListener<Drawable>? = null
+        ) {
             if (context == null || url.isNullOrEmpty() || imageView == null) {
                 return
             }
@@ -75,7 +87,7 @@ class LImageUtil {
                     .apply(
                             RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
-                    .listener(drawableRequestListener)
+                    .listener(requestListener)
                     .into(imageView)
         }
 

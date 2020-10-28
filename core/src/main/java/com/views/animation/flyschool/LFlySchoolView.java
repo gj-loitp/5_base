@@ -1,11 +1,18 @@
 package com.views.animation.flyschool;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import androidx.annotation.Nullable;
+
 import com.R;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.core.utilities.LImageUtil;
 
 /**
@@ -54,7 +61,17 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
         if (drawableRes == 0) {
             try {
                 String urlGift = imgObject.getUrl();
-                LImageUtil.Companion.load(getContext(), urlGift, ivGift);
+                LImageUtil.Companion.load(getContext(), urlGift, ivGift, new RequestListener<Drawable>() {
+                    @Override
+                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        return false;
+                    }
+                });
             } catch (NullPointerException e) {
                 e.printStackTrace();
             }
@@ -62,6 +79,16 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
             LImageUtil.Companion.load(getContext(), drawableRes, ivGift);
         }
         String urlAvatar = imgObject.getAvatar();
-        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar);
+        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar, new RequestListener<Drawable>() {
+            @Override
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                return false;
+            }
+        });
     }
 }
