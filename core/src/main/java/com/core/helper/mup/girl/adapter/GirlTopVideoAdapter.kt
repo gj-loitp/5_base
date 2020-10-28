@@ -40,7 +40,7 @@ class GirlTopVideoAdapter : AnimationAdapter() {
                     girlTopVideo.cover
                 }
                 LImageUtil.load(context = viewGirlTopVideo.ivCover.context,
-                        url = src,
+                        any = src,
                         imageView = viewGirlTopVideo.ivCover,
                         resError = R.color.black,
                         resPlaceHolder = R.color.black,

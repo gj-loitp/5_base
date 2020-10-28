@@ -72,7 +72,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.tvMsg.setText(user.getMsg());
         holder.tvTime.setText(user.getTimestamp() + "");
 
-        LImageUtil.Companion.load(context, user.getAvt(), holder.avt, R.color.colorPrimary, new RequestListener<Drawable>() {
+        LImageUtil.Companion.load(context, user.getAvt(), holder.avt, R.color.colorPrimary, R.color.colorPrimary, new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 return false;

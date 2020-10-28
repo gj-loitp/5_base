@@ -66,9 +66,9 @@ class GirlDetailActivity : BaseFontActivity() {
 
     private fun setupViews() {
         if (BuildConfig.DEBUG) {
-            LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
+            LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
         } else {
-            LImageUtil.load(context = this, url = girlPage?.src, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
+            LImageUtil.load(context = this, any = girlPage?.src, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
         }
         ivCover.setAspectRatio(16f / 9f)
         collapsingToolbarLayout.title = girlPage?.title

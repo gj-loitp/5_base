@@ -27,7 +27,7 @@ class BasicTransition0Activity : BaseFontActivity() {
     }
 
     private fun setupViews(){
-        LImageUtil.load(context = this, url = Constants.URL_IMG_2, imageView = imageViewItem)
+        LImageUtil.load(context = this, any = Constants.URL_IMG_2, imageView = imageViewItem)
         imageViewItem.setOnClickListener {
             onClickIv()
         }

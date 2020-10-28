@@ -24,8 +24,9 @@ class BannerAdapter(
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: Banner) {
-            LImageUtil.load(context = itemView.imageViewBanner.context,
-                    drawableRes = user.bannerImage,
+            LImageUtil.load(
+                    context = itemView.imageViewBanner.context,
+                    any = user.bannerImage,
                     imageView = itemView.imageViewBanner)
             setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }

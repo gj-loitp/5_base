@@ -63,7 +63,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
-        LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
+        LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
 //        LUIUtil.setTextShadow(textView = tvCopyright)
         tvName.text = AppUtils.getAppName()
 //        LUIUtil.setTextShadow(tvName)

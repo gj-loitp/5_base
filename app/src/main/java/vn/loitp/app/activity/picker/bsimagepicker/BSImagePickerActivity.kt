@@ -81,7 +81,7 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
             val outputY = 500
             LPickerUtil.cropImage(activity = this, picUri = uri, CROP_PIC_REQUEST_CODE = CROP_PIC_REQUEST_CODE, aspectX = aspectX, aspectY = aspectY, outputX = outputX, outputY = outputY)
         } else {
-            LImageUtil.load(context = this, uri = uri, imageView = ivImage2)
+            LImageUtil.load(context = this, any = uri, imageView = ivImage2)
         }
     }
 
@@ -100,13 +100,13 @@ class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSel
                 5 -> ivImage6
                 else -> ivImage6
             }
-            LImageUtil.load(context = this, uri = uriList[i], imageView = iv)
+            LImageUtil.load(context = this, any = uriList[i], imageView = iv)
         }
     }
 
     override fun loadImage(imageUri: Uri?, ivImage: ImageView?) {
         logD("loadImage imageUri $imageUri")
-        LImageUtil.load(context = this, uri = imageUri, imageView = ivImage)
+        LImageUtil.load(context = this, any = imageUri, imageView = ivImage)
     }
 
     override fun onCancelled(isMultiSelecting: Boolean, tag: String?) {

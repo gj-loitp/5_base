@@ -142,7 +142,7 @@ class AdHelperActivity : BaseFontActivity() {
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
             adPage.urlAd?.let {
-                LImageUtil.load(context = this@AdHelperActivity, url = it, imageView = imageView)
+                LImageUtil.load(context = this@AdHelperActivity, any = it, imageView = imageView)
             }
 
             textView.text = adPage.title

@@ -67,7 +67,7 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      */
     private fun loadThumbnail() {
         mItem?.photoUrl?.let {
-            LImageUtil.loadNoAmin(context = this, url = it, imageView = imageViewHeader)
+            LImageUtil.load(context = this, any = it, imageView = imageViewHeader)
         }
     }
 
@@ -76,7 +76,7 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      */
     private fun loadFullSizeImage() {
         mItem?.photoUrl?.let {
-            LImageUtil.loadNoAmin(context = this, url = it, imageView = imageViewHeader)
+            LImageUtil.load(context = this, any = it, imageView = imageViewHeader)
         }
     }
 

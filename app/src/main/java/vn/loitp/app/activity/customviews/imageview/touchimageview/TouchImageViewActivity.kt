@@ -19,7 +19,7 @@ class TouchImageViewActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         //note when use with glide, must have placeholder
-        LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = lTouchImageView, resPlaceHolder = R.color.colorPrimary)
+        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = lTouchImageView, resPlaceHolder = R.color.colorPrimary)
     }
 
 }

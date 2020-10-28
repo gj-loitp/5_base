@@ -4,27 +4,20 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
 import androidx.exifinterface.media.ExifInterface
 import com.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.load.resource.bitmap.CenterCrop
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
-import com.bumptech.glide.request.target.Target
 import com.core.common.Constants
 import com.utils.util.FileUtils
 import com.views.imageview.pinchtozoom.ImageMatrixTouchHandler
-import com.wang.avi.AVLoadingIndicatorView
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import java.io.File
 import java.util.*
@@ -40,340 +33,6 @@ class LImageUtil {
                 val r = LStoreUtil.getRandomNumber(Constants.ARR_URL_BKG_FLICKR.size)
                 return Constants.ARR_URL_BKG_FLICKR[r]
             }
-
-        //for glide
-        fun clear(context: Context?, target: View?) {
-            if (context == null || target == null) {
-                return
-            }
-            Glide.with(context).clear(target)
-        }
-
-        fun load(
-                context: Context?,
-                drawableRes: Int,
-                imageView: ImageView?
-        ) {
-            if (context == null || imageView == null) {
-                return
-            }
-            Glide.with(context).load(drawableRes).into(imageView)
-        }
-
-        fun load(context: Context?,
-                 imageFile: File?,
-                 imageView: ImageView?
-        ) {
-            if (context == null || imageFile == null || imageView == null) {
-                return
-            }
-            Glide.with(context).load(imageFile).into(imageView)
-        }
-
-        fun load(context: Context?,
-                 uri: Uri?,
-                 imageView: ImageView?
-        ) {
-            if (context == null || uri == null || imageView == null) {
-                return
-            }
-            Glide.with(context).load(uri).into(imageView)
-        }
-
-//        fun load(
-//                context: Context?,
-//                url: String?,
-//                imageView: ImageView?
-//        ) {
-//            if (context == null || url.isNullOrEmpty() || imageView == null) {
-//                return
-//            }
-//            Glide.with(context).load(url)
-//                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-//                    .apply(
-//                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-//                    )
-//                    .into(imageView)
-//        }
-
-//        fun load(
-//                context: Context?,
-//                url: String?,
-//                imageView: ImageView?,
-//                requestListener: RequestListener<Drawable>? = null
-//        ) {
-//            if (context == null || url.isNullOrEmpty() || imageView == null) {
-//                return
-//            }
-//            Glide.with(context).load(url)
-//                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-//                    .apply(
-//                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-//                    )
-//                    .listener(requestListener)
-//                    .into(imageView)
-//        }
-
-        fun load(
-                context: Context?,
-                url: String?,
-                imageView: ImageView?,
-                resPlaceHolder: Int = R.color.colorPrimary,
-                requestListener: RequestListener<Drawable>? = null
-        ) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context)
-                    .load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    .placeholder(resPlaceHolder)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .listener(requestListener)
-                    .into(imageView)
-        }
-
-        fun loadRound(
-                url: String?,
-                imageView: ImageView?,
-                roundingRadius: Int = 45,
-                resPlaceHolder: Int = R.color.colorPrimary,
-                requestListener: RequestListener<Drawable>? = null
-        ) {
-            if (url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            var requestOptions = RequestOptions()
-            requestOptions = requestOptions.transform(
-                    RoundedCornersTransformation(roundingRadius, 0, RoundedCornersTransformation.CornerType.BOTTOM)
-            ).placeholder(resPlaceHolder)
-            Glide.with(imageView.context)
-                    .load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(requestOptions)
-                    .listener(requestListener)
-                    .into(imageView)
-        }
-
-        fun loadCircle(
-                url: String?,
-                imageView: ImageView?,
-                resPlaceHolder: Int = R.color.colorPrimary,
-                resError: Int = R.color.red,
-                requestListener: RequestListener<Drawable>? = null
-        ) {
-            if (url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(imageView.context)
-                    .load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(
-                            RequestOptions
-                                    .circleCropTransform()
-                                    .placeholder(resPlaceHolder)
-                                    .error(resError)
-                    )
-                    .listener(requestListener)
-                    .into(imageView)
-        }
-
-//        fun loadCircle(
-//                url: String?,
-//                imageView: ImageView?,
-//                resPlaceHolder: Int,
-//                resError: Int
-//        ) {
-//            if (url.isNullOrEmpty() || imageView == null) {
-//                return
-//            }
-//            Glide.with(imageView.context)
-//                    .load(url)
-//                    .transition(DrawableTransitionOptions.withCrossFade())
-//                    .apply(
-//                            RequestOptions
-//                                    .circleCropTransform()
-//                                    .placeholder(resPlaceHolder)
-//                                    .error(resError)
-//                    )
-//                    .into(imageView)
-//        }
-
-        fun loadCircleImageResources(res: Int, imageView: ImageView?) {
-            if (imageView == null) {
-                return
-            }
-            Glide.with(imageView.context)
-                    .load(res)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(
-                            RequestOptions
-                                    .circleCropTransform()
-                                    .placeholder(R.color.transparent)
-                                    .error(R.color.colorPrimary)
-                    )
-                    .into(imageView)
-        }
-
-        fun load(context: Context?, url: String?, imageView: ImageView?,
-                 resPlaceHolder: Int, resError: Int, drawableRequestListener: RequestListener<Drawable>?) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            if (drawableRequestListener == null) {
-                Glide.with(context).load(url)
-                        //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                        .apply(
-                                RequestOptions()
-                                        .placeholder(resPlaceHolder)
-                                        .error(resError)
-                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        )
-                        .into(imageView)
-            } else {
-                Glide.with(context).load(url)
-                        //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                        .apply(
-                                RequestOptions()
-                                        .placeholder(resPlaceHolder)
-                                        .error(resError)
-                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        )
-                        .listener(drawableRequestListener)
-                        .into(imageView)
-            }
-        }
-
-        @SuppressLint("ResourceType")
-        @JvmOverloads
-        fun load(context: Context?, url: String?, imageView: ImageView?,
-                 avLoadingIndicatorView: AVLoadingIndicatorView?, resPlaceHolder:
-                 Int = Color.TRANSPARENT, resError: Int = Color.TRANSPARENT) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    .placeholder(resPlaceHolder)
-                                    .error(resError)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .listener(object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
-                            avLoadingIndicatorView?.hide()
-                            return false
-                        }
-
-                        override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
-                            avLoadingIndicatorView?.hide()
-                            return false
-                        }
-                    })
-                    .into(imageView)
-        }
-
-        fun load(context: Context?, url: String?, imageView: ImageView?,
-                 progressBar: ProgressBar?, sizeW: Int, sizeH: Int) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    .override(sizeW, sizeH)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .listener(object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
-                            LUIUtil.setProgressBarVisibility(progressBar, View.GONE)
-                            return false
-                        }
-
-                        override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
-                            LUIUtil.setProgressBarVisibility(progressBar, View.GONE)
-                            return false
-                        }
-                    })
-                    .into(imageView)
-        }
-
-        fun load(context: Context?, url: String?, imageView: ImageView?, progressBar: ProgressBar) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    //.override(Target.SIZE_ORIGINAL)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .listener(object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
-                            LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
-                            return false
-                        }
-
-                        override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>, dataSource: com.bumptech.glide.load.DataSource, isFirstResource: Boolean): Boolean {
-                            LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
-                            return false
-                        }
-                    })
-                    .into(imageView)
-        }
-
-        fun load(context: Context?, url: String?, imageView: ImageView?, sizeW: Int, sizeH: Int) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    .placeholder(R.drawable.trans)
-                                    .override(sizeW, sizeH)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    ).into(imageView)
-        }
-
-        @JvmOverloads
-        fun loadNoAmin(context: Context?, url: String?, imageView: ImageView?,
-                       drawableRequestListener: RequestListener<Drawable>? = null) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            loadNoAmin(context, url, "", imageView, drawableRequestListener)
-        }
-
-        @JvmOverloads
-        fun loadNoAmin(context: Context?, url: String?, urlThumbnal: String?, imageView: ImageView?,
-                       drawableRequestListener: RequestListener<Drawable>? = null) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context).load(url)
-                    .thumbnail(
-                            Glide.with(context)
-                                    .load(urlThumbnal)
-                                    .thumbnail(1f)
-                    )
-                    .apply(
-                            RequestOptions()
-                                    .placeholder(R.drawable.trans)
-                                    //.override(Target.SIZE_ORIGINAL)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                    .dontAnimate()
-                                    .dontTransform()
-                    )
-                    .listener(drawableRequestListener)
-                    .into(imageView)
-        }
 
         //for flick api url_m -> url_b
         fun getFlickrLink100(urlM: String): String {
@@ -515,6 +174,7 @@ class LImageUtil {
                 val srcFilePath = file.path
                 val destFilePath = LStoreUtil.getFolderPath(folderName = folderPath) + "/" + file.name
                 val resultCopy = FileUtils.copyFile(srcFilePath, destFilePath)
+                LLog.d(logTag, "resultCopy $resultCopy")
 
                 val copiedFile = File(destFilePath)
                 if (!copiedFile.exists()) {
@@ -553,6 +213,116 @@ class LImageUtil {
                 e.printStackTrace()
                 return null
             }
+        }
+
+        //for glide
+        fun clear(context: Context?, target: View?) {
+            if (context == null || target == null) {
+                return
+            }
+            Glide.with(context).clear(target)
+        }
+
+//        fun load(
+//                context: Context?,
+//                drawableRes: Int,
+//                imageView: ImageView?
+//        ) {
+//            if (context == null || imageView == null) {
+//                return
+//            }
+//            Glide.with(context).load(drawableRes).into(imageView)
+//        }
+//
+//        fun load(
+//                context: Context?,
+//                imageFile: File?,
+//                imageView: ImageView?
+//        ) {
+//            if (context == null || imageFile == null || imageView == null) {
+//                return
+//            }
+//            Glide.with(context).load(imageFile).into(imageView)
+//        }
+//
+//        fun load(
+//                context: Context?,
+//                uri: Uri?,
+//                imageView: ImageView?
+//        ) {
+//            if (context == null || uri == null || imageView == null) {
+//                return
+//            }
+//            Glide.with(context).load(uri).into(imageView)
+//        }
+
+        //any maybe url: String, drawableRes: Int, imageFile: File?, uri: Uri?,
+        fun load(context: Context?,
+                 any: Any?,
+                 imageView: ImageView?,
+                 resPlaceHolder: Int = R.color.colorPrimary,
+                 resError: Int = R.color.red,
+                 drawableRequestListener: RequestListener<Drawable>? = null) {
+
+            if (context == null || any == null || imageView == null) {
+                return
+            }
+            Glide.with(context)
+                    .load(any)
+                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                    .apply(
+                            RequestOptions()
+                                    .placeholder(resPlaceHolder)
+                                    .error(resError)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    )
+                    .listener(drawableRequestListener)
+                    .into(imageView)
+        }
+
+        fun loadRound(
+                url: String?,
+                imageView: ImageView?,
+                roundingRadius: Int = 45,
+                resPlaceHolder: Int = R.color.colorPrimary,
+                requestListener: RequestListener<Drawable>? = null
+        ) {
+            if (url.isNullOrEmpty() || imageView == null) {
+                return
+            }
+            var requestOptions = RequestOptions()
+            requestOptions = requestOptions.transform(
+                    RoundedCornersTransformation(roundingRadius, 0, RoundedCornersTransformation.CornerType.BOTTOM)
+            ).placeholder(resPlaceHolder)
+            Glide.with(imageView.context)
+                    .load(url)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .apply(requestOptions)
+                    .listener(requestListener)
+                    .into(imageView)
+        }
+
+        fun loadCircle(
+                url: String?,
+                imageView: ImageView?,
+                resPlaceHolder: Int = R.color.colorPrimary,
+                resError: Int = R.color.red,
+                requestListener: RequestListener<Drawable>? = null
+        ) {
+            if (url.isNullOrEmpty() || imageView == null) {
+                return
+            }
+            Glide.with(imageView.context)
+                    .load(url)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .apply(
+                            RequestOptions
+                                    .circleCropTransform()
+                                    .placeholder(resPlaceHolder)
+                                    .error(resError)
+                    )
+                    .listener(requestListener)
+                    .into(imageView)
         }
     }
 }

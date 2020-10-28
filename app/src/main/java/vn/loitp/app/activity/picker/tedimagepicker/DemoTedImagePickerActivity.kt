@@ -110,7 +110,7 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
             val size = ConvertUtils.dp2px(200f)
             val layoutParams = LinearLayout.LayoutParams(size, size)
             img.layoutParams = layoutParams
-            LImageUtil.load(context = this, uri = u, imageView = img)
+            LImageUtil.load(context = this, any = u, imageView = img)
             containerSelectedPhotos.addView(img)
         }
     }

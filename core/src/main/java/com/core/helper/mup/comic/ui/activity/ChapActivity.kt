@@ -1,9 +1,7 @@
 package com.core.helper.mup.comic.ui.activity
 
-import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.view.View
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
@@ -16,12 +14,8 @@ import com.core.base.BaseFontActivity
 import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
-import com.google.android.material.appbar.AppBarLayout
-import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
-import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
-import kotlin.math.roundToInt
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
@@ -58,7 +52,7 @@ class ChapActivity : BaseFontActivity() {
     private fun setupViews() {
         toolbar.title = comic?.title
         LImageUtil.load(context = this,
-                url = comic?.getImageSrc(),
+                any = comic?.getImageSrc(),
                 imageView = imgCover,
                 resPlaceHolder = color,
                 resError = color,

@@ -6,7 +6,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.utilities.LImageUtil.Companion.loadNoAmin
+import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_func_glide.*
 import vn.loitp.app.R
 
@@ -28,9 +28,9 @@ class GlideActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            bt0 -> loadNoAmin(context = this, url = urlLow, urlThumbnal = urlLow, imageView = imageView, drawableRequestListener = null)
-            bt1 -> loadNoAmin(context = this, url = urlMedium, urlThumbnal = urlLow, imageView = imageView, drawableRequestListener = null)
-            bt2 -> loadNoAmin(context = this, url = urlHigh, urlThumbnal = urlLow, imageView = imageView, drawableRequestListener = null)
+            bt0 -> LImageUtil.load(context = this, any = urlLow, imageView = imageView, drawableRequestListener = null)
+            bt1 -> LImageUtil.load(context = this, any = urlMedium, imageView = imageView, drawableRequestListener = null)
+            bt2 -> LImageUtil.load(context = this, any = urlHigh, imageView = imageView, drawableRequestListener = null)
         }
     }
 }

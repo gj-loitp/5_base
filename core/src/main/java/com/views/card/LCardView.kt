@@ -89,9 +89,7 @@ class LCardView : RelativeLayout {
     }
 
     fun setImg(url: String) {
-        iv.let {
-            LImageUtil.load(context, url, it)
-        }
+        LImageUtil.load(context = context, any = url, imageView = iv)
     }
 
     fun setText(s: String) {

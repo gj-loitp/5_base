@@ -34,7 +34,7 @@ class ShapeOfViewActivity : BaseFontActivity() {
             repeatMode = ValueAnimator.REVERSE
         }.start()
 
-        LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = kbv)
+        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = kbv)
     }
 
 }

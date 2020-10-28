@@ -23,7 +23,7 @@ class SensorActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LImageUtil.load(context = this, url = URL_IMG, imageView = imageView)
+        LImageUtil.load(context = this, any = URL_IMG, imageView = imageView)
         val w = LScreenUtil.screenWidth
         val h = w * 9 / 16
         setSizeRelativeLayout(rotateLayout, w, h)

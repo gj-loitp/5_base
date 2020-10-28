@@ -18,6 +18,6 @@ class StrectchyImageViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LImageUtil.load(context = this, url = Constants.URL_IMG_LONG, imageView = lStretchyImageView)
+        LImageUtil.load(context = this, any = Constants.URL_IMG_LONG, imageView = lStretchyImageView)
     }
 }

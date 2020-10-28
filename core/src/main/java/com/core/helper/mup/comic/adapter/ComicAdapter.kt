@@ -31,7 +31,7 @@ class ComicAdapter : AnimationAdapter() {
 
         fun bind(comic: Comic) {
             LImageUtil.load(context = itemView.ivBackground.context,
-                    url = comic.getImageSrc(),
+                    any = comic.getImageSrc(),
                     imageView = itemView.ivBackground,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,

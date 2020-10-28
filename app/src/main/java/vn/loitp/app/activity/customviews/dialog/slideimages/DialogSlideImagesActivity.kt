@@ -29,9 +29,9 @@ class DialogSlideImagesActivity : BaseFontActivity() {
         imageList.add(url1)
         imageList.add(url2)
 
-        LImageUtil.load(context = this, url = url0, imageView = iv0)
-        LImageUtil.load(context = this, url = url1, imageView = iv1)
-        LImageUtil.load(context = this, url = url2, imageView = iv2)
+        LImageUtil.load(context = this, any = url0, imageView = iv0)
+        LImageUtil.load(context = this, any = url1, imageView = iv1)
+        LImageUtil.load(context = this, any = url2, imageView = iv2)
 
         iv0.setSafeOnClickListener {
             LDialogUtil.showDialogSlide(context = this, index = 0, imgList = imageList, amount = 0.5f, isShowController = true, isShowIconClose = true)

@@ -30,9 +30,9 @@ class LSlideAdapter(private val mContext: Context, private val stringList: List<
         iv.layoutParams.width = sizeW
         iv.requestLayout()
         val url = stringList?.get(position)
-        if (!url.isNullOrEmpty()) {
-            LImageUtil.load(mContext, url, iv, screenW, screenW * 9 / 16)
-        }
+//        LImageUtil.load(context = mContext, any = url, imageView = iv, resPlaceHolder = screenW, resError = screenW * 9 / 16)
+        LImageUtil.load(context = mContext, any = url, imageView = iv)
+
         ivClose.setOnClickListener {
             callback?.onClickClose()
         }

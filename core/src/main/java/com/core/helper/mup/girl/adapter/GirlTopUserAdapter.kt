@@ -42,7 +42,7 @@ class GirlTopUserAdapter : AnimationAdapter() {
                     girlTopUser.avatar
                 }
                 LImageUtil.load(context = viewGirlTopUser.imageView.context,
-                        url = src,
+                        any = src,
                         imageView = viewGirlTopUser.imageView,
                         resError = R.color.black,
                         resPlaceHolder = R.color.black,

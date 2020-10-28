@@ -47,7 +47,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
-        LImageUtil.load(context = this, url = photo.urlO, imageView = imageView)
-        LImageUtil.load(context = this, url = photo.urlS, imageView = imageViewBlur)
+        LImageUtil.load(context = this, any = photo.urlO, imageView = imageView)
+        LImageUtil.load(context = this, any = photo.urlS, imageView = imageViewBlur)
     }
 }

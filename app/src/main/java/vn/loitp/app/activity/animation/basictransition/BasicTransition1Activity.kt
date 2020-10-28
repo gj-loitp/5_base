@@ -28,7 +28,7 @@ class BasicTransition1Activity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LImageUtil.load(context = this, url = Constants.URL_IMG_2, imageView = imageViewItem)
+        LImageUtil.load(context = this, any = Constants.URL_IMG_2, imageView = imageViewItem)
         ViewCompat.setTransitionName(imageViewItem, IV)
         ViewCompat.setTransitionName(textView, TV)
     }

@@ -73,7 +73,7 @@ class BookAdapter(private val context: Context,
             LUIUtil.setMargins(view = itemView.imageView, leftPx = sizeMarginTopLeftRight, topPx = sizeMarginTopBottom, rightPx = sizeMarginTopLeftRight, bottomPx = sizeMarginTopBottom)
             val url = movie.cover
             if (url != null) {
-                LImageUtil.load(context = context, url = url, imageView = itemView.imageView)
+                LImageUtil.load(context = context, any = url, imageView = itemView.imageView)
             } else {
                 itemView.imageView.setImageResource(0)
                 itemView.textView.visibility = View.INVISIBLE

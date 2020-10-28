@@ -28,14 +28,14 @@ class ComicHeaderAdapter : AnimationAdapter() {
 
         fun bind(comic: Comic) {
             LImageUtil.load(context = itemView.imageView.context,
-                    url = comic.getImageSrc(),
+                    any = comic.getImageSrc(),
                     imageView = itemView.imageView,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
                     drawableRequestListener = null)
 
             LImageUtil.load(context = itemView.ivAvatar.context,
-                    url = comic.getImageSrc(),
+                    any = comic.getImageSrc(),
                     imageView = itemView.ivAvatar,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,

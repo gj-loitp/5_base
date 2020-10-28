@@ -79,7 +79,7 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
 
             // Load the thumbnail image
             val imageViewItem = view?.findViewById<ImageView>(R.id.imageViewItem)
-            LImageUtil.load(context = this@SceneTransitionBasicActivity, url = item.photoUrl, imageView = imageViewItem)
+            LImageUtil.load(context = this@SceneTransitionBasicActivity, any = item.photoUrl, imageView = imageViewItem)
 
             // Set the TextView's contents
             val textViewName = view?.findViewById<TextView>(R.id.textViewName)

@@ -33,7 +33,7 @@ class GirlHeaderAdapter : AnimationAdapter() {
                 girlPage.src
             }
             LImageUtil.load(context = itemView.imageView.context,
-                    url = src,
+                    any = src,
                     imageView = itemView.imageView,
                     resError = R.color.black,
                     resPlaceHolder = R.color.black,

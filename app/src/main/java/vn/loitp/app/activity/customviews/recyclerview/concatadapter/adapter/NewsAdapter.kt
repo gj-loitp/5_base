@@ -29,7 +29,7 @@ class NewsAdapter(
         fun bind(news: News) {
             itemView.textViewNews.text = news.title
             LImageUtil.load(context = itemView.imageView.context,
-                    url = news.image,
+                    any = news.image,
                     imageView = itemView.imageView)
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(news, bindingAdapterPosition)

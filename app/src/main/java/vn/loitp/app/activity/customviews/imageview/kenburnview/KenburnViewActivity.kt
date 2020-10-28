@@ -28,7 +28,7 @@ class KenburnViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LImageUtil.load(context = this, url = Constants.URL_IMG, imageView = kbv)
+        LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = kbv)
         kbv.setTransitionListener(object : LKenBurnsView.TransitionListener {
             override fun onTransitionEnd(LTransition: LTransition?) {
                 //

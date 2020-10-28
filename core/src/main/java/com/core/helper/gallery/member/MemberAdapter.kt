@@ -54,7 +54,7 @@ class MemberAdapter(private val context: Context, private val callback: Callback
             itemView.tvTitle.visibility = View.INVISIBLE
 
             LImageUtil.load(context = itemView.circleImageView.context,
-                    url = photo.urlO,
+                    any = photo.urlO,
                     imageView = itemView.circleImageView,
                     resPlaceHolder = color,
                     resError = color,

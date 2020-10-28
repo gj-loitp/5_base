@@ -47,7 +47,7 @@ class GirlDetailAdapter : AnimationAdapter() {
                 girlPageDetail.src
             }
             LImageUtil.load(context = itemView.imageView.context,
-                    url = src,
+                    any = src,
                     imageView = itemView.imageView,
                     resPlaceHolder = R.color.black,
                     resError = R.color.black,

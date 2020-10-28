@@ -59,7 +59,7 @@ class GirlSplashActivity : BaseFontActivity() {
         if (BuildConfig.DEBUG) {
             urlCoverSplashScreen = Constants.URL_IMG
         }
-        LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
+        LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
 //        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.BLACK)
 //        LUIUtil.setTextShadow(textView = tvName, color = Color.BLACK)
     }
