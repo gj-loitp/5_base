@@ -60,14 +60,20 @@ class LImageUtil {
             Glide.with(context).load(drawableRes).into(imageView)
         }
 
-        fun load(context: Context?, imageFile: File?, imageView: ImageView?) {
+        fun load(context: Context?,
+                 imageFile: File?,
+                 imageView: ImageView?
+        ) {
             if (context == null || imageFile == null || imageView == null) {
                 return
             }
             Glide.with(context).load(imageFile).into(imageView)
         }
 
-        fun load(context: Context?, uri: Uri?, imageView: ImageView?) {
+        fun load(context: Context?,
+                 uri: Uri?,
+                 imageView: ImageView?
+        ) {
             if (context == null || uri == null || imageView == null) {
                 return
             }
@@ -133,8 +139,8 @@ class LImageUtil {
         fun loadRound(
                 url: String?,
                 imageView: ImageView?,
-                roundingRadius: Int,
-                resPlaceHolder: Int,
+                roundingRadius: Int = 45,
+                resPlaceHolder: Int = R.color.colorPrimary,
                 requestListener: RequestListener<Drawable>? = null
         ) {
             if (url.isNullOrEmpty() || imageView == null) {
@@ -154,7 +160,9 @@ class LImageUtil {
 
         fun loadCircle(
                 url: String?,
-                imageView: ImageView?
+                imageView: ImageView?,
+                resPlaceHolder: Int = R.color.colorPrimary,
+                requestListener: RequestListener<Drawable>? = null
         ) {
             if (url.isNullOrEmpty() || imageView == null) {
                 return
@@ -164,7 +172,9 @@ class LImageUtil {
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .apply(
                             RequestOptions.circleCropTransform()
+                                    .placeholder(resPlaceHolder)
                     )
+                    .listener(requestListener)
                     .into(imageView)
         }
 
