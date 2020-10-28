@@ -162,23 +162,9 @@ class LImageUtil {
                 url: String?,
                 imageView: ImageView?,
                 resPlaceHolder: Int = R.color.colorPrimary,
+                resError: Int = R.color.red,
                 requestListener: RequestListener<Drawable>? = null
         ) {
-            if (url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(imageView.context)
-                    .load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(
-                            RequestOptions.circleCropTransform()
-                                    .placeholder(resPlaceHolder)
-                    )
-                    .listener(requestListener)
-                    .into(imageView)
-        }
-
-        fun loadCircle(url: String?, imageView: ImageView?, resPlaceHolder: Int, resError: Int) {
             if (url.isNullOrEmpty() || imageView == null) {
                 return
             }
@@ -191,8 +177,30 @@ class LImageUtil {
                                     .placeholder(resPlaceHolder)
                                     .error(resError)
                     )
+                    .listener(requestListener)
                     .into(imageView)
         }
+
+//        fun loadCircle(
+//                url: String?,
+//                imageView: ImageView?,
+//                resPlaceHolder: Int,
+//                resError: Int
+//        ) {
+//            if (url.isNullOrEmpty() || imageView == null) {
+//                return
+//            }
+//            Glide.with(imageView.context)
+//                    .load(url)
+//                    .transition(DrawableTransitionOptions.withCrossFade())
+//                    .apply(
+//                            RequestOptions
+//                                    .circleCropTransform()
+//                                    .placeholder(resPlaceHolder)
+//                                    .error(resError)
+//                    )
+//                    .into(imageView)
+//        }
 
         fun loadCircleImageResources(res: Int, imageView: ImageView?) {
             if (imageView == null) {
