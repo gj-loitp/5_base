@@ -134,7 +134,8 @@ class LImageUtil {
                 url: String?,
                 imageView: ImageView?,
                 roundingRadius: Int,
-                resPlaceHolder: Int
+                resPlaceHolder: Int,
+                requestListener: RequestListener<Drawable>? = null
         ) {
             if (url.isNullOrEmpty() || imageView == null) {
                 return
@@ -147,6 +148,7 @@ class LImageUtil {
                     .load(url)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .apply(requestOptions)
+                    .listener(requestListener)
                     .into(imageView)
         }
 
