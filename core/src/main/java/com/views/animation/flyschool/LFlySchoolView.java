@@ -61,7 +61,7 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
         if (drawableRes == 0) {
             try {
                 String urlGift = imgObject.getUrl();
-                LImageUtil.Companion.load(getContext(), urlGift, ivGift, new RequestListener<Drawable>() {
+                LImageUtil.Companion.load(getContext(), urlGift, ivGift, R.color.colorPrimary, new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;
@@ -79,7 +79,7 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
             LImageUtil.Companion.load(getContext(), drawableRes, ivGift);
         }
         String urlAvatar = imgObject.getAvatar();
-        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar, new RequestListener<Drawable>() {
+        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar, R.color.colorPrimary, new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 return false;

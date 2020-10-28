@@ -192,7 +192,7 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
                 String url = user.getPhotoUrl().toString();
                 //String url= FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl();
                 url = url.replace("/s96-c/", "/s300-c/");
-                LImageUtil.Companion.load(this, url, findViewById(R.id.google_icon), new RequestListener<Drawable>() {
+                LImageUtil.Companion.load(this, url, findViewById(R.id.google_icon), R.color.colorPrimary, new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;

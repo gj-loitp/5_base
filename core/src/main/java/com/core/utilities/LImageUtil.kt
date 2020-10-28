@@ -49,12 +49,27 @@ class LImageUtil {
 
         fun load(
                 context: Context?,
-                drawableRes: Int, imageView: ImageView?
+                drawableRes: Int,
+                imageView: ImageView?
         ) {
             if (context == null || imageView == null) {
                 return
             }
             Glide.with(context).load(drawableRes).into(imageView)
+        }
+
+        fun load(context: Context?, imageFile: File?, imageView: ImageView?) {
+            if (context == null || imageFile == null || imageView == null) {
+                return
+            }
+            Glide.with(context).load(imageFile).into(imageView)
+        }
+
+        fun load(context: Context?, uri: Uri?, imageView: ImageView?) {
+            if (context == null || uri == null || imageView == null) {
+                return
+            }
+            Glide.with(context).load(uri).into(imageView)
         }
 
 //        fun load(
@@ -73,25 +88,31 @@ class LImageUtil {
 //                    .into(imageView)
 //        }
 
+//        fun load(
+//                context: Context?,
+//                url: String?,
+//                imageView: ImageView?,
+//                requestListener: RequestListener<Drawable>? = null
+//        ) {
+//            if (context == null || url.isNullOrEmpty() || imageView == null) {
+//                return
+//            }
+//            Glide.with(context).load(url)
+//                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+//                    .apply(
+//                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+//                    )
+//                    .listener(requestListener)
+//                    .into(imageView)
+//        }
+
         fun load(
                 context: Context?,
                 url: String?,
                 imageView: ImageView?,
+                resPlaceHolder: Int = R.color.colorPrimary,
                 requestListener: RequestListener<Drawable>? = null
         ) {
-            if (context == null || url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            Glide.with(context).load(url)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
-                    .listener(requestListener)
-                    .into(imageView)
-        }
-
-        fun load(context: Context?, url: String?, imageView: ImageView?, resPlaceHolder: Int) {
             if (context == null || url.isNullOrEmpty() || imageView == null) {
                 return
             }
@@ -103,24 +124,16 @@ class LImageUtil {
                                     .placeholder(resPlaceHolder)
                                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     )
+                    .listener(requestListener)
                     .into(imageView)
         }
 
-        fun load(context: Context?, imageFile: File?, imageView: ImageView?) {
-            if (context == null || imageFile == null || imageView == null) {
-                return
-            }
-            Glide.with(context).load(imageFile).into(imageView)
-        }
-
-        fun load(context: Context?, uri: Uri?, imageView: ImageView?) {
-            if (context == null || uri == null || imageView == null) {
-                return
-            }
-            Glide.with(context).load(uri).into(imageView)
-        }
-
-        fun loadRound(url: String?, imageView: ImageView?, roundingRadius: Int, resPlaceHolder: Int) {
+        fun loadRound(
+                url: String?,
+                imageView: ImageView?,
+                roundingRadius: Int,
+                resPlaceHolder: Int
+        ) {
             if (url.isNullOrEmpty() || imageView == null) {
                 return
             }

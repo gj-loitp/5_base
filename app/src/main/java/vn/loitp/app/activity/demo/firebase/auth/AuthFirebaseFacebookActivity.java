@@ -167,7 +167,7 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
             LUIUtil.Companion.printBeautyJson(user, mDetailTextView);
 
             try {
-                LImageUtil.Companion.load(this, user.getPhotoUrl() + "?height=500", findViewById(R.id.icon), new RequestListener<Drawable>() {
+                LImageUtil.Companion.load(this, user.getPhotoUrl() + "?height=500", findViewById(R.id.icon), R.color.colorPrimary, new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;
