@@ -281,7 +281,7 @@ class LDialogUtil {
                             dialog.cancel()
                         }
                     })
-            val viewPager = dialog.findViewById<View>(R.id.vp) as ViewPager
+            val viewPager = dialog.findViewById<ViewPager>(R.id.vp)
             viewPager.adapter = slideAdapter
             if (index != 0) {
                 viewPager.currentItem = index
