@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_day_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,4 +16,3 @@
         tools:text="10" />
 
 </FrameLayout>
-

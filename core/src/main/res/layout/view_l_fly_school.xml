@@ -3,15 +3,15 @@
     android:layout_width="@dimen/w_200"
     android:layout_height="@dimen/w_120">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_gift"
         android:layout_width="@dimen/w_120"
         android:layout_height="@dimen/w_120" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_avatar"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/w_100" />
+        android:layout_marginStart="@dimen/w_100" />
 </RelativeLayout>

@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <!--Icon of floating widget -->
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/w_50"
                 android:layout_height="@dimen/w_50"
                 android:layout_marginTop="@dimen/margin_5"
@@ -27,7 +27,7 @@
                 tools:ignore="ContentDescription" />
 
             <!--Close button-->
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivClose"
                 android:layout_width="@dimen/w_20"
                 android:layout_height="@dimen/w_20"
@@ -52,7 +52,7 @@
                 android:orientation="horizontal"
                 android:padding="@dimen/padding_3">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -63,7 +63,7 @@
                     android:textSize="@dimen/txt_14"
                     android:textStyle="bold" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivCloseButton"
                     android:layout_width="@dimen/w_20"
                     android:layout_height="@dimen/w_20"

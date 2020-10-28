@@ -11,26 +11,26 @@
         android:layout_height="48dp"
         android:orientation="horizontal">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:paddingBottom="@dimen/space_1x"
-            android:paddingLeft="20dp"
-            android:paddingRight="@dimen/space_1x"
+            android:paddingStart="20dp"
             android:paddingTop="@dimen/space_1x"
+            android:paddingEnd="@dimen/space_1x"
+            android:paddingBottom="@dimen/space_1x"
             android:src="@drawable/ic_close_black_48dp" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|right"
-            android:paddingBottom="@dimen/space_1x"
-            android:paddingLeft="@dimen/space_1x"
-            android:paddingRight="20dp"
+            android:layout_gravity="center_vertical|end"
+            android:paddingStart="@dimen/space_1x"
             android:paddingTop="@dimen/space_1x"
+            android:paddingEnd="20dp"
+            android:paddingBottom="@dimen/space_1x"
             android:src="@drawable/ic_done_black_48dp" />
 
     </FrameLayout>

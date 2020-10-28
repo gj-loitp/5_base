@@ -21,7 +21,7 @@
             android:layout_weight="1"
             android:background="@color/default_border_color" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_month_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
