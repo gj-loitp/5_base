@@ -25,10 +25,12 @@ import com.core.common.Constants
 import com.utils.util.FileUtils
 import com.views.imageview.pinchtozoom.ImageMatrixTouchHandler
 import com.wang.avi.AVLoadingIndicatorView
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import java.io.File
 import java.util.*
 import kotlin.math.min
 
+//https://github.com/wasabeef/glide-transformations
 class LImageUtil {
     companion object {
         private val logTag = "LImageUtil"
@@ -138,7 +140,9 @@ class LImageUtil {
                 return
             }
             var requestOptions = RequestOptions()
-            requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(roundingRadius)).placeholder(resPlaceHolder)
+            requestOptions = requestOptions.transform(
+                    RoundedCornersTransformation(roundingRadius, 0, RoundedCornersTransformation.CornerType.BOTTOM)
+            ).placeholder(resPlaceHolder)
             Glide.with(imageView.context)
                     .load(url)
                     .transition(DrawableTransitionOptions.withCrossFade())
@@ -146,7 +150,10 @@ class LImageUtil {
                     .into(imageView)
         }
 
-        fun loadCircle(url: String?, imageView: ImageView?) {
+        fun loadCircle(
+                url: String?,
+                imageView: ImageView?
+        ) {
             if (url.isNullOrEmpty() || imageView == null) {
                 return
             }
