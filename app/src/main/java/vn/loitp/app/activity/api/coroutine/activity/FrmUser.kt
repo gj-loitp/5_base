@@ -10,6 +10,7 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.service.model.UserTest
 import com.views.setSafeOnClickListener
+import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.frm_coroutine_user.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
@@ -40,7 +41,12 @@ class FrmUser : BaseFragment() {
             val userTest = b.getSerializable(KEY_USER)
             if (userTest is UserTest) {
                 LUIUtil.printBeautyJson(o = userTest, textView = textView)
-                LImageUtil.loadCircle(url = userTest.avatar, imageView = imageView)
+                LImageUtil.load(
+                        context = activity,
+                        any = userTest.avatar,
+                        imageView = imageView,
+                        transformation = CropCircleWithBorderTransformation()
+                )
             }
         }
     }
