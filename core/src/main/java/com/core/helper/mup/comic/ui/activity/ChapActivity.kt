@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.ui.activity
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import com.R
@@ -16,6 +17,7 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
 
 @LogTag("ComicActivity")
@@ -68,6 +70,15 @@ class ChapActivity : BaseFontActivity() {
                         return false
                     }
                 })
+        LImageUtil.load(
+                context = this,
+                any = comic?.getImageSrc(),
+                imageView = ivAvatar,
+                resPlaceHolder = color,
+                resError = color,
+                transformation = CropCircleWithBorderTransformation(0, Color.TRANSPARENT),
+                drawableRequestListener = null
+        )
         fabLike.setSafeOnClickListener {
             //TODO
             showLongInformation(getString(R.string.coming_soon))
