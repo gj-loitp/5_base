@@ -15,6 +15,7 @@ import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
+import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
 
 @LogTag("ComicActivity")
@@ -51,11 +52,13 @@ class ChapActivity : BaseFontActivity() {
 
     private fun setupViews() {
         toolbar.title = comic?.title
-        LImageUtil.load(context = this,
+        LImageUtil.load(
+                context = this,
                 any = comic?.getImageSrc(),
                 imageView = imgCover,
                 resPlaceHolder = color,
                 resError = color,
+                transformation = BlurTransformation(25, 3),
                 drawableRequestListener = object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                         return false

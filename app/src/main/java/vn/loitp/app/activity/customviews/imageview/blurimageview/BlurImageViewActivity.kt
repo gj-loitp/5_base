@@ -44,12 +44,10 @@ class BlurImageViewActivity : BaseFontActivity() {
                 .Async(true)
                 .into(imageView)
 
-        //imageView2
-//        LImageUtil.load(context = this, url = Constants.URL_IMG_5, imageView = imageView2)
-
-        Glide.with(this)
-                .load(Constants.URL_IMG)
-                .apply(RequestOptions.bitmapTransform(BlurTransformation(25, 3)))
-                .into(imageView2)
+        LImageUtil.load(context = this,
+                any = Constants.URL_IMG_5,
+                imageView = imageView2,
+                transformation = BlurTransformation(25, 3)
+        )
     }
 }
