@@ -50,7 +50,7 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
 
     @Override
     public void setShape(int drawableRes) {
-        LImageUtil.Companion.load(getContext(), drawableRes, ivGift, R.color.colorPrimary, R.color.red, null);
+        LImageUtil.Companion.load(getContext(), drawableRes, ivGift, R.color.colorPrimary, R.color.red, null, null);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
         if (drawableRes == 0) {
             try {
                 String urlGift = imgObject.getUrl();
-                LImageUtil.Companion.load(getContext(), urlGift, ivGift, R.color.colorPrimary, R.color.red, new RequestListener<Drawable>() {
+                LImageUtil.Companion.load(getContext(), urlGift, ivGift, R.color.colorPrimary, R.color.red, null, new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;
@@ -76,10 +76,10 @@ public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
                 e.printStackTrace();
             }
         } else {
-            LImageUtil.Companion.load(getContext(), drawableRes, ivGift, R.color.colorPrimary, R.color.red, null);
+            LImageUtil.Companion.load(getContext(), drawableRes, ivGift, R.color.colorPrimary, R.color.red, null, null);
         }
         String urlAvatar = imgObject.getAvatar();
-        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar, R.color.colorPrimary, R.color.red, new RequestListener<Drawable>() {
+        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar, R.color.colorPrimary, R.color.red, null, new RequestListener<Drawable>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                 return false;

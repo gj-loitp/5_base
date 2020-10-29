@@ -11,6 +11,7 @@ import android.widget.ImageView
 import androidx.exifinterface.media.ExifInterface
 import com.R
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.Transformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
@@ -262,45 +263,53 @@ class LImageUtil {
                  imageView: ImageView?,
                  resPlaceHolder: Int = R.color.colorPrimary,
                  resError: Int = R.color.red,
+                 transformation: Transformation<Bitmap>? = null,
                  drawableRequestListener: RequestListener<Drawable>? = null) {
 
             if (context == null || any == null || imageView == null) {
                 return
             }
+            val requestOptions = if (transformation == null) {
+                RequestOptions()
+                        .placeholder(resPlaceHolder)
+                        .error(resError)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+            } else {
+                RequestOptions()
+                        .placeholder(resPlaceHolder)
+                        .error(resError)
+                        .transform(transformation)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+            }
             Glide.with(context)
                     .load(any)
                     //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(
-                            RequestOptions()
-                                    .placeholder(resPlaceHolder)
-                                    .error(resError)
-                                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    )
+                    .apply(requestOptions)
                     .listener(drawableRequestListener)
                     .into(imageView)
         }
 
-        fun loadRound(
-                url: String?,
-                imageView: ImageView?,
-                roundingRadius: Int = 45,
-                resPlaceHolder: Int = R.color.colorPrimary,
-                requestListener: RequestListener<Drawable>? = null
-        ) {
-            if (url.isNullOrEmpty() || imageView == null) {
-                return
-            }
-            var requestOptions = RequestOptions()
-            requestOptions = requestOptions.transform(
-                    RoundedCornersTransformation(roundingRadius, 0, RoundedCornersTransformation.CornerType.BOTTOM)
-            ).placeholder(resPlaceHolder)
-            Glide.with(imageView.context)
-                    .load(url)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .apply(requestOptions)
-                    .listener(requestListener)
-                    .into(imageView)
-        }
+//        fun loadRound(
+//                url: String?,
+//                imageView: ImageView?,
+//                roundingRadius: Int = 45,
+//                resPlaceHolder: Int = R.color.colorPrimary,
+//                requestListener: RequestListener<Drawable>? = null
+//        ) {
+//            if (url.isNullOrEmpty() || imageView == null) {
+//                return
+//            }
+//            var requestOptions = RequestOptions()
+//            requestOptions = requestOptions.transform(
+//                    RoundedCornersTransformation(roundingRadius, 0, RoundedCornersTransformation.CornerType.BOTTOM)
+//            ).placeholder(resPlaceHolder)
+//            Glide.with(imageView.context)
+//                    .load(url)
+//                    .transition(DrawableTransitionOptions.withCrossFade())
+//                    .apply(requestOptions)
+//                    .listener(requestListener)
+//                    .into(imageView)
+//        }
 
         fun loadCircle(
                 url: String?,
