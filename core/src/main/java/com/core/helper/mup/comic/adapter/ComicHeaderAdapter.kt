@@ -11,6 +11,7 @@ import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
+import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 
 @LogTag("GirlHeaderAdapter")
@@ -27,19 +28,24 @@ class ComicHeaderAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(comic: Comic) {
-            LImageUtil.load(context = itemView.imageView.context,
+            LImageUtil.load(
+                    context = itemView.imageView.context,
                     any = comic.getImageSrc(),
                     imageView = itemView.imageView,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
-                    drawableRequestListener = null)
+                    drawableRequestListener = null,
+                    transformation = BlurTransformation(25)
+            )
 
-            LImageUtil.load(context = itemView.ivAvatar.context,
+            LImageUtil.load(
+                    context = itemView.ivAvatar.context,
                     any = comic.getImageSrc(),
                     imageView = itemView.ivAvatar,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
-                    drawableRequestListener = null)
+                    drawableRequestListener = null
+            )
 
             itemView.tvTitle.text = comic.title
 

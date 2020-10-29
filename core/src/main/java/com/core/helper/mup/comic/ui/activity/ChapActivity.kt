@@ -58,7 +58,7 @@ class ChapActivity : BaseFontActivity() {
                 imageView = imgCover,
                 resPlaceHolder = color,
                 resError = color,
-                transformation = BlurTransformation(25, 3),
+                transformation = BlurTransformation(25),
                 drawableRequestListener = object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                         return false
