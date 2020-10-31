@@ -27,7 +27,7 @@ class ChapAdapter : AnimationAdapter() {
         fun bind(chap: Chap) {
             itemView.tvChap.text = chap.title
 
-            itemView.cardView.setOnClickListener {
+            itemView.layoutRoot.setOnClickListener {
                 onClickRoot?.invoke(chap)
             }
         }
