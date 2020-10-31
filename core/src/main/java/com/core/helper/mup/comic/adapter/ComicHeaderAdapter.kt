@@ -14,13 +14,14 @@ import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 
-@LogTag("GirlHeaderAdapter")
+@LogTag("loitppGirlHeaderAdapter")
 class ComicHeaderAdapter : AnimationAdapter() {
 
     private var comic: Comic? = null
     var onClickRoot: ((Comic) -> Unit)? = null
 
     fun setData(comic: Comic) {
+        logD("setData " + comic.title)
         this.comic = comic
         notifyDataSetChanged()
     }

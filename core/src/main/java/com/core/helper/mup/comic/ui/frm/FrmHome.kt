@@ -51,7 +51,6 @@ class FrmHome : BaseFragment() {
         setupViewModels()
 
         comicViewModel?.postCategorySelected(Category.getCategoryAll())
-        getListComic(isSwipeToRefresh = false)
     }
 
     private fun getListComic(isSwipeToRefresh: Boolean) {
@@ -190,6 +189,8 @@ class FrmHome : BaseFragment() {
 //                        indicatorView.smoothToHide()
 //                    }
 //                }
+
+                logD("listComicActionLiveData observe isDoing $isDoing, isSuccess $isSuccess")
 
                 if (isDoing == false && isSuccess == true) {
                     val listComic = actionData.data

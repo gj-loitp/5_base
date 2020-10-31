@@ -32,7 +32,7 @@ class ComicViewModel : BaseComicViewModel() {
 
     fun getListComic(pageIndex: Int, keyword: String?, isSwipeToRefresh: Boolean) {
         listComicActionLiveData.set(ActionData(isDoing = true))
-//        logD(">>>getListComic pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
+        logD(">>>getListComic pageIndex $pageIndex, keyword $keyword, isSwipeToRefresh $isSwipeToRefresh")
         ioScope.launch {
             val response = repository.getListComic(
                     pageIndex = pageIndex,
