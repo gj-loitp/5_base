@@ -36,8 +36,8 @@
                     android:id="@+id/ivAvatar"
                     android:layout_width="@dimen/w_150"
                     android:layout_height="@dimen/w_150"
-                    app:layout_collapseMode="parallax"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    app:layout_collapseMode="parallax" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -69,9 +69,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             android:contentDescription="@string/app_name"
+            app:backgroundTint="?attr/themeTextColor"
             app:layout_anchor="@id/appBarLayout"
             app:layout_anchorGravity="bottom|end"
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+            app:srcCompat="@raw/like"
+            app:tint="?attr/themeBackgroundColor" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>

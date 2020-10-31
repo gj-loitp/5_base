@@ -80,7 +80,7 @@ class ChapActivity : BaseFontActivity() {
                 drawableRequestListener = null
         )
         fabLike.setSafeOnClickListener {
-            //TODO
+            //TODO loitpp iplm
             showLongInformation(getString(R.string.coming_soon))
         }
     }
