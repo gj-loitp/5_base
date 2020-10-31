@@ -130,7 +130,7 @@ class ComicViewModel : BaseComicViewModel() {
             val response = repository.getListChapByComicId(
                     comicId = comicId, pageIndex = pageIndex
             )
-            logD("<<<getChapterByComicId " + BaseApplication.gson.toJson(response))
+//            logD("<<<getChapterByComicId " + BaseApplication.gson.toJson(response))
             if (response.items == null || response.isSuccess == false) {
                 listChapActionLiveData.postAction(
                         getErrorRequestComic(response)

@@ -7,29 +7,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
-import com.core.helper.mup.comic.model.Category
+import com.core.helper.mup.comic.model.Chap
 import kotlinx.android.synthetic.main.view_row_comic_chap.view.*
 
 @LogTag("CategoryAdapter")
 class ChapAdapter : AnimationAdapter() {
 
-    private val listCategory = ArrayList<Category>()
+    private val listChap = ArrayList<Chap>()
 
-    fun setListData(listCategory: List<Category>) {
-        this.listCategory.clear()
-        this.listCategory.addAll(listCategory)
+    fun setListData(listChap: List<Chap>) {
+        this.listChap.clear()
+        this.listChap.addAll(listChap)
         notifyDataSetChanged()
     }
 
-    var onClickRoot: ((Category) -> Unit)? = null
+    var onClickRoot: ((Chap) -> Unit)? = null
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(category: Category) {
-            itemView.tvCategory.text = category.title
+        fun bind(chap: Chap) {
+            itemView.tvChap.text = chap.title
 
             itemView.cardView.setOnClickListener {
-                onClickRoot?.invoke(category)
+                onClickRoot?.invoke(chap)
             }
         }
     }
@@ -40,11 +40,11 @@ class ChapAdapter : AnimationAdapter() {
                     false
             ))
 
-    override fun getItemCount(): Int = listCategory.size
+    override fun getItemCount(): Int = listChap.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ViewHolder) {
-            holder.bind(category = listCategory[position])
+            holder.bind(chap = listChap[position])
         }
     }
 
