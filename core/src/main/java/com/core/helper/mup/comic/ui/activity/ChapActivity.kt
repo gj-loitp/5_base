@@ -3,6 +3,7 @@ package com.core.helper.mup.comic.ui.activity
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
@@ -12,7 +13,9 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.core.base.BaseFontActivity
+import com.core.helper.mup.comic.adapter.ChapAdapter
 import com.core.helper.mup.comic.model.Comic
+import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
@@ -35,6 +38,9 @@ class ChapActivity : BaseFontActivity() {
     } else {
         R.color.whiteSmoke
     }
+    private var chapAdapter: ChapAdapter? = null
+    private var comicViewModel: ComicViewModel? = null
+    private var pageIndex = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +48,9 @@ class ChapActivity : BaseFontActivity() {
 
         setupData()
         setupViews()
+        setupViewModels()
+
+        comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = pageIndex)
     }
 
     private fun setupData() {
@@ -85,4 +94,36 @@ class ChapActivity : BaseFontActivity() {
         }
     }
 
+    private fun setupViewModels() {
+        comicViewModel = getViewModel(ComicViewModel::class.java)
+        comicViewModel?.let { vm ->
+            vm.listChapActionLiveData.observe(this, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+
+                if (isDoing == false && isSuccess == true) {
+//                    val listChap = actionData.data
+//                    if (listChap.isNullOrEmpty()) {
+//                        if (currentPageIndex == 0) {
+//                            tvNoData.visibility = View.VISIBLE
+//                            recyclerView.visibility = View.GONE
+//                        }
+//                        comicProgressAdapter?.let {
+//                            concatAdapter?.removeAdapter(it)
+//                        }
+//                    } else {
+//                        totalPage = actionData.totalPages ?: 0
+//
+//                        tvNoData.visibility = View.GONE
+//                        recyclerView.visibility = View.VISIBLE
+//                        comicProgressAdapter?.let {
+//                            concatAdapter?.removeAdapter(it)
+//                        }
+//                        comicHeaderAdapter?.setData(comic = listChap.random())
+//                        comicAdapter?.setData(listComic = listChap, isSwipeToRefresh = isSwipeToRefresh)
+//                    }
+                }
+            })
+        }
+    }
 }

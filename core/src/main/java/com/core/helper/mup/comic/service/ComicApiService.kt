@@ -1,9 +1,6 @@
 package com.core.helper.mup.comic.service
 
-import com.core.helper.mup.comic.model.Category
-import com.core.helper.mup.comic.model.Comic
-import com.core.helper.mup.comic.model.Login
-import com.core.helper.mup.comic.model.RequestLogin
+import com.core.helper.mup.comic.model.*
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.*
@@ -33,4 +30,11 @@ interface ComicApiService {
     @GET("category/")
     fun getListCategoryAsync(
     ): Deferred<Response<ComicApiResponse<List<Category>>>>
+
+    @GET("chapters/{comicId}/")
+    fun getListChapByComicIdAsync(
+            @Path("comicId") comicId: String?,
+            @Query("PageIndex") pageIndex: Int,
+            @Query("PageSize") pageSize: Int
+    ): Deferred<Response<ComicApiResponse<List<Chap>>>>
 }

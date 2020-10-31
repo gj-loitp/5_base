@@ -1,9 +1,6 @@
 package com.core.helper.mup.comic.service
 
-import com.core.helper.mup.comic.model.Category
-import com.core.helper.mup.comic.model.Comic
-import com.core.helper.mup.comic.model.Login
-import com.core.helper.mup.comic.model.RequestLogin
+import com.core.helper.mup.comic.model.*
 
 /**
  * Created by Loitp on 24,December,2019
@@ -50,6 +47,17 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
     suspend fun getListCategory(
     ): ComicApiResponse<List<Category>> = makeApiCall {
         comicApiService.getListCategoryAsync(
+        ).await()
+    }
+
+    suspend fun getListChapByComicId(
+            comicId: String?,
+            pageIndex: Int
+    ): ComicApiResponse<List<Chap>> = makeApiCall {
+        comicApiService.getListChapByComicIdAsync(
+                comicId = comicId,
+                pageIndex = pageIndex,
+                pageSize = ComicApiConfiguration.PAGE_SIZE
         ).await()
     }
 }
