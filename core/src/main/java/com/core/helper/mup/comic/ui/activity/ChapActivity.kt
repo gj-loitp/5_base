@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -20,20 +21,20 @@ import com.core.helper.mup.comic.adapter.ChapAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.interfaces.CallbackRecyclerView
+import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
-import kotlinx.android.synthetic.main.l_activity_comic_chap.tvNoData
-import kotlinx.android.synthetic.main.l_bottom_sheet_category_fragment.recyclerView
-import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
+@IsSwipeActivity(true)
 class ChapActivity : BaseFontActivity() {
 
     companion object {
@@ -123,7 +124,7 @@ class ChapActivity : BaseFontActivity() {
                             if (currentPageIndex < totalPage) {
                                 currentPageIndex++
                                 concatAdapter.addAdapter(comicProgressAdapter)
-                                recyclerView.smoothScrollToPosition(concatAdapter.itemCount - 1)
+                                rvComicChap.smoothScrollToPosition(concatAdapter.itemCount - 1)
 
                                 comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
                             }
@@ -131,11 +132,6 @@ class ChapActivity : BaseFontActivity() {
                     }
 
                     override fun onScrolled(isScrollDown: Boolean) {
-                        if (isScrollDown) {
-                            fabCategory.shrink()
-                        } else {
-                            fabCategory.extend()
-                        }
                     }
                 })
 
@@ -143,6 +139,17 @@ class ChapActivity : BaseFontActivity() {
             //TODO loitpp iplm
             showLongInformation(getString(R.string.coming_soon))
         }
+        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            }
+
+            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                    LActivityUtil.transActivityNoAnimation(this@ChapActivity)
+                }
+            }
+        })
     }
 
     private fun setupViewModels() {

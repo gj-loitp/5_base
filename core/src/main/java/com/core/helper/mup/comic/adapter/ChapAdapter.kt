@@ -16,7 +16,6 @@ class ChapAdapter : AnimationAdapter() {
     private val listChap = ArrayList<Chap>()
 
     fun setListData(listChap: List<Chap>) {
-        this.listChap.clear()
         this.listChap.addAll(listChap)
         notifyDataSetChanged()
     }
