@@ -49,7 +49,7 @@ class ChapActivity : BaseFontActivity() {
     }
     private var concatAdapter = ConcatAdapter()
     private var chapAdapter: ChapAdapter? = null
-    private var comicProgressAdapter = ComicProgressAdapter()
+    private var comicProgressAdapter = ComicProgressAdapter(150)
     private var comicViewModel: ComicViewModel? = null
     private var currentPageIndex = 0
     private var totalPage = Int.MAX_VALUE
