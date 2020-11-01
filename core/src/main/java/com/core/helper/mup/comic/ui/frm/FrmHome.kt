@@ -17,7 +17,7 @@ import com.core.helper.mup.comic.adapter.ComicHeaderAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.model.Comic
-import com.core.helper.mup.comic.ui.activity.ChapActivity
+import com.core.helper.mup.comic.ui.activity.ComicChapActivity
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDeviceUtil
@@ -243,8 +243,8 @@ class FrmHome : BaseFragment() {
     }
 
     private fun goToComicChapScreen(comic: Comic) {
-        val intent = Intent(context, ChapActivity::class.java)
-        intent.putExtra(ChapActivity.KEY_COMIC, comic)
+        val intent = Intent(context, ComicChapActivity::class.java)
+        intent.putExtra(ComicChapActivity.KEY_COMIC, comic)
         startActivity(intent)
         LActivityUtil.tranIn(context)
     }

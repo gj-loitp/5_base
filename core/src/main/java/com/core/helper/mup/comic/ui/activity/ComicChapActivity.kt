@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.ui.activity
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -35,7 +36,7 @@ import kotlinx.android.synthetic.main.l_activity_comic_chap.*
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
 @IsSwipeActivity(true)
-class ChapActivity : BaseFontActivity() {
+class ComicChapActivity : BaseFontActivity() {
 
     companion object {
         const val KEY_COMIC = "KEY_COMIC"
@@ -102,6 +103,12 @@ class ChapActivity : BaseFontActivity() {
         )
         chapAdapter = ChapAdapter()
         chapAdapter?.let {
+            it.onClickRoot = { chap ->
+                val intent = Intent(this, ComicReadActivity::class.java)
+                intent.putExtra(ComicReadActivity.KEY_CHAP, chap)
+                startActivity(intent)
+                LActivityUtil.tranIn(this)
+            }
             concatAdapter.addAdapter(it)
         }
         concatAdapter.addAdapter(comicProgressAdapter)
@@ -146,7 +153,7 @@ class ChapActivity : BaseFontActivity() {
             override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
-                    LActivityUtil.transActivityNoAnimation(this@ChapActivity)
+                    LActivityUtil.transActivityNoAnimation(this@ComicChapActivity)
                 }
             }
         })
