@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_layout_zoom.*
 import vn.loitp.app.R
 
 //read more
-//https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282
+//https://github.com/natario1/ZoomLayout
 
 @LayoutId(R.layout.activity_layout_zoom)
 @LogTag("ZoomLayoutActivity")
