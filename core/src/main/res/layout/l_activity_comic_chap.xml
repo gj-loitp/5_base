@@ -67,16 +67,15 @@
                 android:paddingTop="@dimen/padding_small"
                 android:paddingBottom="@dimen/padding_small" />
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvNoData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/w_50"
-                android:gravity="center"
-                android:text="@string/no_data"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_medium"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieAnimationViewNoData"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/w_250"
+                android:layout_marginTop="@dimen/margin_50"
                 android:visibility="gone"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/error_404_page"
                 tools:visibility="visible" />
 
         </FrameLayout>

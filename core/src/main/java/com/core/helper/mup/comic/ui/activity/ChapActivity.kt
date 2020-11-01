@@ -163,14 +163,14 @@ class ChapActivity : BaseFontActivity() {
                     val listChap = actionData.data
                     if (listChap.isNullOrEmpty()) {
                         if (currentPageIndex == 0) {
-                            tvNoData.visibility = View.VISIBLE
+                            lottieAnimationViewNoData.visibility = View.VISIBLE
                             rvComicChap.visibility = View.GONE
                         }
                         concatAdapter.removeAdapter(comicProgressAdapter)
                     } else {
                         totalPage = actionData.totalPages ?: 0
 
-                        tvNoData.visibility = View.GONE
+                        lottieAnimationViewNoData.visibility = View.GONE
                         rvComicChap.visibility = View.VISIBLE
                         concatAdapter.removeAdapter(comicProgressAdapter)
                         chapAdapter?.setListData(listChap = listChap)
