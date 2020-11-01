@@ -9,5 +9,36 @@
     app:maskAlpha="125"
     app:swipeBackFactor="0.5">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/themeBackgroundColor">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvComicRead"
+            style="@style/ScrollVertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/indicatorView"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/w_40"
+            android:layout_height="@dimen/w_40"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="@dimen/margin_medium"
+            app:indicatorColor="?attr/themeTextColor"
+            app:indicatorName="BallClipRotatePulseIndicator" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNoData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/no_data"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
+
+    </RelativeLayout>
 
 </com.views.layout.swipeback.SwipeBackLayout>
