@@ -10,7 +10,7 @@
     app:shape_arc_position="bottom"
     tools:ignore="UnusedAttribute">
 
-    <com.views.imageview.kenburnview.LKenBurnsView
+    <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_250"

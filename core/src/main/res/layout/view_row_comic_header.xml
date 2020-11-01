@@ -7,7 +7,7 @@
     android:paddingTop="?android:attr/actionBarSize"
     tools:ignore="UnusedAttribute">
 
-    <com.views.imageview.kenburnview.LKenBurnsView
+    <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_250"

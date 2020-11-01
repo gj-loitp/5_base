@@ -98,6 +98,7 @@ dependencies {
     api 'com.bogdwellers:pinchtozoom:0.1'//https://github.com/martinwithaar/PinchToZoom
     api 'com.github.st235:expandablebottombar:1.3.0'//bottom bar
     api 'com.otaliastudios:zoomlayout:1.8.0'//https://github.com/natario1/ZoomLayout
+    api 'com.flaviofaria:kenburnsview:1.0.7'//https://github.com/flavioarfaria/KenBurnsView
 
     //endregion
 

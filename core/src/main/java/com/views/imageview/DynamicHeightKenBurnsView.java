@@ -1,9 +1,11 @@
-package com.views.imageview.kenburnview;
+package com.views.imageview;
 
 import android.content.Context;
 import android.util.AttributeSet;
 
-public class DynamicHeightKenBurnsView extends LKenBurnsView {
+import com.flaviofaria.kenburnsview.KenBurnsView;
+
+public class DynamicHeightKenBurnsView extends KenBurnsView {
     private float mAspectRatio = 1.5f;
 
     public DynamicHeightKenBurnsView(Context context) {

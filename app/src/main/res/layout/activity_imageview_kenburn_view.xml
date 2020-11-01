@@ -9,7 +9,7 @@
         style="@style/TextMenu"
         android:text="Kenburn View" />
 
-    <com.views.imageview.kenburnview.LKenBurnsView
+    <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/kbv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
