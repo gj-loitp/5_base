@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <com.views.imageview.pinchtozoom.view.ImageViewPager
+    <com.bogdwellers.pinchtozoom.view.ImageViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
