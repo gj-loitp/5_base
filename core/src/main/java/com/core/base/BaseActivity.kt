@@ -80,7 +80,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isFullScreen) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
 
-            //TODO revert if android R
+            //TODO loitpp revert if android R
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
 //                window.insetsController?.hide(WindowInsets.Type.statusBars())
 //            } else {

@@ -18,7 +18,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 //TODO demo -> youtube parser ko vao list video dc
 //TODO demo -> floating view crash
 //TODO demo firebase -> auth
-//TODO demo firebase -> database simple crash
 //TODO service -> ko stop service dc
 //TODO database -> read sqlite dtb crash
 

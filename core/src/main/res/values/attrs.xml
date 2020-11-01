@@ -769,7 +769,6 @@
         <attr name="splitterBackground" format="reference|color" />
         <attr name="splitterDraggingBackground" format="reference|color" />
         <attr name="splitterTouchSlop" format="dimension" />
-        <!-- TODO: Also support fraction values-->
         <attr name="splitterPanelSizeMin" format="dimension" />
     </declare-styleable>
 
