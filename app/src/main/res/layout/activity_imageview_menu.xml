@@ -31,11 +31,6 @@
                 android:text="@string/big_imageview_with_scrollview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btBlurImageView"
-                style="@style/ButtonMenu"
-                android:text="@string/blur_imageview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCirleImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/circle_imageview" />

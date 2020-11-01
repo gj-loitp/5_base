@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.activity_imageview_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity
-import vn.loitp.app.activity.customviews.imageview.blurimageview.BlurImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity
@@ -37,8 +36,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
-        btBlurImageView.setOnClickListener(this)
+    private fun setupViews() {
         btCirleImageView.setOnClickListener(this)
         btStretchyImageView.setOnClickListener(this)
         btTouchImageView.setOnClickListener(this)
@@ -57,7 +55,6 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btBlurImageView -> intent = Intent(this, BlurImageViewActivity::class.java)
             btCirleImageView -> intent = Intent(this, CircleImageViewActivity::class.java)
             btStretchyImageView -> intent = Intent(this, StrectchyImageViewActivity::class.java)
             btTouchImageView -> intent = Intent(this, TouchImageViewActivity::class.java)
