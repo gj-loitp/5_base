@@ -8,8 +8,8 @@ import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.edittext.autosuggest.LAutoSuggestEditText
-import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -31,8 +31,8 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     private fun setupViews() {
         aet0.apply {
             this.popupHeight = LScreenUtil.screenHeight / 2
-            this.vertPos = LRelativePopupWindow.VerticalPosition.BELOW
-            this.horizPos = LRelativePopupWindow.HorizontalPosition.CENTER
+            this.vertPos = RelativePopupWindow.VerticalPosition.BELOW
+            this.horizPos = RelativePopupWindow.HorizontalPosition.CENTER
             this.setHintText("1/2 screen")
             this.setHinTextColor(Color.BLUE)
             this.editText.setTextColor(Color.YELLOW)
@@ -51,8 +51,8 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet1.apply {
             this.popupWidth = LScreenUtil.screenWidth * 1 / 2
             this.popupHeight = LScreenUtil.screenHeight * 1 / 4
-            this.vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
-            this.horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT
+            this.vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
+            this.horizPos = RelativePopupWindow.HorizontalPosition.RIGHT
             this.setHintText("3/4 screen")
             this.setHinTextColor(Color.RED)
             this.editText.setTextColor(Color.BLUE)

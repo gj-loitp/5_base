@@ -13,12 +13,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow;
 import com.views.LToast;
-import com.views.layout.relativepopupwindow.LRelativePopupWindow;
 
 import vn.loitp.app.R;
 
-public class ExampleCardPopupL extends LRelativePopupWindow {
+public class ExampleCardPopupL extends RelativePopupWindow {
 
     ExampleCardPopupL(Context context) {
         View layout = LayoutInflater.from(context).inflate(R.layout.popup_card, null);

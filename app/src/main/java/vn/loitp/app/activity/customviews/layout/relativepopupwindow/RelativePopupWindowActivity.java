@@ -11,7 +11,7 @@ import com.annotation.IsFullScreen;
 import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
-import com.views.layout.relativepopupwindow.LRelativePopupWindow;
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow;
 
 import vn.loitp.app.R;
 
@@ -97,19 +97,19 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
             final int vertPos;
             switch (spinner_vertical.getSelectedItemPosition()) {
                 case 0:
-                    vertPos = LRelativePopupWindow.VerticalPosition.ABOVE;
+                    vertPos = RelativePopupWindow.VerticalPosition.ABOVE;
                     break;
                 case 1:
-                    vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_BOTTOM;
+                    vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM;
                     break;
                 case 2:
-                    vertPos = LRelativePopupWindow.VerticalPosition.CENTER;
+                    vertPos = RelativePopupWindow.VerticalPosition.CENTER;
                     break;
                 case 3:
-                    vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_TOP;
+                    vertPos = RelativePopupWindow.VerticalPosition.ALIGN_TOP;
                     break;
                 case 4:
-                    vertPos = LRelativePopupWindow.VerticalPosition.BELOW;
+                    vertPos = RelativePopupWindow.VerticalPosition.BELOW;
                     break;
                 default:
                     throw new IllegalStateException();
@@ -117,19 +117,19 @@ public class RelativePopupWindowActivity extends BaseFontActivity {
             final int horizPos;
             switch (spinner_horizontal.getSelectedItemPosition()) {
                 case 0:
-                    horizPos = LRelativePopupWindow.HorizontalPosition.LEFT;
+                    horizPos = RelativePopupWindow.HorizontalPosition.LEFT;
                     break;
                 case 1:
-                    horizPos = LRelativePopupWindow.HorizontalPosition.ALIGN_RIGHT;
+                    horizPos = RelativePopupWindow.HorizontalPosition.ALIGN_RIGHT;
                     break;
                 case 2:
-                    horizPos = LRelativePopupWindow.HorizontalPosition.CENTER;
+                    horizPos = RelativePopupWindow.HorizontalPosition.CENTER;
                     break;
                 case 3:
-                    horizPos = LRelativePopupWindow.HorizontalPosition.ALIGN_LEFT;
+                    horizPos = RelativePopupWindow.HorizontalPosition.ALIGN_LEFT;
                     break;
                 case 4:
-                    horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT;
+                    horizPos = RelativePopupWindow.HorizontalPosition.RIGHT;
                     break;
                 default:
                     throw new IllegalStateException();

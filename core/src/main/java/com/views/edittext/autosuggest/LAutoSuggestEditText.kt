@@ -10,7 +10,7 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import com.R
 import com.core.utilities.LUIUtil
-import com.views.layout.relativepopupwindow.LRelativePopupWindow
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 
 class LAutoSuggestEditText : RelativeLayout {
     private val logTag = javaClass.simpleName
@@ -21,8 +21,8 @@ class LAutoSuggestEditText : RelativeLayout {
     private var resultList = ArrayList<String>()
     private var popupSuggestPopupView: LSuggestPopupView? = null
 
-    var vertPos: Int = LRelativePopupWindow.VerticalPosition.BELOW
-    var horizPos: Int = LRelativePopupWindow.HorizontalPosition.CENTER
+    var vertPos: Int = RelativePopupWindow.VerticalPosition.BELOW
+    var horizPos: Int = RelativePopupWindow.HorizontalPosition.CENTER
     var popupWidth: Int = 0
     var popupHeight: Int = 0
 
