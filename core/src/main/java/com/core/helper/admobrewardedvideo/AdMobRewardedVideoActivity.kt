@@ -70,7 +70,10 @@ class AdMobRewardedVideoActivity : BaseFontActivity() {
         val adLoadCallback: RewardedAdLoadCallback = object : RewardedAdLoadCallback() {
             override fun onRewardedAdLoaded() {
                 logD("onRewardedAdLoaded")
-                displayRewardAd()
+//                displayRewardAd()
+                textView.setText(R.string.open_gift)
+                LAnimationUtil.play(view = rootView, techniques = Techniques.Pulse)
+                animationViewGift.playAnimation()
             }
 
             @SuppressLint("SetTextI18n")
@@ -88,9 +91,6 @@ class AdMobRewardedVideoActivity : BaseFontActivity() {
 
                 override fun onUserEarnedReward(p0: com.google.android.gms.ads.rewarded.RewardItem) {
                     logD("onUserEarnedReward")
-                    textView.setText(R.string.open_gift)
-                    LAnimationUtil.play(rootView, Techniques.Pulse)
-                    animationViewGift.playAnimation()
                 }
 
                 override fun onRewardedAdOpened() {

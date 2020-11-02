@@ -10,8 +10,8 @@ import com.core.utilities.LActivityUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu_ads.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity
-import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity
+import vn.loitp.app.activity.ads.admobbanner.AdMobBannerActivity
+import vn.loitp.app.activity.ads.admobinterstitial.AdMobInterstitialActivity
 
 @LogTag("MenuAdsActivity")
 @IsFullScreen(false)
@@ -25,12 +25,12 @@ class MenuAdsActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         bt1.setSafeOnClickListener {
-            val intent = Intent(this, AdmobBannerActivity::class.java)
+            val intent = Intent(this, AdMobBannerActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
         bt2.setSafeOnClickListener {
-            val intent = Intent(this, AdmobInterstitialActivity::class.java)
+            val intent = Intent(this, AdMobInterstitialActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }

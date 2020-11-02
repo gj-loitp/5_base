@@ -190,10 +190,10 @@
             android:name=".activity.ads.MenuAdsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.ads.admobbanner.AdmobBannerActivity"
+            android:name=".activity.ads.admobbanner.AdMobBannerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.ads.admobinterstitial.AdmobInterstitialActivity"
+            android:name=".activity.ads.admobinterstitial.AdMobInterstitialActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.ripplelayout.RippleLayoutActivity"
