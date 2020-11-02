@@ -18,9 +18,9 @@ import com.views.LToast;
 
 import vn.loitp.app.R;
 
-public class ExampleCardPopupL extends RelativePopupWindow {
+public class ExampleCardPopup extends RelativePopupWindow {
 
-    ExampleCardPopupL(Context context) {
+    ExampleCardPopup(Context context) {
         View layout = LayoutInflater.from(context).inflate(R.layout.popup_card, null);
         setContentView(layout);
         setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
