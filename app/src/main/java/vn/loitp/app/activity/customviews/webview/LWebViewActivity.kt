@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
@@ -13,10 +12,13 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_web_view.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_web_view)
 @LogTag("LWebViewActivity")
 @IsFullScreen(false)
 class LWebViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_web_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

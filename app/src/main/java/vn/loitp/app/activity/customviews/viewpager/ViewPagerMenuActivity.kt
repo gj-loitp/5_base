@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -18,10 +17,13 @@ import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxVi
 import vn.loitp.app.activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity
 import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity
 
-@LayoutId(R.layout.activity_view_pager_menu)
 @LogTag("ViewPagerMenuActivity")
 @IsFullScreen(false)
 class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_view_pager_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

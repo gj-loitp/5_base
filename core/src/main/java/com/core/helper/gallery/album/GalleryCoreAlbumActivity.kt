@@ -37,9 +37,12 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     private var listRemoveAlbum = ArrayList<String>()
     private var adView: AdView? = null
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_flickr_gallery_core_album
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView( R.layout.l_activity_flickr_gallery_core_album)
 
         intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
@@ -151,9 +154,9 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         }
                     }
 
-                    listPhotoSet.sortWith(Comparator { o1, o2 ->
+                    listPhotoSet.sortWith { o1, o2 ->
                         java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
-                    })
+                    }
                     updateAllViews()
                     indicatorView.smoothToHide()
                 }, { throwable ->

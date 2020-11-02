@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.appinvite.AppInviteInvitation;
@@ -24,13 +23,18 @@ import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
 
-@LayoutId(R.layout.activity_invite_firebase)
+//TODO api deprecated
 @LogTag("InviteFirebaseActivity")
 @IsFullScreen(false)
 public class InviteFirebaseActivity extends BaseFontActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
     private static final int REQUEST_INVITE = 0;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_invite_firebase;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

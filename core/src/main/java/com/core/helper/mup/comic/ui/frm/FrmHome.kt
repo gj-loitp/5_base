@@ -2,9 +2,7 @@ package com.core.helper.mup.comic.ui.frm
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,6 +28,7 @@ import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
 @LogTag("loitppFrmHome")
 class FrmHome : BaseFragment() {
+
     private var comicViewModel: ComicViewModel? = null
     private var concatAdapter: ConcatAdapter? = null
     private var comicHeaderAdapter: ComicHeaderAdapter? = null
@@ -39,9 +38,8 @@ class FrmHome : BaseFragment() {
     private var totalPage = Int.MAX_VALUE
     private var currentKeyword: String = ""
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_comic_home, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_comic_home
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -166,7 +164,7 @@ class FrmHome : BaseFragment() {
         LUIUtil.addTextChangedListener(editText = etSearch, delayInMls = 2000, afterTextChanged = {
             handleSearch(isAutoSearch = true)
         })
-        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
+        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = {
             ivSearch.performClick()
         })
         fabCategory.setOnClickListener {

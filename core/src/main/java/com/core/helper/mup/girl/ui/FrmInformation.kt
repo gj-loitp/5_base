@@ -2,9 +2,7 @@ package com.core.helper.mup.girl.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
@@ -18,9 +16,8 @@ import kotlinx.android.synthetic.main.l_frm_girl_information.*
 @LogTag("FrmInformation")
 class FrmInformation : BaseFragment(), View.OnClickListener {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_girl_information, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_girl_information
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

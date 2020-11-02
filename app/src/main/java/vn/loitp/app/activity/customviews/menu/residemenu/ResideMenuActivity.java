@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LAppResource;
@@ -18,7 +17,6 @@ import com.views.menu.residemenu.ResideMenuItem;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.reside_menu)
 @LogTag("ResideMenuActivity")
 @IsFullScreen(false)
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {
@@ -27,6 +25,11 @@ public class ResideMenuActivity extends BaseFontActivity implements View.OnClick
     private ResideMenuItem itemProfile;
     private ResideMenuItem itemCalendar;
     private ResideMenuItem itemSettings;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.reside_menu;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

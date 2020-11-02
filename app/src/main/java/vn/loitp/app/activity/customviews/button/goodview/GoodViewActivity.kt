@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.button.goodview.LGoodView
@@ -13,11 +12,14 @@ import vn.loitp.app.R
 
 //https://github.com/venshine/GoodView
 
-@LayoutId(R.layout.activity_button_goodview)
 @LogTag("GoodViewActivity")
 @IsFullScreen(false)
 class GoodViewActivity : BaseFontActivity() {
     private var lGoodView: LGoodView? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_button_goodview
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

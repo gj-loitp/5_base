@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
@@ -34,11 +33,10 @@ abstract class BaseFragment : Fragment() {
         private const val DEFAULT_CHILD_ANIMATION_DURATION = 400
     }
 
+    protected abstract fun setLayoutResourceId(): Int
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val layoutId = javaClass.getAnnotation(LayoutId::class.java)
-        layoutId?.value?.let {
-            frmRootView = inflater.inflate(it, container, false)
-        }
+        frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
         EventBus.getDefault().register(this)

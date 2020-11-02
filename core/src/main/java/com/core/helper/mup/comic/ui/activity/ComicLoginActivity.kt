@@ -3,7 +3,6 @@ package com.core.helper.mup.comic.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -26,9 +25,12 @@ class ComicLoginActivity : BaseFontActivity() {
     private var comicLoginViewModel: ComicLoginViewModel? = null
     private var adView: AdView? = null
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_comic_login
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_comic_login)
 
         setupViews()
         setupViewModels()
@@ -58,7 +60,7 @@ class ComicLoginActivity : BaseFontActivity() {
     private fun setupViewModels() {
         comicLoginViewModel = getViewModel(ComicLoginViewModel::class.java)
         comicLoginViewModel?.let { vm ->
-            vm.loginActionLiveData.observe(this, Observer { actionData ->
+            vm.loginActionLiveData.observe(this, { actionData ->
                 logD("<<<loginActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -18,10 +17,13 @@ import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivit
 import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesActivity
 import vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity
 
-@LayoutId(R.layout.activity_dialog_menu)
 @LogTag("DialogMenuActivity")
 @IsFullScreen(false)
 class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_dialog_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,7 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         btIosDialog.setOnClickListener(this)
         btOriginalDialog.setOnClickListener(this)
         btPrettyDialog.setOnClickListener(this)

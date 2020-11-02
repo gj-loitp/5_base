@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.RadioGroup
 import com.annotation.IsFullScreen
 import com.annotation.IsSwipeActivity
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -17,13 +16,16 @@ import vn.loitp.app.R
 
 //https://github.com/gongwen/SwipeBackLayout
 
-@LayoutId(R.layout.activity_swipeback_layout)
 @LogTag("SwipeBackLayoutActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
 class SwipeBackLayoutActivity : BaseFontActivity() {
     private var screenW = 0
     private var screenH = 0
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_swipeback_layout
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

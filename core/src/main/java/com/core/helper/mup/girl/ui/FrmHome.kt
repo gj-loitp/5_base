@@ -2,9 +2,7 @@ package com.core.helper.mup.girl.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,9 +36,8 @@ class FrmHome : BaseFragment() {
     private var totalPage = Int.MAX_VALUE
     private var currentKeyword: String = ""
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_girl_home, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_girl_home
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -166,7 +163,7 @@ class FrmHome : BaseFragment() {
             }
         }
 
-        girlTopUserAdapter?.onClickRootView = { girlTopUser ->
+        girlTopUserAdapter?.onClickRootView = { _ ->
             //TODO loitpp do sth
         }
         girlTopVideoAdapter?.onClickRootView = { girlTopVideo ->
@@ -224,7 +221,7 @@ class FrmHome : BaseFragment() {
 //            logD("addTextChangedListener $it")
             handleSearch(isAutoSearch = true)
         })
-        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
+        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = {
             ivSearch.performClick()
         })
     }
@@ -232,7 +229,7 @@ class FrmHome : BaseFragment() {
     private fun setupViewModels() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
-            vm.pageActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+            vm.pageActionLiveData.observe(viewLifecycleOwner, { actionData ->
 //                logD("userActionLiveData $actionData")
                 val isDoing = actionData.isDoing
 //                swipeRefreshLayout.isRefreshing = isDoing == true
@@ -263,7 +260,7 @@ class FrmHome : BaseFragment() {
                     }
                 }
             })
-            vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+            vm.likeGirlPageActionLiveData.observe(this, { actionData ->
 //                logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
@@ -281,7 +278,7 @@ class FrmHome : BaseFragment() {
 //                    }
                 }
             })
-            vm.pageLikedActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+            vm.pageLikedActionLiveData.observe(viewLifecycleOwner, { actionData ->
                 if (actionData.isDoing == false && actionData.isSuccess == true) {
                     val listGirlPageLiked = actionData.data
                     logD("<<<pageLikedActionLiveData observe " + BaseApplication.gson.toJson(listGirlPageLiked))

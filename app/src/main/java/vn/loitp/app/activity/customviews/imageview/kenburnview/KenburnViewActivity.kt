@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.imageview.kenburnview
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -16,10 +15,13 @@ import vn.loitp.app.R
 
 //https://github.com/flavioarfaria/KenBurnsView
 
-@LayoutId(R.layout.activity_imageview_kenburn_view)
 @LogTag("KenburnViewActivity")
 @IsFullScreen(false)
 class KenburnViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_imageview_kenburn_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

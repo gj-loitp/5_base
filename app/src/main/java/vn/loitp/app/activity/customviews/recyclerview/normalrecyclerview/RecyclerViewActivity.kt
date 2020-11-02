@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
@@ -23,13 +22,16 @@ import java.util.*
 
 //https://github.com/wasabeef/recyclerview-animators
 
-@LayoutId(R.layout.activity_recycler_view)
 @LogTag("RecyclerViewActivity")
 @IsFullScreen(false)
 class RecyclerViewActivity : BaseFontActivity() {
 
     private val movieList: MutableList<Movie> = ArrayList()
-    private var mAdapter: MoviesAdapter? = null
+    private var moviesAdapter: MoviesAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,13 +50,13 @@ class RecyclerViewActivity : BaseFontActivity() {
             movie.year = "Add YEAR 3"
             movie.genre = "Add GENRE 3"
             movieList.add(index = 3, element = movie)
-            mAdapter?.notifyItemInserted(3)
+            moviesAdapter?.notifyItemInserted(3)
         }
         btRemove1.setOnClickListener {
             movieList.removeAt(index = 1)
-            mAdapter?.notifyItemRemoved(1)
+            moviesAdapter?.notifyItemRemoved(1)
         }
-        mAdapter = MoviesAdapter(moviesList = movieList,
+        moviesAdapter = MoviesAdapter(moviesList = movieList,
                 callback = object : MoviesAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShortInformation("Click " + movie.title)
@@ -63,8 +65,8 @@ class RecyclerViewActivity : BaseFontActivity() {
                     override fun onLongClick(movie: Movie, position: Int) {
                         val isRemoved = movieList.remove(movie)
                         if (isRemoved) {
-                            mAdapter?.notifyItemRemoved(position)
-                            mAdapter?.notifyItemRangeChanged(position, movieList.size)
+                            moviesAdapter?.notifyItemRemoved(position)
+                            moviesAdapter?.notifyItemRangeChanged(position, movieList.size)
                         }
                     }
 
@@ -83,7 +85,7 @@ class RecyclerViewActivity : BaseFontActivity() {
         //alphaAdapter.setFirstOnly(true);
         //recyclerView.setAdapter(alphaAdapter);
 
-        val scaleAdapter = ScaleInAnimationAdapter(mAdapter)
+        val scaleAdapter = ScaleInAnimationAdapter(moviesAdapter)
         scaleAdapter.setDuration(1000)
         scaleAdapter.setInterpolator(OvershootInterpolator())
         scaleAdapter.setFirstOnly(true)
@@ -123,7 +125,7 @@ class RecyclerViewActivity : BaseFontActivity() {
                 val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)
                 movieList.add(movie)
             }
-            mAdapter?.notifyDataSetChanged()
+            moviesAdapter?.notifyDataSetChanged()
             showShortInformation("Finish loadMore")
         })
     }
@@ -133,6 +135,6 @@ class RecyclerViewActivity : BaseFontActivity() {
             val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
             movieList.add(movie)
         }
-        mAdapter?.notifyDataSetChanged()
+        moviesAdapter?.notifyDataSetChanged()
     }
 }

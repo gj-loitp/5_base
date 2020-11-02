@@ -2,7 +2,6 @@ package vn.loitp.app.activity.database.sharedprefsencryption
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -12,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 
-@LayoutId(R.layout.activity_shared_prefs_encryption)
 @LogTag("EnctyptionSharedPrefsActivity")
 @IsFullScreen(false)
 class EnctyptionSharedPrefsActivity : BaseFontActivity() {
@@ -26,6 +24,10 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         const val KEY_LONG = "KEY_LONG"
         const val KEY_OBJECT = "KEY_OBJECT"
         const val KEY_LIST_OBJECT = "KEY_LIST_OBJECT"
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_shared_prefs_encryption
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

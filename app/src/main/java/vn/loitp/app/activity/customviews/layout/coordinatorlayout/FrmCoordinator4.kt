@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
@@ -13,10 +12,13 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.common.Constants
 
-@LayoutId(R.layout.frm_coordinator_4)
 @LogTag("FrmCoordinator4")
 class FrmCoordinator4 : BaseFragment() {
     private var mAdapter: MultiAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.frm_coordinator_4
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

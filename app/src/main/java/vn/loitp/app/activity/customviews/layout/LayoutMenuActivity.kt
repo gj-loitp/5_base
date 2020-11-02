@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -37,10 +36,13 @@ import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshL
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.SwipeRevealLayoutActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
-@LayoutId(R.layout.activity_layout_menu)
 @LogTag("LayoutMenuActivity")
 @IsFullScreen(false)
 class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_layout_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +50,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         btAspectRatioLayout.setOnClickListener(this)
         btDraggablePanel.setOnClickListener(this)
         btDraggablePanelFree.setOnClickListener(this)

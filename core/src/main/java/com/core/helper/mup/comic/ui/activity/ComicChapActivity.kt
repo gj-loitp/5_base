@@ -55,9 +55,12 @@ class ComicChapActivity : BaseFontActivity() {
     private var currentPageIndex = 0
     private var totalPage = Int.MAX_VALUE
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_comic_chap
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_comic_chap)
 
         setupData()
         setupViews()
@@ -162,7 +165,7 @@ class ComicChapActivity : BaseFontActivity() {
     private fun setupViewModels() {
         comicViewModel = getViewModel(ComicViewModel::class.java)
         comicViewModel?.let { vm ->
-            vm.listChapActionLiveData.observe(this, Observer { actionData ->
+            vm.listChapActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 

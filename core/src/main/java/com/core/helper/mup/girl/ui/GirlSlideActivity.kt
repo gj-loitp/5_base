@@ -32,9 +32,12 @@ class GirlSlideActivity : BaseFontActivity() {
     private val listData = ArrayList<GirlPageDetail>()
     private var currentPosition = 0
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_girl_slide
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_girl_slide)
 
         setupData()
         setupViews()
@@ -71,7 +74,7 @@ class GirlSlideActivity : BaseFontActivity() {
         }
     }
 
-    private inner class SlidePagerAdapter internal constructor(fm: FragmentManager)
+    private inner class SlidePagerAdapter(fm: FragmentManager)
         : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {

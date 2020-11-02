@@ -6,9 +6,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
-import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -18,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_download_manager.*
 import vn.loitp.app.R
 import java.io.File
 
-@LayoutId(R.layout.activity_download_manager)
 @LogTag("DownloadManagerActivity")
 @IsFullScreen(false)
 class DownloadManagerActivity : BaseFontActivity() {
@@ -31,6 +28,10 @@ class DownloadManagerActivity : BaseFontActivity() {
     private var downloaderPhoto: Downloader? = null
     private var downloaderZip: Downloader? = null
     private var lStoreUtilModel: LStoreUtilModel? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_download_manager
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,7 +87,7 @@ class DownloadManagerActivity : BaseFontActivity() {
     private fun setupViewModels() {
         lStoreUtilModel = getViewModel(LStoreUtilModel::class.java)
         lStoreUtilModel?.let { vm ->
-            vm.writeToFileActionLiveData.observe(this, Observer { actionData ->
+            vm.writeToFileActionLiveData.observe(this, { actionData ->
                 logD("<<<writeToFileActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
@@ -99,7 +100,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     }
                 }
             })
-            vm.readTxtFromFolderActionLiveData.observe(this, Observer { actionData ->
+            vm.readTxtFromFolderActionLiveData.observe(this, { actionData ->
                 logD("<<<readTxtFromFolderActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
@@ -112,7 +113,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     }
                 }
             })
-            vm.readTxtFromRawFolderActionLiveData.observe(this, Observer { actionData ->
+            vm.readTxtFromRawFolderActionLiveData.observe(this, { actionData ->
                 logD("<<<readTxtFromRawFolderActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
@@ -125,7 +126,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     }
                 }
             })
-            vm.readTxtFromAssetActionLiveData.observe(this, Observer { actionData ->
+            vm.readTxtFromAssetActionLiveData.observe(this, { actionData ->
                 logD("<<<readTxtFromAssetActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
@@ -138,7 +139,7 @@ class DownloadManagerActivity : BaseFontActivity() {
                     }
                 }
             })
-            vm.unzipActionLiveData.observe(this, Observer { actionData ->
+            vm.unzipActionLiveData.observe(this, { actionData ->
                 logD("<<<unzipActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {

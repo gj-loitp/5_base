@@ -51,9 +51,12 @@ class GalleryMemberActivity : BaseFontActivity() {
 
     private var isShowDialogCheck: Boolean = false
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_flickr_gallery_core_photos_only
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_flickr_gallery_core_photos_only)
 
         RestClient.init(getString(R.string.flickr_URL))
         PhotosDataCore.instance.clearData()

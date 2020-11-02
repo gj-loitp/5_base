@@ -10,7 +10,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
-@LayoutId(R.layout.activity_sign_in)
 @LogTag("DatabaseFirebaseSignInActivity")
 @IsFullScreen(false)
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
@@ -32,6 +30,11 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
 
     private EditText mEmailField;
     private EditText mPasswordField;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_sign_in;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.seekbar.verticalseekbar
 import android.os.Bundle
 import android.widget.SeekBar
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_seekbar_vertical.*
@@ -11,10 +10,13 @@ import vn.loitp.app.R
 
 //https://github.com/h6ah4i/android-verticalseekbar
 
-@LayoutId(R.layout.activity_seekbar_vertical)
 @LogTag("VerticalSeekbarActivity")
 @IsFullScreen(false)
 class VerticalSeekbarActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_seekbar_vertical
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

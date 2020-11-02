@@ -22,11 +22,13 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
         const val PHOTO = "PHOTO"
     }
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_flickr_member_detail
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_flickr_member_detail)
 
-//        LUIUtil.setTextShadow(textView = tvTitle)
         val photo = intent.getSerializableExtra(PHOTO) as Photo
         loadItem(photo = photo)
 

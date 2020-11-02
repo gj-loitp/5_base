@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -41,7 +40,6 @@ import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
 
-@LayoutId(R.layout.activity_auth_firebase_google)
 @LogTag("AuthFirebaseGoogleActivity")
 @IsFullScreen(false)
 public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View.OnClickListener {
@@ -54,6 +52,11 @@ public class AuthFirebaseGoogleActivity extends BaseFontActivity implements View
     private GoogleSignInClient mGoogleSignInClient;
     private TextView mStatusTextView;
     private TextView mDetailTextView;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_auth_firebase_google;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

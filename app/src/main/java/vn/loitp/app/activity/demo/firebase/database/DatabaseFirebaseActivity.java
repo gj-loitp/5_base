@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.utilities.LActivityUtil;
 import com.google.android.material.tabs.TabLayout;
@@ -24,12 +23,16 @@ import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseRec
 
 //https://github.com/firebase/quickstart-android
 
-@LayoutId(R.layout.activity_database_firebase)
 @LogTag("DatabaseFirebaseActivity")
 @IsFullScreen(false)
 public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
     private FragmentPagerAdapter mPagerAdapter;
     private ViewPager mViewPager;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_database_firebase;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

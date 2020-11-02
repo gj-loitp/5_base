@@ -7,7 +7,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.material.navigation.NavigationView
@@ -16,10 +15,13 @@ import kotlinx.android.synthetic.main.activity_drawer_behavior_advance5.*
 import kotlinx.android.synthetic.main.view_drawer_behavior_app_bar_default.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_drawer_behavior_advance5)
 @LogTag("ExtraTextViewActivity")
 @IsFullScreen(false)
 class AdvanceDrawer5Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_drawer_behavior_advance5
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

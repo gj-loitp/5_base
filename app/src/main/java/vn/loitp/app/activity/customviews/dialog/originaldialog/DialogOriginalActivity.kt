@@ -9,7 +9,6 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.widget.EditText
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
@@ -20,11 +19,14 @@ import com.interfaces.CallbackList
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_dialog_original)
 @LogTag("DialogOriginalActivity")
 @IsFullScreen(false)
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private var testRun: TestRun? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_dialog_original
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +61,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         LDialogUtil.showDialog1(context = this,
                 title = "Title",
                 msg = "Msg",
-                button1 = "Button 1"
-                , callback1 = object : Callback1 {
+                button1 = "Button 1", callback1 = object : Callback1 {
             override fun onClick1() {
                 showShortInformation("Click 1")
             }

@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
@@ -22,17 +21,16 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
-/**
- * Created by thangn on 2/26/17.
- */
-
-@LayoutId(R.layout.wwl_video_home_fragment)
 @LogTag("HomeFragment")
 public class HomeFragment extends BaseFragment {
-    private RecyclerView mRecyclerView;
-    private GridLayoutManager mLayoutManager;
-    private CustomAdapter mAdapter;
-    private FragmentHost mFragmentHost;
+    private GridLayoutManager gridLayoutManager;
+    private CustomAdapter customAdapter;
+    private FragmentHost fragmentHost;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_video_home_fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,14 +40,14 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
-        this.mLayoutManager = new GridLayoutManager(getActivity(), LWWLMusicUiUtil.getGridColumnCount(getResources()));
-        this.mRecyclerView.setLayoutManager(mLayoutManager);
+        RecyclerView mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
+        this.gridLayoutManager = new GridLayoutManager(getActivity(), LWWLMusicUiUtil.getGridColumnCount(getResources()));
+        mRecyclerView.setLayoutManager(gridLayoutManager);
         //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
         //this.mRecyclerView.scrollToPosition(0);
 
-        this.mAdapter = new CustomAdapter(WWLVideoDataset.datasetItems);
-        mRecyclerView.setAdapter(mAdapter);
+        this.customAdapter = new CustomAdapter(WWLVideoDataset.datasetItems);
+        mRecyclerView.setAdapter(customAdapter);
 
         updateLayoutIfNeed();
     }
@@ -57,7 +55,7 @@ public class HomeFragment extends BaseFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.mFragmentHost = (FragmentHost) activity;
+        this.fragmentHost = (FragmentHost) activity;
     }
 
     @Override
@@ -67,17 +65,17 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void updateLayoutIfNeed() {
-        if (this.mLayoutManager != null) {
-            this.mLayoutManager.setSpanCount(LWWLMusicUiUtil.getGridColumnCount(getResources()));
+        if (this.gridLayoutManager != null) {
+            this.gridLayoutManager.setSpanCount(LWWLMusicUiUtil.getGridColumnCount(getResources()));
         }
-        if (this.mAdapter != null) {
-            this.mAdapter.notifyDataSetChanged();
+        if (this.customAdapter != null) {
+            this.customAdapter.notifyDataSetChanged();
         }
     }
 
     private void onItemClicked(WWLVideoDataset.DatasetItem item) {
-        if (this.mFragmentHost != null) {
-            this.mFragmentHost.goToDetail(item);
+        if (this.fragmentHost != null) {
+            this.fragmentHost.goToDetail(item);
         }
     }
 

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -34,10 +33,13 @@ import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
 import vn.loitp.app.activity.demo.video.VideoActivity
 
-@LayoutId(R.layout.activity_demo_menu)
 @LogTag("MenuDemoActivity")
 @IsFullScreen(false)
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

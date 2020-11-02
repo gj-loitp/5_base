@@ -2,9 +2,7 @@ package com.core.helper.mup.girl.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,9 +28,8 @@ class FrmFavourite : BaseFragment() {
     private var girlAlbumAdapter: GirlAlbumAdapter? = null
     private var currentKeyword: String = ""
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_girl_favourite, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_girl_favourite
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -92,7 +89,7 @@ class FrmFavourite : BaseFragment() {
         LUIUtil.addTextChangedListener(editText = etSearch, delayInMls = 2000, afterTextChanged = {
             handleSearch(isAutoSearch = true)
         })
-        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = Runnable {
+        LUIUtil.setImeiActionSearch(editText = etSearch, actionSearch = {
             ivSearch.performClick()
         })
     }
@@ -100,7 +97,7 @@ class FrmFavourite : BaseFragment() {
     private fun setupViewModels() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
-            vm.pageLikedActionLiveData.observe(viewLifecycleOwner, Observer { actionData ->
+            vm.pageLikedActionLiveData.observe(viewLifecycleOwner, { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     indicatorView.smoothToShow()
@@ -120,7 +117,7 @@ class FrmFavourite : BaseFragment() {
                     }
                 }
             })
-            vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+            vm.likeGirlPageActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     indicatorView.smoothToShow()

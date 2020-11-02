@@ -6,17 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import kotlinx.android.synthetic.main.activity_relative_popup_window_layout.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_relative_popup_window_layout)
 @LogTag("RelativePopupWindowActivity")
 @IsFullScreen(false)
 class RelativePopupWindowActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_relative_popup_window_layout
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

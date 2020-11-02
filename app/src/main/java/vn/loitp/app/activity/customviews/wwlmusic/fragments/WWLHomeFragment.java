@@ -13,7 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
@@ -22,13 +21,17 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
-@LayoutId(R.layout.wwl_music_home_fragment)
 @LogTag("WWLHomeFragment")
 public class WWLHomeFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
     private FragmentHost mFragmentHost;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_music_home_fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {

@@ -20,9 +20,8 @@ import kotlinx.android.synthetic.main.l_frm_comic_profile.*
 @LogTag("FrmInformation")
 class FrmProfile : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_comic_profile, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_comic_profile
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -12,10 +11,13 @@ import kotlinx.android.synthetic.main.activity_drawer_behavior_main.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.menu.drawerbehavior.drawer.*
 
-@LayoutId(R.layout.activity_drawer_behavior_main)
 @LogTag("DrawerBehaviorMainActivity")
 @IsFullScreen(false)
 class DrawerBehaviorMainActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_drawer_behavior_main
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

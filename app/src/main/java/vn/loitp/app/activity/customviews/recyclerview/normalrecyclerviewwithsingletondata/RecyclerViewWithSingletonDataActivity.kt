@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.*
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
@@ -17,12 +16,15 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesA
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
-@LayoutId(R.layout.activity_recycler_view)
 @LogTag("RecyclerViewWithSingletonDataActivity")
 @IsFullScreen(false)
 class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
 
     private var mAdapter: MoviesAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +80,7 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
     }
 
     private fun loadMore() {
-        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
+        LUIUtil.setDelay(mls = 2000, runnable = {
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)

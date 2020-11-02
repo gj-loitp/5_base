@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.Window
-import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -32,14 +31,16 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
 
-    protected var delayMlsIdleTime: Long = 60 * 1000//60s
+    var delayMlsIdleTime: Long = 60 * 1000//60s
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
-    protected var isIdleTime = false
+    var isIdleTime = false
 
     private var interstitialAd: InterstitialAd? = null
     private var isShowAdWhenExit = false
     private var isShowAnimWhenExit = true
+
+    protected abstract fun setLayoutResourceId(): Int
 
     protected fun setTransparentStatusNavigationBar() {
         //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -102,10 +103,8 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().register(this)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        val layoutId = javaClass.getAnnotation(LayoutId::class.java)
-        layoutId?.value?.let {
-            setContentView(it)
-        }
+        setContentView(setLayoutResourceId())
+
         CheckNetworkConnectionHelper
                 .getInstance()
                 .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {

@@ -46,9 +46,12 @@ class GirlDetailActivity : BaseFontActivity() {
         const val KEY_GIRL_PAGE = "KEY_GIRL_PAGE"
     }
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_girl_detail
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_girl_detail)
 
         getData()
         setupViews()
@@ -142,7 +145,7 @@ class GirlDetailActivity : BaseFontActivity() {
     private fun setupViewModels() {
         girlViewModel = getViewModel(GirlViewModel::class.java)
         girlViewModel?.let { vm ->
-            vm.pageDetailActionLiveData.observe(this, Observer { actionData ->
+            vm.pageDetailActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     indicatorView.smoothToShow()
@@ -172,7 +175,7 @@ class GirlDetailActivity : BaseFontActivity() {
                     }
                 }
             })
-            vm.likeGirlPageActionLiveData.observe(this, Observer { actionData ->
+            vm.likeGirlPageActionLiveData.observe(this, { actionData ->
 //                logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {

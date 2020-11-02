@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
@@ -30,13 +29,17 @@ import java.io.File;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_crop)
 @LogTag("CropActivity")
 @IsFullScreen(false)
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
     private final int REQUEST_CODE_GET_FILE = 1;
     private boolean isOvalOption;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_crop;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

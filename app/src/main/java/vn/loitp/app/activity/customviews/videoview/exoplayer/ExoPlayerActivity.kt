@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer
 import android.content.res.Configuration
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -15,12 +14,15 @@ import vn.loitp.app.R
 
 //custom UI exo_playback_control_view.xml
 
-@LayoutId(R.layout.activity_video_exo_player)
 @LogTag("ExoPlayerActivity")
 @IsFullScreen(false)
 class ExoPlayerActivity : BaseFontActivity() {
     private var playerManager: PlayerManager? = null
     private var linkPlay = ""
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_video_exo_player
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

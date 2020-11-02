@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
@@ -18,15 +17,20 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_swipe_reveal_layout_grid)
 @LogTag("SwipeRevealLayoutGridActivity")
 @IsFullScreen(false)
 public class SwipeRevealLayoutGridActivity extends BaseFontActivity {
     private GridAdapter adapter;
 
     @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_swipe_reveal_layout_grid;
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setupActionBar();
         setupGrid();
     }

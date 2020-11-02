@@ -6,17 +6,19 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LTextToSpeechUtil
 import kotlinx.android.synthetic.main.activity_demo_text_to_speech.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_demo_text_to_speech)
 @LogTag("TextToSpeechActivity")
 @IsFullScreen(false)
 class TextToSpeechActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_text_to_speech
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

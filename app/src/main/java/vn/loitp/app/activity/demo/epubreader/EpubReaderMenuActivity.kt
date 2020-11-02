@@ -5,7 +5,6 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -18,7 +17,6 @@ import com.interfaces.Callback2
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_demo_epub_reader)
 @LogTag("EpubReaderMenuActivity")
 @IsFullScreen(false)
 class EpubReaderMenuActivity : BaseFontActivity() {
@@ -29,6 +27,10 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     }
 
     private var epubViewModel: EpubViewModel? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_epub_reader
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

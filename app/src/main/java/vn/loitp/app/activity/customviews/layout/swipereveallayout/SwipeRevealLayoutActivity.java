@@ -9,7 +9,6 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
@@ -20,10 +19,14 @@ import vn.loitp.app.activity.customviews.layout.swipereveallayout.list.SwipeReve
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.recycler.SwipeRevealLayoutRecyclerActivity;
 
 //https://github.com/chthai64/SwipeRevealLayout
-@LayoutId(R.layout.activity_swipe_reveal_layout)
 @LogTag("SwipeRevealLayoutActivity")
 @IsFullScreen(false)
 public class SwipeRevealLayoutActivity extends BaseFontActivity {
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_swipe_reveal_layout;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

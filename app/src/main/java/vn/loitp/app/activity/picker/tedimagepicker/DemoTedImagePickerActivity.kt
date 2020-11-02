@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
@@ -21,11 +20,14 @@ import java.io.File
 
 //https://github.com/ParkSangGwon/TedImagePicker
 
-@LayoutId(R.layout.activity_ted_image_picker_demo)
 @LogTag("DemoTedImagePickerActivity")
 @IsFullScreen(false)
 class DemoTedImagePickerActivity : BaseFontActivity() {
     private var selectedUriList: List<Uri>? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_ted_image_picker_demo
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

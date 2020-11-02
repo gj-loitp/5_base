@@ -30,9 +30,12 @@ class ComicActivity : BaseFontActivity() {
 
     val listMenuComic = ArrayList<MenuComic>()
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_comic
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_comic)
 
         setupData()
         setupViews()

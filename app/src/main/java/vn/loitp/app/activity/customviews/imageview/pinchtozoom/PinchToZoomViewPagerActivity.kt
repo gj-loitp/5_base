@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
@@ -14,11 +13,16 @@ import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 import java.util.*
 
-@LayoutId(R.layout.activity_imageview_pinch_to_zoom_vp)
 @LogTag("PinchToZoomViewPagerActivity")
 @IsFullScreen(false)
 class PinchToZoomViewPagerActivity : BaseFontActivity() {
+
     private val list = ArrayList<String>()
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_imageview_pinch_to_zoom_vp
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

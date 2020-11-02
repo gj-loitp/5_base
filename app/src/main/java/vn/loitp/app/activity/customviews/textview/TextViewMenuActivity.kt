@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -27,10 +26,13 @@ import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterT
 import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity
 
-@LayoutId(R.layout.activity_text_view_menu)
 @LogTag("TextViewMenuActivity")
 @IsFullScreen(false)
 class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_text_view_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

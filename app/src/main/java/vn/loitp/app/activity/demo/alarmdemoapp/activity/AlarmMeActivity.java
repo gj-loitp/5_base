@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
@@ -23,7 +22,6 @@ import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
 
-@LayoutId(R.layout.activity_alarm_list)
 @LogTag("AlarmMeActivity")
 @IsFullScreen(false)
 public class AlarmMeActivity extends BaseFontActivity {
@@ -38,6 +36,11 @@ public class AlarmMeActivity extends BaseFontActivity {
     private final int CONTEXT_MENU_EDIT = 0;
     private final int CONTEXT_MENU_DELETE = 1;
     private final int CONTEXT_MENU_DUPLICATE = 2;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_alarm_list;
+    }
 
     @Override
     public void onCreate(Bundle bundle) {

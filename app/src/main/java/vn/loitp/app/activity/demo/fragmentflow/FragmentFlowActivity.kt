@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import androidx.fragment.app.FragmentManager
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.base.BaseFragment
@@ -14,7 +13,6 @@ import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_demo_fragment_flow.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_demo_fragment_flow)
 @LogTag("FragmentFlowActivity")
 @IsFullScreen(false)
 class FragmentFlowActivity : BaseFontActivity() {
@@ -30,6 +28,10 @@ class FragmentFlowActivity : BaseFontActivity() {
                 currFrag?.onFragmentResume()
             }
         }
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_fragment_flow
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

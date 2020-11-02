@@ -5,7 +5,6 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import io.reactivex.Single
@@ -18,12 +17,15 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
 import java.util.*
 
-@LayoutId(R.layout.activity_asynctask_rx)
 @LogTag("AsyncTaskRxActivity")
 @IsFullScreen(false)
 class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
     private var taskTest1: TaskTest1? = null
     private var disposable: Disposable? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_asynctask_rx
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

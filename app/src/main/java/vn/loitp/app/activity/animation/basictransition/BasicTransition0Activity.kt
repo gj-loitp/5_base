@@ -7,7 +7,6 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.util.Pair
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -15,10 +14,13 @@ import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_basic_transition_0.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_animation_basic_transition_0)
 @LogTag("BasicTransition0Activity")
 @IsFullScreen(false)
 class BasicTransition0Activity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_animation_basic_transition_0
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +28,7 @@ class BasicTransition0Activity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         LImageUtil.load(context = this, any = Constants.URL_IMG_2, imageView = imageViewItem)
         imageViewItem.setOnClickListener {
             onClickIv()

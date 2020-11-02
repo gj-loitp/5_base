@@ -20,7 +20,6 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
@@ -32,7 +31,6 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
-@LayoutId(R.layout.activity_alarm_edit)
 @LogTag("EditAlarmActivity")
 @IsFullScreen(false)
 public class EditAlarmActivity extends BaseFontActivity {
@@ -55,6 +53,11 @@ public class EditAlarmActivity extends BaseFontActivity {
     static final int DATE_DIALOG_ID = 0;
     static final int TIME_DIALOG_ID = 1;
     static final int DAYS_DIALOG_ID = 2;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_alarm_edit;
+    }
 
     @Override
     public void onCreate(Bundle bundle) {

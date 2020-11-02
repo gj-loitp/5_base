@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.layout.shapeofview
 import android.animation.ValueAnimator
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -14,11 +13,13 @@ import kotlinx.android.synthetic.main.activity_layout_shape_of_view.*
 import vn.loitp.app.R
 
 //https://github.com/florent37/ShapeOfView
-
-@LayoutId(R.layout.activity_layout_shape_of_view)
 @LogTag("ShapeOfViewActivity")
 @IsFullScreen(false)
 class ShapeOfViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_layout_shape_of_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

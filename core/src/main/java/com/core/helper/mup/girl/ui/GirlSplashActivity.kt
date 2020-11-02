@@ -34,9 +34,12 @@ class GirlSplashActivity : BaseFontActivity() {
     private var admobBannerUnitId: String? = null
     private var isShowDialogCheck: Boolean = false
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_girl_splash
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_girl_splash)
 
         admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 
@@ -60,12 +63,10 @@ class GirlSplashActivity : BaseFontActivity() {
             urlCoverSplashScreen = Constants.URL_IMG
         }
         LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
-//        LUIUtil.setTextShadow(textView = tvCopyright, color = Color.BLACK)
-//        LUIUtil.setTextShadow(textView = tvName, color = Color.BLACK)
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(mls = 3000, runnable = Runnable {
+        LUIUtil.setDelay(mls = 3000, runnable = {
             val intent = Intent(this, GirlActivity::class.java)
             //TODO loitpp iplm ad for next screen
             intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)

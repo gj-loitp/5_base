@@ -6,18 +6,21 @@ import android.widget.Button;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_fab_and_snackbar)
 @LogTag("FabAndSnackbarActivity")
 @IsFullScreen(false)
-public class FabAndSnackbarActivity extends BaseFontActivity {
+public class FabAndSnackBarActivity extends BaseFontActivity {
     private CoordinatorLayout coordinatorLayout;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_fab_and_snackbar;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.OrientationEventListener
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
@@ -14,11 +13,14 @@ import kotlinx.android.synthetic.main.activity_func_sensor.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants.Companion.URL_IMG
 
-@LayoutId(R.layout.activity_func_sensor)
 @LogTag("SensorActivity")
 @IsFullScreen(false)
 class SensorActivity : BaseFontActivity() {
     private var orientationListener: OrientationListener? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_func_sensor
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

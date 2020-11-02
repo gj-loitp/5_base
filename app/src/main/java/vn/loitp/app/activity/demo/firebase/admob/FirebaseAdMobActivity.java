@@ -9,7 +9,6 @@ import android.widget.Button;
 import androidx.annotation.VisibleForTesting;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.ads.AdListener;
@@ -19,16 +18,22 @@ import com.google.android.gms.ads.InterstitialAd;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_firebase_admob)
 @LogTag("FirebaseAdmobActivity")
 @IsFullScreen(false)
-public class FirebaseAdmobActivity extends BaseFontActivity {
+public class FirebaseAdMobActivity extends BaseFontActivity {
     private AdView mAdView;
     // [START_EXCLUDE]
     private InterstitialAd mInterstitialAd;
     private Button mLoadInterstitialButton;
 
     // [END_EXCLUDE]
+
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_firebase_admob;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +72,7 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
                 // [END_EXCLUDE]
             }
 
+            //TODO loitpp deprecated
             @Override
             public void onAdFailedToLoad(int i) {
                 // See https://goo.gl/sCZj0H for possible error codes.
@@ -77,14 +83,11 @@ public class FirebaseAdmobActivity extends BaseFontActivity {
 
         // [START display_interstitial_ad]
         mLoadInterstitialButton = findViewById(R.id.load_interstitial_button);
-        mLoadInterstitialButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    beginSecondActivity();
-                }
+        mLoadInterstitialButton.setOnClickListener(v -> {
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                beginSecondActivity();
             }
         });
         // [END display_interstitial_ad]

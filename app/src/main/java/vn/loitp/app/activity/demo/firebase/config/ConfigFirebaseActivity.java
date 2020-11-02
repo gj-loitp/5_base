@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,7 +19,6 @@ import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
 
-@LayoutId(R.layout.activity_config_firebase)
 @LogTag("ConfigFirebaseActivity")
 @IsFullScreen(false)
 public class ConfigFirebaseActivity extends BaseFontActivity {
@@ -31,6 +29,11 @@ public class ConfigFirebaseActivity extends BaseFontActivity {
 
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
     private TextView mWelcomeTextView;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_config_firebase;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

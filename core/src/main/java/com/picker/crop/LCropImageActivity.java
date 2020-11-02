@@ -34,14 +34,8 @@ import java.io.IOException;
 public class LCropImageActivity extends BaseFontActivity implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
         View.OnClickListener {
 
-    private CropImageOptions mOptions;
-
-    //private LinearLayout ll_layout;
-    //private RelativeLayout ll_top_btns;
-    //private ImageButton btn_rotaion, btn_crop, btn_cancel, btn_cut_confirm;
-
-
-    private LCropImageView LCropImageView;
+    private CropImageOptions cropImageOptions;
+    private LCropImageView lCropImageView;
     private LinearLayout ll_layout;
     private ImageButton btn_rotaion;
     private ImageButton btn_close;
@@ -50,13 +44,18 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     private ImageButton btn_cut_confirm;
     private ImageButton btn_confirm;
 
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.l_activity_l_crop_image;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.l_activity_l_crop_image);
+
         changeSystembarColor();
-        LCropImageView = findViewById(R.id.cropImageView);
+        lCropImageView = findViewById(R.id.cropImageView);
         ll_layout = findViewById(R.id.ll_layout);
         btn_rotaion = findViewById(R.id.btn_rotaion);
         btn_close = findViewById(R.id.btn_close);
@@ -64,13 +63,13 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
         btn_cancel = findViewById(R.id.btn_cancel);
         btn_cut_confirm = findViewById(R.id.btn_cut_confirm);
         btn_confirm = findViewById(R.id.btn_confirm);
-        LCropImageView.setShowCropOverlay(false);
+        lCropImageView.setShowCropOverlay(false);
 
         final Intent intent = getIntent();
         final Uri source = intent.getParcelableExtra(CropImage.CROP_IMAGE_EXTRA_SOURCE);
-        mOptions = intent.getParcelableExtra(CropImage.CROP_IMAGE_EXTRA_OPTIONS);
+        cropImageOptions = intent.getParcelableExtra(CropImage.CROP_IMAGE_EXTRA_OPTIONS);
         if (savedInstanceState == null) {
-            LCropImageView.setImageUriAsync(source);
+            lCropImageView.setImageUriAsync(source);
         }
         setEvents();
     }
@@ -96,15 +95,15 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     @Override
     public void onStart() {
         super.onStart();
-        LCropImageView.setOnSetImageUriCompleteListener(this);
-        LCropImageView.setOnCropImageCompleteListener(this);
+        lCropImageView.setOnSetImageUriCompleteListener(this);
+        lCropImageView.setOnCropImageCompleteListener(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        LCropImageView.setOnSetImageUriCompleteListener(null);
-        LCropImageView.setOnCropImageCompleteListener(null);
+        lCropImageView.setOnSetImageUriCompleteListener(null);
+        lCropImageView.setOnCropImageCompleteListener(null);
     }
 
     private void setShowCropper(final boolean showCropOverlay) {
@@ -132,11 +131,11 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
     @Override
     public void onSetImageUriComplete(LCropImageView view, Uri uri, Exception error) {
         if (error == null) {
-            if (mOptions.initialCropWindowRectangle != null) {
-                LCropImageView.setCropRect(mOptions.initialCropWindowRectangle);
+            if (cropImageOptions.initialCropWindowRectangle != null) {
+                lCropImageView.setCropRect(cropImageOptions.initialCropWindowRectangle);
             }
-            if (mOptions.initialRotation > -1) {
-                LCropImageView.setRotatedDegrees(mOptions.initialRotation);
+            if (cropImageOptions.initialRotation > -1) {
+                lCropImageView.setRotatedDegrees(cropImageOptions.initialRotation);
             }
         } else {
             setResult(null, error, 1);
@@ -145,10 +144,10 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
 
     @Override
     public void onCropImageComplete(LCropImageView view, LCropImageView.CropResult result) {
-        if (LCropImageView.isShowCropOverlay()) {
+        if (lCropImageView.isShowCropOverlay()) {
             Uri outputUri = result.getUri();
-            LCropImageView.setImageUriAsync(outputUri);
-            LCropImageView.setShowCropOverlay(false);
+            lCropImageView.setImageUriAsync(outputUri);
+            lCropImageView.setShowCropOverlay(false);
             setShowCropper(false);
         } else setResult(result.getUri(), result.getError(), result.getSampleSize());
     }
@@ -159,16 +158,16 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
      * Execute crop image and save the result tou output uri.
      */
     protected void cropImage() {
-        if (mOptions.noOutputImage) {
+        if (cropImageOptions.noOutputImage) {
             setResult(null, null, 1);
         } else {
             Uri outputUri = getOutputUri();
-            LCropImageView.saveCroppedImageAsync(outputUri,
-                    mOptions.outputCompressFormat,
-                    mOptions.outputCompressQuality,
-                    mOptions.outputRequestWidth,
-                    mOptions.outputRequestHeight,
-                    mOptions.outputRequestSizeOptions);
+            lCropImageView.saveCroppedImageAsync(outputUri,
+                    cropImageOptions.outputCompressFormat,
+                    cropImageOptions.outputCompressQuality,
+                    cropImageOptions.outputRequestWidth,
+                    cropImageOptions.outputRequestHeight,
+                    cropImageOptions.outputRequestSizeOptions);
         }
     }
 
@@ -176,7 +175,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
      * Rotate the image in the crop image view.
      */
     protected void rotateImage(int degrees) {
-        LCropImageView.rotateImage(degrees);
+        lCropImageView.rotateImage(degrees);
     }
 
     /**
@@ -184,11 +183,11 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
      * Use the given in options or create a temp file.
      */
     protected Uri getOutputUri() {
-        Uri outputUri = mOptions.outputUri;
+        Uri outputUri = cropImageOptions.outputUri;
         if (outputUri.equals(Uri.EMPTY)) {
             try {
-                final String ext = mOptions.outputCompressFormat == Bitmap.CompressFormat.JPEG ? ".jpg" :
-                        mOptions.outputCompressFormat == Bitmap.CompressFormat.PNG ? ".png" : ".webp";
+                final String ext = cropImageOptions.outputCompressFormat == Bitmap.CompressFormat.JPEG ? ".jpg" :
+                        cropImageOptions.outputCompressFormat == Bitmap.CompressFormat.PNG ? ".png" : ".webp";
                 outputUri = Uri.fromFile(File.createTempFile("cropped", ext, getCacheDir()));
             } catch (IOException e) {
                 throw new RuntimeException("Failed to create temp file for output image", e);
@@ -221,9 +220,9 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
         final CropImage.ActivityResult result = new CropImage.ActivityResult(null,
                 uri,
                 error,
-                LCropImageView.getCropPoints(),
-                LCropImageView.getCropRect(),
-                LCropImageView.getRotatedDegrees(),
+                lCropImageView.getCropPoints(),
+                lCropImageView.getCropRect(),
+                lCropImageView.getRotatedDegrees(),
                 sampleSize);
         final Intent intent = new Intent();
         intent.putExtra(CropImage.CROP_IMAGE_EXTRA_RESULT, result);
@@ -258,15 +257,14 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
         } else if (view.getId() == R.id.btn_cut_confirm) {
             cropImage();
         } else if (view.getId() == R.id.btn_rotaion) {
-            rotateImage(mOptions.rotationDegrees);
+            rotateImage(cropImageOptions.rotationDegrees);
         } else if (view.getId() == R.id.btn_crop) {
-            LCropImageView.setShowCropOverlay(true);
+            lCropImageView.setShowCropOverlay(true);
             setShowCropper(true);
         } else if (view.getId() == R.id.btn_cancel) {
-            LCropImageView.setShowCropOverlay(false);
+            lCropImageView.setShowCropOverlay(false);
             setShowCropper(false);
         }
     }
     //endregion
 }
-

@@ -6,7 +6,6 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -14,10 +13,14 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_1.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_1)
 @LogTag("Activity1")
 @IsFullScreen(false)
 class Activity1 : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_1
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.videoview.exoplayer
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
@@ -11,11 +10,14 @@ import com.views.exo.PlayerManager
 import kotlinx.android.synthetic.main.activity_video_exo_player3.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_video_exo_player3)
 @LogTag("ExoPlayerActivity3")
 @IsFullScreen(false)
 class ExoPlayerActivity3 : BaseFontActivity() {
     private var playerManager: PlayerManager? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_video_exo_player3
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

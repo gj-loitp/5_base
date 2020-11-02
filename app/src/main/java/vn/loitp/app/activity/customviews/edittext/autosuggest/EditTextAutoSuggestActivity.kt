@@ -4,7 +4,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
@@ -17,11 +16,15 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_editext_auto_suggest.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_editext_auto_suggest)
 @LogTag("EditTextAutoSuggestActivity")
 @IsFullScreen(false)
 class EditTextAutoSuggestActivity : BaseFontActivity() {
     private var disposableSearch: Disposable? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_editext_auto_suggest
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -58,9 +61,9 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             this.editText.setTextColor(Color.BLUE)
             this.setColorProgressBar(Color.GREEN)
             this.setBackgroundResource(R.drawable.l_bkg_horizontal)
-            this.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
+            this.setImeiAction(EditorInfo.IME_ACTION_DONE) {
                 showShortInformation("Text ${aet1.editText.text}")
-            })
+            }
             this.callback = object : LAutoSuggestEditText.Callback {
                 override fun onTextChanged(text: String) {
                     fakeCallAPI1(text)

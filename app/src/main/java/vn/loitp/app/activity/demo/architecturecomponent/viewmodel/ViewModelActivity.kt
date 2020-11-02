@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -18,7 +17,6 @@ import java.util.*
 
 //https://codinginfinite.com/architecture-component-viewmodel-example/
 
-@LayoutId(R.layout.activity_demo_view_model)
 @LogTag("ViewModelActivity")
 @IsFullScreen(false)
 class ViewModelActivity : BaseFontActivity() {
@@ -26,6 +24,10 @@ class ViewModelActivity : BaseFontActivity() {
     private lateinit var colorChangerViewModel: ColorChangerViewModel
     private lateinit var userViewModel: UserViewModel
     private lateinit var timeChangerViewModel: TimeChangerViewModel
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_view_model
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

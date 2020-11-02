@@ -5,7 +5,6 @@ import android.view.Gravity;
 import android.widget.FrameLayout;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseActivity;
 import com.views.layout.floatdraglayout.DisplayUtil;
@@ -13,10 +12,14 @@ import com.views.layout.floatdraglayout.FloatDragLayout;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_splash_v3)
 @LogTag("FloatDragWindowModeActivity")
 @IsFullScreen(false)
 public class FloatDragWindowModeActivity extends BaseActivity {
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_splash_v3;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

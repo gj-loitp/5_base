@@ -9,7 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
@@ -17,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_constraint_set)
 @LogTag("ConstraintSetActivity")
 @IsFullScreen(false)
 public class ConstraintSetActivity extends BaseFontActivity {
@@ -26,6 +24,11 @@ public class ConstraintSetActivity extends BaseFontActivity {
     private ConstraintLayout mRootLayout;
     private ConstraintSet mConstraintSetNormal = new ConstraintSet();
     private ConstraintSet mConstraintSetBig = new ConstraintSet();
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_constraint_set;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

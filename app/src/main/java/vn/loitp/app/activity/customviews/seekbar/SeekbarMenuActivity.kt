@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -15,10 +14,13 @@ import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbar
 import vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity
 import vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity
 
-@LayoutId(R.layout.activity_seekbar_menu)
 @LogTag("SeekbarMenuActivity")
 @IsFullScreen(false)
 class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_seekbar_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

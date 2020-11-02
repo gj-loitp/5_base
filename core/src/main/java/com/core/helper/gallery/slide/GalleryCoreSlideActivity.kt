@@ -26,9 +26,12 @@ import java.io.File
 @IsFullScreen(false)
 class GalleryCoreSlideActivity : BaseFontActivity() {
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_flickr_gallery_core_slide
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_flickr_gallery_core_slide)
 
         val slidePagerAdapter = SlidePagerAdapter(supportFragmentManager)
         viewPager.adapter = slidePagerAdapter
@@ -54,7 +57,8 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         }
     }
 
-    private inner class SlidePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
         override fun getItem(position: Int): Fragment {
 
             val frmIvSlideCore = FrmIvSlideCore()

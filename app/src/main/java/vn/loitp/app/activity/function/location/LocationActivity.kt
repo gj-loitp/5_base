@@ -13,7 +13,6 @@ import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.gms.common.api.ApiException
@@ -31,7 +30,6 @@ import vn.loitp.app.R
 import java.text.DateFormat
 import java.util.*
 
-@LayoutId(R.layout.activity_func_location)
 @LogTag("LocationActivity")
 @IsFullScreen(false)
 class LocationActivity : BaseFontActivity() {
@@ -60,6 +58,10 @@ class LocationActivity : BaseFontActivity() {
 
     // boolean flag to toggle the ui
     private var mRequestingLocationUpdates: Boolean? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_func_location
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

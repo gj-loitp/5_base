@@ -3,19 +3,21 @@ package vn.loitp.app.activity.function.hashmap
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_func_hashmap.*
 import vn.loitp.app.R
 import java.util.*
 
-@LayoutId(R.layout.activity_func_hashmap)
 @LogTag("HashMapActivity")
 @IsFullScreen(false)
 class HashMapActivity : BaseFontActivity(), View.OnClickListener {
     private val map: MutableMap<String, String> = HashMap()
     private var autoKey = 0
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_func_hashmap
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

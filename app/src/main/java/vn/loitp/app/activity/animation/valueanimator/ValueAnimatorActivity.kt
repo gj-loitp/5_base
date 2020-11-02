@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.DecelerateInterpolator
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
@@ -15,10 +14,14 @@ import vn.loitp.app.R
 
 //https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 
-@LayoutId(R.layout.activity_animation_value_animator)
 @LogTag("ValueAnimatorActivity")
 @IsFullScreen(false)
 class ValueAnimatorActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_animation_value_animator
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -41,7 +44,7 @@ class ValueAnimatorActivity : BaseFontActivity() {
             va.interpolator = DecelerateInterpolator()
             val spaceW = (LScreenUtil.screenWidth - view.width) / range
             val spaceH = (LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight() - LScreenUtil.getBottomBarHeight() - view.height) / range
-            
+
             va.addUpdateListener { animation: ValueAnimator ->
                 val value = animation.animatedValue as Int
                 tvDebug.text = "onAnimationUpdate: " + value + " -> " + spaceW * value + " x " + spaceH * value

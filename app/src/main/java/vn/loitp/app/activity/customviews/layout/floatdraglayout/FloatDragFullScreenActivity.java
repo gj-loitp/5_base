@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseActivity;
 import com.views.layout.floatdraglayout.DisplayUtil;
@@ -15,11 +14,15 @@ import com.views.layout.floatdraglayout.FloatDragLayout;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_splash_v3)
 @LogTag("FloatDragFullScreenActivity")
 @IsFullScreen(false)
 public class FloatDragFullScreenActivity extends BaseActivity {
     private View mDecorView;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_splash_v3;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

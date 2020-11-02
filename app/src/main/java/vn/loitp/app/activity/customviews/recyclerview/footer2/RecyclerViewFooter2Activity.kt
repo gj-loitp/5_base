@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.*
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
@@ -18,12 +17,15 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
-@LayoutId(R.layout.activity_recycler_view_footer_2)
 @LogTag("RecyclerViewFooter2Activity")
 @IsFullScreen(false)
 class RecyclerViewFooter2Activity : BaseFontActivity() {
 
     private var footer2Adapter: Footer2Adapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view_footer_2
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -12,19 +12,15 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFragment;
+
+import org.jetbrains.annotations.NotNull;
 
 import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
-/**
- * Created by thangn on 3/1/17.
- */
-
-@LayoutId(R.layout.wwl_music_playlist_fragment)
 @LogTag("WWLPlaylistFragment")
 public class WWLPlaylistFragment extends BaseFragment {
     private RecyclerView mRecyclerView;
@@ -33,6 +29,11 @@ public class WWLPlaylistFragment extends BaseFragment {
     private TextView mTitleView;
     private TextView mSubTitleView;
     private FragmentHost mFragmentHost;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_music_playlist_fragment;
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class WWLPlaylistFragment extends BaseFragment {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+    //TODO deprecated
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -74,6 +76,7 @@ public class WWLPlaylistFragment extends BaseFragment {
             this.mDataSet = datasetItems;
         }
 
+        @NotNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_music_playlist_item, parent, false);

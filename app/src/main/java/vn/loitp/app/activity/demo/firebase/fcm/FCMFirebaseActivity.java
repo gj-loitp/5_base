@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo.firebase.fcm;
 import android.os.Bundle;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.common.Constants;
@@ -15,10 +14,14 @@ import vn.loitp.app.R;
 
 //https://docs.google.com/document/d/1LIkZgTWQB7FWVHUrc-ZrQaMVJkm6lbuMwirr1XCPwcA/edit
 
-@LayoutId(R.layout.activity_fcm_firebase)
 @LogTag("FCMFirebaseActivity")
 @IsFullScreen(false)
 public class FCMFirebaseActivity extends BaseFontActivity {
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_fcm_firebase;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +32,8 @@ public class FCMFirebaseActivity extends BaseFontActivity {
             if (Constants.Companion.getIS_DEBUG()) {
                 LFCMUtil.Companion.sendNotification(fcmKey, "Hello! This is a notification! " + System.currentTimeMillis(), null, null);
             } else {
-                LDialogUtil.Companion.showDialog1(FCMFirebaseActivity.this, "Message", "This feature is disabled by Loitp", "Okay", new Callback1() {
-                    @Override
-                    public void onClick1() {
-                        //do nothing
-                    }
+                LDialogUtil.Companion.showDialog1(FCMFirebaseActivity.this, "Message", "This feature is disabled by Loitp", "Okay", () -> {
+                    //do nothing
                 });
             }
         });

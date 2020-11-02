@@ -18,10 +18,14 @@ public class TempActivity extends BaseFontActivity {
     private PickerManager pickerManager;
 
     @Override
+    protected int setLayoutResourceId() {
+        return 0;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        setContentView(0);
         this.pickerManager = GlobalHolder.getInstance().getPickerManager();
         this.pickerManager.setActivity(this);
         this.pickerManager.pickPhotoWithPermission();
@@ -65,5 +69,4 @@ public class TempActivity extends BaseFontActivity {
         }
 
     }
-
 }

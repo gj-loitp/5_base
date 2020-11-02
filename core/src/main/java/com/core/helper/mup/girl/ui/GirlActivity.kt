@@ -26,9 +26,12 @@ class GirlActivity : BaseFontActivity() {
 
     val listMenuGirl = ArrayList<MenuGirl>()
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_girl
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_girl)
 
         setupData()
         setupViews()
@@ -87,7 +90,7 @@ class GirlActivity : BaseFontActivity() {
                         .addItem(itemId = listMenuGirl[2].itemId, iconId = listMenuGirl[2].iconId, textId = listMenuGirl[2].textId, activeColor = listMenuGirl[2].activeColor)
                         .build()
         )
-        expandableBottomBar.onItemSelectedListener = { view, menuItem ->
+        expandableBottomBar.onItemSelectedListener = { _, menuItem ->
             logD("onItemSelectedListener " + menuItem.itemId)
             val index = getIndexOfListMenuGirl(itemId = menuItem.itemId)
             index?.let {
@@ -95,7 +98,7 @@ class GirlActivity : BaseFontActivity() {
             }
         }
 
-        expandableBottomBar.onItemReselectedListener = { view, menuItem ->
+        expandableBottomBar.onItemReselectedListener = { _, menuItem ->
             logD("onItemReselectedListener" + menuItem.itemId)
         }
     }
@@ -109,7 +112,7 @@ class GirlActivity : BaseFontActivity() {
         return null
     }
 
-    private inner class SlidePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> {

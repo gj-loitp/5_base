@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
@@ -18,11 +17,15 @@ import kotlinx.android.synthetic.main.activity_viewpager_parallax.*
 import vn.loitp.app.R
 import java.util.*
 
-@LayoutId(R.layout.activity_viewpager_parallax)
 @LogTag("ParallaxViewPagerActivity")
 @IsFullScreen(false)
 class ParallaxViewPagerActivity : BaseFontActivity() {
     private val resList: MutableList<Int> = ArrayList()
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_viewpager_parallax
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

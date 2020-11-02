@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
@@ -23,20 +22,24 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie;
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter;
 import vn.loitp.app.common.Constants;
 
-@LayoutId(R.layout.activity_swipe_refresh_recycler_view_layout)
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")
 @IsFullScreen(false)
 public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
-    private SwipeRefreshLayout swipe_refresh_layout;
-    private List<Movie> movieList = new ArrayList<>();
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private final List<Movie> movieList = new ArrayList<>();
     private MoviesAdapter mAdapter;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_swipe_refresh_recycler_view_layout;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        swipe_refresh_layout = findViewById(R.id.swipeRefreshLayout);
-        swipe_refresh_layout.setOnRefreshListener(this::refresh);
-        LUIUtil.Companion.setColorForSwipeRefreshLayout(swipe_refresh_layout);
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(this::refresh);
+        LUIUtil.Companion.setColorForSwipeRefreshLayout(swipeRefreshLayout);
 
         RecyclerView rv = findViewById(R.id.rv);
 
@@ -71,15 +74,15 @@ public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
         mAdapter.notifyDataSetChanged();
         LUIUtil.Companion.setDelay(3000, () -> {
             prepareMovieData();
-            swipe_refresh_layout.setRefreshing(false);
+            swipeRefreshLayout.setRefreshing(false);
             showShortInformation("Finish refresh", true);
         });
     }
 
     private void loadMore() {
-        swipe_refresh_layout.setRefreshing(true);
+        swipeRefreshLayout.setRefreshing(true);
         LUIUtil.Companion.setDelay(2000, () -> {
-            swipe_refresh_layout.setRefreshing(false);
+            swipeRefreshLayout.setRefreshing(false);
             int newSize = 5;
             for (int i = 0; i < newSize; i++) {
                 Movie movie = new Movie("Add new " + i, "Add new " + i, "Add new: " + i, Constants.Companion.getURL_IMG());

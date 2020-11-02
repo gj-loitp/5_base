@@ -7,7 +7,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.base.BaseModel;
@@ -17,7 +16,6 @@ import com.views.ldebugview.LDebug;
 import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
-@LayoutId(R.layout.activity_l_debugview)
 @LogTag("LDebugViewActivity")
 @IsFullScreen(false)
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
@@ -27,6 +25,11 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
     private Button btSendI;
     private Button btSendE;
     private Button btSendObjectD;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_l_debugview;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -18,10 +17,13 @@ import vn.loitp.app.activity.customviews.button.lbutton.LButtonActivity
 import vn.loitp.app.activity.customviews.button.qbutton.QButtonActivity
 import vn.loitp.app.activity.customviews.button.shinebutton.ShineButtonActivity
 
-@LayoutId(R.layout.activity_button_menu)
 @LogTag("ButtonMenuActivity")
 @IsFullScreen(false)
 class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_button_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

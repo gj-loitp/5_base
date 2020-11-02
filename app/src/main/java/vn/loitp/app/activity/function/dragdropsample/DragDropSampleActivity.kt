@@ -8,17 +8,20 @@ import android.view.View.DragShadowBuilder
 import android.view.View.OnDragListener
 import android.widget.ImageView
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_drag_drop_sample.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_func_drag_drop_sample)
 @LogTag("DragDropSampleActivity")
 @IsFullScreen(false)
 class DragDropSampleActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_func_drag_drop_sample
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

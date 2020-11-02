@@ -12,9 +12,8 @@ import kotlinx.android.synthetic.main.l_frm_comic_favourite.*
 @LogTag("FrmFavourite")
 class FrmFavourite : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_comic_favourite, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_comic_favourite
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

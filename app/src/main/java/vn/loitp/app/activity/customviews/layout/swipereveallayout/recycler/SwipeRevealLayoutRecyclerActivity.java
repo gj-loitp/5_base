@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 
@@ -18,15 +17,20 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_recycler)
 @LogTag("SwipeRevealLayoutRecyclerActivity")
 @IsFullScreen(false)
 public class SwipeRevealLayoutRecyclerActivity extends BaseFontActivity {
     private RecyclerAdapter adapter;
 
     @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_recycler;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setupActionBar();
         setupList();
     }

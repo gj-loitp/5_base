@@ -16,6 +16,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_admob_rewarded_video.*
 
 @LogTag("AdmobRewardedVideoActivity")
+//TODO deprecated
 class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
     private var mAd: RewardedVideoAd? = null
     private var strReward: String? = null
@@ -25,9 +26,12 @@ class AdmobRewardedVideoActivity : BaseFontActivity(), RewardedVideoAdListener {
         const val ID_REWARD = "ID_REWARD"
     }
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_admob_rewarded_video
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_admob_rewarded_video)
 
         textView.setText(R.string.loading)
         LUIUtil.setTextShadow(textView)

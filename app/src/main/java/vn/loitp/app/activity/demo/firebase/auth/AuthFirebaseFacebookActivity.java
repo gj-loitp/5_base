@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -44,7 +43,6 @@ import vn.loitp.app.R;
 
 //https://github.com/firebase/quickstart-android
 
-@LayoutId(R.layout.activity_auth_firebase_facebook)
 @LogTag("AuthFirebaseFacebookActivity")
 @IsFullScreen(false)
 public class AuthFirebaseFacebookActivity extends BaseFontActivity implements View.OnClickListener {
@@ -56,6 +54,11 @@ public class AuthFirebaseFacebookActivity extends BaseFontActivity implements Vi
     // [END declare_auth]
 
     private CallbackManager mCallbackManager;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_auth_firebase_facebook;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -3,7 +3,6 @@ package vn.loitp.app.activity.ads
 import android.content.Intent
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.admobrewardedvideo.AdmobRewardedVideoActivity
@@ -14,10 +13,13 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.ads.admobbanner.AdmobBannerActivity
 import vn.loitp.app.activity.ads.admobinterstitial.AdmobInterstitialActivity
 
-@LayoutId(R.layout.activity_menu_ads)
 @LogTag("MenuAdsActivity")
 @IsFullScreen(false)
 class MenuAdsActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_menu_ads
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

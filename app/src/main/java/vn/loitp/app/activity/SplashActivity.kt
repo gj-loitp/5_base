@@ -7,7 +7,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -29,7 +28,6 @@ import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import java.io.IOException
 
-@LayoutId(R.layout.activity_splash)
 @LogTag("SplashActivity")
 @IsFullScreen(false)
 class SplashActivity : BaseFontActivity() {
@@ -37,11 +35,15 @@ class SplashActivity : BaseFontActivity() {
     private var isCheckReadyDone = false
     private var isShowDialogCheck = false
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_splash
+    }
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LUIUtil.setDelay(mls = 2500, runnable = Runnable {
+        LUIUtil.setDelay(mls = 2500, runnable = {
             isAnimDone = true
             goToHome()
         })
@@ -138,9 +140,9 @@ class SplashActivity : BaseFontActivity() {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
-            LUIUtil.setDelay(1000, Runnable {
+            LUIUtil.setDelay(1000) {
                 finish()
-            })
+            }
         }
     }
 
@@ -171,7 +173,7 @@ class SplashActivity : BaseFontActivity() {
             return
         }
         val LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
-        val request = Request.Builder().url(LINK_GG_DRIVE_CHECK_READY).build()
+        val request = Request.Builder().url(url = LINK_GG_DRIVE_CHECK_READY).build()
         val okHttpClient = OkHttpClient()
         okHttpClient.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {

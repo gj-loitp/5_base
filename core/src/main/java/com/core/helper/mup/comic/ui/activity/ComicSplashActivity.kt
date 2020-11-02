@@ -33,9 +33,12 @@ class ComicSplashActivity : BaseFontActivity() {
     private var admobBannerUnitId: String? = null
     private var isShowDialogCheck: Boolean = false
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_comic_splash
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_comic_splash)
 
         admobBannerUnitId = intent.getStringExtra(Constants.COMIC_ADMOB_ID_BANNER)
 
@@ -61,7 +64,7 @@ class ComicSplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
+        LUIUtil.setDelay(mls = 2000, runnable = {
             val intent = Intent(this, ComicLoginActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)

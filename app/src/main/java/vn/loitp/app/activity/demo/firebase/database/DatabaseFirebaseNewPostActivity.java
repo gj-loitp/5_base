@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +23,6 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
-@LayoutId(R.layout.activity_new_post)
 @LogTag("DatabaseFirebaseNewPostActivity")
 @IsFullScreen(false)
 public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
@@ -37,6 +35,11 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     private EditText mTitleField;
     private EditText mBodyField;
     private FloatingActionButton mSubmitButton;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_new_post;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

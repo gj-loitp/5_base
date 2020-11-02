@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -21,10 +20,13 @@ import vn.loitp.app.activity.animation.overscroll.OverScrollActivity
 import vn.loitp.app.activity.animation.shadowviewhelper.ShadowViewHelperActivity
 import vn.loitp.app.activity.animation.valueanimator.ValueAnimatorActivity
 
-@LayoutId(R.layout.activity_menu_animation)
 @LogTag("MenuAnimationActivity")
 @IsFullScreen(false)
 class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_menu_animation
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,7 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         btAnimationView.setOnClickListener(this)
         btOverScroll.setOnClickListener(this)
         btFlySchool.setOnClickListener(this)

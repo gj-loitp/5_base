@@ -15,7 +15,6 @@ import android.provider.Settings
 import android.view.View
 import androidx.core.app.NotificationCompat
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LNotification
@@ -29,9 +28,7 @@ import com.function.notification.config.VibrationSettings
 import kotlinx.android.synthetic.main.activity_notification_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.SplashActivity
-import java.util.*
 
-@LayoutId(R.layout.activity_notification_menu)
 @LogTag("MenuNotificationActivity")
 @IsFullScreen(false)
 class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
@@ -42,6 +39,10 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
     private var notti: Notti? = null
     private val channelId = "my_package_channel"
     private var notificationManager: NotificationManager? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_notification_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,7 +114,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             btSimpleNotificationActions -> {
                 intent = Intent(this, MenuNotificationActivity::class.java)
 
-                val actionsList = Arrays.asList(NotificationAction("action", intent, this),
+                val actionsList = mutableListOf(NotificationAction("action", intent, this),
                         NotificationAction("action 2", intent, this))
 
                 notti?.show(NottiFactory

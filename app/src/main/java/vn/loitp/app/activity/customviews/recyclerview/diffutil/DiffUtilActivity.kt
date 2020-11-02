@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.recyclerview.diffutil
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -11,7 +10,6 @@ import kotlinx.android.synthetic.main.activity_recycler_view_diff_util.*
 import vn.loitp.app.R
 import java.util.*
 
-@LayoutId(R.layout.activity_recycler_view_diff_util)
 @LogTag("DiffUtilActivity")
 @IsFullScreen(false)
 class DiffUtilActivity : BaseFontActivity() {
@@ -35,6 +33,10 @@ class DiffUtilActivity : BaseFontActivity() {
     }
 
     val adapter = ContentAdapter()
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view_diff_util
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

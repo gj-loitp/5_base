@@ -7,7 +7,6 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 
@@ -21,13 +20,17 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
  * Created by loitp on 2/26/17.
  */
 
-@LayoutId(R.layout.wwl_video_player_fragment)
 @LogTag("DatabaseFirebaseSignInActivity")
 public class WWLVideoPlayerFragment extends BaseFragment {
     private String mUrl;
     private FragmentHost mFragmentHost;
     private String entityIdDefaultVOD = "7699e10e-5ce3-4dab-a5ad-a615a711101e";
     private String entityIdDefaultLIVE = "1759f642-e062-4e88-b5f2-e3022bd03b57";
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_video_player_fragment;
+    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

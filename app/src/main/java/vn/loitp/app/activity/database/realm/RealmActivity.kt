@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -17,11 +16,14 @@ import kotlinx.android.synthetic.main.activity_realm.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 
-@LayoutId(R.layout.activity_realm)
 @LogTag("RealmActivity")
 @IsFullScreen(false)
 class RealmActivity : BaseFontActivity() {
     private lateinit var mRealm: Realm
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_realm
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

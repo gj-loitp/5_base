@@ -33,9 +33,12 @@ class ComicReadActivity : BaseFontActivity() {
     }
     private var comicViewModel: ComicViewModel? = null
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_comic_read
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_comic_read)
 
         setupData()
         setupViews()
@@ -67,7 +70,7 @@ class ComicReadActivity : BaseFontActivity() {
 
     private fun setupViewModels() {
         comicViewModel = getViewModel(ComicViewModel::class.java)
-        comicViewModel?.let { vm ->
+        comicViewModel?.let { _ ->
 
         }
     }

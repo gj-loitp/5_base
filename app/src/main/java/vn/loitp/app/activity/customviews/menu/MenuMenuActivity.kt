@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -13,10 +12,14 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.menu.drawerbehavior.DrawerBehaviorMainActivity
 import vn.loitp.app.activity.customviews.menu.residemenu.ResideMenuActivity
 
-@LayoutId(R.layout.activity_menu_menu)
 @LogTag("MenuMenuActivity")
 @IsFullScreen(false)
 class MenuMenuActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_menu_menu
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

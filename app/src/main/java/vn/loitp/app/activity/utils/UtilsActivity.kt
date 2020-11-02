@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -14,12 +13,15 @@ import com.utils.util.*
 import kotlinx.android.synthetic.main.activity_utils.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_utils)
 @LogTag("UtilsActivity")
 @IsFullScreen(false)
 class UtilsActivity : BaseFontActivity() {
 
     private val listClass = ArrayList<String>()
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_utils
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

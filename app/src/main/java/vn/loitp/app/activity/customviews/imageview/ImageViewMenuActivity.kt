@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -25,10 +24,13 @@ import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyI
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity
 
-@LayoutId(R.layout.activity_imageview_menu)
 @LogTag("ImageViewMenuActivity")
 @IsFullScreen(false)
 class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_imageview_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

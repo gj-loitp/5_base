@@ -65,13 +65,16 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
 
     private val isDarkTheme = LUIUtil.isDarkTheme()
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_epub_reader_read
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_epub_reader_read)
 
         bookInfo = BookInfoData.instance.bookInfo
         if (bookInfo == null) {
-            showShortError(getString(R.string.err_unknow))
+            showShortError(msg = getString(R.string.err_unknow))
             onBackPressed()
         }
 
@@ -134,13 +137,13 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     private fun setupViewModels() {
         epubViewModel = getViewModel(EpubViewModel::class.java)
         epubViewModel?.let { vm ->
-            vm.loadDataActionLiveData.observe(this, androidx.lifecycle.Observer { actionData ->
+            vm.loadDataActionLiveData.observe(this, { actionData ->
                 logD("loadDataActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == false && isSuccess == true) {
-                    LUIUtil.setDelay(mls = 1000, runnable = Runnable {
+                    LUIUtil.setDelay(mls = 1000, runnable = {
                         rlSplash.visibility = View.GONE
                     })
                     viewPager.adapter = sectionsPagerAdapter

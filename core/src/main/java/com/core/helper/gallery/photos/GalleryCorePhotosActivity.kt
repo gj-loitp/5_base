@@ -31,14 +31,16 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
 class GalleryCorePhotosActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
-    private val PER_PAGE_SIZE = 100
     private var isLoading = false
     private var photosAdapter: PhotosAdapter? = null
     private var photosetID: String? = null
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_flickr_gallery_core_photos
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_flickr_gallery_core_photos)
 
 //        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
@@ -59,10 +61,10 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             showDialogError(getString(R.string.err_unknow))
             return
         }
-        totalPage = if (totalPhotos % PER_PAGE_SIZE == 0) {
-            totalPhotos / PER_PAGE_SIZE
+        totalPage = if (totalPhotos % Constants.PER_PAGE_SIZE == 0) {
+            totalPhotos / Constants.PER_PAGE_SIZE
         } else {
-            totalPhotos / PER_PAGE_SIZE + 1
+            totalPhotos / Constants.PER_PAGE_SIZE + 1
         }
         currentPage = totalPage
 
@@ -161,7 +163,16 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
-        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, noJsonCallBack)
+        compositeDisposable.add(service.getPhotosetPhotos(
+                method = method,
+                apiKey = apiKey,
+                photosetId = photosetID,
+                userId = userID,
+                extras = primaryPhotoExtras,
+                perPage = Constants.PER_PAGE_SIZE,
+                page = currentPage,
+                format = format,
+                noJsonCallback = noJsonCallBack)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->

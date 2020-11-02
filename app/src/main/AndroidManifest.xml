@@ -441,7 +441,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".activity.customviews.layout.constraintlayout.demo.ConstraintlayoutDemoActivity"
+            android:name=".activity.customviews.layout.constraintlayout.demo.ConstraintLayoutDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.function.viewdraghelper.ViewDragHelperActivity"
@@ -487,7 +487,7 @@
             android:name=".activity.demo.firebase.MenuFirebaseActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.demo.firebase.admob.FirebaseAdmobActivity"
+            android:name=".activity.demo.firebase.admob.FirebaseAdMobActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.demo.firebase.admob.FirebaseAdmobActivity2"
@@ -537,7 +537,7 @@
             android:name=".activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackbarActivity"
+            android:name=".activity.customviews.layout.constraintlayout.fabandsnackbar.FabAndSnackBarActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.constraintlayout.fabfollowswiidget.FabFollowWidgetActivity"
@@ -727,7 +727,7 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".activity.tutorial.rxjava2.FlowableExampleActivity"
+            android:name=".activity.tutorial.rxjava2.FlowAbleExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.tutorial.rxjava2.IntervalExampleActivity"

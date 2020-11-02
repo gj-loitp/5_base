@@ -2,7 +2,6 @@ package vn.loitp.app.activity.database.sharedprefs
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSharedPrefsUtil
@@ -10,7 +9,6 @@ import kotlinx.android.synthetic.main.activity_shared_prefs.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 
-@LayoutId(R.layout.activity_shared_prefs)
 @LogTag("SharedPrefsActivity")
 @IsFullScreen(false)
 class SharedPrefsActivity : BaseFontActivity() {
@@ -23,6 +21,10 @@ class SharedPrefsActivity : BaseFontActivity() {
         const val KEY_INT = "KEY_INT"
         const val KEY_LONG = "KEY_LONG"
         const val KEY_OBJECT = "KEY_OBJECT"
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_shared_prefs
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

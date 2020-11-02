@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.autosel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.annotation.LayoutId
 
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout.*
@@ -12,7 +11,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.basic.RvTabDemoBasicActivity
 
-@LayoutId(R.layout.activity_recycler_tablayout)
 class RvTabAutoSelectActivityRvTab : RvTabDemoBasicActivity() {
 
     companion object {
@@ -23,6 +21,10 @@ class RvTabAutoSelectActivityRvTab : RvTabDemoBasicActivity() {
             context.startActivity(intent)
             LActivityUtil.tranIn(context)
         }
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_tablayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.os.StrictMode
 import android.widget.ImageView
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.asksira.bsimagepicker.BSImagePicker
 import com.core.base.BaseFontActivity
@@ -18,16 +17,22 @@ import vn.loitp.app.R
 
 //https://github.com/siralam/BSImagePicker
 
-@LayoutId(R.layout.activity_picker_bs_image)
 @LogTag("BSImagePickerActivity")
 @IsFullScreen(false)
-class BSImagePickerActivity : BaseFontActivity(), BSImagePicker.OnSingleImageSelectedListener,
-        BSImagePicker.OnMultiImageSelectedListener, BSImagePicker.ImageLoaderDelegate, BSImagePicker.OnSelectImageCancelledListener {
+class BSImagePickerActivity : BaseFontActivity(),
+        BSImagePicker.OnSingleImageSelectedListener,
+        BSImagePicker.OnMultiImageSelectedListener,
+        BSImagePicker.ImageLoaderDelegate,
+        BSImagePicker.OnSelectImageCancelledListener {
     private val providerAuthority = ".activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
     private var isCropEnable = false
 
     companion object {
         private const val CROP_PIC_REQUEST_CODE = 56789
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_picker_bs_image
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

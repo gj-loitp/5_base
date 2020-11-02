@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
@@ -13,10 +12,13 @@ import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
 import vn.loitp.app.R
 import java.util.*
 
-@LayoutId(R.layout.activity_navigation_view_with_text)
 @LogTag("NavigationViewWithTextActivity")
 @IsFullScreen(false)
 class NavigationViewWithTextActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_navigation_view_with_text
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

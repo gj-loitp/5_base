@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +31,6 @@ import vn.loitp.app.activity.demo.firebase.database.models.Comment;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
-@LayoutId(R.layout.activity_post_detail)
 @LogTag("DatabaseFirebasePostDetailActivity")
 @IsFullScreen(false)
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
@@ -49,6 +47,11 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
     private TextView mBodyView;
     private EditText mCommentField;
     private RecyclerView mCommentsRecycler;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_post_detail;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

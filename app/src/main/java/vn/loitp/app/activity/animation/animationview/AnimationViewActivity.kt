@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
@@ -14,12 +13,15 @@ import kotlinx.android.synthetic.main.activity_animation_view.*
 import vn.loitp.app.R
 import java.util.*
 
-@LayoutId(R.layout.activity_animation_view)
 @LogTag("AnimationViewActivity")
 @IsFullScreen(false)
 class AnimationViewActivity : BaseFontActivity() {
     private var listAnim: List<Techniques> = ArrayList()
     private var listString: Array<String?>? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_animation_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +29,7 @@ class AnimationViewActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         setupAnimList()
         btSelectAnim.setOnClickListener {
             showDialogSelectAnim()

@@ -6,7 +6,6 @@ import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
@@ -17,10 +16,13 @@ import com.views.LAppBarLayout
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_collapsingtoolbar)
 @LogTag("CollapsingToolbarLayoutActivity")
 @IsFullScreen(false)
 class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_collapsingtoolbar
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +30,7 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         setCustomStatusBar(colorStatusBar = Color.TRANSPARENT, colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
         setSupportActionBar(toolbar)

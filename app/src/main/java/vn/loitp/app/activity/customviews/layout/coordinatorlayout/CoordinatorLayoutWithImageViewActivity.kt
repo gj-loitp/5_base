@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout
 import android.graphics.Matrix
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.material.appbar.AppBarLayout
@@ -13,10 +12,13 @@ import kotlinx.android.synthetic.main.activity_coordinator_layout.*
 import vn.loitp.app.R
 import kotlin.math.roundToInt
 
-@LayoutId(R.layout.activity_coordinator_layout)
 @LogTag("CoordinatorLayoutWithImageViewActivity")
 @IsFullScreen(false)
 class CoordinatorLayoutWithImageViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_coordinator_layout
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

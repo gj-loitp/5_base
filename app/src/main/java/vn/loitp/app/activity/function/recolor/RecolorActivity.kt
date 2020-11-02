@@ -2,7 +2,6 @@ package vn.loitp.app.activity.function.recolor
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.simmorsal.recolor_project.ReColor
@@ -11,7 +10,6 @@ import vn.loitp.app.R
 
 //https://github.com/SIMMORSAL/ReColor
 
-@LayoutId(R.layout.activity_fun_recolor)
 @LogTag("RecolorActivity")
 @IsFullScreen(false)
 class RecolorActivity : BaseFontActivity() {
@@ -21,6 +19,10 @@ class RecolorActivity : BaseFontActivity() {
     private var isCardColorChanged = false
     private var isStatusBarColorChanged = false
     private var isNavigationBarColorChanged = false
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_fun_recolor
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
