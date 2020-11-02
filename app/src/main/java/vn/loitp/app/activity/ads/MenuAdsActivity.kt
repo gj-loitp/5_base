@@ -5,7 +5,7 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.helper.admobrewardedvideo.AdmobRewardedVideoActivity
+import com.core.helper.admobrewardedvideo.AdMobRewardedVideoActivity
 import com.core.utilities.LActivityUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_menu_ads.*
@@ -35,9 +35,9 @@ class MenuAdsActivity : BaseFontActivity() {
             LActivityUtil.tranIn(this)
         }
         bt3.setSafeOnClickListener {
-            val intent = Intent(this, AdmobRewardedVideoActivity::class.java)
-            intent.putExtra(AdmobRewardedVideoActivity.APP_ID, getString(R.string.str_app_id))
-            intent.putExtra(AdmobRewardedVideoActivity.ID_REWARD, getString(R.string.str_reward))
+            val intent = Intent(this, AdMobRewardedVideoActivity::class.java)
+            intent.putExtra(AdMobRewardedVideoActivity.APP_ID, getString(R.string.str_app_id))
+            intent.putExtra(AdMobRewardedVideoActivity.ID_REWARD, getString(R.string.str_reward))
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }

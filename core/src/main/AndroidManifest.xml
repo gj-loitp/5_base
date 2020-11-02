@@ -79,7 +79,7 @@
             android:name=".function.epub.core.EpubReaderReadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.admobrewardedvideo.AdmobRewardedVideoActivity"
+            android:name=".core.helper.admobrewardedvideo.AdMobRewardedVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".picker.imagepickerwithcrop.TempActivity"
