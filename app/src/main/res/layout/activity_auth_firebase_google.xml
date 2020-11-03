@@ -26,7 +26,7 @@
                 android:padding="@dimen/padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/google_icon"
+                    android:id="@+id/googleIcon"
                     android:layout_width="@dimen/w_100"
                     android:layout_height="@dimen/w_100"
                     android:contentDescription="@string/app_name"
@@ -64,7 +64,7 @@
             android:layout_weight="1">
 
             <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
+                android:id="@+id/btSignIn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -72,7 +72,7 @@
                 tools:visibility="gone" />
 
             <LinearLayout
-                android:id="@+id/sign_out_and_disconnect"
+                android:id="@+id/signOutAndDisconnect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -83,23 +83,25 @@
                 tools:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/sign_out_button"
+                    android:id="@+id/btSignOut"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="?attr/themeBackgroundColorMedium"
-                    android:text="@string/sign_out" />
+                    android:text="@string/sign_out"
+                    android:textColor="?attr/themeTextColor" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/disconnect_button"
+                    android:id="@+id/btDisconnect"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
                     android:layout_weight="1"
                     android:background="?attr/themeBackgroundColorMedium"
-                    android:text="@string/disconnect" />
+                    android:text="@string/disconnect"
+                    android:textColor="?attr/themeTextColor" />
             </LinearLayout>
 
         </RelativeLayout>

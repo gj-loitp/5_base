@@ -20,14 +20,14 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_fb"
+                android:id="@+id/btFb"
                 style="@style/ButtonMenu"
-                android:text="Facebook" />
+                android:text="@string/facebook" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_gg"
+                android:id="@+id/btGG"
                 style="@style/ButtonMenu"
-                android:text="Google" />
+                android:text="@string/google" />
 
         </LinearLayout>
     </ScrollView>
@@ -35,5 +35,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Auth Firebase" />
+        android:text="@string/auth_firebase" />
 </RelativeLayout>
