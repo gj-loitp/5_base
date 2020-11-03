@@ -503,4 +503,5 @@ Likewise may someone love you next.
     <string name="welcome">Welcome...</string>
     <string name="fetch_remote_welcome">fetch remote welcome</string>
     <string name="config_firebase">Config Firebase</string>
+    <string name="invite">Invite</string>
 </resources>
