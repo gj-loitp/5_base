@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,4 +15,15 @@
         android:adjustViewBounds="true"
         android:foreground="?selectableItemBackground"
         tools:src="@drawable/logo" />
-</LinearLayout>
+
+    <com.views.progressloadingview.window.WP7ProgressBar
+        android:id="@+id/wp7progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:wpAnimationDuration="2300"
+        app:wpIndicatorColor="?attr/themeTextColor"
+        app:wpIndicatorHeight="7"
+        app:wpIndicatorRadius="5"
+        app:wpInterval="100" />
+</FrameLayout>

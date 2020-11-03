@@ -3,18 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="?attr/themeBackgroundColor" />
+            <solid android:color="?attr/themeBackgroundColorMedium" />
 
             <size
-                android:width="900dp"
-                android:height="1900dp" />
+                android:width="1280dp"
+                android:height="1920dp" />
         </shape>
     </item>
 
     <item
         android:width="@dimen/w_120"
         android:height="@dimen/w_120"
-        android:drawable="@mipmap/ic_launcher"
+        android:drawable="@drawable/l_error_404"
         android:gravity="center"
         tools:ignore="UnusedAttribute" />
 </layer-list>

@@ -1,11 +1,16 @@
 package com.core.helper.mup.comic.adapter
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
 import com.core.common.Constants
 import com.core.helper.mup.comic.model.ChapterComicsDetail
@@ -30,17 +35,28 @@ class ChapterDetailAdapter : AnimationAdapter() {
 
         fun bind(chapterComicsDetail: ChapterComicsDetail) {
             var imgSrc = chapterComicsDetail.getImageSrc()
-            if (Constants.IS_DEBUG) {
-                imgSrc = Constants.URL_IMG_1
-            }
+//            if (Constants.IS_DEBUG) {
+//                imgSrc = Constants.URL_IMG_1
+//            }
             logD("$bindingAdapterPosition -> imgSrc $imgSrc")
+            itemView.wp7progressBar.showProgressBar()
+            LImageUtil.setImageViewZoom(iv = itemView.ivChapterDetail)
             LImageUtil.load(
                     context = itemView.ivChapterDetail.context,
                     any = imgSrc,
                     imageView = itemView.ivChapterDetail,
-                    resError = R.color.gray,
-                    resPlaceHolder = R.color.gray,
-                    drawableRequestListener = null
+                    resError = R.drawable.place_holder_error404,
+                    drawableRequestListener = object : RequestListener<Drawable> {
+                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                            itemView.wp7progressBar.hideProgressBar()
+                            return false
+                        }
+
+                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                            itemView.wp7progressBar.hideProgressBar()
+                            return false
+                        }
+                    }
             )
 
             itemView.ivChapterDetail.setSafeOnClickListener {
