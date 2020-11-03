@@ -18,7 +18,7 @@ import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.l_activity_comic_login.*
 
-@LogTag("ComicSplashActivity")
+@LogTag("ComicLoginActivity")
 @IsFullScreen(false)
 class ComicLoginActivity : BaseFontActivity() {
 
@@ -75,7 +75,9 @@ class ComicLoginActivity : BaseFontActivity() {
                         val token = data?.jwtToken
 //                    logD("token $token")
                         if (token.isNullOrEmpty()) {
-                            showDialogError(errMsg = getString(R.string.err_unknow))
+                            showDialogError(errMsg = getString(R.string.err_unknow), runnable = {
+                                onBackPressed()
+                            })
                         } else {
 
                             //save comic token
@@ -89,7 +91,9 @@ class ComicLoginActivity : BaseFontActivity() {
                         }
                     } else {
                         val error = actionData.errorResponse
-                        showDialogError(errMsg = error?.message)
+                        showDialogError(errMsg = error?.message, runnable = {
+                            onBackPressed()
+                        })
                     }
                 }
             })

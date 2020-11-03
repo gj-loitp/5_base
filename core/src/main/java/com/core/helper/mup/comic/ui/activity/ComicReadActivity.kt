@@ -14,8 +14,9 @@ import com.core.helper.mup.comic.adapter.ChapterDetailAdapter
 import com.core.helper.mup.comic.model.Chap
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
-import com.google.ads.interactivemedia.v3.internal.it
+import com.daimajia.androidanimations.library.Techniques
 import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
@@ -95,9 +96,11 @@ class ComicReadActivity : BaseFontActivity() {
 
                     override fun onScrolled(isScrollDown: Boolean) {
                         if (isScrollDown) {
-                            layoutControl.visibility = View.GONE
+//                            layoutControl.visibility = View.GONE
+                            LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideOutUp)
                         } else {
-                            layoutControl.visibility = View.VISIBLE
+//                            layoutControl.visibility = View.VISIBLE
+                            LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideInDown)
                         }
                     }
                 })

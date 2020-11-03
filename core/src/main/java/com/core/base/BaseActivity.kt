@@ -235,11 +235,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 button1 = getString(R.string.confirm),
                 callback1 = object : Callback1 {
                     override fun onClick1() {
-                        if (runnable == null) {
-                            onBackPressed()
-                        } else {
-                            runnable.run()
-                        }
+                        runnable?.run()
                     }
                 })
         alertDialog.setCancelable(false)
