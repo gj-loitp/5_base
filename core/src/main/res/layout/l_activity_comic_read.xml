@@ -91,7 +91,7 @@
             android:text="@string/next_chap"
             android:textAllCaps="false"
             android:textColor="?attr/themeBackgroundColor"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:backgroundTint="?attr/themeTextColor"
             app:icon="@drawable/ic_chevron_right_black_48dp"
             app:iconTint="?attr/themeBackgroundColor"

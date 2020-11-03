@@ -18,6 +18,7 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
+import com.google.ads.interactivemedia.v3.internal.fa
 import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
@@ -97,22 +98,16 @@ class ComicReadActivity : BaseFontActivity() {
                     }
 
                     override fun onBottom() {
-                        if (fabNext.visibility != View.VISIBLE) {
-                            fabNext.visibility = View.VISIBLE
-                        }
+                        fabNext.visibility = View.VISIBLE
+                        LAnimationUtil.play(view = fabNext, techniques = Techniques.SlideInUp)
                     }
 
                     override fun onScrolled(isScrollDown: Boolean) {
                         if (isScrollDown) {
-//                            layoutControl.visibility = View.GONE
                             LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideOutUp)
                         } else {
-//                            layoutControl.visibility = View.VISIBLE
                             LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideInDown)
-
-                            if (fabNext.visibility != View.GONE) {
-                                fabNext.visibility = View.GONE
-                            }
+                            LAnimationUtil.play(view = fabNext, techniques = Techniques.SlideOutDown)
                         }
                     }
                 })

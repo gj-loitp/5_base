@@ -17,7 +17,14 @@ class LAnimationUtil {
     companion object {
         private const val DEFAULT_ANIMATION_DURATION = 300//mls
 
-        fun play(view: View?, duration: Int, repeatCount: Int, techniques: Techniques, delayInMls: Int, callbackAnimation: CallbackAnimation?) {
+        fun play(
+                view: View?,
+                duration: Int,
+                repeatCount: Int,
+                techniques: Techniques,
+                delayInMls: Int,
+                callbackAnimation: CallbackAnimation?
+        ) {
             if (view == null) {
                 return
             }
