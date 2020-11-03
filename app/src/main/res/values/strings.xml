@@ -497,4 +497,8 @@ Likewise may someone love you next.
     <string name="anchor">Anchor</string>
     <string name="an_imageview_can_auto_scroll_with_device_rotating_vertical_or_horizontal">An imageView can auto scroll with device rotating: Vertical or Horizontal</string>
     <string name="try_to_zoom">Try to zoom</string>
+    <string name="rotate_screen">Rotate screen</string>
+    <string name="the_size_of_button_will_be_changed_when_device_screen_is_rotated">The size of button will be changed when device screen is rotated</string>
+    <string name="circular_image_click">Circular image click</string>
+    <string name="goodview">GoodView</string>
 </resources>

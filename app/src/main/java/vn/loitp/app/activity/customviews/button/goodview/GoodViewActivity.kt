@@ -24,6 +24,10 @@ class GoodViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         lGoodView = LGoodView(this)
         bt.setOnClickListener { v: View? ->
             lGoodView?.let {
@@ -31,15 +35,15 @@ class GoodViewActivity : BaseFontActivity() {
                 it.show(v)
             }
         }
-        imageView.setOnClickListener { v: View? ->
+        imageView.setOnClickListener {
             imageView.setColorFilter(Color.TRANSPARENT)
-            lGoodView?.let {
-                it.setImage(R.mipmap.ic_launcher)
-                //it.setDistance(1000)
-                //it.setTranslateY(0, 10000)
-                //it.setAlpha(0, 0.5f)
-                //it.setDuration(3000)
-                it.show(v)
+            lGoodView?.apply {
+                this.setImage(R.mipmap.ic_launcher)
+                //this.setDistance(1000)
+                //this.setTranslateY(0, 10000)
+                //this.setAlpha(0, 0.5f)
+                //this.setDuration(3000)
+                this.show(it)
             }
         }
     }

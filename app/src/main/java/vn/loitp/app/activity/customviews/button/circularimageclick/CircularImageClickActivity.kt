@@ -7,8 +7,6 @@ import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_button_circular_image_click.*
 import vn.loitp.app.R
 
-//guide https://github.com/hoang8f/android-flat-button
-
 @LogTag("CircularImageClickActivity")
 @IsFullScreen(false)
 class CircularImageClickActivity : BaseFontActivity() {
@@ -20,6 +18,10 @@ class CircularImageClickActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         circleButton.setOnCircleClickListener {
             showShortInformation("onClick")
         }

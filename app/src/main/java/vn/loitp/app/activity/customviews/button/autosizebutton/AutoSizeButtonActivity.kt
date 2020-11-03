@@ -21,6 +21,10 @@ class AutoSizeButtonActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btRotate.setOnClickListener(this)
 
         bt0.setPortraitSizeWInDp(50f)

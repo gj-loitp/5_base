@@ -199,12 +199,7 @@ public class LGoodView extends PopupWindow implements IGoodView {
             @Override
             public void onAnimationEnd(Animation animation) {
                 if (isShowing()) {
-                    new Handler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            dismiss();
-                        }
-                    });
+                    new Handler().post(() -> dismiss());
                 }
             }
 
