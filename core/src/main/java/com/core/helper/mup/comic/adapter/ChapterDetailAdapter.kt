@@ -8,15 +8,14 @@ import com.R
 import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.ChapterComicsDetail
-import com.core.utilities.LUIUtil
-import com.utils.util.ConvertUtils
+import com.core.utilities.LImageUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic_chapter_detail.view.*
 
-@LogTag("CategoryAdapter")
+@LogTag("loitppChapterDetailAdapter")
 class ChapterDetailAdapter : AnimationAdapter() {
 
     private val listData = ArrayList<ChapterComicsDetail>()
-    private val marginTop = ConvertUtils.dp2px(50f)
 
     fun setListData(listChap: List<ChapterComicsDetail>) {
         this.listData.addAll(listChap)
@@ -28,8 +27,19 @@ class ChapterDetailAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(chapterComicsDetail: ChapterComicsDetail) {
+            logD("$bindingAdapterPosition -> " + chapterComicsDetail.getImageSrc())
+            LImageUtil.load(
+                    context = itemView.ivChapterDetail.context,
+                    any = chapterComicsDetail.getImageSrc(),
+                    imageView = itemView.ivChapterDetail,
+                    resError = R.color.gray,
+                    resPlaceHolder = R.color.gray,
+                    drawableRequestListener = null
+            )
 
+            itemView.ivChapterDetail.setSafeOnClickListener {
 
+            }
         }
     }
 

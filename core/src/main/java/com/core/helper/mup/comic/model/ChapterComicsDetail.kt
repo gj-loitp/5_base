@@ -21,7 +21,7 @@ data class ChapterComicsDetail(
 
         @SerializedName("imageSrc")
         @Expose
-        val imageSrc: String? = null,
+        private val imageSrc: String? = null,
 
         @SerializedName("isDelete")
         @Expose
@@ -38,4 +38,12 @@ data class ChapterComicsDetail(
         @SerializedName("noOrder")
         @Expose
         val noOrder: Int? = null
-) : Serializable
+) : Serializable {
+    fun getImageSrc(): String {
+        return if (imageSrc?.contains("http:/") == true) {
+            imageSrc
+        } else {
+            "http:/$imageSrc"
+        }
+    }
+}

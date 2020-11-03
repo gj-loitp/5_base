@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,18 +7,11 @@
     android:paddingTop="?android:attr/actionBarSize"
     tools:ignore="UnusedAttribute">
 
-    <androidx.appcompat.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivChapterDetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="?attr/themeBackgroundColorMedium"
-        android:drawableEnd="@drawable/ic_expansion_header_indicator_grey_24dp"
-        android:foreground="?selectableItemBackground"
-        android:gravity="center_vertical"
-        android:padding="@dimen/padding_medium"
-        android:text="@string/app_name"
-        android:textAllCaps="false"
-        android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_medium"
-        app:drawableTint="?attr/themeTextColor" />
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:background="?selectableItemBackground"
+        tools:src="@drawable/logo" />
 </LinearLayout>
