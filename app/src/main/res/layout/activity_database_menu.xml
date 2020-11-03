@@ -41,12 +41,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSharedPrefs"
                 style="@style/ButtonMenu"
-                android:text="@string/sharedprefs" />
+                android:text="@string/shared_prefs" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSharedPrefsEncryption"
                 style="@style/ButtonMenu"
-                android:text="@string/sharedprefsencryption" />
+                android:text="@string/shared_prefs_encryption" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSqlite"

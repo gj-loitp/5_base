@@ -26,7 +26,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_collapsingtoolbarwithtablayout"
                 style="@style/ButtonMenu"
-                android:text="@string/collapsing_toolbar_with_tablayout" />
+                android:text="@string/collapsing_toolbar_with_tab_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/bt_l_actionbar"

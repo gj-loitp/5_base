@@ -38,7 +38,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBottomSheet"
                 style="@style/ButtonMenu"
-                android:text="@string/bottomsheet" />
+                android:text="@string/bottom_sheet" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btButton"
@@ -133,7 +133,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSeekBar"
                 style="@style/ButtonMenu"
-                android:text="@string/seekbar" />
+                android:text="@string/seek_bar" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSticker"

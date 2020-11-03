@@ -60,7 +60,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShadowViewHelper"
                 style="@style/ButtonMenu"
-                android:text="@string/shadowview_helper" />
+                android:text="@string/shadow_view_helper" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btValueAnimator"

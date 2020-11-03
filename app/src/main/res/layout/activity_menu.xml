@@ -114,7 +114,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFbFanpage"
                 style="@style/ButtonMenu"
-                android:text="@string/fb_fanpage" />
+                android:text="@string/fb_fan_page" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAdHelper"

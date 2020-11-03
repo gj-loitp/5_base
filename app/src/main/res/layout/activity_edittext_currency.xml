@@ -39,5 +39,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="@string/menu_edittext" />
+        android:text="@string/menu_edit_text" />
 </RelativeLayout>

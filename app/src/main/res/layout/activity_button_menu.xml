@@ -32,17 +32,17 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGoodView"
                 style="@style/ButtonMenu"
-                android:text="@string/goodview" />
+                android:text="@string/good_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btlButton"
                 style="@style/ButtonMenu"
-                android:text="@string/lbutton" />
+                android:text="@string/l_button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btQButton"
                 style="@style/ButtonMenu"
-                android:text="@string/qbutton" />
+                android:text="@string/q_button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShineButton"

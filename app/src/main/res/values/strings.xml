@@ -20,7 +20,6 @@ I loved you so sincerely, so fondly,\n
 Likewise may someone love you next.
     </string>
 
-
     <string-array name="occurence">
         <item>Once</item>
         <item>Weekly</item>
@@ -46,12 +45,12 @@ Likewise may someone love you next.
 
     <string name="input_hint">text</string>
     <string name="label_normal">Normal:</string>
-    <string name="label_autofit">Autofit:</string>
+    <string name="label_auto_fit">Auto fit:</string>
 
     <string name="example">This is an example</string>
-    <string name="demo_realm_nclick_to_edit_long_click_to_delete">Demo Realm\nClick To Edit, Long Click To Delete</string>
-    <string name="demo_sqlite_nclick_to_edit_long_click_to_delete">Demo SQLite\nClick To Edit, Long Click To Delete</string>
-    <string name="demo_sqlite_encryption_nclick_to_edit_long_click_to_delete">Demo SQLite Encryption\nClick To Edit, Long Click To Delete</string>
+    <string name="demo_realm_click_to_edit_long_click_to_delete">Demo Realm\nClick To Edit, Long Click To Delete</string>
+    <string name="demo_sqlite_click_to_edit_long_click_to_delete">Demo SQLite\nClick To Edit, Long Click To Delete</string>
+    <string name="demo_sqlite_encryption_click_to_edit_long_click_to_delete">Demo SQLite Encryption\nClick To Edit, Long Click To Delete</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -95,18 +94,6 @@ Likewise may someone love you next.
     <string name="ok">OK</string>
     <string name="loading">Loading&#8230;</string>
 
-    <!-- Error messages -->
-    <!-- onApplicationConnectionFailed() errors -->
-
-    <!-- Preferences -->
-
-    <!-- Tabs -->
-
-    <!-- ShowCaseView -->
-
-    <!-- Captions -->
-
-    <!-- Queue -->
     <string name="scene">Scene</string>
     <string name="scene_1">1</string>
     <string name="scene_2">2</string>
@@ -143,16 +130,16 @@ Likewise may someone love you next.
         <item>480dp</item>
     </string-array>
 
-    <string name="chathead_content_title">Demo Chat: Active</string>
+    <string name="chat_head_content_title">Demo Chat: Active</string>
     <string name="content_text">Demo running.</string>
     <string name="mail_content_title">Demo Customize: active</string>
-    <string name="chathead_click_message">Click</string>
+    <string name="chat_head_click_message">Click</string>
     <string name="show_demo">Show Simple FloatingView</string>
     <string name="show_customized_demo">Show Customized FloatingView</string>
     <string name="touch_finished_position" formatted="false">Current position (%d,%d)</string>
     <string name="deleted_soon">FloatingView will be deleted soon.</string>
     <string name="finish_deleted">FloatingView has been deleted.</string>
-    <string name="default_floatingview_channel_id">default_floatingview_channel</string>
+    <string name="default_floating_view_channel_id">default_floatingview_channel</string>
     <string name="picker_menu">Picker Menu</string>
     <string name="bs_image_picker">BS Image Picker</string>
     <string name="single_selection">Single Selection</string>
@@ -179,7 +166,7 @@ Likewise may someone love you next.
     <string name="rate_app">Rate App</string>
     <string name="more_app">More App</string>
     <string name="chat_with_dev">Chat with dev</string>
-    <string name="fb_fanpage">Fb fanpage</string>
+    <string name="fb_fan_page">Fb fanpage</string>
     <string name="th_m">Thêm</string>
     <string name="donation">Donation</string>
     <string name="github">Github</string>
@@ -213,7 +200,7 @@ Likewise may someone love you next.
     <string name="scroll_view_2d">Scroll view 2d</string>
     <string name="scroll_view_2d_advance">Scroll view 2d advance</string>
     <string name="square_layout">Square Layout</string>
-    <string name="swipebacklayout">SwipeBackLayout</string>
+    <string name="swipe_back_layout">SwipeBackLayout</string>
     <string name="swipe_refresh_layout">Swipe Refresh Layout</string>
     <string name="zoom_layout">Zoom Layout</string>
     <string name="menu_animation">Menu Animation</string>
@@ -226,7 +213,7 @@ Likewise may someone love you next.
     <string name="fly_school">Fly school</string>
     <string name="lottie">Lottie</string>
     <string name="over_scroll_like_ios">Over Scroll like iOS</string>
-    <string name="shadowview_helper">ShadowView Helper</string>
+    <string name="shadow_view_helper">ShadowView Helper</string>
     <string name="value_animator">Value Animator</string>
     <string name="menu_activity_transition">Menu Activity Transition</string>
     <string name="no_animation">No animation</string>
@@ -248,8 +235,8 @@ Likewise may someone love you next.
     <string name="type">Type…</string>
     <string name="type_something">Type something</string>
     <string name="password">Password</string>
-    <string name="menu_edittext">Menu EditText</string>
-    <string name="animatedexpandableedittextactivity">AnimatedExpandableEditTextActivity</string>
+    <string name="menu_edit_text">Menu EditText</string>
+    <string name="animated_expandable_edittext_activity">AnimatedExpandableEditTextActivity</string>
     <string name="autoresizeedittext">AutoResizeEditText</string>
     <string name="materialtextfield">MaterialTextField</string>
     <string name="biuedittext">BiuEditText</string>
@@ -275,7 +262,7 @@ Likewise may someone love you next.
     <string name="scroll_to_2">Scroll to 2</string>
     <string name="menu_action_bar">Menu Action Bar</string>
     <string name="collapsing_toolbar_layout">Collapsing Toolbar Layout</string>
-    <string name="collapsing_toolbar_with_tablayout">Collapsing Toolbar With TabLayout</string>
+    <string name="collapsing_toolbar_with_tab_layout">Collapsing Toolbar With TabLayout</string>
     <string name="lactionbar">LActionBar</string>
     <string name="navigation_view">Navigation View</string>
     <string name="navigation_view_with_text">Navigation View With Text</string>
@@ -307,7 +294,7 @@ Likewise may someone love you next.
     <string name="load_1">Load 1</string>
     <string name="load_2">Load 2</string>
     <string name="gif">Gif</string>
-    <string name="menu_textview">Menu TextView</string>
+    <string name="menu_text_view">Menu TextView</string>
     <string name="autofit_textview">Autofit TextView</string>
     <string name="circle_textview">Circle TextView</string>
     <string name="color_textview">Color TextView</string>
@@ -352,7 +339,7 @@ Likewise may someone love you next.
     <string name="answerview">AnswerView</string>
     <string name="ariana">Ariana</string>
     <string name="bottom_navigation_bar">Bottom Navigation Bar</string>
-    <string name="bottomsheet">BottomSheet</string>
+    <string name="bottom_sheet">BottomSheet</string>
     <string name="button">Button</string>
     <string name="compas">Compas</string>
     <string name="dialog">Dialog</string>
@@ -372,7 +359,7 @@ Likewise may someone love you next.
     <string name="scratchview">ScratchView</string>
     <string name="recyclerview">Recycler view</string>
     <string name="scrollablepanel">ScrollablePanel</string>
-    <string name="seekbar">Seekbar</string>
+    <string name="seek_bar">Seekbar</string>
     <string name="sticker">Sticker</string>
     <string name="switch_toggle">Switch - Toggle</string>
     <string name="textview">Textview</string>
@@ -392,7 +379,7 @@ Likewise may someone love you next.
     <string name="more">More</string>
     <string name="log_out">Log out</string>
     <string name="listview">ListView</string>
-    <string name="gridview">GridView</string>
+    <string name="grid_view">GridView</string>
     <string name="menu_pattern">Menu Pattern</string>
     <string name="observer_pattern">Observer Pattern</string>
     <string name="mvvm">MVVM</string>
@@ -412,10 +399,10 @@ Likewise may someone love you next.
     <string name="recolor">Recolor</string>
     <string name="sensor">Sensor</string>
     <string name="simple_finger_gestures">Simple finger gestures</string>
-    <string name="viewdraghelper">ViewDragHelper</string>
-    <string name="viewdraghelper_simple">ViewDragHelper simple</string>
-    <string name="viewdraghelper_simple_1">ViewDragHelper simple 1</string>
-    <string name="stroked_textview">Stroked TextView</string>
+    <string name="view_drag_helper">ViewDragHelper</string>
+    <string name="view_drag_helper_simple">ViewDragHelper simple</string>
+    <string name="view_drag_helper_simple_1">ViewDragHelper simple 1</string>
+    <string name="stroked_text_view">Stroked TextView</string>
     <string name="demo_ebook_app_with_realm">Demo Ebook App With Realm</string>
     <string name="clear_all">Clear all</string>
     <string name="add_dummy_mybook">Add Dummy MyBook</string>
@@ -481,8 +468,8 @@ Likewise may someone love you next.
     <string name="title_tab_on_screen_limit">Feature - OnScreen Limit</string>
     <string name="read_sqlite_asset">Read SQLite Asset</string>
     <string name="realm">Realm</string>
-    <string name="sharedprefs">SharedPrefs</string>
-    <string name="sharedprefsencryption">SharedPrefsEncryption</string>
+    <string name="shared_prefs">SharedPrefs</string>
+    <string name="shared_prefs_encryption">SharedPrefsEncryption</string>
     <string name="sqlite">SQLite</string>
     <string name="sqlite_encryption">SQLite Encryption</string>
     <string name="sqlite_multi_table">SQLite Multi Table</string>
@@ -500,9 +487,9 @@ Likewise may someone love you next.
     <string name="rotate_screen">Rotate screen</string>
     <string name="the_size_of_button_will_be_changed_when_device_screen_is_rotated">The size of button will be changed when device screen is rotated</string>
     <string name="circular_image_click">Circular image click</string>
-    <string name="goodview">GoodView</string>
-    <string name="lbutton">LButton</string>
-    <string name="qbutton">QButton</string>
+    <string name="good_view">GoodView</string>
+    <string name="l_button">LButton</string>
+    <string name="q_button">QButton</string>
     <string name="shine_button">Shine Button</string>
     <string name="you_can_custom_more_effect">You can custom more effect</string>
     <string name="click_above_button">Click above button</string>

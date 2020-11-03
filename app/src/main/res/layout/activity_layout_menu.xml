@@ -131,7 +131,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSwipebackLayout"
                 style="@style/ButtonMenu"
-                android:text="@string/swipebacklayout" />
+                android:text="@string/swipe_back_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSwipeRefreshLayout"

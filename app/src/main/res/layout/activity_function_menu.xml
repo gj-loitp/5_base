@@ -87,17 +87,17 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewDragHelper"
                 style="@style/ButtonMenu"
-                android:text="@string/viewdraghelper" />
+                android:text="@string/view_drag_helper" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewDragHelperSimple"
                 style="@style/ButtonMenu"
-                android:text="@string/viewdraghelper_simple" />
+                android:text="@string/view_drag_helper_simple" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewDragHelperSimple1"
                 style="@style/ButtonMenu"
-                android:text="@string/viewdraghelper_simple_1" />
+                android:text="@string/view_drag_helper_simple_1" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

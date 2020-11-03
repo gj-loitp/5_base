@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="?selectableItemBackground"
-                android:text="@string/goodview"
+                android:text="@string/good_view"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -41,5 +41,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="@string/goodview" />
+        android:text="@string/good_view" />
 </RelativeLayout>

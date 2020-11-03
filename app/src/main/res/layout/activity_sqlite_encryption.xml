@@ -46,7 +46,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/demo_sqlite_encryption_nclick_to_edit_long_click_to_delete"
+                android:text="@string/demo_sqlite_encryption_click_to_edit_long_click_to_delete"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_20" />
 

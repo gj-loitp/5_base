@@ -8,7 +8,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
-        android:text="@string/qbutton" />
+        android:text="@string/q_button" />
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
