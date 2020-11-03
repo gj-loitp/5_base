@@ -22,7 +22,6 @@ import com.interfaces.Callback1
 import com.interfaces.Callback2
 import com.interfaces.Callback3
 import com.interfaces.CallbackList
-import com.views.dialog.iosdialog.iOSDialog
 import com.views.dialog.slideimages.LSlideAdapter
 import java.util.*
 
@@ -237,56 +236,6 @@ class LDialogUtil {
         fun hide(dialog: Dialog?) {
             if (dialog != null && dialog.isShowing) {
                 dialog.cancel()
-            }
-        }
-
-        fun showIOSDialog1(
-                activity: Activity,
-                title: String,
-                subtitle: String,
-                label1: String,
-                isBold: Boolean = true,
-                callback1: Callback1? = null
-        ) {
-            val iOSDialog = iOSDialog(activity)
-            iOSDialog.apply {
-                setTitle(title)
-                setSubtitle(subtitle)
-                setPositiveLabel(label1)
-                setBoldPositiveLabel(isBold)
-                setPositiveListener {
-                    dismiss()
-                    callback1?.onClick1()
-                }
-                show()
-            }
-        }
-
-        fun showIOSDialog2(
-                activity: Activity,
-                title: String,
-                subtitle: String,
-                label1: String,
-                label2: String,
-                isBold: Boolean = true,
-                callback2: Callback2? = null
-        ) {
-            val iOSDialog = iOSDialog(activity)
-            iOSDialog.apply {
-                setTitle(title)
-                setSubtitle(subtitle)
-                setNegativeLabel(label1)
-                setPositiveLabel(label2)
-                setBoldPositiveLabel(isBold)
-                setNegativeListener {
-                    dismiss()
-                    callback2?.onClick1()
-                }
-                setPositiveListener {
-                    dismiss()
-                    callback2?.onClick2()
-                }
-                show()
             }
         }
 

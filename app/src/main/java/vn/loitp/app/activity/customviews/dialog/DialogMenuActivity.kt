@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_dialog_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dialog.customdialog.CustomDialogActivity
 import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity
-import vn.loitp.app.activity.customviews.dialog.iosdialog.DialogIOSActivity
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity
 import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesActivity
@@ -32,7 +31,6 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
-        btIosDialog.setOnClickListener(this)
         btOriginalDialog.setOnClickListener(this)
         btPrettyDialog.setOnClickListener(this)
         btSwipeAwayDialog.setOnClickListener(this)
@@ -44,7 +42,6 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btIosDialog -> intent = Intent(this, DialogIOSActivity::class.java)
             btOriginalDialog -> intent = Intent(this, DialogOriginalActivity::class.java)
             btPrettyDialog -> intent = Intent(this, PrettyDialogActivity::class.java)
             btSwipeAwayDialog -> intent = Intent(this, SwipeAwayDialogActivity::class.java)
