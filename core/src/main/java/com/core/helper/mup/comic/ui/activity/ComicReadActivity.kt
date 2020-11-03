@@ -81,6 +81,7 @@ class ComicReadActivity : BaseFontActivity() {
         chapterDetailAdapter = ChapterDetailAdapter()
         chapterDetailAdapter.onClickRoot = { chapterComicsDetail ->
             logD("onClickRoot chapterComicsDetail " + BaseApplication.gson.toJson(chapterComicsDetail))
+            //TODO zoom
         }
         concatAdapter.addAdapter(chapterDetailAdapter)
 

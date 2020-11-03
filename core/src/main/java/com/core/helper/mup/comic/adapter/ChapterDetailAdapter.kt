@@ -35,9 +35,9 @@ class ChapterDetailAdapter : AnimationAdapter() {
 
         fun bind(chapterComicsDetail: ChapterComicsDetail) {
             var imgSrc = chapterComicsDetail.getImageSrc()
-//            if (Constants.IS_DEBUG) {
-//                imgSrc = Constants.URL_IMG_1
-//            }
+            if (Constants.IS_DEBUG) {
+                imgSrc = "http://truyentranhtuan.com/manga2/detective-conan/1055/img-00001.jpg"
+            }
             logD("$bindingAdapterPosition -> imgSrc $imgSrc, ${chapterComicsDetail.noOrder}")
             itemView.wp7progressBar.showProgressBar()
             itemView.tvPage.text = "${chapterComicsDetail.noOrder}"
