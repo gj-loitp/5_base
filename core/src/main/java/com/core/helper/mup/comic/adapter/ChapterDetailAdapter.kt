@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
+import com.core.common.Constants
 import com.core.helper.mup.comic.model.ChapterComicsDetail
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
@@ -27,10 +28,14 @@ class ChapterDetailAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(chapterComicsDetail: ChapterComicsDetail) {
-            logD("$bindingAdapterPosition -> " + chapterComicsDetail.getImageSrc())
+            var imgSrc = chapterComicsDetail.getImageSrc()
+            if (Constants.IS_DEBUG) {
+                imgSrc = Constants.URL_IMG_1
+            }
+            logD("$bindingAdapterPosition -> imgSrc $imgSrc")
             LImageUtil.load(
                     context = itemView.ivChapterDetail.context,
-                    any = chapterComicsDetail.getImageSrc(),
+                    any = imgSrc,
                     imageView = itemView.ivChapterDetail,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
@@ -38,7 +43,7 @@ class ChapterDetailAdapter : AnimationAdapter() {
             )
 
             itemView.ivChapterDetail.setSafeOnClickListener {
-
+                onClickRoot?.invoke(chapterComicsDetail)
             }
         }
     }

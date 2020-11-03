@@ -9,6 +9,7 @@ import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.helper.mup.comic.adapter.ChapterDetailAdapter
 import com.core.helper.mup.comic.model.Chap
@@ -79,7 +80,7 @@ class ComicReadActivity : BaseFontActivity() {
         })
         chapterDetailAdapter = ChapterDetailAdapter()
         chapterDetailAdapter.onClickRoot = { chapterComicsDetail ->
-
+            logD("onClickRoot chapterComicsDetail " + BaseApplication.gson.toJson(chapterComicsDetail))
         }
         concatAdapter.addAdapter(chapterDetailAdapter)
 
