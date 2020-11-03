@@ -11,6 +11,7 @@ import androidx.exifinterface.media.ExifInterface
 import com.R
 import com.bogdwellers.pinchtozoom.ImageMatrixTouchHandler
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.Transformation
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestListener
@@ -20,6 +21,7 @@ import com.utils.util.FileUtils
 import java.io.File
 import java.util.*
 import kotlin.math.min
+
 
 //https://github.com/wasabeef/glide-transformations
 class LImageUtil {
@@ -249,6 +251,25 @@ class LImageUtil {
                     .load(any)
                     //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
                     .apply(requestOptions)
+                    .listener(drawableRequestListener)
+                    .into(imageView)
+        }
+
+        fun loadHighQuality(
+                any: Any?,
+                imageView: ImageView,
+                resPlaceHolder: Int = R.color.colorPrimary,
+                resError: Int = R.color.red,
+                drawableRequestListener: RequestListener<Drawable>? = null
+        ) {
+            Glide.with(imageView)
+                    .load(any)
+                    .apply(RequestOptions()
+                            .placeholder(resPlaceHolder)
+                            .error(resError)
+                            .fitCenter()
+                            .format(DecodeFormat.PREFER_ARGB_8888)
+                            .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL))
                     .listener(drawableRequestListener)
                     .into(imageView)
         }
