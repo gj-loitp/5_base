@@ -32,9 +32,15 @@ import java.util.*
 
 class LDialogUtil {
     companion object {
+        private const val logTag = "LDialogUtil"
         private val alertDialogList = ArrayList<AlertDialog>()
 
+        private fun logD(msg: String) {
+            LLog.d(logTag, msg)
+        }
+
         fun clearAll() {
+//            logD("clearAll")
             try {
                 for (i in alertDialogList.indices) {
                     alertDialogList[i].dismiss()
@@ -45,7 +51,14 @@ class LDialogUtil {
             }
         }
 
-        fun showDialog1(context: Context, title: String?, msg: String, button1: String, callback1: Callback1?): AlertDialog {
+        fun showDialog1(
+                context: Context,
+                title: String?,
+                msg: String,
+                button1: String = LAppResource.getString(R.string.confirm),
+                callback1: Callback1? = null
+        ): AlertDialog {
+            logD("showDialog1")
             clearAll()
             val builder = AlertDialog.Builder(context)
             if (!title.isNullOrEmpty()) {
@@ -72,7 +85,14 @@ class LDialogUtil {
             return dialog
         }
 
-        fun showDialog2(context: Context, title: String?, msg: String, button1: String?, button2: String?, callback2: Callback2?): AlertDialog {
+        fun showDialog2(
+                context: Context,
+                title: String?,
+                msg: String,
+                button1: String?,
+                button2: String?,
+                callback2: Callback2? = null
+        ): AlertDialog {
             clearAll()
             val builder = AlertDialog.Builder(context)
             if (!title.isNullOrEmpty()) {
@@ -108,8 +128,15 @@ class LDialogUtil {
             return dialog
         }
 
-        fun showDialog3(context: Context, title: String?, msg: String, button1: String?, button2: String?,
-                        button3: String?, callback3: Callback3?): AlertDialog {
+        fun showDialog3(
+                context: Context,
+                title: String?,
+                msg: String,
+                button1: String?,
+                button2: String?,
+                button3: String?,
+                callback3: Callback3? = null
+        ): AlertDialog {
             clearAll()
             val builder = AlertDialog.Builder(context)
             if (!title.isNullOrEmpty()) {
@@ -153,7 +180,12 @@ class LDialogUtil {
             return dialog
         }
 
-        fun showDialogList(context: Context, title: String?, arr: Array<String?>, callbackList: CallbackList?): AlertDialog {
+        fun showDialogList(
+                context: Context,
+                title: String?,
+                arr: Array<String?>,
+                callbackList: CallbackList? = null
+        ): AlertDialog {
             clearAll()
             val builder = AlertDialog.Builder(context)
             if (!title.isNullOrEmpty()) {
@@ -169,8 +201,16 @@ class LDialogUtil {
         }
 
         //style ex ProgressDialog.STYLE_HORIZONTAL
-        fun showProgressDialog(context: Context, max: Int, title: String, msg: String, isCancelAble: Boolean,
-                               style: Int, buttonTitle: String?, callback1: Callback1?): ProgressDialog {
+        fun showProgressDialog(
+                context: Context,
+                max: Int,
+                title: String,
+                msg: String,
+                isCancelAble: Boolean,
+                style: Int,
+                buttonTitle: String?,
+                callback1: Callback1? = null
+        ): ProgressDialog {
             clearAll()
             val progressDialog = ProgressDialog(context)
             progressDialog.max = max
@@ -200,24 +240,37 @@ class LDialogUtil {
             }
         }
 
-        fun showIOSDialog1(activity: Activity, title: String, subtitle: String, label1: String,
-                           isBold: Boolean, callback1: Callback1?) {
+        fun showIOSDialog1(
+                activity: Activity,
+                title: String,
+                subtitle: String,
+                label1: String,
+                isBold: Boolean = true,
+                callback1: Callback1? = null
+        ) {
             val iOSDialog = iOSDialog(activity)
             iOSDialog.apply {
                 setTitle(title)
                 setSubtitle(subtitle)
                 setPositiveLabel(label1)
                 setBoldPositiveLabel(isBold)
-                setPositiveListener(View.OnClickListener {
+                setPositiveListener {
                     dismiss()
                     callback1?.onClick1()
-                })
+                }
                 show()
             }
         }
 
-        fun showIOSDialog2(activity: Activity, title: String, subtitle: String, label1: String,
-                           label2: String, isBold: Boolean, callback2: Callback2?) {
+        fun showIOSDialog2(
+                activity: Activity,
+                title: String,
+                subtitle: String,
+                label1: String,
+                label2: String,
+                isBold: Boolean = true,
+                callback2: Callback2? = null
+        ) {
             val iOSDialog = iOSDialog(activity)
             iOSDialog.apply {
                 setTitle(title)
@@ -225,21 +278,24 @@ class LDialogUtil {
                 setNegativeLabel(label1)
                 setPositiveLabel(label2)
                 setBoldPositiveLabel(isBold)
-                setNegativeListener(View.OnClickListener {
+                setNegativeListener {
                     dismiss()
                     callback2?.onClick1()
-                })
-                setPositiveListener(View.OnClickListener {
+                }
+                setPositiveListener {
                     dismiss()
                     callback2?.onClick2()
-                })
+                }
                 show()
             }
         }
 
         @SuppressLint("InflateParams")
         @JvmOverloads
-        fun showCustomProgressDialog(context: Context?, amount: Float = 0f): AlertDialog? {
+        fun showCustomProgressDialog(
+                context: Context?,
+                amount: Float = 0f
+        ): AlertDialog? {
             if (context == null || context !is Activity) {
                 return null
             }
