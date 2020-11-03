@@ -94,6 +94,11 @@ class ComicReadActivity : BaseFontActivity() {
                     }
 
                     override fun onScrolled(isScrollDown: Boolean) {
+                        if (isScrollDown) {
+                            layoutControl.visibility = View.GONE
+                        } else {
+                            layoutControl.visibility = View.VISIBLE
+                        }
                     }
                 })
         ivBack.setSafeOnClickListener {
