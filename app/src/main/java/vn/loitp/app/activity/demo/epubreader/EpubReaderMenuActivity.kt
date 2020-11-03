@@ -37,7 +37,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
 
         setupViews()
         setupViewModels()
-        LUIUtil.setDelay(mls = 500, runnable = Runnable {
+        LUIUtil.setDelay(mls = 500, runnable = {
             ask()
         })
     }
@@ -52,7 +52,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     private fun setupViewModels() {
         epubViewModel = getViewModel(EpubViewModel::class.java)
         epubViewModel?.let { vm ->
-            vm.loadAssetActionLiveData.observe(this, Observer { actionData ->
+            vm.loadAssetActionLiveData.observe(this, { actionData ->
                 logD("<<<loadAssetActionLiveData action " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
@@ -68,7 +68,7 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                     }
                 }
             })
-            vm.loadDeviceAndAssetActionLiveData.observe(this, Observer { actionData ->
+            vm.loadDeviceAndAssetActionLiveData.observe(this, { actionData ->
                 logD("<<<loadDeviceAndAssetActionLiveData action " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
