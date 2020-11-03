@@ -79,6 +79,25 @@
             android:visibility="gone"
             tools:visibility="visible" />
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/next_chap"
+            android:textAllCaps="false"
+            android:textColor="?attr/themeBackgroundColor"
+            android:visibility="gone"
+            app:backgroundTint="?attr/themeTextColor"
+            app:icon="@drawable/ic_chevron_right_black_48dp"
+            app:iconTint="?attr/themeBackgroundColor"
+            app:rippleColor="@color/transparent"
+            tools:visibility="visible" />
+
     </RelativeLayout>
 
 </com.views.layout.swipeback.SwipeBackLayout>

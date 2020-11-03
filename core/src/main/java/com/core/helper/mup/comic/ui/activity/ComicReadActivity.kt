@@ -22,6 +22,8 @@ import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_read.*
+import kotlinx.android.synthetic.main.l_activity_comic_read.tvNoData
+import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
 @LogTag("loitppComicActivity")
 @IsFullScreen(false)
@@ -87,6 +89,7 @@ class ComicReadActivity : BaseFontActivity() {
 
         rvComicRead.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rvComicRead.adapter = concatAdapter
+
         LUIUtil.setScrollChange(
                 recyclerView = rvComicRead,
                 callbackRecyclerView = object : CallbackRecyclerView {
@@ -94,6 +97,9 @@ class ComicReadActivity : BaseFontActivity() {
                     }
 
                     override fun onBottom() {
+                        if (fabNext.visibility != View.VISIBLE) {
+                            fabNext.visibility = View.VISIBLE
+                        }
                     }
 
                     override fun onScrolled(isScrollDown: Boolean) {
@@ -103,6 +109,10 @@ class ComicReadActivity : BaseFontActivity() {
                         } else {
 //                            layoutControl.visibility = View.VISIBLE
                             LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideInDown)
+
+                            if (fabNext.visibility != View.GONE) {
+                                fabNext.visibility = View.GONE
+                            }
                         }
                     }
                 })
@@ -110,6 +120,9 @@ class ComicReadActivity : BaseFontActivity() {
             onBackPressed()
         }
         ivMenu.setSafeOnClickListener {
+            //TODO loitpp iplm
+        }
+        fabNext.setSafeOnClickListener {
             //TODO loitpp iplm
         }
     }
