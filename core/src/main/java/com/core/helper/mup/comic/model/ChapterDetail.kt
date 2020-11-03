@@ -45,7 +45,7 @@ data class ChapterDetail(
 
         @SerializedName("nextChap")
         @Expose
-        val nextChap: String? = null,
+        val nextChap: Chap? = null,
 
         @SerializedName("noChapter")
         @Expose
@@ -53,7 +53,7 @@ data class ChapterDetail(
 
         @SerializedName("prevChap")
         @Expose
-        val prevChap: String? = null,
+        val prevChap: Chap? = null,
 
         @SerializedName("slug")
         @Expose

@@ -33,7 +33,7 @@
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
                 android:background="?selectableItemBackgroundBorderless"
-                android:padding="@dimen/padding_small"
+                android:padding="@dimen/padding_medium"
                 android:src="@drawable/ic_keyboard_backspace_white_48dp"
                 app:tint="?attr/themeTextColor" />
 
@@ -52,7 +52,7 @@
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
                 android:background="?selectableItemBackgroundBorderless"
-                android:padding="@dimen/padding_small"
+                android:padding="@dimen/padding_medium"
                 android:src="@drawable/ic_more_vert_black_48dp"
                 app:tint="?attr/themeTextColor" />
         </LinearLayout>

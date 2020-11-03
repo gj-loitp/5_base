@@ -2,19 +2,23 @@ package com.core.helper.mup.comic.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.ConcatAdapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.helper.mup.comic.adapter.ChapterDetailAdapter
 import com.core.helper.mup.comic.model.Chap
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
+import com.google.ads.interactivemedia.v3.internal.it
+import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.l_activity_comic_chap.swipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_comic_read.*
 
 @LogTag("loitppComicActivity")
@@ -34,6 +38,9 @@ class ComicReadActivity : BaseFontActivity() {
         R.color.whiteSmoke
     }
     private var comicViewModel: ComicViewModel? = null
+
+    private var concatAdapter = ConcatAdapter()
+    private var chapterDetailAdapter = ChapterDetailAdapter()
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_comic_read
@@ -69,6 +76,26 @@ class ComicReadActivity : BaseFontActivity() {
                 }
             }
         })
+        chapterDetailAdapter = ChapterDetailAdapter()
+        chapterDetailAdapter.onClickRoot = { chapterComicsDetail ->
+
+        }
+        concatAdapter.addAdapter(chapterDetailAdapter)
+
+        rvComicRead.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rvComicRead.adapter = concatAdapter
+        LUIUtil.setScrollChange(
+                recyclerView = rvComicRead,
+                callbackRecyclerView = object : CallbackRecyclerView {
+                    override fun onTop() {
+                    }
+
+                    override fun onBottom() {
+                    }
+
+                    override fun onScrolled(isScrollDown: Boolean) {
+                    }
+                })
         ivBack.setSafeOnClickListener {
             onBackPressed()
         }
@@ -86,27 +113,24 @@ class ComicReadActivity : BaseFontActivity() {
 
                 logD("<<<chapterDetailActionLiveData observe isDoing $isDoing, isSuccess $isSuccess")
 
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+
                 if (isDoing == false && isSuccess == true) {
-                    val listComic = actionData.data
-//                    if (listComic.isNullOrEmpty()) {
-//                        if (currentPageIndex == 0) {
-//                            tvNoData.visibility = View.VISIBLE
-//                            recyclerView.visibility = View.GONE
-//                        }
-//                        comicProgressAdapter?.let {
-//                            concatAdapter?.removeAdapter(it)
-//                        }
-//                    } else {
-//                        totalPage = actionData.totalPages ?: 0
-//
-//                        tvNoData.visibility = View.GONE
-//                        recyclerView.visibility = View.VISIBLE
-//                        comicProgressAdapter?.let {
-//                            concatAdapter?.removeAdapter(it)
-//                        }
-//                        comicHeaderAdapter?.setData(comic = listComic.random())
-//                        comicAdapter?.setData(listComic = listComic, isSwipeToRefresh = isSwipeToRefresh)
-//                    }
+                    val listChapterComicDetails = actionData.data?.chapterComicsDetails
+                    if (listChapterComicDetails.isNullOrEmpty()) {
+                        tvNoData.visibility = View.VISIBLE
+                        rvComicRead.visibility = View.GONE
+                    } else {
+                        tvNoData.visibility = View.GONE
+                        rvComicRead.visibility = View.VISIBLE
+                        tvTitle.text = actionData.data?.title
+
+                        chapterDetailAdapter.setListData(listChap = listChapterComicDetails)
+                    }
                 }
             })
         }
