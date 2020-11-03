@@ -19,13 +19,13 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/load_interstitial_button"
+                android:id="@+id/btLoadInterstitial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 android:background="?attr/themeBackgroundColorMedium"
-                android:text="Show Interstitial Ad"
+                android:text="@string/show_interstitial_ad"
                 android:textColor="?attr/themeTextColor" />
 
             <com.google.android.gms.ads.AdView
@@ -42,5 +42,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Admob firebase" />
+        android:text="@string/admob_firebase" />
 </RelativeLayout>

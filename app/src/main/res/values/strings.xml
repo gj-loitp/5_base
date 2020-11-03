@@ -507,4 +507,7 @@ Likewise may someone love you next.
     <string name="you_can_custom_more_effect">You can custom more effect</string>
     <string name="click_above_button">Click above button</string>
     <string name="auto_size_button">Auto size button</string>
+    <string name="show_interstitial_ad">Show Interstitial Ad</string>
+    <string name="admob_firebase">Admob firebase</string>
+    <string name="this_is_second_activity">This is second activity</string>
 </resources>
