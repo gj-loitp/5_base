@@ -1,9 +1,5 @@
 package com.views.imageview.touch;
 
-/**
- * Created by www.muathu@gmail.com on 10/21/2017.
- */
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;

@@ -10,6 +10,7 @@ import com.core.adapter.AnimationAdapter
 import com.core.common.Constants
 import com.core.helper.mup.comic.model.ChapterComicsDetail
 import com.core.utilities.LImageUtil
+import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic_chapter_detail.view.*
 
