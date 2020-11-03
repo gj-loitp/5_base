@@ -28,11 +28,7 @@ class ChapterDetailAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(chapterComicsDetail: ChapterComicsDetail) {
-            if (bindingAdapterPosition == 0) {
-                LUIUtil.setMargins(view = itemView.layoutRootView, leftPx = 0, topPx = marginTop, rightPx = 0, bottomPx = 0)
-            } else {
-                LUIUtil.setMargins(view = itemView.layoutRootView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = 0)
-            }
+
 
         }
     }
