@@ -2,6 +2,7 @@ package com.core.helper.mup.comic.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
@@ -12,10 +13,12 @@ import com.core.helper.mup.comic.model.Chap
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
+import com.google.ads.interactivemedia.v3.internal.it
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
+import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
-@LogTag("ComicActivity")
+@LogTag("loitppComicActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
 @IsSwipeActivity(true)
@@ -71,8 +74,36 @@ class ComicReadActivity : BaseFontActivity() {
 
     private fun setupViewModels() {
         comicViewModel = getViewModel(ComicViewModel::class.java)
-        comicViewModel?.let { _ ->
+        comicViewModel?.let { vm ->
+            vm.chapterDetailActionLiveData.observe(this, { actionData ->
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
 
+                logD("<<<chapterDetailActionLiveData observe isDoing $isDoing, isSuccess $isSuccess")
+
+                if (isDoing == false && isSuccess == true) {
+                    val listComic = actionData.data
+//                    if (listComic.isNullOrEmpty()) {
+//                        if (currentPageIndex == 0) {
+//                            tvNoData.visibility = View.VISIBLE
+//                            recyclerView.visibility = View.GONE
+//                        }
+//                        comicProgressAdapter?.let {
+//                            concatAdapter?.removeAdapter(it)
+//                        }
+//                    } else {
+//                        totalPage = actionData.totalPages ?: 0
+//
+//                        tvNoData.visibility = View.GONE
+//                        recyclerView.visibility = View.VISIBLE
+//                        comicProgressAdapter?.let {
+//                            concatAdapter?.removeAdapter(it)
+//                        }
+//                        comicHeaderAdapter?.setData(comic = listComic.random())
+//                        comicAdapter?.setData(listComic = listComic, isSwipeToRefresh = isSwipeToRefresh)
+//                    }
+                }
+            })
         }
     }
 }

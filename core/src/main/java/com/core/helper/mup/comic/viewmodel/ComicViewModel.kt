@@ -5,6 +5,7 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.model.Chap
+import com.core.helper.mup.comic.model.ChapterDetail
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.service.BaseComicViewModel
 import com.core.helper.mup.comic.service.ComicApiClient
@@ -27,6 +28,7 @@ class ComicViewModel : BaseComicViewModel() {
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val listCategoryActionLiveData: ActionLiveData<ActionData<List<Category>>> = ActionLiveData()
     val listChapActionLiveData: ActionLiveData<ActionData<List<Chap>>> = ActionLiveData()
+    val chapterDetailActionLiveData: ActionLiveData<ActionData<ChapterDetail>> = ActionLiveData()
 
     val categorySelected = MutableLiveData<Category>()
 
@@ -157,24 +159,21 @@ class ComicViewModel : BaseComicViewModel() {
             val response = repository.getChapterDetail(
                     chapId = chapId
             )
-            logD("<<<getChapterDetail " + BaseApplication.gson.toJson(response))
-//            if (response.items == null || response.isSuccess == false) {
-//                listChapActionLiveData.postAction(
-//                        getErrorRequestComic(response)
-//                )
-//            } else {
-//                val data = response.items
-//                listChapActionLiveData.post(
-//                        ActionData(
-//                                isDoing = false,
-//                                isSuccess = true,
-//                                data = data,
-//                                total = response.total,
-//                                totalPages = response.totalPages,
-//                                page = response.page
-//                        )
-//                )
-//            }
+//            logD("<<<getChapterDetail " + BaseApplication.gson.toJson(response))
+            if (response.items == null || response.isSuccess == false) {
+                chapterDetailActionLiveData.postAction(
+                        getErrorRequestComic(response)
+                )
+            } else {
+                val data = response.items
+                chapterDetailActionLiveData.post(
+                        ActionData(
+                                isDoing = false,
+                                isSuccess = true,
+                                data = data
+                        )
+                )
+            }
         }
     }
 }
