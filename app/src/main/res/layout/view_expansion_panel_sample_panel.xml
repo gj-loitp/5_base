@@ -6,7 +6,6 @@
     android:orientation="vertical">
 
     <com.github.florent37.expansionpanel.ExpansionHeader
-        android:id="@+id/sampleHeader"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:expansion_headerIndicator="@id/headerIndicator"

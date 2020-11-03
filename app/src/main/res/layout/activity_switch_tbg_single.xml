@@ -27,7 +27,6 @@
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
-            android:id="@+id/choiceB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="B"
@@ -35,7 +34,6 @@
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
-            android:id="@+id/choiceC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="C"
@@ -43,7 +41,6 @@
             android:textSize="@dimen/txt_medium" />
 
         <com.nex3z.togglebuttongroup.button.CircularToggle
-            android:id="@+id/choiceD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="D"

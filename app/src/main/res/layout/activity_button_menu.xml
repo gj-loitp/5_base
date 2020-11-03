@@ -5,7 +5,6 @@
     android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

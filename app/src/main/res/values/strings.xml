@@ -86,12 +86,6 @@ Likewise may someone love you next.
     <string name="invitation_cta">Install!</string>
     <string name="send_failed">Sending invitations failed</string>
     <string name="google_play_services_error">Google Play Services Error</string>
-    <string name="generate_confetti_once">Once</string>
-    <string name="generate_confetti_stream">Stream</string>
-    <string name="generate_confetti_infinite">Infinite</string>
-    <string name="stop_confetti">Stop</string>
-    <string name="num_confetti_desc">Active confetti count: %1$d</string>
-    <string name="ok">OK</string>
     <string name="loading">Loading&#8230;</string>
 
     <string name="scene">Scene</string>
@@ -130,16 +124,6 @@ Likewise may someone love you next.
         <item>480dp</item>
     </string-array>
 
-    <string name="chat_head_content_title">Demo Chat: Active</string>
-    <string name="content_text">Demo running.</string>
-    <string name="mail_content_title">Demo Customize: active</string>
-    <string name="chat_head_click_message">Click</string>
-    <string name="show_demo">Show Simple FloatingView</string>
-    <string name="show_customized_demo">Show Customized FloatingView</string>
-    <string name="touch_finished_position" formatted="false">Current position (%d,%d)</string>
-    <string name="deleted_soon">FloatingView will be deleted soon.</string>
-    <string name="finish_deleted">FloatingView has been deleted.</string>
-    <string name="default_floating_view_channel_id">default_floatingview_channel</string>
     <string name="picker_menu">Picker Menu</string>
     <string name="bs_image_picker">BS Image Picker</string>
     <string name="single_selection">Single Selection</string>
@@ -177,8 +161,6 @@ Likewise may someone love you next.
     <string name="gallery_api">Gallery API</string>
     <string name="test_retrofit2">Test retrofit2</string>
     <string name="truyen_tranh_api">Truyen Tranh API</string>
-    <string name="truyen_chu_api">Truyen Chu API</string>
-    <string name="translate_api">Translate API</string>
     <string name="room_date">Room/Date</string>
     <string name="layout_menu">Layout Menu</string>
     <string name="autolinearlayout">AutoLinearLayout</string>
@@ -188,12 +170,8 @@ Likewise may someone love you next.
     <string name="draggablepanel">DraggablePanel</string>
     <string name="draggableview">DraggableView</string>
     <string name="draggablepanel_free">DraggablePanel Free</string>
-    <string name="dragueur">Dragueur</string>
-    <string name="elasticdragdismisslayout">ElasticDragDismissLayout</string>
-    <string name="fixed_grid_layout">Fixed Grid Layout</string>
     <string name="floatdraglayout_activity">FloatDragLayout Activity</string>
     <string name="heart_layout">Heart Layout</string>
-    <string name="motion_layout">Motion layout</string>
     <string name="relative_popup_window">relative popup window</string>
     <string name="ripple_layout">Ripple Layout</string>
     <string name="rotate_layout">Rotate Layout</string>
@@ -208,8 +186,6 @@ Likewise may someone love you next.
     <string name="animation_view">Animation view</string>
     <string name="basic_transition_activity">Basic transition activity</string>
     <string name="basic_transition">Basic transition</string>
-    <string name="animation_confetti">Animation Confetti</string>
-    <string name="expect_anim">Expect anim</string>
     <string name="fly_school">Fly school</string>
     <string name="lottie">Lottie</string>
     <string name="over_scroll_like_ios">Over Scroll like iOS</string>
@@ -241,7 +217,6 @@ Likewise may someone love you next.
     <string name="materialtextfield">MaterialTextField</string>
     <string name="biuedittext">BiuEditText</string>
     <string name="show">Show</string>
-    <string name="ios_dialog">iOS Dialog</string>
     <string name="dialog_1">Dialog 1</string>
     <string name="dialog_2">Dialog 2</string>
     <string name="original_dialog">Original Dialog</string>
@@ -268,7 +243,6 @@ Likewise may someone love you next.
     <string name="navigation_view_with_text">Navigation View With Text</string>
     <string name="get_photoset_list">Get Photoset List</string>
     <string name="get_photo_list_in_photoset">Get Photo List In Photoset</string>
-    <string name="run_demo">Run Demo</string>
     <string name="fn1">FN1</string>
     <string name="go_to_fn2">Go to FN2</string>
     <string name="fn2">FN2</string>
@@ -282,13 +256,6 @@ Likewise may someone love you next.
     <string name="activity_0">Activity 0</string>
     <string name="loitp">Loitp</string>
     <string name="activity_1">Activity 1</string>
-    <string name="menu_confetti">Menu Confetti</string>
-    <string name="falling_confetti_from_top">Falling confetti from top</string>
-    <string name="falling_confetti_from_point">Falling confetti from point</string>
-    <string name="explosion">Explosion</string>
-    <string name="shimmering_confetti">Shimmering confetti</string>
-    <string name="falling_ice_flakes_with_touch">Falling ice flakes with touch</string>
-    <string name="falling_ice_flakes_with_listener">Falling ice flakes with listener</string>
     <string name="network">Network</string>
     <string name="load_0">Load 0</string>
     <string name="load_1">Load 1</string>
@@ -311,16 +278,12 @@ Likewise may someone love you next.
     <string name="extra_textview">Extra textview</string>
     <string name="menu_demo">Menu Demo</string>
     <string name="alarm">Alarm</string>
-    <string name="butter_knife">Butter knife</string>
     <string name="ebook_with_realm">Ebook With Realm</string>
     <string name="epub_reader">Epub reader</string>
-    <string name="film">Film</string>
     <string name="firebase">Firebase</string>
     <string name="android_floating_video">Android Floating Video</string>
     <string name="android_floating_widget_like_facebook_chat_head">Android Floating Widget like Facebook Chat Head</string>
-    <string name="floating_view">Floating view</string>
     <string name="fragment_navigation">Fragment navigation</string>
-    <string name="gallery">Gallery</string>
     <string name="gallery_from_core">Gallery From Core</string>
     <string name="gallery_from_core_album_only">Gallery From Core Album Only</string>
     <string name="gallery_from_core_album_only_fragment">Gallery From Core Album Only Fragment</string>
@@ -329,7 +292,6 @@ Likewise may someone love you next.
     <string name="text_to_speech">Text to speech</string>
     <string name="_2_instance_activity_parallel">2 instance activity parallel</string>
     <string name="video">Video</string>
-    <string name="youtube_parser">Youtube parser</string>
     <string name="pdf">PDF</string>
     <string name="lbutton_change_drawable_of_pressed_state_programmatically_with_one_line_code_lbutton_setpresseddrawable">LButton change drawable of pressed state programmatically with one line code lButton.setPressedDrawable(…);</string>
     <string name="click">Click</string>
@@ -337,7 +299,6 @@ Likewise may someone love you next.
     <string name="menu_custom_view">Menu Custom View</string>
     <string name="action_bar">Action bar</string>
     <string name="answerview">AnswerView</string>
-    <string name="ariana">Ariana</string>
     <string name="bottom_navigation_bar">Bottom Navigation Bar</string>
     <string name="bottom_sheet">BottomSheet</string>
     <string name="button">Button</string>
@@ -347,13 +308,11 @@ Likewise may someone love you next.
     <string name="edittext">EditText</string>
     <string name="facebook_comment">Facebook Comment</string>
     <string name="imageview">Imageview</string>
-    <string name="keyword_hot_tags">Keyword/Hot tags</string>
     <string name="layout">Layout</string>
     <string name="lcardview">LCardView</string>
     <string name="ldebugview">Ldebugview</string>
     <string name="menu">Menu</string>
     <string name="navigation">Navigation</string>
-    <string name="place_holder_view">Place holder view</string>
     <string name="popup_menu">Popup Menu</string>
     <string name="progress_loading_view">Progress/Loading View</string>
     <string name="scratchview">ScratchView</string>
@@ -384,13 +343,10 @@ Likewise may someone love you next.
     <string name="observer_pattern">Observer Pattern</string>
     <string name="mvvm">MVVM</string>
     <string name="mvp">MVP</string>
-    <string name="hot_keyword">HOT KEYWORD</string>
     <string name="slide_images">Slide Images</string>
-    <string name="rounded_button">Rounded Button</string>
     <string name="function_menu">Function Menu</string>
     <string name="activity_service_comunicate">Activity Service Comunicate</string>
     <string name="drag_drop_sample">Drag drop sample</string>
-    <string name="gesto">Gesto</string>
     <string name="glide">Glide</string>
     <string name="hashmap">Hashmap</string>
     <string name="keyboard">Keyboard</string>
@@ -445,9 +401,7 @@ Likewise may someone love you next.
     <string name="menu_imageview">Menu ImageView</string>
     <string name="big_imageview">Big ImageView</string>
     <string name="big_imageview_with_scrollview">Big ImageView With ScrollView</string>
-    <string name="blur_imageview">Blur ImageView</string>
     <string name="circle_imageview">Circle ImageView</string>
-    <string name="circular_roundrect_imageview">Circular Roundrect ImageView</string>
     <string name="continuous_scrollable_imageview">Continuous Scrollable ImageView</string>
     <string name="fidgetspinner_imageview">FidgetSpinner ImageView</string>
     <string name="panorama_imageview">Panorama Imageview</string>

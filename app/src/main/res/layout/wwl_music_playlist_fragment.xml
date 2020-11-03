@@ -12,7 +12,6 @@
         android:orientation="vertical">
 
         <View
-            android:id="@+id/separator"
             android:layout_width="match_parent"
             android:layout_height="1.0dip"
             android:background="@color/colorPrimaryDark" />
