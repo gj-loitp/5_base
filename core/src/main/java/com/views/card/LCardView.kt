@@ -18,10 +18,21 @@ import com.core.utilities.LUIUtil
  */
 
 class LCardView : RelativeLayout {
-    private val TAG = javaClass.simpleName
+
+    interface Callback {
+        fun onClickRoot(v: View)
+
+        fun onLongClickRoot(v: View)
+
+        fun onClickText(v: View)
+
+        fun onLongClickText(v: View)
+    }
+
+    private val logTag = javaClass.simpleName
     lateinit var cardView: CardView
-    lateinit var iv: ImageView
-    lateinit var tv: TextView
+    lateinit var imageView: ImageView
+    lateinit var textView: TextView
 
     var callback: Callback? = null
 
@@ -39,9 +50,10 @@ class LCardView : RelativeLayout {
 
     private fun init() {
         View.inflate(context, R.layout.view_l_card_view, this)
-        cardView = findViewById(R.id.card_view)
-        tv = findViewById(R.id.textView)
-        iv = findViewById(R.id.imageView)
+
+        cardView = findViewById(R.id.cardView)
+        textView = findViewById(R.id.textView)
+        imageView = findViewById(R.id.imageView)
 
         cardView.setOnClickListener { v ->
             callback?.onClickRoot(v)
@@ -51,11 +63,11 @@ class LCardView : RelativeLayout {
             callback?.onLongClickRoot(v)
             true
         }
-        tv.setOnClickListener { v ->
+        textView.setOnClickListener { v ->
             callback?.onClickText(v)
         }
 
-        tv.setOnLongClickListener { v ->
+        textView.setOnLongClickListener { v ->
             callback?.onLongClickText(v)
             true
         }
@@ -89,32 +101,22 @@ class LCardView : RelativeLayout {
     }
 
     fun setImg(url: String) {
-        LImageUtil.load(context = context, any = url, imageView = iv)
+        LImageUtil.load(context = context, any = url, imageView = imageView)
     }
 
     fun setText(s: String) {
-        tv.text = s
+        textView.text = s
     }
 
     fun setText(res: Int) {
-        tv.text = context.getString(res)
+        textView.text = context.getString(res)
     }
 
     fun setTextColor(color: Int) {
-        tv.setTextColor(color)
+        textView.setTextColor(color)
     }
 
     fun setTextShadow(color: Int) {
-        tv.setTextColor(color)
-    }
-
-    interface Callback {
-        fun onClickRoot(v: View)
-
-        fun onLongClickRoot(v: View)
-
-        fun onClickText(v: View)
-
-        fun onLongClickText(v: View)
+        textView.setTextColor(color)
     }
 }
