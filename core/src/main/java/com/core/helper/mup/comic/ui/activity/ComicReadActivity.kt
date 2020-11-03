@@ -2,7 +2,6 @@ package com.core.helper.mup.comic.ui.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
@@ -13,10 +12,10 @@ import com.core.helper.mup.comic.model.Chap
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
-import com.google.ads.interactivemedia.v3.internal.it
 import com.views.layout.swipeback.SwipeBackLayout
-import kotlinx.android.synthetic.main.l_activity_comic_chap.*
-import kotlinx.android.synthetic.main.l_frm_comic_home.*
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.l_activity_comic_chap.swipeBackLayout
+import kotlinx.android.synthetic.main.l_activity_comic_read.*
 
 @LogTag("loitppComicActivity")
 @IsFullScreen(false)
@@ -70,6 +69,12 @@ class ComicReadActivity : BaseFontActivity() {
                 }
             }
         })
+        ivBack.setSafeOnClickListener {
+            onBackPressed()
+        }
+        ivMenu.setSafeOnClickListener {
+            //TODO loitpp iplm
+        }
     }
 
     private fun setupViewModels() {
