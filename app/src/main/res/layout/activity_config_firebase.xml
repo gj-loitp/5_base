@@ -22,17 +22,17 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/welcomeTextView"
                 style="@style/ButtonMenu"
-                android:text="Welcome..." />
+                android:text="@string/welcome" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/fetchButton"
                 style="@style/ButtonMenu"
-                android:text="fetch remote welcome" />
+                android:text="@string/fetch_remote_welcome" />
         </LinearLayout>
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Config Firebase" />
+        android:text="@string/config_firebase" />
 </RelativeLayout>

@@ -500,4 +500,7 @@ Likewise may someone love you next.
     <string name="facebook">Facebook</string>
     <string name="google">Google</string>
     <string name="auth_firebase">Auth Firebase</string>
+    <string name="welcome">Welcome...</string>
+    <string name="fetch_remote_welcome">fetch remote welcome</string>
+    <string name="config_firebase">Config Firebase</string>
 </resources>
