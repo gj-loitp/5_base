@@ -44,6 +44,7 @@ class ComicReadActivity : BaseFontActivity() {
         setupViews()
         setupViewModels()
 
+        comicViewModel?.getChapterDetail(chapId = chap?.id)
     }
 
     private fun setupData() {

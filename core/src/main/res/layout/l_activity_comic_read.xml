@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,7 +38,9 @@
             android:layout_centerInParent="true"
             android:text="@string/no_data"
             android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/txt_medium" />
+            android:textSize="@dimen/txt_medium"
+            android:visibility="gone"
+            tools:visibility="visible" />
 
     </RelativeLayout>
 

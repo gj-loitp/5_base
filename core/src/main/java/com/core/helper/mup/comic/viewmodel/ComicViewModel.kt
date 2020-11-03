@@ -150,4 +150,31 @@ class ComicViewModel : BaseComicViewModel() {
             }
         }
     }
+
+    fun getChapterDetail(chapId: String?) {
+        ioScope.launch {
+            logD(">>>getChapterDetail chapId $chapId")
+            val response = repository.getChapterDetail(
+                    chapId = chapId
+            )
+            logD("<<<getChapterDetail " + BaseApplication.gson.toJson(response))
+//            if (response.items == null || response.isSuccess == false) {
+//                listChapActionLiveData.postAction(
+//                        getErrorRequestComic(response)
+//                )
+//            } else {
+//                val data = response.items
+//                listChapActionLiveData.post(
+//                        ActionData(
+//                                isDoing = false,
+//                                isSuccess = true,
+//                                data = data,
+//                                total = response.total,
+//                                totalPages = response.totalPages,
+//                                page = response.page
+//                        )
+//                )
+//            }
+        }
+    }
 }

@@ -37,4 +37,9 @@ interface ComicApiService {
             @Query("PageIndex") pageIndex: Int,
             @Query("PageSize") pageSize: Int
     ): Deferred<Response<ComicApiResponse<List<Chap>>>>
+
+    @GET("chapters-detail/{chapId}/")
+    fun getChapterDetailAsync(
+            @Path("chapId") chapId: String?
+    ): Deferred<Response<ComicApiResponse<ChapterDetail>>>
 }

@@ -6,7 +6,11 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 @Keep
-data class Chap(
+data class ChapterDetail(
+        @SerializedName("chapterComicsDetails")
+        @Expose
+        val chapterComicsDetails: List<ChapterComicsDetail>,
+
         @SerializedName("comicsId")
         @Expose
         val comicsId: String? = null,
@@ -39,9 +43,17 @@ data class Chap(
         @Expose
         val modifiedDate: String? = null,
 
+        @SerializedName("nextChap")
+        @Expose
+        val nextChap: String? = null,
+
         @SerializedName("noChapter")
         @Expose
         val noChapter: Int? = null,
+
+        @SerializedName("prevChap")
+        @Expose
+        val prevChap: String? = null,
 
         @SerializedName("slug")
         @Expose

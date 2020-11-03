@@ -60,4 +60,12 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
                 pageSize = ComicApiConfiguration.PAGE_SIZE
         ).await()
     }
+
+    suspend fun getChapterDetail(
+            chapId: String?
+    ): ComicApiResponse<ChapterDetail> = makeApiCall {
+        comicApiService.getChapterDetailAsync(
+                chapId = chapId
+        ).await()
+    }
 }
