@@ -501,4 +501,10 @@ Likewise may someone love you next.
     <string name="the_size_of_button_will_be_changed_when_device_screen_is_rotated">The size of button will be changed when device screen is rotated</string>
     <string name="circular_image_click">Circular image click</string>
     <string name="goodview">GoodView</string>
+    <string name="lbutton">LButton</string>
+    <string name="qbutton">QButton</string>
+    <string name="shine_button">Shine Button</string>
+    <string name="you_can_custom_more_effect">You can custom more effect</string>
+    <string name="click_above_button">Click above button</string>
+    <string name="auto_size_button">Auto size button</string>
 </resources>

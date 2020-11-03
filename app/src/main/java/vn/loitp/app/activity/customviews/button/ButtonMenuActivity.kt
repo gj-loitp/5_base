@@ -28,6 +28,10 @@ class ButtonMenuActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btShineButton.setOnClickListener(this)
         btCircularImageClick.setOnClickListener(this)
         btGoodView.setOnClickListener(this)

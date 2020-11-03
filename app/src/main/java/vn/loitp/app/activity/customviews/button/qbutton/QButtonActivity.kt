@@ -19,6 +19,10 @@ class QButtonActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btn.setCornerRadious(5)
         btn.setStrokeWidth(5)
         btn.setStrokeDashGap(5)

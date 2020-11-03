@@ -22,32 +22,32 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAutoSizeButton"
                 style="@style/ButtonMenu"
-                android:text="Auto size button" />
+                android:text="@string/auto_size_button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCircularImageClick"
                 style="@style/ButtonMenu"
-                android:text="Circular Image Click" />
+                android:text="@string/circular_image_click" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGoodView"
                 style="@style/ButtonMenu"
-                android:text="GoodView" />
+                android:text="@string/goodview" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btlButton"
                 style="@style/ButtonMenu"
-                android:text="LButton" />
+                android:text="@string/lbutton" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btQButton"
                 style="@style/ButtonMenu"
-                android:text="QButton" />
+                android:text="@string/qbutton" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShineButton"
                 style="@style/ButtonMenu"
-                android:text="Shine Button" />
+                android:text="@string/shine_button" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

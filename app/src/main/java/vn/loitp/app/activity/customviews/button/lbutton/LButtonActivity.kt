@@ -20,6 +20,10 @@ class LButtonActivity : BaseFontActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         bt0.setOnClickListener(this)
 
         bt1.setPressedDrawable(R.drawable.l_circle_color_primary)
@@ -31,7 +35,8 @@ class LButtonActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            bt0, bt1, bt2 -> showShortInformation(getString(R.string.click))
+            bt0, bt1, bt2 ->
+                showShortInformation(msg = getString(R.string.click))
         }
     }
 }
