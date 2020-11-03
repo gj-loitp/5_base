@@ -504,4 +504,6 @@ Likewise may someone love you next.
     <string name="fetch_remote_welcome">fetch remote welcome</string>
     <string name="config_firebase">Config Firebase</string>
     <string name="invite">Invite</string>
+    <string name="test_fcm_push">Test FCM Push</string>
+    <string name="push_fcm">Push FCM</string>
 </resources>

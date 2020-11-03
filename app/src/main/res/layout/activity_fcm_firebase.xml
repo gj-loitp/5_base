@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -25,17 +26,18 @@
                 android:padding="@dimen/padding_medium"
                 android:text="The Firebase Cloud Messaging Android Quickstart app demonstrates registering an Android app for notifications and handling the receipt of a message. InstanceID allows easy registration while FirebaseMessagingService and FirebaseInstanceIDService enable token refreshes and message handling on the client.
 If your application is in the foreground you should see the incoming message printed in the logs. If it is in the background, a system notification should be displayed. When the notification is tapped, the application should return to the quickstart application."
-                android:textColor="?attr/themeTextColor" />
+                android:textColor="?attr/themeTextColor"
+                tools:ignore="HardcodedText" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_send_fcm"
+                android:id="@+id/btSendFcm"
                 style="@style/ButtonMenu"
-                android:text="Push FCM" />
+                android:text="@string/push_fcm" />
         </LinearLayout>
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Test FCM Push" />
+        android:text="@string/test_fcm_push" />
 </RelativeLayout>
