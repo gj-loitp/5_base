@@ -98,6 +98,23 @@
             app:rippleColor="@color/transparent"
             tools:visibility="visible" />
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabPrevious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/prev_chap"
+            android:textAllCaps="false"
+            android:textColor="?attr/themeBackgroundColor"
+            app:backgroundTint="?attr/themeTextColor"
+            app:icon="@drawable/ic_chevron_left_black_48dp"
+            app:iconTint="?attr/themeBackgroundColor"
+            app:rippleColor="@color/transparent" />
+
     </RelativeLayout>
 
 </com.views.layout.swipeback.SwipeBackLayout>

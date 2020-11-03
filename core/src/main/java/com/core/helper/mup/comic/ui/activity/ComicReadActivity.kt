@@ -95,6 +95,8 @@ class ComicReadActivity : BaseFontActivity() {
                 recyclerView = rvComicRead,
                 callbackRecyclerView = object : CallbackRecyclerView {
                     override fun onTop() {
+                        fabPrevious.visibility = View.VISIBLE
+                        LAnimationUtil.play(view = fabPrevious, techniques = Techniques.SlideInUp)
                     }
 
                     override fun onBottom() {
@@ -105,6 +107,7 @@ class ComicReadActivity : BaseFontActivity() {
                     override fun onScrolled(isScrollDown: Boolean) {
                         if (isScrollDown) {
                             LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideOutUp)
+                            LAnimationUtil.play(view = fabPrevious, techniques = Techniques.SlideOutDown)
                         } else {
                             LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideInDown)
                             LAnimationUtil.play(view = fabNext, techniques = Techniques.SlideOutDown)
@@ -118,6 +121,9 @@ class ComicReadActivity : BaseFontActivity() {
             //TODO loitpp iplm
         }
         fabNext.setSafeOnClickListener {
+            //TODO loitpp iplm
+        }
+        fabPrevious.setSafeOnClickListener {
             //TODO loitpp iplm
         }
     }
