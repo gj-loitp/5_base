@@ -64,19 +64,20 @@
                 android:layout_weight="1">
 
                 <com.facebook.login.widget.LoginButton
-                    android:id="@+id/button_facebook_login"
+                    android:id="@+id/btFacebookLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button_facebook_signout"
+                    android:id="@+id/btFacebookSignOut"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="@string/sign_out"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
             </RelativeLayout>
 
