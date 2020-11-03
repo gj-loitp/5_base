@@ -1,9 +1,11 @@
 package vn.loitp.app.activity.customviews.button.circularimageclick
 
 import android.os.Bundle
+import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.button.circularimageclick.LCircularClickImageButton
 import kotlinx.android.synthetic.main.activity_button_circular_image_click.*
 import vn.loitp.app.R
 
@@ -22,9 +24,12 @@ class CircularImageClickActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        circleButton.setOnCircleClickListener {
-            showShortInformation("onClick")
-        }
+        circleButton.setOnCircleClickListener(object : LCircularClickImageButton.OnCircleClickListener {
+            override fun onClick(v: View?) {
+                showShortInformation("onClick")
+            }
+
+        })
     }
 
 }
