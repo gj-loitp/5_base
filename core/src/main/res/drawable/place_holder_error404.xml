@@ -6,14 +6,14 @@
             <solid android:color="?attr/themeBackgroundColorMedium" />
 
             <size
-                android:width="1280dp"
-                android:height="1920dp" />
+                android:width="512dp"
+                android:height="512dp" />
         </shape>
     </item>
 
     <item
-        android:width="@dimen/w_120"
-        android:height="@dimen/w_120"
+        android:width="@dimen/w_100"
+        android:height="@dimen/w_100"
         android:drawable="@drawable/l_error_404"
         android:gravity="center"
         tools:ignore="UnusedAttribute" />

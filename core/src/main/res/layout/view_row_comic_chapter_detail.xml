@@ -1,29 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="?attr/themeBackgroundColor"
+    android:foreground="?selectableItemBackground"
     android:orientation="vertical"
-    android:paddingTop="?android:attr/actionBarSize"
     tools:ignore="UnusedAttribute">
+
+    <com.views.progressloadingview.window.WP7ProgressBar
+        android:id="@+id/wp7progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:wpAnimationDuration="2300"
+        app:wpIndicatorColor="?attr/themeTextColor"
+        app:wpIndicatorHeight="7"
+        app:wpIndicatorRadius="5"
+        app:wpInterval="100" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivChapterDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
-        android:foreground="?selectableItemBackground"
         tools:src="@drawable/logo" />
 
-    <com.views.progressloadingview.window.WP7ProgressBar
-        android:id="@+id/wp7progressBar"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:wpAnimationDuration="2300"
-        app:wpIndicatorColor="?attr/themeTextColor"
-        app:wpIndicatorHeight="7"
-        app:wpIndicatorRadius="5"
-        app:wpInterval="100" />
-</FrameLayout>
+        android:gravity="center"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        tools:text="@string/app_name_comic" />
+
+</LinearLayout>

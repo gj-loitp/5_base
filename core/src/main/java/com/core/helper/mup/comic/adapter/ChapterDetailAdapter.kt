@@ -38,9 +38,10 @@ class ChapterDetailAdapter : AnimationAdapter() {
 //            if (Constants.IS_DEBUG) {
 //                imgSrc = Constants.URL_IMG_1
 //            }
-            logD("$bindingAdapterPosition -> imgSrc $imgSrc")
+            logD("$bindingAdapterPosition -> imgSrc $imgSrc, ${chapterComicsDetail.noOrder}")
             itemView.wp7progressBar.showProgressBar()
-            LImageUtil.setImageViewZoom(iv = itemView.ivChapterDetail)
+            itemView.tvPage.text = "${chapterComicsDetail.noOrder}"
+//            LImageUtil.setImageViewZoom(iv = itemView.ivChapterDetail)
             LImageUtil.load(
                     context = itemView.ivChapterDetail.context,
                     any = imgSrc,

@@ -25,7 +25,7 @@
             android:id="@+id/layoutControl"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            android:background="?attr/themeBackgroundColorMedium"
+            android:background="?attr/themeBackgroundColor50"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
