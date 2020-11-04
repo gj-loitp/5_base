@@ -7,12 +7,13 @@
     android:background="?attr/themeBackgroundColor"
     tools:ignore="UnusedAttribute">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.ortiz.touchview.TouchImageView
         android:id="@+id/ivChapterDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:foreground="?selectableItemBackground"
+        android:scaleType="centerCrop"
         tools:src="@drawable/logo" />
 
     <androidx.appcompat.widget.AppCompatTextView
