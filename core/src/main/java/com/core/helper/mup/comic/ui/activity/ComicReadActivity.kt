@@ -157,10 +157,10 @@ class ComicReadActivity : BaseFontActivity() {
 
     private fun goToPreviousChap() {
         val prevChap = comicViewModel?.chapterDetailActionLiveData?.value?.data?.prevChap
-        if (prevChap == null) {
+        if (prevChap == null || prevChap.id.isNullOrEmpty()) {
             showLongInformation(getString(R.string.no_data))
         } else {
-
+            comicViewModel?.getChapterDetail(chapId = prevChap.id)
         }
     }
 }
