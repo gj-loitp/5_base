@@ -37,11 +37,6 @@ class ComicReadActivity : BaseFontActivity() {
     }
 
     private var chap: Chap? = null
-    private val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
-    }
     private var comicViewModel: ComicViewModel? = null
 
     private var concatAdapter = ConcatAdapter()
@@ -124,7 +119,7 @@ class ComicReadActivity : BaseFontActivity() {
             //TODO loitpp iplm
         }
         fabPrevious.setSafeOnClickListener {
-            //TODO loitpp iplm
+            goToPreviousChap()
         }
     }
 
@@ -157,6 +152,15 @@ class ComicReadActivity : BaseFontActivity() {
                     }
                 }
             })
+        }
+    }
+
+    private fun goToPreviousChap() {
+        val prevChap = comicViewModel?.chapterDetailActionLiveData?.value?.data?.prevChap
+        if (prevChap == null) {
+            showLongInformation(getString(R.string.no_data))
+        } else {
+
         }
     }
 }

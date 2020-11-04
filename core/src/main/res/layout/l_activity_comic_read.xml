@@ -90,11 +90,11 @@
             android:layout_marginBottom="@dimen/margin_medium"
             android:text="@string/next_chap"
             android:textAllCaps="false"
-            android:textColor="?attr/themeTextColor"
+            android:textColor="?attr/themeBackgroundColor"
             android:visibility="invisible"
-            app:backgroundTint="?attr/themeBackgroundColorMedium"
+            app:backgroundTint="?attr/themeTextColor"
             app:icon="@drawable/ic_chevron_right_black_48dp"
-            app:iconTint="?attr/themeTextColor"
+            app:iconTint="?attr/themeBackgroundColor"
             app:rippleColor="@color/transparent"
             tools:visibility="visible" />
 
@@ -109,10 +109,10 @@
             android:layout_marginBottom="@dimen/margin_medium"
             android:text="@string/prev_chap"
             android:textAllCaps="false"
-            android:textColor="?attr/themeTextColor"
-            app:backgroundTint="?attr/themeBackgroundColorMedium"
+            android:textColor="?attr/themeBackgroundColor"
+            app:backgroundTint="?attr/themeTextColor"
             app:icon="@drawable/ic_chevron_left_black_48dp"
-            app:iconTint="?attr/themeTextColor"
+            app:iconTint="?attr/themeBackgroundColor"
             app:rippleColor="@color/transparent" />
 
     </RelativeLayout>
