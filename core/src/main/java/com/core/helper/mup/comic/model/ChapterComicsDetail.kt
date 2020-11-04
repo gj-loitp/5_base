@@ -43,7 +43,7 @@ data class ChapterComicsDetail(
         return if (imageSrc?.contains("http:/") == true) {
             imageSrc
         } else {
-            "http:/$imageSrc"
+            "http:$imageSrc"
         }
     }
 }

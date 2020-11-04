@@ -7,16 +7,6 @@
     android:background="?attr/themeBackgroundColor"
     tools:ignore="UnusedAttribute">
 
-    <com.views.progressloadingview.window.WP7ProgressBar
-        android:id="@+id/wp7progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        app:wpAnimationDuration="2300"
-        app:wpIndicatorColor="?attr/themeTextColor"
-        app:wpIndicatorHeight="7"
-        app:wpIndicatorRadius="5"
-        app:wpInterval="100" />
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivChapterDetail"
         android:layout_width="match_parent"
@@ -35,5 +25,15 @@
         android:textColor="@color/white"
         android:textSize="@dimen/txt_medium"
         tools:text="69" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/indicatorView"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="@dimen/w_40"
+        android:layout_height="@dimen/w_40"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:indicatorColor="?attr/themeTextColor"
+        app:indicatorName="BallClipRotatePulseIndicator" />
 
 </FrameLayout>

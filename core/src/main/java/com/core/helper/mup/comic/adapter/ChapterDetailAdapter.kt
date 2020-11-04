@@ -40,7 +40,7 @@ class ChapterDetailAdapter : AnimationAdapter() {
 //                imgSrc = "http://truyentranhtuan.com/manga2/detective-conan/1055/img-00001.jpg"
 //            }
             logD("$bindingAdapterPosition -> imgSrc $imgSrc, ${chapterComicsDetail.noOrder}")
-            itemView.wp7progressBar.showProgressBar()
+            itemView.indicatorView.smoothToShow()
             itemView.tvPage.text = "${chapterComicsDetail.noOrder}"
 //            LImageUtil.setImageViewZoom(iv = itemView.ivChapterDetail)
 
@@ -68,12 +68,12 @@ class ChapterDetailAdapter : AnimationAdapter() {
                     resError = R.drawable.place_holder_error404,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            itemView.wp7progressBar.hideProgressBar()
+                            itemView.indicatorView.smoothToHide()
                             return false
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            itemView.wp7progressBar.hideProgressBar()
+                            itemView.indicatorView.smoothToHide()
                             return false
                         }
                     }
