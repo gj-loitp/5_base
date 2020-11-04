@@ -121,40 +121,28 @@ abstract class BaseActivity : AppCompatActivity() {
                     }
                 })
 
-        //autoanimation
+        //auto animation
         //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
         isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
             interstitialAd = LUIUtil.createAdFull(this)
-            interstitialAd?.adListener = object : AdListener() {
+            /*interstitialAd?.adListener = object : AdListener() {
                 override fun onAdLoaded() {
-                    // Code to be executed when an ad finishes loading.
-//                    logD("onAdLoaded interstitialAd")
                 }
 
                 override fun onAdFailedToLoad(errorCode: Int) {
-                    // Code to be executed when an ad request fails.
-//                    logD("onAdFailedToLoad interstitialAd errorCode $errorCode")
                 }
 
                 override fun onAdOpened() {
-                    // Code to be executed when an ad opens an overlay that
-                    // covers the screen.
-//                    logD("onAdOpened interstitialAd")
                 }
 
                 override fun onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
-//                    logD("onAdLeftApplication interstitialAd")
                 }
 
                 override fun onAdClosed() {
-                    // Code to be executed when when the user is about to return
-                    // to the app after tapping on an ad.
-//                    logD("onAdClosed interstitialAd")
                 }
-            }
+            }*/
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
     }
