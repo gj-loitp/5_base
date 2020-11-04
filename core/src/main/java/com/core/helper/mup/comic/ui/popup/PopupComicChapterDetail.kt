@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.R
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.popup_comic_chapter_detail.view.*
 
 
@@ -19,6 +20,7 @@ class PopupComicChapterDetail internal constructor(context: Context?) : Relative
     }
 
     var onClickShare: ((Unit) -> Unit)? = null
+    var onClickDownload: ((Unit) -> Unit)? = null
 
     init {
         val layout = LayoutInflater.from(context).inflate(R.layout.popup_comic_chapter_detail, null)
@@ -34,8 +36,13 @@ class PopupComicChapterDetail internal constructor(context: Context?) : Relative
             animationStyle = 0
         }
 
-        layout.btShare.setOnClickListener {
+        layout.btShare.setSafeOnClickListener {
             onClickShare?.invoke(Unit)
+            dismiss()
+        }
+
+        layout.btDownload.setSafeOnClickListener {
+            onClickDownload?.invoke(Unit)
             dismiss()
         }
     }

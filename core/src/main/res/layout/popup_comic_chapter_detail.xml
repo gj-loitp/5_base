@@ -27,5 +27,16 @@
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             tools:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btDownload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:foreground="?selectableItemBackground"
+            android:padding="@dimen/padding_medium"
+            android:text="@string/download_photo"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
+            tools:ignore="UnusedAttribute" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
