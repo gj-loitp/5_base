@@ -31,8 +31,8 @@
         style="@style/AVLoadingIndicatorView"
         android:layout_width="@dimen/w_40"
         android:layout_height="@dimen/w_40"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_medium"
         app:indicatorColor="?attr/themeTextColor"
         app:indicatorName="BallClipRotatePulseIndicator" />
 

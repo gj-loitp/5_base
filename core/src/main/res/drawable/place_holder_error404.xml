@@ -6,8 +6,8 @@
             <solid android:color="?attr/themeBackgroundColorMedium" />
 
             <size
-                android:width="512dp"
-                android:height="512dp" />
+                android:width="1280dp"
+                android:height="1920dp" />
         </shape>
     </item>
 

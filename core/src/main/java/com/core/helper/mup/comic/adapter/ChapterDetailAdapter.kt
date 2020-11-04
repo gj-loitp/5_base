@@ -65,6 +65,7 @@ class ChapterDetailAdapter : AnimationAdapter() {
             LImageUtil.loadHighQuality(
                     any = imgSrc,
                     imageView = itemView.ivChapterDetail,
+                    resPlaceHolder = R.drawable.place_holder,
                     resError = R.drawable.place_holder_error404,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
