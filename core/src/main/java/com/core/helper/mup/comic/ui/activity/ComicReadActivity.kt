@@ -18,13 +18,11 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
-import com.google.ads.interactivemedia.v3.internal.fa
 import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_read.*
 import kotlinx.android.synthetic.main.l_activity_comic_read.tvNoData
-import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
 @LogTag("loitppComicActivity")
 @IsFullScreen(false)
@@ -116,7 +114,7 @@ class ComicReadActivity : BaseFontActivity() {
             //TODO loitpp iplm
         }
         fabNext.setSafeOnClickListener {
-            //TODO loitpp iplm
+            goToNextChap()
         }
         fabPrevious.setSafeOnClickListener {
             goToPreviousChap()
@@ -161,6 +159,15 @@ class ComicReadActivity : BaseFontActivity() {
             showLongInformation(getString(R.string.no_data))
         } else {
             comicViewModel?.getChapterDetail(chapId = prevChap.id)
+        }
+    }
+
+    private fun goToNextChap(){
+        val nextChap = comicViewModel?.chapterDetailActionLiveData?.value?.data?.nextChap
+        if (nextChap == null || nextChap.id.isNullOrEmpty()) {
+            showLongInformation(getString(R.string.no_data))
+        } else {
+            comicViewModel?.getChapterDetail(chapId = nextChap.id)
         }
     }
 }
