@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.adapter
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -78,6 +79,7 @@ class ChapterDetailAdapter : AnimationAdapter() {
                     }
             )
 
+            LUIUtil.setTextShadow(textView = itemView.tvPage, color = Color.BLACK)
             itemView.ivChapterDetail.setSafeOnClickListener {
                 onClickRoot?.invoke(chapterComicsDetail)
             }
