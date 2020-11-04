@@ -2,6 +2,7 @@ package com.core.helper.mup.comic.ui.activity
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
@@ -11,18 +12,18 @@ import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
+import com.core.common.Constants
 import com.core.helper.mup.comic.adapter.ChapterDetailAdapter
 import com.core.helper.mup.comic.model.Chap
+import com.core.helper.mup.comic.ui.popup.PopupComicChapterDetail
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LAnimationUtil
-import com.core.utilities.LUIUtil
+import com.core.utilities.*
 import com.daimajia.androidanimations.library.Techniques
 import com.interfaces.CallbackRecyclerView
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_read.*
-import kotlinx.android.synthetic.main.l_activity_comic_read.tvNoData
 
 @LogTag("loitppComicActivity")
 @IsFullScreen(false)
@@ -111,7 +112,7 @@ class ComicReadActivity : BaseFontActivity() {
             onBackPressed()
         }
         ivMenu.setSafeOnClickListener {
-            //TODO loitpp iplm
+            handleClickMenu(anchorView = it)
         }
         fabNext.setSafeOnClickListener {
             goToNextChap()
@@ -162,12 +163,24 @@ class ComicReadActivity : BaseFontActivity() {
         }
     }
 
-    private fun goToNextChap(){
+    private fun goToNextChap() {
         val nextChap = comicViewModel?.chapterDetailActionLiveData?.value?.data?.nextChap
         if (nextChap == null || nextChap.id.isNullOrEmpty()) {
             showLongInformation(getString(R.string.no_data))
         } else {
             comicViewModel?.getChapterDetail(chapId = nextChap.id)
         }
+    }
+
+    private fun handleClickMenu(anchorView: View) {
+        val popup = PopupComicChapterDetail(anchorView.context)
+        popup.width = ViewGroup.LayoutParams.WRAP_CONTENT
+        popup.height = ViewGroup.LayoutParams.WRAP_CONTENT
+        val verticalPos = RelativePopupWindow.VerticalPosition.BELOW
+        val horizontalPos = RelativePopupWindow.HorizontalPosition.LEFT
+        popup.onClickShare = {
+            LSocialUtil.shareApp(activity = this)
+        }
+        popup.showOnAnchor(anchorView, verticalPos, horizontalPos, false)
     }
 }
