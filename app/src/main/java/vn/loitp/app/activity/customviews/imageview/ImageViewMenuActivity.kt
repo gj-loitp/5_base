@@ -17,7 +17,6 @@ import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivity
 import vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity
-import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomActivity
 import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomViewPagerActivity
 import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity
@@ -49,8 +48,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         btPanoramaImageView.setOnClickListener(this)
         btBigImageView.setOnClickListener(this)
         btBigImageViewWithScrollView.setOnClickListener(this)
-        btPinchToZoomWithViewPager.setOnClickListener(this)
-        btPinchToZoom.setOnClickListener(this)
+        btTouchImageViewWithViewPager.setOnClickListener(this)
         btKenburnView.setOnClickListener(this)
     }
 
@@ -67,8 +65,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             btPanoramaImageView -> intent = Intent(this, PanoramaImageViewActivity::class.java)
             btBigImageView -> intent = Intent(this, BigImageViewActivity::class.java)
             btBigImageViewWithScrollView -> intent = Intent(this, BigImageViewWithScrollViewActivity::class.java)
-            btPinchToZoom -> intent = Intent(this, PinchToZoomActivity::class.java)
-            btPinchToZoomWithViewPager -> intent = Intent(this, PinchToZoomViewPagerActivity::class.java)
+            btTouchImageViewWithViewPager -> intent = Intent(this, PinchToZoomViewPagerActivity::class.java)
             btKenburnView -> intent = Intent(this, KenburnViewActivity::class.java)
         }
         intent?.let { i ->
