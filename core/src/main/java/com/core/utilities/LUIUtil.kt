@@ -31,6 +31,7 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
+import com.google.ads.interactivemedia.v3.internal.it
 import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
@@ -665,13 +666,6 @@ class LUIUtil {
             }
         }
 
-        //ViewGroup.LayoutParams.MATCH_PARENT
-        fun setSize(view: View, w: Int, h: Int) {
-            view.layoutParams.width = w
-            view.layoutParams.height = h
-            view.requestLayout()
-        }
-
         @SuppressLint("ObsoleteSdkInt")
         fun setRipple(context: Context?, view: View) {
             context?.let { c ->
@@ -708,12 +702,28 @@ class LUIUtil {
             }
         }
 
-        fun setHeightOfView(view: View?, height: Int) {
-            view?.let {
-                it.layoutParams.height = height
-                it.requestLayout()
+        fun setSizeOfView(
+                view: View? = null,
+                width: Int? = null,
+                height: Int? = null
+        ) {
+            view?.let { v ->
+                width?.let {
+                    v.layoutParams.width = width
+                }
+                height?.let {
+                    v.layoutParams.height = height
+                }
+                v.requestLayout()
             }
         }
+
+        //ViewGroup.LayoutParams.MATCH_PARENT
+//        fun setSize(view: View, w: Int, h: Int) {
+//            view.layoutParams.width = w
+//            view.layoutParams.height = h
+//            view.requestLayout()
+//        }
 
         fun setScrollChange(recyclerView: RecyclerView, callbackRecyclerView: CallbackRecyclerView) {
             var isScrollDown = false

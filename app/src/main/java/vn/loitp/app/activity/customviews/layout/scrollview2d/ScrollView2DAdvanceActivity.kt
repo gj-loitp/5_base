@@ -63,10 +63,10 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
             if (btGenLine.isClickable) {
                 btGenLine.isClickable = false
                 btGenLine.setTextColor(Color.GRAY)
-                LUIUtil.setSize(vg1, WIDTH_PX, HEIGHT_PX)
-                LUIUtil.setSize(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
-                LUIUtil.setSize(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
-                LUIUtil.setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                LUIUtil.setSizeOfView(vg1, WIDTH_PX, HEIGHT_PX)
+                LUIUtil.setSizeOfView(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
+                LUIUtil.setSizeOfView(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
+                LUIUtil.setSizeOfView(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
                 Render(30, 24).execute()
                 //new Render(7, 12).execute();
             }

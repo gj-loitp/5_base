@@ -21,7 +21,6 @@ class PinchToZoomActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = imageView)
-        LImageUtil.setImageViewZoom(iv = imageView)
     }
 
 }

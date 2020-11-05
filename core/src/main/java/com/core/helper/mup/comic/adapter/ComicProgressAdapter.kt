@@ -19,7 +19,7 @@ class ComicProgressAdapter(
 
         fun bind() {
             heightRootView?.let {
-                LUIUtil.setHeightOfView(view = itemView.layoutRootView, height = heightRootView)
+                LUIUtil.setSizeOfView(view = itemView.layoutRootView, height = heightRootView)
             }
         }
     }

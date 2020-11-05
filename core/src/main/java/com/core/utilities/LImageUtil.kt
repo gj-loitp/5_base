@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -9,7 +8,6 @@ import android.view.View
 import android.widget.ImageView
 import androidx.exifinterface.media.ExifInterface
 import com.R
-import com.bogdwellers.pinchtozoom.ImageMatrixTouchHandler
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.load.Transformation
@@ -17,6 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.core.common.Constants
+import com.ortiz.touchview.TouchImageView
 import com.utils.util.FileUtils
 import java.io.File
 import java.util.*
@@ -26,7 +25,7 @@ import kotlin.math.min
 //https://github.com/wasabeef/glide-transformations
 class LImageUtil {
     companion object {
-        private val logTag = "LImageUtil"
+        private const val logTag = "LImageUtil"
 
         val randomUrlFlickr: String
             get() {
@@ -158,11 +157,6 @@ class LImageUtil {
             return linkUrlM
         }
 
-        @SuppressLint("ClickableViewAccessibility")
-        fun setImageViewZoom(iv: ImageView?) {
-            iv?.setOnTouchListener(ImageMatrixTouchHandler(iv.context))
-        }
-
         fun resizeImage(context: Context?, file: File?, scaleTo: Int = 1024, folderPath: String?): File? {
             if (context == null || file == null || folderPath.isNullOrEmpty()) {
                 return null
@@ -272,6 +266,13 @@ class LImageUtil {
                             .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL))
                     .listener(drawableRequestListener)
                     .into(imageView)
+        }
+
+        fun setZoomFitWidthScreen(touchImageView: TouchImageView?) {
+            touchImageView?.post {
+                val maxZoomRatio = LScreenUtil.screenWidth.toFloat() / LUIUtil.getWidthOfView(touchImageView).toFloat()
+                touchImageView.setMaxZoomRatio(maxZoomRatio)
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,19 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            tools:src="@drawable/logo" />
 
-        <com.github.mmin18.widget.RealtimeBlurView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_medium"
-            app:realtimeOverlayColor="?attr/themeBackgroundColor50" />
-
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.ortiz.touchview.TouchImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:contentDescription="@string/app_name" />
+            android:contentDescription="@string/app_name"
+            tools:src="@drawable/logo" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
