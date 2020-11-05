@@ -38,7 +38,8 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
         LUIUtil.setPullLikeIOSHorizontal(vp)
     }
 
-    private inner class SamplePagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SamplePagerAdapter(fm: FragmentManager)
+        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
             val frmIvPinchToZoom = FrmIvPinchToZoom()
