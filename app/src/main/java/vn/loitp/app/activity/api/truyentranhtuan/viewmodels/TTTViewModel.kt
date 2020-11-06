@@ -8,6 +8,7 @@ import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
+import vn.loitp.app.activity.api.truyentranhtuan.db.TTTDatabase
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chap
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chaps
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Info
@@ -28,6 +29,8 @@ class TTTViewModel : BaseViewModel() {
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val tttChapActionLiveData: ActionLiveData<ActionData<TTTChap>> = ActionLiveData()
     val listPageActionLiveData: ActionLiveData<ActionData<List<String>>> = ActionLiveData()
+
+    val listComicFavActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
 
     fun getListComic(link: String) {
         listComicActionLiveData.set(
@@ -56,6 +59,7 @@ class TTTViewModel : BaseViewModel() {
                     comic.date = eDate.text()
 
                     logD("comic " + BaseApplication.gson.toJson(comic))
+
                     listComic.add(comic)
                 }
             } catch (e: Exception) {
@@ -157,8 +161,8 @@ class TTTViewModel : BaseViewModel() {
         logD(">>>getListPage link $link")
 
         fun doTask(link: String): ArrayList<String> {
-            var originalString = ""
-            var stringAfterSplit = ""
+            var originalString: String
+            var stringAfterSplit: String
             val arrString: Array<String>
             val document: Document
             val imgList = ArrayList<String>()
@@ -230,6 +234,22 @@ class TTTViewModel : BaseViewModel() {
                             isDoing = false,
                             isSuccess = true,
                             data = listPage
+                    )
+            )
+        }
+    }
+
+    fun getListComicFav() {
+        listComicFavActionLiveData.set(
+                ActionData(isDoing = true)
+        )
+        ioScope.launch {
+            val listComicFav = TTTDatabase.instance?.tttDao()?.getListComic()
+            listComicFavActionLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = listComicFav
                     )
             )
         }
