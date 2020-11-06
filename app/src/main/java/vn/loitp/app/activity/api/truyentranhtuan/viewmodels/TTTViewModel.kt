@@ -3,8 +3,6 @@ package vn.loitp.app.activity.api.truyentranhtuan.viewmodels
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
-import com.core.helper.mup.comic.service.ComicApiClient
-import com.core.helper.mup.comic.service.ComicRepository
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
@@ -15,6 +13,8 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chaps
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Info
 import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * Created by Loitp on 24,December,2019
@@ -25,15 +25,9 @@ import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 
 @LogTag("loitppComicLoginViewModel")
 class TTTViewModel : BaseViewModel() {
-
-    companion object {
-        const val FOLDER = ".TTT"
-    }
-
-    private val repository = ComicRepository(ComicApiClient.apiService)
-
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val tttChapActionLiveData: ActionLiveData<ActionData<TTTChap>> = ActionLiveData()
+    val listPageActionLiveData: ActionLiveData<ActionData<List<String>>> = ActionLiveData()
 
     fun getListComic(link: String) {
         listComicActionLiveData.set(
@@ -151,6 +145,91 @@ class TTTViewModel : BaseViewModel() {
                             isDoing = false,
                             isSuccess = true,
                             data = tttChap
+                    )
+            )
+        }
+    }
+
+    fun getListPage(link: String) {
+        listPageActionLiveData.set(
+                ActionData(isDoing = true)
+        )
+        logD(">>>getListPage link $link")
+
+        fun doTask(link: String): ArrayList<String> {
+            var originalString = ""
+            var stringAfterSplit = ""
+            val arrString: Array<String>
+            val document: Document
+            val imgList = ArrayList<String>()
+
+            return try {
+                var needToSortList = false
+                val subFirstString0 = "var slides_page_url_path = ["
+                val subLastString0 = "if (slides_page_url_path.length > 0)"
+                val subFirstString1 = "var slides_page_path ="
+                val subLastString1 = "var use_server_gg"
+
+                document = Jsoup.connect(link).get()
+                val scriptElements = document.getElementsByTag("script")
+                for (element in scriptElements) {
+                    for (node in element.dataNodes()) {
+                        originalString = node.wholeData
+                        //fileHelper.writeToFile(null, "test.txt", string);
+                        if (originalString.contains("slides_page_url_path")) {
+                            var firstIndex = originalString.indexOf(subFirstString0)
+                            var lastIndex = originalString.indexOf(subLastString0)
+
+                            stringAfterSplit = originalString.substring(firstIndex + subFirstString0.length, lastIndex)
+                            stringAfterSplit = stringAfterSplit.replace("];", "")
+                            stringAfterSplit = stringAfterSplit.replace("\"", "")
+                            stringAfterSplit = stringAfterSplit.trim { it <= ' ' }
+
+                            if (stringAfterSplit.isEmpty()) {
+                                firstIndex = originalString.indexOf(subFirstString1)
+                                lastIndex = originalString.indexOf(subLastString1)
+                                stringAfterSplit = originalString.substring(firstIndex + subFirstString1.length, lastIndex)
+                                stringAfterSplit = stringAfterSplit.replace("];", "")
+                                stringAfterSplit = stringAfterSplit.replace("[", "")
+                                stringAfterSplit = stringAfterSplit.replace("\"", "")
+                                stringAfterSplit = stringAfterSplit.trim { it <= ' ' }
+                                needToSortList = true
+                            }
+                            arrString = stringAfterSplit.split(regex = ",".toRegex()).toTypedArray()
+                            Collections.addAll(imgList, *arrString)
+                            if (needToSortList) {
+                                imgList.sortWith { o1, o2 ->
+                                    o1.compareTo(other = o2, ignoreCase = true)
+                                }
+                            }
+                            return imgList
+                        }
+                    }
+                }
+                imgList
+            } catch (e: Exception) {
+                e.printStackTrace()
+                imgList
+            }
+        }
+
+        ioScope.launch {
+            val listPage = doTask(link = link)
+            if (listPage.isNotEmpty()) {
+                for (i in listPage.indices) {
+                    val urlImg = listPage[i]
+                    if (urlImg.contains("http://images2-focus-opensocial.googleusercontent.com")) {
+                        val index = urlImg.lastIndexOf("url=http")
+                        val tmp = urlImg.substring(index + 4)
+                        listPage[i] = tmp
+                    }
+                }
+            }
+            listPageActionLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = listPage
                     )
             )
         }
