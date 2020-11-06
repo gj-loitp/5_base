@@ -54,7 +54,6 @@ class ComicUtils {
                 return comicTypeList
             }
 
-        fun addComicToFavList(comic: Comic?) {}
 
         @JvmStatic
         fun isComicExistIn(comic: Comic?, comicList: List<Comic>?): Boolean {

@@ -223,31 +223,31 @@ class LStoreUtil {
             return byteArrayOutputStream.toString()
         }
 
-        fun saveHTMLCodeFromURLToSDCard(link: String, folderName: String, fileName: String): Boolean {
-            var state = false
-            val ins: InputStream?
-            try {
-                val url = URL(link)
-                ins = url.openStream()
-                val br = BufferedReader(InputStreamReader(ins!!))
-                var line: String? = null
-                val stringBuilder = StringBuilder()
-                /*while ((line = br.readLine()) != null) {
-                    stringBuilder.append(line)
-                }*/
-                while ({ line = br.readLine(); line }() != null) {
-                    stringBuilder.append(line)
-                }
-                br.close()
-                ins.close()
-                writeToFile(folder = folderName, fileName = fileName, body = stringBuilder.toString())
-                state = true
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-
-            return state
-        }
+//        fun saveHTMLCodeFromURLToSDCard(link: String, folderName: String, fileName: String): Boolean {
+//            var isSuccess = false
+//            val ins: InputStream?
+//            try {
+//                val url = URL(link)
+//                ins = url.openStream()
+//                val br = BufferedReader(InputStreamReader(ins!!))
+//                var line: String? = null
+//                val stringBuilder = StringBuilder()
+//                /*while ((line = br.readLine()) != null) {
+//                    stringBuilder.append(line)
+//                }*/
+//                while ({ line = br.readLine(); line }() != null) {
+//                    stringBuilder.append(line)
+//                }
+//                br.close()
+//                ins.close()
+//                writeToFile(folder = folderName, fileName = fileName, body = stringBuilder.toString())
+//                isSuccess = true
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//            }
+//
+//            return isSuccess
+//        }
 
         fun readTxtFromAsset(assetFile: String): String {
             val ins: InputStream
