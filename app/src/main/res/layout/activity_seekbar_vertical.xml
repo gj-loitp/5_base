@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/red"
-            android:text="Set progress 30 for seekbar1"
+            android:text="@string/set_progress_30_for_seekbar1"
             android:textColor="?attr/themeTextColor" />
 
         <RelativeLayout

@@ -464,4 +464,5 @@ Likewise may someone love you next.
     <string name="seekbar">Seekbar</string>
     <string name="vertical_seekbar">Vertical seekbar</string>
     <string name="seekbar_menu">Seekbar Menu</string>
+    <string name="set_progress_30_for_seekbar1">Set progress 30 for seekbar1</string>
 </resources>

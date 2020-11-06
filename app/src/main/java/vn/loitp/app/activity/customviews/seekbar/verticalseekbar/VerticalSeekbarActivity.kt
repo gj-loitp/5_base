@@ -20,6 +20,11 @@ class VerticalSeekbarActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         seekBar1.max = 100
         seekBar1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
@@ -34,7 +39,9 @@ class VerticalSeekbarActivity : BaseFontActivity() {
                 logD("onStopTrackingTouch")
             }
         })
-        btSetProgress.setOnClickListener { _ -> seekBar1.progress = 30 }
+        btSetProgress.setOnClickListener {
+            seekBar1.progress = 30
+        }
     }
 
 }
