@@ -465,4 +465,8 @@ Likewise may someone love you next.
     <string name="vertical_seekbar">Vertical seekbar</string>
     <string name="seekbar_menu">Seekbar Menu</string>
     <string name="set_progress_30_for_seekbar1">Set progress 30 for seekbar1</string>
+    <string name="appcompat_switch">Appcompat Switch</string>
+    <string name="toggle">Toggle</string>
+    <string name="toggle_button_group">Toggle Button Group</string>
+    <string name="switch_toggle_menu">Switch Toggle Menu</string>
 </resources>

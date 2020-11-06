@@ -10,7 +10,6 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_switch_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.switchtoggle.appcompatswitch.AppcompatSwitchActivity
-import vn.loitp.app.activity.customviews.switchtoggle.customtogglebutton.CustomToggleButtonActivity
 import vn.loitp.app.activity.customviews.switchtoggle.toggle.ToggleActivity
 import vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.TBGMenuActivity
 
@@ -26,7 +25,6 @@ class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         btAppcompatSwitch.setOnClickListener(this)
-        btCustomToggleButton.setOnClickListener(this)
         btToggle.setOnClickListener(this)
         btToggleButtonGroup.setOnClickListener(this)
     }
@@ -35,7 +33,6 @@ class SwitchToggleMenuActivity : BaseFontActivity(), View.OnClickListener {
         var intent: Intent? = null
         when (v) {
             btAppcompatSwitch -> intent = Intent(this, AppcompatSwitchActivity::class.java)
-            btCustomToggleButton -> intent = Intent(this, CustomToggleButtonActivity::class.java)
             btToggle -> intent = Intent(this, ToggleActivity::class.java)
             btToggleButtonGroup -> intent = Intent(this, TBGMenuActivity::class.java)
         }
