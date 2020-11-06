@@ -8,7 +8,7 @@ import com.function.notification.Notti
 import com.function.notification.NottiFactory
 import com.function.notification.actions.ContentAction
 import com.function.notification.config.LightSettings
-import com.function.notification.config.NottiConf
+import com.function.notification.config.NottiConfig
 import com.function.notification.config.VibrationSettings
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
@@ -32,7 +32,7 @@ class FirebaseMsgService : FirebaseMessagingService() {
                 val messageBody = remoteMessage.notification?.body
                 val notti = Notti(
                         this,
-                        NottiConf(
+                        NottiConfig(
                                 R.mipmap.ic_launcher,
                                 VibrationSettings(*VibrationSettings.STD_VIBRATION),
                                 LightSettings(Color.RED)

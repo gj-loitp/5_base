@@ -8,7 +8,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.function.notification.actions.NotificationAction;
 import com.function.notification.config.LightSettings;
-import com.function.notification.config.NottiConf;
+import com.function.notification.config.NottiConfig;
 import com.function.notification.config.VibrationSettings;
 import com.function.notification.notifications.CustomNotification;
 import com.utils.util.AppUtils;
@@ -19,14 +19,14 @@ import java.util.Map;
 public class Notti {
 
     private final Context context;
-    private final NottiConf nottiConf;
+    private final NottiConfig nottiConfig;
     private final NotificationManager notificationManager;
     private final Map<String, Integer> ids = new HashMap<>();
     private int currentID = 0;
 
-    public Notti(Context context, NottiConf nottiConf) {
+    public Notti(Context context, NottiConfig nottiConfig) {
         this.context = context;
-        this.nottiConf = nottiConf;
+        this.nottiConfig = nottiConfig;
         this.notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
@@ -55,7 +55,7 @@ public class Notti {
     }
 
     private void setVibrations(CustomNotification customNotification, NotificationCompat.Builder builder) {
-        VibrationSettings vibrationSettings = nottiConf.getVibrationSettings();
+        VibrationSettings vibrationSettings = nottiConfig.getVibrationSettings();
         VibrationSettings customVibrationSettings = customNotification.getVibrationSettings();
         if (vibrationSettings != null && vibrationSettings.isVibrate()) {
             builder.setVibrate(vibrationSettings.getPattern());
@@ -65,7 +65,7 @@ public class Notti {
     }
 
     private void setDiode(CustomNotification customNotification, NotificationCompat.Builder builder) {
-        LightSettings lightSettings = nottiConf.getLightSettings();
+        LightSettings lightSettings = nottiConfig.getLightSettings();
         LightSettings customLightSettings = customNotification.getLightSettings();
         if (lightSettings != null) {
             builder.setLights(lightSettings.getArgb(), lightSettings.getOnMs(),
@@ -84,7 +84,7 @@ public class Notti {
 
     private int provideIcon(Integer icon) {
         if (null == icon) {
-            return nottiConf.getDefaultActionImage();
+            return nottiConfig.getDefaultActionImage();
         }
         return icon;
     }
@@ -99,7 +99,7 @@ public class Notti {
     }
 
     public int getNotificationID() {
-        if (!nottiConf.isSameID()) {
+        if (!nottiConfig.isSameID()) {
             return currentID++;
         }
         return 0;
@@ -115,6 +115,6 @@ public class Notti {
     }
 
     public void setBuilderWithConfig(NotificationCompat.Builder builder) {
-        builder.setSmallIcon(nottiConf.getDefaultActionImage());
+        builder.setSmallIcon(nottiConfig.getDefaultActionImage());
     }
 }

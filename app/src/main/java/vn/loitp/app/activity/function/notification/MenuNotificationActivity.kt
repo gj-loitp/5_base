@@ -19,7 +19,7 @@ import com.function.notification.NottiFactory
 import com.function.notification.actions.ContentAction
 import com.function.notification.actions.NotificationAction
 import com.function.notification.config.LightSettings
-import com.function.notification.config.NottiConf
+import com.function.notification.config.NottiConfig
 import com.function.notification.config.VibrationSettings
 import kotlinx.android.synthetic.main.activity_notification_menu.*
 import vn.loitp.app.R
@@ -51,7 +51,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             tvMenu.text = d
         }
 
-        notti = Notti(this, NottiConf(R.mipmap.ic_launcher, VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
+        notti = Notti(this, NottiConfig(R.mipmap.ic_launcher, VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
 
         btSimpleNotification.setOnClickListener(this)
         btSimpleNotificationActions.setOnClickListener(this)
