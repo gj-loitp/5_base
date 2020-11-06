@@ -50,11 +50,6 @@
                 style="@style/ButtonMenu"
                 android:text="Notifcation headsup" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btNotificationHeadsupNice"
-                style="@style/ButtonMenu"
-                android:text="Notifcation headsup (Nice)" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

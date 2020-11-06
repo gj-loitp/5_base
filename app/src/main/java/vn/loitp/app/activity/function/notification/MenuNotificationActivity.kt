@@ -1,19 +1,14 @@
 package vn.loitp.app.activity.function.notification
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
-import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import androidx.core.app.NotificationCompat
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -63,7 +58,6 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         btInboxNotification.setOnClickListener(this)
         btBigPictureNotification.setOnClickListener(this)
         btNotificationHeadsup.setOnClickListener(this)
-        btNotificationHeadsupNice.setOnClickListener(this)
 
         goToNotificationSettings(this)
     }
@@ -171,52 +165,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                         notificationIntent = notificationIntent
                 )
             }
-            btNotificationHeadsupNice -> {
-//                createNotification("Testttttttttttttttttttttttttt")
-            }
         }
     }
 
-    private fun createNotification(aMessage: String) {
-        val channelId = "CHANNEL_ID"
-        val channelName = "CHANNEL_NAME"
-
-        val notificationIntent = Intent(this, MenuNotificationActivity::class.java)
-        notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-
-        val requestID = System.currentTimeMillis().toInt()
-        val pendingIntent = PendingIntent.getActivity(
-                this,
-                requestID,
-                notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT
-        )
-
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                    channelId,
-                    channelName,
-                    NotificationManager.IMPORTANCE_HIGH
-            )
-            notificationManager.createNotificationChannel(channel)
-        }
-
-
-        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-        val notificationBuilder = NotificationCompat.Builder(
-                this,
-                channelId
-        )
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setDefaults(NotificationCompat.DEFAULT_LIGHTS)
-                .setContentIntent(pendingIntent)
-                .setContentTitle("title $aMessage ${System.currentTimeMillis()}")
-                .setContentText("content $aMessage ${System.currentTimeMillis()}")
-
-        notificationManager.notify(System.currentTimeMillis().toInt(), notificationBuilder.build())
-    }
 }
