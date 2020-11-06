@@ -10,7 +10,6 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_seekbar_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.seekbar.boxedverticalseekbar.BoxedVerticalSeekBarActivity
-import vn.loitp.app.activity.customviews.seekbar.circularseekbar.CircularSeekbarActivity
 import vn.loitp.app.activity.customviews.seekbar.seekbar.SeekbarActivity
 import vn.loitp.app.activity.customviews.seekbar.verticalseekbar.VerticalSeekbarActivity
 
@@ -26,7 +25,6 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
 
         btBoxedVerticalSeekbar.setOnClickListener(this)
-        btCircularSeekbar.setOnClickListener(this)
         btVerticalSeekBar.setOnClickListener(this)
         btSeekBar.setOnClickListener(this)
     }
@@ -35,7 +33,6 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
         var intent: Intent? = null
         when (v) {
             btBoxedVerticalSeekbar -> intent = Intent(this, BoxedVerticalSeekBarActivity::class.java)
-            btCircularSeekbar -> intent = Intent(this, CircularSeekbarActivity::class.java)
             btVerticalSeekBar -> intent = Intent(this, VerticalSeekbarActivity::class.java)
             btSeekBar -> intent = Intent(this, SeekbarActivity::class.java)
         }

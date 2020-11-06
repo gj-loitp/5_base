@@ -460,4 +460,8 @@ Likewise may someone love you next.
     <string name="invite">Invite</string>
     <string name="test_fcm_push">Test FCM Push</string>
     <string name="push_fcm">Push FCM</string>
+    <string name="boxed_vertical_seekbar">Boxed Vertical SeekBar</string>
+    <string name="seekbar">Seekbar</string>
+    <string name="vertical_seekbar">Vertical seekbar</string>
+    <string name="seekbar_menu">Seekbar Menu</string>
 </resources>
