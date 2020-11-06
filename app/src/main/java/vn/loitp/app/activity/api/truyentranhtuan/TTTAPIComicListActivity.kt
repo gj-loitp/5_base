@@ -27,6 +27,10 @@ class TTTAPIComicListActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         indicatorView.hide()
         comicTypeList.addAll(ComicUtils.comicTypeList)
 
