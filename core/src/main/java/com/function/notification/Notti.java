@@ -18,10 +18,10 @@ import java.util.Map;
 
 public class Notti {
 
-    private Context context;
-    private NottiConf nottiConf;
-    private NotificationManager notificationManager;
-    private Map<String, Integer> ids = new HashMap<>();
+    private final Context context;
+    private final NottiConf nottiConf;
+    private final NotificationManager notificationManager;
+    private final Map<String, Integer> ids = new HashMap<>();
     private int currentID = 0;
 
     public Notti(Context context, NottiConf nottiConf) {
@@ -42,6 +42,8 @@ public class Notti {
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId);
+        builder.setPriority(NotificationCompat.PRIORITY_MAX);
+
         setBuilderWithConfig(builder);
         customNotification.setBuilder(builder);
         setActionsForNotification(builder, customNotification);
