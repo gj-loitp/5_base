@@ -38,16 +38,6 @@
                 style="@style/ButtonMenu"
                 android:text="Danh sách truyện yêu thích" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btAddToFavList"
-                style="@style/ButtonMenu"
-                android:text="Thêm truyện vào danh sách truyện yêu thích" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btRemoveToFavList"
-                style="@style/ButtonMenu"
-                android:text="Xóa truyện khỏi danh sách truyện yêu thích" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

@@ -45,16 +45,6 @@ class TTTAPIMenuActivity : BaseFontActivity() {
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
-        btAddToFavList.setSafeOnClickListener {
-            val intent = Intent(this, TTTAPIAddFavListActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
-        }
-        btRemoveToFavList.setSafeOnClickListener {
-            val intent = Intent(this, TTTAPIRemoveFavListActivity::class.java)
-            startActivity(intent)
-            LActivityUtil.tranIn(this)
-        }
     }
 
 }
