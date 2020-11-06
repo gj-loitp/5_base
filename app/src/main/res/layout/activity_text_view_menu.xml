@@ -25,11 +25,6 @@
                 android:text="@string/autofit_textview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btCircleTextView"
-                style="@style/ButtonMenu"
-                android:text="@string/circle_textview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btColorTextView"
                 style="@style/ButtonMenu"
                 android:text="@string/color_textview" />

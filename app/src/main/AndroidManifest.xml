@@ -265,9 +265,6 @@
             android:name=".activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.textview.circletextview.CircleTextViewActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name=".activity.customviews.textview.selectabletextView.SelectableTextViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity

@@ -11,7 +11,6 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_text_view_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity
-import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity
 import vn.loitp.app.activity.customviews.textview.extratextview.ExtraTextViewActivity
@@ -38,7 +37,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         super.onCreate(savedInstanceState)
 
         btAutofitTextView.setOnClickListener(this)
-        btCircleTextView.setOnClickListener(this)
         btScoreText.setOnClickListener(this)
         btCountDown.setOnClickListener(this)
         btColorTextView.setOnClickListener(this)
@@ -58,7 +56,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         var intent: Intent? = null
         when (v) {
             btAutofitTextView -> intent = Intent(this, AutoFitTextViewActivity::class.java)
-            btCircleTextView -> intent = Intent(this, CircleTextViewActivity::class.java)
             btScoreText -> intent = Intent(this, ScoreTextViewActivity::class.java)
             btCountDown -> intent = Intent(this, CountDownActivity::class.java)
             btColorTextView -> intent = Intent(this, ColorTextViewActivity::class.java)
