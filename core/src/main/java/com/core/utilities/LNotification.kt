@@ -1,71 +1,61 @@
 package com.core.utilities
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
+import android.media.RingtoneManager
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import com.utils.util.AppUtils
 
-class LNotification {
-    companion object {
-        @Suppress("DEPRECATION")
-        fun showNotification(title: String, body: String, iconRes: Int, intent: Intent) {
-            if (title.isEmpty() || body.isEmpty()) {
-                return
-            }
-            val notifManager = LAppResource.application.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            val NOTIFY_ID = System.currentTimeMillis().toInt()
-            val name = AppUtils.getAppPackageName()
-            val id = "id$name"
-            val description = "description$name"
+object LNotification {
 
-            intent.action = System.currentTimeMillis().toString()
-            val pendingIntent = PendingIntent.getActivity(LAppResource.application, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-            val builder: NotificationCompat.Builder
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val importance = NotificationManager.IMPORTANCE_HIGH
-                var mChannel: NotificationChannel? = notifManager.getNotificationChannel(id)
-                if (mChannel == null) {
-                    mChannel = NotificationChannel(id, name, importance)
-                    mChannel.description = description
-                    mChannel.enableVibration(true)
-                    mChannel.lightColor = Color.YELLOW
-                    mChannel.vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
-                    notifManager.createNotificationChannel(mChannel)
-                }
-                builder = NotificationCompat.Builder(LAppResource.application, id)
-                //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-
-                builder.setContentTitle(title)  // required
-                        .setContentText(body)
-                        .setSmallIcon(iconRes) // required
-                        .setDefaults(Notification.DEFAULT_ALL)
-                        .setAutoCancel(true)
-                        .setContentIntent(pendingIntent)
-                        .setTicker(title)
-                        .setVibrate(longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400))
-            } else {
-                builder = NotificationCompat.Builder(LAppResource.application)
-                //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-
-                builder.setContentTitle(title)
-                        .setContentText(body)
-                        .setSmallIcon(iconRes)
-                        .setDefaults(Notification.DEFAULT_ALL)
-                        .setAutoCancel(true)
-                        .setContentIntent(pendingIntent)
-                        .setTicker(title)
-                        .setVibrate(longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)).priority = Notification.PRIORITY_HIGH
-            }
-
-            val notification = builder.build()
-            notifManager.notify(NOTIFY_ID, notification)
+    fun showNotification(
+            title: String,
+            body: String,
+            iconRes: Int,
+            notificationIntent: Intent
+    ) {
+        if (title.isEmpty() || body.isEmpty()) {
+            return
         }
+
+        val channelId = "CHANNEL_ID"
+        val channelName = "CHANNEL_NAME"
+
+        val requestID = System.currentTimeMillis().toInt()
+        val pendingIntent = PendingIntent.getActivity(
+                LAppResource.application,
+                requestID,
+                notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        )
+
+        val notificationManager = LAppResource.application.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                    channelId,
+                    channelName,
+                    NotificationManager.IMPORTANCE_HIGH
+            )
+            notificationManager.createNotificationChannel(channel)
+        }
+
+        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        val notificationBuilder = NotificationCompat.Builder(
+                LAppResource.application,
+                channelId
+        )
+                .setSmallIcon(iconRes)
+                .setAutoCancel(true)
+                .setSound(defaultSoundUri)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setDefaults(NotificationCompat.DEFAULT_LIGHTS)
+                .setContentIntent(pendingIntent)
+                .setContentTitle(title)
+                .setContentText(body)
+
+        notificationManager.notify(System.currentTimeMillis().toInt(), notificationBuilder.build())
     }
 }
