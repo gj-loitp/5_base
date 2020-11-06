@@ -40,7 +40,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        vg2.setOnScrollListener(object : LHorizontalScrollView.ScrollListener {
+        vg2.setOnScrollListener(object : LScrollView.ScrollListener {
             override fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
                 logD("vg2 setOnScrollListener $scrollX")
                 vg4.scrollTo(scrollX, vg4.scrollY)
@@ -74,7 +74,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
     }
 
     //TODO convert coroutine
-    private inner class Render internal constructor(private val column: Int, private val row: Int) : AsyncTask<Void, View, Void>() {
+    private inner class Render(private val column: Int, private val row: Int) : AsyncTask<Void, View, Void>() {
         override fun onPreExecute() {
             super.onPreExecute()
             logD("onPreExecute")
