@@ -38,7 +38,6 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
 
     private var notti: Notti? = null
     private val channelId = "my_package_channel"
-    private var notificationManager: NotificationManager? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_notification_menu
@@ -157,9 +156,6 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 )
             }
             btNotificationHeadsup -> {
-                createNotification("Testttttttttttttttttttttttttt")
-            }
-            btNotificationHeadsupNice -> {
                 val title = "This is title " + System.currentTimeMillis()
                 val body = "This is body " + System.currentTimeMillis()
                 val iconRes = R.mipmap.ic_launcher
@@ -173,6 +169,9 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                         iconRes = iconRes,
                         intent = pendingIntent
                 )
+            }
+            btNotificationHeadsupNice -> {
+                createNotification("Testttttttttttttttttttttttttt")
             }
         }
     }
