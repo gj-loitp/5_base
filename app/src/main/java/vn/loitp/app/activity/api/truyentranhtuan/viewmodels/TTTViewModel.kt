@@ -3,6 +3,7 @@ package vn.loitp.app.activity.api.truyentranhtuan.viewmodels
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
+import com.google.ads.interactivemedia.v3.internal.id
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
@@ -32,6 +33,7 @@ class TTTViewModel : BaseViewModel() {
 
     val listComicFavActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val favComicLiveData: ActionLiveData<ActionData<Long>> = ActionLiveData()
+    val unfavComicLiveData: ActionLiveData<ActionData<Comic>> = ActionLiveData()
 
     fun getListComic(link: String) {
         listComicActionLiveData.set(
@@ -267,6 +269,22 @@ class TTTViewModel : BaseViewModel() {
                             isDoing = false,
                             isSuccess = true,
                             data = id
+                    )
+            )
+        }
+    }
+
+    fun unfavComic(comic: Comic) {
+        unfavComicLiveData.set(
+                ActionData(isDoing = true)
+        )
+        ioScope.launch {
+            TTTDatabase.instance?.tttDao()?.delete(type = comic)
+            unfavComicLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = comic
                     )
             )
         }

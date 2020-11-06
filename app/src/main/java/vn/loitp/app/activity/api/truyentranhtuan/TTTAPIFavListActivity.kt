@@ -5,6 +5,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
+import com.google.ads.interactivemedia.v3.internal.id
 import com.google.ads.interactivemedia.v3.internal.it
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.*
@@ -41,7 +42,11 @@ class TTTAPIFavListActivity : BaseFontActivity() {
             tttViewModel?.favComic(comic = comic)
         }
         btRemove.setSafeOnClickListener {
-
+            val comic = Comic()
+            comic.date = "29.07.2014"
+            comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
+            comic.title = "Vương Phong Lôi I"
+            tttViewModel?.unfavComic(comic = comic)
         }
     }
 
@@ -76,6 +81,23 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                     if (isSuccess == true) {
                         val id = actionData.data
                         showLongInformation("Add success with id $id")
+
+                        tttViewModel?.getListComicFav()
+                    }
+                }
+            })
+
+            vm.unfavComicLiveData.observe(this, { actionData ->
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                    if (isSuccess == true) {
+                        val comic = actionData.data
+                        showLongInformation("Delete success ${comic?.title}")
 
                         tttViewModel?.getListComicFav()
                     }
