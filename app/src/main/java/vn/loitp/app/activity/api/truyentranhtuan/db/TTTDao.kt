@@ -14,18 +14,9 @@ interface TTTDao : BaseDao<Comic> {
     @Query("SELECT * FROM Comic")
     fun getListComic(): List<Comic>
 
-//    @Query("SELECT * FROM floorPlan LIMIT :fromIndex,:offset")
-//    fun getListFloorPlanByIndex(fromIndex: Int, offset: Int): List<FloorPlan>
-//
-//    @Insert
-//    fun insertListFloorPlan(list: ArrayList<FloorPlan>)
-//
-//    @Insert(onConflict = OnConflictStrategy.REPLACE)
-//    fun insertListFloorPlanConflict(list: ArrayList<FloorPlan>)
-//
-//    @Query("DELETE FROM floorPlan")
-//    suspend fun deleteAll()
-//
-//    @Query("SELECT * FROM floorPlan WHERE id=:id")
-//    fun find(id: String): FloorPlan?
+    @Query("DELETE FROM Comic")
+    suspend fun deleteAll()
+
+    @Query("SELECT * FROM Comic WHERE url=:url")
+    fun find(url: String): Comic?
 }

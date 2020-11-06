@@ -31,6 +31,7 @@ class TTTViewModel : BaseViewModel() {
     val listPageActionLiveData: ActionLiveData<ActionData<List<String>>> = ActionLiveData()
 
     val listComicFavActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
+    val favComicLiveData: ActionLiveData<ActionData<Long>> = ActionLiveData()
 
     fun getListComic(link: String) {
         listComicActionLiveData.set(
@@ -250,6 +251,22 @@ class TTTViewModel : BaseViewModel() {
                             isDoing = false,
                             isSuccess = true,
                             data = listComicFav
+                    )
+            )
+        }
+    }
+
+    fun favComic(comic: Comic) {
+        favComicLiveData.set(
+                ActionData(isDoing = true)
+        )
+        ioScope.launch {
+            val id = TTTDatabase.instance?.tttDao()?.insert(comic)
+            favComicLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = id
                     )
             )
         }
