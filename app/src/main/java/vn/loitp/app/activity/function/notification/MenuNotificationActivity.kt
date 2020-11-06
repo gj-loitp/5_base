@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.function.notification
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -62,6 +63,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         goToNotificationSettings(this)
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     private fun goToNotificationSettings(context: Context) {
         val packageName = context.packageName
         try {
@@ -105,8 +107,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btSimpleNotification -> {
                 notti?.show(
-                        NottiFactory
-                                .get(NottiFactory.TYPE.STANDARD, "some text", "some content")
+                        NottiFactory[NottiFactory.TYPE.STANDARD, "some text", "some content"]
                                 .setContentAction(ContentAction(Intent(this, MenuNotificationActivity::class.java), this))
                 )
             }
@@ -119,20 +120,18 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 )
 
                 notti?.show(
-                        NottiFactory
-                                .get(NottiFactory.TYPE.STANDARD, "some text", "some content")
+                        NottiFactory[NottiFactory.TYPE.STANDARD, "some text", "some content"]
                                 .setActions(actionsList)
                 )
             }
             btBigTextNotification -> {
                 notti?.show(
-                        NottiFactory.get(NottiFactory.TYPE.BIG_TEXT, "some text", "some content")
+                        NottiFactory[NottiFactory.TYPE.BIG_TEXT, "some text", "some content"]
                                 .setBigText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere arcu enim, ut imperdiet sem pellentesque quis.Morbi in tempus lorem. Integer venenatis risus sit amet dolor lobortis, et consequat neque luctus. Etiam ut est nulla. Quisque turpis sapien, aliquet a consequat in, lacinia ut neque. Praesent scelerisque maximus nisi, sed pharetra nulla varius id. Proin at augue purus. Aliquam ut ullamcorper lorem, at vehicula nisl. Pellentesque imperdiet nunc vitae quam consectetur tempus. Nullam vel auctor orci. Ut a turpis ac quam placerat vestibulum. Sed ac hendrerit lorem, non imperdiet neque. Sed nisl urna, eleifend ac sem et, accumsan consectetur felis. Quisque cursus interdum erat, sit amet maximus felis consectetur ac. Aenean luctus, mi nec elementum bibendum, felis felis lacinia justo, vitae lacinia ligula nibh ut nulla. Nunc viverra commodo augue, in cursus nulla."))
             }
             btInboxNotification -> {
                 notti?.show(
-                        NottiFactory
-                                .get(NottiFactory.TYPE.INBOX, "some text", "some content")
+                        NottiFactory[NottiFactory.TYPE.INBOX, "some text", "some content"]
                                 .addInboxItem("some item")
                                 .addInboxItem("another item")
                                 .addInboxItem("and final item")
@@ -143,8 +142,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 val icon = BitmapFactory.decodeResource(this.resources, R.mipmap.ic_launcher)
                 val iconBig = BitmapFactory.decodeResource(this.resources, R.drawable.iv)
                 notti?.show(
-                        NottiFactory
-                                .get(NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content")
+                        NottiFactory[NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content"]
                                 .setBigPicture(iconBig)
                                 .setLargeIcon(icon)
                 )
