@@ -123,11 +123,10 @@ class EpubViewModel : BaseViewModel() {
             if (listBookInfo.isEmpty()) {
                 return
             }
-            listBookInfo.sortWith(
-                    Comparator { bookInfo1, bookInfo2 ->
-                        (bookInfo1.title ?: "").compareTo((bookInfo2.title
-                                ?: ""), ignoreCase = true)
-                    })
+            listBookInfo.sortWith { bookInfo1, bookInfo2 ->
+                (bookInfo1.title ?: "").compareTo((bookInfo2.title
+                        ?: ""), ignoreCase = true)
+            }
         }
 
         ioScope.launch {
