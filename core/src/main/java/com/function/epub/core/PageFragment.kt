@@ -1,7 +1,6 @@
 package com.function.epub.core
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +13,11 @@ class PageFragment : Fragment() {
 
     companion object {
         private const val ARG_TAB_POSITION = "ARG_TAB_POSITION"
-        private const val IS_DARK_THEME = "IS_DARK_THEME"
 
-        fun newInstance(tabPosition: Int, isDarkTheme: Boolean): PageFragment {
+        fun newInstance(tabPosition: Int): PageFragment {
             val fragment = PageFragment()
             val bundle = Bundle()
             bundle.putInt(ARG_TAB_POSITION, tabPosition)
-            bundle.putBoolean(IS_DARK_THEME, isDarkTheme)
             fragment.arguments = bundle
             return fragment
         }
@@ -47,15 +44,9 @@ class PageFragment : Fragment() {
 
         arguments?.let {
             val position = it.getInt(ARG_TAB_POSITION)
-            val isDarkTheme = it.getBoolean(IS_DARK_THEME)
             val view = onFragmentReadyListener?.onFragmentReady(position)
             view?.let {
                 val fragmentMainLayout = rootView.findViewById<RelativeLayout>(R.id.fragmentMainLayout)
-                if (isDarkTheme) {
-                    fragmentMainLayout.setBackgroundColor(Color.BLACK)
-                } else {
-                    fragmentMainLayout.setBackgroundColor(Color.WHITE)
-                }
                 fragmentMainLayout.addView(view)
             }
         }
