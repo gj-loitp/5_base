@@ -4,53 +4,56 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_func_view_draghelper_simple_1.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_func_view_draghelper_simple_1)
 @LogTag("ViewDragHelperSimpleActivity1")
 @IsFullScreen(false)
 class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_func_view_draghelper_simple_1
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         vdhv.setCallback(this)
 
-        btToast.setOnClickListener {
-            showShort("Click")
+        btToast.setSafeOnClickListener {
+            showShortInformation("Click")
         }
-        btMaximize.setOnClickListener {
+        btMaximize.setSafeOnClickListener {
             vdhv.maximize()
         }
-        btMinimizeBottomLeft.setOnClickListener {
+        btMinimizeBottomLeft.setSafeOnClickListener {
             vdhv.minimizeBottomLeft()
         }
-        btMinimizeBottomRight.setOnClickListener {
+        btMinimizeBottomRight.setSafeOnClickListener {
             vdhv.minimizeBottomRight()
         }
-        btMinimizeTopRight.setOnClickListener {
+        btMinimizeTopRight.setSafeOnClickListener {
             vdhv.minimizeTopRight()
         }
-        btMinimizeTopLeft.setOnClickListener {
+        btMinimizeTopLeft.setSafeOnClickListener {
             vdhv.minimizeTopLeft()
         }
-        btAlpha.setOnClickListener {
+        btAlpha.setSafeOnClickListener {
             vdhv.isEnableAlpha = !vdhv.isEnableAlpha
         }
-        btShowHideHeader.setOnClickListener {
+        btShowHideHeader.setSafeOnClickListener {
             vdhv.toggleShowHideHeaderView()
         }
-        btShowHideBody.setOnClickListener {
+        btShowHideBody.setSafeOnClickListener {
             vdhv.toggleShowHideBodyView()
         }
-        btSlideToPosition.setOnClickListener {
+        btSlideToPosition.setSafeOnClickListener {
             vdhv.smoothSlideTo(positionX = 300, positionY = 600)
         }
-        btRevertMax.setOnClickListener {
+        btRevertMax.setSafeOnClickListener {
             if (vdhv.isEnableRevertMaxSize) {
                 vdhv.isEnableRevertMaxSize = false
                 btMaximize.visibility = View.GONE
@@ -65,10 +68,10 @@ class ViewDragHelperSimpleActivity1 : BaseFontActivity(), VDHView.Callback {
                 btMinimizeTopLeft.visibility = View.GONE
             }
         }
-        btAppear.setOnClickListener {
+        btAppear.setSafeOnClickListener {
             vdhv.appear()
         }
-        btDisappear.setOnClickListener {
+        btDisappear.setSafeOnClickListener {
             vdhv.dissappear()
         }
     }

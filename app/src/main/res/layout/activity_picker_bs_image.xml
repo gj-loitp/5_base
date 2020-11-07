@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -19,32 +19,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvSingleSelection"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="@dimen/txt_medium"
-                    android:text="@string/single_selection" />
+                    android:text="@string/single_selection"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvSingleSelectionCrop"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="@dimen/txt_medium"
-                    android:text="@string/single_selection_crop" />
+                    android:text="@string/single_selection_crop"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvMultiSelection"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:padding="@dimen/txt_medium"
-                    android:text="@string/multi_selection" />
+                    android:text="@string/multi_selection"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
             <LinearLayout
@@ -53,21 +61,21 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivImage1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivImage2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivImage3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -81,21 +89,21 @@
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivImage4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivImage5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/app_name" />
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivImage6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -105,7 +113,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="BSImagePicker" />

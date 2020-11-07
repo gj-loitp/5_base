@@ -17,6 +17,15 @@ import java.lang.reflect.Method
 
 class LVerticalSeekBar : AppCompatSeekBar {
 
+    companion object {
+        const val ROTATION_ANGLE_CW_90 = 90
+        const val ROTATION_ANGLE_CW_270 = 270
+
+        private fun isValidRotationAngle(angle: Int): Boolean {
+            return angle == ROTATION_ANGLE_CW_90 || angle == ROTATION_ANGLE_CW_270
+        }
+    }
+
     private var mIsDragging: Boolean = false
     private var mThumb: Drawable? = null
     private var mMethodSetProgressFromUser: Method? = null
@@ -86,6 +95,7 @@ class LVerticalSeekBar : AppCompatSeekBar {
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
+
         return if (useViewRotation()) {
             onTouchEventUseViewRotation(event)
         } else {
@@ -268,10 +278,13 @@ class LVerticalSeekBar : AppCompatSeekBar {
 
         if (mMethodSetProgressFromUser != null) {
             try {
-                mMethodSetProgressFromUser!!.invoke(this, progress, fromUser)
+                mMethodSetProgressFromUser?.invoke(this, progress, fromUser)
             } catch (e: IllegalArgumentException) {
+                e.printStackTrace()
             } catch (e: IllegalAccessException) {
+                e.printStackTrace()
             } catch (e: InvocationTargetException) {
+                e.printStackTrace()
             }
         } else {
             super.setProgress(progress)
@@ -332,14 +345,5 @@ class LVerticalSeekBar : AppCompatSeekBar {
         val isSupportedApiLevel = Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
         val inEditMode = isInEditMode
         return isSupportedApiLevel && !inEditMode
-    }
-
-    companion object {
-        const val ROTATION_ANGLE_CW_90 = 90
-        const val ROTATION_ANGLE_CW_270 = 270
-
-        private fun isValidRotationAngle(angle: Int): Boolean {
-            return angle == ROTATION_ANGLE_CW_90 || angle == ROTATION_ANGLE_CW_270
-        }
     }
 }

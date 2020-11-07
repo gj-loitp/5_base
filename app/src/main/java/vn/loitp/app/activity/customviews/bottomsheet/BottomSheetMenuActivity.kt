@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -15,11 +14,14 @@ import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_bottomsheet_menu)
 @LogTag("BottomSheetMenuActivity")
 @IsFullScreen(false)
 class BottomSheetMenuActivity : BaseFontActivity() {
     private var sheetBehavior: BottomSheetBehavior<*>? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_bottomsheet_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

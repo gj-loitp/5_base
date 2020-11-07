@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +23,6 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
-@LayoutId(R.layout.activity_new_post)
 @LogTag("DatabaseFirebaseNewPostActivity")
 @IsFullScreen(false)
 public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
@@ -39,6 +37,11 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     private FloatingActionButton mSubmitButton;
 
     @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_new_post;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -46,7 +49,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // [END initialize_database_ref]
 
-        mTitleField = findViewById(R.id.field_title);
+        mTitleField = findViewById(R.id.fieldTitle);
         mBodyField = findViewById(R.id.field_body);
         mSubmitButton = findViewById(R.id.fab_submit_post);
 
@@ -76,7 +79,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
 
         // Disable button so there are no multi-posts
         setEditingEnabled(false);
-        showShort("Posting...", true);
+        showShortInformation("Posting...", true);
 
         // [START single_value_read]
         final String userId = getUid();
@@ -93,7 +96,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
                         if (user == null) {
                             // User is null, error out
                             logD("User " + userId + " is unexpectedly null");
-                            showShort("Error: could not fetch user.", true);
+                            showShortInformation("Error: could not fetch user.", true);
                         } else {
                             // Write new post
                             writeNewPost(userId, user.username, title, body);

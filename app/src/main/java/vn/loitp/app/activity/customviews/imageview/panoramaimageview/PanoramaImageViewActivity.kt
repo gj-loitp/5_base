@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.imageview.panoramaimageview
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.imageview.panorama.GyroscopeObserver
@@ -12,11 +11,14 @@ import vn.loitp.app.R
 
 //https://github.com/gjiazhe/PanoramaImageView
 
-@LayoutId(R.layout.activity_imageview_panorama)
 @LogTag("PanoramaImageViewActivity")
 @IsFullScreen(false)
 class PanoramaImageViewActivity : BaseFontActivity() {
     private var gyroscopeObserver: GyroscopeObserver? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_imageview_panorama
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.R
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.common.Constants
 import com.core.utilities.LDialogUtil
@@ -34,11 +33,10 @@ abstract class BaseFragment : Fragment() {
         private const val DEFAULT_CHILD_ANIMATION_DURATION = 400
     }
 
+    protected abstract fun setLayoutResourceId(): Int
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val layoutId = javaClass.getAnnotation(LayoutId::class.java)
-        layoutId?.value?.let {
-            frmRootView = inflater.inflate(it, container, false)
-        }
+        frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
         EventBus.getDefault().register(this)
@@ -141,23 +139,39 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
-    open fun showShort(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
+    protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    open fun showLong(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
+    protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    open fun showShortDebug(msg: String?) {
+    protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showShortDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
-            showShort(msg)
+            LToast.showShortDebug(msg)
         }
     }
 
-    open fun showLongDebug(msg: String?) {
+    protected fun showLongDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
-            showLong(msg)
+            LToast.showLongInformation(msg)
         }
     }
 
@@ -169,14 +183,13 @@ abstract class BaseFragment : Fragment() {
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {
     }
 
-    protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
+    protected fun <T : ViewModel> getViewModel(className: Class<T>): T? {
+        return activity?.let {
+            ViewModelProvider(it).get(className)
+        }
+    }
+
+    protected fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
         return ViewModelProvider(this).get(className)
     }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onMessageEvent(event: EventBusData.ThemeEvent) {
-        onThemeChange(event = event)
-    }
-
-    open fun onThemeChange(event: EventBusData.ThemeEvent) {}
 }

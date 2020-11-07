@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.recyclerview.widget.*
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
@@ -18,26 +17,29 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesA
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
-@LayoutId(R.layout.activity_recycler_view_footer)
 @LogTag("RecyclerViewFooterActivity")
 @IsFullScreen(false)
 class RecyclerViewFooterActivity : BaseFontActivity() {
 
-    private var mAdapter: MoviesAdapter? = null
+    private var moviesAdapter: MoviesAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view_footer
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAdapter = MoviesAdapter(moviesList = instance.movieList,
+        moviesAdapter = MoviesAdapter(moviesList = instance.movieList,
                 callback = object : MoviesAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
-                        showShort("Click " + movie.title)
+                        showShortInformation("Click " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {
                         val isRemoved = instance.movieList.remove(movie)
                         if (isRemoved) {
-                            mAdapter?.let {
+                            moviesAdapter?.let {
                                 it.notifyItemRemoved(position)
                                 it.notifyItemRangeChanged(position, instance.movieList.size)
                             }
@@ -50,7 +52,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
-        rv.adapter = mAdapter
+        rv.adapter = moviesAdapter
 
         prepareMovieData()
 
@@ -91,8 +93,8 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
                 instance.movieList.add(movie)
             }
             indicatorView?.smoothToHide()
-            mAdapter?.notifyDataSetChanged()
-            showShort("Finish loadMore")
+            moviesAdapter?.notifyDataSetChanged()
+            showShortInformation("Finish loadMore")
         })
     }
 
@@ -103,7 +105,7 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
                 instance.movieList.add(movie)
             }
         }
-        mAdapter?.notifyDataSetChanged()
+        moviesAdapter?.notifyDataSetChanged()
         indicatorView.smoothToHide()
     }
 }

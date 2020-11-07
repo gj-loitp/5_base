@@ -16,7 +16,6 @@ import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -45,7 +44,6 @@ import java.io.IOException
 import java.util.*
 import kotlin.collections.ArrayList
 
-@LayoutId(R.layout.activity_map_tracker)
 @LogTag("MapTrackerActivity")
 @IsFullScreen(false)
 class MapTrackerActivity : BaseFontActivity(),
@@ -69,6 +67,10 @@ class MapTrackerActivity : BaseFontActivity(),
     private var mCurrentLocation: Location? = null
     private val listLoc = ArrayList<Loc>()
     private var isShowDialogCheck = false
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_map_tracker
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,7 +98,7 @@ class MapTrackerActivity : BaseFontActivity(),
             val startLatLng = LatLng(10.8785614, 106.8107979)
             val endLatLng = LatLng(30.8785614, 145.8107979)
             val distance = getDistance(startLatLng = startLatLng, endLatLng = endLatLng)
-            showShort("distance: $distance (m)")
+            showShortInformation("distance: $distance (m)")
         }
     }
 
@@ -109,9 +111,9 @@ class MapTrackerActivity : BaseFontActivity(),
 
     //region permisson
     private fun checkPermission() {
-        showShort("checkPermission")
+        showShortInformation("checkPermission")
         isShowDialogCheck = true
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
@@ -379,17 +381,17 @@ class MapTrackerActivity : BaseFontActivity(),
         mSettingsClient?.let { settingsClient ->
             settingsClient.checkLocationSettings(mLocationSettingsRequest)
                     .addOnSuccessListener(this) {
-                        showShort("All location settings are satisfied.")
+                        showShortInformation("All location settings are satisfied.")
                         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                             mFusedLocationClient?.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper())
                             onChangeLocation()
                         } else {
-                            showShort("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
                         }
                     }
                     .addOnFailureListener(this) { e ->
-                        showShort(e.toString())
+                        showShortError(e.toString())
                         onChangeLocation()
                     }
         }

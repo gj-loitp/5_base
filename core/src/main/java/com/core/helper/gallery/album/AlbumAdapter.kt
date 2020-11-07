@@ -58,7 +58,7 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
             itemView.tvNumber.visibility = View.INVISIBLE
 
             LImageUtil.load(context = itemView.imageView.context,
-                    url = photoset.flickrLinkO(),
+                    any = photoset.flickrLinkO(),
                     imageView = itemView.imageView,
                     resPlaceHolder = color,
                     resError = color,

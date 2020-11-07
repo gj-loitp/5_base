@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -14,10 +13,13 @@ import vn.loitp.app.activity.demo.architecturecomponent.coroutine.CoroutineActiv
 import vn.loitp.app.activity.demo.architecturecomponent.room.WordActivity
 import vn.loitp.app.activity.demo.architecturecomponent.viewmodel.ViewModelActivity
 
-@LayoutId(R.layout.activity_demo_architecture_component_menu)
 @LogTag("MenuAndroidArchitectureComponentActivity")
 @IsFullScreen(false)
 class MenuAndroidArchitectureComponentActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_architecture_component_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

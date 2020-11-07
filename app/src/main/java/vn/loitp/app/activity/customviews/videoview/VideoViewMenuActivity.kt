@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -16,10 +15,13 @@ import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity2
 import vn.loitp.app.activity.customviews.videoview.exoplayer.ExoPlayerActivity3
 import vn.loitp.app.activity.customviews.videoview.youtube.YoutubeActivity
 
-@LayoutId(R.layout.activity_video_menu)
 @LogTag("VideoViewMenuActivity")
 @IsFullScreen(false)
 class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_video_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

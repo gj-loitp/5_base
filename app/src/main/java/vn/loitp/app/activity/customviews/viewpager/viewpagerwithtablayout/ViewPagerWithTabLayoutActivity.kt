@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -23,7 +22,6 @@ import vn.loitp.app.R
 import java.util.*
 
 //https://github.com/geftimov/android-viewpager-transformers
-@LayoutId(R.layout.activity_viewpager_with_tablayout)
 @LogTag("ViewPagerWithTabLayoutActivity")
 @IsFullScreen(false)
 class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
@@ -48,6 +46,10 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         private const val ZoomInTransformer = "ZoomInTransformer"
         private const val ZoomOutSlideTransformer = "ZoomOutSlideTransformer"
         private const val ZoomOutTranformer = "ZoomOutTranformer"
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_viewpager_with_tablayout
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,7 +93,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
                 arr = arr,
                 callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
-                        showShort("Click position " + position + ", item: " + arr[position])
+                        showShortInformation("Click position " + position + ", item: " + arr[position])
                         when (stringList[position]) {
                             AccordionTransformer -> viewPager.setPageTransformer(true, AccordionTransformer())
                             BackgroundToForegroundTransformer -> viewPager.setPageTransformer(true, BackgroundToForegroundTransformer())

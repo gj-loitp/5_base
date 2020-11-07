@@ -13,6 +13,6 @@
 
     <item
         android:id="@+id/action_grid_view"
-        android:title="@string/gridview"
+        android:title="@string/grid_view"
         app:showAsAction="never" />
 </menu>

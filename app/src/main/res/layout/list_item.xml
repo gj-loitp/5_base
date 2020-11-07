@@ -2,22 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/list_item_bg"
+    android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical"
-    android:padding="8dip">
+    android:padding="@dimen/padding_medium">
 
-    <TextView
-        android:id="@+id/item_title"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18dip"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/item_details"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/itemDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/green"
-        android:textSize="14dip" />
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_small" />
 </LinearLayout>
-

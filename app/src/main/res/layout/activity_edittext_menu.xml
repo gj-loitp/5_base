@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -21,7 +21,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAnimatedExpandableEditText"
                 style="@style/ButtonMenu"
-                android:text="@string/animatedexpandableedittextactivity" />
+                android:text="@string/animated_expandable_edittext_activity" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAutoResizeEditText"
@@ -64,5 +64,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="@string/menu_edittext" />
+        android:text="@string/menu_edit_text" />
 </RelativeLayout>

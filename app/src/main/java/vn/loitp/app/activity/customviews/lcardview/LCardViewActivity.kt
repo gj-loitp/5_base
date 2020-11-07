@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.lcardview
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -14,10 +13,13 @@ import com.views.card.LCardView
 import kotlinx.android.synthetic.main.activity_card_view_l.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_card_view_l)
 @LogTag("LCardViewActivity")
 @IsFullScreen(false)
 class LCardViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_card_view_l
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +27,7 @@ class LCardViewActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         lCardView0.apply {
             callback = object : LCardView.Callback {
                 override fun onClickRoot(v: View) {

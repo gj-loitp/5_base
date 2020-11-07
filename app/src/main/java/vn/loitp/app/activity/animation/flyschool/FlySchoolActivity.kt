@@ -2,7 +2,6 @@ package vn.loitp.app.activity.animation.flyschool
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.animation.flyschool.ImgObject
@@ -12,10 +11,13 @@ import vn.loitp.app.R
 
 //https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
 
-@LayoutId(R.layout.activity_animation_fly_school)
 @LogTag("FlySchoolActivity")
 @IsFullScreen(false)
 class FlySchoolActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_animation_fly_school
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

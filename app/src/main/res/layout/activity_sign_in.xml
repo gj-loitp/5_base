@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+    android:background="?attr/themeBackgroundColor"
+    android:padding="@dimen/padding_medium">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,39 +17,47 @@
         android:src="@drawable/logo" />
 
     <LinearLayout
-        android:id="@+id/layout_email_password"
+        android:id="@+id/layoutEmailPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/icon"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/field_email"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/fieldEmail"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center_horizontal"
             android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textColor="?attr/themeTextColor"
+            android:textColorHint="?attr/themeTextColor"
+            android:textCursorDrawable="?attr/themeTextColor"
+            tools:text="@string/app_name" />
 
-        <EditText
-            android:id="@+id/field_password"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/fieldPassword"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:gravity="center_horizontal"
             android:hint="@string/hint_password"
             android:inputType="textPassword"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:textColor="?attr/themeTextColor"
+            android:textColorHint="?attr/themeTextColor"
+            android:textCursorDrawable="?attr/themeTextColor"
+            tools:text="@string/app_name" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/layout_email_password"
+        android:layout_below="@+id/layoutEmailPassword"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal">
 
@@ -58,15 +65,19 @@
             android:id="@+id/button_sign_in"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/sign_in" />
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="@string/sign_in"
+            android:textColor="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_sign_up"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up" />
+            android:layout_marginStart="@dimen/margin_medium"
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="@string/sign_up"
+            android:textColor="?attr/themeTextColor" />
 
     </LinearLayout>
-
 
 </RelativeLayout>

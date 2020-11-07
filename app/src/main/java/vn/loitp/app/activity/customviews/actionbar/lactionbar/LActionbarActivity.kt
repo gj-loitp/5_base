@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.actionbar.lactionbar
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
@@ -12,10 +11,13 @@ import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.activity_l_action_bar.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_l_action_bar)
 @LogTag("LActionbarActivity")
 @IsFullScreen(false)
 class LActionbarActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_l_action_bar
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -17,7 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStartLocationUpdates"
@@ -35,31 +37,35 @@
                 style="@style/ButtonMenu"
                 android:text="@string/get_last_location" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:padding="@dimen/padding_medium"
-                android:text="Location updates will be received only when app is foreground" />
+                android:text="Location updates will be received only when app is foreground"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvLocationResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvUpdatedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Location Demo" />

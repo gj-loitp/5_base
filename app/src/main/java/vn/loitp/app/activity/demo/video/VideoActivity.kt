@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Surface
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.exoplayer2.*
@@ -23,11 +22,14 @@ import com.google.android.exoplayer2.video.VideoRendererEventListener
 import kotlinx.android.synthetic.main.activity_demo_video.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_demo_video)
 @LogTag("VideoActivity")
 @IsFullScreen(false)
 class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
     private var player: SimpleExoPlayer? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_video
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +42,7 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
         val loadControl: LoadControl = DefaultLoadControl()
 
         // 3. Create the player
+        //TODO loitpp deprecated
         player = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl)
 
         //Set media controller
@@ -80,6 +83,7 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
         val videoSource: MediaSource = HlsMediaSource(mp4VideoUri, dataSourceFactory, 1, null, null)
         val loopingSource = LoopingMediaSource(videoSource)
         player?.prepare(loopingSource)
+        //TODO loitpp deprecated
         player?.addListener(object : ExoPlayer.EventListener {
             override fun onTimelineChanged(timeline: Timeline, manifest: Any?, reason: Int) {}
             override fun onTracksChanged(trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {
@@ -117,6 +121,7 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
         })
         player?.apply {
             this.playWhenReady = true
+            //TODO loitpp deprecated
             this.setVideoDebugListener(this@VideoActivity) //for listening to resolution change and  outputing the resolution
         }
 

@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -13,6 +13,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/red"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:title="@string/app_name"
             app:titleTextColor="?attr/themeTextColor" />

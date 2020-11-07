@@ -5,7 +5,6 @@ import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -17,7 +16,6 @@ import vn.loitp.app.R
 
 //https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
 
-@LayoutId(R.layout.activity_retrofit_2)
 @LogTag("Retrofit2Activity")
 @IsFullScreen(false)
 class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
@@ -25,6 +23,10 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     private var retroCryptoArrayList = ArrayList<RetroCrypto>()
     private val BASE_URL = "https://api.nomics.com/v1/"
     private lateinit var sampleService: SampleService
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_retrofit_2
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,13 +57,13 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
                     pb.visibility = View.GONE
                 }, {
                     logE("loadData error $it")
-                    showShort(it.toString())
+                    showShortError(it.toString())
                     pb.visibility = View.GONE
                 }))
     }
 
     override fun onItemClick(retroCrypto: RetroCrypto) {
-        showShort("You clicked: ${retroCrypto.currency}")
+        showShortInformation("You clicked: ${retroCrypto.currency}")
     }
 
 }

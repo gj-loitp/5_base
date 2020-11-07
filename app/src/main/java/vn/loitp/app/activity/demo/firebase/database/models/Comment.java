@@ -1,10 +1,11 @@
 package vn.loitp.app.activity.demo.firebase.database.models;
 
+import com.core.base.BaseModel;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 // [START comment_class]
 @IgnoreExtraProperties
-public class Comment {
+public class Comment extends BaseModel {
 
     public String uid;
     public String author;

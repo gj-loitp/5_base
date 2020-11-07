@@ -112,8 +112,8 @@ public class AlarmListAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.list_item, null);
 
             holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.item_title);
-            holder.details = (TextView) convertView.findViewById(R.id.item_details);
+            holder.title = (TextView) convertView.findViewById(R.id.itemTitle);
+            holder.details = (TextView) convertView.findViewById(R.id.itemDetails);
 
             convertView.setTag(holder);
         } else {

@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.Uri
 import android.view.ViewGroup
 import android.widget.ImageButton
+import com.R
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LScreenUtil
 import com.google.android.exoplayer2.*

@@ -2,14 +2,17 @@ package vn.loitp.app.activity.demo.fragmentflow
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import kotlinx.android.synthetic.main.frm_demo_flow_0.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.frm_demo_flow_0)
 @LogTag("FrmFlow0")
 class FrmFlow0 : FrmFlowBase() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.frm_demo_flow_0
+    }
+
     override fun onBackClick(): Boolean {
         print("onBackClick")
         popThisFragment()
@@ -20,7 +23,9 @@ class FrmFlow0 : FrmFlowBase() {
         super.onViewCreated(view, savedInstanceState)
         print("onViewCreated")
         bt.setOnClickListener {
-            (activity as FragmentFlowActivity).showFragment(FrmFlow1())
+            if (activity is FragmentFlowActivity) {
+                (activity as FragmentFlowActivity).showFragment(FrmFlow1())
+            }
         }
     }
 
@@ -30,6 +35,8 @@ class FrmFlow0 : FrmFlowBase() {
     }
 
     private fun print(msg: String) {
-        (activity as FragmentFlowActivity).print("FrmFlow0: $msg")
+        if (activity is FragmentFlowActivity) {
+            (activity as FragmentFlowActivity).print("FrmFlow0: $msg")
+        }
     }
 }

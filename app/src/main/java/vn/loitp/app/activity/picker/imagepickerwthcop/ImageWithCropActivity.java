@@ -9,7 +9,6 @@ import android.provider.Settings;
 import android.widget.ImageView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LAppResource;
@@ -27,13 +26,17 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_image_picker_with_crop)
 @LogTag("ImageWithCropActivity")
 @IsFullScreen(false)
 public class ImageWithCropActivity extends BaseFontActivity {
     private ImageView imageView;
     private boolean isShowDialogCheck;
     private String name;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_image_picker_with_crop;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
         (findViewById(R.id.startGalleryBtn)).setOnClickListener(v -> new PickerBuilder(this, PickerBuilder.SELECT_FROM_GALLERY)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    showShort("Got image - " + imageUri, true);
+                    showShortInformation("Got image - " + imageUri, true);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
@@ -58,7 +61,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
         (findViewById(R.id.startCameraBtn)).setOnClickListener(v -> new PickerBuilder(this, PickerBuilder.SELECT_FROM_CAMERA)
                 .setOnImageReceivedListener(imageUri -> {
                     imageView.setImageURI(imageUri);
-                    showShort("Got image - " + imageUri, true);
+                    showShortInformation("Got image - " + imageUri, true);
                 })
                 .setImageName(name + System.currentTimeMillis())
                 .setImageFolderName(name)
@@ -77,7 +80,7 @@ public class ImageWithCropActivity extends BaseFontActivity {
 
     private void checkPermission() {
         isShowDialogCheck = true;
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.CAMERA)

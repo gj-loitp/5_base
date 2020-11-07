@@ -19,22 +19,6 @@
         <enum name="centerInside" value="7" />
     </attr>
 
-    <!--    <declare-styleable name="RecyclerViewPager">-->
-    <!--        <attr name="rvp_triggerOffset" format="float" />-->
-    <!--        <attr name="rvp_flingFactor" format="float" />-->
-    <!--        <attr name="rvp_singlePageFling" format="boolean" />-->
-    <!--    </declare-styleable>-->
-
-    <!--    <declare-styleable name="LSProgressBar">-->
-    <!--        <attr name="filterColor" format="color" />-->
-    <!--    </declare-styleable>-->
-
-    <!--    <declare-styleable name="GridCenterView">-->
-    <!--        <attr name="dividerHeight" format="dimension" />-->
-    <!--        <attr name="dividerColor" format="reference" />-->
-    <!--        <attr name="spanNumber" format="integer" />-->
-    <!--    </declare-styleable>-->
-
     <declare-styleable name="LParallaxViewPager">
         <attr name="modeParallaxViewPager">
             <enum name="left_overlay" value="0" />
@@ -59,38 +43,12 @@
         <attr name="label_padding" format="dimension" />
     </declare-styleable>
 
-    <!--    <declare-styleable name="PorterImageView">-->
-    <!--        <attr name="siShape" format="integer|reference" />-->
-    <!--    </declare-styleable>-->
-
     <declare-styleable name="LColorSwitchCompat">
         <attr name="toggleOnColor" format="color" />
         <attr name="toggleOffColor" format="color" />
         <attr name="bgOnColor" format="color" />
         <attr name="bgOffColor" format="color" />
     </declare-styleable>
-
-    <declare-styleable name="ZoomEngine">
-        <attr name="hasClickableChildren" format="boolean" />
-        <attr name="overScrollable" format="boolean" />
-        <attr name="overScrollHorizontal" format="boolean" />
-        <attr name="overScrollVertical" format="boolean" />
-        <attr name="overPinchable" format="boolean" />
-        <attr name="minZoom" format="float" />
-        <attr name="maxZoom" format="float" />
-        <attr name="minZoomType" format="enum">
-            <enum name="zoom" value="0" />
-            <enum name="realZoom" value="1" />
-        </attr>
-        <attr name="maxZoomType" format="enum">
-            <enum name="zoom" value="0" />
-            <enum name="realZoom" value="1" />
-        </attr>
-    </declare-styleable>
-
-    <!--    <declare-styleable name="LRoundedImage">-->
-    <!--        <attr name="rounded_radius" format="float" />-->
-    <!--    </declare-styleable>-->
 
     <declare-styleable name="LColorTextView">
         <attr name="color_texts" format="string" />
@@ -149,19 +107,19 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="LCustomToggle">
-        <attr name="ctg_addLeftIcon" format="reference" type="drawable" />
-        <attr name="ctg_addRightIcon" format="reference" />
-        <attr name="ctg_addSlideBackgroundColor" format="color" />
-        <attr name="ctg_addSlideColor" format="color" />
-        <attr name="ctg_addMagnification" format="integer" />
-        <attr name="ctg_addAnimationTime" format="integer" />
-        <attr name="ctg_addAnimationType" format="enum">
-            <enum name="jack_animation" value="0" />
-            <enum name="phantom_animation" value="1" />
-            <enum name="extra_animation" value="2" />
-        </attr>
-    </declare-styleable>
+<!--    <declare-styleable name="LCustomToggle">-->
+<!--        <attr name="ctg_addLeftIcon" format="reference" type="drawable" />-->
+<!--        <attr name="ctg_addRightIcon" format="reference" />-->
+<!--        <attr name="ctg_addSlideBackgroundColor" format="color" />-->
+<!--        <attr name="ctg_addSlideColor" format="color" />-->
+<!--        <attr name="ctg_addMagnification" format="integer" />-->
+<!--        <attr name="ctg_addAnimationTime" format="integer" />-->
+<!--        <attr name="ctg_addAnimationType" format="enum">-->
+<!--            <enum name="jack_animation" value="0" />-->
+<!--            <enum name="phantom_animation" value="1" />-->
+<!--            <enum name="extra_animation" value="2" />-->
+<!--        </attr>-->
+<!--    </declare-styleable>-->
 
     <declare-styleable name="LCircularProgressBar">
         <attr name="maximum" format="float" />
@@ -238,25 +196,6 @@
             <enum name="cropOutside" value="1" />
         </attr>
     </declare-styleable>
-
-    <!--    <declare-styleable name="buttonLoading">-->
-    <!--        <attr name="BL_enable" format="boolean" />-->
-    <!--        <attr name="BL_idParent" format="integer" />-->
-    <!--        <attr name="BL_font" format="string" />-->
-    <!--        <attr name="BL_text" format="string" />-->
-    <!--        <attr name="BL_textColor" format="color" />-->
-    <!--        <attr name="BL_backgroundColor" format="color" />-->
-    <!--        <attr name="BL_circleColor" format="color" />-->
-    <!--        <attr name="BL_circleColorSecond" format="color" />-->
-    <!--        <attr name="BL_backgroundDisableColor" format="color" />-->
-    <!--        <attr name="BL_textSize" format="dimension" />-->
-    <!--        <attr name="BL_stateShow" format="integer">-->
-    <!--            <enum name="normal" value="1" />-->
-    <!--            <enum name="animationStart" value="2" />-->
-    <!--            <enum name="progress" value="3" />-->
-    <!--            <enum name="animationFinish" value="4" />-->
-    <!--        </attr>-->
-    <!--    </declare-styleable>-->
 
     <declare-styleable name="LContinuousScrollableImageView">
         <attr name="imageSrc" format="reference" />
@@ -370,47 +309,10 @@
         </attr>
     </declare-styleable>
 
-    <!--    <declare-styleable name="AutoLinearLayoutTheme">-->
-    <!--        <attr name="autoLinearLayoutStyle" format="reference" />-->
-    <!--    </declare-styleable>-->
-
-    <!--    <declare-styleable name="SwipeableLayout">-->
-    <!--        <attr name="swipeSpeed" format="float" />-->
-    <!--        <attr name="swipeOrientation" format="enum">-->
-    <!--            <enum name="leftToRight" value="0" />-->
-    <!--            <enum name="bottomToUp" value="1" />-->
-    <!--            <enum name="both" value="2" />-->
-    <!--            <enum name="none" value="3" />-->
-    <!--        </attr>-->
-    <!--        <attr name="scrollAndClickable" format="boolean" />-->
-    <!--    </declare-styleable>-->
-
     <declare-styleable name="LMovieView">
         <attr name="android:src" />
         <attr name="android:title" />
         <attr name="android:adjustViewBounds" />
-    </declare-styleable>
-
-    <declare-styleable name="LBoxedVertical">
-        <attr name="points" format="integer" />
-        <attr name="max_boxed" format="integer" />
-        <attr name="min_boxed" format="integer" />
-        <attr name="defaultValueBoxedVertical" format="integer" />
-        <attr name="textBottomPadding" format="integer" />
-        <attr name="cornerRadius_boxed" format="integer" />
-        <attr name="step" format="integer" />
-        <attr name="defaultImage" format="reference" />
-        <attr name="minImage" format="reference" />
-        <attr name="maxImage" format="reference" />
-        <attr name="progressColor" format="color" />
-        <attr name="backgroundColor" format="color" />
-        <attr name="textSize_boxed" format="dimension" />
-        <attr name="textColor_boxed" format="color" />
-        <attr name="clockwise" format="boolean" />
-        <attr name="enabled_boxed" format="boolean" />
-        <attr name="touchDisabled_boxed" format="boolean" />
-        <attr name="textEnabled_boxed" format="boolean" />
-        <attr name="imageEnabled_boxed" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="SwipeBackLayout">
@@ -769,7 +671,6 @@
         <attr name="splitterBackground" format="reference|color" />
         <attr name="splitterDraggingBackground" format="reference|color" />
         <attr name="splitterTouchSlop" format="dimension" />
-        <!-- TODO: Also support fraction values-->
         <attr name="splitterPanelSizeMin" format="dimension" />
     </declare-styleable>
 
@@ -788,4 +689,8 @@
     <attr name="themeBackgroundColor50" format="color" />
     <attr name="themeTextColor" format="color" />
 
+    <declare-styleable name="LAspectRatioLayout">
+        <attr name="arl_widthRatio" format="float" />
+        <attr name="arl_heightRatio" format="float" />
+    </declare-styleable>
 </resources>

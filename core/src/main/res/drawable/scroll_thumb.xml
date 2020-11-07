@@ -3,12 +3,12 @@
 
     <gradient
         android:angle="135"
-        android:endColor="@color/colorPrimary"
-        android:startColor="@color/colorPrimary" />
+        android:endColor="?attr/themeTextColor"
+        android:startColor="?attr/themeTextColor" />
 
     <corners android:radius="@dimen/round_medium" />
 
-    <!--<size
+    <size
         android:width="@dimen/w_25"
-        android:height="@dimen/w_25" />-->
+        android:height="@dimen/w_25" />
 </shape>

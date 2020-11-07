@@ -11,7 +11,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
@@ -20,13 +19,17 @@ import com.views.scrollview.LScrollView
 import kotlinx.android.synthetic.main.activity_layout_scrollview_2d_advance.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_layout_scrollview_2d_advance)
 @LogTag("ScrollView2DAdvanceActivity")
 @IsFullScreen(false)
 class ScrollView2DAdvanceActivity : BaseFontActivity() {
+
     companion object {
         private const val WIDTH_PX = 300
         private const val HEIGHT_PX = 150
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_layout_scrollview_2d_advance
     }
 
     @SuppressLint("SetTextI18n")
@@ -37,7 +40,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        vg2.setOnScrollListener(object : LHorizontalScrollView.ScrollListener {
+        vg2.setOnScrollListener(object : LScrollView.ScrollListener {
             override fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
                 logD("vg2 setOnScrollListener $scrollX")
                 vg4.scrollTo(scrollX, vg4.scrollY)
@@ -60,10 +63,10 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
             if (btGenLine.isClickable) {
                 btGenLine.isClickable = false
                 btGenLine.setTextColor(Color.GRAY)
-                LUIUtil.setSize(vg1, WIDTH_PX, HEIGHT_PX)
-                LUIUtil.setSize(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
-                LUIUtil.setSize(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
-                LUIUtil.setSize(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                LUIUtil.setSizeOfView(vg1, WIDTH_PX, HEIGHT_PX)
+                LUIUtil.setSizeOfView(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
+                LUIUtil.setSizeOfView(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
+                LUIUtil.setSizeOfView(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
                 Render(30, 24).execute()
                 //new Render(7, 12).execute();
             }
@@ -71,7 +74,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
     }
 
     //TODO convert coroutine
-    private inner class Render internal constructor(private val column: Int, private val row: Int) : AsyncTask<Void, View, Void>() {
+    private inner class Render(private val column: Int, private val row: Int) : AsyncTask<Void, View, Void>() {
         override fun onPreExecute() {
             super.onPreExecute()
             logD("onPreExecute")
@@ -108,7 +111,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                 button.text = "Date $i"
                 button.setOnClickListener {
-                    showShort("Click " + button.text.toString())
+                    showShortInformation("Click " + button.text.toString())
                 }
                 publishProgress(button, ll2)
             }
@@ -119,7 +122,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                 button.text = "$i:00:00"
                 button.setOnClickListener {
-                    showShort("Click " + button.text.toString())
+                    showShortInformation("Click " + button.text.toString())
                 }
                 publishProgress(button, ll3)
             }
@@ -137,7 +140,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                     button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
                     button.text = "Pos $i - $j"
                     button.setOnClickListener {
-                        showShort("Click " + button.text.toString())
+                        showShortInformation("Click " + button.text.toString())
                     }
                     linearLayout.addView(button)
                 }

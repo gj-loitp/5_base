@@ -2,27 +2,30 @@ package vn.loitp.app.activity.customviews.layout.zoomlayout
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_layout_zoom.*
 import vn.loitp.app.R
 
 //read more
-//https://github.com/natario1/ZoomLayout/?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6282
+//https://github.com/natario1/ZoomLayout
 
-@LayoutId(R.layout.activity_layout_zoom)
 @LogTag("ZoomLayoutActivity")
 @IsFullScreen(false)
 class ZoomLayoutActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_layout_zoom
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         bt1.setOnClickListener {
-            showShort("Click button bt_1")
+            showShortInformation("Click button bt_1")
         }
         bt2.setOnClickListener {
-            showShort("Click button bt_2")
+            showShortInformation("Click button bt_2")
         }
 
         /*zoomLayout.getEngine().panTo(x, y, true);

@@ -5,7 +5,7 @@
     android:background="@color/yellow"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
         android:text="Activity2" />
 

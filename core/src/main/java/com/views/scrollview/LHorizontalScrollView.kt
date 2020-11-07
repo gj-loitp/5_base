@@ -7,7 +7,11 @@ import android.widget.HorizontalScrollView
 
 class LHorizontalScrollView : HorizontalScrollView {
 
-    private var mScrollListener: ScrollListener? = null
+    interface ScrollListener {
+        fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int)
+    }
+
+    private var mScrollListener: LScrollView.ScrollListener? = null
 
     constructor(context: Context) : super(context) {}
 
@@ -15,18 +19,13 @@ class LHorizontalScrollView : HorizontalScrollView {
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
 
-    fun setOnScrollListener(scrollListener: ScrollListener) {
+    fun setOnScrollListener(scrollListener: LScrollView.ScrollListener) {
         this.mScrollListener = scrollListener
     }
 
     override fun onScrollChanged(l: Int, t: Int, oldl: Int, oldt: Int) {
         super.onScrollChanged(l, t, oldl, oldt)
-        if (mScrollListener != null) {
-            mScrollListener!!.onScrollChange(this, l, t, oldl, oldt)
-        }
-    }
 
-    interface ScrollListener {
-        fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int)
+        mScrollListener?.onScrollChange(this, l, t, oldl, oldt)
     }
 }

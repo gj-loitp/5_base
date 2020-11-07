@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -44,10 +43,13 @@ import vn.loitp.app.activity.customviews.webview.LWebViewActivity
 import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
 
-@LayoutId(R.layout.activity_custom_view_menu)
 @LogTag("MenuCustomViewsActivity")
 @IsFullScreen(false)
 class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_custom_view_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +57,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         btViewPager.setOnClickListener(this)
         btButton.setOnClickListener(this)
         btProgressLoading.setOnClickListener(this)

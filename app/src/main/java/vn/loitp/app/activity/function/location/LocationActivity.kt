@@ -13,7 +13,6 @@ import android.os.Looper
 import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.gms.common.api.ApiException
@@ -31,7 +30,6 @@ import vn.loitp.app.R
 import java.text.DateFormat
 import java.util.*
 
-@LayoutId(R.layout.activity_func_location)
 @LogTag("LocationActivity")
 @IsFullScreen(false)
 class LocationActivity : BaseFontActivity() {
@@ -60,6 +58,10 @@ class LocationActivity : BaseFontActivity() {
 
     // boolean flag to toggle the ui
     private var mRequestingLocationUpdates: Boolean? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_func_location
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -171,13 +173,13 @@ class LocationActivity : BaseFontActivity() {
             settingsClient.checkLocationSettings(mLocationSettingsRequest)
                     .addOnSuccessListener(this) {
                         logD("All location settings are satisfied.")
-                        showShort("Started location updates!")
+                        showShortInformation("Started location updates!")
                         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
                                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                             mFusedLocationClient?.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper())
                             updateLocationUI()
                         } else {
-                            showShort("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
                         }
                     }
                     .addOnFailureListener(this) { e ->
@@ -196,7 +198,7 @@ class LocationActivity : BaseFontActivity() {
                             LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
                                 val errorMessage = "Location settings are inadequate, and cannot be fixed here. Fix in Settings."
                                 logD(errorMessage)
-                                showShort(errorMessage)
+                                showShortInformation(errorMessage)
                             }
                         }
                         updateLocationUI()
@@ -206,7 +208,7 @@ class LocationActivity : BaseFontActivity() {
 
     private fun startLocationButtonClick() {
         // Requesting ACCESS_FINE_LOCATION using Dexter library
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(response: PermissionGrantedResponse) {
@@ -236,16 +238,16 @@ class LocationActivity : BaseFontActivity() {
     private fun stopLocationUpdates() {
         // Removing location updates
         mFusedLocationClient?.removeLocationUpdates(mLocationCallback)?.addOnCompleteListener(this) {
-            showShort("Location updates stopped!")
+            showShortInformation("Location updates stopped!")
             toggleButtons()
         }
     }
 
     private fun showLastKnownLocation() {
         if (mCurrentLocation != null) {
-            showShort("Lat: " + mCurrentLocation?.latitude + ",Lng: " + mCurrentLocation?.longitude)
+            showShortInformation("Lat: " + mCurrentLocation?.latitude + ",Lng: " + mCurrentLocation?.longitude)
         } else {
-            showShort("Last known location is not available!")
+            showShortInformation("Last known location is not available!")
         }
     }
 

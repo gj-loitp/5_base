@@ -6,7 +6,6 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
@@ -14,13 +13,16 @@ import com.interfaces.Callback2
 import kotlinx.android.synthetic.main.activity_demo_floating_widget.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_demo_floating_widget)
 @LogTag("FloatingWidgetActivity")
 @IsFullScreen(false)
 class FloatingWidgetActivity : BaseFontActivity() {
 
     companion object {
         private const val CODE_DRAW_OVER_OTHER_APP_PERMISSION = 2084
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_floating_widget
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

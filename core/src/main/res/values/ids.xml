@@ -8,4 +8,5 @@
     <item name="menuHome" type="id" />
     <item name="menuFavourite" type="id" />
     <item name="menuInformation" type="id" />
+    <item name="menuProfile" type="id" />
 </resources>

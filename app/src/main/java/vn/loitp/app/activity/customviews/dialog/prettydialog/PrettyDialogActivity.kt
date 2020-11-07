@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.dialog.prettydialog.PrettyDialog
@@ -13,12 +12,14 @@ import kotlinx.android.synthetic.main.activity_dialog_pretty.*
 import vn.loitp.app.R
 
 //https://github.com/mjn1369/PrettyDialog
-
-@LayoutId(R.layout.activity_dialog_pretty)
 @LogTag("PrettyDialogActivity")
 @IsFullScreen(false)
 class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
     private var prettyDialog: PrettyDialog? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_dialog_pretty
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,7 +52,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
                     .setIconCallback(Runnable {
-                        showShort("onClick setIconCallback")
+                        showShortInformation("onClick setIconCallback")
                         prettyDialog?.cancel()
                     })
                     .show()
@@ -67,7 +68,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setIcon(R.drawable.ic_info_black_48dp)
                     .setIconTint(R.color.green)
                     .setIconCallback(Runnable {
-                        showShort("onClick setIconCallback")
+                        showShortInformation("onClick setIconCallback")
                     })
                     // OK button
                     .addButton(
@@ -75,7 +76,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.green,
                             Runnable {
-                                showShort("onClick OK")
+                                showShortInformation("onClick OK")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -85,7 +86,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.red,
                             Runnable {
-                                showShort("onClick Cancel")
+                                showShortInformation("onClick Cancel")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -95,7 +96,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.black,
                             R.color.gray,
                             Runnable {
-                                showShort("onClick Option 3")
+                                showShortInformation("onClick Option 3")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -117,7 +118,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                     .setTextSizeTitle(resources.getDimension(R.dimen.txt_medium))
                     .setTextSizeMsg(resources.getDimension(R.dimen.txt_medium))
                     .setIconCallback(Runnable {
-                        showShort("onClick setIconCallback")
+                        showShortInformation("onClick setIconCallback")
                     })
                     // OK button
                     .addButton(
@@ -125,7 +126,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.green,
                             Runnable {
-                                showShort("onClick OK")
+                                showShortInformation("onClick OK")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -135,7 +136,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.white,
                             R.color.red,
                             Runnable {
-                                showShort("onClick Cancel")
+                                showShortInformation("onClick Cancel")
                                 prettyDialog?.cancel()
                             }
                     )
@@ -145,7 +146,7 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
                             R.color.black,
                             R.color.gray,
                             Runnable {
-                                showShort("onClick Option 3")
+                                showShortInformation("onClick Option 3")
                                 prettyDialog?.cancel()
                             }
                     )

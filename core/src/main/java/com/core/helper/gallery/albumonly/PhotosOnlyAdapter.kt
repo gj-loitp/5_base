@@ -56,7 +56,7 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
             itemView.tvTitle.visibility = View.INVISIBLE
 
             LImageUtil.load(context = itemView.iv.context,
-                    url = p.urlO,
+                    any = p.urlO,
                     imageView = itemView.iv,
                     resPlaceHolder = color,
                     resError = color,

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LUIUtil;
@@ -28,7 +27,6 @@ import java.util.List;
 import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 
-@LayoutId(R.layout.activity_menu_firebase_simple)
 @LogTag("DatabaseSimpleFirebaseActivity")
 @IsFullScreen(false)
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
@@ -38,6 +36,11 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     private List<User> userList = new ArrayList<>();
     private RecyclerView recyclerView;
     private UserAdapter mAdapter;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_menu_firebase_simple;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +114,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         mAdapter = new UserAdapter(this, userList, new UserAdapter.Callback() {
             @Override
             public void onClick(User user, int position) {
-                showShort("onClick To Edit Data: " + user.getMsg(), true);
+                showShortInformation("onClick To Edit Data: " + user.getMsg(), true);
 
                 user.setMsg("Edited Msg " + System.currentTimeMillis());
                 user.setName("Edited Name");
@@ -121,7 +124,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
             @Override
             public void onLongClick(User user, int position) {
-                showShort("onLongClick " + user.getMsg(), true);
+                showShortInformation("onLongClick " + user.getMsg(), true);
                 mFirebaseDatabase.child(ROOT_NODE).child(user.getTimestamp() + "").removeValue();
             }
         });

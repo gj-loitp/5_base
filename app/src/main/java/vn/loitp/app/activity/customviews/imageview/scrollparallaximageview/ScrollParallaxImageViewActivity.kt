@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.imageview.scrollparallaximageview
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.imageview.scrollparallax.LScrollParallaxImageView
@@ -13,10 +12,13 @@ import vn.loitp.app.R
 
 //https://github.com/gjiazhe/ScrollParallaxImageView
 
-@LayoutId(R.layout.activity_imageview_scrollparallax)
 @LogTag("ScrollParallaxImageViewActivity")
 @IsFullScreen(false)
 class ScrollParallaxImageViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_imageview_scrollparallax
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +26,7 @@ class ScrollParallaxImageViewActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         spiv.setParallaxStyles(VerticalMovingStyle()) // or other parallax styles
         for (i in 0..9) {
             val lScrollParallaxImageView = LScrollParallaxImageView(this)

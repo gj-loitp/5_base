@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.imageview.bigimageview
 import android.net.Uri
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.github.piasy.biv.view.GlideImageViewFactory
@@ -12,10 +11,13 @@ import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 
 //https://github.com/Piasy/BigImageViewer
-@LayoutId(R.layout.activity_imageview_big_with_scroll_view)
 @LogTag("BigImageViewWithScrollViewActivity")
 @IsFullScreen(false)
 class BigImageViewWithScrollViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_imageview_big_with_scroll_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,7 @@ class BigImageViewWithScrollViewActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         biv0.setImageViewFactory(GlideImageViewFactory())
         biv1.setImageViewFactory(GlideImageViewFactory())
         biv2.setImageViewFactory(GlideImageViewFactory())

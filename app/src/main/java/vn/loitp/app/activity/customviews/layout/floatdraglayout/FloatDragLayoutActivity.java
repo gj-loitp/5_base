@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.layout.floatdraglayout.DisplayUtil;
@@ -18,10 +17,14 @@ import com.views.layout.floatdraglayout.FloatDragPopupWindow;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_float_drag_layout)
 @LogTag("FloatDragLayoutActivity")
 @IsFullScreen(false)
 public class FloatDragLayoutActivity extends BaseFontActivity implements View.OnClickListener {
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_float_drag_layout;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
         rootView.addView(floatDragLayout, layoutParams);
 
         floatDragLayout.setOnClickListener(v ->
-                showShort("Click on the hover and drag buttons", true)
+                showShortInformation("Click on the hover and drag buttons", true)
         );
 
         findViewById(R.id.bt_change_to_fullscreen).setOnClickListener(this);
@@ -82,7 +85,7 @@ public class FloatDragLayoutActivity extends BaseFontActivity implements View.On
                     .setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            showShort("Click on FloatDragPopupWindow", true);
+                            showShortInformation("Click on FloatDragPopupWindow", true);
                         }
                     })
                     .build();

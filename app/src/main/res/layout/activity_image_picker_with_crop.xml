@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -15,7 +16,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/startGalleryBtn"
@@ -27,7 +30,7 @@
                 style="@style/ButtonMenu"
                 android:text="@string/start_camera" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -36,9 +39,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Image Picker with crop" />
 </RelativeLayout>
-

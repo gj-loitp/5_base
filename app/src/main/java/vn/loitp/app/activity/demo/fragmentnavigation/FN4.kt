@@ -2,16 +2,18 @@ package vn.loitp.app.activity.demo.fragmentnavigation
 
 import android.os.Bundle
 import android.view.View
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import vn.loitp.app.R
 
-@LayoutId(R.layout.frm_fn_4)
 @LogTag("fragmentNavigationActivity")
 class FN4 : BaseFragment(), OnBackPressedListener {
 
     private var fragmentNavigationActivity: FragmentNavigationActivity? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.frm_fn_4
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

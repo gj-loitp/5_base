@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/themeBackgroundColor"
+    tools:ignore="UnusedAttribute">
+
+    <com.ortiz.touchview.TouchImageView
+        android:id="@+id/ivChapterDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:foreground="?selectableItemBackground"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/logo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:gravity="end"
+        android:padding="@dimen/padding_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_medium"
+        tools:text="69" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/indicatorView"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="@dimen/w_40"
+        android:layout_height="@dimen/w_40"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:indicatorColor="?attr/themeTextColor"
+        app:indicatorName="BallClipRotatePulseIndicator" />
+
+</FrameLayout>

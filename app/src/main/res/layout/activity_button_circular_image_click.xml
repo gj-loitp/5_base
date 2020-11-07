@@ -26,9 +26,8 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Circular image click" />
+        android:text="@string/circular_image_click" />
 </RelativeLayout>
-

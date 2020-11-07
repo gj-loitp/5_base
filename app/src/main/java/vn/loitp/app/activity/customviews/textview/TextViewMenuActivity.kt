@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_text_view_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity
-import vn.loitp.app.activity.customviews.textview.circletextview.CircleTextViewActivity
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity
 import vn.loitp.app.activity.customviews.textview.extratextview.ExtraTextViewActivity
@@ -27,16 +25,18 @@ import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterT
 import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity
 
-@LayoutId(R.layout.activity_text_view_menu)
 @LogTag("TextViewMenuActivity")
 @IsFullScreen(false)
 class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_text_view_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         btAutofitTextView.setOnClickListener(this)
-        btCircleTextView.setOnClickListener(this)
         btScoreText.setOnClickListener(this)
         btCountDown.setOnClickListener(this)
         btColorTextView.setOnClickListener(this)
@@ -56,7 +56,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         var intent: Intent? = null
         when (v) {
             btAutofitTextView -> intent = Intent(this, AutoFitTextViewActivity::class.java)
-            btCircleTextView -> intent = Intent(this, CircleTextViewActivity::class.java)
             btScoreText -> intent = Intent(this, ScoreTextViewActivity::class.java)
             btCountDown -> intent = Intent(this, CountDownActivity::class.java)
             btColorTextView -> intent = Intent(this, ColorTextViewActivity::class.java)

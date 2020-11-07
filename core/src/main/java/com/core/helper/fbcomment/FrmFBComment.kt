@@ -8,7 +8,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
@@ -34,9 +33,8 @@ class FrmFBComment : BaseFragment() {
         private const val NUMBER_OF_COMMENTS = 50
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_fb_cmt, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_fb_cmt
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

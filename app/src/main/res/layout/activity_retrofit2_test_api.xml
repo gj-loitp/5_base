@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

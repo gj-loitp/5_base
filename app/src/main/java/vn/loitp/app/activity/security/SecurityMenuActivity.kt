@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -12,13 +11,17 @@ import kotlinx.android.synthetic.main.activity_security_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.security.simple.SimpleEncryptDecryptStringActivity
 
-@LayoutId(R.layout.activity_security_menu)
 @LogTag("SecurityMenuActivity")
 @IsFullScreen(false)
 class SecurityMenuActivity : BaseFontActivity(), View.OnClickListener {
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_security_menu
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         bt0.setOnClickListener(this)
     }
 

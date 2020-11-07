@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -27,10 +26,13 @@ import vn.loitp.app.activity.function.viewdraghelper.ViewDragHelperActivity
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity
 import vn.loitp.app.activity.function.viewdraghelpersimple.ViewDragHelperSimpleActivity1
 
-@LayoutId(R.layout.activity_function_menu)
 @LogTag("MenuFunctionActivity")
 @IsFullScreen(false)
 class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_function_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +40,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         btSimpleFingerGesture.setOnClickListener(this)
         btHashMap.setOnClickListener(this)
         btDragDropSample.setOnClickListener(this)

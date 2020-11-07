@@ -11,12 +11,12 @@ import android.widget.LinearLayout
 import android.widget.ScrollView
 import com.R
 import com.core.utilities.LUIUtil
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.utils.util.ConvertUtils
-import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import kotlin.math.hypot
 import kotlin.math.max
 
-class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : LRelativePopupWindow() {
+class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : RelativePopupWindow() {
     private val logTag = javaClass.simpleName
     private var ll: LinearLayout
     private var sv: ScrollView
@@ -40,6 +40,10 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
         if (withEffect) {
             LUIUtil.setPullLikeIOSVertical(sv)
         }
+    }
+
+    interface Callback {
+        fun onClick(s: String)
     }
 
     override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
@@ -90,9 +94,5 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
             ll.addView(button)
         }
         sv.scrollTo(0, 0)
-    }
-
-    interface Callback {
-        fun onClick(s: String)
     }
 }

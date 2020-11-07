@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -41,12 +41,12 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSharedPrefs"
                 style="@style/ButtonMenu"
-                android:text="@string/sharedprefs" />
+                android:text="@string/shared_prefs" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSharedPrefsEncryption"
                 style="@style/ButtonMenu"
-                android:text="@string/sharedprefsencryption" />
+                android:text="@string/shared_prefs_encryption" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSqlite"
@@ -70,7 +70,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_databse" />

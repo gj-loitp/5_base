@@ -19,7 +19,6 @@ import android.widget.TextView;
 import androidx.core.app.NotificationCompat;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
@@ -31,7 +30,6 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
-@LayoutId(R.layout.activity_alarm_notification)
 @LogTag("AlarmNotification")
 @IsFullScreen(false)
 public class AlarmNotification extends BaseFontActivity {
@@ -46,6 +44,11 @@ public class AlarmNotification extends BaseFontActivity {
     private DateTime mDateTime;
     private TextView mTextView;
     private PlayTimerTask mTimerTask;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_alarm_notification;
+    }
 
     @Override
     protected void onCreate(Bundle bundle) {

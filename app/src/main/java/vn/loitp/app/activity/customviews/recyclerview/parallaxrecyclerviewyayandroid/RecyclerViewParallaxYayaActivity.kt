@@ -3,19 +3,21 @@ package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayan
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_recycler_view__parallax_yaya.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.FakeData.Companion.instance
 
-@LayoutId(R.layout.activity_recycler_view__parallax_yaya)
 @LogTag("RecyclerViewParallaxYayaActivity")
 @IsFullScreen(false)
 class RecyclerViewParallaxYayaActivity : BaseFontActivity() {
 
     private var yayaParallaxAdapter: YayaParallaxAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view__parallax_yaya
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,7 @@ class RecyclerViewParallaxYayaActivity : BaseFontActivity() {
         yayaParallaxAdapter = YayaParallaxAdapter(context = this,
                 callback = object : YayaParallaxAdapter.Callback {
                     override fun onClick(pos: Int) {
-                        showShort("onClick $pos")
+                        showShortInformation("onClick $pos")
                     }
 
                     override fun onLongClick(pos: Int) {

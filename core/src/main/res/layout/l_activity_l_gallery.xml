@@ -6,7 +6,7 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <ImageButton
+    <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btn_close"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"

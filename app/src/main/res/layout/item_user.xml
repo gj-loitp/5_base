@@ -7,44 +7,41 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
-    android:paddingStart="@dimen/padding_10"
-    android:paddingTop="@dimen/padding_15"
-    android:paddingEnd="@dimen/padding_10"
-    android:paddingBottom="@dimen/padding_15">
+    android:padding="@dimen/padding_medium">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avt"
         android:layout_width="@dimen/w_70"
         android:layout_height="@dimen/w_70"
         android:scaleType="centerCrop"
-        android:src="@color/colorPrimary" />
+        android:src="?attr/themeTextColor" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_5"
+        android:layout_marginStart="@dimen/margin_medium"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_name"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="@dimen/txt_20"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tv_msg"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMsg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_14" />
 
-        <TextView
-            android:id="@+id/tv_time"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/gray"
+            android:textColor="@color/red"
             android:textSize="@dimen/txt_10" />
     </LinearLayout>
 </LinearLayout>

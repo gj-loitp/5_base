@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -57,11 +57,6 @@
                 android:id="@+id/btDraggableView"
                 style="@style/ButtonMenu"
                 android:text="@string/draggableview" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDragueur"
-                style="@style/ButtonMenu"
-                android:text="@string/dragueur" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btExpansionPanel"
@@ -136,7 +131,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSwipebackLayout"
                 style="@style/ButtonMenu"
-                android:text="@string/swipebacklayout" />
+                android:text="@string/swipe_back_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSwipeRefreshLayout"
@@ -155,7 +150,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/layout_menu" />

@@ -10,7 +10,7 @@
     android:paddingLeft="@dimen/padding_medium"
     android:paddingRight="@dimen/padding_medium">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,13 +18,13 @@
         android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/genre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="?attr/themeTextColor" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

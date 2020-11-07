@@ -6,28 +6,32 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_3.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_3)
 @LogTag("Activity3")
 @IsFullScreen(false)
 class Activity3 : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_3
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         logD("suzuki onCreate")
 
-        btGoTo1.setOnClickListener {
+        btGoTo1.setSafeOnClickListener {
             val intent = Intent(this, Activity1::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)
             LActivityUtil.tranIn(this)
         }
-        btGoTo2.setOnClickListener {
+        btGoTo2.setSafeOnClickListener {
             val intent = Intent(this, Activity2::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivity(intent)

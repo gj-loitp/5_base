@@ -5,7 +5,6 @@ import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -21,7 +20,6 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.N
 
 //https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial
 
-@LayoutId(R.layout.activity_recycler_view_concat_adapter)
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
 class ConcatAdapterActivity : BaseFontActivity() {
@@ -31,6 +29,10 @@ class ConcatAdapterActivity : BaseFontActivity() {
     private var bannerAdapter: BannerAdapter? = null
     private var newsAdapter: NewsAdapter? = null
     private val loadingAdapter = LoadingAdapter()
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view_concat_adapter
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +64,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
 
         newsAdapter?.let { na ->
             na.onClickRootListener = { _, position ->
-                showShort("Click position $position")
+                showShortInformation("Click position $position")
             }
         }
 
@@ -79,17 +81,21 @@ class ConcatAdapterActivity : BaseFontActivity() {
 
         recyclerView.adapter = concatAdapter
 
-        LUIUtil.setScrollChange(recyclerView, object : CallbackRecyclerView {
-            override fun onTop() {
-                logD("onTop")
-            }
+        LUIUtil.setScrollChange(recyclerView = recyclerView,
+                callbackRecyclerView = object : CallbackRecyclerView {
+                    override fun onTop() {
+                        logD("onTop")
+                    }
 
-            override fun onBottom() {
-                logD("onBottom")
-                showShort("onBottom")
-                genNewsData()
-            }
-        })
+                    override fun onBottom() {
+                        logD("onBottom")
+                        showShortInformation("onBottom")
+                        genNewsData()
+                    }
+
+                    override fun onScrolled(isScrollDown: Boolean) {
+                    }
+                })
 
         btClearAll.setSafeOnClickListener {
             concatAdapter?.let { a ->

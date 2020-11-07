@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -17,10 +16,13 @@ import vn.loitp.app.activity.picker.numberpicker.NumberPickerActivity
 import vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity
 import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
 
-@LayoutId(R.layout.activity_picker_menu)
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)
 class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_picker_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

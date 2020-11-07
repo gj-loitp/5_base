@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LPrefUtil;
@@ -31,7 +30,6 @@ import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 
-@LayoutId(R.layout.activity_ebook_with_realm)
 @LogTag("EbookWithRealmActivity")
 @IsFullScreen(false)
 public class EbookWithRealmActivity extends BaseFontActivity {
@@ -39,6 +37,11 @@ public class EbookWithRealmActivity extends BaseFontActivity {
     private Realm realm;
     private LayoutInflater layoutInflater;
     private RecyclerView recyclerView;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_ebook_with_realm;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         // changes will be reflected automatically
         setRealmAdapter(RealmController.with(this).getBooks());
 
-        showShort("Press card item for edit, long press to remove item", true);
+        showShortInformation("Press card item for edit, long press to remove item", true);
 
         //add new item
         floatingActionButton.setOnClickListener(v -> addItem());
@@ -164,7 +167,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
                     book.setImageUrl(editThumbnail.getText().toString());
 
                     if (editTitle.getText() == null || editTitle.getText().toString().equals("") || editTitle.getText().toString().equals(" ")) {
-                        showShort("Entry not saved, missing title", true);
+                        showShortInformation("Entry not saved, missing title", true);
                     } else {
                         // Persist your data easily
                         realm.beginTransaction();
@@ -236,10 +239,10 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         booksAdapter.notifyItemRemoved(position);
         booksAdapter.notifyItemRangeChanged(position, RealmController.getInstance().getBooks().size());
 
-        showShort("Removed book: " + title, true);
+        showShortInformation("Removed book: " + title, true);
 
         if (RealmController.getInstance().getBooks().isEmpty()) {
-            showShort("getMyBookList().isEmpty()", true);
+            showShortInformation("getMyBookList().isEmpty()", true);
         }
     }
 }

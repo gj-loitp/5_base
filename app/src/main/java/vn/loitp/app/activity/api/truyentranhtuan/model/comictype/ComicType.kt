@@ -2,6 +2,7 @@ package vn.loitp.app.activity.api.truyentranhtuan.model.comictype
 
 class ComicType(var type: String, var url: String) {
 
+    @Suppress("SpellCheckingInspection")
     companion object {
         const val TAT_CA = "Tất cả"
         const val TOP_50 = "Top 50"

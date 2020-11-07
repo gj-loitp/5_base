@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <ScrollView
         style="@style/ScrollVertical"
@@ -21,22 +21,17 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btBoxedVerticalSeekbar"
                 style="@style/ButtonMenu"
-                android:text="Boxed Vertical SeekBar" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btCircularSeekbar"
-                style="@style/ButtonMenu"
-                android:text="Circularseekbar seekbar" />
+                android:text="@string/boxed_vertical_seekbar" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSeekBar"
                 style="@style/ButtonMenu"
-                android:text="Seekbar" />
+                android:text="@string/seekbar" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btVerticalSeekBar"
                 style="@style/ButtonMenu"
-                android:text="Vertical seekbar" />
+                android:text="@string/vertical_seekbar" />
 
         </LinearLayout>
     </ScrollView>
@@ -44,5 +39,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Seekbar Menu" />
+        android:text="@string/seekbar_menu" />
 </RelativeLayout>

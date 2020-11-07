@@ -4,13 +4,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.2'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
         applicationId "loitp.basemaster"
-        minSdkVersion 19
-        targetSdkVersion 30
+        minSdkVersion 21
+        targetSdkVersion 29
         versionCode 12
         versionName "1.1.12"
         multiDexEnabled true
@@ -112,7 +112,7 @@ dependencies {
     api project(':core')
 //    api 'com.github.tplloi:basemaster:4.4.11'
 
-    api "com.squareup.retrofit2:converter-moshi:2.7.2"
+    api 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
     //region database
     //realm
@@ -124,28 +124,28 @@ dependencies {
     //endregion
 
     //region Firebase + Google service
-    api 'com.google.firebase:firebase-ads:18.2.0'
+    api 'com.google.firebase:firebase-ads:19.5.0'
     // Firebase Authentication
-    api 'com.google.firebase:firebase-auth:19.1.0'
-    api 'com.google.firebase:firebase-core:17.2.0'
+    api 'com.google.firebase:firebase-auth:19.4.0'
+    api 'com.google.firebase:firebase-core:17.5.1'
 
     // Google Sign In SDK (only required for Google Sign In)
-    api 'com.google.android.gms:play-services-auth:17.0.0'
+    api 'com.google.android.gms:play-services-auth:18.1.0'
 
     // Firebase UI, used in FirebaseUIActivity.
     api 'com.firebaseui:firebase-ui-auth:4.0.0'
 
     // Facebook Android SDK (only required for Facebook Login)
     // Used in FacebookLoginActivity.
-    api 'com.facebook.android:facebook-login:4.34.0'
+    api 'com.facebook.android:facebook-login:8.1.0'
 
     //Firebase remote config
-    api 'com.google.firebase:firebase-config:19.0.2'
+    api 'com.google.firebase:firebase-config:19.2.0'
 
     //Firebase database
     api 'com.firebaseui:firebase-ui-database:4.0.0'
     //implementation 'com.google.firebase:firebase-auth:16.0.1'
-    api 'com.google.firebase:firebase-database:19.1.0'
+    api 'com.google.firebase:firebase-database:19.5.1'
 
     // Needed to fix a dependency conflict with FirebaseUI'
     api 'androidx.arch.core:core-runtime:2.1.0'
@@ -155,7 +155,7 @@ dependencies {
 
     //Firebase FCM
     //compile 'com.google.android.gms:play-services:12.0.1'
-    api 'com.google.firebase:firebase-messaging:20.0.0'
+    api 'com.google.firebase:firebase-messaging:20.3.0'
     //endregion
 
     //region picker
@@ -192,9 +192,5 @@ dependencies {
 
     //https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
-
-    //https://github.com/TakWolf/Android-AspectRatioLayout
-    api 'com.takwolf.android:aspectratio:0.3.0'
-
 }
 apply plugin: 'com.google.gms.google-services'

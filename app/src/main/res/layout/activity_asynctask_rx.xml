@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
     <ScrollView
         style="@style/ScrollVertical"
@@ -11,11 +11,12 @@
         android:layout_height="match_parent"
         android:layout_above="@id/ll">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_medium"
+            android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/text_medium" />
     </ScrollView>
 
@@ -31,28 +32,36 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Async" />
+            android:text="Async"
+            android:textColor="@color/darkBlue"
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btRx1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rx1" />
+            android:text="Rx1"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btRx2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rx2" />
+            android:text="Rx2"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btRx3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Rx3" />
+            android:text="Rx3"
+            android:textColor="@color/deepPink"
+            android:textSize="@dimen/txt_medium" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -60,5 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Rx with progress" />
+        android:text="Rx with progress"
+        android:textColor="@color/red"
+        android:textSize="@dimen/txt_medium" />
 </RelativeLayout>

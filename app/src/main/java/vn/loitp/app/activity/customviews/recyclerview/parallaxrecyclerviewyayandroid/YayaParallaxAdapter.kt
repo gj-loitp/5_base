@@ -40,7 +40,7 @@ class YayaParallaxAdapter internal constructor(private val context: Context, pri
 
         @SuppressLint("SetTextI18n")
         fun bind() {
-            LImageUtil.load(context = context, url = instance.stringList[bindingAdapterPosition], imageView = itemView.backgroundImage)
+            LImageUtil.load(context = context, any = instance.stringList[bindingAdapterPosition], imageView = itemView.backgroundImage)
             itemView.label.text = "Row $bindingAdapterPosition"
             itemView.rootView.setOnClickListener {
                 callback?.onClick(bindingAdapterPosition)

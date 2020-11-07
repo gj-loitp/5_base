@@ -1,7 +1,6 @@
 package com.core.utilities
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
@@ -29,8 +28,8 @@ class LDeviceUtil {
                 return !(hasBackKey && hasHomeKey)
             }
 
-        fun isTablet(activity: Activity): Boolean {
-            return activity.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
+        fun isTablet(): Boolean {
+            return LAppResource.application.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
         }
 
         @Suppress("DEPRECATION")
@@ -74,11 +73,8 @@ class LDeviceUtil {
             return randomStringBuilder.toString()
         }
 
-        fun isCanOverlay(activity: Activity?): Boolean {
-            if (activity == null) {
-                return false
-            }
-            return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity))
+        fun isCanOverlay(): Boolean {
+            return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(LAppResource.application))
         }
 
         fun isEmulator(): Boolean {

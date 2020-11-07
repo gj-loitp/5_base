@@ -2,10 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,42 +14,44 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAutoSizeButton"
                 style="@style/ButtonMenu"
-                android:text="Auto size button" />
+                android:text="@string/auto_size_button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCircularImageClick"
                 style="@style/ButtonMenu"
-                android:text="Circular Image Click" />
+                android:text="@string/circular_image_click" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btGoodView"
                 style="@style/ButtonMenu"
-                android:text="GoodView" />
+                android:text="@string/good_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btlButton"
                 style="@style/ButtonMenu"
-                android:text="LButton" />
+                android:text="@string/l_button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btQButton"
                 style="@style/ButtonMenu"
-                android:text="QButton" />
+                android:text="@string/q_button" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShineButton"
                 style="@style/ButtonMenu"
-                android:text="Shine Button" />
+                android:text="@string/shine_button" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu Button" />

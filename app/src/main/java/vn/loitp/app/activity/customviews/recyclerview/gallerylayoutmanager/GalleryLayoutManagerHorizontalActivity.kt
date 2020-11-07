@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -20,11 +19,15 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsing
 
 //https://github.com/BCsl/GalleryLayoutManager
 
-@LayoutId(R.layout.activity_recycler_view_menu_gallery_layout_manager)
 @LogTag("GalleryLayoutManagerHorizontalActivity")
 @IsFullScreen(false)
 class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
     private var mAdapter: GalleryAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view_menu_gallery_layout_manager
+    }
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +35,7 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
         mAdapter = GalleryAdapter(context = this, moviesList = instance.movieList,
                 callback = object : GalleryAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
-                        showShort("Click " + movie.title)
+                        showShortInformation("Click " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {

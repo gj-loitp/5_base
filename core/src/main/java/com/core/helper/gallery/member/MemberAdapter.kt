@@ -26,12 +26,6 @@ import java.util.*
 class MemberAdapter(private val context: Context, private val callback: Callback?)
     : AnimationAdapter() {
 
-    val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
     }
@@ -54,10 +48,10 @@ class MemberAdapter(private val context: Context, private val callback: Callback
             itemView.tvTitle.visibility = View.INVISIBLE
 
             LImageUtil.load(context = itemView.circleImageView.context,
-                    url = photo.urlO,
+                    any = photo.urlO,
                     imageView = itemView.circleImageView,
-                    resPlaceHolder = color,
-                    resError = color,
+                    resPlaceHolder = R.color.transparent,
+                    resError = R.color.transparent,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                             return false

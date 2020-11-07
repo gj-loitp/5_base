@@ -2,17 +2,19 @@ package vn.loitp.app.activity.customviews.layout.draggableview
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.layout.draggablepanel.DraggableListener
 import kotlinx.android.synthetic.main.activity_draggable_view.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_draggable_view)
 @LogTag("DraggableViewActivity")
 @IsFullScreen(false)
 class DraggableViewActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_draggable_view
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

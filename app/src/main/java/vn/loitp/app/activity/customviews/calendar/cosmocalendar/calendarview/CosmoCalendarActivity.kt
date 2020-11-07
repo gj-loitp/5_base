@@ -7,7 +7,6 @@ import android.widget.RadioGroup
 import androidx.annotation.IdRes
 import androidx.recyclerview.widget.OrientationHelper
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -28,7 +27,6 @@ import kotlin.collections.ArrayList
 //https://github.com/ApplikeySolutions/CosmoCalendar
 //set color o colors.xml region cosmocalendar
 
-@LayoutId(R.layout.activity_calendar_cosmo)
 @LogTag("CosmoCalendarActivity")
 @IsFullScreen(false)
 class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeListener {
@@ -40,6 +38,10 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private lateinit var menuFridays: MenuItem
     private lateinit var menuThreeMonth: MenuItem
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_calendar_cosmo
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,9 +163,8 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
         menuThreeMonth.title = getString(R.string.select_three_months)
     }
 
-
     private fun logSelectedDaysMenuClick() {
-        showShort("Selected " + calendarView.selectedDays.size)
+        showShortInformation("Selected " + calendarView.selectedDays.size)
     }
 
     override fun onCheckedChanged(group: RadioGroup, @IdRes checkedId: Int) {

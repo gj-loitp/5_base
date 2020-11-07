@@ -39,9 +39,12 @@ class FbCommentActivity : BaseFontActivity() {
         private const val NUMBER_OF_COMMENTS = 50
     }
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_fb_cmt_core
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_fb_cmt_core)
 
         setupActionBar()
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
@@ -71,7 +74,7 @@ class FbCommentActivity : BaseFontActivity() {
 
         // finish the activity in case of empty url
         if (TextUtils.isEmpty(postUrl)) {
-            showShort("The web url shouldn't be empty")
+            showShortError("The web url shouldn't be empty")
             onBackPressed()
             return
         }

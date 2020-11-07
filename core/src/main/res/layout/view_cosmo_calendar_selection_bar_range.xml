@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_range_start_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         android:gravity="center"
         tools:text="15" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_range_end_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

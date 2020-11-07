@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkOrange">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_250"
@@ -12,7 +12,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/loitp" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

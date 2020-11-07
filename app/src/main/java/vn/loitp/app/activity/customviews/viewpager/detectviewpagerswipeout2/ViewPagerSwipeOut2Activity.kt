@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
@@ -14,10 +13,13 @@ import kotlinx.android.synthetic.main.activity_view_pager_swipe_out_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.autoviewpager.FrmIv.Companion.newInstance
 
-@LayoutId(R.layout.activity_view_pager_swipe_out_2)
 @LogTag("ViewPagerSwipeOut2Activity")
 @IsFullScreen(false)
 class ViewPagerSwipeOut2Activity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_view_pager_swipe_out_2
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +31,11 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
         vp.adapter = SamplePagerAdapter(supportFragmentManager)
         vp.setOnSwipeOutListener(object : LSwipeOutViewPager.OnSwipeOutListener {
             override fun onSwipeOutAtStart() {
-                showShort("onSwipeOutAtStart")
+                showShortInformation("onSwipeOutAtStart")
             }
 
             override fun onSwipeOutAtEnd() {
-                showShort("onSwipeOutAtEnd")
+                showShortInformation("onSwipeOutAtEnd")
             }
         })
         LUIUtil.setPullLikeIOSHorizontal(vp)

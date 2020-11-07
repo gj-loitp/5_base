@@ -10,7 +10,6 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
-@LayoutId(R.layout.activity_sign_in)
 @LogTag("DatabaseFirebaseSignInActivity")
 @IsFullScreen(false)
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
@@ -34,6 +32,11 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
     private EditText mPasswordField;
 
     @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_sign_in;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -41,8 +44,8 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
         mAuth = FirebaseAuth.getInstance();
 
         // Views
-        mEmailField = findViewById(R.id.field_email);
-        mPasswordField = findViewById(R.id.field_password);
+        mEmailField = findViewById(R.id.fieldEmail);
+        mPasswordField = findViewById(R.id.fieldPassword);
         Button mSignInButton = findViewById(R.id.button_sign_in);
         Button mSignUpButton = findViewById(R.id.button_sign_up);
 
@@ -80,7 +83,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            showShort("Sign In Failed", true);
+                            showShortInformation("Sign In Failed", true);
                         }
                     }
                 });
@@ -106,7 +109,7 @@ public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity impleme
                         if (task.isSuccessful()) {
                             onAuthSuccess(task.getResult().getUser());
                         } else {
-                            showShort("Sign Up Failed", true);
+                            showShortInformation("Sign Up Failed", true);
                         }
                     }
                 });

@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.Window
-import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -32,14 +31,16 @@ abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
 
-    protected var delayMlsIdleTime: Long = 60 * 1000//60s
+    var delayMlsIdleTime: Long = 60 * 1000//60s
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
-    protected var isIdleTime = false
+    var isIdleTime = false
 
     private var interstitialAd: InterstitialAd? = null
     private var isShowAdWhenExit = false
     private var isShowAnimWhenExit = true
+
+    protected abstract fun setLayoutResourceId(): Int
 
     protected fun setTransparentStatusNavigationBar() {
         //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
@@ -79,15 +80,22 @@ abstract class BaseActivity : AppCompatActivity() {
         val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
         if (isFullScreen) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                window.insetsController?.hide(WindowInsets.Type.statusBars())
-            } else {
-                @Suppress("DEPRECATION")
-                window.setFlags(
-                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                        WindowManager.LayoutParams.FLAG_FULLSCREEN
-                )
-            }
+
+            //TODO loitpp revert if android R
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//                window.insetsController?.hide(WindowInsets.Type.statusBars())
+//            } else {
+//                @Suppress("DEPRECATION")
+//                window.setFlags(
+//                        WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                        WindowManager.LayoutParams.FLAG_FULLSCREEN
+//                )
+//            }
+
+            window.setFlags(
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
         }
         setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
@@ -95,10 +103,8 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().register(this)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        val layoutId = javaClass.getAnnotation(LayoutId::class.java)
-        layoutId?.value?.let {
-            setContentView(it)
-        }
+        setContentView(setLayoutResourceId())
+
         CheckNetworkConnectionHelper
                 .getInstance()
                 .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
@@ -115,40 +121,28 @@ abstract class BaseActivity : AppCompatActivity() {
                     }
                 })
 
-        //autoanimation
+        //auto animation
         //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
         isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
             interstitialAd = LUIUtil.createAdFull(this)
-            interstitialAd?.adListener = object : AdListener() {
+            /*interstitialAd?.adListener = object : AdListener() {
                 override fun onAdLoaded() {
-                    // Code to be executed when an ad finishes loading.
-//                    logD("onAdLoaded interstitialAd")
                 }
 
                 override fun onAdFailedToLoad(errorCode: Int) {
-                    // Code to be executed when an ad request fails.
-//                    logD("onAdFailedToLoad interstitialAd errorCode $errorCode")
                 }
 
                 override fun onAdOpened() {
-                    // Code to be executed when an ad opens an overlay that
-                    // covers the screen.
-//                    logD("onAdOpened interstitialAd")
                 }
 
                 override fun onAdLeftApplication() {
-                    // Code to be executed when the user has left the app.
-//                    logD("onAdLeftApplication interstitialAd")
                 }
 
                 override fun onAdClosed() {
-                    // Code to be executed when when the user is about to return
-                    // to the app after tapping on an ad.
-//                    logD("onAdClosed interstitialAd")
                 }
-            }
+            }*/
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
     }
@@ -219,14 +213,17 @@ abstract class BaseActivity : AppCompatActivity() {
         showDialogError("Error: $throwable")
     }
 
-    protected fun showDialogError(errMsg: String) {
+    protected fun showDialogError(errMsg: String?, runnable: Runnable? = null) {
+        if (errMsg.isNullOrEmpty()) {
+            return
+        }
         val alertDialog = LDialogUtil.showDialog1(context = this,
                 title = getString(R.string.warning),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
                 callback1 = object : Callback1 {
                     override fun onClick1() {
-                        onBackPressed()
+                        runnable?.run()
                     }
                 })
         alertDialog.setCancelable(false)
@@ -246,6 +243,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
+
         if (isShowAnimWhenExit) {
             LActivityUtil.tranOut(this)
         }
@@ -260,36 +258,45 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onMessageEvent(event: EventBusData.ThemeEvent) {
-        onThemeChange(event = event)
-    }
-
-    open fun onThemeChange(event: EventBusData.ThemeEvent) {}
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
     fun onMessageEvent(event: EventBusData.ConnectEvent) {
         onNetworkChange(event = event)
     }
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
-    protected fun showShort(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showShort(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
+    protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLong(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showLong(msg = msg, backgroundRes = R.drawable.l_bkg_toast, isTopAnchor = isTopAnchor)
+    protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
+    }
+
+    protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+        LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
     protected fun showShortDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
-            showShort(msg)
+            LToast.showShortDebug(msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
         if (Constants.IS_DEBUG) {
-            showLong(msg)
+            LToast.showLongInformation(msg)
         }
     }
 

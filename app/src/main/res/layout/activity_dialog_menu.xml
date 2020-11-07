@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -29,11 +29,6 @@
                 android:text="@string/custom_progress_dialog" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btIosDialog"
-                style="@style/ButtonMenu"
-                android:text="@string/ios_dialog" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btOriginalDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/original_dialog" />
@@ -55,7 +50,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_dialog" />

@@ -29,7 +29,7 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUp
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(content: Content) = with(itemView) {
-            LImageUtil.load(context = context, url = content.image, imageView = image)
+            LImageUtil.load(context = context, any = content.image, imageView = image)
             text.text = content.text
         }
     }

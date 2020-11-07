@@ -6,15 +6,14 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.interfaces.Callback2
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_floating_video.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_demo_floating_video)
 @LogTag("FloatingWidgetActivity")
 @IsFullScreen(false)
 class FloatingWidgetActivity : BaseFontActivity() {
@@ -24,13 +23,17 @@ class FloatingWidgetActivity : BaseFontActivity() {
         private const val CODE_DRAW_OVER_OTHER_APP_PERMISSION_EDGE = 2085
     }
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_floating_video
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btShow.setOnClickListener {
+        btShow.setSafeOnClickListener {
             handleShow()
         }
-        btEdge.setOnClickListener {
+        btEdge.setSafeOnClickListener {
             handleEdge()
         }
     }

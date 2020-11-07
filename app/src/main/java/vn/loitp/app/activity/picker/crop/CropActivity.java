@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
@@ -30,13 +29,17 @@ import java.io.File;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_crop)
 @LogTag("CropActivity")
 @IsFullScreen(false)
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
     private final int REQUEST_CODE_GET_FILE = 1;
     private boolean isOvalOption;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_crop;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class CropActivity extends BaseFontActivity {
     }
 
     private void crop() {
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(new PermissionListener() {
                     @Override
@@ -65,12 +68,12 @@ public class CropActivity extends BaseFontActivity {
 
                     @Override
                     public void onPermissionDenied(PermissionDeniedResponse response) {
-                        showShort("Error onPermissionDenied WRITE_EXTERNAL_STORAGE", true);
+                        showShortInformation("Error onPermissionDenied WRITE_EXTERNAL_STORAGE", true);
                     }
 
                     @Override
                     public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
-                        showShort("Error onPermissionDenied WRITE_EXTERNAL_STORAGE", true);
+                        showShortInformation("Error onPermissionDenied WRITE_EXTERNAL_STORAGE", true);
                     }
                 }).check();
     }
@@ -138,7 +141,7 @@ public class CropActivity extends BaseFontActivity {
                 }
                 final File file = new File(realPath);
                 logD("onActivityResult file " + file.getPath());
-                LImageUtil.Companion.load(this, file, iv);
+                LImageUtil.Companion.load(this, file, iv, R.color.colorPrimary, R.color.colorPrimary, null, null);
             }
         }
     }

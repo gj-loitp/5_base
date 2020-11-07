@@ -1,12 +1,12 @@
 package vn.loitp.app.activity.database.sqlitemultitable.model
 
-class Tag {
+import com.core.base.BaseModel
+
+class Tag : BaseModel {
     var id: Int = 0
     var tagName: String? = null
 
-    constructor() {
-
-    }
+    constructor()
 
     constructor(tagName: String) {
         this.tagName = tagName

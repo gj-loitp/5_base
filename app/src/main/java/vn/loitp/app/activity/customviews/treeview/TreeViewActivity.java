@@ -7,7 +7,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.treeview.BaseTreeAdapter;
@@ -18,11 +17,15 @@ import vn.loitp.app.R;
 
 //https://github.com/Team-Blox/TreeView
 
-@LayoutId(R.layout.activity_tree_view)
 @LogTag("TreeViewActivity")
 @IsFullScreen(false)
 public class TreeViewActivity extends BaseFontActivity {
     private int nodeCount = 0;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_tree_view;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

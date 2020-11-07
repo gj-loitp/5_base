@@ -4,7 +4,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.layout.draggablepanel.DraggableListener;
@@ -12,11 +11,15 @@ import com.views.layout.draggablepanel.DraggablePanel;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_draggable_panel)
 @LogTag("DraggablePanelActivity")
 @IsFullScreen(false)
 public class DraggablePanelActivity extends BaseFontActivity {
     private DraggablePanel draggablePanel;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_draggable_panel;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

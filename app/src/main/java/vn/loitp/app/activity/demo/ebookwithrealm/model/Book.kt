@@ -17,4 +17,3 @@ open class Book : RealmObject() {
 
     open var imageUrl: String? = null
 }
-

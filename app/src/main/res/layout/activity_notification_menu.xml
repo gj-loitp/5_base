@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -50,15 +50,10 @@
                 style="@style/ButtonMenu"
                 android:text="Notifcation headsup" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btNotificationHeadsupNice"
-                style="@style/ButtonMenu"
-                android:text="Notifcation headsup (Nice)" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Notification Menu" />

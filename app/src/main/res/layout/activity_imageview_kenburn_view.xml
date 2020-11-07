@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Kenburn View" />
 
-    <com.views.imageview.kenburnview.LKenBurnsView
+    <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/kbv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,7 +24,7 @@
             android:id="@+id/btPause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/themeBackgroundColor"
+            android:background="?attr/themeBackgroundColorMedium"
             android:text="Pause"
             android:textColor="?attr/themeTextColor" />
 
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
-            android:background="?attr/themeBackgroundColor"
+            android:background="?attr/themeBackgroundColorMedium"
             android:text="Resume"
             android:textColor="?attr/themeTextColor" />
     </LinearLayout>

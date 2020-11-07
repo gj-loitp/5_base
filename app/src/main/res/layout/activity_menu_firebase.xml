@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -14,20 +15,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_admob"
+                android:id="@+id/btAdmob"
                 style="@style/ButtonMenu"
                 android:text="Admob" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_auth"
+                android:id="@+id/btAuth"
                 style="@style/ButtonMenu"
                 android:text="Auth" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_config"
+                android:id="@+id/btConfig"
                 style="@style/ButtonMenu"
                 android:text="Config" />
 
@@ -37,17 +40,17 @@
                 android:text="Database" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_database_simple"
+                android:id="@+id/btDatabaseSimple"
                 style="@style/ButtonMenu"
                 android:text="Database simple" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_fcm"
+                android:id="@+id/btFcm"
                 style="@style/ButtonMenu"
                 android:text="FCM" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_invite"
+                android:id="@+id/btInvite"
                 style="@style/ButtonMenu"
                 android:text="Invite" />
 
@@ -63,9 +66,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="Menu Firebase" />
 </RelativeLayout>
-

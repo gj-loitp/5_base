@@ -7,6 +7,8 @@
     <color name="colorPrimary60">#99000000</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#000000</color>
+    <color name="ripple_material_dark">#80FFFFFF</color>
+    <color name="ripple_material_light">#80000000</color>
 
     <color name="vip1">#d3131f</color>
     <color name="vip2">#19875c</color>

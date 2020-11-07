@@ -29,9 +29,12 @@ class AdHelperActivity : BaseFontActivity() {
     private val adPageList = ArrayList<AdPage>()
     private var isEnglishLanguage: Boolean = false
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_ad_helper
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_ad_helper)
 
         isEnglishLanguage = intent.getBooleanExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
 
@@ -142,7 +145,7 @@ class AdHelperActivity : BaseFontActivity() {
             val btOkay = layout.findViewById<QButton>(R.id.btOkay)
 
             adPage.urlAd?.let {
-                LImageUtil.load(context = this@AdHelperActivity, url = it, imageView = imageView)
+                LImageUtil.load(context = this@AdHelperActivity, any = it, imageView = imageView)
             }
 
             textView.text = adPage.title

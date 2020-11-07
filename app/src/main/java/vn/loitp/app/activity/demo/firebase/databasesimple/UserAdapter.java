@@ -1,14 +1,20 @@
 package vn.loitp.app.activity.demo.firebase.databasesimple;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.core.utilities.LImageUtil;
 
 import org.jetbrains.annotations.NotNull;
@@ -39,8 +45,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         public UserViewHolder(View view) {
             super(view);
             tvName = view.findViewById(R.id.tvName);
-            tvTime = view.findViewById(R.id.tv_time);
-            tvMsg = view.findViewById(R.id.tv_msg);
+            tvTime = view.findViewById(R.id.tvTime);
+            tvMsg = view.findViewById(R.id.tvMsg);
             avt = view.findViewById(R.id.avt);
             rootView = view.findViewById(R.id.rootView);
         }
@@ -66,7 +72,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         holder.tvMsg.setText(user.getMsg());
         holder.tvTime.setText(user.getTimestamp() + "");
 
-        LImageUtil.Companion.load(context, user.getAvt(), holder.avt);
+        LImageUtil.Companion.load(context, user.getAvt(), holder.avt, R.color.colorPrimary, R.color.colorPrimary, null, new RequestListener<Drawable>() {
+            @Override
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                return false;
+            }
+        });
 
         holder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override

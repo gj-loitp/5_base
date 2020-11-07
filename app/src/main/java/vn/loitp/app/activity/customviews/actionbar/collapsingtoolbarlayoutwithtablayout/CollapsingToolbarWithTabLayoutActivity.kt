@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -25,10 +24,13 @@ import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_collapsingtoolbar_withtablayout)
 @LogTag("CollapsingToolbarWithTabLayoutActivity")
 @IsFullScreen(false)
 class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_collapsingtoolbar_withtablayout
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +38,7 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         setCustomStatusBar(colorStatusBar = Color.TRANSPARENT, colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
 
         setSupportActionBar(toolbar)

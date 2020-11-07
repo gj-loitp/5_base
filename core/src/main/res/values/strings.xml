@@ -10,6 +10,7 @@
     <string name="err_unknow">Lỗi không xác định, xin vui lòng thử lại sau.</string>
     <string name="err_unknow_en">Unknown error, please try again later.</string>
     <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="fast_forward">Fast forward</string>
@@ -128,9 +129,11 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="app_name_girl">CUTE HOLE</string>
+    <string name="app_name_comic">TruyenTranhVN.org</string>
     <string name="menu_home">Home</string>
     <string name="menu_favourite">Favourite</string>
     <string name="menu_infor">Information</string>
+    <string name="menu_profile">Profile</string>
     <string name="today_s">Today\'s</string>
     <string name="hottest_shot">Hottest shot</string>
     <string name="album">Album</string>
@@ -143,4 +146,26 @@
     <string name="touch_anywhere_to_hide">Swipe left/right to another page\nTouch anywhere to hide.</string>
     <string name="chat_with_dev">Chat with dev</string>
     <string name="donation">Donation</string>
+    <string name="go_to_settings">Vào cài đặt</string>
+    <string name="need_permissions">Cấp quyền truy cập</string>
+    <string name="need_permission_msg">Vui lòng cấp quyền để có thể sử dụng ứng dụng.</string>
+    <string name="need_permission_msg_setting">Vui lòng cấp quyền để có thể sử dụng ứng dụng. Vui lòng chọn cài đặt.</string>
+    <string name="home">Trang chủ</string>
+    <string name="favourite">Yêu thích</string>
+    <string name="profile">Cá nhân</string>
+    <string name="setting_vn">Cài đặt</string>
+    <string name="information_vn">Thông tin</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="dark_theme_vn">Chủ đề tối</string>
+    <string name="support_me">Support me</string>
+    <string name="warning_vn">Thông báo</string>
+    <string name="app_will_be_restarted_vn">Ứng dụng sẽ được khởi động lại.</string>
+    <string name="all_vn">Tất cả</string>
+    <string name="category_vn">Thể loại</string>
+    <string name="search_in_category">Đang tìm kiếm ở thể loại</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="next_chap">Next chap</string>
+    <string name="prev_chap">Previous chap</string>
+    <string name="comment">Bình luận</string>
+    <string name="download_photo">Tải ảnh về</string>
 </resources>

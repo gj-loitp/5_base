@@ -21,7 +21,7 @@ class GalleryAdapter internal constructor(private val context: Context, private 
 
     inner class MovieViewHolder internal constructor(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(movie: Movie) {
-            LImageUtil.load(context = context, url = movie.cover, imageView = itemView.imageView)
+            LImageUtil.load(context = context, any = movie.cover, imageView = itemView.imageView)
             itemView.rootView.setOnClickListener {
                 callback?.onClick(movie = movie, position = bindingAdapterPosition)
             }

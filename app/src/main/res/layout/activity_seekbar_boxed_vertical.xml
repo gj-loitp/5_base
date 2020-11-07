@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_weight="1"
             android:gravity="center">
 
-            <com.views.seekbar.boxedvertical.LBoxedVertical
+            <abak.tr.com.boxedverticalseekbar.BoxedVertical
                 android:id="@+id/boxedVertical"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
@@ -26,17 +26,17 @@
                 android:layout_marginTop="@dimen/margin_55"
                 android:layout_marginBottom="@dimen/margin_55"
                 app:backgroundColor="@color/lightBlue"
-                app:cornerRadius_boxed="20"
-                app:defaultValueBoxedVertical="50"
-                app:imageEnabled_boxed="false"
-                app:max_boxed="100"
+                app:cornerRadius="@dimen/round_medium"
+                app:defaultValue="140"
+                app:imageEnabled="false"
+                app:max="300"
                 app:progressColor="@color/blue"
                 app:step="1"
                 app:textBottomPadding="20"
-                app:textColor_boxed="@color/red"
-                app:textEnabled_boxed="true"
-                app:textSize_boxed="8sp"
-                app:touchDisabled_boxed="false" />
+                app:textColor="@color/red"
+                app:textEnabled="true"
+                app:textSize="12sp"
+                app:touchDisabled="true" />
         </LinearLayout>
 
         <ScrollView
@@ -53,4 +53,3 @@
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>
-

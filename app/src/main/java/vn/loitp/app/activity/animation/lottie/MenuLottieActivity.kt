@@ -11,7 +11,6 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.airbnb.lottie.LottieAnimationView
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -22,11 +21,14 @@ import java.io.IOException
 import java.util.*
 
 //https://www.lottiefiles.com/?page=1
-@LayoutId(R.layout.activity_animation_lottie)
 @LogTag("MenuLottieActivity")
 @IsFullScreen(false)
 class MenuLottieActivity : BaseFontActivity() {
     private val lottieItemList: MutableList<LottieItem> = ArrayList()
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_animation_lottie
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,15 +97,15 @@ class MenuLottieActivity : BaseFontActivity() {
             val inflater = LayoutInflater.from(this@MenuLottieActivity)
             val layout = inflater.inflate(R.layout.item_lottie_view, collection, false) as ViewGroup
             val rl = layout.findViewById<RelativeLayout>(R.id.rl)
-            val lottieAnimationView: LottieAnimationView = layout.findViewById(R.id.animationView)
-            lottieAnimationView.setAnimation(lottieItem.pathAsset)
+            val animationView: LottieAnimationView = layout.findViewById(R.id.animationView)
+            animationView.setAnimation(lottieItem.pathAsset)
             //lottieAnimationView.useHardwareAcceleration();
             //lottieAnimationView.setScale(0.3f);
 
             //lottieAnimationView.playAnimation();
-            lottieAnimationView.loop(true)
+            animationView.loop(true)
             rl.setOnClickListener {
-                lottieAnimationView.playAnimation()
+                animationView.playAnimation()
             }
             collection.addView(layout)
             return layout

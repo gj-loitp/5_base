@@ -13,27 +13,27 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
+
+import org.jetbrains.annotations.NotNull;
 
 import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
-/**
- * Created by thangn on 2/26/17.
- */
-
-@LayoutId(R.layout.wwl_video_up_next_fragment)
 @LogTag("WWLVideoUpNextFragment")
 public class WWLVideoUpNextFragment extends BaseFragment {
     private FragmentHost mFragmentHost;
-    private RecyclerView mRecyclerView;
     private GridLayoutManager mLayoutManager;
     private CustomAdapter mAdapter;
     private boolean mIsLandscape;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.wwl_video_up_next_fragment;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,9 +43,9 @@ public class WWLVideoUpNextFragment extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        this.mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
+        RecyclerView mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
         this.mLayoutManager = new GridLayoutManager(getActivity(), LWWLMusicUiUtil.getGridColumnCount(getResources()));
-        this.mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);
         //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
         //this.mRecyclerView.scrollToPosition(0);
 
@@ -78,14 +78,14 @@ public class WWLVideoUpNextFragment extends BaseFragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(@NotNull Activity activity) {
         super.onAttach(activity);
 
         this.mFragmentHost = (FragmentHost) activity;
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onConfigurationChanged(@NotNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         updateLayoutIfNeed();
     }
@@ -128,8 +128,8 @@ public class WWLVideoUpNextFragment extends BaseFragment {
         private static final int TITLE = 1;
         private static final int OTHER = 2;
         public boolean mHasHeader;
-        private String mTitle;
-        private WWLVideoDataset.DatasetItem[] mDataSet;
+        private final String mTitle;
+        private final WWLVideoDataset.DatasetItem[] mDataSet;
         private WWLVideoDataset.DatasetItem mHeaderItem;
 
         public CustomAdapter(WWLVideoDataset.DatasetItem[] dataset) {
@@ -139,7 +139,7 @@ public class WWLVideoUpNextFragment extends BaseFragment {
         }
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
             if (viewType == HEADER) {
                 View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_video_card_header_item, parent, false);
                 return new HeaderViewHolder(v);

@@ -79,7 +79,7 @@
             android:name=".function.epub.core.EpubReaderReadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".core.helper.admobrewardedvideo.AdmobRewardedVideoActivity"
+            android:name=".core.helper.admobrewardedvideo.AdMobRewardedVideoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".picker.imagepickerwithcrop.TempActivity"
@@ -96,18 +96,36 @@
             android:name=".picker.crop.LGalleryActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.ui.GirlSplashActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.ui.GirlActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name="com.core.helper.girl.ui.GirlDetailActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlDetailActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
         <activity
-            android:name=".core.helper.girl.ui.GirlSlideActivity"
+            android:name="com.core.helper.mup.girl.ui.GirlSlideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".core.helper.mup.comic.ui.activity.ComicSplashActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".core.helper.mup.comic.ui.activity.ComicActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".core.helper.mup.comic.ui.activity.ComicLoginActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".core.helper.mup.comic.ui.activity.ComicChapActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:theme="@style/SwipeTheme" />
+        <activity
+            android:name=".core.helper.mup.comic.ui.activity.ComicReadActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:theme="@style/SwipeTheme" />
     </application>
 
 </manifest>

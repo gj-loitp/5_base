@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.recyclerview.gallery.GalleryLayoutManager
@@ -20,24 +19,27 @@ import vn.loitp.app.common.Constants
 
 //https://github.com/BCsl/GalleryLayoutManager
 
-@LayoutId(R.layout.activity_recycler_view_menu_gallery_layout_manager)
 @LogTag("GalleryLayoutManagerVerticalActivity")
 @IsFullScreen(false)
 class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
-    private var mAdapter: GalleryAdapterVertical? = null
+    private var galleryAdapterVertical: GalleryAdapterVertical? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_recycler_view_menu_gallery_layout_manager
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAdapter = GalleryAdapterVertical(context = this, moviesList = instance.movieList,
+        galleryAdapterVertical = GalleryAdapterVertical(context = this, moviesList = instance.movieList,
                 callback = object : GalleryAdapterVertical.Callback {
                     override fun onClick(movie: Movie, position: Int) {
-                        showShort("onClick " + movie.title)
+                        showShortInformation("onClick " + movie.title)
                     }
 
                     override fun onLongClick(movie: Movie, position: Int) {
-                        showShort("onLongClick " + movie.title)
+                        showShortInformation("onLongClick " + movie.title)
                     }
 
                     override fun onLoadMore() {
@@ -54,9 +56,9 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
 
         //...
         //setup adapter for your RecycleView
-        rv.adapter = mAdapter
+        rv.adapter = galleryAdapterVertical
         layoutManager.setCallbackInFling(true) //should receive callback when flinging, default is false
-        layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int -> textView.text = position.toString() + "/" + mAdapter?.itemCount }
+        layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int -> textView.text = position.toString() + "/" + galleryAdapterVertical?.itemCount }
 
         // Apply ItemTransformer just like ViewPager
         layoutManager.setItemTransformer(ScaleTransformer())
@@ -70,7 +72,7 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
                 instance.movieList.add(movie)
             }
         }
-        mAdapter?.notifyDataSetChanged()
+        galleryAdapterVertical?.notifyDataSetChanged()
     }
 
     inner class ScaleTransformer : ItemTransformer {

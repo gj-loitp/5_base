@@ -4,7 +4,7 @@
     android:id="@+id/rootView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="?attr/themeBackgroundColor">
+    android:background="@color/red">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -14,13 +14,13 @@
         android:padding="@dimen/padding_medium"
         tools:ignore="UselessParent">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10"
@@ -36,7 +36,7 @@
             android:gravity="end"
             android:orientation="horizontal">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btOK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:text="OK"
                 android:textColor="?attr/themeTextColor" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btCancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

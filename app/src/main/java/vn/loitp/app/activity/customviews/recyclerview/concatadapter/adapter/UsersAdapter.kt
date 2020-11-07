@@ -29,7 +29,7 @@ class UsersAdapter(
         fun bind(user: User) {
             itemView.textViewUserName.text = user.name
             LImageUtil.load(context = itemView.imageViewAvatar.context,
-                    url = user.avatar,
+                    any = user.avatar,
                     imageView = itemView.imageViewAvatar)
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(user, bindingAdapterPosition)

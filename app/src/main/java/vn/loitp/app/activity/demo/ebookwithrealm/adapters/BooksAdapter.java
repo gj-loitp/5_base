@@ -98,9 +98,9 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
         CardViewHolder(View itemView) {
             super(itemView);
             card = itemView.findViewById(R.id.card_books);
-            textTitle = itemView.findViewById(R.id.text_books_title);
-            textAuthor = itemView.findViewById(R.id.text_books_author);
-            textDescription = itemView.findViewById(R.id.text_books_description);
+            textTitle = itemView.findViewById(R.id.textBooksTitle);
+            textAuthor = itemView.findViewById(R.id.textBooksAuthor);
+            textDescription = itemView.findViewById(R.id.textBooksDescription);
             imageBackground = itemView.findViewById(R.id.image_background);
         }
     }

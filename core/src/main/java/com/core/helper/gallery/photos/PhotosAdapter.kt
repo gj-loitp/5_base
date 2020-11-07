@@ -55,7 +55,7 @@ class PhotosAdapter internal constructor(private val context: Context, private v
             itemView.tvSize.visibility = View.INVISIBLE
 
             LImageUtil.load(context = itemView.imageView.context,
-                    url = photo.flickrLink1024,
+                    any = photo.flickrLink1024,
                     imageView = itemView.imageView,
                     resPlaceHolder = color,
                     resError = color,

@@ -4,14 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.GalleryCoreSplashActivity
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
-import com.core.helper.girl.ui.GirlSplashActivity
+import com.core.helper.mup.comic.ui.activity.ComicSplashActivity
+import com.core.helper.mup.girl.ui.GirlSplashActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
@@ -33,14 +33,21 @@ import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
 import vn.loitp.app.activity.demo.video.VideoActivity
 
-@LayoutId(R.layout.activity_demo_menu)
 @LogTag("MenuDemoActivity")
 @IsFullScreen(false)
 class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_menu
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btAlarm.setOnClickListener(this)
         btEbookWithRealm.setOnClickListener(this)
         btVideo.setOnClickListener(this)
@@ -77,6 +84,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btNFC.setOnClickListener(this)
         btGirl.setOnClickListener(this)
         btMapTracker.setOnClickListener(this)
+        btComic.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -140,6 +148,11 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, listBkg.random())
             }
             btMapTracker -> intent = Intent(this, MapTrackerActivity::class.java)
+            btComic -> {
+                intent = Intent(this, ComicSplashActivity::class.java)
+                intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
+                intent.putExtra(Constants.COMIC_SHOW_DONATION, true)
+            }
         }
         intent?.let {
             startActivity(intent)

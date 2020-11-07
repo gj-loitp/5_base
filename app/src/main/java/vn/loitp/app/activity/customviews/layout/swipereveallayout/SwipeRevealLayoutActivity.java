@@ -9,7 +9,6 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.core.utilities.LActivityUtil;
@@ -20,10 +19,14 @@ import vn.loitp.app.activity.customviews.layout.swipereveallayout.list.SwipeReve
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.recycler.SwipeRevealLayoutRecyclerActivity;
 
 //https://github.com/chthai64/SwipeRevealLayout
-@LayoutId(R.layout.activity_swipe_reveal_layout)
 @LogTag("SwipeRevealLayoutActivity")
 @IsFullScreen(false)
 public class SwipeRevealLayoutActivity extends BaseFontActivity {
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_swipe_reveal_layout;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,42 +64,42 @@ public class SwipeRevealLayoutActivity extends BaseFontActivity {
     }
 
     public void layoutOneOnClick(View v) {
-        showShort("Layout 1 clicked", true);
+        showShortInformation("Layout 1 clicked", true);
     }
 
     public void layoutTwoOnClick(View v) {
-        showShort("Layout 2 clicked", true);
+        showShortInformation("Layout 2 clicked", true);
     }
 
     public void layoutThreeOnClick(View v) {
-        showShort("Layout 3 clicked", true);
+        showShortInformation("Layout 3 clicked", true);
     }
 
     public void layoutFourOnClick(View v) {
-        showShort("Layout 4 clicked", true);
+        showShortInformation("Layout 4 clicked", true);
     }
 
     public void moreOnClick(View v) {
-        showShort("More clicked", true);
+        showShortInformation("More clicked", true);
     }
 
     public void deleteOnClick(View v) {
-        showShort("Delete clicked", true);
+        showShortInformation("Delete clicked", true);
     }
 
     public void archiveOnClick(View v) {
-        showShort("Archive clicked", true);
+        showShortInformation("Archive clicked", true);
     }
 
     public void helpOnClick(View v) {
-        showShort("Help clicked", true);
+        showShortInformation("Help clicked", true);
     }
 
     public void searchOnClick(View v) {
-        showShort("Search clicked", true);
+        showShortInformation("Search clicked", true);
     }
 
     public void starOnClick(View v) {
-        showShort("Star clicked", true);
+        showShortInformation("Star clicked", true);
     }
 }

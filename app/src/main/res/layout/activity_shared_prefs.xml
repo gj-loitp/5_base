@@ -3,7 +3,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -17,7 +17,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_5">
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutString"
@@ -97,7 +98,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="SharedPrefs" />

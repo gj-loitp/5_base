@@ -10,6 +10,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.R
+import vn.loitp.app.activity.api.truyentranhtuan.db.TTTDatabase
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //build release de check
@@ -18,7 +19,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 //TODO demo -> youtube parser ko vao list video dc
 //TODO demo -> floating view crash
 //TODO demo firebase -> auth
-//TODO demo firebase -> database simple crash
 //TODO service -> ko stop service dc
 //TODO database -> read sqlite dtb crash
 
@@ -61,7 +61,10 @@ class LApplication : BaseApplication() {
         //room database
         FNBDatabase.getInstance(this)
 
+        //ttt database
+        TTTDatabase.getInstance(this)
+
 //        logD("LApplication onCreate")
-        LUIUtil.setDarkTheme(isDarkTheme = false)
+        LUIUtil.setDarkTheme(isDarkTheme = true)
     }
 }

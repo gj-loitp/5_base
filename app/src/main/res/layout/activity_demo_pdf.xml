@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColor"
     android:orientation="vertical"
     android:paddingTop="@dimen/padding_medium"
     android:paddingBottom="@dimen/padding_medium">
@@ -47,6 +47,7 @@
             android:layout_height="@dimen/w_10"
             android:layout_centerInParent="true"
             android:layout_margin="@dimen/margin_10"
+            android:indeterminateTint="?attr/themeTextColor"
             android:max="100"
             android:visibility="gone"
             tools:progress="50"

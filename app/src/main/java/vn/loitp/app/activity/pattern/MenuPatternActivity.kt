@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -14,10 +13,13 @@ import vn.loitp.app.activity.pattern.mvp.MVPActivity
 import vn.loitp.app.activity.pattern.mvvm.MVVMActivity
 import vn.loitp.app.activity.pattern.observerpattern.ObserverPatternActivity
 
-@LayoutId(R.layout.activity_pattern_menu)
 @LogTag("MenuPatternActivity")
 @IsFullScreen(false)
 class MenuPatternActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_pattern_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -2,11 +2,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     android:fitsSystemWindows="true">
 
     <com.views.LAppBarLayout
-        android:id="@+id/appBar"
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
@@ -23,7 +23,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="@color/transparent">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
@@ -61,10 +61,13 @@
                         android:layout_marginEnd="@dimen/margin_55"
                         android:orientation="vertical">
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="?attr/themeTextColor" />
+                            android:textColor="?attr/themeTextColor"
+                            android:textColorHint="?attr/themeTextColor"
+                            android:textCursorDrawable="?attr/themeTextColor"
+                            android:textSize="@dimen/txt_medium" />
                     </LinearLayout>
 
                     <com.views.button.circularimageclick.LCircularClickImageButton
@@ -77,7 +80,8 @@
                         android:background="?selectableItemBackgroundBorderless"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"
-                        android:src="@drawable/ic_more_vert_black_48dp" />
+                        android:src="@drawable/ic_more_vert_black_48dp"
+                        android:tint="?attr/themeTextColor" />
                 </RelativeLayout>
 
             </androidx.appcompat.widget.Toolbar>
@@ -89,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            app:layout_anchor="@id/appBar"
+            app:layout_anchor="@id/appBarLayout"
             app:layout_anchorGravity="bottom"
             app:tabIndicatorColor="@color/red"
             app:tabSelectedTextColor="@color/green"
@@ -112,7 +116,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/appBar"
+        android:contentDescription="@string/app_name"
+        app:layout_anchor="@id/appBarLayout"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

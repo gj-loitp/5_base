@@ -3,7 +3,6 @@ package vn.loitp.app.activity.function.keyboard
 import android.annotation.SuppressLint
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LKeyBoardUtil
@@ -14,10 +13,13 @@ import vn.loitp.app.R
 
 //https://github.com/ParkSangGwon/TedKeyboardObserver
 
-@LayoutId(R.layout.activity_func_keyboard)
 @LogTag("KeyboardActivity")
 @IsFullScreen(false)
 class KeyboardActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_func_keyboard
+    }
 
     @SuppressLint("CheckResult", "SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

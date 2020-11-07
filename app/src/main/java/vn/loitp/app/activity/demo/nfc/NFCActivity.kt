@@ -10,7 +10,6 @@ import android.nfc.tech.*
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -27,28 +26,31 @@ import java.nio.charset.Charset
 import java.util.*
 import kotlin.experimental.and
 
-@LayoutId(R.layout.activity_demo_nfc)
 @LogTag("NFCActivity")
 @IsFullScreen(false)
 class NFCActivity : BaseFontActivity() {
     private val tags: ArrayList<TagWrapper> = ArrayList()
 
-    private var adapter: NfcAdapter? = null
+    private var nfcAdapter: NfcAdapter? = null
     private var pendingIntent: PendingIntent? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_demo_nfc
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         currentTagView.text = "Loading..."
-        adapter = NfcAdapter.getDefaultAdapter(this)
+        nfcAdapter = NfcAdapter.getDefaultAdapter(this)
     }
 
     @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
 
-        if (adapter?.isEnabled == false) {
+        if (nfcAdapter?.isEnabled == false) {
             val dialog = LDialogUtil.showDialog1(context = this,
                     title = "NFC is disabled",
                     msg = "You must enable NFC to use this app.",
@@ -67,12 +69,12 @@ class NFCActivity : BaseFontActivity() {
                     Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
             currentTagView.text = "Scan a tag"
         }
-        adapter?.enableForegroundDispatch(this, pendingIntent, null, null)
+        nfcAdapter?.enableForegroundDispatch(this, pendingIntent, null, null)
     }
 
     override fun onPause() {
         super.onPause()
-        adapter?.disableForegroundDispatch(this)
+        nfcAdapter?.disableForegroundDispatch(this)
     }
 
     override fun onNewIntent(intent: Intent) {
@@ -110,7 +112,7 @@ class NFCActivity : BaseFontActivity() {
             }
 
             if (tags.size == 1) {
-                showShort("Swipe right to see previous tags")
+                showShortInformation("Swipe right to see previous tags")
             }
             tags.add(tagWrapper)
 

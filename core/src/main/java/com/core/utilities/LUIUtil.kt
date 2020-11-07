@@ -31,9 +31,8 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.InterstitialAd
+import com.google.ads.interactivemedia.v3.internal.it
+import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
@@ -47,6 +46,7 @@ import io.github.inflationx.viewpump.ViewPump
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
 import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  * File created on 17/7/2019.
@@ -77,53 +77,52 @@ class LUIUtil {
                         .build())
             }
 
-        fun createAdBanner(activity: Activity, adViewId: Int): AdView {
-            val adView = activity.findViewById<AdView>(adViewId)
-            createAdBanner(adView)
-            return adView
+//        fun createAdBanner(activity: Activity, adViewId: Int): AdView {
+//            val adView = activity.findViewById<AdView>(adViewId)
+//            createAdBanner(adView)
+//            return adView
+//        }
+
+        private fun getListTestDevice(): ArrayList<String> {
+            val listTestDevice = ArrayList<String>()
+            listTestDevice.add(AdRequest.DEVICE_ID_EMULATOR)
+            listTestDevice.add(Constants.TEST_0)
+            listTestDevice.add(Constants.TEST_1)
+            listTestDevice.add(Constants.TEST_2)
+            listTestDevice.add(Constants.TEST_3)
+            listTestDevice.add(Constants.TEST_4)
+            listTestDevice.add(Constants.TEST_5)
+            listTestDevice.add(Constants.TEST_6)
+            listTestDevice.add(Constants.TEST_7)
+            listTestDevice.add(Constants.TEST_8)
+            listTestDevice.add(Constants.TEST_9)
+            listTestDevice.add(Constants.TEST_10)
+            listTestDevice.add(Constants.TEST_11)
+            listTestDevice.add(Constants.TEST_12)
+            listTestDevice.add(Constants.TEST_13)
+            return listTestDevice
         }
 
         fun createAdBanner(adView: AdView): AdView {
-            adView.loadAd(AdRequest.Builder()
-                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .addTestDevice(Constants.TEST_0)
-                    .addTestDevice(Constants.TEST_1)
-                    .addTestDevice(Constants.TEST_2)
-                    .addTestDevice(Constants.TEST_3)
-                    .addTestDevice(Constants.TEST_4)
-                    .addTestDevice(Constants.TEST_5)
-                    .addTestDevice(Constants.TEST_6)
-                    .addTestDevice(Constants.TEST_7)
-                    .addTestDevice(Constants.TEST_8)
-                    .addTestDevice(Constants.TEST_9)
-                    .addTestDevice(Constants.TEST_10)
-                    .addTestDevice(Constants.TEST_11)
-                    .addTestDevice(Constants.TEST_12)
-                    .addTestDevice(Constants.TEST_13)
-                    .build())
+            val requestConfiguration = RequestConfiguration.Builder()
+                    .setTestDeviceIds(getListTestDevice())
+                    .build()
+            MobileAds.setRequestConfiguration(requestConfiguration)
+
+            adView.loadAd(AdRequest.Builder().build())
             return adView
         }
 
         fun createAdFull(context: Context): InterstitialAd {
             val interstitial = InterstitialAd(context)
             interstitial.adUnitId = AdmobData.instance.idAdmobFull
-            val adRequest = AdRequest.Builder()
-                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                    .addTestDevice(Constants.TEST_0)
-                    .addTestDevice(Constants.TEST_1)
-                    .addTestDevice(Constants.TEST_2)
-                    .addTestDevice(Constants.TEST_3)
-                    .addTestDevice(Constants.TEST_4)
-                    .addTestDevice(Constants.TEST_5)
-                    .addTestDevice(Constants.TEST_6)
-                    .addTestDevice(Constants.TEST_7)
-                    .addTestDevice(Constants.TEST_8)
-                    .addTestDevice(Constants.TEST_9)
-                    .addTestDevice(Constants.TEST_10)
-                    .addTestDevice(Constants.TEST_11)
-                    .addTestDevice(Constants.TEST_12)
-                    .addTestDevice(Constants.TEST_13)
+
+            val requestConfiguration = RequestConfiguration.Builder()
+                    .setTestDeviceIds(getListTestDevice())
                     .build()
+            MobileAds.setRequestConfiguration(requestConfiguration)
+
+            val adRequest = AdRequest.Builder().build()
             interstitial.loadAd(adRequest)
             return interstitial
         }
@@ -299,9 +298,9 @@ class LUIUtil {
         }
 
         fun setTextShadow(textView: TextView?, color: Int = if (isDarkTheme()) {
-            Color.WHITE
-        } else {
             Color.BLACK
+        } else {
+            Color.WHITE
         }) {
             textView?.setShadowLayer(1f, // radius
                     1f, // dx
@@ -310,13 +309,13 @@ class LUIUtil {
             )
         }
 
-        fun setTextShadow(textView: TextView?) {
-            textView?.setShadowLayer(1f, // radius
-                    1f, // dx
-                    1f, // dy
-                    Color.BLACK // shadow color
-            )
-        }
+//        fun setTextShadow(textView: TextView?) {
+//            textView?.setShadowLayer(1f, // radius
+//                    1f, // dx
+//                    1f, // dy
+//                    Color.BLACK // shadow color
+//            )
+//        }
 
         fun setTextBold(textBold: TextView) {
             textBold.setTypeface(null, Typeface.BOLD)
@@ -667,13 +666,6 @@ class LUIUtil {
             }
         }
 
-        //ViewGroup.LayoutParams.MATCH_PARENT
-        fun setSize(view: View, w: Int, h: Int) {
-            view.layoutParams.width = w
-            view.layoutParams.height = h
-            view.requestLayout()
-        }
-
         @SuppressLint("ObsoleteSdkInt")
         fun setRipple(context: Context?, view: View) {
             context?.let { c ->
@@ -710,23 +702,57 @@ class LUIUtil {
             }
         }
 
-        fun setHeightOfView(view: View?, height: Int) {
-            view?.let {
-                it.layoutParams.height = height
-                it.requestLayout()
+        fun setSizeOfView(
+                view: View? = null,
+                width: Int? = null,
+                height: Int? = null
+        ) {
+            view?.let { v ->
+                width?.let {
+                    v.layoutParams.width = width
+                }
+                height?.let {
+                    v.layoutParams.height = height
+                }
+                v.requestLayout()
             }
         }
 
+        //ViewGroup.LayoutParams.MATCH_PARENT
+//        fun setSize(view: View, w: Int, h: Int) {
+//            view.layoutParams.width = w
+//            view.layoutParams.height = h
+//            view.requestLayout()
+//        }
+
         fun setScrollChange(recyclerView: RecyclerView, callbackRecyclerView: CallbackRecyclerView) {
+            var isScrollDown = false
             recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     super.onScrollStateChanged(recyclerView, newState)
+
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                         if (!recyclerView.canScrollVertically(1)) {
                             callbackRecyclerView.onBottom()
                         }
                         if (!recyclerView.canScrollVertically(-1)) {
                             callbackRecyclerView.onTop()
+                        }
+                    }
+                }
+
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+
+                    if (dy < 0) {
+                        if (isScrollDown) {
+                            isScrollDown = false
+                            callbackRecyclerView.onScrolled(isScrollDown)
+                        }
+                    } else if (dy > 0) {
+                        if (!isScrollDown) {
+                            isScrollDown = true
+                            callbackRecyclerView.onScrolled(isScrollDown)
                         }
                     }
                 }

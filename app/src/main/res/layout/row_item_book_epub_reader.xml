@@ -2,19 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColorMedium">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivCover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:adjustViewBounds="true"
         android:contentDescription="@string/app_name"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@android:drawable/alert_light_frame" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvBookTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:lines="2"
+        android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"
         tools:text="Sample Title" />
 

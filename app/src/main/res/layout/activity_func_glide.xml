@@ -2,14 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"
-        android:src="@color/colorPrimary" />
+        android:src="@color/red" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,20 +23,31 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Low" />
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="Low"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
             android:layout_weight="1"
-            android:text="Medium" />
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="Medium"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
             android:layout_weight="1"
-            android:text="High" />
+            android:background="?attr/themeBackgroundColorMedium"
+            android:text="High"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
     </LinearLayout>
 </RelativeLayout>

@@ -55,9 +55,12 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var photosSize: Int = 0
     private var isShowDialogCheck: Boolean = false
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_flickr_gallery_core_photos_only
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_flickr_gallery_core_photos_only)
 
         RestClient.init(getString(R.string.flickr_URL))
 //        setTransparentStatusNavigationBar()
@@ -71,7 +74,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.BANNER
+                it.adSize = AdSize.SMART_BANNER
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
@@ -144,7 +147,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
         })
 
-        btPage.setOnClickListener { _ ->
+        btPage.setOnClickListener {
             showListPage()
         }
 
@@ -312,7 +315,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     private fun checkPermission() {
         isShowDialogCheck = true
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -395,13 +398,13 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
                     override fun onCompleted(file: File?) {
                         file?.let {
-                            showLong("Saved in ${it.path}")
+                            showLongInformation("Saved in ${it.path}")
                             LStoreUtil.sendBroadcastMediaScan(it)
                         }
                     }
 
                     override fun onFailure(reason: String?) {
-                        showLong("Download failed $reason")
+                        showLongError("Download failed $reason")
                     }
 
                     override fun onPause() {

@@ -7,9 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
@@ -55,14 +53,11 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        logD("onCreate")
         RestClient.init(getString(R.string.flickr_URL))
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        logD("onCreateView")
-        frmRootView = inflater.inflate(R.layout.l_frm_flickr_gallery_core_photos_only, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_flickr_gallery_core_photos_only
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -289,7 +284,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     private fun checkPermission() {
         isShowDialogCheck = true
-        Dexter.withActivity(activity)
+        Dexter.withContext(context)
                 .withPermissions(
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -376,13 +371,13 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
                     override fun onCompleted(file: File?) {
                         file?.let {
-                            showLong("Saved in ${it.path}")
+                            showLongInformation("Saved in ${it.path}")
                             LStoreUtil.sendBroadcastMediaScan(it)
                         }
                     }
 
                     override fun onFailure(reason: String?) {
-                        showLong("Download failed $reason")
+                        showLongError("Download failed $reason")
                     }
 
                     override fun onPause() {

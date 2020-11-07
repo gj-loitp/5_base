@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -17,14 +16,18 @@ import kotlinx.android.synthetic.main.activity_realm.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 
-@LayoutId(R.layout.activity_realm)
 @LogTag("RealmActivity")
 @IsFullScreen(false)
 class RealmActivity : BaseFontActivity() {
     private lateinit var mRealm: Realm
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_realm
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         mRealm = RealmController.with(application).realm
 
         // refresh the realm instance
@@ -124,7 +127,7 @@ class RealmActivity : BaseFontActivity() {
     }
 
     private fun printTotalSize() {
-        showShort("Total size: " + RealmController.getInstance(this).myBookList.size)
+        showShortInformation("Total size: " + RealmController.getInstance(this).myBookList.size)
     }
 
     private fun showInputDialog(ipb: InputCallback) {
@@ -152,9 +155,9 @@ class RealmActivity : BaseFontActivity() {
                     try {
                         val id: Long = it.toLong()
                         val mb = RealmController.getInstance(this@RealmActivity).getMyBook(id)
-                        showShort("searchById -> ${mb.title}")
+                        showShortInformation("searchById -> ${mb.title}")
                     } catch (e: Exception) {
-                        showShort("searchById $e")
+                        showShortError("searchById $e")
                     }
                 }
             }

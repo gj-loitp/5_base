@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.wwlmusic;
 import android.os.Bundle;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
 import com.views.wwlmusic.layout.LWWLMusic;
@@ -17,7 +16,6 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 
-@LayoutId(R.layout.activity_wwl_music)
 @LogTag("WWLActivityMusic")
 @IsFullScreen(false)
 public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.Listener, FragmentHost {
@@ -25,6 +23,11 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
     private float mLastAlpha;
     private WWLWatchFragment watchFragment;
     private WWLPlaylistFragment playlistFragment;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_wwl_music;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

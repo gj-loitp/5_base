@@ -4,12 +4,11 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
+import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.edittext.autosuggest.LAutoSuggestEditText
-import com.views.layout.relativepopupwindow.LRelativePopupWindow
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -17,11 +16,15 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_editext_auto_suggest.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_editext_auto_suggest)
 @LogTag("EditTextAutoSuggestActivity")
 @IsFullScreen(false)
 class EditTextAutoSuggestActivity : BaseFontActivity() {
     private var disposableSearch: Disposable? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_editext_auto_suggest
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -31,15 +34,15 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
     private fun setupViews() {
         aet0.apply {
             this.popupHeight = LScreenUtil.screenHeight / 2
-            this.vertPos = LRelativePopupWindow.VerticalPosition.BELOW
-            this.horizPos = LRelativePopupWindow.HorizontalPosition.CENTER
+            this.vertPos = RelativePopupWindow.VerticalPosition.BELOW
+            this.horizPos = RelativePopupWindow.HorizontalPosition.CENTER
             this.setHintText("1/2 screen")
             this.setHinTextColor(Color.BLUE)
             this.editText.setTextColor(Color.YELLOW)
             this.setColorProgressBar(Color.RED)
             this.setBackgroundResource(R.drawable.bkg_et)
             this.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
-                showShort("Text ${aet0.editText.text}")
+                showShortInformation("Text ${aet0.editText.text}")
             })
             this.callback = object : LAutoSuggestEditText.Callback {
                 override fun onTextChanged(text: String) {
@@ -51,16 +54,16 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
         aet1.apply {
             this.popupWidth = LScreenUtil.screenWidth * 1 / 2
             this.popupHeight = LScreenUtil.screenHeight * 1 / 4
-            this.vertPos = LRelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
-            this.horizPos = LRelativePopupWindow.HorizontalPosition.RIGHT
+            this.vertPos = RelativePopupWindow.VerticalPosition.ALIGN_BOTTOM
+            this.horizPos = RelativePopupWindow.HorizontalPosition.RIGHT
             this.setHintText("3/4 screen")
             this.setHinTextColor(Color.RED)
             this.editText.setTextColor(Color.BLUE)
             this.setColorProgressBar(Color.GREEN)
             this.setBackgroundResource(R.drawable.l_bkg_horizontal)
-            this.setImeiAction(EditorInfo.IME_ACTION_DONE, Runnable {
-                showShort("Text ${aet1.editText.text}")
-            })
+            this.setImeiAction(EditorInfo.IME_ACTION_DONE) {
+                showShortInformation("Text ${aet1.editText.text}")
+            }
             this.callback = object : LAutoSuggestEditText.Callback {
                 override fun onTextChanged(text: String) {
                     fakeCallAPI1(text)

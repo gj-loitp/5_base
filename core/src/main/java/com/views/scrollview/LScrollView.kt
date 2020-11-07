@@ -7,6 +7,10 @@ import android.widget.ScrollView
 
 class LScrollView : ScrollView {
 
+    interface ScrollListener {
+        fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int)
+    }
+
     private var mScrollListener: ScrollListener? = null
 
     constructor(context: Context) : super(context)
@@ -23,9 +27,5 @@ class LScrollView : ScrollView {
         super.onScrollChanged(l, t, oldl, oldt)
 
         mScrollListener?.onScrollChange(this, l, t, oldl, oldt)
-    }
-
-    interface ScrollListener {
-        fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int)
     }
 }

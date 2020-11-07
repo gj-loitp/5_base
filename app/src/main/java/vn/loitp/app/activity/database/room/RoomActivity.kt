@@ -6,7 +6,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
@@ -15,12 +14,15 @@ import kotlinx.android.synthetic.main.activity_database_room2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.model.FloorPlan
 
-@LayoutId(R.layout.activity_database_room2)
 @LogTag("RoomActivity")
 @IsFullScreen(false)
 class RoomActivity : BaseFontActivity() {
     private var floorPlanAdapter: FloorPlanAdapter? = null
     private var homeViewModel: HomeViewModel? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_database_room2
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +36,7 @@ class RoomActivity : BaseFontActivity() {
         floorPlanAdapter?.apply {
             onClickRootView = {
                 logD(BaseApplication.gson.toJson(it))
-                showShort(BaseApplication.gson.toJson(it))
+                showShortInformation(BaseApplication.gson.toJson(it))
             }
             onClickUpDate = {
                 handleUpdate(it)
@@ -111,7 +113,7 @@ class RoomActivity : BaseFontActivity() {
                 }
                 actionData.data?.let {
                     logD("getByIndexFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
-                    showShort("getByIndexFloorPlanActionLiveData:\n" + BaseApplication.gson.toJson(it))
+                    showShortInformation("getByIndexFloorPlanActionLiveData:\n" + BaseApplication.gson.toJson(it))
                 }
             })
 
@@ -180,7 +182,7 @@ class RoomActivity : BaseFontActivity() {
                 }
 //                val data = actionData.data
                 if (isDoing == false) {
-                    showShort("findFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
+                    showShortInformation("findFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
                 }
             })
         }

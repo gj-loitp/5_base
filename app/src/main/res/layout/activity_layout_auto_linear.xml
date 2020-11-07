@@ -2,7 +2,7 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text"
@@ -37,192 +37,192 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child1"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child2"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child3"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child4"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child5"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child6"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child7"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child8"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child9"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child11"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child12"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child13"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child14"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child15"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child16"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child17"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child18"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child19"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child20"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child21"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child22"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child23"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child24"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
-                android:background="?attr/themeBackgroundColor"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
                 android:text="child25"
                 android:textColor="?attr/themeTextColor" />
 

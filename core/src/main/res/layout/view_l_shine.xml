@@ -14,7 +14,7 @@
         app:enable_flashing="true"
         app:shine_animation_duration="500" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="@dimen/w_50"
         android:layout_height="@dimen/w_50"

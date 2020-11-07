@@ -44,6 +44,7 @@
     <dimen name="txt_small">12sp</dimen>
     <dimen name="txt_medium">16sp</dimen>
     <dimen name="txt_large">22sp</dimen>
+    <dimen name="txt_largest">32sp</dimen>
 
     <dimen name="txt_8">8sp</dimen>
     <dimen name="txt_10">10sp</dimen>
@@ -78,6 +79,7 @@
     <dimen name="round_80">80dp</dimen>
     <dimen name="round_90">90dp</dimen>
 
+    <dimen name="w_tiny">0.5dp</dimen>
     <dimen name="w_1">1dp</dimen>
     <dimen name="w_3">3dp</dimen>
     <dimen name="w_5">5dp</dimen>

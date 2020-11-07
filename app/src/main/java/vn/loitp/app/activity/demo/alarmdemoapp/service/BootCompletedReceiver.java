@@ -32,4 +32,3 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         new AlarmListAdapter(context);
     }
 }
-

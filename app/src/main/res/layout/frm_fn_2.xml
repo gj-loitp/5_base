@@ -5,7 +5,7 @@
     android:background="@color/lightCoral"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
         android:text="@string/fn2" />
 
@@ -20,12 +20,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_15"
+            android:padding="@dimen/padding_medium"
             android:text="@string/large_text"
-            android:textColor="@color/white" />
+            android:textColor="?attr/themeTextColor" />
     </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

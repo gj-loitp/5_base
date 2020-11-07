@@ -33,25 +33,28 @@ import java.util.*
 @IsFullScreen(false)
 class GalleryCoreSplashActivity : BaseFontActivity() {
     private var adView: AdView? = null
-    private var admobBannerUnitId: String? = null
+    private var adMobBannerUnitId: String? = null
     private var isShowDialogCheck: Boolean = false
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_activity_flickr_gallery_core_splash
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.l_activity_flickr_gallery_core_splash)
 
 //        setTransparentStatusNavigationBar()
         RestClient.init(getString(R.string.flickr_URL))
-        admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
+        adMobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 //        logD("admobBannerUnitId $admobBannerUnitId")
 
-        if (admobBannerUnitId == null || admobBannerUnitId!!.isEmpty()) {
+        if (adMobBannerUnitId == null || adMobBannerUnitId!!.isEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.BANNER
-                it.adUnitId = admobBannerUnitId
+                it.adSize = AdSize.SMART_BANNER
+                it.adUnitId = adMobBannerUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
 //                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
@@ -63,7 +66,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         if (urlCoverSplashScreen.isNullOrEmpty()) {
             urlCoverSplashScreen = Constants.URL_IMG_2
         }
-        LImageUtil.load(context = this, url = urlCoverSplashScreen, imageView = ivBkg)
+        LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
 //        LUIUtil.setTextShadow(textView = tvCopyright)
         tvName.text = AppUtils.getAppName()
 //        LUIUtil.setTextShadow(tvName)
@@ -71,9 +74,9 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 
     private fun goToHome() {
         val removeAlbumList = intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)
-        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
+        LUIUtil.setDelay(mls = 2000, runnable = {
             val intent = Intent(this, GalleryCoreAlbumActivity::class.java)
-            intent.putExtra(Constants.AD_UNIT_ID_BANNER, admobBannerUnitId)
+            intent.putExtra(Constants.AD_UNIT_ID_BANNER, adMobBannerUnitId)
             intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumList
                     ?: ArrayList())
             startActivity(intent)
@@ -103,7 +106,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     private fun checkPermission() {
         isShowDialogCheck = true
 
-        Dexter.withActivity(this)
+        Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,

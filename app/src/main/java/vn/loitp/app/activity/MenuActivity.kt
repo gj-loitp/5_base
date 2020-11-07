@@ -3,9 +3,9 @@ package vn.loitp.app.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -33,10 +33,13 @@ import vn.loitp.app.activity.service.MenuServiceActivity
 import vn.loitp.app.activity.tutorial.MenuTutorialActivity
 import vn.loitp.app.activity.utils.UtilsActivity
 
-@LayoutId(R.layout.activity_menu)
 @LogTag("MenuActivity")
 @IsFullScreen(false)
 class MenuActivity : BaseFontActivity(), View.OnClickListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,8 +95,8 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             return
         }
         this.doubleBackToExitPressedOnce = true
-        showShort(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
-        Handler().postDelayed({
+        showShortInformation(msg = getString(R.string.press_again_to_exit), isTopAnchor = false)
+        Handler(Looper.getMainLooper()).postDelayed({
             doubleBackToExitPressedOnce = false
         }, 2000)
     }

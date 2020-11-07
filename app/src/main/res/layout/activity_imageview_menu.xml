@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -31,11 +31,6 @@
                 android:text="@string/big_imageview_with_scrollview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btBlurImageView"
-                style="@style/ButtonMenu"
-                android:text="@string/blur_imageview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCirleImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/circle_imageview" />
@@ -61,16 +56,6 @@
                 android:text="@string/panorama_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btPinchToZoom"
-                style="@style/ButtonMenu"
-                android:text="Pinch to zoom" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btPinchToZoomWithViewPager"
-                style="@style/ButtonMenu"
-                android:text="Pinch to zoom with ViewPager" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btScrollParallaxImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/scroll_parallax_imageview" />
@@ -79,6 +64,11 @@
                 android:id="@+id/btTouchImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/touch_imageview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTouchImageViewWithViewPager"
+                style="@style/ButtonMenu"
+                android:text="Touch Image View with ViewPager" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStretchyImageView"
@@ -92,7 +82,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/menu_imageview" />

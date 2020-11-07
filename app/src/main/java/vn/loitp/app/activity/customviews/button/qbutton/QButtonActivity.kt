@@ -2,21 +2,27 @@ package vn.loitp.app.activity.customviews.button.qbutton
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
 import kotlinx.android.synthetic.main.activity_button_q.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_button_q)
 @LogTag("QButtonActivity")
 @IsFullScreen(false)
 class QButtonActivity : BaseFontActivity() {
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_button_q
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btn.setCornerRadious(5)
         btn.setStrokeWidth(5)
         btn.setStrokeDashGap(5)

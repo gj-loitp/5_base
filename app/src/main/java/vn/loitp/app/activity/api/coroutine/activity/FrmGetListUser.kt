@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFragment
@@ -18,12 +17,15 @@ import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.coroutine.viewmodel.TestViewModel
 
-@LayoutId(R.layout.frm_coroutine_get_list)
 @LogTag("FrmGetListUser")
 class FrmGetListUser : BaseFragment() {
     private var testViewModel: TestViewModel? = null
     private var userListAdapter: UserListAdapter? = null
     private var page = 1
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.frm_coroutine_get_list
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return if (frmRootView == null) {
@@ -67,6 +69,9 @@ class FrmGetListUser : BaseFragment() {
                 logD("onBottom")
                 page += 1
                 testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
+            }
+
+            override fun onScrolled(isScrollDown: Boolean) {
             }
         })
 

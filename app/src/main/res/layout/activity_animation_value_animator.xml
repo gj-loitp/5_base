@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <View
         android:id="@+id/view"
@@ -10,7 +10,7 @@
         android:layout_height="@dimen/w_60"
         android:background="@color/red50" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvDebug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

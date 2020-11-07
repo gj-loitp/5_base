@@ -32,13 +32,18 @@ import java.util.Collection;
 @LogTag("LGalleryActivity")
 @IsFullScreen(false)
 public class LGalleryActivity extends BaseFontActivity implements View.OnClickListener {
-    private ArrayList<String> thumbsDataList = new ArrayList<>();
+    private final ArrayList<String> thumbsDataList = new ArrayList<>();
     public static final String RETURN_VALUE = "RETURN_VALUE";
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.l_activity_l_gallery;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.l_activity_l_gallery);
+
         getStoreImage();
         final GalleryAdapter mAdapter = new GalleryAdapter();
         mAdapter.addAllDataList(thumbsDataList);
@@ -105,8 +110,7 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
      * GalleryAdapter
      */
     public class GalleryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private final int CONTENT_PADDING = 5;
-        private ArrayList<Object> mDataList = new ArrayList<>();
+        private final ArrayList<Object> mDataList = new ArrayList<>();
 
         void addAllDataList(Collection<?> list) {
             this.mDataList.addAll(list);
@@ -128,13 +132,14 @@ public class LGalleryActivity extends BaseFontActivity implements View.OnClickLi
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
             final PhotoItemHolder listHolder = (PhotoItemHolder) holder;
             final DisplayMetrics metrics = getResources().getDisplayMetrics();
+            int CONTENT_PADDING = 5;
             float imgW = (metrics.widthPixels - (ConvertUtils.dp2px(CONTENT_PADDING))) / 3;
 
             final RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, (int) imgW);
             listHolder.rlPhoto.setLayoutParams(params);
 
             final File file = new File(thumbsDataList.get(position));
-            LImageUtil.Companion.load(LGalleryActivity.this, file, listHolder.ivPhoto);
+            LImageUtil.Companion.load(LGalleryActivity.this, file, listHolder.ivPhoto, R.color.colorPrimary, R.color.red, null, null);
             listHolder.ivPhoto.setOnClickListener(v -> {
                 /*CropImage.activity(imageUri)
                         .setGuidelines(CropImageView.Guidelines.OFF)

@@ -1,7 +1,8 @@
 package com.function.epub.exception
 
-class OutOfPagesException(index: Int,
-                          val pageCount: Int)
+class OutOfPagesException(
+        index: Int,
+        val pageCount: Int)
     : Exception("Out of bounds at position: " + index + ", max length is: " + (pageCount - 1)) {
 
     companion object {

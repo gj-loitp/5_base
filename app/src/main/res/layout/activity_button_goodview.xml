@@ -23,10 +23,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="?selectableItemBackground"
-                android:text="GoodView"
+                android:text="@string/good_view"
                 android:textColor="?attr/themeTextColor" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -38,8 +38,8 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Good view" />
+        android:text="@string/good_view" />
 </RelativeLayout>

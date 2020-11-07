@@ -2,9 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
         android:text="Custom dialog" />
 
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="?attr/themeBackgroundColor"
+        android:background="?attr/themeBackgroundColorMedium"
         android:text="@string/show"
         android:textColor="?attr/themeTextColor" />
 

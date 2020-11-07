@@ -10,7 +10,7 @@ import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
 
 class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
-    private val TAG = InspectionDatabaseHelper::class.java.name
+    private val logTag = InspectionDatabaseHelper::class.java.name
 
     companion object {
         // Database Version

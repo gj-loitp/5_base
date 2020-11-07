@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView xmlns:autofit="http://schemas.android.com/apk/res-auto"
         style="@style/ScrollVertical"
@@ -44,7 +44,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/label_autofit"
+                android:text="@string/label_auto_fit"
                 android:textColor="?attr/themeTextColor" />
 
             <com.views.textview.autofit.LAutofitTextView

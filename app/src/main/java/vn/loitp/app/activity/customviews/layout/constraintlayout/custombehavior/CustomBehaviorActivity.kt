@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.layout.constraintlayout.custombehavior
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.google.android.material.snackbar.Snackbar
@@ -10,10 +9,13 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_custom_behavior.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_custom_behavior)
 @LogTag("CustomBehaviorActivity")
 @IsFullScreen(false)
 class CustomBehaviorActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_custom_behavior
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

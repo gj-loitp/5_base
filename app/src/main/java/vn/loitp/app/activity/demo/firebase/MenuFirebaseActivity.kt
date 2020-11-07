@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -12,7 +11,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_menu_firebase.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdmobActivity
+import vn.loitp.app.activity.demo.firebase.admob.FirebaseAdMobActivity
 import vn.loitp.app.activity.demo.firebase.auth.AuthFirebaseMenuActivity
 import vn.loitp.app.activity.demo.firebase.config.ConfigFirebaseActivity
 import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebaseSignInActivity
@@ -23,21 +22,24 @@ import java.io.IOException
 
 //https://github.com/firebase/quickstart-android
 
-@LayoutId(R.layout.activity_menu_firebase)
 @LogTag("MenuFirebaseActivity")
 @IsFullScreen(false)
 class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
 
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_menu_firebase
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bt_admob.setOnClickListener(this)
-        bt_auth.setOnClickListener(this)
-        bt_config.setOnClickListener(this)
+        btAdmob.setOnClickListener(this)
+        btAuth.setOnClickListener(this)
+        btConfig.setOnClickListener(this)
         btDatabase.setOnClickListener(this)
-        bt_invite.setOnClickListener(this)
-        bt_database_simple.setOnClickListener(this)
-        bt_fcm.setOnClickListener(this)
+        btInvite.setOnClickListener(this)
+        btDatabaseSimple.setOnClickListener(this)
+        btFcm.setOnClickListener(this)
         btGetFCMToken.setOnClickListener(this)
         btResetInstanceId.setOnClickListener(this)
     }
@@ -45,13 +47,13 @@ class MenuFirebaseActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            bt_admob -> intent = Intent(this, FirebaseAdmobActivity::class.java)
-            bt_auth -> intent = Intent(this, AuthFirebaseMenuActivity::class.java)
-            bt_config -> intent = Intent(this, ConfigFirebaseActivity::class.java)
+            btAdmob -> intent = Intent(this, FirebaseAdMobActivity::class.java)
+            btAuth -> intent = Intent(this, AuthFirebaseMenuActivity::class.java)
+            btConfig -> intent = Intent(this, ConfigFirebaseActivity::class.java)
             btDatabase -> intent = Intent(this, DatabaseFirebaseSignInActivity::class.java)
-            bt_invite -> intent = Intent(this, InviteFirebaseActivity::class.java)
-            bt_database_simple -> intent = Intent(this, DatabaseSimpleFirebaseActivity::class.java)
-            bt_fcm -> intent = Intent(this, FCMFirebaseActivity::class.java)
+            btInvite -> intent = Intent(this, InviteFirebaseActivity::class.java)
+            btDatabaseSimple -> intent = Intent(this, DatabaseSimpleFirebaseActivity::class.java)
+            btFcm -> intent = Intent(this, FCMFirebaseActivity::class.java)
             btGetFCMToken -> {
                 getFCMToken()
             }

@@ -1,6 +1,8 @@
 package vn.loitp.app.activity.tutorial.rxjava2.model
 
-class User {
+import com.core.base.BaseModel
+
+class User : BaseModel {
     @JvmField
     var id: Long = 0
 
@@ -11,7 +13,7 @@ class User {
     var lastname: String? = null
     var isFollowing = false
 
-    constructor() {}
+    constructor()
 
     constructor(apiUser: ApiUser) {
         id = apiUser.id

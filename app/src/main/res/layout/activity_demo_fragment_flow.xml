@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke"
+    android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
     <androidx.core.widget.NestedScrollView
@@ -10,7 +11,7 @@
         android:layout_height="@dimen/w_250"
         android:fillViewport="true">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvInformation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,7 +19,8 @@
             android:padding="@dimen/padding_medium"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/app_name" />
     </androidx.core.widget.NestedScrollView>
 
     <FrameLayout
@@ -35,12 +37,19 @@
             android:id="@+id/btAddFrmFlow0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add FrmFlow0" />
+            android:background="@color/blue"
+            android:text="Add FrmFlow0"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btClearAllFrm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clear All Frm" />
+            android:layout_marginStart="@dimen/margin_medium"
+            android:background="@color/red"
+            android:text="Clear All Frm"
+            android:textColor="?attr/themeTextColor"
+            android:textSize="@dimen/txt_medium" />
     </LinearLayout>
 </LinearLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -300,7 +300,7 @@
                 app:shape_arc_position="bottom"
                 tools:ignore="UnusedAttribute">
 
-                <com.views.imageview.kenburnview.LKenBurnsView
+                <com.flaviofaria.kenburnsview.KenBurnsView
                     android:id="@+id/kbv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />

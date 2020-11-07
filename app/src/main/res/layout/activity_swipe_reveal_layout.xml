@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
@@ -11,13 +11,12 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
+        android:background="@color/red"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:titleTextColor="?attr/themeTextColor" />
 
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
-        android:id="@+id/swipe_layout_1"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_medium"
@@ -65,7 +64,6 @@
     </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
-        android:id="@+id/swipe_layout_2"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_medium"
@@ -114,7 +112,6 @@
     </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
-        android:id="@+id/swipe_layout_3"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_medium"
@@ -154,7 +151,6 @@
     </com.views.layout.swipereveallayout.LSwipeRevealLayout>
 
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
-        android:id="@+id/swipe_layout_4"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="@dimen/margin_medium"

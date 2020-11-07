@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -10,12 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:padding="@dimen/padding_medium">
 
         <LinearLayout xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/whiteSmoke"
             android:orientation="vertical"
             android:weightSum="4">
 
@@ -26,28 +26,34 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ImageView
+                <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/icon"
                     android:layout_width="@dimen/w_100"
                     android:layout_height="@dimen/w_100"
                     android:contentDescription="@string/desc_firebase_lockup"
                     android:src="@drawable/facebook_button_blue" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/facebook_title_text" />
+                    android:text="@string/facebook_title_text"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/signed_out" />
+                    android:text="@string/signed_out"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium"
                     tools:text="Firebase User ID: 123456789abc" />
 
             </LinearLayout>
@@ -55,23 +61,23 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/whiteSmoke">
+                android:layout_weight="1">
 
                 <com.facebook.login.widget.LoginButton
-                    android:id="@+id/button_facebook_login"
+                    android:id="@+id/btFacebookLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/button_facebook_signout"
+                    android:id="@+id/btFacebookSignOut"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="@string/sign_out"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    tools:visibility="visible" />
 
             </RelativeLayout>
 
@@ -79,4 +85,3 @@
     </ScrollView>
 
 </RelativeLayout>
-

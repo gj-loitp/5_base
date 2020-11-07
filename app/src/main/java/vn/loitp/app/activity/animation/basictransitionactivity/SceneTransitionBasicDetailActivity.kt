@@ -7,14 +7,12 @@ import android.transition.Transition
 import android.widget.ImageView
 import androidx.core.view.ViewCompat
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_animation_scene_transition_basic_details.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_animation_scene_transition_basic_details)
 @LogTag("SceneTransitionBasicDetailActivity")
 @IsFullScreen(false)
 class SceneTransitionBasicDetailActivity : BaseFontActivity() {
@@ -32,6 +30,10 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
     }
 
     private var mItem: Item? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_animation_scene_transition_basic_details
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,7 +69,7 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      */
     private fun loadThumbnail() {
         mItem?.photoUrl?.let {
-            LImageUtil.loadNoAmin(context = this, url = it, imageView = imageViewHeader)
+            LImageUtil.load(context = this, any = it, imageView = imageViewHeader)
         }
     }
 
@@ -76,7 +78,7 @@ class SceneTransitionBasicDetailActivity : BaseFontActivity() {
      */
     private fun loadFullSizeImage() {
         mItem?.photoUrl?.let {
-            LImageUtil.loadNoAmin(context = this, url = it, imageView = imageViewHeader)
+            LImageUtil.load(context = this, any = it, imageView = imageViewHeader)
         }
     }
 

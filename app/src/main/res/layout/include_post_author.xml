@@ -4,20 +4,22 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:ignore="UseCompoundDrawables">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="@dimen/w_30"
         android:layout_height="@dimen/w_30"
         android:src="@drawable/com_facebook_profile_picture_blank_portrait" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/post_author"
         style="@style/Base.TextAppearance.AppCompat.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="@dimen/margin_medium"
         android:gravity="center_vertical"
+        android:textColor="@color/red"
         tools:text="someauthor@email.com" />
 
 </LinearLayout>

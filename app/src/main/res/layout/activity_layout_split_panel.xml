@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
     <com.views.layout.splitpanellayout.SplitPaneLayout xmlns:spl="http://schemas.android.com/apk/res-auto"
         android:id="@+id/splitPaneLayout"
@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="@dimen/padding_medium"
             android:text="@string/hello_world"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
@@ -29,6 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:padding="@dimen/padding_medium"
             android:text="@string/hello_world"
             android:textColor="@color/red"
             android:textSize="@dimen/txt_medium" />

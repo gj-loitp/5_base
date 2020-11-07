@@ -4,7 +4,6 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.compass.CompassListener
@@ -13,10 +12,13 @@ import vn.loitp.app.R
 
 //https://github.com/arbelkilani/Compass-View?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6973
 
-@LayoutId(R.layout.activity_compas)
 @LogTag("CompasActivity")
 @IsFullScreen(false)
 class CompasActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_compas
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

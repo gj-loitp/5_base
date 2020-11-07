@@ -1,9 +1,7 @@
 package com.core.helper.donate
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
@@ -14,9 +12,8 @@ import kotlinx.android.synthetic.main.l_frm_donate.*
 @LogTag("FrmDonate")
 class FrmDonate : BaseFragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frmRootView = inflater.inflate(R.layout.l_frm_donate, container, false)
-        return super.onCreateView(inflater, container, savedInstanceState)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.l_frm_donate
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

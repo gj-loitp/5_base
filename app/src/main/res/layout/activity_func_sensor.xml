@@ -4,7 +4,8 @@
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:animateLayoutChanges="true">
+    android:animateLayoutChanges="true"
+    android:background="?attr/themeBackgroundColor">
 
     <com.views.layout.rotatelayout.LRotateLayout
         android:id="@+id/rotateLayout"
@@ -16,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -25,14 +26,14 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/iv" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:text="@string/app_name"
-                android:textColor="@color/white"
+                android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/text_large" />
         </RelativeLayout>
     </com.views.layout.rotatelayout.LRotateLayout>
@@ -51,10 +52,12 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/padding_medium">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/large_text" />
+                    android:text="@string/large_text"
+                    android:textColor="?attr/themeTextColor"
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>

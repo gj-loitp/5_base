@@ -1,38 +1,108 @@
 package vn.loitp.app.activity.api.truyentranhtuan
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
+import com.google.ads.interactivemedia.v3.internal.id
+import com.google.ads.interactivemedia.v3.internal.it
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.*
+import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.textView
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.truyentranhtuan.helper.favlist.GetFavListTask
 import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
+import vn.loitp.app.activity.api.truyentranhtuan.viewmodels.TTTViewModel
 
-@LayoutId(R.layout.activity_api_ttt_fav_list)
 @LogTag("TTTAPIFavListActivity")
 @IsFullScreen(false)
 class TTTAPIFavListActivity : BaseFontActivity() {
 
+    private var tttViewModel: TTTViewModel? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_api_ttt_fav_list
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        indicatorView.hide()
-        favList
+        setupViewModels()
+        setupViews()
+
+        tttViewModel?.getListComicFav()
     }
 
-    private val favList: Unit
-        @SuppressLint("SetTextI18n")
-        get() {
-            GetFavListTask(
-                    callback = object : GetFavListTask.Callback {
-                        override fun onSuccess(comicList: List<Comic>) {
-                            LUIUtil.printBeautyJson(o = comicList, textView = textView)
-                            tvTitle.text = "Danh sách yêu thích: " + comicList.size
-                        }
-                    }).execute()
+    private fun setupViews() {
+        btAdd.setSafeOnClickListener {
+            val comic = Comic()
+            comic.date = "29.07.2014"
+            comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
+            comic.title = "Vương Phong Lôi I"
+            tttViewModel?.favComic(comic = comic)
         }
+        btRemove.setSafeOnClickListener {
+            val comic = Comic()
+            comic.date = "29.07.2014"
+            comic.url = "http://truyentranhtuan.com/vuong-phong-loi-i/"
+            comic.title = "Vương Phong Lôi I"
+            tttViewModel?.unfavComic(comic = comic)
+        }
+    }
+
+    private fun setupViewModels() {
+        tttViewModel = getViewModel(TTTViewModel::class.java)
+        tttViewModel?.let { vm ->
+            vm.listComicFavActionLiveData.observe(this, { actionData ->
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                    if (isSuccess == true) {
+                        val listComicFav = actionData.data
+                        listComicFav?.let {
+                            LUIUtil.printBeautyJson(o = it, textView = textView)
+                        }
+                    }
+                }
+            })
+
+            vm.favComicLiveData.observe(this, { actionData ->
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                    if (isSuccess == true) {
+                        val id = actionData.data
+                        showLongInformation("Add success with id $id")
+
+                        tttViewModel?.getListComicFav()
+                    }
+                }
+            })
+
+            vm.unfavComicLiveData.observe(this, { actionData ->
+                val isDoing = actionData.isDoing
+                val isSuccess = actionData.isSuccess
+
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                    if (isSuccess == true) {
+                        val comic = actionData.data
+                        showLongInformation("Delete success ${comic?.title}")
+
+                        tttViewModel?.getListComicFav()
+                    }
+                }
+            })
+        }
+    }
 }

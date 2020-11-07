@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/darkViolet">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_350"
@@ -12,7 +12,7 @@
         android:scaleType="centerCrop"
         android:src="@drawable/logo" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -27,6 +27,8 @@
         android:id="@+id/bt"
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
+        android:background="@color/red"
+        android:padding="@dimen/padding_medium"
         android:text="Pop this fragment" />
 
 </RelativeLayout>

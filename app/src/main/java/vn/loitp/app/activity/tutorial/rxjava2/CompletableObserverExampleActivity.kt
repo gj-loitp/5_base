@@ -2,7 +2,6 @@ package vn.loitp.app.activity.tutorial.rxjava2
 
 import android.os.Bundle
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import io.reactivex.Completable
@@ -16,10 +15,14 @@ import java.util.concurrent.TimeUnit
 
 //https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
-@LayoutId(R.layout.activity_rxjava2_flowable)
 @LogTag("CompletableObserverExampleActivity")
 @IsFullScreen(false)
 class CompletableObserverExampleActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_rxjava2_flowable
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

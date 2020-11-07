@@ -5,7 +5,7 @@
     android:background="@color/lightSalmon"
     android:orientation="vertical">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
         android:text="@string/fn3" />
 
@@ -15,7 +15,7 @@
         android:layout_marginTop="@dimen/margin_medium"
         android:text="@string/back_to_fn1" />
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/app_name"

@@ -9,7 +9,6 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.widget.EditText
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
@@ -20,11 +19,14 @@ import com.interfaces.CallbackList
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
-@LayoutId(R.layout.activity_dialog_original)
 @LogTag("DialogOriginalActivity")
 @IsFullScreen(false)
 class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     private var testRun: TestRun? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_dialog_original
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,10 +61,9 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         LDialogUtil.showDialog1(context = this,
                 title = "Title",
                 msg = "Msg",
-                button1 = "Button 1"
-                , callback1 = object : Callback1 {
+                button1 = "Button 1", callback1 = object : Callback1 {
             override fun onClick1() {
-                showShort("Click 1")
+                showShortInformation("Click 1")
             }
         })
     }
@@ -75,11 +76,11 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 button2 = "Button 2",
                 callback2 = object : Callback2 {
                     override fun onClick1() {
-                        showShort("Click 1")
+                        showShortInformation("Click 1")
                     }
 
                     override fun onClick2() {
-                        showShort("Click 2")
+                        showShortInformation("Click 2")
                     }
                 })
     }
@@ -93,15 +94,15 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 button3 = "Button 3",
                 callback3 = object : Callback3 {
                     override fun onClick1() {
-                        showShort("Click 1")
+                        showShortInformation("Click 1")
                     }
 
                     override fun onClick2() {
-                        showShort("Click 2")
+                        showShortInformation("Click 2")
                     }
 
                     override fun onClick3() {
-                        showShort("Click 3")
+                        showShortInformation("Click 3")
                     }
                 })
     }
@@ -117,7 +118,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 arr = arr,
                 callbackList = object : CallbackList {
                     override fun onClick(position: Int) {
-                        showShort("Click position " + position + ", item: " + arr[position])
+                        showShortInformation("Click position " + position + ", item: " + arr[position])
                     }
                 })
     }
@@ -181,7 +182,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
         builder.setPositiveButton("OK") { _, _ ->
             val text = input.text.toString()
-            showShort("Text $text")
+            showShortInformation("Text $text")
         }
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
 

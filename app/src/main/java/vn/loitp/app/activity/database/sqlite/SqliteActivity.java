@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.core.base.BaseApplication;
 import com.core.base.BaseFontActivity;
@@ -16,12 +15,16 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
-@LayoutId(R.layout.activity_sqlite)
 @LogTag("SqliteActivity")
 @IsFullScreen(false)
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
     private DatabaseHandler db;
     private LinearLayout ll;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_sqlite;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,9 +131,9 @@ public class SqliteActivity extends BaseFontActivity implements View.OnClickList
     private void getContactWithId(int id) {
         Contact contact = db.getContact(id);
         if (contact == null) {
-            showShort("Contact with ID=" + id + " not found", true);
+            showShortInformation("Contact with ID=" + id + " not found", true);
         } else {
-            showShort("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber(), true);
+            showShortInformation("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber(), true);
         }
     }
 

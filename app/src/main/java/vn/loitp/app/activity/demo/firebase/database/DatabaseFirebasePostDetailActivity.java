@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.annotation.IsFullScreen;
-import com.annotation.LayoutId;
 import com.annotation.LogTag;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +31,6 @@ import vn.loitp.app.activity.demo.firebase.database.models.Comment;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.models.User;
 
-@LayoutId(R.layout.activity_post_detail)
 @LogTag("DatabaseFirebasePostDetailActivity")
 @IsFullScreen(false)
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
@@ -49,6 +47,11 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
     private TextView mBodyView;
     private EditText mCommentField;
     private RecyclerView mCommentsRecycler;
+
+    @Override
+    protected int setLayoutResourceId() {
+        return R.layout.activity_post_detail;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +75,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
         mBodyView = findViewById(R.id.post_body);
         mCommentField = findViewById(R.id.field_comment_text);
         Button mCommentButton = findViewById(R.id.button_post_comment);
-        mCommentsRecycler = findViewById(R.id.recycler_comments);
+        mCommentsRecycler = findViewById(R.id.recyclerComments);
 
         mCommentButton.setOnClickListener(this);
         mCommentsRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -102,7 +105,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                 // Getting Post failed, log a message
                 logE("loadPost:onCancelled " + databaseError.toException());
                 // [START_EXCLUDE]
-                showShort("Failed to load post.", true);
+                showShortInformation("Failed to load post.", true);
                 // [END_EXCLUDE]
             }
         };
@@ -271,7 +274,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
                     logE("postComments:onCancelled " + databaseError.toException());
-                    showShort("Failed to load comments.", true);
+                    showShortError("Failed to load comments.", true);
                 }
             };
             ref.addChildEventListener(childEventListener);

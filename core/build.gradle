@@ -6,12 +6,12 @@ apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.tplloi'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.2'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 30
+        minSdkVersion 21
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0.0"
 
@@ -48,39 +48,39 @@ android {
 }
 
 dependencies {
-    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib:1.4.10"
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //region image loader
 
-    //gilde
+    //glide
     api 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
-    //bigimageview https://github.com/Piasy/BigImageViewer
+    //big image view https://github.com/Piasy/BigImageViewer
     api 'com.github.piasy:BigImageViewer:1.5.6'
     api 'com.github.piasy:GlideImageLoader:1.5.6'
     api 'com.github.piasy:GlideImageViewFactory:1.5.6'
-    api 'jp.wasabeef:glide-transformations:2.0.2'
+    api 'jp.wasabeef:glide-transformations:4.3.0'
 
     //endregion
 
     //region network
 
     //retrofit
-    api 'com.squareup.retrofit2:retrofit:2.7.2'
-    api 'com.squareup.retrofit2:converter-gson:2.6.2'
-    api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     api 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
-    api 'com.squareup.okhttp3:logging-interceptor:4.4.0'
-    api 'com.j256.ormlite:ormlite-core:4.48'
-    api 'com.j256.ormlite:ormlite-android:4.48'
+    api 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+    api 'com.j256.ormlite:ormlite-core:5.1'
+    api 'com.j256.ormlite:ormlite-android:5.1'
 
     //endregion
 
     //region rx
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-    api 'io.reactivex.rxjava2:rxjava:2.2.8'
+    api 'io.reactivex.rxjava2:rxjava:2.2.20'
     //endregion
 
     api 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -89,39 +89,42 @@ dependencies {
     //region view
 
     api 'androidx.appcompat:appcompat:1.2.0'
-    api 'com.google.android.material:material:1.3.0-alpha02'
-    api 'androidx.recyclerview:recyclerview:1.2.0-alpha05'
+//    api 'com.google.android.material:material:1.2.1'
+    api 'com.google.android.material:material:1.3.0-alpha03'
+    api 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
     api 'androidx.cardview:cardview:1.0.0'
-    api 'androidx.constraintlayout:constraintlayout:2.0.1'
+    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+    api 'com.github.st235:expandablebottombar:1.3.0'//bottom bar
+    api 'com.otaliastudios:zoomlayout:1.8.0'//https://github.com/natario1/ZoomLayout
+    api 'com.flaviofaria:kenburnsview:1.0.7'//https://github.com/flavioarfaria/KenBurnsView
+    api 'com.labo.kaji:relativepopupwindow:0.4.1'//https://github.com/kakajika/RelativePopupWindow
+    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'//https://github.com/alpbak/BoxedVerticalSeekBar
 
     //endregion
 
     //fragment navigation
-    api 'androidx.navigation:navigation-fragment:2.3.0'
-    api 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    api 'androidx.navigation:navigation-fragment-ktx:2.3.1'
 
     //jsoup
-    api 'org.jsoup:jsoup:1.10.2'
+    api 'org.jsoup:jsoup:1.13.1'
 
     //multidex
     api 'androidx.multidex:multidex:2.0.1'
 
     //event bus
-    api 'org.greenrobot:eventbus:3.1.1'
+    api 'org.greenrobot:eventbus:3.2.0'
 
     //region animation
-    api 'com.daimajia.easing:library:2.0@aar'
-    api 'com.daimajia.androidanimations:library:2.3@aar'
+    api 'com.daimajia.easing:library:2.4@aar'
+    api 'com.daimajia.androidanimations:library:2.4@aar'
 
     api 'com.daasuu:EasingInterpolator:1.3.0'//need for shine button
 
-    //recolor https://github.com/SIMMORSAL/ReColor
-    api 'com.simmorsal.recolor:recolor:1.1.0'
+    api 'com.simmorsal.recolor:recolor:1.1.0'//recolor https://github.com/SIMMORSAL/ReColor
 
-    api 'com.airbnb.android:lottie:3.0.6'
+    api 'com.airbnb.android:lottie:3.4.4'
 
-    //https://github.com/EverythingMe/overscroll-decor
-    api 'me.everything:overscroll-decor-android:1.1.0'
+    api 'me.everything:overscroll-decor-android:1.1.0'//https://github.com/EverythingMe/overscroll-decor
     //endregion
 
     //region google service
@@ -130,7 +133,7 @@ dependencies {
     //compile 'com.google.android.gms:play-services-plus:15.0.1'
     //api 'com.google.android.gms:play-services-cast-framework:16.1.0'
     api 'com.google.android.gms:play-services-maps:17.0.0'//gg map
-    api 'com.google.android.gms:play-services-ads:18.3.0'
+    api 'com.google.android.gms:play-services-ads:19.5.0'
     api 'com.google.android.gms:play-services-location:17.1.0'
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
     //endregion
@@ -151,24 +154,20 @@ dependencies {
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
     //endregion
 
-    //runtime permission https://github.com/Karumi/Dexter
-    api 'com.karumi:dexter:5.0.0'
+    api 'com.karumi:dexter:6.2.1'//runtime permission https://github.com/Karumi/Dexter
 
     //region font
     api 'io.github.inflationx:calligraphy3:3.1.1'
     api 'io.github.inflationx:viewpump:2.0.3'
     //endregion
 
-    //crop image https://github.com/Yalantis/uCrop
-    api 'com.yalantis:ucrop:2.2.0'
-//    api 'com.yalantis:ucrop:2.2.6'
+    api 'com.yalantis:ucrop:2.2.0'//crop image https://github.com/Yalantis/uCrop
 
-    //https://github.com/nuonveyo/AutoRefreshNetworkConnection
-    api 'com.veyo:autorefreshnetworkconnection:1.0.6'
+    api 'com.veyo:autorefreshnetworkconnection:1.0.6'//https://github.com/nuonveyo/AutoRefreshNetworkConnection
 
     //region architecture component
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    kapt "androidx.lifecycle:lifecycle-compiler:2.3.0-alpha07"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.3.0-beta01"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
@@ -178,38 +177,20 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:2.2.5"
 
     //ViewModel Kotlin support
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-alpha07"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0-beta01"
     //Coroutines
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0'
     //endregion
 
-    //https://github.com/florent37/ExpansionPanel
-    api 'com.github.florent37:expansionpanel:1.2.2'
+    api 'com.github.florent37:expansionpanel:1.2.2'//https://github.com/florent37/ExpansionPanel
+    api 'com.github.florent37:shapeofview:1.4.7'//https://github.com/florent37/ShapeOfView
+    api 'com.github.mmin18:realtimeblurview:1.2.1'//https://github.com/mmin18/RealtimeBlurView
+    api 'de.hdodenhof:circleimageview:3.1.0'//https://github.com/hdodenhof/CircleImageView
+    api 'com.github.MikeOrtiz:TouchImageView:3.0.1'//https://github.com/MikeOrtiz/TouchImageView
+    api 'com.github.manojbhadane:QButton:v1.3'//https://github.com/tplloi/QButton
+    api 'com.sackcentury:shinebutton:1.0.0'//https://github.com/tplloi/ShineButton
+    api 'com.wang.avi:library:2.1.3'//https://github.com/81813780/AVLoadingIndicatorView
 
-    //https://github.com/florent37/ShapeOfView
-    api 'com.github.florent37:shapeofview:1.4.7'
+    api 'com.github.alirezat775:downloader:1.0.2'//https://github.com/alirezat775/downloader
 
-    //https://github.com/mmin18/RealtimeBlurView
-    api 'com.github.mmin18:realtimeblurview:1.2.1'
-
-    //https://github.com/hdodenhof/CircleImageView
-    api 'de.hdodenhof:circleimageview:3.1.0'
-
-    //https://github.com/tplloi/QButton
-    api 'com.github.manojbhadane:QButton:v1.3'
-
-    //https://github.com/tplloi/RoundedButton
-//    api 'com.github.sabujak-sabujak:RoundedButton:v0.1.1'
-
-    //https://github.com/tplloi/ShineButton
-    api 'com.sackcentury:shinebutton:1.0.0'
-
-    //https://github.com/81813780/AVLoadingIndicatorView
-    api 'com.wang.avi:library:2.1.3'
-
-    //bottom bar
-    api 'com.github.st235:expandablebottombar:1.3.0'
-
-    //https://github.com/alirezat775/downloader
-    api 'com.github.alirezat775:downloader:1.0.2'
 }

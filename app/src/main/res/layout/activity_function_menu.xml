@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/whiteSmoke">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
@@ -87,22 +87,22 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewDragHelper"
                 style="@style/ButtonMenu"
-                android:text="@string/viewdraghelper" />
+                android:text="@string/view_drag_helper" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewDragHelperSimple"
                 style="@style/ButtonMenu"
-                android:text="@string/viewdraghelper_simple" />
+                android:text="@string/view_drag_helper_simple" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewDragHelperSimple1"
                 style="@style/ButtonMenu"
-                android:text="@string/viewdraghelper_simple_1" />
+                android:text="@string/view_drag_helper_simple_1" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
         android:text="@string/function_menu" />

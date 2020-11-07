@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -14,24 +15,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
-
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/welcomeTextView"
                 style="@style/ButtonMenu"
-                android:text="Welcome..." />
+                android:text="@string/welcome" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/fetchButton"
                 style="@style/ButtonMenu"
-                android:text="fetch remote welcome" />
+                android:text="@string/fetch_remote_welcome" />
         </LinearLayout>
     </ScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Config Firebase" />
+        android:text="@string/config_firebase" />
 </RelativeLayout>
-

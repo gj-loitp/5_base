@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium">
+    android:background="?attr/themeBackgroundColor">
 
-    <com.views.layout.zoomlayout.ZoomImageView
+    <com.otaliastudios.zoom.ZoomImageView
         android:id="@+id/zoomImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

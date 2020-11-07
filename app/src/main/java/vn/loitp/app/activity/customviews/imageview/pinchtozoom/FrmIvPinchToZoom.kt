@@ -25,8 +25,7 @@ class FrmIvPinchToZoom : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         urlIv = arguments?.getString(KEY_URL)
         urlIv?.let { u ->
-            LImageUtil.load(context = view.context, url = u, imageView = imageView)
-            LImageUtil.setImageViewZoom(imageView)
+            LImageUtil.load(context = view.context, any = u, imageView = imageView)
         }
     }
 }

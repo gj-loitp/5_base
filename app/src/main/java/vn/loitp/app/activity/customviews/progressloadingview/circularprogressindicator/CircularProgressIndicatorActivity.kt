@@ -8,7 +8,6 @@ import android.widget.AdapterView
 import android.widget.SeekBar
 import android.widget.SimpleAdapter
 import com.annotation.IsFullScreen
-import com.annotation.LayoutId
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator
@@ -16,11 +15,14 @@ import kotlinx.android.synthetic.main.activity_progress_circular_progress_indica
 import vn.loitp.app.R
 import java.util.*
 
-@LayoutId(R.layout.activity_progress_circular_progress_indicator)
 @LogTag("CircularProgressIndicatorActivity")
 @IsFullScreen(false)
 class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListener,
         SeekBar.OnSeekBarChangeListener, ColorPickerDialogFragment.OnColorSelectedListener {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_progress_circular_progress_indicator
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
