@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="?attr/themeBackgroundColor" />
+
+            <size
+                android:width="900dp"
+                android:height="1900dp" />
+        </shape>
+    </item>
+
+    <item
+        android:width="@dimen/w_120"
+        android:height="@dimen/w_120"
+        android:drawable="@drawable/logo"
+        android:gravity="center"
+        tools:ignore="UnusedAttribute" />
+</layer-list>
