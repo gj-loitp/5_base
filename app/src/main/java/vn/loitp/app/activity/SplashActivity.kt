@@ -54,8 +54,8 @@ class SplashActivity : BaseFontActivity() {
             LSocialUtil.openBrowserPolicy(context = this)
         }
 
-        getSettingFromGGDrive()
-        getGG()
+//        getSettingFromGGDrive()
+//        getGG()
 
         startIdleTimeHandler(10 * 1000)
         //val getAddressLog = DebugDB.getAddressLog()
