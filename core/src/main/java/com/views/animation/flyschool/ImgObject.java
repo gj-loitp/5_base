@@ -4,6 +4,7 @@ package com.views.animation.flyschool;
  * Created by www.muathu@gmail.com on 12/28/2017.
  */
 
+//TODO convert kotlin
 public class ImgObject {
     private String url;
     private String avatar;

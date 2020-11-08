@@ -2,6 +2,7 @@ package com.function.notification.notifications;
 
 import androidx.core.app.NotificationCompat;
 
+//TODO convert kotlin
 public class InboxNotification extends BaseNotification {
     public InboxNotification(String title, String content) {
         this.title = title;

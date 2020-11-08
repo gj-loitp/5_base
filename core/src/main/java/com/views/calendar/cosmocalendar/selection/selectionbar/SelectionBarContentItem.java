@@ -2,6 +2,7 @@ package com.views.calendar.cosmocalendar.selection.selectionbar;
 
 import com.views.calendar.cosmocalendar.model.Day;
 
+//TODO convert kotlin
 public class SelectionBarContentItem implements SelectionBarItem {
 
     private Day day;

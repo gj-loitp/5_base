@@ -20,6 +20,8 @@ package com.views.floatingview;
  * TrashViewのイベントを扱うリスナです。
  * INFO:削除アイコンが追従する仕様のため、OPENアニメーションのアニメーション終了は通知されません。
  */
+
+//TODO convert kotlin
 interface TrashViewListener {
 
     /**

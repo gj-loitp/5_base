@@ -10,6 +10,7 @@ import com.yalantis.ucrop.UCrop;
  * Created by Mickael on 13/10/2016.
  */
 
+//TODO convert kotlin
 public class PickerBuilder {
     public static final int SELECT_FROM_GALLERY = 0;
     public static final int SELECT_FROM_CAMERA = 1;

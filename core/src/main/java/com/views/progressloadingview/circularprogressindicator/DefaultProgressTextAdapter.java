@@ -3,7 +3,7 @@ package com.views.progressloadingview.circularprogressindicator;
 /**
  * Created by Anton on 06.06.2018.
  */
-
+//TODO convert kotlin
 public final class DefaultProgressTextAdapter implements CircularProgressIndicator.ProgressTextAdapter {
 
     @Override

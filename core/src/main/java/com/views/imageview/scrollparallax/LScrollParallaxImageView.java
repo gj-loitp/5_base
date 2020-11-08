@@ -10,6 +10,7 @@ import android.widget.ImageView;
  * Created by gjz on 25/11/2016.
  */
 
+//TODO convert kotlin
 public class LScrollParallaxImageView extends ImageView implements ViewTreeObserver.OnScrollChangedListener {
     private int[] viewLocation = new int[2];
     private boolean enableScrollParallax = true;

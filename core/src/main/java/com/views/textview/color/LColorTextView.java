@@ -12,7 +12,7 @@ import com.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//TODO convert kotlin
 public class LColorTextView extends AppCompatTextView {
     private List<String> mColorTexts = new ArrayList<>();
     private List<String> mColors = new ArrayList<>();

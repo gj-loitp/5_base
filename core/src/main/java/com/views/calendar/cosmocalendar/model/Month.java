@@ -1,11 +1,15 @@
 package com.views.calendar.cosmocalendar.model;
 
+import androidx.annotation.Keep;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+@Keep
+//TODO convert kotlin
 public class Month {
 
     private List<Day> days;

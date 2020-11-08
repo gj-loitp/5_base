@@ -19,6 +19,7 @@ import com.core.utilities.LImageUtil;
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
+//TODO convert kotlin
 public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
     private final String TAG = getClass().getSimpleName();
     private ImageView ivGift;

@@ -21,6 +21,8 @@ import android.graphics.Rect;
 /**
  * スクリーンの変化を扱うリスナです。
  */
+
+//TODO convert kotlin
 interface ScreenChangedListener {
     /**
      * スクリーンが変化した時に呼び出されます。

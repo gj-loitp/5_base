@@ -5,10 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.Path;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.R;
+
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
+//TODO convert kotlin
 public abstract class AbstractPathAnimator {
     private final Random mRandom;
     protected final Config mConfig;

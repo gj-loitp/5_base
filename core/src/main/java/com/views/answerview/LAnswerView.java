@@ -14,6 +14,8 @@ import com.views.answerview.internal.OneAnswerView;
 /**
  * Created by buraktamturk on 21/04/15.
  */
+
+//TODO convert kotlin
 public class LAnswerView extends LinearLayout implements View.OnClickListener {
 
     public interface OnAnswerChange {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 
 import androidx.recyclerview.widget.RecyclerView;
-
+//TODO convert kotlin
 public class ParallaxRecyclerView extends RecyclerView {
 
     private OnScrollListener scrollListener;

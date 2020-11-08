@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 import com.R;
 import com.core.utilities.LAppResource;
-
+//TODO convert kotlin
 public class LScratchTextView extends TextView {
 
 

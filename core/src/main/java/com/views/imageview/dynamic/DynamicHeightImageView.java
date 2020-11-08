@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
+//TODO convert kotlin
 public class DynamicHeightImageView extends AppCompatImageView {
     private float mAspectRatio = 1.5f;
 

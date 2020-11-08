@@ -10,6 +10,8 @@ import android.view.MotionEvent;
  * @version 0.2
  * @since 0.1 12/04/14
  */
+
+//TODO convert kotlin
 public class GestureAnalyser {
 
     public static final boolean DEBUG = true;

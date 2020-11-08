@@ -8,6 +8,8 @@ import android.content.Context;
 /**
  * TODO Document
  */
+
+//TODO convert kotlin
 public class Marker extends CircularViewObject {
     private float sectionMin;
     private float sectionMax;

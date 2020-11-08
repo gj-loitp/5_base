@@ -1,5 +1,6 @@
 package com.views.calendar.cosmocalendar.utils;
 
+//TODO convert kotlin
 public interface WeekDay {
     int NONE = 0;
     int MONDAY = 1;

@@ -29,6 +29,7 @@ import android.view.View;
 
 import java.util.Arrays;
 
+//TODO convert kotlin
 public class LCropOverlayView extends View {
 
     //region: Fields and Consts

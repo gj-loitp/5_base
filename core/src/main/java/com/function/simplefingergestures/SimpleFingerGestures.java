@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+//TODO convert kotlin
 public class SimpleFingerGestures implements View.OnTouchListener {
 
     private boolean debug = true;

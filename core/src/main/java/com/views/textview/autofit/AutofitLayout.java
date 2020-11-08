@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.R;
 
 import java.util.WeakHashMap;
-
+//TODO convert kotlin
 public class AutofitLayout extends FrameLayout {
 
     private boolean mEnabled;

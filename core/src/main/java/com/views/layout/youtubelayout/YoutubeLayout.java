@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
 import com.R;
-
+//TODO convert kotlin
 public class YoutubeLayout extends ViewGroup {
     private final String logTag = getClass().getSimpleName();
     private final ViewDragHelper mDragHelper;

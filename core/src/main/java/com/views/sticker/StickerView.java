@@ -18,7 +18,7 @@ import android.widget.ImageView;
 
 import com.R;
 import com.core.utilities.LUIUtil;
-
+//TODO convert kotlin
 public abstract class StickerView extends FrameLayout {
 
     public static final String logTag = "com.knef.stickerView";

@@ -9,6 +9,7 @@ import androidx.fragment.app.DialogFragment;
 import com.views.dialog.swipeawaydialog.SwipeDismissTouchListener;
 import com.views.dialog.swipeawaydialog.SwipeableFrameLayout;
 
+//TODO convert kotlin
 public class SwipeAwayDialogFragment extends DialogFragment {
 
     private boolean mSwipeable = true;

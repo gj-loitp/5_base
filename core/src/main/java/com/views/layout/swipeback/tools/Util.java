@@ -17,7 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 /**
  * Created by GongWen on 17/8/25.
  */
-
+//TODO convert kotlin
 public class Util {
     public static boolean canViewScrollUp(View mView, float x, float y, boolean defaultValueForNull) {
         if (mView == null || !contains(mView, x, y)) {

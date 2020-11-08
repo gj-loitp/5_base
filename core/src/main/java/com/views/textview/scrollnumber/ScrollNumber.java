@@ -13,7 +13,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
 
 import androidx.annotation.IntRange;
-
+//TODO convert kotlin
 class ScrollNumber extends View {
 
     public static final String TAG = "ScrollNumber";

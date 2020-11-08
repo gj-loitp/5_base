@@ -1,15 +1,14 @@
 package com.views.animation.flyschool;
 
 import android.content.Context;
-import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
-import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.R;
 
-public class ShapeView extends ImageView implements ShapeSetter {
+//TODO convert kotlin
+public class ShapeView extends AppCompatImageView implements ShapeSetter {
     public ShapeView(Context context) {
         super(context);
         init();
@@ -25,11 +24,11 @@ public class ShapeView extends ImageView implements ShapeSetter {
         init();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public ShapeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//    public ShapeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+//        super(context, attrs, defStyleAttr, defStyleRes);
+//        init();
+//    }
 
     private void init() {
         setImageResource(R.drawable.l_facebook_button_blue);

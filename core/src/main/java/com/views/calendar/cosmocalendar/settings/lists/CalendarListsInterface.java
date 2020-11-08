@@ -6,6 +6,7 @@ import com.views.calendar.cosmocalendar.settings.lists.connected_days.ConnectedD
 import java.util.Calendar;
 import java.util.Set;
 
+//TODO convert kotlin
 public interface CalendarListsInterface {
 
     Calendar getMinDate();

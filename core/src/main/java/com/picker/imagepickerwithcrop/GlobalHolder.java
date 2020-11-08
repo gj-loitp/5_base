@@ -3,6 +3,8 @@ package com.picker.imagepickerwithcrop;
 /**
  * Created by Mickael on 18/10/2016.
  */
+
+//TODO convert kotlin
 public class GlobalHolder {
 
     private PickerManager pickerManager;

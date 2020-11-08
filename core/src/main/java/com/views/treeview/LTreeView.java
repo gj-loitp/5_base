@@ -22,7 +22,7 @@ import androidx.annotation.Px;
 import androidx.annotation.RequiresApi;
 
 import com.R;
-
+//TODO convert kotlin
 public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetector.OnGestureListener {
 
     private static final int DEFAULT_LINE_LENGTH = 100;

@@ -29,6 +29,8 @@ import java.io.IOException;
 /**
  * Built-in activity for image cropping.<br>
  */
+
+//TODO convert kotlin
 @LogTag("LCropImageActivity")
 @IsFullScreen(false)
 public class LCropImageActivity extends BaseFontActivity implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,

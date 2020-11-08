@@ -20,6 +20,8 @@ import android.graphics.Color;
 /**
  * @author venshine
  */
+
+//TODO convert kotlin
 public interface IGoodView {
 
     int DISTANCE = 60;   // 默认移动距离

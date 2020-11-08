@@ -4,6 +4,7 @@ import com.views.calendar.cosmocalendar.model.Day;
 
 import java.util.Set;
 
+//TODO convert kotlin
 public abstract class BaseCriteria {
 
     protected Set<Integer> weekendDays;

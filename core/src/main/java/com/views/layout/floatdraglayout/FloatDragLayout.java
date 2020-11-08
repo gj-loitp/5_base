@@ -24,7 +24,7 @@ import androidx.core.view.ViewCompat;
  * @author baishixian
  * @date 2017/12/7 下午2:53
  */
-
+//TODO convert kotlin
 public class FloatDragLayout extends FrameLayout {
 
     public static final String TAG = "FloatDragLayout";

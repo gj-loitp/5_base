@@ -22,6 +22,8 @@ import java.lang.ref.WeakReference;
 /**
  * Task to crop bitmap asynchronously from the UI thread.
  */
+
+//TODO convert kotlin
 final class BitmapCroppingWorkerTask extends AsyncTask<Void, Void, BitmapCroppingWorkerTask.Result> {
 
     //region: Fields and Consts

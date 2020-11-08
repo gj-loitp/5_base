@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.Nullable;
 
+//TODO convert kotlin
 class CompassSkeleton extends RelativeLayout {
 
     private final static int DEGREES_COLOR = Color.BLACK;

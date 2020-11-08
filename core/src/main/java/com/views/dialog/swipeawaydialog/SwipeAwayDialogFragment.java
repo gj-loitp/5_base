@@ -9,6 +9,7 @@ import android.view.Window;
  * @author kakajika
  * @since 15/08/15.
  */
+//TODO convert kotlin
 public class SwipeAwayDialogFragment extends DialogFragment {
 
     private boolean mSwipeable = true;

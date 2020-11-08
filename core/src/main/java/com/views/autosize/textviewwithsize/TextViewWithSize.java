@@ -15,6 +15,7 @@ import com.core.utilities.LUIUtil;
  * Created by LENOVO on 4/19/2018.
  */
 
+//TODO convert kotlin
 public class TextViewWithSize extends AppCompatTextView {
     private final String logTag = getClass().getSimpleName();
 

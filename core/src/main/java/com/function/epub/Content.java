@@ -1,5 +1,7 @@
 package com.function.epub;
 
+import androidx.annotation.Keep;
+
 import com.core.base.BaseModel;
 import com.function.epub.exception.OutOfPagesException;
 import com.function.epub.exception.ReadingException;
@@ -27,6 +29,9 @@ import java.util.zip.ZipFile;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
+//TODO convert kotlin
+
+@Keep
 class Content extends BaseModel {
 
     private String zipFilePath;

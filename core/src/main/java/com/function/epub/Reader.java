@@ -1,5 +1,7 @@
 package com.function.epub;
 
+import androidx.annotation.Keep;
+
 import com.function.epub.exception.OutOfPagesException;
 import com.function.epub.exception.ReadingException;
 
@@ -25,6 +27,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+@Keep
 public class Reader {
 
     private boolean isFoundNeeded;

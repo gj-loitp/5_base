@@ -25,6 +25,7 @@ import com.R;
  * An optionally movable bar exists between the children which allows the user
  * to redistribute the space allocated to each view.
  */
+//TODO convert kotlin
 public class SplitPaneLayout extends ViewGroup {
 
     public interface OnSplitterPositionChangedListener {

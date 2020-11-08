@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 
 import com.R;
 
+//TODO convert kotlin
 public class LAnimatedExpandableEditText extends androidx.appcompat.widget.AppCompatEditText {
 
     public static int expandHeightPixels;

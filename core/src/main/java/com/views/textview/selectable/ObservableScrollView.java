@@ -12,10 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-
-/**
- * Created by jd on 2017. 8. 13..
- */
+//TODO convert kotlin
 
 public class ObservableScrollView extends ScrollView {
 

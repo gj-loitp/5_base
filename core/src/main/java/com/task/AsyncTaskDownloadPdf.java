@@ -15,6 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
+//TODO convert to kotlin
 public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
     private final String logTag = getClass().getSimpleName();
     private String mURL;

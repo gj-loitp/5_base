@@ -9,6 +9,7 @@ import android.provider.MediaStore;
  * Created by Mickael on 10/10/2016.
  */
 
+//TODO convert kotlin
 public class CameraPickerManager extends PickerManager {
 
     CameraPickerManager(Activity activity) {

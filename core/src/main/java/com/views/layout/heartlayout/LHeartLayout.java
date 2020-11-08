@@ -4,8 +4,9 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import com.R;
 
+import com.R;
+//TODO convert kotlin
 public class LHeartLayout extends RelativeLayout {
 
     private AbstractPathAnimator mAnimator;

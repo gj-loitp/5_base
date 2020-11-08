@@ -8,9 +8,7 @@ import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.CharacterStyle;
 
-/**
- * Created by jd on 2017. 8. 13..
- */
+//TODO convert kotlin
 public class CustomInfo {
     @Override
     public String toString() {

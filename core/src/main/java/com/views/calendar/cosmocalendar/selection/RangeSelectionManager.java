@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import com.views.calendar.cosmocalendar.model.Day;
 import com.views.calendar.cosmocalendar.utils.DateUtils;
 
+//TODO convert kotlin
 public class RangeSelectionManager extends BaseSelectionManager {
 
     private Pair<Day, Day> days;

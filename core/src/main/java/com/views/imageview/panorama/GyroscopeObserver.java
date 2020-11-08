@@ -12,6 +12,7 @@ import java.util.LinkedList;
  * Created by gjz on 21/12/2016.
  */
 
+//TODO convert kotlin
 public class GyroscopeObserver implements SensorEventListener {
     private SensorManager mSensorManager;
 

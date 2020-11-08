@@ -6,7 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.view.Gravity;
 import android.widget.RelativeLayout;
-
+//TODO convert kotlin
 public class WP10Indicator extends RelativeLayout {
 
     private Base10Indicator base10Indicator;

@@ -13,6 +13,7 @@ import com.R;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO convert kotlin
 public class FlowLayout extends ViewGroup {
     private static final String LOG_TAG = FlowLayout.class.getSimpleName();
 

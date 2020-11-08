@@ -31,7 +31,7 @@ import java.lang.reflect.Field;
 /**
  * Created by rom4ek on 10.01.2017.
  */
-
+//TODO convert kotlin
 public class LArcNavigationView extends NavigationView {
 
     private static int THRESHOLD;

@@ -37,7 +37,7 @@ import com.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
+//TODO convert kotlin
 @SuppressWarnings("FieldCanBeLocal")
 public class CircularProgressIndicator extends View {
 

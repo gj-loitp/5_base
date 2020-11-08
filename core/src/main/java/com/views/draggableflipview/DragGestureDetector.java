@@ -9,6 +9,7 @@ import java.util.HashMap;
  *
  * Created by sasakicks on 2015/09/09.
  */
+//TODO convert kotlin
 public class DragGestureDetector {
 
     public float deltaX;

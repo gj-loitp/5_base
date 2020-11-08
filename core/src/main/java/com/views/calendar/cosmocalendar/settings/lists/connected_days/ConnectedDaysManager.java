@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+//TODO convert kotlin
 public class ConnectedDaysManager {
 
     private static ConnectedDaysManager mInstance = null;

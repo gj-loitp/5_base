@@ -27,7 +27,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 
 import java.util.concurrent.atomic.AtomicInteger;
-
+//TODO convert kotlin
 public class PathAnimator extends AbstractPathAnimator {
     private final AtomicInteger mCounter = new AtomicInteger(0);
     private Handler mHandler;

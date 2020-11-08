@@ -5,6 +5,7 @@ import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria;
 
 import java.util.Calendar;
 
+//TODO convert kotlin
 public abstract class BaseMonthCriteria extends BaseCriteria {
 
     protected abstract int getMonth();

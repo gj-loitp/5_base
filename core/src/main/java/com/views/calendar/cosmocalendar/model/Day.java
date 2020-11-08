@@ -1,11 +1,15 @@
 package com.views.calendar.cosmocalendar.model;
 
+import androidx.annotation.Keep;
+
 import com.views.calendar.cosmocalendar.selection.SelectionState;
 import com.views.calendar.cosmocalendar.utils.DateUtils;
 
 import java.util.Calendar;
 import java.util.Date;
 
+@Keep
+//TODO convert kotlin
 public class Day {
 
     private Calendar calendar;

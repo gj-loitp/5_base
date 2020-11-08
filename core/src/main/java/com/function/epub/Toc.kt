@@ -1,5 +1,6 @@
 package com.function.epub
 
+import androidx.annotation.Keep
 import com.function.epub.ContextHelper.encodeToUtf8
 import com.function.epub.ContextHelper.getTextAfterCharacter
 import com.function.epub.exception.ReadingException
@@ -10,6 +11,7 @@ import java.io.Serializable
 import java.util.*
 
 //toc.ncx
+@Keep
 class Toc : BaseFindings(), Serializable {
 
     companion object {

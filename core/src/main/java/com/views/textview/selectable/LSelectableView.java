@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.R;
-
+//TODO convert kotlin
 public class LSelectableView extends FrameLayout {
 
     private Context context;

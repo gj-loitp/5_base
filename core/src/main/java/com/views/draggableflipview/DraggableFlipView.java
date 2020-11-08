@@ -18,6 +18,7 @@ import com.R;
  * <p>
  * Created by sasakicks on 2015/09/09.
  */
+//TODO convert kotlin
 public class DraggableFlipView extends FrameLayout implements DragGestureDetector.DragGestureListener {
 
     private static final float DRAG_THRESHOLD_PARAM = 50.0f;

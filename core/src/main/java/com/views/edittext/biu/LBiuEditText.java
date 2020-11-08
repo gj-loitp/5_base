@@ -33,6 +33,8 @@ import java.util.Random;
 /**
  * Created by james on 22/11/15.
  */
+
+//TODO convert kotlin
 public class LBiuEditText extends EditText {
     private ViewGroup contentContainer;
     private int height;

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * Created by yahyabayramoglu on 15/04/15.
  */
+//TODO convert kotlin
 public abstract class ParallaxViewHolder extends RecyclerView.ViewHolder implements ParallaxImageView.ParallaxImageListener {
 
     private ParallaxImageView backgroundImage;

@@ -30,6 +30,7 @@ import static java.lang.Math.sin;
  * XML attributes
  * See com.github.rongi.rotate_layout.R.styleable#RotateLayout RotateLayout Attributes,
  */
+//TODO convert kotlin
 public class LRotateLayout extends ViewGroup {
 
     private int angle;

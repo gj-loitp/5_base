@@ -16,7 +16,7 @@ import android.util.AttributeSet;
 import android.util.SparseIntArray;
 import android.util.TypedValue;
 import android.widget.TextView;
-
+//TODO convert kotlin
 public class AutoResizeTextView extends TextView {
     private interface SizeTester {
         /**

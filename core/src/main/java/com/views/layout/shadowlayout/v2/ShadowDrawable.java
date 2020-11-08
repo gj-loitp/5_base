@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
  * Created by lijiankun on 2018/9/28
  * Email: lijiankun03@meituan.com
  */
+//TODO convert kotlin
 public class ShadowDrawable extends Drawable {
 
     private Paint mShadowPaint;

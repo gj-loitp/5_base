@@ -23,6 +23,7 @@ import java.util.Locale;
  * Created by Mickael on 10/10/2016.
  */
 
+//TODO convert kotlin
 public abstract class PickerManager {
     public static final int REQUEST_CODE_SELECT_IMAGE = 200;
     public static final int REQUEST_CODE_IMAGE_PERMISSION = 201;

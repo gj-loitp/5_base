@@ -12,6 +12,8 @@ import java.util.Iterator;
 /**
  * tks daimajia's BaseEasingMethod
  */
+
+//TODO convert kotlin
 public abstract class BaseEasingMethod implements TypeEvaluator<Number> {
     protected float mDuration;
     private ArrayList<EasingListener> mListeners = new ArrayList();

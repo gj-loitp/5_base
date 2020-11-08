@@ -1,7 +1,9 @@
 package com.function.epub
 
+import androidx.annotation.Keep
 import java.io.Serializable
 
+@Keep
 class NavPoint : Serializable {
 
     companion object {

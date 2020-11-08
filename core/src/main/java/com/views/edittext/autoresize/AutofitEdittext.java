@@ -17,6 +17,7 @@ import androidx.appcompat.widget.AppCompatEditText;
  * @attr ref R.styleable.AutofitTextView_minTextSize
  * @attr ref R.styleable.AutofitTextView_precision
  */
+//TODO convert kotlin
 public class AutofitEdittext extends AppCompatEditText implements AutofitHelper.OnTextSizeChangeListener {
     private AutofitHelper mHelper;
 

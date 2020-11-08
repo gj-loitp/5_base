@@ -5,6 +5,7 @@ import android.os.Parcelable;
 
 import com.R;
 
+//TODO convert kotlin
 public class AutoLabelUISettings implements Parcelable {
 
     public static final boolean DEFAULT_SHOW_CROSS = true;

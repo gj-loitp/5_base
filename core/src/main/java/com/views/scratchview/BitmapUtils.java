@@ -11,6 +11,7 @@ import java.nio.ByteBuffer;
 /**
  * Created by sharish on 15/09/16.
  */
+//TODO convert kotlin
 public class BitmapUtils {
 
     /**

@@ -4,6 +4,7 @@ package com.views.edittext.biu;
  * Created by www.muathu@gmail.com on 11/1/2017.
  */
 
+//TODO convert kotlin
 public class BounceEaseOut extends BaseEasingMethod {
     public BounceEaseOut(float duration) {
         super(duration);

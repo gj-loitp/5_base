@@ -9,7 +9,7 @@ import com.R;
 import com.core.utilities.LAnimationUtil;
 import com.daimajia.androidanimations.library.Techniques;
 import com.interfaces.CallbackAnimation;
-
+//TODO convert kotlin
 public class LCountDownView extends RelativeLayout {
     private final String logTag = getClass().getSimpleName();
     private TextView tvCountDown;

@@ -19,7 +19,7 @@ import androidx.customview.widget.ViewDragHelper;
 import com.R;
 
 import org.jetbrains.annotations.NotNull;
-
+//TODO convert kotlin
 @SuppressLint("RtlHardcoded")
 public class LSwipeRevealLayout extends ViewGroup {
     // These states are used only for ViewBindHelper

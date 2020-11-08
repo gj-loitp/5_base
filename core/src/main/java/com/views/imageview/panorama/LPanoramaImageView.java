@@ -9,8 +9,10 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
+
 import com.R;
 
+//TODO convert kotlin
 public class LPanoramaImageView extends ImageView {
 
     // Image's scroll orientation

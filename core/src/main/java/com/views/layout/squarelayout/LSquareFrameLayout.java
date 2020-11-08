@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 /**
  * {@link android.widget.FrameLayout} which forces itself to be laid out as square.
  */
+//TODO convert kotlin
 public class LSquareFrameLayout extends FrameLayout {
 
     public LSquareFrameLayout(Context context) {

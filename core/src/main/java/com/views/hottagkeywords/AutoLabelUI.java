@@ -19,6 +19,7 @@ import java.util.List;
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
+//TODO convert kotlin
 public class AutoLabelUI extends AutoViewGroup implements LLabelView.OnClickCrossListener, LLabelView.OnLabelClickListener {
     private final String LOG_TAG = AutoLabelUI.class.getSimpleName();
     private final int EMPTY = 0;

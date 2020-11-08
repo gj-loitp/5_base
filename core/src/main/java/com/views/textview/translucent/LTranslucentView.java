@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.R;
 
 //guide https://github.com/mallethugo/translucent-android
-
+//TODO convert kotlin
 public class LTranslucentView extends TextView {
 
     // region static properties

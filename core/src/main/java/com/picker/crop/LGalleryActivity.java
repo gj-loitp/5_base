@@ -31,6 +31,7 @@ import java.util.Collection;
 
 @LogTag("LGalleryActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class LGalleryActivity extends BaseFontActivity implements View.OnClickListener {
     private final ArrayList<String> thumbsDataList = new ArrayList<>();
     public static final String RETURN_VALUE = "RETURN_VALUE";

@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.R;
-
+//TODO convert kotlin
 public class LShadowLayout extends RelativeLayout {
 
     public static final int ALL = 0x1111;

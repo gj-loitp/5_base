@@ -8,6 +8,7 @@ import android.view.View;
  *
  * Created by sasakicks on 2015/09/09.
  */
+//TODO convert kotlin
 public class FlipListener implements ValueAnimator.AnimatorUpdateListener {
 
     private View mParentView;

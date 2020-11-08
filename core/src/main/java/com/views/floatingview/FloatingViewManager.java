@@ -29,6 +29,8 @@ import java.util.ArrayList;
  * TODO:動作がカクカクなので原因を探す
  * TODO:移動を追従する複数表示サポートは第2弾で対応
  */
+
+//TODO convert kotlin
 public class FloatingViewManager implements ScreenChangedListener, View.OnTouchListener, TrashViewListener {
 
     /**

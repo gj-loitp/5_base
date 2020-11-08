@@ -17,6 +17,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+//TODO convert kotlin
 public class LGoodView extends PopupWindow implements IGoodView {
 
     private String mText = TEXT;

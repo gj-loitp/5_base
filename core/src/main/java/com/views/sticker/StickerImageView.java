@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
-
+//TODO convert kotlin
 public class StickerImageView extends StickerView {
 
     private String ownerId;

@@ -11,6 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+//TODO convert kotlin
 public class MultipleSelectionManager extends BaseCriteriaSelectionManager {
 
     private final Set<Day> days = new HashSet<>();

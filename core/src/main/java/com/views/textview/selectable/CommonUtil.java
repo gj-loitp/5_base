@@ -8,9 +8,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
 
-/**
- * Created by jd on 2017. 8. 13..
- */
+//TODO convert kotlin
 
 public class CommonUtil {
 

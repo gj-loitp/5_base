@@ -27,6 +27,7 @@ import java.text.DecimalFormat;
 
 import static android.content.Context.SENSOR_SERVICE;
 
+//TODO convert kotlin
 public class LCompass extends RelativeLayout implements SensorEventListener {
 
     private final static String TAG = LCompass.class.getSimpleName();

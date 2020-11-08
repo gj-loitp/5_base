@@ -17,6 +17,8 @@ import android.graphics.RectF;
 /**
  * Handler from crop window stuff, moving and knowing possition.
  */
+
+//TODO convert kotlin
 final class CropWindowHandler {
 
     //region: Fields and Consts

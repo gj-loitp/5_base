@@ -13,6 +13,7 @@ import java.util.List;
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
 
+//TODO convert kotlin
 public class AutoViewGroup extends ViewGroup {
     private final List<List<View>> mLines = new ArrayList<>();
     private final List<Integer> mLineHeights = new ArrayList<>();

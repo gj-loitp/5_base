@@ -9,11 +9,15 @@ import android.util.Log;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import androidx.annotation.IntDef;
+
 import com.R;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+//TODO convert kotlin
 public class LContinuousScrollableImageView extends LinearLayout {
 
     //<editor-fold desc="DEFAULT_DIRECTION = LEFT">

@@ -65,6 +65,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+//TODO convert kotlin
 public class CalendarView extends RelativeLayout implements OnDaySelectedListener,
         AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface, MultipleSelectionBarAdapter.ListItemClickListener, GravitySnapHelper.SnapListener {
 

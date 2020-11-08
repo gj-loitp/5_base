@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 
 import java.util.Random;
 
+//TODO convert kotlin
 public class ColorGridDrawable extends Drawable {
 
     private final static int ROWS = 20;

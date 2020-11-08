@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.views.calendar.cosmocalendar.model.Day;
 
+//TODO convert kotlin
 public abstract class BaseSelectionManager {
 
     protected OnDaySelectedListener onDaySelectedListener;

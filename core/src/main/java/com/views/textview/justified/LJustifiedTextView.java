@@ -9,7 +9,7 @@ import android.text.TextPaint;
 import android.view.View;
 
 import java.util.ArrayList;
-
+//TODO convert kotlin
 public class LJustifiedTextView extends View {
     private String text;
     private ArrayList<Line> linesCollection = new ArrayList<Line>();

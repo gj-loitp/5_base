@@ -7,18 +7,20 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+
 import com.R;
 import com.nineoldandroids.view.ViewHelper;
 import com.views.layout.draggablepanel.transformer.Transformer;
 import com.views.layout.draggablepanel.transformer.TransformerFactory;
 
 //https://github.com/pedrovgs/DraggablePanel
-
+//TODO convert kotlin
 public class DraggableView extends RelativeLayout {
 
     private static final int DEFAULT_SCALE_FACTOR = 2;

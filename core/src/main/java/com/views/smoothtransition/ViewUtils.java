@@ -11,7 +11,7 @@ import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.View;
-
+//TODO convert kotlin
 public class ViewUtils {
     private static int width;
     private static int height;

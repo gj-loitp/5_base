@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
-
+//TODO convert kotlin
 public class LRippleLayout extends FrameLayout {
 
     //图片横向、纵向的格数

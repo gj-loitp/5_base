@@ -1,5 +1,8 @@
 package com.function.notification.config
 
+import androidx.annotation.Keep
+
+@Keep
 class VibrationSettings {
 
     companion object {

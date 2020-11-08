@@ -5,6 +5,7 @@ import androidx.annotation.IntDef;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+//TODO convert kotlin
 @Retention(RetentionPolicy.SOURCE)
 @IntDef({SelectionType.SINGLE, SelectionType.MULTIPLE, SelectionType.RANGE, SelectionType.NONE})
 public @interface SelectionType {

@@ -25,6 +25,8 @@ import java.util.WeakHashMap;
  * @attr ref R.styleable.AutofitTextView_minTextSize
  * @attr ref R.styleable.AutofitTextView_precision
  */
+
+//TODO convert kotlin
 public class AutofitLayout extends FrameLayout {
 
     private boolean mEnabled;

@@ -19,7 +19,7 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-
+//TODO convert kotlin
 public class LFidgetSpinner extends FrameLayout {
 
     private static final String TAG = "FidgetSpinner";

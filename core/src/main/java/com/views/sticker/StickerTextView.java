@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-
+//TODO convert kotlin
 public class StickerTextView extends StickerView {
     private AutoResizeTextView tvMain;
 

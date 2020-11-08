@@ -22,6 +22,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
+//TODO convert kotlin
 public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
 
     private final List<Month> months;

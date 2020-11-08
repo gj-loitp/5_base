@@ -12,6 +12,8 @@ import com.views.answerview.LAnswerView;
 /**
  * Created by buraktamturk on 21/04/15.
  */
+
+//TODO convert kotlin
 public class OneAnswerView extends LinearLayout {
     public OneAnswerView(Context context) {
         super(context);

@@ -6,6 +6,7 @@ import com.R;
 import com.views.calendar.cosmocalendar.model.Day;
 import com.views.calendar.cosmocalendar.view.CalendarView;
 
+//TODO convert kotlin
 public class OtherDayHolder extends BaseDayHolder {
 
     public OtherDayHolder(View itemView, CalendarView calendarView) {

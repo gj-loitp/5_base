@@ -2,6 +2,7 @@ package com.views.calendar.cosmocalendar.settings.selection;
 
 import com.views.calendar.cosmocalendar.utils.SelectionType;
 
+//TODO convert kotlin
 public class SelectionModel implements SelectionInterface {
 
     //Selecton type SINGLE, MULTIPLE, RANGE, NONE

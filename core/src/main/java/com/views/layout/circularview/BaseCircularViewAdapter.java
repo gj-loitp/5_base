@@ -5,6 +5,8 @@ import android.database.DataSetObserver;
 /**
  * This adapter facilitates access to markers and is used by {@link com.sababado.circularview.CircularView}.
  */
+
+//TODO convert kotlin
 public interface BaseCircularViewAdapter {
     /**
      * Get the count of how many markers will show around the circular view. This number should be zero or positive.

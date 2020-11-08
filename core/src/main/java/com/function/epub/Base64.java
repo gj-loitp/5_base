@@ -12,6 +12,8 @@ package com.function.epub;
  * @see <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>
  * @since 1.0-dev
  */
+
+//TODO convert kotlin
 public class Base64 {
 
     /**

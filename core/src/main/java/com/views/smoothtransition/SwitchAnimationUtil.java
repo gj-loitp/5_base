@@ -9,7 +9,7 @@ import android.view.animation.LinearInterpolator;
 
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
-
+//TODO convert kotlin
 /**
  * @author Dean.Ding
  */

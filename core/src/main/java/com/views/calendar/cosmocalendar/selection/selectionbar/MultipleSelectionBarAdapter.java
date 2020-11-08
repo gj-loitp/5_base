@@ -14,6 +14,7 @@ import com.views.calendar.cosmocalendar.view.customviews.CircleAnimationTextView
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO convert kotlin
 public class MultipleSelectionBarAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private List<SelectionBarItem> items;

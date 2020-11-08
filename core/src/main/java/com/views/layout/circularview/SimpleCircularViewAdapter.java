@@ -3,6 +3,7 @@ package com.views.layout.circularview;
 import android.database.DataSetObservable;
 import android.database.DataSetObserver;
 
+//TODO convert kotlin
 public abstract class SimpleCircularViewAdapter implements BaseCircularViewAdapter {
     private final DataSetObservable mDataSetObservable = new DataSetObservable();
 

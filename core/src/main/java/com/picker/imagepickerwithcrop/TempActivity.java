@@ -14,6 +14,7 @@ import static com.yalantis.ucrop.UCrop.REQUEST_CROP;
 
 @LogTag("TempActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class TempActivity extends BaseFontActivity {
     private PickerManager pickerManager;
 

@@ -2,6 +2,7 @@ package com.function.notification.notifications;
 
 import androidx.core.app.NotificationCompat;
 
+//TODO convert kotlin
 public class BigPictureNotification extends BaseNotification {
     public BigPictureNotification(String title, String content) {
         this.title = title;

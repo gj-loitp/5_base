@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+//TODO convert kotlin
 class GravityDelegate {
 
     private OrientationHelper verticalHelper;

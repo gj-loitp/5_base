@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.R;
 
+//TODO convert kotlin
 public class DraggablePanel extends FrameLayout {
 
     private static final int DEFAULT_TOP_FRAGMENT_HEIGHT = 200;

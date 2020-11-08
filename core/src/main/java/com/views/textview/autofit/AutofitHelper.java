@@ -21,7 +21,7 @@ import android.widget.TextView;
 import com.R;
 
 import java.util.ArrayList;
-
+//TODO convert kotlin
 public class AutofitHelper {
 
     private static final String TAG = "AutoFitTextHelper";

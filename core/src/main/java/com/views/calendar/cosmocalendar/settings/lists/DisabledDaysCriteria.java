@@ -3,6 +3,7 @@ package com.views.calendar.cosmocalendar.settings.lists;
 import java.util.Set;
 import java.util.TreeSet;
 
+//TODO convert kotlin
 public class DisabledDaysCriteria {
 
     private DisabledDaysCriteriaType criteriaType = DisabledDaysCriteriaType.DAYS_OF_MONTH;

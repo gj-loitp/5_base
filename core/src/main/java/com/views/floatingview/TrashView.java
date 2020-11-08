@@ -48,6 +48,8 @@ import java.lang.ref.WeakReference;
 /**
  * FloatingViewを消すためのViewです。
  */
+
+//TODO convert kotlin
 class TrashView extends FrameLayout implements ViewTreeObserver.OnPreDrawListener {
 
     /**

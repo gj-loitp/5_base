@@ -24,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+//TODO convert kotlin
 public class GravitySnapHelper extends LinearSnapHelper {
 
     private GravityDelegate delegate;

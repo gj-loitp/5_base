@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 
 import com.flaviofaria.kenburnsview.KenBurnsView;
 
+//TODO convert kotlin
 public class DynamicHeightKenBurnsView extends KenBurnsView {
     private float mAspectRatio = 1.5f;
 
