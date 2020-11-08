@@ -17,6 +17,7 @@ import com.views.menu.residemenu.ResideMenuItem;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 @LogTag("ResideMenuActivity")
 @IsFullScreen(false)
 public class ResideMenuActivity extends BaseFontActivity implements View.OnClickListener {

@@ -18,6 +18,7 @@ import vn.loitp.app.activity.customviews.layout.swipereveallayout.grid.SwipeReve
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.list.SwipeRevealLayoutListActivity;
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.recycler.SwipeRevealLayoutRecyclerActivity;
 
+//TODO convert kotlin
 //https://github.com/chthai64/SwipeRevealLayout
 @LogTag("SwipeRevealLayoutActivity")
 @IsFullScreen(false)

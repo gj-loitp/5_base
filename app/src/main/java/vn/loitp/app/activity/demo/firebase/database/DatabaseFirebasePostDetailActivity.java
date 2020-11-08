@@ -33,6 +33,7 @@ import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LogTag("DatabaseFirebasePostDetailActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
 
     public static final String EXTRA_POST_KEY = "post_key";

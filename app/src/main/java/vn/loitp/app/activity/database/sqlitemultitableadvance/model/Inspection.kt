@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.database.sqlitemultitableadvance.model
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
+@Keep
 class Inspection : BaseModel() {
     var id: Int = 0
     var inspectionId: String? = null

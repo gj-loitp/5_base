@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.database.readsqliteasset
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
 /**
  * Created by Loitp on 5/2/2017.
  */
 
+@Keep
 class Vocabulary : BaseModel {
     var isClose: Boolean = false
     var id: Int = 0

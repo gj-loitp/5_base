@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.pattern.mvvm.model
 
+import androidx.annotation.Keep
 import java.util.*
 
+@Keep
 class User : Observable() {
     /// The first name of the user
     var firstName: String = ""

@@ -6,6 +6,7 @@ import android.widget.TimePicker;
 
 import java.lang.reflect.Field;
 
+//TODO convert kotlin
 public class RangeTimePickerDialog extends TimePickerDialog {
     private int mMinHour = -1;
     private int mMinMinute = -1;

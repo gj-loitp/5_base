@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 @LogTag("DatabaseFirebaseSignInActivity")
 public class CalendarFragment extends BaseFragment {
     private ListView listView;

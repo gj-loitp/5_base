@@ -19,6 +19,7 @@ import vn.loitp.app.R;
 
 @LogTag("SwipeRevealLayoutListActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class SwipeRevealLayoutListActivity extends BaseFontActivity {
     private ListAdapter adapter;
 

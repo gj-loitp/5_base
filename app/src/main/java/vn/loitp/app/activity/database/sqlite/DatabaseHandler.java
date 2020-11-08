@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO convert kotlin
 public class DatabaseHandler extends SQLiteOpenHelper {
     private final String logTag = getClass().getSimpleName();
     // Database Version

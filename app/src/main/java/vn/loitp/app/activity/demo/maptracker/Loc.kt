@@ -1,8 +1,10 @@
 package vn.loitp.app.activity.demo.maptracker
 
 import android.location.Location
+import androidx.annotation.Keep
 import com.google.android.gms.maps.model.LatLng
 
+@Keep
 data class Loc(
         var beforeTimestamp: Long = 0,
         var afterTimestamp: Long = 0,

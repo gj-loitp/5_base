@@ -19,6 +19,7 @@ import vn.loitp.app.R;
 
 @LogTag("TreeViewActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class TreeViewActivity extends BaseFontActivity {
     private int nodeCount = 0;
 

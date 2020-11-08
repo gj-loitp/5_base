@@ -20,6 +20,7 @@ import java.util.List;
  * Created by Loitp on 5/2/2017.
  */
 
+//TODO convert kotlin
 public class VocabularyManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     private final static String DB_PATH = "/data/data/loitp.basemaster/databases/";

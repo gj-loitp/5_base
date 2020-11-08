@@ -31,6 +31,7 @@ import vn.loitp.app.R;
 
 @LogTag("CropActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class CropActivity extends BaseFontActivity {
     private ImageView iv;
     private final int REQUEST_CODE_GET_FILE = 1;

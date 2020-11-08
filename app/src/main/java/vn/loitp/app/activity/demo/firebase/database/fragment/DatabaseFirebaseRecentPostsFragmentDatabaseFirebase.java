@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo.firebase.database.fragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
+//TODO convert kotlin
 public class DatabaseFirebaseRecentPostsFragmentDatabaseFirebase extends DatabaseFirebasePostListFragment {
 
     public DatabaseFirebaseRecentPostsFragmentDatabaseFirebase() {

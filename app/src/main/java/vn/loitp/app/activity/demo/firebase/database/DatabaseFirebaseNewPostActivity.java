@@ -25,6 +25,7 @@ import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LogTag("DatabaseFirebaseNewPostActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     private static final String REQUIRED = "Required";
 

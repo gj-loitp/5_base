@@ -31,6 +31,7 @@ import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebasePostDetailAc
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.viewholder.PostViewHolder;
 
+//TODO convert kotlin
 public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
     private static final String logTag = "DbFbPostListFragment";

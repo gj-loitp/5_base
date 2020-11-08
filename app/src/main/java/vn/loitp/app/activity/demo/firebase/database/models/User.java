@@ -1,10 +1,14 @@
 package vn.loitp.app.activity.demo.firebase.database.models;
 
+import androidx.annotation.Keep;
+
 import com.core.base.BaseModel;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 // [START blog_user_class]
 @IgnoreExtraProperties
+@Keep
+//TODO convert kotlin
 public class User extends BaseModel {
 
     public String username;

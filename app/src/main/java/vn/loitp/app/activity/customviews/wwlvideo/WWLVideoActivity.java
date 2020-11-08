@@ -21,6 +21,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 
+//TODO convert kotlin
 @LogTag("WWLVideoActivity")
 @IsFullScreen(false)
 public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener, FragmentHost {

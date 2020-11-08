@@ -19,6 +19,7 @@ import vn.loitp.app.R;
 
 @LogTag("FloatDragLayoutActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class FloatDragLayoutActivity extends BaseFontActivity implements View.OnClickListener {
 
     @Override

@@ -13,6 +13,7 @@ import vn.loitp.app.R;
 
 @LogTag("AnswerViewActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class AnswerViewActivity extends BaseFontActivity {
 
     @Override

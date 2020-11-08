@@ -23,6 +23,7 @@ import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseRec
 
 //https://github.com/firebase/quickstart-android
 
+//TODO convert kotlin
 @LogTag("DatabaseFirebaseActivity")
 @IsFullScreen(false)
 public class DatabaseFirebaseActivity extends BaseFirebaseActivity {

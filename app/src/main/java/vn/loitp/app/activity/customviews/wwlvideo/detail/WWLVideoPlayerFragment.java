@@ -19,7 +19,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 /**
  * Created by loitp on 2/26/17.
  */
-
+//TODO convert kotlin
 @LogTag("DatabaseFirebaseSignInActivity")
 public class WWLVideoPlayerFragment extends BaseFragment {
     private String mUrl;

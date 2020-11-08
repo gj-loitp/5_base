@@ -7,7 +7,7 @@ import vn.loitp.app.R;
 /**
  * Created by thangn on 2/27/17.
  */
-
+//TODO convert kotlin
 public class WWLVideoDataset {
     public static DatasetItem[] datasetItems;
 

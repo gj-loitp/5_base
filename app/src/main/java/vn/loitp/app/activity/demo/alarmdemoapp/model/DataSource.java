@@ -2,12 +2,16 @@ package vn.loitp.app.activity.demo.alarmdemoapp.model;
 
 import android.content.Context;
 
+import androidx.annotation.Keep;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
+@Keep
+//TODO convert kotlin
 public class DataSource {
     private static final String logTag = "AlarmMeActivity";
 

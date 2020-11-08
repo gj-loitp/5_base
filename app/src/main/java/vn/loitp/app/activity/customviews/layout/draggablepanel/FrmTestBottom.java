@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 public class FrmTestBottom extends Fragment {
     public static FrmTestBottom newInstance() {
         return new FrmTestBottom();

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.api.truyentranhtuan.model.comic
 
+import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,6 +8,7 @@ import com.core.base.BaseModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+@Keep
 @Entity(tableName = "Comic")
 class Comic : BaseModel() {
     @ColumnInfo(name = "title")

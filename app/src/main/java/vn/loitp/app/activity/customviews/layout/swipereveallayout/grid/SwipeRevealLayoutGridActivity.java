@@ -19,6 +19,7 @@ import vn.loitp.app.R;
 
 @LogTag("SwipeRevealLayoutGridActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class SwipeRevealLayoutGridActivity extends BaseFontActivity {
     private GridAdapter adapter;
 

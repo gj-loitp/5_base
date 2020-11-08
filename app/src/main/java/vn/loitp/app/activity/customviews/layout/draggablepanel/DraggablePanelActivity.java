@@ -13,6 +13,7 @@ import vn.loitp.app.R;
 
 @LogTag("DraggablePanelActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class DraggablePanelActivity extends BaseFontActivity {
     private DraggablePanel draggablePanel;
 

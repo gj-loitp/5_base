@@ -17,6 +17,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 @LogTag("SwipeRevealLayoutRecyclerActivity")
 @IsFullScreen(false)
 public class SwipeRevealLayoutRecyclerActivity extends BaseFontActivity {

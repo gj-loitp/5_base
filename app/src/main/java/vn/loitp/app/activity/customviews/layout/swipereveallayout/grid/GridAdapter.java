@@ -18,6 +18,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 public class GridAdapter extends ArrayAdapter<String> {
     private final LayoutInflater mInflater;
     private final ViewBinderHelper binderHelper;

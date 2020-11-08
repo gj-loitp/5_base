@@ -15,6 +15,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 @LogTag("SqliteActivity")
 @IsFullScreen(false)
 public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {

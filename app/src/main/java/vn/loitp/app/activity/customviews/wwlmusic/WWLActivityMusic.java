@@ -18,6 +18,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
 @LogTag("WWLActivityMusic")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.Listener, FragmentHost {
     private LWWLMusic LWWLMusic;
     private float mLastAlpha;

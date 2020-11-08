@@ -20,6 +20,7 @@ import vn.loitp.app.R;
 
 //https://github.com/Kelin-Hong/ScrollablePanel?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5306
 
+//TODO convert kotlin
 @LogTag("ScrollablePanelActivity")
 @IsFullScreen(false)
 public class ScrollablePanelActivity extends BaseFontActivity {

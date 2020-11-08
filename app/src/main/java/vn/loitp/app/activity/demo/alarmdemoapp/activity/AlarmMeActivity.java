@@ -22,6 +22,7 @@ import vn.loitp.app.activity.demo.alarmdemoapp.adapter.AlarmListAdapter;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.Preferences;
 
+//TODO convert kotlin
 @LogTag("AlarmMeActivity")
 @IsFullScreen(false)
 public class AlarmMeActivity extends BaseFontActivity {

@@ -13,6 +13,7 @@ import com.views.menu.residemenu.ResideMenu;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 @LogTag("HomeFragment")
 public class HomeFragment extends BaseFragment {
     private ResideMenu resideMenu;

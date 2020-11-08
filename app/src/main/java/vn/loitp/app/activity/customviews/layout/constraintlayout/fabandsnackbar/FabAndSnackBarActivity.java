@@ -14,6 +14,7 @@ import vn.loitp.app.R;
 
 @LogTag("FabAndSnackbarActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class FabAndSnackBarActivity extends BaseFontActivity {
     private CoordinatorLayout coordinatorLayout;
 

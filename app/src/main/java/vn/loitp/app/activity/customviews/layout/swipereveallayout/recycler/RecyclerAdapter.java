@@ -19,6 +19,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 public class RecyclerAdapter extends RecyclerView.Adapter {
     private List<String> mDataSet;
     private LayoutInflater mInflater;

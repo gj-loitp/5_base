@@ -22,11 +22,15 @@ package vn.loitp.app.activity.demo.alarmdemoapp.model;
 import android.content.Context;
 import android.content.Intent;
 
+import androidx.annotation.Keep;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 
+@Keep
+//TODO convert kotlin
 public class Alarm implements Comparable<Alarm> {
     private Context mContext;
     private long mId;

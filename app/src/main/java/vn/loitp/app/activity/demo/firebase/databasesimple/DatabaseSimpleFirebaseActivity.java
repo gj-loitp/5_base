@@ -29,6 +29,7 @@ import vn.loitp.app.common.Constants;
 
 @LogTag("DatabaseSimpleFirebaseActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";
     private FirebaseDatabase mFirebaseInstance;

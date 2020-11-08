@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
 /**
  * Created by www.muathu@gmail.com on 12/8/2017.
  */
 
+@Keep
 class Movie : BaseModel {
     var title: String? = null
     var genre: String? = null

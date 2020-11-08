@@ -14,6 +14,7 @@ import vn.loitp.app.R;
 
 @LogTag("FloatDragWindowModeActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class FloatDragWindowModeActivity extends BaseActivity {
 
     @Override

@@ -16,6 +16,7 @@ import vn.loitp.app.R;
 
 @LogTag("FloatDragFullScreenActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class FloatDragFullScreenActivity extends BaseActivity {
     private View mDecorView;
 

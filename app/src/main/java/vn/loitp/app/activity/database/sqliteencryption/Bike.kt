@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.database.sqliteencryption
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
+@Keep
 class Bike : BaseModel() {
     var id: Long? = 0
     var name: String? = ""

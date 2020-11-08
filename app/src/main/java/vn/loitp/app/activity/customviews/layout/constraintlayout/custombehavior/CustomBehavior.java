@@ -14,6 +14,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by Obaro on 18/07/2016.
  */
+//TODo convert kotlin
 public class CustomBehavior extends CoordinatorLayout.Behavior<CircleImageView> {
 
     private final String logTag = getClass().getSimpleName();

@@ -6,7 +6,6 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.ortiz.touchview.TouchImageView
 
-
 class ExtendedViewPager : ViewPager {
 
     constructor(context: Context) : super(context)

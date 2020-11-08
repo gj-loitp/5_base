@@ -21,6 +21,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
+//TODO convert kotlin
 @LogTag("HomeFragment")
 public class HomeFragment extends BaseFragment {
     private GridLayoutManager gridLayoutManager;

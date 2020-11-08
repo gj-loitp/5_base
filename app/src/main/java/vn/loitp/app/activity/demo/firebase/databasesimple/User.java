@@ -1,11 +1,15 @@
 package vn.loitp.app.activity.demo.firebase.databasesimple;
 
+import androidx.annotation.Keep;
+
 import com.core.base.BaseModel;
 
 /**
  * Created by LENOVO on 6/5/2018.
  */
 
+@Keep
+//TODO convert kotlin
 public class User extends BaseModel {
     private String name;
     private String avt;

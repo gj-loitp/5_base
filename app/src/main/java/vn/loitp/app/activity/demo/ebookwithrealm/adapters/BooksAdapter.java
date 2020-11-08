@@ -19,6 +19,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
+//TODO convert kotlin
 public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     final Context context;
     private Realm realm;

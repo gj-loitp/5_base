@@ -28,6 +28,7 @@ import vn.loitp.app.R;
 
 @LogTag("ImageWithCropActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class ImageWithCropActivity extends BaseFontActivity {
     private ImageView imageView;
     private boolean isShowDialogCheck;

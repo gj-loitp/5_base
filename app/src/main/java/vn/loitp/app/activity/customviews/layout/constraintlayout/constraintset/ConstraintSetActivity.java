@@ -16,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 @LogTag("ConstraintSetActivity")
 @IsFullScreen(false)
 public class ConstraintSetActivity extends BaseFontActivity {

@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
 import vn.loitp.app.R;
+
+//TODO convert kotlin
 public class Preferences extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle bundle) {

@@ -11,6 +11,7 @@ import com.core.base.BaseFragment;
 
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 @LogTag("SettingsFragment")
 public class SettingsFragment extends BaseFragment {
 

@@ -1,5 +1,7 @@
 package vn.loitp.app.activity.demo.firebase.database.models;
 
+import androidx.annotation.Keep;
+
 import com.core.base.BaseModel;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
@@ -9,6 +11,8 @@ import java.util.Map;
 
 // [START post_class]
 @IgnoreExtraProperties
+@Keep
+//TODO convert kotlin
 public class Post extends BaseModel {
 
     public String uid;
