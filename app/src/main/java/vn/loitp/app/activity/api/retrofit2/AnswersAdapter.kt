@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.app.R
+import vn.loitp.app.activity.api.retrofit2.model.Item
 
 /**
  * Created by LENOVO on 2/23/2018.

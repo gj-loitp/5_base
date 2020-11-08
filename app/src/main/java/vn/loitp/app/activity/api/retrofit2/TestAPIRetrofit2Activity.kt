@@ -15,6 +15,7 @@ import retrofit2.Response
 import vn.loitp.app.R
 import vn.loitp.app.activity.api.retrofit2.AnswersAdapter.PostItemListener
 import vn.loitp.app.activity.api.retrofit2.ApiUtils.Companion.sOService
+import vn.loitp.app.activity.api.retrofit2.model.SOAnswersResponse
 import java.util.*
 
 @LogTag("TestAPIRetrofit2Activity")

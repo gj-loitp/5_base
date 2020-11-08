@@ -1,12 +1,11 @@
-package vn.loitp.app.activity.api.retrofit2
+package vn.loitp.app.activity.api.retrofit2.model
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-/**
- * Created by LENOVO on 2/23/2018.
- */
+@Keep
 class SOAnswersResponse : BaseModel() {
     @SerializedName("items")
     @Expose

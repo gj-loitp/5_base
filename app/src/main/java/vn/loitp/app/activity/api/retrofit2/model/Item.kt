@@ -1,9 +1,11 @@
-package vn.loitp.app.activity.api.retrofit2
+package vn.loitp.app.activity.api.retrofit2.model
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
+@Keep
 class Item : BaseModel() {
     @SerializedName("owner")
     @Expose
