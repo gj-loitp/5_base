@@ -18,9 +18,6 @@
 
 -ignorewarnings
 
-#core
--keep class vn.puresolutions.livestar.core.** { *; }
-
 #google
 -keep public class com.google.** {*;}
 
