@@ -227,8 +227,6 @@ Likewise may someone love you next.
     <string name="change_icon">Change Icon</string>
     <string name="add_unlimited_customized_buttons">add unlimited customized buttons</string>
     <string name="fully_customize">Fully customize</string>
-    <string name="swipe_away_dialog">Swipe away Dialog</string>
-    <string name="custom_dialog">Custom Dialog</string>
     <string name="menu_dialog">Menu Dialog</string>
     <string name="custom_progress_dialog">Custom progress dialog</string>
     <string name="pretty_dialog">Pretty dialog</string>
@@ -263,7 +261,6 @@ Likewise may someone love you next.
     <string name="gif">Gif</string>
     <string name="menu_text_view">Menu TextView</string>
     <string name="autofit_textview">Autofit TextView</string>
-    <string name="circle_textview">Circle TextView</string>
     <string name="color_textview">Color TextView</string>
     <string name="countdown_textview">Countdown TextView</string>
     <string name="score_text">Score Text</string>
