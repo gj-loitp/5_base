@@ -42,11 +42,6 @@
                 android:id="@+id/btSlideImages"
                 style="@style/ButtonMenu"
                 android:text="@string/slide_images" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btSwipeAwayDialog"
-                style="@style/ButtonMenu"
-                android:text="@string/swipe_away_dialog" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

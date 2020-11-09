@@ -14,7 +14,6 @@ import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgr
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity
 import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesActivity
-import vn.loitp.app.activity.customviews.dialog.swipeawaydialog.SwipeAwayDialogActivity
 
 @LogTag("DialogMenuActivity")
 @IsFullScreen(false)
@@ -33,7 +32,6 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
     private fun setupViews() {
         btOriginalDialog.setOnClickListener(this)
         btPrettyDialog.setOnClickListener(this)
-        btSwipeAwayDialog.setOnClickListener(this)
         btCustomProgressDialog.setOnClickListener(this)
         btSlideImages.setOnClickListener(this)
         btCustomDialog.setOnClickListener(this)
@@ -44,7 +42,6 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btOriginalDialog -> intent = Intent(this, DialogOriginalActivity::class.java)
             btPrettyDialog -> intent = Intent(this, PrettyDialogActivity::class.java)
-            btSwipeAwayDialog -> intent = Intent(this, SwipeAwayDialogActivity::class.java)
             btCustomProgressDialog -> intent = Intent(this, CustomProgressDialoglActivity::class.java)
             btSlideImages -> intent = Intent(this, DialogSlideImagesActivity::class.java)
             btCustomDialog -> intent = Intent(this, CustomDialogActivity::class.java)
