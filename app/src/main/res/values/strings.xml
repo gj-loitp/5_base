@@ -470,4 +470,5 @@ Likewise may someone love you next.
     <string name="change_to_no_title_model">Change To No Title Model</string>
     <string name="change_to_windows_model">Change To Windows Model</string>
     <string name="show_floatdragpopupwindow">Show FloatDragPopupWindow</string>
+    <string name="settings">Settings</string>
 </resources>
