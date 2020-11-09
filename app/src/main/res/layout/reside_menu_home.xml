@@ -7,7 +7,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/ignored_view"
+        android:layout_above="@+id/layoutIgnoredView"
         android:layout_alignParentTop="true"
         android:gravity="center"
         android:orientation="vertical">
@@ -27,7 +27,7 @@
             android:layout_gravity="center"
             android:clickable="false"
             android:padding="@dimen/padding_medium"
-            android:text=" 1. Swipe right/left to open menu"
+            android:text="@string/_1_swipe_right_left_to_open_menu"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
@@ -39,14 +39,14 @@
             android:layout_marginTop="@dimen/margin_medium"
             android:background="?attr/themeBackgroundColorMedium"
             android:padding="@dimen/padding_medium"
-            android:text="2. Click me to open menu"
+            android:text="@string/_2_click_me_to_open_menu"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium" />
 
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/ignored_view"
+        android:id="@+id/layoutIgnoredView"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_alignParentBottom="true"
@@ -59,11 +59,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:padding="@dimen/padding_15"
-            android:text="This is an ignored view，you can’t use gesture to operate menu here."
+            android:padding="@dimen/padding_medium"
+            android:text="@string/this_is_an_ignored_view_you_can_t_use_gesture_to_operate_menu_here"
             android:textColor="#9a9a9a"
-            android:textSize="17sp" />
+            android:textSize="@dimen/txt_medium" />
     </FrameLayout>
 
 </RelativeLayout>
-
