@@ -38,16 +38,16 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="7dp"
-                android:text="RESideMenu DEMO"
+                android:text="@string/residemenu_demo"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="24sp" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/title_bar_right_menu"
+                android:id="@+id/titleBarRightMenu"
                 android:layout_width="28dp"
                 android:layout_height="28dp"
-                android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="@dimen/margin_medium"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="@dimen/margin_medium"
                 android:background="@drawable/ic_more_vert_grey"
                 android:backgroundTint="?attr/themeTextColor" />
         </FrameLayout>
@@ -60,7 +60,7 @@
     </LinearLayout>
 
     <FrameLayout
-        android:id="@+id/main_fragment"
+        android:id="@+id/mainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/layoutTop"

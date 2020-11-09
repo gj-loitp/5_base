@@ -474,4 +474,5 @@ Likewise may someone love you next.
     <string name="this_is_an_ignored_view_you_can_t_use_gesture_to_operate_menu_here">This is an ignored view，you can’t use gesture to operate menu here.</string>
     <string name="_1_swipe_right_left_to_open_menu">1. Swipe right/left to open menu</string>
     <string name="_2_click_me_to_open_menu">2. Click me to open menu</string>
+    <string name="residemenu_demo">RESideMenu DEMO</string>
 </resources>
