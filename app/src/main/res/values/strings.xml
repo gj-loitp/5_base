@@ -466,4 +466,8 @@ Likewise may someone love you next.
     <string name="toggle">Toggle</string>
     <string name="toggle_button_group">Toggle Button Group</string>
     <string name="switch_toggle_menu">Switch Toggle Menu</string>
+    <string name="change_to_fullscreen_model">Change To Fullscreen Model</string>
+    <string name="change_to_no_title_model">Change To No Title Model</string>
+    <string name="change_to_windows_model">Change To Windows Model</string>
+    <string name="show_floatdragpopupwindow">Show FloatDragPopupWindow</string>
 </resources>
