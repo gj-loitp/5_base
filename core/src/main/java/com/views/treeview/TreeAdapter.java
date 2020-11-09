@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 /**
  *
  */
-interface TreeAdapter<VH> extends Adapter, TreeNodeObserver {
+public interface TreeAdapter<VH> extends Adapter, TreeNodeObserver {
 
     void notifySizeChanged(@NonNull TreeNodeSize size);
 
