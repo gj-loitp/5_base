@@ -12,7 +12,6 @@ import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
-import com.core.common.Constants
 import com.core.helper.mup.comic.adapter.ChapterDetailAdapter
 import com.core.helper.mup.comic.model.Chap
 import com.core.helper.mup.comic.ui.popup.PopupComicChapterDetail
@@ -138,8 +137,9 @@ class ComicReadActivity : BaseFontActivity() {
                 }
 
                 if (isDoing == false && isSuccess == true) {
-                    val listChapterComicDetails = actionData.data?.chapterComicsDetails
-                    if (listChapterComicDetails.isNullOrEmpty()) {
+                    val chapterDetail = actionData.data
+                    logD("<<<<observe chapterDetail " + BaseApplication.gson.toJson(chapterDetail))
+                    if (chapterDetail == null || chapterDetail.chapterComicsDetails.isNullOrEmpty()) {
                         tvNoData.visibility = View.VISIBLE
                         rvComicRead.visibility = View.GONE
                     } else {
@@ -147,7 +147,7 @@ class ComicReadActivity : BaseFontActivity() {
                         rvComicRead.visibility = View.VISIBLE
                         tvTitle.text = actionData.data?.title
 
-                        chapterDetailAdapter.setListData(listChap = listChapterComicDetails)
+                        chapterDetailAdapter.setData(chapterDetail = chapterDetail)
                     }
                 }
             })
@@ -155,7 +155,8 @@ class ComicReadActivity : BaseFontActivity() {
     }
 
     private fun goToPreviousChap() {
-        val prevChap = comicViewModel?.chapterDetailActionLiveData?.value?.data?.prevChap
+        val prevChap = chapterDetailAdapter.getChapterDetail()?.prevChap
+        logD("goToPreviousChap prevChap " + BaseApplication.gson.toJson(prevChap))
         if (prevChap == null || prevChap.id.isNullOrEmpty()) {
             showLongInformation(getString(R.string.no_data))
         } else {
@@ -164,7 +165,8 @@ class ComicReadActivity : BaseFontActivity() {
     }
 
     private fun goToNextChap() {
-        val nextChap = comicViewModel?.chapterDetailActionLiveData?.value?.data?.nextChap
+        val nextChap = chapterDetailAdapter.getChapterDetail()?.nextChap
+        logD("goToNextChap nextChap " + BaseApplication.gson.toJson(nextChap))
         if (nextChap == null || nextChap.id.isNullOrEmpty()) {
             showLongInformation(getString(R.string.no_data))
         } else {
@@ -177,7 +179,7 @@ class ComicReadActivity : BaseFontActivity() {
         popup.width = ViewGroup.LayoutParams.WRAP_CONTENT
         popup.height = ViewGroup.LayoutParams.WRAP_CONTENT
         val verticalPos = RelativePopupWindow.VerticalPosition.BELOW
-        val horizontalPos = RelativePopupWindow.HorizontalPosition.LEFT
+        val horizontalPos = RelativePopupWindow.HorizontalPosition.RIGHT
         popup.onClickShare = {
             LSocialUtil.shareApp(activity = this)
         }

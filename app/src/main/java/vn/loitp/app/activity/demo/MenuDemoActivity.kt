@@ -48,6 +48,24 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        if (Constants.IS_DEBUG) {
+            btGalleryCore.visibility = View.VISIBLE
+            btGalleryCoreAlbum.visibility = View.VISIBLE
+            btGalleryMember.visibility = View.VISIBLE
+            btGalleryCoreAlbumFrm.visibility = View.VISIBLE
+            btEpubReader.visibility = View.VISIBLE
+            btGirl.visibility = View.VISIBLE
+            btComic.visibility = View.VISIBLE
+        } else {
+            btGalleryCore.visibility = View.GONE
+            btGalleryCoreAlbum.visibility = View.GONE
+            btGalleryMember.visibility = View.GONE
+            btGalleryCoreAlbumFrm.visibility = View.GONE
+            btEpubReader.visibility = View.GONE
+            btGirl.visibility = View.GONE
+            btComic.visibility = View.GONE
+        }
+
         btAlarm.setOnClickListener(this)
         btEbookWithRealm.setOnClickListener(this)
         btVideo.setOnClickListener(this)
@@ -56,24 +74,10 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFloatingWidget.setOnClickListener(this)
         btFloatingVideo.setOnClickListener(this)
         btFirebase.setOnClickListener(this)
-        if (Constants.IS_DEBUG) {
-            btGalleryCore.visibility = View.VISIBLE
-            btGalleryCore.setOnClickListener(this)
-
-            btGalleryCoreAlbum.visibility = View.VISIBLE
-            btGalleryCoreAlbum.setOnClickListener(this)
-
-            btGalleryMember.visibility = View.VISIBLE
-            btGalleryMember.setOnClickListener(this)
-
-            btGalleryCoreAlbumFrm.setOnClickListener(this)
-            btGalleryCoreAlbumFrm.visibility = View.VISIBLE
-        } else {
-            btGalleryCore.visibility = View.GONE
-            btGalleryCoreAlbum.visibility = View.GONE
-            btGalleryMember.visibility = View.GONE
-            btGalleryCoreAlbumFrm.visibility = View.GONE
-        }
+        btGalleryCore.setOnClickListener(this)
+        btGalleryCoreAlbum.setOnClickListener(this)
+        btGalleryMember.setOnClickListener(this)
+        btGalleryCoreAlbumFrm.setOnClickListener(this)
         btEpubReader.setOnClickListener(this)
         bt2InstanceActivity.setOnClickListener(this)
         btFragmentNavigation.setOnClickListener(this)
