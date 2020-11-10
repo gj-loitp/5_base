@@ -14,6 +14,7 @@ import com.annotation.IsShowAdWhenExit
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
@@ -22,14 +23,12 @@ import com.core.helper.mup.comic.adapter.ChapAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
-import com.core.utilities.LValidateUtil
+import com.core.utilities.*
 import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.ColorFilterTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
 
@@ -85,13 +84,17 @@ class ComicChapActivity : BaseFontActivity() {
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
+        val transform = MultiTransformation(
+                BlurTransformation(25),
+                ColorFilterTransformation(LAppResource.getColor(R.color.black50))
+        )
         LImageUtil.load(
                 context = this,
                 any = comic?.imageSrc,
                 imageView = imgCover,
                 resPlaceHolder = color,
                 resError = color,
-                transformation = BlurTransformation(25),
+                transformation = transform,
                 drawableRequestListener = object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                         return false

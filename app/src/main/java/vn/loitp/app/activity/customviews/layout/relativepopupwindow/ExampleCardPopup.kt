@@ -21,30 +21,30 @@ class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWi
     override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
         super.showOnAnchor(anchor, vertPos, horizPos, x, y, fitInScreen)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            circularReveal(anchor = anchor)
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            circularReveal(anchor = anchor)
+//        }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private fun circularReveal(anchor: View) {
-        val contentView = contentView
-        contentView.post {
-            val myLocation = IntArray(2)
-            val anchorLocation = IntArray(2)
-            contentView.getLocationOnScreen(myLocation)
-            anchor.getLocationOnScreen(anchorLocation)
-            val cx = anchorLocation[0] - myLocation[0] + anchor.width / 2
-            val cy = anchorLocation[1] - myLocation[1] + anchor.height / 2
-            contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
-            val dx = max(a = cx, b = contentView.measuredWidth - cx)
-            val dy = max(a = cy, b = contentView.measuredHeight - cy)
-            val finalRadius = hypot(x = dx.toDouble(), y = dy.toDouble()).toFloat()
-            val animator = ViewAnimationUtils.createCircularReveal(contentView, cx, cy, 0f, finalRadius)
-            animator.duration = 500
-            animator.start()
-        }
-    }
+//    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+//    private fun circularReveal(anchor: View) {
+//        val contentView = contentView
+//        contentView.post {
+//            val myLocation = IntArray(2)
+//            val anchorLocation = IntArray(2)
+//            contentView.getLocationOnScreen(myLocation)
+//            anchor.getLocationOnScreen(anchorLocation)
+//            val cx = anchorLocation[0] - myLocation[0] + anchor.width / 2
+//            val cy = anchorLocation[1] - myLocation[1] + anchor.height / 2
+//            contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+//            val dx = max(a = cx, b = contentView.measuredWidth - cx)
+//            val dy = max(a = cy, b = contentView.measuredHeight - cy)
+//            val finalRadius = hypot(x = dx.toDouble(), y = dy.toDouble()).toFloat()
+//            val animator = ViewAnimationUtils.createCircularReveal(contentView, cx, cy, 0f, finalRadius)
+//            animator.duration = 500
+//            animator.start()
+//        }
+//    }
 
     init {
         val layout = LayoutInflater.from(context).inflate(R.layout.popup_card, null)

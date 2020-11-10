@@ -1,23 +1,34 @@
 package com.core.helper.mup.comic.adapter
 
 import android.animation.ValueAnimator
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
+import com.bumptech.glide.load.MultiTransformation
 import com.core.adapter.AnimationAdapter
 import com.core.helper.mup.comic.model.Comic
+import com.core.utilities.LAppResource
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.ColorFilterTransformation
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 
 @LogTag("ComicHeaderAdapter")
 class ComicHeaderAdapter : AnimationAdapter() {
 
     private var comic: Comic? = null
+    private val transform = MultiTransformation(
+            BlurTransformation(25),
+            ColorFilterTransformation(LAppResource.getColor(R.color.black50))
+    )
+
     var onClickRoot: ((Comic) -> Unit)? = null
 
     fun setData(comic: Comic) {
@@ -36,7 +47,7 @@ class ComicHeaderAdapter : AnimationAdapter() {
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
                     drawableRequestListener = null,
-                    transformation = BlurTransformation(25)
+                    transformation = transform
             )
 
             LImageUtil.load(

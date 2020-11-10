@@ -180,7 +180,7 @@ class ComicReadActivity : BaseFontActivity() {
         popup.width = ViewGroup.LayoutParams.WRAP_CONTENT
         popup.height = ViewGroup.LayoutParams.WRAP_CONTENT
         val verticalPos = RelativePopupWindow.VerticalPosition.BELOW
-        val horizontalPos = RelativePopupWindow.HorizontalPosition.RIGHT
+        val horizontalPos = RelativePopupWindow.HorizontalPosition.ALIGN_RIGHT
         popup.onClickShare = {
             LSocialUtil.shareApp(activity = this)
         }
