@@ -3,6 +3,7 @@ package vn.loitp.app.app
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.common.Constants
+import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
 import com.data.ActivityData
 import com.data.AdmobData
@@ -66,5 +67,7 @@ class LApplication : BaseApplication() {
 
 //        logD("LApplication onCreate")
         LUIUtil.setDarkTheme(isDarkTheme = true)
+
+        LSharedPrefsUtil.instance.putString(LSharedPrefsUtil.KEY_CORE_GALLERY, getString(R.string.loitp_core_gallery))
     }
 }

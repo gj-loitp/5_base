@@ -2,12 +2,14 @@ package com.core.utilities
 
 import android.text.TextUtils
 import android.util.Patterns
+import com.BuildConfig
+import com.R
 import java.util.*
 import java.util.regex.Pattern
 
 class LValidateUtil {
     companion object {
-        private val TAG = "LValidateUtil"
+        private val logTag = "LValidateUtil"
 
         const val MSG_0 = "pw_must_length_more_8_character"
         const val MSG_1 = "pw_must_contain_number"
@@ -49,6 +51,14 @@ class LValidateUtil {
             }
             //null is valid password
             return null
+        }
+
+        fun isValidCoreGallery(): Boolean  {
+            val value = LSharedPrefsUtil.instance.getString(LSharedPrefsUtil.KEY_CORE_GALLERY)
+            if (value == LAppResource.getString(R.string.loitp_core_gallery)) {
+                return true
+            }
+            throw IllegalArgumentException("You have no permission to do this")
         }
     }
 }

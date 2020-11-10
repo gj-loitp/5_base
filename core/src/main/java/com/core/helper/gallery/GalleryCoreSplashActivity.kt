@@ -12,10 +12,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
+import com.core.utilities.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.interfaces.Callback2
@@ -27,6 +24,7 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
+import java.lang.IllegalArgumentException
 import java.util.*
 
 @LogTag("GalleryCoreSplashActivity")
@@ -48,7 +46,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         adMobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 //        logD("admobBannerUnitId $admobBannerUnitId")
 
-        if (adMobBannerUnitId == null || adMobBannerUnitId!!.isEmpty()) {
+        if (adMobBannerUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
             adView = AdView(this)
@@ -70,6 +68,8 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
 //        LUIUtil.setTextShadow(textView = tvCopyright)
         tvName.text = AppUtils.getAppName()
 //        LUIUtil.setTextShadow(tvName)
+
+        LValidateUtil.isValidCoreGallery()
     }
 
     private fun goToHome() {

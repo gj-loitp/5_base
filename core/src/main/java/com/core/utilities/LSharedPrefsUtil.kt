@@ -166,6 +166,7 @@ class LSharedPrefsUtil private constructor() {
         private var mInstance: LSharedPrefsUtil? = null
 
         const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
+        const val KEY_CORE_GALLERY = "KEY_CORE_GALLERY"
 
         val instance: LSharedPrefsUtil
             get() {
