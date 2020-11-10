@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -77,8 +78,11 @@ class ComicReadActivity : BaseFontActivity() {
         })
         chapterDetailAdapter = ChapterDetailAdapter()
         chapterDetailAdapter.onClickRoot = { chapterComicsDetail ->
-            logD("onClickRoot chapterComicsDetail " + BaseApplication.gson.toJson(chapterComicsDetail))
-            //TODO zoom
+            val intent = Intent(this, ViewerActivity::class.java).apply {
+                putExtra(ViewerActivity.KEY_DATA, chapterComicsDetail)
+            }
+            startActivity(intent)
+            LActivityUtil.tranIn(this)
         }
         concatAdapter.addAdapter(chapterDetailAdapter)
 
