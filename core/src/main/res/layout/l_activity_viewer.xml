@@ -10,7 +10,7 @@
     app:maskAlpha="125"
     app:swipeBackFactor="0.5">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <com.ortiz.touchview.TouchImageView
         android:id="@+id/ivViewer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
