@@ -63,6 +63,7 @@ class ViewerActivity : BaseFontActivity() {
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                        LImageUtil.setZoomFitWidthScreen(touchImageView = ivViewer)
                         return false
                     }
                 }

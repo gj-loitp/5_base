@@ -13,7 +13,6 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.core.adapter.AnimationAdapter
-import com.core.common.Constants
 import com.core.helper.mup.comic.model.ChapterComicsDetail
 import com.core.helper.mup.comic.model.ChapterDetail
 import com.core.utilities.LImageUtil
@@ -68,12 +67,13 @@ class ChapterDetailAdapter : AnimationAdapter() {
                     resError = R.drawable.place_holder_error404,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            itemView.indicatorView.smoothToHide()
+                            itemView.indicatorView?.smoothToHide()
                             return false
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            itemView.indicatorView.smoothToHide()
+                            itemView.indicatorView?.smoothToHide()
+//                            LImageUtil.setZoomFitWidthScreen(touchImageView = itemView.ivChapterDetail)
                             return false
                         }
                     }
