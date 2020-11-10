@@ -73,33 +73,33 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         }
     }
 
-    fun toggleDisplayRlControl() {
-        if (isRlControlShowing) {
-            hideRlControl()
-        } else {
-            showRlControl()
-        }
-    }
-
-    private var isRlControlShowing = true
-    private fun showRlControl() {
-        rlControl.visibility = View.VISIBLE
-        isRlControlShowing = true
-        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideInUp)
-    }
-
-    private fun hideRlControl() {
-        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideOutDown, callbackAnimation = object : CallbackAnimation {
-            override fun onCancel() {}
-            override fun onEnd() {
-                rlControl.visibility = View.INVISIBLE
-                isRlControlShowing = false
-            }
-
-            override fun onRepeat() {}
-            override fun onStart() {}
-        })
-    }
+//    fun toggleDisplayRlControl() {
+//        if (isRlControlShowing) {
+//            hideRlControl()
+//        } else {
+//            showRlControl()
+//        }
+//    }
+//
+//    private var isRlControlShowing = true
+//    private fun showRlControl() {
+//        rlControl.visibility = View.VISIBLE
+//        isRlControlShowing = true
+//        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideInUp)
+//    }
+//
+//    private fun hideRlControl() {
+//        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideOutDown, callbackAnimation = object : CallbackAnimation {
+//            override fun onCancel() {}
+//            override fun onEnd() {
+//                rlControl.visibility = View.INVISIBLE
+//                isRlControlShowing = false
+//            }
+//
+//            override fun onRepeat() {}
+//            override fun onStart() {}
+//        })
+//    }
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(

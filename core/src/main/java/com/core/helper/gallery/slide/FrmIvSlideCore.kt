@@ -26,6 +26,10 @@ class FrmIvSlideCore : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         val bundle = arguments ?: return
         val position = bundle.getInt(Constants.SK_PHOTO_PISITION)
         val photo = instance.getPhoto(position)
@@ -56,11 +60,11 @@ class FrmIvSlideCore : Fragment() {
             override fun onFail(error: Exception) {}
         })
         biv.showImage(Uri.parse(photo?.urlS), Uri.parse(photo?.urlO))
-        biv.setOnClickListener {
-            if (activity == null) {
-                return@setOnClickListener
-            }
-            (activity as GalleryCoreSlideActivity).toggleDisplayRlControl()
-        }
+//        biv.setOnClickListener {
+//            if (activity == null) {
+//                return@setOnClickListener
+//            }
+//            (activity as GalleryCoreSlideActivity).toggleDisplayRlControl()
+//        }
     }
 }
