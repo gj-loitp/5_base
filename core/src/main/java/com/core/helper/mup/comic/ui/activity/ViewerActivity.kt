@@ -14,7 +14,9 @@ import com.bumptech.glide.request.target.Target
 import com.core.base.BaseFontActivity
 import com.core.helper.mup.comic.model.ChapterComicsDetail
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LDeviceUtil
 import com.core.utilities.LImageUtil
+import com.core.utilities.LScreenUtil
 import com.views.layout.swipeback.SwipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_comic_read.swipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_viewer.*
@@ -42,6 +44,7 @@ class ViewerActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        LScreenUtil.hideNavigationBar(this)
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
             }
