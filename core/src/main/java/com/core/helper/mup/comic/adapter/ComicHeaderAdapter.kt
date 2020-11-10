@@ -31,7 +31,7 @@ class ComicHeaderAdapter : AnimationAdapter() {
         fun bind(comic: Comic) {
             LImageUtil.load(
                     context = itemView.imageView.context,
-                    any = comic.getImageSrc(),
+                    any = comic.imageSrc,
                     imageView = itemView.imageView,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,
@@ -41,7 +41,7 @@ class ComicHeaderAdapter : AnimationAdapter() {
 
             LImageUtil.load(
                     context = itemView.ivAvatar.context,
-                    any = comic.getImageSrc(),
+                    any = comic.imageSrc,
                     imageView = itemView.ivAvatar,
                     resError = R.color.gray,
                     resPlaceHolder = R.color.gray,

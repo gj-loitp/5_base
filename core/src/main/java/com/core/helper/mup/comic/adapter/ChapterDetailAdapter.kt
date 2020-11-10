@@ -35,7 +35,7 @@ class ChapterDetailAdapter : AnimationAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(chapterComicsDetail: ChapterComicsDetail) {
-            var imgSrc = chapterComicsDetail.getImageSrc()
+            val imgSrc = chapterComicsDetail.imageSrc
 //            if (Constants.IS_DEBUG) {
 //                imgSrc = "http://truyentranhtuan.com/manga2/detective-conan/1055/img-00001.jpg"
 //            }

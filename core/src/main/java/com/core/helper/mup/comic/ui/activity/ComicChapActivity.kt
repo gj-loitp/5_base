@@ -81,7 +81,7 @@ class ComicChapActivity : BaseFontActivity() {
         toolbar.title = comic?.title
         LImageUtil.load(
                 context = this,
-                any = comic?.getImageSrc(),
+                any = comic?.imageSrc,
                 imageView = imgCover,
                 resPlaceHolder = color,
                 resError = color,
@@ -97,7 +97,7 @@ class ComicChapActivity : BaseFontActivity() {
                 })
         LImageUtil.load(
                 context = this,
-                any = comic?.getImageSrc(),
+                any = comic?.imageSrc,
                 imageView = ivAvatar,
                 resPlaceHolder = color,
                 resError = color,
