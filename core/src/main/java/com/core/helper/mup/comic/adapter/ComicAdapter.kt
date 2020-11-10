@@ -18,6 +18,11 @@ class ComicAdapter : AnimationAdapter() {
 
     private var listComic = ArrayList<Comic>()
     var onClickRoot: ((Comic) -> Unit)? = null
+    private val placeHolder = if (LUIUtil.isDarkTheme()) {
+        R.drawable.place_holder_white
+    } else {
+        R.drawable.place_holder_black
+    }
 
     fun setData(listComic: List<Comic>, isSwipeToRefresh: Boolean?) {
         if (isSwipeToRefresh == true) {
@@ -34,7 +39,7 @@ class ComicAdapter : AnimationAdapter() {
                     any = comic.imageSrc,
                     imageView = itemView.ivBackground,
                     resError = R.color.gray,
-                    resPlaceHolder = R.color.gray,
+                    resPlaceHolder = placeHolder,
                     drawableRequestListener = null)
 
             itemView.tvTitle.apply {
