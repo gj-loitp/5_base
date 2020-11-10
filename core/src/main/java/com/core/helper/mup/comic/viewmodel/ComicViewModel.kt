@@ -21,7 +21,7 @@ import kotlinx.coroutines.launch
  * www.muathu@gmail.com
  */
 
-@LogTag("loitppComicLoginViewModel")
+@LogTag("ComicLoginViewModel")
 class ComicViewModel : BaseComicViewModel() {
     private val repository = ComicRepository(ComicApiClient.apiService)
 

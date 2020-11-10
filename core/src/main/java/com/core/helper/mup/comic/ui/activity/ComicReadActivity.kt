@@ -24,7 +24,7 @@ import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_read.*
 
-@LogTag("loitppComicActivity")
+@LogTag("ComicActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
 @IsSwipeActivity(true)

@@ -26,7 +26,7 @@ import com.utils.util.KeyboardUtils
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
-@LogTag("loitppFrmHome")
+@LogTag("FrmHome")
 class FrmHome : BaseFragment() {
 
     private var comicViewModel: ComicViewModel? = null

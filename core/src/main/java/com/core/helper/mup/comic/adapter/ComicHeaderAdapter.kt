@@ -14,7 +14,7 @@ import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 
-@LogTag("loitppGirlHeaderAdapter")
+@LogTag("ComicHeaderAdapter")
 class ComicHeaderAdapter : AnimationAdapter() {
 
     private var comic: Comic? = null

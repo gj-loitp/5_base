@@ -25,7 +25,7 @@ import kotlin.collections.ArrayList
  * www.muathu@gmail.com
  */
 
-@LogTag("loitppComicLoginViewModel")
+@LogTag("LoginViewModel")
 class TTTViewModel : BaseViewModel() {
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val tttChapActionLiveData: ActionLiveData<ActionData<TTTChap>> = ActionLiveData()

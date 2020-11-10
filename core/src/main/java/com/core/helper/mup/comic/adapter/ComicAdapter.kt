@@ -13,7 +13,7 @@ import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic.view.*
 
-@LogTag("loitppirlHeaderAdapter")
+@LogTag("ComicAdapter")
 class ComicAdapter : AnimationAdapter() {
 
     private var listComic = ArrayList<Comic>()
