@@ -35,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:background="?selectableItemBackgroundBorderless"
                 android:padding="@dimen/padding_medium"
-                android:src="@drawable/ic_keyboard_backspace_white_48dp"
+                android:src="@drawable/abc_ic_ab_back_material"
                 app:tint="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatTextView

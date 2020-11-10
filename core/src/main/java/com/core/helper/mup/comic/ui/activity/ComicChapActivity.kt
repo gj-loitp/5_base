@@ -81,6 +81,10 @@ class ComicChapActivity : BaseFontActivity() {
 
     private fun setupViews() {
         toolbar.title = comic?.title
+        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
         LImageUtil.load(
                 context = this,
                 any = comic?.imageSrc,
