@@ -15,6 +15,7 @@ import com.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
+import com.core.utilities.LValidateUtil
 import com.interfaces.CallbackList
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
@@ -123,6 +124,8 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 }
             }
         })
+
+        LValidateUtil.isValidCoreGallery()
     }
 
     private fun showListPage() {

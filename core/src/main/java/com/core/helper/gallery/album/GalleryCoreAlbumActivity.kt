@@ -14,6 +14,7 @@ import com.core.common.Constants
 import com.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
+import com.core.utilities.LValidateUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.restapi.flickr.FlickrConst
@@ -114,7 +115,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                 }
             }
         })
-
+        LValidateUtil.isValidCoreGallery()
         getListPhotosets()
     }
 

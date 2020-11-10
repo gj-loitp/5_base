@@ -50,6 +50,8 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
                 }
             }
         })
+
+        LValidateUtil.isValidCoreGallery()
     }
 
     private fun loadItem(photo: Photo) {
