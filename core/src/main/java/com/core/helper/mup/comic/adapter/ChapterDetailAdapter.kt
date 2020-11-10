@@ -26,6 +26,11 @@ class ChapterDetailAdapter : AnimationAdapter() {
 
     private var chapterDetail: ChapterDetail? = null
     private val listData = ArrayList<ChapterComicsDetail>()
+    private val placeHolder = if (LUIUtil.isDarkTheme()) {
+        R.drawable.place_holder_white
+    } else {
+        R.drawable.place_holder_black
+    }
 
     fun setData(chapterDetail: ChapterDetail) {
         this.chapterDetail = chapterDetail
@@ -56,28 +61,10 @@ class ChapterDetailAdapter : AnimationAdapter() {
             itemView.tvPage.text = "${chapterComicsDetail.noOrder}"
 //            LImageUtil.setImageViewZoom(iv = itemView.ivChapterDetail)
 
-            /*LImageUtil.load(
-                    context = itemView.ivChapterDetail.context,
-                    any = imgSrc,
-                    imageView = itemView.ivChapterDetail,
-                    resError = R.drawable.place_holder_error404,
-                    drawableRequestListener = object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            itemView.wp7progressBar.hideProgressBar()
-                            return false
-                        }
-
-                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            itemView.wp7progressBar.hideProgressBar()
-                            return false
-                        }
-                    }
-            )*/
-
             LImageUtil.loadHighQuality(
                     any = imgSrc,
                     imageView = itemView.ivChapterDetail,
-                    resPlaceHolder = R.drawable.place_holder,
+                    resPlaceHolder = placeHolder,
                     resError = R.drawable.place_holder_error404,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {

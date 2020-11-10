@@ -14,7 +14,7 @@
     <item
         android:width="@dimen/w_120"
         android:height="@dimen/w_120"
-        android:drawable="@drawable/ic_loading"
+        android:drawable="@drawable/ic_loading_black"
         android:gravity="center"
         tools:ignore="UnusedAttribute" />
 </layer-list>
