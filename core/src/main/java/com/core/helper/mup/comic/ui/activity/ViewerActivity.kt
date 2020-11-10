@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.l_activity_comic_read.swipeBackLayout
 import kotlinx.android.synthetic.main.l_activity_viewer.*
 
 @LogTag("ViewerActivity")
-@IsFullScreen(true)
+@IsFullScreen(false)
 class ViewerActivity : BaseFontActivity() {
 
     companion object {
