@@ -162,7 +162,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 }
             }
         })
-        LValidateUtil.isValidCoreGallery()
+        LValidateUtil.isValidCoreGalleryFlickr()
     }
 
     private fun showListPage() {

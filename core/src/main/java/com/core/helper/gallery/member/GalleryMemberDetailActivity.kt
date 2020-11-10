@@ -3,7 +3,6 @@ package com.core.helper.gallery.member
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsSwipeActivity
@@ -18,7 +17,6 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.views.layout.swipeback.SwipeBackLayout
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.l_activity_flickr_member_detail.*
-import kotlinx.android.synthetic.main.view_row_comic_header.view.*
 
 @LogTag("GalleryMemberDetailActivity")
 @IsFullScreen(false)
@@ -51,7 +49,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
             }
         })
 
-        LValidateUtil.isValidCoreGallery()
+        LValidateUtil.isValidCoreGalleryFlickr()
     }
 
     private fun loadItem(photo: Photo) {

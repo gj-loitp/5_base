@@ -18,6 +18,7 @@ import com.core.helper.mup.comic.ui.frm.FrmFavourite
 import com.core.helper.mup.comic.ui.frm.FrmHome
 import com.core.helper.mup.comic.ui.frm.FrmProfile
 import com.core.utilities.LUIUtil
+import com.core.utilities.LValidateUtil
 import com.utils.util.KeyboardUtils
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
@@ -39,6 +40,8 @@ class ComicActivity : BaseFontActivity() {
 
         setupData()
         setupViews()
+
+        LValidateUtil.isValidCoreComicMup()
     }
 
     private fun setupData() {

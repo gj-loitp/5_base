@@ -115,7 +115,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                 }
             }
         })
-        LValidateUtil.isValidCoreGallery()
+        LValidateUtil.isValidCoreGalleryFlickr()
         getListPhotosets()
     }
 

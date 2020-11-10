@@ -2,7 +2,6 @@ package com.core.utilities
 
 import android.text.TextUtils
 import android.util.Patterns
-import com.BuildConfig
 import com.R
 import java.util.*
 import java.util.regex.Pattern
@@ -53,9 +52,17 @@ class LValidateUtil {
             return null
         }
 
-        fun isValidCoreGallery(): Boolean  {
-            val value = LSharedPrefsUtil.instance.getString(LSharedPrefsUtil.KEY_CORE_GALLERY)
-            if (value == LAppResource.getString(R.string.loitp_core_gallery)) {
+        fun isValidCoreGalleryFlickr(): Boolean  {
+            val value = LSharedPrefsUtil.instance.getString(LSharedPrefsUtil.KEY_CORE_GALLERY_FLICKR)
+            if (value == LAppResource.getString(R.string.loitp_core_gallery_flickr)) {
+                return true
+            }
+            throw IllegalArgumentException("You have no permission to do this")
+        }
+
+        fun isValidCoreComicMup(): Boolean  {
+            val value = LSharedPrefsUtil.instance.getString(LSharedPrefsUtil.KEY_CORE_COMIC_MUP)
+            if (value == LAppResource.getString(R.string.loitp_core_comic_mup)) {
                 return true
             }
             throw IllegalArgumentException("You have no permission to do this")

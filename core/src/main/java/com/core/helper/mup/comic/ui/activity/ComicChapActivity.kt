@@ -25,6 +25,7 @@ import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
+import com.core.utilities.LValidateUtil
 import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
@@ -67,6 +68,7 @@ class ComicChapActivity : BaseFontActivity() {
         setupViewModels()
 
         comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
+        LValidateUtil.isValidCoreComicMup()
     }
 
     private fun setupData() {

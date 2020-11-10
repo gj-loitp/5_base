@@ -11,10 +11,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LSharedPrefsUtil
-import com.core.utilities.LUIUtil
+import com.core.utilities.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.interfaces.Callback2
@@ -40,6 +37,10 @@ class ComicSplashActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         admobBannerUnitId = intent.getStringExtra(Constants.COMIC_ADMOB_ID_BANNER)
 
         admobBannerUnitId?.let { id ->
@@ -61,6 +62,7 @@ class ComicSplashActivity : BaseFontActivity() {
                 lnAdView.addView(it)
             }
         }
+        LValidateUtil.isValidCoreComicMup()
     }
 
     private fun goToHome() {

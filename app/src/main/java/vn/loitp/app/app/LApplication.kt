@@ -68,6 +68,8 @@ class LApplication : BaseApplication() {
 //        logD("LApplication onCreate")
         LUIUtil.setDarkTheme(isDarkTheme = true)
 
-        LSharedPrefsUtil.instance.putString(LSharedPrefsUtil.KEY_CORE_GALLERY, getString(R.string.loitp_core_gallery))
+        //init key
+        LSharedPrefsUtil.instance.putString(LSharedPrefsUtil.KEY_CORE_GALLERY_FLICKR, getString(R.string.loitp_core_gallery_flickr))
+        LSharedPrefsUtil.instance.putString(LSharedPrefsUtil.KEY_CORE_COMIC_MUP, getString(R.string.loitp_core_comic_mup))
     }
 }

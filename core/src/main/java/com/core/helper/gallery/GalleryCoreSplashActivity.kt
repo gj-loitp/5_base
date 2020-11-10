@@ -24,7 +24,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
-import java.lang.IllegalArgumentException
 import java.util.*
 
 @LogTag("GalleryCoreSplashActivity")
@@ -69,7 +68,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         tvName.text = AppUtils.getAppName()
 //        LUIUtil.setTextShadow(tvName)
 
-        LValidateUtil.isValidCoreGallery()
+        LValidateUtil.isValidCoreGalleryFlickr()
     }
 
     private fun goToHome() {
