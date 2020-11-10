@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:directionMode="left"
-    app:isSwipeFromEdge="false"
-    app:maskAlpha="125"
-    app:swipeBackFactor="0.5">
+    android:layout_height="match_parent">
 
     <com.ortiz.touchview.TouchImageView
         android:id="@+id/ivViewer"
@@ -18,4 +12,4 @@
         android:scaleType="centerCrop"
         tools:src="@drawable/logo" />
 
-</com.views.layout.swipeback.SwipeBackLayout>
+</FrameLayout>

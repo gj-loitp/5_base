@@ -23,7 +23,6 @@ import kotlinx.android.synthetic.main.l_activity_viewer.*
 
 @LogTag("ViewerActivity")
 @IsFullScreen(true)
-@IsSwipeActivity(true)
 class ViewerActivity : BaseFontActivity() {
 
     companion object {
@@ -44,18 +43,7 @@ class ViewerActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LScreenUtil.hideNavigationBar(this)
-        swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
-            }
-
-            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
-                if (isEnd) {
-                    finish()
-                    LActivityUtil.transActivityNoAnimation(this@ViewerActivity)
-                }
-            }
-        })
+//        LScreenUtil.hideNavigationBar(this)
     }
 
     private fun setupData() {
