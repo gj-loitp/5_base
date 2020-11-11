@@ -10,10 +10,12 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.widget.ImageView;
 
+import androidx.appcompat.widget.AppCompatImageView;
+
 import com.R;
 
 //TODO convert kotlin
-public class LPanoramaImageView extends ImageView {
+public class LPanoramaImageView extends AppCompatImageView {
 
     // Image's scroll orientation
     public final static byte ORIENTATION_NONE = -1;
