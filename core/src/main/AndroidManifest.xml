@@ -126,9 +126,6 @@
             android:name=".core.helper.mup.comic.ui.activity.ComicReadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:theme="@style/SwipeTheme" />
-        <activity
-            android:name=".core.helper.mup.comic.ui.activity.ViewerActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 
 </manifest>

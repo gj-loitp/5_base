@@ -156,11 +156,9 @@ class ComicViewModel : BaseComicViewModel() {
 
     fun getChapterDetail(chapId: String?) {
         ioScope.launch {
-            val sizeWidth = LScreenUtil.screenWidth
-            logD(">>>getChapterDetail chapId $chapId, sizeWidth: $sizeWidth")
+            logD(">>>getChapterDetail chapId $chapId")
             val response = repository.getChapterDetail(
-                    chapId = chapId,
-                    sizeWidth = sizeWidth
+                    chapId = chapId
             )
             logD("<<<getChapterDetail " + BaseApplication.gson.toJson(response))
             if (response.items == null || response.isSuccess == false) {

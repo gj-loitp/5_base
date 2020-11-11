@@ -41,7 +41,6 @@ interface ComicApiService {
 
     @GET("chapters-detail/{chapId}/")
     fun getChapterDetailAsync(
-            @Path("chapId") chapId: String?,
-            @Query("sizeWidth") sizeWidth: Int
+            @Path("chapId") chapId: String?
     ): Deferred<Response<ComicApiResponse<ChapterDetail>>>
 }
