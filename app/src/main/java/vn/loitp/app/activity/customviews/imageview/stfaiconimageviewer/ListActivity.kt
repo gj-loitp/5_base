@@ -58,6 +58,10 @@ class ListActivity : BaseFontActivity() {
                                     imageView
                             )
                         }
+                                .withBackgroundColorResource(R.color.black85)
+                                .allowSwipeToDismiss(true)
+                                .allowZooming(true)
+                                .withHiddenStatusBar(false)
                                 .withStartPosition(position)
                                 .withOverlayView(viewOverLay)
                                 .withTransitionFrom(iv)
