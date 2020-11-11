@@ -67,8 +67,9 @@ class ComicReadActivity : BaseFontActivity() {
 
     private fun setupViews() {
         comicAdapter = ComicAdapter()
-        comicAdapter.onClickRoot = { _, _ ->
-            logD("comicAdapter onClickRoot")
+        //TODO
+//        comicAdapter.onClickRoot = { _, _ ->
+//            logD("comicAdapter onClickRoot")
 //            isHideView = if (isHideView) {
 //                LAnimationUtil.play(view = fabPrevious, techniques = Techniques.SlideInUp)
 //                LAnimationUtil.play(view = fabNext, techniques = Techniques.SlideInUp)
@@ -80,7 +81,7 @@ class ComicReadActivity : BaseFontActivity() {
 //                LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideOutUp)
 //                true
 //            }
-        }
+//        }
         comicView.adapter = comicAdapter
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
@@ -202,8 +203,6 @@ class ComicReadActivity : BaseFontActivity() {
 
         private var listData = ArrayList<String>()
 
-        var onClickRoot: ((String, Int) -> Unit)? = null
-
         fun setData(data: List<String>) {
             listData.clear()
             listData.addAll(data)
@@ -245,12 +244,13 @@ class ComicReadActivity : BaseFontActivity() {
 
             val url = listData[position]
             logD("$position -> $url")
+
             holder.ivComic?.let { iv ->
                 Glide.with(parent.context)
                         .load(url)
                         .dontAnimate()
                         .into(iv)
-                onClickRoot?.invoke(url, position)
+
             }
 
             return mConvertView
