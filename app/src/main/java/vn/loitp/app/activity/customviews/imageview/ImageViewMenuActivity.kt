@@ -20,6 +20,7 @@ import vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivi
 import vn.loitp.app.activity.customviews.imageview.panoramaimageview.PanoramaImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.pinchtozoom.PinchToZoomViewPagerActivity
 import vn.loitp.app.activity.customviews.imageview.scrollparallaximageview.ScrollParallaxImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.stfaiconimageviewer.ListActivity
 import vn.loitp.app.activity.customviews.imageview.strectchyimageview.StrectchyImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.touchimageview.TouchImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.zoomimageview.ZoomImageViewActivity
@@ -52,6 +53,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         btTouchImageViewWithViewPager.setOnClickListener(this)
         btKenburnView.setOnClickListener(this)
         btComicView.setOnClickListener(this)
+        btStfalconImageViewer.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -70,6 +72,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             btTouchImageViewWithViewPager -> intent = Intent(this, PinchToZoomViewPagerActivity::class.java)
             btKenburnView -> intent = Intent(this, KenburnViewActivity::class.java)
             btComicView -> intent = Intent(this, ComicViewActivity::class.java)
+            btStfalconImageViewer -> intent = Intent(this, ListActivity::class.java)
         }
         intent?.let { i ->
             startActivity(i)

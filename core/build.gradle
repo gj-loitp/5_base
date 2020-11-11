@@ -99,6 +99,7 @@ dependencies {
     api 'com.flaviofaria:kenburnsview:1.0.7'//https://github.com/flavioarfaria/KenBurnsView
     api 'com.labo.kaji:relativepopupwindow:0.4.1'//https://github.com/kakajika/RelativePopupWindow
     api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'//https://github.com/alpbak/BoxedVerticalSeekBar
+    api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'//https://github.com/stfalcon-studio/StfalconImageViewer
 
     //endregion
 
