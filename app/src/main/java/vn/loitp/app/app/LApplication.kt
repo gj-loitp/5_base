@@ -24,8 +24,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //need add nice repo
 //https://github.com/hackware1993/MagicIndicator
-//https://github.com/stfalcon-studio/StfalconImageViewer
-//https://github.com/stfalcon-studio/StfalconImageViewer/issues/6
 
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github

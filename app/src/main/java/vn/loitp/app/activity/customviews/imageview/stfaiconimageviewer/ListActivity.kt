@@ -1,10 +1,14 @@
 package vn.loitp.app.activity.customviews.imageview.stfaiconimageviewer
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LImageUtil
+import com.stfalcon.imageviewer.StfalconImageViewer
+import com.stfalcon.imageviewer.loader.ImageLoader
 import kotlinx.android.synthetic.main.activity_stfaiconimageviewer_list.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
@@ -34,7 +38,19 @@ class ListActivity : BaseFontActivity() {
                 callback = object : StfAdapter.Callback {
                     override fun onClick(movie: Movie, position: Int) {
 
+                        val list = ArrayList<Movie>()
+                        list.add(movie)
+                        list.add(movie)
+                        list.add(movie)
+                        list.add(movie)
 
+                        StfalconImageViewer.Builder(this@ListActivity, list) { imageView, mv ->
+                            LImageUtil.load(
+                                    this@ListActivity,
+                                    mv.cover,
+                                    imageView
+                            )
+                        }.show()
 
                     }
 
