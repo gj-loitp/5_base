@@ -2,6 +2,7 @@ package com.core.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.BuildConfig
 import com.annotation.LogTag
 import com.core.common.Constants
 import com.core.utilities.LAnimationUtil
@@ -63,13 +64,13 @@ abstract class AnimationAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(
     }
 
     protected fun showShortDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showShortDebug(msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
         }
     }

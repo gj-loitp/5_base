@@ -16,7 +16,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //build release de check
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
-//TODO is debug
 //TODO demo -> youtube parser ko vao list video dc
 //TODO demo -> floating view crash
 //TODO demo firebase -> auth
@@ -25,6 +24,8 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //need add nice repo
 //https://github.com/hackware1993/MagicIndicator
+//https://github.com/stfalcon-studio/StfalconImageViewer
+//https://github.com/stfalcon-studio/StfalconImageViewer/issues/6
 
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github
@@ -36,8 +37,6 @@ class LApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
-        Constants.setIsDebug(isDebug = true)
 
         //config admob id
         AdmobData.instance.idAdmobFull = getString(R.string.str_f)

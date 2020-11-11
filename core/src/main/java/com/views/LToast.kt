@@ -6,6 +6,7 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
+import com.BuildConfig
 import com.R
 import com.core.common.Constants
 import com.core.utilities.LAppResource
@@ -162,13 +163,13 @@ object LToast {
     }
 
     fun showShortDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             showShortDebug(msg)
         }
     }
 
     fun showLongDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             showLongInformation(msg)
         }
     }

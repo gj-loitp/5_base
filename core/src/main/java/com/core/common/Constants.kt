@@ -7,7 +7,6 @@ import com.R
  */
 class Constants {
     companion object {
-        var IS_DEBUG = false
 
         const val NOT_FOUND = -404
 
@@ -192,13 +191,7 @@ class Constants {
         const val KEY_VIDEO_CURRENT_POSITION = "KEY_VIDEO_CURRENT_POSITION"
         const val KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY"
         const val KEY_VIDEO_LINK_IMA_AD = "KEY_VIDEO_LINK_IMA_AD"
-
         const val PER_PAGE_SIZE = 50
-
-        fun setIsDebug(isDebug: Boolean) {
-            IS_DEBUG = isDebug
-        }
-
         const val DONATION_INFOR_LOITP = """Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: 
 
 ❤ Vietcombank

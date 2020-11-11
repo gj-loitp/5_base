@@ -10,6 +10,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.BuildConfig
 import com.R
 import com.annotation.*
 import com.core.common.Constants
@@ -247,7 +248,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isShowAnimWhenExit) {
             LActivityUtil.tranOut(this)
         }
-        if (isShowAdWhenExit && !Constants.IS_DEBUG) {
+        if (isShowAdWhenExit && !BuildConfig.DEBUG) {
             interstitialAd?.let {
                 LUIUtil.displayInterstitial(interstitial = it, maxNumber = 70)
             }
@@ -289,13 +290,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showShortDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showShortDebug(msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
         }
     }

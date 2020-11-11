@@ -2,7 +2,7 @@ package vn.loitp.app.activity.demo.firebase.fcm
 
 import android.content.Intent
 import android.graphics.Color
-import com.core.common.Constants.Companion.IS_DEBUG
+import com.BuildConfig
 import com.core.utilities.LLog
 import com.function.notification.Notti
 import com.function.notification.NottiFactory
@@ -26,7 +26,7 @@ class FirebaseMsgService : FirebaseMessagingService() {
             }
 
             //THIS CODE BELOWS SEND A NOTIFICATION
-            if (IS_DEBUG) {
+            if (BuildConfig.DEBUG) {
                 val appName = AppUtils.getAppName()
                 val title = "$appName miss you!"
                 val messageBody = remoteMessage.notification?.body

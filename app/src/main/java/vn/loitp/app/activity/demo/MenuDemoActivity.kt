@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.BuildConfig
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -48,7 +49,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             btGalleryCore.visibility = View.VISIBLE
             btGalleryCoreAlbum.visibility = View.VISIBLE
             btGalleryMember.visibility = View.VISIBLE
@@ -105,7 +106,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryCore -> {
                 intent = Intent(this, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_SPLASH_SCREEN, "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg")
+                intent.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
                 //neu muon remove albumn nao thi cu pass id cua albumn do
                 val removeAlbumFlickrList = ArrayList<String>()
                 removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)

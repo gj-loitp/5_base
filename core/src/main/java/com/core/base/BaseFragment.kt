@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.BuildConfig
 import com.R
 import com.annotation.LogTag
 import com.core.common.Constants
@@ -164,13 +165,13 @@ abstract class BaseFragment : Fragment() {
     }
 
     protected fun showShortDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showShortDebug(msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
         }
     }
