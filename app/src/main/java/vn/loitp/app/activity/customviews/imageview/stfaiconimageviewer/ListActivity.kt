@@ -31,6 +31,7 @@ class ListActivity : BaseFontActivity() {
         setupViews()
     }
 
+    private var stf: StfalconImageViewer<Movie>? = null
     private fun setupViews() {
         stfAdapter = StfAdapter(
                 context = this,
@@ -40,10 +41,10 @@ class ListActivity : BaseFontActivity() {
 
                         val viewOverLay = LayoutInflater.from(this@ListActivity).inflate(R.layout.view_stf_overlay, null)
                         viewOverLay.bt.setOnClickListener {
-                            showShortInformation("Click")
+                            showShortInformation("Click " + stf?.currentPosition())
                         }
 
-                        StfalconImageViewer.Builder(
+                        stf = StfalconImageViewer.Builder(
                                 this@ListActivity,
                                 mvList
                         ) { imageView, mv ->
