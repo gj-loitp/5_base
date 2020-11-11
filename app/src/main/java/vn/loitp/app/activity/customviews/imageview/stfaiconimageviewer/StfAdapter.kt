@@ -20,7 +20,7 @@ class StfAdapter(
 ) : AnimationAdapter() {
 
     interface Callback {
-        fun onClick(movie: Movie, position: Int)
+        fun onClick(movie: Movie, moviesList: MutableList<Movie>, position: Int)
         fun onLongClick(movie: Movie, position: Int)
         fun onLoadMore()
     }
@@ -34,7 +34,7 @@ class StfAdapter(
             LImageUtil.load(context = context, any = url, imageView = itemView.imageView)
 
             itemView.rootView.setOnClickListener {
-                callback?.onClick(movie, bindingAdapterPosition)
+                callback?.onClick(movie, moviesList, bindingAdapterPosition)
             }
             itemView.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie, bindingAdapterPosition)
