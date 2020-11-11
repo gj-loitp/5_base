@@ -13,6 +13,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.bigimageview.BigImageViewWithScrollViewActivity
 import vn.loitp.app.activity.customviews.imageview.circleimageview.CircleImageViewActivity
+import vn.loitp.app.activity.customviews.imageview.comicview.ComicViewActivity
 import vn.loitp.app.activity.customviews.imageview.continuousscrollableimageview.ContinuousScrollableImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.fidgetspinnerimageview.FidgetSpinnerImageViewActivity
 import vn.loitp.app.activity.customviews.imageview.kenburnview.KenburnViewActivity
@@ -50,6 +51,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
         btBigImageViewWithScrollView.setOnClickListener(this)
         btTouchImageViewWithViewPager.setOnClickListener(this)
         btKenburnView.setOnClickListener(this)
+        btComicView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -67,6 +69,7 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             btBigImageViewWithScrollView -> intent = Intent(this, BigImageViewWithScrollViewActivity::class.java)
             btTouchImageViewWithViewPager -> intent = Intent(this, PinchToZoomViewPagerActivity::class.java)
             btKenburnView -> intent = Intent(this, KenburnViewActivity::class.java)
+            btComicView -> intent = Intent(this, ComicViewActivity::class.java)
         }
         intent?.let { i ->
             startActivity(i)

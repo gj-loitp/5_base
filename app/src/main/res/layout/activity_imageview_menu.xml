@@ -36,6 +36,11 @@
                 android:text="@string/circle_imageview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btComicView"
+                style="@style/ButtonMenu"
+                android:text="@string/comic_view" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btContinuousScrollableImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/continuous_scrollable_imageview" />

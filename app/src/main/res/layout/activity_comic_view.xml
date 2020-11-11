@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor">
+
+    <com.views.imageview.comicview.ScrollZoomListView
+        android:id="@+id/scrollZoomListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:max_zoom_scale="2.0"
+        app:min_zoom_scale="0.4"
+        app:normal_scale="1.0"
+        app:zoom_scale="2.0"
+        app:zoom_scale_duration="300"
+        app:zoom_to_small_scale_duration="500"
+        app:zoom_to_small_times="6" />
+</RelativeLayout>
