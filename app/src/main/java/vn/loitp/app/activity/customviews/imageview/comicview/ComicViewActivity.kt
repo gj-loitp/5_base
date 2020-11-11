@@ -35,14 +35,12 @@ class ComicViewActivity : BaseFontActivity() {
     }
 
     private fun initData() {
-        val list = ArrayList<Int>()
-        list.add(R.drawable.loitp)
-        list.add(R.drawable.loitp)
-        list.add(R.drawable.loitp)
-        list.add(R.drawable.loitp)
-        list.add(R.drawable.loitp)
-        list.add(R.drawable.loitp)
-        list.add(R.drawable.loitp)
+        val list = ArrayList<String>()
+        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00001.jpg")
+        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00002.jpg")
+        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00003.jpg")
+        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00004.jpg")
+        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00005.jpg")
 
         val comicAdapter = ComicAdapter()
         comicView.adapter = comicAdapter
@@ -51,9 +49,9 @@ class ComicViewActivity : BaseFontActivity() {
 
     private inner class ComicAdapter : BaseAdapter() {
 
-        private var listData = ArrayList<Int>()
+        private var listData = ArrayList<String>()
 
-        fun setData(data: List<Int>) {
+        fun setData(data: List<String>) {
             listData.clear()
             listData.addAll(data)
             notifyDataSetChanged()
