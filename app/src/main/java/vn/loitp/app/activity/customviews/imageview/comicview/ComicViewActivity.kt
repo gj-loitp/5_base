@@ -44,7 +44,7 @@ class ComicViewActivity : BaseFontActivity() {
         mData.add(R.drawable.loitp)
 
         val adapter = MyAdapter()
-        scrollZoomListView.adapter = adapter
+        comicView.adapter = adapter
         adapter.setData(mData)
     }
 

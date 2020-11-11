@@ -16,7 +16,7 @@ import androidx.core.view.GestureDetectorCompat
 import com.R
 import java.util.*
 
-class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) :
+class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) :
         ListView(context, attr) {
 
     companion object {
@@ -36,6 +36,15 @@ class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: Attri
         private const val LOADED_POINT = 10001
 
         private var mActivePointerId = INVALID_POINTER_ID
+    }
+
+    interface OnListViewZoomListener {
+
+        fun onListViewZoomUpdate(animation: ValueAnimator, translateX: Float, translateY: Float, scaleX: Float, scaleY: Float)
+
+        fun onListViewStart()
+
+        fun onListViewCancel()
     }
 
     private var mScaleFactor = DEFAULT_NORMAL_SCALE
@@ -95,28 +104,23 @@ class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: Attri
         mScaleDetector = ScaleGestureDetector(context, ScaleListener())
         mGestureDetectorCompat = GestureDetectorCompat(context, ScrollReaderViewGestureListener())
 
-        val a = context.obtainStyledAttributes(attr, R.styleable.ScrollZoomListView, 0, 0)
+        val typedArray = context.obtainStyledAttributes(attr, R.styleable.ComicView, 0, 0)
 
-        minZoomScale = a.getFloat(R.styleable.ScrollZoomListView_min_zoom_scale, DEFAULT_MIN_ZOOM_SCALE)
-        maxZoomScale = a.getFloat(R.styleable.ScrollZoomListView_max_zoom_scale, DEFAULT_MAX_ZOOM_SCALE)
-        normalScale = a.getFloat(R.styleable.ScrollZoomListView_normal_scale, DEFAULT_NORMAL_SCALE)
-        zoomScale = a.getFloat(R.styleable.ScrollZoomListView_zoom_scale, DEFAULT_ZOOM_SCALE)
+        minZoomScale = typedArray.getFloat(R.styleable.ComicView_min_zoom_scale, DEFAULT_MIN_ZOOM_SCALE)
+        maxZoomScale = typedArray.getFloat(R.styleable.ComicView_max_zoom_scale, DEFAULT_MAX_ZOOM_SCALE)
+        normalScale = typedArray.getFloat(R.styleable.ComicView_normal_scale, DEFAULT_NORMAL_SCALE)
+        zoomScale = typedArray.getFloat(R.styleable.ComicView_zoom_scale, DEFAULT_ZOOM_SCALE)
 
-        zoomToSmallTimes = a.getInteger(R.styleable.ScrollZoomListView_zoom_to_small_times,
-                DEFAULT_ZOOM_TO_SMALL_TIMES)
-        zoomScaleDuration = a.getInteger(R.styleable.ScrollZoomListView_zoom_scale_duration,
-                DEFAULT_ZOOM_SCALE_DURATION)
-        mZoomToSmallScaleDuration = a.getInteger(R.styleable.ScrollZoomListView_zoom_to_small_scale_duration,
-                DEFAULT_ZOOM_TO_SMALL_SCALE_DURATION)
+        zoomToSmallTimes = typedArray.getInteger(R.styleable.ComicView_zoom_to_small_times, DEFAULT_ZOOM_TO_SMALL_TIMES)
+        zoomScaleDuration = typedArray.getInteger(R.styleable.ComicView_zoom_scale_duration, DEFAULT_ZOOM_SCALE_DURATION)
+        mZoomToSmallScaleDuration = typedArray.getInteger(R.styleable.ComicView_zoom_to_small_scale_duration, DEFAULT_ZOOM_TO_SMALL_SCALE_DURATION)
 
-        a.recycle()
+        typedArray.recycle()
     }
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
-        if (mZoomValueAnimator != null) {
-            mZoomValueAnimator!!.cancel()
-        }
+        mZoomValueAnimator?.cancel()
         //remove all listener
         removeOnScaleGestureListeners()
         removeOnSimpleOnGestureListeners()
@@ -131,8 +135,8 @@ class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: Attri
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent): Boolean {
-        mScaleDetector!!.onTouchEvent(ev)
-        mGestureDetectorCompat!!.onTouchEvent(ev)
+        mScaleDetector?.onTouchEvent(ev)
+        mGestureDetectorCompat?.onTouchEvent(ev)
         val action = ev.action
         when (action and MotionEvent.ACTION_MASK) {
             MotionEvent.ACTION_DOWN -> {
@@ -310,9 +314,8 @@ class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: Attri
     private fun zoomList(startValue: Float, endValue: Float, duration: Int, loadedPointFlag: Int) {
         if (mZoomValueAnimator == null) {
             mZoomValueAnimator = ValueAnimator()
-            mZoomValueAnimator!!.interpolator = DecelerateInterpolator()
-
-            mZoomValueAnimator!!.addUpdateListener { animation ->
+            mZoomValueAnimator?.interpolator = DecelerateInterpolator()
+            mZoomValueAnimator?.addUpdateListener { animation ->
                 mScaleFactor = animation.animatedValue as Float
 
                 var dx = mCenterX * (mLastScale - mScaleFactor)
@@ -344,7 +347,7 @@ class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: Attri
                 }
             }
 
-            mZoomValueAnimator!!.addListener(object : Animator.AnimatorListener {
+            mZoomValueAnimator?.addListener(object : Animator.AnimatorListener {
                 override fun onAnimationStart(animation: Animator) {
                     isScaling = true
 
@@ -377,10 +380,12 @@ class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: Attri
             })
         }
 
-        if (!mZoomValueAnimator!!.isRunning) {
-            mZoomValueAnimator!!.setFloatValues(startValue, endValue)
-            mZoomValueAnimator!!.duration = duration.toLong()
-            mZoomValueAnimator!!.start()
+        mZoomValueAnimator?.let {
+            if (!it.isRunning) {
+                it.setFloatValues(startValue, endValue)
+                it.duration = duration.toLong()
+                it.start()
+            }
         }
     }
 
@@ -490,15 +495,5 @@ class ScrollZoomListView @JvmOverloads constructor(context: Context, attr: Attri
         while (mOnListViewZoomListeners.isNotEmpty()) {
             mOnListViewZoomListeners.removeAt(0)
         }
-    }
-
-    interface OnListViewZoomListener {
-
-        fun onListViewZoomUpdate(animation: ValueAnimator, translateX: Float, translateY: Float,
-                                 scaleX: Float, scaleY: Float)
-
-        fun onListViewStart()
-
-        fun onListViewCancel()
     }
 }

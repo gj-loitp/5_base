@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <com.views.imageview.comicview.ScrollZoomListView
-        android:id="@+id/scrollZoomListView"
+    <com.views.imageview.comicview.ComicView
+        android:id="@+id/comicView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:max_zoom_scale="2.0"

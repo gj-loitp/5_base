@@ -694,7 +694,7 @@
         <attr name="arl_heightRatio" format="float" />
     </declare-styleable>
 
-    <declare-styleable name="ScrollZoomListView">
+    <declare-styleable name="ComicView">
 
         <attr name="min_zoom_scale" format="float" />
         <attr name="max_zoom_scale" format="float" />
