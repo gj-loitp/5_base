@@ -10,6 +10,7 @@ import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.service.BaseComicViewModel
 import com.core.helper.mup.comic.service.ComicApiClient
 import com.core.helper.mup.comic.service.ComicRepository
+import com.core.utilities.LScreenUtil
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
@@ -155,9 +156,11 @@ class ComicViewModel : BaseComicViewModel() {
 
     fun getChapterDetail(chapId: String?) {
         ioScope.launch {
-            logD(">>>getChapterDetail chapId $chapId")
+            val sizeWidth = LScreenUtil.screenWidth
+            logD(">>>getChapterDetail chapId $chapId, sizeWidth: $sizeWidth")
             val response = repository.getChapterDetail(
-                    chapId = chapId
+                    chapId = chapId,
+                    sizeWidth = sizeWidth
             )
             logD("<<<getChapterDetail " + BaseApplication.gson.toJson(response))
             if (response.items == null || response.isSuccess == false) {

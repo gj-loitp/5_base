@@ -62,10 +62,12 @@ class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseR
     }
 
     suspend fun getChapterDetail(
-            chapId: String?
+            chapId: String?,
+            sizeWidth: Int
     ): ComicApiResponse<ChapterDetail> = makeApiCall {
         comicApiService.getChapterDetailAsync(
-                chapId = chapId
+                chapId = chapId,
+                sizeWidth = sizeWidth
         ).await()
     }
 }

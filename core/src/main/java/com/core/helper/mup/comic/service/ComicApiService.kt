@@ -1,6 +1,7 @@
 package com.core.helper.mup.comic.service
 
 import com.core.helper.mup.comic.model.*
+import com.core.utilities.LDeviceUtil
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.*
@@ -40,6 +41,7 @@ interface ComicApiService {
 
     @GET("chapters-detail/{chapId}/")
     fun getChapterDetailAsync(
-            @Path("chapId") chapId: String?
+            @Path("chapId") chapId: String?,
+            @Query("sizeWidth") sizeWidth: Int
     ): Deferred<Response<ComicApiResponse<ChapterDetail>>>
 }
