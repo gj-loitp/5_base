@@ -20,8 +20,10 @@ import com.core.helper.mup.comic.ui.popup.PopupComicChapterDetail
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.*
 import com.daimajia.androidanimations.library.Techniques
+import com.interfaces.CallbackAnimation
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.layout.swipeback.SwipeBackLayout
+import com.views.listview.OnDetectScrollListener
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_read.*
 import java.util.*
@@ -63,25 +65,28 @@ class ComicReadActivity : BaseFontActivity() {
         }
     }
 
-    private var isHideView = false
-
     private fun setupViews() {
         comicAdapter = ComicAdapter()
-        //TODO
-//        comicAdapter.onClickRoot = { _, _ ->
-//            logD("comicAdapter onClickRoot")
-//            isHideView = if (isHideView) {
-//                LAnimationUtil.play(view = fabPrevious, techniques = Techniques.SlideInUp)
-//                LAnimationUtil.play(view = fabNext, techniques = Techniques.SlideInUp)
-//                LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideInDown)
-//                false
-//            } else {
-//                LAnimationUtil.play(view = fabPrevious, techniques = Techniques.SlideOutDown)
-//                LAnimationUtil.play(view = fabNext, techniques = Techniques.SlideOutDown)
-//                LAnimationUtil.play(view = layoutControl, techniques = Techniques.SlideOutUp)
-//                true
-//            }
-//        }
+        comicView.setOnDetectScrollListener(object : OnDetectScrollListener {
+            override fun onUpScrolling() {
+//                logD("setOnDetectScrollListener up")
+                if (fabPrevious.visibility != View.VISIBLE) {
+                    fabPrevious.visibility = View.VISIBLE
+                    fabNext.visibility = View.VISIBLE
+                    layoutControl.visibility = View.VISIBLE
+                }
+            }
+
+            override fun onDownScrolling() {
+//                logD("setOnDetectScrollListener down")
+                if (fabPrevious.visibility != View.GONE) {
+                    fabPrevious.visibility = View.GONE
+                    fabNext.visibility = View.GONE
+                    layoutControl.visibility = View.GONE
+                }
+            }
+
+        })
         comicView.adapter = comicAdapter
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {

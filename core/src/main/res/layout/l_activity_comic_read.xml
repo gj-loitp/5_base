@@ -13,6 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:background="?attr/themeBackgroundColor">
 
         <com.views.imageview.comicview.ComicView
@@ -36,7 +37,9 @@
             android:layout_height="?android:attr/actionBarSize"
             android:background="?attr/themeBackgroundColor50"
             android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone"
+            tools:visibility="visible">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/ivBack"
@@ -105,10 +108,12 @@
                 android:text="@string/prev_chap"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeBackgroundColor"
+                android:visibility="gone"
                 app:backgroundTint="?attr/themeTextColor"
                 app:icon="@drawable/ic_chevron_left_black_48dp"
                 app:iconTint="?attr/themeBackgroundColor"
-                app:rippleColor="@color/transparent" />
+                app:rippleColor="@color/transparent"
+                tools:visibility="visible" />
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fabNext"
@@ -121,10 +126,12 @@
                 android:text="@string/next_chap"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeBackgroundColor"
+                android:visibility="gone"
                 app:backgroundTint="?attr/themeTextColor"
                 app:icon="@drawable/ic_chevron_right_black_48dp"
                 app:iconTint="?attr/themeBackgroundColor"
-                app:rippleColor="@color/transparent" />
+                app:rippleColor="@color/transparent"
+                tools:visibility="visible" />
 
         </LinearLayout>
 

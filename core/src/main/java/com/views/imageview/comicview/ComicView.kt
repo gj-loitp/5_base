@@ -11,13 +11,13 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.animation.DecelerateInterpolator
-import android.widget.ListView
 import androidx.core.view.GestureDetectorCompat
 import com.R
+import com.views.listview.LListView
 import java.util.*
 
 class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) :
-        ListView(context, attr) {
+        LListView(context, attr) {
 
     companion object {
         private const val INVALID_POINTER_ID = -1
