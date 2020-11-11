@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
@@ -20,7 +21,7 @@ class StfAdapter(
 ) : AnimationAdapter() {
 
     interface Callback {
-        fun onClick(movie: Movie, moviesList: MutableList<Movie>, position: Int)
+        fun onClick(iv: ImageView, movie: Movie, moviesList: MutableList<Movie>, position: Int)
         fun onLongClick(movie: Movie, position: Int)
         fun onLoadMore()
     }
@@ -34,7 +35,7 @@ class StfAdapter(
             LImageUtil.load(context = context, any = url, imageView = itemView.imageView)
 
             itemView.rootView.setOnClickListener {
-                callback?.onClick(movie, moviesList, bindingAdapterPosition)
+                callback?.onClick(itemView.imageView, movie, moviesList, bindingAdapterPosition)
             }
             itemView.rootView.setOnLongClickListener {
                 callback?.onLongClick(movie, bindingAdapterPosition)
