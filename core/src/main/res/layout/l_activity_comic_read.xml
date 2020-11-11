@@ -85,10 +85,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:drawableTop="@drawable/ic_cloud_download_black_48dp"
             android:text="@string/no_data"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"
             android:visibility="gone"
+            app:drawableTint="?attr/themeTextColor"
             tools:visibility="visible" />
 
         <LinearLayout
