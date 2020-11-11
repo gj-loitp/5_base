@@ -95,15 +95,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/margin_medium"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="@dimen/padding_medium">
+            android:orientation="horizontal">
 
             <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                 android:id="@+id/fabPrevious"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:elevation="0dp"
                 android:gravity="center"
                 android:text="@string/prev_chap"
                 android:textAllCaps="false"

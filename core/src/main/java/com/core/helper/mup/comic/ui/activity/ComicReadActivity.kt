@@ -11,7 +11,6 @@ import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
-import com.bumptech.glide.Glide
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.helper.mup.comic.model.Chap
@@ -19,8 +18,6 @@ import com.core.helper.mup.comic.model.ChapterDetail
 import com.core.helper.mup.comic.ui.popup.PopupComicChapterDetail
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.*
-import com.daimajia.androidanimations.library.Techniques
-import com.interfaces.CallbackAnimation
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.listview.OnDetectScrollListener
@@ -141,7 +138,8 @@ class ComicReadActivity : BaseFontActivity() {
                         comicView.visibility = View.VISIBLE
                         tvTitle.text = actionData.data?.title
 
-                        initData(chapterDetail)
+                        comicAdapter.setChapterDetail(chapterDetail = chapterDetail)
+                        comicView.smoothScrollToPosition(0)
                     }
                 }
             })
@@ -149,25 +147,23 @@ class ComicReadActivity : BaseFontActivity() {
     }
 
     private fun goToPreviousChap() {
-        //TODO
-//        val prevChap = chapterDetailAdapter.getChapterDetail()?.prevChap
-//        logD("goToPreviousChap prevChap " + BaseApplication.gson.toJson(prevChap))
-//        if (prevChap == null || prevChap.id.isNullOrEmpty()) {
-//            showLongInformation(getString(R.string.no_data))
-//        } else {
-//            comicViewModel?.getChapterDetail(chapId = prevChap.id)
-//        }
+        val prevChap = comicAdapter.getChapterDetail()?.prevChap
+        logD("goToPreviousChap prevChap " + BaseApplication.gson.toJson(prevChap))
+        if (prevChap == null || prevChap.id.isNullOrEmpty()) {
+            showLongInformation(getString(R.string.no_data))
+        } else {
+            comicViewModel?.getChapterDetail(chapId = prevChap.id)
+        }
     }
 
     private fun goToNextChap() {
-        //TODO
-//        val nextChap = chapterDetailAdapter.getChapterDetail()?.nextChap
-//        logD("goToNextChap nextChap " + BaseApplication.gson.toJson(nextChap))
-//        if (nextChap == null || nextChap.id.isNullOrEmpty()) {
-//            showLongInformation(getString(R.string.no_data))
-//        } else {
-//            comicViewModel?.getChapterDetail(chapId = nextChap.id)
-//        }
+        val nextChap = comicAdapter.getChapterDetail()?.nextChap
+        logD("goToNextChap nextChap " + BaseApplication.gson.toJson(nextChap))
+        if (nextChap == null || nextChap.id.isNullOrEmpty()) {
+            showLongInformation(getString(R.string.no_data))
+        } else {
+            comicViewModel?.getChapterDetail(chapId = nextChap.id)
+        }
     }
 
     private fun handleClickMenu(anchorView: View) {
@@ -186,31 +182,24 @@ class ComicReadActivity : BaseFontActivity() {
         popup.showOnAnchor(anchorView, verticalPos, horizontalPos, false)
     }
 
-    private fun initData(chapterDetail: ChapterDetail) {
-        val list = ArrayList<String>()
-
-        val sizeWidth = LScreenUtil.screenWidth
-        chapterDetail.chapterComicsDetails.forEach {
-            it.imageSrc?.let { url ->
-                list.add(element = "$url=w$sizeWidth")
-            }
-        }
-//        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00001.jpg")
-//        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00002.jpg")
-//        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00003.jpg")
-//        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00004.jpg")
-//        list.add("http://truyentranhtuan.com/manga2/onepunch-man/182-8/img-00005.jpg")
-
-        comicAdapter.setData(data = list)
-    }
-
     private inner class ComicAdapter : BaseAdapter() {
-
+        private val sizeWidth = LScreenUtil.screenWidth
         private var listData = ArrayList<String>()
+        private var chapterDetail: ChapterDetail? = null
 
-        fun setData(data: List<String>) {
-            listData.clear()
-            listData.addAll(data)
+        fun getChapterDetail(): ChapterDetail? {
+            return chapterDetail
+        }
+
+        fun setChapterDetail(chapterDetail: ChapterDetail?) {
+
+            this.chapterDetail = chapterDetail
+            this.listData.clear()
+            this.chapterDetail?.chapterComicsDetails?.forEach {
+                it.imageSrc?.let { url ->
+                    listData.add(element = "$url=w$sizeWidth")
+                }
+            }
             notifyDataSetChanged()
         }
 
