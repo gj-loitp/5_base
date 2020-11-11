@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.l_activity_girl.*
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
+@IsShowAdWhenExit(false)
 class ComicActivity : BaseFontActivity() {
 
     val listMenuComic = ArrayList<MenuComic>()

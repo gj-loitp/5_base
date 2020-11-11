@@ -34,7 +34,7 @@ import kotlinx.android.synthetic.main.l_activity_comic_chap.*
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
+@IsShowAdWhenExit(false)
 @IsSwipeActivity(true)
 class ComicChapActivity : BaseFontActivity() {
 
