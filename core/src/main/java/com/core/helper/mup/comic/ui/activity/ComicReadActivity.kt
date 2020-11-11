@@ -235,22 +235,18 @@ class ComicReadActivity : BaseFontActivity() {
                 holder = mConvertView.tag as ComicHolder
             }
 
-            //wont work
-//            LImageUtil.load(
-//                    context = parent.context,
-//                    any = listData[position],
-//                    imageView = holder.ivComic
-//            )
-
             val url = listData[position]
             logD("$position -> $url")
 
             holder.ivComic?.let { iv ->
-                Glide.with(parent.context)
-                        .load(url)
-                        .dontAnimate()
-                        .into(iv)
-
+//                Glide.with(parent.context)
+//                        .load(url)
+//                        .dontAnimate()
+//                        .into(iv)
+                LImageUtil.loadHighQuality(
+                        any = url,
+                        imageView = iv
+                )
             }
 
             return mConvertView

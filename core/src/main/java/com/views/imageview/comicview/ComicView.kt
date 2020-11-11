@@ -426,7 +426,9 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         val pointF: PointF? = null
         when (loadedPointFlag) {
             UN_LOADED_POINT -> putPointF(dx, dy)
-            else -> throw RuntimeException("ZoomListView loaded points error ! ! !")
+            //TODO loitp co tinh xoa code trong lib de ko crash khi zoom
+            //check logic cho nay
+//            else -> throw RuntimeException("ZoomListView loaded points error ! ! !")
         }
         return pointF
     }
