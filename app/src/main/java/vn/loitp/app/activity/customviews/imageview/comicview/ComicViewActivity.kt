@@ -69,7 +69,7 @@ class ComicViewActivity : BaseFontActivity() {
             return (position + 1000).toLong()
         }
 
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
             var mConvertView = convertView
             val holder: ComicHolder
 
@@ -77,7 +77,7 @@ class ComicViewActivity : BaseFontActivity() {
                 mConvertView = LayoutInflater.from(parent.context).inflate(R.layout.row_comic_view, parent, false)
 
                 holder = ComicHolder()
-                holder.ivComic = mConvertView?.findViewById(R.id.ivComic)
+                holder.ivComic = mConvertView!!.findViewById(R.id.ivComic)
                 mConvertView.tag = holder
             } else {
                 holder = mConvertView.tag as ComicHolder
