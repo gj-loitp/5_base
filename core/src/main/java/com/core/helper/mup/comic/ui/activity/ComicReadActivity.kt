@@ -25,7 +25,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_comic_read.*
 import java.util.*
 
-@LogTag("loitppComicActivity")
+@LogTag("ComicActivity")
 @IsFullScreen(false)
 @IsShowAdWhenExit(true)
 @IsSwipeActivity(true)

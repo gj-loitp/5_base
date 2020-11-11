@@ -18,7 +18,7 @@
 
         <com.views.imageview.comicview.ComicView
             android:id="@+id/comicView"
-            style="@style/ScrollVertical"
+            android:scrollbars="none"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="invisible"

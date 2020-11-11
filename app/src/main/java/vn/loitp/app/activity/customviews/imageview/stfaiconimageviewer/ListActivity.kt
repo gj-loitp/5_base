@@ -19,7 +19,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.common.Constants
 import java.util.*
 
-@LogTag("loitppListActivity")
+@LogTag("ListActivity")
 @IsFullScreen(false)
 class ListActivity : BaseFontActivity() {
     private val movieList: MutableList<Movie> = ArrayList()
