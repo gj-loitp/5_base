@@ -41,7 +41,7 @@ class ComicActivity : BaseFontActivity() {
         setupData()
         setupViews()
 
-        LValidateUtil.isValidCoreComicMup()
+        LValidateUtil.isValidPackageName()
     }
 
     private fun setupData() {

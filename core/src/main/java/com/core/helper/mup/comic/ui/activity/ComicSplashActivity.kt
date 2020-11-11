@@ -62,7 +62,7 @@ class ComicSplashActivity : BaseFontActivity() {
                 lnAdView.addView(it)
             }
         }
-        LValidateUtil.isValidCoreComicMup()
+        LValidateUtil.isValidPackageName()
     }
 
     private fun goToHome() {

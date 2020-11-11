@@ -51,7 +51,7 @@ class ComicReadActivity : BaseFontActivity() {
         setupViewModels()
 
         comicViewModel?.getChapterDetail(chapId = chap?.id)
-        LValidateUtil.isValidCoreComicMup()
+        LValidateUtil.isValidPackageName()
     }
 
     private fun setupData() {

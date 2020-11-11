@@ -49,7 +49,7 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
             }
         })
 
-        LValidateUtil.isValidCoreGalleryFlickr()
+        LValidateUtil.isValidPackageName()
     }
 
     private fun loadItem(photo: Photo) {

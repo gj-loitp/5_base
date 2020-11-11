@@ -3,6 +3,7 @@ package com.core.utilities
 import android.text.TextUtils
 import android.util.Patterns
 import com.R
+import com.utils.util.AppUtils
 import java.util.*
 import java.util.regex.Pattern
 
@@ -52,17 +53,18 @@ class LValidateUtil {
             return null
         }
 
-        fun isValidCoreGalleryFlickr(): Boolean  {
-            val value = LSharedPrefsUtil.instance.getString(LSharedPrefsUtil.KEY_CORE_GALLERY_FLICKR)
-            if (value == LAppResource.getString(R.string.loitp_core_gallery_flickr)) {
-                return true
-            }
-            throw IllegalArgumentException("You have no permission to do this")
-        }
+        private val listPkg = listOf(
+                "loitp.basemaster",
+                "loitp93.basemaster.demo",
+                "loitp93.anhseyeuemtucainhindautien",
+                "com.mup.comic"
+        )
 
-        fun isValidCoreComicMup(): Boolean  {
-            val value = LSharedPrefsUtil.instance.getString(LSharedPrefsUtil.KEY_CORE_COMIC_MUP)
-            if (value == LAppResource.getString(R.string.loitp_core_comic_mup)) {
+        fun isValidPackageName(): Boolean {
+            val isValid = listPkg.any {
+                it == AppUtils.getAppPackageName()
+            }
+            if (isValid) {
                 return true
             }
             throw IllegalArgumentException("You have no permission to do this")

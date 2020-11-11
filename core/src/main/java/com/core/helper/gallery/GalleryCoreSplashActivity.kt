@@ -68,7 +68,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         tvName.text = AppUtils.getAppName()
 //        LUIUtil.setTextShadow(tvName)
 
-        LValidateUtil.isValidCoreGalleryFlickr()
+        LValidateUtil.isValidPackageName()
     }
 
     private fun goToHome() {

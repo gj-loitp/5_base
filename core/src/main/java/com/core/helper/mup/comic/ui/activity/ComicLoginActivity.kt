@@ -42,7 +42,7 @@ class ComicLoginActivity : BaseFontActivity() {
                 password = "appmb@truyentranhvn.org"
         )
 
-        LValidateUtil.isValidCoreComicMup()
+        LValidateUtil.isValidPackageName()
     }
 
     private fun setupViews() {
