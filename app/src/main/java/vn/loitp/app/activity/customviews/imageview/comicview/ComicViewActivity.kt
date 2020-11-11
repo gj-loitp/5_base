@@ -10,9 +10,10 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.bumptech.glide.Glide
 import com.core.base.BaseFontActivity
+import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_comic_view.*
 import vn.loitp.app.R
-import java.util.ArrayList
+import java.util.*
 
 //https://github.com/nahzur-h/ScollZoomListView
 @LogTag("ComicViewActivity")
@@ -34,63 +35,75 @@ class ComicViewActivity : BaseFontActivity() {
     }
 
     private fun initData() {
-        val mData = ArrayList<Int>()
-        mData.add(R.drawable.loitp)
-        mData.add(R.drawable.loitp)
-        mData.add(R.drawable.loitp)
-        mData.add(R.drawable.loitp)
-        mData.add(R.drawable.loitp)
-        mData.add(R.drawable.loitp)
-        mData.add(R.drawable.loitp)
+        val list = ArrayList<Int>()
+        list.add(R.drawable.loitp)
+        list.add(R.drawable.loitp)
+        list.add(R.drawable.loitp)
+        list.add(R.drawable.loitp)
+        list.add(R.drawable.loitp)
+        list.add(R.drawable.loitp)
+        list.add(R.drawable.loitp)
 
-        val adapter = MyAdapter()
-        comicView.adapter = adapter
-        adapter.setData(mData)
+        val comicAdapter = ComicAdapter()
+        comicView.adapter = comicAdapter
+        comicAdapter.setData(data = list)
     }
 
-    private inner class MyAdapter : BaseAdapter() {
+    private inner class ComicAdapter : BaseAdapter() {
 
-        private var mData = ArrayList<Int>()
+        private var listData = ArrayList<Int>()
 
         fun setData(data: List<Int>) {
-            mData.clear()
-            mData.addAll(data)
+            listData.clear()
+            listData.addAll(data)
             notifyDataSetChanged()
         }
 
         override fun getCount(): Int {
-            return mData.size
+            return listData.size
         }
 
         override fun getItem(position: Int): Any {
-            return mData[position]
+            return listData[position]
         }
 
         override fun getItemId(position: Int): Long {
             return (position + 1000).toLong()
         }
 
-        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-            var convertView = convertView
-            val holder: MyHolder
-            if (convertView == null) {
-                convertView = LayoutInflater.from(parent.context).inflate(R.layout.row_comic_view, parent, false)
-                holder = MyHolder()
-                holder.picIv = convertView?.findViewById<View>(R.id.pic_iv) as ImageView
-                convertView.tag = holder
-            } else {
-                holder = convertView.tag as MyHolder
-            }
-            Glide.with(parent.context)
-                    .load(mData[position])
-                    .dontAnimate()
-                    .into(holder.picIv!!)
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+            var mConvertView = convertView
+            val holder: ComicHolder
 
-            return convertView
+            if (mConvertView == null) {
+                mConvertView = LayoutInflater.from(parent.context).inflate(R.layout.row_comic_view, parent, false)
+
+                holder = ComicHolder()
+                holder.ivComic = mConvertView?.findViewById(R.id.ivComic)
+                mConvertView.tag = holder
+            } else {
+                holder = mConvertView.tag as ComicHolder
+            }
+
+            //wont work
+//            LImageUtil.load(
+//                    context = parent.context,
+//                    any = listData[position],
+//                    imageView = holder.ivComic
+//            )
+
+            holder.ivComic?.let { iv ->
+                Glide.with(parent.context)
+                        .load(listData[position])
+                        .dontAnimate()
+                        .into(iv)
+            }
+
+            return mConvertView
         }
     }
 
-    internal class MyHolder {
-        var picIv: ImageView? = null
+    internal class ComicHolder {
+        var ivComic: ImageView? = null
     }
 }
