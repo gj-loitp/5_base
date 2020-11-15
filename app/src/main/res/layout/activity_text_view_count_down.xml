@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="?attr/themeBackgroundColor">
 
     <com.views.textview.countdown.LCountDownView
         android:id="@+id/countDownView"
@@ -14,5 +14,5 @@
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/margin_medium"
-        android:text="START" />
+        android:text="@string/start" />
 </RelativeLayout>
