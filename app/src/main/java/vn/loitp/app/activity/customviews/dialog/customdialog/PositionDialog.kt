@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,7 @@ class PositionDialog : DialogFragment() {
     }
 
     private var position = Position.CENTER_CENTER
+
     //TODO loitpp setting this
 //    private var style = Style.LEFT_TO_RIGHT
     private var style = Style.RIGHT_TO_LEFT
@@ -108,6 +110,7 @@ class PositionDialog : DialogFragment() {
                         var posY: Int? = null
                         when (position) {
                             Position.TOP_LEFT -> {
+                                //TODO
                                 posX = anchorV.left
                                 posY = anchorV.top
                             }
@@ -147,6 +150,7 @@ class PositionDialog : DialogFragment() {
                                 //do nothing
                             }
                         }
+                        Log.d(logTag, ">>>>>>>>>> $posX $posY")
                         posX?.let { x ->
                             posY?.let { y ->
                                 w.attributes?.let { a ->
