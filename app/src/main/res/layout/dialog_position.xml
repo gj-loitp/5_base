@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
-                android:text="OK"
+                android:text="@string/ok"
                 android:textColor="?attr/themeTextColor" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_medium"
                 android:background="?selectableItemBackground"
-                android:text="Cancel"
+                android:text="@string/cancel"
                 android:textColor="?attr/themeTextColor" />
         </LinearLayout>
 

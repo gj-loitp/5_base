@@ -34,8 +34,8 @@ class PositionDialog : DialogFragment() {
         dialogBuilder.setView(dialogView)
         isCancelable = true
         init(dialogView)
-        val d = dialogBuilder.create()
-        d.window?.let { w ->
+        val alertDialog = dialogBuilder.create()
+        alertDialog.window?.let { w ->
             w.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
             anchorView?.let { av ->
                 var posX: Int? = null
@@ -91,7 +91,7 @@ class PositionDialog : DialogFragment() {
                 }
             }
         }
-        return d
+        return alertDialog
     }
 
     private fun init(v: View) {
@@ -100,22 +100,6 @@ class PositionDialog : DialogFragment() {
         btOK.setOnClickListener { dismiss() }
         btCancel.setOnClickListener { dismiss() }
     }
-
-    /*fun showImmersiveCenter(activity: Activity, sizeWidthPx: Int?, sizeHeightPx: Int?) {
-        if (activity is BaseActivity) {
-            activity.supportFragmentManager.let { fm ->
-                show(fm, TAG)
-                fm.executePendingTransactions()
-                dialog?.window?.let { w ->
-                    w.decorView.systemUiVisibility = activity.window.decorView.systemUiVisibility
-                    w.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
-                    if (sizeWidthPx != null && sizeHeightPx != null) {
-                        w.setLayout(sizeWidthPx, sizeHeightPx)
-                    }
-                }
-            }
-        }
-    }*/
 
     fun showImmersivePos(activity: Activity, anchorView: View, sizeWidthPx: Int?, sizeHeightPx: Int?, position: Position) {
         this.position = position
