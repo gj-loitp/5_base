@@ -119,6 +119,11 @@
         <item name="android:windowExitAnimation">@anim/l_anim_out_dialog_left_right</item>
     </style>
 
+    <style name="FullDialogTheme.AnimRightLeft" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/l_anim_in_dialog_right_left</item>
+        <item name="android:windowExitAnimation">@anim/l_anim_out_dialog_right_left</item>
+    </style>
+
     <style name="rtl_RecyclerTabLayout">
         <item name="rtl_tabMinWidth">72dp</item>
         <item name="rtl_tabMaxWidth">264dp</item>

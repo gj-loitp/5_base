@@ -24,7 +24,15 @@ class PositionDialog : DialogFragment() {
         BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT
     }
 
+    enum class Style {
+        LEFT_TO_RIGHT,
+        RIGHT_TO_LEFT
+    }
+
     private var position = Position.CENTER_CENTER
+    //TODO loitpp setting this
+//    private var style = Style.LEFT_TO_RIGHT
+    private var style = Style.RIGHT_TO_LEFT
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -37,56 +45,118 @@ class PositionDialog : DialogFragment() {
         val alertDialog = dialogBuilder.create()
         alertDialog.window?.let { w ->
             w.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
-            anchorView?.let { av ->
-                var posX: Int? = null
-                var posY: Int? = null
-                when (position) {
-                    Position.TOP_LEFT -> {
-                        posX = av.left
-                        posY = av.top
+            anchorView?.let { anchorV ->
+
+                when (style) {
+                    Style.LEFT_TO_RIGHT -> {
+                        var posX: Int? = null
+                        var posY: Int? = null
+                        when (position) {
+                            Position.TOP_LEFT -> {
+                                posX = anchorV.left
+                                posY = anchorV.top
+                            }
+                            Position.TOP_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.top
+                            }
+                            Position.TOP_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.top
+                            }
+                            Position.CENTER_LEFT -> {
+                                posX = anchorV.left
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_RIGHT -> {
+                                posX = anchorV.right
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.BOTTOM_LEFT -> {
+                                posX = anchorV.left
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.bottom
+                            }
+                            Position.DEFAULT -> {
+                                //do nothing
+                            }
+                        }
+                        posX?.let { x ->
+                            posY?.let { y ->
+                                w.attributes?.let { a ->
+                                    a.gravity = Gravity.TOP or Gravity.START
+                                    a.x = x
+                                    a.y = y
+                                    a.windowAnimations = R.style.FullDialogTheme_AnimLeftRight
+                                }
+                            }
+                        }
                     }
-                    Position.TOP_CENTER -> {
-                        posX = (av.left + av.right) / 2
-                        posY = av.top
-                    }
-                    Position.TOP_RIGHT -> {
-                        posX = av.right
-                        posY = av.top
-                    }
-                    Position.CENTER_LEFT -> {
-                        posX = av.left
-                        posY = (av.top + av.bottom) / 2
-                    }
-                    Position.CENTER_CENTER -> {
-                        posX = (av.left + av.right) / 2
-                        posY = (av.top + av.bottom) / 2
-                    }
-                    Position.CENTER_RIGHT -> {
-                        posX = av.right
-                        posY = (av.top + av.bottom) / 2
-                    }
-                    Position.BOTTOM_LEFT -> {
-                        posX = av.left
-                        posY = av.bottom
-                    }
-                    Position.BOTTOM_CENTER -> {
-                        posX = (av.left + av.right) / 2
-                        posY = av.bottom
-                    }
-                    Position.BOTTOM_RIGHT -> {
-                        posX = av.right
-                        posY = av.bottom
-                    }
-                    Position.DEFAULT -> {
-                        //do nothing
-                    }
-                }
-                if (posX != null && posY != null) {
-                    w.attributes?.let { a ->
-                        a.gravity = Gravity.TOP or Gravity.START
-                        a.x = posX
-                        a.y = posY
-                        a.windowAnimations = R.style.FullDialogTheme_Anim
+                    Style.RIGHT_TO_LEFT -> {
+                        var posX: Int? = null
+                        var posY: Int? = null
+                        when (position) {
+                            Position.TOP_LEFT -> {
+                                posX = anchorV.left
+                                posY = anchorV.top
+                            }
+                            Position.TOP_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.top
+                            }
+                            Position.TOP_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.top
+                            }
+                            Position.CENTER_LEFT -> {
+                                posX = anchorV.left
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_RIGHT -> {
+                                posX = anchorV.right
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.BOTTOM_LEFT -> {
+                                posX = anchorV.left
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.bottom
+                            }
+                            Position.DEFAULT -> {
+                                //do nothing
+                            }
+                        }
+                        posX?.let { x ->
+                            posY?.let { y ->
+                                w.attributes?.let { a ->
+                                    a.gravity = Gravity.TOP or Gravity.START
+                                    a.x = x
+                                    a.y = y
+                                    a.windowAnimations = R.style.FullDialogTheme_AnimRightLeft
+                                }
+                            }
+                        }
                     }
                 }
             }
