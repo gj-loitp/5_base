@@ -48,10 +48,10 @@ class BottomBarActivity : BaseFontActivity() {
             })
         }
         btBlurViewRed.setOnClickListener {
-            bottomBar.realtimeBlurView.setOverlayColor(LAppResource.getColor(R.color.red50))
+            bottomBar.getRealTimeBlurView().setOverlayColor(LAppResource.getColor(R.color.red50))
         }
         btBlurViewGreen.setOnClickListener {
-            bottomBar.realtimeBlurView.setOverlayColor(LAppResource.getColor(R.color.green33))
+            bottomBar.getRealTimeBlurView().setOverlayColor(LAppResource.getColor(R.color.green33))
         }
         btCount1.setOnClickListener {
             bottomBar.setCount(1)
@@ -71,9 +71,9 @@ class BottomBarActivity : BaseFontActivity() {
         btHideText.setOnClickListener {
             bottomBar.isAlwayShowText = false
         }
-        LUIUtil.setDelay(5000, Runnable {
+        LUIUtil.setDelay(5000) {
             bottomBar?.setPerformItemClick(4)
-        })
+        }
     }
 
 }
