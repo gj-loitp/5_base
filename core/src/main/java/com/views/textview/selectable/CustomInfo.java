@@ -1,9 +1,5 @@
 package com.views.textview.selectable;
 
-/**
- * Created by www.muathu@gmail.com on 12/25/2017.
- */
-
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.CharacterStyle;
