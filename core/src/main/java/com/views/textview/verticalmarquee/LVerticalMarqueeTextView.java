@@ -13,6 +13,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.R;
+
 //TODO convert kotlin
 public class LVerticalMarqueeTextView extends ScrollView {
     private static final String TAG = LVerticalMarqueeTextView.class.getName();
@@ -97,7 +98,7 @@ public class LVerticalMarqueeTextView extends ScrollView {
         if (!this.isAnimating) {
             this.isAnimating = true;
 
-            new Thread(() -> LVerticalMarqueeTextView.this.animateTextView()).start();
+            new Thread(LVerticalMarqueeTextView.this::animateTextView).start();
         }
     }
 
@@ -252,7 +253,7 @@ public class LVerticalMarqueeTextView extends ScrollView {
             final int height = this.heightOf(this.textView);
             final int parentHeight = this.parent.getHeight();
 
-            if (height > 0 && parentHeight > 0 && height > parentHeight) {
+            if (parentHeight > 0 && height > parentHeight) {
                 if (this.textView.getScrollY() >= height) {
                     this.textView.scrollTo(0, -parentHeight);
                 } else {
