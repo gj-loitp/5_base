@@ -20,7 +20,6 @@ import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActiv
 import vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity
 import vn.loitp.app.activity.customviews.textview.strokedtextview.StrokedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.textdecorator.TextDecoratorActivity
-import vn.loitp.app.activity.customviews.textview.translucentview.TranslucentViewActivity
 import vn.loitp.app.activity.customviews.textview.typewritertextview.TypeWriterTextViewActivity
 import vn.loitp.app.activity.customviews.textview.verticalmarqueetextview.VerticalMarqueeTextViewActivity
 import vn.loitp.app.activity.customviews.textview.zoomtextview.ZoomTextViewActivity
@@ -44,7 +43,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         btSelectableTextView.setOnClickListener(this)
         btZoomTextView.setOnClickListener(this)
         btVerticalMarqueeTextView.setOnClickListener(this)
-        btTranslucentView.setOnClickListener(this)
         btTypeWriterTextView.setOnClickListener(this)
         btTextDecorator.setOnClickListener(this)
         btJustifieldTextView.setOnClickListener(this)
@@ -63,7 +61,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
             btSelectableTextView -> intent = Intent(this, SelectableTextViewActivity::class.java)
             btZoomTextView -> intent = Intent(this, ZoomTextViewActivity::class.java)
             btVerticalMarqueeTextView -> intent = Intent(this, VerticalMarqueeTextViewActivity::class.java)
-            btTranslucentView -> intent = Intent(this, TranslucentViewActivity::class.java)
             btTypeWriterTextView -> intent = Intent(this, TypeWriterTextViewActivity::class.java)
             btTextDecorator -> intent = Intent(this, TextDecoratorActivity::class.java)
             btJustifieldTextView -> intent = Intent(this, JustifiedTextViewActivity::class.java)

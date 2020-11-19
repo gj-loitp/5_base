@@ -82,9 +82,9 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="LTranslucentView">
-        <attr name="translucentBackgroundColor" format="color" />
-    </declare-styleable>
+<!--    <declare-styleable name="LTranslucentView">-->
+<!--        <attr name="translucentBackgroundColor" format="color" />-->
+<!--    </declare-styleable>-->
 
     <declare-styleable name="LMaterialTextField">
         <attr name="mtf_cardCollapsedHeight" format="dimension" />

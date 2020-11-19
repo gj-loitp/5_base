@@ -70,11 +70,6 @@
                 android:text="@string/text_decorator" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btTranslucentView"
-                style="@style/ButtonMenu"
-                android:text="@string/translucent_view" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTypeWriterTextView"
                 style="@style/ButtonMenu"
                 android:text="@string/type_writer_textview" />
