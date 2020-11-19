@@ -12,10 +12,16 @@ import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import kotlin.math.max
 import kotlin.math.min
 
-class LZoomTextView : TextView {
+class LZoomTextView : AppCompatTextView {
+
+    companion object {
+        private const val TAG = "LZoomTextView"
+    }
+
     private var mScaleDetector: ScaleGestureDetector? = null
     private var mScaleFactor = 1f
     private var defaultSize: Float = 0.toFloat()
@@ -50,7 +56,7 @@ class LZoomTextView : TextView {
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent): Boolean {
         super.onTouchEvent(ev)
-        mScaleDetector!!.onTouchEvent(ev)
+        mScaleDetector?.onTouchEvent(ev)
         return true
     }
 
@@ -68,9 +74,5 @@ class LZoomTextView : TextView {
             Log.e(TAG, mScaleFactor.toString())
             return true
         }
-    }
-
-    companion object {
-        private const val TAG = "LZoomTextView"
     }
 }
