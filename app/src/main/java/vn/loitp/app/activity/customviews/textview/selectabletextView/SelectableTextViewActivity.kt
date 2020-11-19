@@ -5,6 +5,7 @@ import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.textview.selectable.SelectableListener
 import kotlinx.android.synthetic.main.activity_text_view_selectable.*
 import vn.loitp.app.R
 
@@ -25,9 +26,12 @@ class SelectableTextViewActivity : BaseFontActivity() {
     private fun setupViews() {
         selectableView.setActivity(this)
         selectableView.setText(getString(R.string.i_love_you))
-        selectableView.addOnSaveClickListener { text: String? ->
-            showShortInformation(msg = text)
-        }
+        selectableView.addOnSaveClickListener(object : SelectableListener {
+            override fun selectedText(text: String?) {
+                showShortInformation(msg = text)
+            }
+
+        })
         tvEmptyBox.tag = 0
         tvEmptyBox.setOnClickListener { view: View ->
             val type = view.tag as Int
