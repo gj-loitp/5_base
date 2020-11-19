@@ -8,6 +8,12 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 
 class LAutoViewPager : ViewPager {
+
+    companion object {
+        private val TAG = LAutoViewPager::class.java.simpleName
+        private const val DEFAULT_DURATION = 1000
+    }
+
     private var duration = DEFAULT_DURATION
     private var startX: Float = 0.toFloat()
     private var autoScrollEnabled: Boolean = false
@@ -21,7 +27,7 @@ class LAutoViewPager : ViewPager {
             if (adapter == null) {
                 return
             }
-            currentItem = if (currentItem == adapter!!.count - 1) {
+            currentItem = if (currentItem == adapter?.count?.minus(1) ?: 0) {
                 0
             } else {
                 currentItem + 1
@@ -30,7 +36,7 @@ class LAutoViewPager : ViewPager {
         }
     }
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         init(attrs)
@@ -47,7 +53,7 @@ class LAutoViewPager : ViewPager {
         }
     }
 
-    fun setIndeterminate(indeterminate: Boolean) {
+    private fun setIndeterminate(indeterminate: Boolean) {
         this.indeterminate = indeterminate
     }
 
@@ -76,8 +82,7 @@ class LAutoViewPager : ViewPager {
 
     override fun onInterceptTouchEvent(event: MotionEvent): Boolean {
         try {
-            val action = event.actionMasked
-            when (action) {
+            when (event.actionMasked) {
                 MotionEvent.ACTION_DOWN -> startX = event.x
             }
             return super.onInterceptTouchEvent(event)
@@ -92,7 +97,7 @@ class LAutoViewPager : ViewPager {
     override fun onTouchEvent(event: MotionEvent): Boolean {
         try {
             if (indeterminate) {
-                if (currentItem == 0 || currentItem == adapter!!.count - 1) {
+                if (currentItem == 0 || currentItem == adapter?.count?.minus(1) ?: 0) {
                     val action = event.action
                     val x = event.x
                     when (action and MotionEvent.ACTION_MASK) {
@@ -112,8 +117,4 @@ class LAutoViewPager : ViewPager {
         return false
     }
 
-    companion object {
-        private val TAG = LAutoViewPager::class.java.simpleName
-        private const val DEFAULT_DURATION = 1000
-    }
 }
