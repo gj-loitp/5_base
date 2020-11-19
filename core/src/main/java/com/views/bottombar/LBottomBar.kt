@@ -18,7 +18,18 @@ import com.github.mmin18.widget.RealtimeBlurView
  */
 
 class LBottomBar : RelativeLayout, View.OnClickListener {
-    private val TAG = javaClass.simpleName
+
+    companion object {
+        const val PAGE_NONE = -1
+        const val PAGE_0 = 0
+        const val PAGE_1 = 1
+        const val PAGE_2 = 2
+        const val PAGE_3 = 3
+        const val PAGE_4 = 4
+        const val PAGE_5 = 5
+    }
+
+    private val logTag = javaClass.simpleName
     lateinit var realtimeBlurView: RealtimeBlurView
     lateinit var llIcon0: RelativeLayout
     lateinit var llIcon1: RelativeLayout
@@ -394,15 +405,5 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
 
     fun getCurrentPos(): Int {
         return currentPos
-    }
-
-    companion object {
-        val PAGE_NONE = -1
-        const val PAGE_0 = 0
-        const val PAGE_1 = 1
-        const val PAGE_2 = 2
-        const val PAGE_3 = 3
-        const val PAGE_4 = 4
-        const val PAGE_5 = 5
     }
 }
