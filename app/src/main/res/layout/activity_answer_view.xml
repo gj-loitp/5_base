@@ -33,6 +33,7 @@
                 android:id="@+id/lAnswerView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/w_50"
                 app:aw_NumberOfAnswers="6"
                 app:aw_ShowNumber="true"
                 app:aw_canCancelAnswer="true"

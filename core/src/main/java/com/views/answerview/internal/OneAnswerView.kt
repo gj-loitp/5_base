@@ -3,9 +3,7 @@ package com.views.answerview.internal
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.R
 import com.core.utilities.LAppResource
 import com.views.answerview.LAnswerView
@@ -39,14 +37,14 @@ class OneAnswerView : LinearLayout {
         if (active != this.active) {
             this.active = active
             if (active) {
-                if (lAnswerView.aw_ShowTextWhenActive) {
+                if (lAnswerView.awShowTextWhenActive) {
                     chooice.setTextColor(LAppResource.getColor(R.color.colorPrimary))
                 } else {
                     chooice.visibility = INVISIBLE
                 }
                 getChildAt(0).background = LAppResource.getDrawable(R.drawable.l_answer_circle_ac)
             } else {
-                if (lAnswerView.aw_ShowTextWhenActive) {
+                if (lAnswerView.awShowTextWhenActive) {
                     chooice.setTextColor(LAppResource.getColor(R.color.black))
                 } else {
                     chooice.visibility = VISIBLE
@@ -57,7 +55,7 @@ class OneAnswerView : LinearLayout {
     }
 
     fun setIndex(index: Int) {
-//        chooice.setText(('A'.toInt() + index) as Char.toString())
-        chooice.text = "$index"
+        chooice.text = (('A'.toInt() + index).toChar()).toString()
+//        chooice.text = "$index"
     }
 }
