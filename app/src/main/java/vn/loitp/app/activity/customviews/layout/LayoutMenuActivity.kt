@@ -7,6 +7,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.MainActivity
 import kotlinx.android.synthetic.main.activity_layout_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.aspectratiolayout.AspectRatioLayoutActivity
@@ -77,6 +78,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btShapeOfView.setOnClickListener(this)
         btFlowLayout.setOnClickListener(this)
         btSplitPanelLayout.setOnClickListener(this)
+        btTramsformationLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -108,6 +110,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btRoundableLayout -> intent = Intent(this, RoundableLayoutActivity::class.java)
             btFlowLayout -> intent = Intent(this, FlowLayoutActivity::class.java)
             btSplitPanelLayout -> intent = Intent(this, SplitPanelLayoutActivity::class.java)
+            btTramsformationLayout -> intent = Intent(this, MainActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

@@ -51,4 +51,20 @@
         <attr name="tbgBackImage" format="reference" />
     </declare-styleable>
 
+    <style name="TextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="CircleImageStyle" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+<!--    <style name="CollapsedExpandedTitleText" parent="AppTheme">-->
+<!--        <item name="android:textColor">@android:color/transparent</item>-->
+<!--    </style>-->
 </resources>

@@ -21,7 +21,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAspectRatioLayout"
                 style="@style/ButtonMenu"
-                android:text="Aspect Ratio Layout" />
+                android:text="@string/aspect_ratio_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAutoLinearLayout"
@@ -96,7 +96,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRoundableLayout"
                 style="@style/ButtonMenu"
-                android:text="Roundable layout" />
+                android:text="@string/roundable_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btScrollView2d"
@@ -142,6 +142,11 @@
                 android:id="@+id/btSwipeRevealLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/swipe_reveal_layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTramsformationLayout"
+                style="@style/ButtonMenu"
+                android:text="@string/transformation_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btZoomLayout"

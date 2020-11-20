@@ -479,4 +479,11 @@ Likewise may someone love you next.
     <string name="start">START</string>
     <string name="answer_view">Answer View</string>
     <string name="dialog_range">Dialog Range</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_library">Library</string>
+    <string name="menu_radio">Radio</string>
+    <string name="description">Description</string>
+    <string name="aspect_ratio_layout">Aspect Ratio Layout</string>
+    <string name="roundable_layout">Roundable layout</string>
+    <string name="transformation_layout">Transformation layout</string>
 </resources>
