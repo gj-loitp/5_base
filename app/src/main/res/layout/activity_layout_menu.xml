@@ -149,6 +149,11 @@
                 android:text="@string/transformation_layout" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTramsformationLayoutSingle"
+                style="@style/ButtonMenu"
+                android:text="@string/transformation_layout_single" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btZoomLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/zoom_layout" />

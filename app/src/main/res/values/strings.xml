@@ -486,4 +486,5 @@ Likewise may someone love you next.
     <string name="aspect_ratio_layout">Aspect Ratio Layout</string>
     <string name="roundable_layout">Roundable layout</string>
     <string name="transformation_layout">Transformation layout</string>
+    <string name="transformation_layout_single">Transformation layout single</string>
 </resources>
