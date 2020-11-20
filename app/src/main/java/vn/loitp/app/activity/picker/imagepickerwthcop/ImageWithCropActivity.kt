@@ -45,22 +45,30 @@ class ImageWithCropActivity : BaseFontActivity() {
         checkPermission()
         startGalleryBtn.setSafeOnClickListener {
             PickerBuilder(this, PickerBuilder.SELECT_FROM_GALLERY)
-                    .setOnImageReceivedListener { imageUri: Uri ->
-                        imageView.setImageURI(imageUri)
-                        showShortInformation("Got image - $imageUri", true)
-                    }
+                    .setOnImageReceivedListener(object : PickerBuilder.OnImageReceivedListener {
+                        override fun onImageReceived(imageUri: Uri?) {
+                            imageView.setImageURI(imageUri)
+                            showShortInformation("Got image - $imageUri", true)
+                        }
+                    })
                     .setImageName(name + System.currentTimeMillis())
                     .setImageFolderName(name)
                     .setCropScreenColor(LAppResource.getColor(R.color.colorPrimary))
-                    .setOnPermissionRefusedListener {}
+                    .setOnPermissionRefusedListener(object : PickerBuilder.OnPermissionRefusedListener {
+                        override fun onPermissionRefused() {
+
+                        }
+                    })
                     .start()
         }
         startCameraBtn.setOnClickListener {
             PickerBuilder(this, PickerBuilder.SELECT_FROM_CAMERA)
-                    .setOnImageReceivedListener { imageUri: Uri ->
-                        imageView.setImageURI(imageUri)
-                        showShortInformation("Got image - $imageUri", true)
-                    }
+                    .setOnImageReceivedListener(object : PickerBuilder.OnImageReceivedListener {
+                        override fun onImageReceived(imageUri: Uri?) {
+                            imageView.setImageURI(imageUri)
+                            showShortInformation("Got image - $imageUri", true)
+                        }
+                    })
                     .setImageName(name + System.currentTimeMillis())
                     .setImageFolderName(name)
                     .withTimeStamp(false)
@@ -81,7 +89,8 @@ class ImageWithCropActivity : BaseFontActivity() {
         Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.CAMERA)
+                        Manifest.permission.CAMERA
+                )
                 .withListener(object : MultiplePermissionsListener {
                     override fun onPermissionsChecked(report: MultiplePermissionsReport) {
                         // check if all permissions are granted

@@ -22,7 +22,7 @@ class TempActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        pickerManager = GlobalHolder.getInstance().pickerManager
+        pickerManager = GlobalHolder.instance.pickerManager
         pickerManager?.let {
             it.setActivity(this)
             it.pickPhotoWithPermission()
