@@ -23,7 +23,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationLayout
-import kotlinx.android.synthetic.main.item_poster.view.*
+import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
 
 class PosterSingleAdapter
@@ -36,7 +36,7 @@ constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PosterViewHolder(inflater.inflate(R.layout.item_poster, parent, false))
+        return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster, parent, false))
     }
 
     override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
@@ -44,18 +44,19 @@ constructor(
         holder.itemView.run {
             Glide.with(context)
                     .load(item.poster)
-                    .into(item_poster_post)
-            item_poster_title.text = item.name
-            item_poster_running_time.text = item.playtime
+                    .into(ivItemPosterPost)
+
+            tvItemPosterTitle.text = item.name
+            tvItemPosterRunningTime.text = item.playtime
 
             // sets a transition name to the transformation layout.
             // this code must not be in listener.
-            item_poster_transformationLayout.transitionName = item.name
+            layoutItemPosterTransformation.transitionName = item.name
 
             setOnClickListener {
                 val now = SystemClock.elapsedRealtime()
-                if (now - previousTime >= item_poster_transformationLayout.duration) {
-                    delegate.onItemClick(item, item_poster_transformationLayout)
+                if (now - previousTime >= layoutItemPosterTransformation.duration) {
+                    delegate.onItemClick(item, layoutItemPosterTransformation)
                     previousTime = now
                 }
             }

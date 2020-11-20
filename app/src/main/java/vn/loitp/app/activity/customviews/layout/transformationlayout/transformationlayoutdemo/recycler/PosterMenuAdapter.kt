@@ -24,8 +24,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
 import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_menu_transformationLayout
-import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_post
-import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_title
+import kotlinx.android.synthetic.main.item_poster_menu.view.ivItemPosterPost
+import kotlinx.android.synthetic.main.item_poster_menu.view.tvItemPosterTitle
 import vn.loitp.app.R
 
 class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolder>() {
@@ -43,8 +43,8 @@ class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolde
         holder.itemView.run {
             Glide.with(context)
                     .load(item.poster)
-                    .into(item_poster_post)
-            item_poster_title.text = item.name
+                    .into(ivItemPosterPost)
+            tvItemPosterTitle.text = item.name
             setOnClickListener {
                 val now = SystemClock.elapsedRealtime()
                 if (now - previousTime >= item_poster_menu_transformationLayout.duration) {

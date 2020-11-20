@@ -22,9 +22,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
-import kotlinx.android.synthetic.main.item_poster.view.*
+import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
 
 class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
 
@@ -33,21 +33,24 @@ class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PosterViewHolder(inflater.inflate(R.layout.item_poster, parent, false))
+        return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster, parent, false))
     }
 
     override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
-        val item = items[position]
+        val poster = items[position]
+
         holder.itemView.run {
             Glide.with(context)
-                    .load(item.poster)
-                    .into(item_poster_post)
-            item_poster_title.text = item.name
-            item_poster_running_time.text = item.playtime
+                    .load(poster.poster)
+                    .into(ivItemPosterPost)
+
+            tvItemPosterTitle.text = poster.name
+            tvItemPosterRunningTime.text = poster.playtime
+
             setOnClickListener {
                 val now = SystemClock.elapsedRealtime()
-                if (now - previousTime >= item_poster_transformationLayout.duration) {
-                    DetailActivity.startActivity(context, item_poster_transformationLayout, item)
+                if (now - previousTime >= layoutItemPosterTransformation.duration) {
+                    DetailActivity.startActivity(context, layoutItemPosterTransformation, poster)
                     previousTime = now
                 }
             }

@@ -8,7 +8,7 @@
     app:transformation_duration="500">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item_container"
+        android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="66dp"
         android:background="@color/white85"
@@ -28,7 +28,7 @@
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/item_poster_post"
+                android:id="@+id/ivItemPosterPost"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:scaleType="center"
@@ -38,7 +38,7 @@
                 app:shapeAppearanceOverlay="@style/CircleImageStyle" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_poster_title"
+                android:id="@+id/tvItemPosterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -48,7 +48,7 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/item_poster_post"
+                app:layout_constraintStart_toEndOf="@id/ivItemPosterPost"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Zootopia" />
 

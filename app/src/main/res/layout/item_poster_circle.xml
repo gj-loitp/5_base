@@ -7,7 +7,7 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item_container"
+        android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -26,7 +26,7 @@
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/item_poster_post"
+                android:id="@+id/ivItemPosterPost"
                 android:layout_width="112dp"
                 android:layout_height="112dp"
                 android:scaleType="center"
@@ -36,7 +36,7 @@
                 app:shapeAppearanceOverlay="@style/CircleImageStyle" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_poster_title"
+                android:id="@+id/tvItemPosterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
@@ -47,11 +47,11 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_poster_post"
+                app:layout_constraintTop_toBottomOf="@id/ivItemPosterPost"
                 tools:text="Zootopia" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_poster_running_time"
+                android:id="@+id/tvItemPosterRunningTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp"
@@ -61,7 +61,7 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_poster_title"
+                app:layout_constraintTop_toBottomOf="@id/tvItemPosterTitle"
                 tools:text="1 h 45 min" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

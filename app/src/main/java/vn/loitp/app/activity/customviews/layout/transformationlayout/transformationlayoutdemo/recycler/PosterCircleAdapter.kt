@@ -41,9 +41,9 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
         holder.itemView.run {
             Glide.with(context)
                     .load(item.poster)
-                    .into(item_poster_post)
-            item_poster_title.text = item.name
-            item_poster_running_time.text = item.playtime
+                    .into(ivItemPosterPost)
+            tvItemPosterTitle.text = item.name
+            tvItemPosterRunningTime.text = item.playtime
             setOnClickListener {
                 val now = SystemClock.elapsedRealtime()
                 if (now - previousTime >= item_poster_circle_transformationLayout.duration)

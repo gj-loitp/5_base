@@ -27,6 +27,7 @@ import kotlinx.android.synthetic.main.activity_main.main_bottom_navigation
 import kotlinx.android.synthetic.main.activity_main.main_viewpager
 import vn.loitp.app.R
 
+//https://github.com/skydoves/TransformationLayout
 @LogTag("MainActivity")
 @IsFullScreen(false)
 class MainActivity : BaseFontActivity() {

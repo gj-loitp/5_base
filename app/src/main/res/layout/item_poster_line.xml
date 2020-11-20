@@ -8,7 +8,7 @@
     app:transformation_duration="500">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item_container"
+        android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -27,7 +27,7 @@
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/item_poster_post"
+                android:id="@+id/ivItemPosterPost"
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:scaleType="centerCrop"
@@ -36,7 +36,7 @@
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_poster_title"
+                android:id="@+id/tvItemPosterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -45,14 +45,14 @@
                 android:textColor="@color/white"
                 android:textSize="21sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/item_poster_running_time"
-                app:layout_constraintStart_toEndOf="@id/item_poster_post"
+                app:layout_constraintBottom_toTopOf="@+id/tvItemPosterRunningTime"
+                app:layout_constraintStart_toEndOf="@id/ivItemPosterPost"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
                 tools:text="Zootopia" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_poster_running_time"
+                android:id="@+id/tvItemPosterRunningTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -61,8 +61,8 @@
                 android:textColor="@color/white85"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/item_poster_post"
-                app:layout_constraintTop_toBottomOf="@+id/item_poster_title"
+                app:layout_constraintStart_toEndOf="@id/ivItemPosterPost"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemPosterTitle"
                 tools:text="1 h 45 min" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

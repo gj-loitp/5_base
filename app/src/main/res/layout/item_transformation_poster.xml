@@ -2,21 +2,21 @@
 <com.skydoves.transformationlayout.TransformationLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_poster_transformationLayout"
+    android:id="@+id/layoutItemPosterTransformation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:transformation_duration="500"
     app:transformation_pathMode="arc">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item_container"
+        android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/white85"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="6dp">
+        app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
+        app:cardCornerRadius="@dimen/round_medium"
+        app:cardElevation="@dimen/w_3"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -26,43 +26,42 @@
             tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/item_poster_post"
+                android:id="@+id/ivItemPosterPost"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
                 android:scaleType="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@drawable/ic_sentiment_satisfied_alt_black_48dp" />
+                tools:src="@drawable/loitp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_poster_title"
+                android:id="@+id/tvItemPosterTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:padding="8dp"
+                android:padding="@dimen/padding_medium"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="@color/white"
-                android:textSize="21sp"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_poster_post"
+                app:layout_constraintTop_toBottomOf="@id/ivItemPosterPost"
                 tools:text="Zootopia" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/item_poster_running_time"
+                android:id="@+id/tvItemPosterRunningTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="12dp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                android:textColor="@color/white85"
-                android:textSize="14sp"
+                android:paddingStart="@dimen/padding_medium"
+                android:paddingEnd="@dimen/padding_medium"
+                android:paddingBottom="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/item_poster_title"
+                app:layout_constraintTop_toBottomOf="@id/tvItemPosterTitle"
                 tools:text="1 h 45 min" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
