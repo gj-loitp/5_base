@@ -2,7 +2,7 @@
 <com.skydoves.transformationlayout.TransformationLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_poster_circle_transformationLayout"
+    android:id="@+id/layoutItemPosterCircleTransformation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -10,19 +10,19 @@
         android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:background="@color/white85"
+        android:background="?attr/themeBackgroundColorMedium"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/white85"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="6dp">
+        app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
+        app:cardCornerRadius="@dimen/round_medium"
+        app:cardElevation="@dimen/w_3"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="@dimen/padding_medium"
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -40,10 +40,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:padding="8dp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="@color/white"
-                android:textSize="21sp"
+                android:padding="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,11 +53,10 @@
                 android:id="@+id/tvItemPosterRunningTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                android:textColor="@color/white85"
-                android:textSize="14sp"
+                android:paddingStart="@dimen/padding_medium"
+                android:paddingEnd="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/text_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvItemPosterTitle"

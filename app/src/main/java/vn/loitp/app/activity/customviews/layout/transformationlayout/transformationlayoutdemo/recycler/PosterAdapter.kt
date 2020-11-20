@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.core.adapter.AnimationAdapter
+import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
@@ -55,9 +56,7 @@ class PosterAdapter : AnimationAdapter() {
         fun bind(poster: Poster) {
 
             itemView.run {
-                Glide.with(context)
-                        .load(poster.poster)
-                        .into(ivItemPosterPost)
+                LImageUtil.load(context = context, any = poster.poster, imageView = ivItemPosterPost)
 
                 tvItemPosterTitle.text = poster.name
                 tvItemPosterRunningTime.text = poster.playtime
