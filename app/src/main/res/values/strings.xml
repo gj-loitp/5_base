@@ -478,4 +478,5 @@ Likewise may someone love you next.
     <string name="comic_view">Comic View</string>
     <string name="start">START</string>
     <string name="answer_view">Answer View</string>
+    <string name="dialog_range">Dialog Range</string>
 </resources>
