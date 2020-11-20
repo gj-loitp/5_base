@@ -2,7 +2,7 @@
 <com.skydoves.transformationlayout.TransformationLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_poster_menu_transformationLayout"
+    android:id="@+id/layoutItemPosterMenuTransformation"
     android:layout_width="match_parent"
     android:layout_height="66dp"
     app:transformation_duration="500">
@@ -11,20 +11,21 @@
         android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="66dp"
-        android:background="@color/white85"
+        android:background="?attr/themeBackgroundColorMedium"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/white85"
-        app:cardCornerRadius="0dp">
+        app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
+        app:cardCornerRadius="0dp"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical"
-            android:paddingStart="16dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="8dp"
+            android:paddingStart="@dimen/padding_medium"
+            android:paddingTop="@dimen/padding_small"
+            android:paddingEnd="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_small"
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -35,17 +36,17 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/CircleImageStyle" />
+                app:shapeAppearanceOverlay="@style/CircleImageStyle"
+                tools:src="@drawable/loitp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvItemPosterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivItemPosterPost"

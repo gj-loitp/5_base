@@ -21,47 +21,52 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
-import kotlinx.android.synthetic.main.item_poster_menu.view.item_poster_menu_transformationLayout
-import kotlinx.android.synthetic.main.item_poster_menu.view.ivItemPosterPost
-import kotlinx.android.synthetic.main.item_poster_menu.view.tvItemPosterTitle
+import com.core.adapter.AnimationAdapter
+import com.core.utilities.LImageUtil
+import kotlinx.android.synthetic.main.item_transformation_poster_menu.view.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
 
-class PosterMenuAdapter : RecyclerView.Adapter<PosterMenuAdapter.PosterViewHolder>() {
+class PosterMenuAdapter : AnimationAdapter() {
 
-    private val items = mutableListOf<Poster>()
+    private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PosterViewHolder(inflater.inflate(R.layout.item_poster_menu, parent, false))
+        return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster_menu, parent, false))
     }
 
-    override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
-        val item = items[position]
-        holder.itemView.run {
-            Glide.with(context)
-                    .load(item.poster)
-                    .into(ivItemPosterPost)
-            tvItemPosterTitle.text = item.name
-            setOnClickListener {
-                val now = SystemClock.elapsedRealtime()
-                if (now - previousTime >= item_poster_menu_transformationLayout.duration) {
-                    DetailActivity.startActivity(context, item_poster_menu_transformationLayout, item)
-                    previousTime = now
-                }
-            }
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is PosterViewHolder) {
+            holder.bind(poster = listPoster[position])
         }
     }
 
-    fun addPosterList(list: List<Poster>) {
-        items.clear()
-        items.addAll(list)
+    fun addPosterList(listPoster: List<Poster>) {
+        this.listPoster.clear()
+        this.listPoster.addAll(listPoster)
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = listPoster.size
 
-    class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
+    inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(poster: Poster) {
+            itemView.run {
+                LImageUtil.load(context = context, any = poster.poster, imageView = ivItemPosterPost)
+                tvItemPosterTitle.text = poster.name
+
+                setOnClickListener {
+                    val now = SystemClock.elapsedRealtime()
+                    if (now - previousTime >= layoutItemPosterMenuTransformation.duration) {
+                        DetailActivity.startActivity(context, layoutItemPosterMenuTransformation, poster)
+                        previousTime = now
+                    }
+                }
+            }
+
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
+        }
+    }
 }

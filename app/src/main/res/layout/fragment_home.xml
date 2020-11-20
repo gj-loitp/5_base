@@ -70,7 +70,7 @@
                 android:layout_height="264dp"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_poster_menu" />
+                tools:listitem="@layout/item_transformation_poster_menu" />
 
             <LinearLayout
                 android:layout_width="match_parent"
