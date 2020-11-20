@@ -2,7 +2,7 @@
 <com.skydoves.transformationlayout.TransformationLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/item_poster_line_transformationLayout"
+    android:id="@+id/layoutItemPosterLineTransformation"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:transformation_duration="500">
@@ -11,19 +11,19 @@
         android:id="@+id/itemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:background="@color/white85"
+        android:background="?attr/themeBackgroundColorMedium"
         android:foreground="?attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/white85"
+        app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
         app:cardCornerRadius="8dp"
-        app:cardElevation="6dp">
+        app:cardElevation="@dimen/w_3"
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical"
-            android:padding="8dp"
+            android:padding="@dimen/padding_small"
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -33,17 +33,17 @@
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent" />
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.MediumComponent"
+                tools:src="@drawable/loitp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvItemPosterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="@dimen/margin_medium"
                 android:maxLines="1"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="@color/white"
-                android:textSize="21sp"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/tvItemPosterRunningTime"
                 app:layout_constraintStart_toEndOf="@id/ivItemPosterPost"
@@ -55,11 +55,10 @@
                 android:id="@+id/tvItemPosterRunningTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="4dp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                android:textColor="@color/white85"
-                android:textSize="14sp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/text_small"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivItemPosterPost"
                 app:layout_constraintTop_toBottomOf="@+id/tvItemPosterTitle"
