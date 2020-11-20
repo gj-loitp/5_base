@@ -28,7 +28,7 @@ import vn.loitp.app.R
 
 class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewHolder>() {
 
-    private val items = mutableListOf<Poster>()
+    private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
@@ -37,7 +37,7 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
     }
 
     override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
-        val item = items[position]
+        val item = listPoster[position]
         holder.itemView.run {
             Glide.with(context)
                     .load(item.poster)
@@ -54,12 +54,12 @@ class PosterCircleAdapter : RecyclerView.Adapter<PosterCircleAdapter.PosterViewH
     }
 
     fun addPosterList(list: List<Poster>) {
-        items.clear()
-        items.addAll(list)
+        listPoster.clear()
+        listPoster.addAll(list)
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = listPoster.size
 
     class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
 }

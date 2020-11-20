@@ -22,13 +22,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.core.adapter.AnimationAdapter
 import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
 
-class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
+class PosterAdapter : AnimationAdapter() {
 
-    private val items = mutableListOf<Poster>()
+    private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
@@ -36,34 +37,41 @@ class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
         return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster, parent, false))
     }
 
-    override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
-        val poster = items[position]
-
-        holder.itemView.run {
-            Glide.with(context)
-                    .load(poster.poster)
-                    .into(ivItemPosterPost)
-
-            tvItemPosterTitle.text = poster.name
-            tvItemPosterRunningTime.text = poster.playtime
-
-            setOnClickListener {
-                val now = SystemClock.elapsedRealtime()
-                if (now - previousTime >= layoutItemPosterTransformation.duration) {
-                    DetailActivity.startActivity(context, layoutItemPosterTransformation, poster)
-                    previousTime = now
-                }
-            }
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is PosterViewHolder) {
+            holder.bind(listPoster[position])
         }
     }
 
     fun addPosterList(list: List<Poster>) {
-        items.clear()
-        items.addAll(list)
+        listPoster.clear()
+        listPoster.addAll(list)
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = listPoster.size
 
-    class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
+    inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        fun bind(poster: Poster) {
+
+            itemView.run {
+                Glide.with(context)
+                        .load(poster.poster)
+                        .into(ivItemPosterPost)
+
+                tvItemPosterTitle.text = poster.name
+                tvItemPosterRunningTime.text = poster.playtime
+
+                setOnClickListener {
+                    val now = SystemClock.elapsedRealtime()
+                    if (now - previousTime >= layoutItemPosterTransformation.duration) {
+                        DetailActivity.startActivity(context, layoutItemPosterTransformation, poster)
+                        previousTime = now
+                    }
+                }
+            }
+
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
+        }
+    }
 }
