@@ -104,7 +104,10 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().register(this)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        setContentView(setLayoutResourceId())
+        val layoutId = setLayoutResourceId()
+        if (layoutId != Constants.NOT_FOUND) {
+            setContentView(setLayoutResourceId())
+        }
 
         CheckNetworkConnectionHelper
                 .getInstance()

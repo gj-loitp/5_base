@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import com.annotation.IsFullScreen;
 import com.annotation.LogTag;
 import com.core.base.BaseFontActivity;
+import com.core.common.Constants;
 
 import static com.yalantis.ucrop.UCrop.REQUEST_CROP;
 
@@ -20,7 +21,7 @@ public class TempActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return 0;
+        return Constants.NOT_FOUND;
     }
 
     @Override
