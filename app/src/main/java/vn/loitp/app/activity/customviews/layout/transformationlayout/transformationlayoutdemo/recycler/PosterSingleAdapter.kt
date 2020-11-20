@@ -21,17 +21,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.core.adapter.AnimationAdapter
+import com.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
 
-class PosterSingleAdapter
-constructor(
+class PosterSingleAdapter constructor(
         private val delegate: PosterDelegate
-) : RecyclerView.Adapter<PosterSingleAdapter.PosterViewHolder>() {
+) : AnimationAdapter() {
 
-    private val items = mutableListOf<Poster>()
+    interface PosterDelegate {
+        fun onItemClick(poster: Poster, itemView: TransformationLayout)
+    }
+
+    private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
@@ -39,41 +43,46 @@ constructor(
         return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster, parent, false))
     }
 
-    override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
-        val item = items[position]
-        holder.itemView.run {
-            Glide.with(context)
-                    .load(item.poster)
-                    .into(ivItemPosterPost)
-
-            tvItemPosterTitle.text = item.name
-            tvItemPosterRunningTime.text = item.playtime
-
-            // sets a transition name to the transformation layout.
-            // this code must not be in listener.
-            layoutItemPosterTransformation.transitionName = item.name
-
-            setOnClickListener {
-                val now = SystemClock.elapsedRealtime()
-                if (now - previousTime >= layoutItemPosterTransformation.duration) {
-                    delegate.onItemClick(item, layoutItemPosterTransformation)
-                    previousTime = now
-                }
-            }
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is PosterViewHolder) {
+            holder.bind(poster = listPoster[position])
         }
     }
 
-    fun addPosterList(list: List<Poster>) {
-        items.clear()
-        items.addAll(list)
+
+    fun addPosterList(listPoster: List<Poster>) {
+        this.listPoster.clear()
+        this.listPoster.addAll(listPoster)
         notifyDataSetChanged()
     }
 
-    override fun getItemCount() = items.size
+    override fun getItemCount() = listPoster.size
 
-    class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view)
+    inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    interface PosterDelegate {
-        fun onItemClick(poster: Poster, itemView: TransformationLayout)
+        fun bind(poster: Poster) {
+            itemView.run {
+                LImageUtil.load(context = context, any = poster.poster, imageView = ivItemPosterPost)
+
+                tvItemPosterTitle.text = poster.name
+                tvItemPosterRunningTime.text = poster.playtime
+
+                // sets a transition name to the transformation layout.
+                // this code must not be in listener.
+                layoutItemPosterTransformation.transitionName = poster.name
+
+                setOnClickListener {
+                    val now = SystemClock.elapsedRealtime()
+                    if (now - previousTime >= layoutItemPosterTransformation.duration) {
+                        delegate.onItemClick(poster, layoutItemPosterTransformation)
+                        previousTime = now
+                    }
+                }
+            }
+
+            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
+        }
+
     }
+
 }
