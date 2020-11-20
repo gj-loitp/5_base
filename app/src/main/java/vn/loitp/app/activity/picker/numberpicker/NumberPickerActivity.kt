@@ -21,6 +21,10 @@ class NumberPickerActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         lnb.setCallback(object : LNumberPicker.Callback {
             @SuppressLint("SetTextI18n")
             override fun onValueChangedNumberPicker(h: String, m: String, s: String) {
