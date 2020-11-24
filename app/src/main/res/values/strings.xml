@@ -487,4 +487,5 @@ Likewise may someone love you next.
     <string name="roundable_layout">Roundable layout</string>
     <string name="transformation_layout">Transformation layout</string>
     <string name="transformation_layout_single">Transformation layout single</string>
+    <string name="compose_new">compose new</string>
 </resources>

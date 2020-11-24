@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_layout_transformation.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
 
-class MainSingleDetailFragment : Fragment() {
+class TransformationSingleDetailFragment : Fragment() {
 
     companion object {
         const val TAG = "MainSingleDetailFragment"

@@ -35,7 +35,7 @@ import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivit
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.SwipeRevealLayoutActivity
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.single.MainSingleActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.single.TransformationSingleActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
 @LogTag("LayoutMenuActivity")
@@ -113,7 +113,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btFlowLayout -> intent = Intent(this, FlowLayoutActivity::class.java)
             btSplitPanelLayout -> intent = Intent(this, SplitPanelLayoutActivity::class.java)
             btTramsformationLayout -> intent = Intent(this, MainActivity::class.java)
-            btTramsformationLayoutSingle -> intent = Intent(this, MainSingleActivity::class.java)
+            btTramsformationLayoutSingle -> intent = Intent(this, TransformationSingleActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

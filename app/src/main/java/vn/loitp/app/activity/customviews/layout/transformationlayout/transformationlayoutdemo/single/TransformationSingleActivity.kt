@@ -17,7 +17,6 @@
 package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.single
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -25,7 +24,7 @@ import vn.loitp.app.R
 
 @LogTag("MainSingleActivity")
 @IsFullScreen(false)
-class MainSingleActivity : BaseFontActivity() {
+class TransformationSingleActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_layout_transformation_single_main
     }
@@ -35,7 +34,7 @@ class MainSingleActivity : BaseFontActivity() {
 
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.layoutContainer, MainSingleFragment(), MainSingleFragment.TAG)
+                .replace(R.id.layoutContainer, TransformationSingleFragment(), TransformationSingleFragment.TAG)
                 .commit()
     }
 }

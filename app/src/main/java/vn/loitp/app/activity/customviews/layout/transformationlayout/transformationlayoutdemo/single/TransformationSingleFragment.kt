@@ -20,53 +20,52 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
+import kotlinx.android.synthetic.main.fragment_transformation_home.*
+import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.MockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.PosterMenuAdapter
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.PosterSingleAdapter
-import kotlinx.android.synthetic.main.fragment_home.backgroundView
-import kotlinx.android.synthetic.main.fragment_home.fab
-import kotlinx.android.synthetic.main.fragment_home.menu_home
-import kotlinx.android.synthetic.main.fragment_home.recyclerView
-import kotlinx.android.synthetic.main.fragment_home.recyclerView_menu
-import kotlinx.android.synthetic.main.fragment_home.transformationLayout
-import vn.loitp.app.R
 
-class MainSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
+class TransformationSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
+
+    companion object {
+        const val TAG = "MainSingleFragment"
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_transformation_home, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         // [Step1]: apply onTransformationStartContainer.
         onTransformationStartContainer()
     }
 
     /** This function will be called from the [PosterSingleAdapter.PosterDelegate]'s onBindViewHolder. */
     override fun onItemClick(poster: Poster, itemView: TransformationLayout) {
-        val fragment = MainSingleDetailFragment()
+        val fragment = TransformationSingleDetailFragment()
         // [Step2]: getBundle from the TransformationLayout.
-        val bundle = itemView.getBundle(MainSingleDetailFragment.paramsKey)
-        bundle.putParcelable(MainSingleDetailFragment.posterKey, poster)
+        val bundle = itemView.getBundle(TransformationSingleDetailFragment.paramsKey)
+        bundle.putParcelable(TransformationSingleDetailFragment.posterKey, poster)
         fragment.arguments = bundle
 
         requireFragmentManager()
                 .beginTransaction()
                 // [Step3]: addTransformation using the TransformationLayout.
                 .addTransformation(itemView)
-                .replace(R.id.layoutContainer, fragment, MainSingleDetailFragment.TAG)
-                .addToBackStack(MainSingleDetailFragment.TAG)
+                .replace(R.id.layoutContainer, fragment, TransformationSingleDetailFragment.TAG)
+                .addToBackStack(TransformationSingleDetailFragment.TAG)
                 .commit()
     }
 
@@ -74,7 +73,7 @@ class MainSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView.adapter = PosterSingleAdapter(this).apply { addPosterList(getMockPosters()) }
-        recyclerView_menu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
+        recyclerViewMenu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
 
         fab.setOnClickListener {
             if (!transformationLayout.isTransforming) {
@@ -83,16 +82,11 @@ class MainSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
             transformationLayout.startTransform()
         }
 
-        menu_home.setOnClickListener {
+        menuHome.setOnClickListener {
             if (!transformationLayout.isTransforming) {
                 backgroundView.visibility = View.GONE
             }
             transformationLayout.finishTransform()
-            Toast.makeText(context, "Compose New", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    companion object {
-        const val TAG = "MainSingleFragment"
     }
 }

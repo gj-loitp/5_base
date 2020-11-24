@@ -22,15 +22,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_transformation_home.*
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.MockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.PosterAdapter
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.PosterMenuAdapter
-import kotlinx.android.synthetic.main.fragment_home.backgroundView
-import kotlinx.android.synthetic.main.fragment_home.fab
-import kotlinx.android.synthetic.main.fragment_home.menu_home
-import kotlinx.android.synthetic.main.fragment_home.recyclerView
-import kotlinx.android.synthetic.main.fragment_home.recyclerView_menu
-import kotlinx.android.synthetic.main.fragment_home.transformationLayout
 import vn.loitp.app.R
 
 class HomeFragment : Fragment() {
@@ -40,14 +35,14 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return inflater.inflate(R.layout.fragment_transformation_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView.adapter = PosterAdapter().apply { addPosterList(getMockPosters()) }
-        recyclerView_menu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
+        recyclerViewMenu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
 
         fab.setOnClickListener {
             if (!transformationLayout.isTransforming) {
@@ -56,7 +51,7 @@ class HomeFragment : Fragment() {
             transformationLayout.startTransform()
         }
 
-        menu_home.setOnClickListener {
+        menuHome.setOnClickListener {
             if (!transformationLayout.isTransforming) {
                 backgroundView.visibility = View.GONE
             }
