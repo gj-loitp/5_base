@@ -24,21 +24,24 @@ import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
-import kotlinx.android.synthetic.main.activity_detail.detail_container
-import kotlinx.android.synthetic.main.activity_detail.detail_description
-import kotlinx.android.synthetic.main.activity_detail.detail_title
-import kotlinx.android.synthetic.main.activity_detail.profile_detail_background
+import kotlinx.android.synthetic.main.activity_layout_transformation.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
 
 class MainSingleDetailFragment : Fragment() {
+
+    companion object {
+        const val TAG = "MainSingleDetailFragment"
+        const val posterKey = "posterKey"
+        const val paramsKey = "paramsKey"
+    }
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_detail, container, false)
+        return inflater.inflate(R.layout.activity_layout_transformation, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,19 +59,14 @@ class MainSingleDetailFragment : Fragment() {
         poster?.let {
 
             // [Step2]: sets a transition name to the target view.
-            detail_container.transitionName = poster.name
+            layoutDetailContainer.transitionName = poster.name
 
             Glide.with(this)
                     .load(it.poster)
-                    .into(profile_detail_background)
-            detail_title.text = it.name
-            detail_description.text = it.description
-        }
-    }
+                    .into(ivProfileDetailBackground)
 
-    companion object {
-        const val TAG = "LibraryFragment"
-        const val posterKey = "posterKey"
-        const val paramsKey = "paramsKey"
+            tvDetailTitle.text = it.name
+            tvDetailDescription.text = it.description
+        }
     }
 }

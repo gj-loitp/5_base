@@ -226,5 +226,7 @@ Những đóng góp của mọi người là động lực và trách nhiệm đ
         const val COMIC_SHOW_DONATION = "COMIC_SHOW_DONATION"
         const val COMIC_TOKEN = "COMIC_TOKEN"
         //end comic
+
+        const val activityTransitionName: String = "com.skydoves.transformationlayout"
     }
 }

@@ -23,31 +23,31 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.bumptech.glide.Glide
 import com.core.base.BaseFontActivity
+import com.core.common.Constants
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.activity_layout_transformation.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.TestCon
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
 
 @LogTag("DetailActivity")
 @IsFullScreen(false)
 class DetailActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_detail
+        return R.layout.activity_layout_transformation
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        onTransformationEndContainer(intent.getParcelableExtra(TestCon.activityTransitionName))
+        onTransformationEndContainer(intent.getParcelableExtra(Constants.activityTransitionName))
         super.onCreate(savedInstanceState)
 
         intent.getParcelableExtra<Poster>(posterExtraName)?.let {
             Glide.with(this)
                     .load(it.poster)
-                    .into(profile_detail_background)
-            detail_title.text = it.name
-            detail_description.text = it.description
+                    .into(ivProfileDetailBackground)
+            tvDetailTitle.text = it.name
+            tvDetailDescription.text = it.description
         }
     }
 

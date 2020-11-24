@@ -2,21 +2,21 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/detail_container"
+    android:id="@+id/layoutDetailContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/themeBackgroundColor"
     android:fitsSystemWindows="false">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="4dp">
+        android:elevation="@dimen/w_3">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/white"
+            android:background="?attr/themeBackgroundColor"
             app:contentScrim="@color/colorPrimary"
             app:expandedTitleGravity="top|left"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -24,10 +24,10 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white">
+                android:background="?attr/themeBackgroundColor">
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/profile_detail_background"
+                    android:id="@+id/ivProfileDetailBackground"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:scaleType="centerCrop"
@@ -38,7 +38,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/detail_toolbar"
+                android:id="@+id/toolbarDetail"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
@@ -50,7 +50,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="21dp"
+        android:padding="@dimen/margin_medium"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,27 +58,27 @@
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/detail_title"
+                android:id="@+id/tvDetailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textSize="28sp"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_large"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Zootopia" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/detail_description"
+                android:id="@+id/tvDetailDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="italic"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detail_title"
+                app:layout_constraintTop_toBottomOf="@+id/tvDetailTitle"
                 tools:text="Zootopia" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
