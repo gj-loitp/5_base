@@ -32,11 +32,11 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="?attr/themeBackgroundColor"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_sentiment_satisfied_alt_black_48dp"
             app:borderWidth="0dp"
-            app:tint="?attr/themeBackgroundColor" />
+            app:tint="?attr/themeTextColor" />
     </com.skydoves.transformationlayout.TransformationLayout>
 
     <View
@@ -89,7 +89,8 @@
                     android:text="@string/compose_new"
                     android:textAllCaps="true"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_medium" />
+                    android:textSize="@dimen/txt_medium"
+                    app:drawableTint="?attr/themeTextColor" />
             </LinearLayout>
 
         </LinearLayout>
