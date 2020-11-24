@@ -21,11 +21,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
 import com.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import kotlinx.android.synthetic.main.activity_layout_transformation.*
+import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
 
@@ -42,7 +41,7 @@ class TransformationSingleDetailFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.activity_layout_transformation, container, false)
+        return inflater.inflate(R.layout.activity_layout_transformation_detail, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

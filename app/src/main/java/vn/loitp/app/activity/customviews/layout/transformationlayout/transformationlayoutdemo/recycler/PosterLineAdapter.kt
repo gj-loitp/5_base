@@ -25,7 +25,7 @@ import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_transformation_poster_line.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.TransformationDetailActivity
 
 class PosterLineAdapter : AnimationAdapter() {
 
@@ -62,7 +62,7 @@ class PosterLineAdapter : AnimationAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterLineTransformation.duration) {
-                        DetailActivity.startActivity(context, layoutItemPosterLineTransformation, poster)
+                        TransformationDetailActivity.startActivity(context, layoutItemPosterLineTransformation, poster)
                         previousTime = now
                     }
                 }

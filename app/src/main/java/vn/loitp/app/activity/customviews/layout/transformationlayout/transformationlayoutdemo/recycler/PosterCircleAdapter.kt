@@ -21,12 +21,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_poster_circle.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.TransformationDetailActivity
 
 class PosterCircleAdapter : AnimationAdapter() {
 
@@ -63,7 +62,7 @@ class PosterCircleAdapter : AnimationAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterCircleTransformation.duration)
-                        DetailActivity.startActivity(context, layoutItemPosterCircleTransformation, poster)
+                        TransformationDetailActivity.startActivity(context, layoutItemPosterCircleTransformation, poster)
                     previousTime = now
                 }
             }

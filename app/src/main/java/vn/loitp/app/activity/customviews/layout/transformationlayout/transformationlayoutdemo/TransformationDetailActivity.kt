@@ -21,35 +21,19 @@ import android.content.Intent
 import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
-import com.bumptech.glide.Glide
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationCompat
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
-import kotlinx.android.synthetic.main.activity_layout_transformation.*
+import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
 
 @LogTag("DetailActivity")
 @IsFullScreen(false)
-class DetailActivity : BaseFontActivity() {
-    override fun setLayoutResourceId(): Int {
-        return R.layout.activity_layout_transformation
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        onTransformationEndContainer(intent.getParcelableExtra(Constants.activityTransitionName))
-        super.onCreate(savedInstanceState)
-
-        intent.getParcelableExtra<Poster>(posterExtraName)?.let {
-            Glide.with(this)
-                    .load(it.poster)
-                    .into(ivProfileDetailBackground)
-            tvDetailTitle.text = it.name
-            tvDetailDescription.text = it.description
-        }
-    }
+class TransformationDetailActivity : BaseFontActivity() {
 
     companion object {
         const val posterExtraName = "posterExtraName"
@@ -58,9 +42,24 @@ class DetailActivity : BaseFontActivity() {
                 transformationLayout: TransformationLayout,
                 poster: Poster
         ) {
-            val intent = Intent(context, DetailActivity::class.java)
+            val intent = Intent(context, TransformationDetailActivity::class.java)
             intent.putExtra(posterExtraName, poster)
             TransformationCompat.startActivity(transformationLayout, intent)
+        }
+    }
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_layout_transformation_detail
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        onTransformationEndContainer(intent.getParcelableExtra(Constants.activityTransitionName))
+        super.onCreate(savedInstanceState)
+
+        intent.getParcelableExtra<Poster>(posterExtraName)?.let {
+            LImageUtil.load(context = this, any = it.poster, imageView = ivProfileDetailBackground)
+            tvDetailTitle.text = it.name
+            tvDetailDescription.text = it.description
         }
     }
 }

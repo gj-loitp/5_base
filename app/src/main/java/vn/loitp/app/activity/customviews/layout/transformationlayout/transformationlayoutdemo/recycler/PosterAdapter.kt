@@ -21,12 +21,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.TransformationDetailActivity
 
 class PosterAdapter : AnimationAdapter() {
 
@@ -64,7 +63,7 @@ class PosterAdapter : AnimationAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterTransformation.duration) {
-                        DetailActivity.startActivity(context, layoutItemPosterTransformation, poster)
+                        TransformationDetailActivity.startActivity(context, layoutItemPosterTransformation, poster)
                         previousTime = now
                     }
                 }

@@ -25,7 +25,7 @@ import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_transformation_poster_menu.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.DetailActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.TransformationDetailActivity
 
 class PosterMenuAdapter : AnimationAdapter() {
 
@@ -60,7 +60,7 @@ class PosterMenuAdapter : AnimationAdapter() {
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
                     if (now - previousTime >= layoutItemPosterMenuTransformation.duration) {
-                        DetailActivity.startActivity(context, layoutItemPosterMenuTransformation, poster)
+                        TransformationDetailActivity.startActivity(context, layoutItemPosterMenuTransformation, poster)
                         previousTime = now
                     }
                 }
