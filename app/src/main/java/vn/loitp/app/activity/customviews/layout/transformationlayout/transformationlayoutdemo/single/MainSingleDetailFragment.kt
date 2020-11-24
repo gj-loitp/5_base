@@ -22,6 +22,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.activity_layout_transformation.*
@@ -61,9 +62,7 @@ class MainSingleDetailFragment : Fragment() {
             // [Step2]: sets a transition name to the target view.
             layoutDetailContainer.transitionName = poster.name
 
-            Glide.with(this)
-                    .load(it.poster)
-                    .into(ivProfileDetailBackground)
+            LImageUtil.load(context = context, any = it.poster, imageView = ivProfileDetailBackground)
 
             tvDetailTitle.text = it.name
             tvDetailDescription.text = it.description
