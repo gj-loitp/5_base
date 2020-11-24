@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="?attr/themeBackgroundColor">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -14,12 +14,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <include
-            android:id="@+id/main_toolbar"
-            layout="@layout/toolbar_home" />
+            android:id="@+id/toolBarMain"
+            layout="@layout/view_transformation_toolbar_home" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
-        android:id="@+id/main_container"
+        android:id="@+id/layoutContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"

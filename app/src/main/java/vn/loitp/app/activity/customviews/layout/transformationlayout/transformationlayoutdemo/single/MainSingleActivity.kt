@@ -24,11 +24,11 @@ class MainSingleActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_single_main)
+        setContentView(R.layout.activity_layout_transformation_single_main)
 
         supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.main_container, MainSingleFragment(), MainSingleFragment.TAG)
+                .replace(R.id.layoutContainer, MainSingleFragment(), MainSingleFragment.TAG)
                 .commit()
     }
 }

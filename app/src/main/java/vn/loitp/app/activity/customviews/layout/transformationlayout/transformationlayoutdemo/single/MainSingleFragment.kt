@@ -65,7 +65,7 @@ class MainSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
                 .beginTransaction()
                 // [Step3]: addTransformation using the TransformationLayout.
                 .addTransformation(itemView)
-                .replace(R.id.main_container, fragment, MainSingleDetailFragment.TAG)
+                .replace(R.id.layoutContainer, fragment, MainSingleDetailFragment.TAG)
                 .addToBackStack(MainSingleDetailFragment.TAG)
                 .commit()
     }

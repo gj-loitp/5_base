@@ -14,8 +14,8 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <include
-            android:id="@+id/main_toolbar"
-            layout="@layout/toolbar_home" />
+            android:id="@+id/toolBarMain"
+            layout="@layout/view_transformation_toolbar_home" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
