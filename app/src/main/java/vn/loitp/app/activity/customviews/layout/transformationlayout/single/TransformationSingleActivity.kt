@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.single
+package vn.loitp.app.activity.customviews.layout.transformationlayout.single
 
 import android.os.Bundle
 import com.annotation.IsFullScreen

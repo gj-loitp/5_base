@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler
+package vn.loitp.app.activity.customviews.layout.transformationlayout.recycler
 
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -25,7 +25,7 @@ import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.TransformationDetailActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationDetailActivity
 
 class PosterAdapter : AnimationAdapter() {
 

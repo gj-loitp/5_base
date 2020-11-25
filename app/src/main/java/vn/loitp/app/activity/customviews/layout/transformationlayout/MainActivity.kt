@@ -14,17 +14,15 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo
+package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
-import kotlinx.android.synthetic.main.activity_main.main_bottom_navigation
-import kotlinx.android.synthetic.main.activity_main.main_viewpager
+import kotlinx.android.synthetic.main.activity_main.*
 import vn.loitp.app.R
 
 //https://github.com/skydoves/TransformationLayout

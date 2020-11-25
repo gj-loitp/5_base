@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler
+package vn.loitp.app.activity.customviews.layout.transformationlayout.recycler
 
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -23,18 +23,24 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LImageUtil
-import kotlinx.android.synthetic.main.item_transformation_poster_menu.view.*
+import com.skydoves.transformationlayout.TransformationLayout
+import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.TransformationDetailActivity
 
-class PosterMenuAdapter : AnimationAdapter() {
+class PosterSingleAdapter constructor(
+        private val delegate: PosterDelegate
+) : AnimationAdapter() {
+
+    interface PosterDelegate {
+        fun onItemClick(poster: Poster, itemView: TransformationLayout)
+    }
 
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster_menu, parent, false))
+        return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster, parent, false))
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -42,6 +48,7 @@ class PosterMenuAdapter : AnimationAdapter() {
             holder.bind(poster = listPoster[position])
         }
     }
+
 
     fun addPosterList(listPoster: List<Poster>) {
         this.listPoster.clear()
@@ -52,15 +59,22 @@ class PosterMenuAdapter : AnimationAdapter() {
     override fun getItemCount() = listPoster.size
 
     inner class PosterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
         fun bind(poster: Poster) {
             itemView.run {
                 LImageUtil.load(context = context, any = poster.poster, imageView = ivItemPosterPost)
+
                 tvItemPosterTitle.text = poster.name
+                tvItemPosterRunningTime.text = poster.playtime
+
+                // sets a transition name to the transformation layout.
+                // this code must not be in listener.
+                layoutItemPosterTransformation.transitionName = poster.name
 
                 setOnClickListener {
                     val now = SystemClock.elapsedRealtime()
-                    if (now - previousTime >= layoutItemPosterMenuTransformation.duration) {
-                        TransformationDetailActivity.startActivity(context, layoutItemPosterMenuTransformation, poster)
+                    if (now - previousTime >= layoutItemPosterTransformation.duration) {
+                        delegate.onItemClick(poster, layoutItemPosterTransformation)
                         previousTime = now
                     }
                 }
@@ -68,5 +82,7 @@ class PosterMenuAdapter : AnimationAdapter() {
 
             setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
+
     }
+
 }

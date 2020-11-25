@@ -14,18 +14,16 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo
+package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.PosterCircleAdapter
-import kotlinx.android.synthetic.main.fragment_radio.fab
-import kotlinx.android.synthetic.main.fragment_radio.recyclerView
-import kotlinx.android.synthetic.main.fragment_radio.transformationLayout_fab
+import kotlinx.android.synthetic.main.fragment_radio.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterCircleAdapter
 
 class RadioFragment : Fragment() {
 

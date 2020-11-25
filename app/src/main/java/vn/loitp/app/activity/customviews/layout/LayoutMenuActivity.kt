@@ -7,7 +7,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.MainActivity
 import kotlinx.android.synthetic.main.activity_layout_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.aspectratiolayout.AspectRatioLayoutActivity
@@ -35,7 +34,8 @@ import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivit
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.SwipeRevealLayoutActivity
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.single.TransformationSingleActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.MainActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.single.TransformationSingleActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
 @LogTag("LayoutMenuActivity")

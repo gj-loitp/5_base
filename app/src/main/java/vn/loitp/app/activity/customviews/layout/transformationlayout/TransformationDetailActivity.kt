@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo
+package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import android.content.Context
 import android.content.Intent
@@ -29,7 +29,7 @@ import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
+import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.Poster
 
 @LogTag("DetailActivity")
 @IsFullScreen(false)

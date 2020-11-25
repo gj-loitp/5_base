@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo
+package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -22,36 +22,41 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.MockUtil.getMockPosters
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.PosterLineAdapter
-import kotlinx.android.synthetic.main.fragment_library.fab
-import kotlinx.android.synthetic.main.fragment_library.menu_card
-import kotlinx.android.synthetic.main.fragment_library.recyclerView
-import kotlinx.android.synthetic.main.fragment_library.transformationLayout
+import kotlinx.android.synthetic.main.fragment_transformation_home.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.layout.transformationlayout.MockUtil.getMockPosters
+import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterAdapter
+import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterMenuAdapter
 
-class LibraryFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_library, container, false)
+        return inflater.inflate(R.layout.fragment_transformation_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.adapter = PosterLineAdapter().apply { addPosterList(getMockPosters()) }
+        recyclerView.adapter = PosterAdapter().apply { addPosterList(getMockPosters()) }
+        recyclerViewMenu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
 
         fab.setOnClickListener {
+            if (!transformationLayout.isTransforming) {
+                backgroundView.visibility = View.VISIBLE
+            }
             transformationLayout.startTransform()
         }
 
-        menu_card.setOnClickListener {
+        menuHome.setOnClickListener {
+            if (!transformationLayout.isTransforming) {
+                backgroundView.visibility = View.GONE
+            }
             transformationLayout.finishTransform()
-            Toast.makeText(context, "Play", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Compose New", Toast.LENGTH_SHORT).show()
         }
     }
 }

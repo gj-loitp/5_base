@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo
+package vn.loitp.app.activity.customviews.layout.transformationlayout
 
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
+import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.Poster
 
 object MockUtil {
 

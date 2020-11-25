@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.single
+package vn.loitp.app.activity.customviews.layout.transformationlayout.single
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -26,7 +26,7 @@ import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
 import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.transformationlayoutdemo.recycler.Poster
+import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.Poster
 
 class TransformationSingleDetailFragment : Fragment() {
 
