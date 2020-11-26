@@ -17,33 +17,34 @@
 package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_radio.*
+import com.core.base.BaseFragment
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.fragment_transformation_radio.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterCircleAdapter
 
-class RadioFragment : Fragment() {
+class TransformationRadioFragment : BaseFragment() {
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_radio, container, false)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.fragment_transformation_radio
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.adapter = PosterCircleAdapter().apply { addPosterList(TransformationMockUtil.getMockPosters()) }
+        setupViews()
+    }
 
-        fab.setOnClickListener {
+    private fun setupViews() {
+        recyclerView.adapter = PosterCircleAdapter().apply {
+            addPosterList(TransformationMockUtil.getMockPosters())
+        }
+
+        fab.setSafeOnClickListener {
             TransformationDetailActivity.startActivity(
                     requireContext(),
-                    transformationLayout_fab,
+                    transformationLayoutFab,
                     TransformationMockUtil.getMockPoster()
             )
         }

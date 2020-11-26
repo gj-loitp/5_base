@@ -17,38 +17,37 @@
 package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_library.*
+import com.core.base.BaseFragment
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.fragment_transformation_library.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationMockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterLineAdapter
 
-class LibraryFragment : Fragment() {
-
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_library, container, false)
+class TransformationLibraryFragment : BaseFragment() {
+    override fun setLayoutResourceId(): Int {
+        return R.layout.fragment_transformation_library
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.adapter = PosterLineAdapter().apply { addPosterList(getMockPosters()) }
+        setupViews()
+    }
 
-        fab.setOnClickListener {
+    private fun setupViews() {
+        recyclerView.adapter = PosterLineAdapter().apply {
+            addPosterList(getMockPosters())
+        }
+
+        fab.setSafeOnClickListener {
             transformationLayout.startTransform()
         }
 
-        menu_card.setOnClickListener {
+        layoutMenuCard.setSafeOnClickListener {
             transformationLayout.finishTransform()
-            Toast.makeText(context, "Play", Toast.LENGTH_SHORT).show()
+            showShortInformation("Play")
         }
     }
 }

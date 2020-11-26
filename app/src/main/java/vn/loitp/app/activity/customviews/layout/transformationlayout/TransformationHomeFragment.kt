@@ -22,41 +22,47 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.core.base.BaseFragment
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.fragment_transformation_home.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationMockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterAdapter
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterMenuAdapter
 
-class HomeFragment : Fragment() {
+class TransformationHomeFragment : BaseFragment() {
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_transformation_home, container, false)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.fragment_transformation_home
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.adapter = PosterAdapter().apply { addPosterList(getMockPosters()) }
-        recyclerViewMenu.adapter = PosterMenuAdapter().apply { addPosterList(getMockPosters()) }
+        setupViews()
+    }
 
-        fab.setOnClickListener {
+    private fun setupViews() {
+        recyclerView.adapter = PosterAdapter().apply {
+            addPosterList(getMockPosters())
+        }
+        recyclerViewMenu.adapter = PosterMenuAdapter().apply {
+            addPosterList(getMockPosters())
+        }
+
+        fab.setSafeOnClickListener {
             if (!transformationLayout.isTransforming) {
                 backgroundView.visibility = View.VISIBLE
             }
             transformationLayout.startTransform()
         }
 
-        menuHome.setOnClickListener {
+        menuHome.setSafeOnClickListener {
             if (!transformationLayout.isTransforming) {
                 backgroundView.visibility = View.GONE
             }
             transformationLayout.finishTransform()
-            Toast.makeText(context, "Compose New", Toast.LENGTH_SHORT).show()
+            showShortInformation("Compose New")
         }
     }
 }

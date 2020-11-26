@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:padding="6dp"
+        android:padding="@dimen/padding_small"
         android:paddingBottom="68dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_transformation_poster_line" />
@@ -22,28 +22,28 @@
         android:id="@+id/transformationLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:transformation_duration="550"
-        app:transformation_targetView="@+id/menu_card">
+        app:transformation_targetView="@+id/layoutMenuCard">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="?attr/themeTextColor"
             android:src="@drawable/ic_play_arrow_black_48dp"
             app:borderWidth="0dp"
-            app:tint="@color/white" />
+            app:tint="?attr/themeBackgroundColor" />
     </com.skydoves.transformationlayout.TransformationLayout>
 
     <LinearLayout
-        android:id="@+id/menu_card"
+        android:id="@+id/layoutMenuCard"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@color/colorPrimary"
+        android:background="?attr/themeTextColor"
         android:orientation="horizontal"
         android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,14 +55,16 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:rotation="-90"
-            android:src="@drawable/ic_home_black_48dp" />
+            android:src="@drawable/ic_home_black_48dp"
+            app:tint="?attr/themeBackgroundColor" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="0dp"
             android:layout_height="42dp"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:src="@drawable/ic_home_black_48dp" />
+            android:src="@drawable/ic_home_black_48dp"
+            app:tint="?attr/themeBackgroundColor" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="0dp"
@@ -70,7 +72,8 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:rotation="90"
-            android:src="@drawable/ic_home_black_48dp" />
+            android:src="@drawable/ic_home_black_48dp"
+            app:tint="?attr/themeBackgroundColor" />
 
     </LinearLayout>
 

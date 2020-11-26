@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -18,11 +18,11 @@
         tools:listitem="@layout/item_poster_circle" />
 
     <com.skydoves.transformationlayout.TransformationLayout
-        android:id="@+id/transformationLayout_fab"
+        android:id="@+id/transformationLayoutFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:transformation_duration="550">
@@ -31,10 +31,10 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="?attr/themeTextColor"
             android:src="@drawable/ic_add_black_48dp"
             app:borderWidth="0dp"
-            app:tint="@color/white" />
+            app:tint="?attr/themeBackgroundColor" />
     </com.skydoves.transformationlayout.TransformationLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

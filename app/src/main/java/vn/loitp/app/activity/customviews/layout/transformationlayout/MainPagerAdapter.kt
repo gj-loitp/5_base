@@ -25,9 +25,9 @@ class MainPagerAdapter(fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
-            0 -> HomeFragment()
-            1 -> LibraryFragment()
-            else -> RadioFragment()
+            0 -> TransformationHomeFragment()
+            1 -> TransformationLibraryFragment()
+            else -> TransformationRadioFragment()
         }
     }
 
