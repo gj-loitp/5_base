@@ -18,7 +18,7 @@ package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.Poster
 
-object MockUtil {
+object TransformationMockUtil {
 
     fun getMockPosters(): List<Poster> {
         return listOf(

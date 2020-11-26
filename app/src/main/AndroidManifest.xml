@@ -1111,7 +1111,7 @@
             android:name=".activity.customviews.imageview.stfaiconimageviewer.ListActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.layout.transformationlayout.MainActivity"
+            android:name=".activity.customviews.layout.transformationlayout.TransformationActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.layout.transformationlayout.TransformationDetailActivity"

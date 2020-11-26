@@ -17,17 +17,14 @@
 package vn.loitp.app.activity.customviews.layout.transformationlayout.single
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.core.base.BaseFragment
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
 import kotlinx.android.synthetic.main.fragment_transformation_home.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.MockUtil.getMockPosters
+import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationMockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.Poster
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterMenuAdapter
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterSingleAdapter

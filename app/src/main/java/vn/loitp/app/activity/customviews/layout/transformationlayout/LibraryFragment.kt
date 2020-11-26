@@ -24,7 +24,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_library.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.MockUtil.getMockPosters
+import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationMockUtil.getMockPosters
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterLineAdapter
 
 class LibraryFragment : Fragment() {

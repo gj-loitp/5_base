@@ -22,22 +22,24 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.skydoves.transformationlayout.onTransformationStartContainer
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_transformation_main.*
 import vn.loitp.app.R
 
 //https://github.com/skydoves/TransformationLayout
 @LogTag("MainActivity")
 @IsFullScreen(false)
-class MainActivity : BaseFontActivity() {
+class TransformationActivity : BaseFontActivity() {
+
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_main
+        return R.layout.activity_transformation_main
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         onTransformationStartContainer()
         super.onCreate(savedInstanceState)
 
-        with(main_viewpager) {
+        with(mainViewPager) {
             adapter = MainPagerAdapter(supportFragmentManager)
             offscreenPageLimit = 3
             addOnPageChangeListener(
@@ -50,17 +52,23 @@ class MainActivity : BaseFontActivity() {
                         ) = Unit
 
                         override fun onPageSelected(position: Int) {
-                            main_bottom_navigation.menu.getItem(position).isChecked = true
+                            mainBottomNavigation.menu.getItem(position).isChecked = true
                         }
                     }
             )
         }
 
-        main_bottom_navigation.setOnNavigationItemSelectedListener {
+        mainBottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.action_one -> main_viewpager.currentItem = 0
-                R.id.action_two -> main_viewpager.currentItem = 1
-                R.id.action_three -> main_viewpager.currentItem = 2
+                R.id.actionHome -> {
+                    mainViewPager.currentItem = 0
+                }
+                R.id.actionLibray -> {
+                    mainViewPager.currentItem = 1
+                }
+                R.id.actionRadio -> {
+                    mainViewPager.currentItem = 2
+                }
             }
             true
         }

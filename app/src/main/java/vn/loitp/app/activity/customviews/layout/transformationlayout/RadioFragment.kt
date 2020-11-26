@@ -38,13 +38,13 @@ class RadioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.adapter = PosterCircleAdapter().apply { addPosterList(MockUtil.getMockPosters()) }
+        recyclerView.adapter = PosterCircleAdapter().apply { addPosterList(TransformationMockUtil.getMockPosters()) }
 
         fab.setOnClickListener {
             TransformationDetailActivity.startActivity(
                     requireContext(),
                     transformationLayout_fab,
-                    MockUtil.getMockPoster()
+                    TransformationMockUtil.getMockPoster()
             )
         }
     }
