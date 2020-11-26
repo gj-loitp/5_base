@@ -21,6 +21,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.core.base.BaseFragment
 import com.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.onTransformationEndContainer
@@ -28,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_layout_transformation_detail.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.Poster
 
-class TransformationSingleDetailFragment : Fragment() {
+class TransformationSingleDetailFragment : BaseFragment() {
 
     companion object {
         const val TAG = "MainSingleDetailFragment"
@@ -36,12 +37,8 @@ class TransformationSingleDetailFragment : Fragment() {
         const val paramsKey = "paramsKey"
     }
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.activity_layout_transformation_detail, container, false)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_layout_transformation_detail
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

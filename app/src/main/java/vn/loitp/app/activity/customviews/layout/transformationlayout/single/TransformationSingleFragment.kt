@@ -21,6 +21,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.core.base.BaseFragment
 import com.skydoves.transformationlayout.TransformationLayout
 import com.skydoves.transformationlayout.addTransformation
 import com.skydoves.transformationlayout.onTransformationStartContainer
@@ -31,20 +32,16 @@ import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.Po
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterMenuAdapter
 import vn.loitp.app.activity.customviews.layout.transformationlayout.recycler.PosterSingleAdapter
 
-class TransformationSingleFragment : Fragment(), PosterSingleAdapter.PosterDelegate {
+class TransformationSingleFragment : BaseFragment(), PosterSingleAdapter.PosterDelegate {
 
     companion object {
         const val TAG = "MainSingleFragment"
     }
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_transformation_home, container, false)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.fragment_transformation_home
     }
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
