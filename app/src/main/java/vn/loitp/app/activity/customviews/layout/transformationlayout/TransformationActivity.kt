@@ -40,7 +40,7 @@ class TransformationActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         with(mainViewPager) {
-            adapter = MainPagerAdapter(supportFragmentManager)
+            adapter = TransformationPagerAdapter(supportFragmentManager)
             offscreenPageLimit = 3
             addOnPageChangeListener(
                     object : ViewPager.OnPageChangeListener {
