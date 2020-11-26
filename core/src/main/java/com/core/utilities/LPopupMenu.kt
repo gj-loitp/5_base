@@ -13,7 +13,12 @@ class LPopupMenu {
 
     companion object {
 
-        fun show(activity: Activity, showOnView: View, menuRes: Int, callBackPopup: CallbackPopup?) {
+        fun show(
+                activity: Activity,
+                showOnView: View,
+                menuRes: Int,
+                callBackPopup: CallbackPopup?
+        ) {
             val popup = PopupMenu(activity, showOnView)
             popup.menuInflater.inflate(menuRes, popup.menu)
             popup.setOnMenuItemClickListener { menuItem ->
