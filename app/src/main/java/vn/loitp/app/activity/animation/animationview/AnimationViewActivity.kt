@@ -54,7 +54,7 @@ class AnimationViewActivity : BaseFontActivity() {
                 tvGuide.visibility = View.VISIBLE
             }
             LUIUtil.setDelay(mls = 500, runnable = Runnable {
-                LAnimationUtil.playDuration(view = tvAnim, techniques = listAnim[position], duration = 1_000)
+                LAnimationUtil.play(view = tvAnim, techniques = listAnim[position], duration = 1_000)
             })
         }
         val dialog = builder.create()

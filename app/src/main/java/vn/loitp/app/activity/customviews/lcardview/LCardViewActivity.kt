@@ -39,11 +39,11 @@ class LCardViewActivity : BaseFontActivity() {
                 }
 
                 override fun onClickText(v: View) {
-                    LAnimationUtil.play(v, Techniques.Pulse)
+                    LAnimationUtil.play(view = v, techniques = Techniques.Pulse)
                 }
 
                 override fun onLongClickText(v: View) {
-                    LAnimationUtil.play(v, Techniques.Pulse)
+                    LAnimationUtil.play(view = v, techniques = Techniques.Pulse)
                 }
             }
             setText(System.currentTimeMillis().toString() + "")

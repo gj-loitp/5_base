@@ -302,14 +302,14 @@ class LDialogUtil {
                 ivPrev.visibility = View.INVISIBLE
             }
             ivNext.setOnClickListener { view ->
-                LAnimationUtil.play(view, Techniques.Pulse)
+                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
                 val next = viewPager.currentItem + 1
                 if (next < imgList.size) {
                     viewPager.currentItem = next
                 }
             }
             ivPrev.setOnClickListener { view ->
-                LAnimationUtil.play(view, Techniques.Pulse)
+                LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
                 val prev = viewPager.currentItem - 1
                 if (prev >= 0) {
                     viewPager.currentItem = prev

@@ -52,7 +52,7 @@ class LCountDownView : RelativeLayout {
 
     private fun doPerSec() {
         tvCountDown.text = number.toString()
-        LAnimationUtil.playDuration(
+        LAnimationUtil.play(
                 view = tvCountDown,
                 techniques = Techniques.FlipInX,
                 duration = 1000,

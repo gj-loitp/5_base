@@ -122,11 +122,11 @@ class GirlDetailActivity : BaseFontActivity() {
                 when (toolbarChange) {
                     LAppBarLayout.State.COLLAPSED -> {
                         //COLLAPSED appBarLayout min
-                        LAnimationUtil.playDuration(view = btLike, techniques = Techniques.ZoomOut, duration = 500)
+                        LAnimationUtil.play(view = btLike, techniques = Techniques.ZoomOut, duration = 500)
                     }
                     LAppBarLayout.State.EXPANDED -> {
                         //EXPANDED appBarLayout max
-                        LAnimationUtil.playDuration(view = btLike, techniques = Techniques.ZoomIn, duration = 500)
+                        LAnimationUtil.play(view = btLike, techniques = Techniques.ZoomIn, duration = 500)
                     }
                     else -> {
                         //IDLE appBarLayout not min not max
