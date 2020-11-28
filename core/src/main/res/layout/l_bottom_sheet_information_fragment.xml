@@ -53,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/why_u_see_ad_en"
+                    android:text="@string/why_u_see_ad"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
@@ -84,7 +84,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/rate_app_en"
+                    android:text="@string/rate_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
@@ -115,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/more_app_en"
+                    android:text="@string/more_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
@@ -146,7 +146,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/share_app_en"
+                    android:text="@string/share_app"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
@@ -208,7 +208,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/support_24_7_en"
+                    android:text="@string/support_24_7"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </LinearLayout>
