@@ -12,7 +12,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackPopup
 import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
 import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.activity_recycler_view.*
@@ -96,23 +95,21 @@ class RecyclerViewActivity : BaseFontActivity() {
             LPopupMenu.show(activity = this,
                     showOnView = it,
                     menuRes = R.menu.menu_recycler_view,
-                    callBackPopup = object : CallbackPopup {
-                        override fun clickOnItem(menuItem: MenuItem) {
-                            tvType.text = menuItem.title.toString()
-                            when (menuItem.itemId) {
-                                R.id.menuLinearVertical -> {
-                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewActivity)
-                                    rv.layoutManager = lmVertical
-                                }
-                                R.id.menuLinearHorizontal -> {
-                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewActivity, LinearLayoutManager.HORIZONTAL, false)
-                                    rv.layoutManager = lmHorizontal
-                                }
-                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewActivity, 2)
-                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewActivity, 3)
-                                R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                                R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
+                    callback = { menuItem ->
+                        tvType.text = menuItem.title.toString()
+                        when (menuItem.itemId) {
+                            R.id.menuLinearVertical -> {
+                                val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewActivity)
+                                rv.layoutManager = lmVertical
                             }
+                            R.id.menuLinearHorizontal -> {
+                                val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewActivity, LinearLayoutManager.HORIZONTAL, false)
+                                rv.layoutManager = lmHorizontal
+                            }
+                            R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewActivity, 2)
+                            R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewActivity, 3)
+                            R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                            R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                         }
                     })
         }
