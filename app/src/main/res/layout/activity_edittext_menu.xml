@@ -34,11 +34,6 @@
                 android:text="@string/autosuggestedittext" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btBiuEditText"
-                style="@style/ButtonMenu"
-                android:text="@string/biuedittext" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCurrencyEditText"
                 style="@style/ButtonMenu"
                 android:text="Currency EditText" />

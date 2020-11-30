@@ -96,28 +96,14 @@
         <attr name="mtf_backgroundColor" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="BiuEditStyle">
-        <attr name="biu_text_color" format="color" />
-        <attr name="biu_text_start_size" format="dimension" />
-        <attr name="biu_text_scale" format="float" />
-        <attr name="biu_duration" format="integer" />
-        <attr name="biu_type" format="enum">
-            <enum name="flyup" value="0" />
-            <enum name="flydown" value="1" />
-        </attr>
-    </declare-styleable>
-
-<!--    <declare-styleable name="LCustomToggle">-->
-<!--        <attr name="ctg_addLeftIcon" format="reference" type="drawable" />-->
-<!--        <attr name="ctg_addRightIcon" format="reference" />-->
-<!--        <attr name="ctg_addSlideBackgroundColor" format="color" />-->
-<!--        <attr name="ctg_addSlideColor" format="color" />-->
-<!--        <attr name="ctg_addMagnification" format="integer" />-->
-<!--        <attr name="ctg_addAnimationTime" format="integer" />-->
-<!--        <attr name="ctg_addAnimationType" format="enum">-->
-<!--            <enum name="jack_animation" value="0" />-->
-<!--            <enum name="phantom_animation" value="1" />-->
-<!--            <enum name="extra_animation" value="2" />-->
+<!--    <declare-styleable name="BiuEditStyle">-->
+<!--        <attr name="biu_text_color" format="color" />-->
+<!--        <attr name="biu_text_start_size" format="dimension" />-->
+<!--        <attr name="biu_text_scale" format="float" />-->
+<!--        <attr name="biu_duration" format="integer" />-->
+<!--        <attr name="biu_type" format="enum">-->
+<!--            <enum name="flyup" value="0" />-->
+<!--            <enum name="flydown" value="1" />-->
 <!--        </attr>-->
 <!--    </declare-styleable>-->
 

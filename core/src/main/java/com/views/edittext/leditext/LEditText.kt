@@ -14,7 +14,7 @@ import com.google.android.material.card.MaterialCardView
 import com.utils.util.ConvertUtils
 
 class LEditText : RelativeLayout {
-    private val TAG = javaClass.simpleName
+    private val logTag = javaClass.simpleName
     lateinit var mcv: MaterialCardView
     lateinit var editText: EditText
     lateinit var ivLeft: ImageView
