@@ -49,7 +49,7 @@ class BottomSheetCategoryFragment : LBottomSheetFragment(
             val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(categoryA)
             concatAdapter = ConcatAdapter(listOfAdapters)
         }
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = concatAdapter
     }
 
