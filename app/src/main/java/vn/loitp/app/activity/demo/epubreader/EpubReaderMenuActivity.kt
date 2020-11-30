@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo.epubreader
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import androidx.lifecycle.Observer
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseApplication
@@ -13,7 +12,6 @@ import com.core.utilities.LReaderUtil
 import com.core.utilities.LUIUtil
 import com.function.epub.model.BookInfo
 import com.function.epub.viewmodels.EpubViewModel
-import com.interfaces.Callback2
 import kotlinx.android.synthetic.main.activity_demo_epub_reader.*
 import vn.loitp.app.R
 
@@ -88,20 +86,19 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     }
 
     private fun ask() {
-        LDialogUtil.showDialog2(context = this,
+        LDialogUtil.showDialog2(
+                context = this,
                 title = "Chọn",
                 msg = "Có 2 option",
                 button1 = "Load tất cả epub có trong device và 1 file ở asset",
                 button2 = "Load tất cả epub trong asset",
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        epubViewModel?.getListBookFromDeviceAndAsset()
-                    }
-
-                    override fun onClick2() {
-                        epubViewModel?.getListBookAllAsset(maxBookAsset = MAX_BOOK_ASSET, extensionEpub = EXTENSION_EPUB)
-                    }
-                })
+                onClickButton1 = {
+                    epubViewModel?.getListBookFromDeviceAndAsset()
+                },
+                onClickButton2 = {
+                    epubViewModel?.getListBookAllAsset(maxBookAsset = MAX_BOOK_ASSET, extensionEpub = EXTENSION_EPUB)
+                }
+        )
     }
 
 }

@@ -14,7 +14,6 @@ import com.core.common.Constants
 import com.core.utilities.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.interfaces.Callback2
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -129,42 +128,40 @@ class ComicSplashActivity : BaseFontActivity() {
     }
 
     private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(context = this,
+        val alertDialog = LDialogUtil.showDialog2(
+                context = this,
                 title = getString(R.string.need_permissions),
                 msg = getString(R.string.need_permission_msg),
                 button1 = getString(R.string.ok),
                 button2 = getString(R.string.cancel),
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        checkPermission()
-                    }
-
-                    override fun onClick2() {
-                        onBackPressed()
-                    }
-                })
+                onClickButton1 = {
+                    checkPermission()
+                },
+                onClickButton2 = {
+                    onBackPressed()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 
     private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(context = this,
+        val alertDialog = LDialogUtil.showDialog2(
+                context = this,
                 title = getString(R.string.need_permissions),
                 msg = getString(R.string.need_permission_msg_setting),
                 button1 = getString(R.string.go_to_settings),
                 button2 = getString(R.string.cancel),
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        isShowDialogCheck = false
-                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                        val uri = Uri.fromParts("package", packageName, null)
-                        intent.data = uri
-                        startActivityForResult(intent, 101)
-                    }
-
-                    override fun onClick2() {
-                        onBackPressed()
-                    }
-                })
+                onClickButton1 = {
+                    isShowDialogCheck = false
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivityForResult(intent, 101)
+                },
+                onClickButton2 = {
+                    onBackPressed()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 

@@ -9,7 +9,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.interfaces.Callback2
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_demo_floating_video.*
 import vn.loitp.app.R
@@ -40,20 +39,20 @@ class FloatingWidgetActivity : BaseFontActivity() {
 
     private fun handleShow() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this@FloatingWidgetActivity)) {
-            LDialogUtil.showDialog2(context = this,
+            LDialogUtil.showDialog2(
+                    context = this,
                     title = "Permission",
                     msg = "Plz open overlay permisson",
                     button1 = "Yes",
                     button2 = "No",
-                    callback2 = object : Callback2 {
-                        override fun onClick1() {
-                            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-                            startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION_SHOW)
-                        }
+                    onClickButton1 = {
+                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+                        startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION_SHOW)
+                    },
+                    onClickButton2 = {
 
-                        override fun onClick2() {
-                        }
-                    })
+                    }
+            )
         } else {
             startService(Intent(this, FloatingViewVideoService::class.java))
             onBackPressed()
@@ -62,20 +61,20 @@ class FloatingWidgetActivity : BaseFontActivity() {
 
     private fun handleEdge() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this@FloatingWidgetActivity)) {
-            LDialogUtil.showDialog2(context = this,
+            LDialogUtil.showDialog2(
+                    context = this,
                     title = "Permission",
                     msg = "Plz open overlay permisson",
                     button1 = "Yes",
                     button2 = "No",
-                    callback2 = object : Callback2 {
-                        override fun onClick1() {
-                            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-                            startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION_EDGE)
-                        }
+                    onClickButton1 = {
+                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+                        startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION_EDGE)
+                    },
+                    onClickButton2 = {
 
-                        override fun onClick2() {
-                        }
-                    })
+                    }
+            )
         } else {
             startService(Intent(this, FloatingViewEdgeService::class.java))
             onBackPressed()

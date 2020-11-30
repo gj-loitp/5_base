@@ -10,7 +10,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
 import com.core.utilities.LDialogUtil.Companion.showDialog2
-import com.interfaces.Callback2
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -123,17 +122,15 @@ class ImageWithCropActivity : BaseFontActivity() {
                 context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
-                button1 = "Okay",
-                button2 = "Cancel",
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        checkPermission()
-                    }
-
-                    override fun onClick2() {
-                        onBackPressed()
-                    }
-                })
+                button1 = getString(R.string.ok),
+                button2 = getString(R.string.cancel),
+                onClickButton1 = {
+                    checkPermission()
+                },
+                onClickButton2 = {
+                    onBackPressed()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 
@@ -143,20 +140,18 @@ class ImageWithCropActivity : BaseFontActivity() {
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",
-                button2 = "Cancel",
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        isShowDialogCheck = false
-                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                        val uri = Uri.fromParts("package", packageName, null)
-                        intent.data = uri
-                        startActivityForResult(intent, 101)
-                    }
-
-                    override fun onClick2() {
-                        onBackPressed()
-                    }
-                })
+                button2 = getString(R.string.cancel),
+                onClickButton1 = {
+                    isShowDialogCheck = false
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivityForResult(intent, 101)
+                },
+                onClickButton2 = {
+                    onBackPressed()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 }
