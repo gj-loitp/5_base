@@ -20,7 +20,6 @@ import com.core.utilities.LAppResource
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LStoreUtil
-import com.interfaces.CallbackList
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -140,17 +139,16 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
             arr[i] = "Page " + (totalPage - i)
         }
         activity?.let {
-            LDialogUtil.showDialogList(context = it,
+            LDialogUtil.showDialogList(
+                    context = it,
                     title = "Select page",
                     arr = arr,
-                    callbackList = object : CallbackList {
-                        override fun onClick(position: Int) {
-                            currentPage = totalPage - position
-                            logD("showDialogList onClick position $position, -> currentPage: $currentPage")
-                            PhotosDataCore.instance.clearData()
-                            updateAllViews()
-                            photosetsGetPhotos(photosetID)
-                        }
+                    onClick = { position ->
+                        currentPage = totalPage - position
+                        logD("showDialogList onClick position $position, -> currentPage: $currentPage")
+                        PhotosDataCore.instance.clearData()
+                        updateAllViews()
+                        photosetsGetPhotos(photosetID)
                     })
         }
     }

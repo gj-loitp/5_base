@@ -15,7 +15,6 @@ import com.core.common.Constants
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackList
 import com.views.viewpager.viewpagertransformers.*
 import kotlinx.android.synthetic.main.activity_viewpager_with_tablayout.*
 import vn.loitp.app.R
@@ -88,33 +87,33 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         stringList.add(ZoomOutTranformer)
         val arr = stringList.toTypedArray()
 
-        LDialogUtil.showDialogList(context = this,
+        LDialogUtil.showDialogList(
+                context = this,
                 title = "Select",
                 arr = arr,
-                callbackList = object : CallbackList {
-                    override fun onClick(position: Int) {
-                        showShortInformation("Click position " + position + ", item: " + arr[position])
-                        when (stringList[position]) {
-                            AccordionTransformer -> viewPager.setPageTransformer(true, AccordionTransformer())
-                            BackgroundToForegroundTransformer -> viewPager.setPageTransformer(true, BackgroundToForegroundTransformer())
-                            CubeInTransformer -> viewPager.setPageTransformer(true, CubeInTransformer())
-                            CubeOutTransformer -> viewPager.setPageTransformer(true, CubeOutTransformer())
-                            DefaultTransformer -> viewPager.setPageTransformer(true, DefaultTransformer())
-                            DepthPageTransformer -> viewPager.setPageTransformer(true, DepthPageTransformer())
-                            DrawFromBackTransformer -> viewPager.setPageTransformer(true, DrawFromBackTransformer())
-                            FlipHorizontalTransformer -> viewPager.setPageTransformer(true, FlipHorizontalTransformer())
-                            FlipVerticalTransformer -> viewPager.setPageTransformer(true, FlipVerticalTransformer())
-                            ForegroundToBackgroundTransformer -> viewPager.setPageTransformer(true, ForegroundToBackgroundTransformer())
-                            RotateDownTransformer -> viewPager.setPageTransformer(true, RotateDownTransformer())
-                            RotateUpTransformer -> viewPager.setPageTransformer(true, RotateUpTransformer())
-                            StackTransformer -> viewPager.setPageTransformer(true, StackTransformer())
-                            TabletTransformer -> viewPager.setPageTransformer(true, TabletTransformer())
-                            ZoomInTransformer -> viewPager.setPageTransformer(true, ZoomInTransformer())
-                            ZoomOutSlideTransformer -> viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
-                            ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTranformer())
-                        }
+                onClick = { position ->
+                    showShortInformation("Click position " + position + ", item: " + arr[position])
+                    when (stringList[position]) {
+                        AccordionTransformer -> viewPager.setPageTransformer(true, AccordionTransformer())
+                        BackgroundToForegroundTransformer -> viewPager.setPageTransformer(true, BackgroundToForegroundTransformer())
+                        CubeInTransformer -> viewPager.setPageTransformer(true, CubeInTransformer())
+                        CubeOutTransformer -> viewPager.setPageTransformer(true, CubeOutTransformer())
+                        DefaultTransformer -> viewPager.setPageTransformer(true, DefaultTransformer())
+                        DepthPageTransformer -> viewPager.setPageTransformer(true, DepthPageTransformer())
+                        DrawFromBackTransformer -> viewPager.setPageTransformer(true, DrawFromBackTransformer())
+                        FlipHorizontalTransformer -> viewPager.setPageTransformer(true, FlipHorizontalTransformer())
+                        FlipVerticalTransformer -> viewPager.setPageTransformer(true, FlipVerticalTransformer())
+                        ForegroundToBackgroundTransformer -> viewPager.setPageTransformer(true, ForegroundToBackgroundTransformer())
+                        RotateDownTransformer -> viewPager.setPageTransformer(true, RotateDownTransformer())
+                        RotateUpTransformer -> viewPager.setPageTransformer(true, RotateUpTransformer())
+                        StackTransformer -> viewPager.setPageTransformer(true, StackTransformer())
+                        TabletTransformer -> viewPager.setPageTransformer(true, TabletTransformer())
+                        ZoomInTransformer -> viewPager.setPageTransformer(true, ZoomInTransformer())
+                        ZoomOutSlideTransformer -> viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
+                        ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTranformer())
                     }
-                })
+                }
+        )
     }
 
     private inner class SlidePagerAdapter : PagerAdapter() {

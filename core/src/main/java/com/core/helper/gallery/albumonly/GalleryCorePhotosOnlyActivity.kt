@@ -20,7 +20,6 @@ import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.interfaces.CallbackList
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -170,19 +169,19 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(context = this,
+        LDialogUtil.showDialogList(
+                context = this,
                 title = "Select page",
                 arr = arr,
-                callbackList = object : CallbackList {
-                    override fun onClick(position: Int) {
-                        currentPage = totalPage - position
-                        PhotosDataCore.instance.clearData()
-                        updateAllViews()
-                        photosetID?.let {
-                            photosetsGetPhotos(it)
-                        }
+                onClick = { position ->
+                    currentPage = totalPage - position
+                    PhotosDataCore.instance.clearData()
+                    updateAllViews()
+                    photosetID?.let {
+                        photosetsGetPhotos(it)
                     }
-                })
+                }
+        )
     }
 
     private fun goToHome() {

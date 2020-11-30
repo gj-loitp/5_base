@@ -12,7 +12,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.interfaces.CallbackList
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
@@ -108,14 +107,14 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        LDialogUtil.showDialogList(context = this,
+        LDialogUtil.showDialogList(
+                context = this,
                 title = "Title",
                 arr = arr,
-                callbackList = object : CallbackList {
-                    override fun onClick(position: Int) {
-                        showShortInformation("Click position " + position + ", item: " + arr[position])
-                    }
-                })
+                onClick = { position ->
+                    showShortInformation("Click position " + position + ", item: " + arr[position])
+                }
+        )
     }
 
     private fun showProgress() {
@@ -124,7 +123,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         testRun?.execute()
     }
 
-    private class TestRun internal constructor(private val context: Context) : AsyncTask<Void, Int, Void>() {
+    private class TestRun(private val context: Context) : AsyncTask<Void, Int, Void>() {
         private var progressDialog: ProgressDialog? = null
 
         override fun onPreExecute() {

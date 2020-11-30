@@ -18,7 +18,6 @@ import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.daimajia.androidanimations.library.Techniques
-import com.interfaces.CallbackList
 import com.views.dialog.slideimages.LSlideAdapter
 import java.util.*
 
@@ -194,17 +193,19 @@ class LDialogUtil {
 
         fun showDialogList(
                 context: Context,
-                title: String?,
+                title: String? = null,
                 arr: Array<String?>,
-                callbackList: CallbackList? = null
+                onClick: ((Int) -> Unit)? = null
         ): AlertDialog {
             clearAll()
             val builder = AlertDialog.Builder(context)
-            if (!title.isNullOrEmpty()) {
+            if (title.isNullOrEmpty()) {
+                //do nothing
+            } else {
                 builder.setTitle(title)
             }
             builder.setItems(arr) { _, which ->
-                callbackList?.onClick(which)
+                onClick?.invoke(which)
             }
             val dialog = builder.create()
             dialog.show()
