@@ -378,17 +378,19 @@ class AutofitHelper private constructor(view: TextView) {
     /**
      * Set the enabled state of automatically resizing text.
      */
-    fun setEnabled(enabled: Boolean): AutofitHelper {
-        if (isEnabled != enabled) {
-            isEnabled = enabled
-            if (enabled) {
-                mTextView.addTextChangedListener(mTextWatcher)
-                mTextView.addOnLayoutChangeListener(mOnLayoutChangeListener)
-                autofit()
-            } else {
-                mTextView.removeTextChangedListener(mTextWatcher)
-                mTextView.removeOnLayoutChangeListener(mOnLayoutChangeListener)
-                mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize)
+    fun setEnabled(enabled: Boolean?): AutofitHelper {
+        enabled?.let {
+            if (isEnabled != it) {
+                isEnabled = it
+                if (it) {
+                    mTextView.addTextChangedListener(mTextWatcher)
+                    mTextView.addOnLayoutChangeListener(mOnLayoutChangeListener)
+                    autofit()
+                } else {
+                    mTextView.removeTextChangedListener(mTextWatcher)
+                    mTextView.removeOnLayoutChangeListener(mOnLayoutChangeListener)
+                    mTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize)
+                }
             }
         }
         return this
