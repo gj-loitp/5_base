@@ -9,7 +9,6 @@ import android.media.MediaScannerConnection
 import android.os.Environment
 import com.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
-import com.interfaces.GGCallback
 import com.model.App
 import com.model.GG
 import okhttp3.*
@@ -68,7 +67,9 @@ class LStoreUtil {
         val texts: Array<String>
             get() = arrayOf("Relax, its only ONES and ZEROS !", "Hardware: The parts of a computer system that can be kicked.", "Computer dating is fine, if you're a computer.", "Better to be a geek than an idiot.", "If you don't want to be replaced by a computer, don't act like one.", "I'm not anti-social; I'm just not user friendly", "Those who can't write programs, write help files.", "The more I C, the less I see.  ")
 
-        fun getFileNameComic(url: String): String {
+        fun getFileNameComic(
+                url: String
+        ): String {
             var u = url
             u = u.replace(oldValue = "/", newValue = "")
             u = u.replace(oldValue = ".", newValue = "")
@@ -77,12 +78,16 @@ class LStoreUtil {
             return u + EXTENSION
         }
 
-        fun createFileImage(i: Int): String {
+        fun createFileImage(
+                i: Int
+        ): String {
             return "p$i$EXTENSION"
         }
 
         //dung de bao hieu cho gallery load lai photo vi co anh moi
-        fun sendBroadcastMediaScan(file: File?) {
+        fun sendBroadcastMediaScan(
+                file: File? = null
+        ) {
             file?.let {
 //                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
 //                val contentUri = Uri.fromFile(file)
@@ -97,7 +102,9 @@ class LStoreUtil {
         }
 
         @JvmOverloads
-        fun getFolderPath(folderName: String = "z1000"): String {
+        fun getFolderPath(
+                folderName: String = "z1000"
+        ): String {
             var folderPath = ""
             if (isSdPresent) {
                 try {
@@ -149,7 +156,11 @@ class LStoreUtil {
         /*
         save string json to sdcard
          */
-        fun writeToFile(folder: String?, fileName: String, body: String): File? {
+        fun writeToFile(
+                folder: String?,
+                fileName: String,
+                body: String
+        ): File? {
             val fos: FileOutputStream?
             try {
                 var path = getFolderPath()
@@ -182,7 +193,10 @@ class LStoreUtil {
         /*
          * read text file from folder
          */
-        fun readTxtFromFolder(folderName: String?, fileName: String): String {
+        fun readTxtFromFolder(
+                folderName: String?,
+                fileName: String
+        ): String {
             val path = getFolderPath() + (if (folderName == null) "/" else "/$folderName/") + fileName
             val txtFile = File(path)
             LLog.d(logTag, "readTxtFromFolder txtFile ${txtFile.path}")
@@ -203,7 +217,9 @@ class LStoreUtil {
         /*
          * read text file in raw folder
          */
-        fun readTxtFromRawFolder(nameOfRawFile: Int): String {
+        fun readTxtFromRawFolder(
+                nameOfRawFile: Int
+        ): String {
             val inputStream = LAppResource.application.resources.openRawResource(nameOfRawFile)
             val byteArrayOutputStream = ByteArrayOutputStream()
             var i: Int
@@ -221,33 +237,9 @@ class LStoreUtil {
             return byteArrayOutputStream.toString()
         }
 
-//        fun saveHTMLCodeFromURLToSDCard(link: String, folderName: String, fileName: String): Boolean {
-//            var isSuccess = false
-//            val ins: InputStream?
-//            try {
-//                val url = URL(link)
-//                ins = url.openStream()
-//                val br = BufferedReader(InputStreamReader(ins!!))
-//                var line: String? = null
-//                val stringBuilder = StringBuilder()
-//                /*while ((line = br.readLine()) != null) {
-//                    stringBuilder.append(line)
-//                }*/
-//                while ({ line = br.readLine(); line }() != null) {
-//                    stringBuilder.append(line)
-//                }
-//                br.close()
-//                ins.close()
-//                writeToFile(folder = folderName, fileName = fileName, body = stringBuilder.toString())
-//                isSuccess = true
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//            }
-//
-//            return isSuccess
-//        }
-
-        fun readTxtFromAsset(assetFile: String): String {
+        fun readTxtFromAsset(
+                assetFile: String
+        ): String {
             val ins: InputStream
             var str = ""
             try {
@@ -267,7 +259,9 @@ class LStoreUtil {
         /*
          * get random number
          */
-        fun getRandomNumber(length: Int): Int {
+        fun getRandomNumber(
+                length: Int
+        ): Int {
             val r = Random()
             return r.nextInt(length)
         }
@@ -276,7 +270,9 @@ class LStoreUtil {
             return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
         }
 
-        fun getFileFromAssets(fileName: String): File? {
+        fun getFileFromAssets(
+                fileName: String
+        ): File? {
 
             val file = File(LAppResource.application.cacheDir.toString() + "/" + fileName)
             if (!file.exists())
@@ -297,7 +293,9 @@ class LStoreUtil {
             return file
         }
 
-        fun getListEpubFiles(parentDir: File): ArrayList<File> {
+        fun getListEpubFiles(
+                parentDir: File
+        ): ArrayList<File> {
             val listFile = ArrayList<File>()
             val files = parentDir.listFiles()
             if (files != null) {
@@ -357,7 +355,11 @@ class LStoreUtil {
             })
         }
 
-        fun getTextFromGGDrive(linkGGDrive: String?, ggCallback: GGCallback?) {
+        fun getTextFromGGDrive(
+                linkGGDrive: String? = null,
+                onGGFailure: ((call: Call, e: Exception) -> Unit)? = null,
+                onGGResponse: ((listGG: ArrayList<GG>) -> Unit)? = null
+        ) {
             if (linkGGDrive.isNullOrEmpty()) {
                 return
             }
@@ -365,7 +367,7 @@ class LStoreUtil {
             val okHttpClient = OkHttpClient()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    ggCallback?.onGGFailure(call = call, e = e)
+                    onGGFailure?.invoke(call, e)
                 }
 
                 @Throws(IOException::class)
@@ -374,20 +376,22 @@ class LStoreUtil {
                         val responseBody = response.body
                         val json = responseBody?.string()
                         if (json.isNullOrEmpty()) {
-                            ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody isNullOrEmpty"))
+                            onGGFailure?.invoke(call, NullPointerException("responseBody isNullOrEmpty"))
                         } else {
                             val listGG: ArrayList<GG> = BaseApplication.gson.fromJson(json, object : TypeToken<List<GG?>?>() {}.type)
-                            ggCallback?.onGGResponse(listGG = listGG)
+                            onGGResponse?.invoke(listGG)
                         }
                     } else {
-                        ggCallback?.onGGFailure(call = call, e = NullPointerException("responseBody !isSuccessful"))
+                        onGGFailure?.invoke(call, NullPointerException("responseBody !isSuccessful"))
                     }
                 }
             })
         }
 
         @Suppress("INTEGER_OVERFLOW")
-        fun getSize(size: Int): String {
+        fun getSize(
+                size: Int
+        ): String {
             var s = ""
             val kb = (size / 1024).toDouble()
             val mb = kb / 1024
@@ -410,8 +414,8 @@ class LStoreUtil {
         fun getAvailableSpaceInMb(): Int {
             val freeBytesExternal = File(LAppResource.application.getExternalFilesDir(null).toString()).freeSpace
             val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
-            //val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
-            //val totalMb = (totalSize / (1024 * 1024)).toInt()
+//            val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
+//            val totalMb = (totalSize / (1024 * 1024)).toInt()
             return freeMb
         }
 
@@ -425,11 +429,12 @@ class LStoreUtil {
             return availableMegs
         }
 
-        fun getDownloader(folderName: String? = null,
-                          token: String? = null,
-                          url: String,
-                          onDownloadListener: OnDownloadListener
-        ): Downloader? {
+        fun getDownloader(
+                folderName: String? = null,
+                token: String? = null,
+                url: String,
+                onDownloadListener: OnDownloadListener
+        ): Downloader {
             if (folderName.isNullOrEmpty()) {
                 val map = HashMap<String, String>()
                 token?.let {
@@ -454,7 +459,9 @@ class LStoreUtil {
         }
 
         //return destination file path
-        fun unzip(file: File): String? {
+        fun unzip(
+                file: File
+        ): String? {
             try {
                 val filePath = file.path
                 val destination = "${file.parent}/"
@@ -494,7 +501,10 @@ class LStoreUtil {
             }
         }
 
-        private fun handleDirectory(dir: String, destination: String) {
+        private fun handleDirectory(
+                dir: String,
+                destination: String
+        ) {
             val file = File(destination + dir)
 //            LLog.d(logTag, "handleDirectory file ${file.path}")
             if (!file.isDirectory) {

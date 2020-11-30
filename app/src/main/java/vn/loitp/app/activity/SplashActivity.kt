@@ -11,7 +11,6 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
-import com.interfaces.GGCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -264,14 +263,12 @@ class SplashActivity : BaseFontActivity() {
         val linkGGDrive = "https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI"
         LStoreUtil.getTextFromGGDrive(
                 linkGGDrive = linkGGDrive,
-                ggCallback = object : GGCallback {
-                    override fun onGGFailure(call: Call, e: Exception) {
-                        e.printStackTrace()
-                    }
-
-                    override fun onGGResponse(listGG: ArrayList<GG>) {
-                        logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
-                    }
-                })
+                onGGFailure = { call: Call, e: Exception ->
+                    e.printStackTrace()
+                },
+                onGGResponse = { listGG: ArrayList<GG> ->
+                    logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
+                }
+        )
     }
 }
