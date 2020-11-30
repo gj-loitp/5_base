@@ -9,7 +9,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackPull
 import kotlinx.android.synthetic.main.activity_view_pager_detect_swipe_out.*
 import vn.loitp.app.R
 import java.util.*
@@ -37,30 +36,30 @@ class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
             vpPhoto.string = "Page " + i + "/" + (max - 1)
             vpPhotoList.add(vpPhoto)
         }
-        LUIUtil.setPullLikeIOSHorizontal(viewPager, object : CallbackPull {
-            override fun onUpOrLeft(offset: Float) {
-                logD("onUpOrLeft $offset")
-                showShortInformation("Detect Left")
-            }
-
-            override fun onUpOrLeftRefresh(offset: Float) {
-                logD("onUpOrLeftRefresh $offset")
-            }
-
-            override fun onDownOrRight(offset: Float) {
-                logD("onDownOrRight $offset")
-                showShortInformation("Detect Right")
-            }
-
-            override fun onDownOrRightRefresh(offset: Float) {
-                logD("onDownOrRightRefresh $offset")
-            }
-        })
+        LUIUtil.setPullLikeIOSHorizontal(
+                viewPager = viewPager,
+                onUpOrLeft = { offset ->
+                    logD("onUpOrLeft $offset")
+                    showShortInformation("Detect Left")
+                },
+                onUpOrLeftRefresh = { offset ->
+                    logD("onUpOrLeftRefresh $offset")
+                },
+                onDownOrRight = { offset ->
+                    logD("onDownOrRight $offset")
+                    showShortInformation("Detect Right")
+                },
+                onDownOrRightRefresh = { offset ->
+                    logD("onDownOrRightRefresh $offset")
+                }
+        )
         val adapter = ViewPagerAdapter(supportFragmentManager)
         viewPager.adapter = adapter
     }
 
-    private inner class ViewPagerAdapter internal constructor(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class ViewPagerAdapter(fm: FragmentManager)
+        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+
         override fun getItem(position: Int): Fragment {
             val bundle = Bundle()
             bundle.putSerializable("vpphoto", vpPhotoList[position])
