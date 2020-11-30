@@ -5,7 +5,6 @@ import android.view.animation.*
 import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
-import com.interfaces.CallbackAnimation
 import kotlin.random.Random
 
 /**
@@ -22,7 +21,10 @@ class LAnimationUtil {
                 repeatCount: Int = 0,
                 techniques: Techniques = Techniques.FadeIn,
                 delayInMls: Int = 0,
-                callbackAnimation: CallbackAnimation? = null
+                onCancel: ((Unit) -> Unit)? = null,
+                onEnd: ((Unit) -> Unit)? = null,
+                onRepeat: ((Unit) -> Unit)? = null,
+                onStart: ((Unit) -> Unit)? = null
         ) {
             if (view == null) {
                 return
@@ -33,16 +35,16 @@ class LAnimationUtil {
                     .duration(duration.toLong())
                     .repeat(repeatCount)
                     .onCancel {
-                        callbackAnimation?.onCancel()
+                        onCancel?.invoke(Unit)
                     }
                     .onEnd {
-                        callbackAnimation?.onEnd()
+                        onEnd?.invoke(Unit)
                     }
                     .onRepeat {
-                        callbackAnimation?.onRepeat()
+                        onRepeat?.invoke(Unit)
                     }
                     .onStart {
-                        callbackAnimation?.onStart()
+                        onStart?.invoke(Unit)
                     }
                     .delay(delayInMls.toLong())
                     .playOn(view)
