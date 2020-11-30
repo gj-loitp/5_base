@@ -24,7 +24,7 @@ class FrmFavourite : BaseFragment() {
     }
 
     private fun setupViews() {
-        //TODO loitpp iplm
+        //TODO loitpp iplm fav view
         tvNoData.visibility = View.VISIBLE
         tvNoData.text = getString(R.string.coming_soon)
         indicatorView.smoothToHide()
