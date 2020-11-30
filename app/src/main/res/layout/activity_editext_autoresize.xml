@@ -21,12 +21,12 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:hint="@string/type"
-                android:maxLength="50"
+                android:maxLength="150"
                 android:maxLines="2"
-                android:padding="8dp"
+                android:padding="@dimen/padding_medium"
                 android:textColor="?attr/themeTextColor"
                 android:textCursorDrawable="?attr/themeTextColor"
-                android:textSize="44sp" />
+                android:textSize="@dimen/txt_45" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
