@@ -12,7 +12,7 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.bottomsheet.LBottomSheetFragment
-import kotlinx.android.synthetic.main.l_frm_girl_information.*
+import kotlinx.android.synthetic.main.l_bottom_sheet_information_fragment.*
 
 @LogTag("BottomSheetDonationFragment")
 class BottomSheetInformationFragment : LBottomSheetFragment(
