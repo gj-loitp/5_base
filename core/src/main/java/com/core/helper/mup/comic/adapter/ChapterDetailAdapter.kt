@@ -25,11 +25,11 @@ class ChapterDetailAdapter : AnimationAdapter() {
 
     private var chapterDetail: ChapterDetail? = null
     private val listData = ArrayList<ChapterComicsDetail>()
-    private val placeHolder = if (LUIUtil.isDarkTheme()) {
-        R.drawable.place_holder_white
-    } else {
-        R.drawable.place_holder_black
-    }
+//    private val placeHolder = if (LUIUtil.isDarkTheme()) {
+//        R.drawable.place_holder_white
+//    } else {
+//        R.drawable.place_holder_black
+//    }
 
     fun setData(chapterDetail: ChapterDetail) {
         this.chapterDetail = chapterDetail
@@ -63,7 +63,7 @@ class ChapterDetailAdapter : AnimationAdapter() {
             LImageUtil.loadHighQuality(
                     any = imgSrc,
                     imageView = itemView.ivChapterDetail,
-                    resPlaceHolder = placeHolder,
+//                    resPlaceHolder = placeHolder,
                     resError = R.drawable.place_holder_error404,
                     drawableRequestListener = object : RequestListener<Drawable> {
                         override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {

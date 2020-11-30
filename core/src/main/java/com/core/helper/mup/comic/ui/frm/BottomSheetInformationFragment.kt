@@ -47,7 +47,7 @@ class BottomSheetInformationFragment : LBottomSheetFragment(
                 btSupport -> LSocialUtil.chatMessenger(activity = it)
                 btAdHelper -> {
                     val intent = Intent(it, AdHelperActivity::class.java)
-                    intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                    intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, false)
                     startActivity(intent)
                     LActivityUtil.tranIn(it)
                 }
