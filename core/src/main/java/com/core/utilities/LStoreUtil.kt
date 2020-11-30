@@ -10,12 +10,10 @@ import android.os.Environment
 import com.core.base.BaseApplication
 import com.google.gson.reflect.TypeToken
 import com.interfaces.GGCallback
-import com.interfaces.GGSettingCallback
 import com.model.App
 import com.model.GG
 import okhttp3.*
 import java.io.*
-import java.net.URL
 import java.util.*
 import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
@@ -316,7 +314,11 @@ class LStoreUtil {
             return listFile
         }
 
-        fun getSettingFromGGDrive(linkGGDriveSetting: String?, ggSettingCallback: GGSettingCallback?) {
+        fun getSettingFromGGDrive(
+                linkGGDriveSetting: String? = null,
+                onGGFailure: ((call: Call, e: IOException) -> Unit)? = null,
+                onGGResponse: ((app: App?, isNeedToShowMsg: Boolean) -> Unit)? = null
+        ) {
             if (linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
                 return
             }
@@ -324,7 +326,7 @@ class LStoreUtil {
             val okHttpClient = OkHttpClient()
             okHttpClient.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
-                    ggSettingCallback?.onGGFailure(call, e)
+                    onGGFailure?.invoke(call, e)
                 }
 
                 @Throws(IOException::class)
@@ -334,7 +336,7 @@ class LStoreUtil {
                         val json = responseBody.string()
                         val app = BaseApplication.gson.fromJson(json, App::class.java)
                         if (app == null) {
-                            ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
+                            onGGResponse?.invoke(null, false)
                         } else {
                             val localMsg = LPrefUtil.getGGAppMsg()
                             val serverMsg = app.config?.msg
@@ -345,11 +347,11 @@ class LStoreUtil {
                             } else {
                                 !localMsg?.trim { it <= ' ' }.equals(serverMsg, ignoreCase = true)
                             }
-                            ggSettingCallback?.onGGResponse(app, isNeedToShowMsg)
+                            onGGResponse?.invoke(app, isNeedToShowMsg)
                         }
 
                     } else {
-                        ggSettingCallback?.onGGResponse(app = null, isNeedToShowMsg = false)
+                        onGGResponse?.invoke(null, false)
                     }
                 }
             })

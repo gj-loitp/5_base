@@ -13,7 +13,6 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.interfaces.Callback2
 import com.interfaces.GGCallback
-import com.interfaces.GGSettingCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -30,6 +29,11 @@ import java.io.IOException
 @LogTag("SplashActivity")
 @IsFullScreen(false)
 class SplashActivity : BaseFontActivity() {
+
+    companion object {
+        const val LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
+    }
+
     private var isAnimDone = false
     private var isCheckReadyDone = false
     private var isShowDialogCheck = false
@@ -73,9 +77,8 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        isShowDialogCheck = true
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
-        if (isCanWriteSystem) {
+
+        fun checkPermission() {
             Dexter.withContext(this)
                     .withPermissions(
                             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -109,6 +112,12 @@ class SplashActivity : BaseFontActivity() {
                     })
                     .onSameThread()
                     .check()
+        }
+
+        isShowDialogCheck = true
+        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
+        if (isCanWriteSystem) {
+            checkPermission()
         } else {
             val alertDialog = LDialogUtil.showDialog2(context = this,
                     title = "Need Permissions",
@@ -118,11 +127,15 @@ class SplashActivity : BaseFontActivity() {
                     callback2 = object : Callback2 {
                         override fun onClick1() {
                             isShowDialogCheck = false
-                            val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                            intent.data = Uri.parse("package:$packageName")
-                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            startActivity(intent)
-                            LActivityUtil.tranIn(this@SplashActivity)
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                                val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+                                intent.data = Uri.parse("package:$packageName")
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                startActivity(intent)
+                                LActivityUtil.tranIn(this@SplashActivity)
+                            } else {
+                                checkPermission()
+                            }
                         }
 
                         override fun onClick2() {
@@ -171,7 +184,6 @@ class SplashActivity : BaseFontActivity() {
             goToHome()
             return
         }
-        val LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
         val request = Request.Builder().url(url = LINK_GG_DRIVE_CHECK_READY).build()
         val okHttpClient = OkHttpClient()
         okHttpClient.newCall(request).enqueue(object : Callback {
@@ -246,14 +258,12 @@ class SplashActivity : BaseFontActivity() {
         val linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
         LStoreUtil.getSettingFromGGDrive(
                 linkGGDriveSetting = linkGGDriveConfigSetting,
-                ggSettingCallback = object : GGSettingCallback {
-                    override fun onGGFailure(call: Call, e: IOException) {
-                    }
-
-                    override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
-                        logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + BaseApplication.gson.toJson(app))
-                    }
-                })
+                onGGFailure = { _: Call, _: IOException ->
+                },
+                onGGResponse = { app: App?, isNeedToShowMsg: Boolean ->
+                    logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + BaseApplication.gson.toJson(app))
+                }
+        )
     }
 
     private fun getGG() {
