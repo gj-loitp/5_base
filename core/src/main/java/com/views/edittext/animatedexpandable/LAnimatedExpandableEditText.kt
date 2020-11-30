@@ -1,103 +1,88 @@
-package com.views.edittext.animatedexpandable;
+package com.views.edittext.animatedexpandable
 
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.animation.ValueAnimator
+import android.content.Context
+import android.util.AttributeSet
+import android.view.View.OnFocusChangeListener
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.TextView.OnEditorActionListener
+import androidx.appcompat.widget.AppCompatEditText
+import com.R
 
-import androidx.annotation.NonNull;
+class LAnimatedExpandableEditText : AppCompatEditText {
 
-import com.R;
-
-//TODO convert kotlin
-public class LAnimatedExpandableEditText extends androidx.appcompat.widget.AppCompatEditText {
-
-    public static int expandHeightPixels;
-    public static int expandAnimationDurationMilliseconds;
-
-    public LAnimatedExpandableEditText(Context context) {
-        super(context);
-        init();
+    companion object {
+        var expandHeightPixels = 0
+        var expandAnimationDurationMilliseconds = 0
     }
 
-    public LAnimatedExpandableEditText(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    public LAnimatedExpandableEditText(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init()
     }
 
-    private void init() {
-        expandAnimationDurationMilliseconds = getResources().getInteger(R.integer.animated_expanded_edit_text_animation_duration_milliseconds);
-        expandHeightPixels = getResources().getDimensionPixelSize(R.dimen.animated_expandable_edit_text_expanded_height);
-
-        setOnFocusChangeListener(getOnFocusChangeListener(this));
-        setOnEditorActionListener(getOnEditorActionListener(this));
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init()
     }
 
-    @NonNull
-    private TextView.OnEditorActionListener getOnEditorActionListener(final EditText editText) {
-        return new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    editText.clearFocus();
-                    if (editText.getContext() != null) {
-                        closeKeyboard(v, editText);
-                    }
-                    return true;
+    private fun init() {
+        expandAnimationDurationMilliseconds = resources.getInteger(R.integer.animated_expanded_edit_text_animation_duration_milliseconds)
+        expandHeightPixels = resources.getDimensionPixelSize(R.dimen.animated_expandable_edit_text_expanded_height)
+        onFocusChangeListener = getOnFocusChangeListener(this)
+        setOnEditorActionListener(getOnEditorActionListener(this))
+    }
+
+    private fun getOnEditorActionListener(editText: EditText): OnEditorActionListener {
+        return OnEditorActionListener { v, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                editText.clearFocus()
+                if (editText.context != null) {
+                    closeKeyboard(v, editText)
                 }
-                return false;
+                return@OnEditorActionListener true
             }
-        };
+            false
+        }
     }
 
-    private void closeKeyboard(TextView v, EditText editText) {
-        InputMethodManager imm = (InputMethodManager) editText.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+    private fun closeKeyboard(v: TextView, editText: EditText) {
+        val imm = editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(v.windowToken, 0)
     }
 
-    @NonNull
-    private View.OnFocusChangeListener getOnFocusChangeListener(final EditText editText) {
-        return new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View view, boolean hasFocus) {
-                if (hasFocus) {
-                    expandViewWithAnimation(editText, expandHeightPixels);
-                } else {
-                    compactViewWithAnimation(editText, expandHeightPixels);
-                }
+    private fun getOnFocusChangeListener(editText: EditText): OnFocusChangeListener {
+        return OnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                expandViewWithAnimation(editText = editText, pixelsToExpand = expandHeightPixels)
+            } else {
+                compactViewWithAnimation(editText = editText, pixelsToExpand = expandHeightPixels)
             }
-        };
+        }
     }
 
-    private void expandViewWithAnimation(final EditText editText, int pixelsToExpand) {
-        ValueAnimator animation = ValueAnimator.ofInt((int) editText.getHeight(), (int) editText.getHeight() + pixelsToExpand);
-        animateEditTextSize(editText, animation);
+    private fun expandViewWithAnimation(editText: EditText, pixelsToExpand: Int) {
+        val animation = ValueAnimator.ofInt(editText.height, editText.height + pixelsToExpand)
+        animateEditTextSize(editText, animation)
     }
 
-    private void compactViewWithAnimation(final EditText editText, int pixelsToExpand) {
-        ValueAnimator animation = ValueAnimator.ofInt((int) editText.getHeight(), (int) editText.getHeight() - pixelsToExpand);
-        animateEditTextSize(editText, animation);
+    private fun compactViewWithAnimation(editText: EditText, pixelsToExpand: Int) {
+        val animation = ValueAnimator.ofInt(editText.height, editText.height - pixelsToExpand)
+        animateEditTextSize(editText, animation)
     }
 
-    private void animateEditTextSize(final EditText editText, ValueAnimator animation) {
-        animation.setDuration(expandAnimationDurationMilliseconds);
-        animation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            public void onAnimationUpdate(ValueAnimator animation) {
-                Integer value = (Integer) animation.getAnimatedValue();
-                editText.getLayoutParams().height = value.intValue();
-                editText.requestLayout();
-            }
-        });
-        animation.start();
+    private fun animateEditTextSize(editText: EditText, animation: ValueAnimator) {
+        animation.duration = expandAnimationDurationMilliseconds.toLong()
+        animation.addUpdateListener { a ->
+            val value = a.animatedValue as Int
+            editText.layoutParams.height = value
+            editText.requestLayout()
+        }
+        animation.start()
     }
 }
