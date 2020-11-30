@@ -7,7 +7,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LFCMUtil
-import com.interfaces.Callback1
 import kotlinx.android.synthetic.main.activity_fcm_firebase.*
 import vn.loitp.app.R
 
@@ -36,12 +35,8 @@ class FCMFirebaseActivity : BaseFontActivity() {
                         context = this@FCMFirebaseActivity,
                         title = "Message",
                         msg = "This feature is only available in debug mode",
-                        button1 = getString(R.string.confirm),
-                        callback1 = object : Callback1 {
-                            override fun onClick1() {
-                                //do nothing
-                            }
-                        })
+                        button1 = getString(R.string.confirm)
+                )
             }
         }
     }

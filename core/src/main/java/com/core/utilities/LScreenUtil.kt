@@ -14,7 +14,6 @@ import android.provider.Settings
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.core.base.BaseActivity
-import com.interfaces.Callback1
 import com.utils.util.FragmentUtils
 
 /**
@@ -64,13 +63,8 @@ class LScreenUtil {
             val windowManager = LAppResource.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager
             val display = windowManager.defaultDisplay
             val outPoint = Point()
-            if (Build.VERSION.SDK_INT >= 19) {
-                // include navigation bar
-                display.getRealSize(outPoint)
-            } else {
-                // exclude navigation bar
-                display.getSize(outPoint)
-            }
+            // include navigation bar
+            display.getRealSize(outPoint)
             val mRealSizeHeight: Int
             mRealSizeHeight = if (outPoint.y > outPoint.x) {
                 outPoint.y
@@ -142,17 +136,15 @@ class LScreenUtil {
                     or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                     or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
             // This work only for android 4.4+
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                activity.window.decorView.systemUiVisibility = flags
+            activity.window.decorView.systemUiVisibility = flags
 
-                // Code below is to handle presses of Volume up or Volume down.
-                // Without this, after pressing volume buttons, the navigation bar will
-                // show up and won't hide
-                val decorView = activity.window.decorView
-                decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-                    if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
-                        decorView.systemUiVisibility = flags
-                    }
+            // Code below is to handle presses of Volume up or Volume down.
+            // Without this, after pressing volume buttons, the navigation bar will
+            // show up and won't hide
+            val decorView = activity.window.decorView
+            decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+                if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
+                    decorView.systemUiVisibility = flags
                 }
             }
         }
@@ -165,17 +157,15 @@ class LScreenUtil {
                     or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                     or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY)
             // This work only for android 4.4+
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                activity.window.decorView.systemUiVisibility = flags
+            activity.window.decorView.systemUiVisibility = flags
 
-                // Code below is to handle presses of Volume up or Volume down.
-                // Without this, after pressing volume buttons, the navigation bar will
-                // show up and won't hide
-                val decorView = activity.window.decorView
-                decorView.setOnSystemUiVisibilityChangeListener { visibility ->
-                    if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
-                        decorView.systemUiVisibility = flags
-                    }
+            // Code below is to handle presses of Volume up or Volume down.
+            // Without this, after pressing volume buttons, the navigation bar will
+            // show up and won't hide
+            val decorView = activity.window.decorView
+            decorView.setOnSystemUiVisibilityChangeListener { visibility ->
+                if (visibility and View.SYSTEM_UI_FLAG_FULLSCREEN == 0) {
+                    decorView.systemUiVisibility = flags
                 }
             }
         }
@@ -276,8 +266,7 @@ class LScreenUtil {
         }
 
         fun isLandscape(): Boolean {
-            val rotation = (LAppResource.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation
-            return when (rotation) {
+            return when ((LAppResource.application.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.rotation) {
                 Surface.ROTATION_0 -> false
                 Surface.ROTATION_90 -> true
                 Surface.ROTATION_180 -> false
@@ -294,20 +283,21 @@ class LScreenUtil {
             val isCanWriteSystem = checkSystemWritePermission()
 
             if (!isCanWriteSystem) {
-                LDialogUtil.showDialog1(context = context,
+                LDialogUtil.showDialog1(
+                        context = context,
                         title = "Thông báo",
                         msg = "Ứng dụng cần bạn cần cấp quyền điều chỉnh độ sáng màn hình",
                         button1 = "Cấp phép",
-                        callback1 = object : Callback1 {
-                            @TargetApi(Build.VERSION_CODES.M)
-                            override fun onClick1() {
+                        onClickButton1 = {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                 val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
                                 intent.data = Uri.parse("package:" + context.packageName)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                                 context.startActivity(intent)
                                 LActivityUtil.tranIn(context)
                             }
-                        })
+                        }
+                )
                 return
             }
 

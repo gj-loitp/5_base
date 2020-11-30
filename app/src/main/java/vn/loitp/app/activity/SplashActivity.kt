@@ -11,7 +11,6 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
-import com.interfaces.Callback1
 import com.interfaces.Callback2
 import com.interfaces.GGCallback
 import com.interfaces.GGSettingCallback
@@ -153,15 +152,15 @@ class SplashActivity : BaseFontActivity() {
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = LDialogUtil.showDialog1(context = this,
+            val alertDial = LDialogUtil.showDialog1(
+                    context = this,
                     title = "Warning",
                     msg = title,
                     button1 = "Ok",
-                    callback1 = object : Callback1 {
-                        override fun onClick1() {
-                            onBackPressed()
-                        }
-                    })
+                    onClickButton1 = {
+                        onBackPressed()
+                    }
+            )
             alertDial.setCancelable(false)
         }
     }

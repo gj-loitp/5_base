@@ -18,7 +18,6 @@ import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.daimajia.androidanimations.library.Techniques
-import com.interfaces.Callback1
 import com.interfaces.Callback2
 import com.interfaces.Callback3
 import com.interfaces.CallbackList
@@ -52,12 +51,12 @@ class LDialogUtil {
 
         fun showDialog1(
                 context: Context,
-                title: String?,
-                msg: String,
+                title: String? = null,
+                msg: String? = null,
                 button1: String = LAppResource.getString(R.string.confirm),
-                callback1: Callback1? = null
+                onClickButton1: ((Unit) -> Unit)? = null
         ): AlertDialog {
-            logD("showDialog1")
+//            logD("showDialog1")
             clearAll()
             val builder = AlertDialog.Builder(context)
             if (!title.isNullOrEmpty()) {
@@ -65,7 +64,7 @@ class LDialogUtil {
             }
             builder.setMessage(msg)
             builder.setPositiveButton(button1) { _, _ ->
-                callback1?.onClick1()
+                onClickButton1?.invoke(Unit)
             }
             val dialog = builder.create()
             dialog.show()
@@ -77,8 +76,6 @@ class LDialogUtil {
                 val color = LAppResource.getColor(R.color.colorPrimary)
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
             }
-
-//            LUIUtil.setRipple(context, dialog.getButton(AlertDialog.BUTTON_POSITIVE))
 
             alertDialogList.add(dialog)
             return dialog
@@ -200,6 +197,7 @@ class LDialogUtil {
         }
 
         //style ex ProgressDialog.STYLE_HORIZONTAL
+        //TODO deprecation
         fun showProgressDialog(
                 context: Context,
                 max: Int,
@@ -208,7 +206,7 @@ class LDialogUtil {
                 isCancelAble: Boolean,
                 style: Int,
                 buttonTitle: String?,
-                callback1: Callback1? = null
+                onClickButton1: ((Unit) -> Unit)? = null
         ): ProgressDialog {
             clearAll()
             val progressDialog = ProgressDialog(context)
@@ -219,7 +217,7 @@ class LDialogUtil {
             progressDialog.setProgressStyle(style)
             if (buttonTitle != null) {
                 progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE, buttonTitle) { _, _ ->
-                    callback1?.onClick1()
+                    onClickButton1?.invoke(Unit)
                 }
             }
             progressDialog.show()

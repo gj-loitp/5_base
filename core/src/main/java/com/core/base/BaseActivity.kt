@@ -16,9 +16,7 @@ import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
-import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.InterstitialAd
-import com.interfaces.Callback1
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
@@ -221,28 +219,28 @@ abstract class BaseActivity : AppCompatActivity() {
         if (errMsg.isNullOrEmpty()) {
             return
         }
-        val alertDialog = LDialogUtil.showDialog1(context = this,
+        val alertDialog = LDialogUtil.showDialog1(
+                context = this,
                 title = getString(R.string.warning),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
-                callback1 = object : Callback1 {
-                    override fun onClick1() {
-                        runnable?.run()
-                    }
-                })
+                onClickButton1 = {
+                    runnable?.run()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 
     protected fun showDialogMsg(errMsg: String, runnable: Runnable? = null) {
-        LDialogUtil.showDialog1(context = this,
+        LDialogUtil.showDialog1(
+                context = this,
                 title = getString(R.string.app_name),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
-                callback1 = object : Callback1 {
-                    override fun onClick1() {
-                        runnable?.run()
-                    }
-                })
+                onClickButton1 = {
+                    runnable?.run()
+                }
+        )
     }
 
     override fun onBackPressed() {

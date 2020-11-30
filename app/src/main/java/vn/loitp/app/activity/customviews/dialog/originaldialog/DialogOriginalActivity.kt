@@ -12,7 +12,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.interfaces.Callback1
 import com.interfaces.Callback2
 import com.interfaces.Callback3
 import com.interfaces.CallbackList
@@ -58,14 +57,15 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show1() {
-        LDialogUtil.showDialog1(context = this,
+        LDialogUtil.showDialog1(
+                context = this,
                 title = "Title",
                 msg = "Msg",
-                button1 = "Button 1", callback1 = object : Callback1 {
-            override fun onClick1() {
-                showShortInformation("Click 1")
-            }
-        })
+                button1 = "Button 1",
+                onClickButton1 = {
+                    showShortInformation("Click 1")
+                }
+        )
     }
 
     private fun show2() {
@@ -134,14 +134,15 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
         override fun onPreExecute() {
             super.onPreExecute()
-            progressDialog = LDialogUtil.showProgressDialog(context = context,
+            progressDialog = LDialogUtil.showProgressDialog(
+                    context = context,
                     max = 100,
                     title = "Title",
                     msg = "Message",
                     isCancelAble = false,
                     style = ProgressDialog.STYLE_HORIZONTAL,
-                    buttonTitle = null,
-                    callback1 = null)
+                    buttonTitle = null
+            )
         }
 
         override fun doInBackground(vararg voids: Void): Void? {

@@ -98,6 +98,7 @@ class LSocialUtil {
         /*
         get url fb fanpage
          */
+        //TODO deprecation
         private fun getFacebookPageURL(): String {
             val facebookUrl = "https://www.facebook.com/hoidammedocsach"
             val facebookPageId = "hoidammedocsach"
@@ -119,6 +120,7 @@ class LSocialUtil {
         /*
         chat with fanpage Thugiannao
          */
+        //TODO deprecation
         fun chatMessenger(
                 activity: Activity
         ) {
@@ -132,7 +134,12 @@ class LSocialUtil {
             }
 
             if (!isFBInstalled) {
-                LDialogUtil.showDialog1(context = activity, title = activity.getString(R.string.err), msg = activity.getString(R.string.cannot_find_messenger_app), button1 = activity.getString(R.string.ok), callback1 = null)
+                LDialogUtil.showDialog1(
+                        context = activity,
+                        title = activity.getString(R.string.err),
+                        msg = activity.getString(R.string.cannot_find_messenger_app),
+                        button1 = activity.getString(R.string.ok)
+                )
             } else {
                 var uri = Uri.parse("fb-messenger://user/")
                 uri = ContentUris.withAppendedId(uri, java.lang.Long.valueOf("947139732073591"))
@@ -142,7 +149,12 @@ class LSocialUtil {
                     LActivityUtil.tranIn(activity)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    LDialogUtil.showDialog1(context = activity, title = activity.getString(R.string.err), msg = activity.getString(R.string.cannot_find_messenger_app), button1 = activity.getString(R.string.ok), callback1 = null)
+                    LDialogUtil.showDialog1(
+                            context = activity,
+                            title = activity.getString(R.string.err),
+                            msg = activity.getString(R.string.cannot_find_messenger_app),
+                            button1 = activity.getString(R.string.ok)
+                    )
                 }
             }
         }
