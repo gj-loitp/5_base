@@ -9,7 +9,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackRecyclerView
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recycler_view_concat_adapter.*
 import vn.loitp.app.R
@@ -81,21 +80,17 @@ class ConcatAdapterActivity : BaseFontActivity() {
 
         recyclerView.adapter = concatAdapter
 
-        LUIUtil.setScrollChange(recyclerView = recyclerView,
-                callbackRecyclerView = object : CallbackRecyclerView {
-                    override fun onTop() {
-                        logD("onTop")
-                    }
-
-                    override fun onBottom() {
-                        logD("onBottom")
-                        showShortInformation("onBottom")
-                        genNewsData()
-                    }
-
-                    override fun onScrolled(isScrollDown: Boolean) {
-                    }
-                })
+        LUIUtil.setScrollChange(
+                recyclerView = recyclerView,
+                onTop = {
+                    logD("onTop")
+                },
+                onBottom = {
+                    logD("onBottom")
+                    showShortInformation("onBottom")
+                    genNewsData()
+                }
+        )
 
         btClearAll.setSafeOnClickListener {
             concatAdapter?.let { a ->
@@ -158,7 +153,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
                 recyclerView.scrollToPosition(it - 1)
             }
 
-            LUIUtil.setDelay(2000, Runnable {
+            LUIUtil.setDelay(mls = 2000) {
                 val listNews = ArrayList<News>()
                 for (i in 0..10) {
                     val news = News(
@@ -170,7 +165,7 @@ class ConcatAdapterActivity : BaseFontActivity() {
                 }
                 concatAdapter?.removeAdapter(loadingAdapter)
                 newsAdapter?.addData(listNews)
-            })
+            }
         }
     }
 }

@@ -35,7 +35,6 @@ import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
-import com.interfaces.CallbackRecyclerView
 import com.utils.util.ConvertUtils
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
@@ -360,7 +359,6 @@ class LUIUtil {
             //guide: https://github.com/EverythingMe/overscroll-decor
             val mDecor = OverScrollDecoratorHelper.setUpOverScroll(viewPager)
             mDecor.setOverScrollUpdateListener { decor, state, offset ->
-                //val view = decor.view
                 when {
                     offset > 0 -> {
                         // 'view' is currently being over-scrolled from the top.
@@ -727,7 +725,12 @@ class LUIUtil {
 //            view.requestLayout()
 //        }
 
-        fun setScrollChange(recyclerView: RecyclerView, callbackRecyclerView: CallbackRecyclerView) {
+        fun setScrollChange(
+                recyclerView: RecyclerView,
+                onTop: ((Unit) -> Unit)? = null,
+                onBottom: ((Unit) -> Unit)? = null,
+                onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+        ) {
             var isScrollDown = false
             recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -735,10 +738,10 @@ class LUIUtil {
 
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                         if (!recyclerView.canScrollVertically(1)) {
-                            callbackRecyclerView.onBottom()
+                            onBottom?.invoke(Unit)
                         }
                         if (!recyclerView.canScrollVertically(-1)) {
-                            callbackRecyclerView.onTop()
+                            onTop?.invoke(Unit)
                         }
                     }
                 }
@@ -749,12 +752,12 @@ class LUIUtil {
                     if (dy < 0) {
                         if (isScrollDown) {
                             isScrollDown = false
-                            callbackRecyclerView.onScrolled(isScrollDown)
+                            onScrolled?.invoke(isScrollDown)
                         }
                     } else if (dy > 0) {
                         if (!isScrollDown) {
                             isScrollDown = true
-                            callbackRecyclerView.onScrolled(isScrollDown)
+                            onScrolled?.invoke(isScrollDown)
                         }
                     }
                 }

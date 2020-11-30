@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
@@ -24,7 +23,6 @@ import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.core.utilities.*
-import com.interfaces.CallbackRecyclerView
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
@@ -129,30 +127,22 @@ class ComicChapActivity : BaseFontActivity() {
         rvComicChap.adapter = concatAdapter
         LUIUtil.setScrollChange(
                 recyclerView = rvComicChap,
-                callbackRecyclerView = object : CallbackRecyclerView {
-                    override fun onTop() {
+                onBottom = {
+                    val isExistComicProgressAdapter = concatAdapter.adapters.firstOrNull { adapter ->
+                        adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
                     }
+                    if (isExistComicProgressAdapter == null) {
+                        logD("onBottom $currentPageIndex/$totalPage")
+                        if (currentPageIndex < totalPage) {
+                            currentPageIndex++
+                            concatAdapter.addAdapter(comicProgressAdapter)
+                            rvComicChap.smoothScrollToPosition(concatAdapter.itemCount - 1)
 
-                    override fun onBottom() {
-                        val isExistComicProgressAdapter = concatAdapter.adapters.firstOrNull { adapter ->
-                            adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
-                        }
-//                        logD("onBottom isExistComicProgressAdapter $isExistComicProgressAdapter")
-                        if (isExistComicProgressAdapter == null) {
-                            logD("onBottom $currentPageIndex/$totalPage")
-                            if (currentPageIndex < totalPage) {
-                                currentPageIndex++
-                                concatAdapter.addAdapter(comicProgressAdapter)
-                                rvComicChap.smoothScrollToPosition(concatAdapter.itemCount - 1)
-
-                                comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
-                            }
+                            comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
                         }
                     }
-
-                    override fun onScrolled(isScrollDown: Boolean) {
-                    }
-                })
+                }
+        )
 
         fabLike.setSafeOnClickListener {
             //TODO loitpp iplm
