@@ -18,7 +18,6 @@ import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
 import com.R
 import com.daimajia.androidanimations.library.Techniques
-import com.interfaces.Callback3
 import com.interfaces.CallbackList
 import com.views.dialog.slideimages.LSlideAdapter
 import java.util.*
@@ -132,34 +131,49 @@ class LDialogUtil {
 
         fun showDialog3(
                 context: Context,
-                title: String?,
-                msg: String,
-                button1: String?,
-                button2: String?,
-                button3: String?,
-                callback3: Callback3? = null
+                title: String? = null,
+                msg: String? = null,
+                button1: String? = null,
+                button2: String? = null,
+                button3: String? = null,
+                onClickButton1: ((Unit) -> Unit)? = null,
+                onClickButton2: ((Unit) -> Unit)? = null,
+                onClickButton3: ((Unit) -> Unit)? = null
         ): AlertDialog {
             clearAll()
             val builder = AlertDialog.Builder(context)
-            if (!title.isNullOrEmpty()) {
+            if (title.isNullOrEmpty()) {
+                //do nothing
+            } else {
                 builder.setTitle(title)
             }
-            builder.setMessage(msg)
-            if (!button1.isNullOrEmpty()) {
+            if (msg.isNullOrEmpty()) {
+                //do nothing
+            } else {
+                builder.setMessage(msg)
+            }
+            if (button1.isNullOrEmpty()) {
+                //do nothing
+            } else {
                 builder.setNegativeButton(button1) { _, _ ->
-                    callback3?.onClick1()
+                    onClickButton1?.invoke(Unit)
                 }
             }
-            if (!button2.isNullOrEmpty()) {
+            if (button2.isNullOrEmpty()) {
+                //do nothing
+            } else {
                 builder.setPositiveButton(button2) { _, _ ->
-                    callback3?.onClick2()
+                    onClickButton2?.invoke(Unit)
                 }
             }
-            if (!button3.isNullOrEmpty()) {
+            if (button3.isNullOrEmpty()) {
+                //do nothing
+            } else {
                 builder.setNeutralButton(button3) { _, _ ->
-                    callback3?.onClick3()
+                    onClickButton3?.invoke(Unit)
                 }
             }
+
             val dialog = builder.create()
             dialog.show()
             if (LUIUtil.isDarkTheme()) {
@@ -173,10 +187,6 @@ class LDialogUtil {
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color)
                 dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setTextColor(color)
             }
-
-//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEGATIVE))
-//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_POSITIVE))
-//            LUIUtil.setRipple(context = context, view = dialog.getButton(AlertDialog.BUTTON_NEUTRAL))
 
             alertDialogList.add(dialog)
             return dialog

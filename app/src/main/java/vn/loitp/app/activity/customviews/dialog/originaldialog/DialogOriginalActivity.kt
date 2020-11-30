@@ -12,7 +12,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.interfaces.Callback3
 import com.interfaces.CallbackList
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
@@ -84,25 +83,23 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show3() {
-        LDialogUtil.showDialog3(context = this,
+        LDialogUtil.showDialog3(
+                context = this,
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1",
                 button2 = "Button 2",
                 button3 = "Button 3",
-                callback3 = object : Callback3 {
-                    override fun onClick1() {
-                        showShortInformation("Click 1")
-                    }
-
-                    override fun onClick2() {
-                        showShortInformation("Click 2")
-                    }
-
-                    override fun onClick3() {
-                        showShortInformation("Click 3")
-                    }
-                })
+                onClickButton1 = {
+                    showShortInformation("Click 1")
+                },
+                onClickButton2 = {
+                    showShortInformation("Click 2")
+                },
+                onClickButton3 = {
+                    showShortInformation("Click 3")
+                }
+        )
     }
 
     private fun showList() {
