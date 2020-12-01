@@ -33,6 +33,10 @@ class PdfDemoActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         btFileAsyncTask.setSafeOnClickListener {
             callAysncTaskFile()
         }
@@ -82,18 +86,20 @@ class PdfDemoActivity : BaseFontActivity() {
         val folderPath = LStoreUtil.getFolderPath(folderName = "ZZZDemoPDF")
         val folderName = "PDFDemo"
         updateUIProgress(isLoadding = true)
-        asyncTaskDownloadPdf = AsyncTaskDownloadPdf(folderPath, url, folderName, object : AsyncTaskDownloadPdf.Callback {
 
-            override fun onSuccess(durationSec: Long, durationHHmmss: String, file: File) {
+        asyncTaskDownloadPdf = AsyncTaskDownloadPdf(folderPath, url, folderName, callback = object : AsyncTaskDownloadPdf.Callback {
+            override fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?) {
                 logD("onSuccess $durationSec - $durationHHmmss")
-                logD("onSuccess " + file.path)
+                logD("onSuccess " + file?.path)
                 showShortInformation("onSuccess after $durationSec seconds")
                 pdfView.visibility = View.VISIBLE
-                showPDF(file)
+                file?.let {
+                    showPDF(file = it)
+                }
                 updateUIProgress(isLoadding = false)
             }
 
-            override fun onError(e: Exception) {
+            override fun onError(e: Exception?) {
                 logE("onError $e")
                 updateUIProgress(isLoadding = false)
             }
@@ -102,7 +108,9 @@ class PdfDemoActivity : BaseFontActivity() {
                 logD("onProgressUpdate $downloadedSize - $totalSize - $percent")
                 pb.progress = percent.toInt()
             }
+
         })
+
         asyncTaskDownloadPdf?.execute()
     }
 
@@ -228,11 +236,11 @@ class PdfDemoActivity : BaseFontActivity() {
                     logD("onInitiallyRendered nbPages $nbPages")
                 } // called after document is rendered for the first time
                 // called on single tap, return true if handled, false to toggle scroll handle visibility
-                .onTap { _ ->
+                .onTap {
                     logD("onTap")
                     false
                 }
-                .onLongPress { _ ->
+                .onLongPress {
                     logD("OnLongPressListener")
                 }
                 .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)

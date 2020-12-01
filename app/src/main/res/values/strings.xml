@@ -489,4 +489,8 @@ Likewise may someone love you next.
     <string name="transformation_layout_single">Transformation layout single</string>
     <string name="compose_new">compose new</string>
     <string name="simple_finger_gestures_demo">Simple Finger Gestures Demo</string>
+    <string name="load_from_url_file_aysnctask">Load from Url File - Aysnctask</string>
+    <string name="load_from_url_file_coroutine">Load from Url File - Coroutine</string>
+    <string name="load_from_url_stream_aysnctask">Load from Url Stream - Aysnctask</string>
+    <string name="load_from_url_stream_coroutine">Load from Url Stream - Coroutine</string>
 </resources>

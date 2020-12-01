@@ -1,154 +1,144 @@
-package com.task;
+package com.task
 
-import android.os.AsyncTask;
+import android.os.AsyncTask
+import com.core.utilities.LDateUtil.Companion.convertSToFormat
+import com.core.utilities.LLog
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.net.HttpURLConnection
+import java.net.URL
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+class AsyncTaskDownloadPdf(
+        private val folderPath: String,
+        private val mURL: String,
+        folderName: String,
+        callback: Callback?
+) : AsyncTask<String, Int, File>() {
 
-import com.core.utilities.LDateUtil;
+    interface Callback {
+        fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?)
+        fun onError(e: Exception?)
+        fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float)
+    }
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
+    private val logTag = javaClass.simpleName
+    private var fileName: String = System.currentTimeMillis().toString()
+    private val folderName: String
+    private var startTime: Long = 0
+    private val callback: Callback?
+    private var exception: Exception? = null
 
-//TODO convert to kotlin
-public class AsyncTaskDownloadPdf extends AsyncTask<String, Integer, File> {
-    private final String logTag = getClass().getSimpleName();
-    private String mURL;
-    private String folderPath;
-    private String fileName;
-    private String folderName;
-    private long startTime;
-    private Callback callback;
-    private Exception exception;
-
-    public AsyncTaskDownloadPdf(@NonNull final String folderPath, @NonNull final String url, @NonNull final String folderName, @Nullable Callback callback) {
-        this.folderPath = folderPath;
-        this.mURL = url;
-        try {
-            final String[] arr = url.split("/");
-            fileName = arr[arr.length - 1];
-        } catch (Exception e) {
-            fileName = url;
+    init {
+        fileName = try {
+            val arr = mURL.split("/".toRegex()).toTypedArray()
+            arr[arr.size - 1]
+        } catch (e: Exception) {
+            mURL
         }
-        this.folderName = folderName;
-        this.callback = callback;
+        this.folderName = folderName
+        this.callback = callback
     }
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        startTime = System.currentTimeMillis();
+    override fun onPreExecute() {
+        super.onPreExecute()
+        startTime = System.currentTimeMillis()
     }
 
-    @Override
-    protected File doInBackground(String... arg0) {
-        return downloadFileToSdCard(mURL, fileName);
+    override fun doInBackground(vararg params: String): File? {
+        return downloadFileToSdCard(downloadUrl = mURL, fileName = fileName)
     }
 
-    private File downloadFileToSdCard(final String downloadUrl, final String fileName) {
-        try {
-            final URL url = new URL(downloadUrl);
-            final File dir = new File(folderPath + "/" + folderName);
-
+    private fun downloadFileToSdCard(downloadUrl: String, fileName: String): File? {
+        return try {
+            val url = URL(downloadUrl)
+            val dir = File("$folderPath/$folderName")
             if (!dir.exists()) {
-                boolean isMkDirResult = dir.mkdir();
-//                Log.d(logTag, "isMkDirResult " + isMkDirResult);
+                val isMkDirResult = dir.mkdir()
+                LLog.d(logTag, "isMkDirResult $isMkDirResult")
             }
 
             /* checks the file and if it already exist delete */
-            final File file = new File(dir, fileName);
+            val file = File(dir, fileName)
             if (file.exists()) {
-                boolean isDeleted = file.delete();
-//                Log.d(logTag, "isDeleted " + isDeleted);
+                val isDeleted = file.delete()
+                LLog.d(logTag, "isDeleted $isDeleted")
             }
 
             /* Open a connection */
-            final URLConnection urlConnection = url.openConnection();
-            InputStream inputStream = null;
-            final HttpURLConnection httpURLConnection = (HttpURLConnection) urlConnection;
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.connect();
-
-            if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                inputStream = httpURLConnection.getInputStream();
+            val urlConnection = url.openConnection()
+            var inputStream: InputStream? = null
+            val httpURLConnection = urlConnection as HttpURLConnection
+            httpURLConnection.requestMethod = "GET"
+            httpURLConnection.connect()
+            if (httpURLConnection.responseCode == HttpURLConnection.HTTP_OK) {
+                inputStream = httpURLConnection.inputStream
             }
             if (inputStream == null) {
-                return null;
+                return null
             }
-            final FileOutputStream fos = new FileOutputStream(file);
-            final int totalSize = httpURLConnection.getContentLength();
-//            Log.d(logTag, "totalSize " + totalSize);
-            int downloadedSize = 0;
-            final byte[] buffer = new byte[1024 * 2];
-            int bufferLength;
-            while ((bufferLength = inputStream.read(buffer)) > 0) {
-                if (isCancelled()) {
-//                    Log.d(logTag, "isCancelled -> return false");
-                    return null;
+            val fos = FileOutputStream(file)
+            val totalSize = httpURLConnection.contentLength
+            LLog.d(logTag, "totalSize $totalSize")
+            var downloadedSize = 0
+            val buffer = ByteArray(1024 * 2)
+            var bufferLength: Int
+            while (inputStream.read(buffer).also { bufferLength = it } > 0) {
+                if (isCancelled) {
+                    LLog.d(logTag, "isCancelled -> return false")
+                    return null
                 }
-                fos.write(buffer, 0, bufferLength);
-                downloadedSize += bufferLength;
-                publishProgress(downloadedSize, totalSize);
+                fos.write(buffer, 0, bufferLength)
+                downloadedSize += bufferLength
+                publishProgress(downloadedSize, totalSize)
             }
-
-            fos.close();
-//            Log.d(logTag, "File saved in sdcard..");
-            return file;
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-            exception = ioException;
-//            Log.e(logTag, "IOException" + ioException.toString());
-            return null;
-        } catch (Exception e) {
-            e.printStackTrace();
-            exception = e;
-//            Log.e(logTag, "Exception" + e.toString());
-            return null;
+            fos.close()
+            LLog.d(logTag, "File saved in sdcard..")
+            file
+        } catch (ioException: IOException) {
+            ioException.printStackTrace()
+            exception = ioException
+            LLog.e(logTag, "IOException $ioException")
+            null
+        } catch (e: Exception) {
+            e.printStackTrace()
+            exception = e
+            LLog.e(logTag, "Exception $e")
+            null
         }
     }
 
-    @Override
-    protected void onProgressUpdate(Integer... values) {
-        super.onProgressUpdate(values);
-        final int downloadedSize = values[0];
-        final int totalSize = values[1];
-        final float percent = (float) downloadedSize * 100 / (float) totalSize;
-//        Log.d(TAG, "onProgressUpdate: " + downloadedSize + "-" + totalSize + " -> " + ((float) downloadedSize * 100 / (float) totalSize) + "%");
-        if (callback != null) {
-            callback.onProgressUpdate(downloadedSize, totalSize, percent);
+    override fun onProgressUpdate(vararg values: Int?) {
+        super.onProgressUpdate(*values)
+
+        val downloadedSize = values[0]
+        val totalSize = values[1]
+
+        downloadedSize?.let { dS ->
+            totalSize?.let { tS ->
+                val percent = dS.toFloat() * 100 / tS.toFloat()
+                LLog.d(logTag, "onProgressUpdate: " + dS + "-" + tS + " -> " + (dS * 100 / tS) + "%")
+                callback?.onProgressUpdate(downloadedSize = downloadedSize, totalSize = totalSize, percent = percent)
+            }
         }
     }
 
-    @Override
-    protected void onPostExecute(File file) {
-        boolean isDownloaded = file != null && file.exists();
-//        Log.d(logTag, "onPostExecute isDownloaded: " + isDownloaded);
+    override fun onPostExecute(file: File?) {
+        val isDownloaded = file != null && file.exists()
+        LLog.d(logTag, "onPostExecute isDownloaded: $isDownloaded")
         if (isDownloaded) {
             if (callback != null) {
-                final long endTime = System.currentTimeMillis();
-                final long durationSec = (endTime - startTime) / 1000;
-                final String duration = LDateUtil.Companion.convertSToFormat(durationSec, "HH:mm:ss");
-//                Log.d(logTag, "onPostExecute duration: " + duration);
-                callback.onSuccess(durationSec, duration, file);
+                val endTime = System.currentTimeMillis()
+                val durationSec = (endTime - startTime) / 1000
+                val duration = convertSToFormat(durationSec, "HH:mm:ss")
+                LLog.d(logTag, "onPostExecute duration: $duration")
+                callback.onSuccess(durationSec, duration, file)
             }
         } else {
-            if (callback != null) {
-                callback.onError(exception);
-            }
+            callback?.onError(exception)
         }
-        super.onPostExecute(file);
+        super.onPostExecute(file)
     }
 
-    public interface Callback {
-        void onSuccess(long durationSec, String durationHHmmss, File file);
-
-        void onError(Exception e);
-
-        void onProgressUpdate(int downloadedSize, int totalSize, float percent);
-    }
 }
