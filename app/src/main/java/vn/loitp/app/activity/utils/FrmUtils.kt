@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.utils
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -250,6 +251,7 @@ class FrmUtils : Fragment() {
         textView.text = text
     }
 
+    @SuppressLint("SetTextI18n")
     private fun handleCacheUtils() {
         textView.text = "CacheUtils"
     }
@@ -257,9 +259,9 @@ class FrmUtils : Fragment() {
     private fun handleActivityUtils() {
         var text = ""
 
-        text += "\n$line isActivityExists UtilsActivity: " + ActivityUtils.isActivityExists(activity?.packageName, "UtilsActivity")
+        text += "\n$line isActivityExists UtilsActivity: " + ActivityUtils.isActivityExists(packageName = activity?.packageName, className = "UtilsActivity")
         text += "\n$line getLauncherActivity: " + ActivityUtils.getLauncherActivity(activity?.packageName)
-        text += "\n$line getTopActivity: " + ActivityUtils.getTopActivity()
+        text += "\n$line getTopActivity: " + ActivityUtils.topActivity
 
         textView.text = text
     }
