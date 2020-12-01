@@ -64,7 +64,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         }
         LImageUtil.load(context = this, any = urlCoverSplashScreen, imageView = ivBkg)
 //        LUIUtil.setTextShadow(textView = tvCopyright)
-        tvName.text = AppUtils.getAppName()
+        tvName.text = AppUtils.appName
 //        LUIUtil.setTextShadow(tvName)
 
         LValidateUtil.isValidPackageName()

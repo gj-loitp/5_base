@@ -62,7 +62,7 @@ class LValidateUtil {
 
         fun isValidPackageName(): Boolean {
             val isValid = listPkg.any {
-                it == AppUtils.getAppPackageName()
+                it == AppUtils.appPackageName
             }
             if (isValid) {
                 return true

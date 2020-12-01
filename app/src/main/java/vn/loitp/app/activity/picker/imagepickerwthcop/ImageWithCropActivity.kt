@@ -39,7 +39,7 @@ class ImageWithCropActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        name = AppUtils.getAppName()
+        name = AppUtils.appName
         //check permission
         checkPermission()
         startGalleryBtn.setSafeOnClickListener {

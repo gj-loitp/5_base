@@ -20,7 +20,7 @@ class Notti(
     private var currentID = 0
 
     fun show(customNotification: CustomNotification) {
-        val channelName = AppUtils.getAppName()
+        val channelName = AppUtils.appName
         val channelId = "channel-$channelName"
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

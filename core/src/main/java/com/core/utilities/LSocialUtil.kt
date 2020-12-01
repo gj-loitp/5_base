@@ -22,7 +22,7 @@ class LSocialUtil {
 
         fun rateApp(
                 activity: Activity,
-                packageName: String = AppUtils.getAppPackageName()
+                packageName: String = AppUtils.appPackageName
         ) {
 //            LLog.d(logTag, ">>>rateApp packageName $packageName")
             try {

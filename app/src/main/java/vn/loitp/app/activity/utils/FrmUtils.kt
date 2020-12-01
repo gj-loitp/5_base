@@ -278,29 +278,29 @@ class FrmUtils : Fragment() {
         text += "\n$line uninstallApp(String packageName)"
         text += "\n$line uninstallApp(Activity activity, String packageName, int requestCode)"
         text += "\n$line uninstallAppSilent(String packageName, boolean isKeepData)"
-        text += "\n$line isAppRoot: " + AppUtils.isAppRoot()
+        text += "\n$line isAppRoot: " + AppUtils.isAppRoot
         text += "\n$line launchApp(String packageName)"
         text += "\n$line launchApp(Activity activity, String packageName, int requestCode)"
-        text += "\n$line getAppPackageName: " + AppUtils.getAppPackageName()
+        text += "\n$line getAppPackageName: " + AppUtils.appPackageName
         text += "\n$line getAppDetailsSettings()"
         text += "\n$line getAppDetailsSettings(String packageName)"
-        text += "\n$line getAppName: " + AppUtils.getAppName()
+        text += "\n$line getAppName: " + AppUtils.appName
         text += "\n$line getAppName com.facebook.katana: " + AppUtils.getAppName("com.facebook.katana")
         text += "\n$line getAppIcon()"
         text += "\n$line getAppIcon(String packageName)"
-        text += "\n$line getAppPath: " + AppUtils.getAppPath()
+        text += "\n$line getAppPath: " + AppUtils.appPath
         text += "\n$line getAppPath com.facebook.katana: " + AppUtils.getAppPath("com.facebook.katana")
-        text += "\n$line getAppVersionName: " + AppUtils.getAppVersionName()
+        text += "\n$line getAppVersionName: " + AppUtils.appVersionName
         text += "\n$line getAppVersionName com.facebook.katana: " + AppUtils.getAppVersionName("com.facebook.katana")
-        text += "\n$line getAppVersionCode ${activity?.packageName} " + AppUtils.getAppVersionCode(activity?.packageName)
-        text += "\n$line isSystemApp ${activity?.packageName} " + AppUtils.isSystemApp(activity?.packageName)
-        text += "\n$line isAppDebug ${activity?.packageName} " + AppUtils.isAppDebug(activity?.packageName)
-        text += "\n$line getAppSignature ${activity?.packageName} " + AppUtils.getAppSignature(activity?.packageName)
-        text += "\n$line getAppSignatureSHA1 ${activity?.packageName} " + AppUtils.getAppSignatureSHA1(activity?.packageName)
-        text += "\n$line isAppForeground ${activity?.packageName} " + AppUtils.isAppForeground(activity?.packageName)
-        text += "\n$line getAppInfo ${activity?.packageName} " + AppUtils.getAppInfo(activity?.packageName)
+        text += "\n$line getAppVersionCode ${activity?.packageName} " + AppUtils.getAppVersionCode(packageName = activity?.packageName)
+        text += "\n$line isSystemApp ${activity?.packageName} " + AppUtils.isSystemApp(packageName = activity?.packageName)
+        text += "\n$line isAppDebug ${activity?.packageName} " + AppUtils.isAppDebug(packageName = activity?.packageName)
+        text += "\n$line getAppSignature ${activity?.packageName} " + AppUtils.getAppSignature(packageName = activity?.packageName)
+        text += "\n$line getAppSignatureSHA1 ${activity?.packageName} " + AppUtils.getAppSignatureSHA1(packageName = activity?.packageName)
+        text += "\n$line isAppForeground ${activity?.packageName} " + AppUtils.isAppForeground(packageName = activity?.packageName)
+        text += "\n$line getAppInfo ${activity?.packageName} " + AppUtils.getAppInfo(packageName = activity?.packageName)
         text += "\n$line getBean(PackageManager pm, PackageInfo pi)"
-        text += "\n$line getAppsInfo ${activity?.packageName} " + AppUtils.getAppsInfo()
+        text += "\n$line getAppsInfo ${activity?.packageName} " + AppUtils.appsInfo
         text += "\n$line boolean cleanAppData(String... dirPaths)"
         text += "\n$line boolean cleanAppData(File... dirs)"
 

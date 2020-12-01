@@ -16,7 +16,7 @@ class LPrefUtil {
         private val logTag = LPrefUtil::class.java.simpleName
 
         private const val PREFERENCES_FILE_NAME = "loitp"
-        private val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.getAppVersionCode()
+        private val CHECK_APP_READY = "CHECK_APP_READY" + AppUtils.appVersionCode
         private const val PRE_LOAD = "PRE_LOAD"
         const val JSON_LIST_DATA = "JSON_LIST_DATA"
         const val JSON_FAV_DATA = "JSON_FAV_DATA"

@@ -15,7 +15,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     companion object {
         // Database Version
-        private val DATABASE_VERSION = AppUtils.getAppVersionCode()
+        private val DATABASE_VERSION = AppUtils.appVersionCode
 
         // Database Name
         private val DATABASE_NAME = DatabaseHelper::class.java.name
@@ -108,28 +108,28 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     override fun onCreate(db: SQLiteDatabase) {
         // Table Create Statements
-        val CREATE_TABLE_TODO = ("CREATE TABLE " + TABLE_NOTE + "("
+        val createTableToDo = ("CREATE TABLE " + TABLE_NOTE + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NOTE + " TEXT,"
                 + KEY_STATUS + " INTEGER,"
                 + KEY_CREATED_AT + " DATETIME"
                 + ")")
-        db.execSQL(CREATE_TABLE_TODO)
+        db.execSQL(createTableToDo)
         // Tag table create statement
-        val CREATE_TABLE_TAG = ("CREATE TABLE " + TABLE_TAG + "("
+        val createTableTag = ("CREATE TABLE " + TABLE_TAG + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_TAG_NAME + " TEXT,"
                 + KEY_CREATED_AT + " DATETIME"
                 + ")")
-        db.execSQL(CREATE_TABLE_TAG)
+        db.execSQL(createTableTag)
         // todo_tag table create statement
-        val CREATE_TABLE_TODO_TAG = ("CREATE TABLE " + TABLE_NOTE_TAG + "("
+        val createTableToDoTag = ("CREATE TABLE " + TABLE_NOTE_TAG + "("
                 + KEY_ID + " INTEGER PRIMARY KEY,"
                 + KEY_NOTE_ID + " INTEGER,"
                 + KEY_TAG_ID + " INTEGER,"
                 + KEY_CREATED_AT + " DATETIME"
                 + ")")
-        db.execSQL(CREATE_TABLE_TODO_TAG)
+        db.execSQL(createTableToDoTag)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

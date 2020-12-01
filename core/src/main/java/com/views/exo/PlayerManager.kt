@@ -47,7 +47,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     constructor(context: Context) {
         this.adsLoader = null
         this.screenW = LScreenUtil.screenWidth
-        dataSourceFactory = DefaultDataSourceFactory(context, AppUtils.getAppName())
+        dataSourceFactory = DefaultDataSourceFactory(context, AppUtils.appName)
     }
 
     constructor(context: Context, urlIMAAd: String) {
@@ -55,7 +55,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             adsLoader = ImaAdsLoader(context, Uri.parse(urlIMAAd))
         }
         this.screenW = LScreenUtil.screenWidth
-        dataSourceFactory = DefaultDataSourceFactory(context, AppUtils.getAppName())
+        dataSourceFactory = DefaultDataSourceFactory(context, AppUtils.appName)
     }
 
     @JvmOverloads

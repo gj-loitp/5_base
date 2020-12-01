@@ -12,7 +12,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
 
     companion object {
         private const val logTag = "EncryptionSharedPrefs"
-        private val PREFS_NAME = logTag + AppUtils.getAppPackageName()
+        private val PREFS_NAME = logTag + AppUtils.appPackageName
         private var mInstance: LEncryptionSharedPrefsUtil? = null
         private val pw = LEncryptionUtil.encodeBase64(PREFS_NAME + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress()) + "1993"
 

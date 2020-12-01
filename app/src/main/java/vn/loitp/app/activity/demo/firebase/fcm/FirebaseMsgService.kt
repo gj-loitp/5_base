@@ -27,7 +27,7 @@ class FirebaseMsgService : FirebaseMessagingService() {
 
             //THIS CODE BELOWS SEND A NOTIFICATION
             if (BuildConfig.DEBUG) {
-                val appName = AppUtils.getAppName()
+                val appName = AppUtils.appName
                 val title = "$appName miss you!"
                 val messageBody = remoteMessage.notification?.body
                 val notti = Notti(
