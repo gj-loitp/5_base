@@ -31,6 +31,10 @@ class NetViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        netAdapter.onClickRootView = { net ->
+            showShortInformation(net.name)
+        }
+
         rvNetView.layoutManager = GridLayoutManager(this, 3)
         rvNetView.adapter = netAdapter
     }

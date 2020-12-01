@@ -23,6 +23,8 @@ class NetAdapter() : AnimationAdapter() {
         notifyDataSetChanged()
     }
 
+    var onClickRootView: ((Net) -> Unit)? = null
+
     inner class NetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(net: Net) {
@@ -35,6 +37,10 @@ class NetAdapter() : AnimationAdapter() {
             itemView.rootView.setBackgroundColor(LStoreUtil.randomColor)
 
             //setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
+
+            itemView.rootView.setOnClickListener {
+                onClickRootView?.invoke(net)
+            }
         }
     }
 
