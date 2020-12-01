@@ -56,6 +56,11 @@
                 android:text="GalleryLayoutManager Vertical" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNetView"
+                style="@style/ButtonMenu"
+                android:text="Net view" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNormalRecyclerView"
                 style="@style/ButtonMenu"
                 android:text="Normal RecyclerView With Animation" />

@@ -16,6 +16,7 @@ import vn.loitp.app.activity.customviews.recyclerview.footer.RecyclerViewFooterA
 import vn.loitp.app.activity.customviews.recyclerview.footer2.RecyclerViewFooter2Activity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity
+import vn.loitp.app.activity.customviews.recyclerview.netview.NetViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.RecyclerViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity
@@ -47,6 +48,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         btConcatAdapter.setOnClickListener(this)
         btFooter.setOnClickListener(this)
         btFooter2.setOnClickListener(this)
+        btNetView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -65,6 +67,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btConcatAdapter -> intent = Intent(this, ConcatAdapterActivity::class.java)
             btFooter -> intent = Intent(this, RecyclerViewFooterActivity::class.java)
             btFooter2 -> intent = Intent(this, RecyclerViewFooter2Activity::class.java)
+            btNetView -> intent = Intent(this, NetViewActivity::class.java)
         }
         intent?.let {
             startActivity(it)
