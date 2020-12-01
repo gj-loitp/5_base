@@ -11,7 +11,6 @@ import com.function.notification.config.VibrationSettings;
 
 import java.util.List;
 
-//TODO convert kotlin
 public interface CustomNotification {
 
     CustomNotification setTitle(String title);
