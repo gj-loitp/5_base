@@ -155,12 +155,12 @@ class FrmUtils : Fragment() {
     private fun handleDeviceUtils() {
         var text = ""
 
-        text += "\n$line boolean isDeviceRooted() " + DeviceUtils.isDeviceRooted()
-        text += "\n$line int getSDKVersion() " + DeviceUtils.getSDKVersion()
-        text += "\n$line String getAndroidID() " + DeviceUtils.getAndroidID()
-        text += "\n$line String getMacAddress() " + DeviceUtils.getMacAddress()
-        text += "\n$line String getManufacturer() " + DeviceUtils.getManufacturer()
-        text += "\n$line String getModel() " + DeviceUtils.getModel()
+        text += "\n$line boolean isDeviceRooted() " + DeviceUtils.isDeviceRooted
+        text += "\n$line int getSDKVersion() " + DeviceUtils.sDKVersion
+        text += "\n$line String getAndroidID() " + DeviceUtils.androidID
+        text += "\n$line String getMacAddress() " + DeviceUtils.macAddress
+        text += "\n$line String getManufacturer() " + DeviceUtils.manufacturer
+        text += "\n$line String getModel() " + DeviceUtils.model
         text += "\n$line void shutdown()"
         text += "\n$line void reboot()"
         text += "\n$line void reboot(String reason)"

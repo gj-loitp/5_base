@@ -29,7 +29,7 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     }
 
     private val logTag = javaClass.simpleName
-    private val pw = LEncryptionUtil.encodeBase64(logTag + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress()) + "1993"
+    private val pw = LEncryptionUtil.encodeBase64(logTag + DeviceUtils.androidID + DeviceUtils.macAddress) + "1993"
 
     // Getting All Bike
     val allBike: List<Bike>

@@ -14,7 +14,7 @@ class LEncryptionSharedPrefsUtil private constructor() {
         private const val logTag = "EncryptionSharedPrefs"
         private val PREFS_NAME = logTag + AppUtils.appPackageName
         private var mInstance: LEncryptionSharedPrefsUtil? = null
-        private val pw = LEncryptionUtil.encodeBase64(PREFS_NAME + DeviceUtils.getAndroidID() + DeviceUtils.getMacAddress()) + "1993"
+        private val pw = LEncryptionUtil.encodeBase64(PREFS_NAME + DeviceUtils.androidID + DeviceUtils.macAddress) + "1993"
 
         val instance: LEncryptionSharedPrefsUtil
             get() {
