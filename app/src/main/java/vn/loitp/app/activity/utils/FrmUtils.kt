@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.utils
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,9 +34,6 @@ class FrmUtils : Fragment() {
                 }
                 BarUtils::class.java.simpleName -> {
                     handleBarUtils()
-                }
-                CacheUtils::class.java.simpleName -> {
-                    handleCacheUtils()
                 }
                 CleanUtils::class.java.simpleName -> {
                     handleCleanUtils()
@@ -249,11 +245,6 @@ class FrmUtils : Fragment() {
         text += "\n$line boolean cleanCustomCache(File dir)"
 
         textView.text = text
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun handleCacheUtils() {
-        textView.text = "CacheUtils"
     }
 
     private fun handleActivityUtils() {

@@ -42,7 +42,6 @@ class UtilsActivity : BaseFontActivity() {
         listClass.add(CloseUtils::class.java.simpleName)
         listClass.add(ClipboardUtils::class.java.simpleName)
         listClass.add(CleanUtils::class.java.simpleName)
-        listClass.add(CacheUtils::class.java.simpleName)
         listClass.add(BarUtils::class.java.simpleName)
         listClass.add(AppUtils::class.java.simpleName)
         listClass.add(ActivityUtils::class.java.simpleName)
