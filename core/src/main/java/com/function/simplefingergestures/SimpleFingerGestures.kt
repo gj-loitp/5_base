@@ -1,189 +1,129 @@
-package com.function.simplefingergestures;
+package com.function.simplefingergestures
 
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
+import android.annotation.SuppressLint
+import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnTouchListener
+import com.function.simplefingergestures.GestureAnalyser.GestureType
 
-public class SimpleFingerGestures implements View.OnTouchListener {
+class SimpleFingerGestures : OnTouchListener {
 
-    private boolean debug = true;
-    private boolean consumeTouchEvents = false;
-
-    // Will see if these need to be used. For now just returning duration in milliS
-    public static final long GESTURE_SPEED_SLOW = 1500;
-    public static final long GESTURE_SPEED_MEDIUM = 1000;
-    public static final long GESTURE_SPEED_FAST = 500;
-    private static final String TAG = "SimpleFingerGestures";
-    protected boolean tracking[] = {false, false, false, false, false};
-    private GestureAnalyser ga;
-    private OnFingerGestureListener onFingerGestureListener;
-
-    public SimpleFingerGestures() {
-        ga = new GestureAnalyser();
+    companion object {
+        // Will see if these need to be used. For now just returning duration in milliS
+        const val GESTURE_SPEED_SLOW: Long = 1500
+        const val GESTURE_SPEED_MEDIUM: Long = 1000
+        const val GESTURE_SPEED_FAST: Long = 500
+        private const val TAG = "SimpleFingerGestures"
     }
 
-    public SimpleFingerGestures(int swipeSlopeIntolerance, int doubleTapMaxDelayMillis, int doubleTapMaxDownMillis) {
-        ga = new GestureAnalyser(swipeSlopeIntolerance, doubleTapMaxDelayMillis, doubleTapMaxDownMillis);
+    interface OnFingerGestureListener {
+        fun onSwipeUp(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean
+        fun onSwipeDown(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean
+        fun onSwipeLeft(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean
+        fun onSwipeRight(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean
+        fun onPinch(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean
+        fun onUnpinch(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean
+        fun onDoubleTap(fingers: Int): Boolean
     }
 
-    public void setDebug(boolean debug) {
-        this.debug = debug;
+    var consumeTouchEvents = false
+    private var tracking = booleanArrayOf(false, false, false, false, false)
+    private var gestureAnalyser = GestureAnalyser()
+    private var onFingerGestureListener: OnFingerGestureListener? = null
+
+    constructor() {
+        gestureAnalyser = GestureAnalyser()
     }
 
-    public boolean getConsumeTouchEvents() {
-        return consumeTouchEvents;
+    constructor(swipeSlopeIntolerance: Int, doubleTapMaxDelayMillis: Int, doubleTapMaxDownMillis: Int) {
+        gestureAnalyser = GestureAnalyser(swipeSlopeIntolerance, doubleTapMaxDelayMillis, doubleTapMaxDownMillis)
     }
 
-    public void setConsumeTouchEvents(boolean consumeTouchEvents) {
-        this.consumeTouchEvents = consumeTouchEvents;
+    fun setOnFingerGestureListener(listener: OnFingerGestureListener?) {
+        onFingerGestureListener = listener
     }
 
-    public void setOnFingerGestureListener(OnFingerGestureListener omfgl) {
-        onFingerGestureListener = omfgl;
-    }
-
-    @Override
-    public boolean onTouch(View view, MotionEvent ev) {
-        if (debug) Log.d(TAG, "onTouch");
-        switch (ev.getAction() & MotionEvent.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN:
-                if (debug) Log.d(TAG, "ACTION_DOWN");
-                startTracking(0);
-                ga.trackGesture(ev);
-                return consumeTouchEvents;
-            case MotionEvent.ACTION_UP:
-                if (debug) Log.d(TAG, "ACTION_UP");
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouch(view: View, motionEvent: MotionEvent): Boolean {
+        when (motionEvent.action and MotionEvent.ACTION_MASK) {
+            MotionEvent.ACTION_DOWN -> {
+                startTracking(0)
+                gestureAnalyser.trackGesture(motionEvent)
+                return consumeTouchEvents
+            }
+            MotionEvent.ACTION_UP -> {
                 if (tracking[0]) {
-                    doCallBack(ga.getGesture(ev));
+                    doCallBack(gestureAnalyser.getGesture(motionEvent))
                 }
-                stopTracking(0);
-                ga.untrackGesture();
-                return consumeTouchEvents;
-            case MotionEvent.ACTION_POINTER_DOWN:
-                if (debug) Log.d(TAG, "ACTION_POINTER_DOWN" + " " + "num" + ev.getPointerCount());
-                startTracking(ev.getPointerCount() - 1);
-                ga.trackGesture(ev);
-                return consumeTouchEvents;
-            case MotionEvent.ACTION_POINTER_UP:
-                if (debug) Log.d(TAG, "ACTION_POINTER_UP" + " " + "num" + ev.getPointerCount());
+                stopTracking(0)
+                gestureAnalyser.untrackGesture()
+                return consumeTouchEvents
+            }
+            MotionEvent.ACTION_POINTER_DOWN -> {
+                startTracking(motionEvent.pointerCount - 1)
+                gestureAnalyser.trackGesture(motionEvent)
+                return consumeTouchEvents
+            }
+            MotionEvent.ACTION_POINTER_UP -> {
                 if (tracking[1]) {
-                    doCallBack(ga.getGesture(ev));
+                    doCallBack(gestureAnalyser.getGesture(motionEvent))
                 }
-                stopTracking(ev.getPointerCount() - 1);
-                ga.untrackGesture();
-                return consumeTouchEvents;
-            case MotionEvent.ACTION_CANCEL:
-                if (debug) Log.d(TAG, "ACTION_CANCEL");
-                return true;
-            case MotionEvent.ACTION_MOVE:
-                if (debug) Log.d(TAG, "ACTION_MOVE");
-                return consumeTouchEvents;
+                stopTracking(motionEvent.pointerCount - 1)
+                gestureAnalyser.untrackGesture()
+                return consumeTouchEvents
+            }
+            MotionEvent.ACTION_CANCEL -> {
+                return true
+            }
+            MotionEvent.ACTION_MOVE -> {
+                return consumeTouchEvents
+            }
         }
-        return consumeTouchEvents;
+        return consumeTouchEvents
     }
 
-    private void doCallBack(GestureAnalyser.GestureType mGt) {
-        switch (mGt.getGestureFlag()) {
-            case GestureAnalyser.SWIPE_1_UP:
-                onFingerGestureListener.onSwipeUp(1, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_1_DOWN:
-                onFingerGestureListener.onSwipeDown(1, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_1_LEFT:
-                onFingerGestureListener.onSwipeLeft(1, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_1_RIGHT:
-                onFingerGestureListener.onSwipeRight(1, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-
-            case GestureAnalyser.SWIPE_2_UP:
-                onFingerGestureListener.onSwipeUp(2, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_2_DOWN:
-                onFingerGestureListener.onSwipeDown(2, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_2_LEFT:
-                onFingerGestureListener.onSwipeLeft(2, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_2_RIGHT:
-                onFingerGestureListener.onSwipeRight(2, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.PINCH_2:
-                onFingerGestureListener.onPinch(2, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.UNPINCH_2:
-                onFingerGestureListener.onUnpinch(2, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-
-            case GestureAnalyser.SWIPE_3_UP:
-                onFingerGestureListener.onSwipeUp(3, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_3_DOWN:
-                onFingerGestureListener.onSwipeDown(3, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_3_LEFT:
-                onFingerGestureListener.onSwipeLeft(3, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_3_RIGHT:
-                onFingerGestureListener.onSwipeRight(3, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.PINCH_3:
-                onFingerGestureListener.onPinch(3, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.UNPINCH_3:
-                onFingerGestureListener.onUnpinch(3, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-
-            case GestureAnalyser.SWIPE_4_UP:
-                onFingerGestureListener.onSwipeUp(4, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_4_DOWN:
-                onFingerGestureListener.onSwipeDown(4, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_4_LEFT:
-                onFingerGestureListener.onSwipeLeft(4, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.SWIPE_4_RIGHT:
-                onFingerGestureListener.onSwipeRight(4, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.PINCH_4:
-                onFingerGestureListener.onPinch(4, mGt.getGestureDuration(), mGt.getGestureDistance());
-                break;
-            case GestureAnalyser.UNPINCH_4:
-                onFingerGestureListener.onUnpinch(4, mGt.getGestureDuration(), mGt.getGestureDistance());
-            case GestureAnalyser.DOUBLE_TAP_1:
-                onFingerGestureListener.onDoubleTap(1);
-                break;
+    private fun doCallBack(gestureType: GestureType) {
+        when (gestureType.gestureFlag) {
+            GestureAnalyser.SWIPE_1_UP -> onFingerGestureListener?.onSwipeUp(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_1_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_1_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_1_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_2_UP -> onFingerGestureListener?.onSwipeUp(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_2_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_2_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_2_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.PINCH_2 -> onFingerGestureListener?.onPinch(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.UNPINCH_2 -> onFingerGestureListener?.onUnpinch(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_3_UP -> onFingerGestureListener?.onSwipeUp(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_3_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_3_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_3_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.PINCH_3 -> onFingerGestureListener?.onPinch(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.UNPINCH_3 -> onFingerGestureListener?.onUnpinch(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_4_UP -> onFingerGestureListener?.onSwipeUp(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_4_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_4_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_4_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.PINCH_4 -> onFingerGestureListener?.onPinch(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.UNPINCH_4 -> {
+                onFingerGestureListener?.let {
+                    it.onUnpinch(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+                    it.onDoubleTap(fingers = 1)
+                }
+            }
+            GestureAnalyser.DOUBLE_TAP_1 -> onFingerGestureListener?.onDoubleTap(fingers = 1)
         }
     }
 
-    private void startTracking(int nthPointer) {
-        for (int i = 0; i <= nthPointer; i++) {
-            tracking[i] = true;
+    private fun startTracking(nthPointer: Int) {
+        for (i in 0..nthPointer) {
+            tracking[i] = true
         }
     }
 
-    private void stopTracking(int nthPointer) {
-        for (int i = nthPointer; i < tracking.length; i++) {
-            tracking[i] = false;
+    private fun stopTracking(nthPointer: Int) {
+        for (i in nthPointer until tracking.size) {
+            tracking[i] = false
         }
-    }
-
-    public interface OnFingerGestureListener {
-
-        public boolean onSwipeUp(int fingers, long gestureDuration, double gestureDistance);
-
-        public boolean onSwipeDown(int fingers, long gestureDuration, double gestureDistance);
-
-        public boolean onSwipeLeft(int fingers, long gestureDuration, double gestureDistance);
-
-        public boolean onSwipeRight(int fingers, long gestureDuration, double gestureDistance);
-
-        public boolean onPinch(int fingers, long gestureDuration, double gestureDistance);
-
-        public boolean onUnpinch(int fingers, long gestureDuration, double gestureDistance);
-
-        public boolean onDoubleTap(int fingers);
     }
 }
