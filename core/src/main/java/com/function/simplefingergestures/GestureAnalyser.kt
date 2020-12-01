@@ -1,7 +1,10 @@
-package com.function.simplefingergestures;
+package com.function.simplefingergestures
 
-import android.os.SystemClock;
-import android.view.MotionEvent;
+import android.os.SystemClock
+import android.view.MotionEvent
+import kotlin.math.abs
+import kotlin.math.pow
+import kotlin.math.sqrt
 
 /**
  * Internal API class to analyse the recorded gestures.
@@ -10,289 +13,247 @@ import android.view.MotionEvent;
  * @version 0.2
  * @since 0.1 12/04/14
  */
+class GestureAnalyser @JvmOverloads constructor(
+        swipeSlopeIntolerance: Int = 3,
+        doubleTapMaxDelayMillis: Int = 500,
+        doubleTapMaxDownMillis: Int = 100
+) {
 
-//TODO convert kotlin
-public class GestureAnalyser {
-
-    public static final boolean DEBUG = true;
-    // Finished gestures flags
-    public static final int SWIPE_1_UP = 11;
-    public static final int SWIPE_1_DOWN = 12;
-    public static final int SWIPE_1_LEFT = 13;
-    public static final int SWIPE_1_RIGHT = 14;
-    public static final int SWIPE_2_UP = 21;
-    public static final int SWIPE_2_DOWN = 22;
-    public static final int SWIPE_2_LEFT = 23;
-    public static final int SWIPE_2_RIGHT = 24;
-    public static final int SWIPE_3_UP = 31;
-    public static final int SWIPE_3_DOWN = 32;
-    public static final int SWIPE_3_LEFT = 33;
-    public static final int SWIPE_3_RIGHT = 34;
-    public static final int SWIPE_4_UP = 41;
-    public static final int SWIPE_4_DOWN = 42;
-    public static final int SWIPE_4_LEFT = 43;
-    public static final int SWIPE_4_RIGHT = 44;
-    public static final int PINCH_2 = 25;
-    public static final int UNPINCH_2 = 26;
-    public static final int PINCH_3 = 35;
-    public static final int UNPINCH_3 = 36;
-    public static final int PINCH_4 = 45;
-    public static final int UNPINCH_4 = 46;
-
-    public static final int DOUBLE_TAP_1 = 107;
-
-    public static final int SWIPING_1_UP = 101;
-    public static final int SWIPING_1_DOWN = 102;
-    public static final int SWIPING_1_LEFT = 103;
-    public static final int SWIPING_1_RIGHT = 104;
-    public static final int SWIPING_2_UP = 201;
-    public static final int SWIPING_2_DOWN = 202;
-    public static final int SWIPING_2_LEFT = 203;
-    public static final int SWIPING_2_RIGHT = 204;
-    public static final int PINCHING = 205;
-    public static final int UNPINCHING = 206;
-    private static final String TAG = "GestureAnalyser";
-    private double[] initialX = new double[5];
-    private double[] initialY = new double[5];
-    private double[] finalX = new double[5];
-    private double[] finalY = new double[5];
-    private double[] currentX = new double[5];
-    private double[] currentY = new double[5];
-    private double[] delX = new double[5];
-    private double[] delY = new double[5];
-
-    private int numFingers = 0;
-    private long initialT, finalT, currentT;
-
-    private long prevInitialT, prevFinalT;
-
-    private int swipeSlopeIntolerance = 3;
-
-    private long doubleTapMaxDelayMillis;
-    private long doubleTapMaxDownMillis;
-
-    public GestureAnalyser() {
-        this(3, 500, 100);
+    inner class GestureType {
+        var gestureFlag = 0
+        var gestureDuration: Long = 0
+        var gestureDistance = 0.0
     }
 
-    public GestureAnalyser(int swipeSlopeIntolerance, int doubleTapMaxDelayMillis, int doubleTapMaxDownMillis) {
-        this.swipeSlopeIntolerance = swipeSlopeIntolerance;
-        this.doubleTapMaxDownMillis = doubleTapMaxDownMillis;
-        this.doubleTapMaxDelayMillis = doubleTapMaxDelayMillis;
+    companion object {
+        // Finished gestures flags
+        const val SWIPE_1_UP = 11
+        const val SWIPE_1_DOWN = 12
+        const val SWIPE_1_LEFT = 13
+        const val SWIPE_1_RIGHT = 14
+        const val SWIPE_2_UP = 21
+        const val SWIPE_2_DOWN = 22
+        const val SWIPE_2_LEFT = 23
+        const val SWIPE_2_RIGHT = 24
+        const val SWIPE_3_UP = 31
+        const val SWIPE_3_DOWN = 32
+        const val SWIPE_3_LEFT = 33
+        const val SWIPE_3_RIGHT = 34
+        const val SWIPE_4_UP = 41
+        const val SWIPE_4_DOWN = 42
+        const val SWIPE_4_LEFT = 43
+        const val SWIPE_4_RIGHT = 44
+        const val PINCH_2 = 25
+        const val UNPINCH_2 = 26
+        const val PINCH_3 = 35
+        const val UNPINCH_3 = 36
+        const val PINCH_4 = 45
+        const val UNPINCH_4 = 46
+        const val DOUBLE_TAP_1 = 107
+        const val SWIPING_1_UP = 101
+        const val SWIPING_1_DOWN = 102
+        const val SWIPING_1_LEFT = 103
+        const val SWIPING_1_RIGHT = 104
+        const val SWIPING_2_UP = 201
+        const val SWIPING_2_DOWN = 202
+        const val SWIPING_2_LEFT = 203
+        const val SWIPING_2_RIGHT = 204
+        const val PINCHING = 205
+        const val UNPINCHING = 206
+        private const val TAG = "GestureAnalyser"
     }
 
-    public void trackGesture(MotionEvent ev) {
-        int n = ev.getPointerCount();
-        for (int i = 0; i < n; i++) {
-            initialX[i] = ev.getX(i);
-            initialY[i] = ev.getY(i);
+    private val initialX = DoubleArray(5)
+    private val initialY = DoubleArray(5)
+    private val finalX = DoubleArray(5)
+    private val finalY = DoubleArray(5)
+    private val currentX = DoubleArray(5)
+    private val currentY = DoubleArray(5)
+    private val delX = DoubleArray(5)
+    private val delY = DoubleArray(5)
+    private var numFingers = 0
+    private var initialT: Long = 0
+    private var finalT: Long = 0
+    private var currentT: Long = 0
+    private var prevInitialT: Long = 0
+    private var prevFinalT: Long = 0
+    private var swipeSlopeIntolerance = 3
+    private val doubleTapMaxDelayMillis: Long
+    private val doubleTapMaxDownMillis: Long
+
+    init {
+        this.swipeSlopeIntolerance = swipeSlopeIntolerance
+        this.doubleTapMaxDownMillis = doubleTapMaxDownMillis.toLong()
+        this.doubleTapMaxDelayMillis = doubleTapMaxDelayMillis.toLong()
+    }
+
+    fun trackGesture(ev: MotionEvent) {
+        val n = ev.pointerCount
+        for (i in 0 until n) {
+            initialX[i] = ev.getX(i).toDouble()
+            initialY[i] = ev.getY(i).toDouble()
         }
-        numFingers = n;
-        initialT = SystemClock.uptimeMillis();
+        numFingers = n
+        initialT = SystemClock.uptimeMillis()
     }
 
-    public void untrackGesture() {
-        numFingers = 0;
-        prevFinalT = SystemClock.uptimeMillis();
-        prevInitialT = initialT;
+    fun untrackGesture() {
+        numFingers = 0
+        prevFinalT = SystemClock.uptimeMillis()
+        prevInitialT = initialT
     }
 
-    public GestureType getGesture(MotionEvent ev) {
-        double averageDistance = 0.0;
-        for (int i = 0; i < numFingers; i++) {
-            finalX[i] = ev.getX(i);
-            finalY[i] = ev.getY(i);
-            delX[i] = finalX[i] - initialX[i];
-            delY[i] = finalY[i] - initialY[i];
-
-            averageDistance += Math.sqrt(Math.pow(finalX[i] - initialX[i], 2) + Math.pow(finalY[i] - initialY[i], 2));
+    fun getGesture(motionEvent: MotionEvent): GestureType {
+        var averageDistance = 0.0
+        for (i in 0 until numFingers) {
+            finalX[i] = motionEvent.getX(i).toDouble()
+            finalY[i] = motionEvent.getY(i).toDouble()
+            delX[i] = finalX[i] - initialX[i]
+            delY[i] = finalY[i] - initialY[i]
+            averageDistance += sqrt(x = (finalX[i] - initialX[i]).pow(2.0) + (finalY[i] - initialY[i]).pow(2.0))
         }
-        averageDistance /= numFingers;
+        averageDistance /= numFingers.toDouble()
+        finalT = SystemClock.uptimeMillis()
 
-        finalT = SystemClock.uptimeMillis();
-        GestureType gt = new GestureType();
-        gt.setGestureFlag(calcGesture());
-        gt.setGestureDuration(finalT - initialT);
-        gt.setGestureDistance(averageDistance);
-        return gt;
+        val gestureType = GestureType()
+        gestureType.gestureFlag = calcGesture()
+        gestureType.gestureDuration = finalT - initialT
+        gestureType.gestureDistance = averageDistance
+        return gestureType
     }
 
-    public int getOngoingGesture(MotionEvent ev) {
-        for (int i = 0; i < numFingers; i++) {
-            currentX[i] = ev.getX(i);
-            currentY[i] = ev.getY(i);
-            delX[i] = finalX[i] - initialX[i];
-            delY[i] = finalY[i] - initialY[i];
+    fun getOngoingGesture(motionEvent: MotionEvent): Int {
+        for (i in 0 until numFingers) {
+            currentX[i] = motionEvent.getX(i).toDouble()
+            currentY[i] = motionEvent.getY(i).toDouble()
+            delX[i] = finalX[i] - initialX[i]
+            delY[i] = finalY[i] - initialY[i]
         }
-        currentT = SystemClock.uptimeMillis();
-        return calcGesture();
+        currentT = SystemClock.uptimeMillis()
+        return calcGesture()
     }
 
-    private int calcGesture() {
-        if (isDoubleTap()) {
-            return DOUBLE_TAP_1;
+    private fun calcGesture(): Int {
+        if (isDoubleTap) {
+            return DOUBLE_TAP_1
         }
-
         if (numFingers == 1) {
-            if ((-(delY[0])) > (swipeSlopeIntolerance * (Math.abs(delX[0])))) {
-                return SWIPE_1_UP;
+            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0])) {
+                return SWIPE_1_UP
             }
-
-            if (((delY[0])) > (swipeSlopeIntolerance * (Math.abs(delX[0])))) {
-                return SWIPE_1_DOWN;
+            if (delY[0] > swipeSlopeIntolerance * abs(delX[0])) {
+                return SWIPE_1_DOWN
             }
-
-            if ((-(delX[0])) > (swipeSlopeIntolerance * (Math.abs(delY[0])))) {
-                return SWIPE_1_LEFT;
+            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0])) {
+                return SWIPE_1_LEFT
             }
-
-            if (((delX[0])) > (swipeSlopeIntolerance * (Math.abs(delY[0])))) {
-                return SWIPE_1_RIGHT;
+            if (delX[0] > swipeSlopeIntolerance * abs(delY[0])) {
+                return SWIPE_1_RIGHT
             }
         }
         if (numFingers == 2) {
-            if (((-delY[0]) > (swipeSlopeIntolerance * Math.abs(delX[0]))) && ((-delY[1]) > (swipeSlopeIntolerance * Math.abs(delX[1])))) {
-                return SWIPE_2_UP;
+            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0]) && -delY[1] > swipeSlopeIntolerance * abs(delX[1])) {
+                return SWIPE_2_UP
             }
-            if (((delY[0]) > (swipeSlopeIntolerance * Math.abs(delX[0]))) && ((delY[1]) > (swipeSlopeIntolerance * Math.abs(delX[1])))) {
-                return SWIPE_2_DOWN;
+            if (delY[0] > swipeSlopeIntolerance * abs(delX[0]) && delY[1] > swipeSlopeIntolerance * abs(delX[1])) {
+                return SWIPE_2_DOWN
             }
-            if (((-delX[0]) > (swipeSlopeIntolerance * Math.abs(delY[0]))) && ((-delX[1]) > (swipeSlopeIntolerance * Math.abs(delY[1])))) {
-                return SWIPE_2_LEFT;
+            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0]) && -delX[1] > swipeSlopeIntolerance * abs(delY[1])) {
+                return SWIPE_2_LEFT
             }
-            if (((delX[0]) > (swipeSlopeIntolerance * Math.abs(delY[0]))) && ((delX[1]) > (swipeSlopeIntolerance * Math.abs(delY[1])))) {
-                return SWIPE_2_RIGHT;
+            if (delX[0] > swipeSlopeIntolerance * abs(delY[0]) && delX[1] > swipeSlopeIntolerance * abs(delY[1])) {
+                return SWIPE_2_RIGHT
             }
-            if (finalFingDist(0, 1) > 2 * (initialFingDist(0, 1))) {
-                return UNPINCH_2;
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 2 * initialFingDist(fingNum1 = 0, fingNum2 = 1)) {
+                return UNPINCH_2
             }
-            if (finalFingDist(0, 1) < 0.5 * (initialFingDist(0, 1))) {
-                return PINCH_2;
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.5 * initialFingDist(fingNum1 = 0, fingNum2 = 1)) {
+                return PINCH_2
             }
         }
         if (numFingers == 3) {
-            if (((-delY[0]) > (swipeSlopeIntolerance * Math.abs(delX[0])))
-                    && ((-delY[1]) > (swipeSlopeIntolerance * Math.abs(delX[1])))
-                    && ((-delY[2]) > (swipeSlopeIntolerance * Math.abs(delX[2])))) {
-                return SWIPE_3_UP;
+            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0])
+                    && -delY[1] > swipeSlopeIntolerance * abs(delX[1])
+                    && -delY[2] > swipeSlopeIntolerance * abs(delX[2])) {
+                return SWIPE_3_UP
             }
-            if (((delY[0]) > (swipeSlopeIntolerance * Math.abs(delX[0])))
-                    && ((delY[1]) > (swipeSlopeIntolerance * Math.abs(delX[1])))
-                    && ((delY[2]) > (swipeSlopeIntolerance * Math.abs(delX[2])))) {
-                return SWIPE_3_DOWN;
+            if (delY[0] > swipeSlopeIntolerance * abs(delX[0])
+                    && delY[1] > swipeSlopeIntolerance * abs(delX[1])
+                    && delY[2] > swipeSlopeIntolerance * abs(delX[2])) {
+                return SWIPE_3_DOWN
             }
-            if (((-delX[0]) > (swipeSlopeIntolerance * Math.abs(delY[0])))
-                    && ((-delX[1]) > (swipeSlopeIntolerance * Math.abs(delY[1])))
-                    && ((-delX[2]) > (swipeSlopeIntolerance * Math.abs(delY[2])))) {
-                return SWIPE_3_LEFT;
+            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0])
+                    && -delX[1] > swipeSlopeIntolerance * abs(delY[1])
+                    && -delX[2] > swipeSlopeIntolerance * abs(delY[2])) {
+                return SWIPE_3_LEFT
             }
-            if (((delX[0]) > (swipeSlopeIntolerance * Math.abs(delY[0])))
-                    && ((delX[1]) > (swipeSlopeIntolerance * Math.abs(delY[1])))
-                    && ((delX[2]) > (swipeSlopeIntolerance * Math.abs(delY[2])))) {
-                return SWIPE_3_RIGHT;
+            if (delX[0] > swipeSlopeIntolerance * abs(delY[0])
+                    && delX[1] > swipeSlopeIntolerance * abs(delY[1])
+                    && delX[2] > swipeSlopeIntolerance * abs(delY[2])) {
+                return SWIPE_3_RIGHT
             }
-
-            if ((finalFingDist(0, 1) > 1.75 * (initialFingDist(0, 1)))
-                    && (finalFingDist(1, 2) > 1.75 * (initialFingDist(1, 2)))
-                    && (finalFingDist(2, 0) > 1.75 * (initialFingDist(2, 0)))) {
-                return UNPINCH_3;
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 1.75 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
+                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.75 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
+                    && finalFingDist(fingNum1 = 2, fingNum2 = 0) > 1.75 * initialFingDist(fingNum1 = 2, fingNum2 = 0)) {
+                return UNPINCH_3
             }
-            if ((finalFingDist(0, 1) < 0.66 * (initialFingDist(0, 1)))
-                    && (finalFingDist(1, 2) < 0.66 * (initialFingDist(1, 2)))
-                    && (finalFingDist(2, 0) < 0.66 * (initialFingDist(2, 0)))) {
-                return PINCH_3;
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.66 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
+                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.66 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
+                    && finalFingDist(fingNum1 = 2, fingNum2 = 0) < 0.66 * initialFingDist(fingNum1 = 2, fingNum2 = 0)) {
+                return PINCH_3
             }
-
         }
         if (numFingers == 4) {
-            if (((-delY[0]) > (swipeSlopeIntolerance * Math.abs(delX[0])))
-                    && ((-delY[1]) > (swipeSlopeIntolerance * Math.abs(delX[1])))
-                    && ((-delY[2]) > (swipeSlopeIntolerance * Math.abs(delX[2])))
-                    && ((-delY[3]) > (swipeSlopeIntolerance * Math.abs(delX[3])))) {
-                return SWIPE_4_UP;
+            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0])
+                    && -delY[1] > swipeSlopeIntolerance * abs(delX[1])
+                    && -delY[2] > swipeSlopeIntolerance * abs(delX[2])
+                    && -delY[3] > swipeSlopeIntolerance * abs(delX[3])) {
+                return SWIPE_4_UP
             }
-            if (((delY[0]) > (swipeSlopeIntolerance * Math.abs(delX[0])))
-                    && ((delY[1]) > (swipeSlopeIntolerance * Math.abs(delX[1])))
-                    && ((delY[2]) > (swipeSlopeIntolerance * Math.abs(delX[2])))
-                    && ((delY[3]) > (swipeSlopeIntolerance * Math.abs(delX[3])))) {
-                return SWIPE_4_DOWN;
+            if (delY[0] > swipeSlopeIntolerance * abs(delX[0])
+                    && delY[1] > swipeSlopeIntolerance * abs(delX[1])
+                    && delY[2] > swipeSlopeIntolerance * abs(delX[2])
+                    && delY[3] > swipeSlopeIntolerance * abs(delX[3])) {
+                return SWIPE_4_DOWN
             }
-            if (((-delX[0]) > (swipeSlopeIntolerance * Math.abs(delY[0])))
-                    && ((-delX[1]) > (swipeSlopeIntolerance * Math.abs(delY[1])))
-                    && ((-delX[2]) > (swipeSlopeIntolerance * Math.abs(delY[2])))
-                    && ((-delX[3]) > (swipeSlopeIntolerance * Math.abs(delY[3])))) {
-                return SWIPE_4_LEFT;
+            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0])
+                    && -delX[1] > swipeSlopeIntolerance * abs(delY[1])
+                    && -delX[2] > swipeSlopeIntolerance * abs(delY[2])
+                    && -delX[3] > swipeSlopeIntolerance * abs(delY[3])) {
+                return SWIPE_4_LEFT
             }
-            if (((delX[0]) > (swipeSlopeIntolerance * Math.abs(delY[0])))
-                    && ((delX[1]) > (swipeSlopeIntolerance * Math.abs(delY[1])))
-                    && ((delX[2]) > (swipeSlopeIntolerance * Math.abs(delY[2])))
-                    && ((delX[3]) > (swipeSlopeIntolerance * Math.abs(delY[3])))) {
-                return SWIPE_4_RIGHT;
+            if (delX[0] > swipeSlopeIntolerance * abs(delY[0])
+                    && delX[1] > swipeSlopeIntolerance * abs(delY[1])
+                    && delX[2] > swipeSlopeIntolerance * abs(delY[2])
+                    && delX[3] > swipeSlopeIntolerance * abs(delY[3])) {
+                return SWIPE_4_RIGHT
             }
-            if ((finalFingDist(0, 1) > 1.5 * (initialFingDist(0, 1)))
-                    && (finalFingDist(1, 2) > 1.5 * (initialFingDist(1, 2)))
-                    && (finalFingDist(2, 3) > 1.5 * (initialFingDist(2, 3)))
-                    && (finalFingDist(3, 0) > 1.5 * (initialFingDist(3, 0)))) {
-                return UNPINCH_4;
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 1.5 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
+                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.5 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
+                    && finalFingDist(fingNum1 = 2, fingNum2 = 3) > 1.5 * initialFingDist(fingNum1 = 2, fingNum2 = 3)
+                    && finalFingDist(fingNum1 = 3, fingNum2 = 0) > 1.5 * initialFingDist(fingNum1 = 3, fingNum2 = 0)) {
+                return UNPINCH_4
             }
-            if ((finalFingDist(0, 1) < 0.8 * (initialFingDist(0, 1)))
-                    && (finalFingDist(1, 2) < 0.8 * (initialFingDist(1, 2)))
-                    && (finalFingDist(2, 3) < 0.8 * (initialFingDist(2, 3)))
-                    && (finalFingDist(3, 0) < 0.8 * (initialFingDist(3, 0)))) {
-                return PINCH_4;
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.8 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
+                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.8 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
+                    && finalFingDist(fingNum1 = 2, fingNum2 = 3) < 0.8 * initialFingDist(fingNum1 = 2, fingNum2 = 3)
+                    && finalFingDist(fingNum1 = 3, fingNum2 = 0) < 0.8 * initialFingDist(fingNum1 = 3, fingNum2 = 0)) {
+                return PINCH_4
             }
         }
-        return 0;
+        return 0
     }
 
-    private double initialFingDist(int fingNum1, int fingNum2) {
-
-        return Math.sqrt(Math.pow((initialX[fingNum1] - initialX[fingNum2]), 2)
-                + Math.pow((initialY[fingNum1] - initialY[fingNum2]), 2));
+    private fun initialFingDist(fingNum1: Int, fingNum2: Int): Double {
+        return sqrt((initialX[fingNum1] - initialX[fingNum2]).pow(2.0)
+                + (initialY[fingNum1] - initialY[fingNum2]).pow(2.0))
     }
 
-    private double finalFingDist(int fingNum1, int fingNum2) {
-
-        return Math.sqrt(Math.pow((finalX[fingNum1] - finalX[fingNum2]), 2)
-                + Math.pow((finalY[fingNum1] - finalY[fingNum2]), 2));
+    private fun finalFingDist(fingNum1: Int, fingNum2: Int): Double {
+        return sqrt((finalX[fingNum1] - finalX[fingNum2]).pow(2.0)
+                + (finalY[fingNum1] - finalY[fingNum2]).pow(2.0))
     }
 
-    public boolean isDoubleTap() {
-        return initialT - prevFinalT < doubleTapMaxDelayMillis && finalT - initialT < doubleTapMaxDownMillis && prevFinalT - prevInitialT < doubleTapMaxDownMillis;
-    }
-
-    public class GestureType {
-        private int gestureFlag;
-        private long gestureDuration;
-
-        private double gestureDistance;
-
-        public long getGestureDuration() {
-            return gestureDuration;
-        }
-
-        public void setGestureDuration(long gestureDuration) {
-            this.gestureDuration = gestureDuration;
-        }
-
-
-        public int getGestureFlag() {
-            return gestureFlag;
-        }
-
-        public void setGestureFlag(int gestureFlag) {
-            this.gestureFlag = gestureFlag;
-        }
-
-
-        public double getGestureDistance() {
-            return gestureDistance;
-        }
-
-        public void setGestureDistance(double gestureDistance) {
-            this.gestureDistance = gestureDistance;
-        }
-    }
-
-
+    val isDoubleTap: Boolean
+        get() = initialT - prevFinalT < doubleTapMaxDelayMillis && finalT - initialT < doubleTapMaxDownMillis && prevFinalT - prevInitialT < doubleTapMaxDownMillis
 }
