@@ -50,9 +50,6 @@ class FrmUtils : Fragment() {
                 DeviceUtils::class.java.simpleName -> {
                     handleDeviceUtils()
                 }
-                EncodeUtils::class.java.simpleName -> {
-                    handleEncodeUtils()
-                }
                 EncryptUtils::class.java.simpleName -> {
                     handleEncryptUtils()
                 }
