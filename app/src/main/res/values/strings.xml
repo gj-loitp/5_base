@@ -488,4 +488,5 @@ Likewise may someone love you next.
     <string name="transformation_layout">Transformation layout</string>
     <string name="transformation_layout_single">Transformation layout single</string>
     <string name="compose_new">compose new</string>
+    <string name="simple_finger_gestures_demo">Simple Finger Gestures Demo</string>
 </resources>
