@@ -10,9 +10,10 @@
         android:id="@+id/rvNetView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/deepPink"
         android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:itemCount="25"
+        tools:itemCount="5"
         tools:listitem="@layout/view_row_item_net"
         tools:spanCount="3" />
 

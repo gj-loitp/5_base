@@ -77,19 +77,49 @@ class NetViewActivity : BaseFontActivity() {
                 rvNetView.layoutManager = GridLayoutManager(this, 2)
             }
             7 -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 2)
+                rvNetView.layoutManager = GridLayoutManager(this, 3)
             }
             8 -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 2)
+                rvNetView.layoutManager = GridLayoutManager(this, 3)
             }
             9 -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 2)
+                rvNetView.layoutManager = GridLayoutManager(this, 3)
             }
             10 -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 2)
+                rvNetView.layoutManager = GridLayoutManager(this, 3)
+            }
+            11 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 3)
+            }
+            12 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 3)
+            }
+            13 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
+            }
+            14 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
+            }
+            15 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
+            }
+            16 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
+            }
+            17 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
+            }
+            18 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
+            }
+            19 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
+            }
+            20 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
             }
             else -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 1)
+                rvNetView.layoutManager = GridLayoutManager(this, 4)
             }
         }
     }
