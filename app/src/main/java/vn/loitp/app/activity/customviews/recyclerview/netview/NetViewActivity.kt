@@ -302,6 +302,69 @@ class NetViewActivity : BaseFontActivity() {
             79 -> {
                 rvNetView.layoutManager = GridLayoutManager(this, 9)
             }
+            80 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 9)
+            }
+            81 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 9)
+            }
+            82 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            83 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            84 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            85 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            86 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            87 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            88 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            89 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            90 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            91 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            92 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            93 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            94 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            95 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            96 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            97 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            98 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            99 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
+            100 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 10)
+            }
         }
     }
 
