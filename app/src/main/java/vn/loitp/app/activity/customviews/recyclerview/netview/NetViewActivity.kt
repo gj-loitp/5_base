@@ -16,7 +16,6 @@ import kotlin.collections.ArrayList
 @IsFullScreen(false)
 class NetViewActivity : BaseFontActivity() {
 
-    private val listNet = ArrayList<Net>()
     private var netAdapter = NetAdapter()
 
     override fun setLayoutResourceId(): Int {
@@ -44,10 +43,10 @@ class NetViewActivity : BaseFontActivity() {
 
     private fun addNet() {
         val net = Net()
-        net.name = listNet.size.toString()
+        net.name = "${netAdapter.itemCount + 1}"
         netAdapter.addNet(net)
 
-        when (listNet.size) {
+        when (netAdapter.itemCount) {
             0, 1 -> {
                 rvNetView.layoutManager = GridLayoutManager(this, 1)
             }

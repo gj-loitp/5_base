@@ -42,7 +42,7 @@ class NetAdapter() : AnimationAdapter() {
 
             //setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
 
-            itemView.rootView.setOnClickListener {
+            itemView.layoutRootView.setOnClickListener {
                 onClickRootView?.invoke(net)
             }
         }
