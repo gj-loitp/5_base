@@ -39,6 +39,9 @@ class NetViewActivity : BaseFontActivity() {
         btAddItem.setOnClickListener {
             addNet()
         }
+        btClearAll.setOnClickListener {
+            netAdapter.clear()
+        }
     }
 
     private fun addNet() {

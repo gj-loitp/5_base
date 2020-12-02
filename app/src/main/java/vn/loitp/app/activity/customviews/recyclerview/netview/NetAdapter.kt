@@ -28,6 +28,11 @@ class NetAdapter() : AnimationAdapter() {
         notifyItemChanged(itemCount - 1)
     }
 
+    fun clear() {
+        this.listNet.clear()
+        notifyDataSetChanged()
+    }
+
     var onClickRootView: ((Net) -> Unit)? = null
 
     inner class NetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
