@@ -1,16 +1,16 @@
 package vn.loitp.app.activity.customviews.recyclerview.netview
 
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_net_view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-import vn.loitp.app.common.Constants
-import java.util.*
-import kotlin.collections.ArrayList
+
 
 @LogTag("NetViewActivity")
 @IsFullScreen(false)
@@ -32,7 +32,12 @@ class NetViewActivity : BaseFontActivity() {
         netAdapter.onClickRootView = { net ->
             showShortInformation(net.name)
         }
-
+        rvNetView.addOnItemTouchListener(object : SimpleOnItemTouchListener() {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                // Stop only scrolling.
+                return rv.scrollState == RecyclerView.SCROLL_STATE_DRAGGING
+            }
+        })
         rvNetView.layoutManager = GridLayoutManager(this, 1)
         rvNetView.adapter = netAdapter
 
@@ -50,14 +55,38 @@ class NetViewActivity : BaseFontActivity() {
         netAdapter.addNet(net)
 
         when (netAdapter.itemCount) {
-            0, 1 -> {
+            0 -> {
                 rvNetView.layoutManager = GridLayoutManager(this, 1)
             }
-            2, 3, 4, 5, 6 -> {
+            1 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 1)
+            }
+            2 -> {
                 rvNetView.layoutManager = GridLayoutManager(this, 2)
             }
-            7, 8, 9 -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 3)
+            3 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            4 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            5 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            6 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            7 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            8 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            9 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            10 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
             }
             else -> {
                 rvNetView.layoutManager = GridLayoutManager(this, 1)
