@@ -118,8 +118,38 @@ class NetViewActivity : BaseFontActivity() {
             20 -> {
                 rvNetView.layoutManager = GridLayoutManager(this, 4)
             }
+            21 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            22 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            23 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            24 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            25 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            26 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            27 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            28 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            29 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
+            30 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            }
             else -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 4)
+                rvNetView.layoutManager = GridLayoutManager(this, 5)
             }
         }
     }
