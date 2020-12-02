@@ -15,6 +15,9 @@ import vn.loitp.app.R
 @LogTag("NetViewActivity")
 @IsFullScreen(false)
 class NetViewActivity : BaseFontActivity() {
+    companion object {
+        const val MAX_SIZE = 56
+    }
 
     private var netAdapter = NetAdapter()
 
@@ -50,6 +53,10 @@ class NetViewActivity : BaseFontActivity() {
     }
 
     private fun addNet() {
+        if (netAdapter.itemCount >= MAX_SIZE) {
+            showShortInformation("Max size")
+            return
+        }
         val net = Net()
         net.name = "${netAdapter.itemCount + 1}"
         netAdapter.addNet(net)
@@ -148,8 +155,83 @@ class NetViewActivity : BaseFontActivity() {
             30 -> {
                 rvNetView.layoutManager = GridLayoutManager(this, 5)
             }
-            else -> {
-                rvNetView.layoutManager = GridLayoutManager(this, 5)
+            31 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            32 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            33 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            34 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            35 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            36 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            37 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            38 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            39 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            40 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            41 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            42 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 6)
+            }
+            43 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            44 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            45 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            46 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            47 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            48 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            49 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            50 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            51 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            52 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            53 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            54 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            55 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
+            }
+            56 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 7)
             }
         }
     }

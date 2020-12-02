@@ -19,6 +19,6 @@
         android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_80"
+        android:textSize="@dimen/txt_large"
         tools:text="69" />
 </com.views.layout.squarelayout.LSquareFrameLayout>
