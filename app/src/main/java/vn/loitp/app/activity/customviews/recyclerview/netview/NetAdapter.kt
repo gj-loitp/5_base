@@ -17,10 +17,15 @@ class NetAdapter() : AnimationAdapter() {
 
     private val listNet = ArrayList<Net>()
 
-    fun setListNet(listNet: ArrayList<Net>) {
-        this.listNet.clear()
-        this.listNet.addAll(listNet)
-        notifyDataSetChanged()
+//    fun setListNet(listNet: ArrayList<Net>) {
+//        this.listNet.clear()
+//        this.listNet.addAll(listNet)
+//        notifyDataSetChanged()
+//    }
+
+    fun addNet(net: Net) {
+        this.listNet.add(element = net)
+        notifyItemChanged(itemCount - 1)
     }
 
     var onClickRootView: ((Net) -> Unit)? = null
@@ -34,7 +39,6 @@ class NetAdapter() : AnimationAdapter() {
 
             itemView.textView.text = net.name
             LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
-            itemView.rootView.setBackgroundColor(LStoreUtil.randomColor)
 
             //setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
 

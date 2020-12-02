@@ -144,14 +144,13 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        //String s = LStoreUtil.readTxtFromAsset(activity, "news.json");
+        logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
+
         if (isAnimDone && isCheckReadyDone) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
-            LUIUtil.setDelay(1000) {
-                finish()
-            }
+            finish()
         }
     }
 

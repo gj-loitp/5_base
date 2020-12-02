@@ -27,7 +27,6 @@ class NetViewActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setupViews()
-        setupData()
     }
 
     private fun setupViews() {
@@ -35,17 +34,33 @@ class NetViewActivity : BaseFontActivity() {
             showShortInformation(net.name)
         }
 
-        rvNetView.layoutManager = GridLayoutManager(this, 3)
+        rvNetView.layoutManager = GridLayoutManager(this, 1)
         rvNetView.adapter = netAdapter
+
+        btAddItem.setOnClickListener {
+            addNet()
+        }
     }
 
-    private fun setupData() {
-        for (i in 0..10) {
-            val net = Net()
-            net.name = "$i"
-            listNet.add(net)
+    private fun addNet() {
+        val net = Net()
+        net.name = listNet.size.toString()
+        netAdapter.addNet(net)
+
+        when (listNet.size) {
+            0, 1 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 1)
+            }
+            2, 3, 4, 5, 6 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 2)
+            }
+            7, 8, 9 -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 3)
+            }
+            else -> {
+                rvNetView.layoutManager = GridLayoutManager(this, 1)
+            }
         }
-        netAdapter.setListNet(listNet)
     }
 
 }
