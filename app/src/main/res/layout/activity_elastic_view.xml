@@ -96,7 +96,6 @@
                 app:layout_scale="0.85">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="This is"
@@ -104,7 +103,6 @@
                     android:textSize="@dimen/txt_large" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
@@ -113,6 +111,14 @@
                     android:textColor="@color/red"
                     android:textSize="@dimen/txt_large" />
             </com.skydoves.elasticviews.ElasticLayout>
+
+            <View
+                android:id="@+id/anyView"
+                android:layout_width="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/cyan"
+                android:layout_height="@dimen/w_100" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

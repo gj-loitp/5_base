@@ -4,6 +4,8 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.skydoves.elasticviews.ElasticFinishListener
+import com.skydoves.elasticviews.elasticAnimation
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_elastic_view.*
 import vn.loitp.app.R
@@ -34,10 +36,17 @@ class ElasticActivity : BaseFontActivity() {
         }
         elasticCardView.setSafeOnClickListener {
         }
-//        tv1.setSafeOnClickListener {
-//        }
-//        tv2.setSafeOnClickListener {
-//        }
+        anyView.setSafeOnClickListener {
+            val anim = it.elasticAnimation(
+                    scaleX = 0.8f,
+                    scaleY = 0.8f,
+                    duration = 400
+            ) {
+                showShortInformation("Finish")
+            }
+            anim.doAction()
+        }
+
     }
 
 }
