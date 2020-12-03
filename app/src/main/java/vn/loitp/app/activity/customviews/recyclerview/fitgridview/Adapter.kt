@@ -1,17 +1,20 @@
-package vn.loitp.app.activity.customviews.recyclerview.fitgridview;
+package vn.loitp.app.activity.customviews.recyclerview.fitgridview
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.content.Context
+import android.view.View
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.row_grid_item.view.*
+import vn.loitp.app.R
 
-import com.views.recyclerview.fitgridview.FitGridAdapter;
+internal class Adapter(
+        context: Context,
+        var onClick: ((Int) -> Unit)? = null
+) : FitGridAdapter(
+        context = context,
+        itemId = R.layout.row_grid_item) {
 
-import vn.loitp.app.R;
 
-class Adapter extends FitGridAdapter {
-
-    private int[] drawables = {
+    private val drawables = intArrayOf(
             R.drawable.face_1,
             R.drawable.face_2,
             R.drawable.face_3,
@@ -23,20 +26,13 @@ class Adapter extends FitGridAdapter {
             R.drawable.face_9,
             R.drawable.face_10,
             R.drawable.face_11,
-            R.drawable.face_12};
+            R.drawable.face_12)
 
-    private Context context;
+    override fun onBindView(position: Int, view: View) {
+        view.ivGridItem?.setImageResource(drawables[position])
 
-    Adapter(Context context) {
-        super(context, R.layout.grid_item);
-        this.context = context;
-    }
-
-    @Override
-    public void onBindView(final int position, View itemView) {
-        ImageView iv = (ImageView) itemView.findViewById(R.id.grid_item_iv);
-        iv.setImageResource(drawables[position]);
-
-        itemView.setOnClickListener(view -> Toast.makeText(context, "Position: " + position, Toast.LENGTH_SHORT).show());
+        view.ivGridItem?.setSafeOnClickListener {
+            onClick?.invoke(position)
+        }
     }
 }

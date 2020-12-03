@@ -7,7 +7,6 @@ import androidx.appcompat.app.AlertDialog
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.views.recyclerview.fitgridview.FitGridView
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_fit_grid_view.*
 import vn.loitp.app.R
@@ -27,7 +26,11 @@ class FitGridViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        gridView.setFitGridAdapter(Adapter(this))
+        gridView.setFitGridAdapter(
+                Adapter(this) { pos ->
+                    showShortInformation("Click $pos")
+                }
+        )
         btShowInDialog.setSafeOnClickListener {
             showAlert()
         }
@@ -41,7 +44,11 @@ class FitGridViewActivity : BaseFontActivity() {
         val gridView = FitGridView(this)
         gridView.numColumns = 3
         gridView.numRows = 4
-        gridView.setFitGridAdapter(Adapter(this))
+        gridView.setFitGridAdapter(
+                Adapter(this) { pos ->
+                    showShortInformation("Click $pos")
+                }
+        )
         builder.setView(gridView)
         builder.show()
     }

@@ -1,4 +1,4 @@
-package com.views.recyclerview.fitgridview
+package vn.loitp.app.activity.customviews.recyclerview.fitgridview
 
 import android.content.Context
 import android.util.AttributeSet
