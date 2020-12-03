@@ -14,7 +14,7 @@
         android:text="@string/show_in_alertdialog"
         android:textAllCaps="false" />
 
-    <vn.loitp.app.activity.customviews.recyclerview.fitgridview.FitGridView
+    <com.views.recyclerview.fitgridview.FitGridView
         android:id="@+id/gridView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

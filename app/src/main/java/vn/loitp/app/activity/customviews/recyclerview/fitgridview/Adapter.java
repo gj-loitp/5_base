@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.views.recyclerview.fitgridview.FitGridAdapter;
+
 import vn.loitp.app.R;
 
 class Adapter extends FitGridAdapter {
