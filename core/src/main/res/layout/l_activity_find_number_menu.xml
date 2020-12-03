@@ -12,6 +12,7 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:padding="@dimen/padding_medium"
         android:scaleType="centerInside"
         android:src="@drawable/find_the_number" />
