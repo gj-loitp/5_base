@@ -31,7 +31,7 @@
         android:padding="@dimen/padding_medium"
         android:text="@string/copyright"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_large" />
+        android:textSize="@dimen/txt_find_number" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/indicatorView"

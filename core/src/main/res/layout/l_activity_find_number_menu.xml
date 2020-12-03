@@ -54,7 +54,7 @@
         android:src="@drawable/bkg_blue"
         android:text="@string/single_player"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_large"
+        android:textSize="@dimen/txt_find_number"
         android:visibility="invisible"
         tools:visibility="visible" />
 
@@ -71,7 +71,7 @@
         android:src="@drawable/bkg_blue"
         android:text="@string/two_players"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_large"
+        android:textSize="@dimen/txt_find_number"
         android:visibility="invisible"
         tools:visibility="visible" />
 </RelativeLayout>
