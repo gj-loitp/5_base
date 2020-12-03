@@ -31,11 +31,14 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
+import com.google.ads.interactivemedia.v3.internal.it
 import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
+import com.skydoves.elasticviews.elasticAnimation
 import com.utils.util.ConvertUtils
+import com.views.setSafeOnClickListener
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
 import io.github.inflationx.calligraphy3.CalligraphyUtils
@@ -817,6 +820,48 @@ class LUIUtil {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+        }
+
+        fun setOnClickListenerElastic(
+                view: View? = null,
+                scaleX: Float = 0.8f,
+                scaleY: Float = 0.8f,
+                duration: Int = 400,
+                runnable: Runnable? = null
+        ) {
+            view?.let { v ->
+                v.setOnClickListener {
+                    val anim = v.elasticAnimation(
+                            scaleX = scaleX,
+                            scaleY = scaleY,
+                            duration = duration
+                    ) {
+                        runnable?.run()
+                    }
+                    anim.doAction()
+                }
+            }
+        }
+
+        fun setSafeOnClickListenerElastic(
+                view: View? = null,
+                scaleX: Float = 0.8f,
+                scaleY: Float = 0.8f,
+                duration: Int = 400,
+                runnable: Runnable? = null
+        ) {
+            view?.let { v ->
+                v.setSafeOnClickListener {
+                    val anim = v.elasticAnimation(
+                            scaleX = scaleX,
+                            scaleY = scaleY,
+                            duration = duration
+                    ) {
+                        runnable?.run()
+                    }
+                    anim.doAction()
+                }
             }
         }
     }

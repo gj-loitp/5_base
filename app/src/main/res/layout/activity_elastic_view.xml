@@ -119,6 +119,13 @@
                 android:background="@color/cyan"
                 android:layout_height="@dimen/w_100" />
 
+            <View
+                android:id="@+id/anyView2"
+                android:layout_width="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/deepSkyBlue"
+                android:layout_height="@dimen/w_100" />
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
