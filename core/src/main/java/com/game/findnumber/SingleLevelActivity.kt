@@ -8,11 +8,8 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LScreenUtil
-import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
-import kotlinx.android.synthetic.main.l_activity_find_number_menu.*
-import kotlinx.android.synthetic.main.l_activity_find_number_menu.ivTitle
 import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
 
 @LogTag("SingleLevelActivity")
@@ -38,14 +35,21 @@ class SingleLevelActivity : BaseFontActivity() {
                     duration = 500,
                     techniques = Techniques.ZoomInDown
             )
+
+            ivBack?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = ivBack,
+                    duration = 500,
+                    techniques = Techniques.ZoomInUp
+            )
         }
         LUIUtil.setSafeOnClickListenerElastic(
                 view = tvLevels
         )
-//        LUIUtil.setSafeOnClickListenerElastic(
-//                view = ivMore,
-//                runnable = {
-//                    LSocialUtil.moreApp(activity = this)
-//                })
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = ivBack,
+                runnable = {
+                    onBackPressed()
+                })
     }
 }

@@ -19,5 +19,14 @@
         android:visibility="invisible"
         tools:visibility="visible" />
 
-
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        android:layout_width="@dimen/w_70"
+        android:layout_height="@dimen/w_70"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_large"
+        android:src="@drawable/back_button"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 </RelativeLayout>

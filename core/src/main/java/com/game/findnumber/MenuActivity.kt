@@ -27,10 +27,43 @@ class MenuActivity : BaseFontActivity() {
 
         LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
         setupViews()
+
+        playAnim(delayInMls = 100)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        playAnim(delayInMls = 0)
     }
 
     private fun setupViews() {
-        LUIUtil.setDelay(100) {
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = ivBack,
+                runnable = {
+                    onBackPressed()
+                })
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = ivMore,
+                runnable = {
+                    LSocialUtil.moreApp(activity = this)
+                })
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = btSinglePlayer,
+                runnable = {
+                    val intent = Intent(this, SingleLevelActivity::class.java)
+                    startActivity(intent)
+                    LActivityUtil.tranIn(this)
+                })
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = btTwoPlayers,
+                runnable = {
+                    //TODO 2 players
+                })
+    }
+
+    private fun playAnim(delayInMls: Int) {
+        LUIUtil.setDelay(delayInMls) {
             ivTitle?.visibility = View.VISIBLE
             LAnimationUtil.play(
                     view = ivTitle,
@@ -66,27 +99,5 @@ class MenuActivity : BaseFontActivity() {
                     techniques = Techniques.ZoomInUp
             )
         }
-        LUIUtil.setSafeOnClickListenerElastic(
-                view = ivBack,
-                runnable = {
-                    onBackPressed()
-                })
-        LUIUtil.setSafeOnClickListenerElastic(
-                view = ivMore,
-                runnable = {
-                    LSocialUtil.moreApp(activity = this)
-                })
-        LUIUtil.setSafeOnClickListenerElastic(
-                view = btSinglePlayer,
-                runnable = {
-                    val intent = Intent(this, SingleLevelActivity::class.java)
-                    startActivity(intent)
-                    LActivityUtil.tranIn(this)
-                })
-        LUIUtil.setSafeOnClickListenerElastic(
-                view = btTwoPlayers,
-                runnable = {
-                    //TODO 2 players
-                })
     }
 }
