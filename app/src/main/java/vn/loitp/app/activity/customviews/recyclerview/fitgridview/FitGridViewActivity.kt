@@ -34,6 +34,9 @@ class FitGridViewActivity : BaseFontActivity() {
         btShowInDialog.setSafeOnClickListener {
             showAlert()
         }
+        btChangeSize.setSafeOnClickListener {
+            changeSize()
+        }
     }
 
     private fun showAlert() {
@@ -53,32 +56,20 @@ class FitGridViewActivity : BaseFontActivity() {
         builder.show()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.menu_fit_grid_view, menu)
-        return true
-    }
-
     private var counter = 0
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menuItem) {
-            when (counter) {
-                0 -> {
-                    item.title = "2*2"
-                    changeSize(row = 2, column = 2)
-                }
-                1 -> {
-                    item.title = "3*3"
-                    changeSize(row = 3, column = 3)
-                }
-                2 -> {
-                    item.title = "4*3"
-                    changeSize(row = 4, column = 3)
-                }
+    private fun changeSize() {
+        when (counter) {
+            0 -> {
+                changeSize(row = 2, column = 2)
+            }
+            1 -> {
+                changeSize(row = 3, column = 3)
+            }
+            2 -> {
+                changeSize(row = 4, column = 3)
             }
         }
         counter = ++counter % 3
-        return super.onOptionsItemSelected(item)
     }
 
     private fun changeSize(row: Int, column: Int) {

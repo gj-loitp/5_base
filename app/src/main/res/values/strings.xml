@@ -495,4 +495,5 @@ Likewise may someone love you next.
     <string name="load_from_url_stream_coroutine">Load from Url Stream - Coroutine</string>
     <string name="add_item">Add item</string>
     <string name="show_in_alertdialog">Show In AlertDialog</string>
+    <string name="change_size">Change size</string>
 </resources>
