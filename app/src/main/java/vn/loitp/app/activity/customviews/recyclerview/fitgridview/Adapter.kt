@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.fitgridview
 
 import android.content.Context
 import android.view.View
+import com.views.recyclerview.fitgridview.FitGridAdapter
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.row_grid_item.view.*
 import vn.loitp.app.R

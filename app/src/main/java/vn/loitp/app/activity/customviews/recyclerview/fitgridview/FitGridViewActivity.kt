@@ -1,12 +1,11 @@
 package vn.loitp.app.activity.customviews.recyclerview.fitgridview
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.views.recyclerview.fitgridview.FitGridView
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_fit_grid_view.*
 import vn.loitp.app.R
