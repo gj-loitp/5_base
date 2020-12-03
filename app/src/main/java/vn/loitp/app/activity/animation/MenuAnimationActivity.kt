@@ -14,6 +14,7 @@ import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
 import vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity
 import vn.loitp.app.activity.animation.basictransitionfrm.BasicTransitionActivity
+import vn.loitp.app.activity.animation.elasticviews.ElasticActivity
 import vn.loitp.app.activity.animation.flyschool.FlySchoolActivity
 import vn.loitp.app.activity.animation.lottie.MenuLottieActivity
 import vn.loitp.app.activity.animation.overscroll.OverScrollActivity
@@ -45,6 +46,7 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
         btBasicTransition.setOnClickListener(this)
         btLottie.setOnClickListener(this)
         btValueAnimator.setOnClickListener(this)
+        btElasticView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -60,6 +62,7 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
             btBasicTransition -> intent = Intent(this, BasicTransition0Activity::class.java)
             btLottie -> intent = Intent(this, MenuLottieActivity::class.java)
             btValueAnimator -> intent = Intent(this, ValueAnimatorActivity::class.java)
+            btElasticView -> intent = Intent(this, ElasticActivity::class.java)
         }
         intent?.let {
             startActivity(it)
