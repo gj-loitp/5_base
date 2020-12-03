@@ -29,12 +29,26 @@ class MenuActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        LUIUtil.setDelay(200) {
+        LUIUtil.setDelay(100) {
             ivTitle?.visibility = View.VISIBLE
             LAnimationUtil.play(
                     view = ivTitle,
                     duration = 1000,
                     techniques = Techniques.ZoomInDown
+            )
+
+            btSinglePlayer?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = btSinglePlayer,
+                    duration = 1000,
+                    techniques = Techniques.SlideInLeft
+            )
+
+            btTwoPlayers?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = btTwoPlayers,
+                    duration = 1000,
+                    techniques = Techniques.SlideInRight
             )
         }
         LUIUtil.setSafeOnClickListenerElastic(
