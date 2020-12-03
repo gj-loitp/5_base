@@ -7,6 +7,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.LValidateUtil
 
@@ -21,6 +22,7 @@ class SplashActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
         setupViews()
         goToHome()
     }
