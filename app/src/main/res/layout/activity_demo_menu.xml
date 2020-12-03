@@ -131,6 +131,11 @@
                 android:id="@+id/btVideo"
                 style="@style/ButtonMenu"
                 android:text="@string/video" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFindNumber"
+                style="@style/ButtonMenu"
+                android:text="@string/find_number" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
