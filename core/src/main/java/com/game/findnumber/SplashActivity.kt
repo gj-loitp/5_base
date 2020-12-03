@@ -1,15 +1,17 @@
 package com.game.findnumber
 
+import android.content.Intent
 import android.os.Bundle
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.LValidateUtil
 
 @LogTag("SplashActivity")
-@IsFullScreen(false)
+@IsFullScreen(true)
 class SplashActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
@@ -28,11 +30,11 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(mls = 1500, runnable = {
-//            val intent = Intent(this, ComicLoginActivity::class.java)
-//            startActivity(intent)
-//            LActivityUtil.tranIn(this)
-//            finish()
+        LUIUtil.setDelay(mls = 1000, runnable = {
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
+            LActivityUtil.tranIn(this)
+            finish()
         })
     }
 
