@@ -38,4 +38,32 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/margin_large"
         android:src="@drawable/more_games" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btSinglePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bkg_blue"
+        android:drawableStart="@drawable/ic_play_blue"
+        android:gravity="center"
+        android:src="@drawable/bkg_blue"
+        android:text="@string/single_player"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_large" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/btTwoPlayers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btSinglePlayer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@drawable/bkg_blue"
+        android:drawableStart="@drawable/ic_play_blue"
+        android:gravity="center"
+        android:src="@drawable/bkg_blue"
+        android:text="@string/two_players"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_large" />
 </RelativeLayout>

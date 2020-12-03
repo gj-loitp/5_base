@@ -15,9 +15,6 @@ import kotlinx.android.synthetic.main.l_activity_find_number_menu.*
 
 @LogTag("MenuActivity")
 @IsFullScreen(true)
-//TODO single
-//TODO time mode
-//TODO 2 players
 class MenuActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
@@ -49,6 +46,16 @@ class MenuActivity : BaseFontActivity() {
                 view = ivMore,
                 runnable = {
                     LSocialUtil.moreApp(activity = this)
+                })
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = btSinglePlayer,
+                runnable = {
+                    //TODO single player
+                })
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = btTwoPlayers,
+                runnable = {
+                    //TODO 2 players
                 })
     }
 }
