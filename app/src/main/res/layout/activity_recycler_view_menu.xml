@@ -36,6 +36,11 @@
                 android:text="Diff Util" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFitGridView"
+                style="@style/ButtonMenu"
+                android:text="Fit GridView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFooter"
                 style="@style/ButtonMenu"
                 android:text="Footer" />

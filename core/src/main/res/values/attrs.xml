@@ -692,4 +692,9 @@
         <attr name="zoom_to_small_scale_duration" format="integer" />
 
     </declare-styleable>
+
+    <declare-styleable name="FitGridView">
+        <attr name="column" format="integer"/>
+        <attr name="row" format="integer"/>
+    </declare-styleable>
 </resources>

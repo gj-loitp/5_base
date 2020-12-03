@@ -12,6 +12,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.ConcatAdapterActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
+import vn.loitp.app.activity.customviews.recyclerview.fitgridview.FitGridView
 import vn.loitp.app.activity.customviews.recyclerview.footer.RecyclerViewFooterActivity
 import vn.loitp.app.activity.customviews.recyclerview.footer2.RecyclerViewFooter2Activity
 import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerHorizontalActivity
@@ -49,6 +50,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         btFooter.setOnClickListener(this)
         btFooter2.setOnClickListener(this)
         btNetView.setOnClickListener(this)
+        btFitGridView.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -68,6 +70,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btFooter -> intent = Intent(this, RecyclerViewFooterActivity::class.java)
             btFooter2 -> intent = Intent(this, RecyclerViewFooter2Activity::class.java)
             btNetView -> intent = Intent(this, NetViewActivity::class.java)
+            btFitGridView -> intent = Intent(this, FitGridView::class.java)
         }
         intent?.let {
             startActivity(it)
