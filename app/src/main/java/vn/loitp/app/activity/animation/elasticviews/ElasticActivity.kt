@@ -23,8 +23,16 @@ class ElasticActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+        //dont remove this code below
         elasticButton.setSafeOnClickListener {
-            //do nothing
+        }
+        elasticCheckButton.setSafeOnClickListener {
+        }
+        elasticImageView.setSafeOnClickListener {
+        }
+        elasticFloatingActionButton.setSafeOnClickListener {
+        }
+        elasticCardView.setSafeOnClickListener {
         }
     }
 

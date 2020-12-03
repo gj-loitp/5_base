@@ -29,6 +29,64 @@
                 app:button_duration="250"
                 app:button_scale="0.87" />
 
+            <com.skydoves.elasticviews.ElasticCheckButton
+                android:id="@+id/elasticCheckButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/deepPink"
+                android:text="ElasticCheckButton"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:checkButton_alpha="0.7"
+                app:checkButton_cornerRadius="4dp"
+                app:checkButton_duration="400"
+                app:checkButton_scale="0.9" />
+
+            <com.skydoves.elasticviews.ElasticImageView
+                android:id="@+id/elasticImageView"
+                android:layout_width="@dimen/w_150"
+                android:layout_height="@dimen/w_150"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scaleType="centerCrop"
+                android:src="@drawable/loitp"
+                app:imageView_duration="300"
+                app:imageView_scale="0.7" />
+
+            <com.skydoves.elasticviews.ElasticFloatingActionButton
+                android:id="@+id/elasticFloatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:src="@drawable/ic_add_black_48dp"
+                app:fabSize="normal"
+                app:fabutton_duration="400"
+                app:fabutton_scale="0.85"
+                app:tint="@color/red" />
+
+            <com.skydoves.elasticviews.ElasticCardView
+                android:id="@+id/elasticCardView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_medium"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="@dimen/round_medium"
+                app:cardElevation="@dimen/w_3"
+                app:cardView_duration="250"
+                app:cardView_scale="0.8">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txt_large"
+                    android:textStyle="bold" />
+
+            </com.skydoves.elasticviews.ElasticCardView>
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
