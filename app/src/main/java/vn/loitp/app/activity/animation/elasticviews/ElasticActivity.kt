@@ -34,6 +34,10 @@ class ElasticActivity : BaseFontActivity() {
         }
         elasticCardView.setSafeOnClickListener {
         }
+//        tv1.setSafeOnClickListener {
+//        }
+//        tv2.setSafeOnClickListener {
+//        }
     }
 
 }

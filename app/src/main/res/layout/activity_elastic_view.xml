@@ -86,7 +86,33 @@
 
             </com.skydoves.elasticviews.ElasticCardView>
 
+            <com.skydoves.elasticviews.ElasticLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_100"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="@color/yellow"
+                app:layout_cornerRadius="@dimen/round_medium"
+                app:layout_duration="500"
+                app:layout_scale="0.85">
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="This is"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/txt_large" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:text="ElasticLayout"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/txt_large" />
+            </com.skydoves.elasticviews.ElasticLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
