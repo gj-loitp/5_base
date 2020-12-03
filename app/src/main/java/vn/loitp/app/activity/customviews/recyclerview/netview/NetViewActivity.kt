@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_net_view.*
 import vn.loitp.app.R
 
@@ -28,6 +29,7 @@ class NetViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        LScreenUtil.setScreenOrientation(activity = this, isPortrait = true)
         setupViews()
     }
 

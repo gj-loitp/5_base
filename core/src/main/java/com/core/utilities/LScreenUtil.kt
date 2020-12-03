@@ -77,7 +77,9 @@ class LScreenUtil {
         }
 
         @SuppressLint("ObsoleteSdkInt")
-        fun showStatusBar(activity: Activity) {
+        fun showStatusBar(
+                activity: Activity
+        ) {
             if (Build.VERSION.SDK_INT < 16) {
                 activity.window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
             } else {
@@ -89,7 +91,9 @@ class LScreenUtil {
         }
 
         @SuppressLint("ObsoleteSdkInt")
-        fun hideStatusBar(activity: Activity) {
+        fun hideStatusBar(
+                activity: Activity
+        ) {
             // Hide Status Bar
             if (Build.VERSION.SDK_INT < 16) {
                 activity.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
@@ -101,21 +105,26 @@ class LScreenUtil {
             }
         }
 
-        fun toggleFullscreen(activity: Activity) {
+        fun toggleFullscreen(
+                activity: Activity
+        ) {
             val attrs = activity.window.attributes
             attrs.flags = attrs.flags xor WindowManager.LayoutParams.FLAG_FULLSCREEN
             //attrs.flags ^= WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
             //attrs.flags ^= WindowManager.LayoutParams.FLAG_FULLSCREEN | WindowManager.LayoutParams.SOFT_INPUT_IS_FORWARD_NAVIGATION | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
             activity.window.attributes = attrs
             /*if (isFullScreen(activity)) {
-                hideNavigationBar(activity);
+                hideNavigationBar(activity)
             } else {
-                showNavigationBar(activity);
+                showNavigationBar(activity)
             }*/
         }
 
         @TargetApi(Build.VERSION_CODES.KITKAT)
-        fun toggleFullscreen(activity: Activity, isFullScreen: Boolean) {
+        fun toggleFullscreen(
+                activity: Activity,
+                isFullScreen: Boolean
+        ) {
             if (isFullScreen) {
                 activity.window
                         .decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
@@ -128,7 +137,9 @@ class LScreenUtil {
         }
 
         @TargetApi(Build.VERSION_CODES.KITKAT)
-        fun hideNavigationBar(activity: Activity) {
+        fun hideNavigationBar(
+                activity: Activity
+        ) {
             // set navigation bar status, remember to disable "setNavigationBarTintEnabled"
             val flags = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                     or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -150,7 +161,9 @@ class LScreenUtil {
         }
 
         @TargetApi(Build.VERSION_CODES.KITKAT)
-        fun showNavigationBar(activity: Activity) {
+        fun showNavigationBar(
+                activity: Activity
+        ) {
             // set navigation bar status, remember to disable "setNavigationBarTintEnabled"
             val flags = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                     or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -171,7 +184,9 @@ class LScreenUtil {
         }
 
         @SuppressLint("ObsoleteSdkInt")
-        fun hideDefaultControls(activity: Activity) {
+        fun hideDefaultControls(
+                activity: Activity
+        ) {
             val window = activity.window ?: return
             window.clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
             window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
@@ -190,7 +205,9 @@ class LScreenUtil {
         }
 
         @SuppressLint("ObsoleteSdkInt")
-        fun showDefaultControls(activity: Activity) {
+        fun showDefaultControls(
+                activity: Activity
+        ) {
             val window = activity.window ?: return
             window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
             window.addFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN)
@@ -209,8 +226,11 @@ class LScreenUtil {
         }
 
         //rotate screen
-        fun setFullScreen(activity: Activity, isFullScreen: Boolean) {
-            if (isFullScreen) {
+        fun setScreenOrientation(
+                activity: Activity,
+                isPortrait: Boolean = true
+        ) {
+            if (isPortrait) {
                 activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
             } else {
@@ -218,51 +238,86 @@ class LScreenUtil {
             }
         }
 
-        fun replaceFragment(activity: Activity, containerFrameLayoutIdRes: Int, fragment: Fragment, isAddToBackStack: Boolean) {
-            val transaction = (activity as BaseActivity).supportFragmentManager.beginTransaction()
-            //transaction.setCustomAnimations(android.R.anim.fade_in, 0);
-            transaction.replace(containerFrameLayoutIdRes, fragment)
-            if (isAddToBackStack) {
-                transaction.addToBackStack(null)
+        fun replaceFragment(
+                activity: Activity,
+                containerFrameLayoutIdRes: Int,
+                fragment: Fragment,
+                isAddToBackStack: Boolean
+        ) {
+            if (activity is BaseActivity) {
+                val transaction = activity.supportFragmentManager.beginTransaction()
+                //transaction.setCustomAnimations(android.R.anim.fade_in, 0);
+                transaction.replace(containerFrameLayoutIdRes, fragment)
+                if (isAddToBackStack) {
+                    transaction.addToBackStack(null)
+                }
+                transaction.commit()
             }
-            transaction.commit()
         }
 
-        fun addFragment(activity: Activity, containerFrameLayoutIdRes: Int, fragment: Fragment, isAddToBackStack: Boolean) {
-            val transaction = (activity as BaseActivity).supportFragmentManager.beginTransaction()
-            //transaction.setCustomAnimations(android.R.anim.fade_in, 0);
-            transaction.add(containerFrameLayoutIdRes, fragment)
-            if (isAddToBackStack) {
-                transaction.addToBackStack(null)
+        fun addFragment(
+                activity: Activity,
+                containerFrameLayoutIdRes: Int,
+                fragment: Fragment,
+                isAddToBackStack: Boolean
+        ) {
+            if (activity is BaseActivity) {
+                val transaction = activity.supportFragmentManager.beginTransaction()
+                //transaction.setCustomAnimations(android.R.anim.fade_in, 0)
+                transaction.add(containerFrameLayoutIdRes, fragment)
+                if (isAddToBackStack) {
+                    transaction.addToBackStack(null)
+                }
+                transaction.commit()
             }
-            transaction.commit()
         }
 
-        fun addFragment(activity: Activity, containerFrameLayoutIdRes: Int, fragment: Fragment, tag: String, isAddToBackStack: Boolean) {
-            val transaction = (activity as BaseActivity).supportFragmentManager.beginTransaction()
-            //transaction.setCustomAnimations(android.R.anim.fade_in, 0);
-            transaction.add(containerFrameLayoutIdRes, fragment, tag)
-            if (isAddToBackStack) {
-                transaction.addToBackStack(null)
+        fun addFragment(
+                activity: Activity,
+                containerFrameLayoutIdRes: Int,
+                fragment: Fragment,
+                tag: String,
+                isAddToBackStack: Boolean
+        ) {
+            if (activity is BaseActivity) {
+                val transaction = activity.supportFragmentManager.beginTransaction()
+                //transaction.setCustomAnimations(android.R.anim.fade_in, 0)
+                transaction.add(containerFrameLayoutIdRes, fragment, tag)
+                if (isAddToBackStack) {
+                    transaction.addToBackStack(null)
+                }
+                transaction.commit()
             }
-            transaction.commit()
         }
 
-        fun findFragmentByTag(activity: Activity, tag: String): Fragment? {
-            return (activity as BaseActivity).supportFragmentManager.findFragmentByTag(tag)
+        fun findFragmentByTag(
+                activity: Activity,
+                tag: String
+        ): Fragment? {
+            if (activity is BaseActivity) {
+                return activity.supportFragmentManager.findFragmentByTag(tag)
+            }
+            return null
         }
 
-        fun removeFragmentByTag(activity: Activity, tag: String) {
-            val fragment = findFragmentByTag(activity, tag)
+        fun removeFragmentByTag(
+                activity: Activity,
+                tag: String
+        ) {
+            val fragment = findFragmentByTag(activity = activity, tag = tag)
             if (fragment != null) {
                 val transaction = (activity as BaseActivity).supportFragmentManager.beginTransaction()
-                //transaction.setCustomAnimations(0, android.R.anim.fade_out);
+                //transaction.setCustomAnimations(0, android.R.anim.fade_out)
                 transaction.remove(fragment).commit()
             }
         }
 
-        fun removeAllFragments(activity: Activity) {
-            FragmentUtils.removeAllFragments((activity as BaseActivity).supportFragmentManager)
+        fun removeAllFragments(
+                activity: Activity
+        ) {
+            if (activity is BaseActivity) {
+                FragmentUtils.removeAllFragments(activity.supportFragmentManager)
+            }
         }
 
         fun isLandscape(): Boolean {
@@ -275,7 +330,10 @@ class LScreenUtil {
         }
 
         //from 0 to 100
-        fun setBrightness(context: Context?, value: Int) {
+        fun setBrightness(
+                context: Context?,
+                value: Int
+        ) {
             if (context == null) {
                 return
             }
