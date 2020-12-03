@@ -32,11 +32,17 @@ class LevelAdapter() : AnimationAdapter() {
             itemView.tvLevel.text = level.name
             LUIUtil.setTextShadow(textView = itemView.tvLevel, color = Color.BLACK)
 
-            setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
+            if (level.status == Level.STATUS_LEVEL_OPEN) {
+                itemView.layoutRootView.setBackgroundResource(R.drawable.bkg_blue_2)
+            } else if (level.status == Level.STATUS_LEVEL_WIN) {
+                itemView.layoutRootView.setBackgroundResource(R.drawable.bkg_yellow)
+            }
 
             itemView.layoutRootView.setOnClickListener {
                 onClickRootView?.invoke(level, it)
             }
+
+            setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
         }
     }
 

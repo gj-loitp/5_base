@@ -12,7 +12,7 @@
         android:id="@+id/layoutRootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bkg_cyan">
+        tools:background="@drawable/bkg_blue_2">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvLevel"

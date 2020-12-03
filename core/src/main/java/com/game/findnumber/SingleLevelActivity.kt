@@ -74,6 +74,13 @@ class SingleLevelActivity : BaseFontActivity() {
         for (i in 0 until 100) {
             val level = Level()
             level.name = "${i + 1}"
+
+            if (i < 7) {
+                level.status = Level.STATUS_LEVEL_WIN
+            } else {
+                level.status = Level.STATUS_LEVEL_OPEN
+            }
+
             listLevel.add(element = level)
         }
         levelAdapter.setListLevel(listLevel = listLevel)
