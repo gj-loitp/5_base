@@ -13,11 +13,17 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/tvLevels"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/w_86"
         android:layout_marginTop="@dimen/margin_large"
         android:src="@drawable/levels"
         android:visibility="invisible"
         tools:visibility="visible" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ivBack"
+        android:layout_below="@+id/tvLevels" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBack"
