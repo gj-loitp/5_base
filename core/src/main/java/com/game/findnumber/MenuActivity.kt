@@ -50,6 +50,20 @@ class MenuActivity : BaseFontActivity() {
                     duration = 1000,
                     techniques = Techniques.SlideInRight
             )
+
+            ivBack?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = ivBack,
+                    duration = 1000,
+                    techniques = Techniques.ZoomInUp
+            )
+
+            ivMore?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = ivMore,
+                    duration = 1000,
+                    techniques = Techniques.ZoomInUp
+            )
         }
         LUIUtil.setSafeOnClickListenerElastic(
                 view = ivBack,
