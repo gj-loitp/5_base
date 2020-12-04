@@ -59,4 +59,15 @@
         android:src="@drawable/back_button"
         android:visibility="invisible"
         tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivPlay"
+        android:layout_width="@dimen/w_100"
+        android:layout_height="@dimen/w_100"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/margin_large"
+        android:src="@drawable/ic_play_blue"
+        android:visibility="invisible"
+        tools:visibility="visible" />
 </RelativeLayout>

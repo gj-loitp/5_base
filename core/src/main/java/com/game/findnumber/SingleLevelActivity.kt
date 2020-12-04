@@ -48,14 +48,21 @@ class SingleLevelActivity : BaseFontActivity() {
             tvLevels?.visibility = View.VISIBLE
             LAnimationUtil.play(
                     view = tvLevels,
-                    duration = 500,
+                    duration = 1000,
                     techniques = Techniques.ZoomInDown
             )
 
             ivBack?.visibility = View.VISIBLE
             LAnimationUtil.play(
                     view = ivBack,
-                    duration = 500,
+                    duration = 1000,
+                    techniques = Techniques.ZoomInUp
+            )
+
+            ivPlay?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = ivPlay,
+                    duration = 1000,
                     techniques = Techniques.ZoomInUp
             )
 
@@ -74,6 +81,11 @@ class SingleLevelActivity : BaseFontActivity() {
                 view = ivBack,
                 runnable = {
                     onBackPressed()
+                })
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = ivPlay,
+                runnable = {
+                    //TODO loitp iplm
                 })
     }
 
