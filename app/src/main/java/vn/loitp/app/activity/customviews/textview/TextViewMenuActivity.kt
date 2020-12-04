@@ -14,7 +14,6 @@ import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextVie
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity
 import vn.loitp.app.activity.customviews.textview.extratextview.ExtraTextViewActivity
-import vn.loitp.app.activity.customviews.textview.justifiedtextview.JustifiedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity
 import vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity
@@ -45,7 +44,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         btVerticalMarqueeTextView.setOnClickListener(this)
         btTypeWriterTextView.setOnClickListener(this)
         btTextDecorator.setOnClickListener(this)
-        btJustifieldTextView.setOnClickListener(this)
         btExtraTextview.setOnClickListener(this)
         btStrokedTextView.setOnClickListener(this)
     }
@@ -63,7 +61,6 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
             btVerticalMarqueeTextView -> intent = Intent(this, VerticalMarqueeTextViewActivity::class.java)
             btTypeWriterTextView -> intent = Intent(this, TypeWriterTextViewActivity::class.java)
             btTextDecorator -> intent = Intent(this, TextDecoratorActivity::class.java)
-            btJustifieldTextView -> intent = Intent(this, JustifiedTextViewActivity::class.java)
             btExtraTextview -> intent = Intent(this, ExtraTextViewActivity::class.java)
             btStrokedTextView -> intent = Intent(this, StrokedTextViewActivity::class.java)
         }
