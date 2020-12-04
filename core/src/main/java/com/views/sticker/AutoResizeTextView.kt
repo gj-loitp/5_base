@@ -1,154 +1,182 @@
-package com.views.sticker;
+package com.views.sticker
 
-/**
- * Created by www.muathu@gmail.com on 10/21/2017.
- */
+import android.annotation.TargetApi
+import android.content.Context
+import android.content.res.Resources
+import android.graphics.RectF
+import android.os.Build
+import android.text.Layout
+import android.text.StaticLayout
+import android.text.TextPaint
+import android.util.AttributeSet
+import android.util.SparseIntArray
+import android.util.TypedValue
+import androidx.appcompat.widget.AppCompatTextView
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.RectF;
-import android.os.Build;
-import android.text.Layout.Alignment;
-import android.text.StaticLayout;
-import android.text.TextPaint;
-import android.util.AttributeSet;
-import android.util.SparseIntArray;
-import android.util.TypedValue;
-import android.widget.TextView;
-//TODO convert kotlin
-public class AutoResizeTextView extends TextView {
+class AutoResizeTextView : AppCompatTextView {
+
+    companion object {
+        private const val NO_LINE_LIMIT = -1
+
+        private fun binarySearch(
+                start: Int,
+                end: Int,
+                sizeTester: SizeTester,
+                availableSpace: RectF?
+        ): Int {
+            var lastBest = start
+            var lo = start
+            var hi = end - 1
+            var mid: Int
+            while (lo <= hi) {
+                mid = lo + hi ushr 1
+                val midValCmp = sizeTester.onTestSize(mid, availableSpace)
+                when {
+                    midValCmp < 0 -> {
+                        lastBest = lo
+                        lo = mid + 1
+                    }
+                    midValCmp > 0 -> {
+                        hi = mid - 1
+                        lastBest = hi
+                    }
+                    else -> {
+                        return mid
+                    }
+                }
+            }
+            // make sure to return last best
+            // this is what should always be returned
+            return lastBest
+        }
+    }
+
     private interface SizeTester {
         /**
          * @param suggestedSize  Size of text to be tested
          * @param availableSpace available space in which text must fit
-         * @return an integer < 0 if after applying {@code suggestedSize} to
-         * text, it takes less space than {@code availableSpace}, > 0
+         * @return an integer < 0 if after applying `suggestedSize` to
+         * text, it takes less space than `availableSpace`, > 0
          * otherwise
          */
-        public int onTestSize(int suggestedSize, RectF availableSpace);
+        fun onTestSize(suggestedSize: Int, availableSpace: RectF?): Int
     }
 
-    private RectF mTextRect = new RectF();
+    private val mTextRect = RectF()
+    private var mAvailableSpaceRect: RectF? = null
+    private var mTextCachedSizes: SparseIntArray? = null
+    private var mPaint: TextPaint? = null
+    private var mMaxTextSize = 0f
+    private var mSpacingMult = 1.0f
+    private var mSpacingAdd = 0.0f
+    private var mMinTextSize = 20f
+    private var mWidthLimit = 0
+    private var mMaxLines = 0
+    private var mEnableSizeCache = true
+    private var mInitiallized = false
 
-    private RectF mAvailableSpaceRect;
-
-    private SparseIntArray mTextCachedSizes;
-
-    private TextPaint mPaint;
-
-    private float mMaxTextSize;
-
-    private float mSpacingMult = 1.0f;
-
-    private float mSpacingAdd = 0.0f;
-
-    private float mMinTextSize = 20;
-
-    private int mWidthLimit;
-
-    private static final int NO_LINE_LIMIT = -1;
-    private int mMaxLines;
-
-    private boolean mEnableSizeCache = true;
-    private boolean mInitiallized;
-
-    public AutoResizeTextView(Context context) {
-        super(context);
-        initialize();
+    constructor(context: Context) : super(context) {
+        initialize()
     }
 
-    public AutoResizeTextView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        initialize();
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        initialize()
     }
 
-    public AutoResizeTextView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        initialize();
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+        initialize()
     }
 
-    private void initialize() {
-        mPaint = new TextPaint(getPaint());
-        mMaxTextSize = getTextSize();
-        mAvailableSpaceRect = new RectF();
-        mTextCachedSizes = new SparseIntArray();
+    private fun initialize() {
+        mPaint = TextPaint(paint)
+        mMaxTextSize = textSize
+        mAvailableSpaceRect = RectF()
+        mTextCachedSizes = SparseIntArray()
         if (mMaxLines == 0) {
             // no value was assigned during construction
-            mMaxLines = NO_LINE_LIMIT;
+            mMaxLines = NO_LINE_LIMIT
         }
-        mInitiallized = true;
+        mInitiallized = true
     }
 
-    @Override
-    public void setText(final CharSequence text, BufferType type) {
-        super.setText(text, type);
-        adjustTextSize(text.toString());
+    override fun setText(
+            text: CharSequence,
+            type: BufferType
+    ) {
+        super.setText(text, type)
+        adjustTextSize(text.toString())
     }
 
-    @Override
-    public void setTextSize(float size) {
-        mMaxTextSize = size;
-        mTextCachedSizes.clear();
-        adjustTextSize(getText().toString());
+    override fun setTextSize(
+            size: Float
+    ) {
+        mMaxTextSize = size
+        mTextCachedSizes?.clear()
+        adjustTextSize(string = text.toString())
     }
 
-    @Override
-    public void setMaxLines(int maxlines) {
-        super.setMaxLines(maxlines);
-        mMaxLines = maxlines;
-        reAdjust();
+    override fun setMaxLines(
+            maxlines: Int
+    ) {
+        super.setMaxLines(maxlines)
+        mMaxLines = maxlines
+        reAdjust()
     }
 
-    public int getMaxLines() {
-        return mMaxLines;
+    override fun getMaxLines(): Int {
+        return mMaxLines
     }
 
-    @Override
-    public void setSingleLine() {
-        super.setSingleLine();
-        mMaxLines = 1;
-        reAdjust();
+    override fun setSingleLine() {
+        super.setSingleLine()
+        mMaxLines = 1
+        reAdjust()
     }
 
-    @Override
-    public void setSingleLine(boolean singleLine) {
-        super.setSingleLine(singleLine);
-        if (singleLine) {
-            mMaxLines = 1;
+    override fun setSingleLine(
+            singleLine: Boolean
+    ) {
+        super.setSingleLine(singleLine)
+        mMaxLines = if (singleLine) {
+            1
         } else {
-            mMaxLines = NO_LINE_LIMIT;
+            NO_LINE_LIMIT
         }
-        reAdjust();
+        reAdjust()
     }
 
-    @Override
-    public void setLines(int lines) {
-        super.setLines(lines);
-        mMaxLines = lines;
-        reAdjust();
+    override fun setLines(
+            lines: Int
+    ) {
+        super.setLines(lines)
+        mMaxLines = lines
+        reAdjust()
     }
 
-    @Override
-    public void setTextSize(int unit, float size) {
-        Context c = getContext();
-        Resources r;
+    override fun setTextSize(
+            unit: Int,
+            size: Float
+    ) {
+        val c = context
+        val r: Resources
+        r = if (c == null) {
+            Resources.getSystem()
+        } else {
+            c.resources
+        }
+        mMaxTextSize = TypedValue.applyDimension(unit, size, r.displayMetrics)
 
-        if (c == null)
-            r = Resources.getSystem();
-        else
-            r = c.getResources();
-        mMaxTextSize = TypedValue.applyDimension(unit, size,
-                r.getDisplayMetrics());
-        mTextCachedSizes.clear();
-        adjustTextSize(getText().toString());
+        mTextCachedSizes?.clear()
+        adjustTextSize(string = text.toString())
     }
 
-    @Override
-    public void setLineSpacing(float add, float mult) {
-        super.setLineSpacing(add, mult);
-        mSpacingMult = mult;
-        mSpacingAdd = add;
+    override fun setLineSpacing(
+            add: Float,
+            mult: Float
+    ) {
+        super.setLineSpacing(add, mult)
+        mSpacingMult = mult
+        mSpacingAdd = add
     }
 
     /**
@@ -156,71 +184,80 @@ public class AutoResizeTextView extends TextView {
      *
      * @param minTextSize
      */
-    public void setMinTextSize(float minTextSize) {
-        mMinTextSize = minTextSize;
-        reAdjust();
+    fun setMinTextSize(
+            minTextSize: Float
+    ) {
+        mMinTextSize = minTextSize
+        reAdjust()
     }
 
-    private void reAdjust() {
-        adjustTextSize(getText().toString());
+    private fun reAdjust() {
+        adjustTextSize(text.toString())
     }
 
-    private void adjustTextSize(String string) {
+    private fun adjustTextSize(string: String) {
         if (!mInitiallized) {
-            return;
+            return
         }
-        int startSize = (int) mMinTextSize;
-        int heightLimit = getMeasuredHeight() - getCompoundPaddingBottom()
-                - getCompoundPaddingTop();
-        mWidthLimit = getMeasuredWidth() - getCompoundPaddingLeft()
-                - getCompoundPaddingRight();
-        mAvailableSpaceRect.right = mWidthLimit;
-        mAvailableSpaceRect.bottom = heightLimit;
+        val startSize = mMinTextSize.toInt()
+        val heightLimit = (measuredHeight - compoundPaddingBottom - compoundPaddingTop)
+        mWidthLimit = (measuredWidth - compoundPaddingLeft - compoundPaddingRight)
+        mAvailableSpaceRect?.right = mWidthLimit.toFloat()
+        mAvailableSpaceRect?.bottom = heightLimit.toFloat()
         super.setTextSize(
                 TypedValue.COMPLEX_UNIT_PX,
-                efficientTextSizeSearch(startSize, (int) mMaxTextSize,
-                        mSizeTester, mAvailableSpaceRect));
+                efficientTextSizeSearch(
+                        startSize,
+                        mMaxTextSize.toInt(),
+                        mSizeTester,
+                        mAvailableSpaceRect
+                ).toFloat())
     }
 
-    private final SizeTester mSizeTester = new SizeTester() {
+    private val mSizeTester: SizeTester = object : SizeTester {
         @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-        @Override
-        public int onTestSize(int suggestedSize, RectF availableSPace) {
-            mPaint.setTextSize(suggestedSize);
-            String text = getText().toString();
-            boolean singleline = getMaxLines() == 1;
+        override fun onTestSize(suggestedSize: Int, availableSPace: RectF?): Int {
+            mPaint?.textSize = suggestedSize.toFloat()
+            val text = text.toString()
+            val singleline = maxLines == 1
             if (singleline) {
-                mTextRect.bottom = mPaint.getFontSpacing();
-                mTextRect.right = mPaint.measureText(text);
-            } else {
-                StaticLayout layout = new StaticLayout(text, mPaint,
-                        mWidthLimit, Alignment.ALIGN_NORMAL, mSpacingMult,
-                        mSpacingAdd, true);
-                // return early if we have more lines
-                if (getMaxLines() != NO_LINE_LIMIT
-                        && layout.getLineCount() > getMaxLines()) {
-                    return 1;
+                mPaint?.let {
+                    mTextRect.bottom = it.fontSpacing
+                    mTextRect.right = it.measureText(text)
                 }
-                mTextRect.bottom = layout.getHeight();
-                int maxWidth = -1;
-                for (int i = 0; i < layout.getLineCount(); i++) {
+            } else {
+                val layout = StaticLayout(
+                        text, mPaint,
+                        mWidthLimit,
+                        Layout.Alignment.ALIGN_NORMAL,
+                        mSpacingMult,
+                        mSpacingAdd,
+                        true
+                )
+                // return early if we have more lines
+                if (maxLines != NO_LINE_LIMIT
+                        && layout.lineCount > maxLines) {
+                    return 1
+                }
+                mTextRect.bottom = layout.height.toFloat()
+                var maxWidth = -1
+                for (i in 0 until layout.lineCount) {
                     if (maxWidth < layout.getLineWidth(i)) {
-                        maxWidth = (int) layout.getLineWidth(i);
+                        maxWidth = layout.getLineWidth(i).toInt()
                     }
                 }
-                mTextRect.right = maxWidth;
+                mTextRect.right = maxWidth.toFloat()
             }
-
-            mTextRect.offsetTo(0, 0);
-            if (availableSPace.contains(mTextRect)) {
+            mTextRect.offsetTo(0f, 0f)
+            return if (availableSPace?.contains(mTextRect) == true) {
                 // may be too small, don't worry we will find the best match
-                return -1;
+                -1
             } else {
                 // too big
-                return 1;
+                1
             }
         }
-    };
+    }
 
     /**
      * Enables or disables size caching, enabling it will improve performance
@@ -230,67 +267,62 @@ public class AutoResizeTextView extends TextView {
      *
      * @param enable enable font size caching
      */
-    public void enableSizeCache(boolean enable) {
-        mEnableSizeCache = enable;
-        mTextCachedSizes.clear();
-        adjustTextSize(getText().toString());
+    fun enableSizeCache(enable: Boolean) {
+        mEnableSizeCache = enable
+        mTextCachedSizes?.clear()
+        adjustTextSize(text.toString())
     }
 
-    private int efficientTextSizeSearch(int start, int end,
-                                        SizeTester sizeTester, RectF availableSpace) {
+    private fun efficientTextSizeSearch(
+            start: Int,
+            end: Int,
+            sizeTester: SizeTester,
+            availableSpace: RectF?
+    ): Int {
         if (!mEnableSizeCache) {
-            return binarySearch(start, end, sizeTester, availableSpace);
+            return binarySearch(
+                    start = start,
+                    end = end,
+                    sizeTester = sizeTester,
+                    availableSpace = availableSpace
+            )
         }
-        String text = getText().toString();
-        int key = text == null ? 0 : text.length();
-        int size = mTextCachedSizes.get(key);
+        val text = text.toString()
+        val key = text.length
+        var size = mTextCachedSizes!![key]
         if (size != 0) {
-            return size;
+            return size
         }
-        size = binarySearch(start, end, sizeTester, availableSpace);
-        mTextCachedSizes.put(key, size);
-        return size;
+        size = binarySearch(
+                start = start,
+                end = end,
+                sizeTester = sizeTester,
+                availableSpace = availableSpace
+        )
+        mTextCachedSizes?.put(key, size)
+        return size
     }
 
-    private static int binarySearch(int start, int end, SizeTester sizeTester,
-                                    RectF availableSpace) {
-        int lastBest = start;
-        int lo = start;
-        int hi = end - 1;
-        int mid = 0;
-        while (lo <= hi) {
-            mid = (lo + hi) >>> 1;
-            int midValCmp = sizeTester.onTestSize(mid, availableSpace);
-            if (midValCmp < 0) {
-                lastBest = lo;
-                lo = mid + 1;
-            } else if (midValCmp > 0) {
-                hi = mid - 1;
-                lastBest = hi;
-            } else {
-                return mid;
-            }
-        }
-        // make sure to return last best
-        // this is what should always be returned
-        return lastBest;
-
+    override fun onTextChanged(
+            text: CharSequence,
+            start: Int,
+            before: Int,
+            after: Int
+    ) {
+        super.onTextChanged(text, start, before, after)
+        reAdjust()
     }
 
-    @Override
-    protected void onTextChanged(final CharSequence text, final int start,
-                                 final int before, final int after) {
-        super.onTextChanged(text, start, before, after);
-        reAdjust();
-    }
-
-    @Override
-    protected void onSizeChanged(int width, int height, int oldwidth,
-                                 int oldheight) {
-        mTextCachedSizes.clear();
-        super.onSizeChanged(width, height, oldwidth, oldheight);
+    override fun onSizeChanged(
+            width: Int,
+            height: Int,
+            oldwidth: Int,
+            oldheight: Int
+    ) {
+        mTextCachedSizes?.clear()
+        super.onSizeChanged(width, height, oldwidth, oldheight)
         if (width != oldwidth || height != oldheight) {
-            reAdjust();
+            reAdjust()
         }
     }
 }
