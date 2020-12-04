@@ -1,66 +1,43 @@
-package com.views.sticker;
+package com.views.sticker
 
-/**
- * Created by www.muathu@gmail.com on 10/21/2017.
- */
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.util.AttributeSet
+import android.view.View
+import android.widget.ImageView
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
-import android.view.View;
-import android.widget.ImageView;
+class StickerImageView : StickerView {
 
-//TODO convert kotlin
-public class StickerImageView extends StickerView {
+    var ownerId: String? = null
+    private var ivMain: ImageView? = null
 
-    private String ownerId;
-    private ImageView ivMain;
+    constructor(context: Context?) : super(context)
 
-    public StickerImageView(Context context) {
-        super(context);
-    }
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
 
-    public StickerImageView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
-    public StickerImageView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
-
-    public void setOwnerId(String owner_id) {
-        this.ownerId = owner_id;
-    }
-
-    public String getOwnerId() {
-        return this.ownerId;
-    }
-
-    @Override
-    public View getMainView() {
-        if (this.ivMain == null) {
-            this.ivMain = new ImageView(getContext());
-            this.ivMain.setScaleType(ImageView.ScaleType.FIT_XY);
+    public override fun getMainView(): View {
+        if (ivMain == null) {
+            ivMain = ImageView(context)
+            ivMain?.scaleType = ImageView.ScaleType.FIT_XY
         }
-        return ivMain;
+        return ivMain!!
     }
 
-    public void setImageBitmap(Bitmap bmp) {
-        this.ivMain.setImageBitmap(bmp);
+    fun setImageResource(resId: Int) {
+        ivMain?.setImageResource(resId)
     }
 
-    public void setImageResource(int res_id) {
-        this.ivMain.setImageResource(res_id);
+    fun setImageDrawable(drawable: Drawable?) {
+        ivMain?.setImageDrawable(drawable)
     }
 
-    public void setImageDrawable(Drawable drawable) {
-        this.ivMain.setImageDrawable(drawable);
-    }
-
-    public Bitmap getImageBitmap() {
-        return ((BitmapDrawable) this.ivMain.getDrawable()).getBitmap();
-    }
-
+    var imageBitmap: Bitmap?
+        get() = (ivMain?.drawable as BitmapDrawable).bitmap
+        set(bmp) {
+            ivMain?.setImageBitmap(bmp)
+        }
 }
