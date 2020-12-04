@@ -1,18 +1,10 @@
-package com.views.treeview;
+package com.views.treeview
 
-/**
- *
- */
+internal object Conditions {
 
-final class Conditions {
-    private Conditions() {
-    }
-
-    static <T> T isNonNull(T object, String message) {
-        if(object == null) {
-            throw new IllegalArgumentException(message);
-        }
-
-        return object;
+    @JvmStatic
+    fun <T> isNonNull(t: T?, message: String): T {
+        requireNotNull(t) { message }
+        return t
     }
 }
