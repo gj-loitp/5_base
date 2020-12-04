@@ -1,34 +1,32 @@
-package com.views.smoothtransition;
+package com.views.smoothtransition
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Bitmap.Config;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Rect;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.View;
-//TODO convert kotlin
-public class ViewUtils {
-    private static int width;
-    private static int height;
+import android.app.Activity
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Canvas
+import android.graphics.Rect
+import android.util.TypedValue
+import android.view.View
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.min
+import kotlin.math.sqrt
 
-    public static void init(Context context) {
-        final Resources res = context.getResources();
-        final DisplayMetrics metrics = res.getDisplayMetrics();
-        width = metrics.widthPixels;
-        height = metrics.heightPixels;
-    }
+object ViewUtils {
+    var screenWidth = 0
+        private set
+    var screenHeight = 0
+        private set
 
-    public static int getScreenWidth() {
-        return width;
-    }
-
-    public static int getScreenHeight() {
-        return height;
+    @JvmStatic
+    fun init(
+            context: Context
+    ) {
+        val res = context.resources
+        val metrics = res.displayMetrics
+        screenWidth = metrics.widthPixels
+        screenHeight = metrics.heightPixels
     }
 
     /**
@@ -38,11 +36,14 @@ public class ViewUtils {
      * @param context
      * @return
      */
-    public static int getPixels(int dipValue, Context context) {
-        int result = 0;
-        Resources res = context.getResources();
-        result = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, res.getDisplayMetrics());
-        return result;
+    fun getPixels(
+            dipValue: Int,
+            context: Context
+    ): Int {
+        var result = 0
+        val res = context.resources
+        result = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue.toFloat(), res.displayMetrics).toInt()
+        return result
     }
 
     /**
@@ -51,16 +52,17 @@ public class ViewUtils {
      * @param v
      * @return
      */
-    public static Bitmap loadBitmapFromView(View v) {
+    fun loadBitmapFromView(
+            v: View?
+    ): Bitmap? {
         if (v == null) {
-            return null;
+            return null
         }
-        Bitmap screenshot;
-        screenshot = Bitmap.createBitmap(v.getWidth(), v.getHeight(), Config.ARGB_8888);
-        Canvas c = new Canvas(screenshot);
-        c.translate(-v.getScrollX(), -v.getScrollY());
-        v.draw(c);
-        return screenshot;
+        val screenshot: Bitmap = Bitmap.createBitmap(v.width, v.height, Bitmap.Config.ARGB_8888)
+        val c = Canvas(screenshot)
+        c.translate(-v.scrollX.toFloat(), -v.scrollY.toFloat())
+        v.draw(c)
+        return screenshot
     }
 
     /**
@@ -71,18 +73,22 @@ public class ViewUtils {
      * @param maxNumOfPixels
      * @return
      */
-    public static int computeSampleSize(BitmapFactory.Options options, int minSideLength, int maxNumOfPixels) {
-        int initialSize = computeInitialSampleSize(options, minSideLength, maxNumOfPixels);
-        int roundedSize;
+    fun computeSampleSize(
+            options: BitmapFactory.Options,
+            minSideLength: Int,
+            maxNumOfPixels: Int
+    ): Int {
+        val initialSize = computeInitialSampleSize(options, minSideLength, maxNumOfPixels)
+        var roundedSize: Int
         if (initialSize <= 8) {
-            roundedSize = 1;
+            roundedSize = 1
             while (roundedSize < initialSize) {
-                roundedSize <<= 1;
+                roundedSize = roundedSize shl 1
             }
         } else {
-            roundedSize = (initialSize + 7) / 8 * 8;
+            roundedSize = (initialSize + 7) / 8 * 8
         }
-        return roundedSize;
+        return roundedSize
     }
 
     /**
@@ -93,27 +99,31 @@ public class ViewUtils {
      * @param maxNumOfPixels
      * @return
      */
-    private static int computeInitialSampleSize(BitmapFactory.Options options, int minSideLength, int maxNumOfPixels) {
-        final double w = options.outWidth;
-        final double h = options.outHeight;
-        final int lowerBound = (maxNumOfPixels == -1) ? 1 : (int) Math.ceil(Math.sqrt(w * h / maxNumOfPixels));
-        final int upperBound = (minSideLength == -1) ? 128 : (int) Math.min(Math.floor(w / minSideLength), Math.floor(h / minSideLength));
+    private fun computeInitialSampleSize(
+            options: BitmapFactory.Options,
+            minSideLength: Int,
+            maxNumOfPixels: Int
+    ): Int {
+        val w = options.outWidth.toDouble()
+        val h = options.outHeight.toDouble()
+        val lowerBound = if (maxNumOfPixels == -1) 1 else ceil(sqrt(w * h / maxNumOfPixels)).toInt()
+        val upperBound = if (minSideLength == -1) 128 else min(floor(w / minSideLength), floor(h / minSideLength)).toInt()
         if (upperBound < lowerBound) {
             // return the larger one when there is no overlapping zone.
-            return lowerBound;
+            return lowerBound
         }
-        if ((maxNumOfPixels == -1) && (minSideLength == -1)) {
-            return 1;
+        return if (maxNumOfPixels == -1 && minSideLength == -1) {
+            1
         } else if (minSideLength == -1) {
-            return lowerBound;
+            lowerBound
         } else {
-            return upperBound;
+            upperBound
         }
     }
 
-    public static int getStatusBarHeight(Activity context) {
-        final Rect rect = new Rect();
-        context.getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
-        return rect.top;
+    fun getStatusBarHeight(context: Activity): Int {
+        val rect = Rect()
+        context.window.decorView.getWindowVisibleDisplayFrame(rect)
+        return rect.top
     }
 }

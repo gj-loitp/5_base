@@ -88,7 +88,7 @@ public class SwitchAnimationUtil {
     private void runHorizonLeftAnimation(View view, long delay) {
         view.setAlpha(0);
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view,
-                "translationX", -ViewUtils.getScreenWidth(), 0);
+                "translationX", -ViewUtils.INSTANCE.getScreenWidth(), 0);
         objectAnimator.setInterpolator(new LinearInterpolator());
         ObjectAnimator objectAnimatorAlpha = ObjectAnimator.ofFloat(view,
                 "alpha", 0f, 1f);
@@ -102,7 +102,7 @@ public class SwitchAnimationUtil {
     private void runHorizonRightAnimation(View view, long delay) {
         view.setAlpha(0);
         ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(view,
-                "translationX", ViewUtils.getScreenWidth(), 0);
+                "translationX", ViewUtils.INSTANCE.getScreenWidth(), 0);
         objectAnimator.setInterpolator(new LinearInterpolator());
         ObjectAnimator objectAnimatorAlpha = ObjectAnimator.ofFloat(view,
                 "alpha", 0f, 1f);

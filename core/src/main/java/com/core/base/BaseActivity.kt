@@ -20,6 +20,7 @@ import com.google.android.gms.ads.InterstitialAd
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
+import com.views.smoothtransition.SwitchAnimationUtil
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -124,7 +125,7 @@ abstract class BaseActivity : AppCompatActivity() {
                 })
 
         //auto animation
-        //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
+        SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
 
         isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
