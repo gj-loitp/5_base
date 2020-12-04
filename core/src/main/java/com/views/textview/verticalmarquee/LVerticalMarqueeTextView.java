@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.R;
 
+//try to convert kotlin 4/12/2020 but failed
 public class LVerticalMarqueeTextView extends ScrollView {
     private static final String TAG = LVerticalMarqueeTextView.class.getName();
 
