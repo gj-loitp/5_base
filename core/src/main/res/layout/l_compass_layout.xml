@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.views.compass.CompassSkeleton xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/compass_skeleton"
+    android:id="@+id/compassSkeleton"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_needle"
+        android:id="@+id/ivNeedle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
@@ -14,13 +14,13 @@
         android:src="@drawable/l_ic_needle" />
 
     <RelativeLayout
-        android:id="@+id/data_layout"
+        android:id="@+id/layoutData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_degree"
+            android:id="@+id/tvDegree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"

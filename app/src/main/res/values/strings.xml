@@ -499,4 +499,5 @@ Likewise may someone love you next.
     <string name="find_number">Find number</string>
     <string name="crop_oval">Crop oval</string>
     <string name="crop_square">Crop square</string>
+    <string name="compass">Compass</string>
 </resources>

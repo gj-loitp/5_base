@@ -51,11 +51,6 @@
                 android:text="Calendar" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btCompass"
-                style="@style/ButtonMenu"
-                android:text="@string/compas" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDialog"
                 style="@style/ButtonMenu"
                 android:text="@string/dialog" />
