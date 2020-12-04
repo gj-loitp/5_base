@@ -1,5 +1,6 @@
 package com.views.sticker;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -8,7 +9,6 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +17,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.R;
+import com.core.utilities.LLog;
 import com.core.utilities.LUIUtil;
+
 //TODO convert kotlin
 public abstract class StickerView extends FrameLayout {
 
@@ -28,11 +30,11 @@ public abstract class StickerView extends FrameLayout {
     private ImageView ivFlip;
 
     // For scalling
-    private float this_orgX = -1, this_orgY = -1;
+    private float thisOrgX = -1, thisOrgY = -1;
     private float scale_orgX = -1, scale_orgY = -1;
-    private double scale_orgWidth = -1, scale_orgHeight = -1;
+    private double scaleOrgWidth = -1, scaleOrgHeight = -1;
     // For rotating
-    private float rotate_orgX = -1, rotate_orgY = -1, rotate_newX = -1, rotate_newY = -1;
+    private float rotateOrgX = -1, rotateOrgY = -1, rotateNewX = -1, rotateNewY = -1;
     // For moving
     private float move_orgX = -1, move_orgY = -1;
 
@@ -136,24 +138,17 @@ public abstract class StickerView extends FrameLayout {
         this.addView(ivFlip, ivFlipParams);
         this.setOnTouchListener(mTouchListener);
         this.ivScale.setOnTouchListener(mTouchListener);
-        this.ivDelete.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (StickerView.this.getParent() != null) {
-                    ViewGroup myCanvas = ((ViewGroup) StickerView.this.getParent());
-                    myCanvas.removeView(StickerView.this);
-                }
+        this.ivDelete.setOnClickListener(view -> {
+            if (StickerView.this.getParent() != null) {
+                ViewGroup myCanvas = ((ViewGroup) StickerView.this.getParent());
+                myCanvas.removeView(StickerView.this);
             }
         });
-        this.ivFlip.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                View mainView = getMainView();
-                mainView.setRotationY(mainView.getRotationY() == -180f ? 0f : -180f);
-                mainView.invalidate();
-                requestLayout();
-            }
+        this.ivFlip.setOnClickListener(view -> {
+            View mainView = getMainView();
+            mainView.setRotationY(mainView.getRotationY() == -180f ? 0f : -180f);
+            mainView.invalidate();
+            requestLayout();
         });
     }
 
@@ -163,19 +158,20 @@ public abstract class StickerView extends FrameLayout {
 
     protected abstract View getMainView();
 
-    private OnTouchListener mTouchListener = new OnTouchListener() {
+    private final OnTouchListener mTouchListener = new OnTouchListener() {
+        @SuppressLint("ClickableViewAccessibility")
         @Override
         public boolean onTouch(View view, MotionEvent event) {
 
             if (view.getTag().equals("DraggableViewGroup")) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        Log.v(logTag, "sticker view action down");
+                        LLog.d(logTag, "sticker view action down");
                         move_orgX = event.getRawX();
                         move_orgY = event.getRawY();
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        Log.v(logTag, "sticker view action move");
+                        LLog.d(logTag, "sticker view action move");
                         float offsetX = event.getRawX() - move_orgX;
                         float offsetY = event.getRawY() - move_orgY;
                         StickerView.this.setX(StickerView.this.getX() + offsetX);
@@ -184,31 +180,30 @@ public abstract class StickerView extends FrameLayout {
                         move_orgY = event.getRawY();
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.v(logTag, "sticker view action up");
+                        LLog.d(logTag, "sticker view action up");
                         break;
                 }
             } else if (view.getTag().equals("iv_scale")) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
-                        Log.v(logTag, "iv_scale action down");
+                        LLog.d(logTag, "iv_scale action down");
 
-                        this_orgX = StickerView.this.getX();
-                        this_orgY = StickerView.this.getY();
+                        thisOrgX = StickerView.this.getX();
+                        thisOrgY = StickerView.this.getY();
 
                         scale_orgX = event.getRawX();
                         scale_orgY = event.getRawY();
-                        scale_orgWidth = StickerView.this.getLayoutParams().width;
-                        scale_orgHeight = StickerView.this.getLayoutParams().height;
+                        scaleOrgWidth = StickerView.this.getLayoutParams().width;
+                        scaleOrgHeight = StickerView.this.getLayoutParams().height;
 
-                        rotate_orgX = event.getRawX();
-                        rotate_orgY = event.getRawY();
+                        rotateOrgX = event.getRawX();
+                        rotateOrgY = event.getRawY();
 
                         centerX = StickerView.this.getX() +
                                 ((View) StickerView.this.getParent()).getX() +
                                 (float) StickerView.this.getWidth() / 2;
 
 
-                        //double statusBarHeight = Math.ceil(25 * getContext().getResources().getDisplayMetrics().density);
                         int result = 0;
                         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
                         if (resourceId > 0) {
@@ -222,23 +217,23 @@ public abstract class StickerView extends FrameLayout {
 
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        Log.v(logTag, "iv_scale action move");
+                        LLog.d(logTag, "iv_scale action move");
 
-                        rotate_newX = event.getRawX();
-                        rotate_newY = event.getRawY();
+                        rotateNewX = event.getRawX();
+                        rotateNewY = event.getRawY();
 
-                        double angle_diff = Math.abs(
+                        double angleDiff = Math.abs(
                                 Math.atan2(event.getRawY() - scale_orgY, event.getRawX() - scale_orgX)
                                         - Math.atan2(scale_orgY - centerY, scale_orgX - centerX)) * 180 / Math.PI;
 
-                        Log.v(logTag, "angle_diff: " + angle_diff);
+                        LLog.d(logTag, "angle_diff: " + angleDiff);
 
                         double length1 = getLength(centerX, centerY, scale_orgX, scale_orgY);
                         double length2 = getLength(centerX, centerY, event.getRawX(), event.getRawY());
 
                         int size = convertDpToPixel(SELF_SIZE_DP, getContext());
                         if (length2 > length1
-                                && (angle_diff < 25 || Math.abs(angle_diff - 180) < 25)
+                                && (angleDiff < 25 || Math.abs(angleDiff - 180) < 25)
                         ) {
                             //scale up
                             double offsetX = Math.abs(event.getRawX() - scale_orgX);
@@ -251,7 +246,7 @@ public abstract class StickerView extends FrameLayout {
                             //DraggableViewGroup.this.setX((float) (getX() - offset / 2));
                             //DraggableViewGroup.this.setY((float) (getY() - offset / 2));
                         } else if (length2 < length1
-                                && (angle_diff < 25 || Math.abs(angle_diff - 180) < 25)
+                                && (angleDiff < 25 || Math.abs(angleDiff - 180) < 25)
                                 && StickerView.this.getLayoutParams().width > size / 2
                                 && StickerView.this.getLayoutParams().height > size / 2) {
                             //scale down
@@ -267,16 +262,16 @@ public abstract class StickerView extends FrameLayout {
                         //rotate
 
                         double angle = Math.atan2(event.getRawY() - centerY, event.getRawX() - centerX) * 180 / Math.PI;
-                        Log.v(logTag, "log angle: " + angle);
+                        LLog.d(logTag, "log angle: " + angle);
 
                         //setRotation((float) angle - 45);
                         setRotation((float) angle - 45);
-                        Log.v(logTag, "getRotation(): " + getRotation());
+                        LLog.d(logTag, "getRotation(): " + getRotation());
 
                         onRotating();
 
-                        rotate_orgX = rotate_newX;
-                        rotate_orgY = rotate_newY;
+                        rotateOrgX = rotateNewX;
+                        rotateOrgY = rotateNewY;
 
                         scale_orgX = event.getRawX();
                         scale_orgY = event.getRawY();
@@ -285,7 +280,7 @@ public abstract class StickerView extends FrameLayout {
                         requestLayout();
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.v(logTag, "iv_scale action up");
+                        LLog.d(logTag, "iv_scale action up");
                         break;
                 }
             }
@@ -303,14 +298,14 @@ public abstract class StickerView extends FrameLayout {
     }
 
     private float[] getRelativePos(float absX, float absY) {
-        Log.v("ken", "getRelativePos getX:" + ((View) this.getParent()).getX());
-        Log.v("ken", "getRelativePos getY:" + ((View) this.getParent()).getY());
+        LLog.d("ken", "getRelativePos getX:" + ((View) this.getParent()).getX());
+        LLog.d("ken", "getRelativePos getY:" + ((View) this.getParent()).getY());
         float[] pos = new float[]{
                 absX - ((View) this.getParent()).getX(),
                 absY - ((View) this.getParent()).getY()
         };
-        Log.v(logTag, "getRelativePos absY:" + absY);
-        Log.v(logTag, "getRelativePos relativeY:" + pos[1]);
+        LLog.d(logTag, "getRelativePos absY:" + absY);
+        LLog.d(logTag, "getRelativePos relativeY:" + pos[1]);
         return pos;
     }
 
@@ -359,7 +354,7 @@ public abstract class StickerView extends FrameLayout {
 
             LayoutParams params = (LayoutParams) this.getLayoutParams();
 
-            Log.v(logTag, "params.leftMargin: " + params.leftMargin);
+            LLog.d(logTag, "params.leftMargin: " + params.leftMargin);
 
             Rect border = new Rect();
             border.left = (int) this.getLeft() - params.leftMargin;
