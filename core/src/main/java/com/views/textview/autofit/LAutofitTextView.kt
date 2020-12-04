@@ -1,119 +1,71 @@
-package com.views.textview.autofit;
+package com.views.textview.autofit
+
+import android.content.Context
+import android.util.AttributeSet
+import android.util.TypedValue
+import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 
 /**
- * Created by www.muathu@gmail.com on 1/16/2018.
- */
-
-import android.content.Context;
-import android.util.AttributeSet;
-import android.util.TypedValue;
-import android.widget.TextView;
-//TODO convert kotlin
-/**
- * A {@link TextView} that re-sizes its text to be no larger than the width of the view.
+ * A [TextView] that re-sizes its text to be no larger than the width of the view.
  *
  * @attr ref R.styleable.AutofitTextView_sizeToFit
  * @attr ref R.styleable.AutofitTextView_minTextSize
  * @attr ref R.styleable.AutofitTextView_precision
  */
-public class LAutofitTextView extends TextView implements AutofitHelper.OnTextSizeChangeListener {
+class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListener {
 
-    private AutofitHelper mHelper;
+    private var autofitHelper: AutofitHelper? = null
 
-    public LAutofitTextView(Context context) {
-        super(context);
-        init(context, null, 0);
+    constructor(context: Context) : super(context) {
+        init(context, null, 0)
     }
 
-    public LAutofitTextView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs, 0);
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init(context, attrs, 0)
     }
 
-    public LAutofitTextView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context, attrs, defStyle);
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+        init(context, attrs, defStyle)
     }
 
-    private void init(Context context, AttributeSet attrs, int defStyle) {
-        mHelper = AutofitHelper.create(this, attrs, defStyle)
-                .addOnTextSizeChangeListener(this);
+    private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
+        autofitHelper = AutofitHelper.create(this, attrs, defStyle)
+                .addOnTextSizeChangeListener(this)
     }
 
-    // Getters and Setters
+    override fun setTextSize(unit: Int, size: Float) {
+        super.setTextSize(unit, size)
+        autofitHelper?.setTextSize(unit, size)
+    }
 
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setTextSize(int unit, float size) {
-        super.setTextSize(unit, size);
-        if (mHelper != null) {
-            mHelper.setTextSize(unit, size);
+    override fun setLines(lines: Int) {
+        super.setLines(lines)
+        autofitHelper?.maxLines = lines
+    }
+
+
+    override fun setMaxLines(maxLines: Int) {
+        super.setMaxLines(maxLines)
+        autofitHelper?.maxLines = maxLines
+    }
+
+    private var isSizeToFit: Boolean
+        get() = autofitHelper?.isEnabled ?: false
+        set(sizeToFit) {
+            autofitHelper?.isEnabled = sizeToFit
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setLines(int lines) {
-        super.setLines(lines);
-        if (mHelper != null) {
-            mHelper.setMaxLines(lines);
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setMaxLines(int maxLines) {
-        super.setMaxLines(maxLines);
-        if (mHelper != null) {
-            mHelper.setMaxLines(maxLines);
-        }
-    }
-
-    /**
-     * Returns the {@link AutofitHelper} for this View.
-     */
-    public AutofitHelper getAutofitHelper() {
-        return mHelper;
-    }
-
-    /**
-     * Returns whether or not the text will be automatically re-sized to fit its constraints.
-     */
-    public boolean isSizeToFit() {
-        return mHelper.isEnabled();
-    }
 
     /**
      * Sets the property of this field (sizeToFit), to automatically resize the text to fit its
      * constraints.
      */
-    public void setSizeToFit() {
-        setSizeToFit(true);
+    fun setSizeToFit() {
+        isSizeToFit = true
     }
-
-    /**
-     * If true, the text will automatically be re-sized to fit its constraints; if false, it will
-     * act like a normal TextView.
-     *
-     * @param sizeToFit
-     */
-    public void setSizeToFit(boolean sizeToFit) {
-        mHelper.setEnabled(sizeToFit);
-    }
-
     /**
      * Returns the maximum size (in pixels) of the text in this View.
      */
-    public float getMaxTextSize() {
-        return mHelper.getMaxTextSize();
-    }
-
     /**
      * Set the maximum text size to the given value, interpreted as "scaled pixel" units. This size
      * is adjusted based on the current density and user font size preference.
@@ -121,9 +73,11 @@ public class LAutofitTextView extends TextView implements AutofitHelper.OnTextSi
      * @param size The scaled pixel size.
      * @attr ref android.R.styleable#TextView_textSize
      */
-    public void setMaxTextSize(float size) {
-        mHelper.setMaxTextSize(size);
-    }
+    var maxTextSize: Float
+        get() = autofitHelper?.maxTextSize ?: 0f
+        set(size) {
+            autofitHelper?.maxTextSize = size
+        }
 
     /**
      * Set the maximum text size to a given unit and value. See TypedValue for the possible
@@ -133,16 +87,15 @@ public class LAutofitTextView extends TextView implements AutofitHelper.OnTextSi
      * @param size The desired size in the given units.
      * @attr ref android.R.styleable#TextView_textSize
      */
-    public void setMaxTextSize(int unit, float size) {
-        mHelper.setMaxTextSize(unit, size);
+    fun setMaxTextSize(unit: Int, size: Float) {
+        autofitHelper?.setMaxTextSize(unit, size)
     }
 
     /**
      * Returns the minimum size (in pixels) of the text in this View.
      */
-    public float getMinTextSize() {
-        return mHelper.getMinTextSize();
-    }
+    val minTextSize: Float
+        get() = autofitHelper?.minTextSize ?: 0f
 
     /**
      * Set the minimum text size to the given value, interpreted as "scaled pixel" units. This size
@@ -151,8 +104,8 @@ public class LAutofitTextView extends TextView implements AutofitHelper.OnTextSi
      * @param minSize The scaled pixel size.
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
-    public void setMinTextSize(int minSize) {
-        mHelper.setMinTextSize(TypedValue.COMPLEX_UNIT_SP, minSize);
+    fun setMinTextSize(minSize: Int) {
+        autofitHelper?.setMinTextSize(TypedValue.COMPLEX_UNIT_SP, minSize.toFloat())
     }
 
     /**
@@ -163,30 +116,26 @@ public class LAutofitTextView extends TextView implements AutofitHelper.OnTextSi
      * @param minSize The desired size in the given units.
      * @attr ref me.grantland.R.styleable#AutofitTextView_minTextSize
      */
-    public void setMinTextSize(int unit, float minSize) {
-        mHelper.setMinTextSize(unit, minSize);
+    fun setMinTextSize(unit: Int, minSize: Float) {
+        autofitHelper?.setMinTextSize(unit, minSize)
     }
-
     /**
      * Returns the amount of precision used to calculate the correct text size to fit within its
      * bounds.
      */
-    public float getPrecision() {
-        return mHelper.getPrecision();
-    }
-
     /**
      * Set the amount of precision used to calculate the correct text size to fit within its
      * bounds. Lower precision is more precise and takes more time.
      *
      * @param precision The amount of precision.
      */
-    public void setPrecision(float precision) {
-        mHelper.setPrecision(precision);
-    }
+    var precision: Float?
+        get() = autofitHelper?.precision
+        set(precision) {
+            autofitHelper?.precision = precision ?: 0f
+        }
 
-    @Override
-    public void onTextSizeChange(float textSize, float oldTextSize) {
+    override fun onTextSizeChange(textSize: Float, oldTextSize: Float) {
         // do nothing
     }
 }
