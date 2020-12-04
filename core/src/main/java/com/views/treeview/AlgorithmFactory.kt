@@ -1,16 +1,13 @@
-package com.views.treeview;
+package com.views.treeview
 
-/**
- *
- */
+object AlgorithmFactory {
 
-public class AlgorithmFactory {
-
-    public static Algorithm createBuchheimWalker(BuchheimWalkerConfiguration configuration) {
-        return new BuchheimWalkerAlgorithm(configuration);
+    fun createBuchheimWalker(configuration: BuchheimWalkerConfiguration?): Algorithm {
+        return BuchheimWalkerAlgorithm(configuration)
     }
 
-    public static Algorithm createDefaultBuchheimWalker() {
-        return new BuchheimWalkerAlgorithm();
+    @JvmStatic
+    fun createDefaultBuchheimWalker(): Algorithm {
+        return BuchheimWalkerAlgorithm()
     }
 }

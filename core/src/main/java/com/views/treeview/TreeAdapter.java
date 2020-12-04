@@ -6,9 +6,6 @@ import android.widget.Adapter;
 
 import androidx.annotation.NonNull;
 
-/**
- *
- */
 public interface TreeAdapter<VH> extends Adapter, TreeNodeObserver {
 
     void notifySizeChanged(@NonNull TreeNodeSize size);
