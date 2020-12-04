@@ -1,36 +1,33 @@
-package com.views.treeview;
+package com.views.treeview
 
-import android.graphics.Point;
-import android.view.View;
-import android.widget.Adapter;
+import android.graphics.Point
+import android.view.View
+import android.widget.Adapter
 
-import androidx.annotation.NonNull;
-
-public interface TreeAdapter<VH> extends Adapter, TreeNodeObserver {
-
-    void notifySizeChanged(@NonNull TreeNodeSize size);
+interface TreeAdapter<VH> : Adapter, TreeNodeObserver {
+    fun notifySizeChanged(size: TreeNodeSize)
 
     /**
-     * Returns the currently set algorithm. It uses the {@link BuchheimWalkerAlgorithm} as default,
+     * Returns the currently set algorithm. It uses the [BuchheimWalkerAlgorithm] as default,
      * if no algorithm is previously set.
      *
      * @return
      */
-    Algorithm getAlgorithm();
+    fun getAlgorithm(): Algorithm?
 
     /**
      * Set an algorithm, which is used for laying out the tree.
      *
      * @param algorithm the algorithm to use for laying out the tree
      */
-    void setAlgorithm(@NonNull Algorithm algorithm);
+    fun setAlgorithm(algorithm: Algorithm)
 
     /**
      * Set a new root node. This triggers the re-drawing of the whole view.
      *
      * @param rootNode
      */
-    void setRootNode(@NonNull TreeNode rootNode);
+    fun setRootNode(rootNode: TreeNode)
 
     /**
      * Returns the node at a given {code position}.
@@ -38,7 +35,7 @@ public interface TreeAdapter<VH> extends Adapter, TreeNodeObserver {
      * @param position
      * @return
      */
-    TreeNode getNode(int position);
+    fun getNode(position: Int): TreeNode?
 
     /**
      * Returns the screen position from the node at {code position}
@@ -46,10 +43,7 @@ public interface TreeAdapter<VH> extends Adapter, TreeNodeObserver {
      * @param position
      * @return
      */
-    Point getScreenPosition(int position);
-
-    @NonNull
-    VH onCreateViewHolder(View view);
-
-    void onBindViewHolder(VH viewHolder, Object data, int position);
+    fun getScreenPosition(position: Int): Point?
+    fun onCreateViewHolder(view: View): VH
+    fun onBindViewHolder(viewHolder: VH, data: Any?, position: Int)
 }

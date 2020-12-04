@@ -34,9 +34,10 @@ class TreeViewActivity : BaseFontActivity() {
                 return ViewHolder(view)
             }
 
-            override fun onBindViewHolder(viewHolder: ViewHolder, data: Any, position: Int) {
-                viewHolder.textView.text = data.toString()
+            override fun onBindViewHolder(viewHolder: ViewHolder?, data: Any?, position: Int) {
+                viewHolder?.textView?.text = data.toString()
             }
+
         }
         treeView.adapter = adapter
 

@@ -1,29 +1,20 @@
-package com.views.treeview;
+package com.views.treeview
 
-public class TreeNodeSize {
+class TreeNodeSize {
+    var width = 0
+        private set
+    var height = 0
+        private set
 
-    private int mWidth;
-    private int mHeight;
+    constructor()
 
-    public TreeNodeSize() {
+    constructor(width: Int, height: Int) {
+        this.width = width
+        this.height = height
     }
 
-    public TreeNodeSize(int width, int height) {
-        mWidth = width;
-        mHeight = height;
+    operator fun set(width: Int, height: Int) {
+        this.width = width
+        this.height = height
     }
-
-    public int getWidth() {
-        return mWidth;
-    }
-
-    public int getHeight() {
-        return mHeight;
-    }
-
-    public void set(int width, int height) {
-        mWidth = width;
-        mHeight = height;
-    }
-
 }
