@@ -812,14 +812,17 @@ class LUIUtil {
         }
 
         fun isDarkTheme(): Boolean {
-            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+//            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+            return LSharedPrefsUtil.instance.getBoolean(Constants.IS_DARK_THEME, false)
         }
 
         fun setDarkTheme(isDarkTheme: Boolean) {
             if (isDarkTheme) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                LSharedPrefsUtil.instance.putBoolean(Constants.IS_DARK_THEME, true)
             } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                LSharedPrefsUtil.instance.putBoolean(Constants.IS_DARK_THEME, false)
             }
         }
 

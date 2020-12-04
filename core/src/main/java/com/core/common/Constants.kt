@@ -228,5 +228,7 @@ Những đóng góp của mọi người là động lực và trách nhiệm đ
         //end comic
 
         const val activityTransitionName: String = "com.skydoves.transformationlayout"
+
+        const val IS_DARK_THEME = "IS_DARK_THEME"
     }
 }
