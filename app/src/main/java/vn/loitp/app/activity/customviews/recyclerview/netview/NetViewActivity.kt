@@ -12,7 +12,6 @@ import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_net_view.*
 import vn.loitp.app.R
 
-
 @LogTag("NetViewActivity")
 @IsFullScreen(false)
 class NetViewActivity : BaseFontActivity() {

@@ -32,9 +32,8 @@ class PositionDialog : DialogFragment() {
 
     private var position = Position.CENTER_CENTER
 
-    //TODO loitpp setting this
-//    private var style = Style.LEFT_TO_RIGHT
-    private var style = Style.RIGHT_TO_LEFT
+    //TODO RIGHT_TO_LEFT do not work
+    private var style = Style.LEFT_TO_RIGHT
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
