@@ -13,9 +13,6 @@ import kotlinx.android.synthetic.main.l_activity_find_number_menu.*
 
 @LogTag("MenuActivity")
 @IsFullScreen(true)
-
-//TODO loitpp sound
-
 class MenuActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

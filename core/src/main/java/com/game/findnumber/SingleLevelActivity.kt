@@ -58,6 +58,14 @@ class SingleLevelActivity : BaseFontActivity() {
                     duration = 500,
                     techniques = Techniques.ZoomInUp
             )
+
+            ivSpiral?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = ivSpiral,
+                    duration = 5000,
+                    techniques = Techniques.RotateIn,
+                    repeatCount = -1
+            )
         }
         LUIUtil.setSafeOnClickListenerElastic(
                 view = tvLevels

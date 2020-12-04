@@ -1,5 +1,6 @@
 package com.core.utilities
 
+import android.animation.ValueAnimator
 import android.view.View
 import android.view.animation.*
 import com.R
@@ -21,6 +22,7 @@ class LAnimationUtil {
                 repeatCount: Int = 0,
                 techniques: Techniques = Techniques.FadeIn,
                 delayInMls: Int = 0,
+                repeatMode: Int = ValueAnimator.REVERSE,
                 onCancel: ((Unit) -> Unit)? = null,
                 onEnd: ((Unit) -> Unit)? = null,
                 onRepeat: ((Unit) -> Unit)? = null,
@@ -34,6 +36,7 @@ class LAnimationUtil {
             YoYo.with(techniques)
                     .duration(duration.toLong())
                     .repeat(repeatCount)
+                    .repeatMode(repeatMode)
                     .onCancel {
                         onCancel?.invoke(Unit)
                     }

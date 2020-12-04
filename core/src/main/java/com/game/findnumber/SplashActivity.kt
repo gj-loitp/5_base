@@ -9,8 +9,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
 import com.daimajia.androidanimations.library.Techniques
-import kotlinx.android.synthetic.main.l_activity_find_number_menu.*
-import kotlinx.android.synthetic.main.l_activity_find_number_menu.ivTitle
 import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
 @LogTag("SplashActivity")
@@ -38,7 +36,7 @@ class SplashActivity : BaseFontActivity() {
             ivFindTheNumber?.visibility = View.VISIBLE
             LAnimationUtil.play(
                     view = ivFindTheNumber,
-                    duration = 1000,
+                    duration = 500,
                     techniques = Techniques.ZoomIn,
                     onEnd = {
                         if (!this.isFinishing) {

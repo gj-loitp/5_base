@@ -12,26 +12,40 @@
         android:src="@drawable/bkg_2" />
 
     <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSpiral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:alpha="0.5"
+        android:visibility="invisible"
+        tools:visibility="visible"
+        android:src="@drawable/sol2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/tvLevels"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_86"
-        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginTop="@dimen/w_50"
         android:src="@drawable/levels"
         android:visibility="invisible"
         tools:visibility="visible" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvLevel"
+    <com.views.layout.squarelayout.LSquareFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/ivBack"
-        android:layout_below="@+id/tvLevels"
-        android:overScrollMode="never"
-        android:padding="@dimen/padding_large"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="4"
-        tools:itemCount="69"
-        tools:listitem="@layout/view_row_item_find_number_level" />
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLevel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:padding="@dimen/padding_large"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="4"
+            tools:itemCount="69"
+            tools:listitem="@layout/view_row_item_find_number_level" />
+    </com.views.layout.squarelayout.LSquareFrameLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBack"
