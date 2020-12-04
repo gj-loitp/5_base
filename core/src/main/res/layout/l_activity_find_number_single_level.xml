@@ -17,9 +17,9 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:alpha="0.5"
+        android:src="@drawable/sol2"
         android:visibility="invisible"
-        tools:visibility="visible"
-        android:src="@drawable/sol2" />
+        tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/tvLevels"
@@ -33,7 +33,9 @@
     <com.views.layout.squarelayout.LSquareFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/margin_large"
+        android:background="@drawable/bkg_round_rect">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvLevel"
