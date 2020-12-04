@@ -497,4 +497,6 @@ Likewise may someone love you next.
     <string name="show_in_alertdialog">Show In AlertDialog</string>
     <string name="change_size">Change size</string>
     <string name="find_number">Find number</string>
+    <string name="crop_oval">Crop oval</string>
+    <string name="crop_square">Crop square</string>
 </resources>

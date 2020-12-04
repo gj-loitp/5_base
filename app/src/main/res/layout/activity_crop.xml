@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
@@ -20,14 +19,14 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_crop_oval"
+                android:id="@+id/btCropOval"
                 style="@style/ButtonMenu"
-                android:text="Crop oval" />
+                android:text="@string/crop_oval" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_crop_square"
+                android:id="@+id/btCropSquare"
                 style="@style/ButtonMenu"
-                android:text="Crop square" />
+                android:text="@string/crop_square" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView"
@@ -35,5 +34,5 @@
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/app_name" />
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </RelativeLayout>
