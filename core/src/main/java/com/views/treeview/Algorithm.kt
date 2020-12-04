@@ -1,8 +1,7 @@
-package com.views.treeview;
+package com.views.treeview
 
 /**
  */
-
-interface Algorithm {
-    void run(TreeNode root, TreeNodeSize size);
+internal interface Algorithm {
+    fun run(root: TreeNode?, size: TreeNodeSize?)
 }

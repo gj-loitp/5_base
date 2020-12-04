@@ -1,11 +1,7 @@
-package com.views.treeview;
+package com.views.treeview
 
-/**
- *
- */
-
-interface TreeNodeObserver {
-    void notifyDataChanged(TreeNode node);
-    void notifyNodeAdded(TreeNode node, TreeNode parent);
-    void notifyNodeRemoved(TreeNode node, TreeNode parent);
+internal interface TreeNodeObserver {
+    fun notifyDataChanged(node: TreeNode?)
+    fun notifyNodeAdded(node: TreeNode?, parent: TreeNode?)
+    fun notifyNodeRemoved(node: TreeNode?, parent: TreeNode?)
 }
