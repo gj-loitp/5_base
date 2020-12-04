@@ -23,3 +23,7 @@ annotation class IsShowAnimWhenExit(val value: Boolean)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class IsSwipeActivity(val value: Boolean)
+
+@Target(AnnotationTarget.CLASS, AnnotationTarget.FILE)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class IsAutoAnimation(val value: Boolean)

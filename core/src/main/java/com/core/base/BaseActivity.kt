@@ -16,6 +16,7 @@ import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
+import com.google.ads.interactivemedia.v3.internal.ff
 import com.google.android.gms.ads.InterstitialAd
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
@@ -125,7 +126,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 })
 
         //auto animation
-        SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
+        val isAutoAnimation = javaClass.getAnnotation(IsAutoAnimation::class.java)?.value
+                ?: false
+        if (isAutoAnimation) {
+            SwitchAnimationUtil().startAnimation(root = window.decorView, type = SwitchAnimationUtil.AnimationType.SCALE)
+        }
 
         isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
