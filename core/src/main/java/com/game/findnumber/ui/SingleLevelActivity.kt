@@ -2,6 +2,7 @@ package com.game.findnumber.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.R
 import com.annotation.IsFullScreen
@@ -12,7 +13,7 @@ import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.adapter.LevelAdapter
-import com.game.findnumber.model.Level
+import com.game.findnumber.viewmodel.FindNumberViewModel
 import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
 
 @LogTag("SingleLevelActivity")
@@ -20,6 +21,7 @@ import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
 class SingleLevelActivity : BaseFontActivity() {
 
     private var levelAdapter = LevelAdapter()
+    private var findNumberViewModel: FindNumberViewModel? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_find_number_single_level
@@ -30,7 +32,9 @@ class SingleLevelActivity : BaseFontActivity() {
 
         LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
         setupViews()
-        setupData()
+        setupViewModels()
+
+        findNumberViewModel?.getListLevelSingle()
     }
 
     private fun setupViews() {
@@ -89,29 +93,33 @@ class SingleLevelActivity : BaseFontActivity() {
                 })
     }
 
-    private fun setupData() {
-        val listLevel = ArrayList<Level>()
-        for (i in 0 until 100) {
-            val level = Level()
-            level.name = "${i + 1}"
+    private fun setupViewModels() {
+        findNumberViewModel = getViewModel(FindNumberViewModel::class.java)
+        findNumberViewModel?.let { vm ->
 
-            if (i < 7) {
-                level.status = Level.STATUS_LEVEL_WIN
-            } else {
-                level.status = Level.STATUS_LEVEL_OPEN
-            }
+            vm.listLevelActionLiveData.observe(this, Observer { actionData ->
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
 
-            listLevel.add(element = level)
+                if (isDoing == false && actionData.isSuccess == true) {
+                    actionData.data?.let { listLevel ->
+                        levelAdapter.setListLevel(listLevel = listLevel)
+
+                        LUIUtil.setDelay(mls = 100, runnable = {
+                            layoutLevel?.visibility = View.VISIBLE
+                            LAnimationUtil.play(
+                                    view = layoutLevel,
+                                    duration = 1000,
+                                    techniques = Techniques.FadeInUp
+                            )
+                        })
+                    }
+                }
+            })
         }
-        levelAdapter.setListLevel(listLevel = listLevel)
-
-        LUIUtil.setDelay(mls = 100, runnable = {
-            layoutLevel?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                    view = layoutLevel,
-                    duration = 1000,
-                    techniques = Techniques.FadeInUp
-            )
-        })
     }
 }

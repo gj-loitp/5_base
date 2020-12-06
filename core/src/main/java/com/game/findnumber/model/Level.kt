@@ -26,7 +26,11 @@ data class Level(
 
         @SerializedName("status")
         @Expose
-        var status: Int = STATUS_LEVEL_OPEN
+        var status: Int = STATUS_LEVEL_OPEN,
+
+        @SerializedName("timeInMls")
+        @Expose
+        var timeInMls: Long = 0
 
 ) : Serializable {
     companion object {

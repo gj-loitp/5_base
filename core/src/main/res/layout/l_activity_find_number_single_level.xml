@@ -73,4 +73,13 @@
         android:src="@drawable/ic_play_blue"
         android:visibility="invisible"
         tools:visibility="visible" />
+
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/indicatorView"
+        style="@style/AVLoadingIndicatorView"
+        android:layout_width="@dimen/w_70"
+        android:layout_height="@dimen/w_70"
+        android:layout_centerInParent="true"
+        app:indicatorColor="@color/white"
+        app:indicatorName="PacmanIndicator" />
 </RelativeLayout>
