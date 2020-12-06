@@ -31,11 +31,14 @@
         tools:visibility="visible" />
 
     <com.views.layout.squarelayout.LSquareFrameLayout
+        android:id="@+id/layoutLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_margin="@dimen/margin_large"
-        android:background="@drawable/bkg_round_rect">
+        android:background="@drawable/bkg_round_rect"
+        android:visibility="invisible"
+        tools:visibility="visible">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvLevel"

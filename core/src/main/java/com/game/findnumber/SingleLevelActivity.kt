@@ -104,5 +104,14 @@ class SingleLevelActivity : BaseFontActivity() {
             listLevel.add(element = level)
         }
         levelAdapter.setListLevel(listLevel = listLevel)
+
+        LUIUtil.setDelay(mls = 100, runnable = {
+            layoutLevel?.visibility = View.VISIBLE
+            LAnimationUtil.play(
+                    view = layoutLevel,
+                    duration = 1000,
+                    techniques = Techniques.FadeInUp
+            )
+        })
     }
 }
