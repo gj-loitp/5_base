@@ -18,7 +18,7 @@ data class Level(
         @SerializedName("id")
         @Expose
         @PrimaryKey
-        val id: String = "",
+        var id: String = "",
 
         @SerializedName("name")
         @Expose

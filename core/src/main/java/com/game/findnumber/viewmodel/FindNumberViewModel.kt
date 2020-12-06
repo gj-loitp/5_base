@@ -33,16 +33,16 @@ class FindNumberViewModel : BaseGirlViewModel() {
 
                 for (i in 0 until 100) {
                     val level = Level()
+                    level.id = System.nanoTime().toString()
                     level.name = "${i + 1}"
-
-                    if (i < 7) {
-                        level.status = Level.STATUS_LEVEL_WIN
-                    } else {
-                        level.status = Level.STATUS_LEVEL_OPEN
-                    }
                     listLevel.add(element = level)
                 }
 
+                //save first data
+                listLevel.forEach { lv ->
+                    val id = FindNumberDatabase.instance?.levelDao()?.insert(lv)
+                    logD("save first data id $id")
+                }
             } else {
                 logD("!listLevelDb.isNullOrEmpty()")
                 listLevel.addAll(listLevelDb)

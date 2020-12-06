@@ -11,6 +11,9 @@ interface LevelDao : BaseDao<Level> {
     @Query("SELECT * FROM Level")
     fun getListLevel(): List<Level>
 
+    @Query("SELECT * FROM Level")
+    fun saveListLevel(): List<Level>
+
 //    @Query("SELECT * FROM Level WHERE id=:id")
 //    fun find(id: String?): Level?
 
