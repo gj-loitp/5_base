@@ -1,7 +1,11 @@
 package com.game.findnumber.model
 
 import androidx.annotation.Keep
-import com.core.base.BaseModel
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 /**
  * Created by ©Loitp93 on 12/1/2020.
@@ -9,13 +13,24 @@ import com.core.base.BaseModel
  * www.muathu@gmail.com
  */
 @Keep
-class Level : BaseModel() {
+@Entity(tableName = "Level")
+data class Level(
+        @SerializedName("id")
+        @Expose
+        @PrimaryKey
+        val id: String = "",
 
+        @SerializedName("name")
+        @Expose
+        var name: String? = null,
+
+        @SerializedName("status")
+        @Expose
+        var status: Int = STATUS_LEVEL_OPEN
+
+) : Serializable {
     companion object {
         const val STATUS_LEVEL_OPEN = 0
         const val STATUS_LEVEL_WIN = 1
     }
-
-    var name: String? = null
-    var status: Int = STATUS_LEVEL_OPEN
 }
