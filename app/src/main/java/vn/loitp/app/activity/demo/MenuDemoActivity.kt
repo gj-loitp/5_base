@@ -14,7 +14,7 @@ import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.helper.mup.comic.ui.activity.ComicSplashActivity
 import com.core.helper.mup.girl.ui.GirlSplashActivity
 import com.core.utilities.LActivityUtil
-import com.game.findnumber.SplashActivity
+import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity

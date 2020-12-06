@@ -1,4 +1,4 @@
-package com.game.findnumber
+package com.game.findnumber.ui
 
 import android.content.Intent
 import android.os.Bundle
