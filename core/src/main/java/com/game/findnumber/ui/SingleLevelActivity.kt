@@ -1,13 +1,14 @@
 package com.game.findnumber.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
-import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
@@ -136,6 +137,11 @@ class SingleLevelActivity : BaseFontActivity() {
     }
 
     private fun playGame(level: Level) {
-        logD("playGame level " + BaseApplication.gson.toJson(level))
+//        logD("playGame level " + BaseApplication.gson.toJson(level))
+        val intent = Intent(this, SinglePlayActivity::class.java).apply {
+            putExtra(SinglePlayActivity.KEY_LEVEL, level)
+        }
+        startActivity(intent)
+        LActivityUtil.tranIn(this)
     }
 }
