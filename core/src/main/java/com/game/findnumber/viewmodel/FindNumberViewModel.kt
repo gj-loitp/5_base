@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 @LogTag("FindNumberViewModel")
 class FindNumberViewModel : BaseGirlViewModel() {
     val listLevelActionLiveData: ActionLiveData<ActionData<ArrayList<Level>>> = ActionLiveData()
+    val firstLevelOpenActionLiveData: ActionLiveData<ActionData<Level>> = ActionLiveData()
 
     fun getListLevelSingle() {
         listLevelActionLiveData.set(ActionData(isDoing = true))
@@ -35,6 +36,12 @@ class FindNumberViewModel : BaseGirlViewModel() {
                     val level = Level()
                     level.id = System.nanoTime().toString()
                     level.name = "${i + 1}"
+
+                    //TODO
+                    if (i < 7) {
+                        level.status = Level.STATUS_LEVEL_WIN
+                    }
+
                     listLevel.add(element = level)
                 }
 
@@ -57,6 +64,20 @@ class FindNumberViewModel : BaseGirlViewModel() {
             )
         }
 
+    }
+
+    fun getFirstLevelOpen() {
+        firstLevelOpenActionLiveData.set(ActionData(isDoing = true))
+        ioScope.launch {
+            val lastedLevel = FindNumberDatabase.instance?.levelDao()?.getFirstLevelOpen(Level.STATUS_LEVEL_OPEN)
+            firstLevelOpenActionLiveData.post(
+                    ActionData(
+                            isDoing = false,
+                            isSuccess = true,
+                            data = lastedLevel
+                    )
+            )
+        }
     }
 
 }

@@ -2,17 +2,18 @@ package com.game.findnumber.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.adapter.LevelAdapter
+import com.game.findnumber.model.Level
 import com.game.findnumber.viewmodel.FindNumberViewModel
 import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
 
@@ -42,7 +43,7 @@ class SingleLevelActivity : BaseFontActivity() {
             LUIUtil.setOnClickListenerElastic(
                     view = view,
                     runnable = {
-                        //TODO loitpp iplm
+                        playGame(level = level)
                     })
         }
         rvLevel.layoutManager = GridLayoutManager(this, 4)
@@ -89,7 +90,7 @@ class SingleLevelActivity : BaseFontActivity() {
         LUIUtil.setSafeOnClickListenerElastic(
                 view = ivPlay,
                 runnable = {
-                    //TODO loitp iplm
+                    findNumberViewModel?.getFirstLevelOpen()
                 })
     }
 
@@ -97,7 +98,7 @@ class SingleLevelActivity : BaseFontActivity() {
         findNumberViewModel = getViewModel(FindNumberViewModel::class.java)
         findNumberViewModel?.let { vm ->
 
-            vm.listLevelActionLiveData.observe(this, Observer { actionData ->
+            vm.listLevelActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
                     indicatorView.smoothToShow()
@@ -120,6 +121,25 @@ class SingleLevelActivity : BaseFontActivity() {
                     }
                 }
             })
+
+            vm.firstLevelOpenActionLiveData.observe(this, { actionData ->
+                val isDoing = actionData.isDoing
+                if (isDoing == true) {
+                    indicatorView.smoothToShow()
+                } else {
+                    indicatorView.smoothToHide()
+                }
+
+                if (isDoing == false && actionData.isSuccess == true) {
+                    actionData.data?.let { firstLevelOpen ->
+                        playGame(level = firstLevelOpen)
+                    }
+                }
+            })
         }
+    }
+
+    private fun playGame(level: Level) {
+        logD("playGame level " + BaseApplication.gson.toJson(level))
     }
 }
