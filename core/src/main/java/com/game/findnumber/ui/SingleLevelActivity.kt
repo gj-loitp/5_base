@@ -39,12 +39,8 @@ class SingleLevelActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        levelAdapter.onClickRootView = { level, view ->
-            LUIUtil.setOnClickListenerElastic(
-                    view = view,
-                    runnable = {
-                        playGame(level = level)
-                    })
+        levelAdapter.onClickRootView = { level ->
+            playGame(level = level)
         }
         rvLevel.layoutManager = GridLayoutManager(this, 4)
         rvLevel.adapter = levelAdapter
