@@ -84,7 +84,10 @@ class DragGestureDetector(
         fun onDragGestureListener(dragGestureDetector: DragGestureDetector?, action: Int)
     }
 
-    inner class TouchPoint(var x: Float, var y: Float) {
+    inner class TouchPoint(
+            var x: Float,
+            var y: Float
+    ) {
         fun setXY(x: Float, y: Float): TouchPoint {
             this.x = x
             this.y = y

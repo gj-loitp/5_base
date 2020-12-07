@@ -1,178 +1,185 @@
-package com.views.draggableflipview;
+package com.views.draggableflipview
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-
-import com.R;
+import android.animation.Animator
+import android.animation.ValueAnimator
+import android.annotation.SuppressLint
+import android.content.Context
+import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.widget.FrameLayout
+import android.widget.RelativeLayout
+import com.R
+import kotlin.math.abs
 
 /**
  * a class performing animation of view depending on the movement of user
- * <p>
+ *
+ *
  * Created by sasakicks on 2015/09/09.
  */
-//TODO convert kotlin
-public class DraggableFlipView extends FrameLayout implements DragGestureDetector.DragGestureListener {
+class DraggableFlipView @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
+) : FrameLayout(context,
+        attrs,
+        defStyleAttr
+), DragGestureDetector.DragGestureListener {
 
-    private static final float DRAG_THRESHOLD_PARAM = 50.0f;
-    private static final int DEFAULT_VALUE = 0;
-    private static final int DEFAULT_DRAGGABLE_VALUE = 50;
-    private static final int DEFAULT_DRAG_DETECT_VALUE = 7;
+    companion object {
+        private const val DRAG_THRESHOLD_PARAM = 50.0f
+        private const val DEFAULT_VALUE = 0
+        private const val DEFAULT_DRAGGABLE_VALUE = 50
+        private const val DEFAULT_DRAG_DETECT_VALUE = 7
+    }
 
-    private DragGestureDetector mDragGestureDetector;
-    private boolean isAnimation;
-    private boolean isDragging;
-    private int mAngle;
-    private int mDraggableAngle;
-    private int mDragDetectAngle;
-    private boolean mIsReverse;
-    private FlipListener mFlipListener;
+    private var mDragGestureDetector: DragGestureDetector? = null
+    private var isAnimation = false
+    private var isDragging = false
+    private var mAngle = 0
+    private var mDraggableAngle = 0
+    private var mDragDetectAngle = 0
+    private var mIsReverse = false
+    private var mFlipListener: FlipListener? = null
+    private var mFrontLayout: RelativeLayout? = null
+    private var mBackLayout: RelativeLayout? = null
 
-    private RelativeLayout mFrontLayout;
-    private RelativeLayout mBackLayout;
-
-    private enum RotateDirection {
+    private enum class RotateDirection(val value: Int) {
         RIGHT(1), LEFT(-1);
+    }
 
-        private int mValue;
+    private fun init(context: Context, attrs: AttributeSet?) {
+        mFrontLayout = RelativeLayout(context)
+        mFrontLayout?.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
 
-        RotateDirection(int value) {
-            this.mValue = value;
+        mBackLayout = RelativeLayout(context)
+        mBackLayout?.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
+
+        this.addView(mFrontLayout)
+        this.addView(mBackLayout)
+
+        mBackLayout?.visibility = INVISIBLE
+        mFlipListener = FlipListener(
+                mFrontView = mFrontLayout,
+                mBackView = mBackLayout,
+                mParentView = this
+        )
+
+        mDragGestureDetector = DragGestureDetector(this)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.DraggableFlipView)
+        LayoutInflater.from(context).inflate(
+                typedArray.getResourceId(R.styleable.DraggableFlipView_frontView, DEFAULT_VALUE),
+                mFrontLayout
+        )
+        LayoutInflater.from(context).inflate(
+                typedArray.getResourceId(R.styleable.DraggableFlipView_backView, DEFAULT_VALUE),
+                mBackLayout
+        )
+        mDraggableAngle = typedArray.getInteger(
+                R.styleable.DraggableFlipView_draggableAngle,
+                DEFAULT_DRAGGABLE_VALUE
+        )
+        mDragDetectAngle = typedArray.getInteger(
+                R.styleable.DraggableFlipView_dragDetectAngle,
+                DEFAULT_DRAG_DETECT_VALUE
+        )
+
+        typedArray.recycle()
+    }
+
+    override fun onInterceptTouchEvent(motionEvent: MotionEvent): Boolean {
+        if (mDragGestureDetector == null) {
+            return false
         }
+        when (motionEvent.action and MotionEvent.ACTION_MASK) {
+            MotionEvent.ACTION_UP -> {
+            }
+            MotionEvent.ACTION_MOVE -> {
+                mDragGestureDetector?.let { dgd ->
 
-        public int getValue() {
-            return mValue;
-        }
-    }
+                    dgd.touchPoint?.x?.let { x ->
+                        dgd.touchPoint?.y?.let { y ->
 
-    public DraggableFlipView(Context context) {
-        this(context, null);
-    }
+                            if (abs(motionEvent.x - x) > DRAG_THRESHOLD_PARAM
+                                    || abs(motionEvent.y - y) > DRAG_THRESHOLD_PARAM) {
+                                mDragGestureDetector?.setPointMap(motionEvent)
+                                return true
+                            }
 
-    public DraggableFlipView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    public DraggableFlipView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(context, attrs);
-    }
-
-    private void init(Context context, AttributeSet attrs) {
-
-        mFrontLayout = new RelativeLayout(context);
-        mFrontLayout.setLayoutParams(new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
-
-        mBackLayout = new RelativeLayout(context);
-        mBackLayout.setLayoutParams(new RelativeLayout.LayoutParams(
-                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT));
-
-        this.addView(mFrontLayout);
-        this.addView(mBackLayout);
-        mBackLayout.setVisibility(View.INVISIBLE);
-
-        mFlipListener = new FlipListener(mFrontLayout, mBackLayout, this);
-        mDragGestureDetector = new DragGestureDetector(this);
-
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.DraggableFlipView);
-        LayoutInflater.from(context).inflate(a.getResourceId(R.styleable.DraggableFlipView_frontView, DEFAULT_VALUE), mFrontLayout);
-        LayoutInflater.from(context).inflate(a.getResourceId(R.styleable.DraggableFlipView_backView, DEFAULT_VALUE), mBackLayout);
-
-        mDraggableAngle = a.getInteger(R.styleable.DraggableFlipView_draggableAngle, DEFAULT_DRAGGABLE_VALUE);
-        mDragDetectAngle = a.getInteger(R.styleable.DraggableFlipView_dragDetectAngle, DEFAULT_DRAG_DETECT_VALUE);
-    }
-
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (mDragGestureDetector == null) return false;
-        int action = ev.getAction() & MotionEvent.ACTION_MASK;
-        switch (action) {
-            case MotionEvent.ACTION_UP:
-                break;
-            case MotionEvent.ACTION_MOVE:
-                if (Math.abs(ev.getX() - mDragGestureDetector.getTouchPoint().getX()) > DRAG_THRESHOLD_PARAM
-                        || Math.abs(ev.getY() - mDragGestureDetector.getTouchPoint().getY()) > DRAG_THRESHOLD_PARAM) {
-                    mDragGestureDetector.setPointMap(ev);
-                    return true;
+                        }
+                    }
                 }
-                break;
-            case MotionEvent.ACTION_POINTER_DOWN:
-                return true;
+            }
+            MotionEvent.ACTION_POINTER_DOWN -> return true
         }
-        return false;
+        return false
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        if (mDragGestureDetector != null) {
-            mDragGestureDetector.onTouchEvent(event);
-        }
-        return true;
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        mDragGestureDetector?.onTouchEvent(event)
+        return true
     }
 
-    @Override
-    public void onDragGestureListener(DragGestureDetector dragGestureDetector, int action) {
-        if (isAnimation) return;
+    override fun onDragGestureListener(dragGestureDetector: DragGestureDetector?, action: Int) {
+        if (isAnimation) {
+            return
+        }
         if (action == MotionEvent.ACTION_UP) {
             if (mAngle >= mDragDetectAngle) {
-                startAutoRotateAnimation(RotateDirection.RIGHT);
+                startAutoRotateAnimation(RotateDirection.RIGHT)
             } else if (mAngle < -mDragDetectAngle) {
-                startAutoRotateAnimation(RotateDirection.LEFT);
+                startAutoRotateAnimation(RotateDirection.LEFT)
             }
-            return;
+            return
+        }
+        dragGestureDetector?.let {
+            mAngle = if (it.deltaX - it.prevDeltaX > 0) {
+                ++mAngle
+            } else {
+                --mAngle
+            }
         }
 
-        mAngle = (dragGestureDetector.deltaX - dragGestureDetector.prevDeltaX) > 0 ? ++mAngle : --mAngle;
-        if (Math.abs(mAngle) > mDragDetectAngle) isDragging = true;
-        if (isDragging) this.setRotationY(mAngle);
-
+        if (abs(mAngle) > mDragDetectAngle) {
+            isDragging = true
+        }
+        if (isDragging) {
+            this.rotationY = mAngle.toFloat()
+        }
         if (mAngle >= mDraggableAngle) {
-            startAutoRotateAnimation(RotateDirection.RIGHT);
+            startAutoRotateAnimation(RotateDirection.RIGHT)
         } else if (mAngle < -mDraggableAngle) {
-            startAutoRotateAnimation(RotateDirection.LEFT);
+            startAutoRotateAnimation(RotateDirection.LEFT)
         }
     }
 
-    private void startAutoRotateAnimation(RotateDirection rotateDirection) {
-        isAnimation = true;
+    private fun startAutoRotateAnimation(rotateDirection: RotateDirection) {
+        isAnimation = true
         if (mIsReverse) {
-            mFlipListener.reverse();
+            mFlipListener?.reverse()
         } else {
-            mIsReverse = true;
+            mIsReverse = true
         }
-
-        mFlipListener.setRotateDirection(rotateDirection.getValue());
-        ValueAnimator flipAnimator = ValueAnimator.ofFloat(0f, 1f);
-        flipAnimator.addUpdateListener(mFlipListener);
-        flipAnimator.start();
-        flipAnimator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
+        mFlipListener?.setRotateDirection(rotateDirection.value)
+        val flipAnimator = ValueAnimator.ofFloat(0f, 1f)
+        flipAnimator.addUpdateListener(mFlipListener)
+        flipAnimator.start()
+        flipAnimator.addListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator) {}
+            override fun onAnimationEnd(animation: Animator) {
+                mAngle = 0
+                isAnimation = false
+                isDragging = false
             }
 
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                mAngle = 0;
-                isAnimation = false;
-                isDragging = false;
-            }
+            override fun onAnimationCancel(animation: Animator) {}
+            override fun onAnimationRepeat(animation: Animator) {}
+        })
+    }
 
-            @Override
-            public void onAnimationCancel(Animator animation) {
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-            }
-        });
+    init {
+        init(context, attrs)
     }
 }
-
