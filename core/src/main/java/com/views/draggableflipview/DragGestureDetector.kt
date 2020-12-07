@@ -1,123 +1,98 @@
-package com.views.draggableflipview;
+package com.views.draggableflipview
 
-import android.view.MotionEvent;
-
-import java.util.HashMap;
+import android.view.MotionEvent
+import java.util.*
 
 /**
  * a class detecting drag of user
  *
  * Created by sasakicks on 2015/09/09.
  */
-//TODO convert kotlin
-public class DragGestureDetector {
+class DragGestureDetector(
+        private val dragGestureListener: DragGestureListener
+) {
+    @JvmField
+    var deltaX = 0f
+    private var deltaY = 0f
 
-    public float deltaX;
-    public float deltaY;
-    public float prevDeltaX;
-    public float prevDeltaY;
-    public int originalIndex;
-    public float velocityX;
-    public float velocityY;
+    @JvmField
+    var prevDeltaX = 0f
+    private var prevDeltaY = 0f
+    private var originalIndex = 0
+    private var velocityX = 0f
+    private var velocityY = 0f
+    private val pointMap = HashMap<Int, TouchPoint?>()
 
-    private HashMap<Integer, TouchPoint> pointMap = new HashMap<>();
-
-    private DragGestureListener dragGestureListener;
-
-    public DragGestureDetector(DragGestureListener dragGestureListener) {
-        this.dragGestureListener = dragGestureListener;
-        pointMap.put(0, createPoint(0.f, 0.f));
-    }
-
-    public void setPointMap(MotionEvent event) {
-        float eventX = event.getX();
-        float eventY = event.getY();
-        TouchPoint downPoint = pointMap.get(0);
+    fun setPointMap(event: MotionEvent) {
+        val eventX = event.x
+        val eventY = event.y
+        var downPoint = pointMap[0]
         if (downPoint != null) {
-            downPoint.setXY(eventX, eventY);
-            return;
+            downPoint.setXY(eventX, eventY)
+            return
         }
-        downPoint = createPoint(eventX, eventY);
-        pointMap.put(0, downPoint);
+        downPoint = createPoint(x = eventX, y = eventY)
+        pointMap[0] = downPoint
     }
 
-    public TouchPoint getTouchPoint() {
-        return pointMap.get(originalIndex);
-    }
+    val touchPoint: TouchPoint?
+        get() = pointMap[originalIndex]
 
-    synchronized public boolean onTouchEvent(MotionEvent event) {
-
-        float eventX = event.getX(originalIndex);
-        float eventY = event.getY(originalIndex);
-
-        int action = event.getAction() & MotionEvent.ACTION_MASK;
-        switch (action) {
-            case MotionEvent.ACTION_DOWN: {
-                break;
+    @Synchronized
+    fun onTouchEvent(event: MotionEvent): Boolean {
+        val eventX = event.getX(originalIndex)
+        val eventY = event.getY(originalIndex)
+        when (val action = event.action and MotionEvent.ACTION_MASK) {
+            MotionEvent.ACTION_DOWN -> {
             }
-            case MotionEvent.ACTION_MOVE: {
-                TouchPoint originalPoint = pointMap.get(originalIndex);
+            MotionEvent.ACTION_MOVE -> {
+                val originalPoint = pointMap[originalIndex]
                 if (originalPoint != null) {
-                    deltaX = eventX - originalPoint.x;
-                    deltaY = eventY - originalPoint.y;
-
-                    if (dragGestureListener != null) {
-                        dragGestureListener.onDragGestureListener(this, action);
-                    }
-
-                    velocityX = deltaX - prevDeltaX;
-                    velocityY = deltaY - prevDeltaY;
-                    prevDeltaX = deltaX;
-                    prevDeltaY = deltaY;
+                    deltaX = eventX - originalPoint.x
+                    deltaY = eventY - originalPoint.y
+                    dragGestureListener.onDragGestureListener(dragGestureDetector = this, action = action)
+                    velocityX = deltaX - prevDeltaX
+                    velocityY = deltaY - prevDeltaY
+                    prevDeltaX = deltaX
+                    prevDeltaY = deltaY
                 }
-                break;
             }
-
-            case MotionEvent.ACTION_UP: {
-                TouchPoint originalPoint = pointMap.get(originalIndex);
-                if (originalPoint != null && dragGestureListener != null) {
-                    dragGestureListener.onDragGestureListener(this, action);
+            MotionEvent.ACTION_UP -> {
+                val originalPoint = pointMap[originalIndex]
+                if (originalPoint != null) {
+                    dragGestureListener.onDragGestureListener(dragGestureDetector = this, action = action)
                 }
-                velocityX = velocityY = 0;
-                prevDeltaX = prevDeltaY = 0;
-                deltaX = deltaY = 0;
-                break;
+                velocityY = 0f
+                velocityX = velocityY
+                prevDeltaY = 0f
+                prevDeltaX = prevDeltaY
+                deltaY = 0f
+                deltaX = deltaY
             }
-            default:
+            else -> {
+
+            }
         }
-        return false;
+        return false
     }
 
-    private TouchPoint createPoint(float x, float y) {
-        return new TouchPoint(x, y);
+    private fun createPoint(x: Float, y: Float): TouchPoint {
+        return TouchPoint(x, y)
     }
 
-    public interface DragGestureListener {
-        void onDragGestureListener(DragGestureDetector dragGestureDetector, int action);
+    interface DragGestureListener {
+        fun onDragGestureListener(dragGestureDetector: DragGestureDetector?, action: Int)
     }
 
-    public class TouchPoint {
-
-        private float x;
-        private float y;
-
-        public TouchPoint(float x, float y) {
-            this.x = x;
-            this.y = y;
+    inner class TouchPoint(var x: Float, var y: Float) {
+        fun setXY(x: Float, y: Float): TouchPoint {
+            this.x = x
+            this.y = y
+            return this
         }
+    }
 
-        public TouchPoint setXY(float x, float y) {
-            this.x = x;
-            this.y = y;
-            return this;
-        }
-
-        public float getX() {
-            return this.x;
-        }
-
-        public float getY() {
-            return this.y;
-        }
+    init {
+        pointMap[0] = createPoint(0f, 0f)
     }
 }
