@@ -1,251 +1,226 @@
-package com.views.imageview.panorama;
+package com.views.imageview.panorama
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.util.AttributeSet;
-import android.util.TypedValue;
-import android.widget.ImageView;
+import android.content.Context
+import android.content.res.Resources
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.util.AttributeSet
+import android.util.TypedValue
+import androidx.appcompat.widget.AppCompatImageView
+import com.R
+import kotlin.math.abs
 
-import androidx.appcompat.widget.AppCompatImageView;
+class LPanoramaImageView @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
+) : AppCompatImageView(context, attrs, defStyleAttr) {
 
-import com.R;
+    companion object {
+        // Image's scroll orientation
+        const val ORIENTATION_NONE: Byte = -1
+        const val ORIENTATION_HORIZONTAL: Byte = 0
+        const val ORIENTATION_VERTICAL: Byte = 1
+    }
 
-//TODO convert kotlin
-public class LPanoramaImageView extends AppCompatImageView {
-
-    // Image's scroll orientation
-    public final static byte ORIENTATION_NONE = -1;
-    public final static byte ORIENTATION_HORIZONTAL = 0;
-    public final static byte ORIENTATION_VERTICAL = 1;
-    private byte mOrientation = ORIENTATION_NONE;
+    var orientation = ORIENTATION_NONE
+        private set
 
     // Enable panorama effect or not
-    private boolean mEnablePanoramaMode;
+    var isPanoramaModeEnabled: Boolean
+        private set
 
     // If true, the image scroll left(top) when the device clockwise rotate along y-axis(x-axis).
-    private boolean mInvertScrollDirection;
+    private var mInvertScrollDirection: Boolean
 
     // Image's width and height
-    private int mDrawableWidth;
-    private int mDrawableHeight;
+    private var mDrawableWidth = 0
+    private var mDrawableHeight = 0
 
     // View's width and height
-    private int mWidth;
-    private int mHeight;
+    private var mWidth = 0
+    private var mHeight = 0
 
     // Image's offset from initial state(center in the view).
-    private float mMaxOffset;
+    private var mMaxOffset = 0f
 
     // The scroll progress.
-    private float mProgress;
+    private var mProgress = 0f
 
     // Show scroll bar or not
-    private boolean mEnableScrollbar;
+    var isScrollbarEnabled: Boolean
+        private set
 
     // The paint to draw scrollbar
-    private Paint mScrollbarPaint;
+    private var mScrollbarPaint: Paint? = null
 
     // Observe scroll state
-    private OnPanoramaScrollListener mOnPanoramaScrollListener;
+    private var mOnPanoramaScrollListener: OnPanoramaScrollListener? = null
 
-    public LPanoramaImageView(Context context) {
-        this(context, null);
+    private fun initScrollbarPaint() {
+        mScrollbarPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+        mScrollbarPaint?.color = Color.WHITE
+        mScrollbarPaint?.strokeWidth = dp2px(1.5f)
     }
 
-    public LPanoramaImageView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+    fun setGyroscopeObserver(observer: GyroscopeObserver?) {
+        observer?.addPanoramaImageView(this)
     }
 
-    public LPanoramaImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        super.setScaleType(ScaleType.CENTER_CROP);
-
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.LPanoramaImageView);
-        mEnablePanoramaMode = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_enablePanoramaMode, true);
-        mInvertScrollDirection = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_invertScrollDirection, false);
-        mEnableScrollbar = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_show_scrollbar, true);
-        typedArray.recycle();
-
-        if (mEnableScrollbar) {
-            initScrollbarPaint();
+    fun updateProgress(progress: Float) {
+        if (isPanoramaModeEnabled) {
+            mProgress = if (mInvertScrollDirection) -progress else progress
+            invalidate()
+            mOnPanoramaScrollListener?.onScrolled(this, -mProgress)
         }
     }
 
-    private void initScrollbarPaint() {
-        mScrollbarPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mScrollbarPaint.setColor(Color.WHITE);
-        mScrollbarPaint.setStrokeWidth(dp2px(1.5f));
-    }
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-    public void setGyroscopeObserver(GyroscopeObserver observer) {
-        if (observer != null) {
-            observer.addPanoramaImageView(this);
-        }
-    }
-
-    void updateProgress(float progress) {
-        if (mEnablePanoramaMode) {
-            mProgress = mInvertScrollDirection ? -progress : progress;
-            invalidate();
-            if (mOnPanoramaScrollListener != null) {
-                mOnPanoramaScrollListener.onScrolled(this, -mProgress);
-            }
-        }
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        mWidth = MeasureSpec.getSize(widthMeasureSpec) - getPaddingLeft() - getPaddingRight();
-        mHeight = MeasureSpec.getSize(heightMeasureSpec) - getPaddingTop() - getPaddingBottom();
-
-        if (getDrawable() != null) {
-            mDrawableWidth = getDrawable().getIntrinsicWidth();
-            mDrawableHeight = getDrawable().getIntrinsicHeight();
-
+        mWidth = MeasureSpec.getSize(widthMeasureSpec) - paddingLeft - paddingRight
+        mHeight = MeasureSpec.getSize(heightMeasureSpec) - paddingTop - paddingBottom
+        if (drawable != null) {
+            mDrawableWidth = drawable.intrinsicWidth
+            mDrawableHeight = drawable.intrinsicHeight
             if (mDrawableWidth * mHeight > mDrawableHeight * mWidth) {
-                mOrientation = ORIENTATION_HORIZONTAL;
-                float imgScale = (float) mHeight / (float) mDrawableHeight;
-                mMaxOffset = Math.abs((mDrawableWidth * imgScale - mWidth) * 0.5f);
+                orientation = ORIENTATION_HORIZONTAL
+                val imgScale = mHeight.toFloat() / mDrawableHeight.toFloat()
+                mMaxOffset = abs((mDrawableWidth * imgScale - mWidth) * 0.5f)
             } else if (mDrawableWidth * mHeight < mDrawableHeight * mWidth) {
-                mOrientation = ORIENTATION_VERTICAL;
-                float imgScale = (float) mWidth / (float) mDrawableWidth;
-                mMaxOffset = Math.abs((mDrawableHeight * imgScale - mHeight) * 0.5f);
+                orientation = ORIENTATION_VERTICAL
+                val imgScale = mWidth.toFloat() / mDrawableWidth.toFloat()
+                mMaxOffset = abs((mDrawableHeight * imgScale - mHeight) * 0.5f)
             }
         }
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        if (!mEnablePanoramaMode || getDrawable() == null || isInEditMode()) {
-            super.onDraw(canvas);
-            return;
+    override fun onDraw(canvas: Canvas) {
+        if (!isPanoramaModeEnabled || drawable == null || isInEditMode) {
+            super.onDraw(canvas)
+            return
         }
 
         // Draw image
-        if (mOrientation == ORIENTATION_HORIZONTAL) {
-            float currentOffsetX = mMaxOffset * mProgress;
-            canvas.save();
-            canvas.translate(currentOffsetX, 0);
-            super.onDraw(canvas);
-            canvas.restore();
-        } else if (mOrientation == ORIENTATION_VERTICAL) {
-            float currentOffsetY = mMaxOffset * mProgress;
-            canvas.save();
-            canvas.translate(0, currentOffsetY);
-            super.onDraw(canvas);
-            canvas.restore();
+        if (orientation == ORIENTATION_HORIZONTAL) {
+            val currentOffsetX = mMaxOffset * mProgress
+            canvas.save()
+            canvas.translate(currentOffsetX, 0f)
+            super.onDraw(canvas)
+            canvas.restore()
+        } else if (orientation == ORIENTATION_VERTICAL) {
+            val currentOffsetY = mMaxOffset * mProgress
+            canvas.save()
+            canvas.translate(0f, currentOffsetY)
+            super.onDraw(canvas)
+            canvas.restore()
         }
 
         // Draw scrollbar
-        if (mEnableScrollbar) {
-            switch (mOrientation) {
-                case ORIENTATION_HORIZONTAL: {
-                    float barBgWidth = mWidth * 0.9f;
-                    float barWidth = barBgWidth * mWidth / mDrawableWidth;
+        if (isScrollbarEnabled) {
+            when (orientation) {
+                ORIENTATION_HORIZONTAL -> {
+                    val barBgWidth = mWidth * 0.9f
+                    val barWidth = barBgWidth * mWidth / mDrawableWidth
+                    val barBgStartX = (mWidth - barBgWidth) / 2
+                    val barBgEndX = barBgStartX + barBgWidth
+                    val barStartX = barBgStartX + (barBgWidth - barWidth) / 2 * (1 - mProgress)
+                    val barEndX = barStartX + barWidth
+                    val barY = mHeight * 0.95f
+                    mScrollbarPaint?.alpha = 100
+                    mScrollbarPaint?.let {
+                        canvas.drawLine(barBgStartX, barY, barBgEndX, barY, it)
+                    }
 
-                    float barBgStartX = (mWidth - barBgWidth) / 2;
-                    float barBgEndX = barBgStartX + barBgWidth;
-                    float barStartX = barBgStartX + (barBgWidth - barWidth) / 2 * (1 - mProgress);
-                    float barEndX = barStartX + barWidth;
-                    float barY = mHeight * 0.95f;
-
-                    mScrollbarPaint.setAlpha(100);
-                    canvas.drawLine(barBgStartX, barY, barBgEndX, barY, mScrollbarPaint);
-                    mScrollbarPaint.setAlpha(255);
-                    canvas.drawLine(barStartX, barY, barEndX, barY, mScrollbarPaint);
-                    break;
+                    mScrollbarPaint?.alpha = 255
+                    mScrollbarPaint?.let {
+                        canvas.drawLine(barStartX, barY, barEndX, barY, it)
+                    }
                 }
-                case ORIENTATION_VERTICAL: {
-                    float barBgHeight = mHeight * 0.9f;
-                    float barHeight = barBgHeight * mHeight / mDrawableHeight;
-
-                    float barBgStartY = (mHeight - barBgHeight) / 2;
-                    float barBgEndY = barBgStartY + barBgHeight;
-                    float barStartY = barBgStartY + (barBgHeight - barHeight) / 2 * (1 - mProgress);
-                    float barEndY = barStartY + barHeight;
-                    float barX = mWidth * 0.95f;
-
-                    mScrollbarPaint.setAlpha(100);
-                    canvas.drawLine(barX, barBgStartY, barX, barBgEndY, mScrollbarPaint);
-                    mScrollbarPaint.setAlpha(255);
-                    canvas.drawLine(barX, barStartY, barX, barEndY, mScrollbarPaint);
-                    break;
+                ORIENTATION_VERTICAL -> {
+                    val barBgHeight = mHeight * 0.9f
+                    val barHeight = barBgHeight * mHeight / mDrawableHeight
+                    val barBgStartY = (mHeight - barBgHeight) / 2
+                    val barBgEndY = barBgStartY + barBgHeight
+                    val barStartY = barBgStartY + (barBgHeight - barHeight) / 2 * (1 - mProgress)
+                    val barEndY = barStartY + barHeight
+                    val barX = mWidth * 0.95f
+                    mScrollbarPaint?.alpha = 100
+                    mScrollbarPaint?.let {
+                        canvas.drawLine(barX, barBgStartY, barX, barBgEndY, it)
+                    }
+                    mScrollbarPaint?.alpha = 255
+                    mScrollbarPaint?.let {
+                        canvas.drawLine(barX, barStartY, barX, barEndY, it)
+                    }
                 }
             }
         }
     }
 
-    private float dp2px(float dp) {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().getDisplayMetrics());
+    private fun dp2px(dp: Float): Float {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().displayMetrics)
     }
 
-    public void setEnablePanoramaMode(boolean enable) {
-        mEnablePanoramaMode = enable;
+    fun setEnablePanoramaMode(enable: Boolean) {
+        isPanoramaModeEnabled = enable
     }
 
-    public boolean isPanoramaModeEnabled() {
-        return mEnablePanoramaMode;
-    }
-
-    public void setInvertScrollDirection(boolean invert) {
-        if (mInvertScrollDirection != invert) {
-            mInvertScrollDirection = invert;
+    var isInvertScrollDirection: Boolean
+        get() = mInvertScrollDirection
+        set(invert) {
+            if (mInvertScrollDirection != invert) {
+                mInvertScrollDirection = invert
+            }
         }
-    }
 
-    public boolean isInvertScrollDirection() {
-        return mInvertScrollDirection;
-    }
-
-    public void setEnableScrollbar(boolean enable) {
-        if (mEnableScrollbar != enable) {
-            mEnableScrollbar = enable;
-            if (mEnableScrollbar) {
-                initScrollbarPaint();
+    fun setEnableScrollbar(enable: Boolean) {
+        if (isScrollbarEnabled != enable) {
+            isScrollbarEnabled = enable
+            if (isScrollbarEnabled) {
+                initScrollbarPaint()
             } else {
-                mScrollbarPaint = null;
+                mScrollbarPaint = null
             }
         }
     }
 
-    public boolean isScrollbarEnabled() {
-        return mEnableScrollbar;
-    }
-
-    public byte getOrientation() {
-        return mOrientation;
-    }
-
-    @Override
-    public void setScaleType(ScaleType scaleType) {
+    override fun setScaleType(scaleType: ScaleType) {
         /**
          * Do nothing because PanoramaImageView only
-         * supports {@link scaleType.CENTER_CROP}
+         * supports [scaleType.CENTER_CROP]
          */
     }
 
     /**
      * Interface definition for a callback to be invoked when the image is scrolling
      */
-    public interface OnPanoramaScrollListener {
+    interface OnPanoramaScrollListener {
         /**
          * Call when the image is scrolling
          *
          * @param view           the panoramaImageView shows the image
          * @param offsetProgress value between (-1, 1) indicating the offset progress.
-         *                       -1 means the image scrolls to show its left(top) bound,
-         *                       1 means the image scrolls to show its right(bottom) bound.
+         * -1 means the image scrolls to show its left(top) bound,
+         * 1 means the image scrolls to show its right(bottom) bound.
          */
-        void onScrolled(LPanoramaImageView view, float offsetProgress);
+        fun onScrolled(view: LPanoramaImageView?, offsetProgress: Float)
     }
 
-    public void setOnPanoramaScrollListener(OnPanoramaScrollListener listener) {
-        mOnPanoramaScrollListener = listener;
+    fun setOnPanoramaScrollListener(listener: OnPanoramaScrollListener?) {
+        mOnPanoramaScrollListener = listener
+    }
+
+    init {
+        super.setScaleType(ScaleType.CENTER_CROP)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LPanoramaImageView)
+        isPanoramaModeEnabled = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_enablePanoramaMode, true)
+        mInvertScrollDirection = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_invertScrollDirection, false)
+        isScrollbarEnabled = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_show_scrollbar, true)
+        typedArray.recycle()
+        if (isScrollbarEnabled) {
+            initScrollbarPaint()
+        }
     }
 }

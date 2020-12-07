@@ -1,116 +1,119 @@
-package com.views.imageview.panorama;
+package com.views.imageview.panorama
 
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-
-import java.util.LinkedList;
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import com.views.imageview.panorama.LPanoramaImageView
+import java.util.*
+import kotlin.math.abs
 
 /**
  * Created by gjz on 21/12/2016.
  */
 
-//TODO convert kotlin
-public class GyroscopeObserver implements SensorEventListener {
-    private SensorManager mSensorManager;
+class GyroscopeObserver : SensorEventListener {
 
-    // For translate nanosecond to second.
-    private static final float NS2S = 1.0f / 1000000000.0f;
+    companion object {
+        // For translate nanosecond to second.
+        private const val NS2S = 1.0f / 1000000000.0f
+    }
+
+    private var mSensorManager: SensorManager? = null
 
     // The time in nanosecond when last sensor event happened.
-    private long mLastTimestamp;
+    private var mLastTimestamp: Long = 0
 
     // The radian the device already rotate along y-axis.
-    private double mRotateRadianY;
+    private var mRotateRadianY = 0.0
 
     // The radian the device already rotate along x-axis.
-    private double mRotateRadianX;
+    private var mRotateRadianX = 0.0
+
     // The maximum radian that the device should rotate along x-axis and y-axis to show image's bounds
     // The value must between (0, π/2].
-    private double mMaxRotateRadian = Math.PI / 9;
+    private var mMaxRotateRadian = Math.PI / 9
 
     // The PanoramaImageViews to be notified when the device rotate.
-    private LinkedList<LPanoramaImageView> mViews = new LinkedList<>();
+    private val mViews = LinkedList<LPanoramaImageView>()
 
-    public void register(Context context) {
+    fun register(context: Context) {
         if (mSensorManager == null) {
-            mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+            mSensorManager = context.getSystemService(Context.SENSOR_SERVICE) as SensorManager
         }
-        Sensor mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
-        mSensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST);
-
-        mLastTimestamp = 0;
-        mRotateRadianY = mRotateRadianX = 0;
+        val mSensor = mSensorManager?.getDefaultSensor(Sensor.TYPE_GYROSCOPE)
+        mSensorManager?.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_FASTEST)
+        mLastTimestamp = 0
+        mRotateRadianX = 0.0
+        mRotateRadianY = mRotateRadianX
     }
 
-    public void unregister() {
+    fun unregister() {
         if (mSensorManager != null) {
-            mSensorManager.unregisterListener(this);
-            mSensorManager = null;
+            mSensorManager?.unregisterListener(this)
+            mSensorManager = null
         }
     }
 
-    void addPanoramaImageView(LPanoramaImageView view) {
+    fun addPanoramaImageView(view: LPanoramaImageView?) {
         if (view != null && !mViews.contains(view)) {
-            mViews.addFirst(view);
+            mViews.addFirst(view)
         }
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (mLastTimestamp == 0) {
-            mLastTimestamp = event.timestamp;
-            return;
+    override fun onSensorChanged(event: SensorEvent) {
+        if (mLastTimestamp == 0L) {
+            mLastTimestamp = event.timestamp
+            return
         }
-
-        float rotateX = Math.abs(event.values[0]);
-        float rotateY = Math.abs(event.values[1]);
-        float rotateZ = Math.abs(event.values[2]);
-
+        val rotateX = abs(event.values[0])
+        val rotateY = abs(event.values[1])
+        val rotateZ = abs(event.values[2])
         if (rotateY > rotateX + rotateZ) {
-            final float dT = (event.timestamp - mLastTimestamp) * NS2S;
-            mRotateRadianY += event.values[1] * dT;
-            if (mRotateRadianY > mMaxRotateRadian) {
-                mRotateRadianY = mMaxRotateRadian;
-            } else if (mRotateRadianY < -mMaxRotateRadian) {
-                mRotateRadianY = -mMaxRotateRadian;
-            } else {
-                for (LPanoramaImageView view : mViews) {
-                    if (view != null && view.getOrientation() == LPanoramaImageView.ORIENTATION_HORIZONTAL) {
-                        view.updateProgress((float) (mRotateRadianY / mMaxRotateRadian));
+            val dT = (event.timestamp - mLastTimestamp) * NS2S
+            mRotateRadianY += (event.values[1] * dT).toDouble()
+            when {
+                mRotateRadianY > mMaxRotateRadian -> {
+                    mRotateRadianY = mMaxRotateRadian
+                }
+                mRotateRadianY < -mMaxRotateRadian -> {
+                    mRotateRadianY = -mMaxRotateRadian
+                }
+                else -> {
+                    for (view in mViews) {
+                        if (view.orientation == LPanoramaImageView.ORIENTATION_HORIZONTAL) {
+                            view.updateProgress((mRotateRadianY / mMaxRotateRadian).toFloat())
+                        }
                     }
                 }
             }
         } else if (rotateX > rotateY + rotateZ) {
-            final float dT = (event.timestamp - mLastTimestamp) * NS2S;
-            mRotateRadianX += event.values[0] * dT;
-            if (mRotateRadianX > mMaxRotateRadian) {
-                mRotateRadianX = mMaxRotateRadian;
-            } else if (mRotateRadianX < -mMaxRotateRadian) {
-                mRotateRadianX = -mMaxRotateRadian;
-            } else {
-                for (LPanoramaImageView view : mViews) {
-                    if (view != null && view.getOrientation() == LPanoramaImageView.ORIENTATION_VERTICAL) {
-                        view.updateProgress((float) (mRotateRadianX / mMaxRotateRadian));
+            val dT = (event.timestamp - mLastTimestamp) * NS2S
+            mRotateRadianX += (event.values[0] * dT).toDouble()
+            when {
+                mRotateRadianX > mMaxRotateRadian -> {
+                    mRotateRadianX = mMaxRotateRadian
+                }
+                mRotateRadianX < -mMaxRotateRadian -> {
+                    mRotateRadianX = -mMaxRotateRadian
+                }
+                else -> {
+                    for (view in mViews) {
+                        if (view.orientation == LPanoramaImageView.ORIENTATION_VERTICAL) {
+                            view.updateProgress((mRotateRadianX / mMaxRotateRadian).toFloat())
+                        }
                     }
                 }
             }
         }
-
-        mLastTimestamp = event.timestamp;
+        mLastTimestamp = event.timestamp
     }
 
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
+    override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {}
+    fun setMaxRotateRadian(maxRotateRadian: Double) {
+        require(!(maxRotateRadian <= 0 || maxRotateRadian > Math.PI / 2)) { "The maxRotateRadian must be between (0, π/2]." }
+        mMaxRotateRadian = maxRotateRadian
     }
 
-    public void setMaxRotateRadian(double maxRotateRadian) {
-        if (maxRotateRadian <= 0 || maxRotateRadian > Math.PI / 2) {
-            throw new IllegalArgumentException("The maxRotateRadian must be between (0, π/2].");
-        }
-        this.mMaxRotateRadian = maxRotateRadian;
-    }
 }

@@ -28,20 +28,24 @@ class PanoramaImageViewActivity : BaseFontActivity() {
 
     private fun setupViews() {
         gyroscopeObserver = GyroscopeObserver()
-// Set the maximum radian the device should rotate to show image's bounds.
-// It should be set between 0 and π/2.
-// The default value is π/9.
+        // Set the maximum radian the device should rotate to show image's bounds.
+        // It should be set between 0 and π/2.
+        // The default value is π/9.
 
         gyroscopeObserver?.setMaxRotateRadian(Math.PI / 9)
 
-//panoramaImageView.setEnablePanoramaMode(true);
-//panoramaImageView.setEnableScrollbar(true);
-//panoramaImageView.setInvertScrollDirection(false);
-// Set GyroscopeObserver for PanoramaImageView.
+        //panoramaImageView.setEnablePanoramaMode(true);
+        //panoramaImageView.setEnableScrollbar(true);
+        //panoramaImageView.setInvertScrollDirection(false);
+        // Set GyroscopeObserver for PanoramaImageView.
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver)
-        panoramaImageView.setOnPanoramaScrollListener { _: LPanoramaImageView?, offsetProgress: Float ->
-            logD("onScrolled offsetProgress $offsetProgress")
-        }
+
+        panoramaImageView.setOnPanoramaScrollListener(object : LPanoramaImageView.OnPanoramaScrollListener {
+            override fun onScrolled(view: LPanoramaImageView?, offsetProgress: Float) {
+                logD("onScrolled offsetProgress $offsetProgress")
+            }
+
+        })
     }
 
     override fun onResume() {
