@@ -26,7 +26,7 @@ import com.core.utilities.LUIUtil;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-//TODO convert kotlin
+
 public class LDebugViewService extends Service implements View.OnTouchListener {
     private final String logTag = getClass().getSimpleName();
     private WindowManager mWindowManager;

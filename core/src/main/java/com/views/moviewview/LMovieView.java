@@ -24,7 +24,7 @@ import com.R;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-//TODO convert kotlin
+
 public class LMovieView extends RelativeLayout {
 
     /**

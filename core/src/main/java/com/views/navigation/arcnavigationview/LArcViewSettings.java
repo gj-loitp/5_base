@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import com.R;
-//TODO convert kotlin
+
 public class LArcViewSettings {
     public final static int CROP_INSIDE = 0;
     public final static int CROP_OUTSIDE = 1;
