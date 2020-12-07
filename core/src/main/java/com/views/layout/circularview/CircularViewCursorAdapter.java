@@ -7,7 +7,6 @@ import android.database.DataSetObserver;
 import android.os.Handler;
 import android.widget.CursorAdapter;
 
-//TODO convert kotlin
 public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapter {
     private static final String TAG = CircularViewCursorAdapter.class.getSimpleName();
     private final DataSetObservable mDataSetObservable = new DataSetObservable();
@@ -170,6 +169,7 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
             onContentChanged();
         }
     }
+
     private class MyDataSetObserver extends DataSetObserver {
         @Override
         public void onChanged() {

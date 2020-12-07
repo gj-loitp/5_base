@@ -22,7 +22,6 @@ import com.R;
 
 import java.util.ArrayList;
 
-//TODO convert kotlin
 public class CircularView extends View {
     private static final String TAG = CircularView.class.getSimpleName();
     private String mText; //TODO add customization for the text (style, color, etc)
