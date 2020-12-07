@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 
 import com.R;
-//TODO convert kotlin
+
 public class LShadowLayout2 extends FrameLayout {
 
     public static final int ALL = 0x1111;
