@@ -24,7 +24,7 @@ import com.views.layout.swipeback.tools.Util;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-//TODO convert kotlin
+
 public class SwipeBackLayout extends ViewGroup {
     private static final String TAG = "SwipeBackLayout";
 

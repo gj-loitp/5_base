@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.views.layout.swipeback.tools.Util;
-//TODO convert kotlin
+
 public class WxSwipeBackLayout extends SwipeBackLayout {
     private static final String TAG = "WxSwipeBackLayout";
 

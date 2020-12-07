@@ -10,7 +10,7 @@ import java.util.Stack;
 /**
  * Created by GongWen on 17/9/4.
  */
-//TODO convert kotlin
+
 public class WxSwipeBackActivityManager extends ActivityLifecycleCallbacksAdapter {
     private static final WxSwipeBackActivityManager instance = new WxSwipeBackActivityManager();
     private Stack<Activity> mActivityStack = new Stack<>();

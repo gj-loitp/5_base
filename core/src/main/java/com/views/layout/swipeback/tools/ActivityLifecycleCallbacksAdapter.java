@@ -7,7 +7,7 @@ import android.os.Bundle;
 /**
  * Created by GongWen on 17/9/4.
  */
-//TODO convert kotlin
+
 public class ActivityLifecycleCallbacksAdapter implements Application.ActivityLifecycleCallbacks {
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
