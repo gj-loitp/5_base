@@ -500,4 +500,5 @@ Likewise may someone love you next.
     <string name="crop_oval">Crop oval</string>
     <string name="crop_square">Crop square</string>
     <string name="compass">Compass</string>
+    <string name="random_rotate">Random rotate</string>
 </resources>
