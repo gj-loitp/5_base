@@ -11,7 +11,6 @@ import com.R;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
-//TODO convert kotlin
 public abstract class AbstractPathAnimator {
     private final Random mRandom;
     protected final Config mConfig;
