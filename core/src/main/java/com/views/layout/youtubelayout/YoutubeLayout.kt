@@ -1,270 +1,249 @@
-package com.views.layout.youtubelayout;
+package com.views.layout.youtubelayout
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
+import android.annotation.SuppressLint
+import android.content.Context
+import android.util.AttributeSet
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.MotionEventCompat
+import androidx.core.view.ViewCompat
+import androidx.customview.widget.ViewDragHelper
+import com.R
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
-import androidx.core.view.MotionEventCompat;
-import androidx.core.view.ViewCompat;
-import androidx.customview.widget.ViewDragHelper;
+class YoutubeLayout @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyle: Int = 0
+) : ViewGroup(context, attrs, defStyle) {
 
-import com.R;
-//TODO convert kotlin
-public class YoutubeLayout extends ViewGroup {
-    private final String logTag = getClass().getSimpleName();
-    private final ViewDragHelper mDragHelper;
-    private View mHeaderView;
-    private View mDescView;
-    private float mInitialMotionX;
-    private float mInitialMotionY;
-    private int mDragRange;
-    private int mTop;
-    private float mDragOffset;
+    private val logTag = javaClass.simpleName
+    private val mDragHelper: ViewDragHelper
+    private var mHeaderView: View? = null
+    private var mDescView: View? = null
+    private var mInitialMotionX = 0f
+    private var mInitialMotionY = 0f
+    private var mDragRange = 0
+    private var mTop = 0
+    private var mDragOffset = 0f
 
-    public YoutubeLayout(Context context) {
-        this(context, null);
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+        mHeaderView = findViewById(R.id.view_header)
+        mDescView = findViewById(R.id.view_desc)
     }
 
-    public YoutubeLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+    fun maximize() {
+        smoothSlideTo(0f)
     }
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        mHeaderView = findViewById(R.id.view_header);
-        mDescView = findViewById(R.id.view_desc);
-    }
-
-    public YoutubeLayout(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        mDragHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
-    }
-
-    public void maximize() {
-        smoothSlideTo(0f);
-    }
-
-    private boolean smoothSlideTo(float slideOffset) {
-        final int topBound = getPaddingTop();
-        int y = (int) (topBound + slideOffset * mDragRange);
-        if (mDragHelper.smoothSlideViewTo(mHeaderView, mHeaderView.getLeft(), y)) {
-            ViewCompat.postInvalidateOnAnimation(this);
-            return true;
-        }
-        return false;
-    }
-
-    private class DragHelperCallback extends ViewDragHelper.Callback {
-
-        @Override
-        public boolean tryCaptureView(View child, int pointerId) {
-            return child == mHeaderView;
-        }
-
-        @Override
-        public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
-//            Log.d(logTag, "onViewPositionChanged " + left + " - " + top + " - " + dx + " - " + dy);
-            mTop = top;
-            mDragOffset = (float) top / mDragRange;
-//            Log.d(logTag, "onViewPositionChanged mDragOffset " + mDragOffset);
-            if (mDragOffset == 0f) {
-                isPositionTop();
-            } else if (mDragOffset == 1f) {
-                isPositionBottom();
-            } else {
-                isPositionMid();
+    private fun smoothSlideTo(slideOffset: Float): Boolean {
+        val topBound = paddingTop
+        val y = (topBound + slideOffset * mDragRange).toInt()
+        mHeaderView?.let {
+            if (mDragHelper.smoothSlideViewTo(it, it.left, y)) {
+                ViewCompat.postInvalidateOnAnimation(this)
+                return true
             }
-            mHeaderView.setPivotX(mHeaderView.getWidth());
-            mHeaderView.setPivotY(mHeaderView.getHeight());
-            mHeaderView.setScaleX(1 - mDragOffset / 2);
-            mHeaderView.setScaleY(1 - mDragOffset / 2);
-            mDescView.setAlpha(1 - mDragOffset);
-            requestLayout();
         }
 
-        @Override
-        public void onViewReleased(View releasedChild, float xvel, float yvel) {
-//            Log.d(logTag, "onViewReleased");
-            int top = getPaddingTop();
-            if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
-                top += mDragRange;
+        return false
+    }
+
+    private inner class DragHelperCallback : ViewDragHelper.Callback() {
+        override fun tryCaptureView(child: View, pointerId: Int): Boolean {
+            return child === mHeaderView
+        }
+
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
+            mTop = top
+            mDragOffset = top.toFloat() / mDragRange
+            when (mDragOffset) {
+                0f -> {
+                    isPositionTop
+                }
+                1f -> {
+                    isPositionBottom
+                }
+                else -> {
+                    isPositionMid
+                }
             }
-            mDragHelper.settleCapturedViewAt(releasedChild.getLeft(), top);
+            mHeaderView?.apply {
+                pivotX = width.toFloat()
+                pivotY = height.toFloat()
+                scaleX = 1 - mDragOffset / 2
+                scaleY = 1 - mDragOffset / 2
+//                alpha = 1 - mDragOffset
+            }
+
+            requestLayout()
         }
 
-        @Override
-        public int getViewVerticalDragRange(View child) {
-            return mDragRange;
+        override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
+            var top = paddingTop
+            if (yvel > 0 || yvel == 0f && mDragOffset > 0.5f) {
+                top += mDragRange
+            }
+            mDragHelper.settleCapturedViewAt(releasedChild.left, top)
         }
 
-        @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
-//            Log.d(logTag, "clampViewPositionVertical " + top);
-            final int topBound = getPaddingTop();
-            final int bottomBound = getHeight() - mHeaderView.getHeight() - mHeaderView.getPaddingBottom();
-            final int newTop = Math.min(Math.max(top, topBound), bottomBound);
-            return newTop;
+        override fun getViewVerticalDragRange(child: View): Int {
+            return mDragRange
         }
 
-        @Override
-        public int clampViewPositionHorizontal(View child, int left, int dx) {
-//            Log.d(logTag, "clampViewPositionHorizontal " + left + "," + dx);
-            final int leftBound = getPaddingLeft();
-            final int rightBound = getWidth() - mHeaderView.getWidth();
-            final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
-            return newLeft;
+        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
+            val topBound = paddingTop
+            var bottomBound = 0
+            mHeaderView?.let {
+                bottomBound = height - it.height - it.paddingBottom
+            }
+            return min(
+                    a = max(a = top, b = topBound),
+                    b = bottomBound
+            )
+        }
+
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
+            val leftBound = paddingLeft
+            var rightBound = 0
+            mHeaderView?.let {
+                rightBound = width - it.width
+            }
+            return min(
+                    a = max(a = left, b = leftBound),
+                    b = rightBound
+            )
         }
     }
 
-    @Override
-    public void computeScroll() {
+    override fun computeScroll() {
         if (mDragHelper.continueSettling(true)) {
-            ViewCompat.postInvalidateOnAnimation(this);
+            ViewCompat.postInvalidateOnAnimation(this)
         }
     }
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        final int action = MotionEventCompat.getActionMasked(ev);
-
-        if ((action != MotionEvent.ACTION_DOWN)) {
-            mDragHelper.cancel();
-            return super.onInterceptTouchEvent(ev);
+    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+        val action = MotionEventCompat.getActionMasked(ev)
+        if (action != MotionEvent.ACTION_DOWN) {
+            mDragHelper.cancel()
+            return super.onInterceptTouchEvent(ev)
         }
-
         if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
-            mDragHelper.cancel();
-            return false;
+            mDragHelper.cancel()
+            return false
         }
-
-        final float x = ev.getX();
-        final float y = ev.getY();
-        boolean interceptTap = false;
-
-        switch (action) {
-            case MotionEvent.ACTION_DOWN: {
-//                Log.d(logTag, "onInterceptTouchEvent ACTION_DOWN");
-                mInitialMotionX = x;
-                mInitialMotionY = y;
-                interceptTap = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
-                break;
+        val x = ev.x
+        val y = ev.y
+        var interceptTap = false
+        when (action) {
+            MotionEvent.ACTION_DOWN -> {
+                mInitialMotionX = x
+                mInitialMotionY = y
+                interceptTap = mDragHelper.isViewUnder(mHeaderView, x.toInt(), y.toInt())
             }
-
-            case MotionEvent.ACTION_MOVE: {
-//                Log.d(logTag, "onInterceptTouchEvent ACTION_MOVE");
-                final float adx = Math.abs(x - mInitialMotionX);
-                final float ady = Math.abs(y - mInitialMotionY);
-                final int slop = mDragHelper.getTouchSlop();
+            MotionEvent.ACTION_MOVE -> {
+                val adx = abs(x - mInitialMotionX)
+                val ady = abs(y - mInitialMotionY)
+                val slop = mDragHelper.touchSlop
                 if (ady > slop && adx > ady) {
-                    mDragHelper.cancel();
-                    return false;
+                    mDragHelper.cancel()
+                    return false
                 }
             }
         }
-
-        return mDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
+        return mDragHelper.shouldInterceptTouchEvent(ev) || interceptTap
     }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        mDragHelper.processTouchEvent(ev);
-
-        final int action = ev.getAction();
-        final float x = ev.getX();
-        final float y = ev.getY();
-
-        boolean isHeaderViewUnder = mDragHelper.isViewUnder(mHeaderView, (int) x, (int) y);
-        switch (action & MotionEventCompat.ACTION_MASK) {
-            case MotionEvent.ACTION_DOWN: {
-//                Log.d(logTag, "onTouchEvent ACTION_DOWN");
-                mInitialMotionX = x;
-                mInitialMotionY = y;
-                break;
+    @SuppressLint("ClickableViewAccessibility")
+    override fun onTouchEvent(ev: MotionEvent): Boolean {
+        mDragHelper.processTouchEvent(ev)
+        val action = ev.action
+        val x = ev.x
+        val y = ev.y
+        val isHeaderViewUnder = mDragHelper.isViewUnder(mHeaderView, x.toInt(), y.toInt())
+        when (action and MotionEventCompat.ACTION_MASK) {
+            MotionEvent.ACTION_DOWN -> {
+                mInitialMotionX = x
+                mInitialMotionY = y
             }
-
-            case MotionEvent.ACTION_UP: {
-//                Log.d(logTag, "onTouchEvent ACTION_UP");
-                /*final float dx = x - mInitialMotionX;
-                final float dy = y - mInitialMotionY;
-                final int slop = mDragHelper.getTouchSlop();
-                if (dx * dx + dy * dy < slop * slop && isHeaderViewUnder) {
-//                    Log.d(TAG, "if");
-                    if (mDragOffset == 0) {
-                        smoothSlideTo(1f);
-                    } else {
-                        smoothSlideTo(0f);
-                    }
-                } */
-                //Log.d(TAG, "mDragOffset " + mDragOffset);
+            MotionEvent.ACTION_UP -> {
                 if (mDragOffset < 0.5f) {
-                    smoothSlideTo(0f);
+                    smoothSlideTo(0f)
                 } else {
-                    smoothSlideTo(1f);
+                    smoothSlideTo(1f)
                 }
-                break;
             }
         }
-
-        return isHeaderViewUnder && isViewHit(mHeaderView, (int) x, (int) y) || isViewHit(mDescView, (int) x, (int) y);
+        return isHeaderViewUnder && isViewHit(mHeaderView, x.toInt(), y.toInt()) || isViewHit(mDescView, x.toInt(), y.toInt())
     }
 
-    private boolean isViewHit(View view, int x, int y) {
-        int[] viewLocation = new int[2];
-        view.getLocationOnScreen(viewLocation);
-        int[] parentLocation = new int[2];
-        this.getLocationOnScreen(parentLocation);
-        int screenX = parentLocation[0] + x;
-        int screenY = parentLocation[1] + y;
-        return screenX >= viewLocation[0] && screenX < viewLocation[0] + view.getWidth() &&
-                screenY >= viewLocation[1] && screenY < viewLocation[1] + view.getHeight();
+    private fun isViewHit(view: View?, x: Int, y: Int): Boolean {
+        if (view == null) {
+            return false
+        }
+        val viewLocation = IntArray(2)
+        view.getLocationOnScreen(viewLocation)
+        val parentLocation = IntArray(2)
+        getLocationOnScreen(parentLocation)
+        val screenX = parentLocation[0] + x
+        val screenY = parentLocation[1] + y
+        return screenX >= viewLocation[0] && screenX < viewLocation[0] + view.width && screenY >= viewLocation[1] && screenY < viewLocation[1] + view.height
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        measureChildren(widthMeasureSpec, heightMeasureSpec);
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        measureChildren(widthMeasureSpec, heightMeasureSpec)
 
-        int maxWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int maxHeight = MeasureSpec.getSize(heightMeasureSpec);
-
-        setMeasuredDimension(resolveSizeAndState(maxWidth, widthMeasureSpec, 0),
-                resolveSizeAndState(maxHeight, heightMeasureSpec, 0));
+        val maxWidth = MeasureSpec.getSize(widthMeasureSpec)
+        val maxHeight = MeasureSpec.getSize(heightMeasureSpec)
+        setMeasuredDimension(
+                resolveSizeAndState(maxWidth, widthMeasureSpec, 0),
+                resolveSizeAndState(maxHeight, heightMeasureSpec, 0)
+        )
     }
 
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        mDragRange = getHeight() - mHeaderView.getHeight();
-        mHeaderView.layout(
-                0,
-                mTop,
-                r,
-                mTop + mHeaderView.getMeasuredHeight());
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        mHeaderView?.let {
+            mDragRange = height - it.height
 
-        mDescView.layout(
-                0,
-                mTop + mHeaderView.getMeasuredHeight(),
-                r,
-                mTop + b);
+            it.layout(
+                    0,
+                    mTop,
+                    r,
+                    mTop + it.measuredHeight)
+            mDescView?.layout(
+                    0,
+                    mTop + it.measuredHeight,
+                    r,
+                    mTop + b)
+        }
     }
 
-    private enum STATE {TOP, BOTTOM, MID}
-
-    private STATE state;
-
-    private void isPositionTop() {
-        //Log.d(TAG, "onViewPositionChanged TOP");
-        state = STATE.TOP;
+    private enum class STATE {
+        TOP, BOTTOM, MID
     }
 
-    private void isPositionBottom() {
-        //Log.d(TAG, "onViewPositionChanged BOTTOM");
-        state = STATE.BOTTOM;
-    }
+    private var state: STATE? = null
 
-    private void isPositionMid() {
-        //Log.d(TAG, "onViewPositionChanged MID");
-        state = STATE.MID;
+    private val isPositionTop: Unit
+        get() {
+            state = STATE.TOP
+        }
+
+    private val isPositionBottom: Unit
+        get() {
+            state = STATE.BOTTOM
+        }
+
+    private val isPositionMid: Unit
+        get() {
+            state = STATE.MID
+        }
+
+    init {
+        mDragHelper = ViewDragHelper.create(this, 1f, DragHelperCallback())
     }
 }
