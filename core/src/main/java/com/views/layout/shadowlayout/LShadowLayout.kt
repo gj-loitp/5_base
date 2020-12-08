@@ -1,191 +1,142 @@
-package com.views.layout.shadowlayout;
+package com.views.layout.shadowlayout
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.RectF
+import android.util.AttributeSet
+import android.widget.RelativeLayout
+import com.R
+import com.core.utilities.LAppResource
+import kotlin.math.min
 
-import com.R;
+class LShadowLayout @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
+) : RelativeLayout(context, attrs, defStyleAttr) {
 
-public class LShadowLayout extends RelativeLayout {
-
-    public static final int ALL = 0x1111;
-
-    public static final int LEFT = 0x0001;
-
-    public static final int TOP = 0x0010;
-
-    public static final int RIGHT = 0x0100;
-
-    public static final int BOTTOM = 0x1000;
-
-    public static final int SHAPE_RECTANGLE = 0x0001;
-
-    public static final int SHAPE_OVAL = 0x0010;
-
-    private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-    private RectF mRectF = new RectF();
-
-    /**
-     * 阴影的颜色
-     */
-    private int mShadowColor = Color.TRANSPARENT;
-
-    /**
-     * 阴影的大小范围
-     */
-    private float mShadowRadius = 0;
-
-    /**
-     * 阴影 x 轴的偏移量
-     */
-    private float mShadowDx = 0;
-
-    /**
-     * 阴影 y 轴的偏移量
-     */
-    private float mShadowDy = 0;
-
-    /**
-     * 阴影显示的边界
-     */
-    private int mShadowSide = ALL;
-
-    /**
-     * 阴影的形状，圆形/矩形
-     */
-    private int mShadowShape = SHAPE_RECTANGLE;
-
-    public LShadowLayout(Context context) {
-        this(context, null);
+    companion object {
+        const val ALL = 0x1111
+        const val LEFT = 0x0001
+        const val TOP = 0x0010
+        const val RIGHT = 0x0100
+        const val BOTTOM = 0x1000
+        const val SHAPE_RECTANGLE = 0x0001
+        const val SHAPE_OVAL = 0x0010
     }
 
-    public LShadowLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
+    private val mPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private val mRectF = RectF()
+    private var mShadowColor = Color.TRANSPARENT
+    private var mShadowRadius = 0f
+    private var mShadowDx = 0f
+    private var mShadowDy = 0f
+    private var mShadowSide = ALL
+    private var mShadowShape = SHAPE_RECTANGLE
 
-    public LShadowLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(attrs);
-    }
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        float effect = mShadowRadius + dip2px(5);
-        float rectLeft = 0;
-        float rectTop = 0;
-        float rectRight = this.getMeasuredWidth();
-        float rectBottom = this.getMeasuredHeight();
-        int paddingLeft = 0;
-        int paddingTop = 0;
-        int paddingRight = 0;
-        int paddingBottom = 0;
-        this.getWidth();
-        if ((mShadowSide & LEFT) == LEFT) {
-            rectLeft = effect;
-            paddingLeft = (int) effect;
+        val effect = mShadowRadius + dip2px(5f)
+        var rectLeft = 0f
+        var rectTop = 0f
+        var rectRight = this.measuredWidth.toFloat()
+        var rectBottom = this.measuredHeight.toFloat()
+        var paddingLeft = 0
+        var paddingTop = 0
+        var paddingRight = 0
+        var paddingBottom = 0
+        this.width
+        if (mShadowSide and LEFT == LEFT) {
+            rectLeft = effect
+            paddingLeft = effect.toInt()
         }
-        if ((mShadowSide & TOP) == TOP) {
-            rectTop = effect;
-            paddingTop = (int) effect;
+        if (mShadowSide and TOP == TOP) {
+            rectTop = effect
+            paddingTop = effect.toInt()
         }
-        if ((mShadowSide & RIGHT) == RIGHT) {
-            rectRight = this.getMeasuredWidth() - effect;
-            paddingRight = (int) effect;
+        if (mShadowSide and RIGHT == RIGHT) {
+            rectRight = this.measuredWidth - effect
+            paddingRight = effect.toInt()
         }
-        if ((mShadowSide & BOTTOM) == BOTTOM) {
-            rectBottom = this.getMeasuredHeight() - effect;
-            paddingBottom = (int) effect;
+        if (mShadowSide and BOTTOM == BOTTOM) {
+            rectBottom = this.measuredHeight - effect
+            paddingBottom = effect.toInt()
         }
         if (mShadowDy != 0.0f) {
-            rectBottom = rectBottom - mShadowDy;
-            paddingBottom = paddingBottom + (int) mShadowDy;
+            rectBottom -= mShadowDy
+            paddingBottom += mShadowDy.toInt()
         }
         if (mShadowDx != 0.0f) {
-            rectRight = rectRight - mShadowDx;
-            paddingRight = paddingRight + (int) mShadowDx;
+            rectRight -= mShadowDx
+            paddingRight += mShadowDx.toInt()
         }
-        mRectF.left = rectLeft;
-        mRectF.top = rectTop;
-        mRectF.right = rectRight;
-        mRectF.bottom = rectBottom;
-        this.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        mRectF.left = rectLeft
+        mRectF.top = rectTop
+        mRectF.right = rectRight
+        mRectF.bottom = rectBottom
+        setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
+
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 
-    /**
-     * 真正绘制阴影的方法
-     */
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        setUpShadowPaint();
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        setUpShadowPaint()
         if (mShadowShape == SHAPE_RECTANGLE) {
-            canvas.drawRect(mRectF, mPaint);
+            canvas.drawRect(mRectF, mPaint)
         } else if (mShadowShape == SHAPE_OVAL) {
-            canvas.drawCircle(mRectF.centerX(), mRectF.centerY(), Math.min(mRectF.width(), mRectF.height()) / 2, mPaint);
+            canvas.drawCircle(
+                    mRectF.centerX(),
+                    mRectF.centerY(),
+                    min(a = mRectF.width(), b = mRectF.height()) / 2,
+                    mPaint
+            )
         }
     }
 
-    public void setShadowColor(int shadowColor) {
-        mShadowColor = shadowColor;
-        requestLayout();
-        postInvalidate();
+    fun setShadowColor(shadowColor: Int) {
+        mShadowColor = shadowColor
+        requestLayout()
+        postInvalidate()
     }
 
-    public void setShadowRadius(float shadowRadius) {
-        mShadowRadius = shadowRadius;
-        requestLayout();
-        postInvalidate();
+    fun setShadowRadius(shadowRadius: Float) {
+        mShadowRadius = shadowRadius
+        requestLayout()
+        postInvalidate()
     }
 
-    /**
-     * 读取设置的阴影的属性
-     *
-     * @param attrs 从其中获取设置的值
-     */
-    private void init(AttributeSet attrs) {
-        setLayerType(View.LAYER_TYPE_SOFTWARE, null);  // 关闭硬件加速
-        this.setWillNotDraw(false);                    // 调用此方法后，才会执行 onDraw(Canvas) 方法
-
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.LShadowLayout);
-        if (typedArray != null) {
-            mShadowColor = typedArray.getColor(R.styleable.LShadowLayout_shadowColor,
-                    getContext().getResources().getColor(android.R.color.black));
-            mShadowRadius = typedArray.getDimension(R.styleable.LShadowLayout_shadowRadius, dip2px(0));
-            mShadowDx = typedArray.getDimension(R.styleable.LShadowLayout_shadowDx, dip2px(0));
-            mShadowDy = typedArray.getDimension(R.styleable.LShadowLayout_shadowDy, dip2px(0));
-            mShadowSide = typedArray.getInt(R.styleable.LShadowLayout_shadowSide, ALL);
-            mShadowShape = typedArray.getInt(R.styleable.LShadowLayout_shadowShape, SHAPE_RECTANGLE);
-            typedArray.recycle();
-        }
-        setUpShadowPaint();
+    private fun init(attrs: AttributeSet?) {
+        setLayerType(LAYER_TYPE_SOFTWARE, null) // 关闭硬件加速
+        setWillNotDraw(false) // 调用此方法后，才会执行 onDraw(Canvas) 方法
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LShadowLayout)
+        mShadowColor = typedArray.getColor(R.styleable.LShadowLayout_shadowColor, LAppResource.getColor(R.color.black))
+        mShadowRadius = typedArray.getDimension(R.styleable.LShadowLayout_shadowRadius, dip2px(0f))
+        mShadowDx = typedArray.getDimension(R.styleable.LShadowLayout_shadowDx, dip2px(0f))
+        mShadowDy = typedArray.getDimension(R.styleable.LShadowLayout_shadowDy, dip2px(0f))
+        mShadowSide = typedArray.getInt(R.styleable.LShadowLayout_shadowSide, ALL)
+        mShadowShape = typedArray.getInt(R.styleable.LShadowLayout_shadowShape, SHAPE_RECTANGLE)
+        typedArray.recycle()
+        setUpShadowPaint()
     }
 
-    private void setUpShadowPaint() {
-        mPaint.reset();
-        mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.TRANSPARENT);
-        mPaint.setShadowLayer(mShadowRadius, mShadowDx, mShadowDy, mShadowColor);
+    private fun setUpShadowPaint() {
+        mPaint.reset()
+        mPaint.isAntiAlias = true
+        mPaint.color = Color.TRANSPARENT
+        mPaint.setShadowLayer(mShadowRadius, mShadowDx, mShadowDy, mShadowColor)
     }
 
-    /**
-     * dip2px dp 值转 px 值
-     *
-     * @param dpValue dp 值
-     * @return px 值
-     */
-    private float dip2px(float dpValue) {
-        DisplayMetrics dm = getContext().getResources().getDisplayMetrics();
-        float scale = dm.density;
-        return (dpValue * scale + 0.5F);
+    private fun dip2px(dpValue: Float): Float {
+        val dm = context.resources.displayMetrics
+        val scale = dm.density
+        return dpValue * scale + 0.5f
+    }
+
+    init {
+        init(attrs)
     }
 }
