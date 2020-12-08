@@ -1,5 +1,6 @@
 package com.views.layout.swipeback;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -22,13 +23,15 @@ import androidx.customview.widget.ViewDragHelper;
 import com.R;
 import com.views.layout.swipeback.tools.Util;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 public class SwipeBackLayout extends ViewGroup {
-    private static final String TAG = "SwipeBackLayout";
+    private static final String TAG = SwipeBackLayout.class.getSimpleName();
 
-    public static final int FROM_LEFT = 1 << 0;
+    public static final int FROM_LEFT = 1;
     public static final int FROM_RIGHT = 1 << 1;
     public static final int FROM_TOP = 1 << 2;
     public static final int FROM_BOTTOM = 1 << 3;
@@ -46,7 +49,7 @@ public class SwipeBackLayout extends ViewGroup {
 
     private int width, height;
 
-    private int mTouchSlop;
+    private final int mTouchSlop;
     private float swipeBackFactor = 0.5f;
     private float swipeBackFraction;
     private int maskAlpha = 125;
@@ -73,6 +76,19 @@ public class SwipeBackLayout extends ViewGroup {
         mDragHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
         mDragHelper.setEdgeTrackingEnabled(mDirectionMode);
         mTouchSlop = mDragHelper.getTouchSlop();
+        OnSwipeBackListener defaultSwipeBackListener = new OnSwipeBackListener() {
+            @Override
+            public void onViewPositionChanged(View mView, float swipeBackFraction, float swipeBackFactor) {
+                invalidate();
+            }
+
+            @Override
+            public void onViewSwipeFinished(View mView, boolean isEnd) {
+                if (isEnd) {
+                    finish();
+                }
+            }
+        };
         setSwipeBackListener(defaultSwipeBackListener);
 
         init(context, attrs);
@@ -166,9 +182,10 @@ public class SwipeBackLayout extends ViewGroup {
                 break;
         }
         boolean handled = mDragHelper.shouldInterceptTouchEvent(ev);
-        return handled ? handled : super.onInterceptTouchEvent(ev);
+        return handled || super.onInterceptTouchEvent(ev);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         mDragHelper.processTouchEvent(event);
@@ -197,12 +214,12 @@ public class SwipeBackLayout extends ViewGroup {
     private class DragHelperCallback extends ViewDragHelper.Callback {
 
         @Override
-        public boolean tryCaptureView(View child, int pointerId) {
+        public boolean tryCaptureView(@NotNull View child, int pointerId) {
             return child == mDragContentView;
         }
 
         @Override
-        public int clampViewPositionHorizontal(View child, int left, int dx) {
+        public int clampViewPositionHorizontal(@NotNull View child, int left, int dx) {
             leftOffset = getPaddingLeft();
             if (isSwipeEnabled()) {
                 if (mDirectionMode == FROM_LEFT && !Util.canViewScrollRight(innerScrollView, downX, downY, false)) {
@@ -215,7 +232,7 @@ public class SwipeBackLayout extends ViewGroup {
         }
 
         @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
+        public int clampViewPositionVertical(@NotNull View child, int top, int dy) {
             topOffset = getPaddingTop();
             if (isSwipeEnabled()) {
                 if (mDirectionMode == FROM_TOP && !Util.canViewScrollUp(innerScrollView, downX, downY, false)) {
@@ -228,7 +245,7 @@ public class SwipeBackLayout extends ViewGroup {
         }
 
         @Override
-        public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+        public void onViewPositionChanged(@NotNull View changedView, int left, int top, int dx, int dy) {
             super.onViewPositionChanged(changedView, left, top, dx, dy);
             left = Math.abs(left);
             top = Math.abs(top);
@@ -248,7 +265,7 @@ public class SwipeBackLayout extends ViewGroup {
         }
 
         @Override
-        public void onViewReleased(View releasedChild, float xvel, float yvel) {
+        public void onViewReleased(@NotNull View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);
             leftOffset = topOffset = 0;
             if (!isSwipeEnabled()) {
@@ -302,12 +319,12 @@ public class SwipeBackLayout extends ViewGroup {
         }
 
         @Override
-        public int getViewHorizontalDragRange(View child) {
+        public int getViewHorizontalDragRange(@NotNull View child) {
             return width;
         }
 
         @Override
-        public int getViewVerticalDragRange(View child) {
+        public int getViewVerticalDragRange(@NotNull View child) {
             return height;
         }
 
@@ -404,20 +421,6 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     private OnSwipeBackListener mSwipeBackListener;
-
-    private OnSwipeBackListener defaultSwipeBackListener = new OnSwipeBackListener() {
-        @Override
-        public void onViewPositionChanged(View mView, float swipeBackFraction, float swipeBackFactor) {
-            invalidate();
-        }
-
-        @Override
-        public void onViewSwipeFinished(View mView, boolean isEnd) {
-            if (isEnd) {
-                finish();
-            }
-        }
-    };
 
     public void setSwipeBackListener(OnSwipeBackListener mSwipeBackListener) {
         this.mSwipeBackListener = mSwipeBackListener;

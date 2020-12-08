@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.views.layout.swipeback.tools.Util;
 
 public class WxSwipeBackLayout extends SwipeBackLayout {
-    private static final String TAG = "WxSwipeBackLayout";
+    private static final String TAG = WxSwipeBackLayout.class.getSimpleName();
 
     public WxSwipeBackLayout(@NonNull Context context) {
         this(context, null);
@@ -22,29 +22,30 @@ public class WxSwipeBackLayout extends SwipeBackLayout {
 
     public WxSwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        OnSwipeBackListener defaultSwipeBackListener = new OnSwipeBackListener() {
+            @Override
+            public void onViewPositionChanged(View mView, float swipeBackFraction, float swipeBackFactor) {
+                invalidate();
+                Util.onPanelSlide(swipeBackFraction);
+            }
+
+            @Override
+            public void onViewSwipeFinished(View mView, boolean isEnd) {
+                if (isEnd) {
+                    finish();
+                }
+                Util.onPanelReset();
+            }
+        };
         setSwipeBackListener(defaultSwipeBackListener);
     }
 
     @Override
     public void setDirectionMode(int direction) {
         super.setDirectionMode(direction);
-        if (direction != SwipeBackLayout.FROM_LEFT)
+        if (direction != SwipeBackLayout.FROM_LEFT) {
             throw new IllegalArgumentException("The direction of WxSwipeBackLayout must be FROM_LEFT");
+        }
     }
 
-    private OnSwipeBackListener defaultSwipeBackListener = new OnSwipeBackListener() {
-        @Override
-        public void onViewPositionChanged(View mView, float swipeBackFraction, float swipeBackFactor) {
-            invalidate();
-            Util.onPanelSlide(swipeBackFraction);
-        }
-
-        @Override
-        public void onViewSwipeFinished(View mView, boolean isEnd) {
-            if (isEnd) {
-                finish();
-            }
-            Util.onPanelReset();
-        }
-    };
 }
