@@ -19,7 +19,7 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
         }
     }
 
-    private val mCounter = AtomicInteger(0)
+    private val atomicInteger = AtomicInteger(0)
     private val mHandler: Handler = Handler(Looper.getMainLooper())
 
     override fun start(child: View, parent: ViewGroup) {
@@ -27,7 +27,7 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
 
         val anim = FloatAnimation(
                 path = createPath(
-                        counter = mCounter,
+                        counter = atomicInteger,
                         view = parent,
                         factor = 2),
                 rotation = randomRotation(),
@@ -42,12 +42,12 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
                 mHandler.post {
                     parent.removeView(child)
                 }
-                mCounter.decrementAndGet()
+                atomicInteger.decrementAndGet()
             }
 
             override fun onAnimationRepeat(animation: Animation) {}
             override fun onAnimationStart(animation: Animation) {
-                mCounter.incrementAndGet()
+                atomicInteger.incrementAndGet()
             }
         })
         anim.interpolator = LinearInterpolator()
@@ -55,14 +55,14 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
     }
 
     internal class FloatAnimation(path: Path?, rotation: Float, parent: View?, child: View?) : Animation() {
-        private val mPm: PathMeasure = PathMeasure(path, false)
+        private val pathMeasure: PathMeasure = PathMeasure(path, false)
         private val mView: View?
         private val mDistance: Float
         private val mRotation: Float
 
         override fun applyTransformation(factor: Float, transformation: Transformation) {
             val matrix = transformation.matrix
-            mPm.getMatrix(mDistance * factor, matrix, PathMeasure.POSITION_MATRIX_FLAG)
+            pathMeasure.getMatrix(mDistance * factor, matrix, PathMeasure.POSITION_MATRIX_FLAG)
             mView?.rotation = mRotation * factor
             var scale = 1f
             if (3000.0f * factor < 200.0f) {
@@ -76,7 +76,7 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
         }
 
         init {
-            mDistance = mPm.length
+            mDistance = pathMeasure.length
             mView = child
             mRotation = rotation
             parent?.setLayerType(View.LAYER_TYPE_HARDWARE, null)

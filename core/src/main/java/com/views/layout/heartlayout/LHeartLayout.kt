@@ -1,67 +1,55 @@
-package com.views.layout.heartlayout;
+package com.views.layout.heartlayout
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+import android.content.Context
+import android.util.AttributeSet
+import android.widget.RelativeLayout
+import com.R
+import com.views.layout.heartlayout.AbstractPathAnimator.Config.Companion.fromTypeArray
 
-import com.R;
+class LHeartLayout : RelativeLayout {
+    private var abstractPathAnimator: AbstractPathAnimator? = null
 
-public class LHeartLayout extends RelativeLayout {
-
-    private AbstractPathAnimator mAnimator;
-
-    public LHeartLayout(Context context) {
-        super(context);
-        init(null, 0);
+    constructor(context: Context?) : super(context) {
+        init(null, 0)
     }
 
-    public LHeartLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(attrs, 0);
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+        init(attrs, 0)
     }
 
-    public LHeartLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(attrs, defStyleAttr);
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init(attrs, defStyleAttr)
     }
 
-    private void init(AttributeSet attrs, int defStyleAttr) {
-
-        final TypedArray a = getContext().obtainStyledAttributes(
-                attrs, R.styleable.LHeartLayout, defStyleAttr, 0);
-
-        mAnimator = new PathAnimator(AbstractPathAnimator.Config.fromTypeArray(a));
-
-        a.recycle();
+    private fun init(attrs: AttributeSet?, defStyleAttr: Int) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LHeartLayout, defStyleAttr, 0)
+        abstractPathAnimator = PathAnimator(fromTypeArray(typedArray))
+        typedArray.recycle()
     }
 
-    public AbstractPathAnimator getAnimator() {
-        return mAnimator;
-    }
-
-    public void setAnimator(AbstractPathAnimator animator) {
-        clearAnimation();
-        mAnimator = animator;
-    }
-
-    public void clearAnimation() {
-        for (int i = 0; i < getChildCount(); i++) {
-            getChildAt(i).clearAnimation();
+    var animator: AbstractPathAnimator?
+        get() = abstractPathAnimator
+        set(animator) {
+            clearAnimation()
+            abstractPathAnimator = animator
         }
-        removeAllViews();
+
+    override fun clearAnimation() {
+        for (i in 0 until childCount) {
+            getChildAt(i)?.clearAnimation()
+        }
+        removeAllViews()
     }
 
-    public void addHeart(int color) {
-        HeartView heartView = new HeartView(getContext());
-        heartView.setColor(color);
-        mAnimator.start(heartView, this);
+    fun addHeart(color: Int) {
+        val heartView = HeartView(context)
+        heartView.setColor(color)
+        abstractPathAnimator?.start(heartView, this)
     }
 
-    public void addHeart(int color, int heartResId, int heartBorderResId) {
-        HeartView heartView = new HeartView(getContext());
-        heartView.setColorAndDrawables(color, heartResId, heartBorderResId);
-        mAnimator.start(heartView, this);
+    fun addHeart(color: Int, heartResId: Int, heartBorderResId: Int) {
+        val heartView = HeartView(context)
+        heartView.setColorAndDrawables(color = color, heartResId = heartResId, heartBorderResId = heartBorderResId)
+        abstractPathAnimator?.start(heartView, this)
     }
-
 }
