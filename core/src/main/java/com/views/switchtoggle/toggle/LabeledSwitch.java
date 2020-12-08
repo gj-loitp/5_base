@@ -14,8 +14,7 @@ import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.R;
-import com.views.switchtoggle.toggle.interfaces.OnToggledListener;
-//TODO convert kotlin
+
 public class LabeledSwitch extends View {
     private int width;
     private int height;

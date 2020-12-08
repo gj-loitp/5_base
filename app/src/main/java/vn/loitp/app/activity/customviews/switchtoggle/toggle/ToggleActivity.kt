@@ -5,7 +5,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.switchtoggle.toggle.LabeledSwitch
-import com.views.switchtoggle.toggle.interfaces.OnToggledListener
+import com.views.switchtoggle.toggle.OnToggledListener
 import kotlinx.android.synthetic.main.activity_switch_toggle.*
 import vn.loitp.app.R
 

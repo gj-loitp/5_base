@@ -1,4 +1,4 @@
-package com.views.switchtoggle.toggle.interfaces
+package com.views.switchtoggle.toggle
 
 import com.views.switchtoggle.toggle.LabeledSwitch
 
