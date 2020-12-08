@@ -1,123 +1,109 @@
-package com.views.textview.selectable;
+package com.views.textview.selectable
 
-import android.text.Spannable;
-import android.text.Spanned;
-import android.text.style.CharacterStyle;
+import android.text.Spannable
+import android.text.Spanned
+import android.text.style.CharacterStyle
+import com.BuildConfig
+import kotlin.math.max
+import kotlin.math.min
 
-public class CustomInfo {
-    @Override
-    public String toString() {
+class CustomInfo {
+
+    override fun toString(): String {
         return "CustomInfo{" +
-                "mSpan=" + mSpan +
+                "mSpan=" + span +
                 ", mStart=" + mStart +
                 ", mEnd=" + mEnd +
-                ", mSpannable=" + mSpannable +
-                '}';
+                ", mSpannable=" + spannable +
+                '}'
     }
 
-    private Object mSpan;
-    private int mStart;
-    private int mEnd;
-    private Spannable mSpannable;
+    private var span: Any? = null
+    private var mStart = 0
+    private var mEnd = 0
+    private var spannable: Spannable? = null
 
-    public CustomInfo() {
-        clear();
+    constructor() {
+        clear()
     }
 
-    public CustomInfo(CharSequence text, Object span, int start, int end) {
-        set(text, span, start, end);
+    constructor(text: CharSequence?, span: Any?, start: Int, end: Int) {
+        set(text, span, start, end)
     }
 
-    public void select() {
-        select(mSpannable);
-    }
-
-    public void select(Spannable text) {
-        if (text != null) {
-            text.removeSpan(mSpan);
-            text.setSpan(mSpan, Math.min(mStart, mEnd), Math.max(mStart, mEnd),
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    @JvmOverloads
+    fun select(text: Spannable? = spannable) {
+        text?.let {
+            it.removeSpan(span)
+            it.setSpan(
+                    span,
+                    min(mStart, mEnd),
+                    max(mStart, mEnd),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
         }
     }
 
-    public void remove() {
-        remove(mSpannable);
+    @JvmOverloads
+    fun remove(text: Spannable? = spannable) {
+        text?.removeSpan(span)
     }
 
-    public void remove(Spannable text) {
-        if (text != null) {
-            text.removeSpan(mSpan);
+    fun clear() {
+        span = null
+        spannable = null
+        mStart = 0
+        mEnd = 0
+    }
+
+    operator fun set(span: Any?, start: Int, end: Int) {
+        this.span = span
+        mStart = start
+        mEnd = end
+    }
+
+    operator fun set(text: CharSequence?, span: Any?, start: Int, end: Int) {
+        if (text is Spannable) {
+            spannable = text
         }
+        set(span = span, start = start, end = end)
     }
 
-    public void clear() {
-        mSpan = null;
-        mSpannable = null;
-        mStart = 0;
-        mEnd = 0;
-    }
-
-    public void set(Object span, int start, int end) {
-        mSpan = span;
-        mStart = start;
-        mEnd = end;
-    }
-
-    public void set(CharSequence text, Object span, int start, int end) {
-        if (text instanceof Spannable) {
-            mSpannable = (Spannable) text;
-        }
-        set(span, start, end);
-    }
-
-    public String getSelectedText() {
-        String text = "";
-        if (mSpannable != null) {
-            int start = Math.min(mStart, mEnd);
-            int end = Math.max(mStart, mEnd);
-
-            if (start >= 0 && end <= mSpannable.length()) {
-                text = mSpannable.subSequence(start, end).toString();
+    val selectedText: String
+        get() {
+            var text = ""
+            spannable?.let {
+                val start = min(a = mStart, b = mEnd)
+                val end = max(a = mStart, b = mEnd)
+                if (start >= 0 && end <= it.length) {
+                    text = it.subSequence(startIndex = start, endIndex = end).toString()
+                }
             }
+            return text
         }
-        return text;
+
+    fun setSpan(span: CharacterStyle?) {
+        this.span = span
     }
 
-    public Object getSpan() {
-        return mSpan;
-    }
+    var start: Int
+        get() = mStart
+        set(start) {
+            if (BuildConfig.DEBUG && start < 0) {
+                error("Assertion failed")
+            }
+            mStart = start
+        }
+    var end: Int
+        get() = mEnd
+        set(end) {
+            if (BuildConfig.DEBUG && end < 0) {
+                error("Assertion failed")
+            }
+            mEnd = end
+        }
 
-    public void setSpan(CharacterStyle span) {
-        mSpan = span;
-    }
-
-    public int getStart() {
-        return mStart;
-    }
-
-    public void setStart(int start) {
-        assert (start >= 0);
-        mStart = start;
-    }
-
-    public int getEnd() {
-        return mEnd;
-    }
-
-    public void setEnd(int end) {
-        assert (end >= 0);
-        mEnd = end;
-    }
-
-    public Spannable getSpannable() {
-        return mSpannable;
-    }
-
-    public void setSpannable(Spannable spannable) {
-        mSpannable = spannable;
-    }
-
-    public boolean offsetInSelection(int offset) {
-        return (offset >= mStart && offset <= mEnd) || (offset >= mEnd && offset <= mStart);
+    fun offsetInSelection(offset: Int): Boolean {
+        return offset in mStart..mEnd || offset in mEnd..mStart
     }
 }
