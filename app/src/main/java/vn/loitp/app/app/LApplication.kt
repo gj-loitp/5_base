@@ -63,6 +63,6 @@ class LApplication : BaseApplication() {
         TTTDatabase.getInstance(this)
 
 //        logD("LApplication onCreate")
-        LUIUtil.setDarkTheme(isDarkTheme = true)
+//        LUIUtil.setDarkTheme(isDarkTheme = true)
     }
 }
