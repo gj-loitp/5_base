@@ -1,624 +1,538 @@
-package com.views.textview.selectable;
+package com.views.textview.selectable
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
-import android.text.Layout;
-import android.text.style.BackgroundColorSpan;
-import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.drawable.Drawable
+import android.text.style.BackgroundColorSpan
+import android.util.AttributeSet
+import android.view.Gravity
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewTreeObserver.OnTouchModeChangeListener
+import android.widget.PopupWindow
+import android.widget.ScrollView
+import androidx.appcompat.widget.AppCompatTextView
+import com.BuildConfig
+import com.R
+import com.core.utilities.LAppResource
+import kotlin.math.max
+import kotlin.math.min
 
-import androidx.appcompat.widget.AppCompatTextView;
+class CustomTextView : AppCompatTextView {
 
-import com.R;
-import com.core.utilities.LAppResource;
+    companion object {
+        private const val TAG = "CustomTextView"
+    }
 
-public class CustomTextView extends AppCompatTextView {
-
-    private static final String TAG = "drag ";
-    private int mDefaultSelectionColor;
-
-    private CustomInfo mCursorSelection;
-
-    private final int[] mTempCoords = new int[2];
-
-    private OnCursorStateChangedListener mOnCursorStateChangedListener;
+    private var mDefaultSelectionColor = 0
+    var cursorSelection: CustomInfo? = null
+    private val mTempCoords = IntArray(2)
+    private var mOnCursorStateChangedListener: OnCursorStateChangedListener? = null
 
     /**
      * DONT ACCESS DIRECTLY, use getSelectionController() instead
      */
-    private SelectionCursorController mSelectionController;
+    private var mSelectionController: SelectionCursorController? = null
 
-    @SuppressWarnings("unused")
-    public CustomTextView(Context context) {
-        super(context);
-        init();
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    @SuppressWarnings("unused")
-    public CustomTextView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init()
     }
 
-    @SuppressWarnings("unused")
-    public CustomTextView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init();
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+        init()
     }
 
-    private void init() {
-        setDefaultSelectionColor(LAppResource.INSTANCE.getColor(R.color.gray));
-        mCursorSelection = new CustomInfo();
-        mSelectionController = new SelectionCursorController();
-
-        final ViewTreeObserver observer = getViewTreeObserver();
-        if (observer != null) {
-            observer.addOnTouchModeChangeListener(mSelectionController);
-        }
+    private fun init() {
+        setDefaultSelectionColor(LAppResource.getColor(R.color.gray))
+        cursorSelection = CustomInfo()
+        mSelectionController = SelectionCursorController()
+        val observer = viewTreeObserver
+        observer?.addOnTouchModeChangeListener(mSelectionController)
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
 
         // TextView will take care of the color span of the text when it's being scroll by
         // its parent ScrollView. But the cursors position is not handled. Calling snapToSelection
         // will move the cursors along with the selection.
-        if (getParent() instanceof ObservableScrollView) {
-            ((ObservableScrollView) getParent()).addOnScrollChangedListener(
-                    new OnScrollChangedListener() {
-                        @Override
-                        public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx,
-                                                    int oldy) {
-                            mSelectionController.snapToSelection();
+        if (parent is ObservableScrollView) {
+            (parent as ObservableScrollView).addOnScrollChangedListener(
+                    object : OnScrollChangedListener {
+                        override fun onScrollChanged(scrollView: ObservableScrollView?, x: Int, y: Int, oldx: Int, oldy: Int) {
+                            mSelectionController?.snapToSelection()
                         }
-                    });
+                    })
         }
     }
 
-    public void setDefaultSelectionColor(int color) {
-        mDefaultSelectionColor = color;
+    fun setDefaultSelectionColor(color: Int) {
+        mDefaultSelectionColor = color
     }
 
-    public void setSelection(int color, int start, int length, int duration) {
-
-        int end = start + length >= getText().length() ? getText().length() : start + length;
-
-        if (start + length > getText().length() || end <= start) {
-            return;
+    fun setSelection(color: Int, start: Int, length: Int, duration: Int) {
+        val end = if (start + length >= text.length) {
+            text.length
+        } else {
+            start + length
         }
-        mCursorSelection = new CustomInfo(getText(), new BackgroundColorSpan(color), start, end);
-        mCursorSelection.select();
-        removeSelection(duration);
+        if (start + length > text.length || end <= start) {
+            return
+        }
+        cursorSelection = CustomInfo(
+                text = text,
+                span = BackgroundColorSpan(color),
+                start = start,
+                end = end
+        )
+        cursorSelection?.select()
+        removeSelection(duration)
     }
 
-    public void setSelection(int start, int length, int duration) {
-        setSelection(mDefaultSelectionColor, start, length, duration);
+    fun setSelection(start: Int, length: Int, duration: Int) {
+        setSelection(
+                color = mDefaultSelectionColor,
+                start = start,
+                length = length,
+                duration = duration
+        )
     }
 
-    public void setSelection(int start, int length) {
-        setSelection(start, length, -1);
+    fun setSelection(start: Int, length: Int) {
+        setSelection(
+                start = start,
+                length = length,
+                duration = -1
+        )
     }
 
     /**
      * removes the current selection immediately
      */
-    public void removeSelection() {
-        mCursorSelection.remove();
+    fun removeSelection() {
+        cursorSelection?.remove()
     }
 
-    public void removeSelection(int delay) {
-        removeSelection(mCursorSelection, delay);
+    fun removeSelection(delay: Int) {
+        removeSelection(
+                selection = cursorSelection,
+                delay = delay
+        )
     }
 
-    public void removeSelection(final CustomInfo selection, int delay) {
+    fun removeSelection(selection: CustomInfo?, delay: Int) {
         if (delay >= 0) {
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    selection.remove();
-                }
-            };
-            postDelayed(runnable, delay);
+            val runnable = Runnable {
+                selection?.remove()
+            }
+            postDelayed(runnable, delay.toLong())
         }
     }
 
-    public void showSelectionControls(int start, int end) {
+    @Suppress("NAME_SHADOWING")
+    fun showSelectionControls(start: Int, end: Int) {
+        var start = start
+        var end = end
         if (start < 0) {
-            start = 0;
-        } else if (start > getText().length()) {
-            start = getText().length();
+            start = 0
+        } else if (start > text.length) {
+            start = text.length
         }
-
         if (end < 0) {
-            end = 0;
-        } else if (end > getText().length()) {
-            end = getText().length();
+            end = 0
+        } else if (end > text.length) {
+            end = text.length
+        }
+        mSelectionController?.show(start = start, end = end)
+    }
+
+    fun setOnCursorStateChangedListener(onCursorStateChangedListener: OnCursorStateChangedListener?) {
+        mOnCursorStateChangedListener = onCursorStateChangedListener
+    }
+
+    private val scrollYInternal: Int
+        get() {
+            var y = this.scrollY
+            if (this.parent is ScrollView) {
+                y += (this.parent as ScrollView).scrollY
+                val coords = mTempCoords
+                (this.parent as ScrollView).getLocationInWindow(coords)
+                y -= coords[1]
+            }
+            return y
         }
 
-        mSelectionController.show(start, end);
-    }
+    // a TextView inside a ScrollView is not scrolled, so getScrollX() returns 0.
+    // We must use getScrollX() from the ScrollView instead
+    private val scrollXInternal: Int
+        get() {
+            var x = this.scrollX
 
-    public CustomInfo getCursorSelection() {
-        return mCursorSelection;
-    }
-
-    public void setOnCursorStateChangedListener(
-            OnCursorStateChangedListener onCursorStateChangedListener) {
-        mOnCursorStateChangedListener = onCursorStateChangedListener;
-    }
-
-    private int getScrollYInternal() {
-        int y = this.getScrollY();
-        if (this.getParent() instanceof ScrollView) {
-            y += ((ScrollView) this.getParent()).getScrollY();
-            final int[] coords = mTempCoords;
-            ((ScrollView) this.getParent()).getLocationInWindow(coords);
-            y -= coords[1];
+            // a TextView inside a ScrollView is not scrolled, so getScrollX() returns 0.
+            // We must use getScrollX() from the ScrollView instead
+            if (this.parent is ScrollView) {
+                val scrollView = this.parent as ScrollView
+                x += scrollView.scrollX
+                val coords = mTempCoords
+                scrollView.getLocationInWindow(coords)
+                x -= coords[0]
+                x -= scrollView.paddingLeft
+            }
+            return x
         }
 
-        return y;
-    }
-
-    private int getScrollXInternal() {
-        int x = this.getScrollX();
-
-        // a TextView inside a ScrollView is not scrolled, so getScrollX() returns 0.
-        // We must use getScrollX() from the ScrollView instead
-        if (this.getParent() instanceof ScrollView) {
-            ScrollView scrollView = (ScrollView) this.getParent();
-
-            x += scrollView.getScrollX();
-
-            final int[] coords = mTempCoords;
-            scrollView.getLocationInWindow(coords);
-            x -= coords[0];
-            x -= scrollView.getPaddingLeft();
-        }
-        return x;
-    }
-
-    public int getOffset(int x, int y) {
-        Layout layout = getLayout();
-        int offset = -1;
-
+    fun getOffset(x: Int, y: Int): Int {
+        val layout = layout
+        var offset = -1
         if (layout != null) {
-            int topVisibleLine = layout.getLineForVertical(y);
-            offset = layout.getOffsetForHorizontal(topVisibleLine, x);
+            val topVisibleLine = layout.getLineForVertical(y)
+            offset = layout.getOffsetForHorizontal(topVisibleLine, x.toFloat())
         }
-
-        return offset;
+        return offset
     }
 
-    public int getPreciseOffset(int x, int y) {
-        Layout layout = getLayout();
-
+    fun getPreciseOffset(x: Int, y: Int): Int {
+        val layout = layout
         if (layout != null) {
-            int topVisibleLine = layout.getLineForVertical(y);
-            int offset = layout.getOffsetForHorizontal(topVisibleLine, x);
-
-            int offset_x = (int) layout.getPrimaryHorizontal(offset);
-            if (offset_x > x) {
-                return layout.getOffsetToLeftOf(offset);
+            val topVisibleLine = layout.getLineForVertical(y)
+            val offset = layout.getOffsetForHorizontal(topVisibleLine, x.toFloat())
+            val offsetX = layout.getPrimaryHorizontal(offset).toInt()
+            if (offsetX > x) {
+                return layout.getOffsetToLeftOf(offset)
             }
         }
-        return getOffset(x, y);
+        return getOffset(x, y)
     }
 
-    private int getHysteresisOffset(int x, int y, int previousOffset) {
-        final Layout layout = getLayout();
-        if (layout == null) return -1;
-
-        y += getScrollYInternal();
-        x += getScrollXInternal();
-
-        int line = getLayout().getLineForVertical(y);
+    @Suppress("NAME_SHADOWING")
+    private fun getHysteresisOffset(x: Int, y: Int, previousOffset: Int): Int {
+        var x = x
+        var y = y
+        var previousOffset = previousOffset
+        val layout = layout ?: return -1
+        y += scrollYInternal
+        x += scrollXInternal
+        var line = getLayout().getLineForVertical(y)
 
         ////////////////////HACK BLOCK////////////////////////////////////////////////////
         if (isEndOfLineOffset(previousOffset)) {
             // we have to minus one from the offset so that the code below to find
             // the previous line can work correctly.
-            int left = (int) layout.getPrimaryHorizontal(previousOffset - 1);
-            int right = (int) layout.getLineRight(line);
-            int threshold = (right - left) / 2; // half the width of the last character
+            val left = layout.getPrimaryHorizontal(previousOffset - 1).toInt()
+            val right = layout.getLineRight(line).toInt()
+            val threshold = (right - left) / 2 // half the width of the last character
             if (x > right - threshold) {
-                previousOffset -= 1;
+                previousOffset -= 1
             }
         }
         ///////////////////////////////////////////////////////////////////////////////////
-
-        final int previousLine = layout.getLineForOffset(previousOffset);
-        final int previousLineTop = layout.getLineTop(previousLine);
-        final int previousLineBottom = layout.getLineBottom(previousLine);
-        final int hysteresisThreshold = (previousLineBottom - previousLineTop) / 2;
-
-        if (((line == previousLine + 1) && ((y - previousLineBottom) < hysteresisThreshold)) || ((line
-                == previousLine - 1) && ((previousLineTop - y) < hysteresisThreshold))) {
-            line = previousLine;
+        val previousLine = layout.getLineForOffset(previousOffset)
+        val previousLineTop = layout.getLineTop(previousLine)
+        val previousLineBottom = layout.getLineBottom(previousLine)
+        val hysteresisThreshold = (previousLineBottom - previousLineTop) / 2
+        if (line == previousLine + 1 && y - previousLineBottom < hysteresisThreshold ||
+                (line == previousLine - 1) && previousLineTop - y < hysteresisThreshold) {
+            line = previousLine
         }
-
-        int offset = layout.getOffsetForHorizontal(line, x);
+        var offset = layout.getOffsetForHorizontal(line, x.toFloat())
         /////////////////////HACK BLOCK///////////////////////////////////////////////////
-
-        if (offset < getText().length() - 1) {
+        if (offset < text.length - 1) {
             if (isEndOfLineOffset(offset + 1)) {
-                int left = (int) layout.getPrimaryHorizontal(offset);
-                int right = (int) layout.getLineRight(line);
-                int threshold = (right - left) / 2; // half the width of the last character
+                val left = layout.getPrimaryHorizontal(offset).toInt()
+                val right = layout.getLineRight(line).toInt()
+                val threshold = (right - left) / 2 // half the width of the last character
                 if (x > right - threshold) {
-                    offset += 1;
+                    offset += 1
                 }
             }
         }
 
         //////////////////////////////////////////////////////////////////////////////////
-
-        String str = String.valueOf(getText());
-        if (offset > 1 && offset < str.length()) {
-            for (int i = offset; i >= 0; i--) {
-                if (str.charAt(i) == ' ' || str.charAt(i) == '\n') {
-                    offset = i;
-                    break;
+        val str = text.toString()
+        if (offset > 1 && offset < str.length) {
+            for (i in offset downTo 0) {
+                if (str[i] == ' ' || str[i] == '\n') {
+                    offset = i
+                    break
                 } else {
-                    offset--;
+                    offset--
                 }
             }
         }
-
         if (offset < 0) {
-            offset = 0;
+            offset = 0
         }
-
-        String[] test = str.split(" ");
-        if (test.length == 1) {
+        val test = str.split(" ".toRegex()).toTypedArray()
+        if (test.size == 1) {
             //offset =
-            if (offset == 0) {
-                offset = 0;
+            offset = if (offset == 0) {
+                0
             } else {
-                offset = str.length();
+                str.length
             }
         }
-        return offset;
+        return offset
     }
 
-    private boolean isEndOfLineOffset(int offset) {
-        if (offset > 0) {
-            return getLayout().getLineForOffset(offset) == getLayout().getLineForOffset(offset - 1) + 1;
-        }
-        return false;
+    private fun isEndOfLineOffset(offset: Int): Boolean {
+        return if (offset > 0) {
+            layout.getLineForOffset(offset) == layout.getLineForOffset(offset - 1) + 1
+        } else false
     }
 
-    private int getOffsetForHorizontal(int line, int x) {
-        x -= getTotalPaddingLeft();
+    @Suppress("NAME_SHADOWING")
+    private fun getOffsetForHorizontal(line: Int, x: Int): Int {
+        var x = x
+        x -= totalPaddingLeft
         // Clamp the position to inside of the view.
-        x = Math.max(0, x);
-        x = Math.min(getWidth() - getTotalPaddingRight() - 1, x);
-        x += getScrollXInternal();
-
-        return getLayout().getOffsetForHorizontal(line, x);
+        x = max(0, x)
+        x = min(width - totalPaddingRight - 1, x)
+        x += scrollXInternal
+        return layout.getOffsetForHorizontal(line, x.toFloat())
     }
 
-    private void getXY(int offset, int scroll_x, int scroll_y, int[] coords) {
-        assert (coords.length >= 2);
-
-        coords[0] = coords[1] = -1;
-        Layout layout = getLayout();
-
+    private fun getXY(offset: Int, scrollX: Int, scrollY: Int, coords: IntArray) {
+        if (BuildConfig.DEBUG && coords.size < 2) {
+            error("Assertion failed")
+        }
+        coords[1] = -1
+        coords[0] = coords[1]
+        val layout = layout
         if (layout != null) {
-            int line = layout.getLineForOffset(offset);
-            int base = layout.getLineBottom(line);
-
-            coords[0] = (int) layout.getPrimaryHorizontal(offset) - scroll_x; // x
-            coords[1] = base - scroll_y; // y
+            val line = layout.getLineForOffset(offset)
+            val base = layout.getLineBottom(line)
+            coords[0] = layout.getPrimaryHorizontal(offset).toInt() - scrollX // x
+            coords[1] = base - scrollY // y
         }
     }
 
-    private void getAdjusteStartXY(int offset, int scroll_x, int scroll_y, int[] coords) {
-        if (offset < getText().length()) {
-            final Layout layout = getLayout();
+    @Suppress("NAME_SHADOWING")
+    private fun getAdjusteStartXY(offset: Int, scrollX: Int, scrollY: Int, coords: IntArray) {
+        var offset = offset
+        if (offset < text.length) {
+            val layout = layout
             if (layout != null) {
                 if (isEndOfLineOffset(offset + 1)) {
-                    float a = layout.getPrimaryHorizontal(offset);
-                    float b = layout.getLineRight(layout.getLineForOffset(offset));
+                    val a = layout.getPrimaryHorizontal(offset)
+                    val b = layout.getLineRight(layout.getLineForOffset(offset))
                     if (a == b) {
                         // this means the we encounter a new line character, i think.
-                        offset += 1;
+                        offset += 1
                     }
                 }
             }
         }
-        getXY(offset, scroll_x, scroll_y, coords);
+        getXY(offset = offset, scrollX = scrollX, scrollY = scrollY, coords = coords)
     }
 
-    private void getAdjustedEndXY(int offset, int scroll_x, int scroll_y, int[] coords) {
+    private fun getAdjustedEndXY(offset: Int, scrollX: Int, scrollY: Int, coords: IntArray) {
         if (offset > 0) {
-            final Layout layout = getLayout();
+            val layout = layout
             if (layout != null) {
                 if (isEndOfLineOffset(offset)) {
-                    int prev_line = layout.getLineForOffset(offset - 1);
-                    float right = layout.getLineRight(prev_line);
-                    int y = layout.getLineBottom(prev_line);
-                    coords[0] = (int) right - scroll_x;
-                    coords[1] = y - scroll_y;
-                    return;
+                    val prevLine = layout.getLineForOffset(offset - 1)
+                    val right = layout.getLineRight(prevLine)
+                    val y = layout.getLineBottom(prevLine)
+                    coords[0] = right.toInt() - scrollX
+                    coords[1] = y - scrollY
+                    return
                 }
             }
         }
-        getXY(offset, scroll_x, scroll_y, coords);
+        getXY(offset = offset, scrollX = scrollX, scrollY = scrollY, coords = coords)
     }
 
-    public void hideCursor() {
-        mSelectionController.hide();
+    fun hideCursor() {
+        mSelectionController?.hide()
     }
 
-    private class SelectionCursorController implements ViewTreeObserver.OnTouchModeChangeListener {
+    private inner class SelectionCursorController : OnTouchModeChangeListener {
+        private val mStartHandle: CursorHandle = CursorHandle(this)
+        private val mEndHandle: CursorHandle = CursorHandle(this)
+        var isShowing = false
+            private set
 
-        private CursorHandle mStartHandle;
-        private CursorHandle mEndHandle;
+        fun snapToSelection() {
+            if (isShowing) {
+                cursorSelection?.start?.let { a ->
+                    cursorSelection?.end?.let { b ->
+                        val start = min(a, b)
+                        val end = max(a, b)
 
-        private boolean mIsShowing;
-
-        public SelectionCursorController() {
-            mStartHandle = new CursorHandle(this);
-            mEndHandle = new CursorHandle(this);
-        }
-
-        public void snapToSelection() {
-
-            if (mIsShowing) {
-                int a = CustomTextView.this.getCursorSelection().getStart();
-                int b = CustomTextView.this.getCursorSelection().getEnd();
-
-                int start = Math.min(a, b);
-                int end = Math.max(a, b);
-
-                // find the corresponding handle for the start/end calculated above
-                CursorHandle startHandle = start == a ? mStartHandle : mEndHandle;
-                CursorHandle endHandle = end == b ? mEndHandle : mStartHandle;
-
-                final int[] coords = mTempCoords;
-
-                int scroll_y = CustomTextView.this.getScrollYInternal();
-                int scroll_x = CustomTextView.this.getScrollXInternal();
-
-                CustomTextView.this.getAdjusteStartXY(start, scroll_x, scroll_y, coords);
-                startHandle.pointTo(coords[0], coords[1]);
-
-                CustomTextView.this.getAdjustedEndXY(end, scroll_x, scroll_y, coords);
-                endHandle.pointTo(coords[0], coords[1]);
-                mOnCursorStateChangedListener.onDragEnds(coords[0], coords[1]);
+                        // find the corresponding handle for the start/end calculated above
+                        val startHandle = if (start == a) mStartHandle else mEndHandle
+                        val endHandle = if (end == b) mEndHandle else mStartHandle
+                        val coords = mTempCoords
+                        val scrollY = scrollYInternal
+                        val scrollX = scrollXInternal
+                        getAdjusteStartXY(offset = start, scrollX = scrollX, scrollY = scrollY, coords = coords)
+                        startHandle.pointTo(x = coords[0], y = coords[1])
+                        getAdjustedEndXY(offset = end, scrollX = scrollX, scrollY = scrollY, coords = coords)
+                        endHandle.pointTo(x = coords[0], y = coords[1])
+                        mOnCursorStateChangedListener?.onDragEnds(coords[0], coords[1])
+                    }
+                }
             }
         }
 
-        public void show(int start, int end) {
-
-            int a = Math.min(start, end);
-            int b = Math.max(start, end);
-
-            final int[] coords = mTempCoords;
-            int scroll_y = CustomTextView.this.getScrollY();
-            int scroll_x = CustomTextView.this.getScrollX();
-
-            CustomTextView.this.getAdjusteStartXY(a, scroll_x, scroll_y, coords);
-            mStartHandle.show(coords[0], coords[1]);
-
-            CustomTextView.this.getAdjustedEndXY(b, scroll_x, scroll_y, coords);
-            mEndHandle.show(coords[0], coords[1]);
-
-            if (mOnCursorStateChangedListener != null) {
-                mOnCursorStateChangedListener.onDragEnds(coords[0], coords[1]);
-            }
-
-            mIsShowing = true;
-            select(a, b);
+        fun show(start: Int, end: Int) {
+            val a = min(start, end)
+            val b = max(start, end)
+            val coords = mTempCoords
+            val scrollY = this@CustomTextView.scrollY
+            val scrollX = this@CustomTextView.scrollX
+            getAdjusteStartXY(offset = a, scrollX = scrollX, scrollY = scrollY, coords = coords)
+            mStartHandle.show(x = coords[0], y = coords[1])
+            getAdjustedEndXY(offset = b, scrollX = scrollX, scrollY = scrollY, coords = coords)
+            mEndHandle.show(coords[0], coords[1])
+            mOnCursorStateChangedListener?.onDragEnds(coords[0], coords[1])
+            isShowing = true
+            select(start = a, end = b)
         }
 
-        public void hide() {
-            if (mIsShowing) {
-                CustomTextView.this.removeSelection();
-                mStartHandle.hide();
-                mEndHandle.hide();
-                mIsShowing = false;
-
-                //if (mOnCursorStateChangedListener != null) {
-                //  mOnCursorStateChangedListener.onHideCursors(SelectableTextView.this);
-                //}
+        fun hide() {
+            if (isShowing) {
+                this@CustomTextView.removeSelection()
+                mStartHandle.hide()
+                mEndHandle.hide()
+                isShowing = false
             }
         }
 
-        public void updatePosition(CursorHandle cursorHandle, int x, int y, int oldx, int oldy) {
-            if (!mIsShowing) {
-                return;
+        fun updatePosition(cursorHandle: CursorHandle, x: Int, y: Int, oldx: Int, oldy: Int) {
+            if (!isShowing) {
+                return
             }
-
-            int old_offset =
-                    cursorHandle == mStartHandle ? CustomTextView.this.getCursorSelection().getStart()
-                            : CustomTextView.this.getCursorSelection().getEnd();
-
-            int offset = CustomTextView.this.getHysteresisOffset(x, y, old_offset);
-
-            if (offset != old_offset) {
-                if (cursorHandle == mStartHandle) {
-                    CustomTextView.this.getCursorSelection().setStart(offset);
+            val previousOffset = if (cursorHandle === mStartHandle) cursorSelection?.start else cursorSelection?.end
+            val offset = getHysteresisOffset(x, y, previousOffset ?: 0)
+            if (offset != previousOffset) {
+                if (cursorHandle === mStartHandle) {
+                    cursorSelection?.start = offset
                 } else {
-                    CustomTextView.this.getCursorSelection().setEnd(offset);
+                    cursorSelection?.end = offset
                 }
-                CustomTextView.this.getCursorSelection().select();
+                cursorSelection?.select()
             }
 
-            //
-            cursorHandle.pointTo(x, y);
-            if (mOnCursorStateChangedListener != null) {
-                mOnCursorStateChangedListener.onPositionChanged(CustomTextView.this, x, y, oldx, oldy);
-            }
+            cursorHandle.pointTo(x = x, y = y)
+            mOnCursorStateChangedListener?.onPositionChanged(v = this@CustomTextView, x = x, y = y, oldx = oldx, oldy = oldy)
         }
 
-        private void select(int start, int end) {
-            CustomTextView.this.setSelection(Math.min(start, end), Math.abs(end - start));
+        private fun select(start: Int, end: Int) {
+            this@CustomTextView.setSelection(Math.min(start, end), Math.abs(end - start))
         }
 
-        @SuppressWarnings("unused")
-        public boolean isShowing() {
-            return mIsShowing;
-        }
-
-        @SuppressWarnings("unused")
-        public void onDetached() {
-            // don't know what to do here
-        }
-
-        @Override
-        public void onTouchModeChanged(boolean isInTouchMode) {
+        override fun onTouchModeChanged(isInTouchMode: Boolean) {
             if (!isInTouchMode) {
-                hide();
+                hide()
             }
         }
+
     }
 
-    private class CursorHandle extends View {
+    private inner class CursorHandle(
+            private val mController: SelectionCursorController
+    ) : View(this@CustomTextView.context) {
+        private val mContainer: PopupWindow = PopupWindow(this)
+        private val mDrawable: Drawable? = LAppResource.getDrawable(R.drawable.l_cursor)
+        private var mIsDragging = false
+        private val mHeight: Int
+        private val mWidth: Int
+        private val mHotspotX: Int
+        private val mHotspotY: Int
+        private var mAdjustX = 0
+        private var mAdjustY = 0
+        private var mOldX = 0
+        private var mOldY = 0
 
-        private final PopupWindow mContainer;
+        override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+            setMeasuredDimension(mWidth, mHeight)
+        }
 
-        private Drawable mDrawable;
+        override fun onDraw(canvas: Canvas) {
+            mDrawable?.setBounds(0, 0, mWidth, mHeight)
+            mDrawable?.draw(canvas)
+        }
 
-        @SuppressWarnings("unused")
-        private boolean mIsDragging;
+        override fun onTouchEvent(event: MotionEvent): Boolean {
+            val rawX = event.rawX.toInt()
+            val rawY = event.rawY.toInt()
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    mAdjustX = mHotspotX - event.x.toInt()
+                    mAdjustY = mHotspotY - event.y.toInt()
+                    mOldX = mAdjustX + rawX
+                    mOldY = mAdjustY + rawY
+                    mIsDragging = true
+                    mOnCursorStateChangedListener?.onDragStarts(this@CustomTextView)
+                }
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                    mIsDragging = false
+                    mController.snapToSelection()
+                }
+                MotionEvent.ACTION_MOVE -> {
+                    val x = mAdjustX + rawX
+                    val y = mAdjustY + rawY
+                    mController.updatePosition(cursorHandle = this, x = x, y = y, oldx = mOldX, oldy = mOldY)
+                    mOldX = x
+                    mOldY = y
+                }
+            }
+            return true
+        }
 
-        private SelectionCursorController mController;
+        val isShowing: Boolean
+            get() = mContainer.isShowing
 
-        private int mHeight;
+        fun show(x: Int, y: Int) {
+            val coords = mTempCoords
+            this@CustomTextView.getLocationInWindow(coords)
+            coords[0] += x - mHotspotX
+            coords[1] += y - mHotspotY
+            mContainer.showAtLocation(this@CustomTextView, Gravity.NO_GRAVITY, coords[0], coords[1])
+        }
 
-        private int mWidth;
+        fun pointTo(x: Int, y: Int) {
+            if (isShowing) {
+                mContainer.update(x - mHotspotX, y - mHotspotY, -1, -1)
+            }
+        }
 
-        private int mHotspotX;
+        fun hide() {
+            mIsDragging = false
+            mContainer.dismiss()
+        }
 
-        private int mHotspotY;
-
-        private int mAdjustX;
-        private int mAdjustY;
-
-        private int mOldX;
-        private int mOldY;
-
-        public CursorHandle(SelectionCursorController controller) {
-            super(CustomTextView.this.getContext());
-
-            mController = controller;
-
-            mDrawable = LAppResource.INSTANCE.getDrawable(R.drawable.l_cursor);
-
-            mContainer = new PopupWindow(this);
+        init {
             // mContainer.setSplitTouchEnabled(true);
-            mContainer.setClippingEnabled(false);
+            mContainer.isClippingEnabled = false
 
-			/* My Note
+            /* My Note
              getIntrinsicWidth() returns the width of the drawable after it has been
              scaled to the current device's density
              e.g. if the drawable is a 15 x 20 image and we load the image on a Nexus 4 (which
              has a density of 2.0), getIntrinsicWidth() shall return 15 * 2 = 30
-			 */
-            mHeight = mDrawable.getIntrinsicHeight();
-            mWidth = mDrawable.getIntrinsicWidth();
+			 */mHeight = mDrawable!!.intrinsicHeight
+            mWidth = mDrawable.intrinsicWidth
 
             // the PopupWindow has an initial dimension of (0, 0)
             // must set the width/height of the popupwindow in order for it to be drawn
-            mContainer.setWidth(mWidth);
-            mContainer.setHeight(mHeight);
-
-            mHotspotX = mWidth / 2;
-            mHotspotY = 0;
-
-            invalidate();
-        }
-
-        @Override
-        protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-            setMeasuredDimension(mWidth, mHeight);
-        }
-
-        @Override
-        protected void onDraw(Canvas canvas) {
-            mDrawable.setBounds(0, 0, mWidth, mHeight);
-            mDrawable.draw(canvas);
-        }
-
-        @Override
-        public boolean /*CursorHandle::*/onTouchEvent(MotionEvent event) {
-
-            int rawX = (int) event.getRawX();
-            int rawY = (int) event.getRawY();
-
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_DOWN: {
-                    mAdjustX = mHotspotX - (int) event.getX();
-                    mAdjustY = mHotspotY - (int) event.getY();
-                    mOldX = mAdjustX + rawX;
-                    mOldY = mAdjustY + rawY;
-
-                    mIsDragging = true;
-                    if (CustomTextView.this.mOnCursorStateChangedListener != null) {
-                        CustomTextView.this.mOnCursorStateChangedListener.onDragStarts(
-                                CustomTextView.this);
-                    }
-                    break;
-                }
-                case MotionEvent.ACTION_UP:
-                case MotionEvent.ACTION_CANCEL: {
-                    mIsDragging = false;
-                    mController.snapToSelection();
-                    break;
-                }
-                case MotionEvent.ACTION_MOVE: {
-                    int x = mAdjustX + rawX;
-                    int y = mAdjustY + rawY;
-
-                    mController.updatePosition(this, x, y, mOldX, mOldY);
-                    mOldX = x;
-                    mOldY = y;
-
-                    break;
-                }
-            }
-            return true; // consume the event
-        }
-
-        public boolean isShowing() {
-            return mContainer.isShowing();
-        }
-
-        public void show(int x, int y) {
-            final int[] coords = mTempCoords;
-            CustomTextView.this.getLocationInWindow(coords);
-
-            coords[0] += x - mHotspotX;
-            coords[1] += y - mHotspotY;
-            mContainer.showAtLocation(CustomTextView.this, Gravity.NO_GRAVITY, coords[0], coords[1]);
-        }
-
-        private void pointTo(int x, int y) {
-            if (isShowing()) {
-                mContainer.update(x - mHotspotX, y - mHotspotY, -1, -1);
-            }
-        }
-
-        public void hide() {
-            mIsDragging = false;
-            mContainer.dismiss();
+            mContainer.width = mWidth
+            mContainer.height = mHeight
+            mHotspotX = mWidth / 2
+            mHotspotY = 0
+            invalidate()
         }
     }
 
-    public interface OnCursorStateChangedListener {
-
-        void onDragStarts(View v);
-
-        void onPositionChanged(View v, int x, int y, int oldx, int oldy);
-
-        void onDragEnds(int endHandleX, int endHandleY);
+    interface OnCursorStateChangedListener {
+        fun onDragStarts(v: View?)
+        fun onPositionChanged(v: View?, x: Int, y: Int, oldx: Int, oldy: Int)
+        fun onDragEnds(endHandleX: Int, endHandleY: Int)
     }
+
 }

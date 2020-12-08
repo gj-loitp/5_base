@@ -95,18 +95,22 @@ class LSelectableView : FrameLayout {
     private fun addOnCursorStateChangedListener() {
         scrollView?.customTextView?.setOnCursorStateChangedListener(
                 object : OnCursorStateChangedListener {
-                    override fun onDragStarts(v: View) {
+                    override fun onDragStarts(v: View?) {
                         saveBtn?.visibility = GONE
                     }
 
-                    override fun onPositionChanged(v: View, x: Int, y: Int, oldx: Int, oldy: Int) {}
+                    override fun onPositionChanged(v: View?, x: Int, y: Int, oldx: Int, oldy: Int) {
+                    }
+
                     override fun onDragEnds(endHandleX: Int, endHandleY: Int) {
                         if (isHighlightButtonVisible) {
                             saveBtn?.visibility = VISIBLE
                         }
                         setHighlightBtnCoods(x = endHandleX, y = endHandleY)
                     }
-                })
+
+                }
+        )
     }
 
     private val isHighlightButtonVisible: Boolean
