@@ -1,161 +1,126 @@
-package com.views.textview.selectable;
+package com.views.textview.selectable
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.app.Activity
+import android.content.Context
+import android.util.AttributeSet
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.annotation.AttrRes
+import androidx.appcompat.app.AppCompatActivity
+import com.R
+import com.core.utilities.LAppResource
+import com.views.textview.selectable.CommonUtil.dpTpPx
+import com.views.textview.selectable.CustomTextView.OnCursorStateChangedListener
 
-import androidx.annotation.AttrRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+class LSelectableView : FrameLayout {
+    private var scrollView: ObservableScrollView? = null
+    private var saveBtn: TextView? = null
+    private var selectableListener: SelectableListener? = null
+    private var hasActionBar = false
 
-import com.R;
-
-public class LSelectableView extends FrameLayout {
-
-    private Context context;
-    private ObservableScrollView scrollView;
-    private TextView saveBtn;
-    private SelectableListener selectableListener;
-    private boolean hasActionBar;
-
-    public void setText(String text) {
-        scrollView.setText(text);
+    fun setText(text: String?) {
+        scrollView?.setText(text)
     }
 
-    public void selectAll() {
-        saveBtn.setVisibility(VISIBLE);
-        scrollView.selectAll();
+    fun selectAll() {
+        saveBtn?.visibility = VISIBLE
+        scrollView?.selectAll()
     }
 
-    public void hideCursor() {
-        saveBtn.setVisibility(GONE);
-        scrollView.hideCursor();
+    fun hideCursor() {
+        saveBtn?.visibility = GONE
+        scrollView?.hideCursor()
     }
 
-    public LSelectableView(@NonNull Context context) {
-        super(context);
-        this.context = context;
-        init();
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    public LSelectableView(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        this.context = context;
-        init();
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init()
     }
 
-    public LSelectableView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        this.context = context;
-        init();
+    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init()
     }
 
-    private void init() {
-        scrollView = new ObservableScrollView(context);
-        this.addView(scrollView, new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        initSaveButton();
-        addOnCursorStateChangedListener();
+    private fun init() {
+        scrollView = ObservableScrollView(context)
+        this.addView(scrollView, LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+        initSaveButton()
+        addOnCursorStateChangedListener()
     }
 
-    private void initSaveButton() {
-        saveBtn = new TextView(context);
-        saveBtn.setGravity(Gravity.CENTER);
-        saveBtn.setText(context.getResources().getString(R.string.save_conversation));
-        saveBtn.setTextColor(context.getResources().getColor(R.color.deepPink));
-        saveBtn.setBackgroundResource(R.drawable.selector_highlight_btn_bg);
-        saveBtn.setVisibility(GONE);
-        saveBtn.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (selectableListener != null) {
-                    CustomInfo customInfo = scrollView.getCustomTextView().getCursorSelection();
-                    selectableListener.selectedText(customInfo.getSelectedText());
-                }
+    private fun initSaveButton() {
+        saveBtn = TextView(context)
+        saveBtn?.apply {
+            this.gravity = Gravity.CENTER
+            this.text = context.resources.getString(R.string.save_conversation)
+            this.setTextColor(LAppResource.getColor(R.color.deepPink))
+            this.setBackgroundResource(R.drawable.selector_highlight_btn_bg)
+            this.visibility = GONE
+            this.setOnClickListener {
+                val customInfo = scrollView?.customTextView?.cursorSelection
+                selectableListener?.selectedText(customInfo?.selectedText)
             }
-        });
-        //saveBtn.setTextSize(Unit);
+        }
 
-        // LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(CommonUtil.dpTpPx(75, context), CommonUtil.dpTpPx(35, context));
-        this.addView(saveBtn);
+        this.addView(saveBtn)
     }
 
-    private void setHighlightBtnCoods(int x, int y) {
-        scrollView.getCustomTextView().measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        if (hasActionBar) {
-            y = y - CommonUtil.dpTpPx(37, context);
+    @Suppress("NAME_SHADOWING")
+    private fun setHighlightBtnCoods(x: Int, y: Int) {
+        var x = x
+        var y = y
+        scrollView?.customTextView?.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        y = if (hasActionBar) {
+            y - dpTpPx(37f, context)
         } else {
-            y = y + CommonUtil.dpTpPx(20, context);
+            y + dpTpPx(20f, context)
         }
-        int deviceWidth = getResources().getDisplayMetrics().widthPixels;
-        if (x > deviceWidth - CommonUtil.dpTpPx(75, context)) {
-            x = deviceWidth - CommonUtil.dpTpPx(95, context);
+        val deviceWidth = resources.displayMetrics.widthPixels
+        if (x > deviceWidth - dpTpPx(75f, context)) {
+            x = deviceWidth - dpTpPx(95f, context)
         }
-        LayoutParams params =
-                new LayoutParams(CommonUtil.dpTpPx(75, context), CommonUtil.dpTpPx(35, context));
-        params.leftMargin = x;
-        params.topMargin = y;
-        saveBtn.setLayoutParams(params);
-
-//        LayoutParams paramsForFinger =
-//                new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-//                        ViewGroup.LayoutParams.WRAP_CONTENT);
-//        paramsForFinger.leftMargin = x + CommonUtil.dpTpPx(35, context);
-//            paramsForFinger.topMargin = y + CommonUtil.dpTpPx(25, context);
+        val params = LayoutParams(dpTpPx(75f, context), dpTpPx(35f, context))
+        params.leftMargin = x
+        params.topMargin = y
+        saveBtn?.layoutParams = params
     }
 
-    private void addOnCursorStateChangedListener() {
-        scrollView.getCustomTextView().setOnCursorStateChangedListener(
-                new CustomTextView.OnCursorStateChangedListener() {
-
-                    @Override
-                    public void onDragStarts(View v) {
-                        saveBtn.setVisibility(View.GONE);
+    private fun addOnCursorStateChangedListener() {
+        scrollView?.customTextView?.setOnCursorStateChangedListener(
+                object : OnCursorStateChangedListener {
+                    override fun onDragStarts(v: View) {
+                        saveBtn?.visibility = GONE
                     }
 
-                    @Override
-                    public void onPositionChanged(View v, int x, int y, int oldx, int oldy) {
-
-                    }
-
-                    @Override
-                    public void onDragEnds(int endHandleX, int endHandleY) {
-                        if (isHighlightButtonVisible()) {
-                            saveBtn.setVisibility(VISIBLE);
+                    override fun onPositionChanged(v: View, x: Int, y: Int, oldx: Int, oldy: Int) {}
+                    override fun onDragEnds(endHandleX: Int, endHandleY: Int) {
+                        if (isHighlightButtonVisible) {
+                            saveBtn?.visibility = VISIBLE
                         }
-
-                        setHighlightBtnCoods(endHandleX, endHandleY);
+                        setHighlightBtnCoods(x = endHandleX, y = endHandleY)
                     }
-                });
+                })
     }
 
-    private boolean isHighlightButtonVisible() {
-        return scrollView.getCustomTextView().getCursorSelection().getEnd() != scrollView.getCustomTextView().getCursorSelection().getStart();
+    private val isHighlightButtonVisible: Boolean
+        get() = scrollView?.customTextView?.cursorSelection?.end != scrollView?.customTextView?.cursorSelection?.start
+
+    fun addOnSaveClickListener(selectableListener: SelectableListener?) {
+        this.selectableListener = selectableListener
     }
 
-    public void addOnSaveClickListener(SelectableListener selectableListener) {
-        this.selectableListener = selectableListener;
+    fun setActivity(act: AppCompatActivity) {
+        hasActionBar = act.supportActionBar != null
     }
 
-    public void setActivity(AppCompatActivity act) {
-        if (act.getSupportActionBar() == null) {
-            this.hasActionBar = false;
-        } else {
-            this.hasActionBar = true;
-        }
-    }
-
-    public void setActivity(Activity act) {
-        if (act.getActionBar() == null) {
-            this.hasActionBar = false;
-        } else {
-            this.hasActionBar = true;
-        }
+    fun setActivity(act: Activity) {
+        hasActionBar = act.actionBar != null
     }
 }
