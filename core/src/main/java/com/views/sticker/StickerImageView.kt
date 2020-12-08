@@ -13,13 +13,13 @@ class StickerImageView : StickerView {
     var ownerId: String? = null
     private var ivMain: ImageView? = null
 
-    constructor(context: Context?) : super(context)
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
-    public override fun getMainView(): View {
+    private fun getView(): View {
         if (ivMain == null) {
             ivMain = ImageView(context)
             ivMain?.scaleType = ImageView.ScaleType.FIT_XY
@@ -40,4 +40,7 @@ class StickerImageView : StickerView {
         set(bmp) {
             ivMain?.setImageBitmap(bmp)
         }
+    override val mainView: View
+        get() = getView()
+
 }

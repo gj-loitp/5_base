@@ -21,13 +21,13 @@ class StickerTextView : StickerView {
 
     private var tvMain: AutoResizeTextView? = null
 
-    constructor(context: Context?) : super(context)
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
 
-    public override fun getMainView(): View {
+    private fun getView(): View {
         if (tvMain != null) {
             return tvMain!!
         }
@@ -47,9 +47,7 @@ class StickerTextView : StickerView {
             this.layoutParams = params
         }
 
-        if (imageViewFlip != null) {
-            imageViewFlip.visibility = GONE
-        }
+        imageViewFlip?.visibility = GONE
         return tvMain!!
     }
 
@@ -62,5 +60,7 @@ class StickerTextView : StickerView {
         set(text) {
             tvMain?.text = text
         }
+    override val mainView: View
+        get() = getView()
 
 }
