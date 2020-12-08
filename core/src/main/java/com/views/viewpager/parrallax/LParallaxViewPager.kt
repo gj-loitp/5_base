@@ -112,14 +112,14 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
         interpolator = AnimationUtils.loadInterpolator(context, resID)
     }
 
-    protected fun ensureInterpolator() {
+    private fun ensureInterpolator() {
         if (mInterpolator == null) {
             mInterpolator = LinearInterpolator()
         }
         mParallaxTransformer?.interpolator = mInterpolator as Interpolator
     }
 
-    fun drawShadow(canvas: Canvas) {
+    private fun drawShadow(canvas: Canvas) {
         if (mParrallaxMode === ParrallaxMode.NONE) {
             return
         }

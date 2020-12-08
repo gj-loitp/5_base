@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 /**
  * Created by thonguyen on 15/4/14.
  */
+//TODO convert kotlin
 class TouchDisableView extends ViewGroup {
 
     private View mContent;

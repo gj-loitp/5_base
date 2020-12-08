@@ -12,6 +12,7 @@ import com.core.utilities.LStoreUtil;
  * Created by avin on 09/01/17.
  */
 
+//TODO convert kotlin
 public class Utils {
     /**
      * @param dp : Dimension in dp

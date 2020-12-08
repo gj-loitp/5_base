@@ -6,7 +6,7 @@ import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import android.widget.LinearLayout;
-
+//TODO convert kotlin
 class WP7Indicator extends View {
 
     private ObjectAnimator objectAnimator;

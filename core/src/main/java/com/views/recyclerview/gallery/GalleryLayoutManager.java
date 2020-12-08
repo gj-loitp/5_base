@@ -22,6 +22,7 @@ import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
  * support both {@link GalleryLayoutManager#HORIZONTAL} and {@link GalleryLayoutManager#VERTICAL} scroll.
  * Created by chensuilun on 2016/11/18.
  */
+//TODO convert kotlin
 public class GalleryLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     private static final String logTag = "GalleryLayoutManager";
     final static int LAYOUT_START = -1;

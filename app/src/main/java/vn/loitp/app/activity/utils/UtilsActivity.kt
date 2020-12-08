@@ -36,13 +36,11 @@ class UtilsActivity : BaseFontActivity() {
     private fun setupData() {
 
         listClass.add(EncryptUtils::class.java.simpleName)
-        listClass.add(EncodeUtils::class.java.simpleName)
         listClass.add(DeviceUtils::class.java.simpleName)
         listClass.add(ConvertUtils::class.java.simpleName)
         listClass.add(CloseUtils::class.java.simpleName)
         listClass.add(ClipboardUtils::class.java.simpleName)
         listClass.add(CleanUtils::class.java.simpleName)
-        listClass.add(CacheUtils::class.java.simpleName)
         listClass.add(BarUtils::class.java.simpleName)
         listClass.add(AppUtils::class.java.simpleName)
         listClass.add(ActivityUtils::class.java.simpleName)

@@ -18,7 +18,6 @@ import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.nfc.LNFCUtil
 import com.core.utilities.nfc.TagWrapper
-import com.interfaces.Callback1
 import kotlinx.android.synthetic.main.activity_demo_nfc.*
 import vn.loitp.app.R
 import java.io.UnsupportedEncodingException
@@ -51,16 +50,16 @@ class NFCActivity : BaseFontActivity() {
         super.onResume()
 
         if (nfcAdapter?.isEnabled == false) {
-            val dialog = LDialogUtil.showDialog1(context = this,
+            val dialog = LDialogUtil.showDialog1(
+                    context = this,
                     title = "NFC is disabled",
                     msg = "You must enable NFC to use this app.",
                     button1 = "OK",
-                    callback1 = object : Callback1 {
-                        override fun onClick1() {
-                            startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
-                            LActivityUtil.tranIn(this@NFCActivity)
-                        }
-                    })
+                    onClickButton1 = {
+                        startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
+                        LActivityUtil.tranIn(this@NFCActivity)
+                    }
+            )
             dialog.setCancelable(false)
             return
         }
@@ -102,9 +101,9 @@ class NFCActivity : BaseFontActivity() {
                 }
             }
             misc.add("tag data: $tagData")
-            tagWrapper.techList.put("Misc", misc)
-            tag?.let {
-                for (tech in it.techList) {
+            tagWrapper.techList["Misc"] = misc
+            tag?.let { t ->
+                for (tech in t.techList) {
                     val item = tech.replace("android.nfc.tech.", "")
                     val info = getTagInfo(tag = tag, tech = item)
                     tagWrapper.techList["Technology: $item"] = info
@@ -121,7 +120,7 @@ class NFCActivity : BaseFontActivity() {
     }
 
     @Throws(UnsupportedEncodingException::class)
-    fun readRecord(payload: ByteArray): String? {
+    fun readRecord(payload: ByteArray): String {
         //val textEncoding = if (payload[0] and 128 == 0) "UTF-8" else "UTF-16"
         val textEncoding = if (payload[0] and 0x80.toByte() == 0.toByte()) "UTF-8" else "UTF-16"
 

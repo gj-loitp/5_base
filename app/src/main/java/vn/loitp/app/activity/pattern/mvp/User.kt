@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.pattern.mvp
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
+@Keep
 class User : BaseModel {
     var fullName = ""
     var email = ""

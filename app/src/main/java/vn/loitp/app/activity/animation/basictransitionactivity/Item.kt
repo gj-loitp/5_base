@@ -1,9 +1,12 @@
 package vn.loitp.app.activity.animation.basictransitionactivity
 
+import androidx.annotation.Keep
+
 /**
  * Represents an Item in our application. Each item has a name, id, full size image url and
  * thumbnail url.
  */
+@Keep
 class Item internal constructor(val name: String,
                                 val author: String,
                                 private val mFileName: String) {

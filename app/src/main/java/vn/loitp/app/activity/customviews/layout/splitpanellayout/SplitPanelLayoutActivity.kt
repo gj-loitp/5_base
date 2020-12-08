@@ -21,11 +21,14 @@ class SplitPanelLayoutActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        splitPaneLayout.onSplitterPositionChangedListener = SplitPaneLayout.OnSplitterPositionChangedListener { _, _ ->
-            val percent = DecimalFormat.getPercentInstance(Locale.getDefault())
-            tvFirst.text = percent.format(splitPaneLayout.splitterPositionPercent)
-            tvSecond.text = percent.format(1f - splitPaneLayout.splitterPositionPercent)
+        splitPaneLayout.onSplitterPositionChangedListener = object : SplitPaneLayout.OnSplitterPositionChangedListener {
+            override fun onSplitterPositionChanged(splitPaneLayout: SplitPaneLayout, fromUser: Boolean) {
+                val percent = DecimalFormat.getPercentInstance(Locale.getDefault())
+                tvFirst.text = percent.format(splitPaneLayout.splitterPositionPercent)
+                tvSecond.text = percent.format(1f - splitPaneLayout.splitterPositionPercent)
+            }
         }
+
         splitPaneLayout.post {
             val percent = DecimalFormat.getPercentInstance(Locale.getDefault())
             tvFirst.text = percent.format(splitPaneLayout.splitterPositionPercent)

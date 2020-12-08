@@ -36,7 +36,7 @@ public class LTreeView extends AdapterView<TreeAdapter> implements GestureDetect
     private int mLineColor;
     private int mLevelSeparation;
 
-    private TreeAdapter mAdapter;
+    TreeAdapter mAdapter;
     private int mMaxChildWidth;
     private int mMaxChildHeight;
     private Rect mRect;

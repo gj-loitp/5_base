@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import android.widget.LinearLayout;
-
+//TODO convert kotlin
 public class Base10Indicator extends View {
     private int color;
 

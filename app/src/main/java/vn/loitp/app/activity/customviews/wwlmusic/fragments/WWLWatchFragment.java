@@ -24,6 +24,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.layout.WWLMusicControlsOverlay;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
+//TODO convert kotlin
 @LogTag("WWLWatchFragment")
 public class WWLWatchFragment extends BaseFragment implements TextureView.SurfaceTextureListener, WWLMusicControlsOverlay.Listener {
     private MediaPlayer.OnPreparedListener mOnPreparedListener = MediaPlayer::start;

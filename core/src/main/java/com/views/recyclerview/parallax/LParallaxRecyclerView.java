@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * Created by SouthernBox on 2017/2/4.
  * 带视差折叠效果的列表控件
  */
-
+//TODO convert kotlin
 public class LParallaxRecyclerView extends RecyclerView {
 
     public LParallaxRecyclerView(Context context) {

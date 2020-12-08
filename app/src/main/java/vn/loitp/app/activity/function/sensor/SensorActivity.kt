@@ -60,7 +60,7 @@ class SensorActivity : BaseFontActivity() {
         override fun onOrientationChanged(orientation: Int) {
             if ((orientation < 35 || orientation > 325) && rotation != ROTATION_O) { // PORTRAIT
                 rotation = ROTATION_O
-                rotateLayout.angle = 0
+                rotateLayout.setAngle(0)
                 val w = LScreenUtil.screenWidth
                 val h = w * 9 / 16
                 setSizeRelativeLayout(rotateLayout, w, h)
@@ -69,14 +69,14 @@ class SensorActivity : BaseFontActivity() {
                 rotation = ROTATION_180
             } else if (orientation in 56..124 && rotation != ROTATION_270) { // REVERSE LANDSCAPE
                 rotation = ROTATION_270
-                rotateLayout.angle = 90
+                rotateLayout.setAngle(90)
                 val w = LScreenUtil.screenWidth
                 val h = LScreenUtil.getScreenHeightIncludeNavigationBar()
                 setSizeRelativeLayout(view = rotateLayout, w = w, h = h)
                 LScreenUtil.toggleFullscreen(activity = this@SensorActivity, isFullScreen = true)
             } else if (orientation in 236..304 && rotation != ROTATION_90) { //LANDSCAPE
                 rotation = ROTATION_90
-                rotateLayout.angle = -90
+                rotateLayout.setAngle(-90)
                 val w = LScreenUtil.screenWidth
                 val h = LScreenUtil.getScreenHeightIncludeNavigationBar()
                 setSizeRelativeLayout(rotateLayout, w, h)

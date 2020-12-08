@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.tutorial.rxjava2.model
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
+@Keep
 class ApiUser : BaseModel() {
     @JvmField
     var id: Long = 0

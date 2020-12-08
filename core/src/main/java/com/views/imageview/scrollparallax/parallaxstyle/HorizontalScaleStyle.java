@@ -14,6 +14,7 @@ import com.views.imageview.scrollparallax.LScrollParallaxImageView;
  * Created by gjz on 26/11/2016.
  */
 
+//TODO convert kotlin
 public class HorizontalScaleStyle implements LScrollParallaxImageView.ParallaxStyle {
     private float finalScaleRatio = 0.7f;
 

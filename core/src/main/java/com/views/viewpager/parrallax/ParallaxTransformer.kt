@@ -67,7 +67,7 @@ class ParallaxTransformer : ViewPager.PageTransformer {
             translationX = -mEvaluator.evaluate(interpolatorPosition, 0, pageWidth - outset)
         } else {
             interpolatorPosition = interpolator.getInterpolation(position)
-            translationX = mEvaluator.evaluate(interpolatorPosition, 0, pageWidth - outset)!!
+            translationX = mEvaluator.evaluate(interpolatorPosition, 0, pageWidth - outset)
         }
         translationX += -page.width * position
         page.translationX = translationX

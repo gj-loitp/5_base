@@ -30,6 +30,7 @@ import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 
+//TODO convert kotlin
 @LogTag("EbookWithRealmActivity")
 @IsFullScreen(false)
 public class EbookWithRealmActivity extends BaseFontActivity {

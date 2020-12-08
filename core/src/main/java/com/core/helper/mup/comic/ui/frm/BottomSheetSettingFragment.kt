@@ -9,7 +9,6 @@ import com.annotation.LogTag
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.interfaces.Callback2
 import com.views.bottomsheet.LBottomSheetFragment
 import kotlinx.android.synthetic.main.l_bottom_sheet_setting_fragment.*
 
@@ -51,27 +50,26 @@ class BottomSheetSettingFragment : LBottomSheetFragment(
                 return@let
             }
 
-            dialog = LDialogUtil.showDialog2(context = c,
+            dialog = LDialogUtil.showDialog2(
+                    context = c,
                     title = getString(R.string.warning_vn),
                     msg = getString(R.string.app_will_be_restarted_vn),
                     button1 = getString(R.string.cancel),
                     button2 = getString(R.string.ok),
-                    callback2 = object : Callback2 {
-                        override fun onClick1() {
-                            sw?.isChecked = LUIUtil.isDarkTheme()
+                    onClickButton1 = {
+                        sw?.isChecked = LUIUtil.isDarkTheme()
+                    },
+                    onClickButton2 = {
+                        if (isChecked) {
+                            LUIUtil.setDarkTheme(isDarkTheme = true)
+                        } else {
+                            LUIUtil.setDarkTheme(isDarkTheme = false)
                         }
-
-                        override fun onClick2() {
-                            if (isChecked) {
-                                LUIUtil.setDarkTheme(isDarkTheme = true)
-                            } else {
-                                LUIUtil.setDarkTheme(isDarkTheme = false)
-                            }
-                            dialog?.dismiss()
-                            this@BottomSheetSettingFragment.dismiss()
-                            onSwitchTheme?.invoke(Unit)
-                        }
-                    })
+                        dialog?.dismiss()
+                        this@BottomSheetSettingFragment.dismiss()
+                        onSwitchTheme?.invoke(Unit)
+                    }
+            )
             dialog?.setOnCancelListener {
                 sw?.isChecked = LUIUtil.isDarkTheme()
             }

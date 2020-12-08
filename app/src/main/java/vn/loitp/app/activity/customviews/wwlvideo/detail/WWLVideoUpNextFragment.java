@@ -23,6 +23,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 
+//TODO convert kotlin
 @LogTag("WWLVideoUpNextFragment")
 public class WWLVideoUpNextFragment extends BaseFragment {
     private FragmentHost mFragmentHost;

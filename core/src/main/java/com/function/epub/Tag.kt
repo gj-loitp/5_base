@@ -1,7 +1,9 @@
 package com.function.epub
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
+@Keep
 class Tag : BaseModel() {
 
     companion object {

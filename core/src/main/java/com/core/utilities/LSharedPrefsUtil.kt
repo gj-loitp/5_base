@@ -162,7 +162,7 @@ class LSharedPrefsUtil private constructor() {
 
     companion object {
         private const val TAG = "logTagLSharedPrefsUtil"
-        private val PREFS_NAME = AppUtils.getAppPackageName() + TAG
+        private val PREFS_NAME = AppUtils.appPackageName + TAG
         private var mInstance: LSharedPrefsUtil? = null
 
         const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"

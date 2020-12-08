@@ -7,7 +7,7 @@
     android:animateLayoutChanges="true">
 
     <com.github.mmin18.widget.RealtimeBlurView
-        android:id="@+id/real_time_blur_view"
+        android:id="@+id/realTimeBlurView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_80"
@@ -20,15 +20,17 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:id="@+id/ll_icon_0"
+            android:id="@+id/layoutIcon0"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_0"
+                android:id="@+id/ivIcon0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -38,7 +40,7 @@
                 tools:src="@drawable/ic_settings_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_icon_0"
+                android:id="@+id/tvIcon0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -52,15 +54,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/ll_icon_1"
+            android:id="@+id/layoutIcon1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_1"
+                android:id="@+id/ivIcon1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -70,7 +74,7 @@
                 tools:src="@drawable/ic_settings_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_icon_1"
+                android:id="@+id/tvIcon1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -84,15 +88,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/ll_icon_2"
+            android:id="@+id/layoutIcon2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_2"
+                android:id="@+id/ivIcon2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -102,7 +108,7 @@
                 tools:src="@drawable/ic_settings_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_icon_2"
+                android:id="@+id/tvIcon2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -116,15 +122,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/ll_icon_3"
+            android:id="@+id/layoutIcon3"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_3"
+                android:id="@+id/ivIcon3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -134,7 +142,7 @@
                 tools:src="@drawable/ic_settings_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_icon_3"
+                android:id="@+id/tvIcon3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -149,15 +157,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/ll_icon_4"
+            android:id="@+id/layoutIcon4"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_4"
+                android:id="@+id/ivIcon4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -167,7 +177,7 @@
                 tools:src="@drawable/ic_settings_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_icon_4"
+                android:id="@+id/tvIcon4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -181,15 +191,17 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/ll_icon_5"
+            android:id="@+id/layoutIicon5"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:foreground="?selectableItemBackgroundBorderless"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:ignore="UnusedAttribute">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_5"
+                android:id="@+id/ivIcon5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -199,7 +211,7 @@
                 tools:src="@drawable/ic_settings_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tv_icon_5"
+                android:id="@+id/tvIcon5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

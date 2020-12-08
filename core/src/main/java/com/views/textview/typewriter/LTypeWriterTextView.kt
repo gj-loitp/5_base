@@ -17,7 +17,7 @@ class LTypeWriterTextView : AppCompatTextView {
 
     private val mHandler = Handler()
 
-    val characterAdder: Runnable = run {
+    private val characterAdder: Runnable = run {
         Runnable {
             mText?.let {
                 text = it.subSequence(0, mIndex++)
@@ -28,9 +28,9 @@ class LTypeWriterTextView : AppCompatTextView {
         }
     }
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     fun animateText(txt: CharSequence) {
         mText = txt

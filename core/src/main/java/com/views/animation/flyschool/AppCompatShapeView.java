@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import com.R;
 
+//TODO convert kotlin
 public class AppCompatShapeView extends AppCompatImageView implements ShapeSetter {
     public AppCompatShapeView(Context context) {
         super(context);

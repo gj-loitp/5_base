@@ -10,6 +10,7 @@ import com.views.calendar.cosmocalendar.adapter.viewholder.MonthHolder;
 import com.views.calendar.cosmocalendar.model.Month;
 import com.views.calendar.cosmocalendar.settings.SettingsManager;
 
+//TODO convert kotlin
 public class MonthDelegate {
 
     private SettingsManager appearanceModel;

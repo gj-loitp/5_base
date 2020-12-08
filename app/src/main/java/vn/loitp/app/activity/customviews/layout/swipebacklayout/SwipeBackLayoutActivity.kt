@@ -34,17 +34,17 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
         screenH = LScreenUtil.screenHeight
 
         swipeBackLayout.directionMode = SwipeBackLayout.FROM_LEFT
-        swipeBackLayout.maskAlpha = 125
-        swipeBackLayout.swipeBackFactor = 0.5f
+        swipeBackLayout.setMaskAlpha(125)
+        swipeBackLayout.setSwipeBackFactor(0.5f)
 
         swipeBackLayout.setSwipeBackListener(object : OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
                 logD("onViewPositionChanged swipeBackFraction $swipeBackFraction")
                 val newY = screenH * swipeBackFraction
                 view.translationY = newY
             }
 
-            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+            override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 logD("onViewSwipeFinished")
                 if (isEnd) {
                     finish()

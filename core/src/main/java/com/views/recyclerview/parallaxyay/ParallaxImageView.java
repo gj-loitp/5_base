@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.R;
-
+//TODO convert kotlin
 public class ParallaxImageView extends ImageView {
 
     private final float DEFAULT_PARALLAX_RATIO = 1.2f;

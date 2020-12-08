@@ -9,6 +9,7 @@ import android.net.Uri
 import com.R
 import com.core.common.Constants
 import com.core.helper.fbcomment.FbCommentActivity
+import com.utils.util.AppUtils
 
 /**
  * File created on 11/14/2016.
@@ -19,11 +20,11 @@ class LSocialUtil {
     companion object {
         private val logTag = LSocialUtil::class.java.simpleName
 
-        /*
-         * rate app
-         * @param packageName: the packageName
-         */
-        fun rateApp(activity: Activity, packageName: String) {
+        fun rateApp(
+                activity: Activity,
+                packageName: String = AppUtils.appPackageName
+        ) {
+//            LLog.d(logTag, ">>>rateApp packageName $packageName")
             try {
                 activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=$packageName")))
                 LActivityUtil.tranIn(activity)
@@ -35,14 +36,19 @@ class LSocialUtil {
         }
 
         //NgonTinh KangKang
-        fun moreApp(activity: Activity, nameOfDeveloper: String = "Toi Yeu Viet Nam") {
+        fun moreApp(
+                activity: Activity,
+                nameOfDeveloper: String = "Toi Yeu Viet Nam"
+        ) {
             val uri = "https://play.google.com/store/apps/developer?id=$nameOfDeveloper"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
             activity.startActivity(intent)
             LActivityUtil.tranIn(activity)
         }
 
-        fun shareApp(activity: Activity) {
+        fun shareApp(
+                activity: Activity
+        ) {
             try {
                 val intent = Intent(Intent.ACTION_SEND)
                 intent.type = "text/plain"
@@ -57,7 +63,10 @@ class LSocialUtil {
             }
         }
 
-        fun share(activity: Activity, msg: String) {
+        fun share(
+                activity: Activity,
+                msg: String
+        ) {
             try {
                 val intent = Intent(Intent.ACTION_SEND)
                 intent.type = "text/plain"
@@ -74,7 +83,9 @@ class LSocialUtil {
         }
 
         //like fanpage
-        fun likeFacebookFanpage(activity: Activity?) {
+        fun likeFacebookFanpage(
+                activity: Activity?
+        ) {
             activity?.let {
                 val facebookIntent = Intent(Intent.ACTION_VIEW)
                 val facebookUrl = getFacebookPageURL()
@@ -87,6 +98,7 @@ class LSocialUtil {
         /*
         get url fb fanpage
          */
+        //TODO deprecation
         private fun getFacebookPageURL(): String {
             val facebookUrl = "https://www.facebook.com/hoidammedocsach"
             val facebookPageId = "hoidammedocsach"
@@ -108,7 +120,10 @@ class LSocialUtil {
         /*
         chat with fanpage Thugiannao
          */
-        fun chatMessenger(activity: Activity) {
+        //TODO deprecation
+        fun chatMessenger(
+                activity: Activity
+        ) {
             val packageManager = activity.packageManager
             var isFBInstalled = false
             try {
@@ -119,7 +134,12 @@ class LSocialUtil {
             }
 
             if (!isFBInstalled) {
-                LDialogUtil.showDialog1(context = activity, title = activity.getString(R.string.err), msg = activity.getString(R.string.cannot_find_messenger_app), button1 = activity.getString(R.string.ok), callback1 = null)
+                LDialogUtil.showDialog1(
+                        context = activity,
+                        title = activity.getString(R.string.err),
+                        msg = activity.getString(R.string.cannot_find_messenger_app),
+                        button1 = activity.getString(R.string.ok)
+                )
             } else {
                 var uri = Uri.parse("fb-messenger://user/")
                 uri = ContentUris.withAppendedId(uri, java.lang.Long.valueOf("947139732073591"))
@@ -129,7 +149,12 @@ class LSocialUtil {
                     LActivityUtil.tranIn(activity)
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    LDialogUtil.showDialog1(context = activity, title = activity.getString(R.string.err), msg = activity.getString(R.string.cannot_find_messenger_app), button1 = activity.getString(R.string.ok), callback1 = null)
+                    LDialogUtil.showDialog1(
+                            context = activity,
+                            title = activity.getString(R.string.err),
+                            msg = activity.getString(R.string.cannot_find_messenger_app),
+                            button1 = activity.getString(R.string.ok)
+                    )
                 }
             }
         }
@@ -137,21 +162,30 @@ class LSocialUtil {
         /*
          * send email support
          */
-        fun sendEmail(context: Context?) {
+        fun sendEmail(
+                context: Context?
+        ) {
             val emailIntent = Intent(Intent.ACTION_SENDTO)
             emailIntent.data = Uri.parse("mailto: www.muathu@gmail.com")
             context?.startActivity(Intent.createChooser(emailIntent, "Send feedback"))
         }
 
-        fun openBrowserPolicy(context: Context) {
+        fun openBrowserPolicy(
+                context: Context
+        ) {
             openUrlInBrowser(context = context, url = Constants.URL_POLICY)
         }
 
-        fun openBrowserGirl(context: Context) {
+        fun openBrowserGirl(
+                context: Context
+        ) {
             openUrlInBrowser(context = context, url = Constants.URL_GIRL)
         }
 
-        fun openUrlInBrowser(context: Context?, url: String?) {
+        fun openUrlInBrowser(
+                context: Context?,
+                url: String?
+        ) {
             if (context == null || url.isNullOrEmpty()) {
                 return
             }
@@ -163,23 +197,34 @@ class LSocialUtil {
             }
         }
 
-        fun openFacebookComment(context: Context?, url: String?) {
+//        fun openFacebookComment(
+//                context: Context?,
+//                url: String?
+//        ) {
+//            if (context == null || url.isNullOrEmpty()) {
+//                return
+//            }
+//            val intent = Intent(context, FbCommentActivity::class.java)
+//            intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
+//            context.startActivity(intent)
+//            LActivityUtil.tranIn(context)
+//        }
+
+        fun openFacebookComment(
+                context: Context? = null,
+                url: String? = null,
+                adUnitId: String? = null
+        ) {
             if (context == null || url.isNullOrEmpty()) {
                 return
             }
             val intent = Intent(context, FbCommentActivity::class.java)
             intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
-            context.startActivity(intent)
-            LActivityUtil.tranIn(context)
-        }
-
-        fun openFacebookComment(context: Context?, url: String?, adUnitId: String?) {
-            if (context == null || url.isNullOrEmpty() || adUnitId.isNullOrEmpty()) {
-                return
+            if (adUnitId.isNullOrEmpty()) {
+                LLog.d(logTag, "openFacebookComment adUnitId isNullOrEmpty")
+            } else {
+                intent.putExtra(Constants.AD_UNIT_ID_BANNER, adUnitId)
             }
-            val intent = Intent(context, FbCommentActivity::class.java)
-            intent.putExtra(Constants.FACEBOOK_COMMENT_URL, url)
-            intent.putExtra(Constants.AD_UNIT_ID_BANNER, adUnitId)
             context.startActivity(intent)
             LActivityUtil.tranIn(context)
         }

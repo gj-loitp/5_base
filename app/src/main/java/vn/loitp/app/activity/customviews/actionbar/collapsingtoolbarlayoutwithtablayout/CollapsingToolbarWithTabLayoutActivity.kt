@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayoutwitht
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
@@ -19,8 +18,6 @@ import com.core.utilities.LAppResource
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.google.android.material.snackbar.Snackbar
-import com.interfaces.CallbackPopup
-import com.views.LToast
 import kotlinx.android.synthetic.main.activity_collapsingtoolbar_withtablayout.*
 import vn.loitp.app.R
 
@@ -57,14 +54,21 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.fab -> Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-            R.id.btMenu -> LPopupMenu.show(this, v, R.menu.menu_popup, object : CallbackPopup {
-                override fun clickOnItem(menuItem: MenuItem) {
-                    LToast.show(menuItem.title.toString())
-                }
-            })
+        when (v) {
+            fab -> {
+                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show()
+            }
+            btMenu -> {
+                LPopupMenu.show(
+                        activity = this,
+                        showOnView = v,
+                        menuRes = R.menu.menu_popup,
+                        callback = { menuItem ->
+                            showShortInformation(menuItem.title.toString())
+                        }
+                )
+            }
         }
     }
 
@@ -110,19 +114,4 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
             return null
         }
     }
-
-//    private fun changeTabsFont(tabLayout: TabLayout, fontName: String) {
-//        val vg = tabLayout.getChildAt(0) as ViewGroup
-//        val tabsCount = vg.childCount
-//        for (j in 0 until tabsCount) {
-//            val vgTab = vg.getChildAt(j) as ViewGroup
-//            val tabChildsCount = vgTab.childCount
-//            for (i in 0 until tabChildsCount) {
-//                val tabViewChild = vgTab.getChildAt(i)
-//                if (tabViewChild is TextView) {
-//                    CalligraphyUtils.applyFontToTextView(tabLayout.context, tabViewChild, fontName)
-//                }
-//            }
-//        }
-//    }
 }

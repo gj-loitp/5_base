@@ -130,6 +130,7 @@
     </string>
     <string name="app_name_girl">CUTE HOLE</string>
     <string name="app_name_comic">TruyenTranhVN.org</string>
+    <string name="app_name_find_number">Find Number</string>
     <string name="menu_home">Home</string>
     <string name="menu_favourite">Favourite</string>
     <string name="menu_infor">Information</string>
@@ -168,4 +169,8 @@
     <string name="prev_chap">Previous chap</string>
     <string name="comment">Bình luận</string>
     <string name="download_photo">Tải ảnh về</string>
+    <string name="_5">5</string>
+    <string name="single_player">Single player</string>
+    <string name="two_players">Two players</string>
+    <string name="levels">Levels</string>
 </resources>

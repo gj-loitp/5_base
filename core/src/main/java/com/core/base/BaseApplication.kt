@@ -6,6 +6,7 @@ import com.core.helper.mup.girl.db.GirlDatabase
 import com.core.utilities.LAppResource
 import com.core.utilities.LConnectivityUtil
 import com.core.utilities.LLog
+import com.game.findnumber.db.FindNumberDatabase
 import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
@@ -42,6 +43,7 @@ open class BaseApplication : MultiDexApplication() {
 
         //room database
         GirlDatabase.getInstance(this)
+        FindNumberDatabase.getInstance(this)
     }
 
     protected fun logD(msg: String) {

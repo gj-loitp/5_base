@@ -46,6 +46,8 @@
     <dimen name="txt_large">22sp</dimen>
     <dimen name="txt_largest">32sp</dimen>
 
+    <dimen name="txt_find_number">32sp</dimen>
+
     <dimen name="txt_8">8sp</dimen>
     <dimen name="txt_10">10sp</dimen>
     <dimen name="txt_12">12sp</dimen>
@@ -96,6 +98,7 @@
     <dimen name="w_65">65dp</dimen>
     <dimen name="w_70">70dp</dimen>
     <dimen name="w_80">80dp</dimen>
+    <dimen name="w_85">85dp</dimen>
     <dimen name="w_86">86dp</dimen>
     <dimen name="w_100">100dp</dimen>
     <dimen name="w_150">150dp</dimen>

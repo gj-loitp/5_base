@@ -15,6 +15,7 @@ import java.util.List;
  * Created by leonardo on 08/10/17.
  */
 
+//TODO convert kotlin
 public class FetchMonthsAsyncTask extends AsyncTask<FetchMonthsAsyncTask.FetchParams, Void, List<Month>> {
 
     private boolean future;

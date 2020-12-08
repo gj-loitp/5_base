@@ -5,9 +5,6 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 
-/**
- * TODO Document
- */
 public class Marker extends CircularViewObject {
     private float sectionMin;
     private float sectionMax;

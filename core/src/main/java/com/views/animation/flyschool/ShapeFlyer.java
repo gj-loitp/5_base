@@ -27,6 +27,7 @@ import java.util.Random;
 
 //https://www.desmos.com/calculator/cahqdxeshd
 
+//TODO convert kotlin
 public class ShapeFlyer extends RelativeLayout {
 
     private ArrayList<Path> mPaths;

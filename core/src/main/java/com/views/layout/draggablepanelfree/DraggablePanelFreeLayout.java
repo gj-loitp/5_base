@@ -12,6 +12,7 @@ import androidx.customview.widget.ViewDragHelper;
 
 import com.R;
 
+//TODO convert kotlin
 public class DraggablePanelFreeLayout extends ViewGroup {
     private final String logTag = getClass().getSimpleName();
     private final ViewDragHelper mDragHelper;

@@ -7,6 +7,7 @@ import android.view.animation.Interpolator;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+//TODO convert kotlin
 public class SlowdownRecyclerView extends RecyclerView {
 
     // Change pow to control speed.

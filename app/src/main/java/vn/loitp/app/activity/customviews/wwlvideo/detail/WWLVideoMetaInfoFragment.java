@@ -15,6 +15,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
 /**
  * Created by thangn on 2/26/17.
  */
+//TODO convert kotlin
 public class WWLVideoMetaInfoFragment extends Fragment {
     private TextView mTitleView;
     private TextView mSubTitleView;

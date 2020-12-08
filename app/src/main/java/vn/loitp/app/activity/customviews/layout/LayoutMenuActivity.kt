@@ -34,6 +34,8 @@ import vn.loitp.app.activity.customviews.layout.squarelayout.SquareLayoutActivit
 import vn.loitp.app.activity.customviews.layout.swipebacklayout.SwipeBackLayoutActivity
 import vn.loitp.app.activity.customviews.layout.swiperefreshlayout.SwipeRefreshLayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.SwipeRevealLayoutActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationActivity
+import vn.loitp.app.activity.customviews.layout.transformationlayout.single.TransformationSingleActivity
 import vn.loitp.app.activity.customviews.layout.zoomlayout.ZoomLayoutActivity
 
 @LogTag("LayoutMenuActivity")
@@ -77,6 +79,8 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btShapeOfView.setOnClickListener(this)
         btFlowLayout.setOnClickListener(this)
         btSplitPanelLayout.setOnClickListener(this)
+        btTramsformationLayout.setOnClickListener(this)
+        btTramsformationLayoutSingle.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -108,6 +112,8 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btRoundableLayout -> intent = Intent(this, RoundableLayoutActivity::class.java)
             btFlowLayout -> intent = Intent(this, FlowLayoutActivity::class.java)
             btSplitPanelLayout -> intent = Intent(this, SplitPanelLayoutActivity::class.java)
+            btTramsformationLayout -> intent = Intent(this, TransformationActivity::class.java)
+            btTramsformationLayoutSingle -> intent = Intent(this, TransformationSingleActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

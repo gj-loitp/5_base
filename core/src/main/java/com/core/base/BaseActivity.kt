@@ -10,17 +10,18 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.BuildConfig
 import com.R
 import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
-import com.google.android.gms.ads.AdListener
+import com.google.ads.interactivemedia.v3.internal.ff
 import com.google.android.gms.ads.InterstitialAd
-import com.interfaces.Callback1
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
+import com.views.smoothtransition.SwitchAnimationUtil
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -103,7 +104,10 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().register(this)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
-        setContentView(setLayoutResourceId())
+        val layoutId = setLayoutResourceId()
+        if (layoutId != Constants.NOT_FOUND) {
+            setContentView(setLayoutResourceId())
+        }
 
         CheckNetworkConnectionHelper
                 .getInstance()
@@ -122,7 +126,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 })
 
         //auto animation
-        //SwitchAnimationUtil().startAnimation(window.decorView, SwitchAnimationUtil.AnimationType.SCALE)
+        val isAutoAnimation = javaClass.getAnnotation(IsAutoAnimation::class.java)?.value
+                ?: false
+        if (isAutoAnimation) {
+            SwitchAnimationUtil().startAnimation(root = window.decorView, type = SwitchAnimationUtil.AnimationType.SCALE)
+        }
 
         isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
@@ -217,28 +225,28 @@ abstract class BaseActivity : AppCompatActivity() {
         if (errMsg.isNullOrEmpty()) {
             return
         }
-        val alertDialog = LDialogUtil.showDialog1(context = this,
+        val alertDialog = LDialogUtil.showDialog1(
+                context = this,
                 title = getString(R.string.warning),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
-                callback1 = object : Callback1 {
-                    override fun onClick1() {
-                        runnable?.run()
-                    }
-                })
+                onClickButton1 = {
+                    runnable?.run()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 
     protected fun showDialogMsg(errMsg: String, runnable: Runnable? = null) {
-        LDialogUtil.showDialog1(context = this,
+        LDialogUtil.showDialog1(
+                context = this,
                 title = getString(R.string.app_name),
                 msg = errMsg,
                 button1 = getString(R.string.confirm),
-                callback1 = object : Callback1 {
-                    override fun onClick1() {
-                        runnable?.run()
-                    }
-                })
+                onClickButton1 = {
+                    runnable?.run()
+                }
+        )
     }
 
     override fun onBackPressed() {
@@ -247,7 +255,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isShowAnimWhenExit) {
             LActivityUtil.tranOut(this)
         }
-        if (isShowAdWhenExit && !Constants.IS_DEBUG) {
+        if (isShowAdWhenExit && !BuildConfig.DEBUG) {
             interstitialAd?.let {
                 LUIUtil.displayInterstitial(interstitial = it, maxNumber = 70)
             }
@@ -289,13 +297,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun showShortDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showShortDebug(msg)
         }
     }
 
     protected fun showLongDebug(msg: String?) {
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
         }
     }

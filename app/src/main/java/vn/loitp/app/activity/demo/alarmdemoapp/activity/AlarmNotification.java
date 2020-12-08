@@ -30,6 +30,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
+//TODO convert kotlin
 @LogTag("AlarmNotification")
 @IsFullScreen(false)
 public class AlarmNotification extends BaseFontActivity {

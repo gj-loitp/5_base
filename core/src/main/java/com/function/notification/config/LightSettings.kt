@@ -1,7 +1,9 @@
 package com.function.notification.config
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
+@Keep
 class LightSettings : BaseModel {
     var argb: Int
     var onMs = 300

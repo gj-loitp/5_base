@@ -14,6 +14,7 @@ import android.graphics.Path;
  * Created by avin on 12/01/17.
  */
 
+//TODO convert kotlin
 public class FlyBluePrint {
     private FPoint mOrigin;
     private FlyPath mFlyPath;

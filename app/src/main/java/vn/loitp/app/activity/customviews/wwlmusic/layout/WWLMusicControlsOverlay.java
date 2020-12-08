@@ -14,6 +14,7 @@ import vn.loitp.app.R;
  * Created by thangn on 2/26/17.
  */
 
+//TODO convert kotlin
 public class WWLMusicControlsOverlay extends FrameLayout implements View.OnClickListener {
     private final RelativeLayout controlsLayout;
     private final ImageView collapseBtn;

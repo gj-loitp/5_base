@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 /**
  * Created by Anton on 06.06.2018.
  */
-
+//TODO convert kotlin
 public final class PatternProgressTextAdapter implements CircularProgressIndicator.ProgressTextAdapter {
 
     private String pattern;

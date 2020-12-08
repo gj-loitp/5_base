@@ -10,13 +10,14 @@ import vn.loitp.app.R
 
 class FrmIv : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_iv, container, false)
-    }
-
     companion object {
         fun newInstance(): FrmIv {
             return FrmIv()
         }
     }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_iv, container, false)
+    }
+
 }

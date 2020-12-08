@@ -22,7 +22,7 @@ class RotateLayoutActivity : BaseFontActivity() {
 
         btRandomRotate.setSafeOnClickListener {
             val angle = LDeviceUtil.getRandomNumber(360)
-            rotateLayout.angle = angle
+            rotateLayout.setAngle(angle)
         }
     }
 

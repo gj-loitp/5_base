@@ -56,7 +56,7 @@ class AdHelperActivity : BaseFontActivity() {
 
         val adPage1 = AdPage()
         adPage1.urlAd = "https://c2.staticflickr.com/2/1732/41766077754_da53b9da82_o.png"
-        val appName = AppUtils.getAppName()
+        val appName = AppUtils.appName
         if (isEnglishLanguage) {
             adPage1.title = "Without ads, we will not have $appName"
             adPage1.msg = "Paying to use an application is not yet common in Vietnam. Without revenue, it is difficult to maintain and upgrade applications.\n\nAnd then, you will not experience the useful features that $appName brings."

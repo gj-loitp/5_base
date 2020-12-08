@@ -15,7 +15,7 @@ import com.core.helper.gallery.slide.GalleryCoreSlideActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
-import com.interfaces.CallbackList
+import com.core.utilities.LValidateUtil
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
@@ -113,16 +113,18 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         }
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
             }
 
-            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+            override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
                     LActivityUtil.transActivityNoAnimation(this@GalleryCorePhotosActivity)
                 }
             }
         })
+
+        LValidateUtil.isValidPackageName()
     }
 
     private fun showListPage() {
@@ -131,17 +133,17 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         for (i in 0 until size) {
             arr[i] = "Page " + (totalPage - i)
         }
-        LDialogUtil.showDialogList(context = this,
+        LDialogUtil.showDialogList(
+                context = this,
                 title = "Select page",
                 arr = arr,
-                callbackList = object : CallbackList {
-                    override fun onClick(position: Int) {
-                        currentPage = totalPage - position
-                        PhotosDataCore.instance.clearData()
-                        updateAllViews()
-                        photosetsGetPhotos(photosetID)
-                    }
-                })
+                onClick = { position ->
+                    currentPage = totalPage - position
+                    PhotosDataCore.instance.clearData()
+                    updateAllViews()
+                    photosetsGetPhotos(photosetID)
+                }
+        )
     }
 
     private fun photosetsGetPhotos(photosetID: String?) {

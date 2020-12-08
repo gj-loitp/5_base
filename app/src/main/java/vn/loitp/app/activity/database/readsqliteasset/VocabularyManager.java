@@ -20,11 +20,12 @@ import java.util.List;
  * Created by Loitp on 5/2/2017.
  */
 
+//TODO convert kotlin
 public class VocabularyManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
     private final static String DB_PATH = "/data/data/loitp.basemaster/databases/";
     private final static String DB_NAME = "vocabulary.sqlite";
-    private final static int DATABASE_VERSION = AppUtils.getAppVersionCode();
+    private final static int DATABASE_VERSION = AppUtils.Companion.getAppVersionCode();
 
     private final static String TABLE_NAME = "word";
     private final static String KEY_ID = "_id";

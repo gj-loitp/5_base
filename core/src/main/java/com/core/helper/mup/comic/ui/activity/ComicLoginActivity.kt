@@ -14,6 +14,7 @@ import com.core.helper.mup.comic.viewmodel.ComicLoginViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
+import com.core.utilities.LValidateUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.l_activity_comic_login.*
@@ -40,6 +41,8 @@ class ComicLoginActivity : BaseFontActivity() {
                 email = "appmb@truyentranhvn.org",
                 password = "appmb@truyentranhvn.org"
         )
+
+        LValidateUtil.isValidPackageName()
     }
 
     private fun setupViews() {

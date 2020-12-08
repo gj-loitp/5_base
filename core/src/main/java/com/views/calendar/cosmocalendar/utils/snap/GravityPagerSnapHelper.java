@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+//TODO convert kotlin
 public class GravityPagerSnapHelper extends PagerSnapHelper {
 
     private GravityDelegate delegate;

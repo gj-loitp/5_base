@@ -17,7 +17,9 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
+
 import com.R;
+
 import java.util.ArrayList;
 
 public class CircularView extends View {

@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.api.truyentranhtuan.model.download
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
 /**
  * Created by Loitp on 4/8/2017.
  */
+@Keep
 class DownloadObject : BaseModel() {
     var url: String = ""
     var tit: String = ""

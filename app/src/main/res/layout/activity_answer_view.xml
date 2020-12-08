@@ -21,7 +21,7 @@
             android:orientation="vertical">
 
             <com.views.answerview.LAnswerView
-                android:id="@+id/av_1"
+                android:id="@+id/lAnswerView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:aw_NumberOfAnswers="6"
@@ -30,9 +30,10 @@
                 app:aw_changeOnClick="true" />
 
             <com.views.answerview.LAnswerView
-                android:id="@+id/av_2"
+                android:id="@+id/lAnswerView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/w_50"
                 app:aw_NumberOfAnswers="6"
                 app:aw_ShowNumber="true"
                 app:aw_canCancelAnswer="true"
@@ -43,6 +44,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Answer View" />
+        android:text="@string/answer_view" />
 </RelativeLayout>
-

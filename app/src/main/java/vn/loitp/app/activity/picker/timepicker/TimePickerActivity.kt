@@ -39,7 +39,7 @@ class TimePickerActivity : BaseFontActivity() {
             val hour: Int = cal.get(Calendar.HOUR_OF_DAY)
             val minutes: Int = cal.get(Calendar.MINUTE)
             picker = TimePickerDialog(this,
-                    TimePickerDialog.OnTimeSetListener { _, sHour, sMinute ->
+                    { _, sHour, sMinute ->
                         btDialog.text = "$sHour - $sMinute"
                     }, hour, minutes, true)
             picker?.show()
@@ -50,7 +50,7 @@ class TimePickerActivity : BaseFontActivity() {
             val hour: Int = cal.get(Calendar.HOUR_OF_DAY)
             val minutes: Int = cal.get(Calendar.MINUTE)
             pickerRange = RangeTimePickerDialog(this,
-                    TimePickerDialog.OnTimeSetListener { _, sHour, sMinute ->
+                    { _, sHour, sMinute ->
                         btDialogRange.text = "$sHour - $sMinute"
                         logD("$sHour - $sMinute")
                     }, hour, minutes, true)

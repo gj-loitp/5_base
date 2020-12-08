@@ -40,11 +40,6 @@
                 android:text="@string/extra_textview" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btJustifieldTextView"
-                style="@style/ButtonMenu"
-                android:text="@string/justifiedtextview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btScoreText"
                 style="@style/ButtonMenu"
                 android:text="@string/score_text" />
@@ -68,11 +63,6 @@
                 android:id="@+id/btTextDecorator"
                 style="@style/ButtonMenu"
                 android:text="@string/text_decorator" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btTranslucentView"
-                style="@style/ButtonMenu"
-                android:text="@string/translucent_view" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTypeWriterTextView"

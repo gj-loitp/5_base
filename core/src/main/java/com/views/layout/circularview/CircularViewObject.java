@@ -12,10 +12,6 @@ import android.view.View;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * TODO Document
- * don't forget refs
- */
 public class CircularViewObject {
 
     /*

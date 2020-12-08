@@ -18,6 +18,7 @@ import vn.loitp.app.common.Constants;
 
 @LogTag("LDebugViewActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;
     private Button btStop;

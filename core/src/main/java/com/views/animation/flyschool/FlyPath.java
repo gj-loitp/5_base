@@ -2,6 +2,7 @@ package com.views.animation.flyschool;
 
 import android.graphics.Path;
 
+//TODO convert kotlin
 public abstract class FlyPath {
     public static SingleLinePath getSimpleLinePath(FPoint mFPoint) {
         return new SingleLinePath(mFPoint);

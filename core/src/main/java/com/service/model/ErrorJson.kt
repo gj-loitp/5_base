@@ -1,5 +1,6 @@
 package com.service.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
@@ -10,6 +11,8 @@ import java.io.Serializable
  * Ho Chi Minh City, VN
  * www.muathu@gmail.com
  */
+
+@Keep
 data class ErrorJson(
         @SerializedName("errors")
         @Expose

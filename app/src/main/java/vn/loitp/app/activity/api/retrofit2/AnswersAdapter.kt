@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.app.R
+import vn.loitp.app.activity.api.retrofit2.model.Item
 
 /**
  * Created by LENOVO on 2/23/2018.
@@ -14,8 +15,10 @@ class AnswersAdapter(private var mItems: List<Item>,
                      private val mItemListener: PostItemListener)
     : RecyclerView.Adapter<AnswersAdapter.ViewHolder>() {
 
-    inner class ViewHolder(itemView: View, postItemListener: PostItemListener) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
-        var titleTv: TextView = itemView.findViewById<View>(R.id.text1) as TextView
+    inner class ViewHolder(itemView: View, postItemListener: PostItemListener)
+        : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        var titleTv: TextView = itemView.findViewById(R.id.text1)
         private var mItemListener: PostItemListener = postItemListener
 
         override fun onClick(view: View) {
@@ -41,7 +44,7 @@ class AnswersAdapter(private var mItems: List<Item>,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mItems[position]
         val textView = holder.titleTv
-        textView.text = item.owner?.displayName
+        textView.text = "displayName: " + item.owner?.displayName
     }
 
     override fun getItemCount(): Int {

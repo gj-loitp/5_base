@@ -11,7 +11,6 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackRecyclerView
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.frm_coroutine_get_list.*
 import vn.loitp.app.R
@@ -61,19 +60,14 @@ class FrmGetListUser : BaseFragment() {
         }
         rvUserTest.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvUserTest.adapter = userListAdapter
-        LUIUtil.setScrollChange(rvUserTest, object : CallbackRecyclerView {
-            override fun onTop() {
-            }
-
-            override fun onBottom() {
-                logD("onBottom")
-                page += 1
-                testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
-            }
-
-            override fun onScrolled(isScrollDown: Boolean) {
-            }
-        })
+        LUIUtil.setScrollChange(
+                recyclerView = rvUserTest,
+                onBottom = {
+                    logD("onBottom")
+                    page += 1
+                    testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
+                }
+        )
 
         btBack.setSafeOnClickListener {
             logD("popBackStack")

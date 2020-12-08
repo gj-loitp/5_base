@@ -24,6 +24,8 @@ import android.widget.RelativeLayout;
  *
  * @author Pedro Vicente Gómez Sánchez
  */
+
+//TODO convert kotlin
 class ResizeTransformer extends Transformer {
 
     private final RelativeLayout.LayoutParams layoutParams;

@@ -11,10 +11,6 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.*
-import com.interfaces.Callback1
-import com.interfaces.Callback2
-import com.interfaces.GGCallback
-import com.interfaces.GGSettingCallback
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -31,6 +27,11 @@ import java.io.IOException
 @LogTag("SplashActivity")
 @IsFullScreen(false)
 class SplashActivity : BaseFontActivity() {
+
+    companion object {
+        const val LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
+    }
+
     private var isAnimDone = false
     private var isCheckReadyDone = false
     private var isShowDialogCheck = false
@@ -74,9 +75,8 @@ class SplashActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        isShowDialogCheck = true
-        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
-        if (isCanWriteSystem) {
+
+        fun checkPermission() {
             Dexter.withContext(this)
                     .withPermissions(
                             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -110,39 +110,47 @@ class SplashActivity : BaseFontActivity() {
                     })
                     .onSameThread()
                     .check()
+        }
+
+        isShowDialogCheck = true
+        val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
+        if (isCanWriteSystem) {
+            checkPermission()
         } else {
-            val alertDialog = LDialogUtil.showDialog2(context = this,
+            val alertDialog = LDialogUtil.showDialog2(
+                    context = this,
                     title = "Need Permissions",
                     msg = "This app needs permission to allow modifying system settings",
-                    button1 = "Okay",
-                    button2 = "Exit",
-                    callback2 = object : Callback2 {
-                        override fun onClick1() {
-                            isShowDialogCheck = false
+                    button1 = getString(R.string.ok),
+                    button2 = getString(R.string.cancel),
+                    onClickButton1 = {
+                        isShowDialogCheck = false
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                             val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
                             intent.data = Uri.parse("package:$packageName")
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                             LActivityUtil.tranIn(this@SplashActivity)
+                        } else {
+                            checkPermission()
                         }
-
-                        override fun onClick2() {
-                            onBackPressed()
-                        }
-                    })
+                    },
+                    onClickButton2 = {
+                        onBackPressed()
+                    }
+            )
             alertDialog.setCancelable(false)
         }
     }
 
     private fun goToHome() {
-        //String s = LStoreUtil.readTxtFromAsset(activity, "news.json");
+        logD("goToHome isAnimDone $isAnimDone, isCheckReadyDone $isCheckReadyDone")
+
         if (isAnimDone && isCheckReadyDone) {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             LActivityUtil.tranIn(this)
-            LUIUtil.setDelay(1000) {
-                finish()
-            }
+            finish()
         }
     }
 
@@ -153,15 +161,15 @@ class SplashActivity : BaseFontActivity() {
             } else {
                 getString(R.string.check_ur_connection)
             }
-            val alertDial = LDialogUtil.showDialog1(context = this,
+            val alertDial = LDialogUtil.showDialog1(
+                    context = this,
                     title = "Warning",
                     msg = title,
                     button1 = "Ok",
-                    callback1 = object : Callback1 {
-                        override fun onClick1() {
-                            onBackPressed()
-                        }
-                    })
+                    onClickButton1 = {
+                        onBackPressed()
+                    }
+            )
             alertDial.setCancelable(false)
         }
     }
@@ -172,7 +180,6 @@ class SplashActivity : BaseFontActivity() {
             goToHome()
             return
         }
-        val LINK_GG_DRIVE_CHECK_READY = "https://drive.google.com/uc?export=download&id=1LHnBs4LG1EORS3FtdXpTVwQW2xONvtHo"
         val request = Request.Builder().url(url = LINK_GG_DRIVE_CHECK_READY).build()
         val okHttpClient = OkHttpClient()
         okHttpClient.newCall(request).enqueue(object : Callback {
@@ -207,20 +214,18 @@ class SplashActivity : BaseFontActivity() {
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature. You can grant them in app settings.",
                 button1 = "GOTO SETTINGS",
-                button2 = "Cancel",
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        isShowDialogCheck = false
-                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                        val uri = Uri.fromParts("package", packageName, null)
-                        intent.data = uri
-                        startActivityForResult(intent, 101)
-                    }
-
-                    override fun onClick2() {
-                        onBackPressed()
-                    }
-                })
+                button2 = getString(R.string.cancel),
+                onClickButton1 = {
+                    isShowDialogCheck = false
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivityForResult(intent, 101)
+                },
+                onClickButton2 = {
+                    onBackPressed()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 
@@ -229,17 +234,15 @@ class SplashActivity : BaseFontActivity() {
                 context = this,
                 title = "Need Permissions",
                 msg = "This app needs permission to use this feature.",
-                button1 = "Okay",
-                button2 = "Cancel",
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        checkPermission()
-                    }
-
-                    override fun onClick2() {
-                        onBackPressed()
-                    }
-                })
+                button1 = getString(R.string.ok),
+                button2 = getString(R.string.cancel),
+                onClickButton1 = {
+                    checkPermission()
+                },
+                onClickButton2 = {
+                    onBackPressed()
+                }
+        )
         alertDialog.setCancelable(false)
     }
 
@@ -247,28 +250,24 @@ class SplashActivity : BaseFontActivity() {
         val linkGGDriveConfigSetting = "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
         LStoreUtil.getSettingFromGGDrive(
                 linkGGDriveSetting = linkGGDriveConfigSetting,
-                ggSettingCallback = object : GGSettingCallback {
-                    override fun onGGFailure(call: Call, e: IOException) {
-                    }
-
-                    override fun onGGResponse(app: App?, isNeedToShowMsg: Boolean) {
-                        logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + BaseApplication.gson.toJson(app))
-                    }
-                })
+                onGGFailure = { _: Call, _: IOException ->
+                },
+                onGGResponse = { app: App?, isNeedToShowMsg: Boolean ->
+                    logD("getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + BaseApplication.gson.toJson(app))
+                }
+        )
     }
 
     private fun getGG() {
         val linkGGDrive = "https://drive.google.com/uc?export=download&id=1femuL17MUTz7t0yqUkMWB5yCea1W6kqI"
         LStoreUtil.getTextFromGGDrive(
                 linkGGDrive = linkGGDrive,
-                ggCallback = object : GGCallback {
-                    override fun onGGFailure(call: Call, e: Exception) {
-                        e.printStackTrace()
-                    }
-
-                    override fun onGGResponse(listGG: ArrayList<GG>) {
-                        logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
-                    }
-                })
+                onGGFailure = { call: Call, e: Exception ->
+                    e.printStackTrace()
+                },
+                onGGResponse = { listGG: ArrayList<GG> ->
+                    logD("getGG listGG: -> " + BaseApplication.gson.toJson(listGG))
+                }
+        )
     }
 }

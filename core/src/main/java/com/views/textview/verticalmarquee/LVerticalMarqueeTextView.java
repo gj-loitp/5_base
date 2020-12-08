@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
@@ -14,6 +13,7 @@ import android.widget.TextView;
 
 import com.R;
 
+//try to convert kotlin 4/12/2020 but failed
 public class LVerticalMarqueeTextView extends ScrollView {
     private static final String TAG = LVerticalMarqueeTextView.class.getName();
 
@@ -97,7 +97,7 @@ public class LVerticalMarqueeTextView extends ScrollView {
         if (!this.isAnimating) {
             this.isAnimating = true;
 
-            new Thread(() -> LVerticalMarqueeTextView.this.animateTextView()).start();
+            new Thread(LVerticalMarqueeTextView.this::animateTextView).start();
         }
     }
 
@@ -226,7 +226,7 @@ public class LVerticalMarqueeTextView extends ScrollView {
             try {
                 Thread.sleep((long) (LVerticalMarqueeTextView.SECOND / LVerticalMarqueeTextView.this.marqueeSpeed));
             } catch (final InterruptedException e) {
-                Log.v(LVerticalMarqueeTextView.TAG, e.getMessage(), e);
+                e.printStackTrace();
             }
         }
 
@@ -252,7 +252,7 @@ public class LVerticalMarqueeTextView extends ScrollView {
             final int height = this.heightOf(this.textView);
             final int parentHeight = this.parent.getHeight();
 
-            if (height > 0 && parentHeight > 0 && height > parentHeight) {
+            if (parentHeight > 0 && height > parentHeight) {
                 if (this.textView.getScrollY() >= height) {
                     this.textView.scrollTo(0, -parentHeight);
                 } else {

@@ -5,11 +5,11 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_count_down"
+        android:id="@+id/tvCountDown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="5"
+        android:text="@string/_5"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_150"
         android:textStyle="bold" />

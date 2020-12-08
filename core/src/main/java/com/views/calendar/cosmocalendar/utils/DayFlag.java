@@ -1,5 +1,6 @@
 package com.views.calendar.cosmocalendar.utils;
 
+//TODO convert kotlin
 public enum DayFlag {
     DISABLED,
     WEEKEND,

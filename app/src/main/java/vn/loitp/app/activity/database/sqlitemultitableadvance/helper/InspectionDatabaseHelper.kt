@@ -14,7 +14,7 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 
     companion object {
         // Database Version
-        private val DATABASE_VERSION = AppUtils.getAppVersionCode()
+        private val DATABASE_VERSION = AppUtils.appVersionCode
 
         // Database Name
         private val DATABASE_NAME = InspectionDatabaseHelper::class.java.name

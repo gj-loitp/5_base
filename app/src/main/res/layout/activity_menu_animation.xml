@@ -43,6 +43,11 @@
                 android:text="@string/basic_transition" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btElasticView"
+                style="@style/ButtonMenu"
+                android:text="Elastic view" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFlySchool"
                 style="@style/ButtonMenu"
                 android:text="@string/fly_school" />

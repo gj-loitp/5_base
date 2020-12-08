@@ -42,6 +42,8 @@ import java.util.UUID;
 /**
  * Custom view that provides cropping capabilities to an image.
  */
+
+//TODO convert kotlin
 public class LCropImageView extends FrameLayout {
 
     //region: Fields and Consts

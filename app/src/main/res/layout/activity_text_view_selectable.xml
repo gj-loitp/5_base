@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
@@ -17,9 +18,10 @@
             android:layout_height="wrap_content"
             android:background="@drawable/selector_emptybox"
             android:gravity="center"
-            android:textColor="?attr/themeTextColor"
+            android:textColor="@color/red"
             android:textSize="@dimen/txt_14"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:text="@string/large_dummy_text" />
 
         <com.views.textview.selectable.LSelectableView
             android:id="@+id/selectableView"

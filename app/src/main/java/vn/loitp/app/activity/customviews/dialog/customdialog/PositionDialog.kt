@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -24,7 +25,15 @@ class PositionDialog : DialogFragment() {
         BOTTOM_LEFT, BOTTOM_CENTER, BOTTOM_RIGHT
     }
 
+    enum class Style {
+        LEFT_TO_RIGHT,
+        RIGHT_TO_LEFT
+    }
+
     private var position = Position.CENTER_CENTER
+
+    //TODO RIGHT_TO_LEFT do not work
+    private var style = Style.LEFT_TO_RIGHT
 
     @SuppressLint("InflateParams")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -34,64 +43,128 @@ class PositionDialog : DialogFragment() {
         dialogBuilder.setView(dialogView)
         isCancelable = true
         init(dialogView)
-        val d = dialogBuilder.create()
-        d.window?.let { w ->
+        val alertDialog = dialogBuilder.create()
+        alertDialog.window?.let { w ->
             w.addFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
-            anchorView?.let { av ->
-                var posX: Int? = null
-                var posY: Int? = null
-                when (position) {
-                    Position.TOP_LEFT -> {
-                        posX = av.left
-                        posY = av.top
+            anchorView?.let { anchorV ->
+
+                when (style) {
+                    Style.LEFT_TO_RIGHT -> {
+                        var posX: Int? = null
+                        var posY: Int? = null
+                        when (position) {
+                            Position.TOP_LEFT -> {
+                                posX = anchorV.left
+                                posY = anchorV.top
+                            }
+                            Position.TOP_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.top
+                            }
+                            Position.TOP_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.top
+                            }
+                            Position.CENTER_LEFT -> {
+                                posX = anchorV.left
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_RIGHT -> {
+                                posX = anchorV.right
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.BOTTOM_LEFT -> {
+                                posX = anchorV.left
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.bottom
+                            }
+                            Position.DEFAULT -> {
+                                //do nothing
+                            }
+                        }
+                        posX?.let { x ->
+                            posY?.let { y ->
+                                w.attributes?.let { a ->
+                                    a.gravity = Gravity.TOP or Gravity.START
+                                    a.x = x
+                                    a.y = y
+                                    a.windowAnimations = R.style.FullDialogTheme_AnimLeftRight
+                                }
+                            }
+                        }
                     }
-                    Position.TOP_CENTER -> {
-                        posX = (av.left + av.right) / 2
-                        posY = av.top
-                    }
-                    Position.TOP_RIGHT -> {
-                        posX = av.right
-                        posY = av.top
-                    }
-                    Position.CENTER_LEFT -> {
-                        posX = av.left
-                        posY = (av.top + av.bottom) / 2
-                    }
-                    Position.CENTER_CENTER -> {
-                        posX = (av.left + av.right) / 2
-                        posY = (av.top + av.bottom) / 2
-                    }
-                    Position.CENTER_RIGHT -> {
-                        posX = av.right
-                        posY = (av.top + av.bottom) / 2
-                    }
-                    Position.BOTTOM_LEFT -> {
-                        posX = av.left
-                        posY = av.bottom
-                    }
-                    Position.BOTTOM_CENTER -> {
-                        posX = (av.left + av.right) / 2
-                        posY = av.bottom
-                    }
-                    Position.BOTTOM_RIGHT -> {
-                        posX = av.right
-                        posY = av.bottom
-                    }
-                    Position.DEFAULT -> {
-                        //do nothing
-                    }
-                }
-                if (posX != null && posY != null) {
-                    w.attributes?.let { a ->
-                        a.gravity = Gravity.TOP or Gravity.START
-                        a.x = posX
-                        a.y = posY
-                        a.windowAnimations = R.style.FullDialogTheme_Anim
+                    Style.RIGHT_TO_LEFT -> {
+                        var posX: Int? = null
+                        var posY: Int? = null
+                        when (position) {
+                            Position.TOP_LEFT -> {
+                                //TODO
+                                posX = anchorV.left
+                                posY = anchorV.top
+                            }
+                            Position.TOP_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.top
+                            }
+                            Position.TOP_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.top
+                            }
+                            Position.CENTER_LEFT -> {
+                                posX = anchorV.left
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.CENTER_RIGHT -> {
+                                posX = anchorV.right
+                                posY = (anchorV.top + anchorV.bottom) / 2
+                            }
+                            Position.BOTTOM_LEFT -> {
+                                posX = anchorV.left
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_CENTER -> {
+                                posX = (anchorV.left + anchorV.right) / 2
+                                posY = anchorV.bottom
+                            }
+                            Position.BOTTOM_RIGHT -> {
+                                posX = anchorV.right
+                                posY = anchorV.bottom
+                            }
+                            Position.DEFAULT -> {
+                                //do nothing
+                            }
+                        }
+                        Log.d(logTag, ">>>>>>>>>> $posX $posY")
+                        posX?.let { x ->
+                            posY?.let { y ->
+                                w.attributes?.let { a ->
+                                    a.gravity = Gravity.TOP or Gravity.START
+                                    a.x = x
+                                    a.y = y
+                                    a.windowAnimations = R.style.FullDialogTheme_AnimRightLeft
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
-        return d
+        return alertDialog
     }
 
     private fun init(v: View) {
@@ -100,22 +173,6 @@ class PositionDialog : DialogFragment() {
         btOK.setOnClickListener { dismiss() }
         btCancel.setOnClickListener { dismiss() }
     }
-
-    /*fun showImmersiveCenter(activity: Activity, sizeWidthPx: Int?, sizeHeightPx: Int?) {
-        if (activity is BaseActivity) {
-            activity.supportFragmentManager.let { fm ->
-                show(fm, TAG)
-                fm.executePendingTransactions()
-                dialog?.window?.let { w ->
-                    w.decorView.systemUiVisibility = activity.window.decorView.systemUiVisibility
-                    w.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)
-                    if (sizeWidthPx != null && sizeHeightPx != null) {
-                        w.setLayout(sizeWidthPx, sizeHeightPx)
-                    }
-                }
-            }
-        }
-    }*/
 
     fun showImmersivePos(activity: Activity, anchorView: View, sizeWidthPx: Int?, sizeHeightPx: Int?, position: Position) {
         this.position = position

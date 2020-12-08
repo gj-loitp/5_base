@@ -16,7 +16,6 @@ import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMen
 import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity
 import vn.loitp.app.activity.customviews.calendar.CalendarMenuActivity
-import vn.loitp.app.activity.customviews.compas.CompasActivity
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
@@ -80,7 +79,6 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btDraggableFlipView.setOnClickListener(this)
         btAnswerView.setOnClickListener(this)
         btBottomSheet.setOnClickListener(this)
-        btCompass.setOnClickListener(this)
         btScrollablePanel.setOnClickListener(this)
         btFbCmt.setOnClickListener(this)
         btWwlMusic.setOnClickListener(this)
@@ -117,7 +115,6 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btDraggableFlipView -> intent = Intent(this, DraggableFlipViewActivity::class.java)
             btAnswerView -> intent = Intent(this, AnswerViewActivity::class.java)
             btBottomSheet -> intent = Intent(this, BottomSheetMenuActivity::class.java)
-            btCompass -> intent = Intent(this, CompasActivity::class.java)
             btScrollablePanel -> intent = Intent(this, ScrollablePanelActivity::class.java)
             btFbCmt -> intent = Intent(this, FacebookCommentActivity::class.java)
             btWwlMusic -> intent = Intent(this, WWLActivityMusic::class.java)

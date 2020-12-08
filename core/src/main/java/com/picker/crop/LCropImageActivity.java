@@ -29,6 +29,8 @@ import java.io.IOException;
 /**
  * Built-in activity for image cropping.<br>
  */
+
+//TODO convert kotlin
 @LogTag("LCropImageActivity")
 @IsFullScreen(false)
 public class LCropImageActivity extends BaseFontActivity implements LCropImageView.OnSetImageUriCompleteListener, LCropImageView.OnCropImageCompleteListener,
@@ -58,7 +60,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
         lCropImageView = findViewById(R.id.cropImageView);
         ll_layout = findViewById(R.id.ll_layout);
         btn_rotaion = findViewById(R.id.btn_rotaion);
-        btn_close = findViewById(R.id.btn_close);
+        btn_close = findViewById(R.id.btClose);
         btn_crop = findViewById(R.id.btn_crop);
         btn_cancel = findViewById(R.id.btn_cancel);
         btn_cut_confirm = findViewById(R.id.btn_cut_confirm);
@@ -250,7 +252,7 @@ public class LCropImageActivity extends BaseFontActivity implements LCropImageVi
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.btn_close) {
+        if (view.getId() == R.id.btClose) {
             onBackPressed();
         } else if (view.getId() == R.id.btn_confirm) {
             cropImage();

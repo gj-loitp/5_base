@@ -3,7 +3,6 @@ package com.core.helper.mup.girl.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +17,6 @@ import com.core.helper.mup.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_home.*
 import kotlinx.android.synthetic.main.l_frm_girl_home.recyclerView
@@ -164,7 +162,7 @@ class FrmHome : BaseFragment() {
         }
 
         girlTopUserAdapter?.onClickRootView = { _ ->
-            //TODO loitpp do sth
+            //do sth
         }
         girlTopVideoAdapter?.onClickRootView = { girlTopVideo ->
             LUIUtil.playYoutube(activity = activity, url = girlTopVideo.link)
@@ -191,28 +189,23 @@ class FrmHome : BaseFragment() {
 
         LUIUtil.setScrollChange(
                 recyclerView = recyclerView,
-                callbackRecyclerView = object : CallbackRecyclerView {
-                    override fun onTop() {
-                        logD("onTop")
-                    }
-
-                    override fun onBottom() {
-                        logD("onBottom $currentPageIndex/$totalPage")
-                        if (currentPageIndex < totalPage) {
-                            currentPageIndex++
-                            girlProgressAdapter?.let { gpa ->
-                                concatAdapter?.let { ma ->
-                                    ma.addAdapter(gpa)
-                                    recyclerView.smoothScrollToPosition(ma.itemCount - 1)
-                                }
+                onTop = {
+                    logD("onTop")
+                },
+                onBottom = {
+                    logD("onBottom $currentPageIndex/$totalPage")
+                    if (currentPageIndex < totalPage) {
+                        currentPageIndex++
+                        girlProgressAdapter?.let { gpa ->
+                            concatAdapter?.let { ma ->
+                                ma.addAdapter(gpa)
+                                recyclerView.smoothScrollToPosition(ma.itemCount - 1)
                             }
-                            getPage(isSwipeToRefresh = false)
                         }
+                        getPage(isSwipeToRefresh = false)
                     }
-
-                    override fun onScrolled(isScrollDown: Boolean) {
-                    }
-                })
+                }
+        )
 
         ivSearch.setOnClickListener {
             handleSearch(isAutoSearch = false)

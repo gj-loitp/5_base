@@ -22,6 +22,8 @@ import android.widget.ImageView;
 /**
  * Animation to handle smooth cropping image matrix transformation change, specifically for zoom-in/out.
  */
+
+//TODO convert kotlin
 final class LCropImageAnimation extends Animation implements Animation.AnimationListener {
 
     //region: Fields and Consts

@@ -21,6 +21,7 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
+//TODO convert kotlin
 @LogTag("WWLPlaylistFragment")
 public class WWLPlaylistFragment extends BaseFragment {
     private RecyclerView mRecyclerView;

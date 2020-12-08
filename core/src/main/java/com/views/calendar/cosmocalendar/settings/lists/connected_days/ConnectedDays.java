@@ -2,6 +2,7 @@ package com.views.calendar.cosmocalendar.settings.lists.connected_days;
 
 import java.util.Set;
 
+//TODO convert kotlin
 public class ConnectedDays {
 
     private Set<Long> days;

@@ -3,7 +3,6 @@ package com.core.helper.gallery.slide
 import alirezat775.lib.downloader.core.OnDownloadListener
 import android.os.Bundle
 import android.os.Environment
-import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -13,12 +12,10 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import com.core.utilities.LAnimationUtil
 import com.core.utilities.LAppResource
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LStoreUtil
-import com.daimajia.androidanimations.library.Techniques
-import com.interfaces.CallbackAnimation
+import com.core.utilities.LValidateUtil
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
 import java.io.File
 
@@ -55,6 +52,8 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         btReport.setOnClickListener {
             LSocialUtil.sendEmail(context = this)
         }
+
+        LValidateUtil.isValidPackageName()
     }
 
     private inner class SlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
@@ -73,33 +72,33 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         }
     }
 
-    fun toggleDisplayRlControl() {
-        if (isRlControlShowing) {
-            hideRlControl()
-        } else {
-            showRlControl()
-        }
-    }
-
-    private var isRlControlShowing = true
-    private fun showRlControl() {
-        rlControl.visibility = View.VISIBLE
-        isRlControlShowing = true
-        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideInUp)
-    }
-
-    private fun hideRlControl() {
-        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideOutDown, callbackAnimation = object : CallbackAnimation {
-            override fun onCancel() {}
-            override fun onEnd() {
-                rlControl.visibility = View.INVISIBLE
-                isRlControlShowing = false
-            }
-
-            override fun onRepeat() {}
-            override fun onStart() {}
-        })
-    }
+//    fun toggleDisplayRlControl() {
+//        if (isRlControlShowing) {
+//            hideRlControl()
+//        } else {
+//            showRlControl()
+//        }
+//    }
+//
+//    private var isRlControlShowing = true
+//    private fun showRlControl() {
+//        rlControl.visibility = View.VISIBLE
+//        isRlControlShowing = true
+//        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideInUp)
+//    }
+//
+//    private fun hideRlControl() {
+//        LAnimationUtil.play(view = rlControl, techniques = Techniques.SlideOutDown, callbackAnimation = object : CallbackAnimation {
+//            override fun onCancel() {}
+//            override fun onEnd() {
+//                rlControl.visibility = View.INVISIBLE
+//                isRlControlShowing = false
+//            }
+//
+//            override fun onRepeat() {}
+//            override fun onStart() {}
+//        })
+//    }
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(

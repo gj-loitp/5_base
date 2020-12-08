@@ -1,9 +1,11 @@
 package vn.loitp.app.activity.demo.architecturecomponent.room.model
 
+import androidx.annotation.Keep
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+@Keep
 @Entity(tableName = Word.TABLE_WORD)
 class Word {
     companion object {

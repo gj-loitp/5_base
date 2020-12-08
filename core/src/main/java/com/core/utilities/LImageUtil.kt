@@ -221,7 +221,7 @@ class LImageUtil {
         fun load(context: Context?,
                  any: Any?,
                  imageView: ImageView?,
-                 resPlaceHolder: Int = R.color.colorPrimary,
+                 resPlaceHolder: Int = R.color.transparent,
                  resError: Int = R.color.red,
                  transformation: Transformation<Bitmap>? = null,
                  drawableRequestListener: RequestListener<Drawable>? = null) {
@@ -252,7 +252,7 @@ class LImageUtil {
         fun loadHighQuality(
                 any: Any?,
                 imageView: ImageView,
-                resPlaceHolder: Int = R.color.colorPrimary,
+                resPlaceHolder: Int = R.color.transparent,
                 resError: Int = R.color.red,
                 drawableRequestListener: RequestListener<Drawable>? = null
         ) {

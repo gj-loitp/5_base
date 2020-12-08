@@ -25,6 +25,7 @@ import androidx.customview.widget.ViewDragHelper;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
+//TODO convert kotlin
 class DraggableViewCallback extends ViewDragHelper.Callback {
 
     private static final int MINIMUM_DX_FOR_HORIZONTAL_DRAG = 5;

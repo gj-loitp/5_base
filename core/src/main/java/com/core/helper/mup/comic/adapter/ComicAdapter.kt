@@ -13,11 +13,16 @@ import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic.view.*
 
-@LogTag("GirlHeaderAdapter")
+@LogTag("ComicAdapter")
 class ComicAdapter : AnimationAdapter() {
 
     private var listComic = ArrayList<Comic>()
     var onClickRoot: ((Comic) -> Unit)? = null
+    private val placeHolder = if (LUIUtil.isDarkTheme()) {
+        R.drawable.place_holder_white
+    } else {
+        R.drawable.place_holder_black
+    }
 
     fun setData(listComic: List<Comic>, isSwipeToRefresh: Boolean?) {
         if (isSwipeToRefresh == true) {
@@ -31,10 +36,10 @@ class ComicAdapter : AnimationAdapter() {
 
         fun bind(comic: Comic) {
             LImageUtil.load(context = itemView.ivBackground.context,
-                    any = comic.getImageSrc(),
+                    any = comic.imageSrc,
                     imageView = itemView.ivBackground,
                     resError = R.color.gray,
-                    resPlaceHolder = R.color.gray,
+                    resPlaceHolder = placeHolder,
                     drawableRequestListener = null)
 
             itemView.tvTitle.apply {

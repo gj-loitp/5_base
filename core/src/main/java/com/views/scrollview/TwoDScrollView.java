@@ -33,6 +33,7 @@ import java.util.List;
  * Original source code from Matt Clark at:
  * http://web.archive.org/web/20110625064025/http://blog.gorges.us/2010/06/android-two-dimensional-scrollview
  */
+//TODO convert kotlin
 public class TwoDScrollView extends FrameLayout {
 
     static final int ANIMATED_SCROLL_GAP = 250;

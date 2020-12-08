@@ -22,7 +22,7 @@ import androidx.appcompat.widget.AppCompatImageView;
 
 import com.R;
 import com.core.utilities.LAppResource;
-
+//TODO convert kotlin
 public class LScratchImageView extends AppCompatImageView {
 
 

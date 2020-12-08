@@ -12,9 +12,9 @@ import java.util.Set;
 public class ViewBinderHelper {
     private static final String BUNDLE_MAP_KEY = "ViewBinderHelper_Bundle_Map_Key";
 
-    private Map<String, Integer> mapStates = Collections.synchronizedMap(new HashMap<String, Integer>());
-    private Map<String, LSwipeRevealLayout> mapLayouts = Collections.synchronizedMap(new HashMap<String, LSwipeRevealLayout>());
-    private Set<String> lockedSwipeSet = Collections.synchronizedSet(new HashSet<String>());
+    private Map<String, Integer> mapStates = Collections.synchronizedMap(new HashMap<>());
+    private Map<String, LSwipeRevealLayout> mapLayouts = Collections.synchronizedMap(new HashMap<>());
+    private Set<String> lockedSwipeSet = Collections.synchronizedSet(new HashSet<>());
 
     private volatile boolean openOnlyOne = false;
     private final Object stateChangeLock = new Object();
@@ -68,7 +68,6 @@ public class ViewBinderHelper {
 
     /**
      * Only if you need to restore open/close state when the orientation is changed.
-     * Call this method in {@link android.app.Activity#onSaveInstanceState(Bundle)}
      */
     public void saveStates(final Bundle outState) {
         if (outState == null)
@@ -85,7 +84,6 @@ public class ViewBinderHelper {
 
     /**
      * Only if you need to restore open/close state when the orientation is changed.
-     * Call this method in {@link android.app.Activity#onRestoreInstanceState(Bundle)}
      */
     @SuppressWarnings({"unchecked", "ConstantConditions"})
     public void restoreStates(final Bundle inState) {

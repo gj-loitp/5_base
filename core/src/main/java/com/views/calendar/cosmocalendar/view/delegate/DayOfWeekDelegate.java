@@ -9,6 +9,7 @@ import com.views.calendar.cosmocalendar.adapter.viewholder.DayOfWeekHolder;
 import com.views.calendar.cosmocalendar.model.Day;
 import com.views.calendar.cosmocalendar.view.CalendarView;
 
+//TODO convert kotlin
 public class DayOfWeekDelegate extends BaseDelegate {
 
     public DayOfWeekDelegate(CalendarView calendarView) {

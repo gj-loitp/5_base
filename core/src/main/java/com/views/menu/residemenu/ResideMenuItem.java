@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.R;
 import com.core.utilities.LUIUtil;
 import com.utils.util.ConvertUtils;
-
+//TODO convert kotlin
 public class ResideMenuItem extends LinearLayout {
 
     /**

@@ -7,7 +7,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
-import com.interfaces.CallbackPopup
 import kotlinx.android.synthetic.main.activity_menu_popup.*
 import vn.loitp.app.R
 
@@ -30,19 +29,21 @@ class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        when (v.id) {
-            R.id.btShow1,
-            R.id.btShow2,
-            R.id.btShow3,
-            R.id.btShow4,
-            R.id.btShow5 -> LPopupMenu.show(activity = this,
-                    showOnView = v,
-                    menuRes = R.menu.menu_popup,
-                    callBackPopup = object : CallbackPopup {
-                        override fun clickOnItem(menuItem: MenuItem) {
+        when (v) {
+            btShow1,
+            btShow2,
+            btShow3,
+            btShow4,
+            btShow5 -> {
+                LPopupMenu.show(
+                        activity = this,
+                        showOnView = v,
+                        menuRes = R.menu.menu_popup,
+                        callback = { menuItem ->
                             showShortInformation(menuItem.title.toString())
                         }
-                    })
+                )
+            }
         }
     }
 }

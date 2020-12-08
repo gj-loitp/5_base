@@ -114,9 +114,14 @@
         <!--<item name="android:windowAnimationStyle">@style/FullDialogTheme.Anim</item>-->
     </style>
 
-    <style name="FullDialogTheme.Anim" parent="@android:style/Animation.Activity">
-        <item name="android:windowEnterAnimation">@anim/l_anim_in_dialog</item>
-        <item name="android:windowExitAnimation">@anim/l_anim_out_dialog</item>
+    <style name="FullDialogTheme.AnimLeftRight" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/l_anim_in_dialog_left_right</item>
+        <item name="android:windowExitAnimation">@anim/l_anim_out_dialog_left_right</item>
+    </style>
+
+    <style name="FullDialogTheme.AnimRightLeft" parent="@android:style/Animation.Activity">
+        <item name="android:windowEnterAnimation">@anim/l_anim_in_dialog_right_left</item>
+        <item name="android:windowExitAnimation">@anim/l_anim_out_dialog_right_left</item>
     </style>
 
     <style name="rtl_RecyclerTabLayout">

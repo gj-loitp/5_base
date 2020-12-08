@@ -5,6 +5,7 @@ import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria;
 import java.util.ArrayList;
 import java.util.List;
 
+//TODO convert kotlin
 public abstract class BaseCriteriaSelectionManager extends BaseSelectionManager {
 
     protected List<BaseCriteria> criteriaList;

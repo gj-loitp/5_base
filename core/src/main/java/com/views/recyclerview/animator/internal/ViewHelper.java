@@ -19,7 +19,7 @@ import androidx.core.view.ViewCompat;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+//TODO convert kotlin
 public final class ViewHelper {
 
   public static void clear(View v) {

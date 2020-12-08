@@ -28,7 +28,7 @@ import com.views.layout.floatdraglayout.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//TODO convert kotlin
 public class ResideMenu extends FrameLayout {
     public static final int DIRECTION_LEFT = 0;
     public static final int DIRECTION_RIGHT = 1;
@@ -113,7 +113,7 @@ public class ResideMenu extends FrameLayout {
             layoutRightMenu = scrollViewRightMenu.findViewById(R.id.layout_right_menu);
         }
 
-        realtimeBlurView = findViewById(R.id.real_time_blur_view);
+        realtimeBlurView = findViewById(R.id.realTimeBlurView);
         imageViewShadow = findViewById(R.id.iv_shadow);
         imageViewBackground = findViewById(R.id.iv_background);
 

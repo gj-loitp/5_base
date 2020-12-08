@@ -2,12 +2,14 @@ package com.core.utilities
 
 import android.text.TextUtils
 import android.util.Patterns
+import com.R
+import com.utils.util.AppUtils
 import java.util.*
 import java.util.regex.Pattern
 
 class LValidateUtil {
     companion object {
-        private val TAG = "LValidateUtil"
+        private val logTag = "LValidateUtil"
 
         const val MSG_0 = "pw_must_length_more_8_character"
         const val MSG_1 = "pw_must_contain_number"
@@ -49,6 +51,24 @@ class LValidateUtil {
             }
             //null is valid password
             return null
+        }
+
+        private val listPkg = listOf(
+                "loitp.basemaster",
+                "loitp93.basemaster.demo",
+                "loitp93.anhseyeuemtucainhindautien",
+                "com.mup.comic",
+                "loitp93.game.findnumber"
+        )
+
+        fun isValidPackageName(): Boolean {
+            val isValid = listPkg.any {
+                it == AppUtils.appPackageName
+            }
+            if (isValid) {
+                return true
+            }
+            throw IllegalArgumentException("You have no permission to do this")
         }
     }
 }

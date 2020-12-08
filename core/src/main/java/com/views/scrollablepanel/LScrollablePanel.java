@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.R;
 
 import java.util.HashSet;
-
+//TODO convert kotlin
 public class LScrollablePanel extends FrameLayout {
     protected RecyclerView recyclerView;
     protected RecyclerView headerRecyclerView;

@@ -8,10 +8,6 @@ import android.provider.Settings;
 
 import com.utils.util.ServiceUtils;
 
-/**
- * Created by LENOVO on 7/5/2018.
- */
-
 public class LDebug {
     public final static int CODE = 1993;
 

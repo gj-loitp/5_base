@@ -1,10 +1,12 @@
 package vn.loitp.app.activity.demo.floatingwidget
 
+import androidx.annotation.Keep
 import org.greenrobot.eventbus.EventBus
 
 /**
  * Created by loitp on 5/31/2018.
  */
+@Keep
 class CommunicateMng {
     companion object {
         @JvmStatic

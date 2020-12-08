@@ -21,12 +21,11 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LDeviceUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackRecyclerView
 import com.utils.util.KeyboardUtils
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_comic_home.*
 
-@LogTag("loitppFrmHome")
+@LogTag("FrmHome")
 class FrmHome : BaseFragment() {
 
     private var comicViewModel: ComicViewModel? = null
@@ -125,38 +124,33 @@ class FrmHome : BaseFragment() {
 
         LUIUtil.setScrollChange(
                 recyclerView = recyclerView,
-                callbackRecyclerView = object : CallbackRecyclerView {
-                    override fun onTop() {
+                onBottom = {
+                    val isExistComicProgressAdapter = concatAdapter?.adapters?.firstOrNull { adapter ->
+                        adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
                     }
-
-                    override fun onBottom() {
-                        val isExistComicProgressAdapter = concatAdapter?.adapters?.firstOrNull { adapter ->
-                            adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
-                        }
 //                        logD("onBottom isExistComicProgressAdapter $isExistComicProgressAdapter")
-                        if (isExistComicProgressAdapter == null) {
-                            logD("onBottom $currentPageIndex/$totalPage")
-                            if (currentPageIndex < totalPage) {
-                                currentPageIndex++
-                                comicProgressAdapter?.let { gpa ->
-                                    concatAdapter?.let { ma ->
-                                        ma.addAdapter(gpa)
-                                        recyclerView.smoothScrollToPosition(ma.itemCount - 1)
-                                    }
+                    if (isExistComicProgressAdapter == null) {
+                        logD("onBottom $currentPageIndex/$totalPage")
+                        if (currentPageIndex < totalPage) {
+                            currentPageIndex++
+                            comicProgressAdapter?.let { gpa ->
+                                concatAdapter?.let { ma ->
+                                    ma.addAdapter(gpa)
+                                    recyclerView.smoothScrollToPosition(ma.itemCount - 1)
                                 }
-                                getListComic(isSwipeToRefresh = false)
                             }
+                            getListComic(isSwipeToRefresh = false)
                         }
                     }
-
-                    override fun onScrolled(isScrollDown: Boolean) {
-                        if (isScrollDown) {
-                            fabCategory.shrink()
-                        } else {
-                            fabCategory.extend()
-                        }
+                },
+                onScrolled = { isScrollDown ->
+                    if (isScrollDown) {
+                        fabCategory.shrink()
+                    } else {
+                        fabCategory.extend()
                     }
-                })
+                }
+        )
 
         ivSearch.setSafeOnClickListener {
             handleSearch(isAutoSearch = false)

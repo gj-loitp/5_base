@@ -10,6 +10,7 @@ import com.views.calendar.cosmocalendar.view.CalendarView;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+//TODO convert kotlin
 public class DayOfWeekHolder extends BaseDayHolder {
 
     private SimpleDateFormat mDayOfWeekFormatter;

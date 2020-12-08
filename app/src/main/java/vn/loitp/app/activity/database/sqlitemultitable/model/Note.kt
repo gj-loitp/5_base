@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.database.sqlitemultitable.model
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
+@Keep
 class Note : BaseModel {
     var id: Int = 0
     var note: String? = null

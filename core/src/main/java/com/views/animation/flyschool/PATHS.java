@@ -10,6 +10,7 @@ package com.views.animation.flyschool;
  * Created by avin on 20/01/17.
  */
 
+//TODO convert kotlin
 public enum PATHS {
     //S Shapes
     S_BOTTOM_LEFT, S_INVERTED_BOTTOM_RIGHT, S_TOP_RIGHT, S_INVERTED_TOP_LEFT,

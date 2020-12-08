@@ -16,7 +16,7 @@ import com.R;
 import com.core.utilities.LAppResource;
 
 import java.util.ArrayList;
-
+//TODO convert kotlin
 public class WP7ProgressBar extends LinearLayout {
 
     private static final int INTERVAL_DEF = 150;

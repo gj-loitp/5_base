@@ -8,7 +8,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
-import com.interfaces.CallbackPopup
 import com.views.recyclerview.itemdecoration.StickyFooterItemDecoration
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
@@ -58,26 +57,28 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
         prepareMovieData()
 
         btSetting.setSafeOnClickListener {
-            LPopupMenu.show(activity = this, showOnView = it, menuRes = R.menu.menu_recycler_view,
-                    callBackPopup = object : CallbackPopup {
-                        override fun clickOnItem(menuItem: MenuItem) {
-                            tvType.text = menuItem.title.toString()
-                            when (menuItem.itemId) {
-                                R.id.menuLinearVertical -> {
-                                    val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewFooter2Activity)
-                                    rv.layoutManager = lmVertical
-                                }
-                                R.id.menuLinearHorizontal -> {
-                                    val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewFooter2Activity, LinearLayoutManager.HORIZONTAL, false)
-                                    rv.layoutManager = lmHorizontal
-                                }
-                                R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewFooter2Activity, 2)
-                                R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewFooter2Activity, 3)
-                                R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                                R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
+            LPopupMenu.show(
+                    activity = this,
+                    showOnView = it,
+                    menuRes = R.menu.menu_recycler_view,
+                    callback = { menuItem ->
+                        tvType.text = menuItem.title.toString()
+                        when (menuItem.itemId) {
+                            R.id.menuLinearVertical -> {
+                                val lmVertical: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewFooter2Activity)
+                                rv.layoutManager = lmVertical
                             }
+                            R.id.menuLinearHorizontal -> {
+                                val lmHorizontal: RecyclerView.LayoutManager = LinearLayoutManager(this@RecyclerViewFooter2Activity, LinearLayoutManager.HORIZONTAL, false)
+                                rv.layoutManager = lmHorizontal
+                            }
+                            R.id.menuGridLayoutManager2 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewFooter2Activity, 2)
+                            R.id.menuGridLayoutManager3 -> rv.layoutManager = GridLayoutManager(this@RecyclerViewFooter2Activity, 3)
+                            R.id.menuStaggeredGridLayoutManager2 -> rv.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                            R.id.menuStaggeredGridLayoutManager4 -> rv.layoutManager = StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.HORIZONTAL)
                         }
-                    })
+                    }
+            )
         }
 
         btAddMore.setSafeOnClickListener {

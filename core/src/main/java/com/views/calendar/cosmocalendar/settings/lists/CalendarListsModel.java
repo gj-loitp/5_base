@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+//TODO convert kotlin
 public class CalendarListsModel implements CalendarListsInterface {
 
     private Calendar minDate;

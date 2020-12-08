@@ -11,10 +11,6 @@ import android.view.ViewGroup;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 
-/**
- *
- */
-
 public abstract class BaseTreeAdapter<VH> implements TreeAdapter<VH> {
     private final int mLayoutRes;
     private TreeNode mRootNode;

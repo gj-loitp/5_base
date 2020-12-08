@@ -1,5 +1,5 @@
 package com.views.progressloadingview.window;
-
+//TODO convert kotlin
 public class WPInterpolator implements android.view.animation.Interpolator {
     @Override
     public float getInterpolation(float v) {

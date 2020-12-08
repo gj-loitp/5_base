@@ -90,7 +90,7 @@ dependencies {
 
     api 'androidx.appcompat:appcompat:1.2.0'
 //    api 'com.google.android.material:material:1.2.1'
-    api 'com.google.android.material:material:1.3.0-alpha03'
+    api 'com.google.android.material:material:1.3.0-alpha04'
     api 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
     api 'androidx.cardview:cardview:1.0.0'
     api 'androidx.constraintlayout:constraintlayout:2.0.4'
@@ -99,7 +99,8 @@ dependencies {
     api 'com.flaviofaria:kenburnsview:1.0.7'//https://github.com/flavioarfaria/KenBurnsView
     api 'com.labo.kaji:relativepopupwindow:0.4.1'//https://github.com/kakajika/RelativePopupWindow
     api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'//https://github.com/alpbak/BoxedVerticalSeekBar
-
+    api 'com.github.stfalcon:stfalcon-imageviewer:1.0.1'//https://github.com/stfalcon-studio/StfalconImageViewer
+    api "com.github.skydoves:transformationlayout:1.0.6"//https://github.com/skydoves/TransformationLayout
     //endregion
 
     //fragment navigation
@@ -117,14 +118,11 @@ dependencies {
     //region animation
     api 'com.daimajia.easing:library:2.4@aar'
     api 'com.daimajia.androidanimations:library:2.4@aar'
-
     api 'com.daasuu:EasingInterpolator:1.3.0'//need for shine button
-
     api 'com.simmorsal.recolor:recolor:1.1.0'//recolor https://github.com/SIMMORSAL/ReColor
-
     api 'com.airbnb.android:lottie:3.4.4'
-
     api 'me.everything:overscroll-decor-android:1.1.0'//https://github.com/EverythingMe/overscroll-decor
+    api "com.github.skydoves:elasticviews:2.0.8"//https://github.com/skydoves/ElasticViews
     //endregion
 
     //region google service

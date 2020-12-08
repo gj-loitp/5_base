@@ -16,6 +16,7 @@ import com.views.calendar.cosmocalendar.view.delegate.DayDelegate;
 import com.views.calendar.cosmocalendar.view.delegate.DayOfWeekDelegate;
 import com.views.calendar.cosmocalendar.view.delegate.OtherDayDelegate;
 
+//TODO convert kotlin
 public class DaysAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Month month;

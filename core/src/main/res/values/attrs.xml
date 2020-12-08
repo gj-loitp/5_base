@@ -82,9 +82,9 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="LTranslucentView">
-        <attr name="translucentBackgroundColor" format="color" />
-    </declare-styleable>
+<!--    <declare-styleable name="LTranslucentView">-->
+<!--        <attr name="translucentBackgroundColor" format="color" />-->
+<!--    </declare-styleable>-->
 
     <declare-styleable name="LMaterialTextField">
         <attr name="mtf_cardCollapsedHeight" format="dimension" />
@@ -96,28 +96,14 @@
         <attr name="mtf_backgroundColor" format="color" />
     </declare-styleable>
 
-    <declare-styleable name="BiuEditStyle">
-        <attr name="biu_text_color" format="color" />
-        <attr name="biu_text_start_size" format="dimension" />
-        <attr name="biu_text_scale" format="float" />
-        <attr name="biu_duration" format="integer" />
-        <attr name="biu_type" format="enum">
-            <enum name="flyup" value="0" />
-            <enum name="flydown" value="1" />
-        </attr>
-    </declare-styleable>
-
-<!--    <declare-styleable name="LCustomToggle">-->
-<!--        <attr name="ctg_addLeftIcon" format="reference" type="drawable" />-->
-<!--        <attr name="ctg_addRightIcon" format="reference" />-->
-<!--        <attr name="ctg_addSlideBackgroundColor" format="color" />-->
-<!--        <attr name="ctg_addSlideColor" format="color" />-->
-<!--        <attr name="ctg_addMagnification" format="integer" />-->
-<!--        <attr name="ctg_addAnimationTime" format="integer" />-->
-<!--        <attr name="ctg_addAnimationType" format="enum">-->
-<!--            <enum name="jack_animation" value="0" />-->
-<!--            <enum name="phantom_animation" value="1" />-->
-<!--            <enum name="extra_animation" value="2" />-->
+<!--    <declare-styleable name="BiuEditStyle">-->
+<!--        <attr name="biu_text_color" format="color" />-->
+<!--        <attr name="biu_text_start_size" format="dimension" />-->
+<!--        <attr name="biu_text_scale" format="float" />-->
+<!--        <attr name="biu_duration" format="integer" />-->
+<!--        <attr name="biu_type" format="enum">-->
+<!--            <enum name="flyup" value="0" />-->
+<!--            <enum name="flydown" value="1" />-->
 <!--        </attr>-->
 <!--    </declare-styleable>-->
 
@@ -336,17 +322,17 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="LCompass">
-        <attr name="degree_color" format="color" />
-        <attr name="show_orientation_labels" format="boolean" />
-        <attr name="orientation_labels_color" format="color" />
-        <attr name="show_degree_value" format="boolean" />
-        <attr name="degree_value_color" format="color" />
-        <attr name="needle" format="integer" />
-        <attr name="degrees_step" format="integer" />
-        <attr name="show_border" format="boolean" />
-        <attr name="border_color_compass" format="color" />
-    </declare-styleable>
+<!--    <declare-styleable name="LCompass">-->
+<!--        <attr name="degree_color" format="color" />-->
+<!--        <attr name="show_orientation_labels" format="boolean" />-->
+<!--        <attr name="orientation_labels_color" format="color" />-->
+<!--        <attr name="show_degree_value" format="boolean" />-->
+<!--        <attr name="degree_value_color" format="color" />-->
+<!--        <attr name="needle" format="integer" />-->
+<!--        <attr name="degrees_step" format="integer" />-->
+<!--        <attr name="show_border" format="boolean" />-->
+<!--        <attr name="border_color_compass" format="color" />-->
+<!--    </declare-styleable>-->
 
     <declare-styleable name="LHeartLayout">
         <attr name="initX" format="dimension" />
@@ -692,5 +678,23 @@
     <declare-styleable name="LAspectRatioLayout">
         <attr name="arl_widthRatio" format="float" />
         <attr name="arl_heightRatio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="ComicView">
+
+        <attr name="min_zoom_scale" format="float" />
+        <attr name="max_zoom_scale" format="float" />
+        <attr name="normal_scale" format="float" />
+        <attr name="zoom_scale" format="float" />
+
+        <attr name="zoom_to_small_times" format="integer" />
+        <attr name="zoom_scale_duration" format="integer" />
+        <attr name="zoom_to_small_scale_duration" format="integer" />
+
+    </declare-styleable>
+
+    <declare-styleable name="FitGridView">
+        <attr name="column" format="integer"/>
+        <attr name="row" format="integer"/>
     </declare-styleable>
 </resources>

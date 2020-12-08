@@ -7,33 +7,32 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.function.simplefingergestures.SimpleFingerGestures
-import com.function.simplefingergestures.SimpleFingerGestures.OnFingerGestureListener
 import kotlinx.android.synthetic.main.activity_func_simple_finger_gestures.*
 import vn.loitp.app.R
 
 @LogTag("SimpleFingerGesturesActivity")
 @IsFullScreen(false)
 class SimpleFingerGesturesActivity : BaseFontActivity() {
-    private val simpleFingerGestures = SimpleFingerGestures()
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_func_simple_finger_gestures
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun setupViews() {
         val display = windowManager.defaultDisplay
         val size = Point()
         display.getSize(size)
-//        val width = size.x
-//        val height = size.y
-        val sfg = SimpleFingerGestures()
-        sfg.setDebug(true)
-        sfg.consumeTouchEvents = true
+        val simpleFingerGestures = SimpleFingerGestures()
+        simpleFingerGestures.consumeTouchEvents = true
 
-        sfg.setOnFingerGestureListener(object : OnFingerGestureListener {
+        simpleFingerGestures.setOnFingerGestureListener(object : SimpleFingerGestures.OnFingerGestureListener {
             override fun onSwipeUp(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean {
                 textView.text = "You swiped $fingers fingers  up $gestureDuration milliseconds $gestureDistance pixels far"
                 return false
@@ -69,7 +68,6 @@ class SimpleFingerGesturesActivity : BaseFontActivity() {
                 return false
             }
         })
-        iv.setOnTouchListener(sfg)
+        iv.setOnTouchListener(simpleFingerGestures)
     }
-
 }

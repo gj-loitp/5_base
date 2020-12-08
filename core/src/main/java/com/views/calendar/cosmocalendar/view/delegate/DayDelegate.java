@@ -14,6 +14,7 @@ import com.views.calendar.cosmocalendar.selection.BaseSelectionManager;
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager;
 import com.views.calendar.cosmocalendar.view.CalendarView;
 
+//TODO convert kotlin
 public class DayDelegate extends BaseDelegate {
 
     private MonthAdapter monthAdapter;

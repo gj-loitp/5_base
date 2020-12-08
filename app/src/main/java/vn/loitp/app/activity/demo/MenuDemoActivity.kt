@@ -3,6 +3,7 @@ package vn.loitp.app.activity.demo
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.BuildConfig
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -13,6 +14,7 @@ import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.helper.mup.comic.ui.activity.ComicSplashActivity
 import com.core.helper.mup.girl.ui.GirlSplashActivity
 import com.core.utilities.LActivityUtil
+import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
@@ -48,6 +50,24 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        if (BuildConfig.DEBUG) {
+            btGalleryCore.visibility = View.VISIBLE
+            btGalleryCoreAlbum.visibility = View.VISIBLE
+            btGalleryMember.visibility = View.VISIBLE
+            btGalleryCoreAlbumFrm.visibility = View.VISIBLE
+            btEpubReader.visibility = View.VISIBLE
+            btGirl.visibility = View.VISIBLE
+            btComic.visibility = View.VISIBLE
+        } else {
+            btGalleryCore.visibility = View.GONE
+            btGalleryCoreAlbum.visibility = View.GONE
+            btGalleryMember.visibility = View.GONE
+            btGalleryCoreAlbumFrm.visibility = View.GONE
+            btEpubReader.visibility = View.GONE
+            btGirl.visibility = View.GONE
+            btComic.visibility = View.GONE
+        }
+
         btAlarm.setOnClickListener(this)
         btEbookWithRealm.setOnClickListener(this)
         btVideo.setOnClickListener(this)
@@ -56,24 +76,10 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFloatingWidget.setOnClickListener(this)
         btFloatingVideo.setOnClickListener(this)
         btFirebase.setOnClickListener(this)
-        if (Constants.IS_DEBUG) {
-            btGalleryCore.visibility = View.VISIBLE
-            btGalleryCore.setOnClickListener(this)
-
-            btGalleryCoreAlbum.visibility = View.VISIBLE
-            btGalleryCoreAlbum.setOnClickListener(this)
-
-            btGalleryMember.visibility = View.VISIBLE
-            btGalleryMember.setOnClickListener(this)
-
-            btGalleryCoreAlbumFrm.setOnClickListener(this)
-            btGalleryCoreAlbumFrm.visibility = View.VISIBLE
-        } else {
-            btGalleryCore.visibility = View.GONE
-            btGalleryCoreAlbum.visibility = View.GONE
-            btGalleryMember.visibility = View.GONE
-            btGalleryCoreAlbumFrm.visibility = View.GONE
-        }
+        btGalleryCore.setOnClickListener(this)
+        btGalleryCoreAlbum.setOnClickListener(this)
+        btGalleryMember.setOnClickListener(this)
+        btGalleryCoreAlbumFrm.setOnClickListener(this)
         btEpubReader.setOnClickListener(this)
         bt2InstanceActivity.setOnClickListener(this)
         btFragmentNavigation.setOnClickListener(this)
@@ -85,6 +91,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btGirl.setOnClickListener(this)
         btMapTracker.setOnClickListener(this)
         btComic.setOnClickListener(this)
+        btFindNumber.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -101,7 +108,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryCore -> {
                 intent = Intent(this, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.BKG_SPLASH_SCREEN, "https://c2.staticflickr.com/8/7764/29782311711_0882f5b347_b.jpg")
+                intent.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
                 //neu muon remove albumn nao thi cu pass id cua albumn do
                 val removeAlbumFlickrList = ArrayList<String>()
                 removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
@@ -153,6 +160,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.COMIC_SHOW_DONATION, true)
             }
+            btFindNumber -> intent = Intent(this, SplashActivity::class.java)
         }
         intent?.let {
             startActivity(intent)

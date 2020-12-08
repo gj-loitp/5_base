@@ -15,6 +15,7 @@ import vn.loitp.app.R;
  * Created by thangn on 3/1/17.
  */
 
+//TODO convert kotlin
 public class WWLMusicPlayerPanel extends FrameLayout {
     public ColorDrawable mBgColorDrawable;
     public View mMiniControlsContainer;

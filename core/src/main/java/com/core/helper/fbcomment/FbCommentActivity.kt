@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
+import com.BuildConfig
 import com.R
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
@@ -66,7 +67,7 @@ class FbCommentActivity : BaseFontActivity() {
 
         LUIUtil.setColorProgressBar(progressBar = progressBar, color = LAppResource.getColor(R.color.colorPrimary))
 
-        postUrl = if (Constants.IS_DEBUG) {
+        postUrl = if (BuildConfig.DEBUG) {
             "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
         } else {
             intent.getStringExtra(Constants.FACEBOOK_COMMENT_URL)

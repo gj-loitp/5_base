@@ -8,34 +8,34 @@
     android:paddingBottom="@dimen/padding_medium">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_change_to_fullscreen"
+        android:id="@+id/btChangeToFullScreen"
         style="@style/ButtonMenu"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Change To Fullscreen Model"
+        android:text="@string/change_to_fullscreen_model"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_change_to_no_title"
+        android:id="@+id/btChangeToNoTitle"
         style="@style/ButtonMenu"
-        android:layout_below="@+id/bt_change_to_fullscreen"
+        android:layout_below="@+id/btChangeToFullScreen"
         android:layout_centerHorizontal="true"
-        android:text="Change To No Title Model"
+        android:text="@string/change_to_no_title_model"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_change_to_windows"
+        android:id="@+id/btChangeToWindows"
         style="@style/ButtonMenu"
-        android:layout_below="@+id/bt_change_to_no_title"
+        android:layout_below="@+id/btChangeToNoTitle"
         android:layout_centerHorizontal="true"
-        android:text="Change To Windows Model"
+        android:text="@string/change_to_windows_model"
         android:textAllCaps="false" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bt_show_floatDragPopupWindow"
+        android:id="@+id/btShowFloatDragPopupWindow"
         style="@style/ButtonMenu"
-        android:layout_below="@+id/bt_change_to_windows"
+        android:layout_below="@+id/btChangeToWindows"
         android:layout_centerHorizontal="true"
-        android:text="Show FloatDragPopupWindow"
+        android:text="@string/show_floatdragpopupwindow"
         android:textAllCaps="false" />
 </RelativeLayout>

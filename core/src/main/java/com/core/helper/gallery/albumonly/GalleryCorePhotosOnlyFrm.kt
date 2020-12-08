@@ -20,8 +20,6 @@ import com.core.utilities.LAppResource
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LStoreUtil
-import com.interfaces.Callback2
-import com.interfaces.CallbackList
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -141,17 +139,16 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
             arr[i] = "Page " + (totalPage - i)
         }
         activity?.let {
-            LDialogUtil.showDialogList(context = it,
+            LDialogUtil.showDialogList(
+                    context = it,
                     title = "Select page",
                     arr = arr,
-                    callbackList = object : CallbackList {
-                        override fun onClick(position: Int) {
-                            currentPage = totalPage - position
-                            logD("showDialogList onClick position $position, -> currentPage: $currentPage")
-                            PhotosDataCore.instance.clearData()
-                            updateAllViews()
-                            photosetsGetPhotos(photosetID)
-                        }
+                    onClick = { position ->
+                        currentPage = totalPage - position
+                        logD("showDialogList onClick position $position, -> currentPage: $currentPage")
+                        PhotosDataCore.instance.clearData()
+                        updateAllViews()
+                        photosetsGetPhotos(photosetID)
                     })
         }
     }
@@ -318,45 +315,43 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
     }
 
     private fun showShouldAcceptPermission() {
-        activity?.let {
-            val alertDialog = LDialogUtil.showDialog2(context = it,
+        activity?.let { a ->
+            val alertDialog = LDialogUtil.showDialog2(
+                    context = a,
                     title = "Need Permissions",
                     msg = "This app needs permission to use this feature.",
                     button1 = "Okay",
                     button2 = "Cancel",
-                    callback2 = object : Callback2 {
-                        override fun onClick1() {
-                            checkPermission()
-                        }
-
-                        override fun onClick2() {
-                            it.onBackPressed()
-                        }
-                    })
+                    onClickButton1 = {
+                        checkPermission()
+                    },
+                    onClickButton2 = {
+                        a.onBackPressed()
+                    }
+            )
             alertDialog.setCancelable(false)
         }
     }
 
     private fun showSettingsDialog() {
-        context?.let {
-            val alertDialog = LDialogUtil.showDialog2(context = it,
+        activity?.let { a ->
+            val alertDialog = LDialogUtil.showDialog2(
+                    context = a,
                     title = "Need Permissions",
                     msg = "This app needs permission to use this feature. You can grant them in app settings.",
                     button1 = "GOTO SETTINGS",
-                    button2 = "Cancel",
-                    callback2 = object : Callback2 {
-                        override fun onClick1() {
-                            isShowDialogCheck = false
-                            val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                            val uri = Uri.fromParts("package", it.packageName, null)
-                            intent.data = uri
-                            startActivityForResult(intent, 101)
-                        }
-
-                        override fun onClick2() {
-                            activity?.onBackPressed()
-                        }
-                    })
+                    button2 = getString(R.string.cancel),
+                    onClickButton1 = {
+                        isShowDialogCheck = false
+                        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                        val uri = Uri.fromParts("package", a.packageName, null)
+                        intent.data = uri
+                        startActivityForResult(intent, 101)
+                    },
+                    onClickButton2 = {
+                        activity?.onBackPressed()
+                    }
+            )
             alertDialog.setCancelable(false)
         }
     }

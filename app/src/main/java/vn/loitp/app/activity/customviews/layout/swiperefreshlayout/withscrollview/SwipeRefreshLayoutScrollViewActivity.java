@@ -15,6 +15,7 @@ import vn.loitp.app.R;
 
 @LogTag("SwipeRefreshLayoutScrollViewActivity")
 @IsFullScreen(false)
+//TODO convert kotlin
 public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
 

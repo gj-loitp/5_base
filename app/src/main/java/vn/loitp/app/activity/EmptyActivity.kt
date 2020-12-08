@@ -12,4 +12,5 @@ class EmptyActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_splash_v3
     }
+
 }

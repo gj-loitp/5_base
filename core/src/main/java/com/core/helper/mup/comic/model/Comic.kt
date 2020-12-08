@@ -30,7 +30,7 @@ data class Comic(
 
         @SerializedName("imageSrc")
         @Expose
-        private val imageSrc: String? = null,
+        val imageSrc: String? = null,
 
         @SerializedName("isDelete")
         @Expose
@@ -57,11 +57,11 @@ data class Comic(
         val viewCount: Int? = null
 ) : Serializable {
 
-    fun getImageSrc(): String {
-        return if (imageSrc?.contains("http:/") == true) {
-            imageSrc
-        } else {
-            "http:/$imageSrc"
-        }
-    }
+//    fun getImageSrc(): String {
+//        return if (imageSrc?.contains("http:/") == true) {
+//            imageSrc
+//        } else {
+//            "http:/$imageSrc"
+//        }
+//    }
 }

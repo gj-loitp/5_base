@@ -19,6 +19,10 @@ class CountDownActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         countDownView.setShowOrHide(false)
         countDownView.setCallback(object : LCountDownView.Callback {
             override fun onTick() {
@@ -31,7 +35,7 @@ class CountDownActivity : BaseFontActivity() {
             }
         })
 
-        btStart.setOnClickListener { _ ->
+        btStart.setOnClickListener {
             btStart.isEnabled = false
             countDownView.setShowOrHide(true)
             countDownView.start(5)

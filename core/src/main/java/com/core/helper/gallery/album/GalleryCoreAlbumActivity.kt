@@ -14,6 +14,7 @@ import com.core.common.Constants
 import com.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
+import com.core.utilities.LValidateUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.restapi.flickr.FlickrConst
@@ -104,17 +105,17 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         }
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
             }
 
-            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+            override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
                     LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)
                 }
             }
         })
-
+        LValidateUtil.isValidPackageName()
         getListPhotosets()
     }
 

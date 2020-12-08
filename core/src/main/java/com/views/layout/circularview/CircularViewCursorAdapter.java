@@ -169,6 +169,7 @@ public abstract class CircularViewCursorAdapter implements BaseCircularViewAdapt
             onContentChanged();
         }
     }
+
     private class MyDataSetObserver extends DataSetObserver {
         @Override
         public void onChanged() {

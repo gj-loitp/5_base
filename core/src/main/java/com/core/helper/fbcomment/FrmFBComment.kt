@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
+import com.BuildConfig
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
@@ -48,7 +49,7 @@ class FrmFBComment : BaseFragment() {
         }
         val bundle = arguments ?: return
         postUrl = bundle.getString(Constants.FACEBOOK_COMMENT_URL)
-        if (Constants.IS_DEBUG) {
+        if (BuildConfig.DEBUG) {
             postUrl = "https://www.androidhive.info/2016/06/android-firebase-integrate-analytics/"
         }
         if (postUrl.isNullOrEmpty()) {

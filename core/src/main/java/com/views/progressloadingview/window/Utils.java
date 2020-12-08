@@ -1,7 +1,7 @@
 package com.views.progressloadingview.window;
 
 import android.content.Context;
-
+//TODO convert kotlin
 public class Utils {
     public static int px2dp(Context context, int px) {
         float scale = context.getResources().getDisplayMetrics().density;

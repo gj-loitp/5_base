@@ -24,6 +24,7 @@ class DraggablePanelFreeActivity : BaseFontActivity() {
         setupViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViews() {
         btMaximize.setSafeOnClickListener {
             dpfl.maximize()

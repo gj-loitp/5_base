@@ -13,8 +13,8 @@ import androidx.viewpager.widget.ViewPager
  */
 
 class LSwipeOutViewPager : ViewPager {
-    internal var mStartDragX: Float = 0.toFloat()
-    internal var mOnSwipeOutListener: OnSwipeOutListener? = null
+    private var mStartDragX: Float = 0.toFloat()
+    private var mOnSwipeOutListener: OnSwipeOutListener? = null
 
     constructor(context: Context) : super(context)
 

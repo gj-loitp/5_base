@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import com.core.base.BaseFontActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
+//TODO convert kotlin
 public abstract class BaseFirebaseActivity extends BaseFontActivity {
     private ProgressDialog mProgressDialog;
 

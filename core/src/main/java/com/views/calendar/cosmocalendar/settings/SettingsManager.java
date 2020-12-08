@@ -19,6 +19,7 @@ import com.views.calendar.cosmocalendar.utils.SelectionType;
 import java.util.Calendar;
 import java.util.Set;
 
+//TODO convert kotlin
 public class SettingsManager implements AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface {
 
     //Default values

@@ -36,9 +36,9 @@ import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
-import com.interfaces.CallbackPull
-import com.interfaces.CallbackRecyclerView
+import com.skydoves.elasticviews.elasticAnimation
 import com.utils.util.ConvertUtils
+import com.views.setSafeOnClickListener
 import io.github.inflationx.calligraphy3.CalligraphyConfig
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor
 import io.github.inflationx.calligraphy3.CalligraphyUtils
@@ -338,158 +338,148 @@ class LUIUtil {
             }
         }
 
-        fun setPullLikeIOSVertical(recyclerView: RecyclerView) {
+        fun setPullLikeIOSVertical(
+                recyclerView: RecyclerView
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
-
-            // Horizontal
-            //OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
-
-            // Vertical
             OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
         }
 
-        fun setPullLikeIOSHorizontal(recyclerView: RecyclerView) {
+        fun setPullLikeIOSHorizontal(
+                recyclerView: RecyclerView
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
-
-            // Horizontal
             OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
         }
 
-        fun setPullLikeIOSHorizontal(viewPager: ViewPager, callbackPull: CallbackPull?) {
+        fun setPullLikeIOSHorizontal(
+                viewPager: ViewPager,
+                onUpOrLeft: ((Float) -> Unit)? = null,
+                onUpOrLeftRefresh: ((Float) -> Unit)? = null,
+                onDownOrRight: ((Float) -> Unit)? = null,
+                onDownOrRightRefresh: ((Float) -> Unit)? = null
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
             val mDecor = OverScrollDecoratorHelper.setUpOverScroll(viewPager)
-            callbackPull?.let {
-                mDecor.setOverScrollUpdateListener { decor, state, offset ->
-                    //val view = decor.view
-                    when {
-                        offset > 0 -> {
-                            // 'view' is currently being over-scrolled from the top.
-                            lastOffset = offset
-                            isUp = true
-                        }
-                        offset < 0 -> {
-                            // 'view' is currently being over-scrolled from the bottom.
-                            lastOffset = offset
-                            isUp = false
-                        }
-                        else -> {
-                            // No over-scroll is in-effect.
-                            // This is synonymous with having (state == STATE_IDLE).
-                            if (isUp) {
-                                if (lastOffset > 1.8f) {
-                                    callbackPull.onUpOrLeftRefresh(lastOffset)
-                                    LSoundUtil.startMusicFromAsset("ting.ogg")
-                                } else {
-                                    callbackPull.onUpOrLeft(lastOffset)
-                                }
+            mDecor.setOverScrollUpdateListener { decor, state, offset ->
+                when {
+                    offset > 0 -> {
+                        // 'view' is currently being over-scrolled from the top.
+                        lastOffset = offset
+                        isUp = true
+                    }
+                    offset < 0 -> {
+                        // 'view' is currently being over-scrolled from the bottom.
+                        lastOffset = offset
+                        isUp = false
+                    }
+                    else -> {
+                        // No over-scroll is in-effect.
+                        // This is synonymous with having (state == STATE_IDLE).
+                        if (isUp) {
+                            if (lastOffset > 1.8f) {
+                                onUpOrLeftRefresh?.invoke(lastOffset)
+                                LSoundUtil.startMusicFromAsset("ting.ogg")
                             } else {
-                                if (lastOffset < -1.8f) {
-                                    callbackPull.onDownOrRightRefresh(lastOffset)
-                                } else {
-                                    callbackPull.onDownOrRight(lastOffset)
-                                }
+                                onUpOrLeft?.invoke(lastOffset)
                             }
-                            lastOffset = 0f
-                            isUp = false
+                        } else {
+                            if (lastOffset < -1.8f) {
+                                onDownOrRightRefresh?.invoke(lastOffset)
+                            } else {
+                                onDownOrRight?.invoke(lastOffset)
+                            }
                         }
+                        lastOffset = 0f
+                        isUp = false
                     }
                 }
             }
         }
 
-        fun setPullLikeIOSVertical(recyclerView: RecyclerView, callbackPull: CallbackPull?) {
+        fun setPullLikeIOSVertical(
+                recyclerView: RecyclerView,
+                onUpOrLeft: ((Float) -> Unit)? = null,
+                onUpOrLeftRefresh: ((Float) -> Unit)? = null,
+                onDownOrRight: ((Float) -> Unit)? = null,
+                onDownOrRightRefresh: ((Float) -> Unit)? = null
+        ) {
             val mDecor = OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
-            if (callbackPull != null) {
-                /*decor.setOverScrollStateListener(new IOverScrollStateListener() {
-                    @Override
-                    public void onOverScrollStateChange(IOverScrollDecor decor, int oldState, int newState) {
-                        switch (newState) {
-                            case STATE_IDLE:
-                                // No over-scroll is in effect.
-                                callback.onIdle();
-                                break;
-                            case STATE_DRAG_START_SIDE:
-                                // Dragging started at the left-end.
-                                callback.onDragStarSide();
-                                break;
-                            case STATE_DRAG_END_SIDE:
-                                // Dragging started at the right-end.
-                                callback.onDragEndSide();
-                                break;
-                            case STATE_BOUNCE_BACK:
-                                if (oldState == STATE_DRAG_START_SIDE) {
-                                    // Dragging stopped -- view is starting to bounce back from the *left-end* onto natural position.
-                                } else { // i.e. (oldState == STATE_DRAG_END_SIDE)
-                                    // View is starting to bounce back from the *right-end*.
-                                }
-                                break;
-                        }
+            mDecor.setOverScrollUpdateListener { decor, state, offset ->
+                //val view = decor.view
+                when {
+                    offset > 0 -> {
+                        // 'view' is currently being over-scrolled from the top.
+                        lastOffset = offset
+                        isUp = true
                     }
-                });*/
-                mDecor.setOverScrollUpdateListener { decor, state, offset ->
-                    //val view = decor.view
-                    when {
-                        offset > 0 -> {
-                            // 'view' is currently being over-scrolled from the top.
-                            lastOffset = offset
-                            isUp = true
-                        }
-                        offset < 0 -> {
-                            // 'view' is currently being over-scrolled from the bottom.
-                            lastOffset = offset
-                            isUp = false
-                        }
-                        else -> {
-                            // No over-scroll is in-effect.
-                            // This is synonymous with having (state == STATE_IDLE).
-                            if (isUp) {
-                                if (lastOffset > 1.8f) {
-                                    callbackPull.onUpOrLeftRefresh(lastOffset)
-                                    LSoundUtil.startMusicFromAsset("ting.ogg")
-                                } else {
-                                    callbackPull.onUpOrLeft(lastOffset)
-                                }
+                    offset < 0 -> {
+                        // 'view' is currently being over-scrolled from the bottom.
+                        lastOffset = offset
+                        isUp = false
+                    }
+                    else -> {
+                        // No over-scroll is in-effect.
+                        // This is synonymous with having (state == STATE_IDLE).
+                        if (isUp) {
+                            if (lastOffset > 1.8f) {
+                                onUpOrLeftRefresh?.invoke(lastOffset)
+                                LSoundUtil.startMusicFromAsset("ting.ogg")
                             } else {
-                                if (lastOffset < -1.8f) {
-                                    callbackPull.onDownOrRightRefresh(lastOffset)
-                                } else {
-                                    callbackPull.onDownOrRight(lastOffset)
-                                }
+                                onUpOrLeft?.invoke(lastOffset)
                             }
-                            lastOffset = 0f
-                            isUp = false
+                        } else {
+                            if (lastOffset < -1.8f) {
+                                onDownOrRightRefresh?.invoke(lastOffset)
+                            } else {
+                                onDownOrRight?.invoke(lastOffset)
+                            }
                         }
+                        lastOffset = 0f
+                        isUp = false
                     }
                 }
             }
         }
 
-        fun setPullLikeIOSHorizontal(viewPager: ViewPager) {
+        fun setPullLikeIOSHorizontal(
+                viewPager: ViewPager
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(viewPager)
         }
 
-        fun setPullLikeIOSVertical(scrollView: ScrollView) {
+        fun setPullLikeIOSVertical(
+                scrollView: ScrollView
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(scrollView)
         }
 
-        fun setPullLikeIOSVertical(listView: ListView) {
+        fun setPullLikeIOSVertical(
+                listView: ListView
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(listView)
         }
 
-        fun setPullLikeIOSVertical(gridView: GridView) {
+        fun setPullLikeIOSVertical(
+                gridView: GridView
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(gridView)
         }
 
-        fun setPullLikeIOSVertical(scrollView: HorizontalScrollView) {
+        fun setPullLikeIOSVertical(
+                scrollView: HorizontalScrollView
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(scrollView)
         }
 
-        fun setPullLikeIOSVertical(view: View) {
+        fun setPullLikeIOSVertical(
+                view: View
+        ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
 
             // Horizontal
@@ -506,7 +496,11 @@ class LUIUtil {
         }
 
         //it.imeOptions = EditorInfo.IME_ACTION_SEARCH
-        fun setImeiActionEditText(editText: EditText?, imeOptions: Int, runnable: Runnable?) {
+        fun setImeiActionEditText(
+                editText: EditText? = null,
+                imeOptions: Int,
+                runnable: Runnable? = null
+        ) {
             editText?.let {
                 it.imeOptions = imeOptions
                 it.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
@@ -519,7 +513,10 @@ class LUIUtil {
             }
         }
 
-        fun setImeiActionSearch(editText: EditText?, actionSearch: Runnable?) {
+        fun setImeiActionSearch(
+                editText: EditText? = null,
+                actionSearch: Runnable? = null
+        ) {
             editText?.let {
                 it.imeOptions = EditorInfo.IME_ACTION_SEARCH
                 it.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
@@ -532,11 +529,17 @@ class LUIUtil {
             }
         }
 
-        fun setColorProgressBar(progressBar: ProgressBar?, color: Int) {
+        fun setColorProgressBar(
+                progressBar: ProgressBar? = null,
+                color: Int
+        ) {
             progressBar?.indeterminateDrawable?.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
         }
 
-        fun setProgressBarVisibility(progressBar: ProgressBar?, visibility: Int) {
+        fun setProgressBarVisibility(
+                progressBar: ProgressBar? = null,
+                visibility: Int
+        ) {
             progressBar?.visibility = visibility
         }
 
@@ -725,7 +728,12 @@ class LUIUtil {
 //            view.requestLayout()
 //        }
 
-        fun setScrollChange(recyclerView: RecyclerView, callbackRecyclerView: CallbackRecyclerView) {
+        fun setScrollChange(
+                recyclerView: RecyclerView,
+                onTop: ((Unit) -> Unit)? = null,
+                onBottom: ((Unit) -> Unit)? = null,
+                onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+        ) {
             var isScrollDown = false
             recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -733,10 +741,10 @@ class LUIUtil {
 
                     if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                         if (!recyclerView.canScrollVertically(1)) {
-                            callbackRecyclerView.onBottom()
+                            onBottom?.invoke(Unit)
                         }
                         if (!recyclerView.canScrollVertically(-1)) {
-                            callbackRecyclerView.onTop()
+                            onTop?.invoke(Unit)
                         }
                     }
                 }
@@ -747,12 +755,12 @@ class LUIUtil {
                     if (dy < 0) {
                         if (isScrollDown) {
                             isScrollDown = false
-                            callbackRecyclerView.onScrolled(isScrollDown)
+                            onScrolled?.invoke(isScrollDown)
                         }
                     } else if (dy > 0) {
                         if (!isScrollDown) {
                             isScrollDown = true
-                            callbackRecyclerView.onScrolled(isScrollDown)
+                            onScrolled?.invoke(isScrollDown)
                         }
                     }
                 }
@@ -804,14 +812,59 @@ class LUIUtil {
         }
 
         fun isDarkTheme(): Boolean {
-            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+//            return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES
+            return LSharedPrefsUtil.instance.getBoolean(Constants.IS_DARK_THEME, false)
         }
 
         fun setDarkTheme(isDarkTheme: Boolean) {
             if (isDarkTheme) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                LSharedPrefsUtil.instance.putBoolean(Constants.IS_DARK_THEME, true)
             } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+//                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                LSharedPrefsUtil.instance.putBoolean(Constants.IS_DARK_THEME, false)
+            }
+        }
+
+        fun setOnClickListenerElastic(
+                view: View? = null,
+                scaleX: Float = 0.8f,
+                scaleY: Float = 0.8f,
+                duration: Int = 300,
+                runnable: Runnable? = null
+        ) {
+            view?.let { v ->
+                v.setOnClickListener {
+                    val anim = v.elasticAnimation(
+                            scaleX = scaleX,
+                            scaleY = scaleY,
+                            duration = duration
+                    ) {
+                        runnable?.run()
+                    }
+                    anim.doAction()
+                }
+            }
+        }
+
+        fun setSafeOnClickListenerElastic(
+                view: View? = null,
+                scaleX: Float = 0.8f,
+                scaleY: Float = 0.8f,
+                duration: Int = 300,
+                runnable: Runnable? = null
+        ) {
+            view?.let { v ->
+                v.setSafeOnClickListener {
+                    val anim = v.elasticAnimation(
+                            scaleX = scaleX,
+                            scaleY = scaleY,
+                            duration = duration
+                    ) {
+                        runnable?.run()
+                    }
+                    anim.doAction()
+                }
             }
         }
     }

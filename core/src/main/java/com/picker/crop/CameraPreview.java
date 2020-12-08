@@ -11,6 +11,7 @@ import java.io.IOException;
  * Created by 김민정 on 2016-10-12.
  */
 
+//TODO convert kotlin
 public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
     private static final String TAG = CameraPreview.class.getSimpleName();
 

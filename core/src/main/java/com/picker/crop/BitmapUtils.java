@@ -43,6 +43,8 @@ import javax.microedition.khronos.egl.EGLDisplay;
 /**
  * Utility class that deals with operations with an ImageView.
  */
+
+//TODO convert kotlin
 final class BitmapUtils {
 
     static final Rect EMPTY_RECT = new Rect();

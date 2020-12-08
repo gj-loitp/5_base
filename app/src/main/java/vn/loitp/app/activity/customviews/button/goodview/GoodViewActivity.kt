@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.button.goodview
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -15,6 +14,7 @@ import vn.loitp.app.R
 @LogTag("GoodViewActivity")
 @IsFullScreen(false)
 class GoodViewActivity : BaseFontActivity() {
+
     private var lGoodView: LGoodView? = null
 
     override fun setLayoutResourceId(): Int {
@@ -29,10 +29,10 @@ class GoodViewActivity : BaseFontActivity() {
 
     private fun setupViews() {
         lGoodView = LGoodView(this)
-        bt.setOnClickListener { v: View? ->
+        bt.setOnClickListener {
             lGoodView?.let {
                 it.setText("+1")
-                it.show(v)
+                it.show(v = bt)
             }
         }
         imageView.setOnClickListener {

@@ -1,11 +1,13 @@
 package vn.loitp.app.activity.database.sqlite
 
+import androidx.annotation.Keep
 import com.core.base.BaseModel
 
 /**
  * Created by www.muathu@gmail.com on 1/19/2018.
  */
 
+@Keep
 class Contact : BaseModel {
     var id: Int = 0
     var name: String? = null

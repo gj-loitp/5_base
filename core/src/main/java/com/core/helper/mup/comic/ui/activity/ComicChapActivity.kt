@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
@@ -14,6 +13,7 @@ import com.annotation.IsShowAdWhenExit
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
@@ -22,19 +22,17 @@ import com.core.helper.mup.comic.adapter.ChapAdapter
 import com.core.helper.mup.comic.adapter.ComicProgressAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
-import com.interfaces.CallbackRecyclerView
+import com.core.utilities.*
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
+import jp.wasabeef.glide.transformations.ColorFilterTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
 import kotlinx.android.synthetic.main.l_activity_comic_chap.*
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
-@IsShowAdWhenExit(true)
+@IsShowAdWhenExit(false)
 @IsSwipeActivity(true)
 class ComicChapActivity : BaseFontActivity() {
 
@@ -67,6 +65,7 @@ class ComicChapActivity : BaseFontActivity() {
         setupViewModels()
 
         comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
+        LValidateUtil.isValidPackageName()
     }
 
     private fun setupData() {
@@ -79,13 +78,21 @@ class ComicChapActivity : BaseFontActivity() {
 
     private fun setupViews() {
         toolbar.title = comic?.title
+        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_material)
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+        val transform = MultiTransformation(
+                BlurTransformation(25),
+                ColorFilterTransformation(LAppResource.getColor(R.color.black50))
+        )
         LImageUtil.load(
                 context = this,
-                any = comic?.getImageSrc(),
+                any = comic?.imageSrc,
                 imageView = imgCover,
                 resPlaceHolder = color,
                 resError = color,
-                transformation = BlurTransformation(25),
+                transformation = transform,
                 drawableRequestListener = object : RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
                         return false
@@ -97,7 +104,7 @@ class ComicChapActivity : BaseFontActivity() {
                 })
         LImageUtil.load(
                 context = this,
-                any = comic?.getImageSrc(),
+                any = comic?.imageSrc,
                 imageView = ivAvatar,
                 resPlaceHolder = color,
                 resError = color,
@@ -120,40 +127,32 @@ class ComicChapActivity : BaseFontActivity() {
         rvComicChap.adapter = concatAdapter
         LUIUtil.setScrollChange(
                 recyclerView = rvComicChap,
-                callbackRecyclerView = object : CallbackRecyclerView {
-                    override fun onTop() {
+                onBottom = {
+                    val isExistComicProgressAdapter = concatAdapter.adapters.firstOrNull { adapter ->
+                        adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
                     }
+                    if (isExistComicProgressAdapter == null) {
+                        logD("onBottom $currentPageIndex/$totalPage")
+                        if (currentPageIndex < totalPage) {
+                            currentPageIndex++
+                            concatAdapter.addAdapter(comicProgressAdapter)
+                            rvComicChap.smoothScrollToPosition(concatAdapter.itemCount - 1)
 
-                    override fun onBottom() {
-                        val isExistComicProgressAdapter = concatAdapter.adapters.firstOrNull { adapter ->
-                            adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
-                        }
-//                        logD("onBottom isExistComicProgressAdapter $isExistComicProgressAdapter")
-                        if (isExistComicProgressAdapter == null) {
-                            logD("onBottom $currentPageIndex/$totalPage")
-                            if (currentPageIndex < totalPage) {
-                                currentPageIndex++
-                                concatAdapter.addAdapter(comicProgressAdapter)
-                                rvComicChap.smoothScrollToPosition(concatAdapter.itemCount - 1)
-
-                                comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
-                            }
+                            comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
                         }
                     }
-
-                    override fun onScrolled(isScrollDown: Boolean) {
-                    }
-                })
+                }
+        )
 
         fabLike.setSafeOnClickListener {
-            //TODO loitpp iplm
+            //TODO loitpp iplm fav comic
             showLongInformation(getString(R.string.coming_soon))
         }
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
             }
 
-            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+            override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
                     LActivityUtil.transActivityNoAnimation(this@ComicChapActivity)

@@ -12,10 +12,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LDialogUtil
-import com.interfaces.Callback1
-import com.interfaces.Callback2
-import com.interfaces.Callback3
-import com.interfaces.CallbackList
 import kotlinx.android.synthetic.main.activity_dialog_original.*
 import vn.loitp.app.R
 
@@ -58,53 +54,51 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun show1() {
-        LDialogUtil.showDialog1(context = this,
+        LDialogUtil.showDialog1(
+                context = this,
                 title = "Title",
                 msg = "Msg",
-                button1 = "Button 1", callback1 = object : Callback1 {
-            override fun onClick1() {
-                showShortInformation("Click 1")
-            }
-        })
+                button1 = "Button 1",
+                onClickButton1 = {
+                    showShortInformation("Click 1")
+                }
+        )
     }
 
     private fun show2() {
-        LDialogUtil.showDialog2(context = this,
+        LDialogUtil.showDialog2(
+                context = this,
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1",
                 button2 = "Button 2",
-                callback2 = object : Callback2 {
-                    override fun onClick1() {
-                        showShortInformation("Click 1")
-                    }
-
-                    override fun onClick2() {
-                        showShortInformation("Click 2")
-                    }
-                })
+                onClickButton1 = {
+                    showShortInformation("Click 1")
+                },
+                onClickButton2 = {
+                    showShortInformation("Click 2")
+                }
+        )
     }
 
     private fun show3() {
-        LDialogUtil.showDialog3(context = this,
+        LDialogUtil.showDialog3(
+                context = this,
                 title = "Title",
                 msg = "Msg",
                 button1 = "Button 1",
                 button2 = "Button 2",
                 button3 = "Button 3",
-                callback3 = object : Callback3 {
-                    override fun onClick1() {
-                        showShortInformation("Click 1")
-                    }
-
-                    override fun onClick2() {
-                        showShortInformation("Click 2")
-                    }
-
-                    override fun onClick3() {
-                        showShortInformation("Click 3")
-                    }
-                })
+                onClickButton1 = {
+                    showShortInformation("Click 1")
+                },
+                onClickButton2 = {
+                    showShortInformation("Click 2")
+                },
+                onClickButton3 = {
+                    showShortInformation("Click 3")
+                }
+        )
     }
 
     private fun showList() {
@@ -113,14 +107,14 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         for (i in 0 until size) {
             arr[i] = "Item $i"
         }
-        LDialogUtil.showDialogList(context = this,
+        LDialogUtil.showDialogList(
+                context = this,
                 title = "Title",
                 arr = arr,
-                callbackList = object : CallbackList {
-                    override fun onClick(position: Int) {
-                        showShortInformation("Click position " + position + ", item: " + arr[position])
-                    }
-                })
+                onClick = { position ->
+                    showShortInformation("Click position " + position + ", item: " + arr[position])
+                }
+        )
     }
 
     private fun showProgress() {
@@ -129,19 +123,20 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         testRun?.execute()
     }
 
-    private class TestRun internal constructor(private val context: Context) : AsyncTask<Void, Int, Void>() {
+    private class TestRun(private val context: Context) : AsyncTask<Void, Int, Void>() {
         private var progressDialog: ProgressDialog? = null
 
         override fun onPreExecute() {
             super.onPreExecute()
-            progressDialog = LDialogUtil.showProgressDialog(context = context,
+            progressDialog = LDialogUtil.showProgressDialog(
+                    context = context,
                     max = 100,
                     title = "Title",
                     msg = "Message",
                     isCancelAble = false,
                     style = ProgressDialog.STYLE_HORIZONTAL,
-                    buttonTitle = null,
-                    callback1 = null)
+                    buttonTitle = null
+            )
         }
 
         override fun doInBackground(vararg voids: Void): Void? {

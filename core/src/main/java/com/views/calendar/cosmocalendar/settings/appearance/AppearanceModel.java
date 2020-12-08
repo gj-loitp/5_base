@@ -1,5 +1,6 @@
 package com.views.calendar.cosmocalendar.settings.appearance;
 
+//TODO convert kotlin
 public class AppearanceModel implements AppearanceInterface {
 
     //Background color of whole calendar

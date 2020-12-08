@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColorMedium"
+    android:background="?attr/themeBackgroundColor"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -45,14 +45,14 @@
             style="@style/ButtonMenu"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Dialog" />
+            android:text="@string/dialog" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btDialogRange"
             style="@style/ButtonMenu"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Dialog Range" />
+            android:text="@string/dialog_range" />
     </LinearLayout>
 
 </LinearLayout>

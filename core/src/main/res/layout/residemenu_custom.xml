@@ -12,7 +12,7 @@
         android:scaleType="centerCrop" />
 
     <com.github.mmin18.widget.RealtimeBlurView
-        android:id="@+id/real_time_blur_view"
+        android:id="@+id/realTimeBlurView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:realtimeBlurRadius="@dimen/round_50"

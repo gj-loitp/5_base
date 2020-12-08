@@ -4,6 +4,7 @@ import com.views.calendar.cosmocalendar.model.Day;
 
 import java.util.Calendar;
 
+//TODO convert kotlin
 public class WeekDayCriteria extends BaseCriteria {
 
     private int weekDay = -1;

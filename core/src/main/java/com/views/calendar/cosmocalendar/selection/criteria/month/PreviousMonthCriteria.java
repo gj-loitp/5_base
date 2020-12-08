@@ -4,6 +4,7 @@ import com.views.calendar.cosmocalendar.utils.DateUtils;
 
 import java.util.Calendar;
 
+//TODO convert kotlin
 public class PreviousMonthCriteria extends BaseMonthCriteria {
 
     private long currentTimeInMillis;

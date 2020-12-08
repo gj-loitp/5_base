@@ -3,7 +3,7 @@ package com.views.scrollablepanel;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
-
+//TODO convert kotlin
 /**
  * Base class for an Adapter
  * <p>

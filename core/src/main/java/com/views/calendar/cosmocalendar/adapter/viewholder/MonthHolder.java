@@ -13,6 +13,7 @@ import com.views.calendar.cosmocalendar.model.Month;
 import com.views.calendar.cosmocalendar.settings.SettingsManager;
 import com.views.calendar.cosmocalendar.view.MonthView;
 
+//TODO convert kotlin
 public class MonthHolder extends RecyclerView.ViewHolder {
 
     private LinearLayout llMonthHeader;

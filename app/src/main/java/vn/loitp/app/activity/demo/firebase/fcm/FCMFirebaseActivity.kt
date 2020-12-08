@@ -1,13 +1,12 @@
 package vn.loitp.app.activity.demo.firebase.fcm
 
 import android.os.Bundle
+import com.BuildConfig
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.common.Constants.Companion.IS_DEBUG
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LFCMUtil
-import com.interfaces.Callback1
 import kotlinx.android.synthetic.main.activity_fcm_firebase.*
 import vn.loitp.app.R
 
@@ -25,7 +24,7 @@ class FCMFirebaseActivity : BaseFontActivity() {
 
         val fcmKey = "AIzaSyDmo9cOZx7wb1R1cL7zPhw1YRxEpJFOzgo"
         btSendFcm.setOnClickListener {
-            if (IS_DEBUG) {
+            if (BuildConfig.DEBUG) {
                 LFCMUtil.sendNotification(
                         key = fcmKey,
                         body = "Hello! This is a notification! " + System.currentTimeMillis(),
@@ -36,12 +35,8 @@ class FCMFirebaseActivity : BaseFontActivity() {
                         context = this@FCMFirebaseActivity,
                         title = "Message",
                         msg = "This feature is only available in debug mode",
-                        button1 = getString(R.string.confirm),
-                        callback1 = object : Callback1 {
-                            override fun onClick1() {
-                                //do nothing
-                            }
-                        })
+                        button1 = getString(R.string.confirm)
+                )
             }
         }
     }

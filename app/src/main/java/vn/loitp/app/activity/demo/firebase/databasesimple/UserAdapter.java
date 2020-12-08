@@ -24,6 +24,7 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 import vn.loitp.app.R;
 
+//TODO convert kotlin
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     private final String logTag = getClass().getSimpleName();
 

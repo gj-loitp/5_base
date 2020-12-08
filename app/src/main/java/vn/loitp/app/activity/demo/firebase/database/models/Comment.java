@@ -1,10 +1,14 @@
 package vn.loitp.app.activity.demo.firebase.database.models;
 
+import androidx.annotation.Keep;
+
 import com.core.base.BaseModel;
 import com.google.firebase.database.IgnoreExtraProperties;
 
 // [START comment_class]
 @IgnoreExtraProperties
+//TODO convert kotlin
+@Keep
 public class Comment extends BaseModel {
 
     public String uid;
