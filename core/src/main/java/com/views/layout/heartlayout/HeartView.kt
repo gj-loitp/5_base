@@ -1,90 +1,82 @@
-package com.views.layout.heartlayout;
+package com.views.layout.heartlayout
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.BitmapDrawable;
-import android.util.AttributeSet;
+import android.content.Context
+import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
+import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatImageView
+import com.R
 
-import androidx.appcompat.widget.AppCompatImageView;
+class HeartView : AppCompatImageView {
 
-import com.R;
+    companion object {
+        private val sPaint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
+        private var sHeart: Bitmap? = null
+        private var sHeartBorder: Bitmap? = null
+        private val sCanvas = Canvas()
 
-public class HeartView extends AppCompatImageView {
-
-    private static final Paint sPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG);
-    private int mHeartResId = R.drawable.l_heart_icon;
-    private int mHeartBorderResId = R.drawable.l_heart_border;
-    private static Bitmap sHeart;
-    private static Bitmap sHeartBorder;
-    private static final Canvas sCanvas = new Canvas();
-
-    public HeartView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        private fun createBitmapSafely(width: Int, height: Int): Bitmap? {
+            try {
+                return Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+            } catch (error: OutOfMemoryError) {
+                error.printStackTrace()
+            }
+            return null
+        }
     }
 
-    public HeartView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+    private var mHeartResId = R.drawable.l_heart_icon
+    private var mHeartBorderResId = R.drawable.l_heart_border
+
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
+    constructor(context: Context) : super(context)
+
+    fun setColor(color: Int) {
+        val heart = createHeart(color)
+        setImageDrawable(BitmapDrawable(resources, heart))
     }
 
-    public HeartView(Context context) {
-        super(context);
-    }
-
-    public void setColor(int color) {
-        Bitmap heart = createHeart(color);
-        setImageDrawable(new BitmapDrawable(getResources(), heart));
-    }
-
-    public void setColorAndDrawables(int color, int heartResId, int heartBorderResId) {
+    fun setColorAndDrawables(color: Int, heartResId: Int, heartBorderResId: Int) {
         if (heartResId != mHeartResId) {
-            sHeart = null;
+            sHeart = null
         }
         if (heartBorderResId != mHeartBorderResId) {
-            sHeartBorder = null;
+            sHeartBorder = null
         }
-        mHeartResId = heartResId;
-        mHeartBorderResId = heartBorderResId;
-        setColor(color);
+        mHeartResId = heartResId
+        mHeartBorderResId = heartBorderResId
+        setColor(color)
     }
 
-    public Bitmap createHeart(int color) {
+    private fun createHeart(color: Int): Bitmap? {
         if (sHeart == null) {
-            sHeart = BitmapFactory.decodeResource(getResources(), mHeartResId);
+            sHeart = BitmapFactory.decodeResource(resources, mHeartResId)
         }
         if (sHeartBorder == null) {
-            sHeartBorder = BitmapFactory.decodeResource(getResources(), mHeartBorderResId);
+            sHeartBorder = BitmapFactory.decodeResource(resources, mHeartBorderResId)
         }
-        Bitmap heart = sHeart;
-        Bitmap heartBorder = sHeartBorder;
-        Bitmap bm = createBitmapSafely(heartBorder.getWidth(), heartBorder.getHeight());
-        if (bm == null) {
-            return null;
-        }
-        Canvas canvas = sCanvas;
-        canvas.setBitmap(bm);
-        Paint p = sPaint;
-        canvas.drawBitmap(heartBorder, 0, 0, p);
-        p.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP));
-        float dx = (heartBorder.getWidth() - heart.getWidth()) / 2f;
-        float dy = (heartBorder.getHeight() - heart.getHeight()) / 2f;
-        canvas.drawBitmap(heart, dx, dy, p);
-        p.setColorFilter(null);
-        canvas.setBitmap(null);
-        return bm;
-    }
+        val heart = sHeart
+        val heartBorder = sHeartBorder ?: return null
+        val bitmap = createBitmapSafely(heartBorder.width, heartBorder.height)
+                ?: return null
+        val canvas = sCanvas
+        canvas.setBitmap(bitmap)
+        val paint = sPaint
+        canvas.drawBitmap(heartBorder, 0f, 0f, paint)
+        paint.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
 
-    private static Bitmap createBitmapSafely(int width, int height) {
-        try {
-            return Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        } catch (OutOfMemoryError error) {
-            error.printStackTrace();
+        heart?.let {
+            val dx = (heartBorder.width - it.width) / 2f
+            val dy = (heartBorder.height - it.height) / 2f
+            canvas.drawBitmap(it, dx, dy, paint)
         }
-        return null;
+
+        paint.colorFilter = null
+        canvas.setBitmap(null)
+        return bitmap
     }
 
 }
