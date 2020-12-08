@@ -39,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/dark_theme_vn"
+                android:textColor="?themeTextColor"
                 app:bgOffColor="@color/lightGrey"
                 app:bgOnColor="@color/lightGrey"
                 app:toggleOffColor="?attr/themeTextColor"
