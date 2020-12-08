@@ -105,10 +105,10 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         }
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View, swipeBackFraction: Float, SWIPE_BACK_FACTOR: Float) {
+            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
             }
 
-            override fun onViewSwipeFinished(mView: View, isEnd: Boolean) {
+            override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
                 if (isEnd) {
                     finish()
                     LActivityUtil.transActivityNoAnimation(this@GalleryCoreAlbumActivity)

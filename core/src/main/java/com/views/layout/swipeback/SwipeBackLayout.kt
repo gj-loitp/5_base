@@ -1,435 +1,393 @@
-package com.views.layout.swipeback;
+package com.views.layout.swipeback
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
+import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.util.AttributeSet
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewGroup
+import androidx.annotation.FloatRange
+import androidx.annotation.IntDef
+import androidx.annotation.IntRange
+import androidx.core.view.MotionEventCompat
+import androidx.core.view.ViewCompat
+import androidx.customview.widget.ViewDragHelper
+import com.R
+import com.views.layout.swipeback.tools.Util.canViewScrollDown
+import com.views.layout.swipeback.tools.Util.canViewScrollLeft
+import com.views.layout.swipeback.tools.Util.canViewScrollRight
+import com.views.layout.swipeback.tools.Util.canViewScrollUp
+import com.views.layout.swipeback.tools.Util.contains
+import com.views.layout.swipeback.tools.Util.findAllScrollViews
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
-import androidx.annotation.FloatRange;
-import androidx.annotation.IntDef;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.MotionEventCompat;
-import androidx.core.view.ViewCompat;
-import androidx.customview.widget.ViewDragHelper;
+open class SwipeBackLayout @JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
+) : ViewGroup(context, attrs, defStyleAttr) {
 
-import com.R;
-import com.views.layout.swipeback.tools.Util;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-
-public class SwipeBackLayout extends ViewGroup {
-    private static final String TAG = SwipeBackLayout.class.getSimpleName();
-
-    public static final int FROM_LEFT = 1;
-    public static final int FROM_RIGHT = 1 << 1;
-    public static final int FROM_TOP = 1 << 2;
-    public static final int FROM_BOTTOM = 1 << 3;
-
-    @IntDef({FROM_LEFT, FROM_TOP, FROM_RIGHT, FROM_BOTTOM})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface DirectionMode {
+    companion object {
+        private val TAG = SwipeBackLayout::class.java.simpleName
+        const val FROM_LEFT = 1
+        const val FROM_RIGHT = 1 shl 1
+        const val FROM_TOP = 1 shl 2
+        const val FROM_BOTTOM = 1 shl 3
     }
 
-    private int mDirectionMode = FROM_LEFT;
+    @IntDef(FROM_LEFT, FROM_TOP, FROM_RIGHT, FROM_BOTTOM)
+    @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
+    annotation class DirectionMode
 
-    private final ViewDragHelper mDragHelper;
-    private View mDragContentView;
-    private View innerScrollView;
+    private var mDirectionMode = FROM_LEFT
+    private val mDragHelper: ViewDragHelper
+    private var mDragContentView: View? = null
+    private var innerScrollView: View? = null
+    private var mWidth = 0
+    private var mHeight = 0
+    private val mTouchSlop: Int
+    private var swipeBackFactor = 0.5f
+    private var swipeBackFraction = 0f
+    private var maskAlpha = 125
+    var isSwipeFromEdge = false
+    private var downX = 0f
+    private var downY = 0f
+    private var leftOffset = 0
+    private var topOffset = 0
+    private var autoFinishedVelocityLimit = 2000f
+    private var touchedEdge = ViewDragHelper.INVALID_POINTER
 
-    private int width, height;
-
-    private final int mTouchSlop;
-    private float swipeBackFactor = 0.5f;
-    private float swipeBackFraction;
-    private int maskAlpha = 125;
-    private boolean isSwipeFromEdge = false;
-    private float downX, downY;
-
-    private int leftOffset = 0;
-    private int topOffset = 0;
-    private float autoFinishedVelocityLimit = 2000f;
-
-    private int touchedEdge = ViewDragHelper.INVALID_POINTER;
-
-    public SwipeBackLayout(@NonNull Context context) {
-        this(context, null);
+    private fun init(context: Context, attrs: AttributeSet?) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwipeBackLayout)
+        directionMode = typedArray.getInt(R.styleable.SwipeBackLayout_directionMode, mDirectionMode)
+        setSwipeBackFactor(typedArray.getFloat(R.styleable.SwipeBackLayout_swipeBackFactor, swipeBackFactor))
+        setMaskAlpha(typedArray.getInteger(R.styleable.SwipeBackLayout_maskAlpha, maskAlpha))
+        isSwipeFromEdge = typedArray.getBoolean(R.styleable.SwipeBackLayout_isSwipeFromEdge, isSwipeFromEdge)
+        typedArray.recycle()
     }
 
-    public SwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, 0);
+    fun attachToActivity(activity: Activity) {
+        val decorView = activity.window.decorView as ViewGroup
+        val decorChild = decorView.getChildAt(0) as ViewGroup
+        decorChild.setBackgroundColor(Color.TRANSPARENT)
+        decorView.removeView(decorChild)
+        addView(decorChild)
+        decorView.addView(this)
     }
 
-    public SwipeBackLayout(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        setWillNotDraw(false);
-        mDragHelper = ViewDragHelper.create(this, 1f, new DragHelperCallback());
-        mDragHelper.setEdgeTrackingEnabled(mDirectionMode);
-        mTouchSlop = mDragHelper.getTouchSlop();
-        OnSwipeBackListener defaultSwipeBackListener = new OnSwipeBackListener() {
-            @Override
-            public void onViewPositionChanged(View mView, float swipeBackFraction, float swipeBackFactor) {
-                invalidate();
-            }
-
-            @Override
-            public void onViewSwipeFinished(View mView, boolean isEnd) {
-                if (isEnd) {
-                    finish();
-                }
-            }
-        };
-        setSwipeBackListener(defaultSwipeBackListener);
-
-        init(context, attrs);
-    }
-
-    private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SwipeBackLayout);
-        setDirectionMode(a.getInt(R.styleable.SwipeBackLayout_directionMode, mDirectionMode));
-        setSwipeBackFactor(a.getFloat(R.styleable.SwipeBackLayout_swipeBackFactor, swipeBackFactor));
-        setMaskAlpha(a.getInteger(R.styleable.SwipeBackLayout_maskAlpha, maskAlpha));
-        isSwipeFromEdge = a.getBoolean(R.styleable.SwipeBackLayout_isSwipeFromEdge, isSwipeFromEdge);
-        a.recycle();
-    }
-
-    public void attachToActivity(Activity activity) {
-        ViewGroup decorView = (ViewGroup) activity.getWindow().getDecorView();
-        ViewGroup decorChild = (ViewGroup) decorView.getChildAt(0);
-        decorChild.setBackgroundColor(Color.TRANSPARENT);
-        decorView.removeView(decorChild);
-        addView(decorChild);
-        decorView.addView(this);
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int childCount = getChildCount();
-        if (childCount > 1) {
-            throw new IllegalStateException("SwipeBackLayout must contains only one direct child.");
-        }
-        int defaultMeasuredWidth = 0;
-        int defaultMeasuredHeight = 0;
-        int measuredWidth;
-        int measuredHeight;
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        val childCount = childCount
+        check(childCount <= 1) { "SwipeBackLayout must contains only one direct child." }
+        var defaultMeasuredWidth = 0
+        var defaultMeasuredHeight = 0
+        val measuredWidth: Int
+        val measuredHeight: Int
         if (childCount > 0) {
-            measureChildren(widthMeasureSpec, heightMeasureSpec);
-            mDragContentView = getChildAt(0);
-            defaultMeasuredWidth = mDragContentView.getMeasuredWidth();
-            defaultMeasuredHeight = mDragContentView.getMeasuredHeight();
+            measureChildren(widthMeasureSpec, heightMeasureSpec)
+            mDragContentView = getChildAt(0)
+            mDragContentView?.let {
+                defaultMeasuredWidth = it.measuredWidth
+                defaultMeasuredHeight = it.measuredHeight
+            }
         }
-        measuredWidth = View.resolveSize(defaultMeasuredWidth, widthMeasureSpec) + getPaddingLeft() + getPaddingRight();
-        measuredHeight = View.resolveSize(defaultMeasuredHeight, heightMeasureSpec) + getPaddingTop() + getPaddingBottom();
-
-        setMeasuredDimension(measuredWidth, measuredHeight);
+        measuredWidth = resolveSize(defaultMeasuredWidth, widthMeasureSpec) + paddingLeft + paddingRight
+        measuredHeight = resolveSize(defaultMeasuredHeight, heightMeasureSpec) + paddingTop + paddingBottom
+        setMeasuredDimension(measuredWidth, measuredHeight)
     }
 
-    @Override
-    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        if (getChildCount() == 0) return;
+    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+        if (childCount == 0) {
+            return
+        }
+        val left = paddingLeft + leftOffset
+        val top = paddingTop + topOffset
 
-        int left = getPaddingLeft() + leftOffset;
-        int top = getPaddingTop() + topOffset;
-        int right = left + mDragContentView.getMeasuredWidth();
-        int bottom = top + mDragContentView.getMeasuredHeight();
-        mDragContentView.layout(left, top, right, bottom);
+        val measuredWidth = mDragContentView?.measuredWidth ?: 0
+        val measuredHeight = mDragContentView?.measuredHeight ?: 0
 
+        val right = left + measuredWidth
+        val bottom = top + measuredHeight
+        mDragContentView?.layout(left, top, right, bottom)
         if (changed) {
-            width = getWidth();
-            height = getHeight();
+            mWidth = width
+            mHeight = height
         }
-        innerScrollView = Util.findAllScrollViews(this);
+        innerScrollView = findAllScrollViews(this)
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        canvas.drawARGB(maskAlpha - (int) (maskAlpha * swipeBackFraction), 0, 0, 0);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        canvas.drawARGB(maskAlpha - (maskAlpha * swipeBackFraction).toInt(), 0, 0, 0)
     }
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        switch (MotionEventCompat.getActionMasked(ev)) {
-            case MotionEvent.ACTION_DOWN:
-                downX = ev.getRawX();
-                downY = ev.getRawY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                if (innerScrollView != null && Util.contains(innerScrollView, downX, downY)) {
-                    float distanceX = Math.abs(ev.getRawX() - downX);
-                    float distanceY = Math.abs(ev.getRawY() - downY);
-                    if (mDirectionMode == FROM_LEFT || mDirectionMode == FROM_RIGHT) {
-                        if (distanceY > mTouchSlop && distanceY > distanceX) {
-                            return super.onInterceptTouchEvent(ev);
-                        }
-                    } else if (mDirectionMode == FROM_TOP || mDirectionMode == FROM_BOTTOM) {
-                        if (distanceX > mTouchSlop && distanceX > distanceY) {
-                            return super.onInterceptTouchEvent(ev);
+    override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
+        when (MotionEventCompat.getActionMasked(ev)) {
+            MotionEvent.ACTION_DOWN -> {
+                downX = ev.rawX
+                downY = ev.rawY
+            }
+            MotionEvent.ACTION_MOVE -> {
+                innerScrollView?.let { isv ->
+                    if (contains(mView = isv, x = downX, y = downY)) {
+                        val distanceX = abs(x = ev.rawX - downX)
+                        val distanceY = abs(x = ev.rawY - downY)
+                        if (mDirectionMode == FROM_LEFT || mDirectionMode == FROM_RIGHT) {
+                            if (distanceY > mTouchSlop && distanceY > distanceX) {
+                                return super.onInterceptTouchEvent(ev)
+                            }
+                        } else if (mDirectionMode == FROM_TOP || mDirectionMode == FROM_BOTTOM) {
+                            if (distanceX > mTouchSlop && distanceX > distanceY) {
+                                return super.onInterceptTouchEvent(ev)
+                            }
                         }
                     }
                 }
-                break;
+            }
         }
-        boolean handled = mDragHelper.shouldInterceptTouchEvent(ev);
-        return handled || super.onInterceptTouchEvent(ev);
+        val handled = mDragHelper.shouldInterceptTouchEvent(ev)
+        return handled || super.onInterceptTouchEvent(ev)
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        mDragHelper.processTouchEvent(event);
-        return true;
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        mDragHelper.processTouchEvent(event)
+        return true
     }
 
-    @Override
-    public void computeScroll() {
+    override fun computeScroll() {
         if (mDragHelper.continueSettling(true)) {
-            ViewCompat.postInvalidateOnAnimation(this);
+            ViewCompat.postInvalidateOnAnimation(this)
         }
     }
 
-    public void smoothScrollToX(int finalLeft) {
-        if (mDragHelper.settleCapturedViewAt(finalLeft, getPaddingTop())) {
-            ViewCompat.postInvalidateOnAnimation(this);
+    fun smoothScrollToX(finalLeft: Int) {
+        if (mDragHelper.settleCapturedViewAt(finalLeft, paddingTop)) {
+            ViewCompat.postInvalidateOnAnimation(this)
         }
     }
 
-    public void smoothScrollToY(int finalTop) {
-        if (mDragHelper.settleCapturedViewAt(getPaddingLeft(), finalTop)) {
-            ViewCompat.postInvalidateOnAnimation(this);
+    fun smoothScrollToY(finalTop: Int) {
+        if (mDragHelper.settleCapturedViewAt(paddingLeft, finalTop)) {
+            ViewCompat.postInvalidateOnAnimation(this)
         }
     }
 
-    private class DragHelperCallback extends ViewDragHelper.Callback {
-
-        @Override
-        public boolean tryCaptureView(@NotNull View child, int pointerId) {
-            return child == mDragContentView;
+    private inner class DragHelperCallback : ViewDragHelper.Callback() {
+        override fun tryCaptureView(child: View, pointerId: Int): Boolean {
+            return child === mDragContentView
         }
 
-        @Override
-        public int clampViewPositionHorizontal(@NotNull View child, int left, int dx) {
-            leftOffset = getPaddingLeft();
-            if (isSwipeEnabled()) {
-                if (mDirectionMode == FROM_LEFT && !Util.canViewScrollRight(innerScrollView, downX, downY, false)) {
-                    leftOffset = Math.min(Math.max(left, getPaddingLeft()), width);
-                } else if (mDirectionMode == FROM_RIGHT && !Util.canViewScrollLeft(innerScrollView, downX, downY, false)) {
-                    leftOffset = Math.min(Math.max(left, -width), getPaddingRight());
+        override fun clampViewPositionHorizontal(child: View, left: Int, dx: Int): Int {
+            leftOffset = paddingLeft
+            if (isSwipeEnabled) {
+                if (mDirectionMode == FROM_LEFT && !canViewScrollRight(
+                                mView = innerScrollView,
+                                x = downX,
+                                y = downY,
+                                defaultValueForNull = false
+                        )) {
+                    leftOffset = min(max(left, paddingLeft), mWidth)
+                } else if (mDirectionMode == FROM_RIGHT && !canViewScrollLeft(
+                                mView = innerScrollView,
+                                x = downX,
+                                y = downY,
+                                defaultValueForNull = false
+                        )) {
+                    leftOffset = min(max(left, -mWidth), paddingRight)
                 }
             }
-            return leftOffset;
+            return leftOffset
         }
 
-        @Override
-        public int clampViewPositionVertical(@NotNull View child, int top, int dy) {
-            topOffset = getPaddingTop();
-            if (isSwipeEnabled()) {
-                if (mDirectionMode == FROM_TOP && !Util.canViewScrollUp(innerScrollView, downX, downY, false)) {
-                    topOffset = Math.min(Math.max(top, getPaddingTop()), height);
-                } else if (mDirectionMode == FROM_BOTTOM && !Util.canViewScrollDown(innerScrollView, downX, downY, false)) {
-                    topOffset = Math.min(Math.max(top, -height), getPaddingBottom());
+        override fun clampViewPositionVertical(child: View, top: Int, dy: Int): Int {
+            topOffset = paddingTop
+            if (isSwipeEnabled) {
+                if (mDirectionMode == FROM_TOP && !canViewScrollUp(
+                                mView = innerScrollView,
+                                x = downX,
+                                y = downY,
+                                defaultValueForNull = false
+                        )) {
+                    topOffset = min(max(top, paddingTop), mHeight)
+                } else if (mDirectionMode == FROM_BOTTOM && !canViewScrollDown(
+                                mView = innerScrollView,
+                                x = downX,
+                                y = downY,
+                                defaultValueForNull = false
+                        )) {
+                    topOffset = min(max(top, -mHeight), paddingBottom)
                 }
             }
-            return topOffset;
+            return topOffset
         }
 
-        @Override
-        public void onViewPositionChanged(@NotNull View changedView, int left, int top, int dx, int dy) {
-            super.onViewPositionChanged(changedView, left, top, dx, dy);
-            left = Math.abs(left);
-            top = Math.abs(top);
-            switch (mDirectionMode) {
-                case FROM_LEFT:
-                case FROM_RIGHT:
-                    swipeBackFraction = 1.0f * left / width;
-                    break;
-                case FROM_TOP:
-                case FROM_BOTTOM:
-                    swipeBackFraction = 1.0f * top / height;
-                    break;
+        @Suppress("NAME_SHADOWING")
+        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
+            var left = left
+            var top = top
+            super.onViewPositionChanged(changedView, left, top, dx, dy)
+            left = abs(left)
+            top = abs(top)
+            when (mDirectionMode) {
+                FROM_LEFT, FROM_RIGHT -> swipeBackFraction = 1.0f * left / mWidth
+                FROM_TOP, FROM_BOTTOM -> swipeBackFraction = 1.0f * top / mHeight
             }
-            if (mSwipeBackListener != null) {
-                mSwipeBackListener.onViewPositionChanged(mDragContentView, swipeBackFraction, swipeBackFactor);
-            }
+            mSwipeBackListener?.onViewPositionChanged(
+                    mView = mDragContentView,
+                    swipeBackFraction = swipeBackFraction,
+                    swipeBackFactor = swipeBackFactor
+            )
         }
 
-        @Override
-        public void onViewReleased(@NotNull View releasedChild, float xvel, float yvel) {
-            super.onViewReleased(releasedChild, xvel, yvel);
-            leftOffset = topOffset = 0;
-            if (!isSwipeEnabled()) {
-                touchedEdge = ViewDragHelper.INVALID_POINTER;
-                return;
+        override fun onViewReleased(releasedChild: View, xvel: Float, yvel: Float) {
+            super.onViewReleased(releasedChild, xvel, yvel)
+            topOffset = 0
+            leftOffset = topOffset
+            if (!isSwipeEnabled) {
+                touchedEdge = ViewDragHelper.INVALID_POINTER
+                return
             }
-            touchedEdge = ViewDragHelper.INVALID_POINTER;
-
-            boolean isBackToEnd = backJudgeBySpeed(xvel, yvel) || swipeBackFraction >= swipeBackFactor;
+            touchedEdge = ViewDragHelper.INVALID_POINTER
+            val isBackToEnd = backJudgeBySpeed(xvel = xvel, yvel = yvel) || swipeBackFraction >= swipeBackFactor
             if (isBackToEnd) {
-                switch (mDirectionMode) {
-                    case FROM_LEFT:
-                        smoothScrollToX(width);
-                        break;
-                    case FROM_TOP:
-                        smoothScrollToY(height);
-                        break;
-                    case FROM_RIGHT:
-                        smoothScrollToX(-width);
-                        break;
-                    case FROM_BOTTOM:
-                        smoothScrollToY(-height);
-                        break;
+                when (mDirectionMode) {
+                    FROM_LEFT -> smoothScrollToX(finalLeft = mWidth)
+                    FROM_TOP -> smoothScrollToY(finalTop = mHeight)
+                    FROM_RIGHT -> smoothScrollToX(finalLeft = -mWidth)
+                    FROM_BOTTOM -> smoothScrollToY(finalTop = -mHeight)
                 }
             } else {
-                switch (mDirectionMode) {
-                    case FROM_LEFT:
-                    case FROM_RIGHT:
-                        smoothScrollToX(getPaddingLeft());
-                        break;
-                    case FROM_BOTTOM:
-                    case FROM_TOP:
-                        smoothScrollToY(getPaddingTop());
-                        break;
+                when (mDirectionMode) {
+                    FROM_LEFT, FROM_RIGHT -> smoothScrollToX(finalLeft = paddingLeft)
+                    FROM_BOTTOM, FROM_TOP -> smoothScrollToY(finalTop = paddingTop)
                 }
             }
         }
 
-        @Override
-        public void onViewDragStateChanged(int state) {
-            super.onViewDragStateChanged(state);
+        override fun onViewDragStateChanged(state: Int) {
+            super.onViewDragStateChanged(state)
             if (state == ViewDragHelper.STATE_IDLE) {
-                if (mSwipeBackListener != null) {
-                    if (swipeBackFraction == 0) {
-                        mSwipeBackListener.onViewSwipeFinished(mDragContentView, false);
-                    } else if (swipeBackFraction == 1) {
-                        mSwipeBackListener.onViewSwipeFinished(mDragContentView, true);
-                    }
+                if (swipeBackFraction == 0f) {
+                    mSwipeBackListener?.onViewSwipeFinished(mView = mDragContentView, isEnd = false)
+                } else if (swipeBackFraction == 1f) {
+                    mSwipeBackListener?.onViewSwipeFinished(mView = mDragContentView, isEnd = true)
                 }
             }
         }
 
-        @Override
-        public int getViewHorizontalDragRange(@NotNull View child) {
-            return width;
+        override fun getViewHorizontalDragRange(child: View): Int {
+            return mWidth
         }
 
-        @Override
-        public int getViewVerticalDragRange(@NotNull View child) {
-            return height;
+        override fun getViewVerticalDragRange(child: View): Int {
+            return mHeight
         }
 
-        @Override
-        public void onEdgeTouched(int edgeFlags, int pointerId) {
-            super.onEdgeTouched(edgeFlags, pointerId);
-            touchedEdge = edgeFlags;
+        override fun onEdgeTouched(edgeFlags: Int, pointerId: Int) {
+            super.onEdgeTouched(edgeFlags, pointerId)
+            touchedEdge = edgeFlags
         }
     }
 
-    public void finish() {
-        ((Activity) getContext()).finish();
+    fun finish() {
+        (context as Activity).finish()
     }
 
-    private boolean isSwipeEnabled() {
-        if (isSwipeFromEdge) {
-            switch (mDirectionMode) {
-                case FROM_LEFT:
-                    return touchedEdge == ViewDragHelper.EDGE_LEFT;
-                case FROM_TOP:
-                    return touchedEdge == ViewDragHelper.EDGE_TOP;
-                case FROM_RIGHT:
-                    return touchedEdge == ViewDragHelper.EDGE_RIGHT;
-                case FROM_BOTTOM:
-                    return touchedEdge == ViewDragHelper.EDGE_BOTTOM;
+    private val isSwipeEnabled: Boolean
+        get() {
+            if (isSwipeFromEdge) {
+                when (mDirectionMode) {
+                    FROM_LEFT -> return touchedEdge == ViewDragHelper.EDGE_LEFT
+                    FROM_TOP -> return touchedEdge == ViewDragHelper.EDGE_TOP
+                    FROM_RIGHT -> return touchedEdge == ViewDragHelper.EDGE_RIGHT
+                    FROM_BOTTOM -> return touchedEdge == ViewDragHelper.EDGE_BOTTOM
+                }
+            }
+            return true
+        }
+
+    private fun backJudgeBySpeed(xvel: Float, yvel: Float): Boolean {
+        when (mDirectionMode) {
+            FROM_LEFT -> return xvel > autoFinishedVelocityLimit
+            FROM_TOP -> return yvel > autoFinishedVelocityLimit
+            FROM_RIGHT -> return xvel < -autoFinishedVelocityLimit
+            FROM_BOTTOM -> return yvel < -autoFinishedVelocityLimit
+        }
+        return false
+    }
+
+    @Suppress("NAME_SHADOWING")
+    fun setSwipeBackFactor(@FloatRange(from = 0.0, to = 1.0) swipeBackFactor: Float) {
+        var swipeBackFactor = swipeBackFactor
+        if (swipeBackFactor > 1) {
+            swipeBackFactor = 1f
+        } else if (swipeBackFactor < 0) {
+            swipeBackFactor = 0f
+        }
+        this.swipeBackFactor = swipeBackFactor
+    }
+
+    fun getSwipeBackFactor(): Float {
+        return swipeBackFactor
+    }
+
+    @Suppress("NAME_SHADOWING")
+    fun setMaskAlpha(@IntRange(from = 0, to = 255) maskAlpha: Int) {
+        var maskAlpha = maskAlpha
+        if (maskAlpha > 255) {
+            maskAlpha = 255
+        } else if (maskAlpha < 0) {
+            maskAlpha = 0
+        }
+        this.maskAlpha = maskAlpha
+    }
+
+    fun getMaskAlpha(): Int {
+        return maskAlpha
+    }
+
+    open var directionMode: Int
+        get() = mDirectionMode
+        set(direction) {
+            mDirectionMode = direction
+            mDragHelper.setEdgeTrackingEnabled(direction)
+        }
+
+    private var mSwipeBackListener: OnSwipeBackListener? = null
+
+    fun setSwipeBackListener(mSwipeBackListener: OnSwipeBackListener?) {
+        this.mSwipeBackListener = mSwipeBackListener
+    }
+
+    interface OnSwipeBackListener {
+        fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float)
+        fun onViewSwipeFinished(mView: View?, isEnd: Boolean)
+    }
+
+    init {
+        this.setWillNotDraw(false)
+        mDragHelper = ViewDragHelper.create(this, 1f, DragHelperCallback())
+        mDragHelper.setEdgeTrackingEnabled(mDirectionMode)
+        mTouchSlop = mDragHelper.touchSlop
+
+        val defaultSwipeBackListener: OnSwipeBackListener = object : OnSwipeBackListener {
+            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+                invalidate()
+            }
+
+            override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
+                if (isEnd) {
+                    finish()
+                }
             }
         }
-        return true;
-    }
-
-    private boolean backJudgeBySpeed(float xvel, float yvel) {
-        switch (mDirectionMode) {
-            case FROM_LEFT:
-                return xvel > autoFinishedVelocityLimit;
-            case FROM_TOP:
-                return yvel > autoFinishedVelocityLimit;
-            case FROM_RIGHT:
-                return xvel < -autoFinishedVelocityLimit;
-            case FROM_BOTTOM:
-                return yvel < -autoFinishedVelocityLimit;
-        }
-        return false;
-    }
-
-    public void setSwipeBackFactor(@FloatRange(from = 0.0f, to = 1.0f) float swipeBackFactor) {
-        if (swipeBackFactor > 1) {
-            swipeBackFactor = 1;
-        } else if (swipeBackFactor < 0) {
-            swipeBackFactor = 0;
-        }
-        this.swipeBackFactor = swipeBackFactor;
-    }
-
-    public float getSwipeBackFactor() {
-        return swipeBackFactor;
-    }
-
-    public void setMaskAlpha(@IntRange(from = 0, to = 255) int maskAlpha) {
-        if (maskAlpha > 255) {
-            maskAlpha = 255;
-        } else if (maskAlpha < 0) {
-            maskAlpha = 0;
-        }
-        this.maskAlpha = maskAlpha;
-    }
-
-    public int getMaskAlpha() {
-        return maskAlpha;
-    }
-
-    public void setDirectionMode(@DirectionMode int direction) {
-        mDirectionMode = direction;
-        mDragHelper.setEdgeTrackingEnabled(direction);
-    }
-
-    public int getDirectionMode() {
-        return mDirectionMode;
-    }
-
-    public float getAutoFinishedVelocityLimit() {
-        return autoFinishedVelocityLimit;
-    }
-
-    public void setAutoFinishedVelocityLimit(float autoFinishedVelocityLimit) {
-        this.autoFinishedVelocityLimit = autoFinishedVelocityLimit;
-    }
-
-    public boolean isSwipeFromEdge() {
-        return isSwipeFromEdge;
-    }
-
-    public void setSwipeFromEdge(boolean isSwipeFromEdge) {
-        this.isSwipeFromEdge = isSwipeFromEdge;
-    }
-
-    private OnSwipeBackListener mSwipeBackListener;
-
-    public void setSwipeBackListener(OnSwipeBackListener mSwipeBackListener) {
-        this.mSwipeBackListener = mSwipeBackListener;
-    }
-
-    public interface OnSwipeBackListener {
-
-        void onViewPositionChanged(View mView, float swipeBackFraction, float swipeBackFactor);
-
-        void onViewSwipeFinished(View mView, boolean isEnd);
+        setSwipeBackListener(defaultSwipeBackListener)
+        init(context, attrs)
     }
 }
