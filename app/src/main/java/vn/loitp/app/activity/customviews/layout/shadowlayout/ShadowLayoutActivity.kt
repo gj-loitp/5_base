@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.activity_layout_shadow.*
 import vn.loitp.app.R
 
 //https://github.com/lijiankun24/ShadowLayout
-
 @LogTag("ShadowLayoutActivity")
 @IsFullScreen(false)
 class ShadowLayoutActivity : BaseFontActivity(), View.OnClickListener {

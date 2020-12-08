@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="@color/green">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="@dimen/padding_medium">
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvChangeOval"
@@ -32,7 +32,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:layout_marginBottom="@dimen/margin_medium"
-                app:shadowColor="#FE3311F3"
+                app:shadowColor="@color/red50"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
                 app:shadowRadius="8dp"
@@ -48,7 +48,7 @@
                     android:paddingLeft="48dp"
                     android:paddingEnd="48dp"
                     android:paddingRight="48dp"
-                    android:text="Oval shadow"
+                    android:text="@string/oval_shadow"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>
@@ -68,7 +68,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:layout_marginBottom="@dimen/margin_medium"
-                app:shadowColor="#EE000000"
+                app:shadowColor="@color/red50"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
                 app:shadowRadius="8dp"
@@ -81,7 +81,7 @@
                     android:background="@android:color/holo_blue_light"
                     android:gravity="center"
                     android:padding="48dp"
-                    android:text="Rectangle shadow"
+                    android:text="@string/rectangle_shadow"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>
@@ -101,7 +101,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:layout_marginBottom="@dimen/margin_medium"
-                app:shadowColor="#EE000000"
+                app:shadowColor="@color/red50"
                 app:shadowDx="0dp"
                 app:shadowDy="0dp"
                 app:shadowRadius="8dp"
@@ -114,7 +114,7 @@
                     android:background="@android:color/holo_blue_light"
                     android:gravity="center"
                     android:padding="48dp"
-                    android:text="Radius shadow"
+                    android:text="@string/radius_shadow"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
             </com.views.layout.shadowlayout.LShadowLayout>

@@ -501,4 +501,7 @@ Likewise may someone love you next.
     <string name="crop_square">Crop square</string>
     <string name="compass">Compass</string>
     <string name="random_rotate">Random rotate</string>
+    <string name="oval_shadow">Oval shadow</string>
+    <string name="rectangle_shadow">Rectangle shadow</string>
+    <string name="radius_shadow">Radius shadow</string>
 </resources>

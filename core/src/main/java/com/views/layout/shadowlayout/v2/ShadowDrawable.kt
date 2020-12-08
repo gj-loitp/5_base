@@ -1,85 +1,73 @@
-package com.views.layout.shadowlayout.v2;
+package com.views.layout.shadowlayout.v2
 
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.PixelFormat;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.RectF;
-import android.graphics.drawable.Drawable;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.*
+import android.graphics.drawable.Drawable
+import com.views.layout.shadowlayout.v2.LShadowLayout2
+import kotlin.math.min
 
 /**
  * ShadowDrawable
- * <p>
+ *
+ *
  * Created by lijiankun on 2018/9/28
  * Email: lijiankun03@meituan.com
  */
+class ShadowDrawable(
+        private val mShape: Int,
+        shadowColor: Int,
+        private val mShadowRadius: Float,
+        private val mOffsetX: Float,
+        private val mOffsetY: Float
+) : Drawable() {
 
-public class ShadowDrawable extends Drawable {
+    private val mShadowPaint: Paint = Paint()
+    private var mRect: RectF? = null
 
-    private Paint mShadowPaint;
-    private int mShape;
-    private float mShadowRadius;
-    private float mOffsetX;
-    private float mOffsetY;
-    private RectF mRect;
-
-    public ShadowDrawable(int shape, int shadowColor, float shadowRadius, float offsetX, float offsetY) {
-        this.mShape = shape;
-        this.mShadowRadius = shadowRadius;
-        this.mOffsetX = offsetX;
-        this.mOffsetY = offsetY;
-
-        mShadowPaint = new Paint();
-        mShadowPaint.setColor(Color.TRANSPARENT);
-        mShadowPaint.setAntiAlias(true);
-        mShadowPaint.setShadowLayer(shadowRadius, offsetX, offsetY, shadowColor);
-        mShadowPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
-    }
-
-    @Override
-    public void setBounds(int left, int top, int right, int bottom) {
-        super.setBounds(left, top, right, bottom);
+    override fun setBounds(left: Int, top: Int, right: Int, bottom: Int) {
+        super.setBounds(left, top, right, bottom)
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds left " + left);
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds top " + top);
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds right " + right);
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds bottom " + bottom);
-        mRect = new RectF(left + mShadowRadius - mOffsetX, top + mShadowRadius - mOffsetY, right - mShadowRadius - mOffsetX,
-                bottom - mShadowRadius - mOffsetY);
+        mRect = RectF(
+                left + mShadowRadius - mOffsetX,
+                top + mShadowRadius - mOffsetY,
+                right - mShadowRadius - mOffsetX,
+                bottom - mShadowRadius - mOffsetY
+        )
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds mRect.left " + mRect.left);
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds mRect.top " + mRect.top);
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds mRect.right " + mRect.right);
         //Log.i("ShadowLayout1", "ShadowDrawable1 setBounds mRect.bottom " + mRect.bottom);
     }
 
-    @Override
-    public void draw(@NonNull Canvas canvas) {
+    override fun draw(canvas: Canvas) {
         //Log.i("ShadowLayout3", "ShadowDrawable1 draw " + canvas);
-
-        if (mShape == LShadowLayout2.SHAPE_RECTANGLE) {
-            canvas.drawRect(mRect, mShadowPaint);
-        } else if (mShape == LShadowLayout2.SHAPE_OVAL) {
-            canvas.drawCircle(mRect.centerX(), mRect.centerY(), Math.min(mRect.width(), mRect.height()) / 2, mShadowPaint);
+        mRect?.let { r ->
+            if (mShape == LShadowLayout2.SHAPE_RECTANGLE) {
+                canvas.drawRect(r, mShadowPaint)
+            } else if (mShape == LShadowLayout2.SHAPE_OVAL) {
+                canvas.drawCircle(r.centerX(), r.centerY(), min(r.width(), r.height()) / 2, mShadowPaint)
+            }
         }
     }
 
-    @Override
-    public void setAlpha(int alpha) {
-        mShadowPaint.setAlpha(alpha);
+    override fun setAlpha(alpha: Int) {
+        mShadowPaint.alpha = alpha
     }
 
-    @Override
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        mShadowPaint.setColorFilter(colorFilter);
+    override fun setColorFilter(colorFilter: ColorFilter?) {
+        mShadowPaint.colorFilter = colorFilter
     }
 
-    @Override
-    public int getOpacity() {
-        return PixelFormat.TRANSLUCENT;
+    override fun getOpacity(): Int {
+        return PixelFormat.TRANSLUCENT
+    }
+
+    init {
+        mShadowPaint.color = Color.TRANSPARENT
+        mShadowPaint.isAntiAlias = true
+        mShadowPaint.setShadowLayer(mShadowRadius, mOffsetX, mOffsetY, shadowColor)
+        mShadowPaint.xfermode = PorterDuffXfermode(PorterDuff.Mode.DST_ATOP)
     }
 }
