@@ -9,10 +9,7 @@ import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.view.Gravity
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
+import android.view.*
 import android.widget.ImageView
 import android.widget.ProgressBar
 import androidx.viewpager.widget.ViewPager
@@ -55,7 +52,13 @@ class LDialogUtil {
         ): AlertDialog {
 //            logD("showDialog1")
             clearAll()
-            val builder = AlertDialog.Builder(context)
+
+            val builder = if (LUIUtil.isDarkTheme()) {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
+            } else {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
+            }
+
             if (title.isNullOrEmpty()) {
                 //do nothing
             } else {
@@ -95,7 +98,11 @@ class LDialogUtil {
                 onClickButton2: ((Unit) -> Unit)? = null
         ): AlertDialog {
             clearAll()
-            val builder = AlertDialog.Builder(context)
+            val builder = if (LUIUtil.isDarkTheme()) {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
+            } else {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
+            }
             if (title.isNullOrEmpty()) {
                 //do nothing
             } else {
@@ -140,7 +147,11 @@ class LDialogUtil {
                 onClickButton3: ((Unit) -> Unit)? = null
         ): AlertDialog {
             clearAll()
-            val builder = AlertDialog.Builder(context)
+            val builder = if (LUIUtil.isDarkTheme()) {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
+            } else {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
+            }
             if (title.isNullOrEmpty()) {
                 //do nothing
             } else {
@@ -198,7 +209,11 @@ class LDialogUtil {
                 onClick: ((Int) -> Unit)? = null
         ): AlertDialog {
             clearAll()
-            val builder = AlertDialog.Builder(context)
+            val builder = if (LUIUtil.isDarkTheme()) {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.DarkAlertDialogCustom))
+            } else {
+                AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
+            }
             if (title.isNullOrEmpty()) {
                 //do nothing
             } else {
