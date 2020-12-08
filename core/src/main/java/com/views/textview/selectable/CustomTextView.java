@@ -17,7 +17,7 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.R;
 import com.core.utilities.LAppResource;
-//TODO convert kotlin
+
 public class CustomTextView extends AppCompatTextView {
 
     private static final String TAG = "drag ";

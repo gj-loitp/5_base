@@ -4,7 +4,6 @@ import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.CharacterStyle;
 
-//TODO convert kotlin
 public class CustomInfo {
     @Override
     public String toString() {
