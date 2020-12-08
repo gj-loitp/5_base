@@ -1,91 +1,86 @@
-package com.views.layout.heartlayout;
+package com.views.layout.heartlayout
 
-import android.graphics.Matrix;
-import android.graphics.Path;
-import android.graphics.PathMeasure;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.Transformation;
+import android.graphics.Path
+import android.graphics.PathMeasure
+import android.os.Handler
+import android.os.Looper
+import android.view.View
+import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.LinearInterpolator
+import android.view.animation.Transformation
+import java.util.concurrent.atomic.AtomicInteger
 
-import java.util.concurrent.atomic.AtomicInteger;
+class PathAnimator(config: Config) : AbstractPathAnimator(config) {
 
-public class PathAnimator extends AbstractPathAnimator {
-    private final AtomicInteger mCounter = new AtomicInteger(0);
-    private final Handler mHandler;
-
-    public PathAnimator(Config config) {
-        super(config);
-        mHandler = new Handler(Looper.getMainLooper());
-    }
-
-    @Override
-    public void start(final View child, final ViewGroup parent) {
-        parent.addView(child, new ViewGroup.LayoutParams(getMConfig().heartWidth, getMConfig().heartHeight));
-        FloatAnimation anim = new FloatAnimation(createPath(mCounter, parent, 2), randomRotation(), parent, child);
-        anim.setDuration(getMConfig().animDuration);
-        anim.setInterpolator(new LinearInterpolator());
-        anim.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        parent.removeView(child);
-                    }
-                });
-                mCounter.decrementAndGet();
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationStart(Animation animation) {
-                mCounter.incrementAndGet();
-            }
-        });
-        anim.setInterpolator(new LinearInterpolator());
-        child.startAnimation(anim);
-    }
-
-    static class FloatAnimation extends Animation {
-        private final PathMeasure mPm;
-        private final View mView;
-        private final float mDistance;
-        private final float mRotation;
-
-        public FloatAnimation(Path path, float rotation, View parent, View child) {
-            mPm = new PathMeasure(path, false);
-            mDistance = mPm.getLength();
-            mView = child;
-            mRotation = rotation;
-            parent.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        }
-
-        @Override
-        protected void applyTransformation(float factor, Transformation transformation) {
-            Matrix matrix = transformation.getMatrix();
-            mPm.getMatrix(mDistance * factor, matrix, PathMeasure.POSITION_MATRIX_FLAG);
-            mView.setRotation(mRotation * factor);
-            float scale = 1F;
-            if (3000.0F * factor < 200.0F) {
-                scale = scale(factor, 0.0D, 0.06666667014360428D, 0.20000000298023224D, 1.100000023841858D);
-            } else if (3000.0F * factor < 300.0F) {
-                scale = scale(factor, 0.06666667014360428D, 0.10000000149011612D, 1.100000023841858D, 1.0D);
-            }
-            mView.setScaleX(scale);
-            mView.setScaleY(scale);
-            transformation.setAlpha(1.0F - factor);
+    companion object {
+        private fun scale(a: Double, b: Double, c: Double, d: Double, e: Double): Float {
+            return ((a - b) / (c - b) * (e - d) + d).toFloat()
         }
     }
 
-    private static float scale(double a, double b, double c, double d, double e) {
-        return (float) ((a - b) / (c - b) * (e - d) + d);
+    private val mCounter = AtomicInteger(0)
+    private val mHandler: Handler = Handler(Looper.getMainLooper())
+
+    override fun start(child: View, parent: ViewGroup) {
+        parent.addView(child, ViewGroup.LayoutParams(mConfig.heartWidth, mConfig.heartHeight))
+
+        val anim = FloatAnimation(
+                path = createPath(
+                        counter = mCounter,
+                        view = parent,
+                        factor = 2),
+                rotation = randomRotation(),
+                parent = parent,
+                child = child
+        )
+        anim.duration = mConfig.animDuration.toLong()
+        anim.interpolator = LinearInterpolator()
+
+        anim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationEnd(animation: Animation) {
+                mHandler.post {
+                    parent.removeView(child)
+                }
+                mCounter.decrementAndGet()
+            }
+
+            override fun onAnimationRepeat(animation: Animation) {}
+            override fun onAnimationStart(animation: Animation) {
+                mCounter.incrementAndGet()
+            }
+        })
+        anim.interpolator = LinearInterpolator()
+        child.startAnimation(anim)
     }
+
+    internal class FloatAnimation(path: Path?, rotation: Float, parent: View?, child: View?) : Animation() {
+        private val mPm: PathMeasure = PathMeasure(path, false)
+        private val mView: View?
+        private val mDistance: Float
+        private val mRotation: Float
+
+        override fun applyTransformation(factor: Float, transformation: Transformation) {
+            val matrix = transformation.matrix
+            mPm.getMatrix(mDistance * factor, matrix, PathMeasure.POSITION_MATRIX_FLAG)
+            mView?.rotation = mRotation * factor
+            var scale = 1f
+            if (3000.0f * factor < 200.0f) {
+                scale = scale(factor.toDouble(), 0.0, 0.06666667014360428, 0.20000000298023224, 1.100000023841858)
+            } else if (3000.0f * factor < 300.0f) {
+                scale = scale(factor.toDouble(), 0.06666667014360428, 0.10000000149011612, 1.100000023841858, 1.0)
+            }
+            mView?.scaleX = scale
+            mView?.scaleY = scale
+            transformation.alpha = 1.0f - factor
+        }
+
+        init {
+            mDistance = mPm.length
+            mView = child
+            mRotation = rotation
+            parent?.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+        }
+    }
+
 }

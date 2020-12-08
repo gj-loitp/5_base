@@ -38,7 +38,7 @@ abstract class AbstractPathAnimator(
         return p
     }
 
-    abstract fun start(child: View?, parent: ViewGroup?)
+    abstract fun start(child: View, parent: ViewGroup)
 
     class Config {
         var initX = 0
