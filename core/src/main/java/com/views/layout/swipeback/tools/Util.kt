@@ -125,7 +125,7 @@ internal object Util {
     fun onPanelSlide(
             fraction: Float
     ) {
-        val activity = WxSwipeBackActivityManager.getInstance().penultimateActivity
+        val activity = WxSwipeBackActivityManager.instance.penultimateActivity
         if (activity != null && !activity.isFinishing) {
             val decorView = activity.window.decorView
 //            ViewCompat.setTranslationX(decorView, -(decorView.measuredWidth / 3.0f) * (1 - fraction))
@@ -135,7 +135,7 @@ internal object Util {
 
     @JvmStatic
     fun onPanelReset() {
-        val activity = WxSwipeBackActivityManager.getInstance().penultimateActivity
+        val activity = WxSwipeBackActivityManager.instance.penultimateActivity
         if (activity != null) {
             val decorView = activity.window.decorView
 //            ViewCompat.setTranslationX(decorView, 0f)
