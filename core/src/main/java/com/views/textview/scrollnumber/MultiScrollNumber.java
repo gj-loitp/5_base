@@ -20,7 +20,7 @@ import com.core.utilities.LAppResource;
 
 import java.util.ArrayList;
 import java.util.List;
-//TODO convert kotlin
+
 //guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973
 public class MultiScrollNumber extends LinearLayout {
     private Context mContext;
