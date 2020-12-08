@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager
 /**
  * Created by GongWen on 17/8/25.
  */
-object Util {
+internal object Util {
 
     @JvmStatic
     fun canViewScrollUp(
@@ -27,7 +27,8 @@ object Util {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
         } else {
-            ViewCompat.canScrollVertically(mView, -1)
+//            ViewCompat.canScrollVertically(mView, -1)
+            mView.canScrollVertically(-1)
         }
     }
 
@@ -41,7 +42,8 @@ object Util {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
         } else {
-            ViewCompat.canScrollVertically(mView, 1)
+//            ViewCompat.canScrollVertically(mView, 1)
+            mView.canScrollVertically(1)
         }
     }
 
@@ -54,7 +56,8 @@ object Util {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
         } else {
-            ViewCompat.canScrollHorizontally(mView, -1)
+//            ViewCompat.canScrollHorizontally(mView, -1)
+            mView.canScrollHorizontally(-1)
         }
     }
 
@@ -68,7 +71,8 @@ object Util {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
         } else {
-            ViewCompat.canScrollHorizontally(mView, 1)
+//            ViewCompat.canScrollHorizontally(mView, 1)
+            mView.canScrollHorizontally(1)
         }
     }
 
@@ -124,7 +128,8 @@ object Util {
         val activity = WxSwipeBackActivityManager.getInstance().penultimateActivity
         if (activity != null && !activity.isFinishing) {
             val decorView = activity.window.decorView
-            ViewCompat.setTranslationX(decorView, -(decorView.measuredWidth / 3.0f) * (1 - fraction))
+//            ViewCompat.setTranslationX(decorView, -(decorView.measuredWidth / 3.0f) * (1 - fraction))
+            decorView.translationX = -(decorView.measuredWidth / 3.0f) * (1 - fraction)
         }
     }
 
@@ -133,7 +138,8 @@ object Util {
         val activity = WxSwipeBackActivityManager.getInstance().penultimateActivity
         if (activity != null) {
             val decorView = activity.window.decorView
-            ViewCompat.setTranslationX(decorView, 0f)
+//            ViewCompat.setTranslationX(decorView, 0f)
+            decorView.translationX = 0f
         }
     }
 }
