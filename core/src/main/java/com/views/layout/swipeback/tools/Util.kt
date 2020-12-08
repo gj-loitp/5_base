@@ -1,101 +1,139 @@
-package com.views.layout.swipeback.tools;
+package com.views.layout.swipeback.tools
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.widget.AbsListView;
-import android.widget.HorizontalScrollView;
-import android.widget.ScrollView;
-
-import androidx.core.view.ViewCompat;
-import androidx.core.widget.NestedScrollView;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
+import android.graphics.Rect
+import android.view.View
+import android.view.ViewGroup
+import android.webkit.WebView
+import android.widget.AbsListView
+import android.widget.HorizontalScrollView
+import android.widget.ScrollView
+import androidx.core.view.ViewCompat
+import androidx.core.widget.NestedScrollView
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 
 /**
  * Created by GongWen on 17/8/25.
  */
+object Util {
 
-public class Util {
-    public static boolean canViewScrollUp(View mView, float x, float y, boolean defaultValueForNull) {
-        if (mView == null || !contains(mView, x, y)) {
-            return defaultValueForNull;
+    @JvmStatic
+    fun canViewScrollUp(
+            mView: View?,
+            x: Float,
+            y: Float,
+            defaultValueForNull: Boolean
+    ): Boolean {
+        return if (mView == null || !contains(mView, x, y)) {
+            defaultValueForNull
+        } else {
+            ViewCompat.canScrollVertically(mView, -1)
         }
-        return ViewCompat.canScrollVertically(mView, -1);
     }
 
-    public static boolean canViewScrollDown(View mView, float x, float y, boolean defaultValueForNull) {
-        if (mView == null || !contains(mView, x, y)) {
-            return defaultValueForNull;
+    @JvmStatic
+    fun canViewScrollDown(
+            mView: View?,
+            x: Float,
+            y: Float,
+            defaultValueForNull: Boolean
+    ): Boolean {
+        return if (mView == null || !contains(mView, x, y)) {
+            defaultValueForNull
+        } else {
+            ViewCompat.canScrollVertically(mView, 1)
         }
-        return ViewCompat.canScrollVertically(mView, 1);
     }
 
-    public static boolean canViewScrollRight(View mView, float x, float y, boolean defaultValueForNull) {
-        if (mView == null || !contains(mView, x, y)) {
-            return defaultValueForNull;
+    @JvmStatic
+    fun canViewScrollRight(
+            mView: View?,
+            x: Float, y: Float,
+            defaultValueForNull: Boolean
+    ): Boolean {
+        return if (mView == null || !contains(mView, x, y)) {
+            defaultValueForNull
+        } else {
+            ViewCompat.canScrollHorizontally(mView, -1)
         }
-        return ViewCompat.canScrollHorizontally(mView, -1);
     }
 
-    public static boolean canViewScrollLeft(View mView, float x, float y, boolean defaultValueForNull) {
-        if (mView == null || !contains(mView, x, y)) {
-            return defaultValueForNull;
+    @JvmStatic
+    fun canViewScrollLeft(
+            mView: View?,
+            x: Float,
+            y: Float,
+            defaultValueForNull: Boolean
+    ): Boolean {
+        return if (mView == null || !contains(mView, x, y)) {
+            defaultValueForNull
+        } else {
+            ViewCompat.canScrollHorizontally(mView, 1)
         }
-        return ViewCompat.canScrollHorizontally(mView, 1);
     }
 
-
-    public static View findAllScrollViews(ViewGroup mViewGroup) {
-        for (int i = 0; i < mViewGroup.getChildCount(); i++) {
-            View mView = mViewGroup.getChildAt(i);
-            if (mView.getVisibility() != View.VISIBLE) {
-                continue;
+    @JvmStatic
+    fun findAllScrollViews(
+            mViewGroup: ViewGroup
+    ): View? {
+        for (i in 0 until mViewGroup.childCount) {
+            var mView = mViewGroup.getChildAt(i)
+            if (mView?.visibility != View.VISIBLE) {
+                continue
             }
             if (isScrollableView(mView)) {
-                return mView;
+                return mView
             }
-            if (mView instanceof ViewGroup) {
-                mView = findAllScrollViews((ViewGroup) mView);
+            if (mView is ViewGroup) {
+                mView = findAllScrollViews(mViewGroup = mView)
                 if (mView != null) {
-                    return mView;
+                    return mView
                 }
             }
         }
-        return null;
+        return null
     }
 
-    public static boolean isScrollableView(View mView) {
-        return mView instanceof ScrollView
-                || mView instanceof HorizontalScrollView
-                || mView instanceof NestedScrollView
-                || mView instanceof AbsListView
-                || mView instanceof RecyclerView
-                || mView instanceof ViewPager
-                || mView instanceof WebView;
+    fun isScrollableView(
+            mView: View?
+    ): Boolean {
+        return (mView is ScrollView
+                || mView is HorizontalScrollView
+                || mView is NestedScrollView
+                || mView is AbsListView
+                || mView is RecyclerView
+                || mView is ViewPager
+                || mView is WebView)
     }
 
-    public static boolean contains(View mView, float x, float y) {
-        Rect localRect = new Rect();
-        mView.getGlobalVisibleRect(localRect);
-        return localRect.contains((int) x, (int) y);
+    @JvmStatic
+    fun contains(
+            mView: View,
+            x: Float,
+            y: Float
+    ): Boolean {
+        val localRect = Rect()
+        mView.getGlobalVisibleRect(localRect)
+        return localRect.contains(x.toInt(), y.toInt())
     }
 
-    public static void onPanelSlide(float fraction) {
-        Activity activity = WxSwipeBackActivityManager.getInstance().getPenultimateActivity();
-        if (activity != null && !activity.isFinishing()) {
-            View decorView = activity.getWindow().getDecorView();
-            ViewCompat.setTranslationX(decorView, -(decorView.getMeasuredWidth() / 3.0f) * (1 - fraction));
+    @JvmStatic
+    fun onPanelSlide(
+            fraction: Float
+    ) {
+        val activity = WxSwipeBackActivityManager.getInstance().penultimateActivity
+        if (activity != null && !activity.isFinishing) {
+            val decorView = activity.window.decorView
+            ViewCompat.setTranslationX(decorView, -(decorView.measuredWidth / 3.0f) * (1 - fraction))
         }
     }
 
-    public static void onPanelReset() {
-        Activity activity = WxSwipeBackActivityManager.getInstance().getPenultimateActivity();
+    @JvmStatic
+    fun onPanelReset() {
+        val activity = WxSwipeBackActivityManager.getInstance().penultimateActivity
         if (activity != null) {
-            View decorView = activity.getWindow().getDecorView();
-            ViewCompat.setTranslationX(decorView, 0);
+            val decorView = activity.window.decorView
+            ViewCompat.setTranslationX(decorView, 0f)
         }
     }
 }
