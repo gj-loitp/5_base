@@ -20,9 +20,9 @@ class LScrollParallaxImageView
         ViewTreeObserver.OnScrollChangedListener {
 
     interface ParallaxStyle {
-        fun onAttachedToImageView(view: LScrollParallaxImageView?)
-        fun onDetachedFromImageView(view: LScrollParallaxImageView?)
-        fun transform(view: LScrollParallaxImageView?, canvas: Canvas?, x: Int, y: Int)
+        fun onAttachedToImageView(view: LScrollParallaxImageView)
+        fun onDetachedFromImageView(view: LScrollParallaxImageView)
+        fun transform(view: LScrollParallaxImageView, canvas: Canvas, x: Int, y: Int)
     }
 
     private val viewLocation = IntArray(2)
