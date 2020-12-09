@@ -1,64 +1,52 @@
-package com.views.imageview.scrollparallax.parallaxstyle;
+package com.views.imageview.scrollparallax.parallaxstyle
 
-import android.graphics.Canvas;
-
-import com.views.imageview.scrollparallax.LScrollParallaxImageView;
+import android.graphics.Canvas
+import com.views.imageview.scrollparallax.LScrollParallaxImageView
+import com.views.imageview.scrollparallax.LScrollParallaxImageView.ParallaxStyle
 
 /**
  * When the imageView is scrolling vertically, the image in imageView will be scaled.
  * The scale ratio is according to the vertical position of the imageView and range
- * from 1.0f to <code>finalScaleRatio</code>.
+ * from 1.0f to `finalScaleRatio`.
  * When the imageView is at the middle of the screen, the scale ratio is 1.0f. And When
- * it just scroll out of the screen, the scale ratio is <code>finalScaleRatio</code>.
- * <p>
+ * it just scroll out of the screen, the scale ratio is `finalScaleRatio`.
+ *
+ *
  * Created by gjz on 25/11/2016.
  */
+class VerticalScaleStyle : ParallaxStyle {
+    private var finalScaleRatio = 0.7f
 
-public class VerticalScaleStyle implements LScrollParallaxImageView.ParallaxStyle {
-    private float finalScaleRatio = 0.7f;
-
-    public VerticalScaleStyle() {
+    constructor()
+    constructor(finalScaleRatio: Float) {
+        this.finalScaleRatio = finalScaleRatio
     }
 
-    public VerticalScaleStyle(float finalScaleRatio) {
-        this.finalScaleRatio = finalScaleRatio;
+    fun setFinalScaleRatio(scale: Float) {
+        finalScaleRatio = scale
     }
 
-    public void setFinalScaleRatio(float scale) {
-        finalScaleRatio = scale;
-    }
-
-    @Override
-    public void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y) {
+    override fun transform(view: LScrollParallaxImageView, canvas: Canvas, x: Int, y: Int) {
         // view's width and height
-        int vWidth = view.getWidth() - view.getPaddingLeft() - view.getPaddingRight();
-        int vHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
+        val vWidth = view.width - view.paddingLeft - view.paddingRight
+        val vHeight = view.height - view.paddingTop - view.paddingBottom
         // device's height
-        int dHeight = view.getResources().getDisplayMetrics().heightPixels;
-
+        val dHeight = view.resources.displayMetrics.heightPixels
         if (vHeight >= dHeight) {
             // Do nothing if imageView's height is bigger than device's height.
-            return;
+            return
         }
-
-        float scale;
-        int pivot = (dHeight - vHeight) / 2;
-        if (y <= pivot) {
-            scale = 2 * (1 - finalScaleRatio) * (y + vHeight) / (dHeight + vHeight) + finalScaleRatio;
+        val scale: Float
+        val pivot = (dHeight - vHeight) / 2
+        scale = if (y <= pivot) {
+            2 * (1 - finalScaleRatio) * (y + vHeight) / (dHeight + vHeight) + finalScaleRatio
         } else {
-            scale = 2 * (1 - finalScaleRatio) * (dHeight - y) / (dHeight + vHeight) + finalScaleRatio;
+            2 * (1 - finalScaleRatio) * (dHeight - y) / (dHeight + vHeight) + finalScaleRatio
         }
-
-        canvas.scale(scale, scale, vWidth / 2, vHeight / 2);
+        canvas.scale(scale, scale, (vWidth / 2).toFloat(), (vHeight / 2).toFloat())
     }
 
-    @Override
-    public void onAttachedToImageView(LScrollParallaxImageView view) {
+    override fun onAttachedToImageView(view: LScrollParallaxImageView) {}
 
-    }
-
-    @Override
-    public void onDetachedFromImageView(LScrollParallaxImageView view) {
-
-    }
+    override fun onDetachedFromImageView(view: LScrollParallaxImageView) {}
 }

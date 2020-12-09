@@ -1,65 +1,52 @@
-package com.views.imageview.scrollparallax.parallaxstyle;
+package com.views.imageview.scrollparallax.parallaxstyle
 
-import android.graphics.Canvas;
-
-import com.views.imageview.scrollparallax.LScrollParallaxImageView;
+import android.graphics.Canvas
+import com.views.imageview.scrollparallax.LScrollParallaxImageView
+import com.views.imageview.scrollparallax.LScrollParallaxImageView.ParallaxStyle
 
 /**
  * When the imageView is scrolling vertically, the image in imageView will change its alpha.
  * The alpha is according to the vertical position of the imageView and range
- * from 1.0f to <code>finalAlpha</code>.
+ * from 1.0f to `finalAlpha`.
  * When the imageView is at the middle of the screen, the alpha is 1.0f. And When
- * it just scroll out of the screen, the alpha is <code>finalAlpha</code>.
- * <p>
+ * it just scroll out of the screen, the alpha is `finalAlpha`.
+ *
+ *
  * Created by gjz on 25/11/2016.
  */
+class VerticalAlphaStyle : ParallaxStyle {
+    private var finalAlpha = 0.3f
 
-public class VerticalAlphaStyle implements LScrollParallaxImageView.ParallaxStyle {
-    private float finalAlpha = 0.3f;
-
-    public VerticalAlphaStyle() {
+    constructor()
+    constructor(finalAlpha: Float) {
+        require(!(finalAlpha < 0 || finalAlpha > 1.0f)) { "the alpha must between 0 and 1." }
+        this.finalAlpha = finalAlpha
     }
 
-    public VerticalAlphaStyle(float finalAlpha) {
-        if (finalAlpha < 0 || finalAlpha > 1.0f) {
-            throw new IllegalArgumentException("the alpha must between 0 and 1.");
-        }
-        this.finalAlpha = finalAlpha;
+    fun setFinalAlpha(alpha: Float) {
+        finalAlpha = alpha
     }
 
-    public void setFinalAlpha(float alpha) {
-        finalAlpha = alpha;
-    }
-
-    @Override
-    public void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y) {
+    override fun transform(view: LScrollParallaxImageView, canvas: Canvas, x: Int, y: Int) {
         // view's height
-        int vHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
+        val vHeight = view.height - view.paddingTop - view.paddingBottom
         // device's height
-        int dHeight = view.getResources().getDisplayMetrics().heightPixels;
-
+        val dHeight = view.resources.displayMetrics.heightPixels
         if (vHeight >= dHeight) {
             // Do nothing if imageView's height is bigger than device's height.
-            return;
+            return
         }
-
-        float alpha;
-        int pivot = (dHeight - vHeight) / 2;
-        if (y <= pivot) {
-            alpha = 2 * (1 - finalAlpha) * (y + vHeight) / (dHeight + vHeight) + finalAlpha;
+        val alpha: Float
+        val pivot = (dHeight - vHeight) / 2
+        alpha = if (y <= pivot) {
+            2 * (1 - finalAlpha) * (y + vHeight) / (dHeight + vHeight) + finalAlpha
         } else {
-            alpha = 2 * (1 - finalAlpha) * (dHeight - y) / (dHeight + vHeight) + finalAlpha;
+            2 * (1 - finalAlpha) * (dHeight - y) / (dHeight + vHeight) + finalAlpha
         }
-        view.setAlpha(alpha);
+        view.alpha = alpha
     }
 
-    @Override
-    public void onAttachedToImageView(LScrollParallaxImageView view) {
+    override fun onAttachedToImageView(view: LScrollParallaxImageView) {}
 
-    }
-
-    @Override
-    public void onDetachedFromImageView(LScrollParallaxImageView view) {
-
-    }
+    override fun onDetachedFromImageView(view: LScrollParallaxImageView) {}
 }

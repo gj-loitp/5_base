@@ -1,66 +1,64 @@
-package com.views.imageview.scrollparallax.parallaxstyle;
+package com.views.imageview.scrollparallax.parallaxstyle
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
-
-import com.views.imageview.scrollparallax.LScrollParallaxImageView;
+import android.graphics.Canvas
+import android.widget.ImageView
+import com.views.imageview.scrollparallax.LScrollParallaxImageView
+import com.views.imageview.scrollparallax.LScrollParallaxImageView.ParallaxStyle
+import kotlin.math.abs
 
 /**
  * When the imageView is scrolling vertically, the image in imageView will be
  * also scrolling vertically if the image' height is bigger than imageView's height.
- * <p>
+ *
+ *
  * The image will not over scroll to it's view bounds.
- * <p>
+ *
+ *
  * Note: it only supports imageView with CENTER_CROP scale type.
- * <p>
+ *
+ *
  * Created by gjz on 25/11/2016.
  */
+class VerticalMovingStyle : ParallaxStyle {
 
-public class VerticalMovingStyle implements LScrollParallaxImageView.ParallaxStyle {
-
-    @Override
-    public void onAttachedToImageView(LScrollParallaxImageView view) {
+    override fun onAttachedToImageView(view: LScrollParallaxImageView) {
         // only supports CENTER_CROP
-        view.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        view.scaleType = ImageView.ScaleType.CENTER_CROP
     }
 
-    @Override
-    public void onDetachedFromImageView(LScrollParallaxImageView view) {
+    override fun onDetachedFromImageView(view: LScrollParallaxImageView) {}
 
-    }
-
-    @Override
-    public void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y) {
-        if (view.getScaleType() != ImageView.ScaleType.CENTER_CROP) {
-            return;
+    @Suppress("NAME_SHADOWING")
+    override fun transform(view: LScrollParallaxImageView, canvas: Canvas, x: Int, y: Int) {
+        var y = y
+        if (view.scaleType != ImageView.ScaleType.CENTER_CROP) {
+            return
         }
 
         // image's width and height
-        int iWidth = view.getDrawable().getIntrinsicWidth();
-        int iHeight = view.getDrawable().getIntrinsicHeight();
+        val iWidth = view.drawable.intrinsicWidth
+        val iHeight = view.drawable.intrinsicHeight
         if (iWidth <= 0 || iHeight <= 0) {
-            return;
+            return
         }
 
         // view's width and height
-        int vWidth = view.getWidth() - view.getPaddingLeft() - view.getPaddingRight();
-        int vHeight = view.getHeight() - view.getPaddingTop() - view.getPaddingBottom();
+        val vWidth = view.width - view.paddingLeft - view.paddingRight
+        val vHeight = view.height - view.paddingTop - view.paddingBottom
 
         // device's height
-        int dHeight = view.getResources().getDisplayMetrics().heightPixels;
-
+        val dHeight = view.resources.displayMetrics.heightPixels
         if (iWidth * vHeight < iHeight * vWidth) {
             // avoid over scroll
             if (y < -vHeight) {
-                y = -vHeight;
+                y = -vHeight
             } else if (y > dHeight) {
-                y = dHeight;
+                y = dHeight
             }
-
-            float imgScale = (float) vWidth / (float) iWidth;
-            float max_dy = Math.abs((iHeight * imgScale - vHeight) * 0.5f);
-            float translateY = -(2 * max_dy * y + max_dy * (vHeight - dHeight)) / (vHeight + dHeight);
-            canvas.translate(0, translateY);
+            val imgScale = vWidth.toFloat() / iWidth.toFloat()
+            val maxDy = abs((iHeight * imgScale - vHeight) * 0.5f)
+            val translateY = -(2 * maxDy * y + maxDy * (vHeight - dHeight)) / (vHeight + dHeight)
+            canvas.translate(0f, translateY)
         }
     }
 }
