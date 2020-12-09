@@ -10,15 +10,15 @@ import com.views.imageview.scrollparallax.LScrollParallaxImageView;
  * from 1.0f to <code>finalScaleRatio</code>.
  * When the imageView is at the middle of the screen, the scale ratio is 1.0f. And When
  * it just scroll out of the screen, the scale ratio is <code>finalScaleRatio</code>.
- *
+ * <p>
  * Created by gjz on 26/11/2016.
  */
 
-//TODO convert kotlin
 public class HorizontalScaleStyle implements LScrollParallaxImageView.ParallaxStyle {
     private float finalScaleRatio = 0.7f;
 
-    public HorizontalScaleStyle() {}
+    public HorizontalScaleStyle() {
+    }
 
     public HorizontalScaleStyle(float finalScaleRatio) {
         this.finalScaleRatio = finalScaleRatio;
@@ -49,7 +49,7 @@ public class HorizontalScaleStyle implements LScrollParallaxImageView.ParallaxSt
             scale = 2 * (1 - finalScaleRatio) * (dWidth - x) / (dWidth + vWidth) + finalScaleRatio;
         }
 
-        canvas.scale(scale, scale, vWidth/2, vHeight/2);
+        canvas.scale(scale, scale, vWidth / 2, vHeight / 2);
     }
 
     @Override

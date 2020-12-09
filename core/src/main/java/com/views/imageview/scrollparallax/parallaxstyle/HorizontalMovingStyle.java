@@ -16,7 +16,6 @@ import com.views.imageview.scrollparallax.LScrollParallaxImageView;
  * Created by gjz on 26/11/2016.
  */
 
-//TODO convert kotlin
 public class HorizontalMovingStyle implements LScrollParallaxImageView.ParallaxStyle {
     @Override
     public void onAttachedToImageView(LScrollParallaxImageView view) {

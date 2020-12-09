@@ -4,14 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.ViewTreeObserver;
-import android.widget.ImageView;
+
+import androidx.appcompat.widget.AppCompatImageView;
 
 /**
  * Created by gjz on 25/11/2016.
  */
 
-//TODO convert kotlin
-public class LScrollParallaxImageView extends ImageView implements ViewTreeObserver.OnScrollChangedListener {
+public class LScrollParallaxImageView extends AppCompatImageView implements ViewTreeObserver.OnScrollChangedListener {
     private int[] viewLocation = new int[2];
     private boolean enableScrollParallax = true;
 
