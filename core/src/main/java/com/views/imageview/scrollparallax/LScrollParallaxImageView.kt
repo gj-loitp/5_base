@@ -1,85 +1,73 @@
-package com.views.imageview.scrollparallax;
+package com.views.imageview.scrollparallax
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.ViewTreeObserver;
-
-import androidx.appcompat.widget.AppCompatImageView;
+import android.content.Context
+import android.graphics.Canvas
+import android.util.AttributeSet
+import android.view.ViewTreeObserver
+import androidx.appcompat.widget.AppCompatImageView
 
 /**
  * Created by gjz on 25/11/2016.
  */
+class LScrollParallaxImageView
+@JvmOverloads constructor(
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
+) : AppCompatImageView(
+        context, attrs, defStyleAttr
+),
+        ViewTreeObserver.OnScrollChangedListener {
 
-public class LScrollParallaxImageView extends AppCompatImageView implements ViewTreeObserver.OnScrollChangedListener {
-    private int[] viewLocation = new int[2];
-    private boolean enableScrollParallax = true;
-
-    private ParallaxStyle parallaxStyles;
-
-    public LScrollParallaxImageView(Context context) {
-        this(context, null);
+    interface ParallaxStyle {
+        fun onAttachedToImageView(view: LScrollParallaxImageView?)
+        fun onDetachedFromImageView(view: LScrollParallaxImageView?)
+        fun transform(view: LScrollParallaxImageView?, canvas: Canvas?, x: Int, y: Int)
     }
 
-    public LScrollParallaxImageView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
+    private val viewLocation = IntArray(2)
+    private var enableScrollParallax = true
+    private var parallaxStyles: ParallaxStyle? = null
 
-    public LScrollParallaxImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        if (!enableScrollParallax || getDrawable() == null) {
-            super.onDraw(canvas);
-            return;
+    override fun onDraw(canvas: Canvas) {
+        if (!enableScrollParallax || drawable == null) {
+            super.onDraw(canvas)
+            return
         }
-
-        if (parallaxStyles != null) {
-            getLocationInWindow(viewLocation);
-            parallaxStyles.transform(this, canvas, viewLocation[0], viewLocation[1]);
-        }
-
-        super.onDraw(canvas);
+        getLocationInWindow(viewLocation)
+        parallaxStyles?.transform(
+                view = this,
+                canvas = canvas,
+                x = viewLocation[0],
+                y = viewLocation[1]
+        )
+        super.onDraw(canvas)
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        getViewTreeObserver().addOnScrollChangedListener(this);
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        viewTreeObserver.addOnScrollChangedListener(this)
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        getViewTreeObserver().removeOnScrollChangedListener(this);
-        super.onDetachedFromWindow();
+    override fun onDetachedFromWindow() {
+        viewTreeObserver.removeOnScrollChangedListener(this)
+        super.onDetachedFromWindow()
     }
 
-    @Override
-    public void onScrollChanged() {
+    override fun onScrollChanged() {
         if (enableScrollParallax) {
-            invalidate();
+            invalidate()
         }
     }
 
-    public void setParallaxStyles(ParallaxStyle styles) {
-        if (parallaxStyles != null) {
-            parallaxStyles.onDetachedFromImageView(this);
-        }
-        parallaxStyles = styles;
-        parallaxStyles.onAttachedToImageView(this);
+    fun setParallaxStyles(styles: ParallaxStyle?) {
+        parallaxStyles?.onDetachedFromImageView(this)
+        parallaxStyles = styles
+        parallaxStyles?.onAttachedToImageView(this)
     }
 
-    public void setEnableScrollParallax(boolean enableScrollParallax) {
-        this.enableScrollParallax = enableScrollParallax;
+    fun setEnableScrollParallax(enableScrollParallax: Boolean) {
+        this.enableScrollParallax = enableScrollParallax
     }
 
-    public interface ParallaxStyle {
-        void onAttachedToImageView(LScrollParallaxImageView view);
-
-        void onDetachedFromImageView(LScrollParallaxImageView view);
-
-        void transform(LScrollParallaxImageView view, Canvas canvas, int x, int y);
-    }
 }
