@@ -1,157 +1,137 @@
-package vn.loitp.app.activity.customviews.wwlvideo;
+package vn.loitp.app.activity.customviews.wwlvideo
 
-import android.graphics.Color;
-import android.os.Build;
-import android.os.Bundle;
-import android.widget.FrameLayout;
-
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseActivity;
-import com.views.wwlmusic.utils.LWWLMusicUiUtil;
-import com.views.wwlmusic.utils.LWWLMusicViewHelper;
-import com.views.wwlvideo.LWWLVideo;
-
-import vn.loitp.app.R;
-import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment;
-import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment;
-import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment;
-import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
+import android.graphics.Color
+import android.os.Build
+import android.os.Bundle
+import android.widget.FrameLayout
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseActivity
+import com.core.utilities.LAppResource
+import com.views.wwlmusic.utils.LWWLMusicUiUtil
+import com.views.wwlmusic.utils.LWWLMusicViewHelper
+import com.views.wwlvideo.LWWLVideo
+import kotlinx.android.synthetic.main.wwl_video_activity.*
+import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoMetaInfoFragment
+import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoPlayerFragment
+import vn.loitp.app.activity.customviews.wwlvideo.detail.WWLVideoUpNextFragment
+import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost
+import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset
+import kotlin.math.max
+import kotlin.math.min
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
-
-//TODO convert kotlin
 @LogTag("WWLVideoActivity")
 @IsFullScreen(false)
-public class WWLVideoActivity extends BaseActivity implements LWWLVideo.Listener, FragmentHost {
-    private LWWLVideo LWWLVideo;
-    private float mLastAlpha;
-    private FrameLayout mPlayerFragmentContainer;
-    private WWLVideoPlayerFragment wwlVideoPlayerFragment;
-    private WWLVideoUpNextFragment wwlVideoUpNextFragment;
-    private WWLVideoMetaInfoFragment wwlVideoMetaInfoFragment;
+class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
+    private var mLastAlpha = 0f
+    private var fmrPlayerFragmentContainer: FrameLayout? = null
+    private var frmPlayer: WWLVideoPlayerFragment? = null
+    private var frmUpNext: WWLVideoUpNextFragment? = null
+    private var frmMetaInfo: WWLVideoMetaInfoFragment? = null
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.wwl_video_activity;
+    override fun setLayoutResourceId(): Int {
+        return R.layout.wwl_video_activity
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        this.LWWLVideo = findViewById(R.id.watch_while_layout);
-        this.LWWLVideo.setListener(this);
-
-        this.mPlayerFragmentContainer = findViewById(R.id.player_fragment_container);
-        this.wwlVideoPlayerFragment = (WWLVideoPlayerFragment) getSupportFragmentManager().findFragmentById(R.id.player_fragment);
-        this.wwlVideoUpNextFragment = (WWLVideoUpNextFragment) getSupportFragmentManager().findFragmentById(R.id.up_next_fragment);
-        this.wwlVideoMetaInfoFragment = (WWLVideoMetaInfoFragment) getSupportFragmentManager().findFragmentById(R.id.meta_info_fragment);
+        watchWhileLayout.setListener(this)
+        frmPlayer = supportFragmentManager.findFragmentById(R.id.frmPlayer) as WWLVideoPlayerFragment?
+        frmUpNext = supportFragmentManager.findFragmentById(R.id.frmUpNext) as WWLVideoUpNextFragment?
+        frmMetaInfo = supportFragmentManager.findFragmentById(R.id.frmMetaInfo) as WWLVideoMetaInfoFragment?
     }
 
-    @Override
-    public void WWL_onSliding(float offset) {
-        float alpha;
+    override fun WWL_onSliding(offset: Float) {
+        val alpha: Float
         if (offset > 2.0f) {
-            alpha = this.mLastAlpha * (3.0f - offset);
+            alpha = mLastAlpha * (3.0f - offset)
         } else {
-            if (offset > 1.0f) {
-                alpha = 0.25f + (0.75f * (2.0f - offset));
+            alpha = if (offset > 1.0f) {
+                0.25f + 0.75f * (2.0f - offset)
             } else {
-                alpha = 1.0f;
+                1.0f
             }
-            if (offset >= 0.0f && offset <= 1.0f) {
-                updateStatusBarAlpha(1.0f - offset);
+            if (offset in 0.0f..1.0f) {
+                updateStatusBarAlpha(1.0f - offset)
             }
         }
-        updatePlayerAlpha(alpha);
-        this.mLastAlpha = alpha;
+        updatePlayerAlpha(alpha)
+        mLastAlpha = alpha
     }
 
-    @Override
-    public void WWL_onClicked() {
-        if (this.LWWLVideo.mState == com.views.wwlvideo.LWWLVideo.STATE_MINIMIZED) {
-            this.LWWLVideo.maximize(false);
+    override fun WWL_onClicked() {
+        if (watchWhileLayout.mState == LWWLVideo.STATE_MINIMIZED) {
+            watchWhileLayout.maximize(false)
         }
-        if (this.LWWLVideo.mState == com.views.wwlvideo.LWWLVideo.STATE_MAXIMIZED) {
-            this.wwlVideoPlayerFragment.toggleControls();
+        if (watchWhileLayout.mState == LWWLVideo.STATE_MAXIMIZED) {
+            frmPlayer?.toggleControls()
         }
     }
 
-    @Override
-    public void WWL_onHided() {
-        this.wwlVideoPlayerFragment.stopPlay();
+    override fun WWL_onHided() {
+        frmPlayer?.stopPlay()
     }
 
-    @Override
-    protected void onDestroy() {
-        this.wwlVideoPlayerFragment.stopPlay();
-        super.onDestroy();
+    override fun onDestroy() {
+        frmPlayer?.stopPlay()
+        super.onDestroy()
     }
 
-    @Override
-    public void WWL_minimized() {
-        this.mLastAlpha = 0.0f;
-        this.wwlVideoPlayerFragment.hideControls();
+    override fun WWL_minimized() {
+        mLastAlpha = 0.0f
+        frmPlayer?.hideControls()
     }
 
-    @Override
-    public void WWL_maximized() {
-        this.mLastAlpha = 1.0f;
+    override fun WWL_maximized() {
+        mLastAlpha = 1.0f
     }
 
-    @Override
-    public void goToDetail(WWLVideoDataset.DatasetItem item) {
-        if (this.LWWLVideo.mState == com.views.wwlvideo.LWWLVideo.STATE_HIDED) {
-            this.LWWLVideo.mState = com.views.wwlvideo.LWWLVideo.STATE_MAXIMIZED;
-            this.LWWLVideo.mIsFullscreen = false;
-            if (this.LWWLVideo.canAnimate()) {
-                this.LWWLVideo.setAnimatePos(this.LWWLVideo.mMaxY);
+    override fun goToDetail(item: WWLVideoDataset.DatasetItem) {
+        if (watchWhileLayout.mState == LWWLVideo.STATE_HIDED) {
+            watchWhileLayout.mState = LWWLVideo.STATE_MAXIMIZED
+            watchWhileLayout.mIsFullscreen = false
+            if (watchWhileLayout.canAnimate()) {
+                watchWhileLayout.setAnimatePos(watchWhileLayout.mMaxY)
             }
-            this.LWWLVideo.reset();
+            watchWhileLayout.reset()
         }
-        this.LWWLVideo.maximize(false);
-
-        this.wwlVideoPlayerFragment.startPlay(item);
-        if (this.wwlVideoUpNextFragment != null) {
-            this.wwlVideoUpNextFragment.updateItem(item);
-        }
-        if (this.wwlVideoMetaInfoFragment != null) {
-            this.wwlVideoMetaInfoFragment.updateItem(item);
-        }
+        watchWhileLayout.maximize(false)
+        frmPlayer?.startPlay(item)
+        frmUpNext?.updateItem(item)
+        frmMetaInfo?.updateItem(item)
     }
 
-    @Override
-    public void onVideoCollapse() {
-        LWWLMusicUiUtil.showSystemUI(this);
-        this.LWWLVideo.exitFullscreenToMinimize();
-        this.wwlVideoPlayerFragment.switchFullscreen(false);
-        this.LWWLVideo.minimize(false);
+    override fun onVideoCollapse() {
+        LWWLMusicUiUtil.showSystemUI(this)
+        watchWhileLayout.exitFullscreenToMinimize()
+        frmPlayer?.switchFullscreen(false)
+        watchWhileLayout.minimize(false)
     }
 
-    @Override
-    public void onVideoFullscreen(boolean selected) {
+    override fun onVideoFullscreen(selected: Boolean) {
         if (selected) {
-            LWWLMusicUiUtil.hideSystemUI(this);
-            this.LWWLVideo.enterFullscreen();
+            LWWLMusicUiUtil.hideSystemUI(this)
+            watchWhileLayout.enterFullscreen()
         } else {
-            LWWLMusicUiUtil.showSystemUI(this);
-            this.LWWLVideo.exitFullscreen();
+            LWWLMusicUiUtil.showSystemUI(this)
+            watchWhileLayout.exitFullscreen()
         }
-        this.wwlVideoPlayerFragment.switchFullscreen(selected);
+        frmPlayer?.switchFullscreen(selected)
     }
 
-    private void updateStatusBarAlpha(float alpha) {
+    private fun updateStatusBarAlpha(alpha: Float) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int color = getResources().getColor(R.color.colorPrimaryDark);
-            int color2 = Color.BLACK;
-            int color3 = LWWLMusicViewHelper.evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
-            getWindow().setStatusBarColor(color3);
+            val color = LAppResource.getColor(R.color.colorPrimaryDark)
+            val color2 = Color.BLACK
+            val color3 = LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
+            window.statusBarColor = color3
         }
     }
 
-    private void updatePlayerAlpha(float alpha) {
-        this.mPlayerFragmentContainer.setAlpha(alpha);
+    private fun updatePlayerAlpha(alpha: Float) {
+        fmrPlayerFragmentContainer?.alpha = alpha
     }
 }

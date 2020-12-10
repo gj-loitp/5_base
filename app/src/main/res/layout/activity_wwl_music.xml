@@ -13,7 +13,7 @@
         tools:ignore="UselessParent">
 
         <com.views.wwlmusic.layout.LWWLMusic
-            android:id="@+id/watch_while_layout"
+            android:id="@+id/watchWhileLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"

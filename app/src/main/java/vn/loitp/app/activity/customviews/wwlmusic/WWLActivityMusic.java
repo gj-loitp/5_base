@@ -34,7 +34,7 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        this.LWWLMusic = findViewById(R.id.watch_while_layout);
+        this.LWWLMusic = findViewById(R.id.watchWhileLayout);
         this.LWWLMusic.setListener(this);
 
         this.watchFragment = (WWLWatchFragment) getSupportFragmentManager().findFragmentById(R.id.watch_fragment);
