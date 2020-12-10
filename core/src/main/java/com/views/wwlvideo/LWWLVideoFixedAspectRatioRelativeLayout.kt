@@ -1,35 +1,51 @@
-package com.views.wwlvideo;
+package com.views.wwlvideo
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.widget.RelativeLayout;
+import android.annotation.SuppressLint
+import android.content.Context
+import android.util.AttributeSet
+import android.widget.RelativeLayout
+import com.R
 
-import com.R;
+class LWWLVideoFixedAspectRatioRelativeLayout : RelativeLayout {
+    var mAspectRatio: Float
 
-public class LWWLVideoFixedAspectRatioRelativeLayout extends RelativeLayout {
-    public float mAspectRatio;
-
-    public LWWLVideoFixedAspectRatioRelativeLayout(Context context) {
-        super(context);
-        this.mAspectRatio = 1.0f;
+    constructor(context: Context?) : super(context) {
+        mAspectRatio = 1.0f
     }
 
-    public LWWLVideoFixedAspectRatioRelativeLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioRelativeLayout);
-        this.mAspectRatio = typedArray.getFraction(R.styleable.FixedAspectRatioRelativeLayout_aspectRatioRelativeLayout, 1, 1, 1.0f);
-        typedArray.recycle();
+    @SuppressLint("CustomViewStyleable")
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioRelativeLayout)
+        mAspectRatio = typedArray.getFraction(
+                R.styleable.FixedAspectRatioRelativeLayout_aspectRatioRelativeLayout,
+                1,
+                1,
+                1.0f
+        )
+        typedArray.recycle()
     }
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY) {
-            super.onMeasure(widthMeasureSpec, MeasureSpec.makeMeasureSpec((int) (((float) MeasureSpec.getSize(widthMeasureSpec)) / this.mAspectRatio), MeasureSpec.EXACTLY));
-        } else if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.EXACTLY) {
-            super.onMeasure(MeasureSpec.makeMeasureSpec((int) (((float) MeasureSpec.getSize(heightMeasureSpec)) * this.mAspectRatio), MeasureSpec.EXACTLY), heightMeasureSpec);
-        } else {
-            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        when (MeasureSpec.EXACTLY) {
+            MeasureSpec.getMode(widthMeasureSpec) -> {
+                super.onMeasure(
+                        widthMeasureSpec,
+                        MeasureSpec.makeMeasureSpec(
+                                (MeasureSpec.getSize(widthMeasureSpec).toFloat() / mAspectRatio).toInt(),
+                                MeasureSpec.EXACTLY)
+                )
+            }
+            MeasureSpec.getMode(heightMeasureSpec) -> {
+                super.onMeasure(
+                        MeasureSpec.makeMeasureSpec(
+                                (MeasureSpec.getSize(heightMeasureSpec).toFloat() * mAspectRatio).toInt(),
+                                MeasureSpec.EXACTLY),
+                        heightMeasureSpec
+                )
+            }
+            else -> {
+                super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+            }
         }
     }
 }
