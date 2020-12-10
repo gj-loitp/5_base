@@ -1,254 +1,204 @@
-package vn.loitp.app.activity.customviews.wwlvideo.detail;
+package vn.loitp.app.activity.customviews.wwlvideo.detail
 
-import android.app.Activity;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.app.Activity
+import android.content.res.Configuration
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
+import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
+import com.core.base.BaseFragment
+import com.views.wwlmusic.utils.LWWLMusicUiUtil
+import kotlinx.android.synthetic.main.wwl_video_up_next_fragment.*
+import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost
+import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.annotation.LogTag;
-import com.core.base.BaseFragment;
-import com.views.wwlmusic.utils.LWWLMusicUiUtil;
-
-import org.jetbrains.annotations.NotNull;
-
-import vn.loitp.app.R;
-import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
-import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
-
-//TODO convert kotlin
 @LogTag("WWLVideoUpNextFragment")
-public class WWLVideoUpNextFragment extends BaseFragment {
-    private FragmentHost mFragmentHost;
-    private GridLayoutManager mLayoutManager;
-    private CustomAdapter mAdapter;
-    private boolean mIsLandscape;
+class WWLVideoUpNextFragment : BaseFragment() {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.wwl_video_up_next_fragment;
+    companion object {
+        private const val HEADER = 0
+        private const val TITLE = 1
+        private const val OTHER = 2
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    private var mFragmentHost: FragmentHost? = null
+    private var mLayoutManager: GridLayoutManager? = null
+    private var mAdapter: CustomAdapter? = null
+    private var mIsLandscape = false
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.wwl_video_up_next_fragment
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        RecyclerView mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
-        this.mLayoutManager = new GridLayoutManager(getActivity(), LWWLMusicUiUtil.getGridColumnCount(getResources()));
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        //this.mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(getResources().getDimensionPixelSize(R.dimen.card_spacing), true));
-        //this.mRecyclerView.scrollToPosition(0);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        this.mAdapter = new CustomAdapter(WWLVideoDataset.datasetItems);
-        mRecyclerView.setAdapter(mAdapter);
-
-        this.mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-            @Override
-            public int getSpanSize(int position) {
-                return WWLVideoUpNextFragment.this.getSpanSize(position);
-            }
-        });
-
-        updateLayoutIfNeed();
-    }
-
-    private int getSpanSize(int position) {
-        int spanSize = this.mLayoutManager.getSpanCount();
-        if (this.mIsLandscape) {
-            return spanSize;
-        }
-        if (position == 0) {
-            return spanSize;
-        }
-        position--;
-        if (position == 0) {
-            return spanSize;
-        }
-        return 1;
-    }
-
-    @Override
-    public void onAttach(@NotNull Activity activity) {
-        super.onAttach(activity);
-
-        this.mFragmentHost = (FragmentHost) activity;
-    }
-
-    @Override
-    public void onConfigurationChanged(@NotNull Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        updateLayoutIfNeed();
-    }
-
-    public void updateItem(WWLVideoDataset.DatasetItem item) {
-        if (this.mAdapter != null) {
-            this.mAdapter.updateHeader(item);
-            this.mAdapter.notifyDataSetChanged();
-        }
-    }
-
-    private void updateLayoutIfNeed() {
-        boolean enable = true;
-        int orientation = getResources().getConfiguration().orientation;
-        this.mIsLandscape = orientation == Configuration.ORIENTATION_LANDSCAPE;
-        if (this.mIsLandscape) {
-            enable = false;
-        }
-        if (this.mLayoutManager != null) {
-            if (this.mIsLandscape) {
-                this.mLayoutManager.setSpanCount(1);
-            } else {
-                this.mLayoutManager.setSpanCount(LWWLMusicUiUtil.getGridColumnCount(getResources()));
+        mLayoutManager = GridLayoutManager(activity, LWWLMusicUiUtil.getGridColumnCount(resources))
+        recyclerView.layoutManager = mLayoutManager
+        mAdapter = CustomAdapter(WWLVideoDataset.datasetItems)
+        recyclerView.adapter = mAdapter
+        mLayoutManager?.spanSizeLookup = object : SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return this@WWLVideoUpNextFragment.getSpanSize(position)
             }
         }
-        if (this.mAdapter != null) {
-            this.mAdapter.setHeader(enable);
-            this.mAdapter.notifyDataSetChanged();
+        updateLayoutIfNeed()
+    }
+
+    @Suppress("NAME_SHADOWING")
+    private fun getSpanSize(position: Int): Int {
+        var position = position
+        val spanSize = mLayoutManager?.spanCount ?: 1
+        if (mIsLandscape) {
+            return spanSize
+        }
+        if (position == 0) {
+            return spanSize
+        }
+        position--
+        return if (position == 0) {
+            spanSize
+        } else {
+            1
         }
     }
 
-    private void onItemClicked(WWLVideoDataset.DatasetItem item) {
-        if (this.mFragmentHost != null) {
-            this.mFragmentHost.goToDetail(item);
+    override fun onAttach(activity: Activity) {
+        super.onAttach(activity)
+        if (mFragmentHost is FragmentHost) {
+            mFragmentHost = activity as FragmentHost
         }
     }
 
-    public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private static final int HEADER = 0;
-        private static final int TITLE = 1;
-        private static final int OTHER = 2;
-        public boolean mHasHeader;
-        private final String mTitle;
-        private final WWLVideoDataset.DatasetItem[] mDataSet;
-        private WWLVideoDataset.DatasetItem mHeaderItem;
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        updateLayoutIfNeed()
+    }
 
-        public CustomAdapter(WWLVideoDataset.DatasetItem[] dataset) {
-            this.mDataSet = dataset;
-            this.mHasHeader = true;
-            this.mTitle = "Up next";
+    fun updateItem(item: WWLVideoDataset.DatasetItem?) {
+        mAdapter?.apply {
+            updateHeader(item)
+            notifyDataSetChanged()
         }
+    }
 
-        @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+    private fun updateLayoutIfNeed() {
+        var enable = true
+        val orientation = resources.configuration.orientation
+        mIsLandscape = orientation == Configuration.ORIENTATION_LANDSCAPE
+        if (mIsLandscape) {
+            enable = false
+        }
+        if (mIsLandscape) {
+            mLayoutManager?.spanCount = 1
+        } else {
+            mLayoutManager?.spanCount = LWWLMusicUiUtil.getGridColumnCount(resources)
+        }
+        mAdapter?.apply {
+            setHeader(enable)
+            notifyDataSetChanged()
+        }
+    }
+
+    private fun onItemClicked(item: WWLVideoDataset.DatasetItem) {
+        mFragmentHost?.goToDetail(item)
+    }
+
+    inner class CustomAdapter(
+            private val mDataSet: ArrayList<WWLVideoDataset.DatasetItem>
+    ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+        private var mHasHeader = true
+        private val mTitle = "Up next"
+        private var mHeaderItem: WWLVideoDataset.DatasetItem? = null
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             if (viewType == HEADER) {
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_video_card_header_item, parent, false);
-                return new HeaderViewHolder(v);
+                val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_video_card_header_item, parent, false)
+                return HeaderViewHolder(v)
             }
             if (viewType == TITLE) {
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_video_card_title_item, parent, false);
-                return new TitleViewHolder(v);
+                val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_video_card_title_item, parent, false)
+                return TitleViewHolder(v)
             }
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_video_card_row_item, parent, false);
-            return new ViewHolder(v);
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.wwl_video_card_row_item, parent, false)
+            return ViewHolder(view)
         }
 
-        @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            if (holder instanceof HeaderViewHolder) {
-                if (this.mHeaderItem != null) {
-                    ((HeaderViewHolder) holder).getTitleView().setText(this.mHeaderItem.title);
-                    ((HeaderViewHolder) holder).getSubTitleView().setText(this.mHeaderItem.subtitle);
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            if (holder is HeaderViewHolder) {
+                if (mHeaderItem != null) {
+                    holder.liTitle.text = mHeaderItem?.title
+                    holder.liSubtitle.text = mHeaderItem?.subtitle
                 }
-            } else if (holder instanceof TitleViewHolder) {
-                ((TitleViewHolder) holder).getTitleView().setText(this.mTitle);
-            } else if (holder instanceof ViewHolder) {
-                ((ViewHolder) holder).getTitleView().setText(getItem(position).title);
-                ((ViewHolder) holder).getSubTitleView().setText(getItem(position).subtitle);
+            } else if (holder is TitleViewHolder) {
+                holder.liTitle.text = mTitle
+            } else if (holder is ViewHolder) {
+                holder.liTitle.text = getItem(position).title
+                holder.liSubtitle.text = getItem(position).subtitle
             }
         }
 
-        @Override
-        public int getItemCount() {
-            return (mHasHeader ? 1 : 0) + 1 + this.mDataSet.length;
+        override fun getItemCount(): Int {
+            return (if (mHasHeader) 1 else 0) + 1 + mDataSet.size
         }
 
-        @Override
-        public int getItemViewType(int position) {
+        @Suppress("NAME_SHADOWING")
+        override fun getItemViewType(position: Int): Int {
+            var position = position
             if (mHasHeader) {
                 if (position == 0) {
-                    return HEADER;
+                    return HEADER
                 }
-                position--;
+                position--
             }
-            if (position == 0) {
-                return TITLE;
-            }
-            return OTHER;
+            return if (position == 0) {
+                TITLE
+            } else OTHER
         }
 
-        public void setHeader(boolean enable) {
-            this.mHasHeader = enable;
+        fun setHeader(enable: Boolean) {
+            mHasHeader = enable
         }
 
-        public void updateHeader(WWLVideoDataset.DatasetItem item) {
-            this.mHeaderItem = item;
+        fun updateHeader(item: WWLVideoDataset.DatasetItem?) {
+            mHeaderItem = item
         }
 
-        private WWLVideoDataset.DatasetItem getItem(int position) {
-            return this.mDataSet[position - 1 - (this.mHasHeader ? 1 : 0)];
+        private fun getItem(position: Int): WWLVideoDataset.DatasetItem {
+            return mDataSet[position - 1 - (if (mHasHeader) 1 else 0)]
         }
 
-        class HeaderViewHolder extends RecyclerView.ViewHolder {
-            private final TextView titleView;
-            private final TextView subtitleView;
-
-            public HeaderViewHolder(View v) {
-                super(v);
-                titleView = v.findViewById(R.id.liTitle);
-                subtitleView = v.findViewById(R.id.liSubtitle);
-            }
-
-            public TextView getTitleView() {
-                return titleView;
-            }
-
-            public TextView getSubTitleView() {
-                return subtitleView;
-            }
+        internal inner class HeaderViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+            val liTitle: TextView = v.findViewById(R.id.liTitle)
+            val liSubtitle: TextView = v.findViewById(R.id.liSubtitle)
         }
 
-        class TitleViewHolder extends RecyclerView.ViewHolder {
-            private final TextView titleView;
+        internal inner class TitleViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+            val liTitle: TextView = v.findViewById(R.id.liTitle)
 
-            public TitleViewHolder(View v) {
-                super(v);
-                titleView = v.findViewById(R.id.liTitle);
-            }
+        }
 
-            public TextView getTitleView() {
-                return titleView;
+        internal inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+            val liTitle: TextView
+            val liSubtitle: TextView
+
+            init {
+                v.setOnClickListener {
+                    onItemClicked(
+                            getItem(bindingAdapterPosition)
+                    )
+                }
+                liTitle = v.findViewById(R.id.liTitle)
+                liSubtitle = v.findViewById(R.id.liSubtitle)
             }
         }
 
-        class ViewHolder extends RecyclerView.ViewHolder {
-            private final TextView titleView;
-            private final TextView subtitleView;
-
-            public ViewHolder(View v) {
-                super(v);
-                v.setOnClickListener(v1 -> WWLVideoUpNextFragment.this.onItemClicked(CustomAdapter.this.getItem(getAdapterPosition())));
-                titleView = v.findViewById(R.id.liTitle);
-                subtitleView = v.findViewById(R.id.liSubtitle);
-            }
-
-            public TextView getTitleView() {
-                return titleView;
-            }
-
-            public TextView getSubTitleView() {
-                return subtitleView;
-            }
-        }
     }
 }

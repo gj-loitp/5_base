@@ -17,6 +17,8 @@ import com.annotation.LogTag;
 import com.core.base.BaseFragment;
 import com.views.wwlmusic.utils.LWWLMusicUiUtil;
 
+import java.util.ArrayList;
+
 import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset;
@@ -81,9 +83,9 @@ public class HomeFragment extends BaseFragment {
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-        private WWLVideoDataset.DatasetItem[] mDataSet;
+        private ArrayList<WWLVideoDataset.DatasetItem> mDataSet;
 
-        public CustomAdapter(WWLVideoDataset.DatasetItem[] dataset) {
+        public CustomAdapter(ArrayList<WWLVideoDataset.DatasetItem> dataset) {
             this.mDataSet = dataset;
         }
 
@@ -95,13 +97,13 @@ public class HomeFragment extends BaseFragment {
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.getTitleView().setText(this.mDataSet[position].title);
-            holder.getSubTitleView().setText(this.mDataSet[position].subtitle);
+            holder.getTitleView().setText(this.mDataSet.get(position).title);
+            holder.getSubTitleView().setText(this.mDataSet.get(position).subtitle);
         }
 
         @Override
         public int getItemCount() {
-            return this.mDataSet.length;
+            return this.mDataSet.size();
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
@@ -110,7 +112,7 @@ public class HomeFragment extends BaseFragment {
 
             public ViewHolder(View v) {
                 super(v);
-                v.setOnClickListener(v1 -> HomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]));
+                v.setOnClickListener(v1 -> HomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet.get(getBindingAdapterPosition())));
                 titleView = v.findViewById(R.id.liTitle);
                 subtitleView = v.findViewById(R.id.liSubtitle);
             }

@@ -9,7 +9,7 @@ import vn.loitp.app.R
 
 object WWLVideoDataset {
     @JvmField
-    var datasetItems: Array<DatasetItem?>
+    var datasetItems = ArrayList<DatasetItem>()
 
     class DatasetItem(id: Int) {
         var id: Int
@@ -34,9 +34,8 @@ object WWLVideoDataset {
 
     init {
         val n = 50
-        datasetItems = arrayOfNulls(n)
         for (i in 0 until n) {
-            datasetItems[i] = DatasetItem(i + 1)
+            datasetItems.add(DatasetItem(i + 1))
         }
     }
 }
