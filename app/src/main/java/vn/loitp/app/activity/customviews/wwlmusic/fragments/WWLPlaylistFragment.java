@@ -40,8 +40,8 @@ public class WWLPlaylistFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        this.mTitleView = getFrmRootView().findViewById(R.id.li_title);
-        this.mSubTitleView = getFrmRootView().findViewById(R.id.li_subtitle);
+        this.mTitleView = getFrmRootView().findViewById(R.id.liTitle);
+        this.mSubTitleView = getFrmRootView().findViewById(R.id.liSubtitle);
         this.mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
         this.mLayoutManager = new LinearLayoutManager(getActivity());
         this.mRecyclerView.setLayoutManager(mLayoutManager);
@@ -102,8 +102,8 @@ public class WWLPlaylistFragment extends BaseFragment {
             public ViewHolder(View v) {
                 super(v);
                 v.setOnClickListener(v1 -> WWLPlaylistFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]));
-                titleView = v.findViewById(R.id.li_title);
-                subtitleView = v.findViewById(R.id.li_subtitle);
+                titleView = v.findViewById(R.id.liTitle);
+                subtitleView = v.findViewById(R.id.liSubtitle);
             }
 
             public TextView getTitleView() {

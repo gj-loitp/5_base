@@ -7,7 +7,7 @@
     android:padding="@dimen/padding_5">
 
     <TextView
-        android:id="@+id/li_title"
+        android:id="@+id/liTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
@@ -22,7 +22,7 @@
         android:textSize="22.0sp" />
 
     <TextView
-        android:id="@+id/li_subtitle"
+        android:id="@+id/liSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"

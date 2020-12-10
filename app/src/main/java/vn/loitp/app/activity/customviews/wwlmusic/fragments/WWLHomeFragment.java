@@ -109,8 +109,8 @@ public class WWLHomeFragment extends BaseFragment {
             public ViewHolder(View v) {
                 super(v);
                 v.setOnClickListener(v1 -> WWLHomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]));
-                titleView = v.findViewById(R.id.li_title);
-                subtitleView = v.findViewById(R.id.li_subtitle);
+                titleView = v.findViewById(R.id.liTitle);
+                subtitleView = v.findViewById(R.id.liSubtitle);
             }
 
             public TextView getTitleView() {

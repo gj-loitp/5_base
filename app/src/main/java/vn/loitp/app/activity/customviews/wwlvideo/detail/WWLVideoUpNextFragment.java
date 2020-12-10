@@ -205,8 +205,8 @@ public class WWLVideoUpNextFragment extends BaseFragment {
 
             public HeaderViewHolder(View v) {
                 super(v);
-                titleView = v.findViewById(R.id.li_title);
-                subtitleView = v.findViewById(R.id.li_subtitle);
+                titleView = v.findViewById(R.id.liTitle);
+                subtitleView = v.findViewById(R.id.liSubtitle);
             }
 
             public TextView getTitleView() {
@@ -223,7 +223,7 @@ public class WWLVideoUpNextFragment extends BaseFragment {
 
             public TitleViewHolder(View v) {
                 super(v);
-                titleView = v.findViewById(R.id.li_title);
+                titleView = v.findViewById(R.id.liTitle);
             }
 
             public TextView getTitleView() {
@@ -238,8 +238,8 @@ public class WWLVideoUpNextFragment extends BaseFragment {
             public ViewHolder(View v) {
                 super(v);
                 v.setOnClickListener(v1 -> WWLVideoUpNextFragment.this.onItemClicked(CustomAdapter.this.getItem(getAdapterPosition())));
-                titleView = v.findViewById(R.id.li_title);
-                subtitleView = v.findViewById(R.id.li_subtitle);
+                titleView = v.findViewById(R.id.liTitle);
+                subtitleView = v.findViewById(R.id.liSubtitle);
             }
 
             public TextView getTitleView() {

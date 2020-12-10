@@ -62,7 +62,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@id/li_title"
+            android:id="@id/liTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -72,7 +72,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/li_subtitle"
+            android:id="@+id/liSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"

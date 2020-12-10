@@ -50,8 +50,8 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
         this.mPlayerWWLMusicControlsOverlay = new WWLMusicControlsOverlay(getContext());
         this.mPlayerWWLMusicControlsOverlay.setListener(this);
         ((ViewGroup) getFrmRootView()).addView(this.mPlayerWWLMusicControlsOverlay);
-        this.mTitleView = getFrmRootView().findViewById(R.id.li_title);
-        this.mSubTitleView = getFrmRootView().findViewById(R.id.li_subtitle);
+        this.mTitleView = getFrmRootView().findViewById(R.id.liTitle);
+        this.mSubTitleView = getFrmRootView().findViewById(R.id.liSubtitle);
     }
 
     @Override

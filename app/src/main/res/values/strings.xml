@@ -504,4 +504,6 @@ Likewise may someone love you next.
     <string name="oval_shadow">Oval shadow</string>
     <string name="rectangle_shadow">Rectangle shadow</string>
     <string name="radius_shadow">Radius shadow</string>
+    <string name="title">Title</string>
+    <string name="loltube">LOLTube</string>
 </resources>

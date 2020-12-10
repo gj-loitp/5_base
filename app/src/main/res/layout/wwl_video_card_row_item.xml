@@ -69,7 +69,7 @@
         android:paddingRight="40.0dip">
 
         <TextView
-            android:id="@+id/li_title"
+            android:id="@+id/liTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -83,10 +83,10 @@
             android:textSize="16.0sp" />
 
         <TextView
-            android:id="@+id/li_subtitle"
+            android:id="@+id/liSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/li_title"
+            android:layout_below="@+id/liTitle"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:importantForAccessibility="no"
