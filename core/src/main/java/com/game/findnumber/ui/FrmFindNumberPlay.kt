@@ -53,7 +53,7 @@ class FrmFindNumberPlay : BaseFragment() {
         val listFindNumberItem = ArrayList<FindNumberItem>()
         for (i in 0..size) {
             val findNumberItem = FindNumberItem()
-            findNumberItem.name = "${netAdapter.itemCount + 1}"
+            findNumberItem.name = "${i + 1}"
             listFindNumberItem.add(findNumberItem)
         }
         netAdapter.setListFindNumberItem(listFindNumberItem)
