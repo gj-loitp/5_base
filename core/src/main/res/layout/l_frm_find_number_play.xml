@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red50">
+    android:background="?attr/themeBackgroundColor">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFindNumber"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/deepPink"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        tools:itemCount="5"
+        tools:listitem="@layout/view_row_item_find_number"
+        tools:spanCount="3" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btAddItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btClearAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear" />
+    </LinearLayout>
+
+</FrameLayout>
