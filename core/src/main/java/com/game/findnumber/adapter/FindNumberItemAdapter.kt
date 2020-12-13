@@ -47,8 +47,6 @@ class FindNumberItemAdapter() : AnimationAdapter() {
             itemView.textView.text = findNumberItem.name
             LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
             itemView.textView.rotation = findNumberItem.rotate
-
-            //TODO loitpp custom background
             itemView.ivBkg.setBackgroundResource(R.drawable.flute_k5)
 
             if (findNumberItem.status == FindNumberItem.STATUS_OPEN) {

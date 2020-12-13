@@ -392,6 +392,9 @@ class FrmFindNumberPlay(
             100 -> {
                 rvFindNumber.layoutManager = GridLayoutManager(context, 10)
             }
+            101 -> {
+                rvFindNumber.layoutManager = GridLayoutManager(context, 10)
+            }
         }
     }
 
