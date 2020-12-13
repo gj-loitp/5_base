@@ -17,6 +17,8 @@ class SinglePlayActivity : BaseFontActivity() {
         const val KEY_LEVEL = "KEY_LEVEL"
     }
 
+    private val frmFindNumberPlay = FrmFindNumberPlay()
+
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_find_number_single_play
     }
@@ -31,7 +33,12 @@ class SinglePlayActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-
+        LScreenUtil.replaceFragment(
+                activity = this,
+                containerFrameLayoutIdRes = R.id.layoutContainer,
+                fragment = frmFindNumberPlay,
+                isAddToBackStack = false
+        )
     }
 
     private fun setupViewModels() {
