@@ -12,10 +12,24 @@
         android:scaleType="centerCrop"
         tools:src="@drawable/bkg_2" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvNumberTarget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
+        android:background="@drawable/ic_star"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_find_number"
+        android:textStyle="bold"
+        tools:text="69" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFindNumber"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/tvNumberTarget"
         android:layout_margin="@dimen/margin_small"
         android:overScrollMode="never"
         android:splitMotionEvents="false"

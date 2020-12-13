@@ -21,5 +21,6 @@
         android:layout_gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_large"
+        android:textStyle="bold"
         tools:text="69" />
 </com.views.layout.squarelayout.LSquareFrameLayout>

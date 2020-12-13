@@ -56,8 +56,12 @@ class FrmFindNumberPlay : BaseFragment() {
         for (i in 0..size) {
             val findNumberItem = FindNumberItem()
             findNumberItem.name = "${i + 1}"
+            //TODO loitpp
+            findNumberItem.rotate = 0f
+//            findNumberItem.rotate = LDeviceUtil.getRandomNumber(360).toFloat()
             listFindNumberItem.add(findNumberItem)
         }
+        listFindNumberItem.shuffle()
         netAdapter.setListFindNumberItem(listFindNumberItem)
 
         when (netAdapter.itemCount) {

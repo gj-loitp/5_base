@@ -11,4 +11,5 @@ import com.core.base.BaseModel
 @Keep
 class FindNumberItem : BaseModel() {
     var name: String? = null
+    var rotate: Float = 0f
 }
