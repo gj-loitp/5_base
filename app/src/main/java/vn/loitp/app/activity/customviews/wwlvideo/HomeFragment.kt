@@ -65,8 +65,8 @@ class HomeFragment : BaseFragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            holder.titleView.text = mDataSet[position].title
-            holder.subTitleView.text = mDataSet[position].subtitle
+            holder.liTitle.text = mDataSet[position].title
+            holder.liSubtitle.text = mDataSet[position].subtitle
         }
 
         override fun getItemCount(): Int {
@@ -74,13 +74,15 @@ class HomeFragment : BaseFragment() {
         }
 
         inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-            val titleView: TextView
-            val subTitleView: TextView
+            val liTitle: TextView
+            val liSubtitle: TextView
 
             init {
-                v.setOnClickListener { v1: View? -> onItemClicked(mDataSet[bindingAdapterPosition]) }
-                titleView = v.findViewById(R.id.liTitle)
-                subTitleView = v.findViewById(R.id.liSubtitle)
+                v.setOnClickListener {
+                    onItemClicked(mDataSet[bindingAdapterPosition])
+                }
+                liTitle = v.findViewById(R.id.liTitle)
+                liSubtitle = v.findViewById(R.id.liSubtitle)
             }
         }
     }
