@@ -16,7 +16,7 @@
         android:textColor="@android:color/white" />
 
     <com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioFrameLayout
-        android:id="@id/thumbnail_container"
+        android:id="@id/layoutThumbnail"
         android:layout_width="88.0dip"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
@@ -58,7 +58,7 @@
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/menu_anchor_container"
-        android:layout_toRightOf="@id/thumbnail_container"
+        android:layout_toRightOf="@id/layoutThumbnail"
         android:orientation="vertical">
 
         <TextView

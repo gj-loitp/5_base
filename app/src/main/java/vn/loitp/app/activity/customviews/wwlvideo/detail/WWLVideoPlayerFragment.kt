@@ -1,12 +1,8 @@
 package vn.loitp.app.activity.customviews.wwlvideo.detail
 
-import android.app.Activity
-import android.os.Bundle
-import android.view.View
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.wwlvideo.interfaces.FragmentHost
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset
 
 /**

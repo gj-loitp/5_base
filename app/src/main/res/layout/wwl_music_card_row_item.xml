@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioRelativeLayout
-        android:id="@+id/thumbnail_container"
+        android:id="@+id/layoutThumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="16.0dip"
@@ -43,10 +43,10 @@
     </com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioRelativeLayout>
 
     <FrameLayout
-        android:id="@+id/avatar_container"
+        android:id="@+id/layoutAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/thumbnail_container"
+        android:layout_below="@id/layoutThumbnail"
         android:paddingLeft="0.0dip"
         android:paddingRight="16.0dip">
 
@@ -61,10 +61,10 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/thumbnail_container"
+        android:layout_below="@+id/layoutThumbnail"
         android:layout_marginLeft="0.0dip"
         android:layout_marginTop="0.0dip"
-        android:layout_toRightOf="@+id/avatar_container"
+        android:layout_toRightOf="@+id/layoutAvatar"
         android:gravity="top"
         android:paddingRight="40.0dip">
 
@@ -101,7 +101,7 @@
         android:layout_width="48.0dip"
         android:layout_height="48.0dip"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/thumbnail_container"
+        android:layout_below="@id/layoutThumbnail"
         android:layout_marginRight="-16.0dip"
         android:layout_marginTop="-16.0dp"
         android:contentDescription="@string/app_name"
