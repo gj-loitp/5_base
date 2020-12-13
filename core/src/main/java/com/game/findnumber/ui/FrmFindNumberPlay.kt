@@ -29,7 +29,7 @@ class FrmFindNumberPlay : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
-        setupData(99)
+        setupData(10)
     }
 
     private fun setupViews() {

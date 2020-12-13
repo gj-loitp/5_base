@@ -23,15 +23,15 @@ class FindNumberItemAdapter() : AnimationAdapter() {
         notifyDataSetChanged()
     }
 
-    fun addFindNumberItem(findNumberItem: FindNumberItem) {
-        this.listFindNumberItem.add(element = findNumberItem)
-        notifyItemChanged(itemCount - 1)
-    }
-
-    fun clear() {
-        this.listFindNumberItem.clear()
-        notifyDataSetChanged()
-    }
+//    fun addFindNumberItem(findNumberItem: FindNumberItem) {
+//        this.listFindNumberItem.add(element = findNumberItem)
+//        notifyItemChanged(itemCount - 1)
+//    }
+//
+//    fun clear() {
+//        this.listFindNumberItem.clear()
+//        notifyDataSetChanged()
+//    }
 
     var onClickRootView: ((FindNumberItem) -> Unit)? = null
 
@@ -41,11 +41,12 @@ class FindNumberItemAdapter() : AnimationAdapter() {
             itemView.textView.text = findNumberItem.name
             LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
 
-            //setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
+            itemView.ivBkg.setBackgroundResource(R.drawable.flute_k5)
 
             itemView.layoutRootView.setOnClickListener {
                 onClickRootView?.invoke(findNumberItem)
             }
+            //setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
         }
     }
 
