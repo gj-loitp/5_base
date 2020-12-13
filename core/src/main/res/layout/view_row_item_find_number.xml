@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutRootView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:foreground="?selectableItemBackground">
+    android:layout_height="match_parent">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivBkg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_small"
         android:scaleType="centerCrop"
         tools:src="@drawable/flute_k5" />
 

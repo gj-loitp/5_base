@@ -43,10 +43,12 @@ class FindNumberItemAdapter() : AnimationAdapter() {
 
             itemView.ivBkg.setBackgroundResource(R.drawable.flute_k5)
 
-            itemView.layoutRootView.setOnClickListener {
-                onClickRootView?.invoke(findNumberItem)
-            }
-            //setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
+            LUIUtil.setSafeOnClickListenerElastic(
+                    view = itemView.layoutRootView,
+                    runnable = {
+                        onClickRootView?.invoke(findNumberItem)
+                    })
+            setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
         }
     }
 
