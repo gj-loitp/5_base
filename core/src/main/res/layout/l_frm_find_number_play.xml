@@ -3,17 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:layout_height="match_parent">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/bkg_2" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFindNumber"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_small"
         android:overScrollMode="never"
         android:splitMotionEvents="false"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        tools:itemCount="5"
+        tools:itemCount="12"
         tools:listitem="@layout/view_row_item_find_number"
         tools:spanCount="3" />
 

@@ -33,8 +33,10 @@ class FrmFindNumberPlay : BaseFragment() {
     }
 
     private fun setupViews() {
+        //TODO loitpp custom background depend on level
+        ivBackground.setBackgroundResource(R.drawable.bkg_2)
         netAdapter.onClickRootView = { net ->
-            showShortInformation(net.name)
+            //TODO loitpp
         }
         rvFindNumber.addOnItemTouchListener(object : RecyclerView.SimpleOnItemTouchListener() {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {

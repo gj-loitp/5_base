@@ -41,6 +41,7 @@ class FindNumberItemAdapter() : AnimationAdapter() {
             itemView.textView.text = findNumberItem.name
             LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
 
+            //TODO loitpp custom background
             itemView.ivBkg.setBackgroundResource(R.drawable.flute_k5)
 
             LUIUtil.setSafeOnClickListenerElastic(
