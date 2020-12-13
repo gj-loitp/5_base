@@ -35,7 +35,7 @@ class FindNumberViewModel : BaseGirlViewModel() {
                 for (i in 0 until 100) {
                     val level = Level()
                     level.id = System.nanoTime().toString()
-                    level.name = "${i + 1}"
+                    level.name = i + 1
 
                     //TODO
                     if (i < 7) {

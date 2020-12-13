@@ -8,18 +8,25 @@ import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
+import com.core.utilities.LAnimationUtil
+import com.core.utilities.LImageUtil
+import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.adapter.FindNumberItemAdapter
 import com.game.findnumber.model.FindNumberItem
+import com.game.findnumber.model.Level
 import kotlinx.android.synthetic.main.l_frm_find_number_play.*
 
 @LogTag("FrmFindNumberPlay")
-class FrmFindNumberPlay : BaseFragment() {
+class FrmFindNumberPlay(
+        val level: Level
+) : BaseFragment() {
 
     companion object {
         const val MAX_SIZE = 100
     }
 
-    private var netAdapter = FindNumberItemAdapter()
+    private var findNumberItemAdapter = FindNumberItemAdapter()
+    private var numberTarget = 1
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_frm_find_number_play
@@ -29,14 +36,24 @@ class FrmFindNumberPlay : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
-        setupData(10)
+        setupData()
     }
 
     private fun setupViews() {
         //TODO loitpp custom background depend on level
-        ivBackground.setBackgroundResource(R.drawable.bkg_2)
-        netAdapter.onClickRootView = { net ->
-            //TODO loitpp
+        LImageUtil.load(context = context, any = R.drawable.bkg_2, imageView = ivBackground)
+        findNumberItemAdapter.onClickRootView = { findNumberItem, position ->
+            if (findNumberItem.name == numberTarget.toString()) {
+                numberTarget++
+                setupNumberTarget()
+
+                findNumberItem.status = FindNumberItem.STATUS_CLOSE
+                findNumberItemAdapter.updateFindNumberItem(position = position)
+
+                if (numberTarget > findNumberItemAdapter.itemCount) {
+                    winGame()
+                }
+            }
         }
         rvFindNumber.addOnItemTouchListener(object : RecyclerView.SimpleOnItemTouchListener() {
             override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
@@ -45,12 +62,19 @@ class FrmFindNumberPlay : BaseFragment() {
             }
         })
         rvFindNumber.layoutManager = GridLayoutManager(context, 1)
-        rvFindNumber.adapter = netAdapter
+        rvFindNumber.adapter = findNumberItemAdapter
+        setupNumberTarget()
     }
 
-    private fun setupData(size: Int) {
+    private fun setupNumberTarget() {
+        tvNumberTarget.text = "$numberTarget"
+        LAnimationUtil.play(view = tvNumberTarget, techniques = Techniques.Flash)
+    }
+
+    private fun setupData() {
+        var size = level.name
         if (size > MAX_SIZE) {
-            return
+            size = MAX_SIZE
         }
         val listFindNumberItem = ArrayList<FindNumberItem>()
         for (i in 0..size) {
@@ -62,9 +86,9 @@ class FrmFindNumberPlay : BaseFragment() {
             listFindNumberItem.add(findNumberItem)
         }
         listFindNumberItem.shuffle()
-        netAdapter.setListFindNumberItem(listFindNumberItem)
+        findNumberItemAdapter.setListFindNumberItem(listFindNumberItem)
 
-        when (netAdapter.itemCount) {
+        when (findNumberItemAdapter.itemCount) {
             0 -> {
                 rvFindNumber.layoutManager = GridLayoutManager(context, 1)
             }
@@ -369,5 +393,10 @@ class FrmFindNumberPlay : BaseFragment() {
                 rvFindNumber.layoutManager = GridLayoutManager(context, 10)
             }
         }
+    }
+
+    private fun winGame() {
+        //TODO loitpp
+        showLongInformation("WINNNNNNNNNN")
     }
 }

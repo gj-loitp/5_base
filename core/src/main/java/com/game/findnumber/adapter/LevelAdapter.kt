@@ -29,7 +29,7 @@ class LevelAdapter() : AnimationAdapter() {
 
         fun bind(level: Level) {
 
-            itemView.tvLevel.text = level.name
+            itemView.tvLevel.text = "${level.name}"
             LUIUtil.setTextShadow(textView = itemView.tvLevel, color = Color.BLACK)
 
             if (level.status == Level.STATUS_LEVEL_OPEN) {
