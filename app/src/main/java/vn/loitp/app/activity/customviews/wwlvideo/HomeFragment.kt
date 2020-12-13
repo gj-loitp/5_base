@@ -50,18 +50,12 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun updateLayoutIfNeed() {
-        if (gridLayoutManager != null) {
-            gridLayoutManager!!.spanCount = LWWLMusicUiUtil.getGridColumnCount(resources)
-        }
-        if (customAdapter != null) {
-            customAdapter!!.notifyDataSetChanged()
-        }
+        gridLayoutManager?.spanCount = LWWLMusicUiUtil.getGridColumnCount(resources)
+        customAdapter?.notifyDataSetChanged()
     }
 
     private fun onItemClicked(item: WWLVideoDataset.DatasetItem) {
-        if (fragmentHost != null) {
-            fragmentHost!!.goToDetail(item)
-        }
+        fragmentHost?.goToDetail(item)
     }
 
     private inner class CustomAdapter(private val mDataSet: ArrayList<WWLVideoDataset.DatasetItem>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
