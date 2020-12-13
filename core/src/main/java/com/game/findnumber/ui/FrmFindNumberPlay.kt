@@ -29,6 +29,7 @@ class FrmFindNumberPlay : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
+        setupData(99)
     }
 
     private fun setupViews() {
@@ -43,23 +44,19 @@ class FrmFindNumberPlay : BaseFragment() {
         })
         rvFindNumber.layoutManager = GridLayoutManager(context, 1)
         rvFindNumber.adapter = netAdapter
-
-        btAddItem.setOnClickListener {
-            addNet()
-        }
-        btClearAll.setOnClickListener {
-            netAdapter.clear()
-        }
     }
 
-    private fun addNet() {
-        if (netAdapter.itemCount >= MAX_SIZE) {
-            showShortInformation("Max size")
+    private fun setupData(size: Int) {
+        if (size > MAX_SIZE) {
             return
         }
-        val net = FindNumberItem()
-        net.name = "${netAdapter.itemCount + 1}"
-        netAdapter.addNet(net)
+        val listFindNumberItem = ArrayList<FindNumberItem>()
+        for (i in 0..size) {
+            val findNumberItem = FindNumberItem()
+            findNumberItem.name = "${netAdapter.itemCount + 1}"
+            listFindNumberItem.add(findNumberItem)
+        }
+        netAdapter.setListFindNumberItem(listFindNumberItem)
 
         when (netAdapter.itemCount) {
             0 -> {

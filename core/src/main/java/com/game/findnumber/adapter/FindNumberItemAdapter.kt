@@ -15,21 +15,21 @@ import kotlinx.android.synthetic.main.view_row_item_find_number.view.*
 @LogTag("NetAdapter")
 class FindNumberItemAdapter() : AnimationAdapter() {
 
-    private val listNet = ArrayList<FindNumberItem>()
+    private val listFindNumberItem = ArrayList<FindNumberItem>()
 
-//    fun setListNet(listNet: ArrayList<Net>) {
-//        this.listNet.clear()
-//        this.listNet.addAll(listNet)
-//        notifyDataSetChanged()
-//    }
+    fun setListFindNumberItem(listNet: ArrayList<FindNumberItem>) {
+        this.listFindNumberItem.clear()
+        this.listFindNumberItem.addAll(listNet)
+        notifyDataSetChanged()
+    }
 
-    fun addNet(findNumberItem: FindNumberItem) {
-        this.listNet.add(element = findNumberItem)
+    fun addFindNumberItem(findNumberItem: FindNumberItem) {
+        this.listFindNumberItem.add(element = findNumberItem)
         notifyItemChanged(itemCount - 1)
     }
 
     fun clear() {
-        this.listNet.clear()
+        this.listFindNumberItem.clear()
         notifyDataSetChanged()
     }
 
@@ -38,10 +38,6 @@ class FindNumberItemAdapter() : AnimationAdapter() {
     inner class NetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(findNumberItem: FindNumberItem) {
-//            itemView.rootView.layoutParams.width = sizeW
-//            itemView.rootView.layoutParams.height = sizeH
-//            itemView.rootView.invalidate()
-
             itemView.textView.text = findNumberItem.name
             LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
 
@@ -60,11 +56,11 @@ class FindNumberItemAdapter() : AnimationAdapter() {
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is NetViewHolder) {
-            holder.bind(listNet[position])
+            holder.bind(listFindNumberItem[position])
         }
     }
 
     override fun getItemCount(): Int {
-        return listNet.size
+        return listFindNumberItem.size
     }
 }
