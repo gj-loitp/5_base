@@ -1,29 +1,28 @@
-package com.views.wwlmusic.utils;
+package com.views.wwlmusic.utils
 
-public class LWWLMusicIllegal {
-    public static void check(boolean ok) {
-        if (!ok) {
-            throw new IllegalArgumentException();
+object LWWLMusicIllegal {
+
+    fun check(ok: Boolean) {
+        require(ok)
+    }
+
+    fun check(ok: Boolean, any: Any) {
+        require(ok) {
+            any.toString()
         }
     }
 
-    public static void check(boolean ok, Object object) {
-        if (!ok) {
-            throw new IllegalArgumentException(String.valueOf(object));
+    fun check(any: Any?): Any {
+        if (any != null) {
+            return any
         }
+        throw IllegalArgumentException()
     }
 
-    public static Object check(Object object) {
-        if (object != null) {
-            return object;
+    fun check(any: Any?, objectMsg: Any): Any {
+        if (any != null) {
+            return any
         }
-        throw new IllegalArgumentException();
-    }
-
-    public static Object check(Object object, Object objectMsg) {
-        if (object != null) {
-            return object;
-        }
-        throw new IllegalArgumentException(String.valueOf(objectMsg));
+        throw IllegalArgumentException(objectMsg.toString())
     }
 }

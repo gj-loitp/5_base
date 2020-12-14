@@ -54,7 +54,7 @@ public class LWWLMusic extends ViewGroup {
     private Listener mListener;
     private float mCurrentAlpha;
     private int mDragState;
-    private Rect mPlayerOuterRect;
+    private final Rect mPlayerOuterRect;
     private Rect mMixRect;
     private boolean mIsHardware;
     private boolean mIsReady;
@@ -65,7 +65,7 @@ public class LWWLMusic extends ViewGroup {
     private int mCurrentY;
     private boolean mIsHScroll;
     private int mOffsetH;
-    private int mStart = 0;
+    private final int mStart = 0;
 
     public LWWLMusic(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -89,8 +89,8 @@ public class LWWLMusic extends ViewGroup {
         this.mMetadataViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_metadataViewId, 0);
         this.mMiniPlayerWidth = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerWidth, 240.0f);
         typedArray.recycle();
-        LWWLMusicIllegal.check(this.mPlayerViewId != 0, "playerViewId must be specified");
-        LWWLMusicIllegal.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
+        LWWLMusicIllegal.INSTANCE.check(this.mPlayerViewId != 0, "playerViewId must be specified");
+        LWWLMusicIllegal.INSTANCE.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
     }
 
     private static void updateRect(Rect rect, int left, int top, int right, int bottom) {
@@ -115,7 +115,7 @@ public class LWWLMusic extends ViewGroup {
         super.onFinishInflate();
         int childCount = getChildCount();
         int requireViewCount = 3;
-        LWWLMusicIllegal.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
+        LWWLMusicIllegal.INSTANCE.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
         this.mViews = new LinkedList();
         for (int i = 0; i < childCount; i++) {
             View view = getChildAt(i);
@@ -128,9 +128,9 @@ public class LWWLMusic extends ViewGroup {
                 this.mViews.add(view);
             }
         }
-        LWWLMusicIllegal.check(this.mPlayerView);
-        LWWLMusicIllegal.check(this.mMetadataView);
-        LWWLMusicIllegal.check(this.mViews.size() > 0, "contentViews cannot be empty");
+        LWWLMusicIllegal.INSTANCE.check(this.mPlayerView);
+        LWWLMusicIllegal.INSTANCE.check(this.mMetadataView);
+        LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
         this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
@@ -388,11 +388,7 @@ public class LWWLMusic extends ViewGroup {
                         slideHorizontal(true);
                     } else if (this.mOffsetX > 20 && isNegative) {
                         slideHorizontal(true);
-                    } else if (isZero) {
-                        slideHorizontalRollBack(false);
-                    } else {
-                        slideHorizontalRollBack(true);
-                    }
+                    } else slideHorizontalRollBack(!isZero);
                 } else if (this.mDragState == DragOrientation.DRAGGING_VERTICAL) {
                     int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_VERTICAL, true);
                     if (direction == Sign.SIGN_NEGATIVE && this.mState == STATE_MAXIMIZED) {
@@ -444,7 +440,7 @@ public class LWWLMusic extends ViewGroup {
 
     public void maximize(boolean smooth) {
         if (!this.mIsFullscreen && this.mState != STATE_HIDED) {
-            int dy = 0 - this.mCurrentY;
+            int dy = -this.mCurrentY;
             if (dy == 0) {
                 slideTo(STATE_MAXIMIZED);
                 return;
@@ -912,7 +908,7 @@ public class LWWLMusic extends ViewGroup {
         }
     }
 
-    class Tracker {
+    static class Tracker {
         public final int scaledPagingTouchSlop;
         private final int a;
         private final int snapVelocity;
@@ -937,7 +933,7 @@ public class LWWLMusic extends ViewGroup {
 
         public Tracker(Context context, int snapVelocity) {
             this.pointerId = -1;
-            LWWLMusicIllegal.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
+            LWWLMusicIllegal.INSTANCE.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             this.scaledPagingTouchSlop = viewConfiguration.getScaledPagingTouchSlop();
             this.a = viewConfiguration.getScaledMaximumFlingVelocity();
@@ -1035,8 +1031,8 @@ public class LWWLMusic extends ViewGroup {
         }
     }
 
-    final class PlayerViewClickListener implements View.OnClickListener {
-        private LWWLMusic mLayout;
+    static final class PlayerViewClickListener implements View.OnClickListener {
+        private final LWWLMusic mLayout;
 
         public PlayerViewClickListener(LWWLMusic layout) {
             this.mLayout = layout;

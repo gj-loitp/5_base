@@ -109,10 +109,10 @@ public class LWWLVideo extends ViewGroup {
         this.mMiniPlayerWidth = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerWidth, 240.0f);
         this.mMiniPlayerPadding = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerPadding, 12.0f);
         typedArray.recycle();
-        LWWLMusicIllegal.check(this.mPlayerViewId != 0, "playerViewId must be specified");
-        LWWLMusicIllegal.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
+        LWWLMusicIllegal.INSTANCE.check(this.mPlayerViewId != 0, "playerViewId must be specified");
+        LWWLMusicIllegal.INSTANCE.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
         if (isTablet()) {
-            LWWLMusicIllegal.check(this.mMetadataPanelViewId != 0, "metadataLandscapeTitleViewId must be specified");
+            LWWLMusicIllegal.INSTANCE.check(this.mMetadataPanelViewId != 0, "metadataLandscapeTitleViewId must be specified");
         }
     }
 
@@ -139,7 +139,7 @@ public class LWWLVideo extends ViewGroup {
         int childCount = getChildCount();
         boolean isTL = isTablet();
         int requireViewCount = isTL ? 4 : 3;
-        LWWLMusicIllegal.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
+        LWWLMusicIllegal.INSTANCE.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
         this.mViews = new LinkedList();
         for (int i = 0; i < childCount; i++) {
             View view = getChildAt(i);
@@ -156,12 +156,12 @@ public class LWWLVideo extends ViewGroup {
                 this.mViews.add(view);
             }
         }
-        LWWLMusicIllegal.check(this.mPlayerView);
-        LWWLMusicIllegal.check(this.mMetadataView);
+        LWWLMusicIllegal.INSTANCE.check(this.mPlayerView);
+        LWWLMusicIllegal.INSTANCE.check(this.mMetadataView);
         if (isTL) {
-            LWWLMusicIllegal.check(this.mMetadataPanelView);
+            LWWLMusicIllegal.INSTANCE.check(this.mMetadataPanelView);
         }
-        LWWLMusicIllegal.check(this.mViews.size() > 0, "contentViews cannot be empty");
+        LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
         this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
@@ -241,7 +241,7 @@ public class LWWLVideo extends ViewGroup {
             updateRect(this.mFullPlayerRect, paddingLeft, paddingTop, innerWidth, fullPlayerInnerHeight);
         } else if (isTablet()) {
             Context context = getContext();
-            LWWLMusicIllegal.check(context);
+            LWWLMusicIllegal.INSTANCE.check(context);
             int fullPlayerInnerWidth;
             if (context.getResources().getConfiguration().smallestScreenWidthDp >= 720) {
                 fullPlayerInnerWidth = Math.round(0.7f * ((float) innerWidth));
@@ -1075,7 +1075,7 @@ public class LWWLVideo extends ViewGroup {
 
         public Tracker(Context context, int snapVelocity) {
             this.pointerId = -1;
-            LWWLMusicIllegal.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
+            LWWLMusicIllegal.INSTANCE.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             this.scaledPagingTouchSlop = viewConfiguration.getScaledPagingTouchSlop();
             this.a = viewConfiguration.getScaledMaximumFlingVelocity();
