@@ -1,61 +1,61 @@
-package com.views.scrollablepanel;
+package com.views.scrollablepanel
 
-import android.view.ViewGroup;
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
-import androidx.recyclerview.widget.RecyclerView;
-//TODO convert kotlin
 /**
  * Base class for an Adapter
- * <p>
- * <p>Adapters provide a binding from an app-specific data set to views that are displayed
- * within a 2-dimensional {@link RecyclerView}.</p>
+ *
+ *
+ *
+ * Adapters provide a binding from an app-specific data set to views that are displayed
+ * within a 2-dimensional [RecyclerView].
  */
-public abstract class PanelAdapter {
-
+abstract class PanelAdapter {
     /**
      * Returns the total number of items every row in the data set hold by the adapter.
      *
      * @return The total number of items every row in this adapter.
      */
-    public abstract int getRowCount();
+    abstract val rowCount: Int
 
     /**
      * Returns the total number of items every column in the data set hold by the adapter.
      *
      * @return The total number of items every column in this adapter.
      */
-    public abstract int getColumnCount();
-
+    abstract val columnCount: Int
 
     /**
-     * Return the view type of the item at <code>row column</code> for the purposes
+     * Return the view type of the item at `row column` for the purposes
      * of view recycling.
-     * <p>
-     * <p>The default implementation of this method returns 0, making the assumption of
+     *
+     *
+     *
+     * The default implementation of this method returns 0, making the assumption of
      * a single view type for the adapter. Unlike ListView adapters, types need not
      * be contiguous. Consider using id resources to uniquely identify item view types.
      *
      * @param row    row-position to query
      * @param column column-position to query
      * @return integer value identifying the type of the view needed to represent the item at
-     * <code>row column</code>. Type codes need not be contiguous.
+     * `row column`. Type codes need not be contiguous.
      */
-    public int getItemViewType(int row, int column) {
-        return 0;
+    open fun getItemViewType(row: Int, column: Int): Int {
+        return 0
     }
 
     /**
-     * see {@link RecyclerView.Adapter#onBindViewHolder(RecyclerView.ViewHolder, int)}  }
+     * see [RecyclerView.Adapter.onBindViewHolder]  }
      *
      * @param holder ViewHolder
      * @param row    row-position to query
      * @param column column-position to query
      */
-    public abstract void onBindViewHolder(RecyclerView.ViewHolder holder, int row, int column);
+    abstract fun onBindViewHolder(holder: RecyclerView.ViewHolder?, row: Int, column: Int)
 
     /**
-     * see {@link RecyclerView.Adapter#onCreateViewHolder(ViewGroup, int)}  }
+     * see [RecyclerView.Adapter.onCreateViewHolder]  }
      */
-    public abstract RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType);
-
+    abstract fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): RecyclerView.ViewHolder?
 }
