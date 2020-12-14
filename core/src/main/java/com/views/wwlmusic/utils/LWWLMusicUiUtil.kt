@@ -1,49 +1,54 @@
-package com.views.wwlmusic.utils;
+package com.views.wwlmusic.utils
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.WindowManager;
+import android.app.Activity
+import android.content.res.Resources
+import android.graphics.Color
+import android.os.Build
+import android.view.View
+import android.view.ViewConfiguration
+import android.view.WindowManager
+import androidx.core.content.ContextCompat
+import com.R
+import kotlin.math.max
+import kotlin.math.min
 
-import com.R;
+object LWWLMusicUiUtil {
 
-public class LWWLMusicUiUtil {
-    public static int getGridColumnCount(Resources res) {
-        return Math.min(getGridColumnContentWidth(res) / res.getDimensionPixelSize(R.dimen.column_min_size), 5);
+    @JvmStatic
+    fun getGridColumnCount(res: Resources): Int {
+        return min(getGridColumnContentWidth(res) / res.getDimensionPixelSize(R.dimen.column_min_size), 5)
     }
 
-    private static int getGridColumnContentWidth(Resources res) {
-        return res.getDisplayMetrics().widthPixels - 2 * res.getDimensionPixelSize(R.dimen.card_spacing);
+    private fun getGridColumnContentWidth(res: Resources): Int {
+        return res.displayMetrics.widthPixels - 2 * res.getDimensionPixelSize(R.dimen.card_spacing)
     }
 
-    public static void hideSystemUI(Activity activity) {
-        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    @JvmStatic
+    fun hideSystemUI(activity: Activity) {
+        activity.window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         if (!ViewConfiguration.get(activity).hasPermanentMenuKey()) {
-            int newUiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
-            if (Build.VERSION.SDK_INT >= 19) {
-                newUiOptions |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-            }
-            activity.getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
+            var newUiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            newUiOptions = newUiOptions or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+            activity.window.decorView.systemUiVisibility = newUiOptions
         }
     }
 
-    public static void showSystemUI(Activity activity) {
-        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    @JvmStatic
+    fun showSystemUI(activity: Activity) {
+        activity.window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         if (!ViewConfiguration.get(activity).hasPermanentMenuKey()) {
-            int newUiOptions = View.VISIBLE;
-            activity.getWindow().getDecorView().setSystemUiVisibility(newUiOptions);
+            val newUiOptions = View.VISIBLE
+            activity.window.decorView.systemUiVisibility = newUiOptions
         }
     }
 
-    public static void updateStatusBarAlpha(Activity activity, float alpha) {
+    @JvmStatic
+    fun updateStatusBarAlpha(activity: Activity, alpha: Float) {
         if (Build.VERSION.SDK_INT >= 21) {
-            int color = activity.getResources().getColor(R.color.colorPrimaryDark);
-            int color2 = Color.BLACK;
-            int color3 = LWWLMusicViewHelper.evaluateColorAlpha(Math.max(0.0f, Math.min(1.0f, alpha)), color, color2);
-            activity.getWindow().setStatusBarColor(color3);
+            val color = ContextCompat.getColor(activity, R.color.colorPrimaryDark)
+            val color2 = Color.BLACK
+            val color3 = LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
+            activity.window.statusBarColor = color3
         }
     }
 }
