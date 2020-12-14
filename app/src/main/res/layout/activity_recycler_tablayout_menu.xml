@@ -7,7 +7,7 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         style="@style/TextMenu"
-        android:text="Recycler tablayout" />
+        android:text="@string/recycler_tablayout" />
 
     <ListView
         android:id="@+id/listView"
