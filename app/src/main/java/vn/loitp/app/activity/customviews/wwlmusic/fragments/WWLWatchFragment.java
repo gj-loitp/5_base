@@ -100,14 +100,14 @@ public class WWLWatchFragment extends BaseFragment implements TextureView.Surfac
     }
 
     @Override
-    public void CO_doCollapse() {
+    public void doCollapse() {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.onVideoCollapse();
         }
     }
 
     @Override
-    public void CO_doFullscreen(boolean selected) {
+    public void doFullscreen(boolean selected) {
         if (this.mFragmentHost != null) {
             this.mFragmentHost.onVideoFullscreen(selected);
         }
