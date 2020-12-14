@@ -1,79 +1,74 @@
-package vn.loitp.app.activity.customviews.wwlmusic.layout;
+package vn.loitp.app.activity.customviews.wwlmusic.layout
 
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-
-import vn.loitp.app.R;
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
+import android.util.AttributeSet
+import android.view.Gravity
+import android.view.View
+import android.widget.FrameLayout
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
+import vn.loitp.app.R
 
 /**
  * Created by thangn on 3/1/17.
  */
+class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
-//TODO convert kotlin
-public class WWLMusicPlayerPanel extends FrameLayout {
-    public ColorDrawable mBgColorDrawable;
-    public View mMiniControlsContainer;
-    public FrameLayout mMusicPlayerView;
-    public ImageView mPlayButton;
-    public ImageView mPauseButton;
+    var mBgColorDrawable: ColorDrawable = ColorDrawable()
+    var layoutMiniControlsContainer: View? = null
+    var layoutMusicPlayerView: FrameLayout? = null
+    var playButton: ImageView? = null
+    var pauseButton: ImageView? = null
 
-    public WWLMusicPlayerPanel(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.mBgColorDrawable = new ColorDrawable();
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+
+        layoutMusicPlayerView = findViewById(R.id.layoutMusicPlayerView)
+        layoutMiniControlsContainer = findViewById(R.id.layoutMiniControlsContainer)
+        playButton = layoutMiniControlsContainer?.findViewById(R.id.playButton)
+        pauseButton = layoutMiniControlsContainer?.findViewById(R.id.pauseButton)
+        layoutMiniControlsContainer?.background = mBgColorDrawable
+        layout()
+        isFocusable = true
+        isFocusableInTouchMode = true
     }
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        this.mMusicPlayerView = (FrameLayout) findViewById(R.id.wwl_music_player_view);
-        this.mMiniControlsContainer = findViewById(R.id.mini_controls_container);
-        this.mPlayButton = (ImageView) this.mMiniControlsContainer.findViewById(R.id.play_button);
-        this.mPauseButton = (ImageView) this.mMiniControlsContainer.findViewById(R.id.pause_button);
-        if (Build.VERSION.SDK_INT >= 16) {
-            this.mMiniControlsContainer.setBackground(this.mBgColorDrawable);
-        } else {
-            this.mMiniControlsContainer.setBackgroundDrawable(this.mBgColorDrawable);
-        }
-        layout();
-        setFocusable(true);
-        setFocusableInTouchMode(true);
+    fun layout() {
+        mBgColorDrawable.color = ContextCompat.getColor(context, R.color.colorPrimaryDark)
+        val layoutParams = layoutMusicPlayerView?.layoutParams as LayoutParams?
+        layoutParams?.gravity = Gravity.START
+        layoutMusicPlayerView?.layoutParams = layoutParams
+        requestLayout()
     }
 
-    public void layout() {
-        this.mBgColorDrawable.setColor(getResources().getColor(R.color.colorPrimaryDark));
-        LayoutParams layoutParams = (LayoutParams) this.mMusicPlayerView.getLayoutParams();
-        layoutParams.gravity = Gravity.LEFT;
-        this.mMusicPlayerView.setLayoutParams(layoutParams);
-        requestLayout();
-    }
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int width = MeasureSpec.getSize(widthMeasureSpec);
-        int height = MeasureSpec.getSize(heightMeasureSpec);
-        int w169 = (int) (((float) (height + 2)) * 1.777f);
-        this.mMusicPlayerView.measure(MeasureSpec.makeMeasureSpec(w169, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST));
-        if (this.mMiniControlsContainer.getVisibility() == VISIBLE) {
-            this.mMiniControlsContainer.measure(MeasureSpec.makeMeasureSpec(width - w169, MeasureSpec.EXACTLY), heightMeasureSpec);
+        val width = MeasureSpec.getSize(widthMeasureSpec)
+        val height = MeasureSpec.getSize(heightMeasureSpec)
+        val w169 = ((height + 2).toFloat() * 1.777f).toInt()
+        layoutMusicPlayerView?.measure(MeasureSpec.makeMeasureSpec(w169, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST))
+        if (layoutMiniControlsContainer?.visibility == VISIBLE) {
+            layoutMiniControlsContainer?.measure(MeasureSpec.makeMeasureSpec(width - w169, MeasureSpec.EXACTLY), heightMeasureSpec)
         }
     }
 
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-        int innerH = bottom - top;
-        int playerW = this.mMusicPlayerView.getMeasuredWidth();
-        int playerH = this.mMusicPlayerView.getMeasuredHeight();
-        this.mMusicPlayerView.layout(0, 0, playerW, playerH);
-        if (this.mMiniControlsContainer.getVisibility() == VISIBLE) {
-            this.mMiniControlsContainer.layout(playerW, 0, this.mMiniControlsContainer.getMeasuredWidth() + playerW, innerH);
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+
+        layoutMusicPlayerView?.let { fl ->
+            val innerH = bottom - top
+            val playerW = fl.measuredWidth ?: 0
+            val playerH = fl.measuredHeight ?: 0
+            fl.layout(0, 0, playerW, playerH)
+
+            layoutMiniControlsContainer?.let {
+                if (it.visibility == VISIBLE) {
+                    it.layout(playerW, 0, it.measuredWidth + playerW, innerH)
+                }
+            }
         }
     }
+
 }
