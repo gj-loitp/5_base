@@ -22,7 +22,6 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Recycle
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.RecyclerViewWithSingletonDataActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalwithspansize.RecyclerViewWithSpanSizeActivity
 import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview.ParallaxRecyclerViewActivity
-import vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerviewyayandroid.RecyclerViewParallaxYayaActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.RecyclerTabLayoutMenuActivity
 
 @LogTag("RecyclerViewMenuActivity")
@@ -39,7 +38,6 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         btParallaxRecyclerView.setOnClickListener(this)
         btNormalRecyclerView.setOnClickListener(this)
         btNormalRecyclerViewWithSpanSize.setOnClickListener(this)
-        btParallaxRecyclerViewYayandroid.setOnClickListener(this)
         btNormalRecyclerViewWithSingletonData.setOnClickListener(this)
         btGalleryLayoutManager.setOnClickListener(this)
         btGalleryLayoutManagerVertical.setOnClickListener(this)
@@ -59,7 +57,6 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btParallaxRecyclerView -> intent = Intent(this, ParallaxRecyclerViewActivity::class.java)
             btNormalRecyclerView -> intent = Intent(this, RecyclerViewActivity::class.java)
             btNormalRecyclerViewWithSpanSize -> intent = Intent(this, RecyclerViewWithSpanSizeActivity::class.java)
-            btParallaxRecyclerViewYayandroid -> intent = Intent(this, RecyclerViewParallaxYayaActivity::class.java)
             btNormalRecyclerViewWithSingletonData -> intent = Intent(this, RecyclerViewWithSingletonDataActivity::class.java)
             btGalleryLayoutManager -> intent = Intent(this, GalleryLayoutManagerHorizontalActivity::class.java)
             btGalleryLayoutManagerVertical -> intent = Intent(this, GalleryLayoutManagerVerticalActivity::class.java)

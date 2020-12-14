@@ -86,11 +86,6 @@
                 android:text="ParallaxRecyclerView" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btParallaxRecyclerViewYayandroid"
-                style="@style/ButtonMenu"
-                android:text="ParallaxRecyclerView Yayandroid" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRecyclerTabLayout"
                 style="@style/ButtonMenu"
                 android:text="Recycler Tab Layout" />
