@@ -1,124 +1,87 @@
-package vn.loitp.app.activity.customviews.wwlmusic.fragments;
+package vn.loitp.app.activity.customviews.wwlmusic.fragments
 
-import android.app.Activity;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.annotation.LogTag;
-import com.core.base.BaseFragment;
-import com.views.wwlmusic.utils.LWWLMusicUiUtil;
-
-import vn.loitp.app.R;
-import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
-import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
+import android.app.Activity
+import android.content.res.Configuration
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.annotation.LogTag
+import com.core.base.BaseFragment
+import com.views.wwlmusic.utils.LWWLMusicUiUtil.getGridColumnCount
+import kotlinx.android.synthetic.main.wwl_music_home_fragment.*
+import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost
+import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset
 
 @LogTag("WWLHomeFragment")
-//TODO convert kotlin
-public class WWLHomeFragment extends BaseFragment {
-    private RecyclerView mRecyclerView;
-    private GridLayoutManager mLayoutManager;
-    private CustomAdapter mAdapter;
-    private FragmentHost mFragmentHost;
+class WWLHomeFragment : BaseFragment() {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.wwl_music_home_fragment;
+    private var mLayoutManager: GridLayoutManager? = null
+    private var customAdapter: CustomAdapter? = null
+    private var mFragmentHost: FragmentHost? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.wwl_music_home_fragment
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mLayoutManager = GridLayoutManager(activity, getGridColumnCount(resources))
+        recyclerView.layoutManager = mLayoutManager
+        customAdapter = CustomAdapter(WWLMusicDataset.datasetItems)
+        recyclerView.adapter = customAdapter
+        updateLayoutIfNeed()
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        this.mRecyclerView = getFrmRootView().findViewById(R.id.recyclerView);
-        this.mLayoutManager = new GridLayoutManager(getActivity(), LWWLMusicUiUtil.getGridColumnCount(getResources()));
-        this.mRecyclerView.setLayoutManager(mLayoutManager);
-        this.mAdapter = new CustomAdapter(WWLMusicDataset.datasetItems);
-        mRecyclerView.setAdapter(mAdapter);
-
-        updateLayoutIfNeed();
+    override fun onAttach(activity: Activity) {
+        super.onAttach(activity)
+        mFragmentHost = activity as FragmentHost
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.mFragmentHost = (FragmentHost) activity;
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        updateLayoutIfNeed()
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        updateLayoutIfNeed();
+    private fun updateLayoutIfNeed() {
+        mLayoutManager?.spanCount = getGridColumnCount(resources)
+        customAdapter?.notifyDataSetChanged()
     }
 
-    private void updateLayoutIfNeed() {
-        if (this.mLayoutManager != null) {
-            this.mLayoutManager.setSpanCount(LWWLMusicUiUtil.getGridColumnCount(getResources()));
-        }
-        if (this.mAdapter != null) {
-            this.mAdapter.notifyDataSetChanged();
-        }
+    private fun onItemClicked(item: WWLMusicDataset.DatasetItem) {
+        mFragmentHost?.goToDetail(item)
     }
 
-    private void onItemClicked(WWLMusicDataset.DatasetItem item) {
-        if (this.mFragmentHost != null) {
-            this.mFragmentHost.goToDetail(item);
-        }
-    }
-
-    private class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
-        private WWLMusicDataset.DatasetItem[] mDataSet;
-
-        public CustomAdapter(WWLMusicDataset.DatasetItem[] dataset) {
-            this.mDataSet = dataset;
+    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLMusicDataset.DatasetItem>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+            val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_music_card_row_item, parent, false)
+            return ViewHolder(v)
         }
 
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.wwl_music_card_row_item, parent, false);
-            return new ViewHolder(v);
+        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.liTitle.text = mDataSet[position].title
+            holder.liSubtitle.text = mDataSet[position].subtitle
         }
 
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.getTitleView().setText(this.mDataSet[position].title);
-            holder.getSubTitleView().setText(this.mDataSet[position].subtitle);
+        override fun getItemCount(): Int {
+            return mDataSet.size
         }
 
-        @Override
-        public int getItemCount() {
-            return this.mDataSet.length;
-        }
+        inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+            val liTitle: TextView
+            val liSubtitle: TextView
 
-        class ViewHolder extends RecyclerView.ViewHolder {
-            private final TextView titleView;
-            private final TextView subtitleView;
-
-            public ViewHolder(View v) {
-                super(v);
-                v.setOnClickListener(v1 -> WWLHomeFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]));
-                titleView = v.findViewById(R.id.liTitle);
-                subtitleView = v.findViewById(R.id.liSubtitle);
-            }
-
-            public TextView getTitleView() {
-                return titleView;
-            }
-
-            public TextView getSubTitleView() {
-                return subtitleView;
+            init {
+                v.setOnClickListener {
+                    onItemClicked(mDataSet[bindingAdapterPosition])
+                }
+                liTitle = v.findViewById(R.id.liTitle)
+                liSubtitle = v.findViewById(R.id.liSubtitle)
             }
         }
     }

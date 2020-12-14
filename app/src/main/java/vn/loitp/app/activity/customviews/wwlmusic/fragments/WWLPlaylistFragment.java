@@ -17,6 +17,8 @@ import com.core.base.BaseFragment;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 import vn.loitp.app.R;
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
@@ -71,9 +73,9 @@ public class WWLPlaylistFragment extends BaseFragment {
     }
 
     private class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-        private final WWLMusicDataset.DatasetItem[] mDataSet;
+        private final ArrayList<WWLMusicDataset.DatasetItem> mDataSet;
 
-        public CustomAdapter(WWLMusicDataset.DatasetItem[] datasetItems) {
+        public CustomAdapter(ArrayList<WWLMusicDataset.DatasetItem> datasetItems) {
             this.mDataSet = datasetItems;
         }
 
@@ -86,13 +88,13 @@ public class WWLPlaylistFragment extends BaseFragment {
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ((ViewHolder) holder).getTitleView().setText(this.mDataSet[position].title);
-            ((ViewHolder) holder).getSubTitleView().setText(this.mDataSet[position].subtitle);
+            ((ViewHolder) holder).getTitleView().setText(this.mDataSet.get(position).title);
+            ((ViewHolder) holder).getSubTitleView().setText(this.mDataSet.get(position).subtitle);
         }
 
         @Override
         public int getItemCount() {
-            return this.mDataSet.length;
+            return this.mDataSet.size();
         }
 
         class ViewHolder extends RecyclerView.ViewHolder {
@@ -101,7 +103,7 @@ public class WWLPlaylistFragment extends BaseFragment {
 
             public ViewHolder(View v) {
                 super(v);
-                v.setOnClickListener(v1 -> WWLPlaylistFragment.this.onItemClicked(CustomAdapter.this.mDataSet[getAdapterPosition()]));
+                v.setOnClickListener(v1 -> WWLPlaylistFragment.this.onItemClicked(CustomAdapter.this.mDataSet.get(getAdapterPosition())));
                 titleView = v.findViewById(R.id.liTitle);
                 subtitleView = v.findViewById(R.id.liSubtitle);
             }

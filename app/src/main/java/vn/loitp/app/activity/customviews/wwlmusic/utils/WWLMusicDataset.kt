@@ -6,7 +6,7 @@ import vn.loitp.app.R
 object WWLMusicDataset {
 
     @JvmField
-    var datasetItems: Array<DatasetItem?>
+    var datasetItems = ArrayList<DatasetItem>()
 
     class DatasetItem(id: Int) {
         var id: Int
@@ -30,10 +30,8 @@ object WWLMusicDataset {
     }
 
     init {
-        val n = 50
-        datasetItems = arrayOfNulls(n)
-        for (i in 0 until n) {
-            datasetItems[i] = DatasetItem(i + 1)
+        for (i in 0 until 50) {
+            datasetItems.add(DatasetItem(i + 1))
         }
     }
 }
