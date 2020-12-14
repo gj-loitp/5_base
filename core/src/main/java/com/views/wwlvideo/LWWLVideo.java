@@ -32,6 +32,7 @@ import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_POINTER_UP;
 import static android.view.MotionEvent.ACTION_UP;
 
+//14.12.2020 try to convert to kotlin but failed
 public class LWWLVideo extends ViewGroup {
     public static final int STATE_HIDED = 0;
     public static final int STATE_MAXIMIZED = 1;
