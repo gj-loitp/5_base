@@ -1,256 +1,217 @@
-package com.views.textview.scrollnumber;
+package com.views.textview.scrollnumber
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.util.TypedValue;
-import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Interpolator;
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.Typeface
+import android.text.TextUtils
+import android.util.AttributeSet
+import android.util.TypedValue
+import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Interpolator
+import androidx.annotation.IntRange
+import kotlin.math.min
 
-import androidx.annotation.IntRange;
+internal class ScrollNumber @JvmOverloads constructor(
+        private val mContext: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
+) : View(mContext, attrs, defStyleAttr) {
 
-class ScrollNumber extends View {
+    companion object {
+        const val TAG = "ScrollNumber"
 
-    public static final String TAG = "ScrollNumber";
-    /**
-     * default animation velocity
-     */
-    public static final int DEFAULT_VELOCITY = 15;
+        /**
+         * default animation velocity
+         */
+        const val DEFAULT_VELOCITY = 15
+    }
+
     /**
      * number to - number from
      */
-    private int mDeltaNum;
+    private var mDeltaNum = 0
+
     /**
      * the current showing number
      */
-    private int mCurNum;
+    private var mCurNum = 0
+
     /**
      * the next showing number
      */
-    private int mNextNum;
+    private var mNextNum = 0
+
     /**
      * the target number
      */
-    private int mTargetNum;
-    private Context mContext;
+    private var mTargetNum = 0
 
     /**
      * number offset
      */
-    private float mOffset;
-    private Paint mPaint;
-    private Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
+    private var mOffset = 0f
+    private val mPaint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+    private var mInterpolator: Interpolator = AccelerateDecelerateInterpolator()
+    private var mTextCenterX = 0f
+    private var mTextHeight = 0
+    private val mTextBounds = Rect()
+    private var mTextSize = sp2px(130f)
+    private var mTextColor = -0x1000000
+    private var mTypeface: Typeface? = null
+    private var mVelocity = DEFAULT_VELOCITY
 
-
-    private float mTextCenterX;
-    private int mTextHeight;
-    private Rect mTextBounds = new Rect();
-    private int mTextSize = sp2px(130);
-    private int mTextColor = 0xFF000000;
-    private Typeface mTypeface;
-
-
-    private int mVelocity = DEFAULT_VELOCITY;
-
-    public ScrollNumber(Context context) {
-        this(context, null);
+    fun setVelocity(@IntRange(from = 0, to = 1000) velocity: Int) {
+        mVelocity = velocity
     }
 
-    public ScrollNumber(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+    fun setNumber(from: Int, to: Int, delay: Long) {
+        postDelayed({
+            setFromNumber(from)
+            setTargetNumber(to)
+            mDeltaNum = to - from
+        }, delay)
     }
 
-    public ScrollNumber(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-
-        mContext = context;
-
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mPaint.setTextAlign(Paint.Align.CENTER);
-        mPaint.setTextSize(mTextSize);
-        mPaint.setColor(mTextColor);
-
-        if (mTypeface != null) mPaint.setTypeface(mTypeface);
-
-        measureTextHeight();
-
+    fun setTextSize(textSize: Int) {
+        mTextSize = sp2px(textSize.toFloat())
+        mPaint.textSize = mTextSize.toFloat()
+        measureTextHeight()
+        requestLayout()
+        invalidate()
     }
 
-    public void setVelocity(@IntRange(from = 0, to = 1000) int velocity) {
-        mVelocity = velocity;
+    fun setTextFont(fileName: String?) {
+        require(!TextUtils.isEmpty(fileName)) {
+            "please check file name end with '.ttf' or '.otf'"
+        }
+        mTypeface = Typeface.createFromAsset(mContext.assets, fileName)
+        if (mTypeface == null) throw RuntimeException("please check your font!")
+        mPaint.typeface = mTypeface
+        requestLayout()
+        invalidate()
     }
 
-    public void setNumber(final int from, final int to, long delay) {
-        postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                setFromNumber(from);
-                setTargetNumber(to);
-                mDeltaNum = to - from;
+    fun setTextColor(mTextColor: Int) {
+        this.mTextColor = mTextColor
+        mPaint.color = mTextColor
+        invalidate()
+    }
+
+    fun setInterpolator(interpolator: Interpolator) {
+        mInterpolator = interpolator
+    }
+
+    private fun measureTextHeight() {
+        mPaint.getTextBounds(mCurNum.toString() + "", 0, 1, mTextBounds)
+        mTextHeight = mTextBounds.height()
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val width = measureWidth(widthMeasureSpec)
+        val height = measureHeight(heightMeasureSpec)
+        setMeasuredDimension(width, height)
+        mTextCenterX = (measuredWidth - paddingLeft - paddingRight ushr 1).toFloat()
+    }
+
+    private fun measureHeight(measureSpec: Int): Int {
+        val mode = MeasureSpec.getMode(measureSpec)
+        val size = MeasureSpec.getSize(measureSpec)
+        var result = 0
+        when (mode) {
+            MeasureSpec.EXACTLY -> result = size
+            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED -> {
+                mPaint.getTextBounds("0", 0, 1, mTextBounds)
+                result = mTextBounds.height()
             }
-        }, delay);
-    }
-
-    public void setTextSize(int textSize) {
-        this.mTextSize = sp2px(textSize);
-        mPaint.setTextSize(mTextSize);
-        measureTextHeight();
-        requestLayout();
-        invalidate();
-    }
-
-
-    public void setTextFont(String fileName) {
-        if (TextUtils.isEmpty(fileName))
-            throw new IllegalArgumentException("please check file name end with '.ttf' or '.otf'");
-        mTypeface = Typeface.createFromAsset(mContext.getAssets(), fileName);
-        if (mTypeface == null) throw new RuntimeException("please check your font!");
-        mPaint.setTypeface(mTypeface);
-        requestLayout();
-        invalidate();
-    }
-
-    public void setTextColor(int mTextColor) {
-        this.mTextColor = mTextColor;
-        mPaint.setColor(mTextColor);
-        invalidate();
-    }
-
-    public void setInterpolator(Interpolator interpolator) {
-        mInterpolator = interpolator;
-    }
-
-    private void measureTextHeight() {
-        mPaint.getTextBounds(mCurNum + "", 0, 1, mTextBounds);
-        mTextHeight = mTextBounds.height();
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = measureWidth(widthMeasureSpec);
-        int height = measureHeight(heightMeasureSpec);
-        setMeasuredDimension(width, height);
-
-        mTextCenterX = (getMeasuredWidth() - getPaddingLeft() - getPaddingRight()) >>> 1;
-    }
-
-    private int measureHeight(int measureSpec) {
-        int mode = MeasureSpec.getMode(measureSpec);
-        int val = MeasureSpec.getSize(measureSpec);
-        int result = 0;
-        switch (mode) {
-            case MeasureSpec.EXACTLY:
-                result = val;
-                break;
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.UNSPECIFIED:
-                mPaint.getTextBounds("0", 0, 1, mTextBounds);
-                result = mTextBounds.height();
-                break;
         }
-        result = mode == MeasureSpec.AT_MOST ? Math.min(result, val) : result;
-        return result + getPaddingTop() + getPaddingBottom() + dp2px(40);
+        result = if (mode == MeasureSpec.AT_MOST) min(result, size) else result
+        return result + paddingTop + paddingBottom + dp2px(40f)
     }
 
-    private int measureWidth(int measureSpec) {
-        int mode = MeasureSpec.getMode(measureSpec);
-        int val = MeasureSpec.getSize(measureSpec);
-        int result = 0;
-        switch (mode) {
-            case MeasureSpec.EXACTLY:
-                result = val;
-                break;
-            case MeasureSpec.AT_MOST:
-            case MeasureSpec.UNSPECIFIED:
-                mPaint.getTextBounds("0", 0, 1, mTextBounds);
-                result = mTextBounds.width();
-                break;
+    private fun measureWidth(measureSpec: Int): Int {
+        val mode = MeasureSpec.getMode(measureSpec)
+        val size = MeasureSpec.getSize(measureSpec)
+        var result = 0
+        when (mode) {
+            MeasureSpec.EXACTLY -> result = size
+            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED -> {
+                mPaint.getTextBounds("0", 0, 1, mTextBounds)
+                result = mTextBounds.width()
+            }
         }
-        result = mode == MeasureSpec.AT_MOST ? Math.min(result, val) : result;
-        return result + getPaddingLeft() + getPaddingRight() + 15;
+        result = if (mode == MeasureSpec.AT_MOST) min(result, size) else result
+        return result + paddingLeft + paddingRight + 15
     }
 
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-
-
+    override fun onDraw(canvas: Canvas) {
         if (mCurNum != mTargetNum) {
-            postDelayed(mScrollRunnable, 0);
+            postDelayed(mScrollRunnable, 0)
         }
 
-//        Log.d(TAG, "onDraw: curr=" + mCurNum + " target=" + mTargetNum + " offset=" + mOffset);
-
-        canvas.translate(0, mOffset * getMeasuredHeight());
-        drawSelf(canvas);
-        drawNext(canvas);
-//        canvas.restore();
+        canvas.translate(0f, mOffset * measuredHeight)
+        drawSelf(canvas)
+        drawNext(canvas)
     }
 
-    private void setFromNumber(int number) {
-        if (number < 0 || number > 9)
-            throw new RuntimeException("invalidate number , should in [0,9]");
-        calNum(number);
-        mOffset = 0;
-        invalidate();
+    private fun setFromNumber(number: Int) {
+        if (number < 0 || number > 9) throw RuntimeException("invalidate number , should in [0,9]")
+        calNum(number)
+        mOffset = 0f
+        invalidate()
     }
 
-
-    private void calNum(int number) {
-        number = number == -1 ? 9 : number;
-        number = number == 10 ? 0 : number;
-        mCurNum = number;
-        mNextNum = number + 1 == 10 ? 0 : number + 1;
+    @Suppress("NAME_SHADOWING")
+    private fun calNum(number: Int) {
+        var number = number
+        number = if (number == -1) 9 else number
+        number = if (number == 10) 0 else number
+        mCurNum = number
+        mNextNum = if (number + 1 == 10) 0 else number + 1
     }
 
-    private Runnable mScrollRunnable = new Runnable() {
-        @Override
-        public void run() {
-            float x = (float) (1 - 1.0 * (mTargetNum - mCurNum) / mDeltaNum);
-//            mOffset -= 0.15f * (1 - mInterpolator.getInterpolation(x) + 0.1);
-            mOffset -= mVelocity * 0.01f * (1 - mInterpolator.getInterpolation(x) + 0.1);
-            invalidate();
-
-            if (mOffset <= -1) {
-                mOffset = 0;
-                calNum(mCurNum + 1);
-            }
-
-
+    private val mScrollRunnable = Runnable {
+        val x = (1 - 1.0 * (mTargetNum - mCurNum) / mDeltaNum).toFloat()
+        mOffset -= (mVelocity * 0.01f * (1 - mInterpolator.getInterpolation(x) + 0.1)).toFloat()
+        invalidate()
+        if (mOffset <= -1) {
+            mOffset = 0f
+            calNum(mCurNum + 1)
         }
-    };
-
-
-    private void drawNext(Canvas canvas) {
-        float y = (float) (getMeasuredHeight() * 1.5);
-        canvas.drawText(mNextNum + "", mTextCenterX, y + mTextHeight / 2, mPaint);
     }
 
-    private void drawSelf(Canvas canvas) {
-        int y = getMeasuredHeight() / 2;
-        canvas.drawText(mCurNum + "", mTextCenterX, y + mTextHeight / 2, mPaint);
+    private fun drawNext(canvas: Canvas) {
+        val y = (measuredHeight * 1.5).toFloat()
+        canvas.drawText(mNextNum.toString() + "", mTextCenterX, y + mTextHeight / 2, mPaint)
     }
 
-
-    public void setTargetNumber(int nextNum) {
-        this.mTargetNum = nextNum;
-        invalidate();
+    private fun drawSelf(canvas: Canvas) {
+        val y = measuredHeight / 2
+        canvas.drawText(mCurNum.toString() + "", mTextCenterX, (y + mTextHeight / 2).toFloat(), mPaint)
     }
 
-    private int dp2px(float dpVal) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, getResources().getDisplayMetrics());
+    fun setTargetNumber(nextNum: Int) {
+        mTargetNum = nextNum
+        invalidate()
     }
 
-    private int sp2px(float dpVal) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                dpVal, getResources().getDisplayMetrics());
+    private fun dp2px(dpVal: Float): Int {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
+                dpVal, resources.displayMetrics).toInt()
     }
 
+    private fun sp2px(dpVal: Float): Int {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
+                dpVal, resources.displayMetrics).toInt()
+    }
 
+    init {
+        mPaint.textAlign = Paint.Align.CENTER
+        mPaint.textSize = mTextSize.toFloat()
+        mPaint.color = mTextColor
+        if (mTypeface != null) mPaint.typeface = mTypeface
+        measureTextHeight()
+    }
 }
