@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
@@ -23,7 +24,7 @@
             android:padding="4.0dip">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/overflow_menu"
+                android:id="@+id/ivOverflowMenu"
                 style="@style/MusicImageView"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
@@ -37,12 +38,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignWithParentIfMissing="true"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/overflow_menu">
+                android:layout_toStartOf="@+id/ivOverflowMenu">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
 
                     <LinearLayout
                         android:layout_width="0.0dip"
@@ -59,7 +61,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:text="Title"
+                            android:text="@string/title"
                             android:textColor="@color/white"
                             android:textSize="@dimen/medium_font_size"
                             android:textStyle="bold" />
@@ -70,7 +72,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="2"
-                            android:text="Subtitle"
+                            android:text="@string/subtitle"
                             android:textColor="@color/white"
                             android:textSize="@dimen/small_font_size" />
                     </LinearLayout>
