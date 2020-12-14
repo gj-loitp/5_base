@@ -17,20 +17,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorPrimary"
-            app:metadataViewId="@+id/playlist_fragment"
+            app:metadataViewId="@+id/frmPlaylist"
             app:miniPlayerPadding="@dimen/watch_while_mini_player_padding"
             app:miniPlayerWidth="@dimen/watch_while_mini_player_width"
-            app:playerViewId="@+id/watch_fragment"
+            app:playerViewId="@+id/frmWatch"
             app:tabletLayout="true">
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/watch_fragment"
+                android:id="@+id/frmWatch"
                 android:name="vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLWatchFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
             <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/playlist_fragment"
+                android:id="@+id/frmPlaylist"
                 android:name="vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLPlaylistFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

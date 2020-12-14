@@ -15,7 +15,6 @@ import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost;
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset;
 
 //https://github.com/vn-ttinc/Youtube-Watch-While-Layout
-
 @LogTag("WWLActivityMusic")
 @IsFullScreen(false)
 //TODO convert kotlin
@@ -37,8 +36,8 @@ public class WWLActivityMusic extends BaseFontActivity implements LWWLMusic.List
         this.LWWLMusic = findViewById(R.id.watchWhileLayout);
         this.LWWLMusic.setListener(this);
 
-        this.watchFragment = (WWLWatchFragment) getSupportFragmentManager().findFragmentById(R.id.watch_fragment);
-        this.playlistFragment = (WWLPlaylistFragment) getSupportFragmentManager().findFragmentById(R.id.playlist_fragment);
+        this.watchFragment = (WWLWatchFragment) getSupportFragmentManager().findFragmentById(R.id.frmWatch);
+        this.playlistFragment = (WWLPlaylistFragment) getSupportFragmentManager().findFragmentById(R.id.frmPlaylist);
     }
 
     @Override
