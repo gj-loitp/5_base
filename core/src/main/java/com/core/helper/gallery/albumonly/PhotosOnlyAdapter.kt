@@ -12,7 +12,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LImageUtil
@@ -24,7 +24,7 @@ import java.util.*
 
 @LogTag("PhotosOnlyAdapter")
 class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
-        AnimationAdapter() {
+        BaseAdapter() {
 
     val color = if (LUIUtil.isDarkTheme()) {
         R.color.dark900
@@ -69,7 +69,6 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
                             itemView.layoutControl?.visibility = View.VISIBLE
                             itemView.viewLine?.visibility = View.VISIBLE
                             itemView.tvTitle?.visibility = View.VISIBLE
-                            setAnimation(viewToAnimate = itemView.layoutRoot, position = bindingAdapterPosition)
                             return false
                         }
                     })

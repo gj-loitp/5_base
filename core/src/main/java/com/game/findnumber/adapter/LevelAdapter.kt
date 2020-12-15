@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LUIUtil
 import com.game.findnumber.model.Level
 import kotlinx.android.synthetic.main.view_row_item_find_number_level.view.*
 
 @LogTag("LevelAdapter")
-class LevelAdapter() : AnimationAdapter() {
+class LevelAdapter() : BaseAdapter() {
 
     private val listLevel = ArrayList<Level>()
 

@@ -1,30 +1,23 @@
 package com.core.adapter
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.annotation.LogTag
-import com.core.common.Constants
-import com.core.utilities.LAnimationUtil
 import com.core.utilities.LLog
 import com.views.LToast
 
-abstract class AnimationAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var lastPosition = -1
+/*moviesAdapter?.let {
+    val scaleAdapter = ScaleInAnimationAdapter(it)
+    scaleAdapter.setDuration(1000)
+    scaleAdapter.setInterpolator(OvershootInterpolator())
+    scaleAdapter.setFirstOnly(true)
+    rv.adapter = scaleAdapter
+}*/
+abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     protected var logTag: String? = null
 
     init {
         logTag = javaClass.getAnnotation(LogTag::class.java)?.value
-    }
-
-    fun setAnimation(viewToAnimate: View?, position: Int) {
-        // If the bound view wasn't previously displayed on screen, it's animated
-        viewToAnimate?.let {
-            if (position > lastPosition) {
-                LAnimationUtil.playAnimRandomDuration(viewToAnimate = it)
-                lastPosition = position
-            }
-        }
     }
 
     protected fun logD(msg: String) {

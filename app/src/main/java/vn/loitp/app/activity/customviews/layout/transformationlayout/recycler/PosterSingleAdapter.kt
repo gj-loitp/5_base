@@ -21,7 +21,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import com.skydoves.transformationlayout.TransformationLayout
 import kotlinx.android.synthetic.main.item_transformation_poster.view.*
@@ -29,7 +29,7 @@ import vn.loitp.app.R
 
 class PosterSingleAdapter constructor(
         private val delegate: PosterDelegate
-) : AnimationAdapter() {
+) : BaseAdapter() {
 
     interface PosterDelegate {
         fun onItemClick(poster: Poster, itemView: TransformationLayout)
@@ -80,7 +80,6 @@ class PosterSingleAdapter constructor(
                 }
             }
 
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
 
     }

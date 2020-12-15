@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_user.view.*
@@ -15,7 +15,7 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.U
 @LogTag("UsersAdapter")
 class UsersAdapter(
         private val listUser: ArrayList<User>
-) : AnimationAdapter() {
+) : BaseAdapter() {
 
     var onClickRootListener: ((User, Int) -> Unit)? = null
 
@@ -34,7 +34,6 @@ class UsersAdapter(
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(user, bindingAdapterPosition)
             }
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

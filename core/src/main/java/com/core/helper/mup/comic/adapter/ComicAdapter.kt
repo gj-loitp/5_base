@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.helper.mup.comic.model.Comic
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
@@ -14,7 +14,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic.view.*
 
 @LogTag("ComicAdapter")
-class ComicAdapter : AnimationAdapter() {
+class ComicAdapter : BaseAdapter() {
 
     private var listComic = ArrayList<Comic>()
     var onClickRoot: ((Comic) -> Unit)? = null
@@ -58,7 +58,6 @@ class ComicAdapter : AnimationAdapter() {
                 onClickRoot?.invoke(comic)
             }
 
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.R
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.common.Constants
 import com.core.helper.mup.girl.model.GirlPage
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_row_girl_header.view.*
 
 @LogTag("GirlHeaderAdapter")
-class GirlHeaderAdapter : AnimationAdapter() {
+class GirlHeaderAdapter : BaseAdapter() {
 
     private var girlPage: GirlPage? = null
 //    var onClickRootListener: ((GirlPage, Int) -> Unit)? = null

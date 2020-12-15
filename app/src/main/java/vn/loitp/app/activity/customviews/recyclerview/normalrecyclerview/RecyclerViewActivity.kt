@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,7 +41,6 @@ class RecyclerViewActivity : BaseFontActivity() {
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
         animator.addDuration = 300
         rv.itemAnimator = animator
-        //rv.getItemAnimator().setAddDuration(1000);
         btAdd3.setOnClickListener {
             val movie = Movie()
             movie.title = "Add TITLE 3"
@@ -83,7 +81,6 @@ class RecyclerViewActivity : BaseFontActivity() {
             scaleAdapter.setFirstOnly(true)
             rv.adapter = scaleAdapter
         }
-        //LUIUtil.setPullLikeIOSVertical(recyclerView = rv)
         prepareMovieData()
         btSetting.setOnClickListener {
             LPopupMenu.show(activity = this,

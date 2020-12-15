@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.helper.mup.comic.model.Category
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_comic_category.view.*
 
 @LogTag("CategoryAdapter")
-class CategoryAdapter : AnimationAdapter() {
+class CategoryAdapter : BaseAdapter() {
 
     private val listCategory = ArrayList<Category>()
     private val colorBackgroundSelected = if (LUIUtil.isDarkTheme()) {

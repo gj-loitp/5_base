@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
-import com.core.utilities.LStoreUtil
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_item_net.view.*
 import vn.loitp.app.R
 
 @LogTag("NetAdapter")
-class NetAdapter() : AnimationAdapter() {
+class NetAdapter() : BaseAdapter() {
 
     private val listNet = ArrayList<Net>()
 

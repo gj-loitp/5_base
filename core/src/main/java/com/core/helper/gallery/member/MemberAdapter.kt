@@ -14,17 +14,16 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LImageUtil
-import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
 import java.util.*
 
 @LogTag("MemberAdapter")
 class MemberAdapter(private val context: Context, private val callback: Callback?)
-    : AnimationAdapter() {
+    : BaseAdapter() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
@@ -59,7 +58,6 @@ class MemberAdapter(private val context: Context, private val callback: Callback
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
                             itemView.tvTitle?.visibility = View.VISIBLE
-                            setAnimation(viewToAnimate = itemView.fl, position = bindingAdapterPosition)
                             return false
                         }
                     })

@@ -12,7 +12,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LDateUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
 @LogTag("AlbumAdapter")
 class AlbumAdapter(private val context: Context, private val photosetList: List<Photoset>, private val callback: Callback?)
-    : AnimationAdapter() {
+    : BaseAdapter() {
 
     val color = if (LUIUtil.isDarkTheme()) {
         R.color.dark900
@@ -71,7 +71,6 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
                             itemView.tvUpdate?.visibility = View.VISIBLE
                             itemView.tvLabel?.visibility = View.VISIBLE
                             itemView.tvNumber?.visibility = View.VISIBLE
-                            setAnimation(viewToAnimate = itemView.frameLayout, position = bindingAdapterPosition)
                             return false
                         }
                     })
