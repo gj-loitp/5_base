@@ -21,9 +21,9 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
-import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
 
 @LogTag("GalleryCorePhotosActivity")
