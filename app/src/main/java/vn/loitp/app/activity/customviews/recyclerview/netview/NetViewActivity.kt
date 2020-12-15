@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.netview
 
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.SimpleOnItemTouchListener
@@ -9,6 +10,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_net_view.*
 import vn.loitp.app.R
 
@@ -20,6 +22,7 @@ class NetViewActivity : BaseFontActivity() {
     }
 
     private var netAdapter = NetAdapter()
+    private val isEnableAnimation = true
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_net_view
@@ -43,7 +46,16 @@ class NetViewActivity : BaseFontActivity() {
             }
         })
         rvNetView.layoutManager = GridLayoutManager(this, 1)
-        rvNetView.adapter = netAdapter
+
+        if (isEnableAnimation) {
+            val scaleAdapter = ScaleInAnimationAdapter(netAdapter)
+            scaleAdapter.setDuration(1000)
+            scaleAdapter.setInterpolator(OvershootInterpolator())
+            scaleAdapter.setFirstOnly(true)
+            rvNetView.adapter = scaleAdapter
+        } else {
+            rvNetView.adapter = netAdapter
+        }
 
         btAddItem.setOnClickListener {
             addNet()

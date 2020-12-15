@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.view_row_item_net.view.*
 import vn.loitp.app.R
 
 @LogTag("NetAdapter")
-class NetAdapter() : BaseAdapter() {
+class NetAdapter : BaseAdapter() {
 
     private val listNet = ArrayList<Net>()
 
