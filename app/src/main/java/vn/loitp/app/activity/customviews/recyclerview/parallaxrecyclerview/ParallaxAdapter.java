@@ -11,7 +11,6 @@ import org.jetbrains.annotations.NotNull;
 
 import vn.loitp.app.R;
 
-//TODO convert kotlin
 public class ParallaxAdapter extends RecyclerView.Adapter {
 
     private Context context;
