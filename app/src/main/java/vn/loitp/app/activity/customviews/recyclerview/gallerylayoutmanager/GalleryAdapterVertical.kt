@@ -9,8 +9,11 @@ import kotlinx.android.synthetic.main.row_text_view.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
-class GalleryAdapterVertical internal constructor(private val context: Context, private val moviesList: List<Movie>, private val callback: Callback?)
-    : RecyclerView.Adapter<GalleryAdapterVertical.MovieViewHolder>() {
+class GalleryAdapterVertical internal constructor(
+        private val context: Context,
+        private val moviesList: List<Movie>,
+        private val callback: Callback?
+) : RecyclerView.Adapter<GalleryAdapterVertical.MovieViewHolder>() {
 
     interface Callback {
         fun onClick(movie: Movie, position: Int)
