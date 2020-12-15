@@ -1,43 +1,33 @@
-package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview;
+package vn.loitp.app.activity.customviews.recyclerview.parallaxrecyclerview
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.core.adapter.AnimationAdapter
+import vn.loitp.app.R
 
-import androidx.recyclerview.widget.RecyclerView;
+class ParallaxAdapter internal constructor(private val context: Context) : AnimationAdapter() {
 
-import org.jetbrains.annotations.NotNull;
-
-import vn.loitp.app.R;
-
-public class ParallaxAdapter extends RecyclerView.Adapter {
-
-    private Context context;
-
-    ParallaxAdapter(Context context) {
-        this.context = context;
+    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.row_parallax, viewGroup, false))
     }
 
-    @NotNull
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_parallax, parent, false);
-        return new ParallaxHolder(view);
+    override fun getItemCount(): Int {
+        return 50
     }
 
-    @Override
-    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder holder, int position) {
-    }
-
-    @Override
-    public int getItemCount() {
-        return 50;
-    }
-
-    private static class ParallaxHolder extends RecyclerView.ViewHolder {
-        ParallaxHolder(View itemView) {
-            super(itemView);
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ViewHolder) {
+            holder.bind()
         }
     }
+
+    inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        fun bind() {
+            //do sth
+        }
+    }
+
 }
