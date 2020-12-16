@@ -1,13 +1,22 @@
 package com.core.adapter
 
+import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.annotation.LogTag
 import com.core.utilities.LLog
+import com.google.ads.interactivemedia.v3.internal.it
 import com.views.LToast
+import jp.wasabeef.recyclerview.adapters.*
 
-/*moviesAdapter?.let {
+//https://github.com/wasabeef/recyclerview-animators
+/*bookAdapter?.let {
+    val scaleAdapter = AlphaInAnimationAdapter(it)
     val scaleAdapter = ScaleInAnimationAdapter(it)
+    val scaleAdapter = SlideInBottomAnimationAdapter(it)
+    val scaleAdapter = SlideInLeftAnimationAdapter(it)
+    val scaleAdapter = SlideInRightAnimationAdapter(it)
+
     scaleAdapter.setDuration(1000)
     scaleAdapter.setInterpolator(OvershootInterpolator())
     scaleAdapter.setFirstOnly(true)
