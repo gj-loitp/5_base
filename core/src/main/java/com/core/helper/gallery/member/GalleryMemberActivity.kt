@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
@@ -33,6 +34,9 @@ import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
 @LogTag("GalleryMemberActivity")
@@ -76,8 +80,6 @@ class GalleryMemberActivity : BaseFontActivity() {
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(adView = it)
                 lnAdView.addView(it)
-                //val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-                //LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
 
@@ -91,7 +93,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
-        recyclerView.setHasFixedSize(true)
+//        recyclerView.setHasFixedSize(true)
         memberAdapter = MemberAdapter(context = this,
                 callback = object : MemberAdapter.Callback {
                     override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
@@ -104,7 +106,20 @@ class GalleryMemberActivity : BaseFontActivity() {
                     override fun onLongClick(photo: Photo, pos: Int) {
                     }
                 })
-        recyclerView.adapter = memberAdapter
+//        recyclerView.adapter = memberAdapter
+        memberAdapter?.let {
+//            val animAdapter = AlphaInAnimationAdapter(it)
+//            val animAdapter = ScaleInAnimationAdapter(it)
+            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
+
+            animAdapter.setDuration(1000)
+//            animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            recyclerView.adapter = animAdapter
+        }
+
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
