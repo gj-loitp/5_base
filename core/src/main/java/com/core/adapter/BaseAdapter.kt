@@ -7,18 +7,20 @@ import com.core.utilities.LLog
 import com.views.LToast
 
 //https://github.com/wasabeef/recyclerview-animators
-/*bookAdapter?.let {
-    val scaleAdapter = AlphaInAnimationAdapter(it)
-    val scaleAdapter = ScaleInAnimationAdapter(it)
-    val scaleAdapter = SlideInBottomAnimationAdapter(it)
-    val scaleAdapter = SlideInLeftAnimationAdapter(it)
-    val scaleAdapter = SlideInRightAnimationAdapter(it)
 
-    scaleAdapter.setDuration(1000)
-    scaleAdapter.setInterpolator(OvershootInterpolator())
-    scaleAdapter.setFirstOnly(true)
-    rv.adapter = scaleAdapter
+/*bookAdapter?.let {
+    val animAdapter = AlphaInAnimationAdapter(it)
+    val animAdapter = ScaleInAnimationAdapter(it)
+    val animAdapter = SlideInBottomAnimationAdapter(it)
+    val animAdapter = SlideInLeftAnimationAdapter(it)
+    val animAdapter = SlideInRightAnimationAdapter(it)
+
+    animAdapter.setDuration(1000)
+    animAdapter.setInterpolator(OvershootInterpolator())
+    animAdapter.setFirstOnly(true)
+    rv.adapter = animAdapter
 }*/
+
 abstract class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     protected var logTag: String? = null
 
