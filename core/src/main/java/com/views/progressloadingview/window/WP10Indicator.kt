@@ -1,76 +1,80 @@
-package com.views.progressloadingview.window;
+package com.views.progressloadingview.window
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.view.Gravity;
-import android.widget.RelativeLayout;
+import android.animation.Animator
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.content.Context
+import android.view.Gravity
+import android.widget.RelativeLayout
+import com.views.progressloadingview.window.Utils.px2dp
 
-public class WP10Indicator extends RelativeLayout {
+class WP10Indicator(
+        context: Context,
+        indicatorHeight: Int,
+        color: Int,
+        radius: Int,
+        number: Int
+) : RelativeLayout(context) {
 
-    private ObjectAnimator objectAnimator;
-    private int number;
+    private var objectAnimator: ObjectAnimator? = null
+    private var number = 0
 
-    public WP10Indicator(Context context, int indicatorHeight, int color, int radius, int number) {
-        super(context);
-        initialize(indicatorHeight, color, radius, number);
+    init {
+        initialize(indicatorHeight = indicatorHeight, color = color, radius = radius, number = number)
     }
 
-    private void initialize(int indicatorHeight, int color, int radius, int number) {
-        this.number = number;
-        Base10Indicator base10Indicator = new Base10Indicator(getContext(), indicatorHeight, color, radius);
-        RelativeLayout.LayoutParams layoutParams = new LayoutParams(Utils.px2dp(getContext(), indicatorHeight * 8),
-                Utils.px2dp(getContext(), indicatorHeight * 8));
-        this.setLayoutParams(layoutParams);
-        this.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
-        this.addView(base10Indicator);
-        startAnim(0, 0);
-        removeAnim();
-        this.setAlpha(0f);
+    private fun initialize(indicatorHeight: Int, color: Int, radius: Int, number: Int) {
+        this.number = number
+        val base10Indicator = Base10Indicator(context, indicatorHeight, color, radius)
+        val lp = LayoutParams(
+                px2dp(context = context, px = indicatorHeight * 8),
+                px2dp(context = context, px = indicatorHeight * 8)
+        )
+        layoutParams = lp
+        this.gravity = Gravity.CENTER_VERTICAL or Gravity.END
+        this.addView(base10Indicator)
+        startAnim(animationDuration = 0, delay = 0)
+        removeAnim()
+        this.alpha = 0f
     }
 
-    public void startAnim(final long animationDuration, final long delay) {
-        objectAnimator = ObjectAnimator.ofFloat(this, "rotation", (number * 15), -360 + (number * 15));
-        objectAnimator.setInterpolator(new WPInterpolator());
-        objectAnimator.setDuration(animationDuration);
-        objectAnimator.setRepeatMode(ValueAnimator.RESTART);
-        objectAnimator.setRepeatCount(2);
-        objectAnimator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-                WP10Indicator.this.setAlpha(1f);
-                startAlphaAnimation(animationDuration);
-            }
+    fun startAnim(animationDuration: Long, delay: Long) {
+        objectAnimator = ObjectAnimator.ofFloat(this, "rotation", (number * 15).toFloat(), (-360 + number * 15).toFloat())
+        objectAnimator?.apply {
+            interpolator = WPInterpolator()
+            duration = animationDuration
+            repeatMode = ValueAnimator.RESTART
+            repeatCount = 2
+            addListener(object : Animator.AnimatorListener {
+                override fun onAnimationStart(animator: Animator) {
+                    this@WP10Indicator.alpha = 1f
+                    startAlphaAnimation(animationDuration)
+                }
 
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                removeAnim();
-                startAnim(animationDuration, 0);
-            }
+                override fun onAnimationEnd(animator: Animator) {
+                    removeAnim()
+                    startAnim(animationDuration, 0)
+                }
 
-            @Override
-            public void onAnimationCancel(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-
-            }
-        });
-        objectAnimator.setStartDelay(delay);
-        objectAnimator.start();
+                override fun onAnimationCancel(animator: Animator) {}
+                override fun onAnimationRepeat(animator: Animator) {}
+            })
+            startDelay = delay
+            start()
+        }
     }
 
-    public void startAlphaAnimation(long animationDuration) {
-        this.animate().alpha(0).setDuration(animationDuration / 12).setStartDelay(2 * animationDuration);
+    fun startAlphaAnimation(animationDuration: Long) {
+        animate().alpha(0f).setDuration(animationDuration / 12).startDelay = 2 * animationDuration
     }
 
-    public void removeAnim() {
-        this.animate().alpha(0f).setDuration(0).setStartDelay(0);
-        objectAnimator.removeAllListeners();
-        objectAnimator.cancel();
-        objectAnimator.end();
+    fun removeAnim() {
+        animate().alpha(0f).setDuration(0).startDelay = 0
+        objectAnimator?.apply {
+            removeAllListeners()
+            cancel()
+            end()
+        }
     }
+
 }

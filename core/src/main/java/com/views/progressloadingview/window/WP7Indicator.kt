@@ -1,53 +1,64 @@
-package com.views.progressloadingview.window;
+package com.views.progressloadingview.window
 
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.view.View;
-import android.widget.LinearLayout;
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import android.content.Context
+import android.graphics.drawable.GradientDrawable
+import android.view.View
+import android.widget.LinearLayout
+import com.views.progressloadingview.window.Utils.px2dp
 
-class WP7Indicator extends View {
+internal class WP7Indicator(
+        context: Context,
+        indicatorHeight: Int,
+        private val color: Int,
+        radius: Int
+) : View(context) {
 
-    private ObjectAnimator objectAnimator;
-    private final int color;
+    private var objectAnimator: ObjectAnimator? = null
 
-    public WP7Indicator(Context context, int indicatorHeight, int color, int radius) {
-        super(context);
-        this.color = color;
-        initialize(indicatorHeight, radius);
+    init {
+        initialize(indicatorHeight = indicatorHeight, radius = radius)
     }
 
-    private void initialize(int indicatorHeight, int radius) {
-        this.setBackground(getCube(radius));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Utils.px2dp(getContext(), indicatorHeight), Utils.px2dp(getContext(), indicatorHeight));
-        layoutParams.rightMargin = Utils.px2dp(getContext(), (int) (1.5f * indicatorHeight));
-        this.setLayoutParams(layoutParams);
-        startAnim(0, 0);
-        removeAnim();
+    private fun initialize(indicatorHeight: Int, radius: Int) {
+        this.background = getCube(radius)
+        val lp = LinearLayout.LayoutParams(
+                px2dp(context = context, px = indicatorHeight),
+                px2dp(context = context, px = indicatorHeight)
+        )
+        lp.rightMargin = px2dp(context = context, px = (1.5f * indicatorHeight).toInt())
+        layoutParams = lp
+        startAnim(0, 0)
+        removeAnim()
     }
 
-    private GradientDrawable getCube(int radius) {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setShape(GradientDrawable.RECTANGLE);
-        drawable.setColor(color);
-        drawable.setCornerRadius(Utils.px2dp(getContext(), radius));
-        return drawable;
+    private fun getCube(radius: Int): GradientDrawable {
+        val drawable = GradientDrawable()
+        drawable.shape = GradientDrawable.RECTANGLE
+        drawable.setColor(color)
+        drawable.cornerRadius = px2dp(context, radius).toFloat()
+        return drawable
     }
 
-    public void startAnim(long animationDuration, long delay) {
-        objectAnimator = ObjectAnimator.ofFloat(this, "translationX", +1000, -1000);
-        objectAnimator.setInterpolator(new WPInterpolator());
-        objectAnimator.setDuration(animationDuration);
-        objectAnimator.setRepeatMode(ValueAnimator.RESTART);
-        objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        objectAnimator.setStartDelay(delay);
-        objectAnimator.start();
+    fun startAnim(animationDuration: Long, delay: Long) {
+        objectAnimator = ObjectAnimator.ofFloat(this, "translationX", +1000f, -1000f)
+        objectAnimator?.apply {
+            interpolator = WPInterpolator()
+            duration = animationDuration
+            repeatMode = ValueAnimator.RESTART
+            repeatCount = ValueAnimator.INFINITE
+            startDelay = delay
+            start()
+        }
     }
 
-    public void removeAnim() {
-        objectAnimator.removeAllListeners();
-        objectAnimator.cancel();
-        objectAnimator.end();
+    fun removeAnim() {
+        objectAnimator?.apply {
+            removeAllListeners()
+            cancel()
+            end()
+        }
     }
+
 }
