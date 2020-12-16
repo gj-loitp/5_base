@@ -23,6 +23,9 @@ import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
 
@@ -45,8 +48,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
 //        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
 
-//        LUIUtil.setTextShadow(textView = tvTitle)
-
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         val photosSize = intent.getStringExtra(Constants.SK_PHOTOSET_SIZE)
 
@@ -68,12 +69,12 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         }
         currentPage = totalPage
 
-        val animator = SlideInRightAnimator(OvershootInterpolator(1f))
-        animator.addDuration = 1000
-        recyclerView.itemAnimator = animator
+//        val animator = SlideInRightAnimator(OvershootInterpolator(1f))
+//        animator.addDuration = 1000
+//        recyclerView.itemAnimator = animator
         val column = 2
         recyclerView.layoutManager = GridLayoutManager(this, column)
-        recyclerView.setHasFixedSize(true)
+//        recyclerView.setHasFixedSize(true)
         photosAdapter = PhotosAdapter(context = this, callback = object : PhotosAdapter.Callback {
             override fun onClick(photo: Photo, pos: Int) {
                 val intent = Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
@@ -87,16 +88,22 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             }
         })
 
-//        val scaleAdapter = ScaleInAnimationAdapter(photosAdapter)
-//        scaleAdapter.setDuration(1000)
-//        scaleAdapter.setInterpolator(OvershootInterpolator())
-//        scaleAdapter.setFirstOnly(true)
-//        recyclerView.adapter = scaleAdapter
+//        recyclerView.adapter = photosAdapter
+        photosAdapter?.let {
+//            val animAdapter = AlphaInAnimationAdapter(it)
+//            val animAdapter = ScaleInAnimationAdapter(it)
+            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
 
-        recyclerView.adapter = photosAdapter
+            animAdapter.setDuration(1000)
+//            animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            recyclerView.adapter = animAdapter
+        }
         //LUIUtil.setPullLikeIOSVertical(recyclerView)
 
-        photosetsGetPhotos(photosetID)
+        photosetsGetPhotos(photosetID = photosetID)
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
