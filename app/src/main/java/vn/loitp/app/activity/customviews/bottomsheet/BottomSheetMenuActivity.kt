@@ -107,10 +107,55 @@ class BottomSheetMenuActivity : BaseFontActivity() {
             bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
         }
         bt2Option.setSafeOnClickListener {
-            //TODO
+            val bottomSheetOptionFragment = BottomSheetOptionFragment(
+                    isCancelableFragment = true,
+                    isShowIvClose = true,
+                    title = "Title",
+                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                    textButton1 = "OK",
+                    textButton2 = "Cancel",
+                    onClickButton1 = {
+                        showShortInformation("onClickButton1")
+                        logD("onClickButton1")
+                    },
+                    onClickButton2 = {
+                        showShortInformation("onClickButton2")
+                        logD("onClickButton2")
+                    },
+                    onDismiss = {
+                        showShortInformation("onDismiss")
+                        logD("onDismiss")
+                    }
+            )
+            bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
         }
         bt3Option.setSafeOnClickListener {
-            //TODO
+            val bottomSheetOptionFragment = BottomSheetOptionFragment(
+                    isCancelableFragment = true,
+                    isShowIvClose = true,
+                    title = "Title",
+                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                    textButton1 = "OK",
+                    textButton2 = "Cancel",
+                    textButton3 = "No",
+                    onClickButton1 = {
+                        showShortInformation("onClickButton1")
+                        logD("onClickButton1")
+                    },
+                    onClickButton2 = {
+                        showShortInformation("onClickButton2")
+                        logD("onClickButton2")
+                    },
+                    onClickButton3 = {
+                        showShortInformation("onClickButton3")
+                        logD("onClickButton3")
+                    },
+                    onDismiss = {
+                        showShortInformation("onDismiss")
+                        logD("onDismiss")
+                    }
+            )
+            bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
         }
     }
 
