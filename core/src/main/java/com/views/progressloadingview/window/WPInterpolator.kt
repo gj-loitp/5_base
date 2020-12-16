@@ -1,10 +1,15 @@
-package com.views.progressloadingview.window;
+package com.views.progressloadingview.window
 
-public class WPInterpolator implements android.view.animation.Interpolator {
-    @Override
-    public float getInterpolation(float v) {
-        if (v > 0.3f && v < 0.70f)
-            return (float) ((-(v - 0.5) / 6) + 0.5f);
-        return (float) ((-4) * Math.pow(v - 0.5, 3) + 0.5);
+import android.view.animation.Interpolator
+import kotlin.math.pow
+
+class WPInterpolator : Interpolator {
+
+    override fun getInterpolation(v: Float): Float {
+        return if (v > 0.3f && v < 0.70f) {
+            (-(v - 0.5) / 6 + 0.5f).toFloat()
+        } else {
+            (-4 * (v - 0.5).pow(3.0) + 0.5).toFloat()
+        }
     }
 }

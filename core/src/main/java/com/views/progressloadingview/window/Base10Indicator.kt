@@ -1,30 +1,37 @@
-package com.views.progressloadingview.window;
+package com.views.progressloadingview.window
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.view.View;
-import android.widget.LinearLayout;
+import android.content.Context
+import android.graphics.drawable.GradientDrawable
+import android.view.View
+import android.widget.LinearLayout
+import com.views.progressloadingview.window.Utils.px2dp
 
-public class Base10Indicator extends View {
-    private final int color;
+class Base10Indicator(
+        context: Context,
+        indicatorHeight: Int,
+        private val color: Int,
+        radius: Int
+) : View(context) {
 
-    public Base10Indicator(Context context, int indicatorHeight, int color, int radius) {
-        super(context);
-        this.color = color;
-        initialize(indicatorHeight, radius);
+    init {
+        initialize(indicatorHeight, radius)
     }
 
-    private void initialize(int indicatorHeight, int radius) {
-        this.setBackground(getCube(radius));
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(Utils.px2dp(getContext(), indicatorHeight), Utils.px2dp(getContext(), indicatorHeight));
-        this.setLayoutParams(layoutParams);
+    private fun initialize(indicatorHeight: Int, radius: Int) {
+        this.background = getCube(radius)
+        val lp = LinearLayout.LayoutParams(
+                px2dp(context = context, px = indicatorHeight),
+                px2dp(context = context, px = indicatorHeight)
+        )
+        layoutParams = lp
     }
 
-    private GradientDrawable getCube(int radius) {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setShape(GradientDrawable.RECTANGLE);
-        drawable.setColor(color);
-        drawable.setCornerRadius(Utils.px2dp(getContext(), radius));
-        return drawable;
+    private fun getCube(radius: Int): GradientDrawable {
+        val drawable = GradientDrawable()
+        drawable.shape = GradientDrawable.RECTANGLE
+        drawable.setColor(color)
+        drawable.cornerRadius = px2dp(context = context, px = radius).toFloat()
+        return drawable
     }
+
 }
