@@ -1,13 +1,10 @@
 package com.core.adapter
 
-import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.annotation.LogTag
 import com.core.utilities.LLog
-import com.google.ads.interactivemedia.v3.internal.it
 import com.views.LToast
-import jp.wasabeef.recyclerview.adapters.*
 
 //https://github.com/wasabeef/recyclerview-animators
 /*bookAdapter?.let {
