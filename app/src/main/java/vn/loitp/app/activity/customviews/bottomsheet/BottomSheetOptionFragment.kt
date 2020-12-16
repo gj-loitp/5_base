@@ -71,6 +71,32 @@ class BottomSheetOptionFragment(
             bt3.visibility = View.VISIBLE
             bt3.text = textButton3
         }
+
+        var countBtVisibile = 0
+        if (bt1.visibility == View.VISIBLE) {
+            countBtVisibile++
+        }
+        if (bt2.visibility == View.VISIBLE) {
+            countBtVisibile++
+        }
+        if (bt3.visibility == View.VISIBLE) {
+            countBtVisibile++
+        }
+        when (countBtVisibile) {
+            1 -> {
+                viewSpace1.visibility = View.GONE
+                viewSpace2.visibility = View.GONE
+            }
+            2 -> {
+                viewSpace1.visibility = View.GONE
+                viewSpace2.visibility = View.VISIBLE
+            }
+            3 -> {
+                viewSpace1.visibility = View.VISIBLE
+                viewSpace2.visibility = View.VISIBLE
+            }
+        }
+
         LUIUtil.setSafeOnClickListenerElastic(
                 view = ivClose,
                 runnable = {
