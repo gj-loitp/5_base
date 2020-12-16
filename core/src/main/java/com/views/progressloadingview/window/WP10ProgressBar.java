@@ -13,7 +13,7 @@ import com.R;
 import com.core.utilities.LAppResource;
 
 import java.util.ArrayList;
-//TODO convert kotlin
+
 public class WP10ProgressBar extends RelativeLayout {
 
     private static final int INTERVAL_DEF = 150;
@@ -108,23 +108,15 @@ public class WP10ProgressBar extends RelativeLayout {
     public void showProgressBar() {
         progressBarCount++;
         if (progressBarCount == 1) {
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    WP10ProgressBar.this.show();
-                }
-            });
+            handler.post(WP10ProgressBar.this::show);
         }
     }
 
     public void hideProgressBar() {
         progressBarCount--;
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (progressBarCount == 0) {
-                    WP10ProgressBar.this.hide();
-                }
+        handler.postDelayed(() -> {
+            if (progressBarCount == 0) {
+                WP10ProgressBar.this.hide();
             }
         }, 50);
     }

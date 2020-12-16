@@ -6,10 +6,9 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.view.Gravity;
 import android.widget.RelativeLayout;
-//TODO convert kotlin
+
 public class WP10Indicator extends RelativeLayout {
 
-    private Base10Indicator base10Indicator;
     private ObjectAnimator objectAnimator;
     private int number;
 
@@ -20,11 +19,11 @@ public class WP10Indicator extends RelativeLayout {
 
     private void initialize(int indicatorHeight, int color, int radius, int number) {
         this.number = number;
-        this.base10Indicator = new Base10Indicator(getContext(), indicatorHeight, color, radius);
+        Base10Indicator base10Indicator = new Base10Indicator(getContext(), indicatorHeight, color, radius);
         RelativeLayout.LayoutParams layoutParams = new LayoutParams(Utils.px2dp(getContext(), indicatorHeight * 8),
                 Utils.px2dp(getContext(), indicatorHeight * 8));
         this.setLayoutParams(layoutParams);
-        this.setGravity(Gravity.CENTER_VERTICAL | Gravity.RIGHT);
+        this.setGravity(Gravity.CENTER_VERTICAL | Gravity.END);
         this.addView(base10Indicator);
         startAnim(0, 0);
         removeAnim();

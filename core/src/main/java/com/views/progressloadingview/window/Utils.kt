@@ -1,10 +1,11 @@
-package com.views.progressloadingview.window;
+package com.views.progressloadingview.window
 
-import android.content.Context;
-//TODO convert kotlin
-public class Utils {
-    public static int px2dp(Context context, int px) {
-        float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (px * scale + 0.5f);
+import android.content.Context
+
+object Utils {
+    @JvmStatic
+    fun px2dp(context: Context, px: Int): Int {
+        val scale = context.resources.displayMetrics.density
+        return (px * scale + 0.5f).toInt()
     }
 }

@@ -6,11 +6,11 @@ import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import android.widget.LinearLayout;
-//TODO convert kotlin
+
 class WP7Indicator extends View {
 
     private ObjectAnimator objectAnimator;
-    private int color;
+    private final int color;
 
     public WP7Indicator(Context context, int indicatorHeight, int color, int radius) {
         super(context);

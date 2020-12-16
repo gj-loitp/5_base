@@ -16,7 +16,7 @@ import com.R;
 import com.core.utilities.LAppResource;
 
 import java.util.ArrayList;
-//TODO convert kotlin
+
 public class WP7ProgressBar extends LinearLayout {
 
     private static final int INTERVAL_DEF = 150;
@@ -127,23 +127,15 @@ public class WP7ProgressBar extends LinearLayout {
     public void showProgressBar() {
         progressBarCount++;
         if (progressBarCount == 1) {
-            handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    WP7ProgressBar.this.show();
-                }
-            });
+            handler.post(WP7ProgressBar.this::show);
         }
     }
 
     public void hideProgressBar() {
         progressBarCount--;
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (progressBarCount == 0) {
-                    WP7ProgressBar.this.hide();
-                }
+        handler.postDelayed(() -> {
+            if (progressBarCount == 0) {
+                WP7ProgressBar.this.hide();
             }
         }, 50);
     }
