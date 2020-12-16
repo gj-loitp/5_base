@@ -106,6 +106,11 @@ class BottomSheetOptionFragment(
             }
         }
 
+        if (isCancelableFragment) {
+            layoutRootView.setSafeOnClickListener {
+                dismiss()
+            }
+        }
         LUIUtil.setSafeOnClickListenerElastic(
                 view = ivClose,
                 runnable = {
