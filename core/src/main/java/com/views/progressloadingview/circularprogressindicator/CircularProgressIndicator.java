@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -34,6 +35,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.R;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -187,12 +190,7 @@ public class CircularProgressIndicator extends View {
                     throw new IllegalArgumentException("did you forget to specify gradientColorEnd?");
                 }
 
-                post(new Runnable() {
-                    @Override
-                    public void run() {
-                        setGradient(gradientType, gradientColorEnd);
-                    }
-                });
+                post(() -> setGradient(gradientType, gradientColorEnd));
             }
 
             a.recycle();
@@ -243,6 +241,7 @@ public class CircularProgressIndicator extends View {
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
 
+        @SuppressLint("DrawAllocation")
         Rect textBoundsRect = new Rect();
         textPaint.getTextBounds(progressText, 0, progressText.length(), textBoundsRect);
 
@@ -410,25 +409,18 @@ public class CircularProgressIndicator extends View {
     private void startProgressAnimation(double oldCurrentProgress, final double finalAngle) {
         final PropertyValuesHolder angleProperty = PropertyValuesHolder.ofInt(PROPERTY_ANGLE, sweepAngle, (int) finalAngle);
 
-        progressAnimator = ValueAnimator.ofObject(new TypeEvaluator<Double>() {
-            @Override
-            public Double evaluate(float fraction, Double startValue, Double endValue) {
-                return (startValue + (endValue - startValue) * fraction);
-            }
-        }, oldCurrentProgress, progressValue);
+        progressAnimator = ValueAnimator.ofObject((TypeEvaluator<Double>) (fraction, startValue, endValue) ->
+                (startValue + (endValue - startValue) * fraction), oldCurrentProgress, progressValue);
         progressAnimator.setDuration(DEFAULT_ANIMATION_DURATION);
         progressAnimator.setValues(angleProperty);
         progressAnimator.setInterpolator(animationInterpolator);
-        progressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                sweepAngle = (int) animation.getAnimatedValue(PROPERTY_ANGLE);
-                invalidate();
-            }
+        progressAnimator.addUpdateListener(animation -> {
+            sweepAngle = (int) animation.getAnimatedValue(PROPERTY_ANGLE);
+            invalidate();
         });
         progressAnimator.addListener(new DefaultAnimatorListener() {
             @Override
-            public void onAnimationCancel(Animator animation) {
+            public void onAnimationCancel(@NotNull Animator animation) {
                 sweepAngle = (int) finalAngle;
                 invalidate();
                 progressAnimator = null;

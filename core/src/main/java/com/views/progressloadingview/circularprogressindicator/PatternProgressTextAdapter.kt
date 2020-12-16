@@ -1,21 +1,13 @@
-package com.views.progressloadingview.circularprogressindicator;
+package com.views.progressloadingview.circularprogressindicator
 
-import androidx.annotation.NonNull;
+import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator.ProgressTextAdapter
 
 /**
  * Created by Anton on 06.06.2018.
  */
-public final class PatternProgressTextAdapter implements CircularProgressIndicator.ProgressTextAdapter {
+class PatternProgressTextAdapter(private val pattern: String) : ProgressTextAdapter {
 
-    private final String pattern;
-
-    public PatternProgressTextAdapter(String pattern) {
-        this.pattern = pattern;
-    }
-
-    @NonNull
-    @Override
-    public String formatText(double currentProgress) {
-        return String.format(pattern, currentProgress);
+    override fun formatText(currentProgress: Double): String {
+        return String.format(pattern, currentProgress)
     }
 }

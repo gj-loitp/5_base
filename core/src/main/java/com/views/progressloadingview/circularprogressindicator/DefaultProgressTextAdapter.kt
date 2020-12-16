@@ -1,13 +1,12 @@
-package com.views.progressloadingview.circularprogressindicator;
+package com.views.progressloadingview.circularprogressindicator
+
+import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator.ProgressTextAdapter
 
 /**
  * Created by Anton on 06.06.2018.
  */
-
-public final class DefaultProgressTextAdapter implements CircularProgressIndicator.ProgressTextAdapter {
-
-    @Override
-    public String formatText(double currentProgress) {
-        return String.valueOf((int) currentProgress);
+class DefaultProgressTextAdapter : ProgressTextAdapter {
+    override fun formatText(currentProgress: Double): String {
+        return currentProgress.toString()
     }
 }
