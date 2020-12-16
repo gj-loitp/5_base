@@ -89,7 +89,22 @@ class BottomSheetMenuActivity : BaseFontActivity() {
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
         bt1Option.setSafeOnClickListener {
-            //TODO
+            val bottomSheetOptionFragment = BottomSheetOptionFragment(
+                    isCancelableFragment = true,
+                    isShowIvClose = true,
+                    title = "Title",
+                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                    textButton1 = "OK",
+                    onClickButton1 = {
+                        showShortInformation("onClickButton1")
+                        logD("onClickButton1")
+                    },
+                    onDismiss = {
+                        showShortInformation("onDismiss")
+                        logD("onDismiss")
+                    }
+            )
+            bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
         }
         bt2Option.setSafeOnClickListener {
             //TODO
