@@ -25,7 +25,7 @@ import androidx.annotation.Px;
 import androidx.annotation.StyleRes;
 
 import com.R;
-//TODO convert kotlin
+
 public class LCircularProgressBar extends View {
     private static final float DEFAULT_MAXIMUM = 100f;
     private static final float DEFAULT_PROGRESS = 0f;
