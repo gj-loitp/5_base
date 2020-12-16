@@ -1,15 +1,15 @@
-package vn.loitp.app.activity.customviews.bottomsheet
+package com.views.bottomsheet
 
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.R
 import com.core.utilities.LUIUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_bottom_sheet_dialog_option.*
-import vn.loitp.app.R
 
 class BottomSheetOptionFragment(
         private val isCancelableFragment: Boolean = true,

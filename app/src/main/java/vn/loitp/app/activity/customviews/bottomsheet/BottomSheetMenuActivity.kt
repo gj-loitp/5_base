@@ -10,6 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.views.LToast.show
+import com.views.bottomsheet.BottomSheetOptionFragment
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
@@ -89,7 +90,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
         bt1Option.setSafeOnClickListener {
-            val bottomSheetOptionFragment = BottomSheetOptionFragment(
+            showBottomSheetOptionFragment(
                     isCancelableFragment = true,
                     isShowIvClose = true,
                     title = "Title",
@@ -104,10 +105,9 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                         logD("onDismiss")
                     }
             )
-            bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
         }
         bt2Option.setSafeOnClickListener {
-            val bottomSheetOptionFragment = BottomSheetOptionFragment(
+            showBottomSheetOptionFragment(
                     isCancelableFragment = true,
                     isShowIvClose = true,
                     title = "Title",
@@ -127,10 +127,9 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                         logD("onDismiss")
                     }
             )
-            bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
         }
         bt3Option.setSafeOnClickListener {
-            val bottomSheetOptionFragment = BottomSheetOptionFragment(
+            showBottomSheetOptionFragment(
                     isCancelableFragment = true,
                     isShowIvClose = true,
                     title = "Title",
@@ -155,7 +154,6 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                         logD("onDismiss")
                     }
             )
-            bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
         }
     }
 
