@@ -9,9 +9,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 import vn.loitp.app.R
 
-class BottomSheetDialogFragment : BottomSheetDialogFragment() {
+class BottomSheetOptionFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.l_frm_bottom_sheet_dialog, container, false)
+        return inflater.inflate(R.layout.l_frm_bottom_sheet_dialog_option, container, false)
     }
 }

@@ -10,6 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.views.LToast.show
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R
@@ -31,11 +32,11 @@ class BottomSheetMenuActivity : BaseFontActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun setupViews() {
-        btPayment.setOnClickListener {
+        btPayment.setSafeOnClickListener {
             show("Click layoutBottomSheet R.id.bt_payment")
         }
         bottomSheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
-        bottomSheetBehavior?.addBottomSheetCallback (object : BottomSheetCallback() {
+        bottomSheetBehavior?.addBottomSheetCallback(object : BottomSheetCallback() {
             @SuppressLint("SetTextI18n")
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
@@ -66,7 +67,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                 logD("onSlide $slideOffset")
             }
         })
-        bt0.setOnClickListener {
+        bt0.setSafeOnClickListener {
             bottomSheetBehavior?.let { bsb ->
                 if (bsb.state != BottomSheetBehavior.STATE_EXPANDED) {
                     bsb.state = BottomSheetBehavior.STATE_EXPANDED
@@ -77,15 +78,24 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                 }
             }
         }
-        bt1.setOnClickListener {
+        bt1.setSafeOnClickListener {
             @SuppressLint("InflateParams") val view = layoutInflater.inflate(R.layout.fragment_bottom_sheet_dialog, null)
             val dialog = BottomSheetDialog(this)
             dialog.setContentView(view)
             dialog.show()
         }
-        bt2.setOnClickListener {
+        bt2.setSafeOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+        }
+        bt1Option.setSafeOnClickListener {
+            //TODO
+        }
+        bt2Option.setSafeOnClickListener {
+            //TODO
+        }
+        bt3Option.setSafeOnClickListener {
+            //TODO
         }
     }
 
