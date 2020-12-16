@@ -17,7 +17,7 @@ import vn.loitp.app.R
 @LogTag("BottomSheetMenuActivity")
 @IsFullScreen(false)
 class BottomSheetMenuActivity : BaseFontActivity() {
-    private var sheetBehavior: BottomSheetBehavior<*>? = null
+    private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_bottomsheet_menu
@@ -26,18 +26,16 @@ class BottomSheetMenuActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        click0()
-        click1()
-        click2()
+        setupViews()
     }
 
     @SuppressLint("SetTextI18n")
-    private fun click0() {
+    private fun setupViews() {
         btPayment.setOnClickListener {
             show("Click layoutBottomSheet R.id.bt_payment")
         }
-        sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
-        sheetBehavior?.setBottomSheetCallback(object : BottomSheetCallback() {
+        bottomSheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
+        bottomSheetBehavior?.addBottomSheetCallback (object : BottomSheetCallback() {
             @SuppressLint("SetTextI18n")
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
@@ -69,7 +67,7 @@ class BottomSheetMenuActivity : BaseFontActivity() {
             }
         })
         bt0.setOnClickListener {
-            sheetBehavior?.let { bsb ->
+            bottomSheetBehavior?.let { bsb ->
                 if (bsb.state != BottomSheetBehavior.STATE_EXPANDED) {
                     bsb.state = BottomSheetBehavior.STATE_EXPANDED
                     bt0.text = "Close sheet"
@@ -79,21 +77,16 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                 }
             }
         }
-    }
-
-    private fun click1() {
         bt1.setOnClickListener {
             @SuppressLint("InflateParams") val view = layoutInflater.inflate(R.layout.fragment_bottom_sheet_dialog, null)
             val dialog = BottomSheetDialog(this)
             dialog.setContentView(view)
             dialog.show()
         }
-    }
-
-    private fun click2() {
         bt2.setOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
     }
+
 }
