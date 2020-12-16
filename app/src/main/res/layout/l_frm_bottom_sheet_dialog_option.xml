@@ -19,7 +19,7 @@
         android:padding="@dimen/padding_small"
         android:src="@drawable/ic_close_black_48dp"
         android:visibility="gone"
-        app:tint="?attr/themeTextColor"
+        app:tint="?attr/themeBackgroundColor"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -32,7 +32,7 @@
         android:background="@drawable/bkg_bottom_sheet_option"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
-        android:textColor="?attr/themeTextColor"
+        android:textColor="?attr/themeBackgroundColor"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/app_name" />
 
@@ -46,7 +46,7 @@
         android:background="@drawable/bkg_bottom_sheet_option"
         android:gravity="center"
         android:padding="@dimen/padding_medium"
-        android:textColor="?attr/themeTextColor"
+        android:textColor="?attr/themeBackgroundColor"
         android:textSize="@dimen/txt_medium"
         tools:text="@string/app_name" />
 
@@ -68,7 +68,7 @@
             android:gravity="center"
             android:padding="@dimen/padding_medium"
             android:singleLine="true"
-            android:textColor="?attr/themeTextColor"
+            android:textColor="?attr/themeBackgroundColor"
             android:textSize="@dimen/txt_medium"
             android:visibility="gone"
             tools:text="@string/app_name"
@@ -78,7 +78,7 @@
             android:id="@+id/viewSpace1"
             android:layout_width="@dimen/w_1"
             android:layout_height="match_parent"
-            android:background="?attr/themeTextColor"
+            android:background="?attr/themeBackgroundColor"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -91,7 +91,7 @@
             android:gravity="center"
             android:padding="@dimen/padding_medium"
             android:singleLine="true"
-            android:textColor="?attr/themeTextColor"
+            android:textColor="?attr/themeBackgroundColor"
             android:textSize="@dimen/txt_medium"
             android:visibility="gone"
             tools:text="@string/app_name"
@@ -101,7 +101,7 @@
             android:id="@+id/viewSpace2"
             android:layout_width="@dimen/w_1"
             android:layout_height="match_parent"
-            android:background="?attr/themeTextColor"
+            android:background="?attr/themeBackgroundColor"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -114,7 +114,7 @@
             android:gravity="center"
             android:padding="@dimen/padding_medium"
             android:singleLine="true"
-            android:textColor="?attr/themeTextColor"
+            android:textColor="?attr/themeBackgroundColor"
             android:textSize="@dimen/txt_medium"
             android:visibility="gone"
             tools:text="@string/app_name"

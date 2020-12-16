@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.core.utilities.LUIUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_bottom_sheet_dialog_option.*
 import vn.loitp.app.R
 
@@ -33,6 +34,14 @@ class BottomSheetOptionFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //https://stackoverflow.com/questions/37104960/bottomsheetdialog-with-transparent-background
+        dialog?.apply {
+            setOnShowListener {
+                val bottomSheet = findViewById<View?>(R.id.design_bottom_sheet)
+                bottomSheet?.setBackgroundResource(android.R.color.transparent)
+            }
+        }
 
         setupViews()
     }
@@ -102,26 +111,20 @@ class BottomSheetOptionFragment(
                 runnable = {
                     dismiss()
                 })
-        LUIUtil.setSafeOnClickListenerElastic(
-                view = bt1,
-                runnable = {
-                    onDismissNotify = false
-                    onClickButton1?.invoke(Unit)
-                    dismiss()
-                })
-        LUIUtil.setSafeOnClickListenerElastic(
-                view = bt2,
-                runnable = {
-                    onDismissNotify = false
-                    onClickButton2?.invoke(Unit)
-                    dismiss()
-                })
-        LUIUtil.setSafeOnClickListenerElastic(
-                view = bt3,
-                runnable = {
-                    onDismissNotify = false
-                    onClickButton3?.invoke(Unit)
-                    dismiss()
-                })
+        bt1.setSafeOnClickListener {
+            onDismissNotify = false
+            onClickButton1?.invoke(Unit)
+            dismiss()
+        }
+        bt2.setSafeOnClickListener {
+            onDismissNotify = false
+            onClickButton2?.invoke(Unit)
+            dismiss()
+        }
+        bt3.setSafeOnClickListener {
+            onDismissNotify = false
+            onClickButton3?.invoke(Unit)
+            dismiss()
+        }
     }
 }
