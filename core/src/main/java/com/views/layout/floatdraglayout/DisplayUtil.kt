@@ -1,220 +1,130 @@
-package com.views.layout.floatdraglayout;
+package com.views.layout.floatdraglayout
 
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.RectF;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
-import android.view.View;
-import android.view.ViewConfiguration;
+import android.annotation.SuppressLint
+import android.annotation.TargetApi
+import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
+import android.os.Build
+import android.util.TypedValue
+import android.view.ViewConfiguration
+import kotlin.math.roundToInt
 
-import java.lang.reflect.Method;
-
-/**
- * DragLayout
- *
- * @author baishixian
- * @date 2017/12/7 下午3:43
- */
-
-//TODO convert kotlin
-public class DisplayUtil {
-
-    /**
-     * 获取屏幕显示内容像素宽度（不包括虚拟按键的高度）
-     *
-     * @param context
-     * @return 屏幕显示内容像素宽度
-     */
-    public static int getScreenContentWidth(Context context) {
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        return displayMetrics.widthPixels;
+object DisplayUtil {
+    @JvmStatic
+    fun getScreenContentWidth(context: Context): Int {
+        val displayMetrics = context.resources.displayMetrics
+        return displayMetrics.widthPixels
     }
 
-    /**
-     * 获取屏幕显示内容像素高度（不包括虚拟按键的高度）
-     *
-     * @param context
-     * @return 屏幕显示内容像素高度
-     */
-    public static int getScreenContentHeight(Context context) {
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        return displayMetrics.heightPixels;
+    @JvmStatic
+    fun getScreenContentHeight(context: Context): Int {
+        val displayMetrics = context.resources.displayMetrics
+        return displayMetrics.heightPixels
     }
 
-    /**
-     * 获取屏幕物理尺寸像素宽度
-     *
-     * @param context
-     * @return 屏幕物理尺寸像素宽度
-     */
-    public static int getScreenHardwareWidth(Context context) {
-        int contentWidth = getScreenContentWidth(context);
-        if (isLandscape(context)) {
-            return contentWidth + getNavigationBarHeight(context);
+    @JvmStatic
+    fun getScreenHardwareWidth(context: Context): Int {
+        val contentWidth = getScreenContentWidth(context)
+        return if (isLandscape(context)) {
+            contentWidth + getNavigationBarHeight(context)
         } else {
-            return contentWidth;
+            contentWidth
         }
     }
 
-    /**
-     * 获取屏幕物理尺寸像素高度
-     *
-     * @param context
-     * @return 屏幕物理尺寸像素高度
-     */
-    public static int getScreenHardwareHeight(Context context) {
-        int contentHeight = getScreenContentHeight(context);
-        if (isLandscape(context)) {
-            return contentHeight;
+    @JvmStatic
+    fun getScreenHardwareHeight(context: Context): Int {
+        val contentHeight = getScreenContentHeight(context)
+        return if (isLandscape(context)) {
+            contentHeight
         } else {
-            return contentHeight + getNavigationBarHeight(context);
+            contentHeight + getNavigationBarHeight(context)
         }
     }
 
-    /**
-     * 判断是否横屏
-     *
-     * @param context
-     * @return 是否横屏
-     */
-    public static boolean isLandscape(Context context) {
-        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+    fun isLandscape(context: Context): Boolean {
+        return context.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     }
 
-    /**
-     * 获得状态栏的高度
-     *
-     * @param context
-     * @return
-     */
-    public static int getStatusHeight(Context context) {
-        int statusHeight = -1;
-        Resources resources = context.getResources();
+    @JvmStatic
+    fun getStatusHeight(context: Context): Int {
+        var statusHeight = -1
+        val resources = context.resources
         try {
-            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
-            Object object = clazz.newInstance();
-            int height = Integer.parseInt(clazz.getField("status_bar_height")
-                    .get(object).toString());
-            statusHeight = resources.getDimensionPixelSize(height);
-        } catch (Exception e) {
-            e.printStackTrace();
-            //获取status_bar_height资源的ID
-            int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+            @SuppressLint("PrivateApi") val clazz = Class.forName("com.android.internal.R\$dimen")
+            val obj = clazz.newInstance()
+            val height = clazz.getField("status_bar_height")[obj].toString().toInt()
+            statusHeight = resources.getDimensionPixelSize(height)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
             if (resourceId > 0) {
-                //根据资源ID获取响应的尺寸值
-                statusHeight = resources.getDimensionPixelSize(resourceId);
+                statusHeight = resources.getDimensionPixelSize(resourceId)
             }
         }
-        return statusHeight;
+        return statusHeight
     }
 
-
-    /**
-     * 获取虚拟按键栏高度
-     */
-    public static int getNavigationBarHeight(Context context) {
-        int result = 0;
+    @JvmStatic
+    fun getNavigationBarHeight(context: Context): Int {
+        var result = 0
         if (hasNavBar(context)) {
-            Resources res = context.getResources();
-            int resourceId = res.getIdentifier("navigation_bar_height", "dimen", "android");
+            val res = context.resources
+            val resourceId = res.getIdentifier("navigation_bar_height", "dimen", "android")
             if (resourceId > 0) {
-                result = res.getDimensionPixelSize(resourceId);
+                result = res.getDimensionPixelSize(resourceId)
             }
         }
-        return result;
+        return result
     }
 
-    /**
-     * 检查是否存在虚拟按键栏
-     *
-     * @param context
-     * @return
-     */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    public static boolean hasNavBar(Context context) {
-        Resources res = context.getResources();
-        int resourceId = res.getIdentifier("config_showNavigationBar", "bool", "android");
-        if (resourceId != 0) {
-            boolean hasNav = res.getBoolean(resourceId);
+    fun hasNavBar(context: Context): Boolean {
+        val res = context.resources
+        val resourceId = res.getIdentifier("config_showNavigationBar", "bool", "android")
+        return if (resourceId != 0) {
+            var hasNav = res.getBoolean(resourceId)
             // check override flag
-            String sNavBarOverride = getNavBarOverride();
-            if ("1".equals(sNavBarOverride)) {
-                hasNav = false;
-            } else if ("0".equals(sNavBarOverride)) {
-                hasNav = true;
+            val sNavBarOverride = navBarOverride
+            if ("1" == sNavBarOverride) {
+                hasNav = false
+            } else if ("0" == sNavBarOverride) {
+                hasNav = true
             }
-            return hasNav;
+            hasNav
         } else { // fallback
-            return !ViewConfiguration.get(context).hasPermanentMenuKey();
+            !ViewConfiguration.get(context).hasPermanentMenuKey()
         }
     }
 
-    /**
-     * 判断虚拟按键栏是否重写
-     *
-     * @return
-     */
-    private static String getNavBarOverride() {
-        String sNavBarOverride = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+    private val navBarOverride: String?
+        get() {
+            var sNavBarOverride: String? = null
             try {
-                Class c = Class.forName("android.os.SystemProperties");
-                Method m = c.getDeclaredMethod("get", String.class);
-                m.setAccessible(true);
-                sNavBarOverride = (String) m.invoke(null, "qemu.hw.mainkeys");
-            } catch (Throwable e) {
+                @SuppressLint("PrivateApi") val aClass = Class.forName("android.os.SystemProperties")
+                val m = aClass.getDeclaredMethod("get", String::class.java)
+                m.isAccessible = true
+                sNavBarOverride = m.invoke(null, "qemu.hw.mainkeys") as String
+            } catch (e: Throwable) {
+                e.printStackTrace()
             }
+            return sNavBarOverride
         }
-        return sNavBarOverride;
+
+    fun dp2px(context: Context, dps: Int): Int {
+        return (dps.toFloat() * getDensityDpiScale(context)).roundToInt()
     }
 
-    public static int dp2px(Context context, int dps) {
-        return Math.round(((float) dps) * getDensityDpiScale(context));
+    fun px2dp(context: Context, pixels: Int): Int {
+        return (pixels.toFloat() / getDensityDpiScale(context)).roundToInt()
     }
 
-    public static int px2dp(Context context, int pixels) {
-        return Math.round(((float) pixels) / getDensityDpiScale(context));
+    private fun getDensityDpiScale(context: Context): Float {
+        return context.resources.displayMetrics.xdpi / 160.0f
     }
 
-    private static float getDensityDpiScale(Context context) {
-        return context.getResources().getDisplayMetrics().xdpi / 160.0f;
-    }
-
-    /**
-     * 把指定类型的值转换成px值
-     *
-     * @param unit COMPLEX_UNIT_PX:
-     *             COMPLEX_UNIT_DIP:
-     *             COMPLEX_UNIT_SP:
-     *             COMPLEX_UNIT_PT:
-     *             COMPLEX_UNIT_IN:
-     *             COMPLEX_UNIT_MM:
-     */
-    public static int applyDimension(int unit, float value) {
-        return (int) TypedValue.applyDimension(unit, value, Resources.getSystem().getDisplayMetrics());
-    }
-
-    /**
-     * 返回当前屏幕是否为竖屏。
-     *
-     * @return 当且仅当当前屏幕为竖屏时返回true, 否则返回false。
-     */
-    public static boolean isScreenOriatationPortrait(Context context) {
-        return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
-    }
-
-    /**
-     * 计算指定的 View 在屏幕中的坐标。
-     */
-    public static RectF calcViewScreenLocation(View view) {
-        int[] location = new int[2];
-        // 获取控件在屏幕中的位置，返回的数组分别为控件左顶点的 x、y 的值
-        view.getLocationOnScreen(location);
-        return new RectF(location[0], location[1], location[0] + view.getWidth(),
-                location[1] + view.getHeight());
+    fun applyDimension(unit: Int, value: Float): Int {
+        return TypedValue.applyDimension(unit, value, Resources.getSystem().displayMetrics).toInt()
     }
 }
