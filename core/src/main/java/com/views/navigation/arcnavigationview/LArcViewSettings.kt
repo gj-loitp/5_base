@@ -1,65 +1,43 @@
-package com.views.navigation.arcnavigationview;
+package com.views.navigation.arcnavigationview
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
-import android.util.TypedValue;
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.Drawable
+import android.util.AttributeSet
+import android.util.TypedValue
+import com.R
 
-import com.R;
+class LArcViewSettings(context: Context, attrs: AttributeSet?) {
 
-public class LArcViewSettings {
-    public final static int CROP_INSIDE = 0;
-    public final static int CROP_OUTSIDE = 1;
-    private boolean cropInside = true;
-    private float arcWidth;
-    private float elevation;
-    private Drawable backgroundDrawable = new ColorDrawable(Color.WHITE);
+    companion object {
+        const val CROP_INSIDE = 0
+        const val CROP_OUTSIDE = 1
 
-    public static float dpToPx(Context context, int dp) {
-        Resources r = context.getResources();
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics());
+        @JvmStatic
+        fun dpToPx(context: Context, dp: Int): Float {
+            val resources = context.resources
+            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), resources.displayMetrics)
+        }
     }
 
-    public LArcViewSettings(Context context, AttributeSet attrs) {
-        TypedArray styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.ArcDrawer, 0, 0);
-        arcWidth = styledAttributes.getDimension(R.styleable.ArcDrawer_arc_width, dpToPx(context, 10));
+    var isCropInside = true
+    val arcWidth: Float
+    var elevation = 0f
+    var backgroundDrawable: Drawable? = ColorDrawable(Color.WHITE)
 
-        final int cropDirection = styledAttributes.getInt(R.styleable.ArcDrawer_arc_cropDirection, CROP_INSIDE);
-        cropInside = (cropDirection == CROP_INSIDE);
-
-        int[] attrsArray = new int[]{
+    init {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ArcDrawer, 0, 0)
+        arcWidth = typedArray.getDimension(R.styleable.ArcDrawer_arc_width, dpToPx(context, 10))
+        val cropDirection = typedArray.getInt(R.styleable.ArcDrawer_arc_cropDirection, CROP_INSIDE)
+        isCropInside = cropDirection == CROP_INSIDE
+        val attrsArray = intArrayOf(
                 android.R.attr.background,
-                android.R.attr.layout_gravity,
-        };
-
-        TypedArray androidAttrs = context.obtainStyledAttributes(attrs, attrsArray);
-        backgroundDrawable = androidAttrs.getDrawable(0);
-
-        androidAttrs.recycle();
-        styledAttributes.recycle();
-    }
-
-    public float getElevation() {
-        return elevation;
-    }
-
-    public void setElevation(float elevation) {
-        this.elevation = elevation;
-    }
-
-    public boolean isCropInside() {
-        return cropInside;
-    }
-
-    public float getArcWidth() {
-        return arcWidth;
-    }
-
-    public Drawable getBackgroundDrawable() {
-        return backgroundDrawable;
+                android.R.attr.layout_gravity
+        )
+        val androidAttrs = context.obtainStyledAttributes(attrs, attrsArray)
+        backgroundDrawable = androidAttrs.getDrawable(0)
+        androidAttrs.recycle()
+        typedArray.recycle()
     }
 }
