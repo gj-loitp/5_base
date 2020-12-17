@@ -34,7 +34,6 @@ import com.nineoldandroids.view.ViewHelper;
  * @author Pedro Vicente Gómez Sánchez
  */
 
-//TODO convert kotlin
 public abstract class Transformer {
 
     private final View view;

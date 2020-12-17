@@ -27,7 +27,6 @@ import com.nineoldandroids.view.ViewHelper;
  * @author Pedro Vicente Gómez Sánchez
  */
 
-//TODO convert kotlin
 class ScaleTransformer extends Transformer {
 
   ScaleTransformer(View view, View parent) {

@@ -19,13 +19,14 @@ import android.view.View;
 
 import androidx.customview.widget.ViewDragHelper;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * ViewDragHelper.Callback implementation used to work with DraggableView to perform the scale
  * effect and other animation when the view is released.
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-//TODO convert kotlin
 class DraggableViewCallback extends ViewDragHelper.Callback {
 
     private static final int MINIMUM_DX_FOR_HORIZONTAL_DRAG = 5;
@@ -33,8 +34,8 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
     private static final float X_MIN_VELOCITY = 1500;
     private static final float Y_MIN_VELOCITY = 1000;
 
-    private DraggableView draggableView;
-    private View draggedView;
+    private final DraggableView draggableView;
+    private final View draggedView;
 
     /**
      * Main constructor.
@@ -56,7 +57,7 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @param dy   change in Y position from the last call.
      */
     @Override
-    public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+    public void onViewPositionChanged(@NotNull View changedView, int left, int top, int dx, int dy) {
         if (draggableView.isDragViewAtBottom()) {
             draggableView.changeDragViewViewAlpha();
         } else {
@@ -79,7 +80,7 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @param yVel          Y velocity of the pointer as it left the screen in pixels per second.
      */
     @Override
-    public void onViewReleased(View releasedChild, float xVel, float yVel) {
+    public void onViewReleased(@NotNull View releasedChild, float xVel, float yVel) {
         super.onViewReleased(releasedChild, xVel, yVel);
 
         if (draggableView.isDragViewAtBottom() && !draggableView.isDragViewAtRight()) {
@@ -111,7 +112,7 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @return the new clamped position for left.
      */
     @Override
-    public int clampViewPositionHorizontal(View child, int left, int dx) {
+    public int clampViewPositionHorizontal(@NotNull View child, int left, int dx) {
         int newLeft = draggedView.getLeft();
         if ((draggableView.isMinimized() && Math.abs(dx) > MINIMUM_DX_FOR_HORIZONTAL_DRAG) || (
                 draggableView.isDragViewAtBottom()
@@ -131,7 +132,7 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @return the new clamped position for top.
      */
     @Override
-    public int clampViewPositionVertical(View child, int top, int dy) {
+    public int clampViewPositionVertical(@NotNull View child, int top, int dy) {
         int newTop = draggableView.getHeight() - draggableView.getDraggedViewHeightPlusMarginTop();
         if (draggableView.isMinimized() && Math.abs(dy) >= MINIMUM_DY_FOR_VERTICAL_DRAG
                 || (!draggableView.isMinimized() && !draggableView.isDragViewAtBottom())) {
