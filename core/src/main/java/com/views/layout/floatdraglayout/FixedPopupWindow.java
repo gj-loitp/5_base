@@ -17,10 +17,10 @@ import java.lang.reflect.Method;
  * 修复 Android 7.0 上系统 API 问题的 PopupWindow
  *
  * @author baishixian
- * @date 2018/1/26 下午2:17
  */
 
-//TODO convert kotlin
+//17.12.2020 try to revert kotlin but failed
+
 public class FixedPopupWindow extends PopupWindow {
     public FixedPopupWindow(Context context) {
         super(context);
@@ -154,12 +154,6 @@ public class FixedPopupWindow extends PopupWindow {
         }
     }
 
-    /**
-     * 反射获取对象
-     *
-     * @return
-     * @paramparamName
-     */
     private Object getParam(String paramName) {
 
         if (TextUtils.isEmpty(paramName)) {
@@ -176,12 +170,6 @@ public class FixedPopupWindow extends PopupWindow {
         return null;
     }
 
-    /**
-     * 反射赋值对象
-     *
-     * @paramparamName
-     * @paramobj
-     */
     private void setParam(String paramName, Object obj) {
         if (TextUtils.isEmpty(paramName)) {
             return;
@@ -196,13 +184,6 @@ public class FixedPopupWindow extends PopupWindow {
         }
     }
 
-    /**
-     * 反射执行方法
-     *
-     * @return
-     * @parammethodName
-     * @paramargs
-     */
     private Object execMethod(String methodName, Class[] cls, Object[] args) {
         if (TextUtils.isEmpty(methodName)) {
             return null;
@@ -218,15 +199,6 @@ public class FixedPopupWindow extends PopupWindow {
         return null;
     }
 
-    /**
-     * 利用递归找一个类的指定方法，如果找不到，去父亲里面找直到最上层Object对象为止。
-     *
-     * @paramclazz 目标类
-     * @parammethodName 方法名
-     * @paramclasses 方法参数类型数组
-     * @return方法对象
-     * @throwsException
-     */
     private Method getMethod(Class clazz, String methodName, final Class[] classes) throws Exception {
         Method method = null;
         try {
@@ -251,8 +223,7 @@ public class FixedPopupWindow extends PopupWindow {
 
             int[] a = new int[2];
             anchorView.getLocationInWindow(a);
-            showAtLocation(anchorView, Gravity.NO_GRAVITY, 0,
-                    a[1] + anchorView.getHeight() + 0);
+            showAtLocation(anchorView, Gravity.NO_GRAVITY, 0, a[1] + anchorView.getHeight());
         } else {
             super.showAsDropDown(anchorView);
         }
