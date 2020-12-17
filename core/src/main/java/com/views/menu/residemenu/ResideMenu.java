@@ -28,7 +28,7 @@ import com.views.layout.floatdraglayout.DisplayUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-//TODO convert kotlin
+
 public class ResideMenu extends FrameLayout {
     public static final int DIRECTION_LEFT = 0;
     public static final int DIRECTION_RIGHT = 1;

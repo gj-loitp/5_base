@@ -1,109 +1,95 @@
-package com.views.menu.residemenu;
+package com.views.menu.residemenu
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Context
+import android.view.LayoutInflater
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.R
+import com.core.utilities.LUIUtil.Companion.setTextShadow
+import com.core.utilities.LUIUtil.Companion.setTextSize
+import com.utils.util.ConvertUtils
 
-import com.R;
-import com.core.utilities.LUIUtil;
-import com.utils.util.ConvertUtils;
-//TODO convert kotlin
-public class ResideMenuItem extends LinearLayout {
+class ResideMenuItem : LinearLayout {
+    var ivIcon: ImageView? = null
+    var tvTitle: TextView? = null
 
-    /**
-     * menu item  icon
-     */
-    private ImageView ivIcon;
-    /**
-     * menu item  title
-     */
-    private TextView tvTitle;
-
-    public ResideMenuItem(Context context) {
-        super(context);
-        initViews(context);
+    constructor(context: Context) : super(context) {
+        initViews(context)
     }
 
-    public ResideMenuItem(Context context, int icon, int title) {
-        super(context);
-        initViews(context);
-        ivIcon.setImageResource(icon);
-        tvTitle.setText(title);
+    constructor(context: Context, icon: Int, title: Int) : super(context) {
+        initViews(context)
+
+        ivIcon?.setImageResource(icon)
+        tvTitle?.setText(title)
     }
 
-    public ResideMenuItem(Context context, int icon, String title) {
-        super(context);
-        initViews(context);
-        ivIcon.setImageResource(icon);
-        tvTitle.setText(title);
+    constructor(context: Context, icon: Int, title: String?) : super(context) {
+        initViews(context)
+
+        ivIcon?.setImageResource(icon)
+        tvTitle?.text = title
     }
 
-    private void initViews(Context context) {
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        inflater.inflate(R.layout.residemenu_item, this);
-        ivIcon = findViewById(R.id.ivIcon);
-        tvTitle = findViewById(R.id.tvTitle);
+    private fun initViews(context: Context) {
+        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        inflater.inflate(R.layout.residemenu_item, this)
+
+        ivIcon = findViewById(R.id.ivIcon)
+        tvTitle = findViewById(R.id.tvTitle)
     }
 
     /**
      * set the icon color;
      *
-     * @param icon
      */
-    public void setIcon(int icon) {
-        ivIcon.setImageResource(icon);
+    fun setIcon(icon: Int) {
+        ivIcon?.setImageResource(icon)
     }
 
     /**
      * set the title with resource
      * ;
      *
-     * @param title
      */
-    public void setTitle(int title) {
-        tvTitle.setText(title);
+    fun setTitle(title: Int) {
+        tvTitle?.setText(title)
     }
 
     /**
      * set the title with string;
      *
-     * @param title
      */
-    public void setTitle(String title) {
-        tvTitle.setText(title);
+    fun setTitle(title: String?) {
+        tvTitle?.text = title
     }
 
-    public ImageView getIvIcon() {
-        return ivIcon;
+    fun setTextColor(color: Int) {
+        tvTitle?.setTextColor(color)
     }
 
-    public TextView getTvTitle() {
-        return tvTitle;
+    fun setTextSize(size: Float) {
+        setTextSize(textView = tvTitle, size = size)
     }
 
-    public void setTextColor(int color) {
-        tvTitle.setTextColor(color);
+    fun setTextShadow(color: Int) {
+        setTextShadow(textView = tvTitle, color = color)
     }
 
-    public void setTextSize(float size) {
-        LUIUtil.Companion.setTextSize(tvTitle, size);
+    fun setIvIconSizePx(sizeInPx: Int) {
+        ivIcon?.apply {
+            layoutParams.width = sizeInPx
+            layoutParams.height = sizeInPx
+            requestLayout()
+        }
     }
 
-    public void setTextShadow(int color) {
-        LUIUtil.Companion.setTextShadow(tvTitle, color);
-    }
-
-    public void setIvIconSizePx(int sizeInPx) {
-        ivIcon.getLayoutParams().width = sizeInPx;
-        ivIcon.getLayoutParams().height = sizeInPx;
-        ivIcon.requestLayout();
-    }
-
-    public void setIvIconSizeDp(int sizeInDp) {
-        ivIcon.getLayoutParams().width = ConvertUtils.dp2px(sizeInDp);
-        ivIcon.getLayoutParams().height = ConvertUtils.dp2px(sizeInDp);
-        ivIcon.requestLayout();
+    fun setIvIconSizeDp(sizeInDp: Int) {
+        ivIcon?.apply {
+            layoutParams.width = ConvertUtils.dp2px(sizeInDp.toFloat())
+            layoutParams.height = ConvertUtils.dp2px(sizeInDp.toFloat())
+            requestLayout()
+        }
     }
 }
