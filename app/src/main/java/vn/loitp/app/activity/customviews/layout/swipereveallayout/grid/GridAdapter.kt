@@ -1,83 +1,81 @@
-package vn.loitp.app.activity.customviews.layout.swipereveallayout.grid;
+package vn.loitp.app.activity.customviews.layout.swipereveallayout.grid
 
-import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.content.Context
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.TextView
+import com.views.LToast.showShortInformation
+import com.views.layout.swipereveallayout.LSwipeRevealLayout
+import com.views.layout.swipereveallayout.ViewBinderHelper
+import vn.loitp.app.R
 
-import com.views.LToast;
-import com.views.layout.swipereveallayout.LSwipeRevealLayout;
-import com.views.layout.swipereveallayout.ViewBinderHelper;
+class GridAdapter(
+        context: Context,
+        objects: List<String>
+) : ArrayAdapter<String>(
+        context,
+        R.layout.item_swipe_reveal_layout_list,
+        objects
+) {
 
-import org.jetbrains.annotations.NotNull;
+    private val mInflater: LayoutInflater = LayoutInflater.from(context)
+    private val binderHelper: ViewBinderHelper = ViewBinderHelper()
 
-import java.util.List;
-
-import vn.loitp.app.R;
-
-//TODO convert kotlin
-public class GridAdapter extends ArrayAdapter<String> {
-    private final LayoutInflater mInflater;
-    private final ViewBinderHelper binderHelper;
-
-    public GridAdapter(Context context, List<String> objects) {
-        super(context, R.layout.item_swipe_reveal_layout_list, objects);
-        mInflater = LayoutInflater.from(context);
-        binderHelper = new ViewBinderHelper();
-
-        // uncomment if you want to open only one row at a time
-        binderHelper.setOpenOnlyOne(true);
-    }
-
-    @NotNull
-    @Override
-    public View getView(int position, View convertView, @NotNull ViewGroup parent) {
-        ViewHolder holder;
+    @Suppress("NAME_SHADOWING")
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var convertView = convertView
+        val holder: ViewHolder
 
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item_swipe_reveal_layout_grid, parent, false);
-
-            holder = new ViewHolder();
-            holder.swipeLayout = convertView.findViewById(R.id.swipeLayout);
-            holder.frontView = convertView.findViewById(R.id.layoutFront);
-            holder.deleteView = convertView.findViewById(R.id.layoutDelete);
-            holder.textView = convertView.findViewById(R.id.text);
-
-            convertView.setTag(holder);
+            convertView = mInflater.inflate(R.layout.item_swipe_reveal_layout_grid, parent, false)
+            holder = ViewHolder()
+            holder.swipeLayout = convertView.findViewById(R.id.swipeLayout)
+            holder.layoutFront = convertView.findViewById(R.id.layoutFront)
+            holder.layoutDelete = convertView.findViewById(R.id.layoutDelete)
+            holder.text = convertView.findViewById(R.id.text)
+            convertView.tag = holder
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = convertView.tag as ViewHolder
         }
-
-        final String item = getItem(position);
+        val item = getItem(position)
         if (item != null) {
-            binderHelper.bind(holder.swipeLayout, item);
+            holder.swipeLayout?.let {
+                binderHelper.bind(it, item)
+            }
 
-            holder.textView.setText(item);
-            holder.deleteView.setOnClickListener(v -> remove(item));
-            holder.frontView.setOnClickListener(view -> {
-                String displayText = "" + item + " clicked";
-                LToast.INSTANCE.showShortInformation(displayText, true);
-            });
+            holder.text?.text = item
+            holder.layoutDelete?.setOnClickListener {
+                remove(item)
+            }
+            holder.layoutFront?.setOnClickListener {
+                val displayText = "$item clicked"
+                showShortInformation(displayText, true)
+            }
         }
-
-        return convertView;
+        return convertView!!
     }
 
-    public void saveStates(Bundle outState) {
-        binderHelper.saveStates(outState);
+    fun saveStates(outState: Bundle?) {
+        binderHelper.saveStates(outState)
     }
 
-    public void restoreStates(Bundle inState) {
-        binderHelper.restoreStates(inState);
+    fun restoreStates(inState: Bundle?) {
+        binderHelper.restoreStates(inState)
     }
 
-    private static class ViewHolder {
-        LSwipeRevealLayout swipeLayout;
-        View frontView;
-        View deleteView;
-        TextView textView;
+    private class ViewHolder {
+        var swipeLayout: LSwipeRevealLayout? = null
+        var layoutFront: View? = null
+        var layoutDelete: View? = null
+        var text: TextView? = null
+    }
+
+    init {
+
+        // uncomment if you want to open only one row at a time
+        binderHelper.setOpenOnlyOne(true)
     }
 }
