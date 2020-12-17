@@ -42,8 +42,8 @@ public class GridAdapter extends ArrayAdapter<String> {
 
             holder = new ViewHolder();
             holder.swipeLayout = convertView.findViewById(R.id.swipeLayout);
-            holder.frontView = convertView.findViewById(R.id.frontLayout);
-            holder.deleteView = convertView.findViewById(R.id.deleteLayout);
+            holder.frontView = convertView.findViewById(R.id.layoutFront);
+            holder.deleteView = convertView.findViewById(R.id.layoutDelete);
             holder.textView = convertView.findViewById(R.id.text);
 
             convertView.setTag(holder);

@@ -8,7 +8,7 @@
     app:srl_mode="same_level">
 
     <FrameLayout
-        android:id="@+id/deleteLayout"
+        android:id="@+id/layoutDelete"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/w_70"
         android:background="#ffcc0000">
@@ -23,7 +23,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/frontLayout"
+        android:id="@+id/layoutFront"
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_70">
 

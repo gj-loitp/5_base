@@ -82,8 +82,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
             super(itemView);
 
             swipeLayout = itemView.findViewById(R.id.swipeLayout);
-            frontLayout = itemView.findViewById(R.id.frontLayout);
-            deleteLayout = itemView.findViewById(R.id.deleteLayout);
+            frontLayout = itemView.findViewById(R.id.layoutFront);
+            deleteLayout = itemView.findViewById(R.id.layoutDelete);
             textView = itemView.findViewById(R.id.text);
         }
 
