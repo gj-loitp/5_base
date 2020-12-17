@@ -69,7 +69,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
                 PixelFormat.TRANSLUCENT);
 
         //Specify the view position
-        params.gravity = Gravity.TOP | Gravity.LEFT;        //Initially view will be added to top-left corner
+        params.gravity = Gravity.TOP | Gravity.START;        //Initially view will be added to top-left corner
         params.x = 0;
         params.y = 100;
 
@@ -89,22 +89,16 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
 
         //Set the close button
         ImageView closeButtonCollapsed = mFloatingView.findViewById(R.id.ivClose);
-        closeButtonCollapsed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //close the service and remove the from from the window
-                stopSelf();
-            }
+        closeButtonCollapsed.setOnClickListener(view -> {
+            //close the service and remove the from from the window
+            stopSelf();
         });
 
         //Set the close button
         ImageView closeButton = mFloatingView.findViewById(R.id.ivCloseButton);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                collapsedView.setVisibility(View.VISIBLE);
-                expandedView.setVisibility(View.GONE);
-            }
+        closeButton.setOnClickListener(view -> {
+            collapsedView.setVisibility(View.VISIBLE);
+            expandedView.setVisibility(View.GONE);
         });
 
         //Drag and move floating view using user's touch action.
@@ -125,6 +119,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
     private float initialTouchX;
     private float initialTouchY;
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         if (v.getId() == R.id.rlRootContainer) {
@@ -195,11 +190,7 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
             textView.setTextColor(Color.GREEN);
         }
         llRootTv.addView(textView);
-        scrollView.post(new Runnable() {
-            public void run() {
-                scrollView.fullScroll(View.FOCUS_DOWN);
-            }
-        });
+        scrollView.post(() -> scrollView.fullScroll(View.FOCUS_DOWN));
     }
 
     @Override
