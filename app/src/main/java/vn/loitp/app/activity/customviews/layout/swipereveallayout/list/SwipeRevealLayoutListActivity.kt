@@ -1,88 +1,71 @@
-package vn.loitp.app.activity.customviews.layout.swipereveallayout.list;
+package vn.loitp.app.activity.customviews.layout.swipereveallayout.list
 
-import android.os.Bundle;
-import android.widget.ListView;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
-
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseFontActivity;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import vn.loitp.app.R;
+import android.os.Bundle
+import android.view.View
+import android.widget.ListView
+import androidx.appcompat.widget.Toolbar
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_swipe_reveal_layout_list.*
+import vn.loitp.app.R
+import java.util.*
 
 @LogTag("SwipeRevealLayoutListActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
-public class SwipeRevealLayoutListActivity extends BaseFontActivity {
-    private ListAdapter adapter;
+class SwipeRevealLayoutListActivity : BaseFontActivity() {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_swipe_reveal_layout_list;
+    private var listAdapter: ListAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_swipe_reveal_layout_list
     }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        setupActionBar();
-        setupList();
+        setupActionBar()
+        setupList()
     }
 
-    @Override
-    protected void onSaveInstanceState(@NotNull Bundle outState) {
-        super.onSaveInstanceState(outState);
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
 
         // Only if you need to restore open/close state when
         // the orientation is changed
-        if (adapter != null) {
-            adapter.saveStates(outState);
-        }
+        listAdapter?.saveStates(outState)
     }
 
-    @Override
-    protected void onRestoreInstanceState(@NotNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
 
         // Only if you need to restore open/close state when
         // the orientation is changed
-        if (adapter != null) {
-            adapter.restoreStates(savedInstanceState);
-        }
+        listAdapter?.restoreStates(savedInstanceState)
     }
 
-    private void setupList() {
-        final ListView listView = findViewById(R.id.list_view);
-        adapter = new ListAdapter(this, createList(20));
-        listView.setAdapter(adapter);
+    private fun setupList() {
+        listAdapter = ListAdapter(this, createList(20))
+        listView.adapter = listAdapter
     }
 
-    private List<String> createList(int n) {
-        final List<String> list = new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            list.add("View " + i);
+    private fun createList(n: Int): List<String> {
+        val list: MutableList<String> = ArrayList()
+        for (i in 0 until n) {
+            list.add("View $i")
         }
-
-        return list;
+        return list
     }
 
-    private void setupActionBar() {
-        final Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-            toolbar.setNavigationOnClickListener(v -> finish());
+    private fun setupActionBar() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setDisplayShowHomeEnabled(true)
+            toolbar.setNavigationOnClickListener {
+                onBackPressed()
+            }
         }
+
     }
 }
