@@ -1,255 +1,246 @@
-package com.views.navigation.arcnavigationview;
+package com.views.navigation.arcnavigationview
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Outline;
-import android.graphics.Path;
-import android.graphics.PathMeasure;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
-import android.widget.TextView;
-
-import androidx.annotation.RequiresApi;
-import androidx.core.view.ViewCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.google.android.material.internal.NavigationMenuView;
-import com.google.android.material.internal.ScrimInsetsFrameLayout;
-import com.google.android.material.navigation.NavigationView;
-
-import java.lang.reflect.Field;
+import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.*
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
+import android.text.TextUtils
+import android.util.AttributeSet
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.view.ViewOutlineProvider
+import android.widget.TextView
+import androidx.annotation.RequiresApi
+import androidx.core.view.ViewCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.internal.NavigationMenuView
+import com.google.android.material.internal.ScrimInsetsFrameLayout
+import com.google.android.material.navigation.NavigationView
+import com.views.navigation.arcnavigationview.LArcViewSettings.Companion.dpToPx
+import kotlin.math.roundToInt
 
 /**
  * Created by rom4ek on 10.01.2017.
  */
+class LArcNavigationView : NavigationView {
 
-public class LArcNavigationView extends NavigationView {
-
-    private static int THRESHOLD;
-
-    private LArcViewSettings settings;
-    private int height = 0;
-    private int width = 0;
-    private Path clipPath, arcPath;
-
-    public LArcNavigationView(Context context) {
-        super(context);
-        init(context, null);
+    companion object {
+        private var THRESHOLD = 0
     }
 
-    public LArcNavigationView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init(context, attrs);
+    private var settings: LArcViewSettings? = null
+    private var mHeight = 0
+    private var mWidth = 0
+    private var clipPath: Path? = null
+    private var arcPath: Path? = null
+
+    constructor(context: Context) : super(context) {
+        init(context, null)
     }
 
-    public void init(Context context, AttributeSet attrs) {
-        settings = new LArcViewSettings(context, attrs);
-        settings.setElevation(ViewCompat.getElevation(this));
-
-        setBackgroundColor(Color.TRANSPARENT);
-        setInsetsColor(Color.TRANSPARENT);
-        THRESHOLD = Math.round(LArcViewSettings.dpToPx(getContext(), 15)); //some threshold for child views while remeasuring them
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init(context, attrs)
     }
 
-    private void setInsetsColor(final int color) {
+    fun init(context: Context, attrs: AttributeSet?) {
+        settings = LArcViewSettings(context, attrs)
+        settings?.elevation = ViewCompat.getElevation(this)
+        setBackgroundColor(Color.TRANSPARENT)
+        setInsetsColor(Color.TRANSPARENT)
+        THRESHOLD = dpToPx(context = getContext(), dp = 15).roundToInt() //some threshold for child views while remeasuring them
+    }
+
+    private fun setInsetsColor(color: Int) {
         try {
-            final Field insetForegroundField = ScrimInsetsFrameLayout.class.getDeclaredField("mInsetForeground");
-            insetForegroundField.setAccessible(true);
-            final ColorDrawable colorDrawable = new ColorDrawable(color);
-            insetForegroundField.set(this, colorDrawable);
-        } catch (Exception e) {
-            e.printStackTrace();
+            val insetForegroundField = ScrimInsetsFrameLayout::class.java.getDeclaredField("mInsetForeground")
+            insetForegroundField.isAccessible = true
+            val colorDrawable = ColorDrawable(color)
+            insetForegroundField[this] = colorDrawable
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
     @SuppressLint("RtlHardcoded")
-    private Path createClipPath() {
-        final Path path = new Path();
-        arcPath = new Path();
+    private fun createClipPath(): Path {
+        val path = Path()
+        arcPath = Path()
 
-        final float arcWidth = settings.getArcWidth();
-        final DrawerLayout.LayoutParams layoutParams = (DrawerLayout.LayoutParams) getLayoutParams();
-        if (settings.isCropInside()) {
-            if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
-                arcPath.moveTo(width, 0);
-                arcPath.quadTo(width - arcWidth, height / 2,
-                        width, height);
-                arcPath.close();
-
-                path.moveTo(0, 0);
-                path.lineTo(width, 0);
-                path.quadTo(width - arcWidth, height / 2,
-                        width, height);
-                path.lineTo(0, height);
-                path.close();
-            } else if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
-                arcPath.moveTo(0, 0);
-                arcPath.quadTo(arcWidth, height / 2,
-                        0, height);
-                arcPath.close();
-
-                path.moveTo(width, 0);
-                path.lineTo(0, 0);
-                path.quadTo(arcWidth, height / 2,
-                        0, height);
-                path.lineTo(width, height);
-                path.close();
-            }
-        } else {
-            if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
-                arcPath.moveTo(width - arcWidth / 2, 0);
-                arcPath.quadTo(width + arcWidth / 2, height / 2,
-                        width - arcWidth / 2, height);
-                arcPath.close();
-
-                path.moveTo(0, 0);
-                path.lineTo(width - arcWidth / 2, 0);
-                path.quadTo(width + arcWidth / 2, height / 2,
-                        width - arcWidth / 2, height);
-                path.lineTo(0, height);
-                path.close();
-            } else if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
-                arcPath.moveTo(arcWidth / 2, 0);
-                arcPath.quadTo(-arcWidth / 2, height / 2,
-                        arcWidth / 2, height);
-                arcPath.close();
-
-                path.moveTo(width, 0);
-                path.lineTo(arcWidth / 2, 0);
-                path.quadTo(-arcWidth / 2, height / 2,
-                        arcWidth / 2, height);
-                path.lineTo(width, height);
-                path.close();
+        settings?.let { s ->
+            val arcWidth = s.arcWidth
+            val layoutParams = layoutParams as DrawerLayout.LayoutParams
+            if (s.isCropInside) {
+                if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
+                    arcPath?.let { p ->
+                        p.moveTo(mWidth.toFloat(), 0f)
+                        p.quadTo(mWidth - arcWidth, (mHeight / 2).toFloat(), mWidth.toFloat(), mHeight.toFloat())
+                        p.close()
+                        path.moveTo(0f, 0f)
+                        path.lineTo(mWidth.toFloat(), 0f)
+                        path.quadTo(mWidth - arcWidth, (mHeight / 2).toFloat(), mWidth.toFloat(), mHeight.toFloat())
+                        path.lineTo(0f, mHeight.toFloat())
+                        path.close()
+                    }
+                } else if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
+                    arcPath?.let { p ->
+                        p.moveTo(0f, 0f)
+                        p.quadTo(arcWidth, (mHeight / 2).toFloat(), 0f, mHeight.toFloat())
+                        p.close()
+                        path.moveTo(mWidth.toFloat(), 0f)
+                        path.lineTo(0f, 0f)
+                        path.quadTo(arcWidth, (mHeight / 2).toFloat(), 0f, mHeight.toFloat())
+                        path.lineTo(mWidth.toFloat(), mHeight.toFloat())
+                        path.close()
+                    }
+                } else {
+                    //do nothing
+                }
+            } else {
+                if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
+                    arcPath?.let { p ->
+                        p.moveTo(mWidth - arcWidth / 2, 0f)
+                        p.quadTo(mWidth + arcWidth / 2, (mHeight / 2).toFloat(), mWidth - arcWidth / 2, mHeight.toFloat())
+                        p.close()
+                        path.moveTo(0f, 0f)
+                        path.lineTo(mWidth - arcWidth / 2, 0f)
+                        path.quadTo(mWidth + arcWidth / 2, (mHeight / 2).toFloat(), mWidth - arcWidth / 2, mHeight.toFloat())
+                        path.lineTo(0f, mHeight.toFloat())
+                        path.close()
+                    }
+                } else if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
+                    arcPath?.let { p ->
+                        p.moveTo(arcWidth / 2, 0f)
+                        p.quadTo(-arcWidth / 2, (mHeight / 2).toFloat(), arcWidth / 2, mHeight.toFloat())
+                        p.close()
+                        path.moveTo(mWidth.toFloat(), 0f)
+                        path.lineTo(arcWidth / 2, 0f)
+                        path.quadTo(-arcWidth / 2, (mHeight / 2).toFloat(), arcWidth / 2, mHeight.toFloat())
+                        path.lineTo(mWidth.toFloat(), mHeight.toFloat())
+                        path.close()
+                    }
+                } else {
+                    //do nothing
+                }
             }
         }
-        return path;
+
+        return path
     }
 
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
         if (changed) {
-            calculateLayoutAndChildren();
+            calculateLayoutAndChildren()
         }
     }
 
-
-    @Override
-    protected void measureChild(View child, int parentWidthMeasureSpec, int parentHeightMeasureSpec) {
-        if (child instanceof NavigationMenuView) {
-            child.measure(MeasureSpec.makeMeasureSpec(getMeasuredWidth(),
-                    MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(
-                    getMeasuredHeight(), MeasureSpec.EXACTLY));
+    override fun measureChild(child: View, parentWidthMeasureSpec: Int, parentHeightMeasureSpec: Int) {
+        if (child is NavigationMenuView) {
+            child.measure(
+                    MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
+                    MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)
+            )
         } else {
-            super.measureChild(child, parentWidthMeasureSpec, parentHeightMeasureSpec);
+            super.measureChild(child, parentWidthMeasureSpec, parentHeightMeasureSpec)
         }
     }
 
-    private void calculateLayoutAndChildren() {
-        if (settings == null) {
-            return;
-        }
-        height = getMeasuredHeight();
-        width = getMeasuredWidth();
-        if (width > 0 && height > 0) {
-            clipPath = createClipPath();
-            ViewCompat.setElevation(this, settings.getElevation());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                setOutlineProvider(new ViewOutlineProvider() {
-                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                    @Override
-                    public void getOutline(View view, Outline outline) {
-                        if (clipPath.isConvex()) {
-                            outline.setConvexPath(clipPath);
+    private fun calculateLayoutAndChildren() {
+        settings?.let { s ->
+            mHeight = measuredHeight
+            mWidth = measuredWidth
+            if (mWidth > 0 && mHeight > 0) {
+                clipPath = createClipPath()
+                ViewCompat.setElevation(this, s.elevation)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    outlineProvider = object : ViewOutlineProvider() {
+                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                        override fun getOutline(view: View, outline: Outline) {
+                            clipPath?.let {
+                                if (it.isConvex) {
+                                    outline.setConvexPath(it)
+                                }
+                            }
                         }
                     }
-                });
-            }
-
-            final int count = getChildCount();
-            for (int i = 0; i < count; i++) {
-                final View v = getChildAt(i);
-
-                if (v instanceof NavigationMenuView) {
-                    v.setBackground(settings.getBackgroundDrawable());
-                    ViewCompat.setElevation(v, settings.getElevation());
-                    //TODO: adjusting child views to new width in their rightmost/leftmost points related to path
-//                    adjustChildViews((ViewGroup) v);
+                }
+                val count = childCount
+                for (i in 0 until count) {
+                    val v = getChildAt(i)
+                    if (v is NavigationMenuView) {
+                        v.setBackground(s.backgroundDrawable)
+                        ViewCompat.setElevation(v, s.elevation)
+                        //TODO: adjusting child views to new width in their rightmost/leftmost points related to path
+//                    adjustChildViews((ViewGroup) v)
+                    }
                 }
             }
         }
     }
 
-    @SuppressWarnings("unused")
     @SuppressLint("RtlHardcoded")
-    private void adjustChildViews(ViewGroup container) {
-        final int containerChildCount = container.getChildCount();
-        final PathMeasure pathMeasure = new PathMeasure(arcPath, false);
-        final DrawerLayout.LayoutParams layoutParams = (DrawerLayout.LayoutParams) getLayoutParams();
-
-        for (int i = 0; i < containerChildCount; i++) {
-            View child = container.getChildAt(i);
-            if (child instanceof ViewGroup) {
-                adjustChildViews((ViewGroup) child);
+    private fun adjustChildViews(container: ViewGroup) {
+        val containerChildCount = container.childCount
+        val pathMeasure = PathMeasure(arcPath, false)
+        val layoutParams = layoutParams as DrawerLayout.LayoutParams
+        for (i in 0 until containerChildCount) {
+            val child = container.getChildAt(i)
+            if (child is ViewGroup) {
+                adjustChildViews(container = child)
             } else {
-                final float[] pathCenterPointForItem = {0f, 0f};
-                Rect location = locateView(child);
-                int halfHeight = location.height() / 2;
-
-                pathMeasure.getPosTan(location.top + halfHeight, pathCenterPointForItem, null);
+                val pathCenterPointForItem = floatArrayOf(0f, 0f)
+                val location = locateView(child)
+                val halfHeight = location.height() / 2
+                pathMeasure.getPosTan((location.top + halfHeight).toFloat(), pathCenterPointForItem, null)
                 if (layoutParams.gravity == Gravity.END || layoutParams.gravity == Gravity.RIGHT) {
-                    int centerPathPoint = getMeasuredWidth() - Math.round(pathCenterPointForItem[0]);
-                    if (child.getMeasuredWidth() > centerPathPoint) {
-                        child.measure(MeasureSpec.makeMeasureSpec(centerPathPoint - THRESHOLD,
-                                MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(
-                                child.getMeasuredHeight(), MeasureSpec.EXACTLY));
-                        child.layout(centerPathPoint + THRESHOLD, child.getTop(), child.getRight(), child.getBottom());
+                    val centerPathPoint = measuredWidth - pathCenterPointForItem[0].roundToInt()
+                    if (child.measuredWidth > centerPathPoint) {
+                        child.measure(
+                                MeasureSpec.makeMeasureSpec(centerPathPoint - THRESHOLD, MeasureSpec.EXACTLY),
+                                MeasureSpec.makeMeasureSpec(child.measuredHeight, MeasureSpec.EXACTLY)
+                        )
+                        child.layout(centerPathPoint + THRESHOLD, child.top, child.right, child.bottom)
                     }
                 } else if (layoutParams.gravity == Gravity.START || layoutParams.gravity == Gravity.LEFT) {
-                    if (child.getMeasuredWidth() > pathCenterPointForItem[0]) {
-                        child.measure(MeasureSpec.makeMeasureSpec((Math.round(pathCenterPointForItem[0]) - THRESHOLD),
-                                MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(
-                                child.getMeasuredHeight(), MeasureSpec.EXACTLY));
-                        child.layout(child.getLeft(), child.getTop(), (Math.round(pathCenterPointForItem[0]) - THRESHOLD), child.getBottom());
+                    if (child.measuredWidth > pathCenterPointForItem[0]) {
+                        child.measure(
+                                MeasureSpec.makeMeasureSpec(pathCenterPointForItem[0].roundToInt() - THRESHOLD, MeasureSpec.EXACTLY),
+                                MeasureSpec.makeMeasureSpec(child.measuredHeight, MeasureSpec.EXACTLY)
+                        )
+                        child.layout(child.left, child.top, pathCenterPointForItem[0].roundToInt() - THRESHOLD, child.bottom)
                     }
                 }
                 //set text ellipsize to end to prevent it from overlapping edge
-                if (child instanceof TextView) {
-                    ((TextView) child).setEllipsize(TextUtils.TruncateAt.END);
+                if (child is TextView) {
+                    child.ellipsize = TextUtils.TruncateAt.END
                 }
             }
         }
     }
 
-    private Rect locateView(View view) {
-        final Rect loc = new Rect();
-        final int[] location = new int[2];
+    private fun locateView(view: View?): Rect {
+        val loc = Rect()
+        val location = IntArray(2)
         if (view == null) {
-            return loc;
+            return loc
         }
-        view.getLocationOnScreen(location);
-
-        loc.left = location[0];
-        loc.top = location[1];
-        loc.right = loc.left + view.getWidth();
-        loc.bottom = loc.top + view.getHeight();
-        return loc;
+        view.getLocationOnScreen(location)
+        loc.left = location[0]
+        loc.top = location[1]
+        loc.right = loc.left + view.width
+        loc.bottom = loc.top + view.height
+        return loc
     }
 
-    @Override
-    protected void dispatchDraw(Canvas canvas) {
-        canvas.save();
-        canvas.clipPath(clipPath);
-        super.dispatchDraw(canvas);
-        canvas.restore();
+    override fun dispatchDraw(canvas: Canvas) {
+        canvas.save()
+        clipPath?.let {
+            canvas.clipPath(it)
+        }
+        super.dispatchDraw(canvas)
+        canvas.restore()
     }
+
 }
