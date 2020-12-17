@@ -55,18 +55,6 @@ public class LArcNavigationView extends NavigationView {
         settings = new LArcViewSettings(context, attrs);
         settings.setElevation(ViewCompat.getElevation(this));
 
-        /**
-         * If hardware acceleration is on (default from API 14), clipPath worked correctly
-         * from API 18.
-         *
-         * So we will disable hardware Acceleration if API < 18
-         *
-         * https://developer.android.com/guide/topics/graphics/hardware-accel.html#unsupported
-         * Section #Unsupported Drawing Operations
-         */
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        }
         setBackgroundColor(Color.TRANSPARENT);
         setInsetsColor(Color.TRANSPARENT);
         THRESHOLD = Math.round(LArcViewSettings.dpToPx(getContext(), 15)); //some threshold for child views while remeasuring them
@@ -78,9 +66,7 @@ public class LArcNavigationView extends NavigationView {
             insetForegroundField.setAccessible(true);
             final ColorDrawable colorDrawable = new ColorDrawable(color);
             insetForegroundField.set(this, colorDrawable);
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -176,19 +162,17 @@ public class LArcNavigationView extends NavigationView {
         width = getMeasuredWidth();
         if (width > 0 && height > 0) {
             clipPath = createClipPath();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                ViewCompat.setElevation(this, settings.getElevation());
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    setOutlineProvider(new ViewOutlineProvider() {
-                        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-                        @Override
-                        public void getOutline(View view, Outline outline) {
-                            if (clipPath.isConvex()) {
-                                outline.setConvexPath(clipPath);
-                            }
+            ViewCompat.setElevation(this, settings.getElevation());
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                setOutlineProvider(new ViewOutlineProvider() {
+                    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void getOutline(View view, Outline outline) {
+                        if (clipPath.isConvex()) {
+                            outline.setConvexPath(clipPath);
                         }
-                    });
-                }
+                    }
+                });
             }
 
             final int count = getChildCount();
@@ -196,14 +180,8 @@ public class LArcNavigationView extends NavigationView {
                 final View v = getChildAt(i);
 
                 if (v instanceof NavigationMenuView) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        v.setBackground(settings.getBackgroundDrawable());
-                    } else {
-                        v.setBackgroundDrawable(settings.getBackgroundDrawable());
-                    }
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-                        ViewCompat.setElevation(v, settings.getElevation());
-                    }
+                    v.setBackground(settings.getBackgroundDrawable());
+                    ViewCompat.setElevation(v, settings.getElevation());
                     //TODO: adjusting child views to new width in their rightmost/leftmost points related to path
 //                    adjustChildViews((ViewGroup) v);
                 }
@@ -223,7 +201,7 @@ public class LArcNavigationView extends NavigationView {
             if (child instanceof ViewGroup) {
                 adjustChildViews((ViewGroup) child);
             } else {
-                final float pathCenterPointForItem[] = {0f, 0f};
+                final float[] pathCenterPointForItem = {0f, 0f};
                 Rect location = locateView(child);
                 int halfHeight = location.height() / 2;
 
