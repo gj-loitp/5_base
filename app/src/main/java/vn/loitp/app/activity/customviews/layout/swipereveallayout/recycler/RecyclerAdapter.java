@@ -19,13 +19,11 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
-//TODO convert kotlin
 public class RecyclerAdapter extends RecyclerView.Adapter {
-    private List<String> mDataSet;
-    private LayoutInflater mInflater;
-    private Context mContext;
+    private final List<String> mDataSet;
+    private final LayoutInflater mInflater;
+    private final Context mContext;
     private final ViewBinderHelper binderHelper = new ViewBinderHelper();
-
 
     public RecyclerAdapter(Context context, List<String> dataSet) {
         mContext = context;
@@ -75,13 +73,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
     }
 
     private class ViewHolder extends RecyclerView.ViewHolder {
-        private LSwipeRevealLayout swipeLayout;
-        private View frontLayout;
-        private View deleteLayout;
-        private TextView textView;
+        private final LSwipeRevealLayout swipeLayout;
+        private final View frontLayout;
+        private final View deleteLayout;
+        private final TextView textView;
 
         ViewHolder(View itemView) {
             super(itemView);
+
             swipeLayout = itemView.findViewById(R.id.swipeLayout);
             frontLayout = itemView.findViewById(R.id.frontLayout);
             deleteLayout = itemView.findViewById(R.id.deleteLayout);
@@ -90,8 +89,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter {
 
         public void bind(final String data) {
             deleteLayout.setOnClickListener(v -> {
-                mDataSet.remove(getAdapterPosition());
-                notifyItemRemoved(getAdapterPosition());
+                mDataSet.remove(getBindingAdapterPosition());
+                notifyItemRemoved(getBindingAdapterPosition());
             });
 
             textView.setText(data);

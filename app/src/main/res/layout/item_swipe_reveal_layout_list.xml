@@ -13,7 +13,7 @@
         android:layout_height="@dimen/w_70"
         android:background="#ffcc0000">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="@dimen/w_70"
             android:layout_height="match_parent"
             android:background="@android:color/holo_red_dark"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/w_70">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
