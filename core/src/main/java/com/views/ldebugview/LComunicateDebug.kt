@@ -1,48 +1,29 @@
-package com.views.ldebugview;
+package com.views.ldebugview
 
-import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.EventBus
 
-public class LComunicateDebug {
-    public static class MsgFromActivity {
-        public static int TYPE_D = 0;
-        public static int TYPE_E = -1;
-        public static int TYPE_I = 1;
-        private int type;
-        private String msg;
-        private Object object;
+object LComunicateDebug {
 
-        public MsgFromActivity(int type, String msg, Object object) {
-            this.type = type;
-            this.msg = msg;
-            this.object = object;
-        }
+    @JvmStatic
+    fun postFromActivity(msg: MsgFromActivity) {
+        EventBus.getDefault().post(msg)
+    }
 
-        public Object getObject() {
-            return object;
-        }
+    class MsgFromActivity(
+            var type: Int = TYPE_D,
+            var msg: String? = null,
+            var any: Any? = null
+    ) {
+        companion object {
+            @JvmField
+            var TYPE_D = 0
 
-        public void setObject(Object object) {
-            this.object = object;
-        }
+            @JvmField
+            var TYPE_E = -1
 
-        public int getType() {
-            return type;
-        }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        public String getMsg() {
-            return msg;
-        }
-
-        public void setMsg(String msg) {
-            this.msg = msg;
+            @JvmField
+            var TYPE_I = 1
         }
     }
 
-    public static void postFromActivity(MsgFromActivity msg) {
-        EventBus.getDefault().post(msg);
-    }
 }

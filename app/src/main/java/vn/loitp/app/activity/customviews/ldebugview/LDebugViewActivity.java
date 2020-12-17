@@ -18,7 +18,6 @@ import vn.loitp.app.common.Constants;
 
 @LogTag("LDebugViewActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
 public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
     private Button btStart;
     private Button btStop;
@@ -80,13 +79,13 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 btSendObjectD.setEnabled(false);
                 break;
             case R.id.bt_send_d:
-                LDebug.log("Sample d: " + System.currentTimeMillis());
+                LDebug.INSTANCE.log("Sample d: " + System.currentTimeMillis());
                 break;
             case R.id.bt_send_i:
-                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_I, "Sample i: " + System.currentTimeMillis());
+                LDebug.INSTANCE.log(LComunicateDebug.MsgFromActivity.TYPE_I, "Sample i: " + System.currentTimeMillis());
                 break;
             case R.id.bt_send_e:
-                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis());
+                LDebug.INSTANCE.log(LComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis());
                 break;
             case R.id.bt_send_object_d:
                 User user = new User();
@@ -94,7 +93,7 @@ public class LDebugViewActivity extends BaseFontActivity implements OnClickListe
                 user.setAddress("Address");
                 user.setCover(Constants.Companion.getURL_IMG_2());
                 user.setEmail("www.muathu@gmail.com");
-                LDebug.log(user);
+                LDebug.INSTANCE.log(user);
                 break;
         }
     }

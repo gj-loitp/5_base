@@ -1,48 +1,75 @@
-package com.views.ldebugview;
+package com.views.ldebugview
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.provider.Settings;
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.provider.Settings
+import com.utils.util.ServiceUtils
+import com.views.ldebugview.LComunicateDebug.postFromActivity
 
-import com.utils.util.ServiceUtils;
+object LDebug {
+    private const val CODE = 1993
 
-public class LDebug {
-    public final static int CODE = 1993;
-
-    public static void init(Activity activity) {
+    @JvmStatic
+    fun init(activity: Activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity)) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + activity.getPackageName()));
-            activity.startActivityForResult(intent, CODE);
+            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + activity.packageName))
+            activity.startActivityForResult(intent, CODE)
         } else {
-            ServiceUtils.startService(LDebugViewService.class);
+            ServiceUtils.startService(LDebugViewService::class.java)
         }
     }
 
-    public static void checkPermission(Activity activity, int requestCode, int resultCode) {
+    @JvmStatic
+    fun checkPermission(activity: Activity, requestCode: Int, resultCode: Int) {
         if (requestCode == CODE) {
-            init(activity);
+            init(activity)
         }
     }
 
-    public static void stop() {
-        ServiceUtils.stopService(LDebugViewService.class.getName());
+    @JvmStatic
+    fun stop() {
+        ServiceUtils.stopService(LDebugViewService::class.java.name)
     }
 
-    public static void log(String log) {
-        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(LComunicateDebug.MsgFromActivity.TYPE_D, log, null));
+    fun log(log: String?) {
+        postFromActivity(
+                msg = LComunicateDebug.MsgFromActivity(
+                        type = LComunicateDebug.MsgFromActivity.TYPE_D,
+                        msg = log,
+                        any = null
+                )
+        )
     }
 
-    public static void log(int type, String log) {
-        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(type, log, null));
+    fun log(type: Int, log: String?) {
+        postFromActivity(
+                msg = LComunicateDebug.MsgFromActivity(
+                        type = type,
+                        msg = log,
+                        any = null
+                )
+        )
     }
 
-    public static void log(Object o) {
-        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(LComunicateDebug.MsgFromActivity.TYPE_D, "", o));
+    fun log(o: Any?) {
+        postFromActivity(
+                msg = LComunicateDebug.MsgFromActivity(
+                        type = LComunicateDebug.MsgFromActivity.TYPE_D,
+                        msg = "",
+                        any = o
+                )
+        )
     }
 
-    public static void log(int type, Object o) {
-        LComunicateDebug.postFromActivity(new LComunicateDebug.MsgFromActivity(type, "", o));
+    fun log(type: Int, o: Any?) {
+        postFromActivity(
+                msg = LComunicateDebug.MsgFromActivity(
+                        type = type,
+                        msg = "",
+                        any = o
+                )
+        )
     }
 }

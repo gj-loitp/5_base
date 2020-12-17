@@ -178,12 +178,12 @@ public class LDebugViewService extends Service implements View.OnTouchListener {
         TextView textView = new TextView(this);
         LUIUtil.Companion.setTextSize(textView, LAppResource.INSTANCE.getDimenValue(R.dimen.txt_medium));
 
-        if (msgFromActivity.getObject() == null) {
+        if (msgFromActivity.getAny() == null) {
 //            Log.d(logTag, "msgFromActivity.getObject() == null");
             textView.setText(currentTime + " : " + msgFromActivity.getMsg());
         } else {
 //            Log.d(logTag, "msgFromActivity.getObject() != null");
-            LUIUtil.Companion.printBeautyJson(msgFromActivity.getObject(), textView, currentTime);
+            LUIUtil.Companion.printBeautyJson(msgFromActivity.getAny(), textView, currentTime);
         }
 
         LUIUtil.Companion.setTextSize(textView, getBaseContext().getResources().getDimension(R.dimen.text_small));
