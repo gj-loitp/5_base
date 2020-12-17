@@ -1,86 +1,68 @@
-package vn.loitp.app.activity.customviews.layout.swipereveallayout.grid;
+package vn.loitp.app.activity.customviews.layout.swipereveallayout.grid
 
-import android.os.Bundle;
-import android.widget.GridView;
-
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
-
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseFontActivity;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import vn.loitp.app.R;
+import android.os.Bundle
+import android.view.View
+import android.widget.GridView
+import androidx.appcompat.widget.Toolbar
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_swipe_reveal_layout_grid.*
+import vn.loitp.app.R
+import java.util.*
 
 @LogTag("SwipeRevealLayoutGridActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
-public class SwipeRevealLayoutGridActivity extends BaseFontActivity {
-    private GridAdapter adapter;
+class SwipeRevealLayoutGridActivity : BaseFontActivity() {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_swipe_reveal_layout_grid;
+    private var gridAdapter: GridAdapter? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_swipe_reveal_layout_grid
     }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        setupActionBar();
-        setupGrid();
+        setupActionBar()
+        setupGrid()
     }
 
-    @Override
-    protected void onSaveInstanceState(@NotNull Bundle outState) {
-        super.onSaveInstanceState(outState);
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
         // Only if you need to restore open/close state when
         // the orientation is changed
-        if (adapter != null) {
-            adapter.saveStates(outState);
-        }
+        gridAdapter?.saveStates(outState)
     }
 
-    @Override
-    protected void onRestoreInstanceState(@NotNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
         // Only if you need to restore open/close state when
         // the orientation is changed
-        if (adapter != null) {
-            adapter.restoreStates(savedInstanceState);
+        gridAdapter?.restoreStates(savedInstanceState)
+    }
+
+    private fun setupGrid() {
+        gridAdapter = GridAdapter(this, createList(20))
+        gridView.adapter = gridAdapter
+    }
+
+    private fun createList(n: Int): List<String> {
+        val list: MutableList<String> = ArrayList()
+        for (i in 0 until n) {
+            list.add("View $i")
         }
+        return list
     }
 
-    private void setupGrid() {
-        final GridView gridView = findViewById(R.id.gridView);
-        adapter = new GridAdapter(this, createList(20));
-        gridView.setAdapter(adapter);
-    }
-
-    private List<String> createList(int n) {
-        final List<String> list = new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            list.add("View " + i);
-        }
-
-        return list;
-    }
-
-    private void setupActionBar() {
-        final Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-            toolbar.setNavigationOnClickListener(v -> finish());
+    private fun setupActionBar() {
+        setSupportActionBar(toolbar)
+        supportActionBar?.let {
+            it.setDisplayHomeAsUpEnabled(true)
+            it.setDisplayShowHomeEnabled(true)
+            toolbar.setNavigationOnClickListener {
+                onBackPressed()
+            }
         }
     }
 }

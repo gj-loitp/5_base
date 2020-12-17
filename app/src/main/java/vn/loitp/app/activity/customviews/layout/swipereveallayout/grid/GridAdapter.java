@@ -29,7 +29,7 @@ public class GridAdapter extends ArrayAdapter<String> {
         binderHelper = new ViewBinderHelper();
 
         // uncomment if you want to open only one row at a time
-        // binderHelper.setOpenOnlyOne(true);
+        binderHelper.setOpenOnlyOne(true);
     }
 
     @NotNull
