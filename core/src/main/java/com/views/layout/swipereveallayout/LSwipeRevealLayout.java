@@ -20,6 +20,7 @@ import com.R;
 
 import org.jetbrains.annotations.NotNull;
 
+//17/12/2020 try convert to kotlin but failed
 @SuppressLint("RtlHardcoded")
 public class LSwipeRevealLayout extends ViewGroup {
     // These states are used only for ViewBindHelper
