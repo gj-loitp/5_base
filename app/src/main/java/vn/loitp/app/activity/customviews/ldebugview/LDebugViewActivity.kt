@@ -1,139 +1,90 @@
-package vn.loitp.app.activity.customviews.ldebugview;
+package vn.loitp.app.activity.customviews.ldebugview
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseFontActivity;
-import com.core.base.BaseModel;
-import com.views.ldebugview.LComunicateDebug;
-import com.views.ldebugview.LDebug;
-
-import vn.loitp.app.R;
-import vn.loitp.app.common.Constants;
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import com.core.base.BaseModel
+import com.views.ldebugview.LComunicateDebug
+import com.views.ldebugview.LDebug
+import kotlinx.android.synthetic.main.activity_l_debugview.*
+import vn.loitp.app.R
+import vn.loitp.app.common.Constants.Companion.URL_IMG
+import vn.loitp.app.common.Constants.Companion.URL_IMG_2
 
 @LogTag("LDebugViewActivity")
 @IsFullScreen(false)
-public class LDebugViewActivity extends BaseFontActivity implements OnClickListener {
-    private Button btStart;
-    private Button btStop;
-    private Button btSendD;
-    private Button btSendI;
-    private Button btSendE;
-    private Button btSendObjectD;
+class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_l_debugview;
+    private class User : BaseModel() {
+        var avatar: String? = null
+        var address: String? = null
+        var cover: String? = null
+        var email: String? = null
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setupViews();
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_l_debugview
     }
 
-    private void setupViews() {
-        btStart = findViewById(R.id.btStart);
-        btStop = findViewById(R.id.bt_stop);
-        btSendD = findViewById(R.id.bt_send_d);
-        btSendI = findViewById(R.id.bt_send_i);
-        btSendE = findViewById(R.id.bt_send_e);
-        btSendObjectD = findViewById(R.id.bt_send_object_d);
-        btStart.setOnClickListener(this);
-        btStop.setOnClickListener(this);
-        btSendD.setOnClickListener(this);
-        btSendI.setOnClickListener(this);
-        btSendE.setOnClickListener(this);
-        btSendObjectD.setOnClickListener(this);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setupViews()
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        LDebug.checkPermission(this, requestCode, resultCode);
-        super.onActivityResult(requestCode, resultCode, data);
+    private fun setupViews() {
+        btStart.setOnClickListener(this)
+        btStop.setOnClickListener(this)
+        btSendD.setOnClickListener(this)
+        btSendI.setOnClickListener(this)
+        btSendE.setOnClickListener(this)
+        btSendObjectD.setOnClickListener(this)
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btStart:
-                LDebug.init(this);
-                btStop.setEnabled(true);
-                btSendD.setEnabled(true);
-                btSendI.setEnabled(true);
-                btSendE.setEnabled(true);
-                btSendObjectD.setEnabled(true);
-                break;
-            case R.id.bt_stop:
-                LDebug.stop();
-                btStop.setEnabled(false);
-                btSendD.setEnabled(false);
-                btSendI.setEnabled(false);
-                btSendE.setEnabled(false);
-                btSendObjectD.setEnabled(false);
-                break;
-            case R.id.bt_send_d:
-                LDebug.INSTANCE.log("Sample d: " + System.currentTimeMillis());
-                break;
-            case R.id.bt_send_i:
-                LDebug.INSTANCE.log(LComunicateDebug.MsgFromActivity.TYPE_I, "Sample i: " + System.currentTimeMillis());
-                break;
-            case R.id.bt_send_e:
-                LDebug.INSTANCE.log(LComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis());
-                break;
-            case R.id.bt_send_object_d:
-                User user = new User();
-                user.setAvatar(Constants.Companion.getURL_IMG());
-                user.setAddress("Address");
-                user.setCover(Constants.Companion.getURL_IMG_2());
-                user.setEmail("www.muathu@gmail.com");
-                LDebug.INSTANCE.log(user);
-                break;
-        }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        LDebug.checkPermission(activity = this, requestCode = requestCode, resultCode = resultCode)
     }
 
-    public static class User extends BaseModel {
-        private String avatar;
-        private String address;
-        private String cover;
-        private String email;
-
-        public String getAvatar() {
-            return avatar;
-        }
-
-        public void setAvatar(String avatar) {
-            this.avatar = avatar;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public void setAddress(String address) {
-            this.address = address;
-        }
-
-        public String getCover() {
-            return cover;
-        }
-
-        public void setCover(String cover) {
-            this.cover = cover;
-        }
-
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
+    override fun onClick(v: View) {
+        when (v) {
+            btStart -> {
+                LDebug.init(this)
+                btStop.isEnabled = true
+                btSendD.isEnabled = true
+                btSendI.isEnabled = true
+                btSendE.isEnabled = true
+                btSendObjectD.isEnabled = true
+            }
+            btStop -> {
+                LDebug.stop()
+                btStop.isEnabled = false
+                btSendD.isEnabled = false
+                btSendI.isEnabled = false
+                btSendE.isEnabled = false
+                btSendObjectD.isEnabled = false
+            }
+            btSendD -> {
+                LDebug.log("Sample d: " + System.currentTimeMillis())
+            }
+            btSendI -> {
+                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_I, "Sample i: " + System.currentTimeMillis())
+            }
+            btSendE -> {
+                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis())
+            }
+            btSendObjectD -> {
+                val user = User()
+                user.avatar = URL_IMG
+                user.address = "Address"
+                user.cover = URL_IMG_2
+                user.email = "www.muathu@gmail.com"
+                LDebug.log(user)
+            }
         }
     }
 }

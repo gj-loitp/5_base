@@ -23,43 +23,42 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStart"
                 style="@style/ButtonMenu"
-                android:text="Start" />
+                android:text="@string/start" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_stop"
+                android:id="@+id/btStop"
                 style="@style/ButtonMenu"
                 android:enabled="false"
-                android:text="Stop" />
+                android:text="@string/stop" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_send_d"
+                android:id="@+id/btSendD"
                 style="@style/ButtonMenu"
                 android:enabled="false"
-                android:text="Send log d" />
+                android:text="@string/send_log_d" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_send_i"
+                android:id="@+id/btSendI"
                 style="@style/ButtonMenu"
                 android:enabled="false"
-                android:text="Send log i" />
+                android:text="@string/send_log_i" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_send_e"
+                android:id="@+id/btSendE"
                 style="@style/ButtonMenu"
                 android:enabled="false"
-                android:text="Send log e" />
+                android:text="@string/send_log_e" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt_send_object_d"
+                android:id="@+id/btSendObjectD"
                 style="@style/ButtonMenu"
                 android:enabled="false"
-                android:text="Send log d - object" />
+                android:text="@string/send_log_d_object" />
         </LinearLayout>
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="LDebugView" />
+        android:text="@string/ldebugview" />
 </RelativeLayout>
-
