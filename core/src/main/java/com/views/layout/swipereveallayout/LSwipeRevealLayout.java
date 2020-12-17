@@ -60,22 +60,22 @@ public class LSwipeRevealLayout extends ViewGroup {
     /**
      * The rectangle position of the main view when the layout is closed.
      */
-    private Rect mRectMainClose = new Rect();
+    private final Rect mRectMainClose = new Rect();
 
     /**
      * The rectangle position of the main view when the layout is opened.
      */
-    private Rect mRectMainOpen = new Rect();
+    private final Rect mRectMainOpen = new Rect();
 
     /**
      * The rectangle position of the secondary view when the layout is closed.
      */
-    private Rect mRectSecClose = new Rect();
+    private final Rect mRectSecClose = new Rect();
 
     /**
      * The rectangle position of the secondary view when the layout is opened.
      */
-    private Rect mRectSecOpen = new Rect();
+    private final Rect mRectSecOpen = new Rect();
 
     /**
      * The minimum distance (px) to the closest drag edge that the SwipeRevealLayout
@@ -214,7 +214,6 @@ public class LSwipeRevealLayout extends ViewGroup {
     /**
      * {@inheritDoc}
      */
-    @SuppressWarnings("ConstantConditions")
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         mAborted = false;
@@ -239,10 +238,8 @@ public class LSwipeRevealLayout extends ViewGroup {
             boolean matchParentWidth = false;
 
             if (childParams != null) {
-                matchParentHeight = (childParams.height == LayoutParams.MATCH_PARENT) ||
-                        (childParams.height == LayoutParams.FILL_PARENT);
-                matchParentWidth = (childParams.width == LayoutParams.MATCH_PARENT) ||
-                        (childParams.width == LayoutParams.FILL_PARENT);
+                matchParentHeight = (childParams.height == LayoutParams.MATCH_PARENT) || (childParams.height == LayoutParams.FILL_PARENT);
+                matchParentWidth = (childParams.width == LayoutParams.MATCH_PARENT) || (childParams.width == LayoutParams.FILL_PARENT);
             }
 
             if (matchParentHeight) {
@@ -385,7 +382,7 @@ public class LSwipeRevealLayout extends ViewGroup {
             }
 
             if (widthMode == MeasureSpec.AT_MOST) {
-                desiredWidth = (desiredWidth > measuredWidth) ? measuredWidth : desiredWidth;
+                desiredWidth = Math.min(desiredWidth, measuredWidth);
             }
         }
 
@@ -398,7 +395,7 @@ public class LSwipeRevealLayout extends ViewGroup {
             }
 
             if (heightMode == MeasureSpec.AT_MOST) {
-                desiredHeight = (desiredHeight > measuredHeight) ? measuredHeight : desiredHeight;
+                desiredHeight = Math.min(desiredHeight, measuredHeight);
             }
         }
 
