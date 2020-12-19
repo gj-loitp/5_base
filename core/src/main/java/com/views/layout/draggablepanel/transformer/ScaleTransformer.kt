@@ -33,8 +33,8 @@ internal class ScaleTransformer(
      * @param verticalDragOffset used to calculate the new position.
      */
     override fun updatePosition(verticalDragOffset: Float) {
-        ViewHelper.setPivotX(mView, (mView.width - getmMarginRight()).toFloat())
-        ViewHelper.setPivotY(mView, (mView.height - marginBottom).toFloat())
+        ViewHelper.setPivotX(mView, (mView.width - getMMarginRight()).toFloat())
+        ViewHelper.setPivotY(mView, (mView.height - getMMarginBottom()).toFloat())
     }
 
     /**
@@ -56,7 +56,7 @@ internal class ScaleTransformer(
      * width.
      */
     override fun isNextToLeftBound(): Boolean {
-        return mView.right - getmMarginRight() < parentView.width * 0.6
+        return mView.right - getMMarginRight() < parentView.width * 0.6
     }
 
     /**
@@ -64,7 +64,7 @@ internal class ScaleTransformer(
      * five percent of the parent view width.
      */
     override fun isNextToRightBound(): Boolean {
-        return mView.right - getmMarginRight() > parentView.width * 1.25
+        return mView.right - getMMarginRight() > parentView.width * 1.25
     }
 
     /**

@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2014 Pedro Vicente Gómez Sánchez.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.views.layout.draggablepanel.transformer;
 
 import android.view.View;
@@ -40,7 +25,7 @@ public abstract class Transformer {
     private final View mParent;
 
     private int mMarginRight;
-    private int marginBottom;
+    private int mMarginBottom;
 
     private float mXScaleFactor;
     private float mYScaleFactor;
@@ -69,20 +54,30 @@ public abstract class Transformer {
         this.mYScaleFactor = yScaleFactor;
     }
 
-    public int getmMarginRight() {
+    public int getMMarginRight() {
         return mMarginRight;
     }
 
-    public void setmMarginRight(int mMarginRight) {
+    public void setMMarginRight(int mMarginRight) {
         this.mMarginRight = Math.round(mMarginRight);
     }
 
-    public int getMarginBottom() {
-        return marginBottom;
+    public int getMMarginBottom() {
+        return mMarginBottom;
     }
 
-    public void setMarginBottom(int marginBottom) {
-        this.marginBottom = Math.round(marginBottom);
+    public void setMMarginBottom(int mMarginBottom) {
+        this.mMarginBottom = Math.round(mMarginBottom);
+    }
+
+    /**
+     * @return height of the view before it has change the size.
+     */
+    public int getMOriginalHeight() {
+        if (mOriginalHeight == 0) {
+            mOriginalHeight = mView.getMeasuredHeight();
+        }
+        return mOriginalHeight;
     }
 
     /**
@@ -90,7 +85,7 @@ public abstract class Transformer {
      *
      * @param newHeight to change..
      */
-    public void setViewHeight(int newHeight) {
+    public void setMOriginalHeight(int newHeight) {
         if (newHeight > 0) {
             mOriginalHeight = newHeight;
             RelativeLayout.LayoutParams layoutParams =
@@ -111,16 +106,6 @@ public abstract class Transformer {
     public abstract void updatePosition(float verticalDragOffset);
 
     public abstract void updateScale(float verticalDragOffset);
-
-    /**
-     * @return height of the view before it has change the size.
-     */
-    public int getMOriginalHeight() {
-        if (mOriginalHeight == 0) {
-            mOriginalHeight = mView.getMeasuredHeight();
-        }
-        return mOriginalHeight;
-    }
 
     /**
      * @return width of the view before it has change the size.

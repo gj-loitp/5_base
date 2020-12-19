@@ -170,14 +170,14 @@ public class DraggableView extends RelativeLayout {
      * @param topFragmentMarginRight in pixels.
      */
     public void setTopViewMarginRight(int topFragmentMarginRight) {
-        transformer.setmMarginRight(topFragmentMarginRight);
+        transformer.setMMarginRight(topFragmentMarginRight);
     }
 
     /**
      * Configure the dragView margin bottom applied when the dragView is minimized.
      */
     public void setTopViewMarginBottom(int topFragmentMarginBottom) {
-        transformer.setMarginBottom(topFragmentMarginBottom);
+        transformer.setMMarginBottom(topFragmentMarginBottom);
     }
 
     /**
@@ -186,7 +186,7 @@ public class DraggableView extends RelativeLayout {
      * @param topFragmentHeight in pixels
      */
     public void setTopViewHeight(int topFragmentHeight) {
-        transformer.setViewHeight(topFragmentHeight);
+        transformer.setMOriginalHeight(topFragmentHeight);
     }
 
     /**
@@ -629,11 +629,11 @@ public class DraggableView extends RelativeLayout {
     private void initializeTransformer() {
         TransformerFactory transformerFactory = new TransformerFactory();
         transformer = transformerFactory.getTransformer(topViewResize, dragView, this);
-        transformer.setViewHeight(topViewHeight);
+        transformer.setMOriginalHeight(topViewHeight);
         transformer.setXScaleFactor(scaleFactorX);
         transformer.setYScaleFactor(scaleFactorY);
-        transformer.setmMarginRight(marginRight);
-        transformer.setMarginBottom(marginBottom);
+        transformer.setMMarginRight(marginRight);
+        transformer.setMMarginBottom(marginBottom);
     }
 
     /**
@@ -693,14 +693,14 @@ public class DraggableView extends RelativeLayout {
      * @return configured dragged view margin right configured.
      */
     private int getDragViewMarginRight() {
-        return transformer.getmMarginRight();
+        return transformer.getMMarginRight();
     }
 
     /**
      * @return configured dragged view margin bottom.
      */
     private int getDragViewMarginBottom() {
-        return transformer.getMarginBottom();
+        return transformer.getMMarginBottom();
     }
 
     /**
