@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
@@ -19,7 +19,7 @@ class BookAdapter(private val context: Context,
                   private val column: Int,
                   private val moviesList: MutableList<Movie>,
                   private val callback: Callback?) :
-        AnimationAdapter() {
+        BaseAdapter() {
 
     private val sizeW: Int = LScreenUtil.screenWidth / column
     private val sizeH: Int
@@ -89,7 +89,6 @@ class BookAdapter(private val context: Context,
                 callback?.onLoadMore()
             }
 
-            setAnimation(viewToAnimate = itemView.imageView, position = bindingAdapterPosition)
         }
     }
 

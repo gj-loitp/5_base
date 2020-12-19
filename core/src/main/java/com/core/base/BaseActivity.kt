@@ -21,6 +21,7 @@ import com.google.android.gms.ads.InterstitialAd
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
+import com.views.bottomsheet.BottomSheetOptionFragment
 import com.views.smoothtransition.SwitchAnimationUtil
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
@@ -322,5 +323,34 @@ abstract class BaseActivity : AppCompatActivity() {
         logTag?.let {
             LLog.e(it, msg)
         }
+    }
+
+    fun showBottomSheetOptionFragment(
+            isCancelableFragment: Boolean = true,
+            isShowIvClose: Boolean = true,
+            title: String,
+            message: String,
+            textButton1: String? = null,
+            textButton2: String? = null,
+            textButton3: String? = null,
+            onClickButton1: ((Unit) -> Unit)? = null,
+            onClickButton2: ((Unit) -> Unit)? = null,
+            onClickButton3: ((Unit) -> Unit)? = null,
+            onDismiss: ((Unit) -> Unit)? = null
+    ) {
+        val bottomSheetOptionFragment = BottomSheetOptionFragment(
+                isCancelableFragment = isCancelableFragment,
+                isShowIvClose = isShowIvClose,
+                title = title,
+                message = message,
+                textButton1 = textButton1,
+                textButton2 = textButton2,
+                textButton3 = textButton3,
+                onClickButton1 = onClickButton1,
+                onClickButton2 = onClickButton2,
+                onClickButton3 = onClickButton3,
+                onDismiss = onDismiss
+        )
+        bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
     }
 }

@@ -1,6 +1,7 @@
 package com.views.recyclerview.recyclertablayout;
 
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -21,7 +22,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.R;
-//TODO convert kotlin
+
+import org.jetbrains.annotations.NotNull;
+
 public class RecyclerTabLayout extends RecyclerView {
 
     protected static final long DEFAULT_SCROLL_DURATION = 200;
@@ -83,7 +86,7 @@ public class RecyclerTabLayout extends RecyclerView {
     }
 
     private void getAttributes(Context context, AttributeSet attrs, int defStyle) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.rtl_RecyclerTabLayout,
+        @SuppressLint("CustomViewStyleable") TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.rtl_RecyclerTabLayout,
                 defStyle, R.style.rtl_RecyclerTabLayout);
         setIndicatorColor(a.getColor(R.styleable
                 .rtl_RecyclerTabLayout_rtl_tabIndicatorColor, 0));
@@ -214,12 +217,9 @@ public class RecyclerTabLayout extends RecyclerView {
             animator = ValueAnimator.ofFloat(-distance, 0);
         }
         animator.setDuration(DEFAULT_SCROLL_DURATION);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                scrollToTab(position, (float) animation.getAnimatedValue(), true);
-            }
-        });
+        animator.addUpdateListener(animation ->
+                scrollToTab(position, (float) animation.getAnimatedValue(), true)
+        );
         animator.start();
     }
 
@@ -357,12 +357,12 @@ public class RecyclerTabLayout extends RecyclerView {
         public int mDx;
 
         @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
             mDx += dx;
         }
 
         @Override
-        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+        public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
             switch (newState) {
                 case SCROLL_STATE_IDLE:
                     if (mDx > 0) {
@@ -477,6 +477,7 @@ public class RecyclerTabLayout extends RecyclerView {
             super(viewPager);
         }
 
+        @NotNull
         @SuppressWarnings("deprecation")
         @Override
         public DefaultAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -577,13 +578,10 @@ public class RecyclerTabLayout extends RecyclerView {
             public ViewHolder(View itemView) {
                 super(itemView);
                 title = (TextView) itemView;
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        int pos = getAdapterPosition();
-                        if (pos != NO_POSITION) {
-                            getViewPager().setCurrentItem(pos, true);
-                        }
+                itemView.setOnClickListener(v -> {
+                    int pos = getBindingAdapterPosition();
+                    if (pos != NO_POSITION) {
+                        getViewPager().setCurrentItem(pos, true);
                     }
                 });
             }

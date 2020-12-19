@@ -1,11 +1,14 @@
 package vn.loitp.app.activity.customviews.recyclerview.diffutil
 
 import android.os.Bundle
+import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.google.ads.interactivemedia.v3.internal.it
+import jp.wasabeef.recyclerview.adapters.*
 import kotlinx.android.synthetic.main.activity_recycler_view_diff_util.*
 import vn.loitp.app.R
 import java.util.*
@@ -41,7 +44,20 @@ class DiffUtilActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         rv.layoutManager = GridLayoutManager(this, 3)
-        rv.adapter = adapter
+
+//        rv.adapter = adapter
+
+        val scaleAdapter = AlphaInAnimationAdapter(adapter)
+//        val scaleAdapter = ScaleInAnimationAdapter(it)
+//        val scaleAdapter = SlideInBottomAnimationAdapter(it)
+//        val scaleAdapter = SlideInLeftAnimationAdapter(it)
+//        val scaleAdapter = SlideInRightAnimationAdapter(it)
+
+        scaleAdapter.setDuration(1000)
+        scaleAdapter.setInterpolator(OvershootInterpolator())
+        scaleAdapter.setFirstOnly(true)
+        rv.adapter = scaleAdapter
+
         for (i in 1..10) {
             items.add(Content(i, "Item $i", Constants.URL_IMG_ANDROID))
         }

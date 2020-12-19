@@ -10,6 +10,8 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.views.LToast.show
+import com.views.bottomsheet.BottomSheetOptionFragment
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
 import vn.loitp.app.R
@@ -17,7 +19,7 @@ import vn.loitp.app.R
 @LogTag("BottomSheetMenuActivity")
 @IsFullScreen(false)
 class BottomSheetMenuActivity : BaseFontActivity() {
-    private var sheetBehavior: BottomSheetBehavior<*>? = null
+    private var bottomSheetBehavior: BottomSheetBehavior<*>? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_bottomsheet_menu
@@ -26,18 +28,16 @@ class BottomSheetMenuActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        click0()
-        click1()
-        click2()
+        setupViews()
     }
 
     @SuppressLint("SetTextI18n")
-    private fun click0() {
-        btPayment.setOnClickListener {
+    private fun setupViews() {
+        btPayment.setSafeOnClickListener {
             show("Click layoutBottomSheet R.id.bt_payment")
         }
-        sheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
-        sheetBehavior?.setBottomSheetCallback(object : BottomSheetCallback() {
+        bottomSheetBehavior = BottomSheetBehavior.from(layoutBottomSheet)
+        bottomSheetBehavior?.addBottomSheetCallback(object : BottomSheetCallback() {
             @SuppressLint("SetTextI18n")
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
@@ -68,8 +68,8 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                 logD("onSlide $slideOffset")
             }
         })
-        bt0.setOnClickListener {
-            sheetBehavior?.let { bsb ->
+        bt0.setSafeOnClickListener {
+            bottomSheetBehavior?.let { bsb ->
                 if (bsb.state != BottomSheetBehavior.STATE_EXPANDED) {
                     bsb.state = BottomSheetBehavior.STATE_EXPANDED
                     bt0.text = "Close sheet"
@@ -79,21 +79,82 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                 }
             }
         }
-    }
-
-    private fun click1() {
-        bt1.setOnClickListener {
+        bt1.setSafeOnClickListener {
             @SuppressLint("InflateParams") val view = layoutInflater.inflate(R.layout.fragment_bottom_sheet_dialog, null)
             val dialog = BottomSheetDialog(this)
             dialog.setContentView(view)
             dialog.show()
         }
-    }
-
-    private fun click2() {
-        bt2.setOnClickListener {
+        bt2.setSafeOnClickListener {
             val bottomSheetFragment = BottomSheetFragment()
             bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
         }
+        bt1Option.setSafeOnClickListener {
+            showBottomSheetOptionFragment(
+                    isCancelableFragment = true,
+                    isShowIvClose = true,
+                    title = "Title",
+                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                    textButton1 = "OK",
+                    onClickButton1 = {
+                        showShortInformation("onClickButton1")
+                        logD("onClickButton1")
+                    },
+                    onDismiss = {
+                        showShortInformation("onDismiss")
+                        logD("onDismiss")
+                    }
+            )
+        }
+        bt2Option.setSafeOnClickListener {
+            showBottomSheetOptionFragment(
+                    isCancelableFragment = true,
+                    isShowIvClose = true,
+                    title = "Title",
+                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                    textButton1 = "OK",
+                    textButton2 = "Cancel",
+                    onClickButton1 = {
+                        showShortInformation("onClickButton1")
+                        logD("onClickButton1")
+                    },
+                    onClickButton2 = {
+                        showShortInformation("onClickButton2")
+                        logD("onClickButton2")
+                    },
+                    onDismiss = {
+                        showShortInformation("onDismiss")
+                        logD("onDismiss")
+                    }
+            )
+        }
+        bt3Option.setSafeOnClickListener {
+            showBottomSheetOptionFragment(
+                    isCancelableFragment = true,
+                    isShowIvClose = true,
+                    title = "Title",
+                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                    textButton1 = "OK",
+                    textButton2 = "Cancel",
+                    textButton3 = "No",
+                    onClickButton1 = {
+                        showShortInformation("onClickButton1")
+                        logD("onClickButton1")
+                    },
+                    onClickButton2 = {
+                        showShortInformation("onClickButton2")
+                        logD("onClickButton2")
+                    },
+                    onClickButton3 = {
+                        showShortInformation("onClickButton3")
+                        logD("onClickButton3")
+                    },
+                    onDismiss = {
+                        showShortInformation("onDismiss")
+                        logD("onDismiss")
+                    }
+            )
+        }
     }
+
 }

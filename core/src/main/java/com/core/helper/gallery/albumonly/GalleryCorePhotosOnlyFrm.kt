@@ -31,6 +31,7 @@ import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
 import java.io.File
 
@@ -64,7 +65,6 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 //        logD("onViewCreated")
         val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
-//        LUIUtil.setTextShadow(tvTitle)
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
             handleException(Exception(getString(R.string.err_unknow)))
@@ -74,14 +74,9 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
 //        logD("photosSize $photosSize")
 
-        /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
-        animator.setAddDuration(1000);
-        recyclerView.setItemAnimator(animator);*/
-
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
 
-        recyclerView.setHasFixedSize(true)
+//        recyclerView.setHasFixedSize(true)
         activity?.let { a ->
             photosOnlyAdapter = PhotosOnlyAdapter(context = a, callback = object : PhotosOnlyAdapter.Callback {
                 override fun onClick(photo: Photo, pos: Int) {
@@ -107,12 +102,19 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                 }
             })
         }
-        recyclerView.adapter = photosOnlyAdapter
-        /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
-        scaleAdapter.setDuration(1000);
-        scaleAdapter.setInterpolator(new OvershootInterpolator());
-        scaleAdapter.setFirstOnly(true);
-        recyclerView.setAdapter(scaleAdapter);*/
+//        recyclerView.adapter = photosOnlyAdapter
+        photosOnlyAdapter?.let {
+//            val animAdapter = AlphaInAnimationAdapter(it)
+//            val animAdapter = ScaleInAnimationAdapter(it)
+            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
+
+            animAdapter.setDuration(1000)
+//            animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            recyclerView.adapter = animAdapter
+        }
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView)
 

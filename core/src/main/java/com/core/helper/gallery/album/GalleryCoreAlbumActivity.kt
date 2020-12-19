@@ -22,10 +22,10 @@ import com.restapi.flickr.model.photosetgetlist.Photoset
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
-import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
-import com.views.recyclerview.animator.animators.SlideInRightAnimator
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import jp.wasabeef.recyclerview.adapters.*
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import java.util.*
 
@@ -91,18 +91,20 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                     }
                 })
 
-        val scaleAdapter = ScaleInAnimationAdapter(albumAdapter)
-        scaleAdapter.apply {
-            setDuration(1000)
-            setInterpolator(OvershootInterpolator())
-            setFirstOnly(true)
+        albumAdapter?.let {
+//            val animAdapter = AlphaInAnimationAdapter(it)
+//            val animAdapter = ScaleInAnimationAdapter(it)
+            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
+
+            animAdapter.setDuration(1000)
+//          animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            recyclerView.adapter = animAdapter
         }
 
-        recyclerView.apply {
-            //this.adapter = scaleAdapter
-            this.adapter = albumAdapter
-            //LUIUtil.setPullLikeIOSVertical(this)
-        }
+//        LUIUtil.setPullLikeIOSVertical(this)
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
             override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {

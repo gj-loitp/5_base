@@ -2,6 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.footer2
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.*
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -10,6 +11,7 @@ import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.views.recyclerview.itemdecoration.StickyFooterItemDecoration
 import com.views.setSafeOnClickListener
+import jp.wasabeef.recyclerview.adapters.*
 import kotlinx.android.synthetic.main.activity_recycler_view_footer_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
@@ -50,8 +52,20 @@ class RecyclerViewFooter2Activity : BaseFontActivity() {
                 })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
-        rv.itemAnimator = DefaultItemAnimator()
-        rv.adapter = footer2Adapter
+//        rv.adapter = footer2Adapter
+        footer2Adapter?.let {
+            val animAdapter = AlphaInAnimationAdapter(it)
+//            val animAdapter = ScaleInAnimationAdapter(it)
+//            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
+
+            animAdapter.setDuration(1000)
+            animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            rv.adapter = animAdapter
+        }
+
         rv.addItemDecoration(StickyFooterItemDecoration())
 
         prepareMovieData()

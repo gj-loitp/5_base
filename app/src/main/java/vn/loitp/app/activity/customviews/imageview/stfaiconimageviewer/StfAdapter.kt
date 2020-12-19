@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_row_item_stf.view.*
 import vn.loitp.app.R
@@ -18,7 +18,7 @@ class StfAdapter(
         private val context: Context,
         private val moviesList: MutableList<Movie>,
         private val callback: Callback?
-) : AnimationAdapter() {
+) : BaseAdapter() {
 
     interface Callback {
         fun onClick(iv: ImageView, movie: Movie, moviesList: MutableList<Movie>, position: Int)
@@ -45,7 +45,6 @@ class StfAdapter(
                 callback?.onLoadMore()
             }
 
-            setAnimation(viewToAnimate = itemView.imageView, position = bindingAdapterPosition)
         }
     }
 

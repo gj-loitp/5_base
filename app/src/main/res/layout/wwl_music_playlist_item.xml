@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/abc_item_background_holo_light"
-    android:paddingLeft="16.0dip"
-    android:paddingRight="12.0dip">
+    android:paddingStart="16.0dip"
+    android:paddingEnd="12.0dip">
 
-    <TextView
-        android:id="@+id/playlist_index"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPlaylistIndex"
         android:layout_width="0.0dip"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -16,18 +16,18 @@
         android:textColor="@android:color/white" />
 
     <com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioFrameLayout
-        android:id="@id/thumbnail_container"
+        android:id="@id/layoutThumbnail"
         android:layout_width="88.0dip"
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="8.0dip"
-        android:layout_marginRight="16.0dip"
         android:layout_marginTop="8.0dip"
-        android:layout_toRightOf="@id/playlist_index"
+        android:layout_marginEnd="16.0dip"
+        android:layout_marginBottom="8.0dip"
+        android:layout_toEndOf="@id/tvPlaylistIndex"
         app:aspectRatio="179.99878%">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -37,13 +37,13 @@
     </com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioFrameLayout>
 
     <FrameLayout
-        android:id="@+id/menu_anchor_container"
+        android:id="@+id/layoutMenuAnchorContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerVertical="true">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/app_name"
@@ -57,11 +57,11 @@
         android:layout_height="wrap_content"
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@id/menu_anchor_container"
-        android:layout_toRightOf="@id/thumbnail_container"
+        android:layout_toStartOf="@id/layoutMenuAnchorContainer"
+        android:layout_toEndOf="@id/layoutThumbnail"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@id/liTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,7 +71,7 @@
             android:textSize="@dimen/medium_font_size"
             android:textStyle="bold" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/liSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

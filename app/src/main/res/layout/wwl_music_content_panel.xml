@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
-        android:text="Home"
+        android:text="@string/home"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_22"
         android:textStyle="bold" />
 
-    <fragment
-        android:id="@+id/home_fragment"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/frmHome"
         android:name="vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLHomeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

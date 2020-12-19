@@ -24,7 +24,6 @@ import android.view.View;
  * @author Pedro Vicente Gómez Sánchez
  */
 
-//TODO convert kotlin
 public class TransformerFactory {
 
     public Transformer getTransformer(final boolean resize, final View view, final View parent) {

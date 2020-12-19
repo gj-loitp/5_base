@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalwithspansize
 
 import android.os.Bundle
+import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
@@ -8,6 +9,9 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
@@ -40,8 +44,20 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
         })
         val gridLayoutManager = GridLayoutManager(this, 2)
         rv.layoutManager = gridLayoutManager
-        rv.itemAnimator = DefaultItemAnimator()
-        rv.adapter = moviesAdapter
+//        rv.itemAnimator = DefaultItemAnimator()
+//        rv.adapter = moviesAdapter
+        moviesAdapter?.let {
+            val animAdapter = AlphaInAnimationAdapter(it)
+//            val animAdapter = ScaleInAnimationAdapter(it)
+//            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
+
+            animAdapter.setDuration(1000)
+            animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            rv.adapter = animAdapter
+        }
         gridLayoutManager.spanSizeLookup = object : SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
                 return if (position % 5 == 0) {

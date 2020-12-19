@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,8 +11,8 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
-import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter
-import com.views.recyclerview.animator.animators.SlideInRightAnimator
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
@@ -42,7 +41,6 @@ class RecyclerViewActivity : BaseFontActivity() {
         val animator = SlideInRightAnimator(OvershootInterpolator(1f))
         animator.addDuration = 300
         rv.itemAnimator = animator
-        //rv.getItemAnimator().setAddDuration(1000);
         btAdd3.setOnClickListener {
             val movie = Movie()
             movie.title = "Add TITLE 3"
@@ -76,20 +74,13 @@ class RecyclerViewActivity : BaseFontActivity() {
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
 
-        //rv.setAdapter(mAdapter);
-
-        //AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
-        //alphaAdapter.setDuration(1000);
-        //alphaAdapter.setInterpolator(new OvershootInterpolator());
-        //alphaAdapter.setFirstOnly(true);
-        //recyclerView.setAdapter(alphaAdapter);
-
-        val scaleAdapter = ScaleInAnimationAdapter(moviesAdapter)
-        scaleAdapter.setDuration(1000)
-        scaleAdapter.setInterpolator(OvershootInterpolator())
-        scaleAdapter.setFirstOnly(true)
-        rv.adapter = scaleAdapter
-        //LUIUtil.setPullLikeIOSVertical(recyclerView = rv)
+        moviesAdapter?.let {
+            val scaleAdapter = ScaleInAnimationAdapter(it)
+            scaleAdapter.setDuration(1000)
+            scaleAdapter.setInterpolator(OvershootInterpolator())
+            scaleAdapter.setFirstOnly(true)
+            rv.adapter = scaleAdapter
+        }
         prepareMovieData()
         btSetting.setOnClickListener {
             LPopupMenu.show(activity = this,

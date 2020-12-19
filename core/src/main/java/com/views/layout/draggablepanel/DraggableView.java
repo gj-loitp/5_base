@@ -20,7 +20,6 @@ import com.views.layout.draggablepanel.transformer.Transformer;
 import com.views.layout.draggablepanel.transformer.TransformerFactory;
 
 //https://github.com/pedrovgs/DraggablePanel
-//TODO convert kotlin
 public class DraggableView extends RelativeLayout {
 
     private static final int DEFAULT_SCALE_FACTOR = 2;

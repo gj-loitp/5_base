@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/controls_layout"
+        android:id="@+id/layoutControls"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="UselessParent">
@@ -23,7 +23,7 @@
             android:background="@drawable/player_top_bar" />
 
         <LinearLayout
-            android:id="@+id/bottom_end_container"
+            android:id="@+id/layoutBottomEndContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -32,7 +32,7 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/fullscreen_button"
+                android:id="@+id/btFullscreen"
                 style="@style/PlayerButton"
                 android:layout_width="48.0dip"
                 android:layout_height="48.0dip"
@@ -42,7 +42,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/player_collapse_button"
+            android:id="@+id/btPlayerCollapse"
             style="@style/PlayerButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

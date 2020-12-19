@@ -21,13 +21,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_transformation_poster_menu.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationDetailActivity
 
-class PosterMenuAdapter : AnimationAdapter() {
+class PosterMenuAdapter : BaseAdapter() {
 
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
@@ -66,7 +66,6 @@ class PosterMenuAdapter : AnimationAdapter() {
                 }
             }
 
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 }

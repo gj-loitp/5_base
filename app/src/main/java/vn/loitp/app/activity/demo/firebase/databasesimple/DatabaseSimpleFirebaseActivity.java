@@ -16,14 +16,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.views.recyclerview.animator.adapters.ScaleInAnimationAdapter;
-import com.views.recyclerview.animator.animators.SlideInRightAnimator;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.SlideInRightAnimator;
 import vn.loitp.app.R;
 import vn.loitp.app.common.Constants;
 

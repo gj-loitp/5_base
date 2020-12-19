@@ -2,12 +2,17 @@ package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsin
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.*
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInLeftAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
@@ -50,8 +55,22 @@ class RecyclerViewWithSingletonDataActivity : BaseFontActivity() {
                 })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
-        rv.itemAnimator = DefaultItemAnimator()
-        rv.adapter = mAdapter
+//        rv.itemAnimator = DefaultItemAnimator()
+//        rv.adapter = mAdapter
+
+        mAdapter?.let {
+//            val animAdapter = AlphaInAnimationAdapter(it)
+            val animAdapter = ScaleInAnimationAdapter(it)
+//            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
+
+            animAdapter.setDuration(1000)
+            animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            rv.adapter = animAdapter
+        }
+
         //LUIUtil.setPullLikeIOSVertical(rv)
         prepareMovieData()
         btSetting.setOnClickListener {

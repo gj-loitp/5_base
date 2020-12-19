@@ -27,5 +27,5 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Scroll number" />
+        android:text="@string/scroll_number" />
 </RelativeLayout>

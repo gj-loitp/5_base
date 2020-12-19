@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_news.view.*
@@ -16,7 +16,7 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.N
 @LogTag("NewsAdapter")
 class NewsAdapter(
         private val listNews: ArrayList<News>
-) : AnimationAdapter() {
+) : BaseAdapter() {
 
     var onClickRootListener: ((News, Int) -> Unit)? = null
 
@@ -34,7 +34,6 @@ class NewsAdapter(
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(news, bindingAdapterPosition)
             }
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

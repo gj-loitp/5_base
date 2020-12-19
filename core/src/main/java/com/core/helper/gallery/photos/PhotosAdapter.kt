@@ -13,7 +13,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
  */
 @LogTag("PhotosAdapter")
 class PhotosAdapter internal constructor(private val context: Context, private val callback: Callback?)
-    : AnimationAdapter() {
+    : BaseAdapter() {
 
     val color = if (LUIUtil.isDarkTheme()) {
         R.color.dark900
@@ -66,7 +66,6 @@ class PhotosAdapter internal constructor(private val context: Context, private v
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
                             itemView.tvSize?.visibility = View.VISIBLE
-                            setAnimation(viewToAnimate = itemView.layoutRootView, position = bindingAdapterPosition)
                             return false
                         }
                     })

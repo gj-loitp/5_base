@@ -1,9 +1,5 @@
 package com.views.scratchview;
 
-/**
- * Created by www.muathu@gmail.com on 1/22/2018.
- */
-
 import android.graphics.Bitmap;
 
 import java.nio.ByteBuffer;
@@ -11,7 +7,6 @@ import java.nio.ByteBuffer;
 /**
  * Created by sharish on 15/09/16.
  */
-//TODO convert kotlin
 public class BitmapUtils {
 
     /**
@@ -69,8 +64,8 @@ public class BitmapUtils {
         int len = array.length;
         int count = 0;
 
-        for (int i = 0; i < len; i++) {
-            if (array[i] == 0) {
+        for (byte b : array) {
+            if (b == 0) {
                 count++;
             }
         }

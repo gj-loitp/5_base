@@ -506,4 +506,16 @@ Likewise may someone love you next.
     <string name="radius_shadow">Radius shadow</string>
     <string name="title">Title</string>
     <string name="loltube">LOLTube</string>
+    <string name="home">Home</string>
+    <string name="subtitle">Subtitle</string>
+    <string name="recycler_tablayout">Recycler tablayout</string>
+    <string name="show_bottom_sheet">Show bottom sheet</string>
+    <string name="show_bottom_sheet_dialog">Show bottom sheet dialog</string>
+    <string name="show_bottom_sheet_dialog_fragment">Show bottom sheet dialog fragment</string>
+    <string name="menu_bottomsheet">Menu BottomSheet</string>
+    <string name="stop">Stop</string>
+    <string name="send_log_i">Send log i</string>
+    <string name="send_log_e">Send log e</string>
+    <string name="send_log_d_object">Send log d - object</string>
+    <string name="send_log_d">Send log d</string>
 </resources>

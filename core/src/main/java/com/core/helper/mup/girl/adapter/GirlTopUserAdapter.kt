@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.BuildConfig
 import com.R
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.common.Constants
 import com.core.helper.mup.girl.model.GirlTopUser
 import com.core.helper.mup.girl.view.ViewGirlTopUser
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.view_girl_top_user.view.*
 import kotlinx.android.synthetic.main.view_row_girl_top_user.view.*
 
 @LogTag("GirlTopUserAdapter")
-class GirlTopUserAdapter : AnimationAdapter() {
+class GirlTopUserAdapter : BaseAdapter() {
 
     private val listGirlTopUser = ArrayList<GirlTopUser>()
     var onClickRootView: ((GirlTopUser) -> Unit?)? = null

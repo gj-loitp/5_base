@@ -1,56 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioRelativeLayout
-        android:id="@+id/thumbnail_container"
+        android:id="@+id/layoutThumbnail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="16.0dip"
         android:paddingLeft="0.0dip"
-        android:paddingRight="0.0dip"
         android:paddingTop="0.0dip"
+        android:paddingRight="0.0dip"
+        android:paddingBottom="16.0dip"
         app:aspectRatio="179.99878%">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             android:src="@drawable/iv" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
             android:layout_alignWithParentIfMissing="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_margin="8.0dip"
             android:ellipsize="end"
             android:importantForAccessibility="no"
             android:includeFontPadding="false"
-            android:paddingBottom="6.0dip"
             android:paddingLeft="8.0dip"
-            android:paddingRight="8.0dip"
             android:paddingTop="6.0dip"
+            android:paddingRight="8.0dip"
+            android:paddingBottom="6.0dip"
             android:text="5:27"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/txt_22" />
+            android:textSize="@dimen/txt_22"
+            tools:ignore="HardcodedText" />
 
     </com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioRelativeLayout>
 
     <FrameLayout
-        android:id="@+id/avatar_container"
+        android:id="@+id/layoutAvatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/thumbnail_container"
-        android:paddingLeft="0.0dip"
-        android:paddingRight="16.0dip">
+        android:layout_below="@id/layoutThumbnail"
+        android:paddingStart="0.0dip"
+        android:paddingEnd="16.0dip">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="40.0dip"
             android:layout_height="40.0dip"
             android:contentDescription="@string/app_name"
@@ -61,14 +63,15 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/thumbnail_container"
-        android:layout_marginLeft="0.0dip"
+        android:layout_below="@+id/layoutThumbnail"
+        android:layout_marginStart="0.0dip"
         android:layout_marginTop="0.0dip"
-        android:layout_toRightOf="@+id/avatar_container"
+        android:layout_toEndOf="@+id/layoutAvatar"
         android:gravity="top"
-        android:paddingRight="40.0dip">
+        android:paddingStart="0dp"
+        android:paddingEnd="40.0dip">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/liTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,11 +81,11 @@
             android:includeFontPadding="false"
             android:maxLines="2"
             android:paddingBottom="2.0dip"
-            android:text="Title"
+            android:text="@string/title"
             android:textColor="@color/white"
             android:textSize="16.0sp" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/liSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,18 +95,18 @@
             android:importantForAccessibility="no"
             android:includeFontPadding="false"
             android:paddingTop="2.0dip"
-            android:text="LOLTube"
+            android:text="@string/loltube"
             android:textColor="@color/white"
             android:textSize="14.0sp" />
     </RelativeLayout>
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="48.0dip"
         android:layout_height="48.0dip"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/thumbnail_container"
-        android:layout_marginRight="-16.0dip"
+        android:layout_below="@id/layoutThumbnail"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="-16.0dp"
+        android:layout_marginEnd="-16.0dip"
         android:contentDescription="@string/app_name"
         android:scaleType="center"
         android:src="@drawable/ic_more_vert_grey" />

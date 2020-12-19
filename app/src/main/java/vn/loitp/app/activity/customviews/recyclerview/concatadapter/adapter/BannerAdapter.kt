@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.view_row_item_banner.view.*
 import vn.loitp.app.R
@@ -14,7 +14,7 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.B
 @LogTag("BannerAdapter")
 class BannerAdapter(
         private val listBanner: ArrayList<Banner>
-) : AnimationAdapter() {
+) : BaseAdapter() {
 
     fun setData(listBanner: ArrayList<Banner>) {
         this.listBanner.clear()
@@ -28,7 +28,6 @@ class BannerAdapter(
                     context = itemView.imageViewBanner.context,
                     any = user.bannerImage,
                     imageView = itemView.imageViewBanner)
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
