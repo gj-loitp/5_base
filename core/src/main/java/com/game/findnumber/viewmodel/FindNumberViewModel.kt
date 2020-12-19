@@ -32,12 +32,12 @@ class FindNumberViewModel : BaseGirlViewModel() {
                 logD("listLevelDb.isNullOrEmpty()")
                 //create first db
 
-                for (i in 0 until 100) {
+                for (i in 0 until 99) {
                     val level = Level()
                     level.id = System.nanoTime().toString()
                     level.name = i + 1
 
-                    //TODO
+                    //TODO loitpp remove
                     if (i < 7) {
                         level.status = Level.STATUS_LEVEL_WIN
                     }

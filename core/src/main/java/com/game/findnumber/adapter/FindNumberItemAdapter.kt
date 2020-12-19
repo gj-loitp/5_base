@@ -9,19 +9,26 @@ import com.R
 import com.annotation.LogTag
 import com.core.adapter.AnimationAdapter
 import com.core.utilities.LAnimationUtil
+import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.model.FindNumberItem
 import kotlinx.android.synthetic.main.view_row_item_find_number.view.*
 
 @LogTag("NetAdapter")
-class FindNumberItemAdapter() : AnimationAdapter() {
+class FindNumberItemAdapter : AnimationAdapter() {
 
     private val listFindNumberItem = ArrayList<FindNumberItem>()
+    private var spanCount: Int = 1
 
-    fun setListFindNumberItem(listNet: ArrayList<FindNumberItem>) {
+    private val textSmall = LAppResource.getDimenValue(R.dimen.txt_18).toFloat()
+    private val textMedium = LAppResource.getDimenValue(R.dimen.txt_25).toFloat()
+    private val textLarge = LAppResource.getDimenValue(R.dimen.txt_40).toFloat()
+
+    fun setListFindNumberItem(listNet: ArrayList<FindNumberItem>, spanCount: Int) {
         this.listFindNumberItem.clear()
         this.listFindNumberItem.addAll(listNet)
+        this.spanCount = spanCount
         notifyDataSetChanged()
     }
 
@@ -47,6 +54,43 @@ class FindNumberItemAdapter() : AnimationAdapter() {
             itemView.textView.text = findNumberItem.name
             LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
             itemView.textView.rotation = findNumberItem.rotate
+            when (spanCount) {
+                1 -> {
+                    LUIUtil.setTextSize(itemView.textView, textLarge)
+                }
+                2 -> {
+                    LUIUtil.setTextSize(itemView.textView, textLarge)
+                }
+                3 -> {
+                    LUIUtil.setTextSize(itemView.textView, textLarge)
+                }
+                4 -> {
+                    LUIUtil.setTextSize(itemView.textView, textLarge)
+                }
+                5 -> {
+                    LUIUtil.setTextSize(itemView.textView, textMedium)
+                }
+                6 -> {
+                    LUIUtil.setTextSize(itemView.textView, textMedium)
+                }
+                7 -> {
+                    LUIUtil.setTextSize(itemView.textView, textMedium)
+                }
+                8 -> {
+                    LUIUtil.setTextSize(itemView.textView, textMedium)
+                }
+                9 -> {
+                    LUIUtil.setTextSize(itemView.textView, textSmall)
+                }
+                10 -> {
+                    LUIUtil.setTextSize(itemView.textView, textSmall)
+                }
+                else -> {
+                    LUIUtil.setTextSize(itemView.textView, textMedium)
+                }
+            }
+
+
             itemView.ivBkg.setBackgroundResource(R.drawable.flute_k5)
 
             if (findNumberItem.status == FindNumberItem.STATUS_OPEN) {
