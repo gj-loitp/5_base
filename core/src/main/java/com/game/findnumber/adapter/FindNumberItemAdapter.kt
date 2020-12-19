@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
@@ -16,7 +16,7 @@ import com.game.findnumber.model.FindNumberItem
 import kotlinx.android.synthetic.main.view_row_item_find_number.view.*
 
 @LogTag("NetAdapter")
-class FindNumberItemAdapter : AnimationAdapter() {
+class FindNumberItemAdapter : BaseAdapter() {
 
     private val listFindNumberItem = ArrayList<FindNumberItem>()
     private var spanCount: Int = 1
@@ -107,7 +107,6 @@ class FindNumberItemAdapter : AnimationAdapter() {
                     runnable = {
                         onClickRootView?.invoke(findNumberItem, bindingAdapterPosition)
                     })
-            setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
         }
     }
 
