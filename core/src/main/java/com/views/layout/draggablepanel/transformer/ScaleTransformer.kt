@@ -23,8 +23,8 @@ internal class ScaleTransformer(
      * @param verticalDragOffset used to calculate the new scale.
      */
     override fun updateScale(verticalDragOffset: Float) {
-        ViewHelper.setScaleX(view, 1 - verticalDragOffset / xScaleFactor)
-        ViewHelper.setScaleY(view, 1 - verticalDragOffset / yScaleFactor)
+        ViewHelper.setScaleX(mView, 1 - verticalDragOffset / xScaleFactor)
+        ViewHelper.setScaleY(mView, 1 - verticalDragOffset / yScaleFactor)
     }
 
     /**
@@ -33,22 +33,22 @@ internal class ScaleTransformer(
      * @param verticalDragOffset used to calculate the new position.
      */
     override fun updatePosition(verticalDragOffset: Float) {
-        ViewHelper.setPivotX(view, (view.width - marginRight).toFloat())
-        ViewHelper.setPivotY(view, (view.height - marginBottom).toFloat())
+        ViewHelper.setPivotX(mView, (mView.width - getmMarginRight()).toFloat())
+        ViewHelper.setPivotY(mView, (mView.height - marginBottom).toFloat())
     }
 
     /**
      * @return true if the right corner of the view matches with the parent view width.
      */
     override fun isViewAtRight(): Boolean {
-        return view.right == parentView.width
+        return mView.right == parentView.width
     }
 
     /**
      * @return true if the bottom corner of the view matches with the parent view height.
      */
     override fun isViewAtBottom(): Boolean {
-        return view.bottom == parentView.height
+        return mView.bottom == parentView.height
     }
 
     /**
@@ -56,7 +56,7 @@ internal class ScaleTransformer(
      * width.
      */
     override fun isNextToLeftBound(): Boolean {
-        return view.right - marginRight < parentView.width * 0.6
+        return mView.right - getmMarginRight() < parentView.width * 0.6
     }
 
     /**
@@ -64,20 +64,20 @@ internal class ScaleTransformer(
      * five percent of the parent view width.
      */
     override fun isNextToRightBound(): Boolean {
-        return view.right - marginRight > parentView.width * 1.25
+        return mView.right - getmMarginRight() > parentView.width * 1.25
     }
 
     /**
      * @return min view height taking into account the configured margin.
      */
     override fun getMinHeightPlusMargin(): Int {
-        return view.height
+        return mView.height
     }
 
     /**
      * @return min view width.
      */
     override fun getMinWidthPlusMarginRight(): Int {
-        return originalWidth
+        return mOriginalWidth
     }
 }

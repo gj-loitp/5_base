@@ -21,9 +21,9 @@ internal class ResizeTransformer(
      * @param verticalDragOffset used to calculate the new size.
      */
     override fun updateScale(verticalDragOffset: Float) {
-        layoutParams.width = (originalWidth * (1 - verticalDragOffset / xScaleFactor)).toInt()
-        layoutParams.height = (originalHeight * (1 - verticalDragOffset / yScaleFactor)).toInt()
-        view.layoutParams = layoutParams
+        layoutParams.width = (mOriginalWidth * (1 - verticalDragOffset / xScaleFactor)).toInt()
+        layoutParams.height = (mOriginalHeight * (1 - verticalDragOffset / yScaleFactor)).toInt()
+        mView.layoutParams = layoutParams
     }
 
     /**
@@ -34,9 +34,9 @@ internal class ResizeTransformer(
     override fun updatePosition(verticalDragOffset: Float) {
         val right = getViewRightPosition(verticalDragOffset)
         val left = right - layoutParams.width
-        val top = view.top
+        val top = mView.top
         val bottom = top + layoutParams.height
-        view.layout(left, top, right, bottom)
+        mView.layout(left, top, right, bottom)
     }
 
     /**
@@ -44,7 +44,7 @@ internal class ResizeTransformer(
      * width.
      */
     override fun isViewAtRight(): Boolean {
-        return view.right + marginRight == parentView.width
+        return mView.right + getmMarginRight() == parentView.width
     }
 
     /**
@@ -52,7 +52,7 @@ internal class ResizeTransformer(
      * the parent view height.
      */
     override fun isViewAtBottom(): Boolean {
-        return view.bottom + marginBottom == parentView.height
+        return mView.bottom + marginBottom == parentView.height
     }
 
     /**
@@ -60,7 +60,7 @@ internal class ResizeTransformer(
      * the parent view width.
      */
     override fun isNextToRightBound(): Boolean {
-        return view.left - marginRight > parentView.width * 0.75
+        return mView.left - getmMarginRight() > parentView.width * 0.75
     }
 
     /**
@@ -68,21 +68,21 @@ internal class ResizeTransformer(
      * the parent width.
      */
     override fun isNextToLeftBound(): Boolean {
-        return view.left - marginRight < parentView.width * 0.05
+        return mView.left - getmMarginRight() < parentView.width * 0.05
     }
 
     /**
      * Uses the Y scale factor to calculate the min possible height.
      */
     override fun getMinHeightPlusMargin(): Int {
-        return (originalHeight * (1 - 1 / yScaleFactor) + marginBottom).toInt()
+        return (mOriginalHeight * (1 - 1 / yScaleFactor) + marginBottom).toInt()
     }
 
     /**
      * Uses the X scale factor to calculate the min possible width.
      */
     override fun getMinWidthPlusMarginRight(): Int {
-        return (originalWidth * (1 - 1 / xScaleFactor) + marginRight).toInt()
+        return (mOriginalWidth * (1 - 1 / xScaleFactor) + getmMarginRight()).toInt()
     }
 
     /**
@@ -91,7 +91,7 @@ internal class ResizeTransformer(
      * @param verticalDragOffset used to calculate the new right position.
      */
     private fun getViewRightPosition(verticalDragOffset: Float): Int {
-        return (originalWidth - marginRight * verticalDragOffset).toInt()
+        return (mOriginalWidth - getmMarginRight() * verticalDragOffset).toInt()
     }
 
 }

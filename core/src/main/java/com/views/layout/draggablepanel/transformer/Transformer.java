@@ -36,45 +36,45 @@ import com.nineoldandroids.view.ViewHelper;
 
 public abstract class Transformer {
 
-    private final View view;
-    private final View parent;
+    private final View mView;
+    private final View mParent;
 
-    private int marginRight;
+    private int mMarginRight;
     private int marginBottom;
 
-    private float xScaleFactor;
-    private float yScaleFactor;
+    private float mXScaleFactor;
+    private float mYScaleFactor;
 
-    private int originalHeight;
-    private int originalWidth;
+    private int mOriginalHeight;
+    private int mOriginalWidth;
 
-    public Transformer(View view, View parent) {
-        this.view = view;
-        this.parent = parent;
+    public Transformer(View mView, View mParent) {
+        this.mView = mView;
+        this.mParent = mParent;
     }
 
     public float getXScaleFactor() {
-        return xScaleFactor;
+        return mXScaleFactor;
     }
 
     public void setXScaleFactor(float xScaleFactor) {
-        this.xScaleFactor = xScaleFactor;
+        this.mXScaleFactor = xScaleFactor;
     }
 
     public float getYScaleFactor() {
-        return yScaleFactor;
+        return mYScaleFactor;
     }
 
     public void setYScaleFactor(float yScaleFactor) {
-        this.yScaleFactor = yScaleFactor;
+        this.mYScaleFactor = yScaleFactor;
     }
 
-    public int getMarginRight() {
-        return marginRight;
+    public int getmMarginRight() {
+        return mMarginRight;
     }
 
-    public void setMarginRight(int marginRight) {
-        this.marginRight = Math.round(marginRight);
+    public void setmMarginRight(int mMarginRight) {
+        this.mMarginRight = Math.round(mMarginRight);
     }
 
     public int getMarginBottom() {
@@ -92,20 +92,20 @@ public abstract class Transformer {
      */
     public void setViewHeight(int newHeight) {
         if (newHeight > 0) {
-            originalHeight = newHeight;
+            mOriginalHeight = newHeight;
             RelativeLayout.LayoutParams layoutParams =
-                    (RelativeLayout.LayoutParams) view.getLayoutParams();
+                    (RelativeLayout.LayoutParams) mView.getLayoutParams();
             layoutParams.height = newHeight;
-            view.setLayoutParams(layoutParams);
+            mView.setLayoutParams(layoutParams);
         }
     }
 
-    protected View getView() {
-        return view;
+    protected View getMView() {
+        return mView;
     }
 
     protected View getParentView() {
-        return parent;
+        return mParent;
     }
 
     public abstract void updatePosition(float verticalDragOffset);
@@ -115,30 +115,30 @@ public abstract class Transformer {
     /**
      * @return height of the view before it has change the size.
      */
-    public int getOriginalHeight() {
-        if (originalHeight == 0) {
-            originalHeight = view.getMeasuredHeight();
+    public int getMOriginalHeight() {
+        if (mOriginalHeight == 0) {
+            mOriginalHeight = mView.getMeasuredHeight();
         }
-        return originalHeight;
+        return mOriginalHeight;
     }
 
     /**
      * @return width of the view before it has change the size.
      */
-    public int getOriginalWidth() {
-        if (originalWidth == 0) {
-            originalWidth = view.getMeasuredWidth();
+    public int getMOriginalWidth() {
+        if (mOriginalWidth == 0) {
+            mOriginalWidth = mView.getMeasuredWidth();
         }
-        return originalWidth;
+        return mOriginalWidth;
     }
 
     public boolean isViewAtTop() {
-        return view.getTop() == 0;
+        return mView.getTop() == 0;
     }
 
     public boolean isAboveTheMiddle() {
-        int parentHeight = parent.getHeight();
-        float viewYPosition = ViewHelper.getY(view) + (view.getHeight() * 0.5f);
+        int parentHeight = mParent.getHeight();
+        float viewYPosition = ViewHelper.getY(mView) + (mView.getHeight() * 0.5f);
         return viewYPosition < (parentHeight * 0.5);
     }
 
