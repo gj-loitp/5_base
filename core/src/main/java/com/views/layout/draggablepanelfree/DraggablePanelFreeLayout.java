@@ -1,5 +1,6 @@
 package com.views.layout.draggablepanelfree;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -11,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
 import com.R;
+import com.core.utilities.LLog;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -182,6 +184,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         return mDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         mDragHelper.processTouchEvent(ev);
@@ -212,7 +215,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                 }*/
                 //Log.d(TAG, "mDragOffset " + mDragOffset);
                 if (isPositionBottom()) {
-//                    Log.d(logTag, "onTouchEvent ACTION_UP no slide");
+                    LLog.d(logTag, "onTouchEvent ACTION_UP no slide");
                 } else {
                     if (mDragOffset < 0.5f) {
                         maximize();
