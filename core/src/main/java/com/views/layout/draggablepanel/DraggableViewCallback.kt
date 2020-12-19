@@ -1,25 +1,10 @@
-/*
- * Copyright (C) 2014 Pedro Vicente Gómez Sánchez.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package com.views.layout.draggablepanel;
+package com.views.layout.draggablepanel
 
-import android.view.View;
-
-import androidx.customview.widget.ViewDragHelper;
-
-import org.jetbrains.annotations.NotNull;
+import android.view.View
+import androidx.customview.widget.ViewDragHelper
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * ViewDragHelper.Callback implementation used to work with DraggableView to perform the scale
@@ -27,24 +12,23 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Pedro Vicente Gómez Sánchez.
  */
-class DraggableViewCallback extends ViewDragHelper.Callback {
+internal class DraggableViewCallback
 
-    private static final int MINIMUM_DX_FOR_HORIZONTAL_DRAG = 5;
-    private static final int MINIMUM_DY_FOR_VERTICAL_DRAG = 15;
-    private static final float X_MIN_VELOCITY = 1500;
-    private static final float Y_MIN_VELOCITY = 1000;
+/**
+ * Main constructor.
+ *
+ * @param draggableView instance used to apply some animations or visual effects.
+ */
+(
+        private val draggableView: DraggableView,
+        private val draggedView: View
+) : ViewDragHelper.Callback() {
 
-    private final DraggableView draggableView;
-    private final View draggedView;
-
-    /**
-     * Main constructor.
-     *
-     * @param draggableView instance used to apply some animations or visual effects.
-     */
-    public DraggableViewCallback(DraggableView draggableView, View draggedView) {
-        this.draggableView = draggableView;
-        this.draggedView = draggedView;
+    companion object {
+        private const val MINIMUM_DX_FOR_HORIZONTAL_DRAG = 5
+        private const val MINIMUM_DY_FOR_VERTICAL_DRAG = 15
+        private const val X_MIN_VELOCITY = 1500f
+        private const val Y_MIN_VELOCITY = 1000f
     }
 
     /**
@@ -56,17 +40,22 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @param dx   change in X position from the last call.
      * @param dy   change in Y position from the last call.
      */
-    @Override
-    public void onViewPositionChanged(@NotNull View changedView, int left, int top, int dx, int dy) {
-        if (draggableView.isDragViewAtBottom()) {
-            draggableView.changeDragViewViewAlpha();
+    override fun onViewPositionChanged(
+            changedView: View,
+            left: Int,
+            top: Int,
+            dx: Int,
+            dy: Int
+    ) {
+        if (draggableView.isDragViewAtBottom) {
+            draggableView.changeDragViewViewAlpha()
         } else {
-            draggableView.restoreAlpha();
-            draggableView.changeDragViewScale();
-            draggableView.changeDragViewPosition();
-            draggableView.changeSecondViewAlpha();
-            draggableView.changeSecondViewPosition();
-            draggableView.changeBackgroundAlpha();
+            draggableView.restoreAlpha()
+            draggableView.changeDragViewScale()
+            draggableView.changeDragViewPosition()
+            draggableView.changeSecondViewAlpha()
+            draggableView.changeSecondViewPosition()
+            draggableView.changeBackgroundAlpha()
         }
     }
 
@@ -79,14 +68,16 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @param xVel          X velocity of the pointer as it left the screen in pixels per second.
      * @param yVel          Y velocity of the pointer as it left the screen in pixels per second.
      */
-    @Override
-    public void onViewReleased(@NotNull View releasedChild, float xVel, float yVel) {
-        super.onViewReleased(releasedChild, xVel, yVel);
-
-        if (draggableView.isDragViewAtBottom() && !draggableView.isDragViewAtRight()) {
-            triggerOnReleaseActionsWhileHorizontalDrag(xVel);
+    override fun onViewReleased(
+            releasedChild: View,
+            xVel: Float,
+            yVel: Float
+    ) {
+        super.onViewReleased(releasedChild, xVel, yVel)
+        if (draggableView.isDragViewAtBottom && !draggableView.isDragViewAtRight) {
+            triggerOnReleaseActionsWhileHorizontalDrag(xVel)
         } else {
-            triggerOnReleaseActionsWhileVerticalDrag(yVel);
+            triggerOnReleaseActionsWhileVerticalDrag(yVel)
         }
     }
 
@@ -97,9 +88,11 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @param pointerId ID of the pointer attempting the capture,
      * @return true if capture should be allowed, false otherwise.
      */
-    @Override
-    public boolean tryCaptureView(View view, int pointerId) {
-        return view.equals(draggedView);
+    override fun tryCaptureView(
+            view: View,
+            pointerId: Int
+    ): Boolean {
+        return view == draggedView
     }
 
     /**
@@ -111,15 +104,16 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @param dx    proposed change in position for left.
      * @return the new clamped position for left.
      */
-    @Override
-    public int clampViewPositionHorizontal(@NotNull View child, int left, int dx) {
-        int newLeft = draggedView.getLeft();
-        if ((draggableView.isMinimized() && Math.abs(dx) > MINIMUM_DX_FOR_HORIZONTAL_DRAG) || (
-                draggableView.isDragViewAtBottom()
-                        && !draggableView.isDragViewAtRight())) {
-            newLeft = left;
+    override fun clampViewPositionHorizontal(
+            child: View,
+            left: Int,
+            dx: Int
+    ): Int {
+        var newLeft = draggedView.left
+        if (draggableView.isMinimized && abs(dx) > MINIMUM_DX_FOR_HORIZONTAL_DRAG || (draggableView.isDragViewAtBottom && !draggableView.isDragViewAtRight)) {
+            newLeft = left
         }
-        return newLeft;
+        return newLeft
     }
 
     /**
@@ -131,36 +125,37 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * @param dy    proposed change in position for top.
      * @return the new clamped position for top.
      */
-    @Override
-    public int clampViewPositionVertical(@NotNull View child, int top, int dy) {
-        int newTop = draggableView.getHeight() - draggableView.getDraggedViewHeightPlusMarginTop();
-        if (draggableView.isMinimized() && Math.abs(dy) >= MINIMUM_DY_FOR_VERTICAL_DRAG
-                || (!draggableView.isMinimized() && !draggableView.isDragViewAtBottom())) {
-
-            final int topBound = draggableView.getPaddingTop();
-            final int bottomBound = draggableView.getHeight()
-                    - draggableView.getDraggedViewHeightPlusMarginTop()
-                    - draggedView.getPaddingBottom();
-
-            newTop = Math.min(Math.max(top, topBound), bottomBound);
+    override fun clampViewPositionVertical(
+            child: View,
+            top: Int,
+            dy: Int
+    ): Int {
+        var newTop = draggableView.height - draggableView.draggedViewHeightPlusMarginTop
+        if (draggableView.isMinimized && abs(dy) >= MINIMUM_DY_FOR_VERTICAL_DRAG
+                || !draggableView.isMinimized && !draggableView.isDragViewAtBottom) {
+            val topBound = draggableView.paddingTop
+            val bottomBound = (draggableView.height
+                    - draggableView.draggedViewHeightPlusMarginTop
+                    - draggedView.paddingBottom)
+            newTop = min(max(top, topBound), bottomBound)
         }
-        return newTop;
+        return newTop
     }
 
     /**
      * Maximize or minimize the DraggableView using the draggableView position and the y axis
      * velocity.
      */
-    private void triggerOnReleaseActionsWhileVerticalDrag(float yVel) {
+    private fun triggerOnReleaseActionsWhileVerticalDrag(yVel: Float) {
         if (yVel < 0 && yVel <= -Y_MIN_VELOCITY) {
-            draggableView.maximize();
+            draggableView.maximize()
         } else if (yVel > 0 && yVel >= Y_MIN_VELOCITY) {
-            draggableView.minimize();
+            draggableView.minimize()
         } else {
-            if (draggableView.isDragViewAboveTheMiddle()) {
-                draggableView.maximize();
+            if (draggableView.isDragViewAboveTheMiddle) {
+                draggableView.maximize()
             } else {
-                draggableView.minimize();
+                draggableView.minimize()
             }
         }
     }
@@ -169,18 +164,22 @@ class DraggableViewCallback extends ViewDragHelper.Callback {
      * Close the view to the right, to the left or minimize it using the draggableView position and
      * the x axis velocity.
      */
-    private void triggerOnReleaseActionsWhileHorizontalDrag(float xVel) {
+    private fun triggerOnReleaseActionsWhileHorizontalDrag(xVel: Float) {
         if (xVel < 0 && xVel <= -X_MIN_VELOCITY) {
-            draggableView.closeToLeft();
+            draggableView.closeToLeft()
         } else if (xVel > 0 && xVel >= X_MIN_VELOCITY) {
-            draggableView.closeToRight();
+            draggableView.closeToRight()
         } else {
-            if (draggableView.isNextToLeftBound()) {
-                draggableView.closeToLeft();
-            } else if (draggableView.isNextToRightBound()) {
-                draggableView.closeToRight();
-            } else {
-                draggableView.minimize();
+            when {
+                draggableView.isNextToLeftBound -> {
+                    draggableView.closeToLeft()
+                }
+                draggableView.isNextToRightBound -> {
+                    draggableView.closeToRight()
+                }
+                else -> {
+                    draggableView.minimize()
+                }
             }
         }
     }
