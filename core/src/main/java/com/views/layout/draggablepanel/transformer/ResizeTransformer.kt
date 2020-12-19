@@ -44,7 +44,7 @@ internal class ResizeTransformer(
      * width.
      */
     override fun isViewAtRight(): Boolean {
-        return mView.right + getMMarginRight() == parentView.width
+        return mView.right + mMarginRight == parentView.width
     }
 
     /**
@@ -52,7 +52,7 @@ internal class ResizeTransformer(
      * the parent view height.
      */
     override fun isViewAtBottom(): Boolean {
-        return mView.bottom + getMMarginBottom() == parentView.height
+        return mView.bottom + mMarginBottom == parentView.height
     }
 
     /**
@@ -60,7 +60,7 @@ internal class ResizeTransformer(
      * the parent view width.
      */
     override fun isNextToRightBound(): Boolean {
-        return mView.left - getMMarginRight() > parentView.width * 0.75
+        return mView.left - mMarginRight > parentView.width * 0.75
     }
 
     /**
@@ -68,21 +68,21 @@ internal class ResizeTransformer(
      * the parent width.
      */
     override fun isNextToLeftBound(): Boolean {
-        return mView.left - getMMarginRight() < parentView.width * 0.05
+        return mView.left - mMarginRight < parentView.width * 0.05
     }
 
     /**
      * Uses the Y scale factor to calculate the min possible height.
      */
     override fun getMinHeightPlusMargin(): Int {
-        return (mOriginalHeight * (1 - 1 / yScaleFactor) + getMMarginBottom()).toInt()
+        return (mOriginalHeight * (1 - 1 / yScaleFactor) + mMarginBottom).toInt()
     }
 
     /**
      * Uses the X scale factor to calculate the min possible width.
      */
     override fun getMinWidthPlusMarginRight(): Int {
-        return (mOriginalWidth * (1 - 1 / xScaleFactor) + getMMarginRight()).toInt()
+        return (mOriginalWidth * (1 - 1 / xScaleFactor) + mMarginRight).toInt()
     }
 
     /**
@@ -91,7 +91,7 @@ internal class ResizeTransformer(
      * @param verticalDragOffset used to calculate the new right position.
      */
     private fun getViewRightPosition(verticalDragOffset: Float): Int {
-        return (mOriginalWidth - getMMarginRight() * verticalDragOffset).toInt()
+        return (mOriginalWidth - mMarginRight * verticalDragOffset).toInt()
     }
 
 }
