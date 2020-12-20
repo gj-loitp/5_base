@@ -1,81 +1,67 @@
-package com.views.calendar.cosmocalendar;
+package com.views.calendar.cosmocalendar
 
-import android.os.AsyncTask;
-
-import com.views.calendar.cosmocalendar.adapter.MonthAdapter;
-import com.views.calendar.cosmocalendar.model.Month;
-import com.views.calendar.cosmocalendar.settings.SettingsManager;
-import com.views.calendar.cosmocalendar.utils.CalendarUtils;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import android.os.AsyncTask
+import com.views.calendar.cosmocalendar.FetchMonthsAsyncTask.FetchParams
+import com.views.calendar.cosmocalendar.adapter.MonthAdapter
+import com.views.calendar.cosmocalendar.model.Month
+import com.views.calendar.cosmocalendar.settings.SettingsManager
+import com.views.calendar.cosmocalendar.utils.CalendarUtils
+import java.util.*
 
 /**
  * Created by leonardo on 08/10/17.
  */
+class FetchMonthsAsyncTask : AsyncTask<FetchParams, Void, List<Month>>() {
 
-//TODO convert kotlin
-public class FetchMonthsAsyncTask extends AsyncTask<FetchMonthsAsyncTask.FetchParams, Void, List<Month>> {
+    class FetchParams(
+            val future: Boolean,
+            val month: Month,
+            val settingsManager: SettingsManager,
+            val monthAdapter: MonthAdapter,
+            val defaultMonthCount: Int
+    )
 
-    private boolean future;
-    private MonthAdapter monthAdapter;
-    private int defaultMonthCount;
+    private var future = false
+    private var monthAdapter: MonthAdapter? = null
+    private var defaultMonthCount = 0
 
-    @Override
-    protected List<Month> doInBackground(FetchParams... fetchParams) {
-        FetchParams params = fetchParams[0];
-        Month month = params.month;
-        future = params.future;
-        SettingsManager settingsManager = params.settingsManager;
-        monthAdapter = params.monthAdapter;
-        defaultMonthCount = params.defaultMonthCount;
+    override fun doInBackground(vararg fetchParams: FetchParams): List<Month> {
+        val params = fetchParams[0]
+        val month = params.month
+        future = params.future
+        val settingsManager = params.settingsManager
+        monthAdapter = params.monthAdapter
+        defaultMonthCount = params.defaultMonthCount
 
-        final Calendar calendar = Calendar.getInstance();
-        calendar.setTime(month.getFirstDay().getCalendar().getTime());
-        final List<Month> result = new ArrayList<>();
-        for (int i = 0; i < SettingsManager.DEFAULT_MONTH_COUNT; i++) {
-            if(isCancelled())
-                break;
-
-            calendar.add(Calendar.MONTH, future ? 1 : -1);
-            Month newMonth = CalendarUtils.createMonth(calendar.getTime(), settingsManager);
+        val calendar = Calendar.getInstance()
+        calendar.time = month.firstDay.calendar.time
+        val result: MutableList<Month> = ArrayList()
+        for (i in 0 until SettingsManager.DEFAULT_MONTH_COUNT) {
+            if (isCancelled) {
+                break
+            }
+            calendar.add(Calendar.MONTH, if (future) 1 else -1)
+            val newMonth = CalendarUtils.createMonth(calendar.time, settingsManager)
             if (future) {
-                result.add(newMonth);
+                result.add(newMonth)
             } else {
-                result.add(0, newMonth);
+                result.add(0, newMonth)
             }
         }
-
-        return result;
+        return result
     }
 
-    @Override
-    protected void onPostExecute(List<Month> months) {
-        if (!months.isEmpty()) {
-            if (future) {
-                monthAdapter.getData().addAll(months);
-                monthAdapter.notifyItemRangeInserted(monthAdapter.getData().size() - 1, defaultMonthCount);
-            } else {
-                monthAdapter.getData().addAll(0, months);
-                monthAdapter.notifyItemRangeInserted(0, defaultMonthCount);
+    override fun onPostExecute(months: List<Month>) {
+        monthAdapter?.let { adapter ->
+            if (months.isNotEmpty()) {
+                if (future) {
+                    adapter.data.addAll(months)
+                    adapter.notifyItemRangeInserted(adapter.data.size - 1, defaultMonthCount)
+                } else {
+                    adapter.data.addAll(0, months)
+                    adapter.notifyItemRangeInserted(0, defaultMonthCount)
+                }
             }
-        }
-    }
-
-    public static class FetchParams {
-        private final boolean future;
-        private final Month month;
-        private final SettingsManager settingsManager;
-        private final MonthAdapter monthAdapter;
-        private final int defaultMonthCount;
-
-        public FetchParams(boolean future, Month month, SettingsManager settingsManager, MonthAdapter monthAdapter, int defaultMonthCount) {
-            this.future = future;
-            this.month = month;
-            this.settingsManager = settingsManager;
-            this.monthAdapter = monthAdapter;
-            this.defaultMonthCount = defaultMonthCount;
         }
     }
 }
