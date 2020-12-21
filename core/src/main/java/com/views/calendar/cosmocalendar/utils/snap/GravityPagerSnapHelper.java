@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-//TODO convert kotlin
 public class GravityPagerSnapHelper extends PagerSnapHelper {
 
-    private GravityDelegate delegate;
+    private final GravityDelegate delegate;
 
     public GravityPagerSnapHelper(int gravity) {
         this(gravity, false, null);
@@ -22,8 +21,11 @@ public class GravityPagerSnapHelper extends PagerSnapHelper {
         this(gravity, enableSnapLastItem, null);
     }
 
-    public GravityPagerSnapHelper(int gravity, boolean enableSnapLastItem,
-                                  GravitySnapHelper.SnapListener snapListener) {
+    public GravityPagerSnapHelper(
+            int gravity,
+            boolean enableSnapLastItem,
+            GravitySnapHelper.SnapListener snapListener
+    ) {
         delegate = new GravityDelegate(gravity, enableSnapLastItem, snapListener);
     }
 
@@ -42,8 +44,10 @@ public class GravityPagerSnapHelper extends PagerSnapHelper {
 
     @Nullable
     @Override
-    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager,
-                                              @NonNull View targetView) {
+    public int[] calculateDistanceToFinalSnap(
+            @NonNull RecyclerView.LayoutManager layoutManager,
+            @NonNull View targetView
+    ) {
         return delegate.calculateDistanceToFinalSnap(layoutManager, targetView);
     }
 

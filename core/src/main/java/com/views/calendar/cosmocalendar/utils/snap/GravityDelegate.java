@@ -11,7 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-//TODO convert kotlin
+import org.jetbrains.annotations.NotNull;
+
 class GravityDelegate {
 
     private OrientationHelper verticalHelper;
@@ -19,11 +20,11 @@ class GravityDelegate {
     private int gravity;
     private boolean isRtlHorizontal;
     private boolean snapLastItem;
-    private GravitySnapHelper.SnapListener listener;
+    private final GravitySnapHelper.SnapListener listener;
     private boolean snapping;
-    private RecyclerView.OnScrollListener mScrollListener = new RecyclerView.OnScrollListener() {
+    private final RecyclerView.OnScrollListener mScrollListener = new RecyclerView.OnScrollListener() {
         @Override
-        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+        public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
             if (newState == RecyclerView.SCROLL_STATE_SETTLING) {
                 snapping = false;
@@ -46,8 +47,11 @@ class GravityDelegate {
         this(gravity, false, listener);
     }
 
-    public GravityDelegate(int gravity, boolean enableSnapLast,
-                           GravitySnapHelper.SnapListener listener) {
+    public GravityDelegate(
+            int gravity,
+            boolean enableSnapLast,
+            GravitySnapHelper.SnapListener listener
+    ) {
         if (gravity != Gravity.START && gravity != Gravity.END
                 && gravity != Gravity.BOTTOM && gravity != Gravity.TOP) {
             throw new IllegalArgumentException("Invalid gravity value. Use START " +
@@ -58,17 +62,15 @@ class GravityDelegate {
         this.listener = listener;
     }
 
-    public void setGravity(int gravity){
+    public void setGravity(int gravity) {
         this.gravity = gravity;
     }
 
     public void attachToRecyclerView(@Nullable RecyclerView recyclerView) {
         if (recyclerView != null) {
             recyclerView.setOnFlingListener(null);
-            if ((gravity == Gravity.START || gravity == Gravity.END)
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                isRtlHorizontal
-                        = recyclerView.getContext().getResources().getConfiguration()
+            if (gravity == Gravity.START || gravity == Gravity.END) {
+                isRtlHorizontal = recyclerView.getContext().getResources().getConfiguration()
                         .getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
             }
             if (listener != null) {
@@ -77,8 +79,10 @@ class GravityDelegate {
         }
     }
 
-    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager,
-                                              @NonNull View targetView) {
+    public int[] calculateDistanceToFinalSnap(
+            @NonNull RecyclerView.LayoutManager layoutManager,
+            @NonNull View targetView
+    ) {
         int[] out = new int[2];
 
         if (layoutManager.canScrollHorizontally()) {

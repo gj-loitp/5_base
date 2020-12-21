@@ -1,237 +1,250 @@
-package com.views.calendar.cosmocalendar.utils;
+package com.views.calendar.cosmocalendar.utils
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.BitmapFactory;
-import android.view.WindowManager;
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.res.Resources
+import android.graphics.BitmapFactory
+import android.view.WindowManager
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.model.DayOfWeek
+import com.views.calendar.cosmocalendar.model.Month
+import com.views.calendar.cosmocalendar.selection.selectionbar.SelectionBarContentItem
+import com.views.calendar.cosmocalendar.selection.selectionbar.SelectionBarItem
+import com.views.calendar.cosmocalendar.selection.selectionbar.SelectionBarTitleItem
+import com.views.calendar.cosmocalendar.settings.SettingsManager
+import com.views.calendar.cosmocalendar.settings.lists.DisabledDaysCriteria
+import com.views.calendar.cosmocalendar.settings.lists.DisabledDaysCriteriaType
+import com.views.calendar.cosmocalendar.utils.DateUtils.addDay
+import com.views.calendar.cosmocalendar.utils.DateUtils.addMonth
+import com.views.calendar.cosmocalendar.utils.DateUtils.getCalendar
+import com.views.calendar.cosmocalendar.utils.DateUtils.getFirstDayOfMonth
+import com.views.calendar.cosmocalendar.utils.DateUtils.getFirstDayOfWeek
+import com.views.calendar.cosmocalendar.utils.DateUtils.getLastDayOfMonth
+import com.views.calendar.cosmocalendar.utils.DateUtils.getLastDayOfWeek
+import com.views.calendar.cosmocalendar.utils.DateUtils.isSameDayOfMonth
+import com.views.calendar.cosmocalendar.utils.DateUtils.isSameMonth
+import java.text.SimpleDateFormat
+import java.util.*
 
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.model.DayOfWeek;
-import com.views.calendar.cosmocalendar.model.Month;
-import com.views.calendar.cosmocalendar.selection.selectionbar.SelectionBarContentItem;
-import com.views.calendar.cosmocalendar.selection.selectionbar.SelectionBarItem;
-import com.views.calendar.cosmocalendar.selection.selectionbar.SelectionBarTitleItem;
-import com.views.calendar.cosmocalendar.settings.SettingsManager;
-import com.views.calendar.cosmocalendar.settings.lists.DisabledDaysCriteria;
+object CalendarUtils {
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Set;
-
-public final class CalendarUtils {
-
-    public static Month createMonth(Date date, SettingsManager settingsManager) {
-        final List<Day> days = new ArrayList<>();
-
-        final Calendar firstDisplayedDayCalendar = Calendar.getInstance();
-        final Calendar firstDayOfMonthCalendar = Calendar.getInstance();
+    fun createMonth(
+            date: Date,
+            settingsManager: SettingsManager
+    ): Month {
+        val days: MutableList<Day> = ArrayList()
+        val firstDisplayedDayCalendar = Calendar.getInstance()
+        val firstDayOfMonthCalendar = Calendar.getInstance()
 
         //First day that belongs to month
-        final Date firstDayOfMonth = DateUtils.getFirstDayOfMonth(date);
-        firstDayOfMonthCalendar.setTime(firstDayOfMonth);
-        firstDayOfMonthCalendar.get(Calendar.MONTH);
-        int targetMonth = firstDayOfMonthCalendar.get(Calendar.MONTH);
+        val firstDayOfMonth = getFirstDayOfMonth(date)
+        firstDayOfMonthCalendar.time = firstDayOfMonth
+        firstDayOfMonthCalendar[Calendar.MONTH]
+        val targetMonth = firstDayOfMonthCalendar[Calendar.MONTH]
 
         //First displayed day, can belong to previous month
-        final Date firstDisplayedDay = DateUtils.getFirstDayOfWeek(firstDayOfMonth, settingsManager.getFirstDayOfWeek());
-        firstDisplayedDayCalendar.setTime(firstDisplayedDay);
-
-        final Calendar end = Calendar.getInstance();
-        end.setTime(DateUtils.getLastDayOfWeek(DateUtils.getLastDayOfMonth(date)));
+        val firstDisplayedDay = getFirstDayOfWeek(firstDayOfMonth, settingsManager.firstDayOfWeek)
+        firstDisplayedDayCalendar.time = firstDisplayedDay
+        val end = Calendar.getInstance()
+        end.time = getLastDayOfWeek(getLastDayOfMonth(date))
 
         //Create week day titles
-        if (settingsManager.isShowDaysOfWeek()) {
-            days.addAll(createDaysOfWeek(firstDisplayedDay));
+        if (settingsManager.isShowDaysOfWeek) {
+            days.addAll(createDaysOfWeek(firstDisplayedDay))
         }
 
         //Create first day of month
-        days.add(createDay(firstDisplayedDayCalendar, settingsManager, targetMonth));
+        days.add(createDay(firstDisplayedDayCalendar, settingsManager, targetMonth))
 
         //Create other days in month
         do {
-            DateUtils.addDay(firstDisplayedDayCalendar);
-            days.add(createDay(firstDisplayedDayCalendar, settingsManager, targetMonth));
-        } while (!DateUtils.isSameDayOfMonth(firstDisplayedDayCalendar, end)
-                || !DateUtils.isSameMonth(firstDisplayedDayCalendar, end));
-
-        return new Month(createDay(firstDayOfMonthCalendar, settingsManager, targetMonth), days);
+            addDay(firstDisplayedDayCalendar)
+            days.add(createDay(firstDisplayedDayCalendar, settingsManager, targetMonth))
+        } while (!isSameDayOfMonth(firstDisplayedDayCalendar, end) || !isSameMonth(firstDisplayedDayCalendar, end))
+        return Month(createDay(firstDayOfMonthCalendar, settingsManager, targetMonth), days)
     }
 
-    private static Day createDay(Calendar calendar, SettingsManager settingsManager, int targetMonth) {
-        Day day = new Day(calendar);
-        day.setBelongToMonth(calendar.get(Calendar.MONTH) == targetMonth);
-        CalendarUtils.setDay(day, settingsManager);
-        return day;
+    private fun createDay(
+            calendar: Calendar,
+            settingsManager: SettingsManager,
+            targetMonth: Int
+    ): Day {
+        val day = Day(calendar)
+        day.isBelongToMonth = calendar[Calendar.MONTH] == targetMonth
+        setDay(day, settingsManager)
+        return day
     }
 
-    private static List<DayOfWeek> createDaysOfWeek(Date firstDisplayedDay) {
-        final List<DayOfWeek> daysOfTheWeek = new ArrayList<>();
-
-        final Calendar calendar = DateUtils.INSTANCE.getCalendar(firstDisplayedDay);
-        final int startDayOfTheWeek = calendar.get(Calendar.DAY_OF_WEEK);
+    private fun createDaysOfWeek(
+            firstDisplayedDay: Date
+    ): List<DayOfWeek> {
+        val daysOfTheWeek: MutableList<DayOfWeek> = ArrayList()
+        val calendar = getCalendar(firstDisplayedDay)
+        val startDayOfTheWeek = calendar[Calendar.DAY_OF_WEEK]
         do {
-            daysOfTheWeek.add(new DayOfWeek(calendar.getTime()));
-            DateUtils.addDay(calendar);
-        } while (calendar.get(Calendar.DAY_OF_WEEK) != startDayOfTheWeek);
-        return daysOfTheWeek;
+            daysOfTheWeek.add(DayOfWeek(calendar.time))
+            addDay(calendar)
+        } while (calendar[Calendar.DAY_OF_WEEK] != startDayOfTheWeek)
+        return daysOfTheWeek
     }
 
-    public static List<String> createWeekDayTitles(int firstDayOfWeek) {
-        SimpleDateFormat sdf = new SimpleDateFormat(Constants.DAY_NAME_FORMAT, Locale.getDefault());
-        final List<String> titles = new ArrayList<>();
-
-        final Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.DAY_OF_WEEK, firstDayOfWeek);
+    @JvmStatic
+    fun createWeekDayTitles(
+            firstDayOfWeek: Int
+    ): List<String> {
+        val sdf = SimpleDateFormat(Constants.DAY_NAME_FORMAT, Locale.getDefault())
+        val titles: MutableList<String> = ArrayList()
+        val calendar = Calendar.getInstance()
+        calendar[Calendar.DAY_OF_WEEK] = firstDayOfWeek
         do {
-            titles.add(sdf.format(calendar.getTime()));
-            DateUtils.addDay(calendar);
-        } while (calendar.get(Calendar.DAY_OF_WEEK) != firstDayOfWeek);
-        return titles;
+            titles.add(sdf.format(calendar.time))
+            addDay(calendar)
+        } while (calendar[Calendar.DAY_OF_WEEK] != firstDayOfWeek)
+        return titles
     }
 
-    public static List<Month> createInitialMonths(SettingsManager settingsManager) {
-        final List<Month> months = new ArrayList<>();
-
-        final Calendar calendar = Calendar.getInstance();
-        for (int i = 0; i < SettingsManager.DEFAULT_MONTH_COUNT / 2; i++) {
-            calendar.add(Calendar.MONTH, -1);
+    @JvmStatic
+    fun createInitialMonths(
+            settingsManager: SettingsManager
+    ): List<Month> {
+        val months: MutableList<Month> = ArrayList()
+        val calendar = Calendar.getInstance()
+        for (i in 0 until SettingsManager.DEFAULT_MONTH_COUNT / 2) {
+            calendar.add(Calendar.MONTH, -1)
         }
-
-        for (int i = 0; i < SettingsManager.DEFAULT_MONTH_COUNT; i++) {
-            months.add(createMonth(calendar.getTime(), settingsManager));
-            DateUtils.addMonth(calendar);
+        for (i in 0 until SettingsManager.DEFAULT_MONTH_COUNT) {
+            months.add(createMonth(calendar.time, settingsManager))
+            addMonth(calendar)
         }
-        return months;
+        return months
     }
 
     /**
      * Returns selected Days grouped by month/year
-     *
-     * @param selectedDays
-     * @return
      */
-    public static List<SelectionBarItem> getSelectedDayListForMultipleMode(List<Day> selectedDays) {
-        List<SelectionBarItem> result = new ArrayList<>();
-
-        Calendar tempCalendar = Calendar.getInstance();
-        int tempYear = -1;
-        int tempMonth = -1;
-        for (Day day : selectedDays) {
-            tempCalendar.setTime(day.getCalendar().getTime());
-            if (tempCalendar.get(Calendar.YEAR) != tempYear || tempCalendar.get(Calendar.MONTH) != tempMonth) {
-                result.add(new SelectionBarTitleItem(getYearNameTitle(day)));
-                tempYear = tempCalendar.get(Calendar.YEAR);
-                tempMonth = tempCalendar.get(Calendar.MONTH);
+    @JvmStatic
+    fun getSelectedDayListForMultipleMode(
+            selectedDays: List<Day>
+    ): List<SelectionBarItem> {
+        val result: MutableList<SelectionBarItem> = ArrayList()
+        val tempCalendar = Calendar.getInstance()
+        var tempYear = -1
+        var tempMonth = -1
+        for (day in selectedDays) {
+            tempCalendar.time = day.calendar.time
+            if (tempCalendar[Calendar.YEAR] != tempYear || tempCalendar[Calendar.MONTH] != tempMonth) {
+                result.add(SelectionBarTitleItem(getYearNameTitle(day)))
+                tempYear = tempCalendar[Calendar.YEAR]
+                tempMonth = tempCalendar[Calendar.MONTH]
             }
-            result.add(new SelectionBarContentItem(day));
+            result.add(SelectionBarContentItem(day))
         }
-        return result;
+        return result
     }
 
-    public static String getYearNameTitle(Day day) {
-        return new SimpleDateFormat("MMM''yy").format(day.getCalendar().getTime());
+    @JvmStatic
+    @SuppressLint("SimpleDateFormat")
+    fun getYearNameTitle(
+            day: Day
+    ): String {
+        return SimpleDateFormat("MMM''yy").format(day.calendar.time)
     }
 
     /**
      * Returns width of circle
-     *
-     * @return
      */
-    public static int getCircleWidth(Context context) {
-        return getDisplayWidth(context) / Constants.DAYS_IN_WEEK;
+    @JvmStatic
+    fun getCircleWidth(
+            context: Context
+    ): Int {
+        return getDisplayWidth(context) / Constants.DAYS_IN_WEEK
     }
 
-    public static int getDisplayWidth(Context context) {
-        return ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth();
+    private fun getDisplayWidth(
+            context: Context
+    ): Int {
+        return (context.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.width
     }
 
     /**
      * Sets variables(isWeekend, isDisabled, isFromConnectedCalendar) to day
      */
-    public static void setDay(Day day, SettingsManager settingsManager) {
-        if (settingsManager.getWeekendDays() != null) {
-            day.setWeekend(settingsManager.getWeekendDays().contains(day.getCalendar().get(Calendar.DAY_OF_WEEK)));
+    private fun setDay(
+            day: Day,
+            settingsManager: SettingsManager
+    ) {
+        if (settingsManager.weekendDays != null) {
+            day.isWeekend = settingsManager.weekendDays.contains(day.calendar[Calendar.DAY_OF_WEEK])
         }
-
-        if (settingsManager.getMinDate() != null) {
-            day.setDisabled(isDayDisabledByMinDate(day, settingsManager.getMinDate()));
+        if (settingsManager.minDate != null) {
+            day.isDisabled = isDayDisabledByMinDate(day, settingsManager.minDate)
         }
-
-        if (settingsManager.getMaxDate() != null) {
-            if (!day.isDisabled()) {
-                day.setDisabled(isDayDisabledByMaxDate(day, settingsManager.getMaxDate()));
+        if (settingsManager.maxDate != null) {
+            if (!day.isDisabled) {
+                day.isDisabled = isDayDisabledByMaxDate(day, settingsManager.maxDate)
             }
         }
-
-        if (settingsManager.getDisabledDays() != null) {
+        if (settingsManager.disabledDays != null) {
             //day.setDisabled(isDayInSet(day, settingsManager.getDisabledDays()));
-            if (!day.isDisabled()) {
-                day.setDisabled(isDayInSet(day, settingsManager.getDisabledDays()));
+            if (!day.isDisabled) {
+                day.isDisabled = isDayInSet(day, settingsManager.disabledDays)
             }
         }
-
-        if (settingsManager.getDisabledDaysCriteria() != null) {
-            if (!day.isDisabled()) {
-                day.setDisabled(isDayDisabledByCriteria(day, settingsManager.getDisabledDaysCriteria()));
+        if (settingsManager.disabledDaysCriteria != null) {
+            if (!day.isDisabled) {
+                day.isDisabled = isDayDisabledByCriteria(day, settingsManager.disabledDaysCriteria)
             }
         }
-
-        if (settingsManager.getConnectedDaysManager().isAnyConnectedDays()) {
-            settingsManager.getConnectedDaysManager().applySettingsToDay(day);
+        if (settingsManager.connectedDaysManager.isAnyConnectedDays) {
+            settingsManager.connectedDaysManager.applySettingsToDay(day)
         }
     }
 
-    public static boolean isDayInSet(Day day, Set<Long> daysInSet) {
-        for (long disabledTime : daysInSet) {
-            Calendar disabledDayCalendar = DateUtils.getCalendar(disabledTime);
-            if (day.getCalendar().get(Calendar.YEAR) == disabledDayCalendar.get(Calendar.YEAR)
-                    && day.getCalendar().get(Calendar.DAY_OF_YEAR) == disabledDayCalendar.get(Calendar.DAY_OF_YEAR)) {
-                return true;
+    @JvmStatic
+    fun isDayInSet(day: Day, daysInSet: Set<Long>): Boolean {
+        for (disabledTime in daysInSet) {
+            val disabledDayCalendar = getCalendar(disabledTime)
+            if (day.calendar[Calendar.YEAR] == disabledDayCalendar[Calendar.YEAR]
+                    && day.calendar[Calendar.DAY_OF_YEAR] == disabledDayCalendar[Calendar.DAY_OF_YEAR]) {
+                return true
             }
         }
-        return false;
+        return false
     }
 
-    public static boolean isDayDisabledByMinDate(Day day, Calendar minDate) {
-        return day.getCalendar().get(Calendar.YEAR) < minDate.get(Calendar.YEAR)
-                || day.getCalendar().get(Calendar.YEAR) == minDate.get(Calendar.YEAR)
-                && day.getCalendar().get(Calendar.DAY_OF_YEAR) < minDate.get(Calendar.DAY_OF_YEAR);
+    @JvmStatic
+    fun isDayDisabledByMinDate(day: Day, minDate: Calendar): Boolean {
+        return (day.calendar[Calendar.YEAR] < minDate[Calendar.YEAR]
+                || day.calendar[Calendar.YEAR] == minDate[Calendar.YEAR]
+                && day.calendar[Calendar.DAY_OF_YEAR] < minDate[Calendar.DAY_OF_YEAR])
     }
 
-    public static boolean isDayDisabledByMaxDate(Day day, Calendar maxDate) {
-        return day.getCalendar().get(Calendar.YEAR) > maxDate.get(Calendar.YEAR)
-                || day.getCalendar().get(Calendar.YEAR) == maxDate.get(Calendar.YEAR)
-                && day.getCalendar().get(Calendar.DAY_OF_YEAR) > maxDate.get(Calendar.DAY_OF_YEAR);
+    @JvmStatic
+    fun isDayDisabledByMaxDate(day: Day, maxDate: Calendar): Boolean {
+        return (day.calendar[Calendar.YEAR] > maxDate[Calendar.YEAR]
+                || day.calendar[Calendar.YEAR] == maxDate[Calendar.YEAR]
+                && day.calendar[Calendar.DAY_OF_YEAR] > maxDate[Calendar.DAY_OF_YEAR])
     }
 
-    public static boolean isDayDisabledByCriteria(Day day, DisabledDaysCriteria criteria) {
-        int field = -1;
-        switch (criteria.getCriteriaType()) {
-            case DAYS_OF_MONTH:
-                field = Calendar.DAY_OF_MONTH;
-                break;
-
-            case DAYS_OF_WEEK:
-                field = Calendar.DAY_OF_WEEK;
-                break;
+    @JvmStatic
+    fun isDayDisabledByCriteria(day: Day, criteria: DisabledDaysCriteria): Boolean {
+        val field: Int = when (criteria.criteriaType) {
+            DisabledDaysCriteriaType.DAYS_OF_MONTH -> Calendar.DAY_OF_MONTH
+            DisabledDaysCriteriaType.DAYS_OF_WEEK -> Calendar.DAY_OF_WEEK
         }
-
-        for (int dayInt : criteria.getDays()) {
-            if (dayInt == day.getCalendar().get(field)) {
-                return true;
+        for (dayInt in criteria.days) {
+            if (dayInt == day.calendar[field]) {
+                return true
             }
         }
-        return false;
+        return false
     }
 
-    public static int getIconHeight(Resources resources, int iconResId) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeResource(resources, iconResId, options);
-        return options.outHeight;
+    @JvmStatic
+    fun getIconHeight(resources: Resources?, iconResId: Int): Int {
+        val options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        BitmapFactory.decodeResource(resources, iconResId, options)
+        return options.outHeight
     }
 }
