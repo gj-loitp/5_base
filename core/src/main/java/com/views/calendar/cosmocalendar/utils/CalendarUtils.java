@@ -22,7 +22,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-//TODO convert kotlin
 public final class CalendarUtils {
 
     public static Month createMonth(Date date, SettingsManager settingsManager) {
@@ -72,7 +71,7 @@ public final class CalendarUtils {
     private static List<DayOfWeek> createDaysOfWeek(Date firstDisplayedDay) {
         final List<DayOfWeek> daysOfTheWeek = new ArrayList<>();
 
-        final Calendar calendar = DateUtils.getCalendar(firstDisplayedDay);
+        final Calendar calendar = DateUtils.INSTANCE.getCalendar(firstDisplayedDay);
         final int startDayOfTheWeek = calendar.get(Calendar.DAY_OF_WEEK);
         do {
             daysOfTheWeek.add(new DayOfWeek(calendar.getTime()));
@@ -170,13 +169,13 @@ public final class CalendarUtils {
 
         if (settingsManager.getDisabledDays() != null) {
             //day.setDisabled(isDayInSet(day, settingsManager.getDisabledDays()));
-            if(!day.isDisabled()) {
+            if (!day.isDisabled()) {
                 day.setDisabled(isDayInSet(day, settingsManager.getDisabledDays()));
             }
         }
 
         if (settingsManager.getDisabledDaysCriteria() != null) {
-            if(!day.isDisabled()){
+            if (!day.isDisabled()) {
                 day.setDisabled(isDayDisabledByCriteria(day, settingsManager.getDisabledDaysCriteria()));
             }
         }
@@ -211,7 +210,7 @@ public final class CalendarUtils {
 
     public static boolean isDayDisabledByCriteria(Day day, DisabledDaysCriteria criteria) {
         int field = -1;
-        switch (criteria.getCriteriaType()){
+        switch (criteria.getCriteriaType()) {
             case DAYS_OF_MONTH:
                 field = Calendar.DAY_OF_MONTH;
                 break;
@@ -221,15 +220,15 @@ public final class CalendarUtils {
                 break;
         }
 
-        for(int dayInt : criteria.getDays()){
-            if(dayInt == day.getCalendar().get(field)){
+        for (int dayInt : criteria.getDays()) {
+            if (dayInt == day.getCalendar().get(field)) {
                 return true;
             }
         }
         return false;
     }
 
-    public static int getIconHeight(Resources resources, int iconResId){
+    public static int getIconHeight(Resources resources, int iconResId) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeResource(resources, iconResId, options);

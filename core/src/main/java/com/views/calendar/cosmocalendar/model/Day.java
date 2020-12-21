@@ -12,7 +12,7 @@ import java.util.Date;
 //TODO convert kotlin
 public class Day {
 
-    private Calendar calendar;
+    private final Calendar calendar;
     private boolean belongToMonth;
     private boolean current;
     private boolean selected;
@@ -30,7 +30,7 @@ public class Day {
     private boolean isSelectionCircleDrawed;
 
     public Day(Date date) {
-        this.calendar = DateUtils.getCalendar(date);
+        this.calendar = DateUtils.INSTANCE.getCalendar(date);
         this.current = DateUtils.isCurrentDate(date);
         this.selected = false;
     }

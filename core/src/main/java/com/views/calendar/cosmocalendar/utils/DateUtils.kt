@@ -1,117 +1,150 @@
-package com.views.calendar.cosmocalendar.utils;
+package com.views.calendar.cosmocalendar.utils
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.format.DateUtils
+import com.views.calendar.cosmocalendar.model.Day
+import java.util.*
 
-import com.views.calendar.cosmocalendar.model.Day;
+object DateUtils {
 
-import java.util.Calendar;
-import java.util.Date;
-
-//TODO convert kotlin
-public class DateUtils {
-
-    public static Calendar getCalendar(Date date) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar;
+    fun getCalendar(
+            date: Date
+    ): Calendar {
+        val calendar = Calendar.getInstance()
+        calendar.time = date
+        return calendar
     }
 
-    public static Calendar getCalendar(long timeInMillis) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(timeInMillis);
-        return calendar;
+    @JvmStatic
+    fun getCalendar(
+            timeInMillis: Long
+    ): Calendar {
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = timeInMillis
+        return calendar
     }
 
-    public static Date getFirstDayOfMonth(Date date) {
-        Calendar calendar = getCalendar(date);
-        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMinimum(Calendar.DAY_OF_MONTH));
-        return calendar.getTime();
+    @JvmStatic
+    fun getFirstDayOfMonth(
+            date: Date
+    ): Date {
+        val calendar = getCalendar(date)
+        calendar[Calendar.DAY_OF_MONTH] = calendar.getActualMinimum(Calendar.DAY_OF_MONTH)
+        return calendar.time
     }
 
-    public static Date getLastDayOfMonth(Date date) {
-        Calendar calendar = getCalendar(date);
-        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
-        return calendar.getTime();
+    @JvmStatic
+    fun getLastDayOfMonth(
+            date: Date
+    ): Date {
+        val calendar = getCalendar(date)
+        calendar[Calendar.DAY_OF_MONTH] = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        return calendar.time
     }
 
-    public static Date getFirstDayOfWeek(@NonNull Date date, int firstDayOfWeek) {
-        Calendar calendar = Calendar.getInstance();
+    @JvmStatic
+    fun getFirstDayOfWeek(
+            date: Date?,
+            firstDayOfWeek: Int
+    ): Date {
+        val calendar = Calendar.getInstance()
         if (date != null) {
-            calendar.setTime(date);
+            calendar.time = date
         }
-        calendar.clear(Calendar.HOUR_OF_DAY);
-        calendar.clear(Calendar.HOUR);
-        while (calendar.get(Calendar.DAY_OF_WEEK) != firstDayOfWeek) {
-            calendar.add(Calendar.DATE, -1);
+        calendar.clear(Calendar.HOUR_OF_DAY)
+        calendar.clear(Calendar.HOUR)
+        while (calendar[Calendar.DAY_OF_WEEK] != firstDayOfWeek) {
+            calendar.add(Calendar.DATE, -1)
         }
-        return calendar.getTime();
+        return calendar.time
     }
 
-    public static Date getLastDayOfWeek(@Nullable Date date) {
-        Calendar calendar = Calendar.getInstance();
+    @JvmStatic
+    fun getLastDayOfWeek(
+            date: Date?
+    ): Date {
+        val calendar = Calendar.getInstance()
         if (date != null) {
-            calendar.setTime(date);
+            calendar.time = date
         }
-        calendar.clear(Calendar.HOUR_OF_DAY);
-        calendar.clear(Calendar.HOUR);
-        if (calendar.get(Calendar.DAY_OF_MONTH) == calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-                && calendar.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-            return calendar.getTime();
+        calendar.clear(Calendar.HOUR_OF_DAY)
+        calendar.clear(Calendar.HOUR)
+        if (calendar[Calendar.DAY_OF_MONTH] == calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+                && calendar[Calendar.DAY_OF_WEEK] == Calendar.SUNDAY) {
+            return calendar.time
         }
-        calendar.set(Calendar.DAY_OF_WEEK, calendar.getActualMaximum(Calendar.DAY_OF_WEEK));
-        while (calendar.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
-            calendar.add(Calendar.DATE, 1);
+        calendar[Calendar.DAY_OF_WEEK] = calendar.getActualMaximum(Calendar.DAY_OF_WEEK)
+        while (calendar[Calendar.DAY_OF_WEEK] != Calendar.SUNDAY) {
+            calendar.add(Calendar.DATE, 1)
         }
-        return calendar.getTime();
+        return calendar.time
     }
 
-    public static boolean isSameMonth(Calendar calendar1, Calendar calendar2) {
-        return calendar1.get(Calendar.MONTH) == calendar2.get(Calendar.MONTH);
+    @JvmStatic
+    fun isSameMonth(
+            calendar1: Calendar,
+            calendar2: Calendar
+    ): Boolean {
+        return calendar1[Calendar.MONTH] == calendar2[Calendar.MONTH]
     }
 
-    public static boolean isSameDayOfMonth(Calendar calendar1, Calendar calendar2) {
-        return calendar1.get(Calendar.DAY_OF_MONTH) == calendar2.get(Calendar.DAY_OF_MONTH);
+    @JvmStatic
+    fun isSameDayOfMonth(
+            calendar1: Calendar,
+            calendar2: Calendar
+    ): Boolean {
+        return calendar1[Calendar.DAY_OF_MONTH] == calendar2[Calendar.DAY_OF_MONTH]
     }
 
-    public static Calendar addMonth(Calendar calendar) {
-        calendar.add(Calendar.MONTH, 1);
-        return calendar;
+    @JvmStatic
+    fun addMonth(
+            calendar: Calendar
+    ): Calendar {
+        calendar.add(Calendar.MONTH, 1)
+        return calendar
     }
 
-    public static Calendar addDay(Calendar calendar) {
-        calendar.add(Calendar.DATE, 1);
-        return calendar;
+    @JvmStatic
+    fun addDay(
+            calendar: Calendar
+    ): Calendar {
+        calendar.add(Calendar.DATE, 1)
+        return calendar
     }
 
-    public static boolean isCurrentDate(Date date) {
-        return date != null && android.text.format.DateUtils.isToday(date.getTime());
+    @JvmStatic
+    fun isCurrentDate(
+            date: Date?
+    ): Boolean {
+        return date != null && DateUtils.isToday(date.time)
     }
 
-    public static boolean isDayInRange(Day day, Day dayStart, Day dayEnd) {
-        Calendar calendarStart = Calendar.getInstance();
-        calendarStart.setTime(dayStart.getCalendar().getTime());
-        setCalendarToStartOfDay(calendarStart);
-
-        Calendar calendarEnd = Calendar.getInstance();
-        calendarEnd.setTime(dayEnd.getCalendar().getTime());
-        setCalendarToEndOfDay(calendarEnd);
-
-        return day.getCalendar().getTimeInMillis() >= calendarStart.getTimeInMillis()
-                && day.getCalendar().getTimeInMillis() <= calendarEnd.getTimeInMillis();
+    @JvmStatic
+    fun isDayInRange(
+            day: Day,
+            dayStart: Day,
+            dayEnd: Day
+    ): Boolean {
+        val calendarStart = Calendar.getInstance()
+        calendarStart.time = dayStart.calendar.time
+        setCalendarToStartOfDay(calendarStart)
+        val calendarEnd = Calendar.getInstance()
+        calendarEnd.time = dayEnd.calendar.time
+        setCalendarToEndOfDay(calendarEnd)
+        return (day.calendar.timeInMillis >= calendarStart.timeInMillis
+                && day.calendar.timeInMillis <= calendarEnd.timeInMillis)
     }
 
-    private static void setCalendarToStartOfDay(Calendar calendar) {
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
+    private fun setCalendarToStartOfDay(calendar: Calendar) {
+        calendar[Calendar.HOUR_OF_DAY] = 0
+        calendar[Calendar.MINUTE] = 0
+        calendar[Calendar.SECOND] = 0
+        calendar[Calendar.MILLISECOND] = 0
     }
 
-    private static void setCalendarToEndOfDay(Calendar calendar) {
-        calendar.set(Calendar.HOUR_OF_DAY, 23);
-        calendar.set(Calendar.MINUTE, 59);
-        calendar.set(Calendar.SECOND, 59);
-        calendar.set(Calendar.MILLISECOND, 59);
+    private fun setCalendarToEndOfDay(calendar: Calendar) {
+        calendar[Calendar.HOUR_OF_DAY] = 23
+        calendar[Calendar.MINUTE] = 59
+        calendar[Calendar.SECOND] = 59
+        calendar[Calendar.MILLISECOND] = 59
     }
 }
