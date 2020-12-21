@@ -1,25 +1,18 @@
-package com.views.calendar.cosmocalendar.selection.criteria.month;
+package com.views.calendar.cosmocalendar.selection.criteria.month
 
-import com.views.calendar.cosmocalendar.utils.DateUtils;
+import com.views.calendar.cosmocalendar.utils.DateUtils.getCalendar
+import java.util.*
 
-import java.util.Calendar;
+class CurrentMonthCriteria : BaseMonthCriteria() {
 
-//TODO convert kotlin
-public class CurrentMonthCriteria extends BaseMonthCriteria {
+    private val currentTimeInMillis: Long = System.currentTimeMillis()
 
-    private long currentTimeInMillis;
-
-    public CurrentMonthCriteria() {
-        currentTimeInMillis = System.currentTimeMillis();
+    override fun getMonth(): Int {
+        return getCalendar(currentTimeInMillis)[Calendar.MONTH]
     }
 
-    @Override
-    protected int getMonth() {
-        return DateUtils.getCalendar(currentTimeInMillis).get(Calendar.MONTH);
+    override fun getYear(): Int {
+        return getCalendar(currentTimeInMillis)[Calendar.YEAR]
     }
 
-    @Override
-    protected int getYear() {
-        return DateUtils.getCalendar(currentTimeInMillis).get(Calendar.YEAR);
-    }
 }

@@ -1,20 +1,16 @@
-package com.views.calendar.cosmocalendar.selection.criteria.month;
+package com.views.calendar.cosmocalendar.selection.criteria.month
 
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria;
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
+import java.util.*
 
-import java.util.Calendar;
+abstract class BaseMonthCriteria : BaseCriteria() {
 
-//TODO convert kotlin
-public abstract class BaseMonthCriteria extends BaseCriteria {
+    protected abstract fun getMonth(): Int
+    protected abstract fun getYear(): Int
 
-    protected abstract int getMonth();
-
-    protected abstract int getYear();
-
-    @Override
-    public boolean isCriteriaPassed(Day day) {
-        return day.getCalendar().get(Calendar.MONTH) == getMonth()
-                && day.getCalendar().get(Calendar.YEAR) == getYear();
+    override fun isCriteriaPassed(day: Day): Boolean {
+        return (day.calendar[Calendar.MONTH] == getMonth()
+                && day.calendar[Calendar.YEAR] == getYear())
     }
 }
