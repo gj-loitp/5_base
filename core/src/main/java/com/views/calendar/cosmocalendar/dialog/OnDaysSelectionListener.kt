@@ -1,10 +1,7 @@
-package com.views.calendar.cosmocalendar.dialog;
+package com.views.calendar.cosmocalendar.dialog
 
-import com.views.calendar.cosmocalendar.model.Day;
+import com.views.calendar.cosmocalendar.model.Day
 
-import java.util.List;
-
-//TODO convert kotlin
-public interface OnDaysSelectionListener {
-    void onDaysSelected(List<Day> selectedDays);
+interface OnDaysSelectionListener {
+    fun onDaysSelected(selectedDays: List<Day>)
 }

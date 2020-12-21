@@ -1,14 +1,7 @@
-package com.views.calendar.cosmocalendar.model;
+package com.views.calendar.cosmocalendar.model
 
-import androidx.annotation.Keep;
-
-import java.util.Date;
+import androidx.annotation.Keep
+import java.util.*
 
 @Keep
-//TODO convert kotlin
-public class DayOfWeek extends Day {
-
-    public DayOfWeek(Date date) {
-        super(date);
-    }
-}
+class DayOfWeek(date: Date) : Day(date)

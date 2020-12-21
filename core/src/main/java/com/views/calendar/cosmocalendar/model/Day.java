@@ -8,8 +8,8 @@ import com.views.calendar.cosmocalendar.utils.DateUtils;
 import java.util.Calendar;
 import java.util.Date;
 
+//21.12.2020 try to convert kotlin but failed
 @Keep
-//TODO convert kotlin
 public class Day {
 
     private final Calendar calendar;
