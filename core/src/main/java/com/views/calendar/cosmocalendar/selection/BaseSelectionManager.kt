@@ -1,20 +1,11 @@
-package com.views.calendar.cosmocalendar.selection;
+package com.views.calendar.cosmocalendar.selection
 
-import androidx.annotation.NonNull;
+import com.views.calendar.cosmocalendar.model.Day
 
-import com.views.calendar.cosmocalendar.model.Day;
-
-//TODO convert kotlin
-public abstract class BaseSelectionManager {
-
-    protected OnDaySelectedListener onDaySelectedListener;
-
-    public abstract void toggleDay(@NonNull Day day);
-
-    public abstract boolean isDaySelected(@NonNull Day day);
-
-    public abstract void clearSelections();
-
-    public BaseSelectionManager() {
-    }
+abstract class BaseSelectionManager {
+    @JvmField
+    protected var onDaySelectedListener: OnDaySelectedListener? = null
+    abstract fun toggleDay(day: Day)
+    abstract fun isDaySelected(day: Day): Boolean
+    abstract fun clearSelections()
 }
