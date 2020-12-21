@@ -1,18 +1,6 @@
-package com.views.calendar.cosmocalendar.settings.date;
+package com.views.calendar.cosmocalendar.settings.date
 
-//TODO convert kotlin
-public class DateModel implements DateInterface {
-
+class DateModel : DateInterface {
     //Defines day from which the week begins
-    private int firstDayOfWeek;
-
-    @Override
-    public int getFirstDayOfWeek() {
-        return firstDayOfWeek;
-    }
-
-    @Override
-    public void setFirstDayOfWeek(int firstDayOfWeek) {
-        this.firstDayOfWeek = firstDayOfWeek;
-    }
+    override var firstDayOfWeek = 0
 }

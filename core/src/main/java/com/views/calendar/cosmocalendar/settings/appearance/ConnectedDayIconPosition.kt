@@ -1,7 +1,8 @@
-package com.views.calendar.cosmocalendar.settings.appearance;
+package com.views.calendar.cosmocalendar.settings.appearance
 
-//TODO convert kotlin
-public interface ConnectedDayIconPosition {
-    int TOP = 0;
-    int BOTTOM = 1;
+interface ConnectedDayIconPosition {
+    companion object {
+        const val TOP = 0
+        const val BOTTOM = 1
+    }
 }
