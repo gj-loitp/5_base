@@ -3,7 +3,6 @@ package com.views.calendar.cosmocalendar.settings.lists;
 import java.util.Set;
 import java.util.TreeSet;
 
-//TODO convert kotlin
 public class DisabledDaysCriteria {
 
     private DisabledDaysCriteriaType criteriaType = DisabledDaysCriteriaType.DAYS_OF_MONTH;
@@ -36,17 +35,15 @@ public class DisabledDaysCriteria {
 
     /**
      * Sets range of disabled days
-     * @param startRange
-     * @param endRange
      */
-    public void setDays(int startRange, int endRange, DisabledDaysCriteriaType criteriaType){
-        if(criteriaType == DisabledDaysCriteriaType.DAYS_OF_MONTH && startRange >= endRange){
+    public void setDays(int startRange, int endRange, DisabledDaysCriteriaType criteriaType) {
+        if (criteriaType == DisabledDaysCriteriaType.DAYS_OF_MONTH && startRange >= endRange) {
             throw new IllegalArgumentException("startRange must be less than endRange");
         }
-        if(startRange < 1){
+        if (startRange < 1) {
             throw new IllegalArgumentException("startRange must be more than 0");
         }
-        if(endRange < 1){
+        if (endRange < 1) {
             throw new IllegalArgumentException("endRange must be more than 0");
         }
 
@@ -54,7 +51,7 @@ public class DisabledDaysCriteria {
 
         Set<Integer> days = new TreeSet<>();
         int start, end;
-        if(startRange >= endRange){
+        if (startRange >= endRange) {
             start = endRange;
             end = startRange;
         } else {
@@ -62,28 +59,24 @@ public class DisabledDaysCriteria {
             end = endRange;
         }
 
-        for(int i = start; i<end+1; i++){
+        for (int i = start; i < end + 1; i++) {
             days.add(i);
         }
         validateDays(days);
         this.days = days;
     }
 
-    private void validateDays(Set<Integer> days){
+    private void validateDays(Set<Integer> days) {
         int maxPossibleValue;
-        switch (criteriaType){
-            case DAYS_OF_MONTH:
-                maxPossibleValue = MAX_DAYS_COUNT_IN_MONTH;
-                break;
-
-            default:
-                maxPossibleValue = MAX_DAYS_COUNT_IN_WEEK;
-                break;
+        if (criteriaType == DisabledDaysCriteriaType.DAYS_OF_MONTH) {
+            maxPossibleValue = MAX_DAYS_COUNT_IN_MONTH;
+        } else {
+            maxPossibleValue = MAX_DAYS_COUNT_IN_WEEK;
         }
 
-        for(int day : days){
-            if(day > maxPossibleValue){
-                throw new IllegalArgumentException("Invalid day:"+day);
+        for (int day : days) {
+            if (day > maxPossibleValue) {
+                throw new IllegalArgumentException("Invalid day:" + day);
             }
         }
     }

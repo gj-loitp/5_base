@@ -19,7 +19,6 @@ import com.views.calendar.cosmocalendar.utils.SelectionType;
 import java.util.Calendar;
 import java.util.Set;
 
-//TODO convert kotlin
 public class SettingsManager implements AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface {
 
     //Default values
@@ -30,10 +29,10 @@ public class SettingsManager implements AppearanceInterface, DateInterface, Cale
     public static final int DEFAULT_CONNECTED_DAY_ICON_POSITION = ConnectedDayIconPosition.BOTTOM;
 
     //Models
-    private AppearanceModel appearanceModel;
-    private DateModel dateModel;
-    private CalendarListsModel calendarListsModel;
-    private SelectionModel selectionModel;
+    private final AppearanceModel appearanceModel;
+    private final DateModel dateModel;
+    private final CalendarListsModel calendarListsModel;
+    private final SelectionModel selectionModel;
 
     public SettingsManager() {
         appearanceModel = new AppearanceModel();

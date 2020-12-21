@@ -1,22 +1,10 @@
-package com.views.calendar.cosmocalendar.settings.selection;
+package com.views.calendar.cosmocalendar.settings.selection
 
-import com.views.calendar.cosmocalendar.utils.SelectionType;
+import com.views.calendar.cosmocalendar.utils.SelectionType
 
-//TODO convert kotlin
-public class SelectionModel implements SelectionInterface {
-
+class SelectionModel : SelectionInterface {
     //Selecton type SINGLE, MULTIPLE, RANGE, NONE
+    @get:SelectionType
     @SelectionType
-    private int selectionType;
-
-    @Override
-    @SelectionType
-    public int getSelectionType() {
-        return selectionType;
-    }
-
-    @Override
-    public void setSelectionType(@SelectionType int selectionType) {
-        this.selectionType = selectionType;
-    }
+    override var selectionType = 0
 }
