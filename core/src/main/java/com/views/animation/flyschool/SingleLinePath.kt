@@ -1,34 +1,32 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.graphics.Path;
+import android.graphics.Path
 
 /**
  * Simple line path generator
- * Requires one {@link FPoint} to generate the Path
- * <p>
+ * Requires one [FPoint] to generate the Path
+ *
+ *
  * Created by avin on 20/01/17.
  */
+class SingleLinePath(
+        private val mFPoint: FPoint
+) : FlyPath() {
 
-//TODO convert kotlin
-public class SingleLinePath extends FlyPath {
-    private FPoint mFPoint;
-    private Path mPath;
+    private var mPath: Path? = null
 
-    public SingleLinePath(FPoint mFPoint) {
-        this.mFPoint = mFPoint;
+    private fun getmFPoint(): FPoint {
+        return mFPoint
     }
 
-    public FPoint getmFPoint() {
-        return mFPoint;
-    }
-
-    @Override
-    public Path getPath(FPoint mOrigin, float width, float height) {
+    override fun getPath(mOrigin: FPoint, width: Float, height: Float): Path {
         if (mPath == null) {
-            mPath = new Path();
-            mPath.moveTo(mOrigin.getmX() * width, mOrigin.getmY() * height);
-            mPath.lineTo(getmFPoint().getmX() * width, getmFPoint().getmY() * height);
+            mPath = Path()
+            mPath?.let {
+                it.moveTo(mOrigin.getmX() * width, mOrigin.getmY() * height)
+                it.lineTo(getmFPoint().getmX() * width, getmFPoint().getmY() * height)
+            }
         }
-        return mPath;
+        return mPath!!
     }
 }

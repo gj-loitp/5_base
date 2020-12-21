@@ -26,8 +26,7 @@ import java.util.Random;
  */
 
 //https://www.desmos.com/calculator/cahqdxeshd
-
-//TODO convert kotlin
+//21.12.2020 try to convert kotlin but failed
 public class ShapeFlyer extends RelativeLayout {
 
     private ArrayList<Path> mPaths;
@@ -64,8 +63,8 @@ public class ShapeFlyer extends RelativeLayout {
         mShapeHeight = Utils.dpToPx(50);
         if (attributeSet != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attributeSet, R.styleable.ShapeFlyer);
-            mShapeWidth = typedArray.getDimensionPixelSize(R.styleable.ShapeFlyer_shape_width, (int) mShapeWidth);
-            mShapeHeight = typedArray.getDimensionPixelSize(R.styleable.ShapeFlyer_shape_height, (int) mShapeHeight);
+            mShapeWidth = typedArray.getDimensionPixelSize(R.styleable.ShapeFlyer_shape_width, mShapeWidth);
+            mShapeHeight = typedArray.getDimensionPixelSize(R.styleable.ShapeFlyer_shape_height, mShapeHeight);
             isAlphaEnabled = typedArray.getBoolean(R.styleable.ShapeFlyer_enable_alpha, false);
             isScaleEnabled = typedArray.getBoolean(R.styleable.ShapeFlyer_enable_scale, false);
             mFromAlpha = typedArray.getFloat(R.styleable.ShapeFlyer_from_alpha, 1f);
@@ -152,7 +151,7 @@ public class ShapeFlyer extends RelativeLayout {
      */
     private void startAnimation(int drawable, Path path) {
         initPaths();
-        View shapeView = null;
+        View shapeView;
         if (Utils.INSTANCE.isLowerThanLollipop()) {
             shapeView = new AppCompatShapeView(getContext());
         } else {
@@ -173,7 +172,7 @@ public class ShapeFlyer extends RelativeLayout {
         final Path finalPath = path;
         final View finalShapeView = shapeView;
         pathAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            float[] point = new float[2];
+            final float[] point = new float[2];
 
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -223,7 +222,7 @@ public class ShapeFlyer extends RelativeLayout {
             return;
         }
         initPaths();
-        View shapeView = null;
+        View shapeView;
         /*if (Utils.isLowerThanLollipop()) {
             shapeView = new AppCompatShapeView(getContext());
         } else {
@@ -244,7 +243,7 @@ public class ShapeFlyer extends RelativeLayout {
         final Path finalPath = path;
         final View finalShapeView = shapeView;
         pathAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            float[] point = new float[2];
+            final float[] point = new float[2];
 
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {

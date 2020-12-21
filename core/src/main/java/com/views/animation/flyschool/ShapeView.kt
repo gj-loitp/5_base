@@ -1,50 +1,34 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.content.Context;
-import android.util.AttributeSet;
+import android.content.Context
+import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatImageView
+import com.R
+import com.views.animation.flyschool.Utils.setHeart
 
-import androidx.appcompat.widget.AppCompatImageView;
-
-import com.R;
-
-//TODO convert kotlin
-public class ShapeView extends AppCompatImageView implements ShapeSetter {
-    public ShapeView(Context context) {
-        super(context);
-        init();
+class ShapeView : AppCompatImageView, ShapeSetter {
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    public ShapeView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init()
     }
 
-    public ShapeView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init()
     }
 
-//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-//    public ShapeView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-//        super(context, attrs, defStyleAttr, defStyleRes);
-//        init();
-//    }
-
-    private void init() {
-        setImageResource(R.drawable.l_facebook_button_blue);
-        //int dimensionInDp = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dimensionInPixel, getResources().getDisplayMetrics());
+    private fun init() {
+        setImageResource(R.drawable.l_facebook_button_blue)
     }
 
-    //private int dimensionInDp;
-
-    @Override
-    public void setShape(int drawable) {
-        setImageResource(drawable);
-        Utils.setHeart(this);
+    override fun setShape(drawable: Int) {
+        setImageResource(drawable)
+        setHeart(this)
     }
 
-    @Override
-    public void setShape(ImgObject imgObject, int drawableRes) {
+    override fun setShape(imgObject: ImgObject, drawableRes: Int) {
         //setImageResource(R.mipmap.ic_launcher);
     }
 }
