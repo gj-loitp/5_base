@@ -20,7 +20,7 @@ class MonthDelegate(
         return holder
     }
 
-    fun onBindMonthHolder(month: Month?, holder: MonthHolder, position: Int) {
+    fun onBindMonthHolder(month: Month, holder: MonthHolder, position: Int) {
         holder.bind(month)
     }
 }

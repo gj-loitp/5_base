@@ -1,53 +1,38 @@
-package com.views.calendar.cosmocalendar.adapter.viewholder;
+package com.views.calendar.cosmocalendar.adapter.viewholder
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.recyclerview.widget.OrientationHelper
+import androidx.recyclerview.widget.RecyclerView
+import com.R
+import com.views.calendar.cosmocalendar.adapter.DaysAdapter
+import com.views.calendar.cosmocalendar.model.Month
+import com.views.calendar.cosmocalendar.settings.SettingsManager
+import com.views.calendar.cosmocalendar.view.MonthView
 
-import androidx.recyclerview.widget.OrientationHelper;
-import androidx.recyclerview.widget.RecyclerView;
+class MonthHolder(
+        itemView: View,
+        private val appearanceModel: SettingsManager
+) : RecyclerView.ViewHolder(itemView) {
 
-import com.R;
-import com.views.calendar.cosmocalendar.adapter.DaysAdapter;
-import com.views.calendar.cosmocalendar.model.Month;
-import com.views.calendar.cosmocalendar.settings.SettingsManager;
-import com.views.calendar.cosmocalendar.view.MonthView;
+    private val llMonthHeader: LinearLayout = itemView.findViewById(R.id.ll_month_header)
+    private val tvMonthName: TextView = itemView.findViewById(R.id.tv_month_name)
+    private val viewLeftLine: View = itemView.findViewById(R.id.view_left_line)
+    private val viewRightLine: View = itemView.findViewById(R.id.view_right_line)
+    private val monthView: MonthView = itemView.findViewById(R.id.month_view)
 
-public class MonthHolder extends RecyclerView.ViewHolder {
-
-    private final LinearLayout llMonthHeader;
-    private final TextView tvMonthName;
-    private final View viewLeftLine;
-    private final View viewRightLine;
-    private final MonthView monthView;
-    private final SettingsManager appearanceModel;
-
-    public MonthHolder(View itemView, SettingsManager appearanceModel) {
-        super(itemView);
-        llMonthHeader = itemView.findViewById(R.id.ll_month_header);
-        monthView = itemView.findViewById(R.id.month_view);
-        tvMonthName = itemView.findViewById(R.id.tv_month_name);
-        viewLeftLine = itemView.findViewById(R.id.view_left_line);
-        viewRightLine = itemView.findViewById(R.id.view_right_line);
-        this.appearanceModel = appearanceModel;
+    fun setDayAdapter(adapter: DaysAdapter?) {
+        monthView.adapter = adapter
     }
 
-    public void setDayAdapter(DaysAdapter adapter) {
-        getMonthView().setAdapter(adapter);
+    fun bind(month: Month) {
+        tvMonthName.text = month.monthName
+        tvMonthName.setTextColor(appearanceModel.monthTextColor)
+        viewLeftLine.visibility = if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) View.INVISIBLE else View.VISIBLE
+        viewRightLine.visibility = if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) View.INVISIBLE else View.VISIBLE
+        llMonthHeader.setBackgroundResource(if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) R.drawable.border_top_bottom else 0)
+        monthView.initAdapter(month)
     }
 
-    public void bind(Month month) {
-        tvMonthName.setText(month.getMonthName());
-        tvMonthName.setTextColor(appearanceModel.getMonthTextColor());
-
-        viewLeftLine.setVisibility(appearanceModel.getCalendarOrientation() == OrientationHelper.HORIZONTAL ? View.INVISIBLE : View.VISIBLE);
-        viewRightLine.setVisibility(appearanceModel.getCalendarOrientation() == OrientationHelper.HORIZONTAL ? View.INVISIBLE : View.VISIBLE);
-        llMonthHeader.setBackgroundResource(appearanceModel.getCalendarOrientation() == OrientationHelper.HORIZONTAL ? R.drawable.border_top_bottom : 0);
-
-        monthView.initAdapter(month);
-    }
-
-    public MonthView getMonthView() {
-        return monthView;
-    }
 }

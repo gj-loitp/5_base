@@ -13,10 +13,10 @@ import com.views.calendar.cosmocalendar.utils.CalendarUtils;
 import com.views.calendar.cosmocalendar.view.CalendarView;
 import com.views.calendar.cosmocalendar.view.customviews.CircleAnimationTextView;
 
-//TODO convert kotlin
+//21.12.2020 try to convert kotlin but failed
 public class DayHolder extends BaseDayHolder {
 
-    private CircleAnimationTextView ctvDay;
+    private final CircleAnimationTextView ctvDay;
     private BaseSelectionManager selectionManager;
 
     public DayHolder(View itemView, CalendarView calendarView) {

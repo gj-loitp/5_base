@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.views.calendar.cosmocalendar.view.CalendarView;
 
-//TODO convert kotlin
+//21.12.2020 try to convert kotlin but failed
 public abstract class BaseDayHolder extends RecyclerView.ViewHolder {
 
     protected TextView tvDay;
