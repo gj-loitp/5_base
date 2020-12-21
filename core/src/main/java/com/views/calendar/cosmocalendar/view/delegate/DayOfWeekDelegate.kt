@@ -8,7 +8,7 @@ import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.view.CalendarView
 
 class DayOfWeekDelegate(
-        calendarView: CalendarView?
+        calendarView: CalendarView
 ) : BaseDelegate() {
 
     init {
@@ -20,7 +20,7 @@ class DayOfWeekDelegate(
         return DayOfWeekHolder(view, calendarView)
     }
 
-    fun onBindDayHolder(day: Day?, holder: DayOfWeekHolder, position: Int) {
+    fun onBindDayHolder(day: Day, holder: DayOfWeekHolder, position: Int) {
         holder.bind(day)
     }
 

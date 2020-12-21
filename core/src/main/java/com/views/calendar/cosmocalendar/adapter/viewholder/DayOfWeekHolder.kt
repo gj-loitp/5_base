@@ -1,28 +1,28 @@
-package com.views.calendar.cosmocalendar.adapter.viewholder;
+package com.views.calendar.cosmocalendar.adapter.viewholder
 
-import android.view.View;
+import android.view.View
+import com.R
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.utils.Constants
+import com.views.calendar.cosmocalendar.view.CalendarView
+import java.text.SimpleDateFormat
+import java.util.*
 
-import com.R;
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.utils.Constants;
-import com.views.calendar.cosmocalendar.view.CalendarView;
+class DayOfWeekHolder(
+        itemView: View,
+        calendarView: CalendarView?
+) : BaseDayHolder(itemView, calendarView) {
 
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+    private val mDayOfWeekFormatter: SimpleDateFormat
 
-//TODO convert kotlin
-public class DayOfWeekHolder extends BaseDayHolder {
-
-    private SimpleDateFormat mDayOfWeekFormatter;
-
-    public DayOfWeekHolder(View itemView, CalendarView calendarView) {
-        super(itemView, calendarView);
-        tvDay = itemView.findViewById(R.id.tv_day_name);
-        mDayOfWeekFormatter = new SimpleDateFormat(Constants.DAY_NAME_FORMAT, Locale.getDefault());
+    init {
+        tvDay = itemView.findViewById(R.id.tv_day_name)
+        mDayOfWeekFormatter = SimpleDateFormat(Constants.DAY_NAME_FORMAT, Locale.getDefault())
     }
 
-    public void bind(Day day) {
-        tvDay.setText(mDayOfWeekFormatter.format(day.getCalendar().getTime()));
-        tvDay.setTextColor(calendarView.getWeekDayTitleTextColor());
+    fun bind(day: Day) {
+        tvDay.text = mDayOfWeekFormatter.format(day.calendar.time)
+        tvDay.setTextColor(calendarView.weekDayTitleTextColor)
     }
+
 }

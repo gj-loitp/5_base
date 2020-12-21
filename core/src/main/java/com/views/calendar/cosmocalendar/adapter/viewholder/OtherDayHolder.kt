@@ -1,21 +1,22 @@
-package com.views.calendar.cosmocalendar.adapter.viewholder;
+package com.views.calendar.cosmocalendar.adapter.viewholder
 
-import android.view.View;
+import android.view.View
+import com.R
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.view.CalendarView
 
-import com.R;
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.view.CalendarView;
+class OtherDayHolder(
+        itemView: View,
+        calendarView: CalendarView
+) : BaseDayHolder(itemView, calendarView) {
 
-//TODO convert kotlin
-public class OtherDayHolder extends BaseDayHolder {
-
-    public OtherDayHolder(View itemView, CalendarView calendarView) {
-        super(itemView, calendarView);
-        tvDay = itemView.findViewById(R.id.tv_day_number);
+    init {
+        tvDay = itemView.findViewById(R.id.tv_day_number)
     }
 
-    public void bind(Day day) {
-        tvDay.setText(String.valueOf(day.getDayNumber()));
-        tvDay.setTextColor(calendarView.getOtherDayTextColor());
+    fun bind(day: Day) {
+        tvDay.text = day.dayNumber.toString()
+        tvDay.setTextColor(calendarView.otherDayTextColor)
     }
+
 }

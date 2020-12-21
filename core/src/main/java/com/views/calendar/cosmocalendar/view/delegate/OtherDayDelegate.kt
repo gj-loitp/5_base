@@ -14,7 +14,7 @@ class OtherDayDelegate(private val calendarView: CalendarView) {
         return OtherDayHolder(view, calendarView)
     }
 
-    fun onBindDayHolder(day: Day?, holder: OtherDayHolder, position: Int) {
+    fun onBindDayHolder(day: Day, holder: OtherDayHolder, position: Int) {
         holder.bind(day)
     }
 }

@@ -18,25 +18,26 @@ import com.views.calendar.cosmocalendar.view.delegate.DayOfWeekDelegate;
 import com.views.calendar.cosmocalendar.view.delegate.MonthDelegate;
 import com.views.calendar.cosmocalendar.view.delegate.OtherDayDelegate;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
-//TODO convert kotlin
+//21.12.2020 try to convert kotlin but failed
 public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
 
     private final List<Month> months;
-
-    private MonthDelegate monthDelegate;
-
-    private CalendarView calendarView;
+    private final MonthDelegate monthDelegate;
+    private final CalendarView calendarView;
     private BaseSelectionManager selectionManager;
-    private DaysAdapter daysAdapter;
 
-    private MonthAdapter(List<Month> months,
-                         MonthDelegate monthDelegate,
-                         CalendarView calendarView,
-                         BaseSelectionManager selectionManager) {
+    private MonthAdapter(
+            List<Month> months,
+            MonthDelegate monthDelegate,
+            CalendarView calendarView,
+            BaseSelectionManager selectionManager
+    ) {
         setHasStableIds(true);
         this.months = months;
         this.monthDelegate = monthDelegate;
@@ -52,9 +53,10 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         return selectionManager;
     }
 
+    @NotNull
     @Override
-    public MonthHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        daysAdapter = new DaysAdapter.DaysAdapterBuilder()
+    public MonthHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
+        DaysAdapter daysAdapter = new DaysAdapter.DaysAdapterBuilder()
                 .setDayOfWeekDelegate(new DayOfWeekDelegate(calendarView))
                 .setOtherDayDelegate(new OtherDayDelegate(calendarView))
                 .setDayDelegate(new DayDelegate(calendarView, this))
@@ -64,7 +66,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MonthHolder holder, int position) {
+    public void onBindViewHolder(@NotNull MonthHolder holder, int position) {
         final Month month = months.get(position);
         monthDelegate.onBindMonthHolder(month, holder, position);
     }
@@ -127,10 +129,10 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         setDaysAccordingToSet(weekendDays, DayFlag.WEEKEND);
     }
 
-    public void setMinDate(Calendar minDate){
+    public void setMinDate(Calendar minDate) {
         for (Month month : months) {
             for (Day day : month.getDays()) {
-                if(!day.isDisabled()){
+                if (!day.isDisabled()) {
                     day.setDisabled(CalendarUtils.isDayDisabledByMinDate(day, minDate));
                 }
             }
@@ -138,10 +140,10 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         notifyDataSetChanged();
     }
 
-    public void setMaxDate(Calendar maxDate){
+    public void setMaxDate(Calendar maxDate) {
         for (Month month : months) {
             for (Day day : month.getDays()) {
-                if(!day.isDisabled()){
+                if (!day.isDisabled()) {
                     day.setDisabled(CalendarUtils.isDayDisabledByMaxDate(day, maxDate));
                 }
             }
@@ -157,10 +159,10 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthHolder> {
         setDaysAccordingToSet(connectedCalendarDays, DayFlag.FROM_CONNECTED_CALENDAR);
     }
 
-    public void setDisabledDaysCriteria(DisabledDaysCriteria criteria){
+    public void setDisabledDaysCriteria(DisabledDaysCriteria criteria) {
         for (Month month : months) {
             for (Day day : month.getDays()) {
-                if(!day.isDisabled()){
+                if (!day.isDisabled()) {
                     day.setDisabled(CalendarUtils.isDayDisabledByCriteria(day, criteria));
                 }
             }
