@@ -1,41 +1,34 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.content.Context;
-import android.util.AttributeSet;
+import android.content.Context
+import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatImageView
+import com.R
+import com.views.animation.flyschool.Utils.setHeart
 
-import androidx.appcompat.widget.AppCompatImageView;
-
-import com.R;
-
-//TODO convert kotlin
-public class AppCompatShapeView extends AppCompatImageView implements ShapeSetter {
-    public AppCompatShapeView(Context context) {
-        super(context);
-        init();
+class AppCompatShapeView : AppCompatImageView, ShapeSetter {
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    public AppCompatShapeView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init()
     }
 
-    public AppCompatShapeView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+        init()
     }
 
-    private void init() {
-        setImageResource(R.drawable.l_facebook_button_blue);
+    private fun init() {
+        setImageResource(R.drawable.l_facebook_button_blue)
     }
 
-    @Override
-    public void setShape(int drawable) {
-        setImageResource(drawable);
-        Utils.setHeart(this);
+    override fun setShape(drawable: Int) {
+        setImageResource(drawable)
+        setHeart(this)
     }
 
-    @Override
-    public void setShape(ImgObject imgObject, int drawableRes) {
+    override fun setShape(imgObject: ImgObject, drawableRes: Int) {
         //setImageResource(R.mipmap.ic_launcher);
     }
 }

@@ -1,53 +1,54 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.graphics.Path;
+import android.graphics.Path
 
 /**
  * Simple beizer path generator
- * Requires three {@link FPoint} to generate the Path
- * <p>
+ * Requires three [FPoint] to generate the Path
+ *
+ *
  * Created by avin on 20/01/17.
  */
+class BeizerPath(
+        private val mFPoint1: FPoint,
+        private val mFPoint2: FPoint,
+        private val mFPoint3: FPoint
+) : FlyPath() {
 
-//TODO convert kotlin
-public class BeizerPath extends FlyPath {
-    private FPoint mFPoint1, mFPoint2, mFPoint3;
-    private Path mPath;
+    private var mPath: Path? = null
 
-    public BeizerPath(FPoint mFPoint1, FPoint mFPoint2, FPoint mFPoint3) {
-        this.mFPoint1 = mFPoint1;
-        this.mFPoint2 = mFPoint2;
-        this.mFPoint3 = mFPoint3;
+    private fun getmFPoint1(): FPoint {
+        return mFPoint1
     }
 
-    public FPoint getmFPoint1() {
-        return mFPoint1;
+    private fun getmFPoint2(): FPoint {
+        return mFPoint2
     }
 
-    public FPoint getmFPoint2() {
-        return mFPoint2;
+    private fun getmFPoint3(): FPoint {
+        return mFPoint3
     }
 
-    public FPoint getmFPoint3() {
-        return mFPoint3;
-    }
+    override fun getPath(
+            mOrigin: FPoint,
+            width: Float,
+            height: Float
+    ): Path {
 
-
-    @Override
-    public Path getPath(FPoint mOrigin, float width, float height) {
         if (mPath == null) {
-            mPath = new Path();
-            mPath.moveTo(mOrigin.getmX() * width, mOrigin.getmY() * height);
-            float x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0;
-            x1 = getmFPoint1().getmX() * width;
-            y1 = getmFPoint1().getmY() * height;
-            x2 = getmFPoint2().getmX() * width;
-            y2 = getmFPoint2().getmY() * height;
-            x3 = getmFPoint3().getmX() * width;
-            y3 = getmFPoint3().getmY() * height;
-            mPath.rCubicTo(x1, y1, x2, y2, x3, y3);
+            mPath = Path()
+            mPath?.moveTo(mOrigin.getmX() * width, mOrigin.getmY() * height)
+
+            val x1: Float = getmFPoint1().getmX() * width
+            val y1: Float = getmFPoint1().getmY() * height
+            val x2: Float = getmFPoint2().getmX() * width
+            val y2: Float = getmFPoint2().getmY() * height
+            val x3: Float = getmFPoint3().getmX() * width
+            val y3: Float = getmFPoint3().getmY() * height
+
+            mPath?.rCubicTo(x1, y1, x2, y2, x3, y3)
         }
 
-        return mPath;
+        return mPath!!
     }
 }

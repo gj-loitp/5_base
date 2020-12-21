@@ -1,41 +1,41 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.graphics.Path;
+import android.graphics.Path
 
-//TODO convert kotlin
-public abstract class FlyPath {
-    public static SingleLinePath getSimpleLinePath(FPoint mFPoint) {
-        return new SingleLinePath(mFPoint);
-    }
-
-    public static BeizerPath getBeizerPath(FPoint mFPoint1, FPoint mFPoint2, FPoint mFPoint3) {
-        return new BeizerPath(mFPoint1, mFPoint2, mFPoint3);
-    }
-
-    public static MultipleLinePath getMultipleLinePath(FPoint... mFPoints) {
-        if (mFPoints == null) {
-            throw new IllegalArgumentException("Passed FPoints should not be null");
-        }
-
-        MultipleLinePath multipleLinePath = null;
-        if (mFPoints.length > 0) {
-            multipleLinePath = new MultipleLinePath();
-            for (FPoint fPoint : mFPoints) {
-                multipleLinePath.addFPoint(fPoint);
-            }
-        }
-
-        return multipleLinePath;
-
-    }
-
+abstract class FlyPath {
     /**
      * @param mOrigin : Origin point where the PATH should start
-     * @param width   : Width of the {@link ShapeFlyer} in pixels
-     * @param height  : Height of the {@link ShapeFlyer} in pixels
-     *                <p>
-     *                Should return the path/trajectory of the animation.
-     *                Please refer to {@link BeizerPath} and {@link SingleLinePath} for examples
+     * @param width   : Width of the [ShapeFlyer] in pixels
+     * @param height  : Height of the [ShapeFlyer] in pixels
+     *
+     *
+     * Should return the path/trajectory of the animation.
+     * Please refer to [BeizerPath] and [SingleLinePath] for examples
      */
-    public abstract Path getPath(FPoint mOrigin, float width, float height);
+    abstract fun getPath(mOrigin: FPoint, width: Float, height: Float): Path
+
+    companion object {
+        fun getSimpleLinePath(mFPoint: FPoint): SingleLinePath {
+            return SingleLinePath(mFPoint)
+        }
+
+        fun getBeizerPath(
+                mFPoint1: FPoint,
+                mFPoint2: FPoint,
+                mFPoint3: FPoint
+        ): BeizerPath {
+            return BeizerPath(mFPoint1, mFPoint2, mFPoint3)
+        }
+
+        fun getMultipleLinePath(vararg mFPoints: FPoint?): MultipleLinePath? {
+            var multipleLinePath: MultipleLinePath? = null
+            if (mFPoints.isNotEmpty()) {
+                multipleLinePath = MultipleLinePath()
+                for (fPoint in mFPoints) {
+                    multipleLinePath.addFPoint(fPoint)
+                }
+            }
+            return multipleLinePath
+        }
+    }
 }
