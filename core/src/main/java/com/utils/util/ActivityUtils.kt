@@ -27,15 +27,16 @@ class ActivityUtils private constructor() {
                 packageName: String?,
                 className: String?
         ): Boolean {
-            if (packageName.isNullOrEmpty() || className.isNullOrEmpty()) {
+            val context = Utils.getContext()
+            if (context == null || packageName.isNullOrEmpty() || className.isNullOrEmpty()) {
                 return false
             }
             val intent = Intent()
             intent.setClassName(packageName, className)
             return !(
-                    Utils.getContext().packageManager.resolveActivity(intent, 0) == null
-                            || intent.resolveActivity(Utils.getContext().packageManager) == null
-                            || Utils.getContext().packageManager.queryIntentActivities(intent, 0).size == 0
+                    context.packageManager.resolveActivity(intent, 0) == null
+                            || intent.resolveActivity(context.packageManager) == null
+                            || context.packageManager.queryIntentActivities(intent, 0).size == 0
                     )
         }
 
@@ -51,9 +52,9 @@ class ActivityUtils private constructor() {
             val intent = Intent(Intent.ACTION_MAIN, null)
             intent.addCategory(Intent.CATEGORY_LAUNCHER)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            val pm = Utils.getContext().packageManager
-            val info = pm.queryIntentActivities(intent, 0)
-            for (aInfo in info) {
+            val pm = Utils.getContext()?.packageManager
+            val info = pm?.queryIntentActivities(intent, 0)
+            info?.forEach { aInfo ->
                 if (aInfo.activityInfo.packageName == packageName) {
                     return aInfo.activityInfo.name
                 }
