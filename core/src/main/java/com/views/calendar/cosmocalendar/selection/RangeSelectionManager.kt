@@ -1,81 +1,92 @@
-package com.views.calendar.cosmocalendar.selection;
+package com.views.calendar.cosmocalendar.selection
 
-import android.util.Pair;
+import android.util.Pair
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.utils.DateUtils.isDayInRange
 
-import androidx.annotation.NonNull;
+class RangeSelectionManager(
+        onDaySelectedListener: OnDaySelectedListener?
+) : BaseSelectionManager() {
 
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.utils.DateUtils;
+    var days: Pair<Day, Day>? = null
+        private set
+    private var tempDay: Day? = null
 
-//TODO convert kotlin
-public class RangeSelectionManager extends BaseSelectionManager {
-
-    private Pair<Day, Day> days;
-    private Day tempDay;
-
-    public RangeSelectionManager(OnDaySelectedListener onDaySelectedListener) {
-        this.onDaySelectedListener = onDaySelectedListener;
+    init {
+        this.onDaySelectedListener = onDaySelectedListener
     }
 
-    public Pair<Day, Day> getDays() {
-        return days;
-    }
-
-    @Override
-    public void toggleDay(@NonNull Day day) {
+    override fun toggleDay(day: Day) {
         if (tempDay == null) {
-            tempDay = day;
-            days = null;
+            tempDay = day
+            days = null
         } else {
-            if (tempDay == day) {
-                return;
+            if (tempDay === day) {
+                return
             }
-            if (tempDay.getCalendar().getTime().before(day.getCalendar().getTime())) {
-                days = Pair.create(tempDay, day);
-            } else {
-                days = Pair.create(day, tempDay);
+            tempDay?.let {
+                days = if (it.calendar.time.before(day.calendar.time)) {
+                    Pair.create(it, day)
+                } else {
+                    Pair.create(day, it)
+                }
             }
-            tempDay = null;
+            tempDay = null
         }
-        onDaySelectedListener.onDaySelected();
+        onDaySelectedListener?.onDaySelected()
     }
 
-    @Override
-    public boolean isDaySelected(@NonNull Day day) {
-        return isDaySelectedManually(day);
+    override fun isDaySelected(day: Day): Boolean {
+        return isDaySelectedManually(day)
     }
 
-    private boolean isDaySelectedManually(@NonNull Day day) {
-        if (tempDay != null) {
-            return day.equals(tempDay);
-        } else if (days != null) {
-            return DateUtils.isDayInRange(day, days.first, days.second);
-        } else {
-            return false;
+    private fun isDaySelectedManually(day: Day): Boolean {
+        return when {
+            tempDay != null -> {
+                day == tempDay
+            }
+            days != null -> {
+//                isDayInRange(day, days!!.first, days!!.second)
+                days?.let {
+                    return isDayInRange(day, it.first, it.second)
+                }
+                return false
+            }
+            else -> {
+                false
+            }
         }
     }
 
-    @Override
-    public void clearSelections() {
-        days = null;
-        tempDay = null;
+    override fun clearSelections() {
+        days = null
+        tempDay = null
     }
 
-    public SelectionState getSelectedState(Day day) {
+    fun getSelectedState(day: Day): SelectionState {
         if (!isDaySelectedManually(day)) {
-            return SelectionState.SINGLE_DAY;
+            return SelectionState.SINGLE_DAY
         }
-
-        if (days == null) {
-            return SelectionState.START_RANGE_DAY_WITHOUT_END;
-        } else if (days.first.equals(day)) {
-            return SelectionState.START_RANGE_DAY;
-        } else if (days.second.equals(day)) {
-            return SelectionState.END_RANGE_DAY;
-        } else if (DateUtils.isDayInRange(day, days.first, days.second)) {
-            return SelectionState.RANGE_DAY;
-        } else {
-            return SelectionState.SINGLE_DAY;
+        return when {
+            days == null -> {
+                SelectionState.START_RANGE_DAY_WITHOUT_END
+            }
+            days?.first == day -> {
+                SelectionState.START_RANGE_DAY
+            }
+            days?.second == day -> {
+                SelectionState.END_RANGE_DAY
+            }
+//            isDayInRange(day, days!!.first, days!!.second) -> {
+//                SelectionState.RANGE_DAY
+//            }
+            else -> {
+                if (days != null && isDayInRange(day, days!!.first, days!!.second)) {
+                    SelectionState.RANGE_DAY
+                } else {
+                    SelectionState.SINGLE_DAY
+                }
+            }
         }
     }
 }

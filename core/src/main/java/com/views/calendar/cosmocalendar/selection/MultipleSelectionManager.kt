@@ -1,56 +1,45 @@
-package com.views.calendar.cosmocalendar.selection;
+package com.views.calendar.cosmocalendar.selection
 
-import androidx.annotation.NonNull;
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
+import java.util.*
 
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria;
+class MultipleSelectionManager : BaseCriteriaSelectionManager {
+    private val days: MutableSet<Day> = HashSet()
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-//TODO convert kotlin
-public class MultipleSelectionManager extends BaseCriteriaSelectionManager {
-
-    private final Set<Day> days = new HashSet<>();
-
-    public MultipleSelectionManager(OnDaySelectedListener onDaySelectedListener) {
-        this.onDaySelectedListener = onDaySelectedListener;
+    constructor(onDaySelectedListener: OnDaySelectedListener?) {
+        this.onDaySelectedListener = onDaySelectedListener
     }
 
-    public MultipleSelectionManager(BaseCriteria criteria, OnDaySelectedListener onDaySelectedListener) {
-        this(new ArrayList<>(Collections.singleton(criteria)), onDaySelectedListener);
+    constructor(criteria: BaseCriteria?, onDaySelectedListener: OnDaySelectedListener?) : this(ArrayList<BaseCriteria>(setOf(criteria)), onDaySelectedListener)
+
+    constructor(
+            criteriaList: ArrayList<BaseCriteria>,
+            onDaySelectedListener: OnDaySelectedListener?
+    ) {
+        this.criteriaList = criteriaList
+        this.onDaySelectedListener = onDaySelectedListener
     }
 
-    public MultipleSelectionManager(List<BaseCriteria> criteriaList, OnDaySelectedListener onDaySelectedListener) {
-        this.criteriaList = criteriaList;
-        this.onDaySelectedListener = onDaySelectedListener;
-    }
-
-    @Override
-    public void toggleDay(@NonNull Day day) {
+    override fun toggleDay(day: Day) {
         if (days.contains(day)) {
-            days.remove(day);
+            days.remove(day)
         } else {
-            days.add(day);
+            days.add(day)
         }
-        onDaySelectedListener.onDaySelected();
+        onDaySelectedListener?.onDaySelected()
     }
 
-    @Override
-    public boolean isDaySelected(@NonNull Day day) {
-        return days.contains(day) || isDaySelectedByCriteria(day);
+    override fun isDaySelected(day: Day): Boolean {
+        return days.contains(day) || isDaySelectedByCriteria(day = day)
     }
 
-    @Override
-    public void clearSelections() {
-        days.clear();
+    override fun clearSelections() {
+        days.clear()
     }
 
-    public void removeDay(Day day) {
-        days.remove(day);
-        onDaySelectedListener.onDaySelected();
+    fun removeDay(day: Day) {
+        days.remove(day)
+        onDaySelectedListener?.onDaySelected()
     }
 }

@@ -129,14 +129,18 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun selectAllFridays() {
         if (calendarView.selectionManager is MultipleSelectionManager) {
-            (calendarView.selectionManager as MultipleSelectionManager).addCriteria(fridayCriteria)
+            fridayCriteria?.let {
+                (calendarView.selectionManager as MultipleSelectionManager).addCriteria(it)
+            }
         }
         calendarView.update()
     }
 
     private fun unselectAllFridays() {
         if (calendarView.selectionManager is MultipleSelectionManager) {
-            (calendarView.selectionManager as MultipleSelectionManager).removeCriteria(fridayCriteria)
+            fridayCriteria?.let {
+                (calendarView.selectionManager as MultipleSelectionManager).removeCriteria(it)
+            }
         }
         calendarView.update()
     }

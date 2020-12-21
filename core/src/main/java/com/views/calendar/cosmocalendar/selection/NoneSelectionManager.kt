@@ -1,24 +1,14 @@
-package com.views.calendar.cosmocalendar.selection;
+package com.views.calendar.cosmocalendar.selection
 
-import androidx.annotation.NonNull;
+import com.views.calendar.cosmocalendar.model.Day
 
-import com.views.calendar.cosmocalendar.model.Day;
+class NoneSelectionManager : BaseSelectionManager() {
 
-//TODO convert kotlin
-public class NoneSelectionManager extends BaseSelectionManager {
+    override fun toggleDay(day: Day) {}
 
-    @Override
-    public void toggleDay(@NonNull Day day) {
-
+    override fun isDaySelected(day: Day): Boolean {
+        return false
     }
 
-    @Override
-    public boolean isDaySelected(@NonNull Day day) {
-        return false;
-    }
-
-    @Override
-    public void clearSelections() {
-
-    }
+    override fun clearSelections() {}
 }

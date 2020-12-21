@@ -1,79 +1,53 @@
-package com.views.calendar.cosmocalendar.selection;
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria;
+package com.views.calendar.cosmocalendar.selection
 
-import java.util.ArrayList;
-import java.util.List;
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
 
-//TODO convert kotlin
-public abstract class BaseCriteriaSelectionManager extends BaseSelectionManager {
+abstract class BaseCriteriaSelectionManager : BaseSelectionManager() {
+    @JvmField
+    protected var criteriaList = ArrayList<BaseCriteria>()
 
-    protected List<BaseCriteria> criteriaList;
-
-    public BaseCriteriaSelectionManager() {
+    fun clearCriteriaList() {
+        criteriaList.clear()
+        notifyCriteriaUpdates()
     }
 
-    public void setCriteriaList(List<BaseCriteria> criteriaList) {
-        this.criteriaList = new ArrayList<>(criteriaList);
-        notifyCriteriaUpdates();
+    fun addCriteriaList(criteriaList: List<BaseCriteria>) {
+        this.criteriaList.addAll(criteriaList)
+        notifyCriteriaUpdates()
     }
 
-    public void clearCriteriaList() {
-        if (criteriaList != null) {
-            criteriaList.clear();
-        }
-        notifyCriteriaUpdates();
+    fun addCriteria(criteria: BaseCriteria) {
+        criteriaList.add(criteria)
+        notifyCriteriaUpdates()
     }
 
-    public void addCriteriaList(List<BaseCriteria> criteriaList) {
-        if (this.criteriaList != null) {
-            this.criteriaList.addAll(criteriaList);
-        } else {
-            setCriteriaList(criteriaList);
-        }
-        notifyCriteriaUpdates();
+    fun removeCriteria(criteria: BaseCriteria) {
+        criteriaList.remove(criteria)
+        notifyCriteriaUpdates()
     }
 
-    public void addCriteria(BaseCriteria criteria) {
-        if (criteriaList == null) {
-            criteriaList = new ArrayList<>();
-        }
-        criteriaList.add(criteria);
-        notifyCriteriaUpdates();
+    fun removeCriteriaList(listToDelete: List<BaseCriteria>) {
+        criteriaList.removeAll(listToDelete)
+        notifyCriteriaUpdates()
     }
 
-    public void removeCriteria(BaseCriteria criteria) {
-        if (criteriaList != null) {
-            criteriaList.remove(criteria);
-        }
-        notifyCriteriaUpdates();
+    private fun notifyCriteriaUpdates() {
+        onDaySelectedListener?.onDaySelected()
     }
 
-    public void removeCriteriaList(final List<BaseCriteria> listToDelete) {
-        if (criteriaList != null) {
-            criteriaList.removeAll(listToDelete);
-        }
-        notifyCriteriaUpdates();
+    private fun hasCriteria(): Boolean {
+        return criteriaList.isNotEmpty()
     }
 
-    private void notifyCriteriaUpdates() {
-        if (onDaySelectedListener != null) {
-            onDaySelectedListener.onDaySelected();
-        }
-    }
-
-    public boolean hasCriteria() {
-        return criteriaList != null && !criteriaList.isEmpty();
-    }
-
-    public boolean isDaySelectedByCriteria(Day day) {
+    fun isDaySelectedByCriteria(day: Day?): Boolean {
         if (hasCriteria()) {
-            for (BaseCriteria criteria : criteriaList) {
+            for (criteria in criteriaList) {
                 if (criteria.isCriteriaPassed(day)) {
-                    return true;
+                    return true
                 }
             }
         }
-        return false;
+        return false
     }
 }
