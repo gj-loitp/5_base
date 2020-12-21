@@ -1,83 +1,72 @@
-package com.views.calendar.cosmocalendar.settings.lists;
+package com.views.calendar.cosmocalendar.settings.lists
 
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*
 
-public class DisabledDaysCriteria {
+class DisabledDaysCriteria {
 
-    private DisabledDaysCriteriaType criteriaType = DisabledDaysCriteriaType.DAYS_OF_MONTH;
-    private Set<Integer> days;
-
-    private static final int MAX_DAYS_COUNT_IN_MONTH = 31;
-    private static final int MAX_DAYS_COUNT_IN_WEEK = 7;
-
-    public DisabledDaysCriteria(int startRange, int endRange, DisabledDaysCriteriaType criteriaType) {
-        setDays(startRange, endRange, criteriaType);
+    companion object {
+        private const val MAX_DAYS_COUNT_IN_MONTH = 31
+        private const val MAX_DAYS_COUNT_IN_WEEK = 7
     }
 
-    public DisabledDaysCriteria(Set<Integer> days, DisabledDaysCriteriaType criteriaType) {
-        setDays(days, criteriaType);
+    var criteriaType = DisabledDaysCriteriaType.DAYS_OF_MONTH
+        private set
+
+    var days: Set<Int>? = null
+        private set
+
+    constructor(startRange: Int, endRange: Int, criteriaType: DisabledDaysCriteriaType) {
+        setDays(startRange, endRange, criteriaType)
     }
 
-    public DisabledDaysCriteriaType getCriteriaType() {
-        return criteriaType;
+    constructor(days: Set<Int>, criteriaType: DisabledDaysCriteriaType) {
+        setDays(days, criteriaType)
     }
 
-    public Set<Integer> getDays() {
-        return days;
-    }
-
-    public void setDays(Set<Integer> days, DisabledDaysCriteriaType criteriaType) {
-        this.criteriaType = criteriaType;
-        validateDays(days);
-        this.days = days;
+    fun setDays(days: Set<Int>, criteriaType: DisabledDaysCriteriaType) {
+        this.criteriaType = criteriaType
+        validateDays(days)
+        this.days = days
     }
 
     /**
      * Sets range of disabled days
      */
-    public void setDays(int startRange, int endRange, DisabledDaysCriteriaType criteriaType) {
-        if (criteriaType == DisabledDaysCriteriaType.DAYS_OF_MONTH && startRange >= endRange) {
-            throw new IllegalArgumentException("startRange must be less than endRange");
-        }
-        if (startRange < 1) {
-            throw new IllegalArgumentException("startRange must be more than 0");
-        }
-        if (endRange < 1) {
-            throw new IllegalArgumentException("endRange must be more than 0");
-        }
-
-        this.criteriaType = criteriaType;
-
-        Set<Integer> days = new TreeSet<>();
-        int start, end;
+    fun setDays(
+            startRange: Int,
+            endRange: Int,
+            criteriaType: DisabledDaysCriteriaType
+    ) {
+        require(!(criteriaType === DisabledDaysCriteriaType.DAYS_OF_MONTH && startRange >= endRange)) { "startRange must be less than endRange" }
+        require(startRange >= 1) { "startRange must be more than 0" }
+        require(endRange >= 1) { "endRange must be more than 0" }
+        this.criteriaType = criteriaType
+        val days: MutableSet<Int> = TreeSet()
+        val start: Int
+        val end: Int
         if (startRange >= endRange) {
-            start = endRange;
-            end = startRange;
+            start = endRange
+            end = startRange
         } else {
-            start = startRange;
-            end = endRange;
+            start = startRange
+            end = endRange
         }
-
-        for (int i = start; i < end + 1; i++) {
-            days.add(i);
+        for (i in start until end + 1) {
+            days.add(i)
         }
-        validateDays(days);
-        this.days = days;
+        validateDays(days)
+        this.days = days
     }
 
-    private void validateDays(Set<Integer> days) {
-        int maxPossibleValue;
-        if (criteriaType == DisabledDaysCriteriaType.DAYS_OF_MONTH) {
-            maxPossibleValue = MAX_DAYS_COUNT_IN_MONTH;
+    private fun validateDays(days: Set<Int>) {
+        val maxPossibleValue: Int = if (criteriaType === DisabledDaysCriteriaType.DAYS_OF_MONTH) {
+            MAX_DAYS_COUNT_IN_MONTH
         } else {
-            maxPossibleValue = MAX_DAYS_COUNT_IN_WEEK;
+            MAX_DAYS_COUNT_IN_WEEK
         }
-
-        for (int day : days) {
-            if (day > maxPossibleValue) {
-                throw new IllegalArgumentException("Invalid day:" + day);
-            }
+        for (day in days) {
+            require(day <= maxPossibleValue) { "Invalid day:$day" }
         }
     }
+
 }

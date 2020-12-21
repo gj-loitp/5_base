@@ -1,62 +1,57 @@
-package com.views.calendar.cosmocalendar.settings.lists.connected_days;
+package com.views.calendar.cosmocalendar.settings.lists.connectedDays
 
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.utils.DateUtils;
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.utils.DateUtils.getCalendar
+import java.util.*
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+class ConnectedDaysManager private constructor() {
 
-//TODO convert kotlin
-public class ConnectedDaysManager {
+    companion object {
+        private var mInstance: ConnectedDaysManager? = null
 
-    private static ConnectedDaysManager mInstance = null;
-
-    private List<ConnectedDays> connectedDaysList;
-
-    private ConnectedDaysManager(){
-
+        @kotlin.jvm.JvmStatic
+        val instance: ConnectedDaysManager?
+            get() {
+                if (mInstance == null) {
+                    mInstance = ConnectedDaysManager()
+                }
+                return mInstance
+            }
     }
 
-    public static ConnectedDaysManager getInstance(){
-        if(mInstance == null)
-        {
-            mInstance = new ConnectedDaysManager();
+    private var connectedDaysList: MutableList<ConnectedDays>? = null
+
+    fun getConnectedDaysList(): List<ConnectedDays>? {
+        return connectedDaysList
+    }
+
+    fun setConnectedDaysList(connectedDaysList: MutableList<ConnectedDays>?) {
+        this.connectedDaysList = connectedDaysList
+    }
+
+    fun addConnectedDays(connectedDays: ConnectedDays) {
+        if (connectedDaysList == null) {
+            connectedDaysList = ArrayList()
         }
-        return mInstance;
+        connectedDaysList?.add(connectedDays)
     }
 
-    public List<ConnectedDays> getConnectedDaysList() {
-        return connectedDaysList;
-    }
+    val isAnyConnectedDays: Boolean
+        get() = !(connectedDaysList.isNullOrEmpty())
 
-    public void setConnectedDaysList(List<ConnectedDays> connectedDaysList) {
-        this.connectedDaysList = connectedDaysList;
-    }
-
-    public void addConnectedDays(ConnectedDays connectedDays){
-        if(connectedDaysList == null){
-            connectedDaysList = new ArrayList<>();
-        }
-        connectedDaysList.add(connectedDays);
-    }
-
-    public boolean isAnyConnectedDays(){
-        return !(connectedDaysList == null || connectedDaysList.isEmpty());
-    }
-
-    public void applySettingsToDay(Day day){
-        for (ConnectedDays connectedDays : connectedDaysList){
-            for (long dayLong : connectedDays.getDays()){
-                Calendar disabledDayCalendar = DateUtils.getCalendar(dayLong);
-                if (day.getCalendar().get(Calendar.YEAR) == disabledDayCalendar.get(Calendar.YEAR)
-                        && day.getCalendar().get(Calendar.DAY_OF_YEAR) == disabledDayCalendar.get(Calendar.DAY_OF_YEAR)) {
-                    day.setFromConnectedCalendar(true);
-                    day.setConnectedDaysTextColor(connectedDays.getTextColor());
-                    day.setConnectedDaysSelectedTextColor(connectedDays.getSelectedTextColor());
-                    day.setConnectedDaysDisabledTextColor(connectedDays.getDisabledTextColor());
+    fun applySettingsToDay(day: Day) {
+        connectedDaysList?.forEach { connectedDays ->
+            for (dayLong in connectedDays.days) {
+                val disabledDayCalendar = getCalendar(dayLong)
+                if (day.calendar[Calendar.YEAR] == disabledDayCalendar[Calendar.YEAR]
+                        && day.calendar[Calendar.DAY_OF_YEAR] == disabledDayCalendar[Calendar.DAY_OF_YEAR]) {
+                    day.isFromConnectedCalendar = true
+                    day.connectedDaysTextColor = connectedDays.textColor
+                    day.connectedDaysSelectedTextColor = connectedDays.selectedTextColor
+                    day.connectedDaysDisabledTextColor = connectedDays.disabledTextColor
                 }
             }
         }
     }
+
 }

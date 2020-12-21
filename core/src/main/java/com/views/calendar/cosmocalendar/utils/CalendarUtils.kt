@@ -232,7 +232,7 @@ object CalendarUtils {
             DisabledDaysCriteriaType.DAYS_OF_MONTH -> Calendar.DAY_OF_MONTH
             DisabledDaysCriteriaType.DAYS_OF_WEEK -> Calendar.DAY_OF_WEEK
         }
-        for (dayInt in criteria.days) {
+        criteria.days?.forEach { dayInt ->
             if (dayInt == day.calendar[field]) {
                 return true
             }
