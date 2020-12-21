@@ -1,95 +1,110 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-
-import androidx.annotation.Nullable;
-
-import com.R;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.core.utilities.LImageUtil;
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.util.AttributeSet
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import com.R
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import com.core.utilities.LImageUtil
 
 /**
  * Created by www.muathu@gmail.com on 5/13/2017.
  */
+class LFlySchoolView : RelativeLayout, ShapeSetter {
+    private var ivGift: ImageView? = null
+    private var ivAvatar: ImageView? = null
 
-//TODO convert kotlin
-public class LFlySchoolView extends RelativeLayout implements ShapeSetter {
-    private final String TAG = getClass().getSimpleName();
-    private ImageView ivGift;
-    private ImageView ivAvatar;
-    //private TextView tvName;
-
-    public LFlySchoolView(Context context) {
-        super(context);
-        init();
+    constructor(context: Context) : super(context) {
+        init()
     }
 
-    public LFlySchoolView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        init()
     }
 
-    public LFlySchoolView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init();
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+        init()
     }
 
-    private void init() {
-        inflate(getContext(), R.layout.view_l_fly_school, this);
+    private fun init() {
+        inflate(context, R.layout.view_l_fly_school, this)
 
-        this.ivGift = (ImageView) findViewById(R.id.iv_gift);
-        this.ivAvatar = (ImageView) findViewById(R.id.iv_avatar);
-        //this.tvName = (TextView) findViewById(R.id.tv_name);
+        ivGift = findViewById(R.id.iv_gift)
+        ivAvatar = findViewById(R.id.iv_avatar)
     }
 
-    @Override
-    public void setShape(int drawableRes) {
-        LImageUtil.Companion.load(getContext(), drawableRes, ivGift, R.color.colorPrimary, R.color.red, null, null);
+    override fun setShape(drawable: Int) {
+        LImageUtil.load(
+                context = context,
+                any = drawable,
+                imageView = ivGift,
+                resPlaceHolder = R.color.colorPrimary,
+                resError = R.color.red,
+                transformation = null,
+                drawableRequestListener = null
+        )
     }
 
-    @Override
-    public void setShape(ImgObject imgObject, int drawableRes) {
-        if (imgObject == null || ivGift == null || ivAvatar == null) {
-            return;
+    override fun setShape(
+            imgObject: ImgObject,
+            drawableRes: Int) {
+        if (ivGift == null || ivAvatar == null) {
+            return
         }
         if (drawableRes == 0) {
             try {
-                String urlGift = imgObject.getUrl();
-                LImageUtil.Companion.load(getContext(), urlGift, ivGift, R.color.colorPrimary, R.color.red, null, new RequestListener<Drawable>() {
-                    @Override
-                    public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        return false;
-                    }
+                val urlGift = imgObject.url
+                LImageUtil.load(
+                        context = context,
+                        any = urlGift,
+                        imageView = ivGift,
+                        resPlaceHolder = R.color.colorPrimary,
+                        resError = R.color.red,
+                        transformation = null,
+                        drawableRequestListener = object : RequestListener<Drawable> {
+                            override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                                return false
+                            }
 
-                    @Override
-                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        return false;
-                    }
-                });
-            } catch (NullPointerException e) {
-                e.printStackTrace();
+                            override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                                return false
+                            }
+                        })
+            } catch (e: NullPointerException) {
+                e.printStackTrace()
             }
         } else {
-            LImageUtil.Companion.load(getContext(), drawableRes, ivGift, R.color.colorPrimary, R.color.red, null, null);
+            LImageUtil.load(
+                    context = context,
+                    any = drawableRes,
+                    imageView = ivGift,
+                    resPlaceHolder = R.color.colorPrimary,
+                    resError = R.color.red,
+                    transformation = null,
+                    drawableRequestListener = null
+            )
         }
-        String urlAvatar = imgObject.getAvatar();
-        LImageUtil.Companion.load(getContext(), urlAvatar, ivAvatar, R.color.colorPrimary, R.color.red, null, new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                return false;
-            }
+        val urlAvatar = imgObject.avatar
+        LImageUtil.load(
+                context = context,
+                any = urlAvatar,
+                imageView = ivAvatar,
+                resPlaceHolder = R.color.colorPrimary,
+                resError = R.color.red,
+                transformation = null,
+                drawableRequestListener = object : RequestListener<Drawable> {
+                    override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                        return false
+                    }
 
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                return false;
-            }
-        });
+                    override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                        return false
+                    }
+                })
     }
 }

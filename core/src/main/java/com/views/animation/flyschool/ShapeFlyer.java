@@ -106,7 +106,10 @@ public class ShapeFlyer extends RelativeLayout {
      */
     public void addPath(PATHS definedPath) {
         if (definedPath != null) {
-            addPath(definedPath.getmFlyBluePrint());
+            FlyBluePrint flyBluePrint = definedPath.getmFlyBluePrint();
+            if (flyBluePrint != null) {
+                addPath(flyBluePrint);
+            }
         }
     }
 

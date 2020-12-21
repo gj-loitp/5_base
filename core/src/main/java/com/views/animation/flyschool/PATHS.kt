@@ -1,116 +1,91 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
 /**
  * A simple list of the pre-cooked Blue Prints
  * Nomenclature is simple :
  * <Shape_Name>_<Origin_Point>
- * <p>
- * Currently using {@link BeizerPath} and {@link SingleLinePath} to create all these blue prints
- * <p>
+ *
+ *
+ * Currently using [BeizerPath] and [SingleLinePath] to create all these blue prints
+ *
+ *
  * Created by avin on 20/01/17.
- */
+</Origin_Point></Shape_Name> */
 
-//TODO convert kotlin
-public enum PATHS {
+enum class PATHS {
     //S Shapes
-    S_BOTTOM_LEFT, S_INVERTED_BOTTOM_RIGHT, S_TOP_RIGHT, S_INVERTED_TOP_LEFT,
+    S_BOTTOM_LEFT,
+    S_INVERTED_BOTTOM_RIGHT,
+    S_TOP_RIGHT,
+    S_INVERTED_TOP_LEFT,
 
     //Lines
-    LINE_DIAGONAL_BOTTOM_LEFT, LINE_DIAGONAL_BOTTOM_RIGHT, LINE_DIAGONAL_TOP_LEFT, LINE_DIAGONAL_TOP_RIGHT,
-    LINE_MIDDLE_TOP, LINE_MIDDLE_BOTTOM, LINE_MIDDLE_LEFT, LINE_MIDDLE_RIGHT;
+    LINE_DIAGONAL_BOTTOM_LEFT,
+    LINE_DIAGONAL_BOTTOM_RIGHT,
+    LINE_DIAGONAL_TOP_LEFT,
+    LINE_DIAGONAL_TOP_RIGHT,
+    LINE_MIDDLE_TOP,
+    LINE_MIDDLE_BOTTOM,
+    LINE_MIDDLE_LEFT,
+    LINE_MIDDLE_RIGHT;
 
-    private FlyBluePrint mFlyBluePrint;
+    private var mFlyBluePrint: FlyBluePrint? = null
 
-    public FlyBluePrint getmFlyBluePrint() {
+    fun getmFlyBluePrint(): FlyBluePrint? {
         if (mFlyBluePrint == null) {
-            switch (this) {
-                case S_BOTTOM_LEFT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(0, 1),
-                            FlyPath.getBeizerPath(
-                                    new FPoint(1.4f, -0.35f),
-                                    new FPoint(-0.5f, -0.8f),
-                                    new FPoint(1, -1)
-                            ));
-                    break;
-
-                case S_INVERTED_BOTTOM_RIGHT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(1, 1),
-                            FlyPath.getBeizerPath(
-                                    new FPoint(-1.5f, -0.35f),
-                                    new FPoint(0.5f, -0.8f),
-                                    new FPoint(-1, -1)
-                            ));
-                    break;
-
-                case S_TOP_RIGHT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(1, 0),
-                            FlyPath.getBeizerPath(
-                                    new FPoint(-1.8f, 0.35f),
-                                    new FPoint(0.5f, 0.8f),
-                                    new FPoint(-1, 0.9f)
-                            )
-                    );
-                    break;
-
-                case S_INVERTED_TOP_LEFT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(0, 0),
-                            FlyPath.getBeizerPath(
-                                    new FPoint(1.5f, 0.35f),
-                                    new FPoint(-0.5f, 0.8f),
-                                    new FPoint(1, 0.9f)
-                            )
-                    );
-                    break;
-
-                case LINE_DIAGONAL_BOTTOM_LEFT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(0, 1),
-                            FlyPath.getSimpleLinePath(new FPoint(1, 0f))
-                    );
-                    break;
-
-                case LINE_DIAGONAL_BOTTOM_RIGHT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(1, 1),
-                            FlyPath.getSimpleLinePath(new FPoint(0, 0f))
-                    );
-                    break;
-
-                case LINE_DIAGONAL_TOP_LEFT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(0, 0),
-                            FlyPath.getSimpleLinePath(new FPoint(1f, 1f))
-                    );
-                    break;
-
-                case LINE_DIAGONAL_TOP_RIGHT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(1, 0),
-                            FlyPath.getSimpleLinePath(new FPoint(0f, 1f))
-                    );
-                    break;
-
-                case LINE_MIDDLE_TOP:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(0.5f, 0),
-                            FlyPath.getSimpleLinePath(new FPoint(0.5f, 1f))
-                    );
-                    break;
-
-                case LINE_MIDDLE_BOTTOM:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(0.5f, 1),
-                            FlyPath.getSimpleLinePath(new FPoint(0.5f, 0f))
-                    );
-                    break;
-
-                case LINE_MIDDLE_LEFT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(0f, 0.5f),
-                            FlyPath.getSimpleLinePath(new FPoint(1f, 0.5f))
-                    );
-                    break;
-
-                case LINE_MIDDLE_RIGHT:
-                    mFlyBluePrint = new FlyBluePrint(new FPoint(1f, 0.5f),
-                            FlyPath.getSimpleLinePath(new FPoint(0f, 0.5f))
-                    );
-                    break;
+            mFlyBluePrint = when (this) {
+                S_BOTTOM_LEFT -> FlyBluePrint(FPoint(0f, 1f),
+                        FlyPath.getBeizerPath(
+                                FPoint(1.4f, -0.35f),
+                                FPoint(-0.5f, -0.8f),
+                                FPoint(1f, -1f)
+                        ))
+                S_INVERTED_BOTTOM_RIGHT -> FlyBluePrint(FPoint(1f, 1f),
+                        FlyPath.getBeizerPath(
+                                FPoint(-1.5f, -0.35f),
+                                FPoint(0.5f, -0.8f),
+                                FPoint(-1f, -1f)
+                        ))
+                S_TOP_RIGHT -> FlyBluePrint(FPoint(1f, 0f),
+                        FlyPath.getBeizerPath(
+                                FPoint(-1.8f, 0.35f),
+                                FPoint(0.5f, 0.8f),
+                                FPoint(-1f, 0.9f)
+                        )
+                )
+                S_INVERTED_TOP_LEFT -> FlyBluePrint(FPoint(0f, 0f),
+                        FlyPath.getBeizerPath(
+                                FPoint(1.5f, 0.35f),
+                                FPoint(-0.5f, 0.8f),
+                                FPoint(1f, 0.9f)
+                        )
+                )
+                LINE_DIAGONAL_BOTTOM_LEFT -> FlyBluePrint(FPoint(0f, 1f),
+                        FlyPath.getSimpleLinePath(FPoint(1f, 0f))
+                )
+                LINE_DIAGONAL_BOTTOM_RIGHT -> FlyBluePrint(FPoint(1f, 1f),
+                        FlyPath.getSimpleLinePath(FPoint(0f, 0f))
+                )
+                LINE_DIAGONAL_TOP_LEFT -> FlyBluePrint(FPoint(0f, 0f),
+                        FlyPath.getSimpleLinePath(FPoint(1f, 1f))
+                )
+                LINE_DIAGONAL_TOP_RIGHT -> FlyBluePrint(FPoint(1f, 0f),
+                        FlyPath.getSimpleLinePath(FPoint(0f, 1f))
+                )
+                LINE_MIDDLE_TOP -> FlyBluePrint(FPoint(0.5f, 0f),
+                        FlyPath.getSimpleLinePath(FPoint(0.5f, 1f))
+                )
+                LINE_MIDDLE_BOTTOM -> FlyBluePrint(FPoint(0.5f, 1f),
+                        FlyPath.getSimpleLinePath(FPoint(0.5f, 0f))
+                )
+                LINE_MIDDLE_LEFT -> FlyBluePrint(FPoint(0f, 0.5f),
+                        FlyPath.getSimpleLinePath(FPoint(1f, 0.5f))
+                )
+                LINE_MIDDLE_RIGHT -> FlyBluePrint(FPoint(1f, 0.5f),
+                        FlyPath.getSimpleLinePath(FPoint(0f, 0.5f))
+                )
             }
         }
-        return mFlyBluePrint;
+        return mFlyBluePrint
     }
 }

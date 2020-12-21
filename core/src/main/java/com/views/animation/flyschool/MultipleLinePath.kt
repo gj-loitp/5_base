@@ -1,55 +1,46 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.graphics.Path;
-
-import java.util.ArrayList;
+import android.graphics.Path
+import java.util.*
 
 /**
  * Created by avin on 23/02/17.
  */
+class MultipleLinePath : FlyPath {
+    private var mFPoints = ArrayList<FPoint>()
+    private var mPath: Path? = null
 
-//TODO convert kotlin
-public class MultipleLinePath extends FlyPath {
-
-    private ArrayList<FPoint> mFPoints;
-    private Path mPath;
-
-    public MultipleLinePath(ArrayList<FPoint> mFPoints) {
-        this.mFPoints = mFPoints;
+    constructor(mFPoints: ArrayList<FPoint>) {
+        this.mFPoints = mFPoints
     }
 
-    public MultipleLinePath() {
+    constructor()
 
+    fun getmFPoints(): ArrayList<FPoint> {
+        return mFPoints
     }
 
-    public ArrayList<FPoint> getmFPoints() {
-        return mFPoints;
-    }
-
-    public void addFPoint(FPoint fPoint) {
+    fun addFPoint(fPoint: FPoint?) {
         if (fPoint == null) {
-            return;
+            return
         }
-
-        if (mFPoints == null) {
-            mFPoints = new ArrayList<>();
-        }
-
-        mFPoints.add(fPoint);
+        mFPoints.add(fPoint)
     }
 
-    @Override
-    public Path getPath(FPoint mOrigin, float width, float height) {
+    override fun getPath(
+            mOrigin: FPoint,
+            width: Float,
+            height: Float
+    ): Path {
         if (mPath == null) {
-            mPath = new Path();
-            mPath.moveTo(mOrigin.getmX() * width, mOrigin.getmY() * height);
-            if (mFPoints != null && mFPoints.size() > 0) {
-                for (FPoint fPoint : mFPoints) {
-                    mPath.lineTo(fPoint.getmX() * width, fPoint.getmY() * height);
+            mPath = Path()
+            mPath?.moveTo(mOrigin.getmX() * width, mOrigin.getmY() * height)
+            if (mFPoints.size > 0) {
+                for (fPoint in mFPoints) {
+                    mPath?.lineTo(fPoint.getmX() * width, fPoint.getmY() * height)
                 }
             }
         }
-        return mPath;
+        return mPath!!
     }
-
 }
