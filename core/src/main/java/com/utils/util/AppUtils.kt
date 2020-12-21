@@ -10,6 +10,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.Signature
 import android.graphics.drawable.Drawable
+import com.core.utilities.LLog
 import java.io.File
 import java.util.*
 
@@ -139,7 +140,7 @@ class AppUtils private constructor() {
                     return true
                 }
                 if (result.errorMsg != null) {
-                    LogUtils.d("isAppRoot", result.errorMsg)
+                    LLog.d("isAppRoot", result.errorMsg)
                 }
                 return false
             }
@@ -345,7 +346,7 @@ class AppUtils private constructor() {
             }
 
         fun isAppForeground(packageName: String?): Boolean {
-            return !isSpace(packageName) && packageName == ProcessUtils.getForegroundProcessName()
+            return !isSpace(packageName) && packageName == ProcessUtils.foregroundProcessName
         }
 
         val appInfo: AppInfo?

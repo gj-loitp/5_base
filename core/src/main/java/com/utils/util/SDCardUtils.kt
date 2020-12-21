@@ -1,138 +1,110 @@
-package com.utils.util;
+package com.utils.util
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.os.Environment;
-import android.os.StatFs;
+import android.os.Environment
+import android.os.StatFs
+import com.utils.util.CloseUtils.Companion.closeIO
+import java.io.BufferedInputStream
+import java.io.BufferedReader
+import java.io.File
+import java.io.InputStreamReader
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.InputStreamReader;
+class SDCardUtils {
 
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/08/11
- *     desc  : SD卡相关工具类
- * </pre>
- */
-public final class SDCardUtils {
+    class SDCardInfo {
+        var isExist = false
+        var totalBlocks: Long = 0
+        var freeBlocks: Long = 0
+        var availableBlocks: Long = 0
+        var blockByteSize: Long = 0
+        var totalBytes: Long = 0
+        var freeBytes: Long = 0
+        var availableBytes: Long = 0
 
-    private SDCardUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        override fun toString(): String {
+            return """
+                isExist=$isExist
+                totalBlocks=$totalBlocks
+                freeBlocks=$freeBlocks
+                availableBlocks=$availableBlocks
+                blockByteSize=$blockByteSize
+                totalBytes=$totalBytes
+                freeBytes=$freeBytes
+                availableBytes=$availableBytes
+                """.trimIndent()
+        }
     }
 
-    /**
-     * 判断SD卡是否可用
-     *
-     * @return true : 可用<br>false : 不可用
-     */
-    public static boolean isSDCardEnable() {
-        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
-    }
+    companion object {
+        fun isSDCardEnable(): Boolean {
+            return Environment.MEDIA_MOUNTED == Environment.getExternalStorageState()
+        }
 
-    /**
-     * 获取SD卡路径
-     * <p>先用shell，shell失败再普通方法获取，一般是/storage/emulated/0/</p>
-     *
-     * @return SD卡路径
-     */
-    public static String getSDCardPath() {
-        if (!isSDCardEnable()) return null;
-        String cmd = "cat /proc/mounts";
-        Runtime run = Runtime.getRuntime();
-        BufferedReader bufferedReader = null;
-        try {
-            Process p = run.exec(cmd);
-            bufferedReader = new BufferedReader(new InputStreamReader(new BufferedInputStream(p.getInputStream())));
-            String lineStr;
-            while ((lineStr = bufferedReader.readLine()) != null) {
-                if (lineStr.contains("sdcard") && lineStr.contains(".android_secure")) {
-                    String[] strArray = lineStr.split(" ");
-                    if (strArray.length >= 5) {
-                        return strArray[1].replace("/.android_secure", "") + File.separator;
+        fun sDCardPath(): String? {
+            if (!isSDCardEnable()) {
+                return null
+            }
+            val cmd = "cat /proc/mounts"
+            val run = Runtime.getRuntime()
+            var bufferedReader: BufferedReader? = null
+            try {
+                val p = run.exec(cmd)
+                bufferedReader = BufferedReader(InputStreamReader(BufferedInputStream(p.inputStream)))
+                var lineStr: String
+                while (bufferedReader.readLine().also { lineStr = it } != null) {
+                    if (lineStr.contains("sdcard") && lineStr.contains(".android_secure")) {
+                        val strArray = lineStr.split(" ".toRegex()).toTypedArray()
+                        if (strArray.size >= 5) {
+                            return strArray[1].replace("/.android_secure", "") + File.separator
+                        }
+                    }
+                    if (p.waitFor() != 0 && p.exitValue() == 1) {
+                        break
                     }
                 }
-                if (p.waitFor() != 0 && p.exitValue() == 1) {
-                    break;
-                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            } finally {
+                closeIO(bufferedReader)
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            CloseUtils.closeIO(bufferedReader);
+            return Environment.getExternalStorageDirectory().path + File.separator
         }
-        return Environment.getExternalStorageDirectory().getPath() + File.separator;
-    }
 
-    /**
-     * 获取SD卡data路径
-     *
-     * @return SD卡data路径
-     */
-    public static String getDataPath() {
-        if (!isSDCardEnable()) return null;
-        return Environment.getExternalStorageDirectory().getPath() + File.separator + "data" + File.separator;
-    }
+        fun dataPath(): String? {
+            return if (!isSDCardEnable()) {
+                null
+            } else {
+                Environment.getExternalStorageDirectory().path + File.separator + "data" + File.separator
+            }
+        }
 
-    /**
-     * 获取SD卡剩余空间
-     *
-     * @return SD卡剩余空间
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static String getFreeSpace() {
-        if (!isSDCardEnable()) return null;
-        StatFs stat = new StatFs(getSDCardPath());
-        long blockSize, availableBlocks;
-        availableBlocks = stat.getAvailableBlocksLong();
-        blockSize = stat.getBlockSizeLong();
-        return ConvertUtils.byte2FitMemorySize(availableBlocks * blockSize);
-    }
+        fun freeSpace(): String? {
+            if (!isSDCardEnable()) {
+                return null
+            }
+            val stat = StatFs(sDCardPath())
+            val blockSize: Long
+            val availableBlocks: Long
+            availableBlocks = stat.availableBlocksLong
+            blockSize = stat.blockSizeLong
+            return ConvertUtils.byte2FitMemorySize(availableBlocks * blockSize)
+        }
 
-    /**
-     * 获取SD卡信息
-     *
-     * @return SDCardInfo
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static String getSDCardInfo() {
-        if (!isSDCardEnable()) return null;
-        SDCardInfo sd = new SDCardInfo();
-        sd.isExist = true;
-        StatFs sf = new StatFs(Environment.getExternalStorageDirectory().getPath());
-        sd.totalBlocks = sf.getBlockCountLong();
-        sd.blockByteSize = sf.getBlockSizeLong();
-        sd.availableBlocks = sf.getAvailableBlocksLong();
-        sd.availableBytes = sf.getAvailableBytes();
-        sd.freeBlocks = sf.getFreeBlocksLong();
-        sd.freeBytes = sf.getFreeBytes();
-        sd.totalBytes = sf.getTotalBytes();
-        return sd.toString();
-    }
-
-    public static class SDCardInfo {
-        boolean isExist;
-        long totalBlocks;
-        long freeBlocks;
-        long availableBlocks;
-        long blockByteSize;
-        long totalBytes;
-        long freeBytes;
-        long availableBytes;
-
-        @Override
-        public String toString() {
-            return "isExist=" + isExist +
-                    "\ntotalBlocks=" + totalBlocks +
-                    "\nfreeBlocks=" + freeBlocks +
-                    "\navailableBlocks=" + availableBlocks +
-                    "\nblockByteSize=" + blockByteSize +
-                    "\ntotalBytes=" + totalBytes +
-                    "\nfreeBytes=" + freeBytes +
-                    "\navailableBytes=" + availableBytes;
+        fun sDCardInfo(): String? {
+            if (!isSDCardEnable()) {
+                return null
+            }
+            val sd = SDCardInfo()
+            sd.isExist = true
+            val sf = StatFs(Environment.getExternalStorageDirectory().path)
+            sd.totalBlocks = sf.blockCountLong
+            sd.blockByteSize = sf.blockSizeLong
+            sd.availableBlocks = sf.availableBlocksLong
+            sd.availableBytes = sf.availableBytes
+            sd.freeBlocks = sf.freeBlocksLong
+            sd.freeBytes = sf.freeBytes
+            sd.totalBytes = sf.totalBytes
+            return sd.toString()
         }
     }
+
 }
