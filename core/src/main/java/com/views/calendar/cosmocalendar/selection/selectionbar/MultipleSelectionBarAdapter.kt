@@ -1,118 +1,103 @@
-package com.views.calendar.cosmocalendar.selection.selectionbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+package com.views.calendar.cosmocalendar.selection.selectionbar
 
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.R
+import com.views.calendar.cosmocalendar.model.Day
+import com.views.calendar.cosmocalendar.view.CalendarView
+import com.views.calendar.cosmocalendar.view.customviews.CircleAnimationTextView
+import java.util.*
 
-import com.R;
-import com.views.calendar.cosmocalendar.model.Day;
-import com.views.calendar.cosmocalendar.view.CalendarView;
-import com.views.calendar.cosmocalendar.view.customviews.CircleAnimationTextView;
+class MultipleSelectionBarAdapter(
+        calendarView: CalendarView,
+        listItemClickListener: ListItemClickListener?
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-import java.util.ArrayList;
-import java.util.List;
-
-//TODO convert kotlin
-public class MultipleSelectionBarAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-
-    private List<SelectionBarItem> items;
-    private CalendarView calendarView;
-    private ListItemClickListener listItemClickListener;
-
-    private final static int VIEW_TYPE_TITLE = 0;
-    private final static int VIEW_TYPE_CONTENT = 1;
-
-    public MultipleSelectionBarAdapter(CalendarView calendarView, ListItemClickListener listItemClickListener) {
-        items = new ArrayList<>();
-        this.calendarView = calendarView;
-        this.listItemClickListener = listItemClickListener;
+    interface ListItemClickListener {
+        fun onMultipleSelectionListItemClick(day: Day)
     }
 
-    public void setData(List<SelectionBarItem> items) {
-        this.items = items;
-        notifyDataSetChanged();
+    companion object {
+        private const val VIEW_TYPE_TITLE = 0
+        private const val VIEW_TYPE_CONTENT = 1
     }
 
-    public void setListItemClickListener(ListItemClickListener listItemClickListener) {
-        this.listItemClickListener = listItemClickListener;
+    private var items: List<SelectionBarItem>
+    private val calendarView: CalendarView
+    private var listItemClickListener: ListItemClickListener?
+
+    init {
+        items = ArrayList()
+        this.calendarView = calendarView
+        this.listItemClickListener = listItemClickListener
     }
 
-    @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == VIEW_TYPE_TITLE) {
-            return new TitleViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cosmo_calendar_item_multiple_selection_bar_title, parent, false));
+    fun setData(items: List<SelectionBarItem>) {
+        this.items = items
+        notifyDataSetChanged()
+    }
+
+    fun setListItemClickListener(listItemClickListener: ListItemClickListener?) {
+        this.listItemClickListener = listItemClickListener
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == VIEW_TYPE_TITLE) {
+            TitleViewHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.view_cosmo_calendar_item_multiple_selection_bar_title, parent, false))
         } else {
-            return new ContentViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_cosmo_calendar_item_multiple_selection_bar_content, parent, false));
+            ContentViewHolder(LayoutInflater.from(parent.context)
+                    .inflate(R.layout.view_cosmo_calendar_item_multiple_selection_bar_content, parent, false))
         }
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (items.get(position) instanceof SelectionBarTitleItem) {
-            return VIEW_TYPE_TITLE;
+    override fun getItemViewType(position: Int): Int {
+        return if (items[position] is SelectionBarTitleItem) {
+            VIEW_TYPE_TITLE
         } else {
-            return VIEW_TYPE_CONTENT;
+            VIEW_TYPE_CONTENT
         }
     }
 
-    @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == VIEW_TYPE_TITLE) {
-            ((TitleViewHolder) holder).bind(position);
+            (holder as TitleViewHolder).bind(position)
         } else {
-            ((ContentViewHolder) holder).bind(position);
+            (holder as ContentViewHolder).bind(position)
         }
     }
 
-    @Override
-    public int getItemCount() {
-        return items.size();
+    override fun getItemCount(): Int {
+        return items.size
     }
 
+    inner class TitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
 
-    public class TitleViewHolder extends RecyclerView.ViewHolder {
-
-        final TextView tvTitle;
-
-        public TitleViewHolder(View itemView) {
-            super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTitle);
+        fun bind(position: Int) {
+            val selectionBarTitleItem = items[position] as SelectionBarTitleItem
+            tvTitle.text = selectionBarTitleItem.title
+            tvTitle.setTextColor(calendarView.selectionBarMonthTextColor)
         }
 
-        public void bind(int position) {
-            SelectionBarTitleItem selectionBarTitleItem = (SelectionBarTitleItem) items.get(position);
-            tvTitle.setText(selectionBarTitleItem.getTitle());
-            tvTitle.setTextColor(calendarView.getSelectionBarMonthTextColor());
-        }
     }
 
-    public class ContentViewHolder extends RecyclerView.ViewHolder {
-        final CircleAnimationTextView catvDay;
+    inner class ContentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val catvDay: CircleAnimationTextView = itemView.findViewById(R.id.catv_day)
 
-        public ContentViewHolder(View itemView) {
-            super(itemView);
-            catvDay = itemView.findViewById(R.id.catv_day);
+        fun bind(position: Int) {
+            val selectionBarContentItem = items[position] as SelectionBarContentItem
+            catvDay.text = selectionBarContentItem.day.dayNumber.toString()
+            catvDay.setTextColor(calendarView.selectedDayTextColor)
+            catvDay.showAsSingleCircle(calendarView)
+
+            itemView.setOnClickListener {
+                listItemClickListener?.onMultipleSelectionListItemClick(selectionBarContentItem.day)
+            }
         }
 
-        public void bind(int position) {
-            final SelectionBarContentItem selectionBarContentItem = (SelectionBarContentItem) items.get(position);
-            catvDay.setText(String.valueOf(selectionBarContentItem.getDay().getDayNumber()));
-            catvDay.setTextColor(calendarView.getSelectedDayTextColor());
-            catvDay.showAsSingleCircle(calendarView);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listItemClickListener != null) {
-                        listItemClickListener.onMultipleSelectionListItemClick(selectionBarContentItem.getDay());
-                    }
-                }
-            });
-        }
-    }
-
-    public interface ListItemClickListener {
-        void onMultipleSelectionListItemClick(Day day);
     }
 }
