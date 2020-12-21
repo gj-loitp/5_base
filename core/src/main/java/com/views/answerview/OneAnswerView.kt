@@ -1,4 +1,4 @@
-package com.views.answerview.internal
+package com.views.answerview
 
 import android.content.Context
 import android.util.AttributeSet

@@ -7,7 +7,6 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.R
-import com.views.answerview.internal.OneAnswerView
 
 class LAnswerView : LinearLayout, View.OnClickListener {
 

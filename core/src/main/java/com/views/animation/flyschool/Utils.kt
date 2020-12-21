@@ -1,40 +1,40 @@
-package com.views.animation.flyschool;
+package com.views.animation.flyschool
 
-import android.content.res.Resources;
-import android.os.Build;
-import android.widget.ImageView;
-
-import com.core.utilities.LDeviceUtil;
-import com.core.utilities.LStoreUtil;
+import android.content.res.Resources
+import android.graphics.PorterDuff
+import android.os.Build
+import android.widget.ImageView
+import com.core.utilities.LDeviceUtil.Companion.getRandomNumber
+import com.core.utilities.LStoreUtil.Companion.randomColor
 
 /**
  * Utility class with simple utility functions
  * Created by avin on 09/01/17.
  */
-
-//TODO convert kotlin
-public class Utils {
+object Utils {
     /**
      * @param dp : Dimension in dp
-     *           Calculates and returns the dimension value in pixels from dp
-     * */
-    public static int dpToPx(int dp) {
-        return (int) ((dp * Resources.getSystem().getDisplayMetrics().density) + 0.5f);
+     * Calculates and returns the dimension value in pixels from dp
+     */
+    @JvmStatic
+    fun dpToPx(dp: Int): Int {
+        return (dp * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
     }
 
     /**
      * Checks and tell us whether the android phone is on version < LOLLIPOP or not
-     * */
-    public static boolean isLowerThanLollipop() {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP;
-    }
+     */
+    val isLowerThanLollipop: Boolean
+        get() = Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP
 
-    public static void setHeart(ImageView imageView) {
-        int size = LDeviceUtil.Companion.getRandomNumber(150) + 80;
-        imageView.getLayoutParams().height = size;
-        imageView.getLayoutParams().width = size;
-        imageView.requestLayout();
-        int color = LStoreUtil.Companion.getRandomColor();
-        imageView.setColorFilter(color, android.graphics.PorterDuff.Mode.MULTIPLY);
+    @JvmStatic
+    fun setHeart(imageView: ImageView) {
+        val size = getRandomNumber(150) + 80
+        imageView.layoutParams.height = size
+        imageView.layoutParams.width = size
+        imageView.requestLayout()
+
+        val color = randomColor
+        imageView.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
     }
 }
