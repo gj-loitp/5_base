@@ -257,7 +257,8 @@ class FrmUtils : Fragment() {
     private fun handleAppUtils() {
         var text = ""
 
-        text += "\n$line isInstallApp ${activity?.packageName}: " + AppUtils.isInstallApp(activity?.packageName)
+        text += "\n$line isInstallApp ${activity?.packageName}: " + AppUtils.isInstallApp(activity?.packageName
+                ?: "")
         text += "\n$line installApp(String filePath, String authority)"
         text += "\n$line installApp(File file, String authority)"
         text += "\n$line installApp(Activity activity, String filePath, String authority, int requestCode)"

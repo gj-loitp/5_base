@@ -58,30 +58,30 @@ class AppUtils private constructor() {
     companion object {
 
         fun isInstallApp(
-                packageName: String?
+                packageName: String
         ): Boolean {
             return !isSpace(packageName) && IntentUtils.getLaunchAppIntent(packageName) != null
         }
 
         fun installApp(
-                filePath: String?,
-                authority: String?
+                filePath: String,
+                authority: String
         ) {
             installApp(file = FileUtils.getFileByPath(filePath), authority = authority)
         }
 
         fun installApp(
-                file: File?,
-                authority: String?
+                file: File,
+                authority: String
         ) {
             if (!FileUtils.isFileExists(file)) return
-            Utils.getContext()?.startActivity(IntentUtils.getInstallAppIntent(file, authority))
+            Utils.getContext()?.startActivity(IntentUtils.getInstallAppIntent(file = file, authority = authority))
         }
 
         fun installApp(
                 activity: Activity,
-                filePath: String?,
-                authority: String?,
+                filePath: String,
+                authority: String,
                 requestCode: Int
         ) {
             installApp(activity = activity, file = FileUtils.getFileByPath(filePath), authority = authority, requestCode = requestCode)
@@ -89,12 +89,12 @@ class AppUtils private constructor() {
 
         fun installApp(
                 activity: Activity,
-                file: File?,
-                authority: String?,
+                file: File,
+                authority: String,
                 requestCode: Int
         ) {
             if (!FileUtils.isFileExists(file)) return
-            activity.startActivityForResult(IntentUtils.getInstallAppIntent(file, authority), requestCode)
+            activity.startActivityForResult(IntentUtils.getInstallAppIntent(file = file, authority = authority), requestCode)
         }
 
         fun installAppSilent(
@@ -108,7 +108,7 @@ class AppUtils private constructor() {
         }
 
         fun uninstallApp(
-                packageName: String?
+                packageName: String
         ) {
             if (isSpace(packageName)) return
             Utils.getContext()?.startActivity(IntentUtils.getUninstallAppIntent(packageName))
@@ -116,7 +116,7 @@ class AppUtils private constructor() {
 
         fun uninstallApp(
                 activity: Activity,
-                packageName: String?,
+                packageName: String,
                 requestCode: Int
         ) {
             if (isSpace(packageName)) return
@@ -146,7 +146,7 @@ class AppUtils private constructor() {
             }
 
         fun launchApp(
-                packageName: String?
+                packageName: String
         ) {
             if (isSpace(packageName)) return
             Utils.getContext()?.startActivity(IntentUtils.getLaunchAppIntent(packageName))
@@ -154,7 +154,7 @@ class AppUtils private constructor() {
 
         fun launchApp(
                 activity: Activity,
-                packageName: String?,
+                packageName: String,
                 requestCode: Int
         ) {
             if (isSpace(packageName)) return
@@ -167,11 +167,13 @@ class AppUtils private constructor() {
 
         val appDetailsSettings: Unit
             get() {
-                getAppDetailsSettings(Utils.getContext()?.packageName)
+                Utils.getContext()?.packageName?.let {
+                    getAppDetailsSettings(it)
+                }
             }
 
         fun getAppDetailsSettings(
-                packageName: String?
+                packageName: String
         ) {
             if (isSpace(packageName)) return
             Utils.getContext()?.startActivity(IntentUtils.getAppDetailsSettingsIntent(packageName))
