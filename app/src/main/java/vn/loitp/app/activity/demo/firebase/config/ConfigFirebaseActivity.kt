@@ -21,7 +21,7 @@ class ConfigFirebaseActivity : BaseFontActivity() {
         private const val WELCOME_MESSAGE_CAPS_KEY = "welcome_message_caps"
     }
 
-    private var firebaseRemoteConfig: FirebaseRemoteConfig? = null
+    private var firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_config_firebase
@@ -34,9 +34,7 @@ class ConfigFirebaseActivity : BaseFontActivity() {
             fetchWelcome()
         }
 
-        firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-
-        firebaseRemoteConfig?.apply {
+        firebaseRemoteConfig.apply {
             val timeInS = if (BuildConfig.DEBUG) {
                 0L
             } else {
@@ -54,7 +52,7 @@ class ConfigFirebaseActivity : BaseFontActivity() {
     }
 
     private fun fetchWelcome() {
-        welcomeTextView.text = firebaseRemoteConfig?.getString(LOADING_PHRASE_CONFIG_KEY)
+        welcomeTextView.text = firebaseRemoteConfig.getString(LOADING_PHRASE_CONFIG_KEY)
 
 //        var cacheExpiration: Long = 3600 // 1 hour in seconds.
 //        if (firebaseRemoteConfig?.info?.configSettings?.isDeveloperModeEnabled == true) {
@@ -75,13 +73,13 @@ class ConfigFirebaseActivity : BaseFontActivity() {
 //                    displayWelcomeMessage()
 //                }
 
-        firebaseRemoteConfig?.fetchAndActivate()?.addOnCompleteListener(
+        firebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(
                 this
         ) { task ->
             if (task.isSuccessful) {
                 val updated = task.result
                 showShortInformation("Fetch Succeeded updated $updated", true)
-                firebaseRemoteConfig?.activate()
+                firebaseRemoteConfig.activate()
             } else {
                 showShortInformation("Fetch Failed", true)
             }
@@ -90,8 +88,8 @@ class ConfigFirebaseActivity : BaseFontActivity() {
     }
 
     private fun displayWelcomeMessage() {
-        val welcomeMessage = firebaseRemoteConfig?.getString(WELCOME_MESSAGE_KEY)
-        welcomeTextView.isAllCaps = firebaseRemoteConfig?.getBoolean(WELCOME_MESSAGE_CAPS_KEY) == true
+        val welcomeMessage = firebaseRemoteConfig.getString(WELCOME_MESSAGE_KEY)
+        welcomeTextView.isAllCaps = firebaseRemoteConfig.getBoolean(WELCOME_MESSAGE_CAPS_KEY) == true
         welcomeTextView.text = welcomeMessage
     }
 }
