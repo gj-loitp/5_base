@@ -53,26 +53,6 @@ class ConfigFirebaseActivity : BaseFontActivity() {
 
     private fun fetchWelcome() {
         welcomeTextView.text = firebaseRemoteConfig.getString(LOADING_PHRASE_CONFIG_KEY)
-
-//        var cacheExpiration: Long = 3600 // 1 hour in seconds.
-//        if (firebaseRemoteConfig?.info?.configSettings?.isDeveloperModeEnabled == true) {
-//            cacheExpiration = 0
-//        }
-//        firebaseRemoteConfig
-//                ?.fetch(cacheExpiration)
-//                ?.addOnCompleteListener(this) { task ->
-//                    if (task.isSuccessful) {
-//                        showShortInformation("Fetch Succeeded", true)
-//
-//                        // After config data is successfully fetched, it must be activated before newly fetched
-//                        // values are returned.
-//                        firebaseRemoteConfig?.activateFetched()
-//                    } else {
-//                        showShortInformation("Fetch Failed", true)
-//                    }
-//                    displayWelcomeMessage()
-//                }
-
         firebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(
                 this
         ) { task ->

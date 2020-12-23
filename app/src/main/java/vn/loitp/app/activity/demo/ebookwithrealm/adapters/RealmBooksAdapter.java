@@ -5,7 +5,6 @@ import android.content.Context;
 import io.realm.RealmResults;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 
-//TODO convert kotlin
 public class RealmBooksAdapter extends RealmModelAdapter<Book> {
 
     public RealmBooksAdapter(Context context, RealmResults<Book> realmResults, boolean automaticUpdate) {

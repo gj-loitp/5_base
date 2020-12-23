@@ -9,7 +9,6 @@ import io.realm.Realm;
 import io.realm.RealmResults;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
 
-//TODO convert kotlin
 public class RealmController {
 
     private static RealmController instance;
