@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.picker.crop;
 
 import android.app.Activity;
@@ -43,7 +31,6 @@ import java.util.UUID;
  * Custom view that provides cropping capabilities to an image.
  */
 
-//TODO convert kotlin
 public class LCropImageView extends FrameLayout {
 
     //region: Fields and Consts
@@ -263,12 +250,7 @@ public class LCropImageView extends FrameLayout {
         mImageView.setScaleType(ImageView.ScaleType.MATRIX);
 
         mLCropOverlayView = v.findViewById(R.id.CropOverlayView);
-        mLCropOverlayView.setCropWindowChangeListener(new LCropOverlayView.CropWindowChangeListener() {
-            @Override
-            public void onCropWindowChanged(boolean inProgress) {
-                handleCropWindowChanged(inProgress, true);
-            }
-        });
+        mLCropOverlayView.setCropWindowChangeListener(inProgress -> handleCropWindowChanged(inProgress, true));
         mLCropOverlayView.setInitialAttributeValues(options);
 
         mProgressBar = v.findViewById(R.id.CropProgressBar);
@@ -648,26 +630,10 @@ public class LCropImageView extends FrameLayout {
         getCroppedImageAsync(0, 0, RequestSizeOptions.NONE);
     }
 
-    /**
-     * Gets the cropped image based on the current crop window.<br>
-     * Uses {@link RequestSizeOptions#RESIZE_INSIDE} option.<br>
-     * The result will be invoked to listener set by {@link #setOnCropImageCompleteListener(OnCropImageCompleteListener)}.
-     *
-     * @param reqWidth  the width to resize the cropped image to
-     * @param reqHeight the height to resize the cropped image to
-     */
     public void getCroppedImageAsync(final int reqWidth, final int reqHeight) {
         getCroppedImageAsync(reqWidth, reqHeight, RequestSizeOptions.RESIZE_INSIDE);
     }
 
-    /**
-     * Gets the cropped image based on the current crop window.<br>
-     * The result will be invoked to listener set by {@link #setOnCropImageCompleteListener(OnCropImageCompleteListener)}.
-     *
-     * @param reqWidth  the width to resize the cropped image to (see options)
-     * @param reqHeight the height to resize the cropped image to (see options)
-     * @param options   the resize method to use, see its documentation
-     */
     public void getCroppedImageAsync(int reqWidth, int reqHeight, RequestSizeOptions options) {
         if (mOnCropImageCompleteListener == null && mOnGetCroppedImageCompleteListener == null) {
             throw new IllegalArgumentException("mOnCropImageCompleteListener is not set");
@@ -675,55 +641,18 @@ public class LCropImageView extends FrameLayout {
         startCropWorkerTask(reqWidth, reqHeight, options, null, null, 0);
     }
 
-    /**
-     * Save the cropped image based on the current crop window to the given uri.<br>
-     * Uses JPEG image compression with 90 compression quality.<br>
-     * The result will be invoked to listener set by {@link #setOnGetCroppedImageCompleteListener(OnGetCroppedImageCompleteListener)}.
-     *
-     * @param saveUri the Android Uri to save the cropped image to
-     */
     public void saveCroppedImageAsync(Uri saveUri) {
         saveCroppedImageAsync(saveUri, Bitmap.CompressFormat.JPEG, 90, 0, 0, RequestSizeOptions.NONE);
     }
 
-    /**
-     * Save the cropped image based on the current crop window to the given uri.<br>
-     * The result will be invoked to listener set by {@link #setOnGetCroppedImageCompleteListener(OnGetCroppedImageCompleteListener)}.
-     *
-     * @param saveUri             the Android Uri to save the cropped image to
-     * @param saveCompressFormat  the compression format to use when writing the image
-     * @param saveCompressQuality the quality (if applicable) to use when writing the image (0 - 100)
-     */
     public void saveCroppedImageAsync(Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality) {
         saveCroppedImageAsync(saveUri, saveCompressFormat, saveCompressQuality, 0, 0, RequestSizeOptions.NONE);
     }
 
-    /**
-     * Save the cropped image based on the current crop window to the given uri.<br>
-     * Uses {@link RequestSizeOptions#RESIZE_INSIDE} option.<br>
-     * The result will be invoked to listener set by {@link #setOnGetCroppedImageCompleteListener(OnGetCroppedImageCompleteListener)}.
-     *
-     * @param saveUri             the Android Uri to save the cropped image to
-     * @param saveCompressFormat  the compression format to use when writing the image
-     * @param saveCompressQuality the quality (if applicable) to use when writing the image (0 - 100)
-     * @param reqWidth            the width to resize the cropped image to
-     * @param reqHeight           the height to resize the cropped image to
-     */
     public void saveCroppedImageAsync(Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality, int reqWidth, int reqHeight) {
         saveCroppedImageAsync(saveUri, saveCompressFormat, saveCompressQuality, reqWidth, reqHeight, RequestSizeOptions.RESIZE_INSIDE);
     }
 
-    /**
-     * Save the cropped image based on the current crop window to the given uri.<br>
-     * The result will be invoked to listener set by {@link #setOnGetCroppedImageCompleteListener(OnGetCroppedImageCompleteListener)}.
-     *
-     * @param saveUri             the Android Uri to save the cropped image to
-     * @param saveCompressFormat  the compression format to use when writing the image
-     * @param saveCompressQuality the quality (if applicable) to use when writing the image (0 - 100)
-     * @param reqWidth            the width to resize the cropped image to (see options)
-     * @param reqHeight           the height to resize the cropped image to (see options)
-     * @param options             the resize method to use, see its documentation
-     */
     public void saveCroppedImageAsync(Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality, int reqWidth, int reqHeight, RequestSizeOptions options) {
         if (mOnCropImageCompleteListener == null && mOnSaveCroppedImageCompleteListener == null) {
             throw new IllegalArgumentException("mOnCropImageCompleteListener is not set");
@@ -1032,19 +961,6 @@ public class LCropImageView extends FrameLayout {
         setCropOverlayVisibility();
     }
 
-    /**
-     * Gets the cropped image based on the current crop window.<br>
-     * If (reqWidth,reqHeight) is given AND image is loaded from URI cropping will try to use sample size to fit in
-     * the requested width and height down-sampling if possible - optimization to get best size to quality.<br>
-     * The result will be invoked to listener set by {@link #setOnGetCroppedImageCompleteListener(OnGetCroppedImageCompleteListener)}.
-     *
-     * @param reqWidth            the width to resize the cropped image to (see options)
-     * @param reqHeight           the height to resize the cropped image to (see options)
-     * @param options             the resize method to use on the cropped bitmap
-     * @param saveUri             optional: to save the cropped image to
-     * @param saveCompressFormat  if saveUri is given, the given compression will be used for saving the image
-     * @param saveCompressQuality if saveUri is given, the given quality will be used for the compression.
-     */
     public void startCropWorkerTask(int reqWidth, int reqHeight, RequestSizeOptions options, Uri saveUri, Bitmap.CompressFormat saveCompressFormat, int saveCompressQuality) {
         if (mBitmap != null) {
             mImageView.clearAnimation();

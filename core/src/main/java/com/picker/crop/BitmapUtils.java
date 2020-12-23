@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.picker.crop;
 
 import android.content.ContentResolver;
@@ -44,7 +32,6 @@ import javax.microedition.khronos.egl.EGLDisplay;
  * Utility class that deals with operations with an ImageView.
  */
 
-//TODO convert kotlin
 final class BitmapUtils {
 
     static final Rect EMPTY_RECT = new Rect();
@@ -572,7 +559,7 @@ final class BitmapUtils {
             return null;
         }
         // first try by direct path
-         File file = new File(uri.getPath());
+        File file = new File(uri.getPath());
         if (file.exists()) {
             return file;
         }
@@ -582,7 +569,7 @@ final class BitmapUtils {
         try {
             final String[] proj = {MediaStore.Images.Media.DATA};
             cursor = context.getContentResolver().query(uri, proj, null, null, null);
-            final    int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            final int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
             cursor.moveToFirst();
             String realPath = cursor.getString(columnIndex);
             file = new File(realPath);
@@ -602,9 +589,9 @@ final class BitmapUtils {
      */
     private static Bitmap rotateBitmapInt(Bitmap bitmap, int degrees) {
         if (degrees > 0) {
-            final  Matrix matrix = new Matrix();
+            final Matrix matrix = new Matrix();
             matrix.setRotate(degrees);
-            final  Bitmap newBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, false);
+            final Bitmap newBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, false);
             if (newBitmap != bitmap) {
                 bitmap.recycle();
             }
@@ -624,22 +611,22 @@ final class BitmapUtils {
 
         try {
             // Get EGL Display
-            final   EGL10 egl = (EGL10) EGLContext.getEGL();
-            final   EGLDisplay display = egl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
+            final EGL10 egl = (EGL10) EGLContext.getEGL();
+            final EGLDisplay display = egl.eglGetDisplay(EGL10.EGL_DEFAULT_DISPLAY);
 
             // Initialise
-            final   int[] version = new int[2];
+            final int[] version = new int[2];
             egl.eglInitialize(display, version);
 
             // Query total number of configurations
-            final   int[] totalConfigurations = new int[1];
+            final int[] totalConfigurations = new int[1];
             egl.eglGetConfigs(display, null, 0, totalConfigurations);
 
             // Query actual list configurations
-            final  EGLConfig[] configurationsList = new EGLConfig[totalConfigurations[0]];
+            final EGLConfig[] configurationsList = new EGLConfig[totalConfigurations[0]];
             egl.eglGetConfigs(display, configurationsList, totalConfigurations[0], totalConfigurations);
 
-            final  int[] textureSize = new int[1];
+            final int[] textureSize = new int[1];
             int maximumTextureSize = 0;
 
             // Iterate through all the configurations to located the maximum texture size

@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.picker.crop;
 
 import android.content.Context;
@@ -24,7 +12,6 @@ import java.lang.ref.WeakReference;
  * Task to load bitmap asynchronously from the UI thread.
  */
 
-//TODO convert kotlin
 final class BitmapLoadingWorkerTask extends AsyncTask<Void, Void, BitmapLoadingWorkerTask.Result> {
 
     //region: Fields and Consts
@@ -39,9 +26,6 @@ final class BitmapLoadingWorkerTask extends AsyncTask<Void, Void, BitmapLoadingW
      */
     private final Uri mUri;
 
-    /**
-     * The context of the crop image view widget used for loading of bitmap by Android URI
-     */
     private final Context mContext;
 
     /**

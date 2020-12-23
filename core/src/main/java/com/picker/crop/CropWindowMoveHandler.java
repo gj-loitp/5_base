@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.picker.crop;
 
 import android.graphics.Matrix;
@@ -20,7 +8,6 @@ import android.graphics.RectF;
  * Handler to update crop window edges by the move type - Horizontal, Vertical, Corner or Center.<br/>
  */
 
-//TODO convert kotlin
 final class CropWindowMoveHandler {
 
     //region: Fields and Consts
@@ -396,7 +383,6 @@ final class CropWindowMoveHandler {
      *
      * @param right      the position that the right edge is dragged to
      * @param bounds     the bounding box of the image that is being cropped
-     * @param viewWidth
      * @param snapMargin the snap distance to the image edge (in pixels)
      */
     private void adjustRight(RectF rect, float right, RectF bounds, int viewWidth, float snapMargin, float aspectRatio, boolean topMoves, boolean bottomMoves) {
@@ -549,7 +535,6 @@ final class CropWindowMoveHandler {
      *
      * @param bottom     the position that the bottom edge is dragged to
      * @param bounds     the bounding box of the image that is being cropped
-     * @param viewHeight
      * @param snapMargin the snap distance to the image edge (in pixels)
      */
     private void adjustBottom(RectF rect, float bottom, RectF bounds, int viewHeight, float snapMargin, float aspectRatio, boolean leftMoves, boolean rightMoves) {

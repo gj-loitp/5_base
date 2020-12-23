@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.picker.crop;
 
 import android.annotation.TargetApi;
@@ -29,7 +17,6 @@ import android.view.View;
 
 import java.util.Arrays;
 
-//TODO convert kotlin
 public class LCropOverlayView extends View {
 
     //region: Fields and Consts
@@ -87,7 +74,7 @@ public class LCropOverlayView extends View {
     /**
      * Used for oval crop window shape or non-straight rotation drawing.
      */
-    private Path mPath = new Path();
+    private final Path mPath = new Path();
 
     /**
      * The bounding box around the Bitmap that we are cropping.
@@ -273,21 +260,6 @@ public class LCropOverlayView extends View {
     public void setCropShape(LCropImageView.CropShape cropShape) {
         if (mCropShape != cropShape) {
             mCropShape = cropShape;
-            if (Build.VERSION.SDK_INT <= 17) {
-                if (mCropShape == LCropImageView.CropShape.OVAL) {
-                    mOriginalLayerType = getLayerType();
-                    if (mOriginalLayerType != View.LAYER_TYPE_SOFTWARE) {
-                        // TURN off hardware acceleration
-                        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-                    } else {
-                        mOriginalLayerType = null;
-                    }
-                } else if (mOriginalLayerType != null) {
-                    // return hardware acceleration back
-                    setLayerType(mOriginalLayerType, null);
-                    mOriginalLayerType = null;
-                }
-            }
             invalidate();
         }
     }
@@ -674,7 +646,7 @@ public class LCropOverlayView extends View {
         float bottom = Math.min(BitmapUtils.getRectBottom(mBoundsPoints), getHeight());
 
         if (mCropShape == LCropImageView.CropShape.RECTANGLE) {
-            if (!isNonStraightAngleRotated() || Build.VERSION.SDK_INT <= 17) {
+            if (!isNonStraightAngleRotated()) {
                 canvas.drawRect(left, top, right, rect.top, mBackgroundPaint);
                 canvas.drawRect(left, rect.bottom, right, bottom, mBackgroundPaint);
                 canvas.drawRect(left, rect.top, rect.left, rect.bottom, mBackgroundPaint);
@@ -695,11 +667,7 @@ public class LCropOverlayView extends View {
             }
         } else {
             mPath.reset();
-            if (Build.VERSION.SDK_INT <= 17 && mCropShape == LCropImageView.CropShape.OVAL) {
-                mDrawRect.set(rect.left + 2, rect.top + 2, rect.right - 2, rect.bottom - 2);
-            } else {
-                mDrawRect.set(rect.left, rect.top, rect.right, rect.bottom);
-            }
+            mDrawRect.set(rect.left, rect.top, rect.right, rect.bottom);
             mPath.addOval(mDrawRect, Path.Direction.CW);
             canvas.save();
             if (Build.VERSION.SDK_INT >= 28) {
