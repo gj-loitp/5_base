@@ -12,6 +12,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.progressloadingview.circularprogressindicator.CircularProgressIndicator
 import kotlinx.android.synthetic.main.activity_progress_circular_progress_indicator.*
+import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import java.util.*
 
@@ -135,7 +136,9 @@ class CircularProgressIndicatorActivity : BaseFontActivity(), View.OnClickListen
         val tag = dialog.tag
         val color = Color.rgb(r, g, b)
 
-        assert(tag != null)
+        if (BuildConfig.DEBUG && tag == null) {
+            error("Assertion failed")
+        }
 
         when (tag) {
             "progressColor" -> circularProgress.progressColor = color
