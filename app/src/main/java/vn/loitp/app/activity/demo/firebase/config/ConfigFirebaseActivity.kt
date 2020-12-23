@@ -21,7 +21,7 @@ class ConfigFirebaseActivity : BaseFontActivity() {
         private const val WELCOME_MESSAGE_CAPS_KEY = "welcome_message_caps"
     }
 
-    private var firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
+    private val firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_config_firebase
