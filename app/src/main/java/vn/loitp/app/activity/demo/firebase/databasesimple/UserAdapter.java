@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.firebase.databasesimple;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -24,7 +25,6 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 import vn.loitp.app.R;
 
-//TODO convert kotlin
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     private final String logTag = getClass().getSimpleName();
 
@@ -34,11 +34,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         void onLongClick(User user, int position);
     }
 
-    private Context context;
-    private Callback callback;
-    private List<User> userList;
+    private final Context context;
+    private final Callback callback;
+    private final List<User> userList;
 
-    public class UserViewHolder extends RecyclerView.ViewHolder {
+    public static class UserViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName, tvMsg, tvTime;
         public CircleImageView avt;
         public LinearLayout rootView;
@@ -66,6 +66,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         return new UserViewHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
         User user = userList.get(position);
@@ -85,22 +86,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             }
         });
 
-        holder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (callback != null) {
-                    callback.onClick(user, position);
-                }
+        holder.rootView.setOnClickListener(v -> {
+            if (callback != null) {
+                callback.onClick(user, position);
             }
         });
-        holder.rootView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (callback != null) {
-                    callback.onLongClick(user, position);
-                }
-                return true;
+        holder.rootView.setOnLongClickListener(v -> {
+            if (callback != null) {
+                callback.onLongClick(user, position);
             }
+            return true;
         });
     }
 

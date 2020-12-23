@@ -29,13 +29,10 @@ import vn.loitp.app.common.Constants;
 
 @LogTag("DatabaseSimpleFirebaseActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
 public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements View.OnClickListener {
     private final String ROOT_NODE = "loitp";
-    private FirebaseDatabase mFirebaseInstance;
     private DatabaseReference mFirebaseDatabase;
-    private List<User> userList = new ArrayList<>();
-    private RecyclerView recyclerView;
+    private final List<User> userList = new ArrayList<>();
     private UserAdapter mAdapter;
 
     @Override
@@ -46,7 +43,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mFirebaseInstance = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseInstance = FirebaseDatabase.getInstance();
         mFirebaseDatabase = mFirebaseInstance.getReference();
 
         findViewById(R.id.btAdd).setOnClickListener(this);
@@ -55,8 +52,8 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
 
         mFirebaseDatabase.child(ROOT_NODE).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot == null || dataSnapshot.getValue() == null) {
+            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.getValue() == null) {
                     logD("onDataChange null => return");
                     userList.clear();
                     if (mAdapter != null) {
@@ -105,7 +102,7 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
     }
 
     private void setupUI() {
-        recyclerView = findViewById(R.id.rv);
+        RecyclerView recyclerView = findViewById(R.id.rv);
 
         SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
         animator.setAddDuration(300);
@@ -131,14 +128,6 @@ public class DatabaseSimpleFirebaseActivity extends BaseFontActivity implements 
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-
-        //recyclerView.setAdapter(mAdapter);
-
-        //AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mAdapter);
-        //alphaAdapter.setDuration(1000);
-        //alphaAdapter.setInterpolator(new OvershootInterpolator());
-        //alphaAdapter.setFirstOnly(true);
-        //recyclerView.setAdapter(alphaAdapter);
 
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(mAdapter);
         scaleAdapter.setDuration(1000);
