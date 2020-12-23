@@ -520,4 +520,5 @@ Likewise may someone love you next.
     <string name="send_log_d">Send log d</string>
     <string name="realtime_database_add_data">Realtime Database Add Data</string>
     <string name="simple_database_nclick_to_edit_longclick_to_remove">Simple database\nClick to Edit; LongClick To Remove</string>
+    <string name="swiperefreshlayout_scrollview">SwipeRefreshLayout ScrollView</string>
 </resources>

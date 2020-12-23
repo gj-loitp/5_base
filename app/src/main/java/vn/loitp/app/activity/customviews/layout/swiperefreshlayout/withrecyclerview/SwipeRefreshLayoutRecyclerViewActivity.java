@@ -24,7 +24,6 @@ import vn.loitp.app.common.Constants;
 
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
 public class SwipeRefreshLayoutRecyclerViewActivity extends BaseFontActivity {
     private SwipeRefreshLayout swipeRefreshLayout;
     private final List<Movie> movieList = new ArrayList<>();

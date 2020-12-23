@@ -1,46 +1,37 @@
-package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview;
+package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withscrollview
 
-import android.os.Bundle;
-import android.widget.TextView;
-
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseFontActivity;
-import com.core.utilities.LStoreUtil;
-import com.core.utilities.LUIUtil;
-
-import vn.loitp.app.R;
+import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import com.core.utilities.LStoreUtil
+import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_swipe_refresh_scroll_view_layout.*
+import vn.loitp.app.R
 
 @LogTag("SwipeRefreshLayoutScrollViewActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
-public class SwipeRefreshLayoutScrollViewActivity extends BaseFontActivity {
-    private SwipeRefreshLayout swipeRefreshLayout;
+class SwipeRefreshLayoutScrollViewActivity : BaseFontActivity() {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_swipe_refresh_scroll_view_layout;
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_swipe_refresh_scroll_view_layout
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
-        swipeRefreshLayout.setOnRefreshListener(this::doTask);
-        LUIUtil.Companion.setColorForSwipeRefreshLayout(swipeRefreshLayout);
-
-        TextView textView = findViewById(R.id.textView);
-        String poem = LStoreUtil.Companion.readTxtFromRawFolder(R.raw.loitp);
-        textView.setText(poem);
+        swipeRefreshLayout.setOnRefreshListener {
+            doTask()
+        }
+        LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
+        val poem = LStoreUtil.readTxtFromRawFolder(R.raw.loitp)
+        textView.text = poem
     }
 
-    private void doTask() {
-        LUIUtil.Companion.setDelay(5000, () -> {
-            swipeRefreshLayout.setRefreshing(false);
-            showShortInformation("Finish", true);
-        });
+    private fun doTask() {
+        LUIUtil.setDelay(5000) {
+            swipeRefreshLayout?.isRefreshing = false
+            showShortInformation("Finish", true)
+        }
     }
 }

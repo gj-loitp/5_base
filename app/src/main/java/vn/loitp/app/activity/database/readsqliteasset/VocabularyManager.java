@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.database.readsqliteasset;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -20,9 +21,9 @@ import java.util.List;
  * Created by Loitp on 5/2/2017.
  */
 
-//TODO convert kotlin
 public class VocabularyManager extends SQLiteOpenHelper {
     private final String TAG = getClass().getSimpleName();
+    @SuppressLint("SdCardPath")
     private final static String DB_PATH = "/data/data/loitp.basemaster/databases/";
     private final static String DB_NAME = "vocabulary.sqlite";
     private final static int DATABASE_VERSION = AppUtils.Companion.getAppVersionCode();
@@ -129,34 +130,6 @@ public class VocabularyManager extends SQLiteOpenHelper {
         } while (cursor.moveToNext());
         return vocabularyList;
     }
-
-    /*private Vocabulary getVocabularyInListByID(int id, List<Vocabulary> vocabularyList) {
-        for (Vocabulary vocabulary : vocabularyList) {
-            if (vocabulary.getId() == id) {
-                return vocabulary;
-            }
-        }
-        return null;
-    }*/
-
-    /*public List<Vocabulary> getFavVocabulary() {
-        List<Vocabulary> vocabularyList = getAllVocabulary();
-        List<Vocabulary> favVocabularyList = new ArrayList<>();
-        String jsonFavVocabulary = LPrefUtil.getJsonFavVocabulary(context);
-        if (jsonFavVocabulary != null && !jsonFavVocabulary.isEmpty()) {
-            List<Integer> idList = BaseApplication.Companion.getGson().fromJson(jsonFavVocabulary, new TypeToken<List<Integer>>() {
-            }.getType());
-            if (idList != null) {
-                for (Integer integer : idList) {
-                    Vocabulary v = getVocabularyInListByID(integer, vocabularyList);
-                    if (v != null) {
-                        favVocabularyList.add(v);
-                    }
-                }
-            }
-        }
-        return favVocabularyList;
-    }*/
 
     public List<Vocabulary> getNRandomVocabulary(int first, int last) {
         List<Vocabulary> vocabularyList = new ArrayList<Vocabulary>();

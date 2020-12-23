@@ -22,11 +22,9 @@ import vn.loitp.app.R;
 public class RecyclerAdapter extends RecyclerView.Adapter {
     private final List<String> mDataSet;
     private final LayoutInflater mInflater;
-    private final Context mContext;
     private final ViewBinderHelper binderHelper = new ViewBinderHelper();
 
     public RecyclerAdapter(Context context, List<String> dataSet) {
-        mContext = context;
         mDataSet = dataSet;
         mInflater = LayoutInflater.from(context);
 
