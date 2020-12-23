@@ -7,7 +7,6 @@ import com.google.firebase.database.IgnoreExtraProperties;
 
 // [START comment_class]
 @IgnoreExtraProperties
-//TODO convert kotlin
 @Keep
 public class Comment extends BaseModel {
 

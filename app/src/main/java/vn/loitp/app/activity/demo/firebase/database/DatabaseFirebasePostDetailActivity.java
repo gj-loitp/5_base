@@ -33,7 +33,6 @@ import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LogTag("DatabaseFirebasePostDetailActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
 public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity implements View.OnClickListener {
 
     public static final String EXTRA_POST_KEY = "post_key";
@@ -95,9 +94,11 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                 // Get Post object and use the values to update the UI
                 Post post = dataSnapshot.getValue(Post.class);
                 // [START_EXCLUDE]
-                mAuthorView.setText(post.author);
-                mTitleView.setText(post.title);
-                mBodyView.setText(post.body);
+                if (post != null) {
+                    mAuthorView.setText(post.author);
+                    mTitleView.setText(post.title);
+                    mBodyView.setText(post.body);
+                }
                 // [END_EXCLUDE]
             }
 
@@ -147,7 +148,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
         FirebaseDatabase.getInstance().getReference().child("users").child(uid)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                         // Get user information
                         User user = dataSnapshot.getValue(User.class);
                         String authorName = user.username;
@@ -164,7 +165,7 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onCancelled(@NotNull DatabaseError databaseError) {
 
                     }
                 });
@@ -185,12 +186,12 @@ public class DatabaseFirebasePostDetailActivity extends BaseFirebaseActivity imp
 
     private class CommentAdapter extends RecyclerView.Adapter<CommentViewHolder> {
 
-        private Context mContext;
-        private DatabaseReference mDatabaseReference;
-        private ChildEventListener mChildEventListener;
+        private final Context mContext;
+        private final DatabaseReference mDatabaseReference;
+        private final ChildEventListener mChildEventListener;
 
-        private List<String> mCommentIds = new ArrayList<>();
-        private List<Comment> mComments = new ArrayList<>();
+        private final List<String> mCommentIds = new ArrayList<>();
+        private final List<Comment> mComments = new ArrayList<>();
 
         public CommentAdapter(final Context context, DatabaseReference ref) {
             mContext = context;

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 
-//TODO convert kotlin
 public class PostViewHolder extends RecyclerView.ViewHolder {
 
     public TextView titleView;

@@ -24,7 +24,6 @@ import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LogTag("DatabaseFirebaseSignInActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
 public class DatabaseFirebaseSignInActivity extends BaseFirebaseActivity implements View.OnClickListener {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;

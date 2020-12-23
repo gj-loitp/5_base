@@ -25,7 +25,6 @@ import vn.loitp.app.activity.demo.firebase.database.models.User;
 
 @LogTag("DatabaseFirebaseNewPostActivity")
 @IsFullScreen(false)
-//TODO convert kotlin
 public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
     private static final String REQUIRED = "Required";
 
@@ -54,12 +53,7 @@ public class DatabaseFirebaseNewPostActivity extends BaseFirebaseActivity {
         mBodyField = findViewById(R.id.field_body);
         mSubmitButton = findViewById(R.id.fab_submit_post);
 
-        mSubmitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                submitPost();
-            }
-        });
+        mSubmitButton.setOnClickListener(v -> submitPost());
     }
 
     private void submitPost() {
