@@ -10,7 +10,6 @@ import com.function.notification.config.VibrationSettings;
 import java.util.ArrayList;
 import java.util.List;
 
-//TODO convert kotlin
 public abstract class BaseNotification implements CustomNotification {
 
     public String title;

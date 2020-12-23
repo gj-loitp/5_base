@@ -29,18 +29,16 @@ import java.util.zip.ZipFile;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-//TODO convert kotlin
-
 @Keep
 class Content extends BaseModel {
 
     private String zipFilePath;
 
-    private Container container;
-    private Package opfPackage;
+    private final Container container;
+    private final Package opfPackage;
     private Toc toc;
 
-    private List<String> entryNames;
+    private final List<String> entryNames;
 
     private Map<String, List<Tag>> entryTagPositions;
     private List<String> nonExistingHrefList;
@@ -489,11 +487,11 @@ class Content extends BaseModel {
                 Collections.swap(getToc().getNavMap().getNavPoints(), index, index + 1);
             }
 
-            if (currentAnchorIndex == -1 || nextAnchorIndex == -1) {
+            if (currentAnchorIndex == -1) {
 
                 int tmpIndex = index;
 
-                if (currentAnchorIndex == -1 && nextAnchorIndex == -1) { // Both of the anchors not found.
+                if (nextAnchorIndex == -1) { // Both of the anchors not found.
                     getToc().getNavMap().getNavPoints().get(tmpIndex++).setMarkedToDelete(true); // Delete the first one (current anchor)
                     getToc().getNavMap().getNavPoints().get(tmpIndex++).setMarkedToDelete(true); // Delete the second one (next anchor)
                     currentAnchor = null;
@@ -515,23 +513,26 @@ class Content extends BaseModel {
 
                     String possiblyNextEntryName = getNavPoint(tmpIndex).getContentSrc();
 
-                    if (possiblyNextEntryName.startsWith(fileName) && possiblyNextEntryName.replace(fileName, "").startsWith("%23")) {
+                    if (possiblyNextEntryName != null) {
+                        if (possiblyNextEntryName.startsWith(fileName) && possiblyNextEntryName.replace(fileName, "").startsWith("%23")) {
 
-                        String anchor = possiblyNextEntryName.replace(fileName, "");
-                        anchor = convertAnchorToHtml(anchor);
+                            String anchor = possiblyNextEntryName.replace(fileName, "");
+                            anchor = convertAnchorToHtml(anchor);
 
-                        if (htmlBody.contains(anchor)) {
-                            if (currentAnchor == null) { // If current anchor is not found, first set that.
-                                currentAnchor = anchor;
-                                isCurrentNavPointMarked = false;
-                            } else { // If current anchor is already defined set the next anchor and break.
-                                nextAnchor = anchor;
-                                break;
+                            if (htmlBody.contains(anchor)) {
+                                if (currentAnchor == null) { // If current anchor is not found, first set that.
+                                    currentAnchor = anchor;
+                                    isCurrentNavPointMarked = false;
+                                } else { // If current anchor is already defined set the next anchor and break.
+                                    nextAnchor = anchor;
+                                    break;
+                                }
                             }
+                        } else {
+                            // TODO: Next content is not the same file as the current one. Anchors are broken. Navigate to the next file.
+                            isNavigatingToNextFile = true;
+                            break;
                         }
-                    } else { // TODO: Next content is not the same file as the current one. Anchors are broken. Navigate to the next file.
-                        isNavigatingToNextFile = true;
-                        break;
                     }
 
                     if (isCurrentNavPointMarked) {

@@ -38,9 +38,6 @@ public class Reader {
 
     /**
      * Parses only needed files for book info.
-     *
-     * @param filePath
-     * @throws ReadingException
      */
     public void setInfoContent(String filePath) throws ReadingException {
         fillContent(filePath, false, false);
@@ -48,9 +45,6 @@ public class Reader {
 
     /**
      * Parses all the files needed for reading book. This method must be called before calling readSection method.
-     *
-     * @param filePath
-     * @throws ReadingException
      */
     public void setFullContent(String filePath) throws ReadingException {
         fillContent(filePath, true, false);
@@ -58,10 +52,7 @@ public class Reader {
 
     /**
      * Does the same job with setFullContent but also tries to load saved progress if found any. If no progress file is found then it'll work the same as setFullContent does.
-     *
-     * @param filePath
      * @return saved page index. 0 if no progress is found.
-     * @throws ReadingException
      */
     public int setFullContentWithProgress(String filePath) throws ReadingException {
         fillContent(filePath, true, true);
@@ -75,10 +66,6 @@ public class Reader {
 
     /**
      * Main method that splits and gets the parts of the book.
-     *
-     * @param index
-     * @return
-     * @throws ReadingException
      * @throws OutOfPagesException if index is greater than the page count.
      */
     public BookSection readSection(int index) throws ReadingException, OutOfPagesException {
@@ -180,9 +167,12 @@ public class Reader {
         } catch (IOException e) {
             e.printStackTrace();
 
-            File newFile = new File(newFilePath);
+            File newFile = null;
+            if (newFilePath != null) {
+                newFile = new File(newFilePath);
+            }
 
-            if (newFile.exists()) {
+            if (newFile != null && newFile.exists()) {
                 newFile.delete();
             }
 
@@ -502,15 +492,21 @@ public class Reader {
 
             Map<String, String> spineAttributes = spine.getAttributes();
 
-            String idRef = spineAttributes.get("idref");
+            String idRef = null;
+            if (spineAttributes != null) {
+                idRef = spineAttributes.get("idref");
+            }
 
             for (BaseFindings.XmlItem manifest : content.getPackage().getManifest().getXmlItemList()) {
 
                 Map<String, String> manifestAttributes = manifest.getAttributes();
 
-                String manifestElementId = manifestAttributes.get("id");
+                String manifestElementId = null;
+                if (manifestAttributes != null) {
+                    manifestElementId = manifestAttributes.get("id");
+                }
 
-                if (idRef.equals(manifestElementId)) {
+                if (idRef != null && idRef.equals(manifestElementId)) {
 
                     NavPoint navPoint = new NavPoint();
                     // navPoint.setPlayOrder(currentNavPoints.size() + spineNavPoints.size() + 1); // Is playOrder needed? I think not because we've already sorted the navPoints with playOrder before
