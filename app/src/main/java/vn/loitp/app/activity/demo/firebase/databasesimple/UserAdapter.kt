@@ -1,109 +1,82 @@
-package vn.loitp.app.activity.demo.firebase.databasesimple;
+package vn.loitp.app.activity.demo.firebase.databasesimple
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.drawable.Drawable
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
+import com.core.utilities.LImageUtil
+import de.hdodenhof.circleimageview.CircleImageView
+import vn.loitp.app.R
+import vn.loitp.app.activity.demo.firebase.databasesimple.UserAdapter.UserViewHolder
 
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
+class UserAdapter(
+        private val context: Context,
+        private val userList: List<User>,
+        private val callback: Callback?
+) : RecyclerView.Adapter<UserViewHolder>() {
 
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.core.utilities.LImageUtil;
+    private val logTag = javaClass.simpleName
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
-
-import de.hdodenhof.circleimageview.CircleImageView;
-import vn.loitp.app.R;
-
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
-    private final String logTag = getClass().getSimpleName();
-
-    public interface Callback {
-        void onClick(User user, int position);
-
-        void onLongClick(User user, int position);
+    interface Callback {
+        fun onClick(user: User, position: Int)
+        fun onLongClick(user: User, position: Int)
     }
 
-    private final Context context;
-    private final Callback callback;
-    private final List<User> userList;
-
-    public static class UserViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvName, tvMsg, tvTime;
-        public CircleImageView avt;
-        public LinearLayout rootView;
-
-        public UserViewHolder(View view) {
-            super(view);
-            tvName = view.findViewById(R.id.tvName);
-            tvTime = view.findViewById(R.id.tvTime);
-            tvMsg = view.findViewById(R.id.tvMsg);
-            avt = view.findViewById(R.id.avt);
-            rootView = view.findViewById(R.id.rootView);
-        }
+    class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val tvName: TextView = view.findViewById(R.id.tvName)
+        val tvMsg: TextView = view.findViewById(R.id.tvMsg)
+        val tvTime: TextView = view.findViewById(R.id.tvTime)
+        val avt: CircleImageView = view.findViewById(R.id.avt)
+        val rootView: LinearLayout = view.findViewById(R.id.rootView)
     }
 
-    public UserAdapter(Context context, List<User> userList, Callback callback) {
-        this.context = context;
-        this.userList = userList;
-        this.callback = callback;
-    }
-
-    @NotNull
-    @Override
-    public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user, parent, false);
-        return new UserViewHolder(itemView);
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
+        return UserViewHolder(itemView)
     }
 
     @SuppressLint("SetTextI18n")
-    @Override
-    public void onBindViewHolder(UserViewHolder holder, int position) {
-        User user = userList.get(position);
-        holder.tvName.setText(user.getName());
-        holder.tvMsg.setText(user.getMsg());
-        holder.tvTime.setText(user.getTimestamp() + "");
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        val user = userList[position]
+        holder.tvName.text = user.name
+        holder.tvMsg.text = user.msg
+        holder.tvTime.text = user.timestamp.toString()
 
-        LImageUtil.Companion.load(context, user.getAvt(), holder.avt, R.color.colorPrimary, R.color.colorPrimary, null, new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                return false;
-            }
+        LImageUtil.load(
+                context = context,
+                any = user.avt,
+                imageView = holder.avt,
+                resPlaceHolder = R.color.colorPrimary,
+                resError = R.color.colorPrimary,
+                transformation = null,
+                drawableRequestListener = object : RequestListener<Drawable> {
+                    override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
+                        return false
+                    }
 
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                return false;
-            }
-        });
-
-        holder.rootView.setOnClickListener(v -> {
-            if (callback != null) {
-                callback.onClick(user, position);
-            }
-        });
-        holder.rootView.setOnLongClickListener(v -> {
-            if (callback != null) {
-                callback.onLongClick(user, position);
-            }
-            return true;
-        });
+                    override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
+                        return false
+                    }
+                })
+        holder.rootView.setOnClickListener {
+            callback?.onClick(user, position)
+        }
+        holder.rootView.setOnLongClickListener {
+            callback?.onLongClick(user, position)
+            true
+        }
     }
 
-    @Override
-    public int getItemCount() {
-        if (userList == null) {
-            return 0;
-        }
-        return userList.size();
+    override fun getItemCount(): Int {
+        return userList.size
     }
 }
