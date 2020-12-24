@@ -12,9 +12,6 @@ import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
 import com.utils.util.Utils
 
-//need add nice repo
-//https://github.com/hackware1993/MagicIndicator
-
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github
 /*git reset --soft HEAD~2
