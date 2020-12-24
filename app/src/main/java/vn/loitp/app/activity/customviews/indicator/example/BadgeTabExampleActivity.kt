@@ -1,290 +1,259 @@
-package vn.loitp.app.activity.customviews.indicator.example;
+package vn.loitp.app.activity.customviews.indicator.example
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.DecelerateInterpolator
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
+import kotlinx.android.synthetic.main.activity_badge_tab_example_layout.*
+import net.lucode.hackware.magicindicator.ViewPagerHelper
+import net.lucode.hackware.magicindicator.buildins.UIUtil
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeAnchor
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgePagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeRule
+import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.indicator.ext.titles.ScaleTransitionPagerTitleView
+import java.util.*
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+@LogTag("BadgeTabExampleActivity")
+@IsFullScreen(false)
+class BadgeTabExampleActivity : BaseFontActivity() {
 
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.UIUtil;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeAnchor;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgePagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.badge.BadgeRule;
-
-import java.util.Arrays;
-import java.util.List;
-
-import vn.loitp.app.R;
-import vn.loitp.app.activity.customviews.indicator.ext.titles.ScaleTransitionPagerTitleView;
-
-public class BadgeTabExampleActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"KITKAT", "NOUGAT", "DONUT"};
-    private final List<String> mDataList = Arrays.asList(CHANNELS);
-    private final ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
-
-    private ViewPager mViewPager;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_badge_tab_example_layout);
-
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mViewPager.setAdapter(mExamplePagerAdapter);
-
-        initMagicIndicator1();
-        initMagicIndicator2();
-        initMagicIndicator3();
-        initMagicIndicator4();
+    companion object {
+        private val CHANNELS = arrayOf("KITKAT", "NOUGAT", "DONUT")
     }
 
-    private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
+    private val mDataList = mutableListOf(*CHANNELS)
+    private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_badge_tab_example_layout
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewPager.adapter = mExamplePagerAdapter
+        initMagicIndicator1()
+        initMagicIndicator2()
+        initMagicIndicator3()
+        initMagicIndicator4()
+    }
+
+    private fun initMagicIndicator1() {
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return mDataList.size
             }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                final BadgePagerTitleView badgePagerTitleView = new BadgePagerTitleView(context);
-
-                SimplePagerTitleView simplePagerTitleView = new ColorTransitionPagerTitleView(context);
-                simplePagerTitleView.setText(mDataList.get(index));
-                simplePagerTitleView.setNormalColor(Color.parseColor("#88ffffff"));
-                simplePagerTitleView.setSelectedColor(Color.WHITE);
-                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mViewPager.setCurrentItem(index);
-                        badgePagerTitleView.setBadgeView(null); // cancel badge when click tab
-                    }
-                });
-                badgePagerTitleView.setInnerPagerTitleView(simplePagerTitleView);
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                simplePagerTitleView.text = mDataList[index]
+                simplePagerTitleView.normalColor = Color.parseColor("#88ffffff")
+                simplePagerTitleView.selectedColor = Color.WHITE
+                simplePagerTitleView.setOnClickListener {
+                    viewPager.currentItem = index
+                    badgePagerTitleView.badgeView = null // cancel badge when click tab
+                }
+                badgePagerTitleView.innerPagerTitleView = simplePagerTitleView
 
                 // setup badge
                 if (index != 2) {
-                    TextView badgeTextView = (TextView) LayoutInflater.from(context).inflate(R.layout.simple_count_badge_layout, null);
-                    badgeTextView.setText("" + (index + 1));
-                    badgePagerTitleView.setBadgeView(badgeTextView);
+                    val badgeTextView = LayoutInflater.from(context).inflate(R.layout.simple_count_badge_layout, null) as TextView
+                    badgeTextView.text = "${index + 1}"
+                    badgePagerTitleView.badgeView = badgeTextView
                 } else {
-                    ImageView badgeImageView = (ImageView) LayoutInflater.from(context).inflate(R.layout.simple_red_dot_badge_layout, null);
-                    badgePagerTitleView.setBadgeView(badgeImageView);
+                    val badgeImageView = LayoutInflater.from(context).inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
+                    badgePagerTitleView.badgeView = badgeImageView
                 }
 
                 // set badge position
-                if (index == 0) {
-                    badgePagerTitleView.setXBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_LEFT, -UIUtil.dip2px(context, 6)));
-                    badgePagerTitleView.setYBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_TOP, 0));
-                } else if (index == 1) {
-                    badgePagerTitleView.setXBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_RIGHT, -UIUtil.dip2px(context, 6)));
-                    badgePagerTitleView.setYBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_TOP, 0));
-                } else if (index == 2) {
-                    badgePagerTitleView.setXBadgeRule(new BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3)));
-                    badgePagerTitleView.setYBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2)));
+                when (index) {
+                    0 -> {
+                        badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CONTENT_LEFT, -UIUtil.dip2px(context, 6.0))
+                        badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_TOP, 0)
+                    }
+                    1 -> {
+                        badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CONTENT_RIGHT, -UIUtil.dip2px(context, 6.0))
+                        badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_TOP, 0)
+                    }
+                    2 -> {
+                        badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
+                        badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
+                    }
                 }
 
                 // don't cancel badge when tab selected
-                badgePagerTitleView.setAutoCancelBadge(false);
-
-                return badgePagerTitleView;
+                badgePagerTitleView.isAutoCancelBadge = false
+                return badgePagerTitleView
             }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setColors(Color.parseColor("#40c4ff"));
-                return indicator;
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val linePagerIndicator = LinePagerIndicator(context)
+                linePagerIndicator.setColors(Color.parseColor("#40c4ff"))
+                return linePagerIndicator
             }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        LinearLayout titleContainer = commonNavigator.getTitleContainer(); // must after setNavigator
-        titleContainer.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-        titleContainer.setDividerPadding(UIUtil.dip2px(this, 15));
-        titleContainer.setDividerDrawable(getResources().getDrawable(R.drawable.simple_splitter));
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+        }
+        magicIndicator1.navigator = commonNavigator
+        val titleContainer = commonNavigator.titleContainer // must after setNavigator
+        titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
+        titleContainer.dividerPadding = UIUtil.dip2px(this, 15.0)
+        titleContainer.dividerDrawable = LAppResource.getDrawable(R.drawable.simple_splitter)
+        ViewPagerHelper.bind(magicIndicator1, viewPager)
     }
 
-    private void initMagicIndicator2() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator2);
-        magicIndicator.setBackgroundColor(Color.WHITE);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdjustMode(true);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
+    private fun initMagicIndicator2() {
+        magicIndicator2.setBackgroundColor(Color.WHITE)
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.isAdjustMode = true
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return mDataList.size
             }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                BadgePagerTitleView badgePagerTitleView = new BadgePagerTitleView(context);
-
-                SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
-                simplePagerTitleView.setText(mDataList.get(index));
-                simplePagerTitleView.setTextSize(18);
-                simplePagerTitleView.setNormalColor(Color.parseColor("#616161"));
-                simplePagerTitleView.setSelectedColor(Color.parseColor("#f57c00"));
-                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mViewPager.setCurrentItem(index);
-                    }
-                });
-                badgePagerTitleView.setInnerPagerTitleView(simplePagerTitleView);
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView = ScaleTransitionPagerTitleView(context)
+                simplePagerTitleView.text = mDataList[index]
+                simplePagerTitleView.textSize = 18f
+                simplePagerTitleView.normalColor = Color.parseColor("#616161")
+                simplePagerTitleView.selectedColor = Color.parseColor("#f57c00")
+                simplePagerTitleView.setOnClickListener {
+                    viewPager.currentItem = index
+                }
+                badgePagerTitleView.innerPagerTitleView = simplePagerTitleView
 
                 // setup badge
                 if (index == 1) {
-                    ImageView badgeImageView = (ImageView) LayoutInflater.from(context).inflate(R.layout.simple_red_dot_badge_layout, null);
-                    badgePagerTitleView.setBadgeView(badgeImageView);
-                    badgePagerTitleView.setXBadgeRule(new BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3)));
-                    badgePagerTitleView.setYBadgeRule(new BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2)));
+                    val badgeImageView = LayoutInflater.from(context).inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
+                    badgePagerTitleView.badgeView = badgeImageView
+                    badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
+                    badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
                 }
 
                 // cancel badge when click tab, default true
-                badgePagerTitleView.setAutoCancelBadge(true);
-
-                return badgePagerTitleView;
+                badgePagerTitleView.isAutoCancelBadge = true
+                return badgePagerTitleView
             }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setStartInterpolator(new AccelerateInterpolator());
-                indicator.setEndInterpolator(new DecelerateInterpolator(1.6f));
-                indicator.setYOffset(UIUtil.dip2px(context, 39));
-                indicator.setLineHeight(UIUtil.dip2px(context, 1));
-                indicator.setColors(Color.parseColor("#f57c00"));
-                return indicator;
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val indicator = LinePagerIndicator(context)
+                indicator.startInterpolator = AccelerateInterpolator()
+                indicator.endInterpolator = DecelerateInterpolator(1.6f)
+                indicator.yOffset = UIUtil.dip2px(context, 39.0).toFloat()
+                indicator.lineHeight = UIUtil.dip2px(context, 1.0).toFloat()
+                indicator.setColors(Color.parseColor("#f57c00"))
+                return indicator
             }
 
-            @Override
-            public float getTitleWeight(Context context, int index) {
-                if (index == 0) {
-                    return 2.0f;
-                } else if (index == 1) {
-                    return 1.2f;
-                } else {
-                    return 1.0f;
+            override fun getTitleWeight(context: Context, index: Int): Float {
+                return when (index) {
+                    0 -> {
+                        2.0f
+                    }
+                    1 -> {
+                        1.2f
+                    }
+                    else -> {
+                        1.0f
+                    }
                 }
             }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+        }
+        magicIndicator2.navigator = commonNavigator
+        ViewPagerHelper.bind(magicIndicator2, viewPager)
     }
 
-    private void initMagicIndicator3() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator3);
-        magicIndicator.setBackgroundResource(R.drawable.round_indicator_bg);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
+    private fun initMagicIndicator3() {
+        magicIndicator3.setBackgroundResource(R.drawable.round_indicator_bg)
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return mDataList.size
             }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                BadgePagerTitleView badgePagerTitleView = new BadgePagerTitleView(context);
-
-                ClipPagerTitleView clipPagerTitleView = new ClipPagerTitleView(context);
-                clipPagerTitleView.setText(mDataList.get(index));
-                clipPagerTitleView.setTextColor(Color.parseColor("#e94220"));
-                clipPagerTitleView.setClipColor(Color.WHITE);
-                clipPagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mViewPager.setCurrentItem(index);
-                    }
-                });
-                badgePagerTitleView.setInnerPagerTitleView(clipPagerTitleView);
-
-                return badgePagerTitleView;
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
+                val clipPagerTitleView = ClipPagerTitleView(context)
+                clipPagerTitleView.text = mDataList[index]
+                clipPagerTitleView.textColor = Color.parseColor("#e94220")
+                clipPagerTitleView.clipColor = Color.WHITE
+                clipPagerTitleView.setOnClickListener {
+                    viewPager.currentItem = index
+                }
+                badgePagerTitleView.innerPagerTitleView = clipPagerTitleView
+                return badgePagerTitleView
             }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                float navigatorHeight = context.getResources().getDimension(R.dimen.common_navigator_height);
-                float borderWidth = UIUtil.dip2px(context, 1);
-                float lineHeight = navigatorHeight - 2 * borderWidth;
-                indicator.setLineHeight(lineHeight);
-                indicator.setRoundRadius(lineHeight / 2);
-                indicator.setYOffset(borderWidth);
-                indicator.setColors(Color.parseColor("#bc2a2a"));
-                return indicator;
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val indicator = LinePagerIndicator(context)
+                val navigatorHeight = context.resources.getDimension(R.dimen.common_navigator_height)
+                val borderWidth = UIUtil.dip2px(context, 1.0).toFloat()
+                val lineHeight = navigatorHeight - 2 * borderWidth
+                indicator.lineHeight = lineHeight
+                indicator.roundRadius = lineHeight / 2
+                indicator.yOffset = borderWidth
+                indicator.setColors(Color.parseColor("#bc2a2a"))
+                return indicator
             }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+        }
+        magicIndicator3.navigator = commonNavigator
+        ViewPagerHelper.bind(magicIndicator3, viewPager)
     }
 
-    private void initMagicIndicator4() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator4);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-
-            @Override
-            public int getCount() {
-                return mDataList.size();
+    private fun initMagicIndicator4() {
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return mDataList.size
             }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                BadgePagerTitleView badgePagerTitleView = new BadgePagerTitleView(context);
-
-                SimplePagerTitleView simplePagerTitleView = new ColorTransitionPagerTitleView(context);
-                simplePagerTitleView.setNormalColor(Color.GRAY);
-                simplePagerTitleView.setSelectedColor(Color.WHITE);
-                simplePagerTitleView.setText(mDataList.get(index));
-                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        mViewPager.setCurrentItem(index);
-                    }
-                });
-                badgePagerTitleView.setInnerPagerTitleView(simplePagerTitleView);
-
-                return badgePagerTitleView;
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val badgePagerTitleView = BadgePagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                simplePagerTitleView.normalColor = Color.GRAY
+                simplePagerTitleView.selectedColor = Color.WHITE
+                simplePagerTitleView.text = mDataList[index]
+                simplePagerTitleView.setOnClickListener {
+                    viewPager.currentItem = index
+                }
+                badgePagerTitleView.innerPagerTitleView = simplePagerTitleView
+                return badgePagerTitleView
             }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator linePagerIndicator = new LinePagerIndicator(context);
-                linePagerIndicator.setColors(Color.WHITE);
-                return linePagerIndicator;
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val linePagerIndicator = LinePagerIndicator(context)
+                linePagerIndicator.setColors(Color.WHITE)
+                return linePagerIndicator
             }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        LinearLayout titleContainer = commonNavigator.getTitleContainer(); // must after setNavigator
-        titleContainer.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
-        titleContainer.setDividerDrawable(new ColorDrawable() {
-            @Override
-            public int getIntrinsicWidth() {
-                return UIUtil.dip2px(BadgeTabExampleActivity.this, 15);
+        }
+        magicIndicator4.navigator = commonNavigator
+        val titleContainer = commonNavigator.titleContainer // must after setNavigator
+        titleContainer.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
+        titleContainer.dividerDrawable = object : ColorDrawable() {
+            override fun getIntrinsicWidth(): Int {
+                return UIUtil.dip2px(this@BadgeTabExampleActivity, 15.0)
             }
-        });
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+        }
+        ViewPagerHelper.bind(magicIndicator4, viewPager)
     }
 }
