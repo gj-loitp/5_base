@@ -1,70 +1,77 @@
-package vn.loitp.app.activity.customviews.indicator.example;
+package vn.loitp.app.activity.customviews.indicator.example
 
-import android.graphics.Color;
-import android.os.Bundle;
+import android.graphics.Color
+import android.os.Bundle
+import android.view.View
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_custom_navigator_example_layout.*
+import net.lucode.hackware.magicindicator.MagicIndicator
+import net.lucode.hackware.magicindicator.ViewPagerHelper
+import net.lucode.hackware.magicindicator.buildins.circlenavigator.CircleNavigator
+import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.indicator.ext.navigator.ScaleCircleNavigator
+import java.util.*
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+@LogTag("CustomNavigatorExampleActivity")
+@IsFullScreen(false)
+class CustomNavigatorExampleActivity : BaseFontActivity() {
 
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.circlenavigator.CircleNavigator;
-
-import java.util.Arrays;
-import java.util.List;
-
-import vn.loitp.app.R;
-import vn.loitp.app.activity.customviews.indicator.ext.navigator.ScaleCircleNavigator;
-
-public class CustomNavigatorExampleActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT"};
-    private final List<String> mDataList = Arrays.asList(CHANNELS);
-    private final ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
-
-    private ViewPager mViewPager;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_navigator_example_layout);
-
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mViewPager.setAdapter(mExamplePagerAdapter);
-
-        initMagicIndicator1();
-        initMagicIndicator2();
-        initMagicIndicator3();
+    companion object {
+        private val CHANNELS = arrayOf("CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT")
     }
 
-    private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
-        CircleNavigator circleNavigator = new CircleNavigator(this);
-        circleNavigator.setCircleCount(CHANNELS.length);
-        circleNavigator.setCircleColor(Color.RED);
-        circleNavigator.setCircleClickListener(index -> mViewPager.setCurrentItem(index));
-        magicIndicator.setNavigator(circleNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+    private val mDataList = mutableListOf(*CHANNELS)
+    private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_custom_navigator_example_layout
     }
 
-    private void initMagicIndicator2() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator2);
-        CircleNavigator circleNavigator = new CircleNavigator(this);
-        circleNavigator.setFollowTouch(false);
-        circleNavigator.setCircleCount(CHANNELS.length);
-        circleNavigator.setCircleColor(Color.RED);
-        circleNavigator.setCircleClickListener(index -> mViewPager.setCurrentItem(index));
-        magicIndicator.setNavigator(circleNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewPager.adapter = mExamplePagerAdapter
+        initMagicIndicator1()
+        initMagicIndicator2()
+        initMagicIndicator3()
     }
 
-    private void initMagicIndicator3() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator3);
-        ScaleCircleNavigator scaleCircleNavigator = new ScaleCircleNavigator(this);
-        scaleCircleNavigator.setCircleCount(CHANNELS.length);
-        scaleCircleNavigator.setNormalCircleColor(Color.LTGRAY);
-        scaleCircleNavigator.setSelectedCircleColor(Color.DKGRAY);
-        scaleCircleNavigator.setCircleClickListener(index -> mViewPager.setCurrentItem(index));
-        magicIndicator.setNavigator(scaleCircleNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+    private fun initMagicIndicator1() {
+        val circleNavigator = CircleNavigator(this)
+        circleNavigator.circleCount = CHANNELS.size
+        circleNavigator.circleColor = Color.RED
+        circleNavigator.circleClickListener = CircleNavigator.OnCircleClickListener { index: Int ->
+            viewPager.currentItem = index
+        }
+        magicIndicator1.navigator = circleNavigator
+        ViewPagerHelper.bind(magicIndicator1, viewPager)
+    }
+
+    private fun initMagicIndicator2() {
+        val circleNavigator = CircleNavigator(this)
+        circleNavigator.isFollowTouch = false
+        circleNavigator.circleCount = CHANNELS.size
+        circleNavigator.circleColor = Color.RED
+        circleNavigator.circleClickListener = CircleNavigator.OnCircleClickListener { index: Int ->
+            viewPager.currentItem = index
+        }
+        magicIndicator2.navigator = circleNavigator
+        ViewPagerHelper.bind(magicIndicator2, viewPager)
+    }
+
+    private fun initMagicIndicator3() {
+        val scaleCircleNavigator = ScaleCircleNavigator(this)
+        scaleCircleNavigator.setCircleCount(CHANNELS.size)
+        scaleCircleNavigator.setNormalCircleColor(Color.LTGRAY)
+        scaleCircleNavigator.setSelectedCircleColor(Color.DKGRAY)
+        scaleCircleNavigator.setCircleClickListener(object : ScaleCircleNavigator.OnCircleClickListener {
+            override fun onClick(index: Int) {
+                viewPager.currentItem = index
+            }
+        })
+        magicIndicator3.navigator = scaleCircleNavigator
+        ViewPagerHelper.bind(magicIndicator3, viewPager)
     }
 }
