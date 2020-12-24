@@ -1,103 +1,94 @@
-package vn.loitp.app.activity.customviews.indicator.example;
+package vn.loitp.app.activity.customviews.indicator.example
 
-import android.content.Context;
-import android.graphics.Color;
-import android.os.Bundle;
+import android.content.Context
+import android.graphics.Color
+import android.os.Bundle
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_no_tab_only_indicator_example_layout.*
+import net.lucode.hackware.magicindicator.ViewPagerHelper
+import net.lucode.hackware.magicindicator.buildins.UIUtil
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.TriangularPagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.DummyPagerTitleView
+import vn.loitp.app.R
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+@LogTag("NoTabOnlyIndicatorExampleActivity")
+@IsFullScreen(false)
+class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
 
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.UIUtil;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.TriangularPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.DummyPagerTitleView;
-
-import java.util.Arrays;
-import java.util.List;
-
-import vn.loitp.app.R;
-
-public class NoTabOnlyIndicatorExampleActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "NOUGAT", "DONUT"};
-    private final List<String> mDataList = Arrays.asList(CHANNELS);
-    private final ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
-
-    private ViewPager mViewPager;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_no_tab_only_indicator_example_layout);
-
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mViewPager.setAdapter(mExamplePagerAdapter);
-
-        initMagicIndicator1();
-        initMagicIndicator2();
+    companion object {
+        private val CHANNELS = arrayOf("CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "NOUGAT", "DONUT")
     }
 
-    private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
-        magicIndicator.setBackgroundColor(Color.LTGRAY);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdjustMode(true);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
-            }
-
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                return new DummyPagerTitleView(context);
-            }
-
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                float lineHeight = context.getResources().getDimension(R.dimen.small_navigator_height);
-                indicator.setLineHeight(lineHeight);
-                indicator.setColors(Color.parseColor("#40c4ff"));
-                return indicator;
-            }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+    private val mDataList = mutableListOf(*CHANNELS)
+    private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_no_tab_only_indicator_example_layout
     }
 
-    private void initMagicIndicator2() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator2);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdjustMode(true);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
-            }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                return new DummyPagerTitleView(context);
-            }
-
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                TriangularPagerIndicator indicator = new TriangularPagerIndicator(context);
-                indicator.setReverse(true);
-                float smallNavigatorHeight = context.getResources().getDimension(R.dimen.small_navigator_height);
-                indicator.setLineHeight(UIUtil.dip2px(context, 2));
-                indicator.setTriangleHeight((int) smallNavigatorHeight);
-                indicator.setLineColor(Color.parseColor("#e94220"));
-                return indicator;
-            }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+        viewPager.adapter = mExamplePagerAdapter
+        initMagicIndicator1()
+        initMagicIndicator2()
     }
+
+    private fun initMagicIndicator1() {
+        magicIndicator1.setBackgroundColor(Color.LTGRAY)
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.isAdjustMode = true
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return mDataList.size
+            }
+
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                return DummyPagerTitleView(context)
+            }
+
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val linePagerIndicator = LinePagerIndicator(context)
+                val lineHeight = context.resources.getDimension(R.dimen.small_navigator_height)
+                linePagerIndicator.lineHeight = lineHeight
+                linePagerIndicator.setColors(Color.parseColor("#40c4ff"))
+                return linePagerIndicator
+            }
+        }
+        magicIndicator1.navigator = commonNavigator
+        ViewPagerHelper.bind(magicIndicator1, viewPager)
+    }
+
+    private fun initMagicIndicator2() {
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.isAdjustMode = true
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return mDataList.size
+            }
+
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                return DummyPagerTitleView(context)
+            }
+
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val triangularPagerIndicator = TriangularPagerIndicator(context)
+                triangularPagerIndicator.isReverse = true
+                val smallNavigatorHeight = context.resources.getDimension(R.dimen.small_navigator_height)
+                triangularPagerIndicator.lineHeight = UIUtil.dip2px(context, 2.0)
+                triangularPagerIndicator.triangleHeight = smallNavigatorHeight.toInt()
+                triangularPagerIndicator.lineColor = Color.parseColor("#e94220")
+                return triangularPagerIndicator
+            }
+        }
+        magicIndicator2.navigator = commonNavigator
+        ViewPagerHelper.bind(magicIndicator2, viewPager)
+    }
+
 }
