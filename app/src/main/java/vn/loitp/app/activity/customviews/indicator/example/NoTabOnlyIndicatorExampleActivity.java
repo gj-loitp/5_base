@@ -43,7 +43,7 @@ public class NoTabOnlyIndicatorExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator1);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
         magicIndicator.setBackgroundColor(Color.LTGRAY);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdjustMode(true);
@@ -72,7 +72,7 @@ public class NoTabOnlyIndicatorExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator2() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator2);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator2);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdjustMode(true);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {

@@ -43,7 +43,7 @@ public class LoadCustomLayoutExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator1);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
         magicIndicator.setBackgroundColor(Color.BLACK);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdjustMode(true);

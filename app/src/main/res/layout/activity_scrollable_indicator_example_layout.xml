@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
     android:orientation="vertical">
 
     <ScrollView
+        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -16,55 +18,55 @@
             android:orientation="vertical">
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator1"
+                android:id="@+id/magicIndicator1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator2"
+                android:id="@+id/magicIndicator2"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator3"
+                android:id="@+id/magicIndicator3"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator4"
+                android:id="@+id/magicIndicator4"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator5"
+                android:id="@+id/magicIndicator5"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator6"
+                android:id="@+id/magicIndicator6"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator7"
+                android:id="@+id/magicIndicator7"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator8"
+                android:id="@+id/magicIndicator8"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
 
             <net.lucode.hackware.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator9"
+                android:id="@+id/magicIndicator9"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/common_navigator_height"
                 android:layout_marginTop="@dimen/navigator_margin_top" />
@@ -74,8 +76,8 @@
     </ScrollView>
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
+        android:layout_height="@dimen/w_100" />
 
 </LinearLayout>

@@ -54,7 +54,7 @@ public class FixedTabExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator1);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
@@ -88,7 +88,7 @@ public class FixedTabExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator2() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator2);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator2);
         magicIndicator.setBackgroundColor(Color.WHITE);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdjustMode(true);
@@ -141,7 +141,7 @@ public class FixedTabExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator3() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator3);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator3);
         magicIndicator.setBackgroundResource(R.drawable.round_indicator_bg);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
@@ -178,7 +178,7 @@ public class FixedTabExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator4() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator4);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator4);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
 

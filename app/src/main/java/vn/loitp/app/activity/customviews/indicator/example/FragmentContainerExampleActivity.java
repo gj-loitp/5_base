@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.indicator.example;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -75,7 +74,7 @@ public class FragmentContainerExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator1);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
         magicIndicator.setBackgroundResource(R.drawable.round_indicator_bg);
         CommonNavigator commonNavigator = new CommonNavigator(this);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {

@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <net.lucode.hackware.magicindicator.MagicIndicator
-        android:id="@+id/magic_indicator1"
+        android:id="@+id/magicIndicator1"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_navigator_height" />
 

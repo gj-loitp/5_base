@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <net.lucode.hackware.magicindicator.MagicIndicator
-            android:id="@+id/magic_indicator1"
+            android:id="@+id/magicIndicator1"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/common_navigator_height"
             android:layout_gravity="center_horizontal" />
@@ -20,7 +20,7 @@
     </LinearLayout>
 
     <net.lucode.hackware.magicindicator.MagicIndicator
-        android:id="@+id/magic_indicator2"
+        android:id="@+id/magicIndicator2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_navigator_height"
         android:layout_marginTop="@dimen/navigator_margin_top" />
@@ -32,7 +32,7 @@
         android:orientation="vertical">
 
         <net.lucode.hackware.magicindicator.MagicIndicator
-            android:id="@+id/magic_indicator3"
+            android:id="@+id/magicIndicator3"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/common_navigator_height"
             android:layout_gravity="center_horizontal" />
@@ -47,7 +47,7 @@
         android:orientation="vertical">
 
         <net.lucode.hackware.magicindicator.MagicIndicator
-            android:id="@+id/magic_indicator4"
+            android:id="@+id/magicIndicator4"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/common_navigator_height"
             android:layout_gravity="center_horizontal" />

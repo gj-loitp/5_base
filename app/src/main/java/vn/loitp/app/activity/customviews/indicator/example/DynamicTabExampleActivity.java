@@ -42,7 +42,7 @@ public class DynamicTabExampleActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
         mViewPager.setAdapter(mExamplePagerAdapter);
 
-        MagicIndicator mMagicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator1);
+        MagicIndicator mMagicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
         mMagicIndicator.setBackgroundColor(Color.parseColor("#d43d3d"));
         mCommonNavigator = new CommonNavigator(this);
         mCommonNavigator.setSkimOver(true);

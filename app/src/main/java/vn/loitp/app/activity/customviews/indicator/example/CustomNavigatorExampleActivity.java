@@ -37,7 +37,7 @@ public class CustomNavigatorExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator1);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
         CircleNavigator circleNavigator = new CircleNavigator(this);
         circleNavigator.setCircleCount(CHANNELS.length);
         circleNavigator.setCircleColor(Color.RED);
@@ -47,7 +47,7 @@ public class CustomNavigatorExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator2() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator2);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator2);
         CircleNavigator circleNavigator = new CircleNavigator(this);
         circleNavigator.setFollowTouch(false);
         circleNavigator.setCircleCount(CHANNELS.length);
@@ -58,7 +58,7 @@ public class CustomNavigatorExampleActivity extends AppCompatActivity {
     }
 
     private void initMagicIndicator3() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magic_indicator3);
+        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator3);
         ScaleCircleNavigator scaleCircleNavigator = new ScaleCircleNavigator(this);
         scaleCircleNavigator.setCircleCount(CHANNELS.length);
         scaleCircleNavigator.setNormalCircleColor(Color.LTGRAY);
