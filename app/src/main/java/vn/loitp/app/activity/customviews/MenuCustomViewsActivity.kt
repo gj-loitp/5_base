@@ -21,7 +21,7 @@ import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActi
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
 import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity
-import vn.loitp.app.activity.customviews.indicator.example.ExampleMainActivity
+import vn.loitp.app.activity.customviews.indicator.example.MagicIndicatorMenuActivity
 import vn.loitp.app.activity.customviews.layout.LayoutMenuActivity
 import vn.loitp.app.activity.customviews.lcardview.LCardViewActivity
 import vn.loitp.app.activity.customviews.ldebugview.LDebugViewActivity
@@ -126,7 +126,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btLCardView -> intent = Intent(this, LCardViewActivity::class.java)
             btCalendar -> intent = Intent(this, CalendarMenuActivity::class.java)
             btWebView -> intent = Intent(this, LWebViewActivity::class.java)
-            btIndicator -> intent = Intent(this, ExampleMainActivity::class.java)
+            btIndicator -> intent = Intent(this, MagicIndicatorMenuActivity::class.java)
         }
         intent?.let {
             startActivity(it)
