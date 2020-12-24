@@ -1,107 +1,96 @@
-package vn.loitp.app.activity.customviews.indicator.example;
+package vn.loitp.app.activity.customviews.indicator.example
 
-import android.content.Context;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.content.Context
+import android.graphics.Color
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.ImageView
+import android.widget.TextView
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_load_custom_layout_example.*
+import net.lucode.hackware.magicindicator.ViewPagerHelper
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.CommonPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.CommonPagerTitleView.OnPagerTitleChangeListener
+import vn.loitp.app.R
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
+@LogTag("LoadCustomLayoutExampleActivity")
+@IsFullScreen(false)
+class LoadCustomLayoutExampleActivity : BaseFontActivity() {
 
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.ViewPagerHelper;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.CommonPagerTitleView;
-
-import java.util.Arrays;
-import java.util.List;
-
-import vn.loitp.app.R;
-
-public class LoadCustomLayoutExampleActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"NOUGAT", "DONUT", "ECLAIR", "KITKAT"};
-    private final List<String> mDataList = Arrays.asList(CHANNELS);
-    private final ExamplePagerAdapter mExamplePagerAdapter = new ExamplePagerAdapter(mDataList);
-
-    private ViewPager mViewPager;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load_custom_layout_example);
-
-        mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mViewPager.setAdapter(mExamplePagerAdapter);
-
-        initMagicIndicator1();
+    companion object {
+        private val CHANNELS = arrayOf("NOUGAT", "DONUT", "ECLAIR", "KITKAT")
     }
 
-    private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
-        magicIndicator.setBackgroundColor(Color.BLACK);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdjustMode(true);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
+    private val mDataList = mutableListOf(*CHANNELS)
+    private val mExamplePagerAdapter = ExamplePagerAdapter(mDataList)
 
-            @Override
-            public int getCount() {
-                return mDataList.size();
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_load_custom_layout_example
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewPager.adapter = mExamplePagerAdapter
+        initMagicIndicator1()
+    }
+
+    private fun initMagicIndicator1() {
+        magicIndicator1.setBackgroundColor(Color.BLACK)
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.isAdjustMode = true
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return mDataList.size
             }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                CommonPagerTitleView commonPagerTitleView = new CommonPagerTitleView(context);
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val commonPagerTitleView = CommonPagerTitleView(context)
 
                 // load custom layout
-                View customLayout = LayoutInflater.from(context).inflate(R.layout.simple_pager_title_layout, null);
-                final ImageView titleImg = (ImageView) customLayout.findViewById(R.id.title_img);
-                final TextView titleText = (TextView) customLayout.findViewById(R.id.title_text);
-                titleImg.setImageResource(R.mipmap.ic_launcher);
-                titleText.setText(mDataList.get(index));
-                commonPagerTitleView.setContentView(customLayout);
-
-                commonPagerTitleView.setOnPagerTitleChangeListener(new CommonPagerTitleView.OnPagerTitleChangeListener() {
-
-                    @Override
-                    public void onSelected(int index, int totalCount) {
-                        titleText.setTextColor(Color.WHITE);
+                val customLayout = LayoutInflater.from(context).inflate(R.layout.layout_simple_pager_title, null)
+                val ivTitle = customLayout.findViewById<ImageView>(R.id.ivTitle)
+                val tvTitle = customLayout.findViewById<TextView>(R.id.tvTitle)
+                ivTitle.setImageResource(R.mipmap.ic_launcher)
+                tvTitle.text = mDataList[index]
+                commonPagerTitleView.setContentView(customLayout)
+                commonPagerTitleView.onPagerTitleChangeListener = object : OnPagerTitleChangeListener {
+                    override fun onSelected(index: Int, totalCount: Int) {
+                        tvTitle.setTextColor(Color.WHITE)
                     }
 
-                    @Override
-                    public void onDeselected(int index, int totalCount) {
-                        titleText.setTextColor(Color.LTGRAY);
+                    override fun onDeselected(index: Int, totalCount: Int) {
+                        tvTitle.setTextColor(Color.LTGRAY)
                     }
 
-                    @Override
-                    public void onLeave(int index, int totalCount, float leavePercent, boolean leftToRight) {
-                        titleImg.setScaleX(1.3f + (0.8f - 1.3f) * leavePercent);
-                        titleImg.setScaleY(1.3f + (0.8f - 1.3f) * leavePercent);
+                    override fun onLeave(index: Int, totalCount: Int, leavePercent: Float, leftToRight: Boolean) {
+                        ivTitle.scaleX = 1.3f + (0.8f - 1.3f) * leavePercent
+                        ivTitle.scaleY = 1.3f + (0.8f - 1.3f) * leavePercent
                     }
 
-                    @Override
-                    public void onEnter(int index, int totalCount, float enterPercent, boolean leftToRight) {
-                        titleImg.setScaleX(0.8f + (1.3f - 0.8f) * enterPercent);
-                        titleImg.setScaleY(0.8f + (1.3f - 0.8f) * enterPercent);
+                    override fun onEnter(index: Int, totalCount: Int, enterPercent: Float, leftToRight: Boolean) {
+                        ivTitle.scaleX = 0.8f + (1.3f - 0.8f) * enterPercent
+                        ivTitle.scaleY = 0.8f + (1.3f - 0.8f) * enterPercent
                     }
-                });
-
-                commonPagerTitleView.setOnClickListener(v -> mViewPager.setCurrentItem(index));
-
-                return commonPagerTitleView;
+                }
+                commonPagerTitleView.setOnClickListener {
+                    viewPager.currentItem = index
+                }
+                return commonPagerTitleView
             }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                return null;
+            override fun getIndicator(context: Context): IPagerIndicator? {
+                return null
             }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        ViewPagerHelper.bind(magicIndicator, mViewPager);
+        }
+        magicIndicator1.navigator = commonNavigator
+        ViewPagerHelper.bind(magicIndicator1, viewPager)
     }
+
 }
