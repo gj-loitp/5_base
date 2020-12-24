@@ -1,91 +1,70 @@
-package vn.loitp.app.activity.customviews.indicator.ext.indicators;
+package vn.loitp.app.activity.customviews.indicator.ext.indicators
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.view.View;
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.Paint
+import android.view.View
+import net.lucode.hackware.magicindicator.buildins.UIUtil
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.model.PositionData
 
-import net.lucode.hackware.magicindicator.buildins.UIUtil;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.model.PositionData;
+class DotPagerIndicator(context: Context) : View(context), IPagerIndicator {
 
-import java.util.List;
+    private var mDataList = ArrayList<PositionData>()
+    private var mRadius: Float
+    private var mYOffset: Float
+    private var mDotColor: Int
+    private var mCircleCenterX = 0f
+    private val mPaint = Paint(Paint.ANTI_ALIAS_FLAG)
 
-/**
- * 非手指跟随的小圆点指示器
- * Created by hackware on 2016/7/13.
- */
-public class DotPagerIndicator extends View implements IPagerIndicator {
-    private List<PositionData> mDataList;
-    private float mRadius;
-    private float mYOffset;
-    private int mDotColor;
-
-    private float mCircleCenterX;
-    private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-
-    public DotPagerIndicator(Context context) {
-        super(context);
-        mRadius = UIUtil.dip2px(context, 3);
-        mYOffset = UIUtil.dip2px(context, 3);
-        mDotColor = Color.WHITE;
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        if (mDataList == null || mDataList.isEmpty()) {
-            return;
+    override fun onPageSelected(position: Int) {
+        if (mDataList.isEmpty()) {
+            return
         }
-        PositionData data = mDataList.get(position);
-        mCircleCenterX = data.mLeft + data.width() / 2;
-        invalidate();
+        val data = mDataList[position]
+        mCircleCenterX = (data.mLeft + data.width() / 2).toFloat()
+        invalidate()
     }
 
-    @Override
-    public void onPositionDataProvide(List<PositionData> dataList) {
-        mDataList = dataList;
+    override fun onPositionDataProvide(dataList: List<PositionData>) {
+        if (dataList is ArrayList) {
+            mDataList = dataList
+        }
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        mPaint.setColor(mDotColor);
-        canvas.drawCircle(mCircleCenterX, getHeight() - mYOffset - mRadius, mRadius, mPaint);
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        mPaint.color = mDotColor
+        canvas.drawCircle(mCircleCenterX, height - mYOffset - mRadius, mRadius, mPaint)
     }
 
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-    }
+    override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
-    @Override
-    public void onPageScrollStateChanged(int state) {
-    }
+    override fun onPageScrollStateChanged(state: Int) {}
 
-    public float getRadius() {
-        return mRadius;
-    }
+    var radius: Float
+        get() = mRadius
+        set(radius) {
+            mRadius = radius
+            invalidate()
+        }
+    var yOffset: Float
+        get() = mYOffset
+        set(yOffset) {
+            mYOffset = yOffset
+            invalidate()
+        }
+    var dotColor: Int
+        get() = mDotColor
+        set(dotColor) {
+            mDotColor = dotColor
+            invalidate()
+        }
 
-    public void setRadius(float radius) {
-        mRadius = radius;
-        invalidate();
-    }
-
-    public float getYOffset() {
-        return mYOffset;
-    }
-
-    public void setYOffset(float yOffset) {
-        mYOffset = yOffset;
-        invalidate();
-    }
-
-    public int getDotColor() {
-        return mDotColor;
-    }
-
-    public void setDotColor(int dotColor) {
-        mDotColor = dotColor;
-        invalidate();
+    init {
+        mRadius = UIUtil.dip2px(context, 3.0).toFloat()
+        mYOffset = UIUtil.dip2px(context, 3.0).toFloat()
+        mDotColor = Color.WHITE
     }
 }

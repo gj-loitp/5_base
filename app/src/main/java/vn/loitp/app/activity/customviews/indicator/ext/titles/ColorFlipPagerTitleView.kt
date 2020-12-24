@@ -1,51 +1,29 @@
-package vn.loitp.app.activity.customviews.indicator.ext.titles;
+package vn.loitp.app.activity.customviews.indicator.ext.titles
 
-import android.content.Context;
+import android.content.Context
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
 
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
+class ColorFlipPagerTitleView(context: Context) : SimplePagerTitleView(context) {
 
-/**
- * Created by hackware on 2016/7/24.
- */
+    var changePercent = 0.5f
 
-public class ColorFlipPagerTitleView extends SimplePagerTitleView {
-    private float mChangePercent = 0.5f;
-
-    public ColorFlipPagerTitleView(Context context) {
-        super(context);
-    }
-
-    @Override
-    public void onLeave(int index, int totalCount, float leavePercent, boolean leftToRight) {
-        if (leavePercent >= mChangePercent) {
-            setTextColor(mNormalColor);
+    override fun onLeave(index: Int, totalCount: Int, leavePercent: Float, leftToRight: Boolean) {
+        if (leavePercent >= changePercent) {
+            setTextColor(mNormalColor)
         } else {
-            setTextColor(mSelectedColor);
+            setTextColor(mSelectedColor)
         }
     }
 
-    @Override
-    public void onEnter(int index, int totalCount, float enterPercent, boolean leftToRight) {
-        if (enterPercent >= mChangePercent) {
-            setTextColor(mSelectedColor);
+    override fun onEnter(index: Int, totalCount: Int, enterPercent: Float, leftToRight: Boolean) {
+        if (enterPercent >= changePercent) {
+            setTextColor(mSelectedColor)
         } else {
-            setTextColor(mNormalColor);
+            setTextColor(mNormalColor)
         }
     }
 
-    @Override
-    public void onSelected(int index, int totalCount) {
-    }
+    override fun onSelected(index: Int, totalCount: Int) {}
 
-    @Override
-    public void onDeselected(int index, int totalCount) {
-    }
-
-    public float getChangePercent() {
-        return mChangePercent;
-    }
-
-    public void setChangePercent(float changePercent) {
-        mChangePercent = changePercent;
-    }
+    override fun onDeselected(index: Int, totalCount: Int) {}
 }
