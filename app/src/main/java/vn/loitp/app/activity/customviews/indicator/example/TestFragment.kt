@@ -1,35 +1,30 @@
-package vn.loitp.app.activity.customviews.indicator.example;
+package vn.loitp.app.activity.customviews.indicator.example
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import vn.loitp.app.R;
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.frm_test_magic_indicator.*
+import vn.loitp.app.R
 
 /**
  * Created by hackware on 2016/9/13.
  */
-
-public class TestFragment extends Fragment {
-    public static final String EXTRA_TEXT = "extra_text";
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.simple_fragment_layout, container, false);
+class TestFragment : Fragment() {
+    companion object {
+        const val EXTRA_TEXT = "extra_text"
     }
 
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        TextView textView = (TextView) view.findViewById(R.id.text_view);
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            textView.setText(bundle.getString(EXTRA_TEXT));
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.frm_test_magic_indicator, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        arguments?.let {
+            textView.text = it.getString(EXTRA_TEXT)
         }
     }
+
 }

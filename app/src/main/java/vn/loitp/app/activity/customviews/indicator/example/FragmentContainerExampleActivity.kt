@@ -1,115 +1,119 @@
-package vn.loitp.app.activity.customviews.indicator.example;
+package vn.loitp.app.activity.customviews.indicator.example
 
-import android.content.Context;
-import android.graphics.Color;
-import android.os.Bundle;
+import android.content.Context
+import android.graphics.Color
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_fragment_container_example_layout.*
+import net.lucode.hackware.magicindicator.FragmentContainerHelper
+import net.lucode.hackware.magicindicator.buildins.UIUtil
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView
+import vn.loitp.app.R
+import java.util.*
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+@LogTag("FragmentContainerExampleActivity")
+@IsFullScreen(false)
+class FragmentContainerExampleActivity : BaseFontActivity() {
 
-import net.lucode.hackware.magicindicator.FragmentContainerHelper;
-import net.lucode.hackware.magicindicator.MagicIndicator;
-import net.lucode.hackware.magicindicator.buildins.UIUtil;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ClipPagerTitleView;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import vn.loitp.app.R;
-
-public class FragmentContainerExampleActivity extends AppCompatActivity {
-    private static final String[] CHANNELS = new String[]{"KITKAT", "NOUGAT", "DONUT"};
-    private final List<Fragment> mFragments = new ArrayList<Fragment>();
-    private final FragmentContainerHelper mFragmentContainerHelper = new FragmentContainerHelper();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment_container_example_layout);
-
-        initFragments();
-        initMagicIndicator1();
-
-        mFragmentContainerHelper.handlePageSelected(1, false);
-        switchPages(1);
+    companion object {
+        private val CHANNELS = arrayOf("KITKAT", "NOUGAT", "DONUT")
     }
 
-    private void switchPages(int index) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Fragment fragment;
-        for (int i = 0, j = mFragments.size(); i < j; i++) {
+    private val mFragments: MutableList<Fragment> = ArrayList()
+    private val mFragmentContainerHelper = FragmentContainerHelper()
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_fragment_container_example_layout
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        initFragments()
+        initMagicIndicator1()
+        mFragmentContainerHelper.handlePageSelected(1, false)
+        switchPages(1)
+    }
+
+    private fun switchPages(index: Int) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        var fragment: Fragment
+        var i = 0
+        val j = mFragments.size
+        while (i < j) {
             if (i == index) {
-                continue;
+                i++
+                continue
             }
-            fragment = mFragments.get(i);
-            if (fragment.isAdded()) {
-                fragmentTransaction.hide(fragment);
+            fragment = mFragments[i]
+            if (fragment.isAdded) {
+                fragmentTransaction.hide(fragment)
             }
+            i++
         }
-        fragment = mFragments.get(index);
-        if (fragment.isAdded()) {
-            fragmentTransaction.show(fragment);
+        fragment = mFragments[index]
+        if (fragment.isAdded) {
+            fragmentTransaction.show(fragment)
         } else {
-            fragmentTransaction.add(R.id.fragment_container, fragment);
+            fragmentTransaction.add(R.id.fragmentContainer, fragment)
         }
-        fragmentTransaction.commitAllowingStateLoss();
+        fragmentTransaction.commitAllowingStateLoss()
     }
 
-    private void initFragments() {
-        for (String channel : CHANNELS) {
-            TestFragment testFragment = new TestFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString(TestFragment.EXTRA_TEXT, channel);
-            testFragment.setArguments(bundle);
-            mFragments.add(testFragment);
+    private fun initFragments() {
+        for (channel in CHANNELS) {
+            val testFragment = TestFragment()
+            val bundle = Bundle()
+            bundle.putString(TestFragment.EXTRA_TEXT, channel)
+            testFragment.arguments = bundle
+            mFragments.add(testFragment)
         }
     }
 
-    private void initMagicIndicator1() {
-        MagicIndicator magicIndicator = (MagicIndicator) findViewById(R.id.magicIndicator1);
-        magicIndicator.setBackgroundResource(R.drawable.round_indicator_bg);
-        CommonNavigator commonNavigator = new CommonNavigator(this);
-        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
-            @Override
-            public int getCount() {
-                return CHANNELS.length;
+    private fun initMagicIndicator1() {
+        magicIndicator1.setBackgroundResource(R.drawable.round_indicator_bg)
+        val commonNavigator = CommonNavigator(this)
+        commonNavigator.adapter = object : CommonNavigatorAdapter() {
+            override fun getCount(): Int {
+                return CHANNELS.size
             }
 
-            @Override
-            public IPagerTitleView getTitleView(Context context, final int index) {
-                ClipPagerTitleView clipPagerTitleView = new ClipPagerTitleView(context);
-                clipPagerTitleView.setText(CHANNELS[index]);
-                clipPagerTitleView.setTextColor(Color.parseColor("#e94220"));
-                clipPagerTitleView.setClipColor(Color.WHITE);
-                clipPagerTitleView.setOnClickListener(v -> {
-                    mFragmentContainerHelper.handlePageSelected(index);
-                    switchPages(index);
-                });
-                return clipPagerTitleView;
+            override fun getTitleView(context: Context, index: Int): IPagerTitleView {
+                val clipPagerTitleView = ClipPagerTitleView(context)
+                clipPagerTitleView.text = CHANNELS[index]
+                clipPagerTitleView.textColor = Color.parseColor("#e94220")
+                clipPagerTitleView.clipColor = Color.WHITE
+                clipPagerTitleView.setOnClickListener { v: View? ->
+                    mFragmentContainerHelper.handlePageSelected(index)
+                    switchPages(index)
+                }
+                return clipPagerTitleView
             }
 
-            @Override
-            public IPagerIndicator getIndicator(Context context) {
-                LinePagerIndicator indicator = new LinePagerIndicator(context);
-                float navigatorHeight = context.getResources().getDimension(R.dimen.common_navigator_height);
-                float borderWidth = UIUtil.dip2px(context, 1);
-                float lineHeight = navigatorHeight - 2 * borderWidth;
-                indicator.setLineHeight(lineHeight);
-                indicator.setRoundRadius(lineHeight / 2);
-                indicator.setYOffset(borderWidth);
-                indicator.setColors(Color.parseColor("#bc2a2a"));
-                return indicator;
+            override fun getIndicator(context: Context): IPagerIndicator {
+                val indicator = LinePagerIndicator(context)
+                val navigatorHeight = context.resources.getDimension(R.dimen.common_navigator_height)
+                val borderWidth = UIUtil.dip2px(context, 1.0).toFloat()
+                val lineHeight = navigatorHeight - 2 * borderWidth
+                indicator.lineHeight = lineHeight
+                indicator.roundRadius = lineHeight / 2
+                indicator.yOffset = borderWidth
+                indicator.setColors(Color.parseColor("#bc2a2a"))
+                return indicator
             }
-        });
-        magicIndicator.setNavigator(commonNavigator);
-        mFragmentContainerHelper.attachMagicIndicator(magicIndicator);
+        }
+        magicIndicator1.navigator = commonNavigator
+        mFragmentContainerHelper.attachMagicIndicator(magicIndicator1)
     }
+
 }
