@@ -521,4 +521,15 @@ Likewise may someone love you next.
     <string name="realtime_database_add_data">Realtime Database Add Data</string>
     <string name="simple_database_nclick_to_edit_longclick_to_remove">Simple database\nClick to Edit; LongClick To Remove</string>
     <string name="swiperefreshlayout_scrollview">SwipeRefreshLayout ScrollView</string>
+    <string name="scrollable_tab">scrollable tab</string>
+    <string name="fixed_tab">fixed tab</string>
+    <string name="dynamic_tab">dynamic tab</string>
+    <string name="no_tab_only_indicator">no tab, only indicator</string>
+    <string name="work_with_fragment_container">work with fragment container</string>
+    <string name="tab_with_badge_view">tab with badge view</string>
+    <string name="custom_navigator">custom navigator</string>
+    <string name="random_page">random page</string>
+    <string name="tab_with_custom_layout">load custom layout</string>
+    <string name="calendar">Calendar</string>
+    <string name="indicator">Indicator</string>
 </resources>
