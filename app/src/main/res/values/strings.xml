@@ -532,4 +532,5 @@ Likewise may someone love you next.
     <string name="tab_with_custom_layout">load custom layout</string>
     <string name="calendar">Calendar</string>
     <string name="indicator">Indicator</string>
+    <string name="transition_morph">morph_transition</string>
 </resources>

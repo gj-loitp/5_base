@@ -195,6 +195,13 @@
         </item>
     </style>
 
+    <style name="TranslucentActivity" parent="DarkTheme">
+        <item name="android:windowBackground">#99323232</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:statusBarColor" tools:ignore="NewApi">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus" tools:ignore="NewApi">true</item>
+    </style>
+
     <style name="SwipeTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
