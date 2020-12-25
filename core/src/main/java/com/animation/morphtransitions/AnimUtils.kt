@@ -1,126 +1,105 @@
-package com.animation.morphtransitions;
+package com.animation.morphtransitions
 
-import android.animation.Animator;
-import android.animation.TimeInterpolator;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.util.ArrayMap;
-import android.view.animation.AnimationUtils;
-import android.view.animation.Interpolator;
+import android.animation.Animator
+import android.animation.TimeInterpolator
+import android.content.Context
+import android.util.ArrayMap
+import android.view.animation.AnimationUtils
+import android.view.animation.Interpolator
+import com.R
+import java.util.*
 
-import java.util.ArrayList;
+internal object AnimUtils {
+    private var fastOutSlowIn: Interpolator? = null
+    private var fastOutLinearIn: Interpolator? = null
+    private var linearOutSlowIn: Interpolator? = null
 
-@TargetApi(21)
-class AnimUtils {
-
-    private AnimUtils() {
-    }
-
-    private static Interpolator fastOutSlowIn;
-    private static Interpolator fastOutLinearIn;
-    private static Interpolator linearOutSlowIn;
-
-    public static Interpolator getFastOutSlowInInterpolator(Context context) {
+    @JvmStatic
+    fun getFastOutSlowInInterpolator(context: Context?): Interpolator? {
         if (fastOutSlowIn == null) {
-            fastOutSlowIn = AnimationUtils.loadInterpolator(context,
-                    android.R.interpolator.fast_out_slow_in);
+            fastOutSlowIn = AnimationUtils.loadInterpolator(context, R.interpolator.fast_out_slow_in)
         }
-        return fastOutSlowIn;
+        return fastOutSlowIn
     }
 
-    public static Interpolator getFastOutLinearInInterpolator(Context context) {
+    @JvmStatic
+    fun getFastOutLinearInInterpolator(context: Context?): Interpolator? {
         if (fastOutLinearIn == null) {
-            fastOutLinearIn = AnimationUtils.loadInterpolator(context,
-                    android.R.interpolator.fast_out_linear_in);
+            fastOutLinearIn = AnimationUtils.loadInterpolator(context, android.R.interpolator.fast_out_linear_in)
         }
-        return fastOutLinearIn;
+        return fastOutLinearIn
     }
 
-    public static Interpolator getLinearOutSlowInInterpolator(Context context) {
+    @JvmStatic
+    fun getLinearOutSlowInInterpolator(context: Context?): Interpolator? {
         if (linearOutSlowIn == null) {
-            linearOutSlowIn = AnimationUtils.loadInterpolator(context,
-                    android.R.interpolator.linear_out_slow_in);
+            linearOutSlowIn = AnimationUtils.loadInterpolator(context, android.R.interpolator.linear_out_slow_in)
         }
-        return linearOutSlowIn;
+        return linearOutSlowIn
     }
 
     /**
      * https://halfthought.wordpress.com/2014/11/07/reveal-transition/
-     * <p/>
+     *
+     *
      * Interrupting Activity transitions can yield an OperationNotSupportedException when the
      * transition tries to pause the animator. Yikes! We can fix this by wrapping the Animator:
      */
-    public static class NoPauseAnimator extends Animator {
-        private final Animator mAnimator;
-        private final ArrayMap<AnimatorListener, AnimatorListener> mListeners =
-                new ArrayMap<>();
+    class NoPauseAnimator(private val mAnimator: Animator) : Animator() {
 
-        public NoPauseAnimator(Animator animator) {
-            mAnimator = animator;
-        }
+        private val mListeners = ArrayMap<AnimatorListener, AnimatorListener>()
 
-        @Override
-        public void addListener(AnimatorListener listener) {
-            AnimatorListener wrapper = new AnimatorListenerWrapper(this, listener);
+        override fun addListener(listener: AnimatorListener) {
+            val wrapper: AnimatorListener = AnimatorListenerWrapper(this, listener)
+
             if (!mListeners.containsKey(listener)) {
-                mListeners.put(listener, wrapper);
-                mAnimator.addListener(wrapper);
+                mListeners[listener] = wrapper
+                mAnimator.addListener(wrapper)
             }
         }
 
-        @Override
-        public void cancel() {
-            mAnimator.cancel();
+        override fun cancel() {
+            mAnimator.cancel()
         }
 
-        @Override
-        public void end() {
-            mAnimator.end();
+        override fun end() {
+            mAnimator.end()
         }
 
-        @Override
-        public long getDuration() {
-            return mAnimator.getDuration();
+        override fun getDuration(): Long {
+            return mAnimator.duration
         }
 
-        @Override
-        public TimeInterpolator getInterpolator() {
-            return mAnimator.getInterpolator();
+        override fun getInterpolator(): TimeInterpolator {
+            return mAnimator.interpolator
         }
 
-        @Override
-        public void setInterpolator(TimeInterpolator timeInterpolator) {
-            mAnimator.setInterpolator(timeInterpolator);
+        override fun setInterpolator(timeInterpolator: TimeInterpolator) {
+            mAnimator.interpolator = timeInterpolator
         }
 
-        @Override
-        public ArrayList<AnimatorListener> getListeners() {
-            return new ArrayList<>(mListeners.keySet());
+        override fun getListeners(): ArrayList<AnimatorListener> {
+            return ArrayList(mListeners.keys)
         }
 
-        @Override
-        public long getStartDelay() {
-            return mAnimator.getStartDelay();
+        override fun getStartDelay(): Long {
+            return mAnimator.startDelay
         }
 
-        @Override
-        public void setStartDelay(long delayMS) {
-            mAnimator.setStartDelay(delayMS);
+        override fun setStartDelay(delayMS: Long) {
+            mAnimator.startDelay = delayMS
         }
 
-        @Override
-        public boolean isPaused() {
-            return mAnimator.isPaused();
+        override fun isPaused(): Boolean {
+            return mAnimator.isPaused
         }
 
-        @Override
-        public boolean isRunning() {
-            return mAnimator.isRunning();
+        override fun isRunning(): Boolean {
+            return mAnimator.isRunning
         }
 
-        @Override
-        public boolean isStarted() {
-            return mAnimator.isStarted();
+        override fun isStarted(): Boolean {
+            return mAnimator.isStarted
         }
 
         /* We don't want to override pause or resume methods because we don't want them
@@ -133,76 +112,60 @@ class AnimUtils {
 
         public void removePauseListener(AnimatorPauseListener listener);
         */
-
-        @Override
-        public void removeAllListeners() {
-            mListeners.clear();
-            mAnimator.removeAllListeners();
+        override fun removeAllListeners() {
+            mListeners.clear()
+            mAnimator.removeAllListeners()
         }
 
-        @Override
-        public void removeListener(AnimatorListener listener) {
-            AnimatorListener wrapper = mListeners.get(listener);
+        override fun removeListener(listener: AnimatorListener) {
+            val wrapper = mListeners[listener]
             if (wrapper != null) {
-                mListeners.remove(listener);
-                mAnimator.removeListener(wrapper);
+                mListeners.remove(listener)
+                mAnimator.removeListener(wrapper)
             }
         }
 
-        @Override
-        public Animator setDuration(long durationMS) {
-            mAnimator.setDuration(durationMS);
-            return this;
+        override fun setDuration(durationMS: Long): Animator {
+            mAnimator.duration = durationMS
+            return this
         }
 
-        @Override
-        public void setTarget(Object target) {
-            mAnimator.setTarget(target);
+        override fun setTarget(target: Any?) {
+            mAnimator.setTarget(target)
         }
 
-        @Override
-        public void setupEndValues() {
-            mAnimator.setupEndValues();
+        override fun setupEndValues() {
+            mAnimator.setupEndValues()
         }
 
-        @Override
-        public void setupStartValues() {
-            mAnimator.setupStartValues();
+        override fun setupStartValues() {
+            mAnimator.setupStartValues()
         }
 
-        @Override
-        public void start() {
-            mAnimator.start();
+        override fun start() {
+            mAnimator.start()
         }
     }
 
-    static class AnimatorListenerWrapper implements Animator.AnimatorListener {
-        private final Animator mAnimator;
-        private final Animator.AnimatorListener mListener;
+    internal class AnimatorListenerWrapper(
+            private val mAnimator: Animator,
+            private val mListener: Animator.AnimatorListener
+    ) : Animator.AnimatorListener {
 
-        public AnimatorListenerWrapper(Animator animator, Animator.AnimatorListener listener) {
-            mAnimator = animator;
-            mListener = listener;
+        override fun onAnimationStart(animator: Animator) {
+            mListener.onAnimationStart(mAnimator)
         }
 
-        @Override
-        public void onAnimationStart(Animator animator) {
-            mListener.onAnimationStart(mAnimator);
+        override fun onAnimationEnd(animator: Animator) {
+            mListener.onAnimationEnd(mAnimator)
         }
 
-        @Override
-        public void onAnimationEnd(Animator animator) {
-            mListener.onAnimationEnd(mAnimator);
+        override fun onAnimationCancel(animator: Animator) {
+            mListener.onAnimationCancel(mAnimator)
         }
 
-        @Override
-        public void onAnimationCancel(Animator animator) {
-            mListener.onAnimationCancel(mAnimator);
-        }
-
-        @Override
-        public void onAnimationRepeat(Animator animator) {
-            mListener.onAnimationRepeat(mAnimator);
+        override fun onAnimationRepeat(animator: Animator) {
+            mListener.onAnimationRepeat(mAnimator)
         }
     }
 }
