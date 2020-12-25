@@ -1,20 +1,16 @@
-package com.animation.morphtransitions;
+package com.animation.morphtransitions
 
-import android.util.Property;
+import android.util.Property
 
-abstract class FloatProperty<T> extends Property<T, Float> {
-    public FloatProperty(String name) {
-        super(Float.class, name);
-    }
-
+internal abstract class FloatProperty<T>(name: String?)
+    : Property<T, Float>(Float::class.java, name) {
     /**
-     * A type-specific override of the {@link #set(Object, Float)} that is faster when dealing
-     * with fields of type <code>float</code>.
+     * A type-specific override of the [.set] that is faster when dealing
+     * with fields of type `float`.
      */
-    public abstract void setValue(T object, float value);
+    abstract fun setValue(obj: T, value: Float)
 
-    @Override
-    final public void set(T object, Float value) {
-        setValue(object, value);
+    override fun set(obj: T, value: Float) {
+        setValue(obj, value)
     }
 }
