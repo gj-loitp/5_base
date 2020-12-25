@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.animation.morphtransitions.FabTransform;
@@ -21,7 +20,7 @@ import vn.loitp.app.R;
 @LogTag("DialogActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-public class DialogActivity extends BaseFontActivity {
+public class MorphTransitionsDialogActivity extends BaseFontActivity {
 
     private static final String EXTRA_TYPE = "type";
 
@@ -29,7 +28,7 @@ public class DialogActivity extends BaseFontActivity {
     public static final int TYPE_BUTTON = 2;
 
     public static Intent newIntent(Context context, int type) {
-        Intent intent = new Intent(context, DialogActivity.class);
+        Intent intent = new Intent(context, MorphTransitionsDialogActivity.class);
         intent.putExtra(EXTRA_TYPE, type);
         return intent;
     }
@@ -38,7 +37,7 @@ public class DialogActivity extends BaseFontActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        findViewById(R.id.root).setOnClickListener(v -> ActivityCompat.finishAfterTransition(DialogActivity.this));
+        findViewById(R.id.root).setOnClickListener(v -> ActivityCompat.finishAfterTransition(MorphTransitionsDialogActivity.this));
 
         View container = findViewById(R.id.container);
 
@@ -57,6 +56,6 @@ public class DialogActivity extends BaseFontActivity {
 
     @Override
     protected int setLayoutResourceId() {
-        return R.layout.activity_dialog;
+        return R.layout.activity_morph_transtions_dialog;
     }
 }

@@ -9,12 +9,12 @@ import com.animation.morphtransitions.FabTransform;
 
 import vn.loitp.app.R;
 
-public class FullScreenActivity extends AppCompatActivity {
+public class MorphTransitionsFullScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_full_screen);
+        setContentView(R.layout.activity_morph_transitions_full_screen);
         FabTransform.setup(this, findViewById(R.id.root));
     }
 }

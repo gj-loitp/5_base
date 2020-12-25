@@ -1152,14 +1152,14 @@
             android:name=".activity.customviews.indicator.example.LoadCustomLayoutExampleActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.morphtransitions.MainActivity"
+            android:name=".activity.animation.morphtransitions.MorphTransitionsMainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
 
         <activity
-            android:name=".activity.animation.morphtransitions.DialogActivity"
+            android:name=".activity.animation.morphtransitions.MorphTransitionsDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.morphtransitions.FullScreenActivity"
+            android:name=".activity.animation.morphtransitions.MorphTransitionsFullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

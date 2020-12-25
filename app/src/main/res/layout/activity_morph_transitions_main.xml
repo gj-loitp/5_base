@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -24,22 +23,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:padding="@dimen/padding_medium"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello World!" />
 
-        <Switch
-            android:id="@+id/switch_full_screen"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchFullScreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Full Screen FAB Transition" />
+            android:text="@string/full_screen_fab_transition" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -48,16 +44,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/ic_account_circle_black_48dp" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/w_100"
         android:background="?attr/colorAccent"
-        android:text="BUTTON"
+        android:text="@string/click"
         android:textColor="@android:color/white" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
