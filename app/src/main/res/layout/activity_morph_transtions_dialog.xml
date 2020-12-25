@@ -20,6 +20,7 @@
         android:paddingLeft="@dimen/padding_medium"
         android:paddingTop="@dimen/padding_medium"
         android:paddingRight="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
         android:transitionName="@string/transition_morph">
 
         <androidx.appcompat.widget.AppCompatImageView
