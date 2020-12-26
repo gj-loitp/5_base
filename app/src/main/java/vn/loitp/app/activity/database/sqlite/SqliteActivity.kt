@@ -1,158 +1,142 @@
-package vn.loitp.app.activity.database.sqlite;
+package vn.loitp.app.activity.database.sqlite
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseApplication.Companion.gson
+import com.core.base.BaseFontActivity
+import kotlinx.android.synthetic.main.activity_sqlite.*
+import vn.loitp.app.R
 
-import com.annotation.IsFullScreen;
-import com.annotation.LogTag;
-import com.core.base.BaseApplication;
-import com.core.base.BaseFontActivity;
-
-import java.util.List;
-
-import vn.loitp.app.R;
-
-//TODO convert kotlin
 @LogTag("SqliteActivity")
 @IsFullScreen(false)
-public class SqliteActivity extends BaseFontActivity implements View.OnClickListener {
-    private DatabaseHandler db;
-    private LinearLayout ll;
+class SqliteActivity : BaseFontActivity(), View.OnClickListener {
 
-    @Override
-    protected int setLayoutResourceId() {
-        return R.layout.activity_sqlite;
+    private var databaseHandler: DatabaseHandler? = null
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_sqlite
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-        ll = findViewById(R.id.ll);
-
-        db = new DatabaseHandler(this);
-
-        findViewById(R.id.btAdd).setOnClickListener(this);
-        findViewById(R.id.bt_clear_all).setOnClickListener(this);
-        findViewById(R.id.bt_getcontact_with_id).setOnClickListener(this);
-        findViewById(R.id.btGetContactListPage1).setOnClickListener(this);
-        findViewById(R.id.btAdd100).setOnClickListener(this);
-
-        getAllContact();
+        databaseHandler = DatabaseHandler(this)
+        btAdd.setOnClickListener(this)
+        btClearAll.setOnClickListener(this)
+        btGetContactWithId.setOnClickListener(this)
+        btGetContactListPage1.setOnClickListener(this)
+        btAdd100.setOnClickListener(this)
+        allContact
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btAdd:
-                addContact();
-                break;
-            case R.id.btAdd100:
-                add100Contact();
-                break;
-            case R.id.bt_clear_all:
-                clearAllContact();
-                break;
-            case R.id.bt_getcontact_with_id:
-                getContactWithId(2);
-                break;
-            case R.id.btGetContactListPage1:
-                getContactListPage(1);
-                break;
+    override fun onClick(v: View) {
+        when (v) {
+            btAdd -> addContact()
+            btAdd100 -> add100Contact()
+            btClearAll -> clearAllContact()
+            btGetContactWithId -> getContactWithId(2)
+            btGetContactListPage1 -> getContactListPage(1)
         }
     }
 
-    private void getAllContact() {
-        List<Contact> contactList = db.getAllContacts();
-        for (Contact contact : contactList) {
-            addButton(contact);
+    private val allContact: Unit
+        get() {
+            val contactList = databaseHandler?.allContacts
+            contactList?.forEach {
+                addButton(it)
+            }
         }
+
+    @SuppressLint("SetTextI18n")
+    private fun addButton(contact: Contact) {
+        val button = Button(this)
+        button.text = contact.id.toString() + " " + contact.name
+        button.setOnClickListener {
+            updateContact(contact = contact, button = button)
+        }
+        button.setOnLongClickListener {
+            deleteContact(contact, button)
+            true
+        }
+        ll.addView(button)
     }
 
     @SuppressLint("SetTextI18n")
-    private void addButton(Contact contact) {
-        Button button = new Button(this);
-        button.setText(contact.getId() + " " + contact.getName());
-        button.setOnClickListener(v -> {
-            updateContact(contact, button);
-        });
-        button.setOnLongClickListener(v -> {
-            deleteContact(contact, button);
-            return true;
-        });
-        ll.addView(button);
-    }
-
-    @SuppressLint("SetTextI18n")
-    private void addButton() {
-        Button button = new Button(this);
-        Contact contact = db.getContact(db.getContactsCount());
-        if (contact != null) {
-            button.setText(contact.getId() + " - " + contact.getName());
-            button.setOnClickListener(v -> {
-                updateContact(contact, button);
-            });
-            button.setOnLongClickListener(v -> {
-                deleteContact(contact, button);
-                return true;
-            });
-            ll.addView(button);
+    private fun addButton() {
+        val button = Button(this)
+        databaseHandler?.contactsCount?.let { id ->
+            val contact = databaseHandler?.getContact(id)
+            if (contact != null) {
+                button.text = contact.id.toString() + " - " + contact.name
+                button.setOnClickListener {
+                    updateContact(contact, button)
+                }
+                button.setOnLongClickListener {
+                    deleteContact(contact, button)
+                    true
+                }
+                ll.addView(button)
+            }
         }
     }
 
-    private void addContact() {
-        int size = db.getContactsCount();
-        Contact contact = new Contact();
-        contact.setName("name " + (size + 1));
-        contact.setPhoneNumber("phone: " + (size + 1));
-        db.addContact(contact);
-        addButton();
-    }
-
-    private void add100Contact() {
-        for (int i = 0; i < 100; i++) {
-            int size = db.getContactsCount();
-            Contact contact = new Contact();
-            contact.setName("name " + (size + 1));
-            contact.setPhoneNumber("phone: " + (size + 1));
-            db.addContact(contact);
-            addButton();
+    private fun addContact() {
+        val size = databaseHandler?.contactsCount
+        size?.let {
+            val contact = Contact()
+            contact.name = "name " + (it + 1)
+            contact.phoneNumber = "phone: " + (it + 1)
+            databaseHandler?.addContact(contact)
+            addButton()
         }
     }
 
-    private void clearAllContact() {
-        ll.removeAllViews();
-        db.clearAllContact();
-        getAllContact();
+    private fun add100Contact() {
+        for (i in 0..99) {
+            val size = databaseHandler?.contactsCount
+            size?.let {
+                val contact = Contact()
+                contact.name = "name " + (it + 1)
+                contact.phoneNumber = "phone: " + (it + 1)
+                databaseHandler?.addContact(contact)
+                addButton()
+            }
+        }
     }
 
-    private void getContactWithId(int id) {
-        Contact contact = db.getContact(id);
+    private fun clearAllContact() {
+        ll.removeAllViews()
+        databaseHandler?.clearAllContact()
+        allContact
+    }
+
+    private fun getContactWithId(id: Int) {
+        val contact = databaseHandler?.getContact(id)
         if (contact == null) {
-            showShortInformation("Contact with ID=" + id + " not found", true);
+            showShortInformation("Contact with ID=$id not found", true)
         } else {
-            showShortInformation("Found: " + contact.getId() + " " + contact.getName() + " " + contact.getPhoneNumber(), true);
+            showShortInformation("Found: " + contact.id + " " + contact.name + " " + contact.phoneNumber, true)
         }
     }
 
     @SuppressLint("SetTextI18n")
-    private void updateContact(Contact contact, Button button) {
-        contact.setName("Updated " + contact.getName());
-        int result = db.updateContact(contact);
-        button.setText(contact.getId() + " " + contact.getName());
+    private fun updateContact(contact: Contact, button: Button) {
+        contact.name = "Updated " + contact.name
+        val result = databaseHandler?.updateContact(contact)
+        button.text = contact.id.toString() + " " + contact.name
     }
 
-    private void deleteContact(Contact contact, Button button) {
-        int result = db.deleteContact(contact);
-        ll.removeView(button);
+    private fun deleteContact(contact: Contact, button: Button) {
+        val result = databaseHandler?.deleteContact(contact)
+        ll.removeView(button)
     }
 
-    private void getContactListPage(int page) {
-        int PAGE_SIZE = 5;
-        List<Contact> contactList = db.getContactListWithPage(page, PAGE_SIZE);
-        showDialogMsg("getContactListPage page: " + page + "\n" + BaseApplication.Companion.getGson().toJson(contactList), null);
+    private fun getContactListPage(page: Int) {
+        val contactList = databaseHandler?.getContactListWithPage(page, 5)
+        showDialogMsg("getContactListPage page: $page ${gson.toJson(contactList)}")
     }
 }
