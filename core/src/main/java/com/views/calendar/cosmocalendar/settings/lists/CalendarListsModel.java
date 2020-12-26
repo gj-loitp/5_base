@@ -1,14 +1,14 @@
 package com.views.calendar.cosmocalendar.settings.lists;
 
-import com.views.calendar.cosmocalendar.settings.lists.connected_days.ConnectedDays;
-import com.views.calendar.cosmocalendar.settings.lists.connected_days.ConnectedDaysManager;
+import com.views.calendar.cosmocalendar.settings.lists.connectedDays.ConnectedDays;
+import com.views.calendar.cosmocalendar.settings.lists.connectedDays.ConnectedDaysManager;
 
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
-//TODO convert kotlin
+//21.12.2020 try to convert kotlin but failed
 public class CalendarListsModel implements CalendarListsInterface {
 
     private Calendar minDate;
@@ -21,7 +21,7 @@ public class CalendarListsModel implements CalendarListsInterface {
     private DisabledDaysCriteria disabledDaysCriteria;
 
     //Custom connected days for displaying in calendar
-    private ConnectedDaysManager connectedDaysManager = ConnectedDaysManager.getInstance();
+    private final ConnectedDaysManager connectedDaysManager = ConnectedDaysManager.getInstance();
 
     private Set<Long> weekendDays = new HashSet() {{
         add(Calendar.SUNDAY);

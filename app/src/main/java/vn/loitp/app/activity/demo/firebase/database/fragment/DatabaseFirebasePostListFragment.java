@@ -31,7 +31,6 @@ import vn.loitp.app.activity.demo.firebase.database.DatabaseFirebasePostDetailAc
 import vn.loitp.app.activity.demo.firebase.database.models.Post;
 import vn.loitp.app.activity.demo.firebase.database.viewholder.PostViewHolder;
 
-//TODO convert kotlin
 public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
     private static final String logTag = "DbFbPostListFragment";
@@ -81,14 +80,15 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
 
         mAdapter = new FirebaseRecyclerAdapter<Post, PostViewHolder>(options) {
 
+            @NotNull
             @Override
-            public PostViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+            public PostViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
                 return new PostViewHolder(inflater.inflate(R.layout.item_post, viewGroup, false));
             }
 
             @Override
-            protected void onBindViewHolder(PostViewHolder viewHolder, int position, final Post model) {
+            protected void onBindViewHolder(@NotNull PostViewHolder viewHolder, int position, @NotNull final Post model) {
                 final DatabaseReference postRef = getRef(position);
 
                 // Set click listener for the whole post view
@@ -131,8 +131,9 @@ public abstract class DatabaseFirebasePostListFragment extends Fragment {
     // [START post_stars_transaction]
     private void onStarClicked(DatabaseReference postRef) {
         postRef.runTransaction(new Transaction.Handler() {
+            @NotNull
             @Override
-            public Transaction.Result doTransaction(MutableData mutableData) {
+            public Transaction.Result doTransaction(@NotNull MutableData mutableData) {
                 Post p = mutableData.getValue(Post.class);
                 if (p == null) {
                     return Transaction.success(mutableData);

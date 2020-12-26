@@ -12,7 +12,6 @@ import java.util.Map;
 // [START post_class]
 @IgnoreExtraProperties
 @Keep
-//TODO convert kotlin
 public class Post extends BaseModel {
 
     public String uid;

@@ -144,7 +144,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                 for (i in 0 until it) {
                     publishProgress(i)
                     try {
-                        Thread.sleep(100)
+                        Thread.sleep(25)
                     } catch (e: InterruptedException) {
                         e.printStackTrace()
                     }
@@ -171,12 +171,12 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Title")
 
-        val input = EditText(this)
+        val editText = EditText(this)
         //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-        builder.setView(input)
+        builder.setView(editText)
 
         builder.setPositiveButton("OK") { _, _ ->
-            val text = input.text.toString()
+            val text = editText.text.toString()
             showShortInformation("Text $text")
         }
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }

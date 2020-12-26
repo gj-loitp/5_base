@@ -6,32 +6,34 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/li_title"
+        android:id="@+id/liTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:importantForAccessibility="no"
         android:includeFontPadding="false"
         android:maxLines="2"
-        android:paddingLeft="16.0dip"
-        android:paddingTop="16.0dip"
-        android:paddingBottom="10.0dip"
-        android:text="Title"
+        android:paddingStart="@dimen/padding_medium"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingEnd="0dp"
+        android:paddingBottom="@dimen/padding_medium"
+        android:text="@string/title"
         android:textColor="@android:color/black"
-        android:textSize="22.0sp" />
+        android:textSize="@dimen/txt_medium" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/li_subtitle"
+        android:id="@+id/liSubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:importantForAccessibility="no"
         android:includeFontPadding="false"
         android:maxLines="2"
-        android:paddingLeft="16.0dip"
-        android:paddingBottom="16.0dip"
-        android:text="LOLTube"
+        android:paddingStart="@dimen/padding_medium"
+        android:paddingEnd="0dp"
+        android:paddingBottom="@dimen/padding_medium"
+        android:text="@string/loltube"
         android:textColor="#99000000"
-        android:textSize="14.0sp" />
+        android:textSize="@dimen/txt_medium" />
 
 </LinearLayout>

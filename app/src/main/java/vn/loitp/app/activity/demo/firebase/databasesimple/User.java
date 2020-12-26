@@ -4,12 +4,13 @@ import androidx.annotation.Keep;
 
 import com.core.base.BaseModel;
 
+import java.util.Objects;
+
 /**
  * Created by LENOVO on 6/5/2018.
  */
 
 @Keep
-//TODO convert kotlin
 public class User extends BaseModel {
     private String name;
     private String avt;
@@ -56,9 +57,9 @@ public class User extends BaseModel {
         User user = (User) o;
 
         if (timestamp != user.timestamp) return false;
-        if (name != null ? !name.equals(user.name) : user.name != null) return false;
-        if (avt != null ? !avt.equals(user.avt) : user.avt != null) return false;
-        return msg != null ? msg.equals(user.msg) : user.msg == null;
+        if (!Objects.equals(name, user.name)) return false;
+        if (!Objects.equals(avt, user.avt)) return false;
+        return Objects.equals(msg, user.msg);
     }
 
     @Override

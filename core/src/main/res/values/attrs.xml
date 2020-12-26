@@ -697,4 +697,9 @@
         <attr name="column" format="integer"/>
         <attr name="row" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="FabTransform">
+        <attr name="fabColor" format="color" />
+        <attr name="fabIcon" format="reference" />
+    </declare-styleable>
 </resources>

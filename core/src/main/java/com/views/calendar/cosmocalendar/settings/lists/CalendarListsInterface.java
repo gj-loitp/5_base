@@ -1,12 +1,12 @@
 package com.views.calendar.cosmocalendar.settings.lists;
 
-import com.views.calendar.cosmocalendar.settings.lists.connected_days.ConnectedDays;
-import com.views.calendar.cosmocalendar.settings.lists.connected_days.ConnectedDaysManager;
+import com.views.calendar.cosmocalendar.settings.lists.connectedDays.ConnectedDays;
+import com.views.calendar.cosmocalendar.settings.lists.connectedDays.ConnectedDaysManager;
 
 import java.util.Calendar;
 import java.util.Set;
 
-//TODO convert kotlin
+//21.12.2020 try to convert kotlin but failed
 public interface CalendarListsInterface {
 
     Calendar getMinDate();

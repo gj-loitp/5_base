@@ -48,7 +48,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCalendar"
                 style="@style/ButtonMenu"
-                android:text="Calendar" />
+                android:text="@string/calendar" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDialog"
@@ -74,6 +74,11 @@
                 android:id="@+id/btImageView"
                 style="@style/ButtonMenu"
                 android:text="@string/imageview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btIndicator"
+                style="@style/ButtonMenu"
+                android:text="@string/indicator" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLayout"

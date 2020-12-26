@@ -12,6 +12,7 @@ import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
+import com.views.calendar.cosmocalendar.selection.OnDaySelectedListener
 import com.views.calendar.cosmocalendar.selection.RangeSelectionManager
 import com.views.calendar.cosmocalendar.selection.criteria.BaseCriteria
 import com.views.calendar.cosmocalendar.selection.criteria.WeekDayCriteria
@@ -128,14 +129,18 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun selectAllFridays() {
         if (calendarView.selectionManager is MultipleSelectionManager) {
-            (calendarView.selectionManager as MultipleSelectionManager).addCriteria(fridayCriteria)
+            fridayCriteria?.let {
+                (calendarView.selectionManager as MultipleSelectionManager).addCriteria(it)
+            }
         }
         calendarView.update()
     }
 
     private fun unselectAllFridays() {
         if (calendarView.selectionManager is MultipleSelectionManager) {
-            (calendarView.selectionManager as MultipleSelectionManager).removeCriteria(fridayCriteria)
+            fridayCriteria?.let {
+                (calendarView.selectionManager as MultipleSelectionManager).removeCriteria(it)
+            }
         }
         calendarView.update()
     }
@@ -206,9 +211,13 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
     }
 
     private fun addDefaultRange() {
-        calendarView.selectionManager = RangeSelectionManager {
-            logD("logSelectedDaysMenuClick " + BaseApplication.gson.toJson(calendarView.selectedDays))
-        }
+        calendarView.selectionManager = RangeSelectionManager(
+                object : OnDaySelectedListener {
+                    override fun onDaySelected() {
+                        logD("logSelectedDaysMenuClick " + BaseApplication.gson.toJson(calendarView.selectedDays))
+                    }
+                }
+        )
         if (calendarView.selectionManager is RangeSelectionManager) {
             calendarView.clearSelections()
             val rangeSelectionManager: RangeSelectionManager = calendarView.selectionManager as RangeSelectionManager

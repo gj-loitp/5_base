@@ -13,7 +13,6 @@ package com.function.epub;
  * @since 1.0-dev
  */
 
-//TODO convert kotlin
 public class Base64 {
 
     /**
@@ -75,8 +74,8 @@ public class Base64 {
 
     // Create arrays to hold the base64 characters and a
     // lookup for base64 chars
-    private static byte[] base64Alphabet = new byte[BASELENGTH];
-    private static byte[] lookUpBase64Alphabet = new byte[LOOKUPLENGTH];
+    private static final byte[] base64Alphabet = new byte[BASELENGTH];
+    private static final byte[] lookUpBase64Alphabet = new byte[LOOKUPLENGTH];
 
     // Populating the lookup and character arrays
     static {
@@ -339,7 +338,7 @@ public class Base64 {
             } else if (marker0 == PAD) {
                 //Two PAD e.g. 3c[Pad][Pad]
                 decodedData[encodedIndex] = (byte) (b1 << 2 | b2 >> 4);
-            } else if (marker1 == PAD) {
+            } else {
                 //One PAD e.g. 3cQ[Pad]
                 b3 = base64Alphabet[marker0];
 

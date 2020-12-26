@@ -12,7 +12,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.common.Constants
 import com.core.helper.mup.girl.model.GirlPage
 import com.core.utilities.LDateUtil
@@ -21,7 +21,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_girl_album.view.*
 
 @LogTag("GirlAlbumAdapter")
-class GirlAlbumAdapter : AnimationAdapter() {
+class GirlAlbumAdapter : BaseAdapter() {
 
     private var listGirlPage = ArrayList<GirlPage>()
     var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
@@ -92,7 +92,6 @@ class GirlAlbumAdapter : AnimationAdapter() {
             itemView.btLike.setSafeOnClickListener {
                 onClickLikeListener?.invoke(girlPage, bindingAdapterPosition)
             }
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

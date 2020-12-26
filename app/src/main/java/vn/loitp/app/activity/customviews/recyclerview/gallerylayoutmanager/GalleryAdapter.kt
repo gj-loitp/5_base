@@ -10,8 +10,11 @@ import kotlinx.android.synthetic.main.row_item_gallery.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
-class GalleryAdapter internal constructor(private val context: Context, private val moviesList: List<Movie>, private val callback: Callback?) :
-        RecyclerView.Adapter<GalleryAdapter.MovieViewHolder>() {
+class GalleryAdapter internal constructor(
+        private val context: Context,
+        private val moviesList: List<Movie>,
+        private val callback: Callback?
+) : RecyclerView.Adapter<GalleryAdapter.MovieViewHolder>() {
 
     interface Callback {
         fun onClick(movie: Movie, position: Int)

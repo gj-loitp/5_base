@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
 @LogTag("SplashActivity")
 @IsFullScreen(true)
+//TODO loitpp add sound
 class SplashActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {

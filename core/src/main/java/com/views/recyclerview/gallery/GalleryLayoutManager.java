@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import org.jetbrains.annotations.NotNull;
+
 import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
 
 /**
@@ -22,7 +24,6 @@ import static androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE;
  * support both {@link GalleryLayoutManager#HORIZONTAL} and {@link GalleryLayoutManager#VERTICAL} scroll.
  * Created by chensuilun on 2016/11/18.
  */
-//TODO convert kotlin
 public class GalleryLayoutManager extends RecyclerView.LayoutManager implements RecyclerView.SmoothScroller.ScrollVectorProvider {
     private static final String logTag = "GalleryLayoutManager";
     final static int LAYOUT_START = -1;
@@ -45,16 +46,16 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
      */
     private State mState;
 
-    private LinearSnapHelper mSnapHelper = new LinearSnapHelper();
+    private final LinearSnapHelper mSnapHelper = new LinearSnapHelper();
 
-    private InnerScrollListener mInnerScrollListener = new InnerScrollListener();
+    private final InnerScrollListener mInnerScrollListener = new InnerScrollListener();
 
     private boolean mCallbackInFling = false;
 
     /**
      * Current orientation. Either {@link #HORIZONTAL} or {@link #VERTICAL}
      */
-    private int mOrientation = HORIZONTAL;
+    private final int mOrientation;
 
     private OrientationHelper mHorizontalHelper;
     private OrientationHelper mVerticalHelper;
@@ -169,9 +170,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
 
     /**
      * Layout the item view witch position specified by {@link GalleryLayoutManager#mInitialSelectedPosition} first and then layout the other
-     *
-     * @param recycler
-     * @param state
      */
     private void firstFillWithHorizontal(RecyclerView.Recycler recycler, RecyclerView.State state) {
         detachAndScrapAttachedViews(recycler);
@@ -207,15 +205,12 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     @Override
-    public void onItemsRemoved(RecyclerView recyclerView, int positionStart, int itemCount) {
+    public void onItemsRemoved(@NotNull RecyclerView recyclerView, int positionStart, int itemCount) {
         super.onItemsRemoved(recyclerView, positionStart, itemCount);
     }
 
     /**
      * Layout the item view witch position special by {@link GalleryLayoutManager#mInitialSelectedPosition} first and then layout the other
-     *
-     * @param recycler
-     * @param state
      */
     private void firstFillWithVertical(RecyclerView.Recycler recycler, RecyclerView.State state) {
         detachAndScrapAttachedViews(recycler);
@@ -252,11 +247,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
 
     /**
      * Fill left of the center view
-     *
-     * @param recycler
-     * @param startPosition start position to fill left
-     * @param startOffset   layout start offset
-     * @param leftEdge
      */
     private void fillLeft(RecyclerView.Recycler recycler, int startPosition, int startOffset, int leftEdge) {
         View scrap;
@@ -285,11 +275,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
 
     /**
      * Fill right of the center view
-     *
-     * @param recycler
-     * @param startPosition start position to fill right
-     * @param startOffset   layout start offset
-     * @param rightEdge
      */
     private void fillRight(RecyclerView.Recycler recycler, int startPosition, int startOffset, int rightEdge) {
         View scrap;
@@ -319,7 +304,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     /**
      * Fill top of the center view
      *
-     * @param recycler
      * @param startPosition start position to fill top
      * @param startOffset   layout start offset
      * @param topEdge       top edge of the RecycleView
@@ -352,7 +336,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     /**
      * Fill bottom of the center view
      *
-     * @param recycler
      * @param startPosition start position to fill bottom
      * @param startOffset   layout start offset
      * @param bottomEdge    bottom edge of the RecycleView
@@ -412,9 +395,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     }
 
     /**
-     * @param child
      * @param pendingOffset child view will scroll by
-     * @return
      */
     private int calculateDistanceCenter(View child, float pendingOffset) {
         OrientationHelper orientationHelper = getOrientationHelper();
@@ -427,11 +408,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
 
     }
 
-    /**
-     * @param recycler
-     * @param state
-     * @param dy
-     */
     private void fillWithVertical(RecyclerView.Recycler recycler, RecyclerView.State state, int dy) {
 //        Log.d(logTag, "fillWithVertical: dy:" + dy);
         int topEdge = getOrientationHelper().getStartAfterPadding();
@@ -535,11 +511,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         }
     }
 
-
-    /**
-     * @param recycler
-     * @param state
-     */
     private void fillWithHorizontal(RecyclerView.Recycler recycler, RecyclerView.State state, int dx) {
         int leftEdge = getOrientationHelper().getStartAfterPadding();
         int rightEdge = getOrientationHelper().getEndAfterPadding();
@@ -684,7 +655,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     /**
      * @author chensuilun
      */
-    class State {
+    static class State {
         /**
          * Record all item view 's last position after last layout
          */
@@ -696,7 +667,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         int mScrollDelta;
 
         public State() {
-            mItemsFrames = new SparseArray<Rect>();
+            mItemsFrames = new SparseArray<>();
             mScrollDelta = 0;
         }
     }
@@ -862,10 +833,6 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         this.attach(recyclerView, -1);
     }
 
-    /**
-     * @param recyclerView
-     * @param selectedPosition
-     */
     public void attach(RecyclerView recyclerView, int selectedPosition) {
         if (recyclerView == null) {
             throw new IllegalArgumentException("The attach RecycleView must not null!!");
@@ -894,7 +861,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         boolean mCallbackOnIdle;
 
         @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             View snap = mSnapHelper.findSnapView(recyclerView.getLayoutManager());
             if (snap != null) {
@@ -920,7 +887,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
         }
 
         @Override
-        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+        public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
             mState = newState;
             //Log.v(TAG, "onScrollStateChanged: " + newState);
@@ -960,7 +927,7 @@ public class GalleryLayoutManager extends RecyclerView.LayoutManager implements 
     /**
      * Implement to support {@link GalleryLayoutManager#smoothScrollToPosition(RecyclerView, RecyclerView.State, int)}
      */
-    private class GallerySmoothScroller extends LinearSmoothScroller {
+    private static class GallerySmoothScroller extends LinearSmoothScroller {
 
         public GallerySmoothScroller(Context context) {
             super(context);

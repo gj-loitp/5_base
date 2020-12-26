@@ -41,7 +41,7 @@ class DeviceUtils private constructor() {
 
         @get:SuppressLint("HardwareIds")
         val androidID: String
-            get() = Settings.Secure.getString(Utils.getContext().contentResolver, Settings.Secure.ANDROID_ID)
+            get() = Settings.Secure.getString(Utils.getContext()?.contentResolver, Settings.Secure.ANDROID_ID)
 
         val macAddress: String
             get() {
@@ -63,8 +63,9 @@ class DeviceUtils private constructor() {
         private val macAddressByWifiInfo: String
             get() {
                 try {
-                    @SuppressLint("WifiManagerLeak") val wifi = Utils.getContext().getSystemService(Context.WIFI_SERVICE) as WifiManager
-                    val info = wifi.connectionInfo
+                    @SuppressLint("WifiManagerLeak")
+                    val wifi = Utils.getContext()?.getSystemService(Context.WIFI_SERVICE) as WifiManager?
+                    val info = wifi?.connectionInfo
                     if (info != null) return info.macAddress
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -125,7 +126,7 @@ class DeviceUtils private constructor() {
             val intent = Intent("android.intent.action.ACTION_REQUEST_SHUTDOWN")
             intent.putExtra("android.intent.extra.KEY_CONFIRM", false)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            Utils.getContext().startActivity(intent)
+            Utils.getContext()?.startActivity(intent)
         }
 
         fun reboot() {
@@ -134,13 +135,13 @@ class DeviceUtils private constructor() {
             intent.putExtra("nowait", 1)
             intent.putExtra("interval", 1)
             intent.putExtra("window", 0)
-            Utils.getContext().sendBroadcast(intent)
+            Utils.getContext()?.sendBroadcast(intent)
         }
 
         fun reboot(reason: String?) {
-            val mPowerManager = Utils.getContext().getSystemService(Context.POWER_SERVICE) as PowerManager
+            val mPowerManager = Utils.getContext()?.getSystemService(Context.POWER_SERVICE) as PowerManager?
             try {
-                mPowerManager.reboot(reason)
+                mPowerManager?.reboot(reason)
             } catch (e: Exception) {
                 e.printStackTrace()
             }

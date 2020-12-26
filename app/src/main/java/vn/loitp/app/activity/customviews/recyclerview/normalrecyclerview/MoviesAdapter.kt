@@ -10,7 +10,7 @@ import vn.loitp.app.R
 
 @LogTag("MoviesAdapter")
 class MoviesAdapter(private val moviesList: List<Movie>, private val callback: Callback?) :
-        com.core.adapter.AnimationAdapter() {
+        com.core.adapter.BaseAdapter() {
 
     interface Callback {
         fun onClick(movie: Movie, position: Int)
@@ -34,7 +34,6 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
                 callback?.onLoadMore()
             }
 
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

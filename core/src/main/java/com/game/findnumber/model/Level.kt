@@ -22,7 +22,7 @@ data class Level(
 
         @SerializedName("name")
         @Expose
-        var name: String? = null,
+        var name: Int = 1,
 
         @SerializedName("status")
         @Expose

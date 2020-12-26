@@ -17,7 +17,6 @@ import com.views.calendar.cosmocalendar.selection.SelectionState;
 import com.views.calendar.cosmocalendar.utils.CalendarUtils;
 import com.views.calendar.cosmocalendar.view.CalendarView;
 
-//TODO convert kotlin
 public class CircleAnimationTextView extends AppCompatTextView {
 
     private SelectionState selectionState;

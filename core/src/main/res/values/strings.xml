@@ -173,4 +173,7 @@
     <string name="single_player">Single player</string>
     <string name="two_players">Two players</string>
     <string name="levels">Levels</string>
+    <string name="full_screen_fab_transition">Full Screen FAB Transition</string>
+    <string name="click">Click</string>
+    <string name="transition_morph">morph_transition</string>
 </resources>

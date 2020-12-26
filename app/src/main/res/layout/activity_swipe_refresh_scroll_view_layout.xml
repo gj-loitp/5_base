@@ -26,7 +26,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="SwipeRefreshLayout ScrollView"
+                    android:text="@string/swiperefreshlayout_scrollview"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_30" />
 
@@ -40,9 +40,9 @@
                     android:id="@+id/textView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="SwipeRefreshLayout ScrollView"
+                    android:text="@string/swiperefreshlayout_scrollview"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_14" />
+                    android:textSize="@dimen/txt_medium" />
             </LinearLayout>
 
         </ScrollView>
@@ -50,4 +50,3 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>
-

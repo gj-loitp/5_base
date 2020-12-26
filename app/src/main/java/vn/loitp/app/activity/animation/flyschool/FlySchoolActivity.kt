@@ -1,11 +1,11 @@
 package vn.loitp.app.activity.animation.flyschool
 
 import android.os.Bundle
+import com.animation.flyschool.ImgObject
+import com.animation.flyschool.PATHS
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.views.animation.flyschool.ImgObject
-import com.views.animation.flyschool.PATHS
 import kotlinx.android.synthetic.main.activity_animation_fly_school.*
 import vn.loitp.app.R
 

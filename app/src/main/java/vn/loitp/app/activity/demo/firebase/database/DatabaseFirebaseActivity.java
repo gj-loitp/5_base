@@ -16,19 +16,20 @@ import com.core.utilities.LActivityUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.jetbrains.annotations.NotNull;
+
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseMyPostsFragmentDatabaseFirebase;
 import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseMyTopPostsFragmentDatabaseFirebase;
 import vn.loitp.app.activity.demo.firebase.database.fragment.DatabaseFirebaseRecentPostsFragmentDatabaseFirebase;
 
+import static androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT;
+
 //https://github.com/firebase/quickstart-android
 
-//TODO convert kotlin
 @LogTag("DatabaseFirebaseActivity")
 @IsFullScreen(false)
 public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
-    private FragmentPagerAdapter mPagerAdapter;
-    private ViewPager mViewPager;
 
     @Override
     protected int setLayoutResourceId() {
@@ -39,7 +40,7 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
+        FragmentPagerAdapter mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager(), BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
             private final Fragment[] mFragments = new Fragment[]{
                     new DatabaseFirebaseRecentPostsFragmentDatabaseFirebase(),
                     new DatabaseFirebaseMyPostsFragmentDatabaseFirebase(),
@@ -51,6 +52,7 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
                     getString(R.string.heading_my_top_posts)
             };
 
+            @NotNull
             @Override
             public Fragment getItem(int position) {
                 return mFragments[position];
@@ -67,7 +69,7 @@ public class DatabaseFirebaseActivity extends BaseFirebaseActivity {
             }
         };
         // Set up the ViewPager with the sections adapter.
-        mViewPager = findViewById(R.id.container);
+        ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mPagerAdapter);
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);

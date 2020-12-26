@@ -32,6 +32,7 @@ import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 import java.io.File
 
@@ -76,12 +77,8 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 it.adUnitId = adUnitId
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
-//                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-//                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
-
-//        LUIUtil.setTextShadow(textView = tvTitle)
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
         if (photosetID.isNullOrEmpty()) {
@@ -92,14 +89,8 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
 //        logD("photosSize $photosSize")
 
-        /*SlideInRightAnimator animator = new SlideInRightAnimator(new OvershootInterpolator(1f));
-        animator.setAddDuration(1000);
-        recyclerView.setItemAnimator(animator);*/
-
         recyclerView.layoutManager = LinearLayoutManager(this)
-        //recyclerView.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
-
-        recyclerView.setHasFixedSize(true)
+//        recyclerView.setHasFixedSize(true)
         photosOnlyAdapter = PhotosOnlyAdapter(context = this, callback = object : PhotosOnlyAdapter.Callback {
             override fun onClick(photo: Photo, pos: Int) {
             }
@@ -123,12 +114,19 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                 LSocialUtil.openFacebookComment(context = this@GalleryCorePhotosOnlyActivity, url = photo.urlO, adUnitId = adUnitId)
             }
         })
-        recyclerView.adapter = photosOnlyAdapter
-        /*ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(photosOnlyAdapter);
-        scaleAdapter.setDuration(1000);
-        scaleAdapter.setInterpolator(new OvershootInterpolator());
-        scaleAdapter.setFirstOnly(true);
-        recyclerView.setAdapter(scaleAdapter);*/
+//        recyclerView.adapter = photosOnlyAdapter
+        photosOnlyAdapter?.let {
+//            val animAdapter = AlphaInAnimationAdapter(it)
+//            val animAdapter = ScaleInAnimationAdapter(it)
+            val animAdapter = SlideInBottomAnimationAdapter(it)
+//            val animAdapter = SlideInLeftAnimationAdapter(it)
+//            val animAdapter = SlideInRightAnimationAdapter(it)
+
+            animAdapter.setDuration(1000)
+//            animAdapter.setInterpolator(OvershootInterpolator())
+            animAdapter.setFirstOnly(true)
+            recyclerView.adapter = animAdapter
+        }
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView)
 

@@ -5,14 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_item_about_me.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.AboutMe
 
 @LogTag("AboutMeAdapter")
-class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : AnimationAdapter() {
+class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter() {
 
     var onClickRootListener: ((AboutMe, Int) -> Unit)? = null
 
@@ -31,7 +31,6 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : AnimationAda
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(aboutMe, bindingAdapterPosition)
             }
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

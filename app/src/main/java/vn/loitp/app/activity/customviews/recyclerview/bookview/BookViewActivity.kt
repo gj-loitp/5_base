@@ -1,10 +1,15 @@
 package vn.loitp.app.activity.customviews.recyclerview.bookview
 
 import android.os.Bundle
+import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInLeftAnimationAdapter
+import jp.wasabeef.recyclerview.adapters.SlideInRightAnimationAdapter
 import kotlinx.android.synthetic.main.activity_bookview.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
@@ -44,7 +49,17 @@ class BookViewActivity : BaseFontActivity() {
                     override fun onLoadMore() {}
                 })
         rv.layoutManager = GridLayoutManager(this, 3)
-        rv.adapter = bookAdapter
+        bookAdapter?.let {
+//            val scaleAdapter = AlphaInAnimationAdapter(it)
+//            val scaleAdapter = ScaleInAnimationAdapter(it)
+            val scaleAdapter = SlideInBottomAnimationAdapter(it)
+//            val scaleAdapter = SlideInLeftAnimationAdapter(it)
+//            val scaleAdapter = SlideInRightAnimationAdapter(it)
+            scaleAdapter.setDuration(1000)
+//            scaleAdapter.setInterpolator(OvershootInterpolator())
+            scaleAdapter.setFirstOnly(true)
+            rv.adapter = scaleAdapter
+        }
         prepareMovieData()
     }
 

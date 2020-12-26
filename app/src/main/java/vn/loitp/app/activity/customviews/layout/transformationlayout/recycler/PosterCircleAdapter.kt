@@ -21,13 +21,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.item_poster_circle.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationDetailActivity
 
-class PosterCircleAdapter : AnimationAdapter() {
+class PosterCircleAdapter : BaseAdapter() {
 
     private val listPoster = mutableListOf<Poster>()
     private var previousTime = SystemClock.elapsedRealtime()
@@ -67,7 +67,6 @@ class PosterCircleAdapter : AnimationAdapter() {
                 }
             }
 
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 }

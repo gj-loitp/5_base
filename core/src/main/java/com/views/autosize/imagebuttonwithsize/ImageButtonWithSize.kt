@@ -62,7 +62,7 @@ class ImageButtonWithSize : AppCompatImageButton {
     }
 
     private fun updateSize() {
-        val isPortrait = ScreenUtils.isPortrait()
+        val isPortrait = ScreenUtils.isPortrait
         if (isPortrait) {
             this.layoutParams.width = portraitSizeW
             this.layoutParams.height = portraitSizeH

@@ -10,6 +10,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.Signature
 import android.graphics.drawable.Drawable
+import com.core.utilities.LLog
 import java.io.File
 import java.util.*
 
@@ -57,30 +58,30 @@ class AppUtils private constructor() {
     companion object {
 
         fun isInstallApp(
-                packageName: String?
+                packageName: String
         ): Boolean {
             return !isSpace(packageName) && IntentUtils.getLaunchAppIntent(packageName) != null
         }
 
         fun installApp(
-                filePath: String?,
-                authority: String?
+                filePath: String,
+                authority: String
         ) {
             installApp(file = FileUtils.getFileByPath(filePath), authority = authority)
         }
 
         fun installApp(
-                file: File?,
-                authority: String?
+                file: File,
+                authority: String
         ) {
             if (!FileUtils.isFileExists(file)) return
-            Utils.getContext().startActivity(IntentUtils.getInstallAppIntent(file, authority))
+            Utils.getContext()?.startActivity(IntentUtils.getInstallAppIntent(file = file, authority = authority))
         }
 
         fun installApp(
                 activity: Activity,
-                filePath: String?,
-                authority: String?,
+                filePath: String,
+                authority: String,
                 requestCode: Int
         ) {
             installApp(activity = activity, file = FileUtils.getFileByPath(filePath), authority = authority, requestCode = requestCode)
@@ -88,12 +89,12 @@ class AppUtils private constructor() {
 
         fun installApp(
                 activity: Activity,
-                file: File?,
-                authority: String?,
+                file: File,
+                authority: String,
                 requestCode: Int
         ) {
             if (!FileUtils.isFileExists(file)) return
-            activity.startActivityForResult(IntentUtils.getInstallAppIntent(file, authority), requestCode)
+            activity.startActivityForResult(IntentUtils.getInstallAppIntent(file = file, authority = authority), requestCode)
         }
 
         fun installAppSilent(
@@ -107,15 +108,15 @@ class AppUtils private constructor() {
         }
 
         fun uninstallApp(
-                packageName: String?
+                packageName: String
         ) {
             if (isSpace(packageName)) return
-            Utils.getContext().startActivity(IntentUtils.getUninstallAppIntent(packageName))
+            Utils.getContext()?.startActivity(IntentUtils.getUninstallAppIntent(packageName))
         }
 
         fun uninstallApp(
                 activity: Activity,
-                packageName: String?,
+                packageName: String,
                 requestCode: Int
         ) {
             if (isSpace(packageName)) return
@@ -139,21 +140,21 @@ class AppUtils private constructor() {
                     return true
                 }
                 if (result.errorMsg != null) {
-                    LogUtils.d("isAppRoot", result.errorMsg)
+                    LLog.d("isAppRoot", result.errorMsg)
                 }
                 return false
             }
 
         fun launchApp(
-                packageName: String?
+                packageName: String
         ) {
             if (isSpace(packageName)) return
-            Utils.getContext().startActivity(IntentUtils.getLaunchAppIntent(packageName))
+            Utils.getContext()?.startActivity(IntentUtils.getLaunchAppIntent(packageName))
         }
 
         fun launchApp(
                 activity: Activity,
-                packageName: String?,
+                packageName: String,
                 requestCode: Int
         ) {
             if (isSpace(packageName)) return
@@ -162,30 +163,32 @@ class AppUtils private constructor() {
 
         @JvmStatic
         val appPackageName: String
-            get() = Utils.getContext().packageName
+            get() = Utils.getContext()?.packageName ?: ""
 
         val appDetailsSettings: Unit
             get() {
-                getAppDetailsSettings(Utils.getContext().packageName)
+                Utils.getContext()?.packageName?.let {
+                    getAppDetailsSettings(it)
+                }
             }
 
         fun getAppDetailsSettings(
-                packageName: String?
+                packageName: String
         ) {
             if (isSpace(packageName)) return
-            Utils.getContext().startActivity(IntentUtils.getAppDetailsSettingsIntent(packageName))
+            Utils.getContext()?.startActivity(IntentUtils.getAppDetailsSettingsIntent(packageName))
         }
 
         val appName: String?
-            get() = getAppName(Utils.getContext().packageName)
+            get() = getAppName(Utils.getContext()?.packageName)
 
         fun getAppName(
                 packageName: String?
         ): String? {
             return if (isSpace(packageName)) null else try {
-                val pm = Utils.getContext().packageManager
+                val pm = Utils.getContext()?.packageManager
                 packageName?.let {
-                    val pi = pm.getPackageInfo(it, 0)
+                    val pi = pm?.getPackageInfo(it, 0)
                     pi?.applicationInfo?.loadLabel(pm)?.toString()
                 }
             } catch (e: PackageManager.NameNotFoundException) {
@@ -195,14 +198,14 @@ class AppUtils private constructor() {
         }
 
         val appIcon: Drawable?
-            get() = getAppIcon(Utils.getContext().packageName)
+            get() = getAppIcon(Utils.getContext()?.packageName)
 
         fun getAppIcon(
                 packageName: String?
         ): Drawable? {
             return if (isSpace(packageName)) null else try {
-                val pm = Utils.getContext().packageManager
-                val pi = pm.getPackageInfo(packageName, 0)
+                val pm = Utils.getContext()?.packageManager
+                val pi = pm?.getPackageInfo(packageName, 0)
                 pi?.applicationInfo?.loadIcon(pm)
             } catch (e: PackageManager.NameNotFoundException) {
                 e.printStackTrace()
@@ -211,15 +214,15 @@ class AppUtils private constructor() {
         }
 
         val appPath: String?
-            get() = getAppPath(Utils.getContext().packageName)
+            get() = getAppPath(Utils.getContext()?.packageName)
 
         fun getAppPath(
                 packageName: String?
         ): String? {
             return if (isSpace(packageName)) null else try {
-                val pm = Utils.getContext().packageManager
+                val pm = Utils.getContext()?.packageManager
                 packageName?.let {
-                    val pi = pm.getPackageInfo(it, 0)
+                    val pi = pm?.getPackageInfo(it, 0)
                     pi?.applicationInfo?.sourceDir
                 }
             } catch (e: PackageManager.NameNotFoundException) {
@@ -229,13 +232,13 @@ class AppUtils private constructor() {
         }
 
         val appVersionName: String?
-            get() = getAppVersionName(Utils.getContext().packageName)
+            get() = getAppVersionName(Utils.getContext()?.packageName)
 
         fun getAppVersionName(packageName: String?): String? {
             return if (isSpace(packageName)) null else try {
-                val pm = Utils.getContext().packageManager
+                val pm = Utils.getContext()?.packageManager
                 packageName?.let {
-                    val pi = pm.getPackageInfo(it, 0)
+                    val pi = pm?.getPackageInfo(it, 0)
                     pi?.versionName
                 }
             } catch (e: PackageManager.NameNotFoundException) {
@@ -245,15 +248,15 @@ class AppUtils private constructor() {
         }
 
         val appVersionCode: Int
-            get() = getAppVersionCode(Utils.getContext().packageName)
+            get() = getAppVersionCode(Utils.getContext()?.packageName)
 
         fun getAppVersionCode(packageName: String?): Int {
             if (isSpace(packageName)) {
                 return -1
             } else try {
-                val pm = Utils.getContext().packageManager
+                val pm = Utils.getContext()?.packageManager
                 packageName?.let {
-                    val pi = pm.getPackageInfo(it, 0)
+                    val pi = pm?.getPackageInfo(it, 0)
                     return pi?.versionCode ?: -1
                 }
                 return -1
@@ -264,13 +267,14 @@ class AppUtils private constructor() {
         }
 
         val isSystemApp: Boolean
-            get() = isSystemApp(Utils.getContext().packageName)
+            get() = isSystemApp(Utils.getContext()?.packageName)
 
         fun isSystemApp(packageName: String?): Boolean {
             if (isSpace(packageName)) {
                 return false
             } else try {
-                val pm = Utils.getContext().packageManager
+                val context = Utils.getContext() ?: return false
+                val pm = context.packageManager
                 packageName?.let {
                     val ai = pm.getApplicationInfo(packageName, 0)
                     return ai.flags and ApplicationInfo.FLAG_SYSTEM != 0
@@ -283,13 +287,14 @@ class AppUtils private constructor() {
         }
 
         val isAppDebug: Boolean
-            get() = isAppDebug(Utils.getContext().packageName)
+            get() = isAppDebug(Utils.getContext()?.packageName)
 
         fun isAppDebug(packageName: String?): Boolean {
             if (isSpace(packageName)) {
                 return false
             } else try {
-                val pm = Utils.getContext().packageManager
+                val context = Utils.getContext() ?: return false
+                val pm = context.packageManager
                 packageName?.let {
                     val ai = pm.getApplicationInfo(packageName, 0)
                     return ai.flags and ApplicationInfo.FLAG_DEBUGGABLE != 0
@@ -302,16 +307,16 @@ class AppUtils private constructor() {
         }
 
         val appSignature: Array<Signature>?
-            get() = getAppSignature(Utils.getContext().packageName)
+            get() = getAppSignature(Utils.getContext()?.packageName)
 
         fun getAppSignature(packageName: String?): Array<Signature>? {
             if (isSpace(packageName)) {
                 return null
             } else try {
-                val pm = Utils.getContext().packageManager
+                val pm = Utils.getContext()?.packageManager
                 packageName?.let {
                     @SuppressLint("PackageManagerGetSignatures")
-                    val pi = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+                    val pi = pm?.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
                     return pi?.signatures
                 }
                 return null
@@ -322,7 +327,7 @@ class AppUtils private constructor() {
         }
 
         val appSignatureSHA1: String?
-            get() = getAppSignatureSHA1(Utils.getContext().packageName)
+            get() = getAppSignatureSHA1(Utils.getContext()?.packageName)
 
         fun getAppSignatureSHA1(packageName: String?): String? {
             val signature = getAppSignature(packageName) ?: return null
@@ -331,29 +336,29 @@ class AppUtils private constructor() {
 
         val isAppForeground: Boolean
             get() {
-                val manager = Utils.getContext().getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-                val info = manager.runningAppProcesses
+                val manager = Utils.getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
+                val info = manager?.runningAppProcesses
                 if (info == null || info.size == 0) return false
                 for (aInfo in info) {
                     if (aInfo.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
-                        return aInfo.processName == Utils.getContext().packageName
+                        return aInfo.processName == Utils.getContext()?.packageName
                     }
                 }
                 return false
             }
 
         fun isAppForeground(packageName: String?): Boolean {
-            return !isSpace(packageName) && packageName == ProcessUtils.getForegroundProcessName()
+            return !isSpace(packageName) && packageName == ProcessUtils.foregroundProcessName
         }
 
         val appInfo: AppInfo?
-            get() = getAppInfo(Utils.getContext().packageName)
+            get() = getAppInfo(Utils.getContext()?.packageName)
 
         fun getAppInfo(packageName: String?): AppInfo? {
             try {
-                val pm = Utils.getContext().packageManager
+                val pm = Utils.getContext()?.packageManager
                 packageName?.let {
-                    val pi = pm.getPackageInfo(packageName, 0)
+                    val pi = pm?.getPackageInfo(packageName, 0)
                     return getBean(pm, pi)
                 }
                 return null
@@ -375,17 +380,27 @@ class AppUtils private constructor() {
             val versionName = pi.versionName
             val versionCode = pi.versionCode
             val isSystem = ApplicationInfo.FLAG_SYSTEM and ai.flags != 0
-            return AppInfo(packageName = packageName, name = name, icon = icon, packagePath = packagePath, versionName = versionName, versionCode = versionCode, isSystem = isSystem)
+            return AppInfo(
+                    packageName = packageName,
+                    name = name,
+                    icon = icon,
+                    packagePath = packagePath,
+                    versionName = versionName,
+                    versionCode = versionCode,
+                    isSystem = isSystem
+            )
         }
 
         val appsInfo: List<AppInfo>
             get() {
                 val list: MutableList<AppInfo> = ArrayList()
-                val pm = Utils.getContext().packageManager
-                val installedPackages = pm.getInstalledPackages(0)
-                for (pi in installedPackages) {
-                    val ai = getBean(pm, pi) ?: continue
-                    list.add(ai)
+                val pm = Utils.getContext()?.packageManager
+                val installedPackages = pm?.getInstalledPackages(0)
+                installedPackages?.let {
+                    for (pi in it) {
+                        val ai = getBean(pm, pi) ?: continue
+                        list.add(ai)
+                    }
                 }
                 return list
             }

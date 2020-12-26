@@ -22,9 +22,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 //TODO service -> ko stop service dc
 //TODO database -> read sqlite dtb crash
 
-//need add nice repo
-//https://github.com/hackware1993/MagicIndicator
-
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github
 /*git reset --soft HEAD~2

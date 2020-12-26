@@ -30,7 +30,6 @@ import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 
-//TODO convert kotlin
 @LogTag("EbookWithRealmActivity")
 @IsFullScreen(false)
 public class EbookWithRealmActivity extends BaseFontActivity {
@@ -190,7 +189,13 @@ public class EbookWithRealmActivity extends BaseFontActivity {
 
     private void updateItem(final Book book, final int position) {
         layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View content = layoutInflater.inflate(R.layout.real_edit_item, null);
+        View content = null;
+        if (layoutInflater != null) {
+            content = layoutInflater.inflate(R.layout.real_edit_item, null);
+        }
+        if (content == null) {
+            return;
+        }
         final EditText editTitle = content.findViewById(R.id.title);
         final EditText editAuthor = content.findViewById(R.id.author);
         final EditText editThumbnail = content.findViewById(R.id.thumbnail);

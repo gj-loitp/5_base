@@ -5,15 +5,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import vn.loitp.app.R
 
 @LogTag("LoadingAdapter")
-class LoadingAdapter : AnimationAdapter() {
+class LoadingAdapter : BaseAdapter() {
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
+            //do sth
         }
     }
 

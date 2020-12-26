@@ -14,16 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.core.utilities.LUIUtil;
 
-import io.realm.Realm;
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
-import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
-//TODO convert kotlin
 public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
     final Context context;
-    private Realm realm;
-    private LayoutInflater inflater;
 
     public interface OnClick {
         void onClick(Book book, int position);
@@ -31,7 +26,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
         void onLongClick(int position);
     }
 
-    private OnClick onClick;
+    private final OnClick onClick;
 
     public BooksAdapter(Context context, OnClick onClick) {
         this.context = context;
@@ -47,8 +42,6 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
-        realm = RealmController.getInstance().getRealm();
-
         final Book book = getItem(position);
         final CardViewHolder holder = (CardViewHolder) viewHolder;
 

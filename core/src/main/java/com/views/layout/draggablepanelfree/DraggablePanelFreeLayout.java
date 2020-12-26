@@ -1,5 +1,6 @@
 package com.views.layout.draggablepanelfree;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -11,8 +12,10 @@ import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
 import com.R;
+import com.core.utilities.LLog;
 
-//TODO convert kotlin
+import org.jetbrains.annotations.NotNull;
+
 public class DraggablePanelFreeLayout extends ViewGroup {
     private final String logTag = getClass().getSimpleName();
     private final ViewDragHelper mDragHelper;
@@ -65,12 +68,12 @@ public class DraggablePanelFreeLayout extends ViewGroup {
     private class DragHelperCallback extends ViewDragHelper.Callback {
 
         @Override
-        public boolean tryCaptureView(View child, int pointerId) {
+        public boolean tryCaptureView(@NotNull View child, int pointerId) {
             return child == mHeaderView;
         }
 
         @Override
-        public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
+        public void onViewPositionChanged(@NotNull View changedView, int left, int top, int dx, int dy) {
             mTop = top;
             mDragOffset = (float) top / mDragRange;
 //            Log.d(logTag, "onViewPositionChanged " + left + ", " + top + ", " + dx + ", " + dy + ", " + mDragOffset);
@@ -108,7 +111,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         }
 
         @Override
-        public void onViewReleased(View releasedChild, float xvel, float yvel) {
+        public void onViewReleased(@NotNull View releasedChild, float xvel, float yvel) {
 //            Log.d(logTag, "onViewReleased");
             int top = getPaddingTop();
             if (yvel > 0 || (yvel == 0 && mDragOffset > 0.5f)) {
@@ -118,25 +121,23 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         }
 
         @Override
-        public int getViewVerticalDragRange(View child) {
+        public int getViewVerticalDragRange(@NotNull View child) {
             return mDragRange;
         }
 
         @Override
-        public int clampViewPositionVertical(View child, int top, int dy) {
+        public int clampViewPositionVertical(@NotNull View child, int top, int dy) {
             final int topBound = getPaddingTop();
             final int bottomBound = getHeight() - mHeaderView.getHeight() - mHeaderView.getPaddingBottom();
-            final int newTop = Math.min(Math.max(top, topBound), bottomBound);
-            return newTop;
+            return Math.min(Math.max(top, topBound), bottomBound);
         }
 
         @Override
-        public int clampViewPositionHorizontal(View child, int left, int dx) {
+        public int clampViewPositionHorizontal(@NotNull View child, int left, int dx) {
             //Log.d(TAG, "clampViewPositionHorizontal " + left + "," + dx);
             final int leftBound = getPaddingLeft();
             final int rightBound = getWidth() - mHeaderView.getWidth();
-            final int newLeft = Math.min(Math.max(left, leftBound), rightBound);
-            return newLeft;
+            return Math.min(Math.max(left, leftBound), rightBound);
         }
     }
 
@@ -183,6 +184,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
         return mDragHelper.shouldInterceptTouchEvent(ev) || interceptTap;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
         mDragHelper.processTouchEvent(ev);
@@ -213,7 +215,7 @@ public class DraggablePanelFreeLayout extends ViewGroup {
                 }*/
                 //Log.d(TAG, "mDragOffset " + mDragOffset);
                 if (isPositionBottom()) {
-//                    Log.d(logTag, "onTouchEvent ACTION_UP no slide");
+                    LLog.d(logTag, "onTouchEvent ACTION_UP no slide");
                 } else {
                     if (mDragOffset < 0.5f) {
                         maximize();

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/themeBackgroundColor"
+    android:orientation="vertical">
+
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/magicIndicator1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/common_navigator_height" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btRandomPage"
+        style="@style/ButtonMenu"
+        android:text="@string/random_page" />
+
+</LinearLayout>

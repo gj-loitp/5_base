@@ -16,20 +16,24 @@ import com.views.calendar.cosmocalendar.view.delegate.DayDelegate;
 import com.views.calendar.cosmocalendar.view.delegate.DayOfWeekDelegate;
 import com.views.calendar.cosmocalendar.view.delegate.OtherDayDelegate;
 
-//TODO convert kotlin
+import org.jetbrains.annotations.NotNull;
+
+//21.12.2020 try to convert kotlin but failed
 public class DaysAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Month month;
-    private DayOfWeekDelegate dayOfWeekDelegate;
-    private DayDelegate dayDelegate;
-    private OtherDayDelegate otherDayDelegate;
-    private CalendarView calendarView;
+    private final DayOfWeekDelegate dayOfWeekDelegate;
+    private final DayDelegate dayDelegate;
+    private final OtherDayDelegate otherDayDelegate;
+    private final CalendarView calendarView;
 
-    private DaysAdapter(Month month,
-                        DayOfWeekDelegate dayOfWeekDelegate,
-                        DayDelegate dayDelegate,
-                        OtherDayDelegate otherDayDelegate,
-                        CalendarView calendarView) {
+    private DaysAdapter(
+            Month month,
+            DayOfWeekDelegate dayOfWeekDelegate,
+            DayDelegate dayDelegate,
+            OtherDayDelegate otherDayDelegate,
+            CalendarView calendarView
+    ) {
         setHasStableIds(false);
         this.month = month;
         this.dayOfWeekDelegate = dayOfWeekDelegate;
@@ -50,8 +54,9 @@ public class DaysAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
         switch (viewType) {
             case ItemViewType.DAY_OF_WEEK:
                 return dayOfWeekDelegate.onCreateDayHolder(parent, viewType);

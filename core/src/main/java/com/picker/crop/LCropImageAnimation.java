@@ -1,15 +1,3 @@
-// "Therefore those skilled at the unorthodox
-// are infinite as heaven and earth,
-// inexhaustible as the great rivers.
-// When they come to an end,
-// they begin again,
-// like the days and months;
-// they die and are reborn,
-// like the four seasons."
-//
-// - Sun Tsu,
-// "The Art of War"
-
 package com.picker.crop;
 
 import android.graphics.Matrix;
@@ -23,7 +11,6 @@ import android.widget.ImageView;
  * Animation to handle smooth cropping image matrix transformation change, specifically for zoom-in/out.
  */
 
-//TODO convert kotlin
 final class LCropImageAnimation extends Animation implements Animation.AnimationListener {
 
     //region: Fields and Consts
@@ -114,4 +101,3 @@ final class LCropImageAnimation extends Animation implements Animation.Animation
 
     }
 }
-

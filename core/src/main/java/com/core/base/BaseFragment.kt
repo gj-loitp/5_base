@@ -190,4 +190,34 @@ abstract class BaseFragment : Fragment() {
     protected fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
         return ViewModelProvider(this).get(className)
     }
+
+    fun showBottomSheetOptionFragment(
+            isCancelableFragment: Boolean = true,
+            isShowIvClose: Boolean = true,
+            title: String,
+            message: String,
+            textButton1: String? = null,
+            textButton2: String? = null,
+            textButton3: String? = null,
+            onClickButton1: ((Unit) -> Unit)? = null,
+            onClickButton2: ((Unit) -> Unit)? = null,
+            onClickButton3: ((Unit) -> Unit)? = null,
+            onDismiss: ((Unit) -> Unit)? = null
+    ) {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showBottomSheetOptionFragment(
+                    isCancelableFragment = isCancelableFragment,
+                    isShowIvClose = isShowIvClose,
+                    title = title,
+                    message = message,
+                    textButton1 = textButton1,
+                    textButton2 = textButton2,
+                    textButton3 = textButton3,
+                    onClickButton1 = onClickButton1,
+                    onClickButton2 = onClickButton2,
+                    onClickButton3 = onClickButton3,
+                    onDismiss = onDismiss
+            )
+        }
+    }
 }

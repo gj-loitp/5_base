@@ -12,7 +12,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.helper.mup.comic.model.ChapterComicsDetail
 import com.core.helper.mup.comic.model.ChapterDetail
 import com.core.utilities.LImageUtil
@@ -21,7 +21,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_comic_chapter_detail.view.*
 
 @LogTag("ChapterDetailAdapter")
-class ChapterDetailAdapter : AnimationAdapter() {
+class ChapterDetailAdapter : BaseAdapter() {
 
     private var chapterDetail: ChapterDetail? = null
     private val listData = ArrayList<ChapterComicsDetail>()

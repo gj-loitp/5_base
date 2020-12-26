@@ -15,7 +15,6 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
-//TODO convert kotlin
 public class ScrollablePanelAdapter extends PanelAdapter {
     private static final int TITLE_TYPE = 4;
     private static final int ROOM_TYPE = 0;

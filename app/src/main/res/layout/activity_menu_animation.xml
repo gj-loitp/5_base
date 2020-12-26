@@ -58,6 +58,11 @@
                 android:text="@string/lottie" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btMorphTransitions"
+                style="@style/ButtonMenu"
+                android:text="Morph Transitions" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btOverScroll"
                 style="@style/ButtonMenu"
                 android:text="@string/over_scroll_like_ios" />

@@ -6,14 +6,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.annotation.LogTag
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_comic_progress.view.*
 
 @LogTag("GirlProgressAdapter")
 class ComicProgressAdapter(
         val heightRootView: Int? = null
-) : AnimationAdapter() {
+) : BaseAdapter() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 

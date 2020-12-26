@@ -8,11 +8,11 @@ import com.views.calendar.cosmocalendar.utils.DateUtils;
 import java.util.Calendar;
 import java.util.Date;
 
+//21.12.2020 try to convert kotlin but failed
 @Keep
-//TODO convert kotlin
 public class Day {
 
-    private Calendar calendar;
+    private final Calendar calendar;
     private boolean belongToMonth;
     private boolean current;
     private boolean selected;
@@ -30,7 +30,7 @@ public class Day {
     private boolean isSelectionCircleDrawed;
 
     public Day(Date date) {
-        this.calendar = DateUtils.getCalendar(date);
+        this.calendar = DateUtils.INSTANCE.getCalendar(date);
         this.current = DateUtils.isCurrentDate(date);
         this.selected = false;
     }

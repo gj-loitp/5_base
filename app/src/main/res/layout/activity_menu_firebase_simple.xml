@@ -21,11 +21,11 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btAdd"
             style="@style/ButtonMenu"
-            android:text="Realtime Database Add Data" />
+            android:text="@string/realtime_database_add_data" />
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvMenu"
         style="@style/TextMenu"
-        android:text="Simple database\nClick to Edit; LongClick To Remove" />
+        android:text="@string/simple_database_nclick_to_edit_longclick_to_remove" />
 </RelativeLayout>

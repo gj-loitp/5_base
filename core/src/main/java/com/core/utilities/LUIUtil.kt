@@ -330,11 +330,13 @@ class LUIUtil {
         }
 
         @SuppressLint("SetTextI18n")
-        fun printBeautyJson(o: Any, textView: TextView?, tag: String) {
-            textView?.let {
-                val gson = GsonBuilder().setPrettyPrinting().create()
-                val json = gson.toJson(o)
-                it.text = "$tag :\n$json"
+        fun printBeautyJson(o: Any?, textView: TextView?, tag: String) {
+            textView?.let { tv ->
+                o?.let {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val json = gson.toJson(it)
+                    tv.text = "$tag :\n$json"
+                }
             }
         }
 

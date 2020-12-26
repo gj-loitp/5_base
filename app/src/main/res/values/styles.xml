@@ -67,4 +67,5 @@
 <!--    <style name="CollapsedExpandedTitleText" parent="AppTheme">-->
 <!--        <item name="android:textColor">@android:color/transparent</item>-->
 <!--    </style>-->
+
 </resources>

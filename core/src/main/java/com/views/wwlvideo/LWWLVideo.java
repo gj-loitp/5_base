@@ -1,5 +1,6 @@
 package com.views.wwlvideo;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -30,7 +31,8 @@ import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_POINTER_UP;
 import static android.view.MotionEvent.ACTION_UP;
-//TODO convert kotlin
+
+//14.12.2020 try to convert to kotlin but failed
 public class LWWLVideo extends ViewGroup {
     public static final int STATE_HIDED = 0;
     public static final int STATE_MAXIMIZED = 1;
@@ -62,7 +64,7 @@ public class LWWLVideo extends ViewGroup {
     private Listener mListener;
     private float mCurrentAlpha;
     private int mDragState;
-    private Rect mPlayerOuterRect;
+    private final Rect mPlayerOuterRect;
     private Rect mMixRect;
     private boolean mIsHardware;
     private boolean mIsReady;
@@ -75,7 +77,6 @@ public class LWWLVideo extends ViewGroup {
     private int mCurrentY;
     private boolean mIsHScroll;
     private int mOffsetH;
-    private int mStart = 0;
 
     public LWWLVideo(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -97,6 +98,8 @@ public class LWWLVideo extends ViewGroup {
         this.mShadowDrawable = DrawableHelper.get(context, R.drawable.miniplayer_shadow);
         this.mPlayerShadowSize = (int) resources.getDimension(R.dimen.watch_while_mini_player_shadow_size);
         this.mPlayerOuterRect = new Rect();
+
+        @SuppressLint("CustomViewStyleable")
         TypedArray typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.WatchWhileLayout);
         this.mPlayerViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_playerViewId, 0);
         this.mMetadataViewId = typedArray.getResourceId(R.styleable.WatchWhileLayout_metadataViewId, 0);
@@ -106,10 +109,10 @@ public class LWWLVideo extends ViewGroup {
         this.mMiniPlayerWidth = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerWidth, 240.0f);
         this.mMiniPlayerPadding = (int) typedArray.getDimension(R.styleable.WatchWhileLayout_miniPlayerPadding, 12.0f);
         typedArray.recycle();
-        LWWLMusicIllegal.check(this.mPlayerViewId != 0, "playerViewId must be specified");
-        LWWLMusicIllegal.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
+        LWWLMusicIllegal.INSTANCE.check(this.mPlayerViewId != 0, "playerViewId must be specified");
+        LWWLMusicIllegal.INSTANCE.check(this.mMetadataViewId != 0, "metadataViewId must be specified");
         if (isTablet()) {
-            LWWLMusicIllegal.check(this.mMetadataPanelViewId != 0, "metadataLandscapeTitleViewId must be specified");
+            LWWLMusicIllegal.INSTANCE.check(this.mMetadataPanelViewId != 0, "metadataLandscapeTitleViewId must be specified");
         }
     }
 
@@ -136,7 +139,7 @@ public class LWWLVideo extends ViewGroup {
         int childCount = getChildCount();
         boolean isTL = isTablet();
         int requireViewCount = isTL ? 4 : 3;
-        LWWLMusicIllegal.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
+        LWWLMusicIllegal.INSTANCE.check(childCount >= requireViewCount, "WatchWhileLayout must have at least " + requireViewCount + " children");
         this.mViews = new LinkedList();
         for (int i = 0; i < childCount; i++) {
             View view = getChildAt(i);
@@ -153,12 +156,12 @@ public class LWWLVideo extends ViewGroup {
                 this.mViews.add(view);
             }
         }
-        LWWLMusicIllegal.check(this.mPlayerView);
-        LWWLMusicIllegal.check(this.mMetadataView);
+        LWWLMusicIllegal.INSTANCE.check(this.mPlayerView);
+        LWWLMusicIllegal.INSTANCE.check(this.mMetadataView);
         if (isTL) {
-            LWWLMusicIllegal.check(this.mMetadataPanelView);
+            LWWLMusicIllegal.INSTANCE.check(this.mMetadataPanelView);
         }
-        LWWLMusicIllegal.check(this.mViews.size() > 0, "contentViews cannot be empty");
+        LWWLMusicIllegal.INSTANCE.check(this.mViews.size() > 0, "contentViews cannot be empty");
         this.mPlayerView.setOnClickListener(new PlayerViewClickListener(this));
         this.mBgView = new View(getContext());
         this.mBgView.setBackgroundColor(getResources().getColor(android.R.color.black));
@@ -198,7 +201,7 @@ public class LWWLVideo extends ViewGroup {
                 invalidate();
             } else if (!isDragging()) {
                 if (this.mCurrentY != 0 && this.mCurrentY != this.mMaxY) {
-                    autoState(false);
+                    autoState();
                 } else if (this.mOffsetX != 0) {
                     slideTo(getState());
                 }
@@ -225,8 +228,8 @@ public class LWWLVideo extends ViewGroup {
     }
 
     public void updateSizeChanged(int width, int height) {
-        int fullPlayerInnerHeight = 0;
-        int miniPlayerInnerHeight = 0;
+        int fullPlayerInnerHeight;
+        int miniPlayerInnerHeight;
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int innerWidth = (width - paddingLeft) - getPaddingRight();
@@ -238,7 +241,7 @@ public class LWWLVideo extends ViewGroup {
             updateRect(this.mFullPlayerRect, paddingLeft, paddingTop, innerWidth, fullPlayerInnerHeight);
         } else if (isTablet()) {
             Context context = getContext();
-            LWWLMusicIllegal.check(context);
+            LWWLMusicIllegal.INSTANCE.check(context);
             int fullPlayerInnerWidth;
             if (context.getResources().getConfiguration().smallestScreenWidthDp >= 720) {
                 fullPlayerInnerWidth = Math.round(0.7f * ((float) innerWidth));
@@ -395,6 +398,7 @@ public class LWWLVideo extends ViewGroup {
         return isDragging();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     public boolean onTouchEvent(MotionEvent motionEvent) {
         boolean smooth = false;
         this.mTracker.track(motionEvent);
@@ -431,11 +435,7 @@ public class LWWLVideo extends ViewGroup {
                         slideHorizontal(true);
                     } else if (this.mOffsetX > 20 && isNegative) {
                         slideHorizontal(true);
-                    } else if (isZero) {
-                        slideHorizontalRollBack(false);
-                    } else {
-                        slideHorizontalRollBack(true);
-                    }
+                    } else slideHorizontalRollBack(!isZero);
                 } else if (this.mDragState == DragOrientation.DRAGGING_VERTICAL) {
                     int direction = this.mTracker.calcDirection(motionEvent, DragOrientation.DRAGGING_VERTICAL, true);
                     if (direction == Sign.SIGN_NEGATIVE && this.mState == STATE_MAXIMIZED) {
@@ -443,7 +443,7 @@ public class LWWLVideo extends ViewGroup {
                     } else if (direction == Sign.SIGN_POSITIVE && this.mState == STATE_MINIMIZED && this.mCurrentY < this.mMaxY) {
                         maximize(true);
                     } else {
-                        autoState(true);
+                        autoState();
                     }
                 }
                 stopDrag();
@@ -487,7 +487,7 @@ public class LWWLVideo extends ViewGroup {
 
     public void maximize(boolean smooth) {
         if (!this.mIsFullscreen && this.mState != STATE_HIDED) {
-            int dy = 0 - this.mCurrentY;
+            int dy = -this.mCurrentY;
             if (dy == 0) {
                 slideTo(STATE_MAXIMIZED);
                 return;
@@ -781,7 +781,8 @@ public class LWWLVideo extends ViewGroup {
                         this.mCurrentAlpha = (((float) i) / ((float) this.mDismissDragDistance)) + 1.0f;
                     }
                 }
-                i = this.mStart + this.mMiniPlayerPadding;
+                int mStart = 0;
+                i = mStart + this.mMiniPlayerPadding;
                 if (i <= this.mMiniPlayerRect.left) {
                     i = 0;
                 } else {
@@ -923,7 +924,7 @@ public class LWWLVideo extends ViewGroup {
         return STATE_MAXIMIZED;
     }
 
-    private void autoState(boolean smooth) {
+    private void autoState() {
         switch (getState()) {
             case STATE_HIDED:
                 slideTo(STATE_HIDED);
@@ -1049,7 +1050,7 @@ public class LWWLVideo extends ViewGroup {
         }
     }
 
-    class Tracker {
+    static class Tracker {
         public final int scaledPagingTouchSlop;
         private final int a;
         private final int snapVelocity;
@@ -1074,7 +1075,7 @@ public class LWWLVideo extends ViewGroup {
 
         public Tracker(Context context, int snapVelocity) {
             this.pointerId = -1;
-            LWWLMusicIllegal.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
+            LWWLMusicIllegal.INSTANCE.check(snapVelocity >= 200, "snapVelocity cannot be less than 200");
             ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
             this.scaledPagingTouchSlop = viewConfiguration.getScaledPagingTouchSlop();
             this.a = viewConfiguration.getScaledMaximumFlingVelocity();
@@ -1172,8 +1173,8 @@ public class LWWLVideo extends ViewGroup {
         }
     }
 
-    final class PlayerViewClickListener implements View.OnClickListener {
-        private LWWLVideo mLayout;
+    static final class PlayerViewClickListener implements View.OnClickListener {
+        private final LWWLVideo mLayout;
 
         public PlayerViewClickListener(LWWLVideo layout) {
             this.mLayout = layout;

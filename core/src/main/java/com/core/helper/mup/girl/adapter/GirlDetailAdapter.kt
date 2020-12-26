@@ -12,7 +12,7 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.core.adapter.AnimationAdapter
+import com.core.adapter.BaseAdapter
 import com.core.common.Constants
 import com.core.helper.mup.girl.model.GirlPageDetail
 import com.core.utilities.LDateUtil
@@ -21,7 +21,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.view_row_girl_detail.view.*
 
 @LogTag("GirlDetailAdapter")
-class GirlDetailAdapter : AnimationAdapter() {
+class GirlDetailAdapter : BaseAdapter() {
 
     private var listGirlPageDetail = ArrayList<GirlPageDetail>()
     var onClickRootListener: ((GirlPageDetail, Int) -> Unit)? = null
@@ -63,7 +63,6 @@ class GirlDetailAdapter : AnimationAdapter() {
             itemView.cardView.setSafeOnClickListener {
                 onClickRootListener?.invoke(girlPageDetail, bindingAdapterPosition)
             }
-            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 

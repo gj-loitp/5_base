@@ -21,7 +21,7 @@ class ConfigFirebaseActivity : BaseFontActivity() {
         private const val WELCOME_MESSAGE_CAPS_KEY = "welcome_message_caps"
     }
 
-    private var firebaseRemoteConfig: FirebaseRemoteConfig? = null
+    private val firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_config_firebase
@@ -34,49 +34,42 @@ class ConfigFirebaseActivity : BaseFontActivity() {
             fetchWelcome()
         }
 
-        firebaseRemoteConfig = FirebaseRemoteConfig.getInstance()
-        val configSettings = FirebaseRemoteConfigSettings.Builder()
-                .setDeveloperModeEnabled(BuildConfig.DEBUG)
-                .build()
-        firebaseRemoteConfig?.setConfigSettings(configSettings)
-        firebaseRemoteConfig?.setDefaults(R.xml.remote_config_defaults)
+        firebaseRemoteConfig.apply {
+            val timeInS = if (BuildConfig.DEBUG) {
+                0L
+            } else {
+                3600L
+            }
+            this.setConfigSettingsAsync(
+                    FirebaseRemoteConfigSettings.Builder()
+                            .setMinimumFetchIntervalInSeconds(timeInS)
+                            .build()
+            )
+            this.setDefaultsAsync(R.xml.remote_config_defaults)
+        }
 
         fetchWelcome()
     }
 
     private fun fetchWelcome() {
-        welcomeTextView.text = firebaseRemoteConfig?.getString(LOADING_PHRASE_CONFIG_KEY)
-        var cacheExpiration: Long = 3600 // 1 hour in seconds.
-        // If your app is using developer parrallaxMode, cacheExpiration is set to 0, so each fetch will
-        // retrieve values from the service.
-        if (firebaseRemoteConfig?.info?.configSettings?.isDeveloperModeEnabled == true) {
-            cacheExpiration = 0
+        welcomeTextView.text = firebaseRemoteConfig.getString(LOADING_PHRASE_CONFIG_KEY)
+        firebaseRemoteConfig.fetchAndActivate().addOnCompleteListener(
+                this
+        ) { task ->
+            if (task.isSuccessful) {
+                val updated = task.result
+                showShortInformation("Fetch Succeeded updated $updated", true)
+                firebaseRemoteConfig.activate()
+            } else {
+                showShortInformation("Fetch Failed", true)
+            }
+            displayWelcomeMessage()
         }
-
-        // [START fetch_config_with_callback]
-        // cacheExpirationSeconds is set to cacheExpiration here, indicating the next fetch request
-        // will use fetch data from the Remote Config service, rather than cached parameter values,
-        // if cached parameter values are more than cacheExpiration seconds old.
-        // See Best Practices in the README for more information.
-        firebaseRemoteConfig
-                ?.fetch(cacheExpiration)
-                ?.addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        showShortInformation("Fetch Succeeded", true)
-
-                        // After config data is successfully fetched, it must be activated before newly fetched
-                        // values are returned.
-                        firebaseRemoteConfig?.activateFetched()
-                    } else {
-                        showShortInformation("Fetch Failed", true)
-                    }
-                    displayWelcomeMessage()
-                }
     }
 
     private fun displayWelcomeMessage() {
-        val welcomeMessage = firebaseRemoteConfig?.getString(WELCOME_MESSAGE_KEY)
-        welcomeTextView.isAllCaps = firebaseRemoteConfig?.getBoolean(WELCOME_MESSAGE_CAPS_KEY) == true
+        val welcomeMessage = firebaseRemoteConfig.getString(WELCOME_MESSAGE_KEY)
+        welcomeTextView.isAllCaps = firebaseRemoteConfig.getBoolean(WELCOME_MESSAGE_CAPS_KEY) == true
         welcomeTextView.text = welcomeMessage
     }
 }

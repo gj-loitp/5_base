@@ -47,8 +47,8 @@ import com.views.calendar.cosmocalendar.settings.appearance.AppearanceInterface;
 import com.views.calendar.cosmocalendar.settings.date.DateInterface;
 import com.views.calendar.cosmocalendar.settings.lists.CalendarListsInterface;
 import com.views.calendar.cosmocalendar.settings.lists.DisabledDaysCriteria;
-import com.views.calendar.cosmocalendar.settings.lists.connected_days.ConnectedDays;
-import com.views.calendar.cosmocalendar.settings.lists.connected_days.ConnectedDaysManager;
+import com.views.calendar.cosmocalendar.settings.lists.connectedDays.ConnectedDays;
+import com.views.calendar.cosmocalendar.settings.lists.connectedDays.ConnectedDaysManager;
 import com.views.calendar.cosmocalendar.settings.selection.SelectionInterface;
 import com.views.calendar.cosmocalendar.utils.CalendarUtils;
 import com.views.calendar.cosmocalendar.utils.SelectionType;
@@ -58,16 +58,17 @@ import com.views.calendar.cosmocalendar.view.customviews.CircleAnimationTextView
 import com.views.calendar.cosmocalendar.view.customviews.SquareTextView;
 import com.views.calendar.cosmocalendar.view.delegate.MonthDelegate;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-//TODO convert kotlin
 public class CalendarView extends RelativeLayout implements OnDaySelectedListener,
-        AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface, MultipleSelectionBarAdapter.ListItemClickListener, GravitySnapHelper.SnapListener {
+        AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface,
+        MultipleSelectionBarAdapter.ListItemClickListener, GravitySnapHelper.SnapListener {
 
     private List<Day> selectedDays;
 
@@ -147,8 +148,6 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
     /**
      * Handles custom attributes and sets them to settings manager
-     *
-     * @param typedArray
      */
     private void handleAttributes(TypedArray typedArray) {
         int orientation = typedArray.getInteger(R.styleable.CalendarView_orientation, SettingsManager.DEFAULT_ORIENTATION);
@@ -424,23 +423,13 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     private void setPreviousNavigationButton() {
         ivPrevious = flNavigationButtons.findViewById(R.id.iv_previous_month);
         ivPrevious.setImageResource(settingsManager.getPreviousMonthIconRes());
-        ivPrevious.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToPreviousMonth();
-            }
-        });
+        ivPrevious.setOnClickListener(v -> goToPreviousMonth());
     }
 
     private void setNextNavigationButton() {
         ivNext = flNavigationButtons.findViewById(R.id.iv_next_month);
         ivNext.setImageResource(settingsManager.getNextMonthIconRes());
-        ivNext.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToNextMonth();
-            }
-        });
+        ivNext.setOnClickListener(v -> goToNextMonth());
     }
 
     private MonthAdapter createAdapter() {
@@ -455,9 +444,9 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
     /**
      * Scroll listener for month pagination
      */
-    private RecyclerView.OnScrollListener pagingScrollListener = new RecyclerView.OnScrollListener() {
+    private final RecyclerView.OnScrollListener pagingScrollListener = new RecyclerView.OnScrollListener() {
         @Override
-        public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+        public void onScrollStateChanged(@NotNull RecyclerView recyclerView, int newState) {
             //Fix for bug with bottom selection bar and different month item height in horizontal mode (different count of weeks)
             View view = rvMonths.getLayoutManager().findViewByPosition(getFirstVisiblePosition(rvMonths.getLayoutManager()));
             if (view != null) {
@@ -477,7 +466,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         }
 
         @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+        public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
             final RecyclerView.LayoutManager manager = rvMonths.getLayoutManager();
 
@@ -596,15 +585,11 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
     /**
      * Returns all selected days
-     *
-     * @return
      */
     public List<Day> getSelectedDays() {
         List<Day> selectedDays = new ArrayList<>();
-        for (Iterator<Month> monthIterator = monthAdapter.getData().iterator(); monthIterator.hasNext(); ) {
-            Month month = monthIterator.next();
-            for (Iterator<Day> dayIterator = month.getDaysWithoutTitlesAndOnlyCurrent().iterator(); dayIterator.hasNext(); ) {
-                Day day = dayIterator.next();
+        for (Month month : monthAdapter.getData()) {
+            for (Day day : month.getDaysWithoutTitlesAndOnlyCurrent()) {
                 if (selectionManager.isDaySelected(day)) {
                     selectedDays.add(day);
                 }
@@ -615,8 +600,6 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
     /**
      * Returns all selected dates
-     *
-     * @return
      */
     public List<Calendar> getSelectedDates() {
         List<Calendar> selectedDays = new ArrayList<>();
@@ -724,8 +707,6 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
 
     /**
      * Defines do we need to show range of selected days in bottom selection bar
-     *
-     * @return
      */
     private boolean needToShowSelectedDaysRange() {
         if (getCalendarOrientation() == OrientationHelper.HORIZONTAL && getSelectionType() == SelectionType.RANGE) {
@@ -759,7 +740,7 @@ public class CalendarView extends RelativeLayout implements OnDaySelectedListene
         setSelectionBarVisibility();
 
         //Clear selections and selection bar
-        multipleSelectionBarAdapter.setData(new ArrayList<SelectionBarItem>());
+        multipleSelectionBarAdapter.setData(new ArrayList<>());
         selectionManager.clearSelections();
         if (selectionManager instanceof MultipleSelectionManager) {
             ((MultipleSelectionManager) selectionManager).clearCriteriaList();
