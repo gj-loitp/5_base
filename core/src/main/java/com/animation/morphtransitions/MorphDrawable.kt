@@ -1,96 +1,79 @@
-package com.animation.morphtransitions;
+package com.animation.morphtransitions
 
-import android.annotation.TargetApi;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Outline;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.util.Property;
+import android.graphics.Canvas
+import android.graphics.ColorFilter
+import android.graphics.Outline
+import android.graphics.Paint
+import android.graphics.drawable.Drawable
+import android.util.Property
+import androidx.annotation.ColorInt
 
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
+internal class MorphDrawable(
+        @ColorInt color: Int, private var cornerRadius: Float
+) : Drawable() {
 
-@TargetApi(21)
-class MorphDrawable extends Drawable {
+    private val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
-    private float cornerRadius;
-    public static final Property<MorphDrawable, Float> CORNER_RADIUS = new FloatProperty<MorphDrawable>("cornerRadius") {
+    init {
+        paint.color = color
+    }
 
-        @Override
-        public void setValue(MorphDrawable morphDrawable, float value) {
-            morphDrawable.setCornerRadius(value);
+    fun getCornerRadius(): Float {
+        return cornerRadius
+    }
+
+    fun setCornerRadius(cornerRadius: Float) {
+        this.cornerRadius = cornerRadius
+        invalidateSelf()
+    }
+
+    var color: Int
+        get() = paint.color
+        set(color) {
+            paint.color = color
+            invalidateSelf()
         }
 
-        @Override
-        public Float get(MorphDrawable morphDrawable) {
-            return morphDrawable.getCornerRadius();
+    override fun draw(canvas: Canvas) {
+        canvas.drawRoundRect(bounds.left.toFloat(), bounds.top.toFloat(), bounds.right.toFloat(), bounds.bottom.toFloat(), cornerRadius, cornerRadius, paint)
+    }
+
+    override fun getOutline(outline: Outline) {
+        outline.setRoundRect(bounds, cornerRadius)
+    }
+
+    override fun setAlpha(alpha: Int) {
+        paint.alpha = alpha
+        invalidateSelf()
+    }
+
+    override fun setColorFilter(cf: ColorFilter?) {
+        paint.colorFilter = cf
+        invalidateSelf()
+    }
+
+    override fun getOpacity(): Int {
+        return paint.alpha
+    }
+
+    companion object {
+        val CORNER_RADIUS: Property<MorphDrawable, Float> = object : FloatProperty<MorphDrawable>("cornerRadius") {
+            override fun setValue(obj: MorphDrawable, value: Float) {
+                obj.setCornerRadius(value)
+            }
+
+            override operator fun get(morphDrawable: MorphDrawable): Float {
+                return morphDrawable.getCornerRadius()
+            }
         }
-    };
-    private final Paint paint;
-    public static final Property<MorphDrawable, Integer> COLOR = new IntProperty<MorphDrawable>("color") {
+        val COLOR: Property<MorphDrawable, Int> = object : IntProperty<MorphDrawable>("color") {
+            override fun setValue(obj: MorphDrawable, value: Int) {
+                obj.color = value
+            }
 
-        @Override
-        public void setValue(MorphDrawable morphDrawable, int value) {
-            morphDrawable.setColor(value);
+            override operator fun get(morphDrawable: MorphDrawable): Int {
+                return morphDrawable.color
+            }
         }
-
-        @Override
-        public Integer get(MorphDrawable morphDrawable) {
-            return morphDrawable.getColor();
-        }
-    };
-
-    public MorphDrawable(@ColorInt int color, float cornerRadius) {
-        this.cornerRadius = cornerRadius;
-        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(color);
     }
-
-    public float getCornerRadius() {
-        return cornerRadius;
-    }
-
-    public void setCornerRadius(float cornerRadius) {
-        this.cornerRadius = cornerRadius;
-        invalidateSelf();
-    }
-
-    public int getColor() {
-        return paint.getColor();
-    }
-
-    public void setColor(int color) {
-        paint.setColor(color);
-        invalidateSelf();
-    }
-
-    @Override
-    public void draw(Canvas canvas) {
-        canvas.drawRoundRect(getBounds().left, getBounds().top, getBounds().right, getBounds()
-                .bottom, cornerRadius, cornerRadius, paint);
-    }
-
-    @Override
-    public void getOutline(@NonNull Outline outline) {
-        outline.setRoundRect(getBounds(), cornerRadius);
-    }
-
-    @Override
-    public void setAlpha(int alpha) {
-        paint.setAlpha(alpha);
-        invalidateSelf();
-    }
-
-    @Override
-    public void setColorFilter(ColorFilter cf) {
-        paint.setColorFilter(cf);
-        invalidateSelf();
-    }
-
-    @Override
-    public int getOpacity() {
-        return paint.getAlpha();
-    }
-
 }
