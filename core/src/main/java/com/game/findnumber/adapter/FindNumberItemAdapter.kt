@@ -46,7 +46,7 @@ class FindNumberItemAdapter : BaseAdapter() {
 //        notifyDataSetChanged()
 //    }
 
-    var onClickRootView: ((FindNumberItem, Int) -> Unit)? = null
+    var onClickRootView: ((FindNumberItem, Int, View) -> Unit)? = null
 
     inner class NetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -105,7 +105,7 @@ class FindNumberItemAdapter : BaseAdapter() {
             LUIUtil.setOnClickListenerElastic(
                     view = itemView.layoutRootView,
                     runnable = {
-                        onClickRootView?.invoke(findNumberItem, bindingAdapterPosition)
+                        onClickRootView?.invoke(findNumberItem, bindingAdapterPosition, itemView.layoutRootView)
                     })
         }
     }

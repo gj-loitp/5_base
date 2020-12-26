@@ -1,16 +1,21 @@
 package com.game.findnumber.ui
 
+import android.app.ActivityOptions
+import android.os.Build
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
+import com.animation.morphtransitions.MorphTransform
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LAnimationUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.adapter.FindNumberItemAdapter
+import com.game.findnumber.dialog.FindNumberWinActivity
 import com.game.findnumber.model.FindNumberItem
 import com.game.findnumber.model.Level
 import kotlinx.android.synthetic.main.l_frm_find_number_play.*
@@ -39,7 +44,7 @@ class FrmFindNumberPlay(
     }
 
     private fun setupViews() {
-        findNumberItemAdapter.onClickRootView = { findNumberItem, position ->
+        findNumberItemAdapter.onClickRootView = { findNumberItem, position, view ->
             if (findNumberItem.name == numberTarget.toString()) {
                 numberTarget++
                 setupNumberTarget()
@@ -48,7 +53,7 @@ class FrmFindNumberPlay(
                 findNumberItemAdapter.updateFindNumberItem(position = position)
 
                 if (numberTarget > findNumberItemAdapter.itemCount) {
-                    winGame()
+                    winGame(view = view)
                 }
             }
         }
@@ -400,8 +405,25 @@ class FrmFindNumberPlay(
         rvFindNumber.layoutManager = GridLayoutManager(context, spanCount)
     }
 
-    private fun winGame() {
-        //TODO loitpp
-        showLongInformation("WINNNNNNNNNN")
+    private fun winGame(view: View) {
+        activity?.let { a ->
+            val intent = FindNumberWinActivity.newIntent(a, FindNumberWinActivity.TYPE_BUTTON)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                MorphTransform.addExtras(
+                        intent,
+                        ContextCompat.getColor(a, R.color.colorAccent),
+                        resources.getDimensionPixelSize(R.dimen.round_medium)
+                )
+                val options = ActivityOptions.makeSceneTransitionAnimation(
+                        a,
+                        view,
+                        getString(R.string.transition_morph)
+                )
+                startActivity(intent, options.toBundle())
+            } else {
+                startActivity(intent)
+                a.overridePendingTransition(R.anim.anim_morph_transitions_fade_in, R.anim.anim_morph_transitions_do_nothing)
+            }
+        }
     }
 }
