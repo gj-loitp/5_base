@@ -12,6 +12,27 @@ internal class MorphDrawable(
         @ColorInt color: Int, private var cornerRadius: Float
 ) : Drawable() {
 
+    companion object {
+        val CORNER_RADIUS: Property<MorphDrawable, Float> = object : FloatProperty<MorphDrawable>("cornerRadius") {
+            override fun setValue(obj: MorphDrawable, value: Float) {
+                obj.setCornerRadius(value)
+            }
+
+            override operator fun get(morphDrawable: MorphDrawable): Float {
+                return morphDrawable.getCornerRadius()
+            }
+        }
+        val COLOR: Property<MorphDrawable, Int> = object : IntProperty<MorphDrawable>("color") {
+            override fun setValue(obj: MorphDrawable, value: Int) {
+                obj.color = value
+            }
+
+            override operator fun get(morphDrawable: MorphDrawable): Int {
+                return morphDrawable.color
+            }
+        }
+    }
+
     private val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
     init {
@@ -56,24 +77,4 @@ internal class MorphDrawable(
         return paint.alpha
     }
 
-    companion object {
-        val CORNER_RADIUS: Property<MorphDrawable, Float> = object : FloatProperty<MorphDrawable>("cornerRadius") {
-            override fun setValue(obj: MorphDrawable, value: Float) {
-                obj.setCornerRadius(value)
-            }
-
-            override operator fun get(morphDrawable: MorphDrawable): Float {
-                return morphDrawable.getCornerRadius()
-            }
-        }
-        val COLOR: Property<MorphDrawable, Int> = object : IntProperty<MorphDrawable>("color") {
-            override fun setValue(obj: MorphDrawable, value: Int) {
-                obj.color = value
-            }
-
-            override operator fun get(morphDrawable: MorphDrawable): Int {
-                return morphDrawable.color
-            }
-        }
-    }
 }
