@@ -1,4 +1,4 @@
-package com.views.animation.flyschool
+package com.animation.flyschool
 
 /**
  * A simple list of the pre-cooked Blue Prints

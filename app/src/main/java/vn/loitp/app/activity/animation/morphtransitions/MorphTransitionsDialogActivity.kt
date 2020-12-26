@@ -24,7 +24,8 @@ class MorphTransitionsDialogActivity : BaseFontActivity() {
         private const val EXTRA_TYPE = "type"
         const val TYPE_FAB = 1
         const val TYPE_BUTTON = 2
-        fun newIntent(context: Context?, type: Int): Intent {
+
+        fun newIntent(context: Context, type: Int): Intent {
             val intent = Intent(context, MorphTransitionsDialogActivity::class.java)
             intent.putExtra(EXTRA_TYPE, type)
             return intent
@@ -38,7 +39,7 @@ class MorphTransitionsDialogActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        root.setOnClickListener {
+        rootView.setOnClickListener {
             ActivityCompat.finishAfterTransition(this@MorphTransitionsDialogActivity)
         }
         when (intent.getIntExtra(EXTRA_TYPE, -1)) {

@@ -1,4 +1,4 @@
-package com.views.animation.flyschool
+package com.animation.flyschool
 
 /**
  * Created by www.muathu@gmail.com on 12/28/2017.

@@ -57,4 +57,31 @@
         android:text="@string/click"
         android:textColor="@android:color/white" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:background="?attr/colorAccent"
+        android:text="@string/click"
+        android:textColor="@android:color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?attr/colorAccent"
+        android:text="@string/click"
+        android:textColor="@android:color/white" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|start"
+        android:background="?attr/colorAccent"
+        android:text="@string/click"
+        android:textColor="@android:color/white" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

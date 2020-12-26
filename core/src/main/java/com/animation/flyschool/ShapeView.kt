@@ -1,12 +1,12 @@
-package com.views.animation.flyschool
+package com.animation.flyschool
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 import com.R
-import com.views.animation.flyschool.Utils.setHeart
+import com.animation.flyschool.Utils.setHeart
 
-class AppCompatShapeView : AppCompatImageView, ShapeSetter {
+class ShapeView : AppCompatImageView, ShapeSetter {
     constructor(context: Context) : super(context) {
         init()
     }

@@ -1,4 +1,4 @@
-package com.views.animation.flyschool
+package com.animation.flyschool
 
 /**
  * Point class that takes everything with respect to the width and height

@@ -1,4 +1,4 @@
-package com.views.animation.flyschool
+package com.animation.flyschool
 
 /**
  * Created by avin on 31/01/17.

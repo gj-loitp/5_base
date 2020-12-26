@@ -14,7 +14,7 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
 
-    <com.views.animation.flyschool.ShapeFlyer
+    <com.animation.flyschool.ShapeFlyer
         android:id="@+id/floatingContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

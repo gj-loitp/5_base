@@ -1,4 +1,4 @@
-package com.views.animation.flyschool
+package com.animation.flyschool
 
 import android.content.res.Resources
 import android.graphics.PorterDuff

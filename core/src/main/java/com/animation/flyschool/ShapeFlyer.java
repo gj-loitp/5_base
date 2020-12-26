@@ -1,4 +1,4 @@
-package com.views.animation.flyschool;
+package com.animation.flyschool;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
