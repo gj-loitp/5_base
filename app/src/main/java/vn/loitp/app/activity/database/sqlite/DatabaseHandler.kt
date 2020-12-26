@@ -1,177 +1,178 @@
-package vn.loitp.app.activity.database.sqlite;
+package vn.loitp.app.activity.database.sqlite
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.content.ContentValues
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteOpenHelper
+import java.util.*
 
-import java.util.ArrayList;
-import java.util.List;
+class DatabaseHandler(context: Context) : SQLiteOpenHelper(
+        context,
+        DATABASE_NAME,
+        null,
+        DATABASE_VERSION
+) {
 
-public class DatabaseHandler extends SQLiteOpenHelper {
-    private final String logTag = getClass().getSimpleName();
-    // Database Version
-    private static final int DATABASE_VERSION = 1;
+    companion object {
+        // Database Version
+        private const val DATABASE_VERSION = 1
 
-    // Database Name
-    private static final String DATABASE_NAME = "contactsManager";
+        // Database Name
+        private const val DATABASE_NAME = "contactsManager"
 
-    // Contacts table name
-    private static final String TABLE_CONTACTS = "contacts";
+        // Contacts table name
+        private const val TABLE_CONTACTS = "contacts"
 
-    // Contacts Table Columns names
-    private static final String KEY_ID = "id";
-    private static final String KEY_NAME = "name";
-    private static final String KEY_PHONE_NUMBER = "phone_number";
-
-    public DatabaseHandler(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        // Contacts Table Columns names
+        private const val KEY_ID = "id"
+        private const val KEY_NAME = "name"
+        private const val KEY_PHONE_NUMBER = "phone_number"
     }
 
+    private val logTag = javaClass.simpleName
+
     // Creating Tables
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_CONTACTS + "("
-                + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                + KEY_PHONE_NUMBER + " TEXT" + ")";
-        db.execSQL(CREATE_CONTACTS_TABLE);
+    override fun onCreate(db: SQLiteDatabase) {
+        val sql = (
+                "CREATE TABLE " + TABLE_CONTACTS + "("
+                        + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
+                        + KEY_PHONE_NUMBER + " TEXT" + ")"
+                )
+        db.execSQL(sql)
     }
 
     // Upgrading database
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    override fun onUpgrade(
+            db: SQLiteDatabase,
+            oldVersion: Int,
+            newVersion: Int
+    ) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS);
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
 
         // Create tables again
-        onCreate(db);
+        onCreate(db)
     }
 
     // Adding new contact
-    public void addContact(Contact contact) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_NAME, contact.getName());
-        values.put(KEY_PHONE_NUMBER, contact.getPhoneNumber());
-
-        db.insert(TABLE_CONTACTS, null, values);
-        db.close();
+    fun addContact(contact: Contact) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(KEY_NAME, contact.name)
+        values.put(KEY_PHONE_NUMBER, contact.phoneNumber)
+        db.insert(TABLE_CONTACTS, null, values)
+        db.close()
     }
 
-    public Contact getContact(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_CONTACTS,
-                new String[]{KEY_ID, KEY_NAME, KEY_PHONE_NUMBER}, KEY_ID + "=?",
-                new String[]{String.valueOf(id)}, null, null, null, null);
+    fun getContact(id: Int): Contact? {
+        val db = this.readableDatabase
+        val cursor = db.query(
+                TABLE_CONTACTS,
+                arrayOf(KEY_ID, KEY_NAME, KEY_PHONE_NUMBER),
+                "$KEY_ID=?",
+                arrayOf(id.toString()),
+                null,
+                null,
+                null,
+                null
+        )
         if (cursor != null) {
-            cursor.moveToFirst();
-            if (cursor.getCount() >= 1) {
-                return new Contact(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
+            cursor.moveToFirst()
+            if (cursor.count >= 1) {
+                return Contact(cursor.getString(0).toInt(), cursor.getString(1), cursor.getString(2))
             }
         }
-        if (cursor != null) {
-            cursor.close();
-        }
-        return null;
+        cursor?.close()
+        return null
     }
 
     // Getting All Contacts
-    public List<Contact> getAllContacts() {
-        List<Contact> contactList = new ArrayList<>();
-        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Contact contact = new Contact();
-                contact.setId(Integer.parseInt(cursor.getString(0)));
-                contact.setName(cursor.getString(1));
-                contact.setPhoneNumber(cursor.getString(2));
-                contactList.add(contact);
-            } while (cursor.moveToNext());
+    val allContacts: List<Contact>
+        get() {
+            val contactList: MutableList<Contact> = ArrayList()
+            val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
+            val db = this.writableDatabase
+            val cursor = db.rawQuery(selectQuery, null)
+            if (cursor.moveToFirst()) {
+                do {
+                    val contact = Contact()
+                    contact.id = cursor.getString(0).toInt()
+                    contact.name = cursor.getString(1)
+                    contact.phoneNumber = cursor.getString(2)
+                    contactList.add(contact)
+                } while (cursor.moveToNext())
+            }
+            cursor.close()
+            return contactList
         }
-        cursor.close();
-        return contactList;
-    }
 
-    public List<Contact> getContactListWithPage(int page, int pageSize) {
-        if (pageSize < 0) {
-            throw new IllegalArgumentException("pagseSize <0 is invalid");
-        }
-        List<Contact> contactList = new ArrayList<>();
+    fun getContactListWithPage(page: Int, pageSize: Int): List<Contact> {
+        require(pageSize >= 0) { "pageSize <0 is invalid" }
+        val contactList: MutableList<Contact> = ArrayList()
         if (page < 0) {
-            return contactList;
+            return contactList
         }
-        int rowCount = getContactsCount();
-
-        int indexStart = pageSize * page;
-        int indexEnd = indexStart + pageSize;
+        val rowCount = contactsCount
+        val indexStart = pageSize * page
+        var indexEnd = indexStart + pageSize
         if (indexEnd >= rowCount) {
-            indexEnd = rowCount;
+            indexEnd = rowCount
         }
-
-        String selectQuery = "SELECT  * FROM " + TABLE_CONTACTS;
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        List<Contact> tmpContactList = new ArrayList<>();
+        val selectQuery = "SELECT  * FROM $TABLE_CONTACTS"
+        val db = this.writableDatabase
+        val cursor = db.rawQuery(selectQuery, null)
+        val tmpContactList: MutableList<Contact> = ArrayList()
         if (cursor.moveToFirst()) {
             do {
-                Contact contact = new Contact();
-                contact.setId(Integer.parseInt(cursor.getString(0)));
-                contact.setName(cursor.getString(1));
-                contact.setPhoneNumber(cursor.getString(2));
-                tmpContactList.add(contact);
-            } while (cursor.moveToNext());
+                val contact = Contact()
+                contact.id = cursor.getString(0).toInt()
+                contact.name = cursor.getString(1)
+                contact.phoneNumber = cursor.getString(2)
+                tmpContactList.add(contact)
+            } while (cursor.moveToNext())
         }
-        cursor.close();
-        for (int i = indexStart; i < indexEnd; i++) {
-            Contact contact = tmpContactList.get(i);
-            contactList.add(contact);
+        cursor.close()
+        for (i in indexStart until indexEnd) {
+            val contact = tmpContactList[i]
+            contactList.add(contact)
         }
-        return contactList;
+        return contactList
     }
 
     // Updating single contact
-    public int updateContact(Contact contact) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(KEY_NAME, contact.getName());
-        values.put(KEY_PHONE_NUMBER, contact.getPhoneNumber());
-
-        return db.update(TABLE_CONTACTS, values, KEY_ID + " = ?", new String[]{String.valueOf(contact.getId())});
+    fun updateContact(contact: Contact): Int {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(KEY_NAME, contact.name)
+        values.put(KEY_PHONE_NUMBER, contact.phoneNumber)
+        return db.update(TABLE_CONTACTS, values, "$KEY_ID = ?", arrayOf(contact.id.toString()))
     }
 
     // Deleting single contact
-    public int deleteContact(Contact contact) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        int result = db.delete(TABLE_CONTACTS, KEY_ID + " = ?", new String[]{String.valueOf(contact.getId())});
-        db.close();
-        return result;
+    fun deleteContact(contact: Contact): Int {
+        val db = this.writableDatabase
+        val result = db.delete(TABLE_CONTACTS, "$KEY_ID = ?", arrayOf(contact.id.toString()))
+        db.close()
+        return result
     }
 
     // Getting contacts Count
-    public int getContactsCount() {
-        String countQuery = "SELECT  * FROM " + TABLE_CONTACTS;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(countQuery, null);
-        int count = 0;
-        if (cursor != null && !cursor.isClosed()) {
-            count = cursor.getCount();
-            cursor.close();
+    val contactsCount: Int
+        get() {
+            val countQuery = "SELECT  * FROM $TABLE_CONTACTS"
+            val db = this.readableDatabase
+            val cursor = db.rawQuery(countQuery, null)
+            var count = 0
+            if (cursor != null && !cursor.isClosed) {
+                count = cursor.count
+                cursor.close()
+            }
+            return count
         }
-        return count;
-    }
 
-    public void clearAllContact() {
-        SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("DELETE FROM " + TABLE_CONTACTS);
-        db.close();
+    fun clearAllContact() {
+        val db = writableDatabase
+        db.execSQL("DELETE FROM $TABLE_CONTACTS")
+        db.close()
     }
 }
