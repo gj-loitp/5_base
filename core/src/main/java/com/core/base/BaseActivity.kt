@@ -16,7 +16,6 @@ import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
 import com.data.EventBusData
-import com.google.ads.interactivemedia.v3.internal.ff
 import com.google.android.gms.ads.InterstitialAd
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
@@ -83,7 +82,7 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isFullScreen) {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
 
-            //TODO loitpp revert if android R
+            //TODO iplm if android R
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
 //                window.insetsController?.hide(WindowInsets.Type.statusBars())
 //            } else {

@@ -176,7 +176,7 @@ class ComicReadActivity : BaseFontActivity() {
             LSocialUtil.shareApp(activity = this)
         }
         popup.onClickDownload = {
-            //TODO loitpp iplm menu
+            //TODO iplm download
             showLongInformation(getString(R.string.coming_soon))
         }
         popup.showOnAnchor(anchorView, verticalPos, horizontalPos, false)

@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -31,13 +30,10 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
-//TODO convert kotlin
 @LogTag("EditAlarmActivity")
 @IsFullScreen(false)
 public class EditAlarmActivity extends BaseFontActivity {
     private EditText mTitle;
-    private CheckBox mAlarmEnabled;
-    private Spinner mOccurence;
     private Button mDateButton;
     private Button mTimeButton;
 
@@ -65,8 +61,8 @@ public class EditAlarmActivity extends BaseFontActivity {
         super.onCreate(bundle);
 
         mTitle = findViewById(R.id.title);
-        mAlarmEnabled = findViewById(R.id.alarm_checkbox);
-        mOccurence = findViewById(R.id.occurence_spinner);
+        CheckBox mAlarmEnabled = findViewById(R.id.alarm_checkbox);
+        Spinner mOccurence = findViewById(R.id.occurence_spinner);
         mDateButton = findViewById(R.id.date_button);
         mTimeButton = findViewById(R.id.time_button);
 
@@ -141,7 +137,7 @@ public class EditAlarmActivity extends BaseFontActivity {
         LActivityUtil.tranIn(this);
     }
 
-    private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
+    private final DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             mYear = year;
             mMonth = monthOfYear;
@@ -154,7 +150,7 @@ public class EditAlarmActivity extends BaseFontActivity {
         }
     };
 
-    private TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+    private final TimePickerDialog.OnTimeSetListener mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             mHour = hourOfDay;
             mMinute = minute;
@@ -166,7 +162,7 @@ public class EditAlarmActivity extends BaseFontActivity {
         }
     };
 
-    private TextWatcher mTitleChangedListener = new TextWatcher() {
+    private final TextWatcher mTitleChangedListener = new TextWatcher() {
         public void afterTextChanged(Editable s) {
             mAlarm.setTitle(mTitle.getText().toString());
         }
@@ -178,7 +174,7 @@ public class EditAlarmActivity extends BaseFontActivity {
         }
     };
 
-    private AdapterView.OnItemSelectedListener mOccurenceSelectedListener = new AdapterView.OnItemSelectedListener() {
+    private final AdapterView.OnItemSelectedListener mOccurenceSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
             mAlarm.setOccurence(position);
@@ -190,7 +186,7 @@ public class EditAlarmActivity extends BaseFontActivity {
         }
     };
 
-    private CompoundButton.OnCheckedChangeListener mAlarmEnabledChangeListener = new CompoundButton.OnCheckedChangeListener() {
+    private final CompoundButton.OnCheckedChangeListener mAlarmEnabledChangeListener = new CompoundButton.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             mAlarm.setEnabled(isChecked);
@@ -214,16 +210,12 @@ public class EditAlarmActivity extends BaseFontActivity {
 
         builder.setTitle("Week days");
 
-        builder.setMultiChoiceItems(names, days, new DialogInterface.OnMultiChoiceClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton, boolean isChecked) {
-            }
+        builder.setMultiChoiceItems(names, days, (dialog, whichButton, isChecked) -> {
         });
 
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
-                mDateTime.setDays(mAlarm, days);
-                updateButtons();
-            }
+        builder.setPositiveButton("OK", (dialog, whichButton) -> {
+            mDateTime.setDays(mAlarm, days);
+            updateButtons();
         });
 
         builder.setNegativeButton("Cancel", null);

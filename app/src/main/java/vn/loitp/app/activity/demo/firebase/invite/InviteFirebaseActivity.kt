@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.activity_invite_firebase.*
 import vn.loitp.app.R
 
 //https://github.com/firebase/quickstart-android
-//TODO loitpp api deprecated
 @LogTag("InviteFirebaseActivity")
 @IsFullScreen(false)
 class InviteFirebaseActivity :

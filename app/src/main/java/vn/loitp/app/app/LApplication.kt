@@ -3,7 +3,6 @@ package vn.loitp.app.app
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.common.Constants
-import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
 import com.data.ActivityData
 import com.data.AdmobData
@@ -16,7 +15,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //build release de check
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
-//TODO demo -> youtube parser ko vao list video dc
 //TODO demo -> floating view crash
 //TODO demo firebase -> auth
 //TODO service -> ko stop service dc

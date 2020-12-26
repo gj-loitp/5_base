@@ -81,7 +81,7 @@ class Content extends BaseModel {
         return getBookSection(index);
     }
 
-    // TODO: A new method for only getting (approx.) count of book sections. That will also be useful for pre-loading the whole book.
+    // check: A new method for only getting (approx.) count of book sections. That will also be useful for pre-loading the whole book.
     private BookSection getBookSection(int index) throws ReadingException, OutOfPagesException {
 
         BookSection bookSection;
@@ -179,7 +179,7 @@ class Content extends BaseModel {
                             getToc().getNavMap().getNavPoints().add(index + 1, nextEntryNavPoint);
 
                             // Inserting calculated info to avoid calculating this navPoint again.
-                            getToc().getNavMap().getNavPoints().get(index).setTypeCode(2); // To indicate that, this is a trimmed part. TODO: Change these with constants.
+                            getToc().getNavMap().getNavPoints().get(index).setTypeCode(2); // To indicate that, this is a trimmed part. check: Change these with constants.
 
                             if (lastBookSectionInfo == null) {
                                 lastBookSectionInfo = new BookSection();
@@ -529,7 +529,7 @@ class Content extends BaseModel {
                                 }
                             }
                         } else {
-                            // TODO: Next content is not the same file as the current one. Anchors are broken. Navigate to the next file.
+                            // check: Next content is not the same file as the current one. Anchors are broken. Navigate to the next file.
                             isNavigatingToNextFile = true;
                             break;
                         }
@@ -574,7 +574,7 @@ class Content extends BaseModel {
 
     }
 
-    // TODO: Similar functionality happens in the prepareBookSection method. Merge them into this.
+    // check: Similar functionality happens in the prepareBookSection method. Merge them into this.
     private int getNextAvailableAnchorIndex(int index, String entryName, int bodyTrimStartPosition, String htmlBody) throws ReadingException, OutOfPagesException {
 
         getToc().getNavMap().getNavPoints().remove(++index); // Removing the nextAnchor from navPoints; 'cause it's already not found.
@@ -609,7 +609,7 @@ class Content extends BaseModel {
                         break;
                     }
                 }
-            } else { // TODO: Next content is not the same file as the current one. Anchors are broken. Navigate to the next file.
+            } else { // check: Next content is not the same file as the current one. Anchors are broken. Navigate to the next file.
                 isNavigatingToNextFile = true;
                 break;
             }
@@ -733,8 +733,8 @@ class Content extends BaseModel {
             loopCount++;
         }
 
-        // TODO: Regex to find table tags like: <table(*.?)>[</table>|</>]
-        // TODO: This may break the maxContentPerSection rule. Check if the table content will exceed the limit.
+        // check: Regex to find table tags like: <table(*.?)>[</table>|</>]
+        // check: This may break the maxContentPerSection rule. Check if the table content will exceed the limit.
         int tableStartIndex = htmlBody.indexOf(Constants.TAG_TABLE_START, trimStartPosition);
 
         // If interval has table, don't break the table.
@@ -826,7 +826,7 @@ class Content extends BaseModel {
         if (getToc().getNavMap().getNavPoints().size() > (index + 1)) {
             NavPoint nextNavPoint = getNavPoint(index + 1);
 
-            if (nextNavPoint.getTypeCode() != 2) { // Real navPoint. Only real navPoints are anchored. TODO: Change these with constants.
+            if (nextNavPoint.getTypeCode() != 2) { // Real navPoint. Only real navPoints are anchored. check: Change these with constants.
 
                 String nextHref = nextNavPoint.getContentSrc();
 
@@ -867,7 +867,7 @@ class Content extends BaseModel {
         return true;
     }
 
-    // TODO: This operation is getting expensive and expensive. fileContent could be held in cache; if the entry is same. Maybe a map with one element -> <entryName, fileContent>
+    // check: This operation is getting expensive and expensive. fileContent could be held in cache; if the entry is same. Maybe a map with one element -> <entryName, fileContent>
     // If map doesn't contain that entryName -> then this method can be used.
     private String readFileContent(String entryName) throws ReadingException {
 
@@ -1047,7 +1047,7 @@ class Content extends BaseModel {
             String cssName = null;
             while (indexOfCssNameStart >= 0) {
 
-                // TODO: There may be multiple css names pointing to one cssValue e.g. .legalnotice p { text-align: left; } OR .legalnotice, p { text-align: left; }
+                // check: There may be multiple css names pointing to one cssValue e.g. .legalnotice p { text-align: left; } OR .legalnotice, p { text-align: left; }
                 if (cssfileContent.charAt(indexOfCssNameStart) == '}' || cssfileContent.charAt(indexOfCssNameStart) == '/') {
 
                     String builtCssName = cssNameBuilder.toString().trim();
@@ -1098,7 +1098,7 @@ class Content extends BaseModel {
         return cssMap;
     }
 
-    // TODO: Search htmlBody tags by cssName and put cssValues where they found.
+    // check: Search htmlBody tags by cssName and put cssValues where they found.
     // e.g. div.mert, "margin-left:30px; padding-top:25px"
     // <div class="mert"> -> <div style="margin-left:30px; padding-top:25px">
     private String putCssIntoTags(Map<String, String> cssMap, String trimmedHtmlBody) {
@@ -1453,7 +1453,7 @@ class Content extends BaseModel {
                         continue;
                     }
 
-                    // TODO: We may have to break the row tabs with new lines (<br/>).
+                    // check: We may have to break the row tabs with new lines (<br/>).
 
                     if (tag.getOpeningTagStartPosition() > tableStartPosition && tag.getOpeningTagStartPosition() < tableEndPosition) {
 
@@ -1580,7 +1580,7 @@ class Content extends BaseModel {
 
                 if (prevOpenedTag.getClosingTagStartPosition() > trimEndPosition) { // Previously opened and not yet closed in scope tags. Should have a place in the beginning.
                     prevOpenedNotClosedYetTags.add(prevOpenedTag);
-                } else { // Previously opened but closed in scope tags. // TODO: Find these tags a position :( Or just append them from the beginning. I don't think it would break anything, would it?
+                } else { // Previously opened but closed in scope tags. // check: Find these tags a position :( Or just append them from the beginning. I don't think it would break anything, would it?
                     prevOpenedClosedTags.add(prevOpenedTag);
                 }
 
@@ -1770,7 +1770,7 @@ class Content extends BaseModel {
 
                 for (String entryName : this.getEntryNames()) {
 
-                    // TODO: I might have to change this contains with equals.
+                    // check: I might have to change this contains with equals.
                     if (entryName.contains(coverImageEntryName)) {
                         ZipEntry coverImageEntry = epubFile.getEntry(entryName);
 

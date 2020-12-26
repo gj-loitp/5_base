@@ -98,7 +98,6 @@ class LSocialUtil {
         /*
         get url fb fanpage
          */
-        //TODO deprecation
         private fun getFacebookPageURL(): String {
             val facebookUrl = "https://www.facebook.com/hoidammedocsach"
             val facebookPageId = "hoidammedocsach"
@@ -120,7 +119,6 @@ class LSocialUtil {
         /*
         chat with fanpage Thugiannao
          */
-        //TODO deprecation
         fun chatMessenger(
                 activity: Activity
         ) {

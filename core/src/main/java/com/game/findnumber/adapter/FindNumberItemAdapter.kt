@@ -102,7 +102,7 @@ class FindNumberItemAdapter : BaseAdapter() {
                 )
             }
 
-            LUIUtil.setSafeOnClickListenerElastic(
+            LUIUtil.setOnClickListenerElastic(
                     view = itemView.layoutRootView,
                     runnable = {
                         onClickRootView?.invoke(findNumberItem, bindingAdapterPosition)

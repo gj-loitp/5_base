@@ -229,7 +229,6 @@ class LDialogUtil {
         }
 
         //style ex ProgressDialog.STYLE_HORIZONTAL
-        //TODO deprecation
         fun showProgressDialog(
                 context: Context,
                 max: Int,

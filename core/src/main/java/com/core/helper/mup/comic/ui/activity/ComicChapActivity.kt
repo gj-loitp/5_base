@@ -145,7 +145,7 @@ class ComicChapActivity : BaseFontActivity() {
         )
 
         fabLike.setSafeOnClickListener {
-            //TODO loitpp iplm fav comic
+            //TODO iplm fav comic
             showLongInformation(getString(R.string.coming_soon))
         }
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {

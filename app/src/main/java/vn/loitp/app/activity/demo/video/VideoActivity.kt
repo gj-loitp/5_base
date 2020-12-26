@@ -42,7 +42,6 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
         val loadControl: LoadControl = DefaultLoadControl()
 
         // 3. Create the player
-        //TODO loitpp deprecated
         player = ExoPlayerFactory.newSimpleInstance(this, trackSelector, loadControl)
 
         //Set media controller
@@ -83,7 +82,6 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
         val videoSource: MediaSource = HlsMediaSource(mp4VideoUri, dataSourceFactory, 1, null, null)
         val loopingSource = LoopingMediaSource(videoSource)
         player?.prepare(loopingSource)
-        //TODO loitpp deprecated
         player?.addListener(object : ExoPlayer.EventListener {
             override fun onTimelineChanged(timeline: Timeline, manifest: Any?, reason: Int) {}
             override fun onTracksChanged(trackGroups: TrackGroupArray, trackSelections: TrackSelectionArray) {
@@ -121,7 +119,6 @@ class VideoActivity : BaseFontActivity(), VideoRendererEventListener {
         })
         player?.apply {
             this.playWhenReady = true
-            //TODO loitpp deprecated
             this.setVideoDebugListener(this@VideoActivity) //for listening to resolution change and  outputing the resolution
         }
 

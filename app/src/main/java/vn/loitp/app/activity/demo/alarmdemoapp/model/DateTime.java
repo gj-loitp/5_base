@@ -15,9 +15,8 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 
 @Keep
-//TODO convert kotlin
 public class DateTime extends BaseModel {
-    private Context mContext;
+    private final Context mContext;
     private String[] mFullDayNames;
     private String[] mShortDayNames;
     private boolean mWeekStartsOnMonday;
@@ -84,7 +83,7 @@ public class DateTime extends BaseModel {
         else {
             for (int i = 0; i < 7; i++)
                 if (days[i])
-                    res += ("" == res) ? mShortDayNames[i] : ", " + mShortDayNames[i];
+                    res += ("".equals(res)) ? mShortDayNames[i] : ", " + mShortDayNames[i];
         }
 
         return res;
@@ -119,7 +118,7 @@ public class DateTime extends BaseModel {
         int sDays = 0;
 
         for (int i = 0; i < 7; i++)
-            sDays |= days[(i + offs) % 7] ? (1 << i) : (0 << i);
+            sDays |= days[(i + offs) % 7] ? (1 << i) : (0);
 
         alarm.setDays(sDays);
     }

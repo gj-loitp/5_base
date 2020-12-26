@@ -102,7 +102,7 @@ public class TreeNode {
             }
         }
 
-        // TODO no node at this position. throw exception?
+        // check no node at this position. throw exception?
         return null;
     }
 

@@ -70,7 +70,6 @@ abstract class PickerManager(
     // String photoName = imageName + "_" + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date(currentTimeMillis)) + ".jpg";
     val imageFile: Uri
         get() {
-            //TODO loitpp depricated
             val imagePathStr = Environment.getExternalStorageDirectory().toString() + "/" +
                     if (folder == null) Environment.DIRECTORY_DCIM + "/" + activity.getString(R.string.app_name) else folder
             val path = File(imagePathStr)

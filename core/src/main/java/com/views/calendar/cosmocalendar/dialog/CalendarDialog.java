@@ -31,14 +31,9 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Set;
 
-//TODO convert kotlin
 public class CalendarDialog extends Dialog implements View.OnClickListener,
         AppearanceInterface, DateInterface, CalendarListsInterface, SelectionInterface {
 
-    //Views
-    private FrameLayout flNavigationButtonsBar;
-    private ImageView ivCancel;
-    private ImageView ivDone;
     private CalendarView calendarView;
 
     private OnDaysSelectionListener onDaysSelectionListener;
@@ -58,17 +53,23 @@ public class CalendarDialog extends Dialog implements View.OnClickListener,
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         setContentView(R.layout.view_cosmo_calendar_dialog_calendar);
-        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        getWindow().getAttributes().gravity = Gravity.TOP;
+
+        Window window = getWindow();
+
+        if (window != null) {
+            getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+            getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            getWindow().getAttributes().gravity = Gravity.TOP;
+        }
 
         initViews();
     }
 
     private void initViews() {
-        flNavigationButtonsBar = findViewById(R.id.fl_navigation_buttons_bar);
-        ivCancel = findViewById(R.id.iv_cancel);
-        ivDone = findViewById(R.id.iv_done);
+        //Views
+        FrameLayout flNavigationButtonsBar = findViewById(R.id.fl_navigation_buttons_bar);
+        ImageView ivCancel = findViewById(R.id.iv_cancel);
+        ImageView ivDone = findViewById(R.id.iv_done);
         calendarView = findViewById(R.id.calendar_view);
 
         Drawable background = calendarView.getBackground();

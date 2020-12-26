@@ -109,7 +109,6 @@ class PositionDialog : DialogFragment() {
                         var posY: Int? = null
                         when (position) {
                             Position.TOP_LEFT -> {
-                                //TODO
                                 posX = anchorV.left
                                 posY = anchorV.top
                             }
