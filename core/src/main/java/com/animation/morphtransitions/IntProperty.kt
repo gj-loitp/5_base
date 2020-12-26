@@ -1,22 +1,17 @@
-package com.animation.morphtransitions;
+package com.animation.morphtransitions
 
-import android.util.Property;
+import android.util.Property
 
-abstract class IntProperty<T> extends Property<T, Integer> {
-
-    public IntProperty(String name) {
-        super(Integer.class, name);
-    }
+internal abstract class IntProperty<T>(name: String)
+    : Property<T, Int>(Int::class.java, name) {
 
     /**
-     * A type-specific override of the {@link #set(Object, Integer)} that is faster when dealing
-     * with fields of type <code>int</code>.
+     * A type-specific override of the [.set] that is faster when dealing
+     * with fields of type `int`.
      */
-    public abstract void setValue(T object, int value);
+    abstract fun setValue(obj: T, value: Int)
 
-    @Override
-    final public void set(T object, Integer value) {
-        setValue(object, value);
+    override fun set(obj: T, value: Int) {
+        setValue(obj, value)
     }
-
 }
