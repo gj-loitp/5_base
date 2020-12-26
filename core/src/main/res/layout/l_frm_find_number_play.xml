@@ -5,13 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.flaviofaria.kenburnsview.KenBurnsView
-        android:id="@+id/ivBackground"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        tools:src="@drawable/bkg_2" />
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvNumberTarget"
         android:layout_width="wrap_content"

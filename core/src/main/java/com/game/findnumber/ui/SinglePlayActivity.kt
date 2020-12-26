@@ -6,8 +6,11 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
+import com.core.utilities.LImageUtil
 import com.core.utilities.LScreenUtil
 import com.game.findnumber.model.Level
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.l_activity_find_number_single_play.*
 
 @LogTag("SinglePlayActivity")
 @IsFullScreen(true)
@@ -33,6 +36,9 @@ class SinglePlayActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
+
+        //TODO loitpp custom background depend on level
+        LImageUtil.load(context = this, any = R.drawable.bkg_2, imageView = ivBackground)
         frmFindNumberPlay?.let {
             LScreenUtil.replaceFragment(
                     activity = this,
@@ -40,6 +46,9 @@ class SinglePlayActivity : BaseFontActivity() {
                     fragment = it,
                     isAddToBackStack = false
             )
+        }
+        ivBack.setSafeOnClickListener {
+            //TODO loitpp popup exit
         }
     }
 

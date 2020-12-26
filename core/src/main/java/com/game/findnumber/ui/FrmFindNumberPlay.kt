@@ -9,7 +9,6 @@ import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.core.utilities.LAnimationUtil
-import com.core.utilities.LImageUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.adapter.FindNumberItemAdapter
 import com.game.findnumber.model.FindNumberItem
@@ -40,8 +39,6 @@ class FrmFindNumberPlay(
     }
 
     private fun setupViews() {
-        //TODO loitpp custom background depend on level
-        LImageUtil.load(context = context, any = R.drawable.bkg_2, imageView = ivBackground)
         findNumberItemAdapter.onClickRootView = { findNumberItem, position ->
             if (findNumberItem.name == numberTarget.toString()) {
                 numberTarget++
