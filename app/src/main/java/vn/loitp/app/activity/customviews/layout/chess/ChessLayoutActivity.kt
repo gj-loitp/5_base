@@ -24,11 +24,17 @@ class ChessLayoutActivity : BaseFontActivity() {
         return R.layout.activity_chess_layout
     }
 
-    var mRows = 7
-    var mCols = 7
+    private var mRows = 10
+    private var mCols = 10
+    private val listData = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val size = mRows * mCols
+        for (i in 0..size) {
+            listData.add("${i + 1}")
+        }
 
         val color1 = LAppResource.getColor(R.color.green)
         val color2 = LAppResource.getColor(R.color.orange)
