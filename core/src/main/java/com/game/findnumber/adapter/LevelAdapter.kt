@@ -23,7 +23,7 @@ class LevelAdapter() : BaseAdapter() {
         notifyDataSetChanged()
     }
 
-    var onClickRootView: ((Level) -> Unit)? = null
+    var onClickRootView: ((Level, View) -> Unit)? = null
 
     inner class LevelViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -41,7 +41,7 @@ class LevelAdapter() : BaseAdapter() {
             LUIUtil.setOnClickListenerElastic(
                     view = itemView.layoutRootView,
                     runnable = {
-                        onClickRootView?.invoke(level)
+                        onClickRootView?.invoke(level, itemView.layoutRootView)
                     })
 
 //            setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
