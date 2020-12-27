@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.chess
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -10,6 +11,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LAppResource
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_chess_layout.*
 import vn.loitp.app.R
 
@@ -40,6 +42,7 @@ class ChessLayoutActivity : BaseFontActivity() {
 
         for (iRow in 0 until mRows) {
             for (iCol in 0 until mCols) {
+
                 textView = TextView(this)
                 layoutParams = ConstraintLayout.LayoutParams(ConstraintSet.MATCH_CONSTRAINT, ConstraintSet.MATCH_CONSTRAINT)
                 id = View.generateViewId()
@@ -47,8 +50,16 @@ class ChessLayoutActivity : BaseFontActivity() {
                 textView.id = id
                 textView.text = id.toString()
                 textView.gravity = Gravity.CENTER
+                textView.setTextColor(Color.WHITE)
                 textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
+
+                LUIUtil.setSafeOnClickListenerElastic(
+                        view = textView,
+                        runnable = {
+                            showShortInformation("${textView.text}")
+                        })
                 layoutRootView.addView(textView, layoutParams)
+
             }
         }
 
