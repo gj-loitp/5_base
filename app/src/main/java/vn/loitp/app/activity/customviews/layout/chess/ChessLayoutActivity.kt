@@ -37,6 +37,7 @@ class ChessLayoutActivity : BaseFontActivity() {
         for (i in 0..size) {
             listData.add("${i + 1}")
         }
+        listData.shuffle()
 
         val color1 = LAppResource.getColor(R.color.green)
         val color2 = LAppResource.getColor(R.color.orange)
