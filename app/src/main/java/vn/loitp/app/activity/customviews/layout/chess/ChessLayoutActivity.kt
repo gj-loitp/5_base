@@ -1,0 +1,76 @@
+package vn.loitp.app.activity.customviews.layout.chess
+
+import android.os.Bundle
+import android.view.Gravity
+import android.view.View
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
+import com.core.utilities.LAppResource
+import kotlinx.android.synthetic.main.activity_chess_layout.*
+import vn.loitp.app.R
+
+
+@LogTag("ChessLayoutActivity")
+@IsFullScreen(false)
+class ChessLayoutActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_chess_layout
+    }
+
+    var mRows = 7
+    var mCols = 7
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val color1 = LAppResource.getColor(R.color.green)
+        val color2 = LAppResource.getColor(R.color.orange)
+        var textView: TextView
+        var layoutParams: ConstraintLayout.LayoutParams
+        var id: Int
+        val idArray = Array(mRows) {
+            IntArray(mCols)
+        }
+        val constraintSet = ConstraintSet()
+
+        for (iRow in 0 until mRows) {
+            for (iCol in 0 until mCols) {
+                textView = TextView(this)
+                layoutParams = ConstraintLayout.LayoutParams(ConstraintSet.MATCH_CONSTRAINT, ConstraintSet.MATCH_CONSTRAINT)
+                id = View.generateViewId()
+                idArray[iRow][iCol] = id
+                textView.id = id
+                textView.text = id.toString()
+                textView.gravity = Gravity.CENTER
+                textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
+                layoutRootView.addView(textView, layoutParams)
+            }
+        }
+
+        constraintSet.clone(layoutRootView)
+        val gridFrameId = R.id.gridFrame
+        constraintSet.setDimensionRatio(gridFrameId, "$mCols:$mRows")
+        for (iRow in 0 until mRows) {
+            for (iCol in 0 until mCols) {
+                id = idArray[iRow][iCol]
+                constraintSet.setDimensionRatio(id, "1:1")
+                if (iRow == 0) {
+                    constraintSet.connect(id, ConstraintSet.TOP, gridFrameId, ConstraintSet.TOP)
+                } else {
+                    constraintSet.connect(id, ConstraintSet.TOP, idArray[iRow - 1][0], ConstraintSet.BOTTOM)
+                }
+            }
+            constraintSet.createHorizontalChain(
+                    gridFrameId, ConstraintSet.LEFT,
+                    gridFrameId, ConstraintSet.RIGHT,
+                    idArray[iRow], null, ConstraintSet.CHAIN_PACKED
+            )
+        }
+        constraintSet.applyTo(layoutRootView)
+    }
+}

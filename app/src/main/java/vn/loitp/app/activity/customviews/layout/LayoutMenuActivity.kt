@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_layout_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.aspectratiolayout.AspectRatioLayoutActivity
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity
+import vn.loitp.app.activity.customviews.layout.chess.ChessLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity
 import vn.loitp.app.activity.customviews.layout.coordinatorlayout.CoordinatorLayoutMenuActivity
@@ -81,6 +82,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btSplitPanelLayout.setOnClickListener(this)
         btTramsformationLayout.setOnClickListener(this)
         btTramsformationLayoutSingle.setOnClickListener(this)
+        btChessLayout.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -114,6 +116,7 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btSplitPanelLayout -> intent = Intent(this, SplitPanelLayoutActivity::class.java)
             btTramsformationLayout -> intent = Intent(this, TransformationActivity::class.java)
             btTramsformationLayoutSingle -> intent = Intent(this, TransformationSingleActivity::class.java)
+            btChessLayout -> intent = Intent(this, ChessLayoutActivity::class.java)
         }
         intent?.let {
             startActivity(intent)
