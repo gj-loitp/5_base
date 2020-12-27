@@ -3,12 +3,12 @@ package vn.loitp.app.activity.animation.activitytransitionreveal
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.tombayley.activitycircularreveal.CircularReveal
+import kotlinx.android.synthetic.main.activity_reveal_2.*
 import vn.loitp.app.R
 
 @LogTag("OtherActivity")
@@ -21,14 +21,13 @@ class RevealActivity2 : BaseFontActivity() {
     }
 
     private var activityCircularReveal: CircularReveal? = null
+
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_reveal_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val rootView: View = findViewById(R.id.root_coord)
 
         activityCircularReveal = CircularReveal(rootView)
         activityCircularReveal?.onActivityCreate(intent)
