@@ -50,7 +50,7 @@ class RevealActivity1 : BaseFontActivity() {
                 this,
                 view,
                 Intent(this, RevealActivity2::class.java),
-                500
+                1000
         ).apply {
             revealColor = ContextCompat.getColor(
                     this@RevealActivity1,
