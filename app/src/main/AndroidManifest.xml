@@ -1151,10 +1151,10 @@
             android:name=".activity.animation.morphtransitions.MorphTransitionsFullScreenActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.activitytransitionreveal.OtherActivity"
+            android:name=".activity.animation.activitytransitionreveal.RevealActivity2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.animation.activitytransitionreveal.MainActivity"
+            android:name=".activity.animation.activitytransitionreveal.RevealActivity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>

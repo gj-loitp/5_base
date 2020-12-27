@@ -10,7 +10,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_animation.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.animation.activitytransition.Animation1Activity
-import vn.loitp.app.activity.animation.activitytransitionreveal.MainActivity
+import vn.loitp.app.activity.animation.activitytransitionreveal.RevealActivity1
 import vn.loitp.app.activity.animation.animationview.AnimationViewActivity
 import vn.loitp.app.activity.animation.basictransition.BasicTransition0Activity
 import vn.loitp.app.activity.animation.basictransitionactivity.SceneTransitionBasicActivity
@@ -68,7 +68,7 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
             btValueAnimator -> intent = Intent(this, ValueAnimatorActivity::class.java)
             btElasticView -> intent = Intent(this, ElasticActivity::class.java)
             btMorphTransitions -> intent = Intent(this, MorphTransitionsMainActivity::class.java)
-            btActivityTransitionReveal -> intent = Intent(this, MainActivity::class.java)
+            btActivityTransitionReveal -> intent = Intent(this, RevealActivity1::class.java)
         }
         intent?.let {
             startActivity(it)

@@ -14,7 +14,7 @@ import vn.loitp.app.R
 @LogTag("OtherActivity")
 @IsFullScreen(false)
 @IsSwipeActivity(true)
-class OtherActivity : BaseFontActivity() {
+class RevealActivity2 : BaseFontActivity() {
 
     companion object {
         const val KEY_DATA_RETURN = "KEY_DATA_RETURN"
@@ -22,7 +22,7 @@ class OtherActivity : BaseFontActivity() {
 
     private var activityCircularReveal: CircularReveal? = null
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_other
+        return R.layout.activity_reveal_2
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
