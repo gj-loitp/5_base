@@ -103,10 +103,10 @@ class FrmFindNumberPlay(
                 spanCount = 2
             }
             4 -> {
-                spanCount = 2
+                spanCount = 3
             }
             5 -> {
-                spanCount = 2
+                spanCount = 3
             }
             6 -> {
                 spanCount = 2
