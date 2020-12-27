@@ -31,6 +31,18 @@ class RevealActivity1 : BaseFontActivity() {
         fab.setSafeOnClickListener {
             show(it)
         }
+        tv.setSafeOnClickListener {
+            show(it)
+        }
+        iv.setSafeOnClickListener {
+            show(it)
+        }
+        bt.setSafeOnClickListener {
+            show(it)
+        }
+        ib.setSafeOnClickListener {
+            show(it)
+        }
     }
 
     private fun show(view: View) {
