@@ -3,14 +3,15 @@ package com.game.findnumber.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.utilities.*
-import com.daimajia.androidanimations.library.Techniques
+import com.core.utilities.LActivityUtil
+import com.core.utilities.LScreenUtil
+import com.core.utilities.LSocialUtil
+import com.core.utilities.LUIUtil
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_menu.*
 
@@ -33,14 +34,6 @@ class MenuActivity : BaseFontActivity() {
         activityCircularReveal?.onActivityCreate(intent)
 
         setupViews()
-
-        playAnim(delayInMls = 100)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        playAnim(delayInMls = 0)
     }
 
     override fun onBackPressed() {
@@ -72,44 +65,5 @@ class MenuActivity : BaseFontActivity() {
                 runnable = {
                     //TODO 2 players
                 })
-    }
-
-    private fun playAnim(delayInMls: Int) {
-        LUIUtil.setDelay(delayInMls) {
-            ivTitle?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                    view = ivTitle,
-                    duration = 1000,
-                    techniques = Techniques.ZoomInDown
-            )
-
-            btSinglePlayer?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                    view = btSinglePlayer,
-                    duration = 1000,
-                    techniques = Techniques.SlideInLeft
-            )
-
-            btTwoPlayers?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                    view = btTwoPlayers,
-                    duration = 1000,
-                    techniques = Techniques.SlideInRight
-            )
-
-            ivBack?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                    view = ivBack,
-                    duration = 1000,
-                    techniques = Techniques.ZoomInUp
-            )
-
-            ivMore?.visibility = View.VISIBLE
-            LAnimationUtil.play(
-                    view = ivMore,
-                    duration = 1000,
-                    techniques = Techniques.ZoomInUp
-            )
-        }
     }
 }
