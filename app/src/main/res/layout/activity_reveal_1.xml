@@ -26,9 +26,11 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/w_150"
+        android:layout_height="@dimen/w_150"
         android:layout_centerInParent="true"
+        android:background="@drawable/bg_circle"
+        android:gravity="center"
         android:text="@string/click"
         android:textColor="@color/red"
         android:textSize="@dimen/txt_medium"
