@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.chess
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -28,6 +29,7 @@ class ChessLayoutActivity : BaseFontActivity() {
     private var mCols = 10
     private val listData = ArrayList<String>()
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -53,7 +55,7 @@ class ChessLayoutActivity : BaseFontActivity() {
                 id = View.generateViewId()
                 idArray[iRow][iCol] = id
                 textView.id = id
-                textView.text = id.toString()
+                textView.text = listData[iRow * 10 + iCol]
                 textView.gravity = Gravity.CENTER
                 textView.setTextColor(Color.WHITE)
                 textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
