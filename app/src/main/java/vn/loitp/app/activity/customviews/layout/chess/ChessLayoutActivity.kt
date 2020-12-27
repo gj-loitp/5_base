@@ -32,7 +32,6 @@ class ChessLayoutActivity : BaseFontActivity() {
 
         val color1 = LAppResource.getColor(R.color.green)
         val color2 = LAppResource.getColor(R.color.orange)
-        var textView: TextView
         var layoutParams: ConstraintLayout.LayoutParams
         var id: Int
         val idArray = Array(mRows) {
@@ -43,7 +42,7 @@ class ChessLayoutActivity : BaseFontActivity() {
         for (iRow in 0 until mRows) {
             for (iCol in 0 until mCols) {
 
-                textView = TextView(this)
+                val textView = TextView(this)
                 layoutParams = ConstraintLayout.LayoutParams(ConstraintSet.MATCH_CONSTRAINT, ConstraintSet.MATCH_CONSTRAINT)
                 id = View.generateViewId()
                 idArray[iRow][iCol] = id
