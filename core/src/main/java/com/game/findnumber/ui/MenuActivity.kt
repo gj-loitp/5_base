@@ -3,17 +3,18 @@ package com.game.findnumber.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.R
 import com.annotation.IsFullScreen
 import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_menu.*
+import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
 @LogTag("MenuActivity")
 @IsFullScreen(true)
@@ -57,8 +58,19 @@ class MenuActivity : BaseFontActivity() {
                 view = btSinglePlayer,
                 runnable = {
                     val intent = Intent(this, SingleLevelActivity::class.java)
-                    startActivity(intent)
-                    LActivityUtil.tranIn(this)
+                    val builder = CircularReveal.Builder(
+                            this,
+                            btSinglePlayer,
+                            intent,
+                            1000
+                    ).apply {
+                        revealColor = ContextCompat.getColor(
+                                this@MenuActivity,
+                                R.color.orange
+                        )
+                        requestCode = SplashActivity.REQUEST_CODE
+                    }
+                    CircularReveal.presentActivity(builder)
                 })
         LUIUtil.setSafeOnClickListenerElastic(
                 view = btTwoPlayers,

@@ -6,6 +6,7 @@ import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
@@ -16,12 +17,15 @@ import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.adapter.LevelAdapter
 import com.game.findnumber.model.Level
 import com.game.findnumber.viewmodel.FindNumberViewModel
+import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
 
 @LogTag("SingleLevelActivity")
 @IsFullScreen(true)
+@IsSwipeActivity(true)
 class SingleLevelActivity : BaseFontActivity() {
 
+    private var activityCircularReveal: CircularReveal? = null
     private var levelAdapter = LevelAdapter()
     private var findNumberViewModel: FindNumberViewModel? = null
 
@@ -33,10 +37,17 @@ class SingleLevelActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        activityCircularReveal = CircularReveal(rootView)
+        activityCircularReveal?.onActivityCreate(intent)
+
         setupViews()
         setupViewModels()
 
         findNumberViewModel?.getListLevelSingle()
+    }
+
+    override fun onBackPressed() {
+        activityCircularReveal?.unRevealActivity(this)
     }
 
     private fun setupViews() {
