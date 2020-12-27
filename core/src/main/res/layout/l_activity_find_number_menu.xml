@@ -1,82 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.flaviofaria.kenburnsview.KenBurnsView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bkg_2" />
+        android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:padding="@dimen/padding_medium"
-        android:scaleType="centerInside"
-        android:src="@drawable/find_the_number"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        <com.flaviofaria.kenburnsview.KenBurnsView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bkg_2" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivBack"
-        android:layout_width="@dimen/w_70"
-        android:layout_height="@dimen/w_70"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_large"
-        android:src="@drawable/back_button"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/padding_medium"
+            android:scaleType="centerInside"
+            android:src="@drawable/find_the_number"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivMore"
-        android:layout_width="@dimen/w_70"
-        android:layout_height="@dimen/w_70"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_large"
-        android:src="@drawable/more_games"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/w_70"
+            android:layout_height="@dimen/w_70"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/margin_large"
+            android:src="@drawable/back_button"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btSinglePlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/bkg_blue"
-        android:drawableStart="@drawable/ic_play_blue"
-        android:gravity="center"
-        android:paddingStart="0dp"
-        android:paddingEnd="@dimen/padding_large"
-        android:src="@drawable/bkg_blue"
-        android:text="@string/single_player"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_find_number"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMore"
+            android:layout_width="@dimen/w_70"
+            android:layout_height="@dimen/w_70"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/margin_large"
+            android:src="@drawable/more_games"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btTwoPlayers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btSinglePlayer"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:background="@drawable/bkg_blue"
-        android:drawableStart="@drawable/ic_play_blue"
-        android:gravity="center"
-        android:paddingStart="0dp"
-        android:paddingEnd="@dimen/padding_large"
-        android:src="@drawable/bkg_blue"
-        android:text="@string/two_players"
-        android:textColor="@color/white"
-        android:textSize="@dimen/txt_find_number"
-        android:visibility="invisible"
-        tools:visibility="visible" />
-</RelativeLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btSinglePlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bkg_blue"
+            android:drawableStart="@drawable/ic_play_blue"
+            android:gravity="center"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_large"
+            android:src="@drawable/bkg_blue"
+            android:text="@string/single_player"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_find_number"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/btTwoPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btSinglePlayer"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:background="@drawable/bkg_blue"
+            android:drawableStart="@drawable/ic_play_blue"
+            android:gravity="center"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_large"
+            android:src="@drawable/bkg_blue"
+            android:text="@string/two_players"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_find_number"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
