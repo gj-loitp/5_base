@@ -183,6 +183,7 @@ Likewise may someone love you next.
     <string name="zoom_layout">Zoom Layout</string>
     <string name="menu_animation">Menu Animation</string>
     <string name="activity_transition">Activity Transition</string>
+    <string name="activity_transition_reveal">Activity Transition Reveal</string>
     <string name="animation_view">Animation view</string>
     <string name="basic_transition_activity">Basic transition activity</string>
     <string name="basic_transition">Basic transition</string>
