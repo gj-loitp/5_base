@@ -57,6 +57,7 @@ class ChessLayoutActivity : BaseFontActivity() {
                 idArray[iRow][iCol] = id
                 textView.id = id
                 textView.text = listData[iRow * 10 + iCol]
+                textView.rotation = 45f
                 textView.gravity = Gravity.CENTER
                 textView.setTextColor(Color.WHITE)
                 textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
