@@ -46,7 +46,7 @@
     <dimen name="txt_large">22sp</dimen>
     <dimen name="txt_largest">32sp</dimen>
 
-    <dimen name="txt_find_number">32sp</dimen>
+    <dimen name="txt_find_number">28sp</dimen>
 
     <dimen name="txt_8">8sp</dimen>
     <dimen name="txt_10">10sp</dimen>

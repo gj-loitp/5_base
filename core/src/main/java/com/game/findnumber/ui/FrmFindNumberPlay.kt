@@ -94,18 +94,19 @@ class FrmFindNumberPlay(
                 mCols = 10
             }
             else -> {
-                mRows = 2
-                mCols = 2
+                mRows = 10
+                mCols = 10
             }
         }
     }
 
     private fun setupData() {
         val size = mRows * mCols
-        for (i in 0..size) {
+        for (i in 0 until size) {
             listData.add("${i + 1}")
         }
         listData.shuffle()
+        logD("listData " + BaseApplication.gson.toJson(listData))
 
         val color1 = LAppResource.getColor(R.color.green)
         val color2 = LAppResource.getColor(R.color.orange)
@@ -125,7 +126,6 @@ class FrmFindNumberPlay(
                 idArray[iRow][iCol] = id
                 textView.id = id
                 textView.text = listData[index]
-                index++
 //                textView.rotation = 45f
                 textView.gravity = Gravity.CENTER
                 textView.setTextColor(Color.WHITE)
@@ -137,7 +137,7 @@ class FrmFindNumberPlay(
                             showShortInformation("${textView.text}")
                         })
                 layoutRootView.addView(textView, layoutParams)
-
+                index++
             }
         }
 
