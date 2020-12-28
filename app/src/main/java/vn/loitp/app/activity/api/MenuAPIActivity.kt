@@ -25,7 +25,6 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setupViews()
     }
 
@@ -35,7 +34,7 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
         btComicAPI.setOnClickListener(this)
         btTestRetrofit2.setOnClickListener(this)
     }
-
+    
     override fun onClick(v: View?) {
         var intent: Intent? = null
         when (v) {
