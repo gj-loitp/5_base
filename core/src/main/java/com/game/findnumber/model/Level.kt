@@ -24,6 +24,22 @@ data class Level(
         @Expose
         var name: Int = 1,
 
+        @SerializedName("col")
+        @Expose
+        var col: Int = 2,
+
+        @SerializedName("row")
+        @Expose
+        var row: Int = 2,
+
+        @SerializedName("rotate")
+        @Expose
+        var rotate: Float = 0f,
+
+        @SerializedName("frame")
+        @Expose
+        var frame: Int = 0,
+
         @SerializedName("status")
         @Expose
         var status: Int = STATUS_LEVEL_OPEN,
