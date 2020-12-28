@@ -192,5 +192,8 @@ dependencies {
 
     //https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
+
+    //https://github.com/rehmanmuradali/wheel-spinner
+    api 'com.github.rehmanmuradali:wheel-spinner:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
