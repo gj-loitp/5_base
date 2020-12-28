@@ -534,4 +534,6 @@ Likewise may someone love you next.
     <string name="calendar">Calendar</string>
     <string name="indicator">Indicator</string>
     <string name="another_activity">Another activity</string>
+    <string name="custom">Custom</string>
+    <string name="wheel_spinner">Wheel spinner</string>
 </resources>

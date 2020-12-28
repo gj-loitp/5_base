@@ -171,6 +171,11 @@
                 android:text="Web View" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btWheelSpinner"
+                style="@style/ButtonMenu"
+                android:text="Wheel spinner" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btWwlMusic"
                 style="@style/ButtonMenu"
                 android:text="@string/wwl_music" />

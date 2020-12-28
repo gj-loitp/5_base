@@ -16,6 +16,7 @@ import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMen
 import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity
 import vn.loitp.app.activity.customviews.calendar.CalendarMenuActivity
+import vn.loitp.app.activity.customviews.wheelspiner.WheelSpinnerActivity
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
@@ -90,6 +91,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btCalendar.setOnClickListener(this)
         btWebView.setOnClickListener(this)
         btIndicator.setOnClickListener(this)
+        btWheelSpinner.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -127,6 +129,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btCalendar -> intent = Intent(this, CalendarMenuActivity::class.java)
             btWebView -> intent = Intent(this, LWebViewActivity::class.java)
             btIndicator -> intent = Intent(this, MagicIndicatorMenuActivity::class.java)
+            btWheelSpinner -> intent = Intent(this, WheelSpinnerActivity::class.java)
         }
         intent?.let {
             startActivity(it)
