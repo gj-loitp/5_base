@@ -74,9 +74,7 @@ class FrmFindNumberPlay(
 
         var index = 0
         for (iRow in 0 until mRows) {
-            logD("setupData mRows $iRow")
             for (iCol in 0 until mCols) {
-                logD("setupData iCol $iCol")
                 val textView = TextView(context)
                 layoutParams = ConstraintLayout.LayoutParams(ConstraintSet.MATCH_CONSTRAINT, ConstraintSet.MATCH_CONSTRAINT)
                 id = View.generateViewId()
