@@ -5,35 +5,32 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
-import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.R
 import com.animation.morphtransitions.MorphTransform
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.dialog.FindNumberWinActivity
-import com.game.findnumber.model.FindNumberItem
 import com.game.findnumber.model.Level
 import kotlinx.android.synthetic.main.l_frm_find_number_play.*
 
-@LogTag("FrmFindNumberPlay")
+@LogTag("loitppFrmFindNumberPlay")
 class FrmFindNumberPlay(
         val level: Level
 ) : BaseFragment() {
 
     private var numberTarget = 1
-    private var mRows = 4
-    private var mCols = 4
+    private var mRows = 2
+    private var mCols = 2
     private val listData = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
@@ -44,6 +41,7 @@ class FrmFindNumberPlay(
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
+        setupDataLevel()
         setupData()
     }
 
@@ -54,6 +52,52 @@ class FrmFindNumberPlay(
     private fun setupNumberTarget() {
         tvNumberTarget.text = "$numberTarget"
         LAnimationUtil.play(view = tvNumberTarget, techniques = Techniques.Flash)
+    }
+
+    private fun setupDataLevel() {
+        logD("setupDataLevel " + BaseApplication.gson.toJson(level))
+        when {
+            level.name < 10 -> {
+                mRows = 2
+                mCols = 2
+            }
+            level.name < 20 -> {
+                mRows = 3
+                mCols = 3
+            }
+            level.name < 30 -> {
+                mRows = 4
+                mCols = 4
+            }
+            level.name < 40 -> {
+                mRows = 5
+                mCols = 5
+            }
+            level.name < 50 -> {
+                mRows = 6
+                mCols = 6
+            }
+            level.name < 60 -> {
+                mRows = 7
+                mCols = 7
+            }
+            level.name < 70 -> {
+                mRows = 8
+                mCols = 8
+            }
+            level.name < 80 -> {
+                mRows = 9
+                mCols = 9
+            }
+            level.name < 90 -> {
+                mRows = 10
+                mCols = 10
+            }
+            else -> {
+                mRows = 2
+                mCols = 2
+            }
+        }
     }
 
     private fun setupData() {
@@ -82,7 +126,7 @@ class FrmFindNumberPlay(
                 textView.id = id
                 textView.text = listData[index]
                 index++
-                textView.rotation = 45f
+//                textView.rotation = 45f
                 textView.gravity = Gravity.CENTER
                 textView.setTextColor(Color.WHITE)
                 textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
