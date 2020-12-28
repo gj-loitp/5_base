@@ -134,7 +134,15 @@ class FrmFindNumberPlay(
                 LUIUtil.setSafeOnClickListenerElastic(
                         view = textView,
                         runnable = {
-                            showShortInformation("${textView.text}")
+                            if (numberTarget == listData.size) {
+                                winGame(textView)
+                                return@setSafeOnClickListenerElastic
+                            }
+                            if (numberTarget.toString() == textView.text.toString()) {
+                                textView.visibility = View.INVISIBLE
+                                numberTarget++
+                                setupNumberTarget()
+                            }
                         })
                 layoutRootView.addView(textView, layoutParams)
                 index++
