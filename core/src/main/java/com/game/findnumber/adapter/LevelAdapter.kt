@@ -44,7 +44,6 @@ class LevelAdapter() : BaseAdapter() {
                         onClickRootView?.invoke(level, itemView.layoutRootView)
                     })
 
-//            setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
         }
     }
 

@@ -29,12 +29,16 @@ class FindNumberWinActivity : BaseFontActivity() {
 
     private fun setupViews() {
         rootView.setOnClickListener {
-//            ActivityCompat.finishAfterTransition(this@FindNumberWinActivity)
+            exit()
         }
         FabTransform.setup(this, container)
     }
 
     override fun onBackPressed() {
+        exit()
+    }
+
+    private fun exit() {
         ActivityCompat.finishAfterTransition(this@FindNumberWinActivity)
     }
 

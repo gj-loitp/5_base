@@ -10,26 +10,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/green"
         android:clickable="true"
         android:elevation="@dimen/round_medium"
         android:focusable="true"
         android:minWidth="256dp"
         android:minHeight="100dp"
         android:orientation="vertical"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
         android:transitionName="@string/transition_morph">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_account_circle_black_48dp" />
+            android:src="@drawable/dlg_level_complete" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
