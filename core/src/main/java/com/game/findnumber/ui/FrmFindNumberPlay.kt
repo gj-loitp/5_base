@@ -29,8 +29,6 @@ class FrmFindNumberPlay(
 ) : BaseFragment() {
 
     private var numberTarget = 1
-    private var mRows = 2
-    private var mCols = 2
     private val listData = ArrayList<String>()
 
     override fun setLayoutResourceId(): Int {
@@ -56,51 +54,12 @@ class FrmFindNumberPlay(
 
     private fun setupDataLevel() {
         logD("setupDataLevel " + BaseApplication.gson.toJson(level))
-        when {
-            level.name < 10 -> {
-                mRows = 2
-                mCols = 2
-            }
-            level.name < 20 -> {
-                mRows = 3
-                mCols = 3
-            }
-            level.name < 30 -> {
-                mRows = 4
-                mCols = 4
-            }
-            level.name < 40 -> {
-                mRows = 5
-                mCols = 5
-            }
-            level.name < 50 -> {
-                mRows = 6
-                mCols = 6
-            }
-            level.name < 60 -> {
-                mRows = 7
-                mCols = 7
-            }
-            level.name < 70 -> {
-                mRows = 8
-                mCols = 8
-            }
-            level.name < 80 -> {
-                mRows = 9
-                mCols = 9
-            }
-            level.name < 90 -> {
-                mRows = 10
-                mCols = 10
-            }
-            else -> {
-                mRows = 10
-                mCols = 10
-            }
-        }
     }
 
     private fun setupData() {
+        val mRows = level.row
+        val mCols = level.col
+
         val size = mRows * mCols
         for (i in 0 until size) {
             listData.add("${i + 1}")
@@ -126,7 +85,7 @@ class FrmFindNumberPlay(
                 idArray[iRow][iCol] = id
                 textView.id = id
                 textView.text = listData[index]
-//                textView.rotation = 45f
+                textView.rotation = level.rotate
                 textView.gravity = Gravity.CENTER
                 textView.setTextColor(Color.WHITE)
                 textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
