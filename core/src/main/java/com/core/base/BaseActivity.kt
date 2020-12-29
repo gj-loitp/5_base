@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
@@ -26,6 +27,7 @@ import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+
 
 //animation https://github.com/dkmeteor/SmoothTransition
 abstract class BaseActivity : AppCompatActivity() {
@@ -78,13 +80,28 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
 
+        setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
+
+        super.onCreate(savedInstanceState)
+        EventBus.getDefault().register(this)
+
         val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
         if (isFullScreen) {
-            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            requestWindowFeature(Window.FEATURE_NO_TITLE)//requestFeature() must be called before adding content
+        }
 
-            //TODO iplm if android R
+        val layoutId = setLayoutResourceId()
+        if (layoutId != Constants.NOT_FOUND) {
+            setContentView(setLayoutResourceId())
+        }
+
+        if (isFullScreen) {
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-//                window.insetsController?.hide(WindowInsets.Type.statusBars())
+//                window.setDecorFitsSystemWindows(false)
+//                window.insetsController?.let {
+//                    it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+//                    it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+//                }
 //            } else {
 //                @Suppress("DEPRECATION")
 //                window.setFlags(
@@ -93,21 +110,13 @@ abstract class BaseActivity : AppCompatActivity() {
 //                )
 //            }
 
+            //TODO fix full screen in android 11
             window.setFlags(
                     WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
-
-        super.onCreate(savedInstanceState)
-        EventBus.getDefault().register(this)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
-        val layoutId = setLayoutResourceId()
-        if (layoutId != Constants.NOT_FOUND) {
-            setContentView(setLayoutResourceId())
-        }
 
         CheckNetworkConnectionHelper
                 .getInstance()
@@ -175,7 +184,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun startIdleTimeHandler(delayMls: Long) {
         delayMlsIdleTime = delayMls
-        handlerIdleTime = Handler()
+        handlerIdleTime = Handler(Looper.getMainLooper())
         runnableIdleTime = Runnable {
             isIdleTime = true
             onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)

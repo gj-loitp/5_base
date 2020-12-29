@@ -20,7 +20,7 @@ class WxSwipeBackActivityManager private constructor() : ActivityLifecycleCallba
         mApplication.registerActivityLifecycleCallbacks(this)
     }
 
-    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle) {
+    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         mActivityStack.add(activity)
     }
 

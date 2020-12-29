@@ -205,8 +205,10 @@ class AppUtils private constructor() {
         ): Drawable? {
             return if (isSpace(packageName)) null else try {
                 val pm = Utils.getContext()?.packageManager
-                val pi = pm?.getPackageInfo(packageName, 0)
-                pi?.applicationInfo?.loadIcon(pm)
+                packageName?.let{
+                    val pi = pm?.getPackageInfo(it, 0)
+                    pi?.applicationInfo?.loadIcon(pm)
+                }
             } catch (e: PackageManager.NameNotFoundException) {
                 e.printStackTrace()
                 null

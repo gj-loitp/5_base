@@ -8,7 +8,7 @@ import android.os.Bundle
  * Created by GongWen on 17/9/4.
  */
 open class ActivityLifecycleCallbacksAdapter : ActivityLifecycleCallbacks {
-    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle) {}
+    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
     override fun onActivityStarted(activity: Activity) {}
     override fun onActivityResumed(activity: Activity) {}
     override fun onActivityPaused(activity: Activity) {}
