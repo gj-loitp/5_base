@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.game.findnumber.model.Level
 
-@Database(entities = [Level::class], version = 1)
+@Database(entities = [Level::class], version = 2)
 abstract class FindNumberDatabase : RoomDatabase() {
 
     abstract fun levelDao(): LevelDao
