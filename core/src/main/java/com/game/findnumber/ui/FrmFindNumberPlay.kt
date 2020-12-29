@@ -1,6 +1,7 @@
 package com.game.findnumber.ui
 
 import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -130,7 +131,7 @@ class FrmFindNumberPlay(
 
     private fun winGame(view: View) {
         activity?.let { a ->
-            val intent = FindNumberWinActivity.newIntent(a, FindNumberWinActivity.TYPE_BUTTON)
+            val intent = Intent(context, FindNumberWinActivity::class.java)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 MorphTransform.addExtras(
                         intent,
