@@ -50,7 +50,7 @@ class FrmFindNumberPlay(
 
     private fun setupNumberTarget() {
         tvNumberTarget.text = "$numberTarget"
-        LAnimationUtil.play(view = tvNumberTarget, techniques = Techniques.Flash)
+        LAnimationUtil.play(view = tvNumberTarget, techniques = Techniques.Pulse)
     }
 
     private fun setupDataLevel() {
