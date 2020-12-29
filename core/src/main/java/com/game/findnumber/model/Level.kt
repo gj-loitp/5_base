@@ -40,6 +40,10 @@ data class Level(
         @Expose
         var frame: Int = 0,
 
+        @SerializedName("bkg")
+        @Expose
+        var bkg: Int = 0,
+
         @SerializedName("status")
         @Expose
         var status: Int = STATUS_LEVEL_OPEN,

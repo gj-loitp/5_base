@@ -25,6 +25,7 @@ class SinglePlayActivity : BaseFontActivity() {
 
     private var activityCircularReveal: CircularReveal? = null
     private var frmFindNumberPlay: FrmFindNumberPlay? = null
+    private var currentLevel: Level? = null
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_find_number_single_play
@@ -46,9 +47,7 @@ class SinglePlayActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-
-        //TODO loitpp custom background depend on level
-        LImageUtil.load(context = this, any = R.drawable.bkg_2, imageView = ivBackground)
+        LImageUtil.load(context = this, any = currentLevel?.bkg, imageView = ivBackground)
         frmFindNumberPlay?.let {
             LScreenUtil.replaceFragment(
                     activity = this,
@@ -67,12 +66,15 @@ class SinglePlayActivity : BaseFontActivity() {
     }
 
     private fun setupData() {
-        val currentLevel = intent.getSerializableExtra(KEY_LEVEL)
-        if (currentLevel == null || currentLevel !is Level) {
+        val level = intent.getSerializableExtra(KEY_LEVEL)
+        if (level == null || level !is Level) {
             showShortInformation(getString(R.string.err_unknow_en))
             return
         }
+        currentLevel = level
         logD("setupData currentLevel " + BaseApplication.gson.toJson(currentLevel))
-        frmFindNumberPlay = FrmFindNumberPlay(level = currentLevel)
+        currentLevel?.let {
+            frmFindNumberPlay = FrmFindNumberPlay(level = it)
+        }
     }
 }
