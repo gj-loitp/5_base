@@ -67,8 +67,6 @@ class FrmFindNumberPlay(
         listData.shuffle()
         logD("listData " + BaseApplication.gson.toJson(listData))
 
-        val color1 = LAppResource.getColor(R.color.green)
-        val color2 = LAppResource.getColor(R.color.orange)
         var layoutParams: ConstraintLayout.LayoutParams
         var id: Int
         val idArray = Array(mRows) {
@@ -88,7 +86,7 @@ class FrmFindNumberPlay(
                 textView.rotation = level.rotate
                 textView.gravity = Gravity.CENTER
                 textView.setTextColor(Color.WHITE)
-                textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
+                textView.setBackgroundResource(level.frame)
 
                 LUIUtil.setSafeOnClickListenerElastic(
                         view = textView,

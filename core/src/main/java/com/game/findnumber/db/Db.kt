@@ -23,7 +23,7 @@ class Db {
             listLevel.add(Level(id = System.nanoTime().toString(), name = 7, col = 2, row = 2, rotate = 0f, frame = R.drawable.flute_k5, status = Level.STATUS_LEVEL_OPEN, timeInMls = 0))
             listLevel.add(Level(id = System.nanoTime().toString(), name = 8, col = 2, row = 2, rotate = 0f, frame = R.drawable.flute_k5, status = Level.STATUS_LEVEL_OPEN, timeInMls = 0))
             listLevel.add(Level(id = System.nanoTime().toString(), name = 9, col = 2, row = 2, rotate = 0f, frame = R.drawable.flute_k5, status = Level.STATUS_LEVEL_OPEN, timeInMls = 0))
-            listLevel.add(Level(id = System.nanoTime().toString(), name = 10, col = 2, row = 2, rotate = 45f, frame = R.drawable.flute_k5, status = Level.STATUS_LEVEL_OPEN, timeInMls = 0))
+            listLevel.add(Level(id = System.nanoTime().toString(), name = 10, col = 2, row = 2, rotate = 0f, frame = R.drawable.flute_k5, status = Level.STATUS_LEVEL_OPEN, timeInMls = 0))
             //TODO loitpp add level
 
             return listLevel
