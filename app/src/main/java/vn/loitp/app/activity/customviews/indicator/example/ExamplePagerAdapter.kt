@@ -1,68 +1,52 @@
-package vn.loitp.app.activity.customviews.indicator.example;
+package vn.loitp.app.activity.customviews.indicator.example
 
-import android.graphics.Color;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.viewpager.widget.PagerAdapter;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
+import android.graphics.Color
+import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.viewpager.widget.PagerAdapter
 
 /**
  * Created by hackware on 2016/9/10.
  */
-
-public class ExamplePagerAdapter extends PagerAdapter {
-    private final List<String> mDataList;
-
-    public ExamplePagerAdapter(List<String> dataList) {
-        mDataList = dataList;
+class ExamplePagerAdapter(
+        private val mDataList: List<String>
+) : PagerAdapter() {
+    override fun getCount(): Int {
+        return mDataList.size
     }
 
-    @Override
-    public int getCount() {
-        return mDataList == null ? 0 : mDataList.size();
+    override fun isViewFromObject(view: View, any: Any): Boolean {
+        return view === any
     }
 
-    @Override
-    public boolean isViewFromObject(@NotNull View view, @NotNull Object object) {
-        return view == object;
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val textView = TextView(container.context)
+        textView.text = mDataList[position]
+        textView.gravity = Gravity.CENTER
+        textView.setTextColor(Color.BLACK)
+        textView.textSize = 24f
+        container.addView(textView)
+        return textView
     }
 
-    @NotNull
-    @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        TextView textView = new TextView(container.getContext());
-        textView.setText(mDataList.get(position));
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextColor(Color.BLACK);
-        textView.setTextSize(24);
-        container.addView(textView);
-        return textView;
-    }
-
-    @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
-        container.removeView((View) object);
-    }
-
-    @Override
-    public int getItemPosition(Object object) {
-        TextView textView = (TextView) object;
-        String text = textView.getText().toString();
-        int index = mDataList.indexOf(text);
-        if (index >= 0) {
-            return index;
+    override fun destroyItem(container: ViewGroup, position: Int, any: Any) {
+        if (any is View) {
+            container.removeView(any)
         }
-        return POSITION_NONE;
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return mDataList.get(position);
+    override fun getItemPosition(any: Any): Int {
+        val textView = any as TextView
+        val text = textView.text.toString()
+        val index = mDataList.indexOf(text)
+        return if (index >= 0) {
+            index
+        } else POSITION_NONE
+    }
+
+    override fun getPageTitle(position: Int): CharSequence {
+        return mDataList[position]
     }
 }
