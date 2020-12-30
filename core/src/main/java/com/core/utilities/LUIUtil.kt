@@ -17,6 +17,7 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
@@ -34,6 +35,7 @@ import com.data.AdmobData
 import com.google.ads.interactivemedia.v3.internal.it
 import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.skydoves.elasticviews.elasticAnimation
@@ -866,6 +868,26 @@ class LUIUtil {
                         runnable?.run()
                     }
                     anim.doAction()
+                }
+            }
+        }
+
+        fun Snackbar.withBackground(resId: Int): Snackbar {
+//            this.view.setBackgroundColor(colorInt)
+            this.view.setBackgroundResource(resId)
+            return this
+        }
+
+        fun Snackbar.allowInfiniteLines(): Snackbar {
+            return apply {
+                (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
+                    it.isSingleLine = false
+                    it.setTextColor(Color.WHITE)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        it.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                    } else {
+                        it.gravity = Gravity.CENTER_HORIZONTAL
+                    }
                 }
             }
         }

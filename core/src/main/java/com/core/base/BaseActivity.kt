@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -16,8 +17,11 @@ import com.R
 import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
+import com.core.utilities.LUIUtil.Companion.allowInfiniteLines
+import com.core.utilities.LUIUtil.Companion.withBackground
 import com.data.EventBusData
 import com.google.android.gms.ads.InterstitialAd
+import com.google.android.material.snackbar.Snackbar
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
@@ -359,5 +363,35 @@ abstract class BaseActivity : AppCompatActivity() {
                 onDismiss = onDismiss
         )
         bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
+    }
+
+    fun showSnackBarInfor(msg: String, view: View = findViewById(android.R.id.content)) {
+        if (!this.isFinishing) {
+            val snackBar = Snackbar
+                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_infor)
+                    .allowInfiniteLines()
+            snackBar.show()
+        }
+    }
+
+    fun showSnackBarWarning(msg: String, view: View = findViewById(android.R.id.content)) {
+        if (!this.isFinishing) {
+            val snackBar = Snackbar
+                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_warning)
+                    .allowInfiniteLines()
+            snackBar.show()
+        }
+    }
+
+    fun showSnackBarError(msg: String, view: View = findViewById(android.R.id.content)) {
+        if (!this.isFinishing) {
+            val snackBar = Snackbar
+                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_err)
+                    .allowInfiniteLines()
+            snackBar.show()
+        }
     }
 }
