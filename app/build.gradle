@@ -24,6 +24,12 @@ android {
             }
         }
 
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
+
         buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
 
         buildConfigField("String", "PATH_MAIN", '"api/"')

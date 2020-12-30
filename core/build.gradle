@@ -18,6 +18,12 @@ android {
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
         multiDexEnabled true
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+            }
+        }
     }
 
     /*dataBinding {
