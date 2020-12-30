@@ -17,7 +17,6 @@ import com.annotation.LogTag
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LLog
 import com.data.EventBusData
-import com.views.LToast
 import io.reactivex.disposables.CompositeDisposable
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -138,38 +137,54 @@ abstract class BaseFragment : Fragment() {
     }
 
     protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
+        }
     }
 
     protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
+        }
     }
 
     protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showShortError(msg = msg, isTopAnchor = isTopAnchor)
+        }
     }
 
     protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
+        }
     }
 
     protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
+        }
     }
 
     protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
-        LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showLongError(msg = msg, isTopAnchor = isTopAnchor)
+        }
     }
 
     protected fun showShortDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            LToast.showShortDebug(msg)
+            if (activity is BaseActivity) {
+                (activity as BaseActivity).showShortDebug(msg = msg)
+            }
         }
     }
 
     protected fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
-            LToast.showLongInformation(msg)
+            if (activity is BaseActivity) {
+                (activity as BaseActivity).showLongInformation(msg = msg)
+            }
         }
     }
 

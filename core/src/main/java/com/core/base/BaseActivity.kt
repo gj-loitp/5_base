@@ -28,7 +28,6 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
-
 //animation https://github.com/dkmeteor/SmoothTransition
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
@@ -281,37 +280,37 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
-    protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showShortDebug(msg: String?) {
+    fun showShortDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showShortDebug(msg)
         }
     }
 
-    protected fun showLongDebug(msg: String?) {
+    fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
         }
