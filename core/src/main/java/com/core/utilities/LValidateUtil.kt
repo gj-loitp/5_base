@@ -59,7 +59,8 @@ class LValidateUtil {
                 "loitp93.anhseyeuemtucainhindautien",
                 "com.mup.comic",
                 "loitp93.game.findnumber",
-                "com.loitp.igallery"
+                "com.loitp.igallery",
+                "com.loitp.haivl",
         )
 
         fun isValidPackageName(): Boolean {
