@@ -50,7 +50,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         recyclerView = findViewById(R.id.recycler);
 
         //get realm instance
-        this.realm = RealmController.with(this).getRealm();
+        this.realm = RealmController.Companion.with(this).getRealm();
 
         setupRecycler();
 
@@ -59,11 +59,11 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         }
 
         // refresh the realm instance
-        RealmController.with(this).refresh();
+        RealmController.Companion.with(this).refresh();
         // get all persisted objects
         // create the helper booksAdapter and notify data set changes
         // changes will be reflected automatically
-        setRealmAdapter(RealmController.with(this).getBooks());
+        setRealmAdapter(RealmController.Companion.with(this).getBooks());
 
         showShortInformation("Press card item for edit, long press to remove item", true);
 
