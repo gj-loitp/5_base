@@ -29,7 +29,8 @@ class FindNumberWinActivity : BaseFontActivity() {
 
     private fun setupViews() {
         rootView.setOnClickListener {
-            exit()
+//            exit()
+            //do nothing
         }
         FabTransform.setup(this, container)
     }
