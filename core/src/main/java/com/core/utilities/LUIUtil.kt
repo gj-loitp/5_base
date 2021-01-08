@@ -291,33 +291,33 @@ class LUIUtil {
         }
 
         fun setColorForSwipeRefreshLayout(swipeRefreshLayout: SwipeRefreshLayout?) {
-            swipeRefreshLayout?.setColorSchemeResources(R.color.colorPrimary, R.color.vip1, R.color.vip2,
-                    R.color.vip3, R.color.vip4, R.color.vip5)
+            swipeRefreshLayout?.setColorSchemeResources(
+                    R.color.colorPrimary,
+                    R.color.vip1,
+                    R.color.vip2,
+                    R.color.vip3,
+                    R.color.vip4,
+                    R.color.vip5
+            )
         }
 
         fun setProgressViewOffset(swipeRefreshLayout: SwipeRefreshLayout?, topMargin: Int) {
             swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
         }
 
-        fun setTextShadow(textView: TextView?, color: Int = if (isDarkTheme()) {
-            Color.BLACK
-        } else {
-            Color.WHITE
-        }) {
+        fun setTextShadow(textView: TextView?, color: Int?) {
+            val mColor: Int = color
+                    ?: if (isDarkTheme()) {
+                        Color.BLACK
+                    } else {
+                        Color.WHITE
+                    }
             textView?.setShadowLayer(1f, // radius
                     1f, // dx
                     1f, // dy
-                    color // shadow color
+                    mColor // shadow color
             )
         }
-
-//        fun setTextShadow(textView: TextView?) {
-//            textView?.setShadowLayer(1f, // radius
-//                    1f, // dx
-//                    1f, // dy
-//                    Color.BLACK // shadow color
-//            )
-//        }
 
         fun setTextBold(textBold: TextView) {
             textBold.setTypeface(null, Typeface.BOLD)

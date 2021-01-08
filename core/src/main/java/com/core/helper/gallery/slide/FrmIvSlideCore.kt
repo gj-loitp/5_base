@@ -34,7 +34,7 @@ class FrmIvSlideCore : Fragment() {
         val position = bundle.getInt(Constants.SK_PHOTO_PISITION)
         val photo = instance.getPhoto(position)
 
-        LUIUtil.setTextShadow(textView = tvProgress)
+        LUIUtil.setTextShadow(textView = tvProgress, color = null)
         biv.setImageViewFactory(GlideImageViewFactory())
 
         biv.setImageLoaderCallback(object : ImageLoader.Callback {

@@ -34,7 +34,7 @@
             android:singleLine="true"
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_medium"
-            android:visibility="invisible"
+            android:visibility="visible"
             tools:text="04/02/1993"
             tools:visibility="visible" />
 
@@ -47,7 +47,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/txt_32"
             android:textStyle="bold"
-            android:visibility="invisible"
+            android:visibility="visible"
             tools:text="@string/app_name"
             tools:visibility="visible" />
     </LinearLayout>
@@ -61,7 +61,7 @@
         android:singleLine="true"
         android:textColor="@android:color/white"
         android:textSize="@dimen/txt_30"
-        android:visibility="invisible"
+        android:visibility="visible"
         tools:text="6969"
         tools:visibility="visible" />
 

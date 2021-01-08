@@ -40,7 +40,7 @@ class FrmIvSlideGirl : Fragment() {
             }
         }
 
-        LUIUtil.setTextShadow(textView = tvProgress)
+        LUIUtil.setTextShadow(textView = tvProgress, color = null)
         biv.setImageViewFactory(GlideImageViewFactory())
 
         biv.setImageLoaderCallback(object : ImageLoader.Callback {

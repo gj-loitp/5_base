@@ -50,7 +50,7 @@ class SplashActivity : BaseFontActivity() {
         })
         textViewVersion.text = "Version ${BuildConfig.VERSION_NAME}"
 
-        LUIUtil.setTextShadow(textView = tvPolicy)
+        LUIUtil.setTextShadow(textView = tvPolicy, color = null)
         tvPolicy.setOnClickListener {
             LSocialUtil.openBrowserPolicy(context = this)
         }
