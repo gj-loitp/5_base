@@ -16,6 +16,7 @@ import com.core.adapter.BaseAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LImageUtil
+import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.restapi.flickr.model.photosetgetphotos.Photo
@@ -43,12 +44,6 @@ class PhotosOnlyAdapter(
         fun onClickCmt(photo: Photo, pos: Int)
     }
 
-    val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_photos_core_only, viewGroup, false))
     }
@@ -68,6 +63,7 @@ class PhotosOnlyAdapter(
 
         internal fun bind(p: Photo, position: Int) {
 
+            val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(context = itemView.iv.context,
                     any = p.urlO,
                     imageView = itemView.iv,

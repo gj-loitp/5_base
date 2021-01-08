@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.demo.ebookwithrealm.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +50,7 @@ public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
         holder.textAuthor.setText(book.getAuthor());
         holder.textDescription.setText(book.getDescription());
 
-        holder.imageBackground.setBackgroundColor(LUIUtil.Companion.getColor());
+        holder.imageBackground.setBackgroundColor(Color.RED);
         if (book.getImageUrl() != null) {
             Glide.with(context)
                     .asBitmap()

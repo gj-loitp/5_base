@@ -31,12 +31,6 @@ class AlbumAdapter(
         fun onLongClick(pos: Int)
     }
 
-    private val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_album_core, viewGroup, false))
     }
@@ -55,6 +49,7 @@ class AlbumAdapter(
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(photoset: Photoset) {
 
+            val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(context = itemView.imageView.context,
                     any = photoset.flickrLinkO(),
                     imageView = itemView.imageView,

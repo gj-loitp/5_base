@@ -1,7 +1,6 @@
 package com.core.helper.gallery.photos
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -33,12 +32,6 @@ class PhotosAdapter internal constructor(
         fun onLongClick(photo: Photo, pos: Int)
     }
 
-    val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
-    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_photos_core, viewGroup, false))
     }
@@ -58,6 +51,7 @@ class PhotosAdapter internal constructor(
         @SuppressLint("SetTextI18n")
         fun bind(photo: Photo) {
 
+            val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(context = itemView.imageView.context,
                     any = photo.flickrLink1024,
                     imageView = itemView.imageView,

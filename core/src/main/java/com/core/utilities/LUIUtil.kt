@@ -23,7 +23,6 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -32,7 +31,6 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
-import com.google.ads.interactivemedia.v3.internal.it
 import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
@@ -62,10 +60,21 @@ class LUIUtil {
         private var lastOffset = 0.0f
         private var isUp = false
 
-        private val colors = intArrayOf(R.color.lightBlue, R.color.lightCoral, R.color.lightCyan,
-                R.color.lightGoldenrodYellow, R.color.lightGreen, R.color.lightGrey, R.color.lightPink,
-                R.color.lightSalmon, R.color.lightSeaGreen, R.color.lightSlateGray, R.color.lightSteelBlue,
-                R.color.lightYellow, R.color.lightSkyBlue)
+        private val listColorLight = intArrayOf(
+                R.color.lightBlue,
+                R.color.lightCoral,
+                R.color.lightCyan,
+                R.color.lightGoldenrodYellow,
+                R.color.lightGreen,
+                R.color.lightGrey,
+                R.color.lightPink,
+                R.color.lightSalmon,
+                R.color.lightSeaGreen,
+                R.color.lightSlateGray,
+                R.color.lightSteelBlue,
+                R.color.lightYellow,
+                R.color.lightSkyBlue
+        )
 
         var fontForAll: String? = null
             set(fontForAll) {
@@ -493,10 +502,10 @@ class LUIUtil {
             OverScrollDecoratorHelper.setUpStaticOverScroll(view, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
         }
 
-        fun getColor(): Int {
+        fun getRandomColorLight(): Int {
             val random = Random()
-            val c = random.nextInt(colors.size)
-            return LAppResource.getColor(colors[c])
+            val index = random.nextInt(listColorLight.size)
+            return listColorLight[index]
         }
 
         //it.imeOptions = EditorInfo.IME_ACTION_SEARCH

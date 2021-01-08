@@ -16,6 +16,7 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.BaseAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LImageUtil
+import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
@@ -29,12 +30,6 @@ class MemberAdapter(
     interface Callback {
         fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView)
         fun onLongClick(photo: Photo, pos: Int)
-    }
-
-    private val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
@@ -55,6 +50,8 @@ class MemberAdapter(
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         fun bind(photo: Photo) {
+
+            val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(context = itemView.circleImageView.context,
                     any = photo.urlO,
                     imageView = itemView.circleImageView,
