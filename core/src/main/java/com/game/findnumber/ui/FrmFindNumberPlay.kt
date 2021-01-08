@@ -5,9 +5,9 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
-import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.ContextCompat
@@ -22,6 +22,7 @@ import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.dialog.FindNumberWinActivity
 import com.game.findnumber.model.Level
+import com.views.textview.autofit.LAutofitTextView
 import kotlinx.android.synthetic.main.l_frm_find_number_play.*
 
 @LogTag("loitppFrmFindNumberPlay")
@@ -76,34 +77,39 @@ class FrmFindNumberPlay(
         val constraintSet = ConstraintSet()
 
         var index = 0
-        for (iRow in 0 until mRows) {
-            for (iCol in 0 until mCols) {
-                val textView = TextView(context)
-                layoutParams = ConstraintLayout.LayoutParams(ConstraintSet.MATCH_CONSTRAINT, ConstraintSet.MATCH_CONSTRAINT)
-                id = View.generateViewId()
-                idArray[iRow][iCol] = id
-                textView.id = id
-                textView.text = listData[index]
-                textView.rotation = level.rotate
-                textView.gravity = Gravity.CENTER
-                textView.setTextColor(Color.WHITE)
-                textView.setBackgroundResource(level.frame)
+        context?.let { c ->
+            for (iRow in 0 until mRows) {
+                for (iCol in 0 until mCols) {
+                    val lAutofitTextView = LAutofitTextView(c)
+                    layoutParams = ConstraintLayout.LayoutParams(ConstraintSet.MATCH_CONSTRAINT, ConstraintSet.MATCH_CONSTRAINT)
+                    id = View.generateViewId()
+                    idArray[iRow][iCol] = id
+                    lAutofitTextView.id = id
+                    lAutofitTextView.text = listData[index]
+                    lAutofitTextView.rotation = level.rotate
+                    lAutofitTextView.gravity = Gravity.CENTER
+                    lAutofitTextView.setTextColor(Color.WHITE)
+                    lAutofitTextView.setBackgroundResource(level.frame)
+                    lAutofitTextView.isSingleLine = true
+                    lAutofitTextView.setMaxTextSize(TypedValue.COMPLEX_UNIT_PX, 100f)
+                    lAutofitTextView.setMinTextSize(12)
 
-                LUIUtil.setSafeOnClickListenerElastic(
-                        view = textView,
-                        runnable = {
-                            if (numberTarget == listData.size) {
-                                winGame(textView)
-                                return@setSafeOnClickListenerElastic
-                            }
-                            if (numberTarget.toString() == textView.text.toString()) {
-                                textView.visibility = View.INVISIBLE
-                                numberTarget++
-                                setupNumberTarget()
-                            }
-                        })
-                layoutRootView.addView(textView, layoutParams)
-                index++
+                    LUIUtil.setSafeOnClickListenerElastic(
+                            view = lAutofitTextView,
+                            runnable = {
+                                if (numberTarget == listData.size) {
+                                    winGame(lAutofitTextView)
+                                    return@setSafeOnClickListenerElastic
+                                }
+                                if (numberTarget.toString() == lAutofitTextView.text.toString()) {
+                                    lAutofitTextView.visibility = View.INVISIBLE
+                                    numberTarget++
+                                    setupNumberTarget()
+                                }
+                            })
+                    layoutRootView.addView(lAutofitTextView, layoutParams)
+                    index++
+                }
             }
         }
 
