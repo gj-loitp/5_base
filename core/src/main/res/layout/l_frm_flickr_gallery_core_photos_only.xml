@@ -22,7 +22,8 @@
         android:padding="@dimen/padding_medium"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_large"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="tvTitle" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/indicatorView"

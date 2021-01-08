@@ -19,21 +19,38 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.restapi.flickr.model.photosetgetphotos.Photo
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core_only.view.*
 import java.util.*
 
 @LogTag("PhotosOnlyAdapter")
-class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
+class PhotosOnlyAdapter(
+        private val callback: Callback?
+) :
         BaseAdapter() {
 
+    interface Callback {
+        fun onClick(photo: Photo, pos: Int)
+
+        fun onLongClick(photo: Photo, pos: Int)
+
+        fun onClickDownload(photo: Photo, pos: Int)
+
+        fun onClickShare(photo: Photo, pos: Int)
+
+        fun onClickReport(photo: Photo, pos: Int)
+
+        fun onClickCmt(photo: Photo, pos: Int)
+    }
+
     val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
+        R.color.black
     } else {
-        R.color.whiteSmoke
+        R.color.white
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_core_only, viewGroup, false))
+        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_photos_core_only, viewGroup, false))
     }
 
     override fun getItemCount(): Int {
@@ -51,10 +68,6 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
 
         internal fun bind(p: Photo, position: Int) {
 
-            itemView.layoutControl.visibility = View.INVISIBLE
-            itemView.viewLine.visibility = View.INVISIBLE
-            itemView.tvTitle.visibility = View.INVISIBLE
-
             LImageUtil.load(context = itemView.iv.context,
                     any = p.urlO,
                     imageView = itemView.iv,
@@ -66,9 +79,6 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            itemView.layoutControl?.visibility = View.VISIBLE
-                            itemView.viewLine?.visibility = View.VISIBLE
-                            itemView.tvTitle?.visibility = View.VISIBLE
                             return false
                         }
                     })
@@ -78,7 +88,6 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
             } else {
                 itemView.tvTitle.visibility = View.VISIBLE
                 itemView.tvTitle.text = p.title
-//                LUIUtil.setTextShadow(textView = itemView.tvTitle)
             }
             itemView.layoutRoot.setOnClickListener {
                 callback?.onClick(photo = p, pos = position)
@@ -87,37 +96,23 @@ class PhotosOnlyAdapter(val context: Context, private val callback: Callback?) :
                 callback?.onLongClick(photo = p, pos = position)
                 true
             }
-            itemView.btDownload.setOnClickListener {
+            itemView.btDownload.setSafeOnClickListener {
                 LAnimationUtil.play(view = it, techniques = Techniques.Flash)
                 callback?.onClickDownload(photo = p, pos = position)
             }
-            itemView.btShare.setOnClickListener {
+            itemView.btShare.setSafeOnClickListener {
                 LAnimationUtil.play(view = it, techniques = Techniques.Flash)
                 callback?.onClickShare(photo = p, pos = position)
             }
-            itemView.btReport.setOnClickListener {
+            itemView.btReport.setSafeOnClickListener {
                 LAnimationUtil.play(view = it, techniques = Techniques.Flash)
                 callback?.onClickReport(photo = p, pos = position)
             }
-            itemView.btCmt.setOnClickListener {
+            itemView.btCmt.setSafeOnClickListener {
                 LAnimationUtil.play(view = it, techniques = Techniques.Flash)
                 callback?.onClickCmt(photo = p, pos = position)
             }
         }
 
-    }
-
-    interface Callback {
-        fun onClick(photo: Photo, pos: Int)
-
-        fun onLongClick(photo: Photo, pos: Int)
-
-        fun onClickDownload(photo: Photo, pos: Int)
-
-        fun onClickShare(photo: Photo, pos: Int)
-
-        fun onClickReport(photo: Photo, pos: Int)
-
-        fun onClickCmt(photo: Photo, pos: Int)
     }
 }

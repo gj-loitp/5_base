@@ -52,6 +52,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         RestClient.init(getString(R.string.flickr_URL))
     }
 
@@ -62,7 +63,6 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        logD("onViewCreated")
         val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
@@ -75,10 +75,9 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 //        logD("photosSize $photosSize")
 
         recyclerView.layoutManager = LinearLayoutManager(activity)
-
-//        recyclerView.setHasFixedSize(true)
         activity?.let { a ->
-            photosOnlyAdapter = PhotosOnlyAdapter(context = a, callback = object : PhotosOnlyAdapter.Callback {
+            photosOnlyAdapter = PhotosOnlyAdapter(
+                    callback = object : PhotosOnlyAdapter.Callback {
                 override fun onClick(photo: Photo, pos: Int) {
                 }
 
@@ -102,7 +101,6 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                 }
             })
         }
-//        recyclerView.adapter = photosOnlyAdapter
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -254,6 +252,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                     val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
                     wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                        it.shuffle()
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
