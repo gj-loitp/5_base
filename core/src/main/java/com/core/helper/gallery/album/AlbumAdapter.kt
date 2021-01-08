@@ -32,9 +32,9 @@ class AlbumAdapter(
     }
 
     private val color = if (LUIUtil.isDarkTheme()) {
-        R.color.black
+        R.color.dark900
     } else {
-        R.color.white
+        R.color.whiteSmoke
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
