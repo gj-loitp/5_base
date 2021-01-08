@@ -3,7 +3,6 @@ package com.core.helper.gallery.photos
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.R
@@ -21,12 +20,10 @@ import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
+import com.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos.*
 
 @LogTag("GalleryCorePhotosActivity")
@@ -45,7 +42,6 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
 
         photosetID = intent.getStringExtra(Constants.SK_PHOTOSET_ID)
@@ -69,26 +65,23 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         }
         currentPage = totalPage
 
-//        val animator = SlideInRightAnimator(OvershootInterpolator(1f))
-//        animator.addDuration = 1000
-//        recyclerView.itemAnimator = animator
         val column = 2
         recyclerView.layoutManager = GridLayoutManager(this, column)
 //        recyclerView.setHasFixedSize(true)
-        photosAdapter = PhotosAdapter(context = this, callback = object : PhotosAdapter.Callback {
-            override fun onClick(photo: Photo, pos: Int) {
-                val intent = Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
-                intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
-                startActivity(intent)
-                LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
-            }
+        photosAdapter = PhotosAdapter(
+                callback = object : PhotosAdapter.Callback {
+                    override fun onClick(photo: Photo, pos: Int) {
+                        val intent = Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
+                        intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
+                        startActivity(intent)
+                        LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
+                    }
 
-            override fun onLongClick(photo: Photo, pos: Int) {
-                LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
-            }
-        })
+                    override fun onLongClick(photo: Photo, pos: Int) {
+                        LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
+                    }
+                })
 
-//        recyclerView.adapter = photosAdapter
         photosAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -115,7 +108,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 }
             }
         })
-        btPage.setOnClickListener {
+        btPage.setSafeOnClickListener {
             showListPage()
         }
 
@@ -188,6 +181,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                     val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
                     wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                        it.shuffle()
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
