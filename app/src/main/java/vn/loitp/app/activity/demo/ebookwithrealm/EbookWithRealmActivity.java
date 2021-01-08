@@ -18,6 +18,8 @@ import com.core.utilities.LPrefUtil;
 import com.core.utilities.LUIUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import io.realm.Realm;
@@ -30,6 +32,7 @@ import vn.loitp.app.activity.demo.ebookwithrealm.realm.RealmController;
 
 //https://www.androidhive.info/2016/05/android-working-with-realm-database-replacing-sqlite-core-data/
 
+//8.1.2021 tried to retry kotlin
 @LogTag("EbookWithRealmActivity")
 @IsFullScreen(false)
 public class EbookWithRealmActivity extends BaseFontActivity {
@@ -85,7 +88,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         recyclerView.setLayoutManager(layoutManager);
         booksAdapter = new BooksAdapter(this, new BooksAdapter.OnClick() {
             @Override
-            public void onClick(Book book, int position) {
+            public void onClick(@NotNull Book book, int position) {
                 updateItem(book, position);
             }
 
@@ -187,6 +190,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         dialog.show();
     }
 
+    @SuppressLint("InflateParams")
     private void updateItem(final Book book, final int position) {
         layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View content = null;
