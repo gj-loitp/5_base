@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import io.realm.RealmBaseAdapter;
 import io.realm.RealmObject;
 
+//8.1.2021 tried to convert kotlin
 public abstract class RealmRecyclerViewAdapter<T extends RealmObject> extends RecyclerView.Adapter {
 
     private RealmBaseAdapter<T> realmBaseAdapter;

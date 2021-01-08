@@ -1,102 +1,77 @@
-package vn.loitp.app.activity.demo.ebookwithrealm.adapters;
+package vn.loitp.app.activity.demo.ebookwithrealm.adapters
 
-import android.content.Context;
-import android.graphics.Color;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.content.Context
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import vn.loitp.app.R
+import vn.loitp.app.activity.demo.ebookwithrealm.model.Book
 
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
+class BooksAdapter(
+        val context: Context,
+        private val onClick: OnClick?
+) : RealmRecyclerViewAdapter<Book?>() {
 
-import com.bumptech.glide.Glide;
-import com.core.utilities.LUIUtil;
-
-import vn.loitp.app.R;
-import vn.loitp.app.activity.demo.ebookwithrealm.model.Book;
-
-public class BooksAdapter extends RealmRecyclerViewAdapter<Book> {
-    final Context context;
-
-    public interface OnClick {
-        void onClick(Book book, int position);
-
-        void onLongClick(int position);
+    interface OnClick {
+        fun onClick(book: Book, position: Int)
+        fun onLongClick(position: Int)
     }
 
-    private final OnClick onClick;
-
-    public BooksAdapter(Context context, OnClick onClick) {
-        this.context = context;
-        this.onClick = onClick;
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_books_realm, parent, false)
+        return CardViewHolder(view)
     }
 
-    @NonNull
-    @Override
-    public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.real_item_books, parent, false);
-        return new CardViewHolder(view);
-    }
+    override fun onBindViewHolder(viewHolder: RecyclerView.ViewHolder, position: Int) {
+        val book = getItem(position)
 
-    @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int position) {
-        final Book book = getItem(position);
-        final CardViewHolder holder = (CardViewHolder) viewHolder;
+        book?.let { b ->
+            if (viewHolder is CardViewHolder) {
+                viewHolder.textBooksTitle.text = b.title
+                viewHolder.textBooksAuthor.text = b.author
+                viewHolder.textBooksDescription.text = b.description
+                viewHolder.ivBackground.setBackgroundColor(Color.RED)
 
-        holder.textTitle.setText(book.getTitle());
-        holder.textAuthor.setText(book.getAuthor());
-        holder.textDescription.setText(book.getDescription());
+                Glide.with(context)
+                        .asBitmap()
+                        .load(b.imageUrl?.replace("https", "http")) //.fitCenter()
+                        .into(viewHolder.ivBackground)
 
-        holder.imageBackground.setBackgroundColor(Color.RED);
-        if (book.getImageUrl() != null) {
-            Glide.with(context)
-                    .asBitmap()
-                    .load(book.getImageUrl().replace("https", "http"))
-                    //.fitCenter()
-                    .into(holder.imageBackground);
+                //remove single match from realm
+                viewHolder.cardBooks.setOnLongClickListener {
+                    onClick?.onLongClick(position)
+                    false
+                }
+
+                //update single match from realm
+                viewHolder.cardBooks.setOnClickListener {
+                    onClick?.onClick(b, position)
+                }
+            }
         }
-
-        //remove single match from realm
-        holder.card.setOnLongClickListener(v -> {
-            if (onClick != null) {
-                onClick.onLongClick(position);
-            }
-            return false;
-        });
-
-        //update single match from realm
-        holder.card.setOnClickListener(v -> {
-            if (onClick != null) {
-                onClick.onClick(book, position);
-            }
-        });
     }
 
     // return the size of your data set (invoked by the layout manager)
-    public int getItemCount() {
-        if (getRealmAdapter() != null) {
-            return getRealmAdapter().getCount();
+    override fun getItemCount(): Int {
+        return if (realmAdapter != null) {
+            realmAdapter.count
+        } else {
+            0
         }
-        return 0;
     }
 
-    public static class CardViewHolder extends RecyclerView.ViewHolder {
-        CardView card;
-        TextView textTitle;
-        TextView textAuthor;
-        TextView textDescription;
-        ImageView imageBackground;
+    class CardViewHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var cardBooks: CardView = itemView.findViewById(R.id.cardBooks)
+        var textBooksTitle: TextView = itemView.findViewById(R.id.textBooksTitle)
+        var textBooksAuthor: TextView = itemView.findViewById(R.id.textBooksAuthor)
+        var textBooksDescription: TextView = itemView.findViewById(R.id.textBooksDescription)
+        var ivBackground: ImageView = itemView.findViewById(R.id.ivBackground)
 
-        CardViewHolder(View itemView) {
-            super(itemView);
-            card = itemView.findViewById(R.id.card_books);
-            textTitle = itemView.findViewById(R.id.textBooksTitle);
-            textAuthor = itemView.findViewById(R.id.textBooksAuthor);
-            textDescription = itemView.findViewById(R.id.textBooksDescription);
-            imageBackground = itemView.findViewById(R.id.image_background);
-        }
     }
 }
