@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -365,32 +366,53 @@ abstract class BaseActivity : AppCompatActivity() {
         bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
     }
 
-    fun showSnackBarInfor(msg: String, view: View = findViewById(android.R.id.content)) {
+    fun showSnackBarInfor(
+            msg: String,
+            view: View = findViewById(android.R.id.content),
+            isFullWidth: Boolean = false
+    ) {
         if (!this.isFinishing) {
             val snackBar = Snackbar
                     .make(view, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_infor)
                     .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
             snackBar.show()
         }
     }
 
-    fun showSnackBarWarning(msg: String, view: View = findViewById(android.R.id.content)) {
+    fun showSnackBarWarning(
+            msg: String,
+            view: View = findViewById(android.R.id.content),
+            isFullWidth: Boolean = false
+    ) {
         if (!this.isFinishing) {
             val snackBar = Snackbar
                     .make(view, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_warning)
                     .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
             snackBar.show()
         }
     }
 
-    fun showSnackBarError(msg: String, view: View = findViewById(android.R.id.content)) {
+    fun showSnackBarError(
+            msg: String,
+            view: View = findViewById(android.R.id.content),
+            isFullWidth: Boolean = false
+    ) {
         if (!this.isFinishing) {
             val snackBar = Snackbar
                     .make(view, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_err)
                     .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
             snackBar.show()
         }
     }

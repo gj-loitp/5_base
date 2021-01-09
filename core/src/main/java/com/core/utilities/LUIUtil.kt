@@ -928,6 +928,7 @@ class LUIUtil {
                 (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
                     it.isSingleLine = false
                     it.setTextColor(Color.WHITE)
+                    setTextSize(textView = it, size = LAppResource.getDimenValue(R.dimen.txt_medium).toFloat())
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         it.textAlignment = View.TEXT_ALIGNMENT_CENTER
                     } else {
