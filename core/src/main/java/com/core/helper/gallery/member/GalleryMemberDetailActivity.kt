@@ -58,7 +58,13 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
 
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
-
+        LImageUtil.load(
+                context = this,
+                any = photo.urlS,
+                imageView = imageViewBlur,
+                drawableRequestListener = null,
+                transformation = BlurTransformation(25)
+        )
         LImageUtil.load(
                 context = this,
                 any = photo.urlO,
@@ -73,14 +79,6 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
                         return false
                     }
                 }
-        )
-
-        LImageUtil.load(
-                context = this,
-                any = photo.urlS,
-                imageView = imageViewBlur,
-                drawableRequestListener = null,
-                transformation = BlurTransformation(25)
         )
     }
 }
