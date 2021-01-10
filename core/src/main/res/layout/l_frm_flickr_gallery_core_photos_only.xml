@@ -23,7 +23,9 @@
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_large"
         android:textStyle="bold"
-        tools:text="tvTitle" />
+        android:visibility="gone"
+        tools:text="tvTitle"
+        tools:visibility="visible" />
 
     <com.wang.avi.AVLoadingIndicatorView
         android:id="@+id/indicatorView"

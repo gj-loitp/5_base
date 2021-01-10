@@ -23,8 +23,14 @@ class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
         val frm = GalleryCorePhotosOnlyFrm()
         val bundle = Bundle()
         bundle.putString(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
+        bundle.putBoolean(GalleryCorePhotosOnlyFrm.IS_SHOW_TITLE, false)
         frm.arguments = bundle
-        LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = frm, isAddToBackStack = false)
+        LScreenUtil.addFragment(
+                activity = this,
+                containerFrameLayoutIdRes = R.id.flContainer,
+                fragment = frm,
+                isAddToBackStack = false
+        )
     }
 
 }

@@ -40,6 +40,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     companion object {
         private const val PER_PAGE_SIZE = 100
+        const val IS_SHOW_TITLE = "IS_SHOW_TITLE"
     }
 
     private var currentPage = 0
@@ -74,32 +75,39 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
 //        logD("photosSize $photosSize")
 
+        val isShowTitle = bundle.getBoolean(IS_SHOW_TITLE)
+        if (isShowTitle) {
+            tvTitle.visibility = View.VISIBLE
+        } else {
+            tvTitle.visibility = View.GONE
+        }
+
         recyclerView.layoutManager = LinearLayoutManager(activity)
         activity?.let { a ->
             photosOnlyAdapter = PhotosOnlyAdapter(
                     callback = object : PhotosOnlyAdapter.Callback {
-                override fun onClick(photo: Photo, pos: Int) {
-                }
+                        override fun onClick(photo: Photo, pos: Int) {
+                        }
 
-                override fun onLongClick(photo: Photo, pos: Int) {
-                }
+                        override fun onLongClick(photo: Photo, pos: Int) {
+                        }
 
-                override fun onClickDownload(photo: Photo, pos: Int) {
-                    save(url = photo.urlO)
-                }
+                        override fun onClickDownload(photo: Photo, pos: Int) {
+                            save(url = photo.urlO)
+                        }
 
-                override fun onClickShare(photo: Photo, pos: Int) {
-                    LSocialUtil.share(activity = a, msg = photo.urlO)
-                }
+                        override fun onClickShare(photo: Photo, pos: Int) {
+                            LSocialUtil.share(activity = a, msg = photo.urlO)
+                        }
 
-                override fun onClickReport(photo: Photo, pos: Int) {
-                    LSocialUtil.sendEmail(context = a)
-                }
+                        override fun onClickReport(photo: Photo, pos: Int) {
+                            LSocialUtil.sendEmail(context = a)
+                        }
 
-                override fun onClickCmt(photo: Photo, pos: Int) {
-                    LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
-                }
-            })
+                        override fun onClickCmt(photo: Photo, pos: Int) {
+                            LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
+                        }
+                    })
         }
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
