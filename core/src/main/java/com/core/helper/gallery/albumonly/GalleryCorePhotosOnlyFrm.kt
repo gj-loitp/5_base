@@ -29,6 +29,7 @@ import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
+import com.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
@@ -135,7 +136,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
             }
         })
 
-        btPage.setOnClickListener {
+        btPage.setSafeOnClickListener {
             showListPage()
         }
     }
