@@ -16,10 +16,7 @@ import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.LAppResource
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LSocialUtil
-import com.core.utilities.LStoreUtil
+import com.core.utilities.*
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -37,7 +34,11 @@ import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
 import java.io.File
 
 @LogTag("GalleryCorePhotosOnlyFrm")
-class GalleryCorePhotosOnlyFrm : BaseFragment() {
+class GalleryCorePhotosOnlyFrm(
+        val onTop: ((Unit) -> Unit)? = null,
+        val onBottom: ((Unit) -> Unit)? = null,
+        val onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+) : BaseFragment() {
 
     companion object {
         private const val PER_PAGE_SIZE = 100
@@ -125,16 +126,32 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView)
 
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if (!recyclerView.canScrollVertically(1)) {
+//        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+//                super.onScrollStateChanged(recyclerView, newState)
+//                if (!recyclerView.canScrollVertically(1)) {
+//                    if (!isLoading) {
+//                        photosetsGetPhotos(photosetID)
+//                    }
+//                }
+//            }
+//        })
+
+        LUIUtil.setScrollChange(
+                recyclerView = recyclerView,
+                onTop = {
+                    onTop?.invoke(Unit)
+                },
+                onBottom = {
                     if (!isLoading) {
                         photosetsGetPhotos(photosetID)
                     }
+                    onBottom?.invoke(Unit)
+                },
+                onScrolled = {
+                    onScrolled?.invoke(it)
                 }
-            }
-        })
+        )
 
         btPage.setSafeOnClickListener {
             showListPage()
