@@ -61,6 +61,7 @@ class LValidateUtil {
                 "loitp93.game.findnumber",
                 "com.loitp.igallery",
                 "com.loitp.haivl",
+                "com.loitp.biker",
         )
 
         fun isValidPackageName(): Boolean {
