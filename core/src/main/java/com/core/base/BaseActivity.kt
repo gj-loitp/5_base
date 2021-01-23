@@ -372,12 +372,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showSnackBarInfor(
             msg: String,
-            view: View = findViewById(android.R.id.content),
+            view: View? = null,
             isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_infor)
                     .allowInfiniteLines()
             if (isFullWidth) {
@@ -389,12 +390,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showSnackBarWarning(
             msg: String,
-            view: View = findViewById(android.R.id.content),
+            view: View? = null,
             isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_warning)
                     .allowInfiniteLines()
             if (isFullWidth) {
@@ -406,12 +408,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showSnackBarError(
             msg: String,
-            view: View = findViewById(android.R.id.content),
+            view: View? = null,
             isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_err)
                     .allowInfiniteLines()
             if (isFullWidth) {

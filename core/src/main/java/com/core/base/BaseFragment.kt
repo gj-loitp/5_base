@@ -235,4 +235,41 @@ abstract class BaseFragment : Fragment() {
             )
         }
     }
+
+    fun showSnackBarInfor(
+            msg: String,
+            isFullWidth: Boolean = false
+    ) {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showSnackBarInfor(msg = msg, isFullWidth = isFullWidth)
+        }
+    }
+
+    fun showSnackBarWarning(
+            msg: String,
+            isFullWidth: Boolean = false) {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showSnackBarWarning(msg = msg, isFullWidth = isFullWidth)
+        }
+    }
+
+    fun showSnackBarError(
+            msg: String,
+            isFullWidth: Boolean = false) {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showSnackBarError(msg = msg, isFullWidth = isFullWidth)
+        }
+    }
+
+    fun showDialogProgress() {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showDialogProgress()
+        }
+    }
+
+    fun hideDialogProgress() {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).hideDialogProgress()
+        }
+    }
 }
