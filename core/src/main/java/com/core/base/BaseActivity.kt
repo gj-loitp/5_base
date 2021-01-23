@@ -1,5 +1,6 @@
 package com.core.base
 
+import android.app.Dialog
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -46,6 +47,8 @@ abstract class BaseActivity : AppCompatActivity() {
     private var interstitialAd: InterstitialAd? = null
     private var isShowAdWhenExit = false
     private var isShowAnimWhenExit = true
+
+    private var alertDialogProgress: Dialog? = null
 
     protected abstract fun setLayoutResourceId(): Int
 
@@ -224,6 +227,7 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
         LDialogUtil.clearAll()
+        LDialogUtil.hide(dialog = alertDialogProgress)
         stopIdleTimeHandler()
         //AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
         super.onDestroy()
@@ -415,5 +419,16 @@ abstract class BaseActivity : AppCompatActivity() {
             }
             snackBar.show()
         }
+    }
+
+    fun showDialogProgress() {
+        if (alertDialogProgress == null) {
+            alertDialogProgress = LDialogUtil.genCustomProgressDialog(context = this)
+        }
+        LDialogUtil.show(dialog = alertDialogProgress)
+    }
+
+    fun hideDialogProgress() {
+        LDialogUtil.hide(dialog = alertDialogProgress)
     }
 }

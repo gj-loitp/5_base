@@ -269,7 +269,7 @@ class LDialogUtil {
         }
 
         @SuppressLint("InflateParams")
-        fun showCustomProgressDialog(
+        fun genCustomProgressDialog(
                 context: Context?
         ): Dialog? {
             if (context == null || context !is Activity) {
@@ -280,8 +280,10 @@ class LDialogUtil {
             dialog.setContentView(R.layout.l_dlg_custom_progress)
             dialog.setCanceledOnTouchOutside(false)
             dialog.setCancelable(false)
+
             val progressBar = dialog.findViewById<WP10ProgressBar>(R.id.progressBar)
             progressBar.showProgressBar()
+
             dialog.window?.let {
                 it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black35)))
 
@@ -294,7 +296,6 @@ class LDialogUtil {
                 it.attributes = wlp
                 it.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
             }
-            dialog.show()
             return dialog
         }
 
