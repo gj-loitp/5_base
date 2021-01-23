@@ -148,15 +148,15 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.TTTSplashActivity"
+            android:name=".core.helper.ttt.ui.a.TTTSplashActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.TTTComicLoginActivity"
+            android:name=".core.helper.ttt.ui.a.TTTComicLoginActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".core.helper.ttt.ui.TTTComicActivity"
+            android:name=".core.helper.ttt.ui.a.TTTComicActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait" />
     </application>

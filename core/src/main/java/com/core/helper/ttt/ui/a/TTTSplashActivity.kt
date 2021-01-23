@@ -1,4 +1,4 @@
-package com.core.helper.ttt.ui
+package com.core.helper.ttt.ui.a
 
 import android.Manifest
 import android.content.Intent
@@ -44,10 +44,6 @@ class TTTSplashActivity : BaseFontActivity() {
 
         admobBannerUnitId?.let { id ->
             LSharedPrefsUtil.instance.putString(Constants.COMIC_ADMOB_ID_BANNER, id)
-        }
-
-        intent.getBooleanExtra(Constants.COMIC_SHOW_DONATION, false).let { isShowDonation ->
-            LSharedPrefsUtil.instance.putBoolean(Constants.COMIC_SHOW_DONATION, isShowDonation)
         }
 
         if (admobBannerUnitId.isNullOrEmpty()) {

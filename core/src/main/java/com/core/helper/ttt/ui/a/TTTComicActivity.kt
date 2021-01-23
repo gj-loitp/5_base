@@ -1,4 +1,4 @@
-package com.core.helper.ttt.ui
+package com.core.helper.ttt.ui.a
 
 import android.graphics.Color
 import android.os.Bundle
@@ -13,9 +13,8 @@ import com.annotation.IsFullScreen
 import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.helper.mup.comic.ui.frm.FrmHome
-import com.core.helper.mup.comic.ui.frm.FrmProfile
 import com.core.helper.ttt.model.MenuComicTTT
+import com.core.helper.ttt.ui.f.FrmProfileTTT
 import com.core.utilities.LUIUtil
 import com.core.utilities.LValidateUtil
 import com.utils.util.KeyboardUtils
@@ -123,16 +122,16 @@ class TTTComicActivity : BaseFontActivity() {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> {
-                    FrmProfile()
+                    FrmProfileTTT()
                 }
                 1 -> {
-                    FrmProfile()
+                    FrmProfileTTT()
                 }
                 2 -> {
-                    FrmProfile()
+                    FrmProfileTTT()
                 }
                 else -> {
-                    FrmHome()
+                    FrmProfileTTT()
                 }
             }
         }

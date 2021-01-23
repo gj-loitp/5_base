@@ -13,7 +13,7 @@ import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.helper.mup.comic.ui.activity.ComicSplashActivity
 import com.core.helper.mup.girl.ui.GirlSplashActivity
-import com.core.helper.ttt.ui.TTTSplashActivity
+import com.core.helper.ttt.ui.a.TTTSplashActivity
 import com.core.utilities.LActivityUtil
 import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
@@ -168,7 +168,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btTTT -> {
                 intent = Intent(this, TTTSplashActivity::class.java)
                 intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.COMIC_SHOW_DONATION, true)
             }
         }
         intent?.let {
