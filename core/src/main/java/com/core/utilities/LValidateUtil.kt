@@ -2,7 +2,6 @@ package com.core.utilities
 
 import android.text.TextUtils
 import android.util.Patterns
-import com.R
 import com.utils.util.AppUtils
 import java.util.*
 import java.util.regex.Pattern
@@ -62,6 +61,7 @@ class LValidateUtil {
                 "com.loitp.igallery",
                 "com.loitp.haivl",
                 "com.loitp.biker",
+                "com.loitp.icomic"
         )
 
         fun isValidPackageName(): Boolean {

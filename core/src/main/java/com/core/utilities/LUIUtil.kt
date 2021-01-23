@@ -147,6 +147,7 @@ class LUIUtil {
             listTestDevice.add(Constants.TEST_11)
             listTestDevice.add(Constants.TEST_12)
             listTestDevice.add(Constants.TEST_13)
+            listTestDevice.add(Constants.TEST_14)
             return listTestDevice
         }
 
