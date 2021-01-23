@@ -11,10 +11,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LSharedPrefsUtil
-import com.core.utilities.LUIUtil
-import com.core.utilities.LValidateUtil
+import com.core.utilities.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.karumi.dexter.Dexter
@@ -22,9 +19,9 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import kotlinx.android.synthetic.main.l_activity_ttt_splash.*
+import kotlinx.android.synthetic.main.l_activity_comic_splash_ttt.*
 
-@LogTag("ComicSplashActivity")
+@LogTag("TTTSplashActivity")
 @IsFullScreen(false)
 class TTTSplashActivity : BaseFontActivity() {
 
@@ -33,7 +30,7 @@ class TTTSplashActivity : BaseFontActivity() {
     private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_ttt_splash
+        return R.layout.l_activity_comic_splash_ttt
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,11 +65,11 @@ class TTTSplashActivity : BaseFontActivity() {
     }
 
     private fun goToHome() {
-        LUIUtil.setDelay(mls = 2000, runnable = {
-//            val intent = Intent(this, ComicLoginActivity::class.java)
-//            startActivity(intent)
-//            LActivityUtil.tranIn(this)
-//            finish()
+        LUIUtil.setDelay(mls = 1500, runnable = {
+            val intent = Intent(this, TTTComicLoginActivity::class.java)
+            startActivity(intent)
+            LActivityUtil.tranIn(this)
+            finish()
         })
     }
 
