@@ -10,9 +10,9 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_dialog_custom_progress.*
 import vn.loitp.app.R
 
-@LogTag("CustomProgressDialoglActivity")
+@LogTag("CustomProgressDialogActivity")
 @IsFullScreen(false)
-class CustomProgressDialoglActivity : BaseFontActivity() {
+class CustomProgressDialogActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_dialog_custom_progress
@@ -22,8 +22,8 @@ class CustomProgressDialoglActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         bt0.setSafeOnClickListener {
-            val alertDialog = LDialogUtil.showCustomProgressDialog(context = this, amount = 0.1f)
-            LUIUtil.setDelay(mls = 3000, runnable = Runnable {
+            val alertDialog = LDialogUtil.showCustomProgressDialog(context = this)
+            LUIUtil.setDelay(mls = 3000, runnable = {
                 alertDialog?.dismiss()
             })
         }

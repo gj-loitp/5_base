@@ -667,7 +667,7 @@
             android:name=".activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity"
+            android:name=".activity.customviews.dialog.customprogressdialog.CustomProgressDialogActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.actionbar.navigationview.NavigationViewActivity"

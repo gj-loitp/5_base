@@ -10,7 +10,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_dialog_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dialog.customdialog.CustomDialogActivity
-import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialoglActivity
+import vn.loitp.app.activity.customviews.dialog.customprogressdialog.CustomProgressDialogActivity
 import vn.loitp.app.activity.customviews.dialog.originaldialog.DialogOriginalActivity
 import vn.loitp.app.activity.customviews.dialog.prettydialog.PrettyDialogActivity
 import vn.loitp.app.activity.customviews.dialog.slideimages.DialogSlideImagesActivity
@@ -42,7 +42,7 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btOriginalDialog -> intent = Intent(this, DialogOriginalActivity::class.java)
             btPrettyDialog -> intent = Intent(this, PrettyDialogActivity::class.java)
-            btCustomProgressDialog -> intent = Intent(this, CustomProgressDialoglActivity::class.java)
+            btCustomProgressDialog -> intent = Intent(this, CustomProgressDialogActivity::class.java)
             btSlideImages -> intent = Intent(this, DialogSlideImagesActivity::class.java)
             btCustomDialog -> intent = Intent(this, CustomDialogActivity::class.java)
         }
