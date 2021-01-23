@@ -14,6 +14,8 @@ import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.ttt.model.MenuComicTTT
+import com.core.helper.ttt.ui.f.FrmFavTTT
+import com.core.helper.ttt.ui.f.FrmHomeTTT
 import com.core.helper.ttt.ui.f.FrmProfileTTT
 import com.core.utilities.LUIUtil
 import com.core.utilities.LValidateUtil
@@ -122,16 +124,16 @@ class TTTComicActivity : BaseFontActivity() {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> {
-                    FrmProfileTTT()
+                    FrmHomeTTT()
                 }
                 1 -> {
-                    FrmProfileTTT()
+                    FrmFavTTT()
                 }
                 2 -> {
                     FrmProfileTTT()
                 }
                 else -> {
-                    FrmProfileTTT()
+                    FrmHomeTTT()
                 }
             }
         }
