@@ -1,5 +1,6 @@
-package com.core.helper.ttt
+package com.core.helper.ttt.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.R
@@ -7,6 +8,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LSharedPrefsUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.LValidateUtil
@@ -48,10 +50,10 @@ class TTTComicLoginActivity : BaseFontActivity() {
     }
 
     private fun setupViewModels() {
-//        val intent = Intent(this, ComicActivity::class.java)
-//        startActivity(intent)
-//        LActivityUtil.tranIn(context = this)
-//        finish()
+        val intent = Intent(this, TTTComicActivity::class.java)
+        startActivity(intent)
+        LActivityUtil.tranIn(context = this)
+        finish()
     }
 
     override fun onResume() {

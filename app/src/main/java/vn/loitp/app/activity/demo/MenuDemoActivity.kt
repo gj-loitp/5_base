@@ -13,7 +13,7 @@ import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.helper.mup.comic.ui.activity.ComicSplashActivity
 import com.core.helper.mup.girl.ui.GirlSplashActivity
-import com.core.helper.ttt.TTTSplashActivity
+import com.core.helper.ttt.ui.TTTSplashActivity
 import com.core.utilities.LActivityUtil
 import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*

@@ -1,4 +1,4 @@
-package com.core.helper.ttt
+package com.core.helper.ttt.ui
 
 import android.Manifest
 import android.content.Intent
