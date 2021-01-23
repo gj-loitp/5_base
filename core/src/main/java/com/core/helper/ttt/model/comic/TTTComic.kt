@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan.model.comic
+package com.core.helper.ttt.model.comic
 
 import androidx.annotation.Keep
 import com.core.base.BaseModel

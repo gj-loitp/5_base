@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan.model.chap
+package com.core.helper.ttt.model.download
 
 import androidx.annotation.Keep
 import com.core.base.BaseModel
@@ -11,8 +11,8 @@ class Chap : BaseModel() {
     @Expose
     var tit: String = ""
 
-    @SerializedName("url")
+    @SerializedName("size")
     @Expose
-    var url: String = ""
+    var size = 0
 
 }

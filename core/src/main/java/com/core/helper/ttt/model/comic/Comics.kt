@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan.model.chap
+package com.core.helper.ttt.model.comic
 
 import androidx.annotation.Keep
 import com.core.base.BaseModel
@@ -7,9 +7,9 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 @Keep
-class Chaps : BaseModel(){
-    @SerializedName("chap")
+class Comics : BaseModel() {
+    @SerializedName("comic")
     @Expose
-    var chap: List<Chap> = ArrayList()
+    var comic: List<Comic> = ArrayList()
 
 }

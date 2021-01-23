@@ -5,12 +5,10 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.indicatorView
-import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.textView
-import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.tvTitle
+import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.truyentranhtuan.viewmodels.TTTViewModel
 
 @LogTag("TTTAPIChapListActivity")
 @IsFullScreen(false)

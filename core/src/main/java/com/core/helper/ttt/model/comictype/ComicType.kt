@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan.model.comictype
+package com.core.helper.ttt.model.comictype
 
 class ComicType(var type: String, var url: String) {
 

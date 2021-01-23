@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan.model.chap
+package com.core.helper.ttt.model.chap
 
 import androidx.annotation.Keep
 import com.core.base.BaseModel

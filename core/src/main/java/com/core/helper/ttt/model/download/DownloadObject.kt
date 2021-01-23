@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan.model.download
+package com.core.helper.ttt.model.download
 
 import androidx.annotation.Keep
 import com.core.base.BaseModel

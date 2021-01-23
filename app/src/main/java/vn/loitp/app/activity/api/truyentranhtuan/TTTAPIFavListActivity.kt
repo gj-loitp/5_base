@@ -4,15 +4,13 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.helper.ttt.model.comic.Comic
+import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LUIUtil
-import com.google.ads.interactivemedia.v3.internal.id
-import com.google.ads.interactivemedia.v3.internal.it
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.*
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.textView
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
-import vn.loitp.app.activity.api.truyentranhtuan.viewmodels.TTTViewModel
 
 @LogTag("TTTAPIFavListActivity")
 @IsFullScreen(false)

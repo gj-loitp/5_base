@@ -1,20 +1,19 @@
-package vn.loitp.app.activity.api.truyentranhtuan.viewmodels
+package com.core.helper.ttt.viewmodel
 
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseViewModel
-import com.google.ads.interactivemedia.v3.internal.id
+import com.core.helper.ttt.db.TTTDatabase
+import com.core.helper.ttt.model.chap.Chap
+import com.core.helper.ttt.model.chap.Chaps
+import com.core.helper.ttt.model.chap.Info
+import com.core.helper.ttt.model.chap.TTTChap
+import com.core.helper.ttt.model.comic.Comic
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
-import vn.loitp.app.activity.api.truyentranhtuan.db.TTTDatabase
-import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chap
-import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Chaps
-import vn.loitp.app.activity.api.truyentranhtuan.model.chap.Info
-import vn.loitp.app.activity.api.truyentranhtuan.model.chap.TTTChap
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -25,7 +24,7 @@ import kotlin.collections.ArrayList
  * www.muathu@gmail.com
  */
 
-@LogTag("LoginViewModel")
+@LogTag("TTTViewModel")
 class TTTViewModel : BaseViewModel() {
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val tttChapActionLiveData: ActionLiveData<ActionData<TTTChap>> = ActionLiveData()

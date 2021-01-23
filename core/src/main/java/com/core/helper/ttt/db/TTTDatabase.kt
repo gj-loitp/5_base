@@ -1,16 +1,15 @@
-package vn.loitp.app.activity.api.truyentranhtuan.db
+package com.core.helper.ttt.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
-import vn.loitp.app.activity.database.room.converter.AreaConverter
-import vn.loitp.app.activity.database.room.db.FloorPlanDao
-import vn.loitp.app.activity.database.room.model.FloorPlan
+import com.core.helper.ttt.model.comic.Comic
 
-@Database(entities = [Comic::class], version = 1)
+@Database(
+        entities = [Comic::class],
+        version = 1
+)
 abstract class TTTDatabase : RoomDatabase() {
 
     abstract fun tttDao(): TTTDao

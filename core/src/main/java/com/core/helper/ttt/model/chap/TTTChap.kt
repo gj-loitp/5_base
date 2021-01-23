@@ -1,4 +1,4 @@
-package vn.loitp.app.activity.api.truyentranhtuan.model.download
+package com.core.helper.ttt.model.chap
 
 import androidx.annotation.Keep
 import com.core.base.BaseModel
@@ -6,13 +6,13 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 @Keep
-class Chap : BaseModel() {
-    @SerializedName("tit")
+class TTTChap : BaseModel() {
+    @SerializedName("chaps")
     @Expose
-    var tit: String = ""
+    var chaps: Chaps? = null
 
-    @SerializedName("size")
+    @SerializedName("info")
     @Expose
-    var size = 0
+    var info: Info? = null
 
 }

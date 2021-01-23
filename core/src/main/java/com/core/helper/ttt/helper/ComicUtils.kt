@@ -1,8 +1,8 @@
-package vn.loitp.app.activity.api.truyentranhtuan.helper
+package com.core.helper.ttt.helper
 
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
-import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType
-import vn.loitp.app.common.Constants
+import com.core.common.Constants
+import com.core.helper.ttt.model.comic.Comic
+import com.core.helper.ttt.model.comictype.ComicType
 import java.util.*
 
 /**
@@ -78,7 +78,7 @@ class ComicUtils {
                     return i
                 }
             }
-            return com.core.common.Constants.NOT_FOUND
+            return Constants.NOT_FOUND
         }
     }
 }

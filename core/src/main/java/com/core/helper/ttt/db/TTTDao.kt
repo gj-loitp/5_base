@@ -1,12 +1,9 @@
-package vn.loitp.app.activity.api.truyentranhtuan.db
+package com.core.helper.ttt.db
 
 import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.core.base.BaseDao
-import vn.loitp.app.activity.api.truyentranhtuan.model.comic.Comic
-import vn.loitp.app.activity.database.room.model.FloorPlan
+import com.core.helper.ttt.model.comic.Comic
 
 @Dao
 interface TTTDao : BaseDao<Comic> {
