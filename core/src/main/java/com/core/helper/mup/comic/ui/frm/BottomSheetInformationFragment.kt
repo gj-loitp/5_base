@@ -6,16 +6,16 @@ import android.view.View
 import android.view.WindowManager
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseBottomSheetFragment
 import com.core.common.Constants
 import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.views.bottomsheet.LBottomSheetFragment
 import kotlinx.android.synthetic.main.l_bottom_sheet_information_fragment.*
 
 @LogTag("BottomSheetDonationFragment")
-class BottomSheetInformationFragment : LBottomSheetFragment(
+class BottomSheetInformationFragment : BaseBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_information_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,

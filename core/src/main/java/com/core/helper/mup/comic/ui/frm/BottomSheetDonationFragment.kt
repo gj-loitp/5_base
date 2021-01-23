@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.View
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseBottomSheetFragment
 import com.core.common.Constants
 import com.core.utilities.LScreenUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.views.bottomsheet.LBottomSheetFragment
 import com.views.textview.textdecorator.LTextDecorator
 import kotlinx.android.synthetic.main.l_frm_girl_information.*
 
 @LogTag("BottomSheetDonationFragment")
-class BottomSheetDonationFragment : LBottomSheetFragment(
+class BottomSheetDonationFragment : BaseBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_donation_fragment,
         height = LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight(),
         isDraggable = true,

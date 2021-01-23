@@ -6,14 +6,14 @@ import android.view.View
 import android.view.WindowManager
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseBottomSheetFragment
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.views.bottomsheet.LBottomSheetFragment
 import kotlinx.android.synthetic.main.l_bottom_sheet_setting_ttt_fragment.*
 
 @LogTag("BottomSheetSettingTTTFragment")
-class BottomSheetSettingTTTFragment : LBottomSheetFragment(
+class BottomSheetSettingTTTFragment : BaseBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_setting_ttt_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,

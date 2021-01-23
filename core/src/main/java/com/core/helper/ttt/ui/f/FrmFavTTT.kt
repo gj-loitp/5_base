@@ -17,9 +17,6 @@ class FrmFavTTT : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupViews()
-        //TODO
-        showSnackBarError("aaaaaaaaaaaaaaaaa", true)
-        showDialogProgress()
     }
 
     fun setupViews() {

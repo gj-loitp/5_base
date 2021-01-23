@@ -1,4 +1,4 @@
-package com.views.bottomsheet
+package com.core.base
 
 import android.app.Dialog
 import android.os.Bundle
@@ -8,13 +8,17 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.R
 import com.annotation.LogTag
 import com.core.utilities.LLog
+import com.core.utilities.LUIUtil.Companion.allowInfiniteLines
+import com.core.utilities.LUIUtil.Companion.withBackground
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.snackbar.Snackbar
 
-open class LBottomSheetFragment(
+open class BaseBottomSheetFragment(
         private val layoutId: Int,
         private val height: Int = WindowManager.LayoutParams.MATCH_PARENT,
         private val isDraggable: Boolean = true,
@@ -44,6 +48,69 @@ open class LBottomSheetFragment(
     protected fun logE(msg: String) {
         logTag?.let {
             LLog.e(it, msg)
+        }
+    }
+
+    fun showSnackBarInfor(
+            msg: String,
+            view: View? = dialog?.window?.findViewById(android.R.id.content),
+            isFullWidth: Boolean = false
+    ) {
+        view?.let { v ->
+            val snackBar = Snackbar
+                    .make(v, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_infor)
+                    .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
+            snackBar.show()
+        }
+    }
+
+    fun showSnackBarWarning(
+            msg: String,
+            view: View? = dialog?.window?.findViewById(android.R.id.content),
+            isFullWidth: Boolean = false
+    ) {
+        view?.let { v ->
+            val snackBar = Snackbar
+                    .make(v, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_warning)
+                    .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
+            snackBar.show()
+        }
+    }
+
+    fun showSnackBarError(
+            msg: String,
+            view: View? = dialog?.window?.findViewById(android.R.id.content),
+            isFullWidth: Boolean = false
+    ) {
+        view?.let { v ->
+            val snackBar = Snackbar
+                    .make(v, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_err)
+                    .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
+            snackBar.show()
+        }
+    }
+
+    fun showDialogProgress() {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).showDialogProgress()
+        }
+    }
+
+    fun hideDialogProgress() {
+        if (activity is BaseActivity) {
+            (activity as BaseActivity).hideDialogProgress()
         }
     }
 
