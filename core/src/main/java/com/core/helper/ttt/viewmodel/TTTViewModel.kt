@@ -9,8 +9,10 @@ import com.core.helper.ttt.model.chap.Chaps
 import com.core.helper.ttt.model.chap.Info
 import com.core.helper.ttt.model.chap.TTTChap
 import com.core.helper.ttt.model.comic.Comic
+import com.core.helper.ttt.model.comictype.ComicType
 import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
+import com.service.livedata.SingleLiveEvent
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
@@ -26,6 +28,8 @@ import kotlin.collections.ArrayList
 
 @LogTag("TTTViewModel")
 class TTTViewModel : BaseViewModel() {
+    val comicTypeLiveEvent: SingleLiveEvent<ComicType> = SingleLiveEvent()
+
     val listComicActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val tttChapActionLiveData: ActionLiveData<ActionData<TTTChap>> = ActionLiveData()
     val listPageActionLiveData: ActionLiveData<ActionData<List<String>>> = ActionLiveData()
@@ -33,6 +37,10 @@ class TTTViewModel : BaseViewModel() {
     val listComicFavActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
     val favComicLiveData: ActionLiveData<ActionData<Long>> = ActionLiveData()
     val unfavComicLiveData: ActionLiveData<ActionData<Comic>> = ActionLiveData()
+
+    fun setComicType(comicType: ComicType) {
+        comicTypeLiveEvent.postValue(comicType)
+    }
 
     fun getListComic(link: String) {
         listComicActionLiveData.set(

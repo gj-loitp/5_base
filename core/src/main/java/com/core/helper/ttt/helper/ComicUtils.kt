@@ -54,6 +54,9 @@ class ComicUtils {
                 return comicTypeList
             }
 
+        fun getComicTypeAll(): ComicType {
+            return ComicType(ComicType.TAT_CA, Constants.MAIN_LINK_TRUYENTRANHTUAN)
+        }
 
         @JvmStatic
         fun isComicExistIn(comic: Comic?, comicList: List<Comic>?): Boolean {

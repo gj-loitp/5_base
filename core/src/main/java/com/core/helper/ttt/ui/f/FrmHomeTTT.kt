@@ -1,15 +1,18 @@
 package com.core.helper.ttt.ui.f
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import com.R
 import com.annotation.LogTag
+import com.core.base.BaseApplication
 import com.core.base.BaseFragment
+import com.core.helper.ttt.helper.ComicUtils
 import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
 
-@LogTag("FrmHomeTTT")
+@LogTag("loitppFrmHomeTTT")
 class FrmHomeTTT : BaseFragment() {
     private var tTTViewModel: TTTViewModel? = null
 
@@ -23,6 +26,7 @@ class FrmHomeTTT : BaseFragment() {
         setupViews()
         setupViewModels()
 
+        tTTViewModel?.setComicType(ComicUtils.getComicTypeAll())
     }
 
     private fun setupViews() {
@@ -33,8 +37,20 @@ class FrmHomeTTT : BaseFragment() {
     }
 
     private fun setupViewModels() {
-
+        tTTViewModel = getViewModel(TTTViewModel::class.java)
+        tTTViewModel?.let { vm ->
+            vm.comicTypeLiveEvent.observe(this, { comicType ->
+                logD("comicTypeLiveEvent comicType " + BaseApplication.gson.toJson(comicType))
+                setUIComicType()
+            })
+        }
     }
 
+    @SuppressLint("SetTextI18n")
+    private fun setUIComicType() {
+        tTTViewModel?.comicTypeLiveEvent?.value?.let { comicType ->
+            btSelectType.text = "Thể loại: " + comicType.type
+        }
+    }
 
 }
