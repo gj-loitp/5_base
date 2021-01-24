@@ -10,7 +10,7 @@ import com.core.base.BaseFragment
 class FrmFavTTT : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_comic_fav_ttt
+        return R.layout.l_frm_ttt_comic_fav
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

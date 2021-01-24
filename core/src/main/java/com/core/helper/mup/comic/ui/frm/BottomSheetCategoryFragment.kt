@@ -15,11 +15,11 @@ import com.core.helper.mup.comic.adapter.CategoryAdapter
 import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.l_bottom_sheet_category_fragment.*
+import kotlinx.android.synthetic.main.l_bottom_sheet_mup_category_fragment.*
 
 @LogTag("BottomSheetCategoryFragment")
 class BottomSheetCategoryFragment : BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_category_fragment,
+        layoutId = R.layout.l_bottom_sheet_mup_category_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_COLLAPSED

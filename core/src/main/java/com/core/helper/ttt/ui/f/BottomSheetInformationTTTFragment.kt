@@ -12,11 +12,11 @@ import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.l_bottom_sheet_information_ttt_fragment.*
+import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_information_fragment.*
 
 @LogTag("BottomSheetInformationTTTFragment")
 class BottomSheetInformationTTTFragment : BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_information_ttt_fragment,
+        layoutId = R.layout.l_bottom_sheet_ttt_information_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED

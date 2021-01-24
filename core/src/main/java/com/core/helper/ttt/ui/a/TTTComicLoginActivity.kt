@@ -14,7 +14,7 @@ import com.core.utilities.LUIUtil
 import com.core.utilities.LValidateUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import kotlinx.android.synthetic.main.l_activity_comic_login_ttt.*
+import kotlinx.android.synthetic.main.l_activity_ttt_comic_login.*
 
 @LogTag("TTTComicLoginActivity")
 @IsFullScreen(false)
@@ -23,7 +23,7 @@ class TTTComicLoginActivity : BaseFontActivity() {
     private var adView: AdView? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_comic_login_ttt
+        return R.layout.l_activity_ttt_comic_login
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

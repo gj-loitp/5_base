@@ -2,9 +2,7 @@ package com.core.helper.mup.comic.ui.frm
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
@@ -15,13 +13,13 @@ import com.core.utilities.LImageUtil
 import com.core.utilities.LSharedPrefsUtil
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
-import kotlinx.android.synthetic.main.l_frm_comic_profile.*
+import kotlinx.android.synthetic.main.l_frm_mup_comic_profile.*
 
 @LogTag("FrmInformation")
 class FrmProfile : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_comic_profile
+        return R.layout.l_frm_mup_comic_profile
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

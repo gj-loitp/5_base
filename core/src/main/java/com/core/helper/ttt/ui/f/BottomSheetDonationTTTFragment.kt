@@ -9,11 +9,11 @@ import com.core.common.Constants
 import com.core.utilities.LScreenUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.views.textview.textdecorator.LTextDecorator
-import kotlinx.android.synthetic.main.l_bottom_sheet_donation_ttt_fragment.*
+import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_donation_fragment.*
 
 @LogTag("BottomSheetDonationTTTFragment")
 class BottomSheetDonationTTTFragment : BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_donation_ttt_fragment,
+        layoutId = R.layout.l_bottom_sheet_ttt_donation_fragment,
         height = LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight(),
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED

@@ -22,7 +22,7 @@ import com.core.utilities.LValidateUtil
 import com.utils.util.KeyboardUtils
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import github.com.st235.lib_expandablebottombar.ExpandableBottomBarMenuItem
-import kotlinx.android.synthetic.main.l_activity_girl.*
+import kotlinx.android.synthetic.main.l_activity_mup_comic.*
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
@@ -32,7 +32,7 @@ class ComicActivity : BaseFontActivity() {
     val listMenuComic = ArrayList<MenuComic>()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_comic
+        return R.layout.l_activity_mup_comic
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

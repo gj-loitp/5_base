@@ -11,13 +11,13 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LImageUtil
 import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
-import kotlinx.android.synthetic.main.l_frm_comic_profile_ttt.*
+import kotlinx.android.synthetic.main.l_frm_ttt_comic_profile.*
 
 @LogTag("FrmProfileTTT")
 class FrmProfileTTT : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_comic_profile_ttt
+        return R.layout.l_frm_ttt_comic_profile
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

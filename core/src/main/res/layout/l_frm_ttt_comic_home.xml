@@ -6,11 +6,28 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor">
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btSelectType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/themeBackgroundColorMedium"
+        android:text="@string/select_type"
+        android:textAllCaps="false"
+        android:textColor="?attr/themeTextColor"
+        android:textSize="@dimen/txt_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         style="@style/ScrollVertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSelectType" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvNoData"

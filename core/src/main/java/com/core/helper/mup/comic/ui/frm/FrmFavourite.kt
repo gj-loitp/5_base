@@ -5,13 +5,13 @@ import android.view.View
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseFragment
-import kotlinx.android.synthetic.main.l_frm_comic_favourite.*
+import kotlinx.android.synthetic.main.l_frm_mup_comic_favourite.*
 
 @LogTag("FrmFavourite")
 class FrmFavourite : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_frm_comic_favourite
+        return R.layout.l_frm_mup_comic_favourite
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

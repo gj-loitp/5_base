@@ -1,4 +1,4 @@
-package com.core.helper.mup.comic.ui.frm
+package com.core.helper.ttt.ui.f
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,11 +12,11 @@ import com.core.helper.adhelper.AdHelperActivity
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LSocialUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import kotlinx.android.synthetic.main.l_bottom_sheet_mup_information_fragment.*
+import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_select_type_fragment.*
 
-@LogTag("BottomSheetDonationFragment")
-class BottomSheetInformationFragment : BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_mup_information_fragment,
+@LogTag("BottomSheetInformationTTTFragment")
+class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
+        layoutId = R.layout.l_bottom_sheet_ttt_select_type_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
