@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_medium"
         android:singleLine="true"
-        android:text="@string/information_vn"
+        android:text="@string/select_type"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_largest"
         android:textStyle="bold" />
@@ -30,188 +30,138 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
-            <LinearLayout
-                android:id="@+id/btAdHelper"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/w_40"
-                    android:layout_height="@dimen/w_40"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_help_black_48dp"
-                    app:tint="?attr/themeTextColor" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/why_u_see_ad"
-                    android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_1"
-                android:background="@color/gray" />
-
-            <LinearLayout
-                android:id="@+id/btRateApp"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/w_40"
-                    android:layout_height="@dimen/w_40"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_rate_review_black_48dp"
-                    app:tint="?attr/themeTextColor" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/rate_app"
-                    android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_1"
-                android:background="@color/gray" />
-
-            <LinearLayout
-                android:id="@+id/btMoreApp"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/w_40"
-                    android:layout_height="@dimen/w_40"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_card_giftcard_black_48dp"
-                    app:tint="?attr/themeTextColor" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/more_app"
-                    android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_1"
-                android:background="@color/gray" />
-
-            <LinearLayout
-                android:id="@+id/btShareApp"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/w_40"
-                    android:layout_height="@dimen/w_40"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_share_black_48dp"
-                    app:tint="?attr/themeTextColor" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/share_app"
-                    android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_1"
-                android:background="@color/gray" />
-
-            <LinearLayout
-                android:id="@+id/btLikeFbFanpage"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/w_40"
-                    android:layout_height="@dimen/w_40"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_favorite_black_48dp"
-                    app:tint="?attr/themeTextColor" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/like_facebook_fanpage"
-                    android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/w_1"
-                android:background="@color/gray" />
-
-            <LinearLayout
-                android:id="@+id/btSupport"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="@dimen/w_40"
-                    android:layout_height="@dimen/w_40"
-                    android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_live_help_black_48dp"
-                    app:tint="?attr/themeTextColor" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:text="@string/support_24_7"
-                    android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_medium" />
-            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSelectType10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:background="?attr/themeBackgroundColorMedium"
+                android:drawableEnd="@drawable/ic_chevron_right_black_48dp"
+                android:text="@string/select_type"
+                android:textAllCaps="false"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                app:drawableTint="?attr/themeTextColor" />
 
         </LinearLayout>
 
