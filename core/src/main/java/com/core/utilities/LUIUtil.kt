@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +48,7 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 /**
  * File created on 17/7/2019.
@@ -937,6 +939,19 @@ class LUIUtil {
                     }
                 }
             }
+        }
+
+        fun setDrawableTintColor(textView: TextView, color: Int) {
+            for (drawable in textView.compoundDrawables) {
+                if (drawable != null) {
+                    drawable.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
+                }
+            }
+        }
+
+        fun setTypeface(textView: TextView, pathFontAsset: String) {
+            val type = Typeface.createFromAsset(textView.context.assets, pathFontAsset)
+            textView.typeface = type
         }
     }
 }
