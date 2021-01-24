@@ -722,13 +722,11 @@ class LUIUtil {
         }
 
         @SuppressLint("ObsoleteSdkInt")
-        fun setRipple(context: Context?, view: View) {
-            context?.let { c ->
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    val outValue = TypedValue()
-                    c.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-                    view.setBackgroundResource(outValue.resourceId)
-                }
+        fun setRipple(view: View) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                val outValue = TypedValue()
+                view.context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+                view.setBackgroundResource(outValue.resourceId)
             }
         }
 

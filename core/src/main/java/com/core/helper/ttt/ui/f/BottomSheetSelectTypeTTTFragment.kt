@@ -1,9 +1,10 @@
 package com.core.helper.ttt.ui.f
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
-import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.R
 import com.annotation.LogTag
@@ -14,7 +15,6 @@ import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_select_type_fragment.*
 
 
@@ -40,13 +40,14 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
         context?.let { c ->
             val margin = LAppResource.getDimenValue(R.dimen.margin_medium)
             listComicType.forEach { comicType ->
-                val button = AppCompatButton(c)
-                button.apply {
+                val viewChild = AppCompatTextView(c)
+                viewChild.apply {
                     text = comicType.type
                     isAllCaps = false
                     LUIUtil.setTextSize(textView = this, size = resources.getDimension(R.dimen.txt_medium))
                     setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_chevron_right_black_48dp, 0)
                     LUIUtil.setTypeface(textView = this, pathFontAsset = Constants.FONT_PATH)
+                    gravity = Gravity.CENTER
 
                     val layoutParams = LinearLayoutCompat.LayoutParams(
                             LinearLayoutCompat.LayoutParams.MATCH_PARENT,
@@ -66,11 +67,13 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
                     }
                 }
 
-                button.setSafeOnClickListener {
-                    tTTViewModel?.setComicType(comicType)
-                    dismiss()
-                }
-                layoutComicType.addView(button)
+                LUIUtil.setSafeOnClickListenerElastic(
+                        view = viewChild,
+                        runnable = {
+                            tTTViewModel?.setComicType(comicType)
+                            dismiss()
+                        })
+                layoutComicType.addView(viewChild)
             }
         }
     }

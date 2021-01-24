@@ -9,7 +9,7 @@ import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.helper.ttt.helper.ComicUtils
 import com.core.helper.ttt.viewmodel.TTTViewModel
-import com.views.setSafeOnClickListener
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
 
 @LogTag("loitppFrmHomeTTT")
@@ -30,10 +30,12 @@ class FrmHomeTTT : BaseFragment() {
     }
 
     private fun setupViews() {
-        btSelectType.setSafeOnClickListener {
-            val bottomSheetSelectTypeTTTFragment = BottomSheetSelectTypeTTTFragment()
-            bottomSheetSelectTypeTTTFragment.show(childFragmentManager, bottomSheetSelectTypeTTTFragment.tag)
-        }
+        LUIUtil.setSafeOnClickListenerElastic(
+                view = btSelectType,
+                runnable = {
+                    val bottomSheetSelectTypeTTTFragment = BottomSheetSelectTypeTTTFragment()
+                    bottomSheetSelectTypeTTTFragment.show(childFragmentManager, bottomSheetSelectTypeTTTFragment.tag)
+                })
     }
 
     private fun setupViewModels() {
