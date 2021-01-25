@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cardview"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/themeBackgroundColorMedium"
+    app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
+    app:cardCornerRadius="@dimen/round_medium"
+    app:cardElevation="@dimen/w_1"
+    app:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivThumb"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:scaleType="centerCrop" />
+            android:layout_height="@dimen/w_250"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/loitp" />
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/llTextContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="#aa000000"
-            android:orientation="vertical">
+            android:background="?attr/themeBackgroundColorMedium"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_medium">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="#ffffff"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                android:textStyle="bold"
+                tools:text="@string/app_name" />
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvPubDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvTitle"
-                android:layout_marginTop="5dp"
-                android:fontFamily="sans-serif-light"
-                android:textColor="#ffffff"
-                android:textSize="12sp" />
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/text_small"
+                tools:text="@string/app_name" />
 
-        </RelativeLayout>
-
-    </RelativeLayout>
-
+        </LinearLayout>
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

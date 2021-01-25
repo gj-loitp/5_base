@@ -22,8 +22,7 @@ import vn.loitp.app.R
  */
 @LogTag("RssFragment")
 class RssFragment : BaseFragment(),
-        SwipeRefreshLayout.OnRefreshListener,
-        RssItemsAdapter.OnItemClickListener {
+        SwipeRefreshLayout.OnRefreshListener {
 
     companion object {
         private const val KEY_FEED = "FEED"
@@ -53,7 +52,9 @@ class RssFragment : BaseFragment(),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mAdapter = RssItemsAdapter(this)
+        mAdapter = RssItemsAdapter { rssItem ->
+            LSocialUtil.openUrlInBrowser(context = context, url = rssItem.link)
+        }
         recyclerView.layoutManager = LinearLayoutManager(activity)
         recyclerView.adapter = mAdapter
         swRefresh.setOnRefreshListener(this)
@@ -89,7 +90,6 @@ class RssFragment : BaseFragment(),
 
     fun onRssItemsLoaded(rssItems: List<RssItem>) {
         mAdapter.setItems(rssItems)
-        mAdapter.notifyDataSetChanged()
         if (recyclerView.visibility != View.VISIBLE) {
             recyclerView.visibility = View.VISIBLE
         }
@@ -105,10 +105,6 @@ class RssFragment : BaseFragment(),
 
     override fun onRefresh() {
         fetchRss()
-    }
-
-    override fun onItemSelected(rssItem: RssItem) {
-        LSocialUtil.openUrlInBrowser(context = context, url = rssItem.link)
     }
 
 }
