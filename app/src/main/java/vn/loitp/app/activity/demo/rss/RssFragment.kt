@@ -1,15 +1,12 @@
 package vn.loitp.app.activity.demo.rss
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.annotation.LogTag
+import com.core.base.BaseFragment
+import com.core.utilities.LSocialUtil
 import com.rss.RssConverterFactory
 import com.rss.RssFeed
 import com.rss.RssItem
@@ -23,19 +20,34 @@ import vn.loitp.app.R
 /**
  * Fragment for listing fetched [RssItem] list
  */
-class RssFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, RssItemsAdapter.OnItemClickListener {
+@LogTag("RssFragment")
+class RssFragment : BaseFragment(),
+        SwipeRefreshLayout.OnRefreshListener,
+        RssItemsAdapter.OnItemClickListener {
+
+    companion object {
+        private const val KEY_FEED = "FEED"
+
+        fun newInstance(feedUrl: String): RssFragment {
+            val rssFragment = RssFragment()
+            val bundle = Bundle()
+            bundle.putSerializable(KEY_FEED, feedUrl)
+            rssFragment.arguments = bundle
+            return rssFragment
+        }
+    }
 
     private var feedUrl: String? = null
     private lateinit var mAdapter: RssItemsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         feedUrl = arguments?.getString(KEY_FEED)
     }
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_rss, container, false)
+    override fun setLayoutResourceId(): Int {
+        return R.layout.fragment_rss
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -49,9 +61,6 @@ class RssFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, RssItemsAd
         fetchRss()
     }
 
-    /**
-     * Fetches Rss Feed Url
-     */
     private fun fetchRss() {
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://github.com")
@@ -65,22 +74,19 @@ class RssFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, RssItemsAd
             service.getRss(this)
                     .enqueue(object : Callback<RssFeed> {
                         override fun onResponse(call: Call<RssFeed>, response: Response<RssFeed>) {
-                            onRssItemsLoaded(response.body()!!.items!!)
+                            response.body()?.items?.let {
+                                onRssItemsLoaded(rssItems = it)
+                            }
                             hideLoading()
                         }
 
                         override fun onFailure(call: Call<RssFeed>, t: Throwable) {
-                            Toast.makeText(activity, "Failed to fetchRss RSS feed!", Toast.LENGTH_SHORT).show()
-
+                            showSnackBarError(msg = "Failed to fetchRss RSS feed!", isFullWidth = true)
                         }
                     })
         }
     }
 
-    /**
-     * Loads fetched [RssItem] list to RecyclerView
-     * @param rssItems
-     */
     fun onRssItemsLoaded(rssItems: List<RssItem>) {
         mAdapter.setItems(rssItems)
         mAdapter.notifyDataSetChanged()
@@ -89,53 +95,20 @@ class RssFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener, RssItemsAd
         }
     }
 
-    /**
-     * Shows [SwipeRefreshLayout]
-     */
     private fun showLoading() {
         swRefresh.isRefreshing = true
     }
 
-
-    /**
-     * Hides [SwipeRefreshLayout]
-     */
     fun hideLoading() {
         swRefresh.isRefreshing = false
     }
 
-
-    /**
-     * Triggers on [SwipeRefreshLayout] refresh
-     */
     override fun onRefresh() {
         fetchRss()
     }
 
-    /**
-     * Browse [RssItem] url
-     * @param rssItem
-     */
     override fun onItemSelected(rssItem: RssItem) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(rssItem.link))
-        startActivity(intent)
-    }
-
-    companion object {
-        private const val KEY_FEED = "FEED"
-
-        /**
-         * Creates new instance of [RssFragment]
-         * @param feedUrl Fetched Url Feed
-         * @return Fragment
-         */
-        fun newInstance(feedUrl: String): RssFragment {
-            val rssFragment = RssFragment()
-            val bundle = Bundle()
-            bundle.putSerializable(KEY_FEED, feedUrl)
-            rssFragment.arguments = bundle
-            return rssFragment
-        }
+        LSocialUtil.openUrlInBrowser(context = context, url = rssItem.link)
     }
 
 }
