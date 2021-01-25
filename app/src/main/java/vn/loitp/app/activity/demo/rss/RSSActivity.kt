@@ -7,11 +7,11 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
-@LogTag("MainActivity")
+@LogTag("RSSActivity")
 @IsFullScreen(false)
-class MainActivity : BaseFontActivity() {
+class RSSActivity : BaseFontActivity() {
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_main
+        return R.layout.activity_rss
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
