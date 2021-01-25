@@ -96,6 +96,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btComic.setOnClickListener(this)
         btFindNumber.setOnClickListener(this)
         btTTT.setOnClickListener(this)
+        btRSS.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -168,6 +169,9 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btTTT -> {
                 intent = Intent(this, TTTSplashActivity::class.java)
                 intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
+            }
+            btRSS -> {
+
             }
         }
         intent?.let {
