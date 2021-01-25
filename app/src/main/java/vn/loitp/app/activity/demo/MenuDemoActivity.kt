@@ -31,6 +31,7 @@ import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivit
 import vn.loitp.app.activity.demo.maptracker.MapTrackerActivity
 import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
+import vn.loitp.app.activity.demo.rss.MainActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
@@ -171,7 +172,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
             }
             btRSS -> {
-
+                intent = Intent(this, MainActivity::class.java)
             }
         }
         intent?.let {
