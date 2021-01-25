@@ -54,7 +54,7 @@ class LWebViewActivity : BaseFontActivity() {
         }
 
         btLoadUrl.setSafeOnClickListener {
-            webView.loadUrl("http://truyentranhtuan.com/")
+            webView.loadUrl("https://vnexpress.net/ngu-dan-trung-me-ca-chim-vang-600-trieu-dong-4226031.html/")
         }
         btLoadData.setSafeOnClickListener {
             webView.loadDataString(bodyContent = "Hello, world!")
