@@ -3,6 +3,7 @@ package vn.loitp.app.app
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.common.Constants
+import com.core.helper.ttt.db.TTTDatabase
 import com.core.utilities.LUIUtil
 import com.data.ActivityData
 import com.data.AdmobData
@@ -10,7 +11,6 @@ import com.google.firebase.messaging.FirebaseMessaging
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.truyentranhtuan.db.TTTDatabase
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //build release de check

@@ -1,5 +1,6 @@
 package com.core.base
 
+import android.app.Dialog
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -46,6 +47,8 @@ abstract class BaseActivity : AppCompatActivity() {
     private var interstitialAd: InterstitialAd? = null
     private var isShowAdWhenExit = false
     private var isShowAnimWhenExit = true
+
+    private var alertDialogProgress: Dialog? = null
 
     protected abstract fun setLayoutResourceId(): Int
 
@@ -224,6 +227,7 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
         LDialogUtil.clearAll()
+        LDialogUtil.hide(dialog = alertDialogProgress)
         stopIdleTimeHandler()
         //AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
         super.onDestroy()
@@ -368,12 +372,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showSnackBarInfor(
             msg: String,
-            view: View = findViewById(android.R.id.content),
+            view: View? = null,
             isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_infor)
                     .allowInfiniteLines()
             if (isFullWidth) {
@@ -385,12 +390,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showSnackBarWarning(
             msg: String,
-            view: View = findViewById(android.R.id.content),
+            view: View? = null,
             isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_warning)
                     .allowInfiniteLines()
             if (isFullWidth) {
@@ -402,12 +408,13 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun showSnackBarError(
             msg: String,
-            view: View = findViewById(android.R.id.content),
+            view: View? = null,
             isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(view, msg, Snackbar.LENGTH_LONG)
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
                     .withBackground(R.drawable.bg_toast_err)
                     .allowInfiniteLines()
             if (isFullWidth) {
@@ -415,5 +422,16 @@ abstract class BaseActivity : AppCompatActivity() {
             }
             snackBar.show()
         }
+    }
+
+    fun showDialogProgress() {
+        if (alertDialogProgress == null) {
+            alertDialogProgress = LDialogUtil.genCustomProgressDialog(context = this)
+        }
+        LDialogUtil.show(dialog = alertDialogProgress)
+    }
+
+    fun hideDialogProgress() {
+        LDialogUtil.hide(dialog = alertDialogProgress)
     }
 }

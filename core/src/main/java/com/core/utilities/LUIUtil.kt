@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +48,7 @@ import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 /**
  * File created on 17/7/2019.
@@ -147,6 +149,7 @@ class LUIUtil {
             listTestDevice.add(Constants.TEST_11)
             listTestDevice.add(Constants.TEST_12)
             listTestDevice.add(Constants.TEST_13)
+            listTestDevice.add(Constants.TEST_14)
             return listTestDevice
         }
 
@@ -719,13 +722,11 @@ class LUIUtil {
         }
 
         @SuppressLint("ObsoleteSdkInt")
-        fun setRipple(context: Context?, view: View) {
-            context?.let { c ->
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    val outValue = TypedValue()
-                    c.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-                    view.setBackgroundResource(outValue.resourceId)
-                }
+        fun setRipple(view: View) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                val outValue = TypedValue()
+                view.context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+                view.setBackgroundResource(outValue.resourceId)
             }
         }
 
@@ -936,6 +937,19 @@ class LUIUtil {
                     }
                 }
             }
+        }
+
+        fun setDrawableTintColor(textView: TextView, color: Int) {
+            for (drawable in textView.compoundDrawables) {
+                if (drawable != null) {
+                    drawable.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
+                }
+            }
+        }
+
+        fun setTypeface(textView: TextView, pathFontAsset: String) {
+            val type = Typeface.createFromAsset(textView.context.assets, pathFontAsset)
+            textView.typeface = type
         }
     }
 }

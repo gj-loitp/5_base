@@ -86,8 +86,8 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
             //button.setBackgroundColor(Color.TRANSPARENT)
             button.text = s
             button.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(button, context.resources.getDimension(R.dimen.text_medium))
-            LUIUtil.setRipple(context, button)
+            LUIUtil.setTextSize(textView = button, size = context.resources.getDimension(R.dimen.text_medium))
+            LUIUtil.setRipple(view = button)
             button.setOnClickListener {
                 callback?.onClick(s)
             }

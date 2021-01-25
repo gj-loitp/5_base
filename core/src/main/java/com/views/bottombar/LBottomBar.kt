@@ -70,12 +70,12 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
     private fun init() {
         View.inflate(context, R.layout.view_l_bottom_bar, this)
 
-        LUIUtil.setRipple(context = context, view = layoutIcon0)
-        LUIUtil.setRipple(context = context, view = layoutIcon1)
-        LUIUtil.setRipple(context = context, view = layoutIcon2)
-        LUIUtil.setRipple(context = context, view = layoutIcon3)
-        LUIUtil.setRipple(context = context, view = layoutIcon4)
-        LUIUtil.setRipple(context = context, view = layoutIicon5)
+        LUIUtil.setRipple(view = layoutIcon0)
+        LUIUtil.setRipple(view = layoutIcon1)
+        LUIUtil.setRipple(view = layoutIcon2)
+        LUIUtil.setRipple(view = layoutIcon3)
+        LUIUtil.setRipple(view = layoutIcon4)
+        LUIUtil.setRipple(view = layoutIicon5)
 
         layoutIcon0.setOnClickListener(this)
         layoutIcon1.setOnClickListener(this)

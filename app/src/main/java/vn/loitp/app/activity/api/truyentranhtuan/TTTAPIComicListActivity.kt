@@ -6,12 +6,12 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.helper.ttt.helper.ComicUtils
+import com.core.helper.ttt.model.comictype.ComicType
+import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.api.truyentranhtuan.helper.ComicUtils
-import vn.loitp.app.activity.api.truyentranhtuan.model.comictype.ComicType
-import vn.loitp.app.activity.api.truyentranhtuan.viewmodels.TTTViewModel
 
 @LogTag("TTTAPIComicListActivity")
 @IsFullScreen(false)
@@ -71,25 +71,6 @@ class TTTAPIComicListActivity : BaseFontActivity() {
             items[i] = comicTypeList[i].type
         }
         builder.setItems(items) { _: DialogInterface?, position: Int ->
-//            textView.text = ""
-//            tvTitle.text = ""
-//            indicatorView.smoothToShow()
-//            GetComicTask(
-//                    link = comicTypeList[position].url,
-//                    callback = object : GetComicTask.Callback {
-//                        @SuppressLint("SetTextI18n")
-//                        override fun onSuccess(comicList: List<Comic>) {
-//                            LUIUtil.printBeautyJson(o = comicList, textView = textView)
-//                            tvTitle?.text = "Danh sách truyện: " + comicList.size
-//                            indicatorView?.smoothToHide()
-//                        }
-//
-//                        override fun onError() {
-//                            showShortError("Error")
-//                            indicatorView?.smoothToHide()
-//                        }
-//                    }).execute()
-
             tttViewModel?.getListComic(comicTypeList[position].url)
         }
         val dialog = builder.create()

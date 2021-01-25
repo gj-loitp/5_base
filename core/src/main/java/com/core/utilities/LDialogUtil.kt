@@ -7,7 +7,6 @@ import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.*
 import android.widget.ImageView
@@ -16,6 +15,7 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.daimajia.androidanimations.library.Techniques
 import com.views.dialog.slideimages.LSlideAdapter
+import com.views.progressloadingview.window.WP10ProgressBar
 import java.util.*
 
 /**
@@ -269,27 +269,33 @@ class LDialogUtil {
         }
 
         @SuppressLint("InflateParams")
-        @JvmOverloads
-        fun showCustomProgressDialog(
-                context: Context?,
-                amount: Float = 0f
-        ): AlertDialog? {
+        fun genCustomProgressDialog(
+                context: Context?
+        ): Dialog? {
             if (context == null || context !is Activity) {
                 return null
             }
-            clearAll()
-            val builder = AlertDialog.Builder(context)
-            val inflater = context.layoutInflater
-            val view = inflater.inflate(R.layout.l_dlg_custom_progress, null)
-            builder.setView(view)
-            val dialog = builder.create()
-            dialog.window?.let {
-                it.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                it.setDimAmount(amount)
-            }
+            val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(R.layout.l_dlg_custom_progress)
+            dialog.setCanceledOnTouchOutside(false)
             dialog.setCancelable(false)
-            dialog.show()
-            alertDialogList.add(dialog)
+
+            val progressBar = dialog.findViewById<WP10ProgressBar>(R.id.progressBar)
+            progressBar.showProgressBar()
+
+            dialog.window?.let {
+                it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black35)))
+
+                val wlp = it.attributes
+                wlp.gravity = Gravity.CENTER
+
+                //wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
+                wlp.flags = wlp.flags and WindowManager.LayoutParams.FLAG_DIM_BEHIND.inv()
+
+                it.attributes = wlp
+                it.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+            }
             return dialog
         }
 
@@ -301,9 +307,13 @@ class LDialogUtil {
             progressBar?.visibility = View.GONE
         }
 
-        fun showDialogSlide(context: Context, index: Int, imgList: List<String>, amount: Float,
-                            isShowController: Boolean,
-                            isShowIconClose: Boolean
+        fun showDialogSlide(
+                context: Context,
+                index: Int,
+                imgList: List<String>,
+                amount: Float,
+                isShowController: Boolean,
+                isShowIconClose: Boolean
         ): Dialog {
             val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

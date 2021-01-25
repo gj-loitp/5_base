@@ -133,6 +133,11 @@
                 android:text="@string/video" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTTT"
+                style="@style/ButtonMenu"
+                android:text="TruyenTranhTuan" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFindNumber"
                 style="@style/ButtonMenu"
                 android:text="@string/find_number" />
