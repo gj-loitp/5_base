@@ -1,5 +1,6 @@
 package com.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
@@ -7,8 +8,11 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import androidx.webkit.WebSettingsCompat
+import androidx.webkit.WebViewFeature
 import com.core.utilities.LLog
 
+@SuppressLint("SetJavaScriptEnabled", "RequiresFeature")
 class LWebView : WebView {
 
     companion object {
@@ -71,12 +75,12 @@ class LWebView : WebView {
     }
 
     fun setEnableCopyContent(isEnableCopyContent: Boolean) {
-        if (isEnableCopyContent) {
+        isLongClickable = if (isEnableCopyContent) {
             setOnLongClickListener { false }
-            isLongClickable = true
+            true
         } else {
             setOnLongClickListener { true }
-            isLongClickable = false
+            false
         }
     }
 
@@ -104,12 +108,13 @@ class LWebView : WebView {
         loadData("<html><body>$bodyContent</body></html>", "text/html", "UTF-8")
     }
 
-    fun loadDataString(bodyContent: String = "",
-                       backgroundColor: String = "coral",
-                       textColor: String = "black",
-                       textAlign: String = "justify",
-                       fontSizePx: Int = 15,
-                       paddingPx: Int = 15
+    fun loadDataString(
+            bodyContent: String = "",
+            backgroundColor: String = "coral",
+            textColor: String = "black",
+            textAlign: String = "justify",
+            fontSizePx: Int = 15,
+            paddingPx: Int = 15
     ) {
         val style = """<style type="text/css">
 @font-face{
@@ -134,6 +139,7 @@ body {
 
     }
 
+    @Suppress("DEPRECATION")
     fun setTextSize(sizePercent: Int = 100) {
         logD("setTextSize sizePercent $sizePercent")
         val currentApiVersion = Build.VERSION.SDK_INT
@@ -141,6 +147,20 @@ body {
             settings.textSize = WebSettings.TextSize.NORMAL
         } else {
             settings.textZoom = sizePercent
+        }
+    }
+
+    fun setDarkMode(isDarkMode: Boolean) {
+        val isFeatureSupported = WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)
+        logD("isFeatureSupported $isFeatureSupported")
+        if (isFeatureSupported) {
+            if (isDarkMode) {
+                WebSettingsCompat.setForceDark(this.settings, WebSettingsCompat.FORCE_DARK_ON)
+            } else {
+                WebSettingsCompat.setForceDark(this.settings, WebSettingsCompat.FORCE_DARK_OFF)
+            }
+        } else {
+            throw IllegalArgumentException("This device is not supported darm mode setting")
         }
     }
 }

@@ -54,7 +54,7 @@ class LWebViewActivity : BaseFontActivity() {
         }
 
         btLoadUrl.setSafeOnClickListener {
-            webView.loadUrl("https://vnexpress.net/ngu-dan-trung-me-ca-chim-vang-600-trieu-dong-4226031.html/")
+            webView.loadUrl("https://vnexpress.net/facebook-hay-google-manh-hon-4226827.html/")
         }
         btLoadData.setSafeOnClickListener {
             webView.loadDataString(bodyContent = "Hello, world!")
@@ -75,6 +75,13 @@ class LWebViewActivity : BaseFontActivity() {
         }
         swEnableCopyContent.setOnCheckedChangeListener { _, isChecked ->
             webView.setEnableCopyContent(isChecked)
+        }
+        swEnableDarkMode.setOnCheckedChangeListener { _, isChecked ->
+            try {
+                webView.setDarkMode(isChecked)
+            } catch (e: Exception) {
+                showSnackBarError("setOnCheckedChangeListener $e")
+            }
         }
     }
 
