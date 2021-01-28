@@ -16,21 +16,21 @@
 
 package vn.loitp.app.activity.customviews.layout.transformationlayout.recycler
 
-import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.core.adapter.BaseAdapter
 import com.core.utilities.LImageUtil
+import com.skydoves.transformationlayout.TransformationLayout
 import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.layout.transformationlayout.TransformationDetailActivity
 
-class PosterAdapter : BaseAdapter() {
+class PosterAdapter(
+        val onClick: ((Poster, TransformationLayout) -> Unit)? = null
+) : BaseAdapter() {
 
     private val listPoster = mutableListOf<Poster>()
-    private var previousTime = SystemClock.elapsedRealtime()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -61,14 +61,9 @@ class PosterAdapter : BaseAdapter() {
                 tvItemPosterRunningTime.text = poster.playtime
 
                 setOnClickListener {
-                    val now = SystemClock.elapsedRealtime()
-                    if (now - previousTime >= layoutItemPosterTransformation.duration) {
-                        TransformationDetailActivity.startActivity(context, layoutItemPosterTransformation, poster)
-                        previousTime = now
-                    }
+                    onClick?.invoke(poster, layoutItemPosterTransformation)
                 }
             }
-
         }
     }
 }
