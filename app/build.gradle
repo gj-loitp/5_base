@@ -66,10 +66,6 @@ android {
         release {
             debuggable false
             minifyEnabled true
-
-//            debuggable true
-//            minifyEnabled true
-
             useProguard true //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
