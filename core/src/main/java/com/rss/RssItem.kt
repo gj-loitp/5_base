@@ -1,10 +1,12 @@
 package com.rss
 
+import androidx.annotation.Keep
 import java.io.Serializable
 
 /**
  * Model for Rss Item
  */
+@Keep
 class RssItem : Serializable {
 
     var title: String? = null
