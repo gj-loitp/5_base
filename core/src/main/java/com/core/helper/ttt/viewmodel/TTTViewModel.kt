@@ -26,7 +26,7 @@ import kotlin.collections.ArrayList
  * www.muathu@gmail.com
  */
 
-@LogTag("TTTViewModel")
+@LogTag("loitppTTTViewModel")
 class TTTViewModel : BaseViewModel() {
     val comicTypeLiveEvent: SingleLiveEvent<ComicType> = SingleLiveEvent()
 
@@ -68,7 +68,7 @@ class TTTViewModel : BaseViewModel() {
                     val eDate = eMangaFocus.select("span[class=current-date]")
                     comic.date = eDate.text()
 
-                    logD("comic " + BaseApplication.gson.toJson(comic))
+//                    logD("comic " + BaseApplication.gson.toJson(comic))
 
                     listComic.add(comic)
                 }
