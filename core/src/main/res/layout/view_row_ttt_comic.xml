@@ -20,11 +20,19 @@
         android:orientation="horizontal"
         android:padding="@dimen/padding_medium">
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCover"
+            android:layout_width="@dimen/w_100"
+            android:layout_height="@dimen/w_100"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:visibility="gone"
+            tools:src="@color/red"
+            tools:visibility="visible" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:singleLine="true"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_medium"

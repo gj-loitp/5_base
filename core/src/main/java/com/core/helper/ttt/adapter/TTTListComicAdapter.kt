@@ -8,6 +8,7 @@ import com.R
 import com.annotation.LogTag
 import com.core.adapter.BaseAdapter
 import com.core.helper.ttt.model.comic.Comic
+import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_ttt_comic.view.*
 
@@ -25,6 +26,16 @@ class TTTListComicAdapter : BaseAdapter() {
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(comic: Comic) {
+            if (comic.urlImg.isEmpty()) {
+                itemView.ivCover.visibility = View.GONE
+            } else {
+                itemView.ivCover.visibility = View.VISIBLE
+                LImageUtil.load(
+                        context = itemView.context,
+                        any = comic.urlImg,
+                        imageView = itemView.ivCover
+                )
+            }
             itemView.tvTitle.text = comic.title
             LUIUtil.setSafeOnClickListenerElastic(
                     view = itemView.cardView,
