@@ -3,10 +3,12 @@ package com.core.helper.ttt.ui.f
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.R
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFragment
+import com.core.helper.ttt.adapter.TTTListComicAdapter
 import com.core.helper.ttt.helper.ComicUtils
 import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LUIUtil
@@ -14,7 +16,9 @@ import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
 
 @LogTag("loitppFrmHomeTTT")
 class FrmHomeTTT : BaseFragment() {
+
     private var tTTViewModel: TTTViewModel? = null
+    private var tTTListComicAdapter = TTTListComicAdapter()
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_frm_ttt_comic_home
@@ -36,6 +40,11 @@ class FrmHomeTTT : BaseFragment() {
                     val bottomSheetSelectTypeTTTFragment = BottomSheetSelectTypeTTTFragment()
                     bottomSheetSelectTypeTTTFragment.show(childFragmentManager, bottomSheetSelectTypeTTTFragment.tag)
                 })
+        tTTListComicAdapter.onClickRootListener = { comic, pos ->
+
+        }
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.adapter = tTTListComicAdapter
     }
 
     private fun setupViewModels() {
@@ -50,6 +59,17 @@ class FrmHomeTTT : BaseFragment() {
             })
             vm.listComicActionLiveData.observe(viewLifecycleOwner, { actionData ->
                 logD("listComicActionLiveData observe actionData " + BaseApplication.gson.toJson(actionData))
+                if (actionData.isDoing == true) {
+                    showDialogProgress()
+                } else {
+                    if (actionData.isSuccess == true) {
+                        val listComic = actionData.data
+                        if (listComic != null && listComic is ArrayList) {
+                            tTTListComicAdapter.setData(listComic = listComic)
+                        }
+                        hideDialogProgress()
+                    }
+                }
             })
         }
     }
