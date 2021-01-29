@@ -3,7 +3,6 @@ package com.core.helper.ttt.helper
 import com.core.common.Constants
 import com.core.helper.ttt.model.comic.Comic
 import com.core.helper.ttt.model.comictype.ComicType
-import java.util.*
 
 /**
  * Created by www.muathu@gmail.com on 11/2/2017.
@@ -11,9 +10,9 @@ import java.util.*
 class ComicUtils {
     companion object {
         @JvmStatic
-        val comicTypeList: List<ComicType>
+        val comicTypeList: ArrayList<ComicType>
             get() {
-                val comicTypeList: MutableList<ComicType> = ArrayList()
+                val comicTypeList = ArrayList<ComicType>()
                 comicTypeList.add(ComicType(ComicType.TAT_CA, Constants.MAIN_LINK_TRUYENTRANHTUAN))
                 comicTypeList.add(ComicType(ComicType.TOP_50, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/top/top-50"))
                 comicTypeList.add(ComicType(ComicType.DANG_TIEN_HANH, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/trang-thai/dang-tien-hanh"))

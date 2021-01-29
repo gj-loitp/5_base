@@ -20,17 +20,9 @@
         android:textSize="@dimen/txt_largest"
         android:textStyle="bold" />
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:id="@+id/layoutComicType"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-
-    </androidx.core.widget.NestedScrollView>
+        android:layout_height="wrap_content" />
 </LinearLayout>
