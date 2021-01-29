@@ -66,6 +66,7 @@ class FrmHomeTTT : BaseFragment() {
                         val listComic = actionData.data
                         if (listComic != null && listComic is ArrayList) {
                             tTTListComicAdapter.setData(listComic = listComic)
+                            recyclerView.smoothScrollToPosition(0)
                         }
                         hideDialogProgress()
                     }
