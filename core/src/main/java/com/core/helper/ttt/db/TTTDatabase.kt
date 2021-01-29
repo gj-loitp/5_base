@@ -8,7 +8,7 @@ import com.core.helper.ttt.model.comic.Comic
 
 @Database(
         entities = [Comic::class],
-        version = 1
+        version = 2
 )
 abstract class TTTDatabase : RoomDatabase() {
 

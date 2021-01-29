@@ -81,14 +81,48 @@ class TTTViewModel : BaseViewModel() {
         ioScope.launch {
 
             logD(">>>getListComic link $link")
-            val listComic = parseData(link = link)
-            logD("comicList " + BaseApplication.gson.toJson(listComic))
+            val listComicOnline = parseData(link = link)
+            logD("listComicOnline " + listComicOnline.size)
+
+            val currentComicType = comicTypeLiveEvent.value?.type
+            logD("currentComicType $currentComicType")
+
+            val listComicOffline = TTTDatabase.instance?.tttDao()?.getListComic(currentComicType)
+                    ?: emptyList()
+            logD("listComicOffline " + listComicOffline.size)
+
+            //modify data
+            fun modifyData(comicOnline: Comic): Comic {
+                val existComic = listComicOffline.firstOrNull { comicOffline ->
+                    comicOffline.url == comicOnline.url
+                }
+                return if (existComic == null) {
+                    comicOnline
+                } else {
+                    comicOnline.urlImg = existComic.urlImg
+                    comicOnline
+                }
+            }
+
+            val listUpdateComic = ArrayList<Comic>()
+            listComicOnline.forEach { comicOnline ->
+                val updatedComic = modifyData(comicOnline = comicOnline)
+                updatedComic.type = currentComicType
+                listUpdateComic.add(element = updatedComic)
+            }
+
+            //save db
+            TTTDatabase.instance?.tttDao()?.insertListComic(list = listUpdateComic)
+
+            //get data from db
+            val listComicLasted = TTTDatabase.instance?.tttDao()?.getListComic(currentComicType)
+            logD("listComicLasted " + listComicLasted?.size)
 
             listComicActionLiveData.post(
                     ActionData(
                             isDoing = false,
                             isSuccess = true,
-                            data = listComic
+                            data = listComicLasted
                     )
             )
         }
@@ -254,7 +288,7 @@ class TTTViewModel : BaseViewModel() {
                 ActionData(isDoing = true)
         )
         ioScope.launch {
-            val listComicFav = TTTDatabase.instance?.tttDao()?.getListComic()
+            val listComicFav = TTTDatabase.instance?.tttDao()?.getListComicFav()
             listComicFavActionLiveData.post(
                     ActionData(
                             isDoing = false,

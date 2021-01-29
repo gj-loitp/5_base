@@ -35,6 +35,11 @@ class Comic : BaseModel() {
     @ColumnInfo(name = "type")
     @SerializedName("type")
     @Expose
-    var type: String = ""
+    var type: String? = ""
+
+    @ColumnInfo(name = "isFav")
+    @SerializedName("isFav")
+    @Expose
+    var isFav: Boolean = false
 
 }
