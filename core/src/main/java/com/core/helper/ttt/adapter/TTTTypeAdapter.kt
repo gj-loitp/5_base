@@ -15,19 +15,26 @@ import kotlinx.android.synthetic.main.view_row_ttt_select_type.view.*
 class TTTTypeAdapter() : BaseAdapter() {
 
     private val listComicType = ArrayList<ComicType>()
+    private var currentComicType: ComicType? = null
     var onClickRootListener: ((ComicType, Int) -> Unit)? = null
 
-    fun setData(listComicType: ArrayList<ComicType>) {
+    fun setData(listComicType: ArrayList<ComicType>, currentComicType: ComicType?) {
         this.listComicType.clear()
         this.listComicType.addAll(listComicType)
+        this.currentComicType = currentComicType
         notifyDataSetChanged()
     }
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(comicType: ComicType) {
+            if (comicType.url == currentComicType?.url) {
+                itemView.ivFav.visibility = View.VISIBLE
+            } else {
+                itemView.ivFav.visibility = View.GONE
+            }
             itemView.tvType.text = comicType.type
             LUIUtil.setSafeOnClickListenerElastic(
-                    view = itemView.layoutRoot,
+                    view = itemView.cardView,
                     runnable = {
                         onClickRootListener?.invoke(comicType, bindingAdapterPosition)
                     })

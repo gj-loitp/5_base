@@ -29,6 +29,9 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
 
         setupViews()
         setupViewModels()
+
+        val currentComicType = tTTViewModel?.comicTypeLiveEvent?.value
+        tTTypeAdapter.setData(listComicType = ComicUtils.comicTypeList, currentComicType = currentComicType)
     }
 
     private fun setupViews() {
@@ -38,7 +41,6 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
         }
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = tTTypeAdapter
-        tTTypeAdapter.setData(listComicType = ComicUtils.comicTypeList)
     }
 
     private fun setupViewModels() {
