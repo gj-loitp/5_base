@@ -285,7 +285,7 @@ class LDialogUtil {
             progressBar.showProgressBar()
 
             dialog.window?.let {
-                it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black35)))
+                it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black65)))
 
                 val wlp = it.attributes
                 wlp.gravity = Gravity.CENTER
