@@ -41,7 +41,8 @@ class FrmHomeTTT : BaseFragment() {
                     bottomSheetSelectTypeTTTFragment.show(childFragmentManager, bottomSheetSelectTypeTTTFragment.tag)
                 })
         tTTListComicAdapter.onClickRootListener = { comic, pos ->
-
+            comic.urlImg = "https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/1/28/photo-1-16118275741881533707171.jpg"
+            tTTViewModel?.updateComic(comic)
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = tTTListComicAdapter
@@ -58,7 +59,7 @@ class FrmHomeTTT : BaseFragment() {
                 vm.getListComic(link = comicType.url)
             })
             vm.listComicActionLiveData.observe(viewLifecycleOwner, { actionData ->
-                logD("listComicActionLiveData observe actionData " + BaseApplication.gson.toJson(actionData))
+//                logD("listComicActionLiveData observe actionData " + BaseApplication.gson.toJson(actionData))
                 if (actionData.isDoing == true) {
                     showDialogProgress()
                 } else {

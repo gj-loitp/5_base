@@ -35,6 +35,7 @@ class TTTViewModel : BaseViewModel() {
     val listPageActionLiveData: ActionLiveData<ActionData<List<String>>> = ActionLiveData()
 
     val listComicFavActionLiveData: ActionLiveData<ActionData<List<Comic>>> = ActionLiveData()
+    val updateComicLiveData: ActionLiveData<ActionData<Long>> = ActionLiveData()
     val favComicLiveData: ActionLiveData<ActionData<Long>> = ActionLiveData()
     val unfavComicLiveData: ActionLiveData<ActionData<Comic>> = ActionLiveData()
 
@@ -296,6 +297,13 @@ class TTTViewModel : BaseViewModel() {
                             data = listComicFav
                     )
             )
+        }
+    }
+
+    fun updateComic(comic: Comic) {
+        logD(">>>updateComic ${comic.title}")
+        ioScope.launch {
+            TTTDatabase.instance?.tttDao()?.update(type = comic)
         }
     }
 
