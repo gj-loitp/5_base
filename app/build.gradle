@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion '30.0.2'
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "loitp.basemaster"
@@ -118,6 +118,7 @@ dependencies {
 
     //region database
     //realm
+    //noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
 
     //https://github.com/amitshekhariitbhu/Android-Debug-Database
@@ -126,10 +127,10 @@ dependencies {
     //endregion
 
     //region Firebase + Google service
-    api 'com.google.firebase:firebase-ads:19.6.0'
+    api 'com.google.firebase:firebase-ads:19.7.0'
     // Firebase Authentication
-    api 'com.google.firebase:firebase-auth:20.0.1'
-    api 'com.google.firebase:firebase-core:18.0.0'
+    api 'com.google.firebase:firebase-auth:20.0.2'
+    api 'com.google.firebase:firebase-core:18.0.2'
 
     // Google Sign In SDK (only required for Google Sign In)
     api 'com.google.android.gms:play-services-auth:19.0.0'
@@ -142,7 +143,7 @@ dependencies {
     api 'com.facebook.android:facebook-login:8.1.0'
 
     //Firebase remote config
-    api 'com.google.firebase:firebase-config:20.0.2'
+    api 'com.google.firebase:firebase-config:20.0.3'
 
     //Firebase database
     api 'com.firebaseui:firebase-ui-database:4.0.0'
@@ -197,5 +198,8 @@ dependencies {
 
     //https://github.com/rehmanmuradali/wheel-spinner
     api 'com.github.rehmanmuradali:wheel-spinner:1.0.0'
+
+    //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
+    api 'com.github.ernestoyaquello:DragDropSwipeRecyclerview:1.0.0'
 }
 apply plugin: 'com.google.gms.google-services'
