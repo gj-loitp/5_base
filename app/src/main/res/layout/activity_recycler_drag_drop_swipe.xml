@@ -8,9 +8,9 @@
     tools:ignore="HardcodedText">
 
     <com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
-        android:id="@+id/list"
+        android:id="@+id/dragDropSwipeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:divider="@drawable/list_divider"
-        app:item_layout="@layout/list_item_layout" />
+        app:item_layout="@layout/view_row_item_drag_drop_recycler_view" />
 </RelativeLayout>
