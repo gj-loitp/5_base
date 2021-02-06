@@ -12,7 +12,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.bookview.BookViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.ConcatAdapterActivity
 import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
-import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeRecyclerviewActivity
+import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeListVerticalRecyclerviewActivity
 import vn.loitp.app.activity.customviews.recyclerview.fitgridview.FitGridViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.footer.RecyclerViewFooterActivity
 import vn.loitp.app.activity.customviews.recyclerview.footer2.RecyclerViewFooter2Activity
@@ -70,7 +70,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btFooter2 -> intent = Intent(this, RecyclerViewFooter2Activity::class.java)
             btNetView -> intent = Intent(this, NetViewActivity::class.java)
             btFitGridView -> intent = Intent(this, FitGridViewActivity::class.java)
-            btDragDropSwipeRecyclerview -> intent = Intent(this, DragDropSwipeRecyclerviewActivity::class.java)
+            btDragDropSwipeRecyclerview -> intent = Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
         }
         intent?.let {
             startActivity(it)

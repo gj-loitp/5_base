@@ -5,9 +5,9 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/padding_medium"
     app:cardBackgroundColor="?attr/themeBackgroundColorMedium"
-    app:cardCornerRadius="@dimen/round_medium"
+    app:cardCornerRadius="0dp"
     app:cardElevation="@dimen/w_1"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
