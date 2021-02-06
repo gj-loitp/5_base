@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_ver
 import vn.loitp.app.R
 
 //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
-@LogTag("DragDropSwipeRecyclerviewActivity")
+@LogTag("DragDropSwipeListVerticalRecyclerviewActivity")
 @IsFullScreen(false)
 class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
 
@@ -26,29 +26,33 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private fun setupViews() {
+    private fun setData(): ArrayList<String> {
         val dataSet = ArrayList<String>()
         for (i in 0..20) {
             dataSet.add(element = "Item $i")
         }
-        dragDropAdapter = DragDropAdapter(dataSet)
+        return dataSet
+    }
+
+    private fun setupViews() {
+        dragDropAdapter = DragDropAdapter(setData())
+
         dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this)//list
         dragDropSwipeRecyclerView.adapter = dragDropAdapter
 
-        val isRestrictingDraggingDirections = false
+        setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = false)
+
+        swIsRestrictingDraggingDirections.setOnCheckedChangeListener { _, isChecked ->
+            setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = isChecked)
+        }
+    }
+
+    private fun setIsRestrictingDraggingDirections(isRestrictingDraggingDirections: Boolean) {
         if (isRestrictingDraggingDirections) {
             dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
         } else {
             dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_UNCONSTRAINED_DRAGGING
         }
-
-        val isDetailLayout = true
-        if (isDetailLayout) {
-            dragDropSwipeRecyclerView.itemLayoutId = R.layout.view_row_item_drag_drop_recycler_detail_view
-            dragDropSwipeRecyclerView.dividerDrawableId = null
-        } else {
-            dragDropSwipeRecyclerView.itemLayoutId = R.layout.view_row_item_drag_drop_recycler_view
-            dragDropSwipeRecyclerView.dividerDrawableId = R.drawable.list_divider
-        }
     }
+
 }

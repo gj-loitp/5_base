@@ -37,9 +37,9 @@
                 android:text="Diff Util" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDragDropSwipeRecyclerview"
+                android:id="@+id/btDragDropSwipeRecyclerviewListVertical"
                 style="@style/ButtonMenu"
-                android:text="DragDropSwipeRecyclerview" />
+                android:text="DragDropSwipeRecyclerview List Vertical" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFitGridView"

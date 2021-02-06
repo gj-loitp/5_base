@@ -50,7 +50,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         btFooter2.setOnClickListener(this)
         btNetView.setOnClickListener(this)
         btFitGridView.setOnClickListener(this)
-        btDragDropSwipeRecyclerview.setOnClickListener(this)
+        btDragDropSwipeRecyclerviewListVertical.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -70,7 +70,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btFooter2 -> intent = Intent(this, RecyclerViewFooter2Activity::class.java)
             btNetView -> intent = Intent(this, NetViewActivity::class.java)
             btFitGridView -> intent = Intent(this, FitGridViewActivity::class.java)
-            btDragDropSwipeRecyclerview -> intent = Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
+            btDragDropSwipeRecyclerviewListVertical -> intent = Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
         }
         intent?.let {
             startActivity(it)

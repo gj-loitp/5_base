@@ -18,7 +18,7 @@ class LColorSwitchCompat : SwitchCompat {
     var bgOnColor = Color.parseColor("#97d9d7")
     var bgOffColor = Color.parseColor("#a6a6a6")
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         applyAttributes(context, attrs)
