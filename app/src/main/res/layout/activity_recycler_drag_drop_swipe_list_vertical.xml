@@ -40,12 +40,6 @@
         android:id="@+id/dragDropSwipeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:behind_swiped_item_bg_color="@color/pineGreen"
-        app:behind_swiped_item_bg_color_secondary="@color/deepPink"
-        app:behind_swiped_item_icon="@drawable/ic_delete_forever_black_48dp"
-        app:behind_swiped_item_icon_centered="false"
-        app:behind_swiped_item_icon_margin="@dimen/margin_medium"
-        app:behind_swiped_item_icon_secondary="@drawable/ic_camera_48dp"
         app:divider="@drawable/list_divider"
         app:item_layout="@layout/view_row_item_drag_drop_recycler_detail_view"
         app:swiped_item_opacity_fades_on_swiping="false" />
