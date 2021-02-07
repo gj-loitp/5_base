@@ -47,6 +47,8 @@ class DragDropSwipeGridRecyclerviewActivity : BaseFontActivity() {
         swLayoutBehind.setOnCheckedChangeListener { _, isChecked ->
             setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = isChecked)
         }
+
+        //listener -> check DragDropSwipeListHorizontalRecyclerviewActivity
     }
 
     private fun setIsRestrictingDraggingDirections() {
