@@ -41,9 +41,13 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
         dragDropSwipeRecyclerView.adapter = dragDropAdapter
 
         setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = false)
+        setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = false)
 
         swIsRestrictingDraggingDirections.setOnCheckedChangeListener { _, isChecked ->
             setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = isChecked)
+        }
+        swLayoutBehind.setOnCheckedChangeListener { _, isChecked ->
+            setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = isChecked)
         }
     }
 
@@ -52,6 +56,36 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
             dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
         } else {
             dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_UNCONSTRAINED_DRAGGING
+        }
+    }
+
+    private fun setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems: Boolean) {
+        // We set to null all the properties that can be used to display something behind swiped items
+        // In XML: app:behind_swiped_item_bg_color="@null"
+        dragDropSwipeRecyclerView.behindSwipedItemBackgroundColor = null
+
+        // In XML: app:behind_swiped_item_bg_color_secondary="@null"
+        dragDropSwipeRecyclerView.behindSwipedItemBackgroundSecondaryColor = null
+
+        // In XML: app:behind_swiped_item_icon="@null"
+        dragDropSwipeRecyclerView.behindSwipedItemIconDrawableId = null
+
+        // In XML: app:behind_swiped_item_icon_secondary="@null"
+        dragDropSwipeRecyclerView.behindSwipedItemIconSecondaryDrawableId = null
+
+        // In XML: app:behind_swiped_item_custom_layout="@null"
+        dragDropSwipeRecyclerView.behindSwipedItemLayoutId = null
+
+        // In XML: app:behind_swiped_item_custom_layout_secondary="@null"
+        dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId = null
+
+        if (isDrawingBehindSwipedItems) {
+            // We set our custom layouts to be displayed behind swiped items
+            // In XML: app:behind_swiped_item_custom_layout="@layout/behind_swiped_vertical_list"
+            dragDropSwipeRecyclerView.behindSwipedItemLayoutId = R.layout.behind_swiped_vertical_list
+
+            // In XML: app:behind_swiped_item_custom_layout_secondary="@layout/behind_swiped_vertical_list_secondary"
+            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId = R.layout.behind_swiped_vertical_list_secondary
         }
     }
 
