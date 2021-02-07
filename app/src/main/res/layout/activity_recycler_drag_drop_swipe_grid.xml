@@ -9,20 +9,6 @@
     tools:ignore="HardcodedText">
 
     <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
-        android:id="@+id/swIsRestrictingDraggingDirections"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingStart="@dimen/padding_medium"
-        android:paddingEnd="@dimen/padding_medium"
-        android:text="isRestrictingDraggingDirections"
-        android:textColor="?attr/themeTextColor"
-        app:bgOffColor="@color/red"
-        app:bgOnColor="@color/green"
-        app:toggleOffColor="@color/blue"
-        app:toggleOnColor="@color/deepPink" />
-
-    <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
         android:id="@+id/swLayoutBehind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

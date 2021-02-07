@@ -40,10 +40,16 @@
                 android:id="@+id/btDragDropSwipeRecyclerviewListVertical"
                 style="@style/ButtonMenu"
                 android:text="DragDropSwipeRecyclerview List Vertical" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDragDropSwipeRecyclerviewListHorizontal"
                 style="@style/ButtonMenu"
                 android:text="DragDropSwipeRecyclerview List Horizontal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDragDropSwipeRecyclerviewGrid"
+                style="@style/ButtonMenu"
+                android:text="DragDropSwipeRecyclerview Grid Horizontal" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFitGridView"
