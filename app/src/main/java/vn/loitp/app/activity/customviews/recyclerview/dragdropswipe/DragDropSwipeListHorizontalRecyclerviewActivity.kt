@@ -2,22 +2,23 @@ package vn.loitp.app.activity.customviews.recyclerview.dragdropswipe
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
-import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_vertical.*
+import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_horizontal.*
 import vn.loitp.app.R
 
 //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
-@LogTag("DragDropSwipeListVerticalRecyclerviewActivity")
+@LogTag("DragDropSwipeListHorizontalRecyclerviewActivity")
 @IsFullScreen(false)
-class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
+class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
 
     private var dragDropAdapter: DragDropAdapter? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_recycler_drag_drop_swipe_list_vertical
+        return R.layout.activity_recycler_drag_drop_swipe_list_horizontal
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +36,9 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        dragDropAdapter = DragDropAdapter(setData())
+        dragDropAdapter = DragDropAdapter(dataSet = setData(), isHorizontal = true)
 
-        dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this)//list
+        dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         dragDropSwipeRecyclerView.adapter = dragDropAdapter
 
         setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = false)
@@ -53,9 +54,9 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
 
     private fun setIsRestrictingDraggingDirections(isRestrictingDraggingDirections: Boolean) {
         if (isRestrictingDraggingDirections) {
-            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
+            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_HORIZONTAL_DRAGGING
         } else {
-            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_UNCONSTRAINED_DRAGGING
+            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_UNCONSTRAINED_DRAGGING
         }
     }
 
