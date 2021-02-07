@@ -9,6 +9,7 @@ import com.core.base.BaseFontActivity
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemDragListener
 import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnItemSwipeListener
+import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnListScrollListener
 import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_horizontal.*
 import vn.loitp.app.R
 
@@ -45,6 +46,7 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
 
         dragDropSwipeRecyclerView.swipeListener = onItemSwipeListener
         dragDropSwipeRecyclerView.dragListener = onItemDragListener
+        dragDropSwipeRecyclerView.scrollListener = onListScrollListener
 
         setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = false)
         setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = false)
@@ -116,6 +118,18 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
         override fun onItemDropped(initialPosition: Int, finalPosition: Int, item: String) {
             // Handle action of item dropped
             logD("onItemDragListener onItemDragged initialPosition $initialPosition, finalPosition $finalPosition, item $item")
+        }
+    }
+
+    private val onListScrollListener = object : OnListScrollListener {
+        override fun onListScrollStateChanged(scrollState: OnListScrollListener.ScrollState) {
+            // Handle change on list scroll state
+            logD("onListScrollListener onListScrollStateChanged scrollState $scrollState")
+        }
+
+        override fun onListScrolled(scrollDirection: OnListScrollListener.ScrollDirection, distance: Int) {
+            // Handle scrolling
+            logD("onListScrollListener onListScrolled scrollDirection $scrollDirection, distance $distance")
         }
     }
 
