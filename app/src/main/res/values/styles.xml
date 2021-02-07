@@ -51,21 +51,52 @@
         <attr name="tbgBackImage" format="reference" />
     </declare-styleable>
 
-<!--    <style name="TextStyle" parent="@android:style/Widget.TextView">-->
-<!--        <item name="android:textColor">@android:color/white</item>-->
-<!--        <item name="android:gravity">center</item>-->
-<!--        <item name="android:padding">10dp</item>-->
-<!--        <item name="android:textStyle">bold</item>-->
-<!--        <item name="android:textSize">18sp</item>-->
-<!--    </style>-->
+    <!--    <style name="TextStyle" parent="@android:style/Widget.TextView">-->
+    <!--        <item name="android:textColor">@android:color/white</item>-->
+    <!--        <item name="android:gravity">center</item>-->
+    <!--        <item name="android:padding">10dp</item>-->
+    <!--        <item name="android:textStyle">bold</item>-->
+    <!--        <item name="android:textSize">18sp</item>-->
+    <!--    </style>-->
 
     <style name="CircleImageStyle" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
 
-<!--    <style name="CollapsedExpandedTitleText" parent="AppTheme">-->
-<!--        <item name="android:textColor">@android:color/transparent</item>-->
-<!--    </style>-->
+    <!--    <style name="CollapsedExpandedTitleText" parent="AppTheme">-->
+    <!--        <item name="android:textColor">@android:color/transparent</item>-->
+    <!--    </style>-->
+
+    <style name="Theme.FastScrollSample" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- If you set this in your theme, all FastScroller(Thumb)Views will use this style by default -->
+        <item name="indicatorFastScrollerStyle">@style/Widget.FastScrollSample.FastScroller</item>
+        <item name="indicatorFastScrollerThumbStyle">
+            @style/Widget.FastScrollSample.FastScrollerThumb
+        </item>
+    </style>
+
+    <!-- See the parent styles for more attributes -->
+
+    <style name="Widget.FastScrollSample.FastScroller" parent="Widget.IndicatorFastScroll.FastScroller">
+        <item name="iconColor">@color/red</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="Widget.FastScrollSample.FastScroller.Floating">
+        <item name="iconColor">?colorAccent</item>
+        <item name="android:textColor">?colorAccent</item>
+        <item name="android:background">@drawable/fastscroller_floating_background</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="Widget.FastScrollSample.FastScrollerThumb" parent="Widget.IndicatorFastScroll.FastScrollerThumb" />
+
+    <style name="Widget.FastScrollSample.FastScrollerThumb.Colorful">
+        <item name="thumbColor">?colorAccent</item>
+    </style>
 
 </resources>

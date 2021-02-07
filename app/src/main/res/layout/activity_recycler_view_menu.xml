@@ -52,6 +52,11 @@
                 android:text="DragDropSwipeRecyclerview Grid Horizontal" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFastScroll"
+                style="@style/ButtonMenu"
+                android:text="Fast scroll" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFitGridView"
                 style="@style/ButtonMenu"
                 android:text="Fit GridView" />

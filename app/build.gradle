@@ -93,9 +93,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-//    kotlinOptions {
-//        jvmTarget = "1.8"
-//    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 
     packagingOptions {
         //exclude 'META-INF/core_release.kotlin_module'
@@ -199,7 +199,12 @@ dependencies {
     //https://github.com/rehmanmuradali/wheel-spinner
     api 'com.github.rehmanmuradali:wheel-spinner:1.0.0'
 
+    //https://github.com/reddit/IndicatorFastScroll
+    api 'com.reddit:indicator-fast-scroll:1.3.0'
+    api 'com.thedeanda:lorem:2.1'
+
     //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
     api 'com.github.ernestoyaquello:DragDropSwipeRecyclerview:1.0.0'
+
 }
 apply plugin: 'com.google.gms.google-services'
