@@ -4,26 +4,26 @@ import android.os.AsyncTask
 import android.os.Bundle
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
 import com.thedeanda.lorem.LoremIpsum
 import vn.loitp.app.R
 
-/**
- * The meaty part is in the sample fragments.
- *
- * @see JustTextFragment
- * @see TextWithIconFragment
- */
-class SampleActivity : AppCompatActivity() {
+@LogTag("SampleActivity")
+@IsFullScreen(false)
+class FastScrollMenuActivity : BaseFontActivity() {
+    override fun setLayoutResourceId(): Int {
+        return R.layout.layout_fast_scroll_menu
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.main)
-        val rootView: ViewGroup = findViewById(R.id.main_root)
+        val rootView: ViewGroup = findViewById(R.id.rootView)
         val menuView: ViewGroup = findViewById(R.id.main_menu)
         val sampleToolbarView: Toolbar = findViewById(R.id.main_sample_toolbar)
         val sampleButtonsView: ViewGroup = findViewById(R.id.main_sample_buttons)
@@ -41,7 +41,7 @@ class SampleActivity : AppCompatActivity() {
                             .beginTransaction()
                             .replace(
                                     R.id.main_sample_fragment,
-                                    Fragment.instantiate(this@SampleActivity, sample.fragmentClass.name)
+                                    Fragment.instantiate(this@FastScrollMenuActivity, sample.fragmentClass.name)
                             )
                             .addToBackStack(null)
                             .commit()

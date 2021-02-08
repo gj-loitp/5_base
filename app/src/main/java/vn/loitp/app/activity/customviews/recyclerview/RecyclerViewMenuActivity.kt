@@ -15,7 +15,7 @@ import vn.loitp.app.activity.customviews.recyclerview.diffutil.DiffUtilActivity
 import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeGridRecyclerviewActivity
 import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeListHorizontalRecyclerviewActivity
 import vn.loitp.app.activity.customviews.recyclerview.dragdropswipe.DragDropSwipeListVerticalRecyclerviewActivity
-import vn.loitp.app.activity.customviews.recyclerview.fastscroll.SampleActivity
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.FastScrollMenuActivity
 import vn.loitp.app.activity.customviews.recyclerview.fitgridview.FitGridViewActivity
 import vn.loitp.app.activity.customviews.recyclerview.footer.RecyclerViewFooterActivity
 import vn.loitp.app.activity.customviews.recyclerview.footer2.RecyclerViewFooter2Activity
@@ -79,7 +79,7 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btDragDropSwipeRecyclerviewListVertical -> intent = Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
             btDragDropSwipeRecyclerviewListHorizontal -> intent = Intent(this, DragDropSwipeListHorizontalRecyclerviewActivity::class.java)
             btDragDropSwipeRecyclerviewGrid -> intent = Intent(this, DragDropSwipeGridRecyclerviewActivity::class.java)
-            btFastScroll -> intent = Intent(this, SampleActivity::class.java)
+            btFastScroll -> intent = Intent(this, FastScrollMenuActivity::class.java)
         }
         intent?.let {
             startActivity(it)
