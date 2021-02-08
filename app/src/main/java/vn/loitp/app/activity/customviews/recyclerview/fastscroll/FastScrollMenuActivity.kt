@@ -24,7 +24,7 @@ class FastScrollMenuActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         val rootView: ViewGroup = findViewById(R.id.rootView)
-        val menuView: ViewGroup = findViewById(R.id.main_menu)
+        val menuView: ViewGroup = findViewById(R.id.layoutMenuView)
         val sampleToolbarView: Toolbar = findViewById(R.id.main_sample_toolbar)
         val sampleButtonsView: ViewGroup = findViewById(R.id.main_sample_buttons)
 
