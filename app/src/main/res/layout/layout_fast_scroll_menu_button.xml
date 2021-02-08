@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Button xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.AppCompatButton xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
     android:gravity="start|center_vertical"
-    android:paddingStart="32dp"
-    android:paddingEnd="32dp"
+    android:paddingStart="@dimen/padding_medium"
+    android:paddingEnd="@dimen/padding_medium"
     android:textAppearance="?android:textAppearanceButton"
-    android:textColor="?colorPrimary"
+    android:textColor="?attr/themeTextColor"
     tools:text="Sample">
 
-</Button>
+</androidx.appcompat.widget.AppCompatButton>

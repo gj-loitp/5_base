@@ -11,11 +11,24 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.thedeanda.lorem.LoremIpsum
+import com.views.setSafeOnClickListener
 import vn.loitp.app.R
 
 @LogTag("SampleActivity")
 @IsFullScreen(false)
 class FastScrollMenuActivity : BaseFontActivity() {
+
+    enum class Samples(
+            val title: String,
+            val fragmentClass: Class<out Fragment>
+    ) {
+        JustText("Just text", JustTextFragment::class.java),
+        TextWithIcon("Text with icon", TextWithIconFragment::class.java),
+        Styled("Styled", StyledFragment::class.java),
+        Filtered("Filtered", FilteredFragment::class.java),
+        CustomScroll("Custom scroll", CustomScrollFragment::class.java)
+    }
+
     override fun setLayoutResourceId(): Int {
         return R.layout.layout_fast_scroll_menu
     }
@@ -24,38 +37,38 @@ class FastScrollMenuActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         val rootView: ViewGroup = findViewById(R.id.rootView)
-        val menuView: ViewGroup = findViewById(R.id.layoutMenuView)
-        val sampleToolbarView: Toolbar = findViewById(R.id.main_sample_toolbar)
-        val sampleButtonsView: ViewGroup = findViewById(R.id.main_sample_buttons)
+        val layoutMenuView: ViewGroup = findViewById(R.id.layoutMenuView)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        val layoutButtons: ViewGroup = findViewById(R.id.layoutButtons)
 
-        sampleToolbarView.setNavigationOnClickListener {
+        toolbar.setNavigationOnClickListener {
             supportFragmentManager.popBackStack()
         }
 
         Samples.values().forEach { sample ->
-            val button = layoutInflater.inflate(R.layout.sample_menu_button, rootView, false).apply {
+            val button = layoutInflater.inflate(R.layout.layout_fast_scroll_menu_button, rootView, false).apply {
                 this as Button
                 text = sample.title
-                setOnClickListener {
+                setSafeOnClickListener {
                     supportFragmentManager
                             .beginTransaction()
                             .replace(
-                                    R.id.main_sample_fragment,
+                                    R.id.layoutContainer,
                                     Fragment.instantiate(this@FastScrollMenuActivity, sample.fragmentClass.name)
                             )
                             .addToBackStack(null)
                             .commit()
                 }
             }
-            sampleButtonsView.addView(button)
+            layoutButtons.addView(button)
         }
 
         fun updateViews() {
-            val sampleFragment = supportFragmentManager.findFragmentById(R.id.main_sample_fragment)
+            val sampleFragment = supportFragmentManager.findFragmentById(R.id.layoutContainer)
             val isShowingSample = (sampleFragment != null)
-            menuView.isGone = isShowingSample
-            sampleToolbarView.isGone = !isShowingSample
-            sampleToolbarView.title = sampleFragment?.let {
+            layoutMenuView.isGone = isShowingSample
+            toolbar.isGone = !isShowingSample
+            toolbar.title = sampleFragment?.let {
                 Samples.values().find { it.fragmentClass == sampleFragment::class.java }?.title
             }
         }
@@ -69,14 +82,6 @@ class FastScrollMenuActivity : BaseFontActivity() {
             // Preload the sample data. Not thread-safe, but not a big deal.
             LoremIpsum.getInstance()
         }
-    }
-
-    enum class Samples(val title: String, val fragmentClass: Class<out Fragment>) {
-        JustText("Just text", JustTextFragment::class.java),
-        TextWithIcon("Text with icon", TextWithIconFragment::class.java),
-        Styled("Styled", StyledFragment::class.java),
-        Filtered("Filtered", FilteredFragment::class.java),
-        CustomScroll("Custom scroll", CustomScrollFragment::class.java)
     }
 
 }
