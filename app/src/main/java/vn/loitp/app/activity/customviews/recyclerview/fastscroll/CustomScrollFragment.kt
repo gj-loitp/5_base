@@ -7,55 +7,53 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
-import androidx.recyclerview.widget.RecyclerView
 import com.reddit.indicatorfastscroll.FastScrollItemIndicator
-import com.reddit.indicatorfastscroll.FastScrollerThumbView
 import com.reddit.indicatorfastscroll.FastScrollerView
+import kotlinx.android.synthetic.main.layout_fast_scroll_sample_basic.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.adapter.SampleAdapter
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.ListItem
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.SAMPLE_DATA_TEXT
+import java.util.*
 
 class CustomScrollFragment : Fragment() {
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var fastScrollerView: FastScrollerView
-    private lateinit var fastScrollerThumbView: FastScrollerThumbView
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
+        return inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         val data = listOf(ListItem.DataItem(
                 "Items will be scrolled to the top!",
                 showInFastScroll = false
         )) + SAMPLE_DATA_TEXT
 
-        recyclerView = view.findViewById(R.id.recyclerView)
         val linearLayoutManager = LinearLayoutManager(context)
         recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = SampleAdapter(data)
         }
 
-        fastScrollerView = view.findViewById(R.id.fastScrollerView)
         fastScrollerView.apply {
             setupWithRecyclerView(
                     recyclerView,
                     { position ->
-                      data[position]
-                              .takeIf(ListItem::showInFastScroll)
-                              ?.let { item ->
-                                FastScrollItemIndicator.Text(
-                                        item
-                                                .title
-                                                .substring(0, 1)
-                                                .toUpperCase()
-                                )
-                              }
+                        data[position]
+                                .takeIf(ListItem::showInFastScroll)
+                                ?.let { item ->
+                                    FastScrollItemIndicator.Text(
+                                            item
+                                                    .title
+                                                    .substring(0, 1)
+                                                    .toUpperCase(Locale.getDefault())
+                                    )
+                                }
                     },
                     useDefaultScroller = false
             )
@@ -75,12 +73,9 @@ class CustomScrollFragment : Fragment() {
             }
         }
 
-        fastScrollerThumbView = view.findViewById(R.id.fastScrollerThumbView)
         fastScrollerThumbView.apply {
-            setupWithFastScroller(fastScrollerView)
+            setupWithFastScroller(fastScrollerView = fastScrollerView)
         }
-
-        return view
     }
 
 }
