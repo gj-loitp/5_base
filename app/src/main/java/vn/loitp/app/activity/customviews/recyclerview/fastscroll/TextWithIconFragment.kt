@@ -22,18 +22,18 @@ class TextWithIconFragment : Fragment() {
     private lateinit var fastScrollerThumbView: FastScrollerThumbView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        val view = inflater.inflate(R.layout.sample_basic, container, false)
+        val view = inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
 
         val data = SAMPLE_DATA_TEXT_AND_HEADERS
 
-        recyclerView = view.findViewById(R.id.sample_basic_recyclerview)
+        recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(HeaderSpacerItemDecoration(data::get))
             adapter = SampleAdapter(data)
         }
 
-        fastScrollerView = view.findViewById(R.id.sample_basic_fastscroller)
+        fastScrollerView = view.findViewById(R.id.fastScrollerView)
         fastScrollerView.apply {
             setupWithRecyclerView(
                     recyclerView,
@@ -56,7 +56,7 @@ class TextWithIconFragment : Fragment() {
             )
         }
 
-        fastScrollerThumbView = view.findViewById(R.id.sample_basic_fastscroller_thumb)
+        fastScrollerThumbView = view.findViewById(R.id.fastScrollerThumbView)
         fastScrollerThumbView.apply {
             setupWithFastScroller(fastScrollerView)
         }

@@ -26,20 +26,20 @@ class FilteredFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.sample_basic, container, false)
+        val view = inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
 
         val data = listOf(ListItem.DataItem(
                 "Every other indicator will be hidden!",
                 showInFastScroll = false
         )) + SAMPLE_DATA_TEXT
 
-        recyclerView = view.findViewById(R.id.sample_basic_recyclerview)
+        recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = SampleAdapter(data)
         }
 
-        fastScrollerView = view.findViewById(R.id.sample_basic_fastscroller)
+        fastScrollerView = view.findViewById(R.id.fastScrollerView)
         fastScrollerView.apply {
             setupWithRecyclerView(
                     recyclerView,
@@ -62,7 +62,7 @@ class FilteredFragment : Fragment() {
             )
         }
 
-        fastScrollerThumbView = view.findViewById(R.id.sample_basic_fastscroller_thumb)
+        fastScrollerThumbView = view.findViewById(R.id.fastScrollerThumbView)
         fastScrollerThumbView.apply {
             setupWithFastScroller(fastScrollerView)
         }

@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:windowBackground">
+    android:background="?attr/themeBackgroundColor">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/sample_basic_recyclerview"
+        android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingTop="@dimen/padding_medium"
+        android:paddingBottom="@dimen/padding_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,20 +20,25 @@
         tools:listitem="@layout/layout_fast_scroll_data_item" />
 
     <com.reddit.indicatorfastscroll.FastScrollerView
-        android:id="@+id/sample_basic_fastscroller"
+        android:id="@+id/fastScrollerView"
         android:layout_width="32dp"
         android:layout_height="0dp"
+        android:textColor="@color/blue"
+        app:iconColor="@color/deepPink"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.reddit.indicatorfastscroll.FastScrollerThumbView
-        android:id="@+id/sample_basic_fastscroller_thumb"
+        android:id="@+id/fastScrollerThumbView"
         android:layout_width="40dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/sample_basic_fastscroller"
-        app:layout_constraintEnd_toStartOf="@+id/sample_basic_fastscroller"
-        app:layout_constraintTop_toTopOf="@+id/sample_basic_fastscroller" />
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:textColor="?attr/themeTextColor"
+        app:iconColor="@color/green"
+        app:layout_constraintBottom_toBottomOf="@+id/fastScrollerView"
+        app:layout_constraintEnd_toStartOf="@+id/fastScrollerView"
+        app:layout_constraintTop_toTopOf="@+id/fastScrollerView"
+        app:thumbColor="@color/red" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

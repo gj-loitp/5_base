@@ -27,21 +27,21 @@ class CustomScrollFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.sample_basic, container, false)
+        val view = inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
 
         val data = listOf(ListItem.DataItem(
                 "Items will be scrolled to the top!",
                 showInFastScroll = false
         )) + SAMPLE_DATA_TEXT
 
-        recyclerView = view.findViewById(R.id.sample_basic_recyclerview)
+        recyclerView = view.findViewById(R.id.recyclerView)
         val linearLayoutManager = LinearLayoutManager(context)
         recyclerView.apply {
             layoutManager = linearLayoutManager
             adapter = SampleAdapter(data)
         }
 
-        fastScrollerView = view.findViewById(R.id.sample_basic_fastscroller)
+        fastScrollerView = view.findViewById(R.id.fastScrollerView)
         fastScrollerView.apply {
             setupWithRecyclerView(
                     recyclerView,
@@ -75,7 +75,7 @@ class CustomScrollFragment : Fragment() {
             }
         }
 
-        fastScrollerThumbView = view.findViewById(R.id.sample_basic_fastscroller_thumb)
+        fastScrollerThumbView = view.findViewById(R.id.fastScrollerThumbView)
         fastScrollerThumbView.apply {
             setupWithFastScroller(fastScrollerView)
         }
