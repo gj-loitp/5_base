@@ -2,9 +2,7 @@ package vn.loitp.app.activity.customviews.recyclerview.fastscroll
 
 import android.os.AsyncTask
 import android.os.Bundle
-import android.view.ViewGroup
 import android.widget.Button
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.annotation.IsFullScreen
@@ -12,6 +10,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.thedeanda.lorem.LoremIpsum
 import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.layout_fast_scroll_menu.*
 import vn.loitp.app.R
 
 @LogTag("SampleActivity")
@@ -35,11 +34,6 @@ class FastScrollMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val rootView: ViewGroup = findViewById(R.id.rootView)
-        val layoutMenuView: ViewGroup = findViewById(R.id.layoutMenuView)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        val layoutButtons: ViewGroup = findViewById(R.id.layoutButtons)
 
         toolbar.setNavigationOnClickListener {
             supportFragmentManager.popBackStack()
