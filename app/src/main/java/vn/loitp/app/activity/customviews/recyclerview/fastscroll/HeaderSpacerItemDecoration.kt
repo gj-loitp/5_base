@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.ListItem
 
 class HeaderSpacerItemDecoration(
         val getListItem: (Int) -> ListItem
@@ -25,6 +26,9 @@ class HeaderSpacerItemDecoration(
                     } else {
                         view.context.resources.getDimensionPixelSize(R.dimen.header_middle_top_margin)
                     }
+                }
+                else -> {
+                    //do nothing
                 }
             }
             left = 0

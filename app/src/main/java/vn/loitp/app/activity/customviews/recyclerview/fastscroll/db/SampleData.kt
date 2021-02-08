@@ -1,15 +1,14 @@
-package vn.loitp.app.activity.customviews.recyclerview.fastscroll
+package vn.loitp.app.activity.customviews.recyclerview.fastscroll.db
 
 import com.thedeanda.lorem.LoremIpsum
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.fastscroll.ListItem.DataItem
 
 val SAMPLE_DATA_TEXT = LoremIpsum.getInstance()
         .getWords(200)
         .split(" ")
         .distinct()
         .sorted()
-        .map { DataItem(it) }
+        .map { ListItem.DataItem(it) }
 
 val SAMPLE_DATA_TEXT_AND_HEADERS =
         listOf(ListItem.HeaderItem(
@@ -21,7 +20,7 @@ val SAMPLE_DATA_TEXT_AND_HEADERS =
                         .getWords(15)
                         .split(" ")
                         .distinct()
-                        .map { DataItem(it, showInFastScroll = false) } +
+                        .map { ListItem.DataItem(it, showInFastScroll = false) } +
                 listOf(ListItem.HeaderItem(
                         "All",
                         R.drawable.indicator_words,
@@ -32,7 +31,7 @@ val SAMPLE_DATA_TEXT_AND_HEADERS =
                         .split(" ")
                         .distinct()
                         .sorted()
-                        .map { DataItem(it) }
+                        .map { ListItem.DataItem(it) }
 
 sealed class ListItem(val showInFastScroll: Boolean = true) {
 

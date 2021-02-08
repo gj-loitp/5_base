@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/data_item" />
+        tools:listitem="@layout/layout_fast_scroll_data_item" />
 
     <com.reddit.indicatorfastscroll.FastScrollerView
         android:id="@+id/sample_basic_fastscroller"

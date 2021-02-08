@@ -11,6 +11,9 @@ import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.reddit.indicatorfastscroll.FastScrollerThumbView
 import com.reddit.indicatorfastscroll.FastScrollerView
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.adapter.SampleAdapter
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.ListItem
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.SAMPLE_DATA_TEXT_AND_HEADERS
 
 class TextWithIconFragment : Fragment() {
 
@@ -35,20 +38,20 @@ class TextWithIconFragment : Fragment() {
             setupWithRecyclerView(
                     recyclerView,
                     { position ->
-                      data[position]
-                              .takeIf(ListItem::showInFastScroll)
-                              ?.let { item ->
-                                when (item) {
-                                  is ListItem.HeaderItem -> FastScrollItemIndicator.Icon(item.iconRes)
-                                  is ListItem.DataItem ->
-                                    FastScrollItemIndicator.Text(
-                                            item
-                                                    .title
-                                                    .substring(0, 1)
-                                                    .toUpperCase()
-                                    )
+                        data[position]
+                                .takeIf(ListItem::showInFastScroll)
+                                ?.let { item ->
+                                    when (item) {
+                                        is ListItem.HeaderItem -> FastScrollItemIndicator.Icon(item.iconRes)
+                                        is ListItem.DataItem ->
+                                            FastScrollItemIndicator.Text(
+                                                    item
+                                                            .title
+                                                            .substring(0, 1)
+                                                            .toUpperCase()
+                                            )
+                                    }
                                 }
-                              }
                     }
             )
         }

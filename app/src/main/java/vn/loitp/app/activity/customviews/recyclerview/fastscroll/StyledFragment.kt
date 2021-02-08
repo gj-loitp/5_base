@@ -11,6 +11,9 @@ import com.reddit.indicatorfastscroll.FastScrollItemIndicator
 import com.reddit.indicatorfastscroll.FastScrollerThumbView
 import com.reddit.indicatorfastscroll.FastScrollerView
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.adapter.SampleAdapter
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.ListItem
+import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.SAMPLE_DATA_TEXT
 
 class StyledFragment : Fragment() {
 
