@@ -46,7 +46,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
     private var currentPage = 0
     private var totalPage = 1
-
     private var isLoading: Boolean = false
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var adView: AdView? = null
@@ -62,7 +61,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         RestClient.init(getString(R.string.flickr_URL))
-//        setTransparentStatusNavigationBar()
         PhotosDataCore.instance.clearData()
 
         val adUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
@@ -91,30 +89,30 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
 //        recyclerView.setHasFixedSize(true)
-        photosOnlyAdapter = PhotosOnlyAdapter(context = this, callback = object : PhotosOnlyAdapter.Callback {
-            override fun onClick(photo: Photo, pos: Int) {
-            }
+        photosOnlyAdapter = PhotosOnlyAdapter(
+                callback = object : PhotosOnlyAdapter.Callback {
+                    override fun onClick(photo: Photo, pos: Int) {
+                    }
 
-            override fun onLongClick(photo: Photo, pos: Int) {
-            }
+                    override fun onLongClick(photo: Photo, pos: Int) {
+                    }
 
-            override fun onClickDownload(photo: Photo, pos: Int) {
-                save(photo.urlO)
-            }
+                    override fun onClickDownload(photo: Photo, pos: Int) {
+                        save(url = photo.urlO)
+                    }
 
-            override fun onClickShare(photo: Photo, pos: Int) {
-                LSocialUtil.share(activity = this@GalleryCorePhotosOnlyActivity, msg = photo.urlO)
-            }
+                    override fun onClickShare(photo: Photo, pos: Int) {
+                        LSocialUtil.share(activity = this@GalleryCorePhotosOnlyActivity, msg = photo.urlO)
+                    }
 
-            override fun onClickReport(photo: Photo, pos: Int) {
-                LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
-            }
+                    override fun onClickReport(photo: Photo, pos: Int) {
+                        LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
+                    }
 
-            override fun onClickCmt(photo: Photo, pos: Int) {
-                LSocialUtil.openFacebookComment(context = this@GalleryCorePhotosOnlyActivity, url = photo.urlO, adUnitId = adUnitId)
-            }
-        })
-//        recyclerView.adapter = photosOnlyAdapter
+                    override fun onClickCmt(photo: Photo, pos: Int) {
+                        LSocialUtil.openFacebookComment(context = this@GalleryCorePhotosOnlyActivity, url = photo.urlO, adUnitId = adUnitId)
+                    }
+                })
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -265,27 +263,39 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, PER_PAGE_SIZE, currentPage, format, noJsonCallBack)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ wrapperPhotosetGetPhotos ->
-                    val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
-                    tvTitle.text = s
-                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
-                        PhotosDataCore.instance.addPhoto(it)
-                    }
-                    updateAllViews()
+        compositeDisposable.add(
+                service.getPhotosetPhotos(
+                        method = method,
+                        apiKey = apiKey,
+                        photosetId = photosetID,
+                        userId = userID,
+                        extras = primaryPhotoExtras,
+                        perPage = PER_PAGE_SIZE,
+                        page = currentPage,
+                        format = format,
+                        noJsonCallback = noJsonCallBack
+                )
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ wrapperPhotosetGetPhotos ->
+                            val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                            tvTitle.text = s
+                            wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                                it.shuffle()
+                                PhotosDataCore.instance.addPhoto(it)
+                            }
+                            updateAllViews()
 
-                    indicatorView.smoothToHide()
-                    btPage.visibility = View.VISIBLE
-                    isLoading = false
-                    currentPage--
-                }, { e ->
-                    logE("photosetsGetPhotos onFail $e")
-                    handleException(e)
-                    indicatorView.smoothToHide()
-                    isLoading = true
-                }))
+                            indicatorView.smoothToHide()
+                            btPage.visibility = View.VISIBLE
+                            isLoading = false
+                            currentPage--
+                        }, { e ->
+                            logE("photosetsGetPhotos onFail $e")
+                            handleException(e)
+                            indicatorView.smoothToHide()
+                            isLoading = true
+                        }))
     }
 
     private fun updateAllViews() {

@@ -1,85 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.flaviofaria.kenburnsview.KenBurnsView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bkg_2" />
+        android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivSpiral"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:alpha="0.5"
-        android:src="@drawable/sol2"
-        android:visibility="invisible"
-        tools:visibility="visible" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/tvLevels"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/w_86"
-        android:layout_marginTop="@dimen/w_50"
-        android:src="@drawable/levels"
-        android:visibility="invisible"
-        tools:visibility="visible" />
-
-    <com.views.layout.squarelayout.LSquareFrameLayout
-        android:id="@+id/layoutLevel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="@dimen/margin_large"
-        android:background="@drawable/bkg_round_rect"
-        android:visibility="invisible"
-        tools:visibility="visible">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvLevel"
+        <com.flaviofaria.kenburnsview.KenBurnsView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:overScrollMode="never"
-            android:padding="@dimen/padding_large"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="4"
-            tools:itemCount="69"
-            tools:listitem="@layout/view_row_item_find_number_level" />
-    </com.views.layout.squarelayout.LSquareFrameLayout>
+            android:scaleType="centerCrop"
+            android:src="@drawable/bkg_2" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivBack"
-        android:layout_width="@dimen/w_70"
-        android:layout_height="@dimen/w_70"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_large"
-        android:src="@drawable/back_button"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSpiral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:alpha="0.5"
+            android:src="@drawable/sol2"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivPlay"
-        android:layout_width="@dimen/w_100"
-        android:layout_height="@dimen/w_100"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/margin_large"
-        android:src="@drawable/ic_play_blue"
-        android:visibility="invisible"
-        tools:visibility="visible" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tvLevels"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/w_86"
+            android:layout_marginTop="@dimen/w_50"
+            android:src="@drawable/levels"
+            android:visibility="invisible"
+            tools:visibility="visible" />
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/indicatorView"
-        style="@style/AVLoadingIndicatorView"
-        android:layout_width="@dimen/w_70"
-        android:layout_height="@dimen/w_70"
-        android:layout_centerInParent="true"
-        app:indicatorColor="@color/white"
-        app:indicatorName="PacmanIndicator" />
-</RelativeLayout>
+        <com.views.layout.squarelayout.LSquareFrameLayout
+            android:id="@+id/layoutLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/margin_large"
+            android:background="@drawable/bkg_round_rect"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvLevel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:padding="@dimen/padding_large"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:spanCount="4"
+                tools:itemCount="69"
+                tools:listitem="@layout/view_row_item_find_number_level" />
+        </com.views.layout.squarelayout.LSquareFrameLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/w_70"
+            android:layout_height="@dimen/w_70"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/margin_large"
+            android:src="@drawable/back_button"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPlay"
+            android:layout_width="@dimen/w_100"
+            android:layout_height="@dimen/w_100"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/margin_large"
+            android:src="@drawable/ic_play_blue"
+            android:visibility="invisible"
+            tools:visibility="visible" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/indicatorView"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="@dimen/w_70"
+            android:layout_height="@dimen/w_70"
+            android:layout_centerInParent="true"
+            app:indicatorColor="@color/white"
+            app:indicatorName="PacmanIndicator" />
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

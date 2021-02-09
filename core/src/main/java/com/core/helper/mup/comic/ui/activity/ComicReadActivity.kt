@@ -22,7 +22,7 @@ import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.listview.OnDetectScrollListener
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.l_activity_comic_read.*
+import kotlinx.android.synthetic.main.l_activity_mup_comic_read.*
 import java.util.*
 
 @LogTag("ComicActivity")
@@ -40,7 +40,7 @@ class ComicReadActivity : BaseFontActivity() {
     private var comicAdapter = ComicAdapter()
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_comic_read
+        return R.layout.l_activity_mup_comic_read
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -176,7 +176,7 @@ class ComicReadActivity : BaseFontActivity() {
             LSocialUtil.shareApp(activity = this)
         }
         popup.onClickDownload = {
-            //TODO loitpp iplm menu
+            //TODO iplm download
             showLongInformation(getString(R.string.coming_soon))
         }
         popup.showOnAnchor(anchorView, verticalPos, horizontalPos, false)

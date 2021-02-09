@@ -2,6 +2,7 @@ package com.game.findnumber.viewmodel
 
 import com.annotation.LogTag
 import com.core.helper.mup.girl.service.BaseGirlViewModel
+import com.game.findnumber.db.Db
 import com.game.findnumber.db.FindNumberDatabase
 import com.game.findnumber.model.Level
 import com.service.livedata.ActionData
@@ -32,18 +33,18 @@ class FindNumberViewModel : BaseGirlViewModel() {
                 logD("listLevelDb.isNullOrEmpty()")
                 //create first db
 
-                for (i in 0 until 99) {
-                    val level = Level()
-                    level.id = System.nanoTime().toString()
-                    level.name = i + 1
-
-                    //TODO loitpp remove
-                    if (i < 7) {
-                        level.status = Level.STATUS_LEVEL_WIN
-                    }
-
-                    listLevel.add(element = level)
-                }
+//                for (i in 0 until 99) {
+//                    val level = Level()
+//                    level.id = System.nanoTime().toString()
+//                    level.name = i + 1
+//
+//                    if (i < 7) {
+//                        level.status = Level.STATUS_LEVEL_WIN
+//                    }
+//
+//                    listLevel.add(element = level)
+//                }
+                listLevel.addAll(Db.genListLevel())
 
                 //save first data
                 listLevel.forEach { lv ->

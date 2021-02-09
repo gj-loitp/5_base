@@ -17,11 +17,8 @@
 package vn.loitp.app.activity.customviews.layout.transformationlayout
 
 import android.os.Bundle
-import android.view.LayoutInflater
+import android.os.SystemClock
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.core.base.BaseFragment
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.fragment_transformation_home.*
@@ -42,8 +39,17 @@ class TransformationHomeFragment : BaseFragment() {
         setupViews()
     }
 
+    private var previousTime = SystemClock.elapsedRealtime()
     private fun setupViews() {
-        recyclerView.adapter = PosterAdapter().apply {
+        recyclerView.adapter = PosterAdapter { poster, layoutItemPosterTransformation ->
+            context?.let { c ->
+                val now = SystemClock.elapsedRealtime()
+                if (now - previousTime >= layoutItemPosterTransformation.duration) {
+                    TransformationDetailActivity.startActivity(c, layoutItemPosterTransformation, poster)
+                    previousTime = now
+                }
+            }
+        }.apply {
             addPosterList(getMockPosters())
         }
         recyclerViewMenu.adapter = PosterMenuAdapter().apply {

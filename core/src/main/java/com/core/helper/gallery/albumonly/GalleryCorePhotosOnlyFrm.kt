@@ -16,10 +16,7 @@ import com.core.base.BaseApplication
 import com.core.base.BaseFragment
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.LAppResource
-import com.core.utilities.LDialogUtil
-import com.core.utilities.LSocialUtil
-import com.core.utilities.LStoreUtil
+import com.core.utilities.*
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -29,6 +26,7 @@ import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import com.restapi.flickr.service.FlickrService
 import com.restapi.restclient.RestClient
+import com.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
@@ -36,10 +34,15 @@ import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
 import java.io.File
 
 @LogTag("GalleryCorePhotosOnlyFrm")
-class GalleryCorePhotosOnlyFrm : BaseFragment() {
+class GalleryCorePhotosOnlyFrm(
+        val onTop: ((Unit) -> Unit)? = null,
+        val onBottom: ((Unit) -> Unit)? = null,
+        val onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+) : BaseFragment() {
 
     companion object {
         private const val PER_PAGE_SIZE = 100
+        const val IS_SHOW_TITLE = "IS_SHOW_TITLE"
     }
 
     private var currentPage = 0
@@ -52,6 +55,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         RestClient.init(getString(R.string.flickr_URL))
     }
 
@@ -62,7 +66,6 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        logD("onViewCreated")
         val bundle = arguments ?: return
         PhotosDataCore.instance.clearData()
         photosetID = bundle.getString(Constants.SK_PHOTOSET_ID)
@@ -74,35 +77,40 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
         photosSize = bundle.getInt(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
 //        logD("photosSize $photosSize")
 
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-
-//        recyclerView.setHasFixedSize(true)
-        activity?.let { a ->
-            photosOnlyAdapter = PhotosOnlyAdapter(context = a, callback = object : PhotosOnlyAdapter.Callback {
-                override fun onClick(photo: Photo, pos: Int) {
-                }
-
-                override fun onLongClick(photo: Photo, pos: Int) {
-                }
-
-                override fun onClickDownload(photo: Photo, pos: Int) {
-                    save(url = photo.urlO)
-                }
-
-                override fun onClickShare(photo: Photo, pos: Int) {
-                    LSocialUtil.share(activity = a, msg = photo.urlO)
-                }
-
-                override fun onClickReport(photo: Photo, pos: Int) {
-                    LSocialUtil.sendEmail(context = a)
-                }
-
-                override fun onClickCmt(photo: Photo, pos: Int) {
-                    LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
-                }
-            })
+        val isShowTitle = bundle.getBoolean(IS_SHOW_TITLE)
+        if (isShowTitle) {
+            tvTitle.visibility = View.VISIBLE
+        } else {
+            tvTitle.visibility = View.GONE
         }
-//        recyclerView.adapter = photosOnlyAdapter
+
+        recyclerView.layoutManager = LinearLayoutManager(activity)
+        activity?.let { a ->
+            photosOnlyAdapter = PhotosOnlyAdapter(
+                    callback = object : PhotosOnlyAdapter.Callback {
+                        override fun onClick(photo: Photo, pos: Int) {
+                        }
+
+                        override fun onLongClick(photo: Photo, pos: Int) {
+                        }
+
+                        override fun onClickDownload(photo: Photo, pos: Int) {
+                            save(url = photo.urlO)
+                        }
+
+                        override fun onClickShare(photo: Photo, pos: Int) {
+                            LSocialUtil.share(activity = a, msg = photo.urlO)
+                        }
+
+                        override fun onClickReport(photo: Photo, pos: Int) {
+                            LSocialUtil.sendEmail(context = a)
+                        }
+
+                        override fun onClickCmt(photo: Photo, pos: Int) {
+                            LSocialUtil.openFacebookComment(context = a, url = photo.urlO)
+                        }
+                    })
+        }
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -118,18 +126,34 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
 
         //LUIUtil.setPullLikeIOSVertical(recyclerView)
 
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if (!recyclerView.canScrollVertically(1)) {
+//        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+//            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+//                super.onScrollStateChanged(recyclerView, newState)
+//                if (!recyclerView.canScrollVertically(1)) {
+//                    if (!isLoading) {
+//                        photosetsGetPhotos(photosetID)
+//                    }
+//                }
+//            }
+//        })
+
+        LUIUtil.setScrollChange(
+                recyclerView = recyclerView,
+                onTop = {
+                    onTop?.invoke(Unit)
+                },
+                onBottom = {
                     if (!isLoading) {
                         photosetsGetPhotos(photosetID)
                     }
+                    onBottom?.invoke(Unit)
+                },
+                onScrolled = {
+                    onScrolled?.invoke(it)
                 }
-            }
-        })
+        )
 
-        btPage.setOnClickListener {
+        btPage.setSafeOnClickListener {
             showListPage()
         }
     }
@@ -254,6 +278,7 @@ class GalleryCorePhotosOnlyFrm : BaseFragment() {
                     val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
                     wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                        it.shuffle()
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()

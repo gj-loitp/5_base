@@ -12,9 +12,10 @@ import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
+import com.core.base.BaseDialogFragment
 import vn.loitp.app.R
 
-class PositionDialog : DialogFragment() {
+class PositionDialog : BaseDialogFragment() {
     private val logTag = javaClass.simpleName
     private var anchorView: View? = null
 
@@ -109,7 +110,6 @@ class PositionDialog : DialogFragment() {
                         var posY: Int? = null
                         when (position) {
                             Position.TOP_LEFT -> {
-                                //TODO
                                 posX = anchorV.left
                                 posY = anchorV.top
                             }

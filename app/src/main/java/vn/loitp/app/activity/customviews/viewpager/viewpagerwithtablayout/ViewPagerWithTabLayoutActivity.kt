@@ -135,7 +135,9 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         }
 
         override fun destroyItem(collection: ViewGroup, position: Int, view: Any) {
-            collection.removeView(view as View)
+            if (view is View) {
+                collection.removeView(view)
+            }
         }
 
         override fun getCount(): Int {

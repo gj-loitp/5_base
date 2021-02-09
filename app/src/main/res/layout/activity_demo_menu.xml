@@ -113,6 +113,11 @@
                 android:text="@string/pdf" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btRSS"
+                style="@style/ButtonMenu"
+                android:text="RSS" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btSound"
                 style="@style/ButtonMenu"
                 android:text="@string/sound" />
@@ -131,6 +136,11 @@
                 android:id="@+id/btVideo"
                 style="@style/ButtonMenu"
                 android:text="@string/video" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTTT"
+                style="@style/ButtonMenu"
+                android:text="TruyenTranhTuan" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFindNumber"

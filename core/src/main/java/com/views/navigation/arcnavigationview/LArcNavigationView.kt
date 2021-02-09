@@ -172,7 +172,7 @@ class LArcNavigationView : NavigationView {
                     if (v is NavigationMenuView) {
                         v.setBackground(s.backgroundDrawable)
                         ViewCompat.setElevation(v, s.elevation)
-                        //TODO: adjusting child views to new width in their rightmost/leftmost points related to path
+                        //check: adjusting child views to new width in their rightmost/leftmost points related to path
 //                    adjustChildViews((ViewGroup) v)
                     }
                 }

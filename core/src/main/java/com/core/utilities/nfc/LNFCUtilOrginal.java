@@ -1,6 +1,5 @@
 package com.core.utilities.nfc;
 
-//TODO convert kotlin
 public class LNFCUtilOrginal {
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 

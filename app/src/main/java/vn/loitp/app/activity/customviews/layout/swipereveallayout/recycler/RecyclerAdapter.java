@@ -19,6 +19,7 @@ import java.util.List;
 
 import vn.loitp.app.R;
 
+//30.12.2020 try to convert kotlin but failed
 public class RecyclerAdapter extends RecyclerView.Adapter {
     private final List<String> mDataSet;
     private final LayoutInflater mInflater;

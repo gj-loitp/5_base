@@ -14,7 +14,7 @@
         android:paddingBottom="@dimen/padding_medium">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_clear_all"
+            android:id="@+id/btClearAll"
             style="@style/ButtonMenu"
             android:text="Clear all" />
 
@@ -29,7 +29,7 @@
             android:text="Add 100 Dummy Contact" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bt_getcontact_with_id"
+            android:id="@+id/btGetContactWithId"
             style="@style/ButtonMenu"
             android:text="Get Contact With ID=2" />
 

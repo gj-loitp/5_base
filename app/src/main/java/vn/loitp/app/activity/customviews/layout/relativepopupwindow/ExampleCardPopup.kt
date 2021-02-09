@@ -1,20 +1,16 @@
 package vn.loitp.app.activity.customviews.layout.relativepopupwindow
 
-import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewAnimationUtils
 import android.view.ViewGroup
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.LToast
 import kotlinx.android.synthetic.main.popup_card.view.*
 import vn.loitp.app.R
-import kotlin.math.hypot
-import kotlin.math.max
 
 class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWindow() {
 

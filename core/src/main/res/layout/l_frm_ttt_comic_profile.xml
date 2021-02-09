@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="?attr/themeBackgroundColor">
+
+    <androidx.core.widget.NestedScrollView
+        style="@style/ScrollVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.flaviofaria.kenburnsview.KenBurnsView
+                android:id="@+id/ivBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_200"
+                tools:src="@drawable/logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="@dimen/w_100"
+                android:layout_height="@dimen/w_100"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/w_150"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/logo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivAvatar"
+                android:layout_centerHorizontal="true"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_large"
+                tools:text="@string/app_name_comic" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvUserName"
+                android:layout_marginTop="@dimen/margin_50"
+                android:background="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/setting_vn"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
+            <View
+                android:id="@+id/lineSetting"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_tiny"
+                android:layout_below="@+id/btSetting"
+                android:background="@color/lightGrey" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineSetting"
+                android:background="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/information_vn"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
+            <View
+                android:id="@+id/lineInformation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/w_tiny"
+                android:layout_below="@+id/btInformation"
+                android:background="@color/lightGrey" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btDonation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lineInformation"
+                android:background="?selectableItemBackground"
+                android:padding="@dimen/padding_medium"
+                android:text="@string/donation"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"/>
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

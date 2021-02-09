@@ -30,7 +30,6 @@ import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 
-//TODO convert kotlin
 @LogTag("AlarmNotification")
 @IsFullScreen(false)
 public class AlarmNotification extends BaseFontActivity {
@@ -44,7 +43,6 @@ public class AlarmNotification extends BaseFontActivity {
     private Alarm mAlarm;
     private DateTime mDateTime;
     private TextView mTextView;
-    private PlayTimerTask mTimerTask;
 
     @Override
     protected int setLayoutResourceId() {
@@ -96,7 +94,7 @@ public class AlarmNotification extends BaseFontActivity {
 
         mTextView.setText(mAlarm.getTitle());
 
-        mTimerTask = new PlayTimerTask();
+        PlayTimerTask mTimerTask = new PlayTimerTask();
         mTimer = new Timer();
         mTimer.schedule(mTimerTask, mPlayTime);
         mRingtone.play();
@@ -149,7 +147,9 @@ public class AlarmNotification extends BaseFontActivity {
                 .setContentText(mDateTime.formatDetails(alarm))
                 .build();
 
-        notificationManager.notify((int) alarm.getId(), notification);
+        if (notificationManager != null) {
+            notificationManager.notify((int) alarm.getId(), notification);
+        }
     }
 
     @Override

@@ -13,6 +13,7 @@ import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
 import com.core.helper.mup.comic.ui.activity.ComicSplashActivity
 import com.core.helper.mup.girl.ui.GirlSplashActivity
+import com.core.helper.ttt.ui.a.TTTSplashActivity
 import com.core.utilities.LActivityUtil
 import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
@@ -30,6 +31,7 @@ import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivit
 import vn.loitp.app.activity.demo.maptracker.MapTrackerActivity
 import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
+import vn.loitp.app.activity.demo.rss.RSSActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
@@ -58,6 +60,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btEpubReader.visibility = View.VISIBLE
             btGirl.visibility = View.VISIBLE
             btComic.visibility = View.VISIBLE
+            btTTT.visibility = View.VISIBLE
         } else {
             btGalleryCore.visibility = View.GONE
             btGalleryCoreAlbum.visibility = View.GONE
@@ -66,6 +69,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btEpubReader.visibility = View.GONE
             btGirl.visibility = View.GONE
             btComic.visibility = View.GONE
+            btTTT.visibility = View.GONE
         }
 
         btAlarm.setOnClickListener(this)
@@ -92,6 +96,8 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btMapTracker.setOnClickListener(this)
         btComic.setOnClickListener(this)
         btFindNumber.setOnClickListener(this)
+        btTTT.setOnClickListener(this)
+        btRSS.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -161,6 +167,13 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent.putExtra(Constants.COMIC_SHOW_DONATION, true)
             }
             btFindNumber -> intent = Intent(this, SplashActivity::class.java)
+            btTTT -> {
+                intent = Intent(this, TTTSplashActivity::class.java)
+                intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
+            }
+            btRSS -> {
+                intent = Intent(this, RSSActivity::class.java)
+            }
         }
         intent?.let {
             startActivity(intent)

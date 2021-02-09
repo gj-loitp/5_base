@@ -445,6 +445,7 @@ class LStoreUtil {
                         .downloadListener(onDownloadListener)
                         .build()
             } else {
+                //TODO remove special character
                 val path = getFolderPath(folderName = folderName)
                 val map = HashMap<String, String>()
                 token?.let {

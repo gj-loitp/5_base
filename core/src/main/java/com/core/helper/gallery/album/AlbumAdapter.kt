@@ -1,6 +1,6 @@
 package com.core.helper.gallery.album
 
-import android.content.Context
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -20,23 +20,20 @@ import com.restapi.flickr.model.photosetgetlist.Photoset
 import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
 @LogTag("AlbumAdapter")
-class AlbumAdapter(private val context: Context, private val photosetList: List<Photoset>, private val callback: Callback?)
-    : BaseAdapter() {
+class AlbumAdapter(
+        private val photosetList: List<Photoset>,
+        private val callback: Callback?
+) : BaseAdapter() {
 
-    val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
+    interface Callback {
+        fun onClick(pos: Int)
+
+        fun onLongClick(pos: Int)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_album_core, viewGroup, false))
+        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_album_core, viewGroup, false))
     }
-
-//    override fun onViewRecycled(holder: ViewHolder) {
-//        super.onViewRecycled(holder)
-//        LImageUtil.clear(context = context, target = holder.iv)
-//    }
 
     override fun getItemCount(): Int {
         return photosetList.size
@@ -51,12 +48,8 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind(photoset: Photoset) {
-//            val color = photoset.colorBackground
 
-            itemView.tvUpdate.visibility = View.INVISIBLE
-            itemView.tvLabel.visibility = View.INVISIBLE
-            itemView.tvNumber.visibility = View.INVISIBLE
-
+            val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(context = itemView.imageView.context,
                     any = photoset.flickrLinkO(),
                     imageView = itemView.imageView,
@@ -68,9 +61,6 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            itemView.tvUpdate?.visibility = View.VISIBLE
-                            itemView.tvLabel?.visibility = View.VISIBLE
-                            itemView.tvNumber?.visibility = View.VISIBLE
                             return false
                         }
                     })
@@ -81,9 +71,9 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
             itemView.tvUpdate.text = update
             itemView.tvNumber.text = photoset.photos
 
-//            LUIUtil.setTextShadow(textView = itemView.tvLabel)
-//            LUIUtil.setTextShadow(textView = itemView.tvUpdate)
-//            LUIUtil.setTextShadow(textView = itemView.tvNumber)
+            LUIUtil.setTextShadow(textView = itemView.tvLabel, color = Color.BLACK)
+            LUIUtil.setTextShadow(textView = itemView.tvUpdate, color = Color.BLACK)
+            LUIUtil.setTextShadow(textView = itemView.tvNumber, color = Color.BLACK)
 
             itemView.frameLayout.setOnClickListener {
                 callback?.onClick(bindingAdapterPosition)
@@ -95,9 +85,4 @@ class AlbumAdapter(private val context: Context, private val photosetList: List<
         }
     }
 
-    interface Callback {
-        fun onClick(pos: Int)
-
-        fun onLongClick(pos: Int)
-    }
 }

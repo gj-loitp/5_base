@@ -1,24 +1,6 @@
-/**************************************************************************
- *
- * Copyright (C) 2012-2015 Alex Taradov <alex@taradov.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- *************************************************************************/
-
 package vn.loitp.app.activity.demo.alarmdemoapp.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -35,17 +17,16 @@ import vn.loitp.app.activity.demo.alarmdemoapp.model.DataSource;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DateTime;
 import vn.loitp.app.activity.demo.alarmdemoapp.service.AlarmReceiver;
 
-//TODO convert kotlin
 public class AlarmListAdapter extends BaseAdapter {
     private final String logTag = "AlarmMeActivity";
 
-    private Context mContext;
-    private DataSource mDataSource;
-    private LayoutInflater mInflater;
-    private DateTime mDateTime;
-    private int mColorOutdated;
-    private int mColorActive;
-    private AlarmManager mAlarmManager;
+    private final Context mContext;
+    private final DataSource mDataSource;
+    private final LayoutInflater mInflater;
+    private final DateTime mDateTime;
+    private final int mColorOutdated;
+    private final int mColorActive;
+    private final AlarmManager mAlarmManager;
 
     public AlarmListAdapter(Context context) {
         mContext = context;
@@ -105,6 +86,7 @@ public class AlarmListAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("SetTextI18n")
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         Alarm alarm = DataSource.get(position);
@@ -113,8 +95,8 @@ public class AlarmListAdapter extends BaseAdapter {
             convertView = mInflater.inflate(R.layout.list_item, null);
 
             holder = new ViewHolder();
-            holder.title = (TextView) convertView.findViewById(R.id.itemTitle);
-            holder.details = (TextView) convertView.findViewById(R.id.itemDetails);
+            holder.title = convertView.findViewById(R.id.itemTitle);
+            holder.details = convertView.findViewById(R.id.itemDetails);
 
             convertView.setTag(holder);
         } else {

@@ -45,12 +45,16 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
+
         intent.getStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST)?.let {
             listRemoveAlbum.addAll(it)
         }
         val admobBannerUnitId = intent.getStringExtra(Constants.AD_UNIT_ID_BANNER)
 //        logD("admobBannerUnitId $admobBannerUnitId")
-
         if (admobBannerUnitId.isNullOrEmpty()) {
             lnAdView.visibility = View.GONE
         } else {
@@ -60,8 +64,6 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                 it.adUnitId = admobBannerUnitId
                 LUIUtil.createAdBanner(adView = it)
                 lnAdView.addView(it)
-//                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
-//                LUIUtil.setMargins(view = lnAdView, leftPx = 0, topPx = 0, rightPx = 0, bottomPx = navigationHeight + navigationHeight / 4)
             }
         }
 
@@ -74,7 +76,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
             setHasFixedSize(true)
         }
 
-        albumAdapter = AlbumAdapter(context = this,
+        albumAdapter = AlbumAdapter(
                 photosetList = listPhotoSet,
                 callback = object : AlbumAdapter.Callback {
                     override fun onClick(pos: Int) {
@@ -157,9 +159,13 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         }
                     }
 
-                    listPhotoSet.sortWith { o1, o2 ->
-                        java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
-                    }
+                    //sort date
+//                    listPhotoSet.sortWith { o1, o2 ->
+//                        java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
+//                    }
+                    //random
+                    listPhotoSet.shuffle()
+
                     updateAllViews()
                     indicatorView.smoothToHide()
                 }, { throwable ->

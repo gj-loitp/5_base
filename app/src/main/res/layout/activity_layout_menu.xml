@@ -29,6 +29,11 @@
                 android:text="@string/autolinearlayout" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btChessLayout"
+                style="@style/ButtonMenu"
+                android:text="Chess layout" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCircularView"
                 style="@style/ButtonMenu"
                 android:text="@string/circularview" />

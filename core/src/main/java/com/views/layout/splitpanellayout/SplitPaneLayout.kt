@@ -387,7 +387,7 @@ class SplitPaneLayout : ViewGroup {
      * Convenience for calling own measure method.
      */
     private fun remeasure() {
-        // TODO: Performance: Guard against calling too often, can it be done without requestLayout?
+        // check: Performance: Guard against calling too often, can it be done without requestLayout?
         forceLayout()
         measure(MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
                 MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)

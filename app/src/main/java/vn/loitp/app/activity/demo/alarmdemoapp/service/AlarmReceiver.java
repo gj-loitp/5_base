@@ -7,7 +7,6 @@ import android.content.Intent;
 import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmNotification;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 
-//TODO convert kotlin
 public class AlarmReceiver extends BroadcastReceiver {
     private final String logTag = "AlarmMeActivity";
 

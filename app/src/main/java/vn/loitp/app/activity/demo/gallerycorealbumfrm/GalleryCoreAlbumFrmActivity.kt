@@ -20,11 +20,27 @@ class GalleryCoreAlbumFrmActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val frm = GalleryCorePhotosOnlyFrm()
+        val frm = GalleryCorePhotosOnlyFrm(
+                onTop = {
+                    logD("onTop")
+                },
+                onBottom = {
+                    logD("onBottom")
+                },
+                onScrolled = { isScrollDown ->
+                    logD("onScrolled isScrollDown $isScrollDown")
+                }
+        )
         val bundle = Bundle()
         bundle.putString(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
+        bundle.putBoolean(GalleryCorePhotosOnlyFrm.IS_SHOW_TITLE, false)
         frm.arguments = bundle
-        LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = frm, isAddToBackStack = false)
+        LScreenUtil.addFragment(
+                activity = this,
+                containerFrameLayoutIdRes = R.id.flContainer,
+                fragment = frm,
+                isAddToBackStack = false
+        )
     }
 
 }

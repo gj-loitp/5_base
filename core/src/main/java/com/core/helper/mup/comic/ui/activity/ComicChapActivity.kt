@@ -28,7 +28,7 @@ import com.views.setSafeOnClickListener
 import jp.wasabeef.glide.transformations.BlurTransformation
 import jp.wasabeef.glide.transformations.ColorFilterTransformation
 import jp.wasabeef.glide.transformations.CropCircleWithBorderTransformation
-import kotlinx.android.synthetic.main.l_activity_comic_chap.*
+import kotlinx.android.synthetic.main.l_activity_mup_comic_chap.*
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
@@ -54,7 +54,7 @@ class ComicChapActivity : BaseFontActivity() {
     private var totalPage = Int.MAX_VALUE
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_comic_chap
+        return R.layout.l_activity_mup_comic_chap
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -145,7 +145,7 @@ class ComicChapActivity : BaseFontActivity() {
         )
 
         fabLike.setSafeOnClickListener {
-            //TODO loitpp iplm fav comic
+            //TODO iplm fav comic
             showLongInformation(getString(R.string.coming_soon))
         }
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {

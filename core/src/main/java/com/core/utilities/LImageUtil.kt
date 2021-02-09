@@ -224,7 +224,8 @@ class LImageUtil {
                  resPlaceHolder: Int = R.color.transparent,
                  resError: Int = R.color.red,
                  transformation: Transformation<Bitmap>? = null,
-                 drawableRequestListener: RequestListener<Drawable>? = null) {
+                 drawableRequestListener: RequestListener<Drawable>? = null
+        ) {
 
             if (context == null || any == null || imageView == null) {
                 return

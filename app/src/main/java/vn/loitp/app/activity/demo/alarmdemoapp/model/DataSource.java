@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 @Keep
-//TODO convert kotlin
 public class DataSource {
     private static final String logTag = "AlarmMeActivity";
 

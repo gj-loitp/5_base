@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
-import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
@@ -34,8 +33,6 @@ import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
 
@@ -44,14 +41,11 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only
 class GalleryMemberActivity : BaseFontActivity() {
     private var currentPage = 0
     private var totalPage = 1
-
     private var isLoading: Boolean = false
     private var memberAdapter: MemberAdapter? = null
     private var adView: AdView? = null
-
     private var photosetID: String? = null
     private var photosSize: Int = 0
-
     private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
@@ -93,8 +87,7 @@ class GalleryMemberActivity : BaseFontActivity() {
         photosSize = intent.getIntExtra(Constants.SK_PHOTOSET_SIZE, Constants.NOT_FOUND)
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
-//        recyclerView.setHasFixedSize(true)
-        memberAdapter = MemberAdapter(context = this,
+        memberAdapter = MemberAdapter(
                 callback = object : MemberAdapter.Callback {
                     override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
                         val intent = Intent(this@GalleryMemberActivity, GalleryMemberDetailActivity::class.java)
@@ -106,7 +99,6 @@ class GalleryMemberActivity : BaseFontActivity() {
                     override fun onLongClick(photo: Photo, pos: Int) {
                     }
                 })
-//        recyclerView.adapter = memberAdapter
         memberAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -172,7 +164,6 @@ class GalleryMemberActivity : BaseFontActivity() {
         val userID = FlickrConst.USER_KEY
         val page = 1
         val perPage = 500
-        //String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
         val primaryPhotoExtras = ""
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
@@ -240,6 +231,7 @@ class GalleryMemberActivity : BaseFontActivity() {
                     val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
                     wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                        it.shuffle()
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()

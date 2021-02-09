@@ -34,7 +34,7 @@ class LActionbarActivity : BaseFontActivity() {
             }
 
             override fun onClickMenu(view: View) {
-                LToast.show("onClickMenu")
+                showShortInformation("onClickMenu")
             }
         })
         lActionBar.showMenuIcon()

@@ -15,11 +15,12 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 @LogTag("BookAdapter")
-class BookAdapter(private val context: Context,
-                  private val column: Int,
-                  private val moviesList: MutableList<Movie>,
-                  private val callback: Callback?) :
-        BaseAdapter() {
+class BookAdapter(
+        private val context: Context,
+        private val column: Int,
+        private val moviesList: MutableList<Movie>,
+        private val callback: Callback?
+) : BaseAdapter() {
 
     private val sizeW: Int = LScreenUtil.screenWidth / column
     private val sizeH: Int

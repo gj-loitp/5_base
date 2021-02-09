@@ -2,7 +2,6 @@ package com.core.utilities
 
 import android.util.Log
 import com.BuildConfig
-import com.core.common.Constants
 import kotlin.math.min
 
 object LLog {
@@ -11,34 +10,28 @@ object LLog {
 
     @JvmStatic
     fun d(tag: String, msg: String) {
-        if (BuildConfig.DEBUG) {
-            var i = 0
-            while (i < msg.length) {
-                Log.d(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
-                i += maxLogSize
-            }
+        var i = 0
+        while (i < msg.length) {
+            Log.d(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
+            i += maxLogSize
         }
     }
 
     @JvmStatic
     fun e(tag: String, msg: String) {
-        if (BuildConfig.DEBUG) {
-            var i = 0
-            while (i < msg.length) {
-                Log.e(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
-                i += maxLogSize
-            }
+        var i = 0
+        while (i < msg.length) {
+            Log.e(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
+            i += maxLogSize
         }
     }
 
     @JvmStatic
     fun i(tag: String, msg: String) {
-        if (BuildConfig.DEBUG) {
-            var i = 0
-            while (i < msg.length) {
-                Log.i(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
-                i += maxLogSize
-            }
+        var i = 0
+        while (i < msg.length) {
+            Log.i(tag, msg.substring(i, min(a = msg.length, b = i + maxLogSize)))
+            i += maxLogSize
         }
     }
 }

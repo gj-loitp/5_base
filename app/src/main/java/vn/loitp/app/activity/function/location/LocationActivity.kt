@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LLocationUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -132,7 +133,13 @@ class LocationActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun updateLocationUI() {
         mCurrentLocation?.let {
-            tvLocationResult.text = "Lat: " + it.latitude + ", " + "Lng: " + it.longitude
+
+            var moreInfor = ""
+            LLocationUtil.getCityByLatLon(it.latitude, it.longitude) { address: String, city: String, state: String, country: String ->
+                moreInfor += "$address - $city - $state - $country"
+            }
+
+            tvLocationResult.text = "Lat: " + it.latitude + ", " + "Lng: " + it.longitude + ", more infor: $moreInfor"
 
             // giving a blink animation on TextView
             tvLocationResult.alpha = 0f

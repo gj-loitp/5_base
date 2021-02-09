@@ -5,15 +5,15 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import android.view.WindowManager
-import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
+import com.core.base.BaseDialogFragment
 import com.views.LToast
 
 /**
  * Created by Loitp on 3/30/2018.
  */
 
-class ImmersiveDialogFragment : DialogFragment() {
+class ImmersiveDialogFragment : BaseDialogFragment() {
     private val logTag = javaClass.simpleName
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

@@ -3,12 +3,13 @@ package com.game.findnumber.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsSwipeActivity
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.core.utilities.LActivityUtil
 import com.core.utilities.LAnimationUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
@@ -16,12 +17,17 @@ import com.daimajia.androidanimations.library.Techniques
 import com.game.findnumber.adapter.LevelAdapter
 import com.game.findnumber.model.Level
 import com.game.findnumber.viewmodel.FindNumberViewModel
+import com.tombayley.activitycircularreveal.CircularReveal
 import kotlinx.android.synthetic.main.l_activity_find_number_single_level.*
+import kotlinx.android.synthetic.main.l_activity_find_number_single_level.indicatorView
+import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
 @LogTag("SingleLevelActivity")
 @IsFullScreen(true)
+@IsSwipeActivity(true)
 class SingleLevelActivity : BaseFontActivity() {
 
+    private var activityCircularReveal: CircularReveal? = null
     private var levelAdapter = LevelAdapter()
     private var findNumberViewModel: FindNumberViewModel? = null
 
@@ -33,15 +39,22 @@ class SingleLevelActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         LScreenUtil.toggleFullscreen(activity = this, isFullScreen = true)
+        activityCircularReveal = CircularReveal(rootView)
+        activityCircularReveal?.onActivityCreate(intent)
+
         setupViews()
         setupViewModels()
 
         findNumberViewModel?.getListLevelSingle()
     }
 
+    override fun onBackPressed() {
+        activityCircularReveal?.unRevealActivity(this)
+    }
+
     private fun setupViews() {
-        levelAdapter.onClickRootView = { level ->
-            playGame(level = level)
+        levelAdapter.onClickRootView = { level, view ->
+            playGame(level = level, view = view)
         }
         rvLevel.layoutManager = GridLayoutManager(this, 4)
         rvLevel.adapter = levelAdapter
@@ -129,19 +142,36 @@ class SingleLevelActivity : BaseFontActivity() {
 
                 if (isDoing == false && actionData.isSuccess == true) {
                     actionData.data?.let { firstLevelOpen ->
-                        playGame(level = firstLevelOpen)
+                        playGame(level = firstLevelOpen, view = ivPlay)
                     }
                 }
             })
         }
     }
 
-    private fun playGame(level: Level) {
+    private fun playGame(level: Level, view: View) {
 //        logD("playGame level " + BaseApplication.gson.toJson(level))
-        val intent = Intent(this, SinglePlayActivity::class.java).apply {
-            putExtra(SinglePlayActivity.KEY_LEVEL, level)
+
+//        val intent = Intent(this, SinglePlayActivity::class.java).apply {
+//            putExtra(SinglePlayActivity.KEY_LEVEL, level)
+//        }
+//        startActivity(intent)
+//        LActivityUtil.tranIn(this)
+
+        val intent = Intent(this, SinglePlayActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        intent.putExtra(SinglePlayActivity.KEY_LEVEL, level)
+        val builder = CircularReveal.Builder(
+                this,
+                view,
+                intent,
+                1000
+        ).apply {
+            revealColor = ContextCompat.getColor(
+                    this@SingleLevelActivity,
+                    R.color.orange
+            )
         }
-        startActivity(intent)
-        LActivityUtil.tranIn(this)
+        CircularReveal.presentActivity(builder)
     }
 }

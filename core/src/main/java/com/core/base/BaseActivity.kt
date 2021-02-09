@@ -1,10 +1,14 @@
 package com.core.base
 
+import android.app.Dialog
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.util.Log
+import android.view.View
+import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -15,9 +19,11 @@ import com.R
 import com.annotation.*
 import com.core.common.Constants
 import com.core.utilities.*
+import com.core.utilities.LUIUtil.Companion.allowInfiniteLines
+import com.core.utilities.LUIUtil.Companion.withBackground
 import com.data.EventBusData
-import com.google.ads.interactivemedia.v3.internal.ff
 import com.google.android.gms.ads.InterstitialAd
+import com.google.android.material.snackbar.Snackbar
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
 import com.views.LToast
@@ -41,6 +47,8 @@ abstract class BaseActivity : AppCompatActivity() {
     private var interstitialAd: InterstitialAd? = null
     private var isShowAdWhenExit = false
     private var isShowAnimWhenExit = true
+
+    private var alertDialogProgress: Dialog? = null
 
     protected abstract fun setLayoutResourceId(): Int
 
@@ -79,13 +87,28 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
 
+        setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
+
+        super.onCreate(savedInstanceState)
+        EventBus.getDefault().register(this)
+
         val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
         if (isFullScreen) {
-            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            requestWindowFeature(Window.FEATURE_NO_TITLE)//requestFeature() must be called before adding content
+        }
 
-            //TODO loitpp revert if android R
+        val layoutId = setLayoutResourceId()
+        if (layoutId != Constants.NOT_FOUND) {
+            setContentView(setLayoutResourceId())
+        }
+
+        if (isFullScreen) {
 //            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-//                window.insetsController?.hide(WindowInsets.Type.statusBars())
+//                window.setDecorFitsSystemWindows(false)
+//                window.insetsController?.let {
+//                    it.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+//                    it.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+//                }
 //            } else {
 //                @Suppress("DEPRECATION")
 //                window.setFlags(
@@ -94,21 +117,13 @@ abstract class BaseActivity : AppCompatActivity() {
 //                )
 //            }
 
+            //TODO fix full screen in android 11
             window.setFlags(
                     WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
-        setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
-
-        super.onCreate(savedInstanceState)
-        EventBus.getDefault().register(this)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
-
-        val layoutId = setLayoutResourceId()
-        if (layoutId != Constants.NOT_FOUND) {
-            setContentView(setLayoutResourceId())
-        }
 
         CheckNetworkConnectionHelper
                 .getInstance()
@@ -176,7 +191,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun startIdleTimeHandler(delayMls: Long) {
         delayMlsIdleTime = delayMls
-        handlerIdleTime = Handler()
+        handlerIdleTime = Handler(Looper.getMainLooper())
         runnableIdleTime = Runnable {
             isIdleTime = true
             onActivityUserIdleAfterTime(delayMlsIdleTime, isIdleTime)
@@ -212,6 +227,7 @@ abstract class BaseActivity : AppCompatActivity() {
         EventBus.getDefault().unregister(this)
         compositeDisposable.clear()
         LDialogUtil.clearAll()
+        LDialogUtil.hide(dialog = alertDialogProgress)
         stopIdleTimeHandler()
         //AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
         super.onDestroy()
@@ -273,37 +289,37 @@ abstract class BaseActivity : AppCompatActivity() {
 
     open fun onNetworkChange(event: EventBusData.ConnectEvent) {}
 
-    protected fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortInformation(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showShortInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showShortWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showShortError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongInformation(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongWarning(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
+    fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
         LToast.showLongError(msg = msg, isTopAnchor = isTopAnchor)
     }
 
-    protected fun showShortDebug(msg: String?) {
+    fun showShortDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showShortDebug(msg)
         }
     }
 
-    protected fun showLongDebug(msg: String?) {
+    fun showLongDebug(msg: String?) {
         if (BuildConfig.DEBUG) {
             LToast.showLongInformation(msg)
         }
@@ -352,5 +368,70 @@ abstract class BaseActivity : AppCompatActivity() {
                 onDismiss = onDismiss
         )
         bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
+    }
+
+    fun showSnackBarInfor(
+            msg: String,
+            view: View? = null,
+            isFullWidth: Boolean = false
+    ) {
+        if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
+            val snackBar = Snackbar
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_infor)
+                    .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
+            snackBar.show()
+        }
+    }
+
+    fun showSnackBarWarning(
+            msg: String,
+            view: View? = null,
+            isFullWidth: Boolean = false
+    ) {
+        if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
+            val snackBar = Snackbar
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_warning)
+                    .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
+            snackBar.show()
+        }
+    }
+
+    fun showSnackBarError(
+            msg: String,
+            view: View? = null,
+            isFullWidth: Boolean = false
+    ) {
+        if (!this.isFinishing) {
+            val anchorView = view ?: findViewById(android.R.id.content)
+            val snackBar = Snackbar
+                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
+                    .withBackground(R.drawable.bg_toast_err)
+                    .allowInfiniteLines()
+            if (isFullWidth) {
+                snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
+            }
+            snackBar.show()
+        }
+    }
+
+    fun showDialogProgress() {
+        if (alertDialogProgress == null) {
+            alertDialogProgress = LDialogUtil.genCustomProgressDialog(context = this)
+        }
+        LDialogUtil.show(dialog = alertDialogProgress)
+    }
+
+    fun hideDialogProgress() {
+        LDialogUtil.hide(dialog = alertDialogProgress)
     }
 }

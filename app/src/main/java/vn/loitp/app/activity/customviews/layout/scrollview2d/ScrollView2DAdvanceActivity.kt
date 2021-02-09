@@ -14,7 +14,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-import com.views.scrollview.LHorizontalScrollView
 import com.views.scrollview.LScrollView
 import kotlinx.android.synthetic.main.activity_layout_scrollview_2d_advance.*
 import vn.loitp.app.R
@@ -73,7 +72,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
         }
     }
 
-    //TODO convert coroutine
+    //check convert coroutine
     private inner class Render(private val column: Int, private val row: Int) : AsyncTask<Void, View, Void>() {
         override fun onPreExecute() {
             super.onPreExecute()

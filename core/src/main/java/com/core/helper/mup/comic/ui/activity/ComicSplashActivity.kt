@@ -19,7 +19,7 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
+import kotlinx.android.synthetic.main.l_activity_mup_comic_splash.*
 
 @LogTag("ComicSplashActivity")
 @IsFullScreen(false)
@@ -30,7 +30,7 @@ class ComicSplashActivity : BaseFontActivity() {
     private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.l_activity_comic_splash
+        return R.layout.l_activity_mup_comic_splash
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

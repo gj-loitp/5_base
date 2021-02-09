@@ -1,6 +1,7 @@
 package com.core.helper.admobrewardedvideo
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import com.R
 import com.annotation.LogTag
@@ -36,7 +37,7 @@ class AdMobRewardedVideoActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         textView.setText(R.string.loading)
-        LUIUtil.setTextShadow(textView)
+        LUIUtil.setTextShadow(textView = textView, color = Color.GREEN)
 
         animationView.setAnimation("lottie/gradient_animated_background.json")
         //lottieAnimationView.useHardwareAcceleration();

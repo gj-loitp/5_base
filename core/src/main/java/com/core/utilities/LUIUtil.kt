@@ -17,12 +17,13 @@ import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
 import android.widget.*
-import androidx.appcompat.app.AppCompatDelegate
+import android.widget.TextView
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
@@ -31,9 +32,9 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
-import com.google.ads.interactivemedia.v3.internal.it
 import com.google.android.gms.ads.*
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.GsonBuilder
 import com.skydoves.elasticviews.elasticAnimation
@@ -48,6 +49,7 @@ import java.io.InputStream
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 /**
  * File created on 17/7/2019.
  *
@@ -60,10 +62,57 @@ class LUIUtil {
         private var lastOffset = 0.0f
         private var isUp = false
 
-        private val colors = intArrayOf(R.color.lightBlue, R.color.lightCoral, R.color.lightCyan,
-                R.color.lightGoldenrodYellow, R.color.lightGreen, R.color.lightGrey, R.color.lightPink,
-                R.color.lightSalmon, R.color.lightSeaGreen, R.color.lightSlateGray, R.color.lightSteelBlue,
-                R.color.lightYellow, R.color.lightSkyBlue)
+        private val listColorLight = intArrayOf(
+                R.color.lightBlue,
+                R.color.lightCoral,
+                R.color.lightCyan,
+                R.color.lightGoldenrodYellow,
+                R.color.lightGreen,
+                R.color.lightGrey,
+                R.color.lightPink,
+                R.color.lightSalmon,
+                R.color.lightSeaGreen,
+                R.color.lightSlateGray,
+                R.color.lightSteelBlue,
+                R.color.lightYellow,
+                R.color.lightSkyBlue,
+                R.color.ripple_material_dark,
+                R.color.grey,
+                R.color.scratchEndGradient,
+                R.color.lemonChiffon,
+                R.color.bisque,
+                R.color.hotPink,
+                R.color.salmon,
+                R.color.wheat,
+                R.color.honeydew,
+                R.color.paleGoldenrod,
+                R.color.violet,
+                R.color.lavender,
+                R.color.gainsboro,
+                R.color.orchid,
+                R.color.tan,
+                R.color.indianRed,
+                R.color.darkKhaki,
+                R.color.mediumOrchid,
+                R.color.powderBlue,
+                R.color.greenYellow,
+                R.color.paleGreen,
+                R.color.mediumPurple,
+                R.color.darkSeaGreen,
+                R.color.skyBlue,
+                R.color.slateGray,
+                R.color.oliveDrab,
+                R.color.cornflowerBlue,
+                R.color.mediumTurquoise,
+                R.color.mediumSeaGreen,
+                R.color.dodgerBlue,
+                R.color.aqua,
+                R.color.springGreen,
+                R.color.periwinkle,
+                R.color.pink,
+                R.color.default_selected_day_background_start_color,
+                R.color.default_selection_bar_month_title_text_color
+        )
 
         var fontForAll: String? = null
             set(fontForAll) {
@@ -100,6 +149,8 @@ class LUIUtil {
             listTestDevice.add(Constants.TEST_11)
             listTestDevice.add(Constants.TEST_12)
             listTestDevice.add(Constants.TEST_13)
+            listTestDevice.add(Constants.TEST_14)
+            listTestDevice.add(Constants.TEST_15)
             return listTestDevice
         }
 
@@ -289,33 +340,33 @@ class LUIUtil {
         }
 
         fun setColorForSwipeRefreshLayout(swipeRefreshLayout: SwipeRefreshLayout?) {
-            swipeRefreshLayout?.setColorSchemeResources(R.color.colorPrimary, R.color.vip1, R.color.vip2,
-                    R.color.vip3, R.color.vip4, R.color.vip5)
+            swipeRefreshLayout?.setColorSchemeResources(
+                    R.color.colorPrimary,
+                    R.color.vip1,
+                    R.color.vip2,
+                    R.color.vip3,
+                    R.color.vip4,
+                    R.color.vip5
+            )
         }
 
         fun setProgressViewOffset(swipeRefreshLayout: SwipeRefreshLayout?, topMargin: Int) {
             swipeRefreshLayout?.setProgressViewOffset(false, 0, topMargin)
         }
 
-        fun setTextShadow(textView: TextView?, color: Int = if (isDarkTheme()) {
-            Color.BLACK
-        } else {
-            Color.WHITE
-        }) {
+        fun setTextShadow(textView: TextView?, color: Int?) {
+            val mColor: Int = color
+                    ?: if (isDarkTheme()) {
+                        Color.BLACK
+                    } else {
+                        Color.WHITE
+                    }
             textView?.setShadowLayer(1f, // radius
                     1f, // dx
                     1f, // dy
-                    color // shadow color
+                    mColor // shadow color
             )
         }
-
-//        fun setTextShadow(textView: TextView?) {
-//            textView?.setShadowLayer(1f, // radius
-//                    1f, // dx
-//                    1f, // dy
-//                    Color.BLACK // shadow color
-//            )
-//        }
 
         fun setTextBold(textBold: TextView) {
             textBold.setTypeface(null, Typeface.BOLD)
@@ -491,10 +542,10 @@ class LUIUtil {
             OverScrollDecoratorHelper.setUpStaticOverScroll(view, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
         }
 
-        fun getColor(): Int {
+        fun getRandomColorLight(): Int {
             val random = Random()
-            val c = random.nextInt(colors.size)
-            return LAppResource.getColor(colors[c])
+            val index = random.nextInt(listColorLight.size)
+            return listColorLight[index]
         }
 
         //it.imeOptions = EditorInfo.IME_ACTION_SEARCH
@@ -672,13 +723,11 @@ class LUIUtil {
         }
 
         @SuppressLint("ObsoleteSdkInt")
-        fun setRipple(context: Context?, view: View) {
-            context?.let { c ->
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    val outValue = TypedValue()
-                    c.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-                    view.setBackgroundResource(outValue.resourceId)
-                }
+        fun setRipple(view: View) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                val outValue = TypedValue()
+                view.context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+                view.setBackgroundResource(outValue.resourceId)
             }
         }
 
@@ -868,6 +917,40 @@ class LUIUtil {
                     anim.doAction()
                 }
             }
+        }
+
+        fun Snackbar.withBackground(resId: Int): Snackbar {
+//            this.view.setBackgroundColor(colorInt)
+            this.view.setBackgroundResource(resId)
+            return this
+        }
+
+        fun Snackbar.allowInfiniteLines(): Snackbar {
+            return apply {
+                (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
+                    it.isSingleLine = false
+                    it.setTextColor(Color.WHITE)
+                    setTextSize(textView = it, size = LAppResource.getDimenValue(R.dimen.txt_medium).toFloat())
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        it.textAlignment = View.TEXT_ALIGNMENT_CENTER
+                    } else {
+                        it.gravity = Gravity.CENTER_HORIZONTAL
+                    }
+                }
+            }
+        }
+
+        fun setDrawableTintColor(textView: TextView, color: Int) {
+            for (drawable in textView.compoundDrawables) {
+                if (drawable != null) {
+                    drawable.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
+                }
+            }
+        }
+
+        fun setTypeface(textView: TextView, pathFontAsset: String) {
+            val type = Typeface.createFromAsset(textView.context.assets, pathFontAsset)
+            textView.typeface = type
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.core.helper.gallery.photos
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -24,17 +23,17 @@ import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
  * Created by loitp on 14/04/15.
  */
 @LogTag("PhotosAdapter")
-class PhotosAdapter internal constructor(private val context: Context, private val callback: Callback?)
-    : BaseAdapter() {
+class PhotosAdapter internal constructor(
+        private val callback: Callback?
+) : BaseAdapter() {
 
-    val color = if (LUIUtil.isDarkTheme()) {
-        R.color.dark900
-    } else {
-        R.color.whiteSmoke
+    interface Callback {
+        fun onClick(photo: Photo, pos: Int)
+        fun onLongClick(photo: Photo, pos: Int)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.l_item_flickr_photos_core, viewGroup, false))
+        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_photos_core, viewGroup, false))
     }
 
     override fun getItemCount(): Int {
@@ -52,8 +51,7 @@ class PhotosAdapter internal constructor(private val context: Context, private v
         @SuppressLint("SetTextI18n")
         fun bind(photo: Photo) {
 
-            itemView.tvSize.visibility = View.INVISIBLE
-
+            val color = LUIUtil.getRandomColorLight()
             LImageUtil.load(context = itemView.imageView.context,
                     any = photo.flickrLink1024,
                     imageView = itemView.imageView,
@@ -65,13 +63,12 @@ class PhotosAdapter internal constructor(private val context: Context, private v
                         }
 
                         override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            itemView.tvSize?.visibility = View.VISIBLE
                             return false
                         }
                     })
 
             itemView.tvSize.text = "${photo.widthO} x ${photo.heightO}"
-//            LUIUtil.setTextShadow(textView = itemView.tvSize)
+            LUIUtil.setTextShadow(textView = itemView.tvSize, color = null)
 
             itemView.layoutRootView.setOnClickListener {
                 callback?.onClick(photo = photo, pos = bindingAdapterPosition)
@@ -83,8 +80,4 @@ class PhotosAdapter internal constructor(private val context: Context, private v
         }
     }
 
-    interface Callback {
-        fun onClick(photo: Photo, pos: Int)
-        fun onLongClick(photo: Photo, pos: Int)
-    }
 }

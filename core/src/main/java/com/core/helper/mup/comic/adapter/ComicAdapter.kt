@@ -44,13 +44,13 @@ class ComicAdapter : BaseAdapter() {
 
             itemView.tvTitle.apply {
                 this.text = comic.title
-                LUIUtil.setTextShadow(textView = this)
+                LUIUtil.setTextShadow(textView = this, color = null)
             }
 
             comic.totalChapter?.let {
                 itemView.tvTotalChapter.apply {
                     this.text = "${comic.totalChapter}"
-                    LUIUtil.setTextShadow(textView = this)
+                    LUIUtil.setTextShadow(textView = this, color = null)
                 }
             }
 

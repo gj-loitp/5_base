@@ -130,6 +130,7 @@
     </string>
     <string name="app_name_girl">CUTE HOLE</string>
     <string name="app_name_comic">TruyenTranhVN.org</string>
+    <string name="app_name_comic_ttt">iComic</string>
     <string name="app_name_find_number">Find Number</string>
     <string name="menu_home">Home</string>
     <string name="menu_favourite">Favourite</string>
@@ -176,4 +177,5 @@
     <string name="full_screen_fab_transition">Full Screen FAB Transition</string>
     <string name="click">Click</string>
     <string name="transition_morph">morph_transition</string>
+    <string name="select_type">Chọn thể loại</string>
 </resources>

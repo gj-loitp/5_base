@@ -30,6 +30,19 @@
                 app:toggleOffColor="@color/vip3"
                 app:toggleOnColor="@color/vip4" />
 
+            <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
+                android:id="@+id/swEnableDarkMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="Dark mode"
+                android:textColor="?attr/themeTextColor"
+                app:bgOffColor="@color/vip1"
+                app:bgOnColor="@color/vip2"
+                app:toggleOffColor="@color/vip3"
+                app:toggleOnColor="@color/vip4" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLoadUrl"
                 android:layout_width="wrap_content"

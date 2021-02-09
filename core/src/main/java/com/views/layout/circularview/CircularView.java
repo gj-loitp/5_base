@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 public class CircularView extends View {
     private static final String TAG = CircularView.class.getSimpleName();
-    private String mText; //TODO add customization for the text (style, color, etc)
+    private String mText; //check add customization for the text (style, color, etc)
 
     private TextPaint mTextPaint;
     private float mTextWidth;
@@ -311,7 +311,7 @@ public class CircularView extends View {
         mTextHeight = fontMetrics.bottom;
     }
 
-    //TODO always draw the animating markers on top.
+    //check always draw the animating markers on top.
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);

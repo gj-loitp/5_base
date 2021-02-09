@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    tools:ignore="HardcodedText">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -34,6 +35,26 @@
                 android:id="@+id/btDiffUtil"
                 style="@style/ButtonMenu"
                 android:text="Diff Util" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDragDropSwipeRecyclerviewListVertical"
+                style="@style/ButtonMenu"
+                android:text="DragDropSwipeRecyclerview List Vertical" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDragDropSwipeRecyclerviewListHorizontal"
+                style="@style/ButtonMenu"
+                android:text="DragDropSwipeRecyclerview List Horizontal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDragDropSwipeRecyclerviewGrid"
+                style="@style/ButtonMenu"
+                android:text="DragDropSwipeRecyclerview Grid Horizontal" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFastScroll"
+                style="@style/ButtonMenu"
+                android:text="Fast scroll" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFitGridView"
