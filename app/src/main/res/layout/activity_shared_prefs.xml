@@ -95,6 +95,17 @@
                 android:id="@+id/btGetObject"
                 style="@style/ButtonMenu"
                 android:text="Get Object" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPutListObject"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put List Object" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGetListObject"
+                style="@style/ButtonMenu"
+                android:text="Get List Object" />
         </LinearLayout>
     </ScrollView>
 

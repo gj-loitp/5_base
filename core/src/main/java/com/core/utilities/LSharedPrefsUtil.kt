@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.core.base.BaseApplication
 import com.utils.util.AppUtils
+import java.lang.reflect.Type
 
 class LSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences
@@ -34,6 +35,14 @@ class LSharedPrefsUtil private constructor() {
 
     fun <T> getObject(key: String, anonymousClass: Class<T>): T {
         return get(key = key, anonymousClass = anonymousClass)
+    }
+
+    fun <T> getObjectList(key: String, anonymousClass: Class<T>, typeOfT: Type): ArrayList<T> {
+        val value = mSharedPreferences.getString(key, "")
+        if (value?.isEmpty() == true) {
+            return ArrayList()
+        }
+        return BaseApplication.gson.fromJson(value, typeOfT)
     }
 
     @Suppress("UNCHECKED_CAST")
