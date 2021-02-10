@@ -92,6 +92,7 @@ class SharedPrefsActivity : BaseFontActivity() {
             val value = LSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
             showLongInformation("Value: $value")
         }
+
         btPutListObject.setSafeOnClickListener {
             val list = ArrayList<User>()
             for (i in 0..10) {
@@ -100,7 +101,7 @@ class SharedPrefsActivity : BaseFontActivity() {
                 user.fullName = "Name ${System.currentTimeMillis()}"
                 list.add(user)
             }
-            LSharedPrefsUtil.instance.putObject(KEY_LIST_OBJECT, list)
+            LSharedPrefsUtil.instance.putObjectList(KEY_LIST_OBJECT, list)
         }
         btGetListObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {

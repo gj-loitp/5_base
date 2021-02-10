@@ -134,6 +134,10 @@ class LSharedPrefsUtil private constructor() {
         put(key = key, data = data)
     }
 
+    fun <T> putObjectList(key: String, data: T) {
+        put(key = key, data = data)
+    }
+
     private fun <T> put(key: String, data: T) {
         val editor = mSharedPreferences.edit()
         when (data) {
