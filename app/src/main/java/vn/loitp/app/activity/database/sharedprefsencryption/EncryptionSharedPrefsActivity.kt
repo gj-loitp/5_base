@@ -12,9 +12,9 @@ import kotlinx.android.synthetic.main.activity_shared_prefs_encryption.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 
-@LogTag("EnctyptionSharedPrefsActivity")
+@LogTag("EncryptionSharedPrefsActivity")
 @IsFullScreen(false)
-class EnctyptionSharedPrefsActivity : BaseFontActivity() {
+class EncryptionSharedPrefsActivity : BaseFontActivity() {
 
     companion object {
         const val KEY_STRING = "KEY_STRING"
@@ -37,6 +37,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         btClearAll.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.clear()
         }
+
         btPutString.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
         }
@@ -44,6 +45,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING)
             showLongInformation(value)
         }
+
         btPutStringWithDefaultValue.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
         }
@@ -51,6 +53,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
             showLongInformation(value)
         }
+
         btPutBoolean.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_BOOLEAN, true)
         }
@@ -58,6 +61,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val value = LEncryptionSharedPrefsUtil.instance.getBoolean(KEY_BOOLEAN)
             showLongInformation("Value: $value")
         }
+
         btPutFloat.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_FLOAT, System.currentTimeMillis().toFloat())
         }
@@ -65,6 +69,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val value = LEncryptionSharedPrefsUtil.instance.getFloat(KEY_FLOAT)
             showLongInformation("Value: $value")
         }
+
         btPutInt.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_INT, System.currentTimeMillis().toInt())
         }
@@ -72,6 +77,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val value = LEncryptionSharedPrefsUtil.instance.getInt(KEY_INT)
             showLongInformation("Value: $value")
         }
+
         btPutLong.setSafeOnClickListener {
             LEncryptionSharedPrefsUtil.instance.put(KEY_LONG, System.currentTimeMillis())
         }
@@ -79,6 +85,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val value = LEncryptionSharedPrefsUtil.instance.getLong(KEY_LONG)
             showLongInformation("Value: $value")
         }
+
         btPutObject.setSafeOnClickListener {
             val user = User()
             user.email = "Email ${System.currentTimeMillis()}"
@@ -89,6 +96,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
             val value = LEncryptionSharedPrefsUtil.instance.getObject(KEY_OBJECT, User::class.java)
             showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
+
         btPutListObject.setSafeOnClickListener {
             val list = ArrayList<User>()
             for (i in 0..10) {
@@ -102,7 +110,7 @@ class EnctyptionSharedPrefsActivity : BaseFontActivity() {
         btListGetObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value = LEncryptionSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, User::class.java, type)
+            val value :ArrayList<User> = LEncryptionSharedPrefsUtil.instance.getObjectList(key = KEY_LIST_OBJECT, typeOfT = type)
             logD("list size: " + value.size)
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")

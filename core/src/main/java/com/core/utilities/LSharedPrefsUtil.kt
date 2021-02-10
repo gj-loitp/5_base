@@ -89,7 +89,7 @@ class LSharedPrefsUtil private constructor() {
     ): T {
         when (anonymousClass) {
             String::class.java -> {
-                return mSharedPreferences.getString(key, defaultValue as String?) as T
+                return mSharedPreferences.getString(key, defaultValue as String) as T
             }
             Boolean::class.java -> {
                 return java.lang.Boolean.valueOf(mSharedPreferences.getBoolean(key, defaultValue as Boolean)) as T

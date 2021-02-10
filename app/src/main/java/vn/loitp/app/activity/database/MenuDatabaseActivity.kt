@@ -14,7 +14,7 @@ import vn.loitp.app.activity.database.readsqliteasset.ReadSqliteAssetActivity
 import vn.loitp.app.activity.database.realm.RealmActivity
 import vn.loitp.app.activity.database.room.RoomActivity
 import vn.loitp.app.activity.database.sharedprefs.SharedPrefsActivity
-import vn.loitp.app.activity.database.sharedprefsencryption.EnctyptionSharedPrefsActivity
+import vn.loitp.app.activity.database.sharedprefsencryption.EncryptionSharedPrefsActivity
 import vn.loitp.app.activity.database.sqlite.SqliteActivity
 import vn.loitp.app.activity.database.sqliteencryption.SqliteEncryptionActivity
 import vn.loitp.app.activity.database.sqlitemultitable.SqliteMultiTableActivity
@@ -51,7 +51,7 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
             btRealm -> intent = Intent(this, RealmActivity::class.java)
             btSqliteAsset -> intent = Intent(this, ReadSqliteAssetActivity::class.java)
             btSharedPrefs -> intent = Intent(this, SharedPrefsActivity::class.java)
-            btSharedPrefsEncryption -> intent = Intent(this, EnctyptionSharedPrefsActivity::class.java)
+            btSharedPrefsEncryption -> intent = Intent(this, EncryptionSharedPrefsActivity::class.java)
             btSqliteEncryption -> intent = Intent(this, SqliteEncryptionActivity::class.java)
             btSqliteMultiTable -> intent = Intent(this, SqliteMultiTableActivity::class.java)
             btSqliteMultiTableAdvance -> intent = Intent(this, SqliteMultiTableAdvanceActivity::class.java)

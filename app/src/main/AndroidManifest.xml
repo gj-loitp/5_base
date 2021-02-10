@@ -922,7 +922,7 @@
             android:name=".activity.database.sharedprefs.SharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.database.sharedprefsencryption.EnctyptionSharedPrefsActivity"
+            android:name=".activity.database.sharedprefsencryption.EncryptionSharedPrefsActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.database.sqliteencryption.SqliteEncryptionActivity"
