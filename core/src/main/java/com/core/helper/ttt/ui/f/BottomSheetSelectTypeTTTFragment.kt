@@ -13,7 +13,7 @@ import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_select_type_fragment.*
 
-@LogTag("loitppBottomSheetSelectTypeTTTFragment")
+@LogTag("BottomSheetSelectTypeTTTFragment")
 class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_ttt_select_type_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
