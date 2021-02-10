@@ -105,7 +105,7 @@ class SharedPrefsActivity : BaseFontActivity() {
         btGetListObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value = LSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, User::class.java, type)
+            val value: ArrayList<User> = LSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, type)
             logD("list size: " + value.size)
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")
