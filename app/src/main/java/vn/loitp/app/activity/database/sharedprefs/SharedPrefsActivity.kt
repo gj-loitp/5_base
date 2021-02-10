@@ -5,6 +5,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
+import com.core.utilities.LConvertUtil
 import com.core.utilities.LSharedPrefsUtil
 import com.google.gson.reflect.TypeToken
 import com.views.setSafeOnClickListener
@@ -23,6 +24,7 @@ class SharedPrefsActivity : BaseFontActivity() {
         const val KEY_FLOAT = "KEY_FLOAT"
         const val KEY_INT = "KEY_INT"
         const val KEY_LONG = "KEY_LONG"
+        const val KEY_NUMBER = "KEY_NUMBER"
         const val KEY_OBJECT = "KEY_OBJECT"
         const val KEY_LIST_OBJECT = "KEY_LIST_OBJECT"
     }
@@ -80,6 +82,18 @@ class SharedPrefsActivity : BaseFontActivity() {
         btGetLong.setSafeOnClickListener {
             val value = LSharedPrefsUtil.instance.getLong(KEY_LONG)
             showLongInformation("Value: $value")
+        }
+
+        btPutNumber.setSafeOnClickListener {
+            LSharedPrefsUtil.instance.putString(KEY_NUMBER, 123456.789.toString())
+        }
+        btGetNumber.setSafeOnClickListener {
+            try {
+                val value = LSharedPrefsUtil.instance.getString(KEY_NUMBER)
+                showLongInformation("Value: $value -> " + LConvertUtil.convertToPrice(value.toBigDecimalOrNull()))
+            } catch (e: Exception) {
+                showShortError(e.toString())
+            }
         }
 
         btPutObject.setSafeOnClickListener {

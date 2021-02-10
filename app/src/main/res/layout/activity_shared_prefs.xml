@@ -86,6 +86,17 @@
                 android:text="Get Long" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPutNumber"
+                style="@style/ButtonMenu"
+                android:layout_marginTop="@dimen/margin_35"
+                android:text="Put Number" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btGetNumber"
+                style="@style/ButtonMenu"
+                android:text="Get Number" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutObject"
                 style="@style/ButtonMenu"
                 android:layout_marginTop="@dimen/margin_35"
