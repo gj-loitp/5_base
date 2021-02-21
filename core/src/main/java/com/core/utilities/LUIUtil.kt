@@ -33,6 +33,8 @@ import com.R
 import com.core.common.Constants
 import com.data.AdmobData
 import com.google.android.gms.ads.*
+import com.google.android.gms.ads.interstitial.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
@@ -126,12 +128,6 @@ class LUIUtil {
                         .build())
             }
 
-//        fun createAdBanner(activity: Activity, adViewId: Int): AdView {
-//            val adView = activity.findViewById<AdView>(adViewId)
-//            createAdBanner(adView)
-//            return adView
-//        }
-
         private fun getListTestDevice(): ArrayList<String> {
             val listTestDevice = ArrayList<String>()
             listTestDevice.add(AdRequest.DEVICE_ID_EMULATOR)
@@ -168,35 +164,53 @@ class LUIUtil {
             return adView
         }
 
-        fun createAdFull(context: Context): InterstitialAd {
-            val interstitial = InterstitialAd(context)
-            interstitial.adUnitId = AdmobData.instance.idAdmobFull
-
+        fun createAdFull(
+                context: Context,
+                onAdLoaded: ((InterstitialAd) -> Unit),
+                onAdFailedToLoad: ((LoadAdError) -> Unit)? = null,
+        ) {
             val requestConfiguration = RequestConfiguration.Builder()
                     .setTestDeviceIds(getListTestDevice())
                     .build()
             MobileAds.setRequestConfiguration(requestConfiguration)
 
-            val adRequest = AdRequest.Builder().build()
-            interstitial.loadAd(adRequest)
-            return interstitial
+            InterstitialAd.load(
+                    context,
+                    AdmobData.instance.idAdmobFull ?: "",
+                    AdRequest.Builder().build(),
+                    object : InterstitialAdLoadCallback() {
+                        override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                            interstitialAd.fullScreenContentCallback = object : FullScreenContentCallback() {
+                                override fun onAdDismissedFullScreenContent() {
+                                    //do sth
+                                }
+                            }
+                            interstitialAd.setOnPaidEventListener {
+                                //do sth
+                            }
+                            onAdLoaded.invoke(interstitialAd)
+                        }
+
+                        override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                            onAdFailedToLoad?.invoke(loadAdError)
+                        }
+                    })
         }
 
         @JvmOverloads
-        fun displayInterstitial(interstitial: InterstitialAd?, maxNumber: Int = 100) {
+        fun displayInterstitial(
+                activity: Activity,
+                interstitial: InterstitialAd?,
+                maxNumber: Int = 100
+        ) {
             interstitial?.let { i ->
-                if (i.isLoaded) {
-                    val r = Random()
-                    val x = r.nextInt(100)
-                    if (x < maxNumber) {
-                        i.show()
-                    } else {
-                        //don't use LLog here
-                        Log.d("interstitial", "displayInterstitial: interstitial isLoaded() but $x > $maxNumber")
-                    }
+                val r = Random()
+                val x = r.nextInt(100)
+                if (x < maxNumber) {
+                    i.show(activity)
                 } else {
                     //don't use LLog here
-                    Log.d("interstitial", "displayInterstitial: interstitial !isLoaded()")
+                    Log.d("interstitial", "displayInterstitial but $x > $maxNumber")
                 }
             }
         }
