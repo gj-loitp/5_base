@@ -6,6 +6,7 @@ import com.core.helper.mup.girl.db.GirlDatabase
 import com.core.utilities.LAppResource
 import com.core.utilities.LConnectivityUtil
 import com.core.utilities.LLog
+import com.core.utilities.LUIUtil
 import com.game.findnumber.db.FindNumberDatabase
 import com.github.piasy.biv.BigImageViewer
 import com.github.piasy.biv.loader.glide.GlideImageLoader
@@ -37,6 +38,10 @@ open class BaseApplication : MultiDexApplication() {
 
         //network
         LConnectivityUtil.initOnNetworkChange()
+
+        //dark mode
+        val isDarkTheme = LUIUtil.isDarkTheme()
+        LUIUtil.setDarkTheme(isDarkTheme = isDarkTheme)
 
         //room database
         GirlDatabase.getInstance(this)

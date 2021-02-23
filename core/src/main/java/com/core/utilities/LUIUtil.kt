@@ -32,6 +32,7 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
+import com.google.ads.interactivemedia.v3.internal.it
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
@@ -151,6 +152,8 @@ class LUIUtil {
             listTestDevice.add(Constants.TEST_17)
             listTestDevice.add(Constants.TEST_18)
             listTestDevice.add(Constants.TEST_19)
+            listTestDevice.add(Constants.TEST_20)
+            listTestDevice.add(Constants.TEST_21)
             return listTestDevice
         }
 
