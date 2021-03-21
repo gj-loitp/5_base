@@ -39,6 +39,10 @@ open class BaseApplication : MultiDexApplication() {
         //network
         LConnectivityUtil.initOnNetworkChange()
 
+        //dark mode
+        val isDarkTheme = LUIUtil.isDarkTheme()
+        LUIUtil.setDarkTheme(isDarkTheme = isDarkTheme)
+
         //room database
         GirlDatabase.getInstance(this)
         FindNumberDatabase.getInstance(this)
