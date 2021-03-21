@@ -46,13 +46,6 @@ open class BaseApplication : MultiDexApplication() {
         //room database
         GirlDatabase.getInstance(this)
         FindNumberDatabase.getInstance(this)
-
-        val isDarkTheme = LUIUtil.isDarkTheme()
-        if (isDarkTheme) {
-            LUIUtil.setDarkTheme(isDarkTheme = false)
-        } else {
-            LUIUtil.setDarkTheme(isDarkTheme = true)
-        }
     }
 
     protected fun logD(msg: String) {
