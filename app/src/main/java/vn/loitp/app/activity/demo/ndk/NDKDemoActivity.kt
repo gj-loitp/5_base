@@ -11,7 +11,7 @@ import vn.loitp.app.R
 @IsFullScreen(false)
 class NDKDemoActivity : BaseFontActivity() {
 
-    companion object{
+    companion object {
         init {
             System.loadLibrary("native-lib")
         }
@@ -23,15 +23,15 @@ class NDKDemoActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         setupViews()
     }
 
     private external fun getStringHello(s: String): String
+    private external fun add(x: Int, y: Int): Int
 
     private fun setupViews() {
-        tv.text = getStringHello("Hello " + System.nanoTime())
+        val s = getStringHello("Hello " + System.nanoTime()) + "\n" + add(1, 2);
+        tv.text = s
     }
 
 }
