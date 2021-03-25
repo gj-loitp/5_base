@@ -22,10 +22,10 @@ class NDKDemoActivity : BaseFontActivity() {
         setupViews()
     }
 
-    private external fun getStringHello(): String
+    private external fun getStringHello(s: String): String
 
     private fun setupViews() {
-        tv.text = getStringHello()
+        tv.text = getStringHello("Hello " + System.nanoTime())
     }
 
 }
