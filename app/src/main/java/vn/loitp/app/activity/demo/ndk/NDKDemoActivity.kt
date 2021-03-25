@@ -11,6 +11,12 @@ import vn.loitp.app.R
 @IsFullScreen(false)
 class NDKDemoActivity : BaseFontActivity() {
 
+    companion object{
+        init {
+            System.loadLibrary("native-lib")
+        }
+    }
+
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_demo_ndk
     }
@@ -18,7 +24,7 @@ class NDKDemoActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        System.loadLibrary("keys")
+
         setupViews()
     }
 
