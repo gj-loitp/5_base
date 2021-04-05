@@ -1,0 +1,3 @@
+ninja: Entering directory `E:\Pj\BaseMaster\app\.cxx\cmake\debug\arm64-v8a'
+[1/2] Building C object CMakeFiles/native-lib.dir/native-lib.c.o
+[2/2] Linking C shared library E:\Pj\BaseMaster\app\build\intermediates\cmake\debug\obj\arm64-v8a\libnative-lib.so

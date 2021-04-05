@@ -1,0 +1,34 @@
+{
+  "buildFiles": [
+    "E:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk",
+    "E:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\lib {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "keys-release-arm64-v8a": {
+      "buildCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darm64-v8a NDK_ALL_ABIS\u003darm64-v8a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\lib E:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj/local/arm64-v8a/libkeys.so",
+      "toolchain": "toolchain-arm64-v8a",
+      "abi": "arm64-v8a",
+      "artifactName": "keys",
+      "files": [
+        {
+          "src": "E:\\Pj\\BaseMaster\\app\\src\\main\\jni\\keys.c",
+          "flags": "-target aarch64-none-linux-android21 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/uevn/AppData/Local/Android/Sdk/ndk/21.1.6352462/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -D_FORTIFY_SOURCE\u003d2 -fpic -O2 -DNDEBUG -IE:/Pj/BaseMaster/app/src/main/jni -DANDROID -Wformat -Werror\u003dformat-security"
+        }
+      ],
+      "output": "E:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\arm64-v8a\\libkeys.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-arm64-v8a": {
+      "cCompilerExecutable": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

@@ -30,6 +30,12 @@ android {
             }
         }
 
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
         buildConfigField("String", "RECAPTCHA_KEY", '"6LcposQUAAAAAB7X6uNt4cmmdMgGEIaOJfAkCVvy"')
 
         buildConfigField("String", "PATH_MAIN", '"api/"')
@@ -74,6 +80,13 @@ android {
             minifyEnabled false
             useProguard false //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
         }
     }
 
