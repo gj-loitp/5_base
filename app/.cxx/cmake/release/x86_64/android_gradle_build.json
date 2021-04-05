@@ -1,39 +1,39 @@
 {
   "stringTable": {
-    "0": "E:/Pj/BaseMaster/app/.cxx/cmake/release/x86_64",
-    "1": "--target=x86_64-none-linux-android21 --gcc-toolchain=C:/Users/uevn/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/uevn/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -DNDEBUG -fPIC"
+    "0": "C:/Project/Temp/basemaster.git/app/.cxx/cmake/release/x86_64",
+    "1": "--target=x86_64-none-linux-android21 --gcc-toolchain=C:/Users/RnD/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/RnD/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -DNDEBUG -fPIC"
   },
   "buildFiles": [
-    "E:\\Pj\\BaseMaster\\app\\src\\main\\cpp\\CMakeLists.txt",
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+    "C:\\Project\\Temp\\basemaster.git\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\release\\x86_64\" clean"
+    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64\" clean"
   ],
-  "buildTargetsCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\release\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Release-x86_64": {
-      "buildCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\release\\x86_64\" native-lib",
-      "buildType": "release",
-      "toolchain": "1345228036",
+      "buildCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64\" native-lib",
+      "buildType": "debug",
+      "toolchain": "3813263862",
       "abi": "x86_64",
       "artifactName": "native-lib",
       "files": [
         {
-          "src": "E:\\Pj\\BaseMaster\\app\\src\\main\\cpp\\native-lib.c",
+          "src": "C:\\Project\\Temp\\basemaster.git\\app\\src\\main\\cpp\\native-lib.c",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [],
-      "output": "E:\\Pj\\BaseMaster\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so",
+      "output": "C:\\Project\\Temp\\basemaster.git\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so",
       "runtimeFiles": []
     }
   },
   "toolchains": {
-    "1345228036": {
-      "cCompilerExecutable": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
+    "3813263862": {
+      "cCompilerExecutable": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
     }
   },
   "cFileExtensions": [

@@ -1,19 +1,19 @@
 {
   "buildFiles": [
-    "E:\\Pj\\BaseMaster\\app\\src\\main\\cpp\\CMakeLists.txt",
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+    "C:\\Project\\Temp\\basemaster.git\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\debug\\x86_64\" clean"
+    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\debug\\x86_64\" clean"
   ],
-  "buildTargetsCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\debug\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\debug\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Debug-x86_64": {
       "artifactName": "native-lib",
-      "buildCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\debug\\x86_64\" native-lib",
+      "buildCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\debug\\x86_64\" native-lib",
       "abi": "x86_64",
-      "output": "E:\\Pj\\BaseMaster\\app\\build\\intermediates\\cmake\\debug\\obj\\x86_64\\libnative-lib.so",
+      "output": "C:\\Project\\Temp\\basemaster.git\\app\\build\\intermediates\\cmake\\debug\\obj\\x86_64\\libnative-lib.so",
       "runtimeFiles": []
     }
   }
