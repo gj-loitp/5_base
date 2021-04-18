@@ -5,9 +5,9 @@
     "environmentVariables": []
   },
   "cmake": {
-    "cmakeArtifactsBaseFolder": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64",
-    "cmakeServerLogFile": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64\\cmake_server_log.txt",
-    "cmakeWrappingBaseFolder": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cxx\\release\\x86_64",
+    "cmakeArtifactsBaseFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64",
+    "cmakeServerLogFile": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64\\cmake_server_log.txt",
+    "cmakeWrappingBaseFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cxx\\release\\x86_64",
     "effectiveConfiguration": {
       "name": "traditional-android-studio-cmake-environment",
       "description": "Composite reified CMakeSettings configuration",
@@ -15,13 +15,13 @@
       "inheritEnvironments": [
         "ndk"
       ],
-      "buildRoot": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64",
-      "cmakeToolchain": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-      "cmakeExecutable": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+      "buildRoot": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64",
+      "cmakeToolchain": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+      "cmakeExecutable": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
       "variables": [
         {
           "name": "CMAKE_FIND_ROOT_PATH",
-          "value": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\prefab\\x86_64\\prefab"
+          "value": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\prefab\\x86_64\\prefab"
         },
         {
           "name": "CMAKE_BUILD_TYPE",
@@ -29,7 +29,7 @@
         },
         {
           "name": "CMAKE_TOOLCHAIN_FILE",
-          "value": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake"
+          "value": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake"
         },
         {
           "name": "ANDROID_ABI",
@@ -37,7 +37,7 @@
         },
         {
           "name": "ANDROID_NDK",
-          "value": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462"
+          "value": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462"
         },
         {
           "name": "ANDROID_PLATFORM",
@@ -49,7 +49,7 @@
         },
         {
           "name": "CMAKE_ANDROID_NDK",
-          "value": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462"
+          "value": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462"
         },
         {
           "name": "CMAKE_EXPORT_COMPILE_COMMANDS",
@@ -57,11 +57,11 @@
         },
         {
           "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
-          "value": "C:\\Project\\Temp\\basemaster.git\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64"
+          "value": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64"
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
-          "value": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+          "value": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
         },
         {
           "name": "CMAKE_SYSTEM_NAME",
@@ -74,14 +74,14 @@
       ]
     }
   },
-  "cxxBuildFolder": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64",
+  "cxxBuildFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64",
   "info": {
     "abi": "X86_64",
     "bitness": 64,
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86_64",
+  "originalCxxBuildFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64",
   "variant": {
     "buildSystemArgumentList": [],
     "buildTargetSet": [],
@@ -95,24 +95,24 @@
     "module": {
       "buildSystem": "CMAKE",
       "cmake": {
-        "cmakeExe": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+        "cmakeExe": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
         "minimumCmakeVersion": "3.10.2",
-        "ninjaExe": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+        "ninjaExe": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
       },
-      "cmakeToolchainFile": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-      "cxxFolder": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx",
+      "cmakeToolchainFile": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+      "cxxFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx",
       "gradleModulePathName": ":app",
-      "intermediatesFolder": "C:\\Project\\Temp\\basemaster.git\\app\\build\\intermediates",
-      "makeFile": "C:\\Project\\Temp\\basemaster.git\\app\\src\\main\\cpp\\CMakeLists.txt",
-      "moduleBuildFile": "C:\\Project\\Temp\\basemaster.git\\app\\build.gradle",
-      "moduleRootFolder": "C:\\Project\\Temp\\basemaster.git\\app",
+      "intermediatesFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build\\intermediates",
+      "makeFile": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\src\\main\\cpp\\CMakeLists.txt",
+      "moduleBuildFile": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build.gradle",
+      "moduleRootFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app",
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
         "X86",
         "X86_64"
       ],
-      "ndkFolder": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462",
+      "ndkFolder": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462",
       "ndkMetaAbiList": [
         {
           "abi": "ARMEABI_V7A",
@@ -169,29 +169,29 @@
       "ndkDefaultStl": "LIBCXX_STATIC",
       "ndkVersion": "21.1.6352462",
       "project": {
-        "compilerSettingsCacheFolder": "C:\\Project\\Temp\\basemaster.git\\.cxx",
-        "cxxFolder": "C:\\Project\\Temp\\basemaster.git\\.cxx",
+        "compilerSettingsCacheFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\.cxx",
+        "cxxFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\.cxx",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "C:\\Project\\Temp\\basemaster.git",
-        "sdkFolder": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk",
+        "rootBuildGradleFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster",
+        "sdkFolder": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk",
         "isPrefabEnabled": false
       },
       "splitsAbiFilterSet": [],
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
-          "ARM64_V8A": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
-          "X86": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-          "X86_64": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+          "ARMEABI_V7A": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
       }
     },
-    "objFolder": "C:\\Project\\Temp\\basemaster.git\\app\\build\\intermediates\\cmake\\release\\obj",
+    "objFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build\\intermediates\\cmake\\release\\obj",
     "variantName": "release",
     "validAbiList": [
       "ARMEABI_V7A",
@@ -199,8 +199,8 @@
       "X86",
       "X86_64"
     ],
-    "prefabDirectory": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\prefab",
+    "prefabDirectory": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\prefab",
     "prefabPackageDirectoryList": []
   },
-  "prefabFolder": "C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\prefab\\x86_64"
+  "prefabFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\prefab\\x86_64"
 }

@@ -1,19 +1,19 @@
 {
   "buildFiles": [
-    "C:\\Project\\Temp\\basemaster.git\\app\\src\\main\\cpp\\CMakeLists.txt",
-    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+    "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\debug\\x86\" clean"
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\debug\\x86\" clean"
   ],
-  "buildTargetsCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\debug\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Debug-x86": {
       "artifactName": "native-lib",
-      "buildCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\debug\\x86\" native-lib",
+      "buildCommand": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\debug\\x86\" native-lib",
       "abi": "x86",
-      "output": "C:\\Project\\Temp\\basemaster.git\\app\\build\\intermediates\\cmake\\debug\\obj\\x86\\libnative-lib.so",
+      "output": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build\\intermediates\\cmake\\debug\\obj\\x86\\libnative-lib.so",
       "runtimeFiles": []
     }
   }

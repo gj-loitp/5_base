@@ -1,39 +1,39 @@
 {
   "stringTable": {
-    "0": "C:/Project/Temp/basemaster.git/app/.cxx/cmake/release/x86",
-    "1": "--target=i686-none-linux-android21 --gcc-toolchain=C:/Users/RnD/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/RnD/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -DNDEBUG -fPIC"
+    "0": "C:/Users/Loitp/StudioProjects/basemaster/app/.cxx/cmake/release/x86",
+    "1": "--target=i686-none-linux-android21 --gcc-toolchain=C:/Users/Loitp/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Loitp/AppData/Local/Android/Sdk/ndk/21.1.6352462/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -DNDEBUG -fPIC"
   },
   "buildFiles": [
-    "C:\\Project\\Temp\\basemaster.git\\app\\src\\main\\cpp\\CMakeLists.txt",
-    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+    "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86\" clean"
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86\" clean"
   ],
-  "buildTargetsCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Release-x86": {
-      "buildCommand": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Project\\Temp\\basemaster.git\\app\\.cxx\\cmake\\release\\x86\" native-lib",
+      "buildCommand": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86\" native-lib",
       "buildType": "debug",
-      "toolchain": "3813263862",
+      "toolchain": "450752572",
       "abi": "x86",
       "artifactName": "native-lib",
       "files": [
         {
-          "src": "C:\\Project\\Temp\\basemaster.git\\app\\src\\main\\cpp\\native-lib.c",
+          "src": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\src\\main\\cpp\\native-lib.c",
           "flagsOrdinal": 1,
           "workingDirectoryOrdinal": 0
         }
       ],
       "headers": [],
-      "output": "C:\\Project\\Temp\\basemaster.git\\app\\build\\intermediates\\cmake\\release\\obj\\x86\\libnative-lib.so",
+      "output": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build\\intermediates\\cmake\\release\\obj\\x86\\libnative-lib.so",
       "runtimeFiles": []
     }
   },
   "toolchains": {
-    "3813263862": {
-      "cCompilerExecutable": "C:\\Users\\RnD\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
+    "450752572": {
+      "cCompilerExecutable": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
     }
   },
   "cFileExtensions": [

@@ -58,7 +58,7 @@ android {
 }
 
 dependencies {
-    api "org.jetbrains.kotlin:kotlin-stdlib:1.4.21"
+    api "org.jetbrains.kotlin:kotlin-stdlib:1.4.32"
     api fileTree(dir: 'libs', include: ['*.jar'])
 
     //region image loader
