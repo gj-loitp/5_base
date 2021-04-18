@@ -103,11 +103,6 @@
                 android:text="Map tracker" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btNDK"
-                style="@style/ButtonMenu"
-                android:text="NDK" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNFC"
                 style="@style/ButtonMenu"
                 android:text="NFC" />

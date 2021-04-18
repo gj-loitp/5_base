@@ -29,7 +29,6 @@ import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
 import vn.loitp.app.activity.demo.gallerycorealbumfrm.GalleryCoreAlbumFrmActivity
 import vn.loitp.app.activity.demo.maptracker.MapTrackerActivity
-import vn.loitp.app.activity.demo.ndk.NDKDemoActivity
 import vn.loitp.app.activity.demo.nfc.NFCActivity
 import vn.loitp.app.activity.demo.pdf.PdfDemoActivity
 import vn.loitp.app.activity.demo.rss.RSSActivity
@@ -99,7 +98,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFindNumber.setOnClickListener(this)
         btTTT.setOnClickListener(this)
         btRSS.setOnClickListener(this)
-        btNDK.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -175,9 +173,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             }
             btRSS -> {
                 intent = Intent(this, RSSActivity::class.java)
-            }
-            btNDK -> {
-                intent = Intent(this, NDKDemoActivity::class.java)
             }
         }
         intent?.let {

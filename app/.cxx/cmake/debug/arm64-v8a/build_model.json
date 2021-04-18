@@ -171,7 +171,6 @@
       "project": {
         "compilerSettingsCacheFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\.cxx",
         "cxxFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\.cxx",
-        "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isNativeCompilerSettingsCacheEnabled": false,
@@ -195,7 +194,10 @@
     "objFolder": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build\\intermediates\\cmake\\debug\\obj",
     "variantName": "debug",
     "validAbiList": [
-      "ARM64_V8A"
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
     ],
     "prefabDirectory": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\debug\\prefab",
     "prefabPackageDirectoryList": []
