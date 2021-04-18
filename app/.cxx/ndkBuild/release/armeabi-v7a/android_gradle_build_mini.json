@@ -1,0 +1,19 @@
+{
+  "buildFiles": [
+    "E:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk",
+    "E:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\lib {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "keys-release-armeabi-v7a": {
+      "artifactName": "keys",
+      "buildCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dE:\\Pj\\BaseMaster\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-21 NDK_OUT\u003dE:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dE:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\lib E:/Pj/BaseMaster/app/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libkeys.so",
+      "abi": "armeabi-v7a",
+      "output": "E:\\Pj\\BaseMaster\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi-v7a\\libkeys.so",
+      "runtimeFiles": []
+    }
+  }
+}

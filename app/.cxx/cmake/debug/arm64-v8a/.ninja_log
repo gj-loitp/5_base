@@ -1,0 +1,13 @@
+# ninja log v5
+1	135	639299749	CMakeFiles/native-lib.dir/native-lib.c.o	a8d358ffb5eb9dd8
+135	229	639299749	C:/Project/Temp/basemaster.git/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	561abd467b102cec
+1	91	639300416	CMakeFiles/native-lib.dir/native-lib.c.o	a8d358ffb5eb9dd8
+91	144	639300416	C:/Project/Temp/basemaster.git/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	561abd467b102cec
+1	84	639300491	CMakeFiles/native-lib.dir/native-lib.c.o	a8d358ffb5eb9dd8
+85	149	639300491	C:/Project/Temp/basemaster.git/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	561abd467b102cec
+0	68	639300541	CMakeFiles/native-lib.dir/native-lib.c.o	a8d358ffb5eb9dd8
+69	121	639300541	C:/Project/Temp/basemaster.git/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	561abd467b102cec
+1	75	639300587	CMakeFiles/native-lib.dir/native-lib.c.o	a8d358ffb5eb9dd8
+75	123	639300587	C:/Project/Temp/basemaster.git/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	561abd467b102cec
+1	61	639300711	CMakeFiles/native-lib.dir/native-lib.c.o	a8d358ffb5eb9dd8
+62	113	639300711	C:/Project/Temp/basemaster.git/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	561abd467b102cec
