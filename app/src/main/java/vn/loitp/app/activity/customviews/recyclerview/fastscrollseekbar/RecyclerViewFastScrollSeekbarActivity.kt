@@ -17,12 +17,14 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesA
 import vn.loitp.app.common.Constants
 import java.util.*
 
-@LogTag("RecyclerViewActivity")
+@LogTag("loitppRecyclerViewFastScrollSeekbarActivity")
 @IsFullScreen(false)
 class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
 
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
+    private var tmpPositionSeekBar = 0
+    private var isOnTracking = false
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_recycler_view_fast_scroll_seek_bar
@@ -52,8 +54,10 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
         layoutManager.attach(rv)  //default selected position is 0
         layoutManager.setCallbackInFling(true) //should receive callback when flinging, default is false
         layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int ->
-            logD("setOnItemSelectedListener $position")
-            boxedVertical.value = movieList.size - position
+            if (!isOnTracking) {
+                logD("setOnItemSelectedListener $position")
+                boxedVertical.value = movieList.size - position
+            }
         }
         layoutManager.setItemTransformer(GalleryLayoutManagerVerticalActivity.ScaleTransformer())
         moviesAdapter?.let {
@@ -62,17 +66,25 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
 
         boxedVertical.setOnBoxedPointsChangeListener(object : BoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: BoxedVertical, value: Int) {
-                logD("onPointsChanged $value")
-//                rv.scrollToPosition(movieList.size - value)
-                rv.smoothScrollToPosition(movieList.size - value)
+                if (tmpPositionSeekBar != value) {
+                    if (isOnTracking) {
+                        logD("onPointsChanged $value")
+//                    rv.scrollToPosition(movieList.size - value)
+                        rv.smoothScrollToPosition(movieList.size - value)
+
+                        tmpPositionSeekBar = value
+                    }
+                }
             }
 
             override fun onStartTrackingTouch(boxedPoints: BoxedVertical) {
                 logD("onStartTrackingTouch")
+                isOnTracking = true
             }
 
             override fun onStopTrackingTouch(boxedPoints: BoxedVertical) {
                 logD("onStopTrackingTouch")
+                isOnTracking = false
             }
         })
 
