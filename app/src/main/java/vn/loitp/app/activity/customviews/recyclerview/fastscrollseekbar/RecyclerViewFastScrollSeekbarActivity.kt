@@ -50,7 +50,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 }
 
                 override fun onLoadMore() {
-//                    loadMore()
+                    loadMore()
                 }
             })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
