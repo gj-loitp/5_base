@@ -57,6 +57,11 @@
                 android:text="Fast scroll" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btFastScrollSeekBar"
+                style="@style/ButtonMenu"
+                android:text="Fast scroll seek bar" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFitGridView"
                 style="@style/ButtonMenu"
                 android:text="Fit GridView" />
