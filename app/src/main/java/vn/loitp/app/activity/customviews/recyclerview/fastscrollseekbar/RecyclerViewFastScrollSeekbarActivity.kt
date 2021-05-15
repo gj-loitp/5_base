@@ -69,8 +69,9 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 if (tmpPositionSeekBar != value) {
                     if (isOnTracking) {
                         logD("onPointsChanged $value")
-//                    rv.scrollToPosition(movieList.size - value)
+//                        rv.scrollToPosition(movieList.size - value)
                         rv.smoothScrollToPosition(movieList.size - value)
+//                        layoutManager.attach(rv, movieList.size - value)
 
                         tmpPositionSeekBar = value
                     }
