@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.fastscrollseekbar
 
+import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,7 +50,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 }
 
                 override fun onLoadMore() {
-                    loadMore()
+//                    loadMore()
                 }
             })
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
@@ -62,6 +63,22 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
             scaleAdapter.setFirstOnly(true)
             rv.adapter = scaleAdapter
         }
+
+        boxedVertical.setOnBoxedPointsChangeListener(object : BoxedVertical.OnValuesChangeListener {
+            override fun onPointsChanged(boxedPoints: BoxedVertical, value: Int) {
+                logD("onPointsChanged $value")
+                rv.scrollToPosition(movieList.size - value)
+            }
+
+            override fun onStartTrackingTouch(boxedPoints: BoxedVertical) {
+                logD("onStartTrackingTouch")
+            }
+
+            override fun onStopTrackingTouch(boxedPoints: BoxedVertical) {
+                logD("onStopTrackingTouch")
+            }
+        })
+
         prepareMovieData()
     }
 
@@ -78,20 +95,26 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 movieList.add(movie)
             }
             moviesAdapter?.notifyDataSetChanged()
+            bindSeekbarMax()
             showShortInformation("Finish loadMore")
         })
     }
 
     private fun prepareMovieData() {
-        for (i in 0..50) {
+        for (i in 0..49) {
             val movie = Movie(
                 title = "Loitp $i",
-                genre = "Action & Adventure $i",
-                year = "Year: $i",
+                genre = "Action & Adventure",
+                year = "Year: 2021",
                 cover = Constants.URL_IMG
             )
             movieList.add(movie)
         }
         moviesAdapter?.notifyDataSetChanged()
+        bindSeekbarMax()
+    }
+
+    private fun bindSeekbarMax() {
+        boxedVertical.max = movieList.size
     }
 }
