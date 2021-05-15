@@ -2,17 +2,16 @@ package vn.loitp.app.activity.customviews.recyclerview.fastscrollseekbar
 
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.os.Bundle
-import android.view.animation.OvershootInterpolator
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
+import com.views.recyclerview.gallery.GalleryLayoutManager
 import kotlinx.android.synthetic.main.activity_recycler_view_fast_scroll_seek_bar.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants
@@ -36,10 +35,6 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        val animator = SlideInRightAnimator(OvershootInterpolator(1f))
-        animator.addDuration = 300
-        rv.itemAnimator = animator
-
         moviesAdapter = MoviesAdapter(moviesList = movieList,
             callback = object : MoviesAdapter.Callback {
                 override fun onClick(movie: Movie, position: Int) {
@@ -53,21 +48,23 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                     loadMore()
                 }
             })
-        val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
-        rv.layoutManager = mLayoutManager
-
+        val layoutManager = GalleryLayoutManager(GalleryLayoutManager.VERTICAL)
+        layoutManager.attach(rv)  //default selected position is 0
+        layoutManager.setCallbackInFling(true) //should receive callback when flinging, default is false
+        layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int ->
+            logD("setOnItemSelectedListener $position")
+            boxedVertical.value = movieList.size - position
+        }
+        layoutManager.setItemTransformer(GalleryLayoutManagerVerticalActivity.ScaleTransformer())
         moviesAdapter?.let {
-            val scaleAdapter = ScaleInAnimationAdapter(it)
-            scaleAdapter.setDuration(1000)
-            scaleAdapter.setInterpolator(OvershootInterpolator())
-            scaleAdapter.setFirstOnly(true)
-            rv.adapter = scaleAdapter
+            rv.adapter = it
         }
 
         boxedVertical.setOnBoxedPointsChangeListener(object : BoxedVertical.OnValuesChangeListener {
             override fun onPointsChanged(boxedPoints: BoxedVertical, value: Int) {
                 logD("onPointsChanged $value")
-                rv.scrollToPosition(movieList.size - value)
+//                rv.scrollToPosition(movieList.size - value)
+                rv.smoothScrollToPosition(movieList.size - value)
             }
 
             override fun onStartTrackingTouch(boxedPoints: BoxedVertical) {
