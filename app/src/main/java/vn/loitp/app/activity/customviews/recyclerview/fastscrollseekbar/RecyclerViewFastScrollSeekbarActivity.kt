@@ -23,6 +23,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
     private val movieList: MutableList<Movie> = ArrayList()
     private var moviesAdapter: MoviesAdapter? = null
     private var tmpPositionSeekBar = 0
+    private var tmpPositionRecyclerView = 0
     private var isOnTracking = false
 
     override fun setLayoutResourceId(): Int {
@@ -57,11 +58,12 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 super.onScrolled(recyclerView, dx, dy)
 
                 if (!isOnTracking) {
-                    val firstElementPosition = layoutManager.findFirstVisibleItemPosition()
                     val lastElementPosition = layoutManager.findLastVisibleItemPosition()
-                    val centerElementPosition = (firstElementPosition + lastElementPosition) / 2
-                    logD("addOnScrollListener firstElementPosition $firstElementPosition, lastElementPosition $lastElementPosition, centerElementPosition $centerElementPosition")
-                    boxedVertical.value = movieList.size - centerElementPosition
+                    if (tmpPositionRecyclerView != lastElementPosition) {
+                        logD("addOnScrollListener lastElementPosition $lastElementPosition")
+                        boxedVertical.value = movieList.size - lastElementPosition
+                        tmpPositionRecyclerView = lastElementPosition
+                    }
                 }
             }
         })
