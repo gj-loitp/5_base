@@ -2,20 +2,19 @@ package vn.loitp.app.activity.customviews.recyclerview.fastscrollseekbar
 
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
 import android.os.Bundle
-import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-import com.views.recyclerview.gallery.GalleryLayoutManager
 import kotlinx.android.synthetic.main.activity_recycler_view_fast_scroll_seek_bar.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager.GalleryLayoutManagerVerticalActivity
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants
 import java.util.*
+
 
 @LogTag("loitppRecyclerViewFastScrollSeekbarActivity")
 @IsFullScreen(false)
@@ -47,19 +46,25 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 }
 
                 override fun onLoadMore() {
-                    loadMore()
+                    //loadMore()
                 }
             })
-        val layoutManager = GalleryLayoutManager(GalleryLayoutManager.VERTICAL)
-        layoutManager.attach(rv)  //default selected position is 0
-        layoutManager.setCallbackInFling(true) //should receive callback when flinging, default is false
-        layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int ->
-            if (!isOnTracking) {
-                logD("setOnItemSelectedListener $position")
-                boxedVertical.value = movieList.size - position
+        val layoutManager = LinearLayoutManager(this)
+        rv.layoutManager = layoutManager
+        rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                if (!isOnTracking) {
+                    val firstElementPosition = layoutManager.findFirstVisibleItemPosition()
+                    val lastElementPosition = layoutManager.findLastVisibleItemPosition()
+                    val centerElementPosition = (firstElementPosition + lastElementPosition) / 2
+                    logD("addOnScrollListener firstElementPosition $firstElementPosition, lastElementPosition $lastElementPosition, centerElementPosition $centerElementPosition")
+                    boxedVertical.value = movieList.size - centerElementPosition
+                }
             }
-        }
-        layoutManager.setItemTransformer(GalleryLayoutManagerVerticalActivity.ScaleTransformer())
+        })
         moviesAdapter?.let {
             rv.adapter = it
         }
@@ -69,10 +74,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 if (tmpPositionSeekBar != value) {
                     if (isOnTracking) {
                         logD("onPointsChanged $value")
-//                        rv.scrollToPosition(movieList.size - value)
-                        rv.smoothScrollToPosition(movieList.size - value)
-//                        layoutManager.attach(rv, movieList.size - value)
-
+                        rv.scrollToPosition(movieList.size - value)
                         tmpPositionSeekBar = value
                     }
                 }
