@@ -47,7 +47,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 }
 
                 override fun onLoadMore() {
-                    //loadMore()
+                    loadMore()
                 }
             })
         val layoutManager = LinearLayoutManager(this)
@@ -97,7 +97,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
     }
 
     private fun loadMore() {
-        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
+        LUIUtil.setDelay(mls = 2000, runnable = {
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie(
