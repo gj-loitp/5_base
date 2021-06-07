@@ -133,6 +133,6 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 
                 }
         )
-        downloader?.download()
+        downloader.download()
     }
 }

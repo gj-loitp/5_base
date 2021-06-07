@@ -47,8 +47,7 @@
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
                 app:elevation="@dimen/w_3"
-                app:fabSize="normal"
-                app:useCompatPadding="true" />
+                app:fabSize="mini" />
         </FrameLayout>
 
         <FrameLayout
@@ -68,8 +67,7 @@
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
                 app:elevation="@dimen/w_3"
-                app:fabSize="normal"
-                app:useCompatPadding="true" />
+                app:fabSize="mini" />
         </FrameLayout>
 
         <FrameLayout
@@ -89,8 +87,7 @@
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
                 app:elevation="@dimen/w_3"
-                app:fabSize="normal"
-                app:useCompatPadding="true" />
+                app:fabSize="mini" />
         </FrameLayout>
 
     </LinearLayout>
