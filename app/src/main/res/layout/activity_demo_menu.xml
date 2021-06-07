@@ -18,11 +18,6 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btAlarm"
-                style="@style/ButtonMenu"
-                android:text="@string/alarm" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btArchitectureComponent"
                 style="@style/ButtonMenu"
                 android:text="Architecture Component" />
@@ -31,11 +26,6 @@
                 android:id="@+id/btDeepLinks"
                 style="@style/ButtonMenu"
                 android:text="Deep links" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btEbookWithRealm"
-                style="@style/ButtonMenu"
-                android:text="@string/ebook_with_realm" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEpubReader"

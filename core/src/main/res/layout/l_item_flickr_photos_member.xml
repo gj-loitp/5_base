@@ -27,7 +27,7 @@
         android:layout_gravity="bottom|center"
         android:background="@drawable/bt_round_transparent"
         android:gravity="center"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/padding_small"
         android:singleLine="true"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_medium"

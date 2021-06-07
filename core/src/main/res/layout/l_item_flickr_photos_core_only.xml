@@ -10,8 +10,6 @@
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical"
-    android:paddingTop="@dimen/padding_medium"
-    android:paddingBottom="@dimen/padding_medium"
     tools:ignore="UnusedAttribute">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -58,8 +56,7 @@
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
                 app:elevation="@dimen/w_3"
-                app:fabSize="normal"
-                app:useCompatPadding="true" />
+                app:fabSize="mini" />
         </FrameLayout>
 
         <FrameLayout
@@ -79,8 +76,7 @@
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
                 app:elevation="@dimen/w_3"
-                app:fabSize="normal"
-                app:useCompatPadding="true" />
+                app:fabSize="mini" />
         </FrameLayout>
 
         <FrameLayout
@@ -100,8 +96,7 @@
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
                 app:elevation="@dimen/w_3"
-                app:fabSize="normal"
-                app:useCompatPadding="true" />
+                app:fabSize="mini" />
         </FrameLayout>
 
         <FrameLayout
@@ -121,8 +116,7 @@
                 app:backgroundTint="@color/white"
                 app:borderWidth="@dimen/w_3"
                 app:elevation="@dimen/w_3"
-                app:fabSize="normal"
-                app:useCompatPadding="true" />
+                app:fabSize="mini" />
         </FrameLayout>
 
     </LinearLayout>

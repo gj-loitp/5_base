@@ -18,10 +18,8 @@ import com.core.utilities.LActivityUtil
 import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.demo.alarmdemoapp.activity.AlarmMeActivity
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
-import vn.loitp.app.activity.demo.ebookwithrealm.EbookWithRealmActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
 import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
@@ -72,8 +70,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btTTT.visibility = View.GONE
         }
 
-        btAlarm.setOnClickListener(this)
-        btEbookWithRealm.setOnClickListener(this)
         btVideo.setOnClickListener(this)
         btSound.setOnClickListener(this)
         btTextToSpeech.setOnClickListener(this)
@@ -103,12 +99,13 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAlarm -> intent = Intent(this, AlarmMeActivity::class.java)
-            btEbookWithRealm -> intent = Intent(this, EbookWithRealmActivity::class.java)
             btVideo -> intent = Intent(this, VideoActivity::class.java)
             btSound -> intent = Intent(this, SoundActivity::class.java)
             btTextToSpeech -> intent = Intent(this, TextToSpeechActivity::class.java)
-            btFloatingWidget -> intent = Intent(this, vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java)
+            btFloatingWidget -> intent = Intent(
+                this,
+                vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java
+            )
             btFloatingVideo -> intent = Intent(this, FloatingWidgetActivity::class.java)
             btFirebase -> intent = Intent(this, MenuFirebaseActivity::class.java)
             btGalleryCore -> {
@@ -121,7 +118,10 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL);
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_VN_BANCOBIET);
                 //removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
-                intent.putStringArrayListExtra(Constants.KEY_REMOVE_ALBUM_FLICKR_LIST, removeAlbumFlickrList)
+                intent.putStringArrayListExtra(
+                    Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
+                    removeAlbumFlickrList
+                )
             }
             btGalleryCoreAlbum -> {
                 intent = Intent(this, GalleryCorePhotosOnlyActivity::class.java)
@@ -132,7 +132,10 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
                 //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
 //                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
-                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_CUNGHOANGDAOHEHEHORO)
+                intent.putExtra(
+                    Constants.SK_PHOTOSET_ID,
+                    Constants.FLICKR_ID_VN_CUNGHOANGDAOHEHEHORO
+                )
             }
             btGalleryMember -> {
                 intent = Intent(this, GalleryMemberActivity::class.java)
@@ -146,7 +149,8 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btFragmentFlow -> intent = Intent(this, FragmentFlowActivity::class.java)
             btDeepLinks -> intent = Intent(this, DeepLinksActivity::class.java)
             btGalleryCoreAlbumFrm -> intent = Intent(this, GalleryCoreAlbumFrmActivity::class.java)
-            btArchitectureComponent -> intent = Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
+            btArchitectureComponent -> intent =
+                Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
             btNFC -> intent = Intent(this, NFCActivity::class.java)
             btGirl -> {
                 intent = Intent(this, GirlSplashActivity::class.java)

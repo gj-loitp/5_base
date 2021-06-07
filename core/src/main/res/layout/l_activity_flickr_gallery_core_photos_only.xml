@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.views.layout.swipeback.SwipeBackLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeBackLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,17 +15,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:animateLayoutChanges="false"
-        android:background="?attr/themeBackgroundColor">
+        android:background="?attr/themeBackgroundColor"
+        tools:background="@color/red">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/themeBackgroundColor50"
-            android:padding="@dimen/padding_medium"
+            android:gravity="center"
+            android:padding="@dimen/padding_small"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_large"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/app_name" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -67,6 +71,6 @@
             app:borderWidth="@dimen/w_3"
             app:elevation="@dimen/w_3"
             app:fabSize="normal"
-            app:useCompatPadding="true" />
+            tools:visibility="visible" />
     </RelativeLayout>
 </com.views.layout.swipeback.SwipeBackLayout>
