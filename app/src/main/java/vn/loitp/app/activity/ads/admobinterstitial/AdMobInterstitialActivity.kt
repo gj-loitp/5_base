@@ -6,9 +6,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import kotlinx.android.synthetic.main.activity_admob_interstitial.*
 import vn.loitp.app.R
 
@@ -28,34 +26,21 @@ class AdMobInterstitialActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        interstitialAd = LUIUtil.createAdFull(this)
-        interstitialAd?.adListener = object : AdListener() {
-            override fun onAdFailedToLoad(loadAdError: LoadAdError?) {
-                super.onAdFailedToLoad(loadAdError)
-                logD("onAdFailedToLoad loadAdError $loadAdError")
-            }
-
-            override fun onAdOpened() {
-                super.onAdOpened()
-                logD("onAdOpened")
-            }
-
-            override fun onAdClicked() {
-                super.onAdClicked()
-                logD("onAdClicked")
-            }
-
-            override fun onAdLoaded() {
-                super.onAdLoaded()
-                logD("onAdLoaded")
-            }
-        }
+        LUIUtil.createAdFull(
+                context = this,
+                onAdLoaded = {
+                    interstitialAd = it
+                },
+                onAdFailedToLoad = {
+                    logE("createAdFull onAdFailedToLoad ${it.message}")
+                }
+        )
         val s = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.ad_full)
         textView.text = s
     }
 
     override fun onBackPressed() {
-        LUIUtil.displayInterstitial(interstitial = interstitialAd)
+        LUIUtil.displayInterstitial(activity = this, interstitial = interstitialAd)
         super.onBackPressed()
     }
 }

@@ -29,7 +29,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/copyright"
                 android:textColor="?attr/themeTextColor"

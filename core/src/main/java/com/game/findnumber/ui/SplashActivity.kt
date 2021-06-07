@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
 @LogTag("SplashActivity")
 @IsFullScreen(true)
-//TODO loitpp add sound
+//TODO loitpp add sound exf later
 class SplashActivity : BaseFontActivity() {
 
     companion object {

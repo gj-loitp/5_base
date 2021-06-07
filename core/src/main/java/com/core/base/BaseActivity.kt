@@ -22,7 +22,7 @@ import com.core.utilities.*
 import com.core.utilities.LUIUtil.Companion.allowInfiniteLines
 import com.core.utilities.LUIUtil.Companion.withBackground
 import com.data.EventBusData
-import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.material.snackbar.Snackbar
 import com.veyo.autorefreshnetworkconnection.CheckNetworkConnectionHelper
 import com.veyo.autorefreshnetworkconnection.listener.OnNetworkConnectionChangeListener
@@ -150,23 +150,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
         isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
-            interstitialAd = LUIUtil.createAdFull(this)
-            /*interstitialAd?.adListener = object : AdListener() {
-                override fun onAdLoaded() {
-                }
-
-                override fun onAdFailedToLoad(errorCode: Int) {
-                }
-
-                override fun onAdOpened() {
-                }
-
-                override fun onAdLeftApplication() {
-                }
-
-                override fun onAdClosed() {
-                }
-            }*/
+            LUIUtil.createAdFull(
+                    context = this,
+                    onAdLoaded = {
+                        interstitialAd = it
+                    },
+                    onAdFailedToLoad = {
+                        logE("createAdFull onAdFailedToLoad ${it.message}")
+                    }
+            )
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
     }
@@ -274,7 +266,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
         if (isShowAdWhenExit && !BuildConfig.DEBUG) {
             interstitialAd?.let {
-                LUIUtil.displayInterstitial(interstitial = it, maxNumber = 70)
+                LUIUtil.displayInterstitial(activity = this, interstitial = it, maxNumber = 70)
             }
         } else {
             //don't use LLog here

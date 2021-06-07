@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.core.base.BaseApplication
 import com.utils.util.AppUtils
+import java.lang.reflect.Type
 
 class LSharedPrefsUtil private constructor() {
     private val mSharedPreferences: SharedPreferences
@@ -12,77 +13,80 @@ class LSharedPrefsUtil private constructor() {
         mSharedPreferences = LAppResource.application.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
-    fun getString(key: String): String {
-        return get(key = key, anonymousClass = String::class.java)
-    }
+    companion object {
+        private val PREFS_NAME = AppUtils.appPackageName
+        private var mInstance: LSharedPrefsUtil? = null
 
-    fun getBoolean(key: String): Boolean {
-        return get(key = key, anonymousClass = Boolean::class.java)
-    }
+        const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
 
-    fun getFloat(key: String): Float {
-        return get(key = key, anonymousClass = Float::class.java)
-    }
-
-    fun getInt(key: String): Int {
-        return get(key = key, anonymousClass = Int::class.java)
-    }
-
-    fun getLong(key: String): Long {
-        return get(key = key, anonymousClass = Long::class.java)
-    }
-
-    fun <T> getObject(key: String, anonymousClass: Class<T>): T {
-        return get(key = key, anonymousClass = anonymousClass)
-    }
-
-    @Suppress("UNCHECKED_CAST")
-    private operator fun <T> get(key: String, anonymousClass: Class<T>): T {
-        when (anonymousClass) {
-            String::class.java -> {
-                return mSharedPreferences.getString(key, "") as T
+        val instance: LSharedPrefsUtil
+            get() {
+                if (mInstance == null) {
+                    mInstance = LSharedPrefsUtil()
+                }
+                return mInstance!!
             }
-            Boolean::class.java -> {
-                return java.lang.Boolean.valueOf(mSharedPreferences.getBoolean(key, false)) as T
-            }
-            Float::class.java -> {
-                return java.lang.Float.valueOf(mSharedPreferences.getFloat(key, 0f)) as T
-            }
-            Int::class.java -> {
-                return Integer.valueOf(mSharedPreferences.getInt(key, 0)) as T
-            }
-            Long::class.java -> {
-                return java.lang.Long.valueOf(mSharedPreferences.getLong(key, 0)) as T
-            }
-            else -> {
-                val json = mSharedPreferences.getString(key, "")
-                return BaseApplication.gson.fromJson(json, anonymousClass)
-            }
-        }
     }
 
-    fun getString(key: String, defaultValue: String): String {
+    fun getString(
+            key: String,
+            defaultValue: String = ""
+    ): String {
         return get(key = key, anonymousClass = String::class.java, defaultValue = defaultValue)
     }
 
-    fun getBoolean(key: String, defaultValue: Boolean): Boolean {
+    fun getBoolean(
+            key: String,
+            defaultValue: Boolean = false
+    ): Boolean {
         return get(key = key, anonymousClass = Boolean::class.java, defaultValue = defaultValue)
     }
 
-    fun getFloat(key: String, defaultValue: Float): Float {
+    fun getFloat(
+            key: String,
+            defaultValue: Float = 0f
+    ): Float {
         return get(key = key, anonymousClass = Float::class.java, defaultValue = defaultValue)
     }
 
-    fun getInt(key: String, defaultValue: Int): Int {
+    fun getInt(
+            key: String,
+            defaultValue: Int = 0
+    ): Int {
         return get(key = key, anonymousClass = Int::class.java, defaultValue = defaultValue)
     }
 
-    fun getLong(key: String, defaultValue: Long): Long {
+    fun getLong(
+            key: String,
+            defaultValue: Long = 0L
+    ): Long {
         return get(key = key, anonymousClass = Long::class.java, defaultValue = defaultValue)
     }
 
+    fun <T> getObject(
+            key: String,
+            anonymousClass: Class<T>
+    ): T {
+        return get(key = key, anonymousClass = anonymousClass, defaultValue = "")
+    }
+
+    fun <T> getObjectList(
+            key: String,
+            typeOfT: Type
+    ): ArrayList<T> {
+        val value = mSharedPreferences.getString(key, "")
+        if (value?.isEmpty() == true) {
+            return ArrayList()
+        }
+        return BaseApplication.gson.fromJson(value, typeOfT)
+    }
+
     @Suppress("UNCHECKED_CAST")
-    private operator fun <T> get(key: String, anonymousClass: Class<T>, defaultValue: T): T {
+    private operator fun <T> get(
+            key: String,
+            anonymousClass: Class<T>,
+            defaultValue: Any
+    ): T {
         when (anonymousClass) {
             String::class.java -> {
                 return mSharedPreferences.getString(key, defaultValue as String) as T
@@ -130,6 +134,10 @@ class LSharedPrefsUtil private constructor() {
         put(key = key, data = data)
     }
 
+    fun <T> putObjectList(key: String, data: T) {
+        put(key = key, data = data)
+    }
+
     private fun <T> put(key: String, data: T) {
         val editor = mSharedPreferences.edit()
         when (data) {
@@ -158,21 +166,5 @@ class LSharedPrefsUtil private constructor() {
 
     fun clear() {
         mSharedPreferences.edit().clear().apply()
-    }
-
-    companion object {
-        private const val TAG = "logTagLSharedPrefsUtil"
-        private val PREFS_NAME = AppUtils.appPackageName + TAG
-        private var mInstance: LSharedPrefsUtil? = null
-
-        const val KEY_BOOLEAN_IS_CONNECTED_NETWORK = "KEY_BOOLEAN_IS_CONNECTED_NETWORK"
-
-        val instance: LSharedPrefsUtil
-            get() {
-                if (mInstance == null) {
-                    mInstance = LSharedPrefsUtil()
-                }
-                return mInstance!!
-            }
     }
 }

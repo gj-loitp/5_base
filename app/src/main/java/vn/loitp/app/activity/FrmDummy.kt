@@ -18,7 +18,6 @@ class FrmDummy : BaseFragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         textView.text = "DUMMYYYYYYYYYYYYYYYYYYY"
     }
 }

@@ -32,7 +32,8 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        galleryAdapterVertical = GalleryAdapterVertical(context = this, moviesList = instance.movieList,
+        galleryAdapterVertical =
+            GalleryAdapterVertical(context = this, moviesList = instance.movieList,
                 callback = object : GalleryAdapterVertical.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShortInformation("onClick " + movie.title)
@@ -58,7 +59,9 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
         //setup adapter for your RecycleView
         rv.adapter = galleryAdapterVertical
         layoutManager.setCallbackInFling(true) //should receive callback when flinging, default is false
-        layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int -> textView.text = position.toString() + "/" + galleryAdapterVertical?.itemCount }
+        layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int ->
+            textView.text = position.toString() + "/" + galleryAdapterVertical?.itemCount
+        }
 
         // Apply ItemTransformer just like ViewPager
         layoutManager.setItemTransformer(ScaleTransformer())
@@ -68,15 +71,24 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..49) {
-                val movie = Movie(title = "Menu $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
+                val movie = Movie(
+                    title = "Menu $i",
+                    genre = "Action & Adventure $i",
+                    year = "Year: $i",
+                    cover = Constants.URL_IMG
+                )
                 instance.movieList.add(movie)
             }
         }
         galleryAdapterVertical?.notifyDataSetChanged()
     }
 
-    inner class ScaleTransformer : ItemTransformer {
-        override fun transformItem(layoutManager: GalleryLayoutManager, item: View, fraction: Float) {
+    class ScaleTransformer : ItemTransformer {
+        override fun transformItem(
+            layoutManager: GalleryLayoutManager,
+            item: View,
+            fraction: Float
+        ) {
             item.pivotX = item.width / 2f
             item.pivotY = item.height / 2.0f
             val scale = 1 - 0.4f * Math.abs(fraction)

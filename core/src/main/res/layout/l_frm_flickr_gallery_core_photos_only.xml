@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/themeBackgroundColor50"
-        android:padding="@dimen/padding_medium"
+        android:gravity="center"
+        android:padding="@dimen/padding_small"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_large"
         android:textStyle="bold"
@@ -51,6 +52,5 @@
         app:borderWidth="@dimen/w_3"
         app:elevation="@dimen/w_3"
         app:fabSize="normal"
-        app:useCompatPadding="true"
         tools:visibility="visible" />
 </RelativeLayout>

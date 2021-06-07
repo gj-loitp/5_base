@@ -1,0 +1,7 @@
+ninja: Entering directory `C:\Users\Loitp\StudioProjects\basemaster\app\.cxx\cmake\release\arm64-v8a'
+[1/2] Building C object CMakeFiles/native-lib.dir/native-lib.c.o
+C:/Users/Loitp/StudioProjects/basemaster/app/src/main/cpp/native-lib.c:17:31: warning: format specifies type 'char *' but the argument has type 'char (*)[57]' [-Wformat]
+                        "%s", &"Java_vn_loitp_app_activity_demo_ndk_NDKDemoActivity_add ");
+                         ~~   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+[2/2] Linking C shared library C:\Users\Loitp\StudioProjects\basemaster\app\build\intermediates\cmake\release\obj\arm64-v8a\libnative-lib.so

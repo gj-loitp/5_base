@@ -1,19 +1,19 @@
 {
   "buildFiles": [
-    "E:\\Pj\\BaseMaster\\app\\src\\main\\cpp\\CMakeLists.txt",
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
+    "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\src\\main\\cpp\\CMakeLists.txt",
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\platforms.cmake"
   ],
   "cleanCommands": [
-    "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\release\\x86_64\" clean"
+    "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64\" clean"
   ],
-  "buildTargetsCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\release\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "buildTargetsCommand": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
   "libraries": {
     "native-lib-Release-x86_64": {
       "artifactName": "native-lib",
-      "buildCommand": "C:\\Users\\uevn\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"E:\\Pj\\BaseMaster\\app\\.cxx\\cmake\\release\\x86_64\" native-lib",
+      "buildCommand": "C:\\Users\\Loitp\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\.cxx\\cmake\\release\\x86_64\" native-lib",
       "abi": "x86_64",
-      "output": "E:\\Pj\\BaseMaster\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so",
+      "output": "C:\\Users\\Loitp\\StudioProjects\\basemaster\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libnative-lib.so",
       "runtimeFiles": []
     }
   }

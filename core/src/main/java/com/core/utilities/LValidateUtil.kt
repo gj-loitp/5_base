@@ -61,7 +61,8 @@ class LValidateUtil {
                 "com.loitp.igallery",
                 "com.loitp.haivl",
                 "com.loitp.biker",
-                "com.loitp.icomic"
+                "com.loitp.icomic",
+                "loitp93.truyenvn.cute.girl"
         )
 
         fun isValidPackageName(): Boolean {

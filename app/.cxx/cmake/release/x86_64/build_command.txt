@@ -1,20 +1,20 @@
-                Executable : C:\Users\uevn\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe
+                Executable : C:\Users\Loitp\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\cmake.exe
 arguments : 
--HE:\Pj\BaseMaster\app\src\main\cpp
--DCMAKE_FIND_ROOT_PATH=E:\Pj\BaseMaster\app\.cxx\cmake\release\prefab\x86_64\prefab
+-HC:\Users\Loitp\StudioProjects\basemaster\app\src\main\cpp
+-DCMAKE_FIND_ROOT_PATH=C:\Users\Loitp\StudioProjects\basemaster\app\.cxx\cmake\release\prefab\x86_64\prefab
 -DCMAKE_BUILD_TYPE=Release
--DCMAKE_TOOLCHAIN_FILE=C:\Users\uevn\AppData\Local\Android\Sdk\ndk\21.1.6352462\build\cmake\android.toolchain.cmake
+-DCMAKE_TOOLCHAIN_FILE=C:\Users\Loitp\AppData\Local\Android\Sdk\ndk\21.1.6352462\build\cmake\android.toolchain.cmake
 -DANDROID_ABI=x86_64
--DANDROID_NDK=C:\Users\uevn\AppData\Local\Android\Sdk\ndk\21.1.6352462
+-DANDROID_NDK=C:\Users\Loitp\AppData\Local\Android\Sdk\ndk\21.1.6352462
 -DANDROID_PLATFORM=android-21
 -DCMAKE_ANDROID_ARCH_ABI=x86_64
--DCMAKE_ANDROID_NDK=C:\Users\uevn\AppData\Local\Android\Sdk\ndk\21.1.6352462
+-DCMAKE_ANDROID_NDK=C:\Users\Loitp\AppData\Local\Android\Sdk\ndk\21.1.6352462
 -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=E:\Pj\BaseMaster\app\build\intermediates\cmake\release\obj\x86_64
--DCMAKE_MAKE_PROGRAM=C:\Users\uevn\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\Users\Loitp\StudioProjects\basemaster\app\build\intermediates\cmake\release\obj\x86_64
+-DCMAKE_MAKE_PROGRAM=C:\Users\Loitp\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
 -DCMAKE_SYSTEM_NAME=Android
 -DCMAKE_SYSTEM_VERSION=21
--BE:\Pj\BaseMaster\app\.cxx\cmake\release\x86_64
+-BC:\Users\Loitp\StudioProjects\basemaster\app\.cxx\cmake\release\x86_64
 -GNinja
 jvmArgs : 
 

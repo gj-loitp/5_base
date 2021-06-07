@@ -1,7 +1,3 @@
 # ninja log v5
-0	65	638346321	CMakeFiles/keys.dir/keys.c.o	efb70982700cc724
-65	117	638346321	E:/Pj/BaseMaster/app/build/intermediates/cmake/debug/obj/arm64-v8a/libkeys.so	7ba57f812b08e30b
-0	85	638346406	CMakeFiles/native-lib.dir/native-lib.c.o	7fa9b2788d1a3f40
-85	153	638346406	E:/Pj/BaseMaster/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	a4bcfd0a763517e2
-1	67	638346834	CMakeFiles/native-lib.dir/native-lib.c.o	7fa9b2788d1a3f40
-68	123	638346834	E:/Pj/BaseMaster/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	a4bcfd0a763517e2
+1	214	640422940	CMakeFiles/native-lib.dir/native-lib.c.o	c12711383795074f
+215	298	640422940	C:/Users/Loitp/StudioProjects/basemaster/app/build/intermediates/cmake/debug/obj/arm64-v8a/libnative-lib.so	f0f4023db0fa9592

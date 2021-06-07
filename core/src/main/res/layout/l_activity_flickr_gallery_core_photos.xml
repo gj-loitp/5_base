@@ -28,9 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_medium"
             android:background="@drawable/bt_round_transparent"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/padding_small"
             android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/txt_large"
+            android:textSize="@dimen/text_medium"
             android:textStyle="bold"
             tools:text="@string/app_name" />
 
@@ -50,7 +50,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:layout_marginBottom="@dimen/margin_medium"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_page"
             android:tint="@color/black"
@@ -59,7 +60,6 @@
             app:borderWidth="@dimen/w_3"
             app:elevation="@dimen/w_3"
             app:fabSize="normal"
-            app:useCompatPadding="true"
             tools:visibility="visible" />
     </RelativeLayout>
 </com.views.layout.swipeback.SwipeBackLayout>

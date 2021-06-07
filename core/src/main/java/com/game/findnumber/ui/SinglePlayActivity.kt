@@ -57,7 +57,7 @@ class SinglePlayActivity : BaseFontActivity() {
             )
         }
         ivBack.setSafeOnClickListener {
-            //TODO loitpp popup exit
+            //TODO popup exit
         }
     }
 
