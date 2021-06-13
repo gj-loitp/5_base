@@ -64,6 +64,7 @@ class LValidateUtil {
             "com.loitp.icomic",
             "loitp93.truyenvn.cute.girl",
             "loitp93.rss.vnexpress",
+            "loitp.khotruyenvuive",
         )
 
         fun isValidPackageName(): Boolean {
