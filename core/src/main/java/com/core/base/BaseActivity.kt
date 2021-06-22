@@ -264,13 +264,13 @@ abstract class BaseActivity : AppCompatActivity() {
         if (isShowAnimWhenExit) {
             LActivityUtil.tranOut(this)
         }
-        if (isShowAdWhenExit && !BuildConfig.DEBUG) {
+        if (isShowAdWhenExit) {
             interstitialAd?.let {
-                LUIUtil.displayInterstitial(activity = this, interstitial = it, maxNumber = 70)
+                LUIUtil.displayInterstitial(activity = this, interstitial = it, maxNumber = 50)
             }
         } else {
             //don't use LLog here
-            Log.d(logTag, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
+            Log.e(logTag, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
         }
     }
 
