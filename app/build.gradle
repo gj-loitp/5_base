@@ -182,7 +182,7 @@ dependencies {
     //endregion
 
     //https://github.com/nex3z/ToggleButtonGroup
-    api 'com.nex3z:toggle-button-group:1.2.0'
+    api 'com.nex3z:toggle-button-group:1.2.3'
 
     //https://github.com/shiburagi/Drawer-Behavior
     api 'com.infideap.drawerbehavior:drawer-behavior:1.0.1'
@@ -195,7 +195,9 @@ dependencies {
     api 'com.thedeanda:lorem:2.1'
 
     //https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
-    api 'com.github.ernestoyaquello:DragDropSwipeRecyclerview:1.0.0'
+//    api 'com.github.ernestoyaquello:DragDropSwipeRecyclerview:1.0.0'
+    api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.0'
+
 
 }
 apply plugin: 'com.google.gms.google-services'
