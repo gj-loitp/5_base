@@ -19,11 +19,6 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btBsImagePicker"
-                style="@style/ButtonMenu"
-                android:text="@string/bs_image_picker" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btImagePickerWithCrop"
                 style="@style/ButtonMenu"
                 android:text="@string/image_picker_with_crop" />
