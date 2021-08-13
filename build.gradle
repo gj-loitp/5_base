@@ -3,17 +3,17 @@
 buildscript {
     repositories {
         google()
-//        gradlePluginPortal()
-//        mavenCentral()
-        jcenter()
+        gradlePluginPortal()
+        mavenCentral()
+//        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        classpath 'com.google.gms:google-services:4.3.5'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32"
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
     }
 }
 
@@ -22,9 +22,9 @@ allprojects {
         maven {
             url "https://dl.bintray.com/piasy/maven"
         }
-//        gradlePluginPortal()
-//        mavenCentral()
-        jcenter()
+        gradlePluginPortal()
+        mavenCentral()
+//        jcenter()
         google()
         maven {
             url "https://maven.google.com"

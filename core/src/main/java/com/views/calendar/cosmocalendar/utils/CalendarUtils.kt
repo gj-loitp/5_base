@@ -29,8 +29,8 @@ import java.util.*
 object CalendarUtils {
 
     fun createMonth(
-            date: Date,
-            settingsManager: SettingsManager
+        date: Date,
+        settingsManager: SettingsManager
     ): Month {
         val days: MutableList<Day> = ArrayList()
         val firstDisplayedDayCalendar = Calendar.getInstance()
@@ -60,14 +60,18 @@ object CalendarUtils {
         do {
             addDay(firstDisplayedDayCalendar)
             days.add(createDay(firstDisplayedDayCalendar, settingsManager, targetMonth))
-        } while (!isSameDayOfMonth(firstDisplayedDayCalendar, end) || !isSameMonth(firstDisplayedDayCalendar, end))
+        } while (!isSameDayOfMonth(firstDisplayedDayCalendar, end) || !isSameMonth(
+                firstDisplayedDayCalendar,
+                end
+            )
+        )
         return Month(createDay(firstDayOfMonthCalendar, settingsManager, targetMonth), days)
     }
 
     private fun createDay(
-            calendar: Calendar,
-            settingsManager: SettingsManager,
-            targetMonth: Int
+        calendar: Calendar,
+        settingsManager: SettingsManager,
+        targetMonth: Int
     ): Day {
         val day = Day(calendar)
         day.isBelongToMonth = calendar[Calendar.MONTH] == targetMonth
@@ -76,7 +80,7 @@ object CalendarUtils {
     }
 
     private fun createDaysOfWeek(
-            firstDisplayedDay: Date
+        firstDisplayedDay: Date
     ): List<DayOfWeek> {
         val daysOfTheWeek: MutableList<DayOfWeek> = ArrayList()
         val calendar = getCalendar(firstDisplayedDay)
@@ -90,7 +94,7 @@ object CalendarUtils {
 
     @JvmStatic
     fun createWeekDayTitles(
-            firstDayOfWeek: Int
+        firstDayOfWeek: Int
     ): List<String> {
         val sdf = SimpleDateFormat(Constants.DAY_NAME_FORMAT, Locale.getDefault())
         val titles: MutableList<String> = ArrayList()
@@ -105,7 +109,7 @@ object CalendarUtils {
 
     @JvmStatic
     fun createInitialMonths(
-            settingsManager: SettingsManager
+        settingsManager: SettingsManager
     ): List<Month> {
         val months: MutableList<Month> = ArrayList()
         val calendar = Calendar.getInstance()
@@ -124,7 +128,7 @@ object CalendarUtils {
      */
     @JvmStatic
     fun getSelectedDayListForMultipleMode(
-            selectedDays: List<Day>
+        selectedDays: List<Day>
     ): List<SelectionBarItem> {
         val result: MutableList<SelectionBarItem> = ArrayList()
         val tempCalendar = Calendar.getInstance()
@@ -145,7 +149,7 @@ object CalendarUtils {
     @JvmStatic
     @SuppressLint("SimpleDateFormat")
     fun getYearNameTitle(
-            day: Day
+        day: Day
     ): String {
         return SimpleDateFormat("MMM''yy").format(day.calendar.time)
     }
@@ -155,13 +159,13 @@ object CalendarUtils {
      */
     @JvmStatic
     fun getCircleWidth(
-            context: Context
+        context: Context
     ): Int {
         return getDisplayWidth(context) / Constants.DAYS_IN_WEEK
     }
 
     private fun getDisplayWidth(
-            context: Context
+        context: Context
     ): Int {
         return (context.getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay.width
     }
@@ -170,11 +174,12 @@ object CalendarUtils {
      * Sets variables(isWeekend, isDisabled, isFromConnectedCalendar) to day
      */
     private fun setDay(
-            day: Day,
-            settingsManager: SettingsManager
+        day: Day,
+        settingsManager: SettingsManager
     ) {
         if (settingsManager.weekendDays != null) {
-            day.isWeekend = settingsManager.weekendDays.contains(day.calendar[Calendar.DAY_OF_WEEK])
+            val dayOfWeek: Long = day.calendar[Calendar.DAY_OF_WEEK].toLong()
+            day.isWeekend = settingsManager.weekendDays.contains(dayOfWeek)
         }
         if (settingsManager.minDate != null) {
             day.isDisabled = isDayDisabledByMinDate(day, settingsManager.minDate)
@@ -205,7 +210,8 @@ object CalendarUtils {
         for (disabledTime in daysInSet) {
             val disabledDayCalendar = getCalendar(disabledTime)
             if (day.calendar[Calendar.YEAR] == disabledDayCalendar[Calendar.YEAR]
-                    && day.calendar[Calendar.DAY_OF_YEAR] == disabledDayCalendar[Calendar.DAY_OF_YEAR]) {
+                && day.calendar[Calendar.DAY_OF_YEAR] == disabledDayCalendar[Calendar.DAY_OF_YEAR]
+            ) {
                 return true
             }
         }
