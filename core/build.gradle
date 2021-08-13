@@ -106,7 +106,8 @@ dependencies {
 
     //jsoup
     api 'org.jsoup:jsoup:1.13.1'
-
+//    api 'org.adblockplus:adblock-android-webview:5.0.0'//https://github.com/adblockplus/libadblockplus-android
+    
     //multidex
     api 'androidx.multidex:multidex:2.0.1'
 
