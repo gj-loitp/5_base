@@ -110,15 +110,13 @@ dependencies {
     api project(':core')
 //    api 'com.github.tplloi:basemaster:4.4.55'
 
+    //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
 
     //region database
     //realm
     //noinspection AnnotationProcessorOnCompilePath
     api 'io.realm:realm-android:0.82.1'
-
-    //https://github.com/amitshekhariitbhu/Android-Debug-Database
-    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
 
     //endregion
 
