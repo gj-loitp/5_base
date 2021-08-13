@@ -3,6 +3,8 @@
 buildscript {
     repositories {
         google()
+//        gradlePluginPortal()
+//        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -17,10 +19,11 @@ buildscript {
 
 allprojects {
     repositories {
-        mavenCentral()
         maven {
             url "https://dl.bintray.com/piasy/maven"
         }
+//        gradlePluginPortal()
+//        mavenCentral()
         jcenter()
         google()
         maven {
