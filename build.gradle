@@ -19,9 +19,9 @@ buildscript {
 
 allprojects {
     repositories {
-        maven {
-            url "https://dl.bintray.com/piasy/maven"
-        }
+//        maven {
+//            url "https://dl.bintray.com/piasy/maven"
+//        }
         gradlePluginPortal()
         mavenCentral()
 //        jcenter()
