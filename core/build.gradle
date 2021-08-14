@@ -179,19 +179,20 @@ dependencies {
     //https://github.com/Karumi/Dexter
     api 'com.karumi:dexter:6.2.3'
 
-    //region font
+    //https://github.com/InflationX/Calligraphy
     api 'io.github.inflationx:calligraphy3:3.1.1'
     api 'io.github.inflationx:viewpump:2.0.3'
     //endregion
 
-    api 'com.yalantis:ucrop:2.2.0'//crop image https://github.com/Yalantis/uCrop
+    //https://github.com/Yalantis/uCrop
+    api 'com.yalantis:ucrop:2.2.0'
 
-    api 'com.veyo:autorefreshnetworkconnection:1.0.6'//https://github.com/nuonveyo/AutoRefreshNetworkConnection
+    //https://github.com/nuonveyo/AutoRefreshNetworkConnection
+    api 'com.veyo:autorefreshnetworkconnection:1.0.6'
 
     //region architecture component
     api "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    //noinspection LifecycleAnnotationProcessorWithJava8
-    kapt "androidx.lifecycle:lifecycle-compiler:2.4.0-alpha01"
+    kapt "androidx.lifecycle:lifecycle-compiler:2.4.0-alpha03"
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
