@@ -208,8 +208,13 @@ dependencies {
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0'
     //endregion
 
-    api 'com.github.florent37:expansionpanel:1.2.2'//https://github.com/florent37/ExpansionPanel
-    api 'com.github.florent37:shapeofview:1.4.7'//https://github.com/florent37/ShapeOfView
+    //https://github.com/florent37/ExpansionPanel
+    api 'com.github.florent37:expansionpanel:1.2.4'
+
+    //https://github.com/florent37/ShapeOfView
+//    api 'com.github.florent37:shapeofview:1.4.7'
+    api 'io.github.florent37:shapeofview:1.4.7'
+
     api 'com.github.mmin18:realtimeblurview:1.2.1'//https://github.com/mmin18/RealtimeBlurView
     api 'de.hdodenhof:circleimageview:3.1.0'//https://github.com/hdodenhof/CircleImageView
     api 'com.github.MikeOrtiz:TouchImageView:3.1.0'//https://github.com/MikeOrtiz/TouchImageView

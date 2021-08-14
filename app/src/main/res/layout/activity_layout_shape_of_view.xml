@@ -20,7 +20,7 @@
             android:orientation="vertical"
             android:padding="@dimen/padding_medium">
 
-            <com.github.florent37.shapeofview.shapes.CircleView
+            <io.github.florent37.shapeofview.shapes.CircleView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
                 android:elevation="4dp"
@@ -41,9 +41,9 @@
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor" />
 
-            </com.github.florent37.shapeofview.shapes.CircleView>
+            </io.github.florent37.shapeofview.shapes.CircleView>
 
-            <com.github.florent37.shapeofview.shapes.RoundRectView
+            <io.github.florent37.shapeofview.shapes.RoundRectView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -69,9 +69,9 @@
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor" />
 
-            </com.github.florent37.shapeofview.shapes.RoundRectView>
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
 
-            <com.github.florent37.shapeofview.shapes.RoundRectView
+            <io.github.florent37.shapeofview.shapes.RoundRectView
                 android:id="@+id/roundRect"
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
@@ -98,9 +98,9 @@
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor" />
 
-            </com.github.florent37.shapeofview.shapes.RoundRectView>
+            </io.github.florent37.shapeofview.shapes.RoundRectView>
 
-            <com.github.florent37.shapeofview.shapes.CutCornerView
+            <io.github.florent37.shapeofview.shapes.CutCornerView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -121,9 +121,9 @@
                     android:text="@string/app_name"
                     android:textColor="@color/red" />
 
-            </com.github.florent37.shapeofview.shapes.CutCornerView>
+            </io.github.florent37.shapeofview.shapes.CutCornerView>
 
-            <com.github.florent37.shapeofview.shapes.ArcView
+            <io.github.florent37.shapeofview.shapes.ArcView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -145,9 +145,9 @@
                     android:text="@string/app_name"
                     android:textColor="@color/blue" />
 
-            </com.github.florent37.shapeofview.shapes.ArcView>
+            </io.github.florent37.shapeofview.shapes.ArcView>
 
-            <com.github.florent37.shapeofview.shapes.DiagonalView
+            <io.github.florent37.shapeofview.shapes.DiagonalView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -169,9 +169,9 @@
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor" />
 
-            </com.github.florent37.shapeofview.shapes.DiagonalView>
+            </io.github.florent37.shapeofview.shapes.DiagonalView>
 
-            <com.github.florent37.shapeofview.shapes.TriangleView
+            <io.github.florent37.shapeofview.shapes.TriangleView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -194,9 +194,9 @@
                     android:text="@string/app_name"
                     android:textColor="@color/red" />
 
-            </com.github.florent37.shapeofview.shapes.TriangleView>
+            </io.github.florent37.shapeofview.shapes.TriangleView>
 
-            <com.github.florent37.shapeofview.shapes.BubbleView
+            <io.github.florent37.shapeofview.shapes.BubbleView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
                 android:layout_marginTop="@dimen/margin_50"
@@ -220,9 +220,9 @@
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor" />
 
-            </com.github.florent37.shapeofview.shapes.BubbleView>
+            </io.github.florent37.shapeofview.shapes.BubbleView>
 
-            <com.github.florent37.shapeofview.shapes.StarView
+            <io.github.florent37.shapeofview.shapes.StarView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_150"
                 android:layout_marginTop="@dimen/margin_50"
@@ -242,9 +242,9 @@
                     android:text="@string/app_name"
                     android:textColor="@color/red" />
 
-            </com.github.florent37.shapeofview.shapes.StarView>
+            </io.github.florent37.shapeofview.shapes.StarView>
 
-            <com.github.florent37.shapeofview.shapes.PolygonView
+            <io.github.florent37.shapeofview.shapes.PolygonView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -264,9 +264,9 @@
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor" />
 
-            </com.github.florent37.shapeofview.shapes.PolygonView>
+            </io.github.florent37.shapeofview.shapes.PolygonView>
 
-            <com.github.florent37.shapeofview.shapes.DottedEdgesCutCornerView
+            <io.github.florent37.shapeofview.shapes.DottedEdgesCutCornerView
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -289,9 +289,9 @@
                     android:layout_gravity="center"
                     android:text="@string/app_name"
                     android:textColor="?attr/themeTextColor" />
-            </com.github.florent37.shapeofview.shapes.DottedEdgesCutCornerView>
+            </io.github.florent37.shapeofview.shapes.DottedEdgesCutCornerView>
 
-            <com.github.florent37.shapeofview.shapes.ArcView
+            <io.github.florent37.shapeofview.shapes.ArcView
                 android:layout_width="@dimen/w_150"
                 android:layout_height="@dimen/w_100"
                 android:layout_marginTop="@dimen/margin_50"
@@ -312,7 +312,7 @@
                     android:text="@string/app_name"
                     android:textColor="@color/red" />
 
-            </com.github.florent37.shapeofview.shapes.ArcView>
+            </io.github.florent37.shapeofview.shapes.ArcView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
