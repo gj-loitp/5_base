@@ -175,7 +175,9 @@ dependencies {
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
     //endregion
 
-    api 'com.karumi:dexter:6.2.1'//runtime permission https://github.com/Karumi/Dexter
+    //TODO delete
+    //https://github.com/Karumi/Dexter
+    api 'com.karumi:dexter:6.2.3'
 
     //region font
     api 'io.github.inflationx:calligraphy3:3.1.1'
