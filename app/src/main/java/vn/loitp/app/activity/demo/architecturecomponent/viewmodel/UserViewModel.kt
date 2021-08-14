@@ -12,7 +12,7 @@ class UserViewModel(private val user: User) : ViewModel() {
     }
 
     class CustomViewModelFactory(private val user: User) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             return UserViewModel(user) as T
         }
     }
