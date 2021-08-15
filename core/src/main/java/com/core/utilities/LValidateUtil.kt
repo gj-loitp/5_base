@@ -41,7 +41,7 @@ class LValidateUtil {
             if (!containsUpper) {
                 return MSG_3
             }
-            //check specical character
+            //check special character
             val regexSpecial = ("[^!@#$%&*()_+=|<>?{}\\[\\]~-]")
             val patternSpecial = Pattern.compile(regexSpecial)
             val containsSpecial = patternSpecial.matcher(pw).find()
@@ -53,16 +53,18 @@ class LValidateUtil {
         }
 
         private val listPkg = listOf(
-                "loitp.basemaster",
-                "loitp93.basemaster.demo",
-                "loitp93.anhseyeuemtucainhindautien",
-                "com.mup.comic",
-                "loitp93.game.findnumber",
-                "com.loitp.igallery",
-                "com.loitp.haivl",
-                "com.loitp.biker",
-                "com.loitp.icomic",
-                "loitp93.truyenvn.cute.girl"
+            "loitp.basemaster",
+            "loitp93.basemaster.demo",
+            "loitp93.anhseyeuemtucainhindautien",
+            "com.mup.comic",
+            "loitp93.game.findnumber",
+            "com.loitp.igallery",
+            "com.loitp.haivl",
+            "com.loitp.biker",
+            "com.loitp.icomic",
+            "loitp93.truyenvn.cute.girl",
+            "loitp93.rss.vnexpress",
+            "loitp.khotruyenvuive",
         )
 
         fun isValidPackageName(): Boolean {

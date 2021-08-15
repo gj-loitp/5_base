@@ -23,7 +23,6 @@ import vn.loitp.app.activity.api.MenuAPIActivity
 import vn.loitp.app.activity.customviews.MenuCustomViewsActivity
 import vn.loitp.app.activity.database.MenuDatabaseActivity
 import vn.loitp.app.activity.demo.MenuDemoActivity
-import vn.loitp.app.activity.donation.DonationActivity
 import vn.loitp.app.activity.function.MenuFunctionActivity
 import vn.loitp.app.activity.more.MoreActivity
 import vn.loitp.app.activity.network.NetworkActivity
@@ -81,7 +80,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
         btAdHelper.setOnClickListener(this)
         btFbFanpage.setOnClickListener(this)
         btFrmMore.setOnClickListener(this)
-        btDonation.setOnClickListener(this)
         btTutorial.setOnClickListener(this)
         btPicker.setOnClickListener(this)
         btNetwork.setOnClickListener(this)
@@ -124,7 +122,6 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             }
             btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)
             btFrmMore -> intent = Intent(this, MoreActivity::class.java)
-            btDonation -> intent = Intent(this, DonationActivity::class.java)
             btTutorial -> intent = Intent(this, MenuTutorialActivity::class.java)
             btPicker -> intent = Intent(this, MenuPickerActivity::class.java)
             btNetwork -> intent = Intent(this, NetworkActivity::class.java)

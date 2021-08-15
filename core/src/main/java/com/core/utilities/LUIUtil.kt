@@ -32,7 +32,6 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
-import com.google.ads.interactivemedia.v3.internal.it
 import com.google.android.gms.ads.*
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
@@ -435,7 +434,7 @@ class LUIUtil {
         ) {
             //guide: https://github.com/EverythingMe/overscroll-decor
             val mDecor = OverScrollDecoratorHelper.setUpOverScroll(viewPager)
-            mDecor.setOverScrollUpdateListener { decor, state, offset ->
+            mDecor.setOverScrollUpdateListener { _, _, offset ->
                 when {
                     offset > 0 -> {
                         // 'view' is currently being over-scrolled from the top.
@@ -479,7 +478,7 @@ class LUIUtil {
                 onDownOrRightRefresh: ((Float) -> Unit)? = null
         ) {
             val mDecor = OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
-            mDecor.setOverScrollUpdateListener { decor, state, offset ->
+            mDecor.setOverScrollUpdateListener { _, _, offset ->
                 //val view = decor.view
                 when {
                     offset > 0 -> {

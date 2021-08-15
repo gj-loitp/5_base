@@ -9,7 +9,6 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_picker_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.picker.bsimagepicker.BSImagePickerActivity
 import vn.loitp.app.activity.picker.crop.CropActivity
 import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
 import vn.loitp.app.activity.picker.numberpicker.NumberPickerActivity
@@ -27,7 +26,6 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btBsImagePicker.setOnClickListener(this)
         btImagePickerWithCrop.setOnClickListener(this)
         btCrop.setOnClickListener(this)
         btTimePicker.setOnClickListener(this)
@@ -38,7 +36,6 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btBsImagePicker -> intent = Intent(this, BSImagePickerActivity::class.java)
             btImagePickerWithCrop -> intent = Intent(this, ImageWithCropActivity::class.java)
             btCrop -> intent = Intent(this, CropActivity::class.java)
             btTedImagePicker -> intent = Intent(this, DemoTedImagePickerActivity::class.java)

@@ -22,8 +22,8 @@ class ComicHeaderAdapter : BaseAdapter() {
 
     private var comic: Comic? = null
     private val transform = MultiTransformation(
-            BlurTransformation(25),
-            ColorFilterTransformation(LAppResource.getColor(R.color.black50))
+        BlurTransformation(25),
+        ColorFilterTransformation(LAppResource.getColor(R.color.black50))
     )
 
     var onClickRoot: ((Comic) -> Unit)? = null
@@ -38,28 +38,30 @@ class ComicHeaderAdapter : BaseAdapter() {
 
         fun bind(comic: Comic) {
             LImageUtil.load(
-                    context = itemView.imageView.context,
-                    any = comic.imageSrc,
-                    imageView = itemView.imageView,
-                    resError = R.color.gray,
-                    resPlaceHolder = R.color.gray,
-                    drawableRequestListener = null,
-                    transformation = transform
+                context = itemView.imageView.context,
+                any = comic.imageSrc,
+                imageView = itemView.imageView,
+                resError = R.color.gray,
+                resPlaceHolder = R.color.gray,
+                drawableRequestListener = null,
+                transformation = transform
             )
 
             LImageUtil.load(
-                    context = itemView.ivAvatar.context,
-                    any = comic.imageSrc,
-                    imageView = itemView.ivAvatar,
-                    resError = R.color.gray,
-                    resPlaceHolder = R.color.gray,
-                    drawableRequestListener = null
+                context = itemView.ivAvatar.context,
+                any = comic.imageSrc,
+                imageView = itemView.ivAvatar,
+                resError = R.color.gray,
+                resPlaceHolder = R.color.gray,
+                drawableRequestListener = null
             )
 
             itemView.tvTitle.text = comic.title
 
             ValueAnimator.ofFloat(0f, 200f, 0f).apply {
-                addUpdateListener { animation -> itemView.roundRect.bottomLeftRadius = (animation.animatedValue as Float) }
+                addUpdateListener { animation ->
+                    itemView.roundRect.bottomLeftRadius = (animation.animatedValue as Float)
+                }
                 duration = 800
                 repeatCount = ValueAnimator.INFINITE
                 repeatMode = ValueAnimator.REVERSE
@@ -74,10 +76,12 @@ class ComicHeaderAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_comic_header, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_comic_header, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = 1
 

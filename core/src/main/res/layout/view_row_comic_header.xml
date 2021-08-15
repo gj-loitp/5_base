@@ -20,7 +20,7 @@
 <!--        app:realtimeBlurRadius="@dimen/round_medium"-->
 <!--        app:realtimeOverlayColor="?attr/themeBackgroundColor50" />-->
 
-    <com.github.florent37.shapeofview.shapes.RoundRectView
+    <io.github.florent37.shapeofview.shapes.RoundRectView
         android:id="@+id/roundRect"
         android:layout_width="@dimen/w_150"
         android:layout_height="@dimen/w_150"
@@ -41,7 +41,7 @@
             android:scaleType="centerCrop"
             tools:src="@drawable/logo" />
 
-    </com.github.florent37.shapeofview.shapes.RoundRectView>
+    </io.github.florent37.shapeofview.shapes.RoundRectView>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"

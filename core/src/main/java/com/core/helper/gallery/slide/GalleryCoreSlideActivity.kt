@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import com.R
 import com.annotation.IsFullScreen
+import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
@@ -21,6 +22,7 @@ import java.io.File
 
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
+@IsShowAdWhenExit(true)
 class GalleryCoreSlideActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
@@ -56,7 +58,8 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
         LValidateUtil.isValidPackageName()
     }
 
-    private inner class SlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SlidePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
 
@@ -102,36 +105,36 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 
     private fun save(url: String) {
         val downloader = LStoreUtil.getDownloader(
-                folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
-                url = url,
-                onDownloadListener = object : OnDownloadListener {
-                    override fun onCancel() {
-                    }
-
-                    override fun onCompleted(file: File?) {
-                        file?.let {
-                            showLongInformation("Saved in ${it.path}")
-                            LStoreUtil.sendBroadcastMediaScan(it)
-                        }
-                    }
-
-                    override fun onFailure(reason: String?) {
-                        showLongError("Download failed $reason")
-                    }
-
-                    override fun onPause() {
-                    }
-
-                    override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
-                    }
-
-                    override fun onResume() {
-                    }
-
-                    override fun onStart() {
-                    }
-
+            folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
+            url = url,
+            onDownloadListener = object : OnDownloadListener {
+                override fun onCancel() {
                 }
+
+                override fun onCompleted(file: File?) {
+                    file?.let {
+                        showLongInformation("Saved in ${it.path}")
+                        LStoreUtil.sendBroadcastMediaScan(it)
+                    }
+                }
+
+                override fun onFailure(reason: String?) {
+                    showLongError("Download failed $reason")
+                }
+
+                override fun onPause() {
+                }
+
+                override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
+                }
+
+                override fun onResume() {
+                }
+
+                override fun onStart() {
+                }
+
+            }
         )
         downloader.download()
     }

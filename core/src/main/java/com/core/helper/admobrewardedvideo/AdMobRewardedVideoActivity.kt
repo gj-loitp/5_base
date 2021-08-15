@@ -18,7 +18,6 @@ import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_admob_rewarded_video.*
 
-
 @LogTag("AdMobRewardedVideoActivity")
 class AdMobRewardedVideoActivity : BaseFontActivity() {
     private var rewardedAd: RewardedAd? = null

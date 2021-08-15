@@ -52,11 +52,6 @@
                 android:text="@string/demo_app" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDonation"
-                style="@style/ButtonMenu"
-                android:text="@string/donation" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btFunction"
                 style="@style/ButtonMenu"
                 android:text="@string/function" />

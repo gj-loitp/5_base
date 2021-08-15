@@ -56,8 +56,5 @@ class LApplication : BaseApplication() {
 
         //ttt database
         TTTDatabase.getInstance(this)
-
-//        logD("LApplication onCreate")
-//        LUIUtil.setDarkTheme(isDarkTheme = true)
     }
 }

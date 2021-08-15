@@ -14,7 +14,7 @@
     <application
         android:name=".app.LApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/LightTheme"
@@ -635,9 +635,6 @@
             android:name=".activity.customviews.videoview.youtube.YoutubeActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.donation.DonationActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name=".activity.demo.twoinstanceactivity.Activity1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
@@ -659,9 +656,6 @@
 
         <activity
             android:name=".activity.customviews.layout.draggablepanelfree.DraggablePanelFreeActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
-            android:name=".activity.picker.bsimagepicker.BSImagePickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.viewpager.lockableviewpager.LockableViewPagerActivity"
@@ -799,16 +793,6 @@
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorPrimary" />
-
-        <provider
-            android:name=".activity.picker.bsimagepicker.BSPickerFileProvider"
-            android:authorities=".activity.picker.bsimagepicker.BSImagePickerActivity.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
 
         <receiver
             android:name=".activity.demo.alarmdemoapp.service.AlarmReceiver"
