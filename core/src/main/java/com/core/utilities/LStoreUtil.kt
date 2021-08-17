@@ -137,16 +137,16 @@ class LStoreUtil {
 //                        ex: /storage/emulated/0/ZZZTestDownloader
 
 //                    C2
-                    val file =
-                        File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
+//                    val file =
+//                        File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
 //                    C3
-//                    val path =
-//                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
-//                            ?.get(0)
-//                            ?: ""
-//                    val file = File("$path/$folderName")
+                    val path =
+                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
+                            ?.get(0)
+                            ?: ""
+                    val file = File("$path/$folderName")
 
                     log("file path ${file.path}")
                     log("file exists " + file.exists())
@@ -165,6 +165,7 @@ class LStoreUtil {
             } else {
                 try {
                     val cacheDir = File(LAppResource.application.cacheDir, "$folderName/")
+//                    /data/user/0/loitp.basemaster/cache/Pictures/ZZZTestDownloader
                     if (!cacheDir.exists()) {
                         cacheDir.mkdirs()
                         folderPath = cacheDir.absolutePath
