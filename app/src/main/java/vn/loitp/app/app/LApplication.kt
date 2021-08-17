@@ -19,6 +19,7 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 //TODO demo firebase -> auth
 //TODO service -> ko stop service dc
 //TODO database -> read sqlite dtb crash
+//TODO rtmp
 
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github
