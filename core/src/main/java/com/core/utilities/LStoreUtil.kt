@@ -87,22 +87,22 @@ class LStoreUtil {
                 "The more I C, the less I see.  "
             )
 
-        fun getFileNameComic(
-            url: String
-        ): String {
-            var u = url
-            u = u.replace(oldValue = "/", newValue = "")
-            u = u.replace(oldValue = ".", newValue = "")
-            u = u.replace(oldValue = ":", newValue = "")
-            u = u.replace(oldValue = "-", newValue = "")
-            return u + EXTENSION
-        }
+//        fun getFileNameComic(
+//            url: String
+//        ): String {
+//            var u = url
+//            u = u.replace(oldValue = "/", newValue = "")
+//            u = u.replace(oldValue = ".", newValue = "")
+//            u = u.replace(oldValue = ":", newValue = "")
+//            u = u.replace(oldValue = "-", newValue = "")
+//            return u + EXTENSION
+//        }
 
-        fun createFileImage(
-            i: Int
-        ): String {
-            return "p$i$EXTENSION"
-        }
+//        fun createFileImage(
+//            i: Int
+//        ): String {
+//            return "p$i$EXTENSION"
+//        }
 
         //dung de bao hieu cho gallery load lai photo vi co anh moi
         fun sendBroadcastMediaScan(
@@ -304,9 +304,9 @@ class LStoreUtil {
             return r.nextInt(length)
         }
 
-        fun getPathOfFileNameMainComicsListHTMLCode(): String {
-            return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
-        }
+//        fun getPathOfFileNameMainComicsListHTMLCode(): String {
+//            return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
+//        }
 
         fun getFileFromAssets(
             fileName: String
@@ -464,6 +464,7 @@ class LStoreUtil {
             val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
 //            val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
 //            val totalMb = (totalSize / (1024 * 1024)).toInt()
+            log("freeMb $freeMb")
             return freeMb
         }
 
@@ -474,7 +475,7 @@ class LStoreUtil {
             activityManager.getMemoryInfo(memoryInfo)
             val availableMegs = memoryInfo.availMem / 1048576L
             val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
-//            Log.d(logTag, "percentAvail $percentAvail")
+            log("percentAvail $percentAvail")
             return availableMegs
         }
 

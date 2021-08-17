@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.provider.Settings
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +16,8 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.*
+import com.function.pump.download.Pump
+import com.function.pump.download.core.DownloadListener
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.karumi.dexter.Dexter
@@ -33,7 +34,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
-import java.io.File
 
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
@@ -89,29 +89,36 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 //        recyclerView.setHasFixedSize(true)
         photosOnlyAdapter = PhotosOnlyAdapter(
-                callback = object : PhotosOnlyAdapter.Callback {
-                    override fun onClick(photo: Photo, pos: Int) {
-                    }
+            callback = object : PhotosOnlyAdapter.Callback {
+                override fun onClick(photo: Photo, pos: Int) {
+                }
 
-                    override fun onLongClick(photo: Photo, pos: Int) {
-                    }
+                override fun onLongClick(photo: Photo, pos: Int) {
+                }
 
-                    override fun onClickDownload(photo: Photo, pos: Int) {
-                        save(url = photo.urlO)
-                    }
+                override fun onClickDownload(photo: Photo, pos: Int) {
+                    save(url = photo.urlO)
+                }
 
-                    override fun onClickShare(photo: Photo, pos: Int) {
-                        LSocialUtil.share(activity = this@GalleryCorePhotosOnlyActivity, msg = photo.urlO)
-                    }
+                override fun onClickShare(photo: Photo, pos: Int) {
+                    LSocialUtil.share(
+                        activity = this@GalleryCorePhotosOnlyActivity,
+                        msg = photo.urlO
+                    )
+                }
 
-                    override fun onClickReport(photo: Photo, pos: Int) {
-                        LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
-                    }
+                override fun onClickReport(photo: Photo, pos: Int) {
+                    LSocialUtil.sendEmail(context = this@GalleryCorePhotosOnlyActivity)
+                }
 
-                    override fun onClickCmt(photo: Photo, pos: Int) {
-                        LSocialUtil.openFacebookComment(context = this@GalleryCorePhotosOnlyActivity, url = photo.urlO, adUnitId = adUnitId)
-                    }
-                })
+                override fun onClickCmt(photo: Photo, pos: Int) {
+                    LSocialUtil.openFacebookComment(
+                        context = this@GalleryCorePhotosOnlyActivity,
+                        url = photo.urlO,
+                        adUnitId = adUnitId
+                    )
+                }
+            })
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -145,7 +152,11 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         }
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
@@ -165,17 +176,17 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             arr[i] = "Page " + (totalPage - i)
         }
         LDialogUtil.showDialogList(
-                context = this,
-                title = "Select page",
-                arr = arr,
-                onClick = { position ->
-                    currentPage = totalPage - position
-                    PhotosDataCore.instance.clearData()
-                    updateAllViews()
-                    photosetID?.let {
-                        photosetsGetPhotos(it)
-                    }
+            context = this,
+            title = "Select page",
+            arr = arr,
+            onClick = { position ->
+                currentPage = totalPage - position
+                PhotosDataCore.instance.clearData()
+                updateAllViews()
+                photosetID?.let {
+                    photosetsGetPhotos(it)
                 }
+            }
         )
     }
 
@@ -214,13 +225,16 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method = method,
+        compositeDisposable.add(
+            service.getListPhotoset(
+                method = method,
                 apiKey = apiKey,
                 userId = userID,
                 page = page,
                 perPage = perPage,
                 primaryPhotoExtras = primaryPhotoExtras,
-                format = format, noJsonCallback = noJsonCallBack)
+                format = format, noJsonCallback = noJsonCallBack
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
@@ -237,7 +251,8 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     logE("photosetsGetList onFail $e")
                     handleException(e)
                     indicatorView.smoothToHide()
-                }))
+                })
+        )
     }
 
     private fun photosetsGetPhotos(photosetID: String) {
@@ -263,38 +278,40 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
         compositeDisposable.add(
-                service.getPhotosetPhotos(
-                        method = method,
-                        apiKey = apiKey,
-                        photosetId = photosetID,
-                        userId = userID,
-                        extras = primaryPhotoExtras,
-                        perPage = PER_PAGE_SIZE,
-                        page = currentPage,
-                        format = format,
-                        noJsonCallback = noJsonCallBack
-                )
-                        .subscribeOn(Schedulers.io())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ wrapperPhotosetGetPhotos ->
-                            val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
-                            tvTitle.text = s
-                            wrapperPhotosetGetPhotos?.photoset?.photo?.let {
-                                it.shuffle()
-                                PhotosDataCore.instance.addPhoto(it)
-                            }
-                            updateAllViews()
+            service.getPhotosetPhotos(
+                method = method,
+                apiKey = apiKey,
+                photosetId = photosetID,
+                userId = userID,
+                extras = primaryPhotoExtras,
+                perPage = PER_PAGE_SIZE,
+                page = currentPage,
+                format = format,
+                noJsonCallback = noJsonCallBack
+            )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ wrapperPhotosetGetPhotos ->
+                    val s =
+                        wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                    tvTitle.text = s
+                    wrapperPhotosetGetPhotos?.photoset?.photo?.let {
+                        it.shuffle()
+                        PhotosDataCore.instance.addPhoto(it)
+                    }
+                    updateAllViews()
 
-                            indicatorView.smoothToHide()
-                            btPage.visibility = View.VISIBLE
-                            isLoading = false
-                            currentPage--
-                        }, { e ->
-                            logE("photosetsGetPhotos onFail $e")
-                            handleException(e)
-                            indicatorView.smoothToHide()
-                            isLoading = true
-                        }))
+                    indicatorView.smoothToHide()
+                    btPage.visibility = View.VISIBLE
+                    isLoading = false
+                    currentPage--
+                }, { e ->
+                    logE("photosetsGetPhotos onFail $e")
+                    handleException(e)
+                    indicatorView.smoothToHide()
+                    isLoading = true
+                })
+        )
     }
 
     private fun updateAllViews() {
@@ -322,77 +339,101 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private fun checkPermission() {
         isShowDialogCheck = true
         Dexter.withContext(this)
-                .withPermissions(
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(object : MultiplePermissionsListener {
-                    override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                        // check if all permissions are granted
-                        if (report.areAllPermissionsGranted()) {
+            .withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            .withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+                    // check if all permissions are granted
+                    if (report.areAllPermissionsGranted()) {
 //                            logD("onPermissionsChecked do you work now")
-                            goToHome()
-                        } else {
+                        goToHome()
+                    } else {
 //                            logD("!areAllPermissionsGranted")
-                            showShouldAcceptPermission()
-                        }
+                        showShouldAcceptPermission()
+                    }
 
-                        // check for permanent denial of any permission
-                        if (report.isAnyPermissionPermanentlyDenied) {
+                    // check for permanent denial of any permission
+                    if (report.isAnyPermissionPermanentlyDenied) {
 //                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
-                            showSettingsDialog()
-                        }
-                        isShowDialogCheck = true
+                        showSettingsDialog()
                     }
+                    isShowDialogCheck = true
+                }
 
-                    override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
+                override fun onPermissionRationaleShouldBeShown(
+                    permissions: List<PermissionRequest>,
+                    token: PermissionToken
+                ) {
 //                        logD("onPermissionRationaleShouldBeShown")
-                        token.continuePermissionRequest()
-                    }
-                })
-                .onSameThread()
-                .check()
+                    token.continuePermissionRequest()
+                }
+            })
+            .onSameThread()
+            .check()
     }
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature.",
-                button1 = "Okay",
-                button2 = "Cancel",
-                onClickButton1 = {
-                    checkPermission()
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = "Need Permissions",
+            msg = "This app needs permission to use this feature.",
+            button1 = "Okay",
+            button2 = "Cancel",
+            onClickButton1 = {
+                checkPermission()
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }
 
     private fun showSettingsDialog() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature. You can grant them in app settings.",
-                button1 = "GOTO SETTINGS",
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    isShowDialogCheck = false
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", packageName, null)
-                    intent.data = uri
-                    startActivityForResult(intent, 101)
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = "Need Permissions",
+            msg = "This app needs permission to use this feature. You can grant them in app settings.",
+            button1 = "GOTO SETTINGS",
+            button2 = getString(R.string.cancel),
+            onClickButton1 = {
+                isShowDialogCheck = false
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                val uri = Uri.fromParts("package", packageName, null)
+                intent.data = uri
+                startActivityForResult(intent, 101)
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }
 
     private fun save(url: String) {
-        //TODO save
+        Pump.newRequestToPicture(url, "/loitp/picture")
+            .listener(object : DownloadListener() {
+
+                override fun onProgress(progress: Int) {
+                }
+
+                override fun onSuccess() {
+                    val filePath = downloadInfo.filePath
+                    showShortInformation("Download Finished $filePath")
+                }
+
+                override fun onFailed() {
+                    showShortError("Download failed")
+                }
+            })
+            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            .forceReDownload(true)
+            //Optionally,Set how many threads are used when downloading,default 3.
+            .threadNum(3)
+            .setRetry(3, 200)
+            .submit()
     }
 }

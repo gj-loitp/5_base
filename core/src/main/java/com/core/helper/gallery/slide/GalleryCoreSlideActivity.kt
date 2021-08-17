@@ -1,7 +1,6 @@
 package com.core.helper.gallery.slide
 
 import android.os.Bundle
-import android.os.Environment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -12,12 +11,11 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
-import com.core.utilities.LAppResource
 import com.core.utilities.LSocialUtil
-import com.core.utilities.LStoreUtil
 import com.core.utilities.LValidateUtil
+import com.function.pump.download.Pump
+import com.function.pump.download.core.DownloadListener
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_slide.*
-import java.io.File
 
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
@@ -103,6 +101,26 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
 //    }
 
     private fun save(url: String) {
-        //TODO save
+        Pump.newRequestToPicture(url, "/loitp/picture")
+            .listener(object : DownloadListener() {
+
+                override fun onProgress(progress: Int) {
+                }
+
+                override fun onSuccess() {
+                    val filePath = downloadInfo.filePath
+                    showShortInformation("Download Finished $filePath")
+                }
+
+                override fun onFailed() {
+                    showShortError("Download failed")
+                }
+            })
+            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            .forceReDownload(true)
+            //Optionally,Set how many threads are used when downloading,default 3.
+            .threadNum(3)
+            .setRetry(3, 200)
+            .submit()
     }
 }
