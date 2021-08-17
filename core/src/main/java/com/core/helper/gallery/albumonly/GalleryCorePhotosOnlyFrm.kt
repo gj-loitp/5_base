@@ -1,6 +1,5 @@
 package com.core.helper.gallery.albumonly
 
-import alirezat775.lib.downloader.core.OnDownloadListener
 import android.Manifest
 import android.content.Intent
 import android.net.Uri
@@ -384,38 +383,6 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     private fun save(url: String) {
-        val downloader = LStoreUtil.getDownloader(
-                folderName = Environment.DIRECTORY_PICTURES + "/" + LAppResource.getString(R.string.app_name),
-                url = url,
-                onDownloadListener = object : OnDownloadListener {
-                    override fun onCancel() {
-                    }
-
-                    override fun onCompleted(file: File?) {
-                        file?.let {
-                            showLongInformation("Saved in ${it.path}")
-                            LStoreUtil.sendBroadcastMediaScan(it)
-                        }
-                    }
-
-                    override fun onFailure(reason: String?) {
-                        showLongError("Download failed $reason")
-                    }
-
-                    override fun onPause() {
-                    }
-
-                    override fun onProgressUpdate(percent: Int, downloadedSize: Int, totalSize: Int) {
-                    }
-
-                    override fun onResume() {
-                    }
-
-                    override fun onStart() {
-                    }
-
-                }
-        )
-        downloader?.download()
+        //TODO save
     }
 }

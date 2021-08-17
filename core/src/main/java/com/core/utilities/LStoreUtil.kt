@@ -1,7 +1,5 @@
 package com.core.utilities
 
-import alirezat775.lib.downloader.Downloader
-import alirezat775.lib.downloader.core.OnDownloadListener
 import android.app.ActivityManager
 import android.content.Context
 import android.graphics.Color
@@ -150,8 +148,10 @@ class LStoreUtil {
 
 
 //                      C4
-                    val file = File(Environment.getExternalStoragePublicDirectory(
-                        Environment.DIRECTORY_PICTURES),
+                    val file = File(
+                        Environment.getExternalStoragePublicDirectory(
+                            Environment.DIRECTORY_PICTURES
+                        ),
                         folderName
                     )
 
@@ -476,41 +476,6 @@ class LStoreUtil {
             val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
 //            Log.d(logTag, "percentAvail $percentAvail")
             return availableMegs
-        }
-
-        fun getDownloader(
-            folderName: String? = null,
-            token: String? = null,
-            url: String,
-            onDownloadListener: OnDownloadListener
-        ): Downloader {
-            if (folderName.isNullOrEmpty()) {
-                log("getDownloader folderName.isNullOrEmpty")
-                val map = HashMap<String, String>()
-                token?.let {
-                    map["Authorization"] = it
-                }
-                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                    .header(map)
-                    .downloadListener(onDownloadListener)
-                    .build()
-            } else {
-                log("getDownloader folderName.isNullOrEmpty !")
-                //TODO remove special character
-
-                val path = getFolderPath(folderName = folderName)
-
-                log("getDownloader path $path")
-                val map = HashMap<String, String>()
-                token?.let {
-                    map["Authorization"] = it
-                }
-                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                    .downloadDirectory(path)
-                    .header(map)
-                    .downloadListener(onDownloadListener)
-                    .build()
-            }
         }
 
         //return destination file path

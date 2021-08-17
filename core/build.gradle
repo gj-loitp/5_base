@@ -237,6 +237,6 @@ dependencies {
     api 'com.wang.avi:library:2.1.3'
 
     //https://github.com/alirezat775/downloader
-    api 'com.github.alirezat775:downloader:1.0.2'
+//    api 'com.github.alirezat775:downloader:1.0.2'
 
 }
