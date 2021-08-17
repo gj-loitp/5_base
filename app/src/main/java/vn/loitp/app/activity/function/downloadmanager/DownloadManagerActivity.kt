@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.activity_download_manager.*
 import vn.loitp.app.R
 import java.io.File
 
-@LogTag("DownloadManagerActivity")
+@LogTag("loitppDownloadManagerActivity")
 @IsFullScreen(false)
 class DownloadManagerActivity : BaseFontActivity() {
 
@@ -161,7 +161,7 @@ class DownloadManagerActivity : BaseFontActivity() {
     @SuppressLint("SetTextI18n")
     private fun getDownloaderPhoto() {
         downloaderPhoto = LStoreUtil.getDownloader(
-                folderName = Environment.DIRECTORY_PICTURES + "/" + "ZZZTestDownloader",
+                folderName = "ZZZTestDownloader",
                 token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwOGQ3MWQ2Zi0xZTc0LTYwYjQtOWJmMC1mM2E0YzVkMTkwZGUiLCJyb2xlIjoiMDAwMDAwMDAtMDAwMC0wMDAwLTAwMDAtMDAwMDAwMDAwMDAyIiwianRpIjoiMzUxMmZhM2YtYWMzNi00YmM2LWI5ZTEtOTEyMzc5Y2NlZjQ1IiwiRGF0YVR5cGVzIjoiMiIsIm5iZiI6MTU2OTQ3OTc1OSwiZXhwIjoxNTY5NTY5NzU5LCJpYXQiOjE1Njk0Nzk3NTksImlzcyI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biIsImF1ZCI6Imh0dHBzOi8vZGV2LXBvcnRhbC52aW5ob21lcy52biJ9.6IfkQkMhI0g-XAbKdHNSH5HiP8fsRAJxnpojjyqwFBI,",
                 url = "https://images.unsplash.com/photo-1499909762747-883b3641e787?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80",
 //                url = "https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp-content/uploads/sites/6/2017/11/04133712/waterfall.jpg",

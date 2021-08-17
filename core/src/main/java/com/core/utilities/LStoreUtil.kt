@@ -23,7 +23,7 @@ import kotlin.collections.ArrayList
 
 class LStoreUtil {
     companion object {
-        internal var logTag = LStoreUtil::class.java.simpleName
+        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
 
         private fun log(msg: String) {
             LLog.d(logTag, msg)
@@ -134,7 +134,7 @@ class LStoreUtil {
                 try {
 //                    C1
 //                    val file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
-//                        ex: /storage/emulated/0/ZZZTestDownloader
+////                        ex: /storage/emulated/0/ZZZTestDownloader
 
 //                    C2
 //                    val file =
@@ -142,11 +142,18 @@ class LStoreUtil {
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
 //                    C3
-                    val path =
-                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
-                            ?.get(0)
-                            ?: ""
-                    val file = File("$path/$folderName")
+//                    val path =
+//                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
+//                            ?.get(0)
+//                            ?: ""
+//                    val file = File("$path/$folderName")
+
+
+//                      C4
+                    val file = File(Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_PICTURES),
+                        folderName
+                    )
 
                     log("file path ${file.path}")
                     log("file exists " + file.exists())
@@ -207,6 +214,7 @@ class LStoreUtil {
                 val myFileExist = myFile.exists()
                 if (!myFileExist) {
                     val isSuccess = myFile.createNewFile()
+                    log("isSuccess $isSuccess")
                 }
                 fos = FileOutputStream(myFile)
                 fos.write(body.toByteArray())
@@ -477,6 +485,7 @@ class LStoreUtil {
             onDownloadListener: OnDownloadListener
         ): Downloader {
             if (folderName.isNullOrEmpty()) {
+                log("getDownloader folderName.isNullOrEmpty")
                 val map = HashMap<String, String>()
                 token?.let {
                     map["Authorization"] = it
@@ -486,8 +495,12 @@ class LStoreUtil {
                     .downloadListener(onDownloadListener)
                     .build()
             } else {
+                log("getDownloader folderName.isNullOrEmpty !")
                 //TODO remove special character
+
                 val path = getFolderPath(folderName = folderName)
+
+                log("getDownloader path $path")
                 val map = HashMap<String, String>()
                 token?.let {
                     map["Authorization"] = it
