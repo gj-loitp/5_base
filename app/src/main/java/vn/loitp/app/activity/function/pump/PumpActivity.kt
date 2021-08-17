@@ -37,12 +37,11 @@ class PumpActivity : BaseFontActivity() {
             .setMinUsableStorageSpace(4 * 1024L)
             .build()
 
-        btAddTask.setSafeOnClickListener {
-            handleAddTask()
+        btPicture.setSafeOnClickListener {
+            handleDownloadPicture()
         }
-
-        btAddDownloadList.setSafeOnClickListener {
-            handleAddDownloadList()
+        btPdf.setSafeOnClickListener {
+            handleDownloadPdf()
         }
     }
 
@@ -52,7 +51,7 @@ class PumpActivity : BaseFontActivity() {
         Pump.shutdown()
     }
 
-    private fun handleAddTask() {
+    private fun handleDownloadPicture() {
         Pump.newRequestToPicture(Constants.URL_IMG, "/loitp/picture")
             .listener(object : DownloadListener() {
 
@@ -79,7 +78,30 @@ class PumpActivity : BaseFontActivity() {
             .submit()
     }
 
-    private fun handleAddDownloadList() {
+    private fun handleDownloadPdf() {
+        Pump.newRequestToDownload("http://www.pdf995.com/samples/pdf.pdf", "/loitp/pdf")
+            .listener(object : DownloadListener() {
 
+                override fun onProgress(progress: Int) {
+                    tvStatus.text = "onProgress $progress%"
+                }
+
+                override fun onSuccess() {
+                    val filePath = downloadInfo.filePath
+                    showShortInformation("Download Finished $filePath")
+                    tvStatus.text = "Download Finished $filePath"
+                }
+
+                override fun onFailed() {
+                    showShortError("Download failed")
+                    tvStatus.text = "Download failed"
+                }
+            })
+            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            .forceReDownload(true)
+            //Optionally,Set how many threads are used when downloading,default 3.
+            .threadNum(3)
+            .setRetry(3, 200)
+            .submit()
     }
 }

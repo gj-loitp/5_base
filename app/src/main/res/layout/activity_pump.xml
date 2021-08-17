@@ -6,14 +6,14 @@
     android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btAddTask"
+        android:id="@+id/btPicture"
         style="@style/ButtonMenu"
-        android:text="Download" />
+        android:text="Download Picture" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btAddDownloadList"
+        android:id="@+id/btPdf"
         style="@style/ButtonMenu"
-        android:text="Download multiple file" />
+        android:text="Download Pdf" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvStatus"

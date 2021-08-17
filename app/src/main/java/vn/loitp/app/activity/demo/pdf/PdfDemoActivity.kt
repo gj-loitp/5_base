@@ -49,7 +49,10 @@ class PdfDemoActivity : BaseFontActivity() {
         btStreamCoroutine.setSafeOnClickListener {
             callCoroutineStream()
         }
-        showDialogMsg(errMsg = "You can load pdf from url, uri, file, asset, bytes, stream...", runnable = null)
+        showDialogMsg(
+            errMsg = "You can load pdf from url, uri, file, asset, bytes, stream...",
+            runnable = null
+        )
     }
 
     override fun onDestroy() {
@@ -87,29 +90,32 @@ class PdfDemoActivity : BaseFontActivity() {
         val folderName = "PDFDemo"
         updateUIProgress(isLoadding = true)
 
-        asyncTaskDownloadPdf = AsyncTaskDownloadPdf(folderPath, url, folderName, callback = object : AsyncTaskDownloadPdf.Callback {
-            override fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?) {
-                logD("onSuccess $durationSec - $durationHHmmss")
-                logD("onSuccess " + file?.path)
-                showShortInformation("onSuccess after $durationSec seconds")
-                pdfView.visibility = View.VISIBLE
-                file?.let {
-                    showPDF(file = it)
+        asyncTaskDownloadPdf = AsyncTaskDownloadPdf(
+            folderPath = folderPath,
+            mURL = url,
+            folderName = folderName, callback = object : AsyncTaskDownloadPdf.Callback {
+                override fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?) {
+                    logD("onSuccess $durationSec - $durationHHmmss")
+                    logD("onSuccess " + file?.path)
+                    showShortInformation("onSuccess after $durationSec seconds")
+                    pdfView.visibility = View.VISIBLE
+                    file?.let {
+                        showPDF(file = it)
+                    }
+                    updateUIProgress(isLoadding = false)
                 }
-                updateUIProgress(isLoadding = false)
-            }
 
-            override fun onError(e: Exception?) {
-                logE("onError $e")
-                updateUIProgress(isLoadding = false)
-            }
+                override fun onError(e: Exception?) {
+                    logE("onError $e")
+                    updateUIProgress(isLoadding = false)
+                }
 
-            override fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float) {
-                logD("onProgressUpdate $downloadedSize - $totalSize - $percent")
-                pb.progress = percent.toInt()
-            }
+                override fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float) {
+                    logD("onProgressUpdate $downloadedSize - $totalSize - $percent")
+                    pb.progress = percent.toInt()
+                }
 
-        })
+            })
 
         asyncTaskDownloadPdf?.execute()
     }
@@ -141,31 +147,33 @@ class PdfDemoActivity : BaseFontActivity() {
         val folderPath = LStoreUtil.getFolderPath(folderName = "ZZZDemoPDF")
         val folderName = "PDFDemo"
         getPdfCoroutine = GetPdfCoroutine()
-        getPdfCoroutine?.startTask(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName,
-                resultPercent = { percent ->
-                    percent?.let {
-                        pb.progress = it.toInt()
-                    }
-                },
-                resultFile = { file ->
-                    logD("GetPdfTask ${file?.path}")
-                    pdfView.visibility = View.VISIBLE
-                    file?.let { f ->
-                        showPDF(f)
-                    }
-                    updateUIProgress(isLoadding = false)
-                })
+        getPdfCoroutine?.startTask(urlPdf = urlPdf,
+            folderPath = folderPath,
+            folderName = folderName,
+            resultPercent = { percent ->
+                percent?.let {
+                    pb.progress = it.toInt()
+                }
+            },
+            resultFile = { file ->
+                logD("GetPdfTask ${file?.path}")
+                pdfView.visibility = View.VISIBLE
+                file?.let { f ->
+                    showPDF(f)
+                }
+                updateUIProgress(isLoadding = false)
+            })
     }
 
     private fun callCoroutineStream() {
         updateUIProgress(isLoadding = true)
         pdfStreamCoroutine = PdfStreamCoroutine()
         pdfStreamCoroutine?.startTask(urlPdf = "http://www.pdf995.com/samples/pdf.pdf",
-                result = { inputStream ->
-                    pdfView.visibility = View.VISIBLE
-                    pdfView.fromStream(inputStream).load()
-                    updateUIProgress(isLoadding = false)
-                })
+            result = { inputStream ->
+                pdfView.visibility = View.VISIBLE
+                pdfView.fromStream(inputStream).load()
+                updateUIProgress(isLoadding = false)
+            })
     }
 
     private fun showPDF(file: File) {
@@ -212,48 +220,48 @@ class PdfDemoActivity : BaseFontActivity() {
 
         //Option 3 horizontal scroll
         pdfView.fromFile(file)
-                //.pages(0) // all pages are displayed by default
-                .enableSwipe(true) // allows to block changing pages using swipe
-                .swipeHorizontal(true)
-                .enableDoubletap(true)
-                .defaultPage(0)
-                .onLoad { nbPages ->
-                    logD("loadComplete $nbPages")
-                } // called after document is loaded and starts to be rendered
-                .onPageChange { page, pageCount ->
-                    logD("onPageChange $page/$pageCount")
-                }
-                .onPageScroll { page, positionOffset ->
-                    logD("onPageScrolled $page - $positionOffset")
-                }
-                .onError { t ->
-                    logE("onError $t")
-                }
-                .onPageError { page, t ->
-                    logE("onPageError $page -> $t")
-                }
-                .onRender { nbPages ->
-                    logD("onInitiallyRendered nbPages $nbPages")
-                } // called after document is rendered for the first time
-                // called on single tap, return true if handled, false to toggle scroll handle visibility
-                .onTap {
-                    logD("onTap")
-                    false
-                }
-                .onLongPress {
-                    logD("OnLongPressListener")
-                }
-                .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)
-                .password(null)
-                .scrollHandle(DefaultScrollHandle(this))
-                .enableAntialiasing(true) // improve rendering a little bit on low-res screens
-                // spacing between pages in dp. To define spacing color, set view background
-                .spacing(0)
-                .autoSpacing(true) // add dynamic spacing to fit each page on its own on the screen
-                .pageFitPolicy(FitPolicy.WIDTH)
-                .pageSnap(true) // snap pages to screen boundaries
-                .pageFling(true) // make a fling change only a single page like ViewPager
-                .nightMode(false) // toggle night parrallaxMode
-                .load()
+            //.pages(0) // all pages are displayed by default
+            .enableSwipe(true) // allows to block changing pages using swipe
+            .swipeHorizontal(true)
+            .enableDoubletap(true)
+            .defaultPage(0)
+            .onLoad { nbPages ->
+                logD("loadComplete $nbPages")
+            } // called after document is loaded and starts to be rendered
+            .onPageChange { page, pageCount ->
+                logD("onPageChange $page/$pageCount")
+            }
+            .onPageScroll { page, positionOffset ->
+                logD("onPageScrolled $page - $positionOffset")
+            }
+            .onError { t ->
+                logE("onError $t")
+            }
+            .onPageError { page, t ->
+                logE("onPageError $page -> $t")
+            }
+            .onRender { nbPages ->
+                logD("onInitiallyRendered nbPages $nbPages")
+            } // called after document is rendered for the first time
+            // called on single tap, return true if handled, false to toggle scroll handle visibility
+            .onTap {
+                logD("onTap")
+                false
+            }
+            .onLongPress {
+                logD("OnLongPressListener")
+            }
+            .enableAnnotationRendering(true) // render annotations (such as comments, colors or forms)
+            .password(null)
+            .scrollHandle(DefaultScrollHandle(this))
+            .enableAntialiasing(true) // improve rendering a little bit on low-res screens
+            // spacing between pages in dp. To define spacing color, set view background
+            .spacing(0)
+            .autoSpacing(true) // add dynamic spacing to fit each page on its own on the screen
+            .pageFitPolicy(FitPolicy.WIDTH)
+            .pageSnap(true) // snap pages to screen boundaries
+            .pageFling(true) // make a fling change only a single page like ViewPager
+            .nightMode(false) // toggle night parrallaxMode
+            .load()
     }
 }
