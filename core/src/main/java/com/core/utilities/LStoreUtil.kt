@@ -25,6 +25,10 @@ class LStoreUtil {
     companion object {
         internal var logTag = LStoreUtil::class.java.simpleName
 
+        private fun log(msg: String) {
+            LLog.d(logTag, msg)
+        }
+
         const val FOLDER_TRANSLATE = ".Loitp"
         const val FILE_TRANSLATE_FAV_SENTENCE = "Loitp.txt"
         private const val EXTENSION = ".txt"
@@ -62,13 +66,31 @@ class LStoreUtil {
             }
 
         val colors: IntArray
-            get() = intArrayOf(Color.parseColor("#1BFFFF"), Color.parseColor("#2E3192"), Color.parseColor("#ED1E79"), Color.parseColor("#009E00"), Color.parseColor("#FBB03B"), Color.parseColor("#D4145A"), Color.parseColor("#3AA17E"), Color.parseColor("#00537E"))
+            get() = intArrayOf(
+                Color.parseColor("#1BFFFF"),
+                Color.parseColor("#2E3192"),
+                Color.parseColor("#ED1E79"),
+                Color.parseColor("#009E00"),
+                Color.parseColor("#FBB03B"),
+                Color.parseColor("#D4145A"),
+                Color.parseColor("#3AA17E"),
+                Color.parseColor("#00537E")
+            )
 
         val texts: Array<String>
-            get() = arrayOf("Relax, its only ONES and ZEROS !", "Hardware: The parts of a computer system that can be kicked.", "Computer dating is fine, if you're a computer.", "Better to be a geek than an idiot.", "If you don't want to be replaced by a computer, don't act like one.", "I'm not anti-social; I'm just not user friendly", "Those who can't write programs, write help files.", "The more I C, the less I see.  ")
+            get() = arrayOf(
+                "Relax, its only ONES and ZEROS !",
+                "Hardware: The parts of a computer system that can be kicked.",
+                "Computer dating is fine, if you're a computer.",
+                "Better to be a geek than an idiot.",
+                "If you don't want to be replaced by a computer, don't act like one.",
+                "I'm not anti-social; I'm just not user friendly",
+                "Those who can't write programs, write help files.",
+                "The more I C, the less I see.  "
+            )
 
         fun getFileNameComic(
-                url: String
+            url: String
         ): String {
             var u = url
             u = u.replace(oldValue = "/", newValue = "")
@@ -79,14 +101,14 @@ class LStoreUtil {
         }
 
         fun createFileImage(
-                i: Int
+            i: Int
         ): String {
             return "p$i$EXTENSION"
         }
 
         //dung de bao hieu cho gallery load lai photo vi co anh moi
         fun sendBroadcastMediaScan(
-                file: File? = null
+            file: File? = null
         ) {
             file?.let {
 //                val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
@@ -94,16 +116,18 @@ class LStoreUtil {
 //                mediaScanIntent.data = contentUri
 //                LAppResource.application.sendBroadcast(mediaScanIntent)
 
-                MediaScannerConnection.scanFile(LAppResource.application,
-                        arrayOf(file.toString()),
-                        arrayOf(it.name),
-                        null)
+                MediaScannerConnection.scanFile(
+                    LAppResource.application,
+                    arrayOf(file.toString()),
+                    arrayOf(it.name),
+                    null
+                )
             }
         }
 
         @JvmOverloads
         fun getFolderPath(
-                folderName: String = "z1000"
+            folderName: String = "loitp"
         ): String {
             var folderPath = ""
             if (isSdPresent) {
@@ -113,15 +137,19 @@ class LStoreUtil {
 //                        ex: /storage/emulated/0/ZZZTestDownloader
 
 //                    C2
-//                    val file = File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
+                    val file =
+                        File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
 //                    C3
-                    val path = LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")?.get(0)
-                            ?: ""
-                    val file = File("$path/$folderName")
-                    LLog.d(logTag, "file ${file.path}")
-                    LLog.d(logTag, "file exists " + file.exists())
+//                    val path =
+//                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
+//                            ?.get(0)
+//                            ?: ""
+//                    val file = File("$path/$folderName")
+
+                    log("file path ${file.path}")
+                    log("file exists " + file.exists())
 
                     folderPath = if (file.exists()) {
                         file.absolutePath
@@ -132,7 +160,7 @@ class LStoreUtil {
 
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    LLog.e(logTag, "err isSdPresent $e")
+                    log("err isSdPresent $e")
                 }
             } else {
                 try {
@@ -145,11 +173,11 @@ class LStoreUtil {
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    LLog.e(logTag, "err !isSdPresent $e")
+                    log("err !isSdPresent $e")
                 }
 
             }
-            LLog.d(logTag, "return getFolderPath folderPath $folderPath")
+            log("return getFolderPath folderPath $folderPath")
             return folderPath
         }
 
@@ -157,9 +185,9 @@ class LStoreUtil {
         save string json to sdcard
          */
         fun writeToFile(
-                folder: String?,
-                fileName: String,
-                body: String
+            folder: String?,
+            fileName: String,
+            body: String
         ): File? {
             val fos: FileOutputStream?
             try {
@@ -182,7 +210,7 @@ class LStoreUtil {
                 fos = FileOutputStream(myFile)
                 fos.write(body.toByteArray())
                 fos.close()
-                LLog.d(logTag, "<<<writeToFile myFile path: " + myFile.path)
+                log("<<<writeToFile myFile path: " + myFile.path)
                 return myFile
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -194,12 +222,13 @@ class LStoreUtil {
          * read text file from folder
          */
         fun readTxtFromFolder(
-                folderName: String?,
-                fileName: String
+            folderName: String?,
+            fileName: String
         ): String {
-            val path = getFolderPath() + (if (folderName == null) "/" else "/$folderName/") + fileName
+            val path =
+                getFolderPath() + (if (folderName == null) "/" else "/$folderName/") + fileName
             val txtFile = File(path)
-            LLog.d(logTag, "readTxtFromFolder txtFile ${txtFile.path}")
+            log("readTxtFromFolder txtFile ${txtFile.path}")
             val text = StringBuilder()
             try {
                 val reader = BufferedReader(FileReader(txtFile))
@@ -218,7 +247,7 @@ class LStoreUtil {
          * read text file in raw folder
          */
         fun readTxtFromRawFolder(
-                nameOfRawFile: Int
+            nameOfRawFile: Int
         ): String {
             val inputStream = LAppResource.application.resources.openRawResource(nameOfRawFile)
             val byteArrayOutputStream = ByteArrayOutputStream()
@@ -238,7 +267,7 @@ class LStoreUtil {
         }
 
         fun readTxtFromAsset(
-                assetFile: String
+            assetFile: String
         ): String {
             val ins: InputStream
             var str = ""
@@ -260,7 +289,7 @@ class LStoreUtil {
          * get random number
          */
         fun getRandomNumber(
-                length: Int
+            length: Int
         ): Int {
             val r = Random()
             return r.nextInt(length)
@@ -271,7 +300,7 @@ class LStoreUtil {
         }
 
         fun getFileFromAssets(
-                fileName: String
+            fileName: String
         ): File? {
 
             val file = File(LAppResource.application.cacheDir.toString() + "/" + fileName)
@@ -294,7 +323,7 @@ class LStoreUtil {
         }
 
         fun getListEpubFiles(
-                parentDir: File
+            parentDir: File
         ): ArrayList<File> {
             val listFile = ArrayList<File>()
             val files = parentDir.listFiles()
@@ -313,9 +342,9 @@ class LStoreUtil {
         }
 
         fun getSettingFromGGDrive(
-                linkGGDriveSetting: String? = null,
-                onGGFailure: ((call: Call, e: IOException) -> Unit)? = null,
-                onGGResponse: ((app: App?, isNeedToShowMsg: Boolean) -> Unit)? = null
+            linkGGDriveSetting: String? = null,
+            onGGFailure: ((call: Call, e: IOException) -> Unit)? = null,
+            onGGResponse: ((app: App?, isNeedToShowMsg: Boolean) -> Unit)? = null
         ) {
             if (linkGGDriveSetting == null || linkGGDriveSetting.isEmpty()) {
                 return
@@ -356,9 +385,9 @@ class LStoreUtil {
         }
 
         fun getTextFromGGDrive(
-                linkGGDrive: String? = null,
-                onGGFailure: ((call: Call, e: Exception) -> Unit)? = null,
-                onGGResponse: ((listGG: ArrayList<GG>) -> Unit)? = null
+            linkGGDrive: String? = null,
+            onGGFailure: ((call: Call, e: Exception) -> Unit)? = null,
+            onGGResponse: ((listGG: ArrayList<GG>) -> Unit)? = null
         ) {
             if (linkGGDrive.isNullOrEmpty()) {
                 return
@@ -376,13 +405,22 @@ class LStoreUtil {
                         val responseBody = response.body
                         val json = responseBody?.string()
                         if (json.isNullOrEmpty()) {
-                            onGGFailure?.invoke(call, NullPointerException("responseBody isNullOrEmpty"))
+                            onGGFailure?.invoke(
+                                call,
+                                NullPointerException("responseBody isNullOrEmpty")
+                            )
                         } else {
-                            val listGG: ArrayList<GG> = BaseApplication.gson.fromJson(json, object : TypeToken<List<GG?>?>() {}.type)
+                            val listGG: ArrayList<GG> = BaseApplication.gson.fromJson(
+                                json,
+                                object : TypeToken<List<GG?>?>() {}.type
+                            )
                             onGGResponse?.invoke(listGG)
                         }
                     } else {
-                        onGGFailure?.invoke(call, NullPointerException("responseBody !isSuccessful"))
+                        onGGFailure?.invoke(
+                            call,
+                            NullPointerException("responseBody !isSuccessful")
+                        )
                     }
                 }
             })
@@ -390,7 +428,7 @@ class LStoreUtil {
 
         @Suppress("INTEGER_OVERFLOW")
         fun getSize(
-                size: Int
+            size: Int
         ): String {
             var s = ""
             val kb = (size / 1024).toDouble()
@@ -412,7 +450,8 @@ class LStoreUtil {
         }
 
         fun getAvailableSpaceInMb(): Int {
-            val freeBytesExternal = File(LAppResource.application.getExternalFilesDir(null).toString()).freeSpace
+            val freeBytesExternal =
+                File(LAppResource.application.getExternalFilesDir(null).toString()).freeSpace
             val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
 //            val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
 //            val totalMb = (totalSize / (1024 * 1024)).toInt()
@@ -421,7 +460,8 @@ class LStoreUtil {
 
         fun getAvailableRAM(): Long {
             val memoryInfo = ActivityManager.MemoryInfo()
-            val activityManager = LAppResource.application.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+            val activityManager =
+                LAppResource.application.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
             activityManager.getMemoryInfo(memoryInfo)
             val availableMegs = memoryInfo.availMem / 1048576L
             val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
@@ -430,10 +470,10 @@ class LStoreUtil {
         }
 
         fun getDownloader(
-                folderName: String? = null,
-                token: String? = null,
-                url: String,
-                onDownloadListener: OnDownloadListener
+            folderName: String? = null,
+            token: String? = null,
+            url: String,
+            onDownloadListener: OnDownloadListener
         ): Downloader {
             if (folderName.isNullOrEmpty()) {
                 val map = HashMap<String, String>()
@@ -441,9 +481,9 @@ class LStoreUtil {
                     map["Authorization"] = it
                 }
                 return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                        .header(map)
-                        .downloadListener(onDownloadListener)
-                        .build()
+                    .header(map)
+                    .downloadListener(onDownloadListener)
+                    .build()
             } else {
                 //TODO remove special character
                 val path = getFolderPath(folderName = folderName)
@@ -452,29 +492,29 @@ class LStoreUtil {
                     map["Authorization"] = it
                 }
                 return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                        .downloadDirectory(path)
-                        .header(map)
-                        .downloadListener(onDownloadListener)
-                        .build()
+                    .downloadDirectory(path)
+                    .header(map)
+                    .downloadListener(onDownloadListener)
+                    .build()
             }
         }
 
         //return destination file path
         fun unzip(
-                file: File
+            file: File
         ): String? {
             try {
                 val filePath = file.path
                 val destination = "${file.parent}/"
-//                LLog.d(logTag, ">>>unzip filePath $filePath")
-//                LLog.d(logTag, ">>>unzip destination $destination")
+                log(">>>unzip filePath $filePath")
+                log(">>>unzip destination $destination")
                 val inputStream = FileInputStream(filePath)
                 val zipStream = ZipInputStream(inputStream)
                 var zipEntry: ZipEntry?
                 while (zipStream.nextEntry.also {
-                            zipEntry = it
-                        } != null) {
-//                    LLog.d(logTag, "Unzipping " + zipEntry?.name + " at " + destination)
+                        zipEntry = it
+                    } != null) {
+                    log("Unzipping " + zipEntry?.name + " at " + destination)
                     zipEntry?.let { ze ->
                         if (ze.isDirectory) {
                             handleDirectory(dir = ze.name, destination = destination)
@@ -493,27 +533,27 @@ class LStoreUtil {
                     }
                 }
                 zipStream.close()
-//                LLog.d(logTag, "Unzipping complete, path :  $destination")
+                log("Unzipping complete, path :  $destination")
                 return destination
             } catch (e: java.lang.Exception) {
-//                LLog.e(logTag, "Unzipping failed $e")
+                log("Unzipping failed $e")
                 e.printStackTrace()
                 return null
             }
         }
 
         private fun handleDirectory(
-                dir: String,
-                destination: String
+            dir: String,
+            destination: String
         ) {
             val file = File(destination + dir)
-//            LLog.d(logTag, "handleDirectory file ${file.path}")
+            log("handleDirectory file ${file.path}")
             if (!file.isDirectory) {
-//                LLog.d(logTag, "handleDirectory !file.isDirectory")
+                log("handleDirectory !file.isDirectory")
                 val isSuccess = file.mkdirs()
-//                LLog.d(logTag, "handleDirectory !file.isDirectory isSuccess $isSuccess")
+                log("handleDirectory !file.isDirectory isSuccess $isSuccess")
             } else {
-//                LLog.d(logTag, "handleDirectory file.isDirectory")
+                log("handleDirectory file.isDirectory")
             }
         }
     }
