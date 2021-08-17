@@ -17,7 +17,7 @@ import vn.loitp.app.R
 import java.io.File
 
 //https://github.com/barteksc/AndroidPdfViewer
-
+//TODO android 11 download, use pump instead
 @LogTag("PdfDemoActivity")
 @IsFullScreen(false)
 class PdfDemoActivity : BaseFontActivity() {

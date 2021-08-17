@@ -140,20 +140,11 @@ class LStoreUtil {
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
 //                    C3
-//                    val path =
-//                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
-//                            ?.get(0)
-//                            ?: ""
-//                    val file = File("$path/$folderName")
-
-
-//                      C4
-                    val file = File(
-                        Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_PICTURES
-                        ),
-                        folderName
-                    )
+                    val path =
+                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
+                            ?.get(0)
+                            ?: ""
+                    val file = File("$path/$folderName")
 
                     log("file path ${file.path}")
                     log("file exists " + file.exists())
