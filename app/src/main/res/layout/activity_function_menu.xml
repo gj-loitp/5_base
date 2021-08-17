@@ -25,11 +25,6 @@
                 android:text="@string/activity_service_comunicate" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDownloadManager"
-                style="@style/ButtonMenu"
-                android:text="Download manager" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btDragDropSample"
                 style="@style/ButtonMenu"
                 android:text="@string/drag_drop_sample" />

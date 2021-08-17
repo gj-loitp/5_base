@@ -853,9 +853,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.function.downloadmanager.DownloadManagerActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
-        <activity
             android:name=".activity.customviews.imageview.pinchtozoom.PinchToZoomViewPagerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
