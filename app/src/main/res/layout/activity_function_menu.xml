@@ -60,6 +60,11 @@
                 android:text="@string/notification" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPump"
+                style="@style/ButtonMenu"
+                android:text="Pump" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btRecolor"
                 style="@style/ButtonMenu"
                 android:text="@string/recolor" />

@@ -17,6 +17,7 @@ import vn.loitp.app.activity.function.hashmap.HashMapActivity
 import vn.loitp.app.activity.function.keyboard.KeyboardActivity
 import vn.loitp.app.activity.function.location.LocationActivity
 import vn.loitp.app.activity.function.notification.MenuNotificationActivity
+import vn.loitp.app.activity.function.pump.PumpActivity
 import vn.loitp.app.activity.function.recolor.RecolorActivity
 import vn.loitp.app.activity.function.sensor.SensorActivity
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity
@@ -49,6 +50,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         btActivityServiceComunicate.setOnClickListener(this)
         btLocation.setOnClickListener(this)
         btNotification.setOnClickListener(this)
+        btPump.setOnClickListener(this)
         btViewDragHelperSimple.setOnClickListener(this)
         btViewDragHelperSimple1.setOnClickListener(this)
         btSensor.setOnClickListener(this)
@@ -70,6 +72,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
                 Intent(this, ActivityServiceComunicateActivity::class.java)
             btLocation -> intent = Intent(this, LocationActivity::class.java)
             btNotification -> intent = Intent(this, MenuNotificationActivity::class.java)
+            btPump -> intent = Intent(this, PumpActivity::class.java)
             btViewDragHelperSimple -> intent =
                 Intent(this, ViewDragHelperSimpleActivity::class.java)
             btViewDragHelperSimple1 -> intent =
