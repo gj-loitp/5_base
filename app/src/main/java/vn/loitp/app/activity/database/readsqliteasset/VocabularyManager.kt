@@ -16,7 +16,6 @@ import java.util.*
 /**
  * Created by Loitp on 5/2/2017.
  */
-//TODO crash android 11
 class VocabularyManager(
     private val context: Context
 ) : SQLiteOpenHelper(
