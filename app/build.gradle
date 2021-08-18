@@ -11,8 +11,8 @@ android {
         applicationId "loitp93.basemaster"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 12
-        versionName "1.1.12"
+        versionCode 1
+        versionName "1.0.1"
         multiDexEnabled true
 
         renderscriptTargetApi 19
@@ -54,7 +54,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("keybasemaster.jks")
+            storeFile file("keystore.jks")
             storePassword "04021993"
             keyAlias "loi"
             keyPassword "04021993"
