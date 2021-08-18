@@ -4,15 +4,15 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "loitp.basemaster",
-  "variantName": "processReleaseResources",
+  "applicationId": "loitp93.basemaster",
+  "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
-      "versionCode": 12,
-      "versionName": "1.1.12",
-      "outputFile": "BaseMaster_release_1.1.12_12.apk"
+      "versionCode": 1,
+      "versionName": "1.0.1",
+      "outputFile": "BaseMaster_release_1.0.1_1.apk"
     }
   ]
 }
