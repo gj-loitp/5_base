@@ -8,6 +8,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_swipe_reveal_layout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.grid.SwipeRevealLayoutGridActivity
@@ -27,6 +28,36 @@ class SwipeRevealLayoutActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setSupportActionBar(toolbar)
+        tv1.setSafeOnClickListener {
+            moreOnClick()
+        }
+        tv1Delete.setSafeOnClickListener {
+            deleteOnClick()
+        }
+        fl1.setSafeOnClickListener {
+            layoutOneOnClick()
+        }
+        tv2.setSafeOnClickListener {
+            archiveOnClick()
+        }
+        tv2Help.setSafeOnClickListener {
+            helpOnClick()
+        }
+        fl2.setSafeOnClickListener {
+            layoutTwoOnClick()
+        }
+        flSearch.setSafeOnClickListener {
+            searchOnClick()
+        }
+        fl3.setSafeOnClickListener {
+            layoutThreeOnClick()
+        }
+        flStart.setSafeOnClickListener {
+            starOnClick()
+        }
+        fl4.setSafeOnClickListener {
+            layoutFourOnClick()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -55,43 +86,43 @@ class SwipeRevealLayoutActivity : BaseFontActivity() {
         return false
     }
 
-    fun layoutOneOnClick() {
+    private fun layoutOneOnClick() {
         showShortInformation("Layout 1 clicked", true)
     }
 
-    fun layoutTwoOnClick() {
+    private fun layoutTwoOnClick() {
         showShortInformation("Layout 2 clicked", true)
     }
 
-    fun layoutThreeOnClick() {
+    private fun layoutThreeOnClick() {
         showShortInformation("Layout 3 clicked", true)
     }
 
-    fun layoutFourOnClick() {
+    private fun layoutFourOnClick() {
         showShortInformation("Layout 4 clicked", true)
     }
 
-    fun moreOnClick() {
+    private fun moreOnClick() {
         showShortInformation("More clicked", true)
     }
 
-    fun deleteOnClick() {
+    private fun deleteOnClick() {
         showShortInformation("Delete clicked", true)
     }
 
-    fun archiveOnClick() {
+    private fun archiveOnClick() {
         showShortInformation("Archive clicked", true)
     }
 
-    fun helpOnClick() {
+    private fun helpOnClick() {
         showShortInformation("Help clicked", true)
     }
 
-    fun searchOnClick() {
+    private fun searchOnClick() {
         showShortInformation("Search clicked", true)
     }
 
-    fun starOnClick() {
+    private fun starOnClick() {
         showShortInformation("Star clicked", true)
     }
 }

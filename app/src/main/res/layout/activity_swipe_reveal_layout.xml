@@ -29,29 +29,29 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv1"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/darker_gray"
                 android:gravity="center"
-                android:onClick="moreOnClick"
                 android:text="@string/more"
                 android:textColor="@android:color/white" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv1Delete"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_red_dark"
                 android:gravity="center"
-                android:onClick="deleteOnClick"
                 android:text="@string/delete"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
         <FrameLayout
+            android:id="@+id/fl1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_solid_white"
-            android:onClick="layoutOneOnClick">
+            android:background="@drawable/border_solid_white">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -77,29 +77,29 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv2"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_green_dark"
                 android:gravity="center"
-                android:onClick="archiveOnClick"
                 android:text="@string/archive"
                 android:textColor="@android:color/white" />
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv2Help"
                 android:layout_width="70dp"
                 android:layout_height="match_parent"
                 android:background="@android:color/holo_blue_light"
                 android:gravity="center"
-                android:onClick="helpOnClick"
                 android:text="@string/help"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
         <FrameLayout
+            android:id="@+id/fl2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_solid_white"
-            android:onClick="layoutTwoOnClick">
+            android:background="@drawable/border_solid_white">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -120,10 +120,10 @@
         app:srl_mode="same_level">
 
         <FrameLayout
+            android:id="@+id/flSearch"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#ffbf00"
-            android:onClick="searchOnClick">
+            android:background="#ffbf00">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -135,10 +135,10 @@
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/fl3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_solid_white"
-            android:onClick="layoutThreeOnClick">
+            android:background="@drawable/border_solid_white">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -159,10 +159,10 @@
         app:srl_mode="same_level">
 
         <FrameLayout
+            android:id="@+id/flStart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#00264d"
-            android:onClick="starOnClick">
+            android:background="#00264d">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
@@ -174,10 +174,10 @@
         </FrameLayout>
 
         <FrameLayout
+            android:id="@+id/fl4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/border_solid_white"
-            android:onClick="layoutFourOnClick">
+            android:background="@drawable/border_solid_white">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
