@@ -18,7 +18,7 @@
             android:layout_width="@dimen/w_40"
             android:layout_height="@dimen/w_40"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_launcher" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"

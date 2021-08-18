@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.layout.floatdraglayout
 
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
 import android.widget.FrameLayout
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -28,7 +27,7 @@ class FloatDragWindowModeActivity : BaseActivity() {
 
     fun setupViews() {
         val floatDragLayout = FloatDragLayout(this)
-        floatDragLayout.setBackgroundResource(R.mipmap.ic_launcher)
+        floatDragLayout.setBackgroundResource(R.drawable.ic_launcher)
         val size = DisplayUtil.dp2px(this, 45)
         val layoutParams = FrameLayout.LayoutParams(size, size)
         floatDragLayout.layoutParams = layoutParams

@@ -141,7 +141,7 @@ public class AlarmNotification extends BaseFontActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         notification = builder
                 .setContentIntent(activity)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.ic_launcher)
                 .setAutoCancel(true)
                 .setContentTitle("Missed alarm: " + alarm.getTitle())
                 .setContentText(mDateTime.formatDetails(alarm))

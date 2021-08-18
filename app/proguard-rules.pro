@@ -146,3 +146,7 @@
 
 #-keep class com.veyo.** { *; }
 #-keep interface com.veyo.** { *; }
+
+-keep class com.huxq17.download.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**

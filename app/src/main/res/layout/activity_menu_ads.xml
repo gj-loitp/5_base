@@ -28,11 +28,6 @@
                 android:id="@+id/bt2"
                 style="@style/ButtonMenu"
                 android:text="@string/admob_interstitial" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/bt3"
-                style="@style/ButtonMenu"
-                android:text="@string/admob_rewarded_video" />
         </LinearLayout>
     </ScrollView>
 
@@ -41,4 +36,3 @@
         style="@style/TextMenu"
         android:text="@string/menu_ads" />
 </RelativeLayout>
-

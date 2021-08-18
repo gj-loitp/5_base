@@ -58,7 +58,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/margin_55"
                 android:contentDescription="@string/app_name"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/loitp" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

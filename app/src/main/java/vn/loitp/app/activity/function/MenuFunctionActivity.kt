@@ -10,7 +10,6 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_function_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity
-import vn.loitp.app.activity.function.downloadmanager.DownloadManagerActivity
 import vn.loitp.app.activity.function.dragdropsample.DragDropSampleActivity
 import vn.loitp.app.activity.function.fullscreen.FullScreenActivity
 import vn.loitp.app.activity.function.glide.GlideActivity
@@ -18,6 +17,7 @@ import vn.loitp.app.activity.function.hashmap.HashMapActivity
 import vn.loitp.app.activity.function.keyboard.KeyboardActivity
 import vn.loitp.app.activity.function.location.LocationActivity
 import vn.loitp.app.activity.function.notification.MenuNotificationActivity
+import vn.loitp.app.activity.function.pump.PumpActivity
 import vn.loitp.app.activity.function.recolor.RecolorActivity
 import vn.loitp.app.activity.function.sensor.SensorActivity
 import vn.loitp.app.activity.function.simplefingergestures.SimpleFingerGesturesActivity
@@ -50,12 +50,12 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         btActivityServiceComunicate.setOnClickListener(this)
         btLocation.setOnClickListener(this)
         btNotification.setOnClickListener(this)
+        btPump.setOnClickListener(this)
         btViewDragHelperSimple.setOnClickListener(this)
         btViewDragHelperSimple1.setOnClickListener(this)
         btSensor.setOnClickListener(this)
         btGlide.setOnClickListener(this)
         btKeyboard.setOnClickListener(this)
-        btDownloadManager.setOnClickListener(this)
         btTheme.setOnClickListener(this)
     }
 
@@ -68,15 +68,18 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
             btToggleFullScreen -> intent = Intent(this, FullScreenActivity::class.java)
             btViewDragHelper -> intent = Intent(this, ViewDragHelperActivity::class.java)
             btRecolor -> intent = Intent(this, RecolorActivity::class.java)
-            btActivityServiceComunicate -> intent = Intent(this, ActivityServiceComunicateActivity::class.java)
+            btActivityServiceComunicate -> intent =
+                Intent(this, ActivityServiceComunicateActivity::class.java)
             btLocation -> intent = Intent(this, LocationActivity::class.java)
             btNotification -> intent = Intent(this, MenuNotificationActivity::class.java)
-            btViewDragHelperSimple -> intent = Intent(this, ViewDragHelperSimpleActivity::class.java)
-            btViewDragHelperSimple1 -> intent = Intent(this, ViewDragHelperSimpleActivity1::class.java)
+            btPump -> intent = Intent(this, PumpActivity::class.java)
+            btViewDragHelperSimple -> intent =
+                Intent(this, ViewDragHelperSimpleActivity::class.java)
+            btViewDragHelperSimple1 -> intent =
+                Intent(this, ViewDragHelperSimpleActivity1::class.java)
             btSensor -> intent = Intent(this, SensorActivity::class.java)
             btGlide -> intent = Intent(this, GlideActivity::class.java)
             btKeyboard -> intent = Intent(this, KeyboardActivity::class.java)
-            btDownloadManager -> intent = Intent(this, DownloadManagerActivity::class.java)
             btTheme -> intent = Intent(this, ThemeActivity::class.java)
         }
         intent?.let {

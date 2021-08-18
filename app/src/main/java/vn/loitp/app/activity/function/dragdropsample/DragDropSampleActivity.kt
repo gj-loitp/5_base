@@ -28,7 +28,7 @@ class DragDropSampleActivity : BaseFontActivity() {
         ivPaper.tag = "paper"
         ivTrash.tag = "trash"
 
-        ivTrash.setOnDragListener(TrashDragListener(enterShape = R.mipmap.ic_launcher, normalShape = R.drawable.ic_search_black_48dp))
+        ivTrash.setOnDragListener(TrashDragListener(enterShape = R.drawable.ic_launcher, normalShape = R.drawable.ic_search_black_48dp))
         ivTrash.setSafeOnClickListener {
             ivPaper.visibility = View.VISIBLE
         }

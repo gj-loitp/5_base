@@ -135,11 +135,15 @@ class LocationActivity : BaseFontActivity() {
         mCurrentLocation?.let {
 
             var moreInfor = ""
-            LLocationUtil.getCityByLatLon(it.latitude, it.longitude) { address: String, city: String, state: String, country: String ->
+            LLocationUtil.getCityByLatLon(
+                it.latitude,
+                it.longitude
+            ) { address: String?, city: String?, state: String?, country: String? ->
                 moreInfor += "$address - $city - $state - $country"
             }
 
-            tvLocationResult.text = "Lat: " + it.latitude + ", " + "Lng: " + it.longitude + ", more infor: $moreInfor"
+            tvLocationResult.text =
+                "Lat: " + it.latitude + ", " + "Lng: " + it.longitude + ", more infor: $moreInfor"
 
             // giving a blink animation on TextView
             tvLocationResult.alpha = 0f
@@ -178,63 +182,78 @@ class LocationActivity : BaseFontActivity() {
     private fun startLocationUpdates() {
         mSettingsClient?.let { settingsClient ->
             settingsClient.checkLocationSettings(mLocationSettingsRequest)
-                    .addOnSuccessListener(this) {
-                        logD("All location settings are satisfied.")
-                        showShortInformation("Started location updates!")
-                        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                            mFusedLocationClient?.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper())
-                            updateLocationUI()
-                        } else {
-                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
-                        }
-                    }
-                    .addOnFailureListener(this) { e ->
-                        when ((e as ApiException).statusCode) {
-                            LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
-                                logD("Location settings are not satisfied. Attempting to upgrade location settings ")
-                                try {
-                                    // Show the dialog by calling startResolutionForResult(), and check the
-                                    // result in onActivityResult().
-                                    val rae = e as ResolvableApiException
-                                    rae.startResolutionForResult(this, REQUEST_CHECK_SETTINGS)
-                                } catch (sie: SendIntentException) {
-                                    sie.printStackTrace()
-                                }
-                            }
-                            LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
-                                val errorMessage = "Location settings are inadequate, and cannot be fixed here. Fix in Settings."
-                                logD(errorMessage)
-                                showShortInformation(errorMessage)
-                            }
-                        }
+                .addOnSuccessListener(this) {
+                    logD("All location settings are satisfied.")
+                    showShortInformation("Started location updates!")
+                    if (ActivityCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                        ) == PackageManager.PERMISSION_GRANTED
+                        && ActivityCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.ACCESS_COARSE_LOCATION
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        mFusedLocationClient?.requestLocationUpdates(
+                            mLocationRequest,
+                            mLocationCallback,
+                            Looper.myLooper()
+                        )
                         updateLocationUI()
+                    } else {
+                        showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
                     }
+                }
+                .addOnFailureListener(this) { e ->
+                    when ((e as ApiException).statusCode) {
+                        LocationSettingsStatusCodes.RESOLUTION_REQUIRED -> {
+                            logD("Location settings are not satisfied. Attempting to upgrade location settings ")
+                            try {
+                                // Show the dialog by calling startResolutionForResult(), and check the
+                                // result in onActivityResult().
+                                val rae = e as ResolvableApiException
+                                rae.startResolutionForResult(this, REQUEST_CHECK_SETTINGS)
+                            } catch (sie: SendIntentException) {
+                                sie.printStackTrace()
+                            }
+                        }
+                        LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE -> {
+                            val errorMessage =
+                                "Location settings are inadequate, and cannot be fixed here. Fix in Settings."
+                            logD(errorMessage)
+                            showShortInformation(errorMessage)
+                        }
+                    }
+                    updateLocationUI()
+                }
         }
     }
 
     private fun startLocationButtonClick() {
         // Requesting ACCESS_FINE_LOCATION using Dexter library
         Dexter.withContext(this)
-                .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(object : PermissionListener {
-                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        mRequestingLocationUpdates = true
-                        startLocationUpdates()
-                    }
+            .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
+            .withListener(object : PermissionListener {
+                override fun onPermissionGranted(response: PermissionGrantedResponse) {
+                    mRequestingLocationUpdates = true
+                    startLocationUpdates()
+                }
 
-                    override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                        if (response.isPermanentlyDenied) {
-                            // open device settings when the permission is
-                            // denied permanently
-                            openSettings()
-                        }
+                override fun onPermissionDenied(response: PermissionDeniedResponse) {
+                    if (response.isPermanentlyDenied) {
+                        // open device settings when the permission is
+                        // denied permanently
+                        openSettings()
                     }
+                }
 
-                    override fun onPermissionRationaleShouldBeShown(permission: PermissionRequest, token: PermissionToken) {
-                        token.continuePermissionRequest()
-                    }
-                }).check()
+                override fun onPermissionRationaleShouldBeShown(
+                    permission: PermissionRequest,
+                    token: PermissionToken
+                ) {
+                    token.continuePermissionRequest()
+                }
+            }).check()
     }
 
     private fun stopLocationButtonClick() {
@@ -244,10 +263,11 @@ class LocationActivity : BaseFontActivity() {
 
     private fun stopLocationUpdates() {
         // Removing location updates
-        mFusedLocationClient?.removeLocationUpdates(mLocationCallback)?.addOnCompleteListener(this) {
-            showShortInformation("Location updates stopped!")
-            toggleButtons()
-        }
+        mFusedLocationClient?.removeLocationUpdates(mLocationCallback)
+            ?.addOnCompleteListener(this) {
+                showShortInformation("Location updates stopped!")
+                toggleButtons()
+            }
     }
 
     private fun showLastKnownLocation() {
@@ -294,7 +314,8 @@ class LocationActivity : BaseFontActivity() {
     }
 
     private fun checkPermissions(): Boolean {
-        val permissionState = ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+        val permissionState =
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
         return permissionState == PackageManager.PERMISSION_GRANTED
     }
 

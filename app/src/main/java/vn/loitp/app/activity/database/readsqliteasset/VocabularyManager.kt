@@ -6,6 +6,7 @@ import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import com.utils.util.AppUtils.Companion.appPackageName
 import com.utils.util.AppUtils.Companion.appVersionCode
 import java.io.FileOutputStream
 import java.io.IOException
@@ -15,18 +16,19 @@ import java.util.*
 /**
  * Created by Loitp on 5/2/2017.
  */
+//TODO crash android 11
 class VocabularyManager(
-        private val context: Context
+    private val context: Context
 ) : SQLiteOpenHelper(
-        context,
-        DB_NAME,
-        null,
-        DATABASE_VERSION
+    context,
+    DB_NAME,
+    null,
+    DATABASE_VERSION
 ) {
 
     companion object {
         @SuppressLint("SdCardPath")
-        private val DB_PATH = "/data/data/loitp.basemaster/databases/"
+        private val DB_PATH = "/data/data/${appPackageName}/databases/"
         private const val DB_NAME = "vocabulary.sqlite"
         private val DATABASE_VERSION = appVersionCode
         private const val TABLE_NAME = "word"
@@ -91,7 +93,7 @@ class VocabularyManager(
             try {
                 copyDatabase() //chep du lieu
             } catch (e: IOException) {
-                throw Error("Error copying database")
+                e.printStackTrace()
             }
         }
     }
@@ -99,20 +101,25 @@ class VocabularyManager(
     val allVocabulary: List<Vocabulary>
         get() {
             val vocabularyList: MutableList<Vocabulary> = ArrayList()
-            val sqLiteDatabase = this.readableDatabase
-            val cursor = sqLiteDatabase.rawQuery("select * from $TABLE_NAME", null)
-            cursor.moveToFirst()
-            do {
-                val vocabulary = Vocabulary()
-                vocabulary.id = cursor.getString(0).toInt()
-                vocabulary.sword = cursor.getString(1)
-                vocabulary.sphonetic = cursor.getString(2)
-                vocabulary.smeanings = cursor.getString(3)
-                vocabulary.ssummary = cursor.getString(4)
-                vocabulary.sisoxfordlist = cursor.getString(5).toInt()
-                vocabulary.isClose = true
-                vocabularyList.add(vocabulary)
-            } while (cursor.moveToNext())
+            try {
+                val sqLiteDatabase = this.readableDatabase
+                val cursor = sqLiteDatabase.rawQuery("select * from $TABLE_NAME", null)
+                cursor.moveToFirst()
+                do {
+                    val vocabulary = Vocabulary()
+                    vocabulary.id = cursor.getString(0).toInt()
+                    vocabulary.sword = cursor.getString(1)
+                    vocabulary.sphonetic = cursor.getString(2)
+                    vocabulary.smeanings = cursor.getString(3)
+                    vocabulary.ssummary = cursor.getString(4)
+                    vocabulary.sisoxfordlist = cursor.getString(5).toInt()
+                    vocabulary.isClose = true
+                    vocabularyList.add(vocabulary)
+                } while (cursor.moveToNext())
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
             return vocabularyList
         }
 
@@ -120,14 +127,15 @@ class VocabularyManager(
         val vocabularyList: MutableList<Vocabulary> = ArrayList()
         val limit = "$first,$last"
         val sqLiteDatabase = this.readableDatabase
-        val cursor = sqLiteDatabase.query(TABLE_NAME,  //ten bang
-                null,  //danh sach cot can lay
-                null,  //dieu kien where
-                null,  //doi so dieu kien where
-                null,  //bieu thuc groupby
-                null,  //bieu thuc having
-                null,  //"random()", //bieu thuc orderby
-                limit //"0,3" //bieuthuc limit
+        val cursor = sqLiteDatabase.query(
+            TABLE_NAME,  //ten bang
+            null,  //danh sach cot can lay
+            null,  //dieu kien where
+            null,  //doi so dieu kien where
+            null,  //bieu thuc groupby
+            null,  //bieu thuc having
+            null,  //"random()", //bieu thuc orderby
+            limit //"0,3" //bieuthuc limit
         )
         cursor.moveToFirst()
         do {

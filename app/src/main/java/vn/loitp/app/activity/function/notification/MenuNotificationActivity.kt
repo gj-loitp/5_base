@@ -51,7 +51,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             tvMenu.text = d
         }
 
-        notti = Notti(this, NottiConfig(R.mipmap.ic_launcher, VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
+        notti = Notti(this, NottiConfig(R.drawable.ic_launcher, VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
 
         btSimpleNotification.setOnClickListener(this)
         btSimpleNotificationActions.setOnClickListener(this)
@@ -139,7 +139,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 )
             }
             btBigPictureNotification -> {
-                val icon = BitmapFactory.decodeResource(this.resources, R.mipmap.ic_launcher)
+                val icon = BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher)
                 val iconBig = BitmapFactory.decodeResource(this.resources, R.drawable.iv)
                 notti?.show(
                         NottiFactory[NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content"]
@@ -150,7 +150,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             btNotificationHeadsup -> {
                 val title = "This is title " + System.currentTimeMillis()
                 val body = "This is body " + System.currentTimeMillis()
-                val iconRes = R.mipmap.ic_launcher
+                val iconRes = R.drawable.ic_launcher
                 val notificationIntent = Intent(this, MenuNotificationActivity::class.java)
                 notificationIntent.putExtra(KEY_NOTI_DATA_INTENT, "KEY_NOTI_DATA_INTENT " + System.currentTimeMillis())
                 //pendingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

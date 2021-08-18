@@ -64,6 +64,7 @@ class LValidateUtil {
             "com.loitp.icomic",//admob ban
             "loitp93.truyenvn.cute.girl",//admob ban
             "loitp93.rss.vnexpress",//admob ban
+            "loitp93.basemaster",
             "loitp.khotruyenvuive",
         )
 

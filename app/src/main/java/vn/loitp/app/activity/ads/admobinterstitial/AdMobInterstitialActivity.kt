@@ -27,13 +27,13 @@ class AdMobInterstitialActivity : BaseFontActivity() {
 
     private fun setupViews() {
         LUIUtil.createAdFull(
-                context = this,
-                onAdLoaded = {
-                    interstitialAd = it
-                },
-                onAdFailedToLoad = {
-                    logE("createAdFull onAdFailedToLoad ${it.message}")
-                }
+            context = this,
+            onAdLoaded = {
+                interstitialAd = it
+            },
+            onAdFailedToLoad = {
+                logE("createAdFull onAdFailedToLoad ${it.message}")
+            }
         )
         val s = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.ad_full)
         textView.text = s

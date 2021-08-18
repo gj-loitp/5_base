@@ -1,7 +1,5 @@
 package com.core.utilities
 
-import alirezat775.lib.downloader.Downloader
-import alirezat775.lib.downloader.core.OnDownloadListener
 import android.app.ActivityManager
 import android.content.Context
 import android.graphics.Color
@@ -23,7 +21,7 @@ import kotlin.collections.ArrayList
 
 class LStoreUtil {
     companion object {
-        internal var logTag = LStoreUtil::class.java.simpleName
+        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
 
         private fun log(msg: String) {
             LLog.d(logTag, msg)
@@ -89,22 +87,22 @@ class LStoreUtil {
                 "The more I C, the less I see.  "
             )
 
-        fun getFileNameComic(
-            url: String
-        ): String {
-            var u = url
-            u = u.replace(oldValue = "/", newValue = "")
-            u = u.replace(oldValue = ".", newValue = "")
-            u = u.replace(oldValue = ":", newValue = "")
-            u = u.replace(oldValue = "-", newValue = "")
-            return u + EXTENSION
-        }
+//        fun getFileNameComic(
+//            url: String
+//        ): String {
+//            var u = url
+//            u = u.replace(oldValue = "/", newValue = "")
+//            u = u.replace(oldValue = ".", newValue = "")
+//            u = u.replace(oldValue = ":", newValue = "")
+//            u = u.replace(oldValue = "-", newValue = "")
+//            return u + EXTENSION
+//        }
 
-        fun createFileImage(
-            i: Int
-        ): String {
-            return "p$i$EXTENSION"
-        }
+//        fun createFileImage(
+//            i: Int
+//        ): String {
+//            return "p$i$EXTENSION"
+//        }
 
         //dung de bao hieu cho gallery load lai photo vi co anh moi
         fun sendBroadcastMediaScan(
@@ -134,19 +132,19 @@ class LStoreUtil {
                 try {
 //                    C1
 //                    val file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
-//                        ex: /storage/emulated/0/ZZZTestDownloader
+////                        ex: /storage/emulated/0/ZZZTestDownloader
 
 //                    C2
-                    val file =
-                        File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
+//                    val file =
+//                        File(LAppResource.application.getExternalFilesDir(null)?.absolutePath + "/" + folderName)
 //                    ex: /storage/emulated/0/Android/data/loitp.basemaster/files/ZZZTestDownloader
 
 //                    C3
-//                    val path =
-//                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
-//                            ?.get(0)
-//                            ?: ""
-//                    val file = File("$path/$folderName")
+                    val path =
+                        LAppResource.application.getExternalFilesDir(null)?.parent?.split("/Andro")
+                            ?.get(0)
+                            ?: ""
+                    val file = File("$path/$folderName")
 
                     log("file path ${file.path}")
                     log("file exists " + file.exists())
@@ -165,6 +163,7 @@ class LStoreUtil {
             } else {
                 try {
                     val cacheDir = File(LAppResource.application.cacheDir, "$folderName/")
+//                    /data/user/0/loitp.basemaster/cache/Pictures/ZZZTestDownloader
                     if (!cacheDir.exists()) {
                         cacheDir.mkdirs()
                         folderPath = cacheDir.absolutePath
@@ -206,6 +205,7 @@ class LStoreUtil {
                 val myFileExist = myFile.exists()
                 if (!myFileExist) {
                     val isSuccess = myFile.createNewFile()
+                    log("isSuccess $isSuccess")
                 }
                 fos = FileOutputStream(myFile)
                 fos.write(body.toByteArray())
@@ -295,9 +295,9 @@ class LStoreUtil {
             return r.nextInt(length)
         }
 
-        fun getPathOfFileNameMainComicsListHTMLCode(): String {
-            return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
-        }
+//        fun getPathOfFileNameMainComicsListHTMLCode(): String {
+//            return getFolderPath() + FOLDER_TRUYENTRANHTUAN + "/" + FILE_NAME_MAIN_COMICS_LIST_HTML_CODE
+//        }
 
         fun getFileFromAssets(
             fileName: String
@@ -455,6 +455,7 @@ class LStoreUtil {
             val freeMb = (freeBytesExternal / (1024 * 1024)).toInt()
 //            val totalSize = File(context.getExternalFilesDir(null).toString()).totalSpace
 //            val totalMb = (totalSize / (1024 * 1024)).toInt()
+            log("freeMb $freeMb")
             return freeMb
         }
 
@@ -465,38 +466,8 @@ class LStoreUtil {
             activityManager.getMemoryInfo(memoryInfo)
             val availableMegs = memoryInfo.availMem / 1048576L
             val percentAvail = memoryInfo.availMem / memoryInfo.totalMem
-//            Log.d(logTag, "percentAvail $percentAvail")
+            log("percentAvail $percentAvail")
             return availableMegs
-        }
-
-        fun getDownloader(
-            folderName: String? = null,
-            token: String? = null,
-            url: String,
-            onDownloadListener: OnDownloadListener
-        ): Downloader {
-            if (folderName.isNullOrEmpty()) {
-                val map = HashMap<String, String>()
-                token?.let {
-                    map["Authorization"] = it
-                }
-                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                    .header(map)
-                    .downloadListener(onDownloadListener)
-                    .build()
-            } else {
-                //TODO remove special character
-                val path = getFolderPath(folderName = folderName)
-                val map = HashMap<String, String>()
-                token?.let {
-                    map["Authorization"] = it
-                }
-                return Downloader.Builder(mContext = LAppResource.application, mUrl = url)
-                    .downloadDirectory(path)
-                    .header(map)
-                    .downloadListener(onDownloadListener)
-                    .build()
-            }
         }
 
         //return destination file path

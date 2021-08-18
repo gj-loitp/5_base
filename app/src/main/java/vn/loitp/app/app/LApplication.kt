@@ -7,7 +7,6 @@ import com.core.helper.ttt.db.TTTDatabase
 import com.core.utilities.LUIUtil
 import com.data.ActivityData
 import com.data.AdmobData
-import com.google.firebase.messaging.FirebaseMessaging
 import io.realm.Realm
 import io.realm.RealmConfiguration
 import vn.loitp.app.R
@@ -15,7 +14,6 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //build release de check
 //TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
-//TODO demo -> floating view crash
 //TODO demo firebase -> auth
 //TODO service -> ko stop service dc
 //TODO database -> read sqlite dtb crash
@@ -48,9 +46,6 @@ class LApplication : BaseApplication() {
 
         //config font
         LUIUtil.fontForAll = Constants.FONT_PATH
-
-        //fcm
-        FirebaseMessaging.getInstance().subscribeToTopic(Constants.FCM_TOPIC)
 
         //room database
         FNBDatabase.getInstance(this)

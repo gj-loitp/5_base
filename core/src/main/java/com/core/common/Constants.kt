@@ -11,7 +11,8 @@ class Constants {
         const val NOT_FOUND = -404
 
         //region url img
-        const val URL_IMG_THUMBNAIL = "https://c1.staticflickr.com/1/584/31506863796_53a3f24062_n.jpg"
+        const val URL_IMG_THUMBNAIL =
+            "https://c1.staticflickr.com/1/584/31506863796_53a3f24062_n.jpg"
         const val URL_IMG = "https://c1.staticflickr.com/9/8438/28818520263_c7ea1b3e3f_b.jpg"
         const val URL_IMG_1 = "https://c1.staticflickr.com/5/4564/38746630932_93b5b54925_h.jpg"
         const val URL_IMG_2 = "https://c1.staticflickr.com/5/4263/35746631876_0c45ec2943_h.jpg"
@@ -31,28 +32,7 @@ class Constants {
 
         const val MAIN_LINK_TRUYENTRANHTUAN = "http://truyentranhtuan.com/danh-sach-truyen"
 
-        const val TEST_0 = "6E0762FF2B272D5BCE89FEBAAB872E34"
-        const val TEST_1 = "8FA8E91902B43DCB235ED2F6BBA9CAE0"
-        const val TEST_2 = "58844B2E50AF6E33DC818387CC50E593"
-        const val TEST_3 = "179198315EB7B069037C5BE8DEF8319A"
-        const val TEST_4 = "7DA8A5B216E868636B382A7B9756A4E6"
-        const val TEST_5 = "A1EC01C33BD69CD589C2AF605778C2E6"
-        const val TEST_6 = "13308851AEDCA44443112D80A8D182CA"
-        const val TEST_7 = "E3876538025DFE31EE38DC997F860C83"
-        const val TEST_8 = "263712DA42399656FF39E197148C935A"
-        const val TEST_9 = "F82667374DD56D3E0AFDBF331A34E61E"
-        const val TEST_10 = "462FEA8E9EF7A8BBC6E2D24CC4945511"
-        const val TEST_11 = "D1B593A99FF7E14DF4E2741AFF95645D"
-        const val TEST_12 = "0ECE5CECE9A16F33BCAF16AB4DAB3B1D"
-        const val TEST_13 = "1E306613357028F7C4725F9E8C2F1CE2"
-        const val TEST_14 = "A9ABA0C60CFB1A386B75E3D02C859B50"
-        const val TEST_15 = "685877309FA536F43002532796257FA7"
-        const val TEST_16 = "455E79ED99CC88A67262D09CEA6E8A47"
-        const val TEST_17 = "B4A530DDDB4C0DF0CB7523FBB6A79852"
-        const val TEST_18 = "236ADD14617DFD6589B3FA7AE0926E23"
-        const val TEST_19 = "890D21707E6D8D13FA3E5C2DEEF10840"
-        const val TEST_20 = "76719477F8B2C611727A71E20C2B5B82"
-        const val TEST_21 = "31560B995B82D1986D62683A37DBD479"
+        const val TEST_22 = "A2051BE3A7BDA5AAD02FE240F0543FE2"
 
         const val LOITP = "LoitpDebug"
 
@@ -73,7 +53,8 @@ class Constants {
         const val PREFIXS = "https://"
         const val PREFIXS_SHORT = "https:"
         const val FCM_TOPIC = "/topics/loitp"
-        const val URL_POLICY = "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/"
+        const val URL_POLICY =
+            "https://loitp.wordpress.com/2018/06/10/dieu-khoan-su-dung-chinh-sach-bao-mat-va-quyen-rieng-tu/"
         const val URL_GIRL = "https://www.facebook.com/freuss1/posts/3399843230131155"
 
         //region flickr
@@ -178,29 +159,33 @@ class Constants {
         const val BKG_SPLASH_SCREEN = "BKG_SPLASH_SCREEN"
         const val IS_HIDE_SPACE_VIEW = "IS_HIDE_SPACE_VIEW"
         val ARR_RANDOM_BKG = intArrayOf(
-                R.drawable.l_bkg_gradient_man_of_steel,
-                R.drawable.l_bkg_shadow_black_white,
-                R.drawable.l_bkg_shadow_black_white_dark,
-                R.drawable.l_bkg_shadow_white_black,
-                R.drawable.l_bkg_shadow_white_black_dark)
-        val ARR_URL_BKG_FLICKR = arrayOf(URL_IMG,
-                URL_IMG_1,
-                URL_IMG_2,
-                URL_IMG_3,
-                URL_IMG_4,
-                URL_IMG_5,
-                URL_IMG_6,
-                URL_IMG_7,
-                URL_IMG_8,
-                URL_IMG_9,
-                URL_IMG_10,
-                URL_IMG_11,
-                URL_IMG_12)
+            R.drawable.l_bkg_gradient_man_of_steel,
+            R.drawable.l_bkg_shadow_black_white,
+            R.drawable.l_bkg_shadow_black_white_dark,
+            R.drawable.l_bkg_shadow_white_black,
+            R.drawable.l_bkg_shadow_white_black_dark
+        )
+        val ARR_URL_BKG_FLICKR = arrayOf(
+            URL_IMG,
+            URL_IMG_1,
+            URL_IMG_2,
+            URL_IMG_3,
+            URL_IMG_4,
+            URL_IMG_5,
+            URL_IMG_6,
+            URL_IMG_7,
+            URL_IMG_8,
+            URL_IMG_9,
+            URL_IMG_10,
+            URL_IMG_11,
+            URL_IMG_12
+        )
         const val KEY_VIDEO_CURRENT_POSITION = "KEY_VIDEO_CURRENT_POSITION"
         const val KEY_VIDEO_LINK_PLAY = "KEY_VIDEO_LINK_PLAY"
         const val KEY_VIDEO_LINK_IMA_AD = "KEY_VIDEO_LINK_IMA_AD"
         const val PER_PAGE_SIZE = 50
-        const val DONATION_INFOR_LOITP = """Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: 
+        const val DONATION_INFOR_LOITP =
+            """Cuộc sống hôm nay tuy vất vả nhưng cuộc đời ơi ta mến thương và mọi người có thể ủng hộ mình qua tài khoản: 
 
 ❤ Vietcombank
 Tên tài khoản: TRAN PHU LOI
