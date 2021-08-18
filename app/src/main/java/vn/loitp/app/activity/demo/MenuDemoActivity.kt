@@ -21,7 +21,6 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
 import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
-import vn.loitp.app.activity.demo.firebase.MenuFirebaseActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
 import vn.loitp.app.activity.demo.fragmentnavigation.FragmentNavigationActivity
@@ -75,7 +74,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btTextToSpeech.setOnClickListener(this)
         btFloatingWidget.setOnClickListener(this)
         btFloatingVideo.setOnClickListener(this)
-        btFirebase.setOnClickListener(this)
         btGalleryCore.setOnClickListener(this)
         btGalleryCoreAlbum.setOnClickListener(this)
         btGalleryMember.setOnClickListener(this)
@@ -107,7 +105,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 vn.loitp.app.activity.demo.floatingwidget.FloatingWidgetActivity::class.java
             )
             btFloatingVideo -> intent = Intent(this, FloatingWidgetActivity::class.java)
-            btFirebase -> intent = Intent(this, MenuFirebaseActivity::class.java)
             btGalleryCore -> {
                 intent = Intent(this, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))

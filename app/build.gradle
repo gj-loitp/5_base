@@ -8,7 +8,7 @@ android {
     buildToolsVersion '30.0.3'
 
     defaultConfig {
-        applicationId "loitp.basemaster"
+        applicationId "loitp93.basemaster"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 12
@@ -63,7 +63,7 @@ android {
 
     buildTypes {
         release {
-            debuggable true
+            debuggable false
             minifyEnabled true
             useProguard true //used android.enableR8=true in gradle.properties
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -120,41 +120,6 @@ dependencies {
 
     //endregion
 
-    //region Firebase + Google service
-    api 'com.google.firebase:firebase-ads:19.8.0'
-    // Firebase Authentication
-    api 'com.google.firebase:firebase-auth:20.0.3'
-    api 'com.google.firebase:firebase-core:18.0.2'
-
-    // Google Sign In SDK (only required for Google Sign In)
-    api 'com.google.android.gms:play-services-auth:19.0.0'
-
-    // Firebase UI, used in FirebaseUIActivity.
-    api 'com.firebaseui:firebase-ui-auth:4.0.0'
-
-    // Facebook Android SDK (only required for Facebook Login)
-    // Used in FacebookLoginActivity.
-    api 'com.facebook.android:facebook-login:8.1.0'
-
-    //Firebase remote config
-    api 'com.google.firebase:firebase-config:20.0.4'
-
-    //Firebase database
-    api 'com.firebaseui:firebase-ui-database:4.0.0'
-    //implementation 'com.google.firebase:firebase-auth:16.0.1'
-    api 'com.google.firebase:firebase-database:19.7.0'
-
-    // Needed to fix a dependency conflict with FirebaseUI'
-    api 'androidx.arch.core:core-runtime:2.1.0'
-
-    //Firebase invites
-    api 'com.google.firebase:firebase-invites:17.0.0'
-
-    //Firebase FCM
-    //compile 'com.google.android.gms:play-services:12.0.1'
-    api 'com.google.firebase:firebase-messaging:21.0.1'
-    //endregion
-
     //region picker
 
     //https://github.com/ParkSangGwon/TedImagePicker
@@ -200,4 +165,4 @@ dependencies {
 
 
 }
-apply plugin: 'com.google.gms.google-services'
+//apply plugin: 'com.google.gms.google-services'
