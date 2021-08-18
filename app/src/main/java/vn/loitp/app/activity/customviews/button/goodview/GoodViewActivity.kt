@@ -38,7 +38,7 @@ class GoodViewActivity : BaseFontActivity() {
         imageView.setOnClickListener {
             imageView.setColorFilter(Color.TRANSPARENT)
             lGoodView?.apply {
-                this.setImage(R.drawable.ic_launcher)
+                this.setImage(R.drawable.ic_account_circle_black_48dp)
                 //this.setDistance(1000)
                 //this.setTranslateY(0, 10000)
                 //this.setAlpha(0, 0.5f)
