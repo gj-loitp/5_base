@@ -33,7 +33,7 @@
                 android:layout_weight="1"
                 android:background="?selectableItemBackgroundBorderless"
                 android:contentDescription="@string/app_name"
-                android:src="@mipmap/ic_launcher" />
+                android:src="@drawable/ic_launcher" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

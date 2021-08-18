@@ -6,7 +6,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
-import com.views.LToast
 import com.views.actionbar.LActionBar
 import kotlinx.android.synthetic.main.activity_l_action_bar.*
 import vn.loitp.app.R
@@ -39,7 +38,7 @@ class LActionbarActivity : BaseFontActivity() {
         })
         lActionBar.showMenuIcon()
         lActionBar.showShadowView()
-        lActionBar.setImageMenuIcon(R.mipmap.ic_launcher)
+        lActionBar.setImageMenuIcon(R.drawable.ic_chevron_right_black_48dp)
         lActionBar.setTvTitle("Demo LActionbarActivity")
     }
 }

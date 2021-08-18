@@ -3,30 +3,30 @@
 	<group android:checkableBehavior="single">
 		<item
 			android:id="@+id/navCamera"
-			android:icon="@mipmap/ic_launcher"
+			android:icon="@drawable/ic_launcher"
 			android:title="Import" />
 		<item
 			android:id="@+id/navGallery"
-			android:icon="@mipmap/ic_launcher"
+			android:icon="@drawable/ic_launcher"
 			android:title="Gallery" />
 		<item
 			android:id="@+id/navSlideshow"
-			android:icon="@mipmap/ic_launcher"
+			android:icon="@drawable/ic_launcher"
 			android:title="Slideshow" />
 		<item
 			android:id="@+id/navManage"
-			android:icon="@mipmap/ic_launcher"
+			android:icon="@drawable/ic_launcher"
 			android:title="Tools" />
 	</group>
 	<item android:title="Communicate">
 		<menu>
 			<item
 				android:id="@+id/navShare"
-				android:icon="@mipmap/ic_launcher"
+				android:icon="@drawable/ic_launcher"
 				android:title="Share" />
 			<item
 				android:id="@+id/navSend"
-				android:icon="@mipmap/ic_launcher"
+				android:icon="@drawable/ic_launcher"
 				android:title="Send" />
 		</menu>
 	</item>

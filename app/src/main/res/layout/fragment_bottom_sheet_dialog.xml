@@ -29,7 +29,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_launcher"
             app:tint="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -60,7 +60,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_launcher"
             app:tint="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -91,7 +91,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_launcher"
             app:tint="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -122,7 +122,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_launcher"
             android:tint="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -153,7 +153,7 @@
             android:layout_height="24dp"
             android:layout_marginEnd="32dp"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_launcher"
             app:tint="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatTextView
