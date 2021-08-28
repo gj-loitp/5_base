@@ -1,45 +1,45 @@
-package vn.loitp.app.activity.customviews.viewpager.verticalviewpager;
+package vn.loitp.app.activity.customviews.viewpager.verticalviewpager
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_view_pager_vertical.*
+import vn.loitp.app.R
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+class FrmVertical : Fragment() {
 
-import vn.loitp.app.R;
+    companion object {
 
-public class FrmVertical extends Fragment {
-    String text;
-    private static final String TEXT = "text";
+        private const val TEXT = "text"
 
-    public FrmVertical() {
+        fun newInstance(data: String): FrmVertical {
+            val fragment = FrmVertical()
+            val bundle = Bundle(1)
+            bundle.putString(TEXT, data)
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
+    var text: String? = null
 
-    public static FrmVertical newInstance(String data) {
-        FrmVertical fragment = new FrmVertical();
-        Bundle bundle = new Bundle(1);
-        bundle.putString(TEXT, data);
-        fragment.setArguments(bundle);
-        return fragment;
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        text = arguments?.getString(TEXT) ?: ""
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        this.text = getArguments().getString(TEXT);
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_view_pager_vertical, container, false)
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_view_pager_vertical, container, false);
-        TextView tv = view.findViewById(R.id.tv);
-        tv.setText(text);
-        return view;
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        tv.text = text
     }
 
 }
