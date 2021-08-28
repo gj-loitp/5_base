@@ -9,10 +9,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by prabhat on 26/1/18.
- */
-
 public class MyAdapter extends FragmentPagerAdapter {
     private Context context;
     private String desc, title;
