@@ -15,6 +15,7 @@ import vn.loitp.app.activity.customviews.viewpager.detectviewpagerswipeout2.View
 import vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableViewPagerActivity
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity
 import vn.loitp.app.activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity
+import vn.loitp.app.activity.customviews.viewpager.verticalviewpager.MainActivity
 import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity
 
 @LogTag("ViewPagerMenuActivity")
@@ -34,6 +35,7 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
         btViewPagerTabLayout.setOnClickListener(this)
         btDetectViewPagerSwipeOut2.setOnClickListener(this)
         btLockableViewPager.setOnClickListener(this)
+        btVerticalViewPager.setOnClickListener(this)
         btRefreshViewPager.setOnClickListener(this)
     }
 
@@ -46,6 +48,7 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
             btViewPagerTabLayout -> intent = Intent(this, ViewPagerWithTabLayoutActivity::class.java)
             btDetectViewPagerSwipeOut2 -> intent = Intent(this, ViewPagerSwipeOut2Activity::class.java)
             btLockableViewPager -> intent = Intent(this, LockableViewPagerActivity::class.java)
+            btVerticalViewPager -> intent = Intent(this, MainActivity::class.java)
             btRefreshViewPager -> intent = Intent(this, RefreshViewPagerActivity::class.java)
         }
         intent?.let {

@@ -738,9 +738,9 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
-<!--        <meta-data-->
-<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
-<!--            android:value="@string/str_app_id" />-->
+        <!--        <meta-data-->
+        <!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
+        <!--            android:value="@string/str_app_id" />-->
 
         <receiver
             android:name=".activity.demo.alarmdemoapp.service.AlarmReceiver"
@@ -768,6 +768,7 @@
             android:name=".activity.demo.floatingvideo.FloatingViewEdgeService"
             android:enabled="true"
             android:exported="false" />
+
         <activity
             android:name=".activity.customviews.progressloadingview.circularprogressindicator.CircularProgressIndicatorActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
@@ -1106,6 +1107,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.function.pump.PumpActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.customviews.viewpager.verticalviewpager.MainActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>
