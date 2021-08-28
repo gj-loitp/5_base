@@ -738,9 +738,9 @@
         <meta-data
             android:name="android.max_aspect"
             android:value="2.1" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/str_app_id" />
+<!--        <meta-data-->
+<!--            android:name="com.google.android.gms.ads.APPLICATION_ID"-->
+<!--            android:value="@string/str_app_id" />-->
 
         <receiver
             android:name=".activity.demo.alarmdemoapp.service.AlarmReceiver"
