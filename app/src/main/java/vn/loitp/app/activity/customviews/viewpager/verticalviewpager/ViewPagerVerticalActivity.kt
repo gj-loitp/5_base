@@ -22,7 +22,11 @@ class ViewPagerVerticalActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         addData()
-        viewPager.adapter = MyAdapter(supportFragmentManager, this, stringList)
+        viewPager.adapter =
+            VerticalAdapter(
+                supportFragmentManager,
+                stringList
+            )
     }
 
     private fun addData() {

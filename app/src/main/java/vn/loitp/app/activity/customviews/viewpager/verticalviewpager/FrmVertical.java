@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.viewpager.verticalviewpager;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,22 +11,16 @@ import androidx.fragment.app.Fragment;
 
 import vn.loitp.app.R;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class MyFragment extends Fragment {
+public class FrmVertical extends Fragment {
     String text;
     private static final String TEXT = "text";
-    private TextView ivTextView;
 
-    public MyFragment() {
-        // Required empty public constructor
+    public FrmVertical() {
     }
 
 
-    public static MyFragment newInstance(String data) {
-        MyFragment fragment = new MyFragment();
+    public static FrmVertical newInstance(String data) {
+        FrmVertical fragment = new FrmVertical();
         Bundle bundle = new Bundle(1);
         bundle.putString(TEXT, data);
         fragment.setArguments(bundle);
@@ -40,13 +33,12 @@ public class MyFragment extends Fragment {
         this.text = getArguments().getString(TEXT);
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my, container, false);
-        ivTextView = view.findViewById(R.id.ivTextView);
-        ivTextView.setText(text);
+        View view = inflater.inflate(R.layout.fragment_view_pager_vertical, container, false);
+        TextView tv = view.findViewById(R.id.tv);
+        tv.setText(text);
         return view;
     }
 
