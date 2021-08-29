@@ -16,6 +16,7 @@ import vn.loitp.app.activity.customviews.viewpager.lockableviewpager.LockableVie
 import vn.loitp.app.activity.customviews.viewpager.parrallaxviewpager.ParallaxViewPagerActivity
 import vn.loitp.app.activity.customviews.viewpager.refreshviewpager.RefreshViewPagerActivity
 import vn.loitp.app.activity.customviews.viewpager.verticalviewpager.ViewPagerVerticalActivity
+import vn.loitp.app.activity.customviews.viewpager.viewpager2.MainActivity
 import vn.loitp.app.activity.customviews.viewpager.viewpagerwithtablayout.ViewPagerWithTabLayoutActivity
 
 @LogTag("ViewPagerMenuActivity")
@@ -36,6 +37,7 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
         btDetectViewPagerSwipeOut2.setOnClickListener(this)
         btLockableViewPager.setOnClickListener(this)
         btVerticalViewPager.setOnClickListener(this)
+        btViewPager2.setOnClickListener(this)
         btRefreshViewPager.setOnClickListener(this)
     }
 
@@ -44,11 +46,15 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btAutoViewPager -> intent = Intent(this, ViewPagerAutoActivity::class.java)
             btParallaxViewPager -> intent = Intent(this, ParallaxViewPagerActivity::class.java)
-            btDetectViewPagerSwipeOut -> intent = Intent(this, DetectViewPagerSwipeOutActivity::class.java)
-            btViewPagerTabLayout -> intent = Intent(this, ViewPagerWithTabLayoutActivity::class.java)
-            btDetectViewPagerSwipeOut2 -> intent = Intent(this, ViewPagerSwipeOut2Activity::class.java)
+            btDetectViewPagerSwipeOut -> intent =
+                Intent(this, DetectViewPagerSwipeOutActivity::class.java)
+            btViewPagerTabLayout -> intent =
+                Intent(this, ViewPagerWithTabLayoutActivity::class.java)
+            btDetectViewPagerSwipeOut2 -> intent =
+                Intent(this, ViewPagerSwipeOut2Activity::class.java)
             btLockableViewPager -> intent = Intent(this, LockableViewPagerActivity::class.java)
             btVerticalViewPager -> intent = Intent(this, ViewPagerVerticalActivity::class.java)
+            btViewPager2 -> intent = Intent(this, MainActivity::class.java)
             btRefreshViewPager -> intent = Intent(this, RefreshViewPagerActivity::class.java)
         }
         intent?.let {
