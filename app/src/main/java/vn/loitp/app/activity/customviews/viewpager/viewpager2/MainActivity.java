@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            return TabFragment.getInstance(position + 1);
+            return FrmViewPager2.getInstance(position + 1);
         }
 
         @Override

@@ -3,25 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="?attr/themeBackgroundColor"
     android:gravity="center"
-    android:id="@+id/root_layout"
-    tools:context=".TabFragment">
+    android:orientation="vertical">
 
-
-    <TextView
-        android:id="@+id/fragment_text"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"
-        tools:text="Rajnish"/>
+        android:textColor="?attr/themeTextColor"
+        tools:text="@string/app_name" />
 
     <LinearLayout
-        android:layout_margin="10dp"
+        android:id="@+id/ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/start_ll">
-    </LinearLayout>
+        android:orientation="horizontal" />
 
 </LinearLayout>
