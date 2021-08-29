@@ -8,7 +8,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.activity_main.*
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_view_pager_2.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.viewpager.viewpager2.FrmViewPager2.Companion.getInstance
 
@@ -20,7 +21,7 @@ class ViewPager2Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_view_pager_2)
 
         setupViews()
     }
@@ -28,6 +29,14 @@ class ViewPager2Activity : AppCompatActivity() {
     private fun setupViews() {
         viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
         setUpViewPager()
+
+        btSwitchOrientation.setSafeOnClickListener {
+            if (viewPager.orientation == ViewPager2.ORIENTATION_VERTICAL) {
+                viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+            } else {
+                viewPager.orientation = ViewPager2.ORIENTATION_VERTICAL
+            }
+        }
     }
 
     private fun setUpViewPager() {
