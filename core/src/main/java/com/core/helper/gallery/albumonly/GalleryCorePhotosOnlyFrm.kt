@@ -29,7 +29,10 @@ import com.views.setSafeOnClickListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
+import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.*
+import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.progressBar
+import kotlinx.android.synthetic.main.l_frm_flickr_gallery_core_photos_only.recyclerView
 
 @LogTag("GalleryCorePhotosOnlyFrm")
 class GalleryCorePhotosOnlyFrm(
@@ -200,7 +203,7 @@ class GalleryCorePhotosOnlyFrm(
     }
 
     private fun getPhotosets() {
-        indicatorView.smoothToShow()
+        LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -238,7 +241,7 @@ class GalleryCorePhotosOnlyFrm(
             }, { e ->
                 e.printStackTrace()
                 handleException(e)
-                indicatorView.smoothToHide()
+                LDialogUtil.hideProgress(progressBar)
             })
         )
     }
@@ -254,7 +257,7 @@ class GalleryCorePhotosOnlyFrm(
         }
         logD("is calling photosetsGetPhotos $currentPage/$totalPage")
         isLoading = true
-        indicatorView.smoothToShow()
+        LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -262,7 +265,7 @@ class GalleryCorePhotosOnlyFrm(
         if (currentPage <= 0) {
             logD("currentPage <= 0 -> return")
             currentPage = 0
-            indicatorView.smoothToHide()
+            LDialogUtil.hideProgress(progressBar)
             return
         }
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
@@ -298,13 +301,13 @@ class GalleryCorePhotosOnlyFrm(
                 }
                 updateAllViews()
 
-                indicatorView.smoothToHide()
+                LDialogUtil.hideProgress(progressBar)
                 btPage.visibility = View.VISIBLE
                 isLoading = false
                 currentPage--
             }, { e ->
                 handleException(e)
-                indicatorView.smoothToHide()
+                LDialogUtil.hideProgress(progressBar)
                 isLoading = true
             })
         )

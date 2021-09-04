@@ -122,9 +122,9 @@ class ComicReadActivity : BaseFontActivity() {
                 logD("<<<chapterDetailActionLiveData observe isDoing $isDoing, isSuccess $isSuccess")
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
 
                 if (isDoing == false && isSuccess == true) {

@@ -6,9 +6,12 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.ttt.model.comic.Comic
 import com.core.helper.ttt.viewmodel.TTTViewModel
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.*
+import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.progressBar
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.textView
 import vn.loitp.app.R
 
@@ -56,9 +59,9 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     if (isSuccess == true) {
                         val listComicFav = actionData.data
                         listComicFav?.let {
@@ -73,9 +76,9 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     if (isSuccess == true) {
                         val id = actionData.data
                         showLongInformation("Add success with id $id")
@@ -90,9 +93,9 @@ class TTTAPIFavListActivity : BaseFontActivity() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     if (isSuccess == true) {
                         val comic = actionData.data
                         showLongInformation("Delete success ${comic?.title}")

@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LDialogUtil
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
 import com.views.setSafeOnClickListener
@@ -30,7 +31,7 @@ class BigImageViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        indicatorView.hide()
+        LDialogUtil.hideProgress(progressBar)
         bigImageView.setImageViewFactory(GlideImageViewFactory())
         bigImageView.setImageLoaderCallback(object : ImageLoader.Callback {
             override fun onCacheHit(imageType: Int, image: File) {}
@@ -38,7 +39,7 @@ class BigImageViewActivity : BaseFontActivity() {
             override fun onCacheMiss(imageType: Int, image: File) {}
 
             override fun onStart() {
-                indicatorView.smoothToShow()
+                LDialogUtil.showProgress(progressBar)
             }
 
             override fun onProgress(progress: Int) {
@@ -51,7 +52,7 @@ class BigImageViewActivity : BaseFontActivity() {
                 logD("onSuccess")
                 val ssiv = bigImageView.ssiv
                 ssiv?.isZoomEnabled = true
-                indicatorView.smoothToHide()
+                LDialogUtil.hideProgress(progressBar)
             }
 
             override fun onFail(error: Exception) {}

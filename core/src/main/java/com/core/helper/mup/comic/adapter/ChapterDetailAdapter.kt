@@ -15,6 +15,7 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.BaseAdapter
 import com.core.helper.mup.comic.model.ChapterComicsDetail
 import com.core.helper.mup.comic.model.ChapterDetail
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
@@ -56,27 +57,37 @@ class ChapterDetailAdapter : BaseAdapter() {
 //                imgSrc = "http://truyentranhtuan.com/manga2/detective-conan/1055/img-00001.jpg"
 //            }
             logD("$bindingAdapterPosition -> imgSrc $imgSrc, ${chapterComicsDetail.noOrder}")
-            itemView.indicatorView.smoothToShow()
+            LDialogUtil.showProgress(itemView.progressBar)
             itemView.tvPage.text = "${chapterComicsDetail.noOrder}"
 //            LImageUtil.setImageViewZoom(iv = itemView.ivChapterDetail)
 
             LImageUtil.loadHighQuality(
-                    any = imgSrc,
-                    imageView = itemView.ivChapterDetail,
+                any = imgSrc,
+                imageView = itemView.ivChapterDetail,
 //                    resPlaceHolder = placeHolder,
-                    resError = R.drawable.place_holder_error404,
-                    drawableRequestListener = object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            itemView.indicatorView?.smoothToHide()
-                            return false
-                        }
-
-                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            itemView.indicatorView?.smoothToHide()
-//                            LImageUtil.setZoomFitWidthScreen(touchImageView = itemView.ivChapterDetail)
-                            return false
-                        }
+                resError = R.drawable.place_holder_error404,
+                drawableRequestListener = object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        LDialogUtil.hideProgress(itemView.progressBar)
+                        return false
                     }
+
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        dataSource: DataSource,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        LDialogUtil.hideProgress(itemView.progressBar)
+                        return false
+                    }
+                }
             )
 
             LUIUtil.setTextShadow(textView = itemView.tvPage, color = Color.BLACK)
@@ -87,10 +98,12 @@ class ChapterDetailAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_comic_chapter_detail, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_comic_chapter_detail, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = listData.size
 

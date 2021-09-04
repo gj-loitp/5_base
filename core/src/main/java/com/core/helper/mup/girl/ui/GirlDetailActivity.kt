@@ -24,6 +24,7 @@ import com.core.helper.mup.girl.model.GirlPage
 import com.core.helper.mup.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LAnimationUtil
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LImageUtil
 import com.daimajia.androidanimations.library.Techniques
 import com.views.LAppBarLayout
@@ -148,9 +149,9 @@ class GirlDetailActivity : BaseFontActivity() {
             vm.pageDetailActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {
@@ -179,9 +180,9 @@ class GirlDetailActivity : BaseFontActivity() {
 //                logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
 //                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))

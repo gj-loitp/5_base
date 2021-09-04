@@ -11,10 +11,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.mup.comic.service.ComicApiClient
 import com.core.helper.mup.comic.viewmodel.ComicLoginViewModel
-import com.core.utilities.LActivityUtil
-import com.core.utilities.LSharedPrefsUtil
-import com.core.utilities.LUIUtil
-import com.core.utilities.LValidateUtil
+import com.core.utilities.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import kotlinx.android.synthetic.main.l_activity_mup_comic_login.*
@@ -68,9 +65,9 @@ class ComicLoginActivity : BaseFontActivity() {
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
 
                     if (isSuccess == true) {
                         val data = actionData.data

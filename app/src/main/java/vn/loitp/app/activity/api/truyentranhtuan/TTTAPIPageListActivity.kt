@@ -6,8 +6,13 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.ttt.viewmodel.TTTViewModel
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
+import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import kotlinx.android.synthetic.main.activity_api_ttt_page_list.*
+import kotlinx.android.synthetic.main.activity_api_ttt_page_list.progressBar
+import kotlinx.android.synthetic.main.activity_api_ttt_page_list.textView
+import kotlinx.android.synthetic.main.activity_api_ttt_page_list.tvTitle
 import vn.loitp.app.R
 
 @LogTag("TTTAPIPageListActivity")
@@ -37,9 +42,9 @@ class TTTAPIPageListActivity : BaseFontActivity() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     if (isSuccess == true) {
                         val listPage = actionData.data
                         listPage?.let {

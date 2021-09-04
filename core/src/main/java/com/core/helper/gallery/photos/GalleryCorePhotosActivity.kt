@@ -151,14 +151,14 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             return
         }
         isLoading = true
-        indicatorView.smoothToShow()
+        LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
         val userID = FlickrConst.USER_KEY
         if (currentPage <= 0) {
             currentPage = 0
-            indicatorView.smoothToHide()
+            LDialogUtil.hideProgress(progressBar)
             isLoading = false
             return
         }
@@ -185,12 +185,12 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                         PhotosDataCore.instance.addPhoto(it)
                     }
                     updateAllViews()
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     btPage.visibility = View.VISIBLE
                     isLoading = false
                 }) { e: Throwable ->
                     handleException(e)
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     isLoading = true
                 })
     }

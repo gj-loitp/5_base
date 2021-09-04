@@ -7,6 +7,7 @@ import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.FlickrConst
 import com.restapi.flickr.model.photosetgetlist.Photoset
@@ -17,6 +18,9 @@ import com.restapi.restclient.RestClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_api_gallery.*
+import kotlinx.android.synthetic.main.activity_api_gallery.progressBar
+import kotlinx.android.synthetic.main.activity_api_gallery.textView
+import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import vn.loitp.app.R
 
 @LogTag("GalleryAPIActivity")
@@ -35,7 +39,7 @@ class GalleryAPIActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        indicatorView.smoothToHide()
+        LDialogUtil.hideProgress(progressBar)
         bt1.setOnClickListener {
             getPhotosets()
         }
@@ -45,7 +49,7 @@ class GalleryAPIActivity : BaseFontActivity() {
     }
 
     private fun getPhotosets() {
-        indicatorView.smoothToShow()
+        LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -64,12 +68,12 @@ class GalleryAPIActivity : BaseFontActivity() {
                     wrapperPhotosetGetlist?.let {
                         LUIUtil.printBeautyJson(it, textView)
                     }
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     bt2.visibility = View.VISIBLE
                 }) { e: Throwable ->
                     e.printStackTrace()
                     handleException(e)
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 })
     }
 
@@ -96,7 +100,7 @@ class GalleryAPIActivity : BaseFontActivity() {
             return
         }
         textView.text = ""
-        indicatorView.smoothToShow()
+        LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETPHOTOS
         val apiKey = FlickrConst.API_KEY
@@ -114,11 +118,11 @@ class GalleryAPIActivity : BaseFontActivity() {
                     wrapperPhotosetGetlist?.let {
                         LUIUtil.printBeautyJson(it, textView)
                     }
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     bt2.visibility = View.VISIBLE
                 }) { e: Throwable ->
                     handleException(e)
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 })
     }
 }

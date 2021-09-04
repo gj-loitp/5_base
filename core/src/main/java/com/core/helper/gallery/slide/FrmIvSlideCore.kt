@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.R
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore.Companion.instance
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.github.piasy.biv.loader.ImageLoader
 import com.github.piasy.biv.view.GlideImageViewFactory
@@ -41,7 +42,7 @@ class FrmIvSlideCore : Fragment() {
             override fun onCacheHit(imageType: Int, image: File) {}
             override fun onCacheMiss(imageType: Int, image: File) {}
             override fun onStart() {
-                indicatorView.smoothToShow()
+                LDialogUtil.showProgress(progressBar)
                 tvProgress.text = "0%"
             }
 
@@ -53,7 +54,7 @@ class FrmIvSlideCore : Fragment() {
 
             override fun onFinish() {}
             override fun onSuccess(image: File) {
-                indicatorView.smoothToHide()
+                LDialogUtil.hideProgress(progressBar)
                 tvProgress.visibility = View.GONE
             }
 
