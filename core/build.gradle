@@ -17,6 +17,7 @@ android {
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
+
         multiDexEnabled true
 
         kapt {

@@ -16,7 +16,8 @@ android {
         multiDexEnabled true
 
         renderscriptTargetApi 19
-        renderscriptSupportModeEnabled true    // Enable RS support
+        renderscriptSupportModeEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -96,9 +97,9 @@ android {
 //        jvmTarget = JavaVersion.VERSION_1_8.toString()
 //    }
 
-    packagingOptions {
-        exclude 'META-INF/atomicfu.kotlin_module'
-    }
+//    packagingOptions {
+//        exclude 'META-INF/atomicfu.kotlin_module'
+//    }
 }
 
 repositories {
