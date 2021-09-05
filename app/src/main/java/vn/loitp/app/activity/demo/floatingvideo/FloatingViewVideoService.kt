@@ -15,6 +15,7 @@ import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.trackselection.*
 import com.google.android.exoplayer2.ui.PlayerView
 import com.views.exo.PlayerManager
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_video_exo_player.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
 import vn.loitp.app.R
@@ -72,6 +73,9 @@ class FloatingViewVideoService : Service() {
 
         playVideo()
 
+        rlMove.setSafeOnClickListener {
+            openApp()
+        }
         //Drag and move floating view using user's touch action.
         rlMove.setOnTouchListener(object : OnTouchListener {
             private var initialX = 0
