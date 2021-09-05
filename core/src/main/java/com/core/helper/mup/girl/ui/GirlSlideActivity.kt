@@ -1,7 +1,6 @@
 package com.core.helper.mup.girl.ui
 
 import android.os.Bundle
-import android.os.Environment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -11,12 +10,9 @@ import com.annotation.IsShowAdWhenExit
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.helper.mup.girl.model.GirlPageDetail
-import com.core.utilities.LAppResource
 import com.core.utilities.LSocialUtil
-import com.core.utilities.LStoreUtil
 import com.views.viewpager.viewpagertransformers.ZoomOutSlideTransformer
 import kotlinx.android.synthetic.main.l_activity_girl_slide.*
-import java.io.File
 
 @LogTag("GalleryCoreSlideActivity")
 @IsFullScreen(false)
@@ -90,6 +86,6 @@ class GirlSlideActivity : BaseFontActivity() {
     }
 
     private fun save(url: String) {
-        //TODO save
+        //iplm save func
     }
 }
