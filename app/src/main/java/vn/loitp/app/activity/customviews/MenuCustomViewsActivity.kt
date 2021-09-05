@@ -8,6 +8,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import vn.loitp.app.activity.customviews.dragview.MainActivity
 import kotlinx.android.synthetic.main.activity_custom_view_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
@@ -16,7 +17,6 @@ import vn.loitp.app.activity.customviews.bottomnavigationbar.BottomNavigationMen
 import vn.loitp.app.activity.customviews.bottomsheet.BottomSheetMenuActivity
 import vn.loitp.app.activity.customviews.button.ButtonMenuActivity
 import vn.loitp.app.activity.customviews.calendar.CalendarMenuActivity
-import vn.loitp.app.activity.customviews.wheelspiner.WheelSpinnerActivity
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
@@ -41,6 +41,7 @@ import vn.loitp.app.activity.customviews.treeview.TreeViewActivity
 import vn.loitp.app.activity.customviews.videoview.VideoViewMenuActivity
 import vn.loitp.app.activity.customviews.viewpager.ViewPagerMenuActivity
 import vn.loitp.app.activity.customviews.webview.LWebViewActivity
+import vn.loitp.app.activity.customviews.wheelspiner.WheelSpinnerActivity
 import vn.loitp.app.activity.customviews.wwlmusic.WWLActivityMusic
 import vn.loitp.app.activity.customviews.wwlvideo.WWLVideoActivity
 
@@ -79,6 +80,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
         btNavigation.setOnClickListener(this)
         btTreeView.setOnClickListener(this)
         btDraggableFlipView.setOnClickListener(this)
+        btDragView.setOnClickListener(this)
         btAnswerView.setOnClickListener(this)
         btBottomSheet.setOnClickListener(this)
         btScrollablePanel.setOnClickListener(this)
@@ -117,6 +119,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btNavigation -> intent = Intent(this, NavigationMenuActivity::class.java)
             btTreeView -> intent = Intent(this, TreeViewActivity::class.java)
             btDraggableFlipView -> intent = Intent(this, DraggableFlipViewActivity::class.java)
+            btDragView -> intent = Intent(this, MainActivity::class.java)
             btAnswerView -> intent = Intent(this, AnswerViewActivity::class.java)
             btBottomSheet -> intent = Intent(this, BottomSheetMenuActivity::class.java)
             btScrollablePanel -> intent = Intent(this, ScrollablePanelActivity::class.java)

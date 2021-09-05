@@ -61,6 +61,11 @@
                 android:text="@string/draggable_flipview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btDragView"
+                style="@style/ButtonMenu"
+                android:text="DragView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEditText"
                 style="@style/ButtonMenu"
                 android:text="@string/edittext" />

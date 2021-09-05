@@ -83,11 +83,12 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         // Compose the content media source into a new AdsMediaSource with both ads and content.
         var mediaSourceWithAds: MediaSource? = null
         adsLoader?.let {
+            it.setPlayer(player)
             mediaSourceWithAds = AdsMediaSource(
                     contentMediaSource,
-                    /* adMediaSourceFactory= */ this,
+                    this,
                     it,
-                    playerView.overlayFrameLayout)
+                playerView)
         }
 
         player?.let {

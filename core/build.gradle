@@ -163,14 +163,14 @@ dependencies {
 
     //region exoplayer
     //https://github.com/google/ExoPlayer
-    api 'com.google.android.exoplayer:exoplayer:2.9.5'
-    //compile 'com.google.android.exoplayer:exoplayer-core:2.9.2'
-    api 'com.google.android.exoplayer:extension-ima:2.9.5'
-    api 'com.google.android.exoplayer:exoplayer-dash:2.9.5'
-    api 'com.google.android.exoplayer:exoplayer-hls:2.9.5'
-    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.9.2'
-    api 'com.google.android.exoplayer:exoplayer-ui:2.9.5'
-    //api 'com.google.android.exoplayer:extension-cast:2.9.2'
+    api 'com.google.android.exoplayer:exoplayer:2.10.4'
+    //compile 'com.google.android.exoplayer:exoplayer-core:2.10.4''
+    api 'com.google.android.exoplayer:extension-ima:2.10.4'
+    api 'com.google.android.exoplayer:exoplayer-dash:2.10.4'
+    api 'com.google.android.exoplayer:exoplayer-hls:2.10.4'
+    //api 'com.google.android.exoplayer:exoplayer-smoothstreaming:2.10.4''
+    api 'com.google.android.exoplayer:exoplayer-ui:2.10.4'
+    //api 'com.google.android.exoplayer:extension-cast:2.10.4''
     //api 'com.googlecode.android-query:android-query:0.25.9' //queue for chromecast
 
     //https://github.com/rubensousa/PreviewSeekBar

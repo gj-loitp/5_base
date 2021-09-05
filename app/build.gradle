@@ -164,6 +164,7 @@ dependencies {
 //    api 'com.github.ernestoyaquello:DragDropSwipeRecyclerview:1.0.0'
     api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.0'
 
-
+    //https://github.com/tuanhav95/DragView
+    api 'com.github.tuanhav95:DragView:1.1.0'
 }
 //apply plugin: 'com.google.gms.google-services'
