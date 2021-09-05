@@ -62,18 +62,18 @@ class FloatingViewVideoService : Service() {
         mWindowManager?.addView(mFloatingView, params)
 
         val ivClose = mFloatingView.findViewById<ImageView>(R.id.ivClose)
+        val ivFull = mFloatingView.findViewById<ImageView>(R.id.ivFull)
         playerView = mFloatingView.findViewById(R.id.playerView)
         val rlMove = mFloatingView.findViewById<RelativeLayout>(R.id.rlMove)
 
         //Set the close button
-        ivClose.setOnClickListener {
-            //close the service and remove the from from the window
+        ivClose.setSafeOnClickListener {
             stopSelf()
         }
 
         playVideo()
 
-        rlMove.setSafeOnClickListener {
+        ivFull.setSafeOnClickListener {
             openApp()
         }
         //Drag and move floating view using user's touch action.
@@ -136,7 +136,8 @@ class FloatingViewVideoService : Service() {
     }
 
     private fun playVideo() {
-        val linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
+        val linkPlay =
+            "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
         val linkIMAAd = getString(R.string.ad_tag_url)
 
         playerManager = PlayerManager(context = this, urlIMAAd = linkIMAAd)

@@ -27,5 +27,15 @@
             android:layout_toEndOf="@id/playerView"
             android:src="@drawable/ic_close"
             tools:ignore="ContentDescription" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFull"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/ivClose"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_toEndOf="@id/playerView"
+            android:src="@drawable/ic_fullscreen_black_48dp"
+            tools:ignore="ContentDescription" />
     </RelativeLayout>
 </FrameLayout>
