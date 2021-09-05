@@ -1,10 +1,13 @@
 package vn.loitp.app.activity.customviews.dragview
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
-import kotlinx.android.synthetic.main.activity_custom.*
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_drag_view_custom.*
 import kotlinx.android.synthetic.main.layout_drag_view_bottom.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dragview.fragment.BottomFragment
@@ -12,12 +15,21 @@ import vn.loitp.app.activity.customviews.dragview.fragment.NormalTopFragment
 import kotlin.math.max
 import kotlin.math.min
 
-class CustomActivity : AppCompatActivity() {
+@LogTag("MenuCustomViewsActivity")
+@IsFullScreen(false)
+class CustomActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_drag_view_custom
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_custom)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         dragView.setDragListener(object : DragView.DragListener {
             override fun onChangeState(state: DragView.State) {
             }
@@ -32,13 +44,13 @@ class CustomActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().add(R.id.frameTop, NormalTopFragment()).commit()
         supportFragmentManager.beginTransaction().add(R.id.frameBottom, BottomFragment()).commit()
 
-        btnMax.setOnClickListener { dragView.maximize() }
-        btnMin.setOnClickListener { dragView.minimize() }
-        btnClose.setOnClickListener { dragView.close() }
+        btnMax.setSafeOnClickListener { dragView.maximize() }
+        btnMin.setSafeOnClickListener { dragView.minimize() }
+        btnClose.setSafeOnClickListener { dragView.close() }
 
-        btnSetHeightMax.setOnClickListener {
+        btnSetHeightMax.setSafeOnClickListener {
             var heightMax = 0
-            if (etHeightMax.text.isNotEmpty()) {
+            if (etHeightMax.text?.isNotEmpty() == true) {
                 heightMax = etHeightMax.text.toString().toInt()
             }
             heightMax = max(heightMax, 200)
