@@ -8,7 +8,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
-import vn.loitp.app.activity.customviews.dragview.MainActivity
 import kotlinx.android.synthetic.main.activity_custom_view_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.actionbar.ActionbarMenuActivity
@@ -19,6 +18,7 @@ import vn.loitp.app.activity.customviews.button.ButtonMenuActivity
 import vn.loitp.app.activity.customviews.calendar.CalendarMenuActivity
 import vn.loitp.app.activity.customviews.dialog.DialogMenuActivity
 import vn.loitp.app.activity.customviews.draggableflipview.DraggableFlipViewActivity
+import vn.loitp.app.activity.customviews.dragview.MenuDragViewActivity
 import vn.loitp.app.activity.customviews.edittext.EditTextMenuActivity
 import vn.loitp.app.activity.customviews.facebookcomment.FacebookCommentActivity
 import vn.loitp.app.activity.customviews.imageview.ImageViewMenuActivity
@@ -119,7 +119,7 @@ class MenuCustomViewsActivity : BaseFontActivity(), OnClickListener {
             btNavigation -> intent = Intent(this, NavigationMenuActivity::class.java)
             btTreeView -> intent = Intent(this, TreeViewActivity::class.java)
             btDraggableFlipView -> intent = Intent(this, DraggableFlipViewActivity::class.java)
-            btDragView -> intent = Intent(this, MainActivity::class.java)
+            btDragView -> intent = Intent(this, MenuDragViewActivity::class.java)
             btAnswerView -> intent = Intent(this, AnswerViewActivity::class.java)
             btBottomSheet -> intent = Intent(this, BottomSheetMenuActivity::class.java)
             btScrollablePanel -> intent = Intent(this, ScrollablePanelActivity::class.java)

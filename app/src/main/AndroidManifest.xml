@@ -1109,7 +1109,7 @@
             android:name=".activity.customviews.viewpager.viewpager2.ViewPager2Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
-            android:name=".activity.customviews.dragview.MainActivity"
+            android:name=".activity.customviews.dragview.MenuDragViewActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
         <activity
             android:name=".activity.customviews.dragview.NormalActivity"
