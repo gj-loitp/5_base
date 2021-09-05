@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.upstream.DataSource
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
 import com.google.android.exoplayer2.util.Util
-import kotlinx.android.synthetic.main.fragment_top_exo_player.*
+import kotlinx.android.synthetic.main.fragment_drag_view_top_exo_player.*
 import vn.loitp.app.R
 
 class ExoPlayerTopFragment : Fragment(), Player.EventListener {
@@ -24,34 +24,37 @@ class ExoPlayerTopFragment : Fragment(), Player.EventListener {
         const val STREAM_URL = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
     }
 
-    private lateinit var simpleExoPlayer: SimpleExoPlayer
-
-    private lateinit var mediaDataSourceFactory: DataSource.Factory
+    private var simpleExoPlayer: SimpleExoPlayer? = null
+    private var mediaDataSourceFactory: DataSource.Factory? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_top_exo_player, container, false)
+        return inflater.inflate(R.layout.fragment_drag_view_top_exo_player, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         simpleExoPlayer = ExoPlayerFactory.newSimpleInstance(context)
 
         mediaDataSourceFactory =
             DefaultDataSourceFactory(context, Util.getUserAgent(context, "mediaPlayerSample"))
 
         val mediaSource = ProgressiveMediaSource.Factory(mediaDataSourceFactory).createMediaSource(
-            Uri.parse(
-                STREAM_URL
-            )
+            Uri.parse(STREAM_URL)
         )
-        simpleExoPlayer.addListener(this)
-        simpleExoPlayer.prepare(mediaSource, false, false)
-        simpleExoPlayer.playWhenReady = true
+        simpleExoPlayer?.let {
+            it.addListener(this)
+            it.prepare(mediaSource, false, false)
+            it.playWhenReady = true
+        }
 
         playerView.setShutterBackgroundColor(Color.TRANSPARENT)
         playerView.player = simpleExoPlayer
@@ -64,14 +67,16 @@ class ExoPlayerTopFragment : Fragment(), Player.EventListener {
     override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
         super.onPlayerStateChanged(playWhenReady, playbackState)
         if (playbackState == Player.STATE_ENDED) {
-            simpleExoPlayer.playWhenReady = true
+            simpleExoPlayer?.playWhenReady = true
         }
     }
 
     override fun onStop() {
         super.onStop()
-        simpleExoPlayer.removeListener(this)
-        simpleExoPlayer.release()
+        simpleExoPlayer?.let {
+            it.removeListener(this)
+            it.release()
+        }
     }
 
 }
