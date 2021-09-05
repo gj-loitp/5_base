@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_vertical"
@@ -8,14 +9,13 @@
     <FrameLayout
         android:id="@+id/frameTop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="@dimen/margin_medium"
         android:layout_weight="1"
         android:ellipsize="end"
         android:maxLines="2"
@@ -26,27 +26,28 @@
         android:layout_width="48dp"
         android:layout_height="48dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivPlay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
+            android:padding="@dimen/margin_medium"
             android:src="@drawable/exo_icon_play"
-            android:visibility="gone" />
+            android:visibility="gone"
+            tools:visibility="visible" />
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivPause"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
+            android:padding="@dimen/margin_medium"
             android:src="@drawable/ic_pause_black_48dp" />
 
     </RelativeLayout>
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivClose"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:padding="10dp"
+        android:padding="@dimen/margin_medium"
         android:src="@drawable/ic_close_black_48dp" />
 </LinearLayout>

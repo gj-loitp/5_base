@@ -1,19 +1,31 @@
 package vn.loitp.app.activity.customviews.dragview
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.annotation.IsFullScreen
+import com.annotation.LogTag
+import com.core.base.BaseFontActivity
 import com.tuanhav95.drag.DragView
-import kotlinx.android.synthetic.main.activity_normal.*
+import com.views.setSafeOnClickListener
+import kotlinx.android.synthetic.main.activity_drag_view_normal.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.dragview.fragment.BottomFragment
 import vn.loitp.app.activity.customviews.dragview.fragment.NormalTopFragment
 
-class NormalActivity : AppCompatActivity() {
+@LogTag("MenuCustomViewsActivity")
+@IsFullScreen(false)
+class NormalActivity : BaseFontActivity() {
+
+    override fun setLayoutResourceId(): Int {
+        return R.layout.activity_drag_view_normal
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_normal)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         dragView.setDragListener(object : DragView.DragListener {
             override fun onChangeState(state: DragView.State) {
             }
@@ -21,15 +33,13 @@ class NormalActivity : AppCompatActivity() {
             override fun onChangePercent(percent: Float) {
                 alpha.alpha = 1 - percent
             }
-
         })
 
         supportFragmentManager.beginTransaction().add(R.id.frameFirst, NormalTopFragment()).commit()
         supportFragmentManager.beginTransaction().add(R.id.frameSecond, BottomFragment()).commit()
 
-        btnMax.setOnClickListener { dragView.maximize() }
-        btnMin.setOnClickListener { dragView.minimize() }
-        btnClose.setOnClickListener { dragView.close() }
-
+        btnMax.setSafeOnClickListener { dragView.maximize() }
+        btnMin.setSafeOnClickListener { dragView.minimize() }
+        btnClose.setSafeOnClickListener { dragView.close() }
     }
 }
