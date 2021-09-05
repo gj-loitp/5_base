@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.tuanhav95.drag.DragView
 import com.tuanhav95.drag.utils.toPx
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_drag_view_custom.*
 import kotlinx.android.synthetic.main.layout_drag_view_bottom.*
 import vn.loitp.app.R
@@ -18,6 +19,10 @@ class ExoPlayerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_drag_view_custom)
 
+        setupViews()
+    }
+
+    private fun setupViews() {
         dragView.setDragListener(object : DragView.DragListener {
             override fun onChangeState(state: DragView.State) {
             }
@@ -33,11 +38,11 @@ class ExoPlayerActivity : AppCompatActivity() {
             .commit()
         supportFragmentManager.beginTransaction().add(R.id.frameBottom, BottomFragment()).commit()
 
-        btnMax.setOnClickListener { dragView.maximize() }
-        btnMin.setOnClickListener { dragView.minimize() }
-        btnClose.setOnClickListener { dragView.close() }
+        btnMax.setSafeOnClickListener { dragView.maximize() }
+        btnMin.setSafeOnClickListener { dragView.minimize() }
+        btnClose.setSafeOnClickListener { dragView.close() }
 
-        btnSetHeightMax.setOnClickListener {
+        btnSetHeightMax.setSafeOnClickListener {
             var heightMax = 0
             if (etHeightMax.text?.isNotEmpty() == true) {
                 heightMax = etHeightMax.text.toString().toInt()

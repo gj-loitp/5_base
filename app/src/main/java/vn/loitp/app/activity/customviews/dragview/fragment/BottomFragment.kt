@@ -7,27 +7,31 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.core.utilities.LImageUtil
 import com.tuanhav95.drag.utils.inflate
-import kotlinx.android.synthetic.main.fragment_bottom.*
-import kotlinx.android.synthetic.main.item_normal.view.*
+import kotlinx.android.synthetic.main.fragment_drag_view_bottom.*
+import kotlinx.android.synthetic.main.item_drag_view_normal.view.*
 import vn.loitp.app.R
 
 class BottomFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_bottom, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_drag_view_bottom, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         recyclerView.adapter = ListAdapter()
         recyclerView.layoutManager = LinearLayoutManager(recyclerView.context)
     }
 
-
     class ListAdapter : RecyclerView.Adapter<ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            return ViewHolder(parent.inflate(R.layout.item_normal))
+            return ViewHolder(parent.inflate(R.layout.item_drag_view_normal))
         }
 
         override fun getItemCount(): Int {
@@ -35,9 +39,7 @@ class BottomFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            Glide.with(holder.itemView.ivPhoto)
-                    .load(R.drawable.loitp)
-                    .into(holder.itemView.ivPhoto)
+            LImageUtil.load(holder.itemView.context, R.drawable.loitp, holder.itemView.ivPhoto)
         }
 
     }

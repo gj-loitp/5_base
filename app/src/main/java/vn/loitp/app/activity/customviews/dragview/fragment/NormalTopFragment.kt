@@ -9,6 +9,6 @@ import vn.loitp.app.R
 
 class NormalTopFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_top,container,false)
+        return inflater.inflate(R.layout.fragment_drag_view_top,container,false)
     }
 }
