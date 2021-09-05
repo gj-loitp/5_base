@@ -59,7 +59,12 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     }
 
     @JvmOverloads
-    fun init(context: Context, playerView: PlayerView, linkPlay: String, contentPosition: Long = 0) {
+    fun init(
+        context: Context,
+        playerView: PlayerView,
+        linkPlay: String,
+        contentPosition: Long = 0
+    ) {
         if (linkPlay.isEmpty()) {
             throw IllegalArgumentException("linkPlay is empty")
         }
@@ -85,10 +90,11 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         adsLoader?.let {
             it.setPlayer(player)
             mediaSourceWithAds = AdsMediaSource(
-                    contentMediaSource,
-                    this,
-                    it,
-                playerView)
+                contentMediaSource,
+                this,
+                it,
+                playerView
+            )
         }
 
         player?.let {
@@ -101,7 +107,11 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             it.playWhenReady = true
             it.seekTo(contentPosition)
             it.addListener(object : Player.EventListener {
-                override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
+                override fun onTracksChanged(
+                    trackGroups: TrackGroupArray?,
+                    trackSelections: TrackSelectionArray?
+                ) {
+                }
 
                 override fun onLoadingChanged(isLoading: Boolean) {
                 }
@@ -136,7 +146,12 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             })
 
             it.addVideoListener(object : VideoListener {
-                override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
+                override fun onVideoSizeChanged(
+                    width: Int,
+                    height: Int,
+                    unappliedRotationDegrees: Int,
+                    pixelWidthHeightRatio: Float
+                ) {
                     videoW = width
                     videoH = height
                 }
