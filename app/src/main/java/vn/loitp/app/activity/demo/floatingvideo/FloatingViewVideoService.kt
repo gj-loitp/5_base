@@ -5,7 +5,6 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.graphics.PixelFormat
-import android.net.Uri
 import android.os.Build
 import android.os.IBinder
 import android.view.*
@@ -13,30 +12,21 @@ import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.decoder.DecoderCounters
-import com.google.android.exoplayer2.source.LoopingMediaSource
-import com.google.android.exoplayer2.source.MediaSource
-import com.google.android.exoplayer2.source.TrackGroupArray
-import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.trackselection.*
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView
-import com.google.android.exoplayer2.upstream.BandwidthMeter
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.google.android.exoplayer2.util.Util
-import com.google.android.exoplayer2.video.VideoRendererEventListener
+import com.google.android.exoplayer2.ui.PlayerView
+import com.views.exo.PlayerManager
+import kotlinx.android.synthetic.main.activity_video_exo_player.*
+import kotlinx.android.synthetic.main.exo_playback_control_view.*
 import vn.loitp.app.R
 
-/**
- * Created by loitp on 3/27/2018.
- */
-class FloatingViewVideoService : Service(), VideoRendererEventListener {
+class FloatingViewVideoService : Service() {
     private val logTag = javaClass.simpleName
 
     private var mWindowManager: WindowManager? = null
     private lateinit var mFloatingView: View
-    private var playerView: SimpleExoPlayerView? = null
-    private var player: SimpleExoPlayer? = null
+
+    private var playerManager: PlayerManager? = null
+    private var playerView: PlayerView? = null
 
     override fun onBind(intent: Intent): IBinder? {
         return null
@@ -53,14 +43,16 @@ class FloatingViewVideoService : Service(), VideoRendererEventListener {
             WindowManager.LayoutParams.TYPE_PHONE
         }
         val params = WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                layoutFlag,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSLUCENT)
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            layoutFlag,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.TRANSLUCENT
+        )
 
         //Specify the view position
-        params.gravity = Gravity.TOP or Gravity.START //Initially view will be added to top-left corner
+        params.gravity =
+            Gravity.TOP or Gravity.START //Initially view will be added to top-left corner
         params.x = 0
         params.y = 100
 
@@ -121,7 +113,7 @@ class FloatingViewVideoService : Service(), VideoRendererEventListener {
     }
 
     override fun onDestroy() {
-        player?.release()
+        playerManager?.release()
         mWindowManager?.removeView(mFloatingView)
         super.onDestroy()
     }
@@ -140,34 +132,13 @@ class FloatingViewVideoService : Service(), VideoRendererEventListener {
     }
 
     private fun playVideo() {
-        //TODO
+        val linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
+        val linkIMAAd = getString(R.string.ad_tag_url)
+
+        playerManager = PlayerManager(context = this, urlIMAAd = linkIMAAd)
+        playerView?.let { pv ->
+            playerManager?.init(context = this, playerView = pv, linkPlay = linkPlay)
+        }
     }
 
-    override fun onVideoEnabled(counters: DecoderCounters) {
-//        Log.d(logTag, "onVideoEnabled")
-    }
-
-    override fun onVideoDecoderInitialized(decoderName: String, initializedTimestampMs: Long, initializationDurationMs: Long) {
-//        Log.d(logTag, "onVideoDecoderInitialized")
-    }
-
-    override fun onVideoInputFormatChanged(format: Format) {
-//        Log.d(logTag, "onVideoInputFormatChanged")
-    }
-
-    override fun onDroppedFrames(count: Int, elapsedMs: Long) {
-//        Log.d(logTag, "onDroppedFrames")
-    }
-
-    override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
-//        Log.d(logTag, "onVideoSizeChanged [ width: $width height: $height]")
-    }
-
-    override fun onRenderedFirstFrame(surface: Surface?) {
-//        Log.d(logTag, "onRenderedFirstFrame")
-    }
-
-    override fun onVideoDisabled(counters: DecoderCounters) {
-//        Log.d(logTag, "onVideoDisabled")
-    }
 }

@@ -32,7 +32,6 @@ import vn.loitp.app.activity.demo.rss.RSSActivity
 import vn.loitp.app.activity.demo.sound.SoundActivity
 import vn.loitp.app.activity.demo.texttospeech.TextToSpeechActivity
 import vn.loitp.app.activity.demo.twoinstanceactivity.Activity1
-import vn.loitp.app.activity.demo.video.VideoActivity
 
 @LogTag("MenuDemoActivity")
 @IsFullScreen(false)
@@ -69,7 +68,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btTTT.visibility = View.GONE
         }
 
-        btVideo.setOnClickListener(this)
         btSound.setOnClickListener(this)
         btTextToSpeech.setOnClickListener(this)
         btFloatingWidget.setOnClickListener(this)
@@ -97,7 +95,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btVideo -> intent = Intent(this, VideoActivity::class.java)
             btSound -> intent = Intent(this, SoundActivity::class.java)
             btTextToSpeech -> intent = Intent(this, TextToSpeechActivity::class.java)
             btFloatingWidget -> intent = Intent(
