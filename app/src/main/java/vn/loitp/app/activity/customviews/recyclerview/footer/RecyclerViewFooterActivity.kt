@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.*
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LPopupMenu
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
 import jp.wasabeef.recyclerview.adapters.*
+import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import kotlinx.android.synthetic.main.activity_recycler_view_footer.*
+import kotlinx.android.synthetic.main.activity_recycler_view_footer.progressBar
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
@@ -99,14 +102,14 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
     }
 
     private fun loadMore() {
-        indicatorView.smoothToShow()
+        LDialogUtil.showProgress(progressBar)
         LUIUtil.setDelay(mls = 2000, runnable = Runnable {
             val newSize = 5
             for (i in 0 until newSize) {
                 val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)
                 instance.movieList.add(movie)
             }
-            indicatorView?.smoothToHide()
+            LDialogUtil.hideProgress(progressBar)
             moviesAdapter?.notifyDataSetChanged()
             showShortInformation("Finish loadMore")
         })
@@ -120,6 +123,6 @@ class RecyclerViewFooterActivity : BaseFontActivity() {
             }
         }
         moviesAdapter?.notifyDataSetChanged()
-        indicatorView.smoothToHide()
+        LDialogUtil.hideProgress(progressBar)
     }
 }

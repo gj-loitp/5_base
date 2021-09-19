@@ -13,6 +13,7 @@ import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.GalleryCorePhotosActivity
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.LValidateUtil
 import com.google.android.gms.ads.AdSize
@@ -124,7 +125,7 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
     }
 
     private fun getListPhotosets() {
-        indicatorView.smoothToShow()
+        LDialogUtil.showProgress(progressBar)
         val service = RestClient.createService(FlickrService::class.java)
         val method = FlickrConst.METHOD_PHOTOSETS_GETLIST
         val apiKey = FlickrConst.API_KEY
@@ -167,10 +168,10 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                     listPhotoSet.shuffle()
 
                     updateAllViews()
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }, { throwable ->
                     handleException(throwable)
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }))
     }
 

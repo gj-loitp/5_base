@@ -7,8 +7,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.google.ads.interactivemedia.v3.internal.it
-import jp.wasabeef.recyclerview.adapters.*
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view_diff_util.*
 import vn.loitp.app.R
 import java.util.*

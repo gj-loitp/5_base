@@ -15,15 +15,12 @@
         app:optimizeDisplay="true"
         app:thumbnailScaleType="centerCrop" />
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/indicatorView"
-        style="@style/AVLoadingIndicatorView"
-        android:layout_width="@dimen/w_50"
-        android:layout_height="@dimen/w_50"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="@dimen/margin_medium"
-        app:indicatorColor="?attr/themeTextColor"
-        app:indicatorName="BallPulseIndicator" />
+        android:indeterminateTint="?attr/themeTextColor" />
 
     <LinearLayout
         android:layout_width="match_parent"

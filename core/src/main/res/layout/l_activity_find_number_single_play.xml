@@ -32,15 +32,11 @@
             android:layout_margin="@dimen/margin_large"
             android:src="@drawable/back_button" />
 
-        <com.wang.avi.AVLoadingIndicatorView
-            android:id="@+id/indicatorView"
-            style="@style/AVLoadingIndicatorView"
-            android:layout_width="@dimen/w_70"
-            android:layout_height="@dimen/w_70"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="gone"
-            app:indicatorColor="@color/white"
-            app:indicatorName="PacmanIndicator"
-            tools:visibility="visible" />
+            android:indeterminateTint="?attr/themeTextColor" />
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

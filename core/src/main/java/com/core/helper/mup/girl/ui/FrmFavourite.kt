@@ -3,7 +3,6 @@ package com.core.helper.mup.girl.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,6 +15,7 @@ import com.core.helper.mup.girl.adapter.GirlTitleAdapter
 import com.core.helper.mup.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LAppResource
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.utils.util.KeyboardUtils
 import kotlinx.android.synthetic.main.l_frm_girl_favourite.*
@@ -100,9 +100,9 @@ class FrmFavourite : BaseFragment() {
             vm.pageLikedActionLiveData.observe(viewLifecycleOwner, { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {
@@ -120,9 +120,9 @@ class FrmFavourite : BaseFragment() {
             vm.likeGirlPageActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
                     val data = actionData.data

@@ -22,15 +22,28 @@ class ExoPlayerActivity3 : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
+        val linkPlay =
+            "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
         playerManager = PlayerManager(this)
         playerManager?.init(context = this, playerView = playerView0, linkPlay = linkPlay)
 
         bt0To1.setOnClickListener {
-            PlayerView.switchTargetView(playerView0.player, playerView0, playerView1)
+            playerView0.player?.let { p ->
+                PlayerView.switchTargetView(
+                    p,
+                    playerView0,
+                    playerView1
+                )
+            }
         }
         bt1To0.setOnClickListener {
-            PlayerView.switchTargetView(playerView1.player, playerView1, playerView0)
+            playerView1.player?.let { p ->
+                PlayerView.switchTargetView(
+                    p,
+                    playerView1,
+                    playerView0
+                )
+            }
         }
     }
 

@@ -9,6 +9,7 @@ import com.core.base.BaseFontActivity
 import com.core.helper.ttt.helper.ComicUtils
 import com.core.helper.ttt.model.comictype.ComicType
 import com.core.helper.ttt.viewmodel.TTTViewModel
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import vn.loitp.app.R
@@ -32,7 +33,7 @@ class TTTAPIComicListActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        indicatorView.hide()
+        LDialogUtil.hideProgress(progressBar)
         comicTypeList.addAll(ComicUtils.comicTypeList)
 
         btSelect.setOnClickListener {
@@ -49,9 +50,9 @@ class TTTAPIComicListActivity : BaseFontActivity() {
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                     if (isSuccess == true) {
                         val listComic = actionData.data
                         listComic?.let {

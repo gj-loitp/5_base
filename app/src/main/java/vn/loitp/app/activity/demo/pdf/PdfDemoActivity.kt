@@ -6,9 +6,10 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
+import com.function.pump.download.Pump
+import com.function.pump.download.core.DownloadListener
 import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.github.barteksc.pdfviewer.util.FitPolicy
-import com.task.AsyncTaskDownloadPdf
 import com.task.AsyncTaskDownloadPdfStream
 import com.task.GetPdfCoroutine
 import com.views.setSafeOnClickListener
@@ -17,11 +18,9 @@ import vn.loitp.app.R
 import java.io.File
 
 //https://github.com/barteksc/AndroidPdfViewer
-//TODO android 11 download, use pump instead
 @LogTag("PdfDemoActivity")
 @IsFullScreen(false)
 class PdfDemoActivity : BaseFontActivity() {
-    private var asyncTaskDownloadPdf: AsyncTaskDownloadPdf? = null
     private var asyncTaskDownloadPdfStream: AsyncTaskDownloadPdfStream? = null
     private var getPdfCoroutine: GetPdfCoroutine? = null
     private var pdfStreamCoroutine: PdfStreamCoroutine? = null
@@ -56,7 +55,6 @@ class PdfDemoActivity : BaseFontActivity() {
     }
 
     override fun onDestroy() {
-        asyncTaskDownloadPdf?.cancel(true)
         asyncTaskDownloadPdfStream?.cancel(true)
         getPdfCoroutine?.cancel()
         super.onDestroy()
@@ -81,43 +79,39 @@ class PdfDemoActivity : BaseFontActivity() {
     }
 
     private fun callAysncTaskFile() {
-        asyncTaskDownloadPdf?.cancel(true)
-        val url = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf"
-        //val url = "http://www.pdf995.com/samples/pdf.pdf";
-        //val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
-        //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
-        val folderPath = LStoreUtil.getFolderPath(folderName = "ZZZDemoPDF")
-        val folderName = "PDFDemo"
         updateUIProgress(isLoadding = true)
+        Pump.newRequestToDownload(
+            "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf",
+            "/loitp/pdf"
+        )
+            .listener(object : DownloadListener() {
 
-        asyncTaskDownloadPdf = AsyncTaskDownloadPdf(
-            folderPath = folderPath,
-            mURL = url,
-            folderName = folderName, callback = object : AsyncTaskDownloadPdf.Callback {
-                override fun onSuccess(durationSec: Long, durationHHmmss: String?, file: File?) {
-                    logD("onSuccess $durationSec - $durationHHmmss")
-                    logD("onSuccess " + file?.path)
-                    showShortInformation("onSuccess after $durationSec seconds")
+                override fun onProgress(progress: Int) {
+                    pb.progress = progress
+                }
+
+                override fun onSuccess() {
+                    val filePath = downloadInfo.downloadFile.file
+                    showShortInformation("Download Finished ${downloadInfo?.filePath}")
+
                     pdfView.visibility = View.VISIBLE
-                    file?.let {
-                        showPDF(file = it)
+                    filePath?.let {
+                        showPDF(file = filePath)
                     }
                     updateUIProgress(isLoadding = false)
                 }
 
-                override fun onError(e: Exception?) {
-                    logE("onError $e")
+                override fun onFailed() {
+                    showShortError("Download failed")
                     updateUIProgress(isLoadding = false)
                 }
-
-                override fun onProgressUpdate(downloadedSize: Int, totalSize: Int, percent: Float) {
-                    logD("onProgressUpdate $downloadedSize - $totalSize - $percent")
-                    pb.progress = percent.toInt()
-                }
-
             })
-
-        asyncTaskDownloadPdf?.execute()
+            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            .forceReDownload(true)
+            //Optionally,Set how many threads are used when downloading,default 3.
+            .threadNum(3)
+            .setRetry(3, 200)
+            .submit()
     }
 
     private fun callAysnctaskStream() {

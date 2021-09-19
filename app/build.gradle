@@ -11,12 +11,13 @@ android {
         applicationId "loitp93.basemaster"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 12
-        versionName "1.1.12"
+        versionCode 1
+        versionName "1.0.1"
         multiDexEnabled true
 
         renderscriptTargetApi 19
-        renderscriptSupportModeEnabled true    // Enable RS support
+        renderscriptSupportModeEnabled true
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -54,7 +55,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("keybasemaster.jks")
+            storeFile file("keystore.jks")
             storePassword "04021993"
             keyAlias "loi"
             keyPassword "04021993"
@@ -87,18 +88,18 @@ android {
         javaMaxHeapSize "4g"
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
+//    kotlinOptions {
+//        jvmTarget = JavaVersion.VERSION_1_8.toString()
+//    }
 
-    packagingOptions {
-        exclude 'META-INF/atomicfu.kotlin_module'
-    }
+//    packagingOptions {
+//        exclude 'META-INF/atomicfu.kotlin_module'
+//    }
 }
 
 repositories {
@@ -108,7 +109,7 @@ repositories {
 
 dependencies {
     api project(':core')
-//    api 'com.github.tplloi:basemaster:4.4.55'
+//    api 'com.github.tplloi:basemaster:4.4.61'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
@@ -163,6 +164,7 @@ dependencies {
 //    api 'com.github.ernestoyaquello:DragDropSwipeRecyclerview:1.0.0'
     api 'com.ernestoyaquello.dragdropswiperecyclerview:drag-drop-swipe-recyclerview:1.1.0'
 
-
+    //https://github.com/tuanhav95/DragView
+    api 'com.github.tuanhav95:DragView:1.1.0'
 }
 //apply plugin: 'com.google.gms.google-services'

@@ -15,6 +15,7 @@ import com.core.helper.mup.girl.model.GirlTopUser
 import com.core.helper.mup.girl.model.GirlTopVideo
 import com.core.helper.mup.girl.viewmodel.GirlViewModel
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LDialogUtil
 import com.core.utilities.LScreenUtil
 import com.core.utilities.LUIUtil
 import com.utils.util.KeyboardUtils
@@ -228,9 +229,9 @@ class FrmHome : BaseFragment() {
 //                swipeRefreshLayout.isRefreshing = isDoing == true
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
 
                 if (isDoing == false && actionData.isSuccess == true) {
@@ -257,9 +258,9 @@ class FrmHome : BaseFragment() {
 //                logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData))
                 val isDoing = actionData.isDoing
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
                     logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))

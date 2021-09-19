@@ -11,8 +11,8 @@ import com.core.utilities.LScreenUtil
 import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.C.ContentType
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader
-import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.source.TrackGroupArray
 import com.google.android.exoplayer2.source.ads.AdsMediaSource
 import com.google.android.exoplayer2.source.dash.DashMediaSource
@@ -59,7 +59,12 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
     }
 
     @JvmOverloads
-    fun init(context: Context, playerView: PlayerView, linkPlay: String, contentPosition: Long = 0) {
+    fun init(
+        context: Context,
+        playerView: PlayerView,
+        linkPlay: String,
+        contentPosition: Long = 0
+    ) {
         if (linkPlay.isEmpty()) {
             throw IllegalArgumentException("linkPlay is empty")
         }
@@ -83,11 +88,13 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         // Compose the content media source into a new AdsMediaSource with both ads and content.
         var mediaSourceWithAds: MediaSource? = null
         adsLoader?.let {
+            it.setPlayer(player)
             mediaSourceWithAds = AdsMediaSource(
-                    contentMediaSource,
-                    /* adMediaSourceFactory= */ this,
-                    it,
-                    playerView.overlayFrameLayout)
+                contentMediaSource,
+                this,
+                it,
+                playerView
+            )
         }
 
         player?.let {
@@ -100,7 +107,11 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             it.playWhenReady = true
             it.seekTo(contentPosition)
             it.addListener(object : Player.EventListener {
-                override fun onTracksChanged(trackGroups: TrackGroupArray?, trackSelections: TrackSelectionArray?) {}
+                override fun onTracksChanged(
+                    trackGroups: TrackGroupArray?,
+                    trackSelections: TrackSelectionArray?
+                ) {
+                }
 
                 override fun onLoadingChanged(isLoading: Boolean) {
                 }
@@ -135,7 +146,12 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             })
 
             it.addVideoListener(object : VideoListener {
-                override fun onVideoSizeChanged(width: Int, height: Int, unappliedRotationDegrees: Int, pixelWidthHeightRatio: Float) {
+                override fun onVideoSizeChanged(
+                    width: Int,
+                    height: Int,
+                    unappliedRotationDegrees: Int,
+                    pixelWidthHeightRatio: Float
+                ) {
                     videoW = width
                     videoH = height
                 }
@@ -178,7 +194,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
             C.TYPE_DASH -> DashMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
             C.TYPE_SS -> SsMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
             C.TYPE_HLS -> HlsMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
-            C.TYPE_OTHER -> ExtractorMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
+            C.TYPE_OTHER -> ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(uri)
             else -> throw IllegalStateException("Unsupported type: $type")
         }
     }

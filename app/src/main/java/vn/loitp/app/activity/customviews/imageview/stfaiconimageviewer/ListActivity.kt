@@ -2,14 +2,12 @@ package vn.loitp.app.activity.customviews.imageview.stfaiconimageviewer
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LImageUtil
-import com.google.ads.interactivemedia.v3.internal.it
 import com.stfalcon.imageviewer.StfalconImageViewer
 import kotlinx.android.synthetic.main.activity_stfaiconimageviewer_list.*
 import kotlinx.android.synthetic.main.view_row_item_stf.view.*
@@ -38,61 +36,68 @@ class ListActivity : BaseFontActivity() {
     private var stf: StfalconImageViewer<Movie>? = null
     private fun setupViews() {
         stfAdapter = StfAdapter(
-                context = this,
-                moviesList = movieList,
-                callback = object : StfAdapter.Callback {
-                    override fun onClick(iv: ImageView, movie: Movie, mvList: MutableList<Movie>, position: Int) {
+            context = this,
+            moviesList = movieList,
+            callback = object : StfAdapter.Callback {
+                override fun onClick(
+                    iv: ImageView,
+                    movie: Movie,
+                    mvList: MutableList<Movie>,
+                    position: Int
+                ) {
 
-                        val viewOverLay = LayoutInflater.from(this@ListActivity).inflate(R.layout.view_stf_overlay, null)
-                        viewOverLay.bt.setOnClickListener {
-                            showShortInformation("Click " + stf?.currentPosition())
-                        }
-
-                        stf = StfalconImageViewer.Builder(
-                                this@ListActivity,
-                                mvList
-                        ) { imageView, mv ->
-                            LImageUtil.load(
-                                    this@ListActivity,
-                                    mv.cover,
-                                    imageView
-                            )
-                        }
-                                .withBackgroundColorResource(R.color.black85)
-                                .allowSwipeToDismiss(true)
-                                .allowZooming(true)
-                                .withHiddenStatusBar(false)
-                                .withStartPosition(position)
-                                .withOverlayView(viewOverLay)
-                                .withTransitionFrom(iv)
-                                .withImageChangeListener { pos ->
-                                    logD("withImageChangeListener pos $pos")
-
-                                    val updateIv = rv.layoutManager?.findViewByPosition(pos)?.findViewById(R.id.imageView) as ImageView?
-                                    updateIv?.let {
-                                        stf?.updateTransitionImage(it)
-                                    }
-                                }
-                                .withDismissListener {
-                                    logD("withDismissListener")
-                                }
-                                .show(true)
+                    val viewOverLay = LayoutInflater.from(this@ListActivity)
+                        .inflate(R.layout.view_stf_overlay, null)
+                    viewOverLay.bt.setOnClickListener {
+                        showShortInformation("Click " + stf?.currentPosition())
                     }
 
-                    override fun onLongClick(movie: Movie, position: Int) {
-                        val isRemoved = movieList.remove(movie)
-                        if (isRemoved) {
-                            stfAdapter?.apply {
-                                notifyItemRemoved(position)
-                                notifyItemRangeChanged(position, movieList.size)
+                    stf = StfalconImageViewer.Builder(
+                        this@ListActivity,
+                        mvList
+                    ) { imageView, mv ->
+                        LImageUtil.load(
+                            this@ListActivity,
+                            mv.cover,
+                            imageView
+                        )
+                    }
+                        .withBackgroundColorResource(R.color.black85)
+                        .allowSwipeToDismiss(true)
+                        .allowZooming(true)
+                        .withHiddenStatusBar(false)
+                        .withStartPosition(position)
+                        .withOverlayView(viewOverLay)
+                        .withTransitionFrom(iv)
+                        .withImageChangeListener { pos ->
+                            logD("withImageChangeListener pos $pos")
+
+                            val updateIv = rv.layoutManager?.findViewByPosition(pos)
+                                ?.findViewById(R.id.imageView) as ImageView?
+                            updateIv?.let {
+                                stf?.updateTransitionImage(it)
                             }
                         }
-                    }
+                        .withDismissListener {
+                            logD("withDismissListener")
+                        }
+                        .show(true)
+                }
 
-                    override fun onLoadMore() {
-                        //do nothing
+                override fun onLongClick(movie: Movie, position: Int) {
+                    val isRemoved = movieList.remove(movie)
+                    if (isRemoved) {
+                        stfAdapter?.apply {
+                            notifyItemRemoved(position)
+                            notifyItemRangeChanged(position, movieList.size)
+                        }
                     }
-                })
+                }
+
+                override fun onLoadMore() {
+                    //do nothing
+                }
+            })
         rv.layoutManager = GridLayoutManager(this, 5)
         rv.adapter = stfAdapter
 
@@ -108,10 +113,10 @@ class ListActivity : BaseFontActivity() {
                 Constants.URL_IMG_2
             }
             val movie = Movie(
-                    title = "Loitp $i",
-                    genre = "Action & Adventure $i",
-                    year = "Year: $i",
-                    cover = cover
+                title = "Loitp $i",
+                genre = "Action & Adventure $i",
+                year = "Year: $i",
+                cover = cover
             )
             movieList.add(movie)
         }

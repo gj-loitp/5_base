@@ -18,9 +18,9 @@
 
         <com.views.imageview.comicview.ComicView
             android:id="@+id/comicView"
-            android:scrollbars="none"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:scrollbars="none"
             android:visibility="invisible"
             app:max_zoom_scale="2.0"
             app:min_zoom_scale="0.4"
@@ -70,15 +70,12 @@
                 app:tint="?attr/themeTextColor" />
         </LinearLayout>
 
-        <com.wang.avi.AVLoadingIndicatorView
-            android:id="@+id/indicatorView"
-            style="@style/AVLoadingIndicatorView"
-            android:layout_width="@dimen/w_40"
-            android:layout_height="@dimen/w_40"
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginBottom="@dimen/margin_medium"
-            app:indicatorColor="?attr/themeTextColor"
-            app:indicatorName="BallClipRotatePulseIndicator" />
+            android:indeterminateTint="?attr/themeTextColor" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNoData"

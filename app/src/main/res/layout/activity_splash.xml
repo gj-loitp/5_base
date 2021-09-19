@@ -28,17 +28,12 @@
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/indicatorView"
-        style="@style/AVLoadingIndicatorView.Large"
-        android:layout_width="@dimen/w_50"
-        android:layout_height="@dimen/w_50"
-        android:layout_above="@+id/textViewVersion"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/margin_medium"
-        app:indicatorColor="?attr/themeTextColor"
-        app:indicatorName="PacmanIndicator" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="?attr/themeTextColor" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textViewVersion"

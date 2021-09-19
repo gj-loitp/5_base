@@ -22,11 +22,6 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btAvloadingIndicatorView"
-                style="@style/ButtonMenu"
-                android:text="@string/avloadingindicatorview" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btCircularProgressBar"
                 style="@style/ButtonMenu"
                 android:text="@string/circular_progress_bar" />

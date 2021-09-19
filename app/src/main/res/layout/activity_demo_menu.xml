@@ -118,11 +118,6 @@
                 android:text="@string/_2_instance_activity_parallel" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btVideo"
-                style="@style/ButtonMenu"
-                android:text="@string/video" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTTT"
                 style="@style/ButtonMenu"
                 android:text="TruyenTranhTuan" />

@@ -174,14 +174,6 @@ class FrmHome : BaseFragment() {
                 val isSuccess = actionData.isSuccess
                 val isSwipeToRefresh = actionData.isSwipeToRefresh
 
-//                if (currentPageIndex == 0) {
-//                    if (isDoing == true) {
-//                        indicatorView.smoothToShow()
-//                    } else {
-//                        indicatorView.smoothToHide()
-//                    }
-//                }
-
                 logD("listComicActionLiveData observe isDoing $isDoing, isSuccess $isSuccess")
 
                 if (isDoing == false && isSuccess == true) {

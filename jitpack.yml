@@ -1,0 +1,3 @@
+jdk:
+  - ./gradlew build :lib:publishToMavenLocal
+  - openjdk11

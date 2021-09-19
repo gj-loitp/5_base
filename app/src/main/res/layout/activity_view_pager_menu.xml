@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    tools:ignore="HardcodedText">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -45,6 +47,16 @@
                 android:id="@+id/btRefreshViewPager"
                 style="@style/ButtonMenu"
                 android:text="Refresh ViewPager" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btVerticalViewPager"
+                style="@style/ButtonMenu"
+                android:text="Vertical ViewPager" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btViewPager2"
+                style="@style/ButtonMenu"
+                android:text="ViewPager 2" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btViewPagerTabLayout"

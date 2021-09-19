@@ -20,12 +20,10 @@
             tools:visibility="visible" />
     </androidx.core.widget.NestedScrollView>
 
-    <com.wang.avi.AVLoadingIndicatorView
-        android:id="@+id/avl"
-        style="@style/AVLoadingIndicatorView.Large"
-        android:layout_width="@dimen/w_50"
-        android:layout_height="@dimen/w_50"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        app:indicatorColor="?attr/themeTextColor"
-        app:indicatorName="PacmanIndicator" />
+        android:indeterminateTint="?attr/themeTextColor" />
 </RelativeLayout>

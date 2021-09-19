@@ -4,11 +4,11 @@
     <string name="facebook_app_id">256962811543023</string>
     <string name="google_maps_key">AIzaSyBIPIyBbvDxUHPyEi9Qy-phu9VuOzy7iUI</string>
 
-<!--    https://apps.admob.com/v2/apps/5383811432/adunits/list-->
-    <string name="str_b">ca-app-pub-3188602331367259/4702598233</string>
-    <string name="str_f">ca-app-pub-3188602331367259/1444566427</string>
-    <string name="str_reward">ca-app-pub-3188602331367259/1596609662</string>
-    <string name="str_app_id">ca-app-pub-3188602331367259~5383811432</string>
+<!--    TODO add admob-->
+    <string name="str_b">-</string>
+    <string name="str_f">-</string>
+    <string name="str_reward">-</string>
+    <string name="str_app_id">-</string>
     <string name="open_drawer">open_drawer</string>
     <string name="close_drawer">close_drawer</string>
     <string name="i_love_you">I loved you:  yet the love, maybe,\n

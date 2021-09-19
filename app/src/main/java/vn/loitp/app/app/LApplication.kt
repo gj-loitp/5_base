@@ -13,11 +13,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
 //build release de check
-//TODO crash FloatingViewActivity -> demo app -> floating view crash android 9
-//TODO demo firebase -> auth
 //TODO service -> ko stop service dc
-//TODO database -> read sqlite dtb crash
-//TODO rtmp
 
 //GIT
 //combine 2 commit gan nhat lam 1, co thay doi tren github

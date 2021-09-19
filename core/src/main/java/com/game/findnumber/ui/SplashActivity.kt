@@ -51,7 +51,7 @@ class SplashActivity : BaseFontActivity() {
                             val intent = Intent(this, MenuActivity::class.java)
                             val builder = CircularReveal.Builder(
                                     this,
-                                    indicatorView,
+                                    progressBar,
                                     intent,
                                     1000
                             ).apply {

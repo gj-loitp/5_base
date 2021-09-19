@@ -14,6 +14,7 @@ import com.core.base.BaseBottomSheetFragment
 import com.core.helper.mup.comic.adapter.CategoryAdapter
 import com.core.helper.mup.comic.model.Category
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
+import com.core.utilities.LDialogUtil
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.l_bottom_sheet_mup_category_fragment.*
 
@@ -63,9 +64,9 @@ class BottomSheetCategoryFragment : BaseBottomSheetFragment(
                 val isSuccess = actionData.isSuccess
 
                 if (isDoing == true) {
-                    indicatorView.smoothToShow()
+                    LDialogUtil.showProgress(progressBar)
                 } else {
-                    indicatorView.smoothToHide()
+                    LDialogUtil.hideProgress(progressBar)
                 }
 
                 if (isDoing == false && isSuccess == true) {
