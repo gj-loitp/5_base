@@ -166,5 +166,7 @@ dependencies {
 
     //https://github.com/tuanhav95/DragView
     api 'com.github.tuanhav95:DragView:1.1.0'
+
+    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'//https://github.com/alpbak/BoxedVerticalSeekBar
 }
 //apply plugin: 'com.google.gms.google-services'
