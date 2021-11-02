@@ -42,7 +42,7 @@ class LAutoLinearLayout : FrameLayout {
     private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.LAutoLinearLayout, defStyleAttr, defStyleRes)
         try {
-            mOrientation = a.getInt(R.styleable.LAutoLinearLayout_auto_orientation, HORIZONTAL)
+            mOrientation = a.getInt(R.styleable.LAutoLinearLayout_auto_ll_auto_orientation, HORIZONTAL)
             val gravity = a.getInt(R.styleable.LAutoLinearLayout_auto_gravity, -1)
             if (gravity >= 0) {
                 setGravity(gravity)

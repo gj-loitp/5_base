@@ -273,7 +273,7 @@
     </declare-styleable>
 
     <declare-styleable name="LAutoLinearLayout">
-        <attr name="auto_orientation">
+        <attr name="auto_ll_auto_orientation">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
