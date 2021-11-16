@@ -14,7 +14,14 @@ import vn.loitp.app.R
 
 class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWindow() {
 
-    override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
+    override fun showOnAnchor(
+        anchor: View,
+        vertPos: Int,
+        horizPos: Int,
+        x: Int,
+        y: Int,
+        fitInScreen: Boolean
+    ) {
         super.showOnAnchor(anchor, vertPos, horizPos, x, y, fitInScreen)
 
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
