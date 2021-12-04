@@ -1,7 +1,6 @@
 package vn.loitp.app.data
 
 import org.greenrobot.eventbus.EventBus
-
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 /**
