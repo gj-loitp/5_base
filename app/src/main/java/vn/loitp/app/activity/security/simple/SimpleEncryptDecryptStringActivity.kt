@@ -70,5 +70,4 @@ class SimpleEncryptDecryptStringActivity : BaseFontActivity() {
         tv1.text = ""
         tv0.text = newStr
     }
-
 }

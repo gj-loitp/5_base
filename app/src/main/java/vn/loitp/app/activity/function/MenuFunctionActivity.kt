@@ -68,15 +68,18 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
             btToggleFullScreen -> intent = Intent(this, FullScreenActivity::class.java)
             btViewDragHelper -> intent = Intent(this, ViewDragHelperActivity::class.java)
             btRecolor -> intent = Intent(this, RecolorActivity::class.java)
-            btActivityServiceComunicate -> intent =
-                Intent(this, ActivityServiceComunicateActivity::class.java)
+            btActivityServiceComunicate ->
+                intent =
+                    Intent(this, ActivityServiceComunicateActivity::class.java)
             btLocation -> intent = Intent(this, LocationActivity::class.java)
             btNotification -> intent = Intent(this, MenuNotificationActivity::class.java)
             btPump -> intent = Intent(this, PumpActivity::class.java)
-            btViewDragHelperSimple -> intent =
-                Intent(this, ViewDragHelperSimpleActivity::class.java)
-            btViewDragHelperSimple1 -> intent =
-                Intent(this, ViewDragHelperSimpleActivity1::class.java)
+            btViewDragHelperSimple ->
+                intent =
+                    Intent(this, ViewDragHelperSimpleActivity::class.java)
+            btViewDragHelperSimple1 ->
+                intent =
+                    Intent(this, ViewDragHelperSimpleActivity1::class.java)
             btSensor -> intent = Intent(this, SensorActivity::class.java)
             btGlide -> intent = Intent(this, GlideActivity::class.java)
             btKeyboard -> intent = Intent(this, KeyboardActivity::class.java)

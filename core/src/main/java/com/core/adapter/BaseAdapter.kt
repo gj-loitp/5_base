@@ -6,7 +6,7 @@ import com.annotation.LogTag
 import com.core.utilities.LLog
 import com.views.LToast
 
-//https://github.com/wasabeef/recyclerview-animators
+// https://github.com/wasabeef/recyclerview-animators
 
 /*bookAdapter?.let {
     val animAdapter = AlphaInAnimationAdapter(it)

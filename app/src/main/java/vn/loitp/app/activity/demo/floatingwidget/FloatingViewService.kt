@@ -6,7 +6,7 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
-import android.view.*
+import android.view.* // ktlint-disable no-wildcard-imports
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -25,7 +25,8 @@ class FloatingViewService : Service() {
     override fun onCreate() {
         super.onCreate()
 
-        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_widget, null)
+        mFloatingView =
+            LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_widget, null)
 
         val layoutFlag: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
@@ -34,18 +35,20 @@ class FloatingViewService : Service() {
         }
 
         val params = WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                layoutFlag,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSLUCENT)
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            layoutFlag,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.TRANSLUCENT
+        )
 
-        //Specify the view position
-        params.gravity = Gravity.TOP or Gravity.LEFT //Initially view will be added to top-left corner
+        // Specify the view position
+        params.gravity =
+            Gravity.TOP or Gravity.LEFT // Initially view will be added to top-left corner
         params.x = 0
         params.y = 100
 
-        //Add the view to the window
+        // Add the view to the window
         mWindowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         mWindowManager?.addView(mFloatingView, params)
 
@@ -60,47 +63,45 @@ class FloatingViewService : Service() {
         val ivOpenButton = mFloatingView.findViewById<ImageView>(R.id.ivOpenButton)
 
         ivClose?.setOnClickListener {
-            //close the service and remove the from from the window
+            // close the service and remove the from from the window
             stopSelf()
         }
 
-        //Set the view while floating view is expanded.
-        //Set the play button.
+        // Set the view while floating view is expanded.
+        // Set the play button.
 
         ivPlay?.setOnClickListener {
             LToast.show("Playing the song.")
         }
 
-
-        //Set the next button.
+        // Set the next button.
         nextButton?.setOnClickListener {
             LToast.show("Playing next song.")
         }
 
-
-        //Set the pause button.
+        // Set the pause button.
         ivPrev?.setOnClickListener {
             LToast.show("Playing previous song.")
         }
 
-        //Set the close button
+        // Set the close button
         ivCloseButton.setOnClickListener {
             rlCollapse.visibility = View.VISIBLE
             llExpanded.visibility = View.GONE
         }
 
-        //Open the application on thi button click
+        // Open the application on thi button click
         ivOpenButton.setOnClickListener {
-            //Open the application  click.
+            // Open the application  click.
             val intent = Intent(this@FloatingViewService, FloatingWidgetActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
 
-            //close the service and remove view from the view hierarchy
+            // close the service and remove view from the view hierarchy
             stopSelf()
         }
 
-        //Drag and move floating view using user's touch action.
+        // Drag and move floating view using user's touch action.
         rlRootContainer.setOnTouchListener(object : OnTouchListener {
             private var initialX = 0
             private var initialY = 0
@@ -111,11 +112,11 @@ class FloatingViewService : Service() {
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
 
-                        //remember the initial position.
+                        // remember the initial position.
                         initialX = params.x
                         initialY = params.y
 
-                        //get the touch location
+                        // get the touch location
                         initialTouchX = event.rawX
                         initialTouchY = event.rawY
                         return true
@@ -124,13 +125,13 @@ class FloatingViewService : Service() {
                         val xDiff = (event.rawX - initialTouchX).toInt()
                         val yDiff = (event.rawY - initialTouchY).toInt()
 
-                        //The check for Xdiff <10 && YDiff< 10 because sometime elements moves a little while clicking.
-                        //So that is click event.
+                        // The check for Xdiff <10 && YDiff< 10 because sometime elements moves a little while clicking.
+                        // So that is click event.
                         if (xDiff < 10 && yDiff < 10) {
                             if (isViewCollapsed()) {
-                                //When user clicks on the image view of the collapsed layout,
-                                //visibility of the collapsed layout will be changed to "View.GONE"
-                                //and expanded view will become visible.
+                                // When user clicks on the image view of the collapsed layout,
+                                // visibility of the collapsed layout will be changed to "View.GONE"
+                                // and expanded view will become visible.
                                 rlCollapse.visibility = View.GONE
                                 llExpanded.visibility = View.VISIBLE
                             }
@@ -138,11 +139,11 @@ class FloatingViewService : Service() {
                         return true
                     }
                     MotionEvent.ACTION_MOVE -> {
-                        //Calculate the X and Y coordinates of the view.
+                        // Calculate the X and Y coordinates of the view.
                         params.x = initialX + (event.rawX - initialTouchX).toInt()
                         params.y = initialY + (event.rawY - initialTouchY).toInt()
 
-                        //Update the layout with new X & Y coordinate
+                        // Update the layout with new X & Y coordinate
                         mWindowManager?.updateViewLayout(mFloatingView, params)
                         return true
                     }

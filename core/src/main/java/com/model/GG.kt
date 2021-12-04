@@ -15,5 +15,4 @@ class GG : BaseModel() {
     @SerializedName("isReady")
     @Expose
     var isReady: Boolean = false
-
 }

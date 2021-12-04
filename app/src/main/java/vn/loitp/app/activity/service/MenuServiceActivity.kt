@@ -25,7 +25,6 @@ class MenuServiceActivity : BaseFontActivity(), View.OnClickListener {
 
         btDemoService.setOnClickListener(this)
         btEndlessService.setOnClickListener(this)
-
     }
 
     override fun onClick(v: View) {

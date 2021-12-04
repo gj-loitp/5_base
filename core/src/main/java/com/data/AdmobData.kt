@@ -18,5 +18,4 @@ class AdmobData private constructor() {
             }
             return field
         }
-
 }

@@ -51,14 +51,18 @@ class MenuDatabaseActivity : BaseFontActivity(), OnClickListener {
             btRealm -> intent = Intent(this, RealmActivity::class.java)
             btSqliteAsset -> intent = Intent(this, ReadSqliteAssetActivity::class.java)
             btSharedPrefs -> intent = Intent(this, SharedPrefsActivity::class.java)
-            btSharedPrefsEncryption -> intent = Intent(this, EncryptionSharedPrefsActivity::class.java)
+            btSharedPrefsEncryption ->
+                intent =
+                    Intent(this, EncryptionSharedPrefsActivity::class.java)
             btSqliteEncryption -> intent = Intent(this, SqliteEncryptionActivity::class.java)
             btSqliteMultiTable -> intent = Intent(this, SqliteMultiTableActivity::class.java)
-            btSqliteMultiTableAdvance -> intent = Intent(this, SqliteMultiTableAdvanceActivity::class.java)
+            btSqliteMultiTableAdvance ->
+                intent =
+                    Intent(this, SqliteMultiTableAdvanceActivity::class.java)
             btRoom -> intent = Intent(this, WordActivity::class.java)
             btRoom2 -> intent = Intent(this, RoomActivity::class.java)
         }
-        intent?.let{
+        intent?.let {
             startActivity(it)
             LActivityUtil.tranIn(this)
         }

@@ -8,10 +8,9 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatTextView
 import com.BuildConfig
 import com.R
-import com.core.common.Constants
 import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 object LToast {
     private val logTag = LToast::class.java.simpleName
@@ -21,17 +20,20 @@ object LToast {
     @JvmStatic
     @SuppressLint("InflateParams")
     @JvmOverloads
-    fun show(msg: String?,
-             length: Int = Toast.LENGTH_SHORT,
-             backgroundResColor: Int = R.color.red,
-             textResColor: Int = R.color.white,
-             isTopAnchor: Boolean = true) {
+    fun show(
+        msg: String?,
+        length: Int = Toast.LENGTH_SHORT,
+        backgroundResColor: Int = R.color.red,
+        textResColor: Int = R.color.white,
+        isTopAnchor: Boolean = true
+    ) {
         if (msg.isNullOrEmpty()) {
             return
         }
         clear()
         try {
-            val inf = LAppResource.application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val inf =
+                LAppResource.application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val layout = inf.inflate(R.layout.l_toast, null)
             val textView = layout.findViewById<AppCompatTextView>(R.id.tvLoading)
             textView.text = msg
@@ -50,7 +52,6 @@ object LToast {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-
     }
 
     private fun clear() {
@@ -70,11 +71,13 @@ object LToast {
             textResColor = R.color.white
             backgroundResColor = R.color.dark900
         }
-        show(msg = msg,
-                length = Toast.LENGTH_SHORT,
-                backgroundResColor = backgroundResColor,
-                textResColor = textResColor,
-                isTopAnchor = isTopAnchor)
+        show(
+            msg = msg,
+            length = Toast.LENGTH_SHORT,
+            backgroundResColor = backgroundResColor,
+            textResColor = textResColor,
+            isTopAnchor = isTopAnchor
+        )
     }
 
     fun showShortWarning(msg: String?, isTopAnchor: Boolean = true) {
@@ -87,11 +90,13 @@ object LToast {
             textResColor = R.color.black
             backgroundResColor = R.color.yellow
         }
-        show(msg = msg,
-                length = Toast.LENGTH_SHORT,
-                backgroundResColor = backgroundResColor,
-                textResColor = textResColor,
-                isTopAnchor = isTopAnchor)
+        show(
+            msg = msg,
+            length = Toast.LENGTH_SHORT,
+            backgroundResColor = backgroundResColor,
+            textResColor = textResColor,
+            isTopAnchor = isTopAnchor
+        )
     }
 
     fun showShortError(msg: String?, isTopAnchor: Boolean = true) {
@@ -104,11 +109,13 @@ object LToast {
             textResColor = R.color.black
             backgroundResColor = R.color.red
         }
-        show(msg = msg,
-                length = Toast.LENGTH_SHORT,
-                backgroundResColor = backgroundResColor,
-                textResColor = textResColor,
-                isTopAnchor = isTopAnchor)
+        show(
+            msg = msg,
+            length = Toast.LENGTH_SHORT,
+            backgroundResColor = backgroundResColor,
+            textResColor = textResColor,
+            isTopAnchor = isTopAnchor
+        )
     }
 
     fun showLongInformation(msg: String?, isTopAnchor: Boolean = true) {
@@ -121,11 +128,13 @@ object LToast {
             textResColor = R.color.black
             backgroundResColor = R.color.whiteSmoke
         }
-        show(msg = msg,
-                length = Toast.LENGTH_LONG,
-                backgroundResColor = backgroundResColor,
-                textResColor = textResColor,
-                isTopAnchor = isTopAnchor)
+        show(
+            msg = msg,
+            length = Toast.LENGTH_LONG,
+            backgroundResColor = backgroundResColor,
+            textResColor = textResColor,
+            isTopAnchor = isTopAnchor
+        )
     }
 
     fun showLongWarning(msg: String?, isTopAnchor: Boolean = true) {
@@ -138,11 +147,13 @@ object LToast {
             textResColor = R.color.black
             backgroundResColor = R.color.yellow
         }
-        show(msg = msg,
-                length = Toast.LENGTH_LONG,
-                backgroundResColor = backgroundResColor,
-                textResColor = textResColor,
-                isTopAnchor = isTopAnchor)
+        show(
+            msg = msg,
+            length = Toast.LENGTH_LONG,
+            backgroundResColor = backgroundResColor,
+            textResColor = textResColor,
+            isTopAnchor = isTopAnchor
+        )
     }
 
     fun showLongError(msg: String?, isTopAnchor: Boolean = true) {
@@ -155,11 +166,13 @@ object LToast {
             textResColor = R.color.black
             backgroundResColor = R.color.red
         }
-        show(msg = msg,
-                length = Toast.LENGTH_LONG,
-                backgroundResColor = backgroundResColor,
-                textResColor = textResColor,
-                isTopAnchor = isTopAnchor)
+        show(
+            msg = msg,
+            length = Toast.LENGTH_LONG,
+            backgroundResColor = backgroundResColor,
+            textResColor = textResColor,
+            isTopAnchor = isTopAnchor
+        )
     }
 
     fun showShortDebug(msg: String?) {

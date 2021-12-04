@@ -2,9 +2,7 @@ package com.views
 
 import android.content.Context
 import android.util.AttributeSet
-
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-
 import com.google.android.material.appbar.AppBarLayout
 import kotlin.math.abs
 

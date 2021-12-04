@@ -18,7 +18,6 @@ class CommunicateMng {
         fun postFromService(msg: MsgFromService) {
             EventBus.getDefault().post(msg)
         }
-
     }
 
     class MsgFromActivity(var msg: String)

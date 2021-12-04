@@ -35,18 +35,20 @@ class FloatingWidgetActivity : BaseFontActivity() {
     private fun startService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
             LDialogUtil.showDialog2(
-                    context = this,
-                    title = "Permission",
-                    msg = "Please open overlay permission",
-                    button1 = "Yes",
-                    button2 = "No",
-                    onClickButton1 = {
-                        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-                        startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
-                    },
-                    onClickButton2 = {
-
-                    }
+                context = this,
+                title = "Permission",
+                msg = "Please open overlay permission",
+                button1 = "Yes",
+                button2 = "No",
+                onClickButton1 = {
+                    val intent = Intent(
+                        Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:$packageName")
+                    )
+                    startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
+                },
+                onClickButton2 = {
+                }
             )
         } else {
             startService(Intent(this, FloatingViewService::class.java))
@@ -57,7 +59,7 @@ class FloatingWidgetActivity : BaseFontActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CODE_DRAW_OVER_OTHER_APP_PERMISSION) {
-            //Check if the permission is granted or not.
+            // Check if the permission is granted or not.
             startService()
         }
     }

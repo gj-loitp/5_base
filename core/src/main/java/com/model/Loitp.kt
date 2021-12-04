@@ -11,5 +11,4 @@ class Loitp : BaseModel() {
     @SerializedName("loitp")
     @Expose
     var loitp: List<App>? = null
-
 }

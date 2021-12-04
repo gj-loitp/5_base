@@ -11,7 +11,7 @@ import gun0912.tedkeyboardobserver.TedRxKeyboardObserver
 import kotlinx.android.synthetic.main.activity_func_keyboard.*
 import vn.loitp.app.R
 
-//https://github.com/ParkSangGwon/TedKeyboardObserver
+// https://github.com/ParkSangGwon/TedKeyboardObserver
 
 @LogTag("KeyboardActivity")
 @IsFullScreen(false)
@@ -26,10 +26,10 @@ class KeyboardActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         TedRxKeyboardObserver(this)
-                .listen()
-                .subscribe({ isShow ->
-                    textView.text = "isShow $isShow"
-                }, { throwable -> throwable.printStackTrace() })
+            .listen()
+            .subscribe({ isShow ->
+                textView.text = "isShow $isShow"
+            }, { throwable -> throwable.printStackTrace() })
 
         btShow.setSafeOnClickListener {
             LKeyBoardUtil.show(this)
@@ -38,5 +38,4 @@ class KeyboardActivity : BaseFontActivity() {
             LKeyBoardUtil.hide(this)
         }
     }
-
 }

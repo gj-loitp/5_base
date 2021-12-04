@@ -19,7 +19,11 @@ class MoreActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        LScreenUtil.addFragment(activity = this, containerFrameLayoutIdRes = R.id.flContainer, fragment = FrmMore(), isAddToBackStack = false)
+        LScreenUtil.addFragment(
+            activity = this,
+            containerFrameLayoutIdRes = R.id.flContainer,
+            fragment = FrmMore(),
+            isAddToBackStack = false
+        )
     }
-
 }
