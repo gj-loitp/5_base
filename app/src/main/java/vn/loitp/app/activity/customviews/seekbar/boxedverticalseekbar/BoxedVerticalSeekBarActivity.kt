@@ -8,9 +8,9 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_seekbar_boxed_vertical.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-//https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
+// https://github.com/alpbak/BoxedVerticalSeekBar?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6291
 @LogTag("BoxedVerticalSeekBarActivity")
 @IsFullScreen(false)
 class BoxedVerticalSeekBarActivity : BaseFontActivity() {
@@ -55,5 +55,4 @@ class BoxedVerticalSeekBarActivity : BaseFontActivity() {
         }
         textView?.text = x
     }
-
 }

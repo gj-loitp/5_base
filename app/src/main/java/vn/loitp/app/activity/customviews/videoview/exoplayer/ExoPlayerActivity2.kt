@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_video_exo_player2.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
 import vn.loitp.app.R
 
-//custom UI exo_playback_control_view.xml
+// custom UI exo_playback_control_view.xml
 
 @LogTag("ExoPlayerActivity2")
 @IsFullScreen(false)
@@ -26,7 +26,8 @@ class ExoPlayerActivity2 : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         playerView.useController = false
-        val linkPlay = "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
+        val linkPlay =
+            "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
         playerManager = PlayerManager(this)
 
         controls.showTimeoutMs = 0
@@ -65,9 +66,15 @@ class ExoPlayerActivity2 : BaseFontActivity() {
         super.onConfigurationChanged(newConfig)
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(
+                playerView = playerView,
+                exoFullscreen = exo_fullscreen
+            )
         } else {
-            playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(
+                playerView = playerView,
+                exoFullscreen = exo_fullscreen
+            )
         }
     }
 }

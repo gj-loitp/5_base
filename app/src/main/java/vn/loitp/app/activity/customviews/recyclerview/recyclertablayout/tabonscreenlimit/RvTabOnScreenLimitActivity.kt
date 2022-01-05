@@ -37,7 +37,7 @@ class RvTabOnScreenLimitActivity : BaseFontActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val items = DemoData.loadDemoColorItems(this)
-        items.sortedWith(Comparator { lhs, rhs -> lhs.name.compareTo(rhs.name) })
+        items.sortedWith { lhs, rhs -> lhs.name.compareTo(rhs.name) }
 
         val demoColorPagerAdapter = DemoColorPagerAdapter()
         demoColorPagerAdapter.addAll(items)

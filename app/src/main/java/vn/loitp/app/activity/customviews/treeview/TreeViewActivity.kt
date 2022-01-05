@@ -11,7 +11,7 @@ import com.views.treeview.TreeNode
 import kotlinx.android.synthetic.main.activity_tree_view.*
 import vn.loitp.app.R
 
-//https://github.com/Team-Blox/TreeView
+// https://github.com/Team-Blox/TreeView
 @LogTag("TreeViewActivity")
 @IsFullScreen(false)
 class TreeViewActivity : BaseFontActivity() {
@@ -29,16 +29,16 @@ class TreeViewActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        val adapter: BaseTreeAdapter<*> = object : BaseTreeAdapter<ViewHolder>(this, R.layout.node) {
-            override fun onCreateViewHolder(view: View): ViewHolder {
-                return ViewHolder(view)
-            }
+        val adapter: BaseTreeAdapter<*> =
+            object : BaseTreeAdapter<ViewHolder>(this, R.layout.node) {
+                override fun onCreateViewHolder(view: View): ViewHolder {
+                    return ViewHolder(view)
+                }
 
-            override fun onBindViewHolder(viewHolder: ViewHolder?, data: Any?, position: Int) {
-                viewHolder?.textView?.text = data.toString()
+                override fun onBindViewHolder(viewHolder: ViewHolder?, data: Any?, position: Int) {
+                    viewHolder?.textView?.text = data.toString()
+                }
             }
-
-        }
         treeView.adapter = adapter
 
         // example tree

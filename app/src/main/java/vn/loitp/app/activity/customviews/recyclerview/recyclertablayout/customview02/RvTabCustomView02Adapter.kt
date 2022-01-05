@@ -17,12 +17,14 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoImag
 /**
  * Created by Shinichi Nishimura on 2015/07/22.
  */
-class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) : RecyclerTabLayout.Adapter<RvTabCustomView02Adapter.ViewHolder>(viewPager) {
+class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) :
+    RecyclerTabLayout.Adapter<RvTabCustomView02Adapter.ViewHolder>(viewPager) {
 
     private val mAdapter: DemoImagePagerAdapter = mViewPager.adapter as DemoImagePagerAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_layout_custom_view02_tab, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.view_layout_custom_view02_tab, parent, false)
         return ViewHolder(view)
     }
 
@@ -50,7 +52,9 @@ class RvTabCustomView02Adapter internal constructor(viewPager: ViewPager) : Recy
         var imageView: ImageView = itemView.findViewById(R.id.imageView)
 
         init {
-            itemView.setOnClickListener { v -> viewPager.currentItem = bindingAdapterPosition }
+            itemView.setOnClickListener {
+                viewPager.currentItem = bindingAdapterPosition
+            }
         }
     }
 }

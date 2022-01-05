@@ -2,11 +2,7 @@ package vn.loitp.app.activity.customviews.scrollablepanel
 
 import androidx.annotation.Keep
 import com.core.base.BaseModel
-import java.util.*
-
-/**
- * Created by kelin on 16-11-18.
- */
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @Keep
 class OrderInfo : BaseModel() {

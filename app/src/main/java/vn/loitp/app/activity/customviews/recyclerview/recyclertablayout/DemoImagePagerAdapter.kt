@@ -8,7 +8,7 @@ import androidx.annotation.DrawableRes
 import androidx.viewpager.widget.PagerAdapter
 import kotlinx.android.synthetic.main.view_item_recycler_tablayout_page.view.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class DemoImagePagerAdapter : PagerAdapter() {
 
@@ -16,7 +16,8 @@ class DemoImagePagerAdapter : PagerAdapter() {
 
     @SuppressLint("SetTextI18n")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
+        val view = LayoutInflater.from(container.context)
+            .inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
         view.tvTitle.text = "Page: $position"
         container.addView(view)

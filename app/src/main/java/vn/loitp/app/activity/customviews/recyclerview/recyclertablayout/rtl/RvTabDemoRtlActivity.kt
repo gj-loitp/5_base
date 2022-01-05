@@ -13,7 +13,6 @@ import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColorPagerAdapter
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.basic.RvTabDemoBasicActivity
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.utils.DemoData
-import java.util.*
 
 @LogTag("RvTabDemoRtlActivity")
 @IsFullScreen(false)
@@ -38,7 +37,7 @@ class RvTabDemoRtlActivity : BaseFontActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val items = DemoData.loadDemoColorItems(this)
-        items.sortedWith(Comparator { lhs, rhs -> lhs.name.compareTo(rhs.name) })
+        items.sortedWith { lhs, rhs -> lhs.name.compareTo(rhs.name) }
 
         val adapter = DemoColorPagerAdapter()
         adapter.addAll(items)

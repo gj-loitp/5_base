@@ -30,7 +30,6 @@ class SelectableTextViewActivity : BaseFontActivity() {
             override fun selectedText(text: String?) {
                 showShortInformation(msg = text)
             }
-
         })
         tvEmptyBox.tag = 0
         tvEmptyBox.setOnClickListener { view: View ->
@@ -46,5 +45,4 @@ class SelectableTextViewActivity : BaseFontActivity() {
             }
         }
     }
-
 }

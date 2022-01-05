@@ -21,11 +21,13 @@ class YoutubeActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         bt0.setSafeOnClickListener {
-            LUIUtil.playYoutube(activity = this, url = "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender")
+            LUIUtil.playYoutube(
+                activity = this,
+                url = "https://www.youtube.com/watch?v=YE7VzlLtp-4&ab_channel=Blender"
+            )
         }
         bt1.setSafeOnClickListener {
             LUIUtil.playYoutubeWithId(activity = this, id = "YE7VzlLtp-4")
         }
     }
-
 }

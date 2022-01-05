@@ -8,7 +8,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.ColorItem
 import java.io.IOException
 import java.nio.charset.Charset
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 object DemoData {
 

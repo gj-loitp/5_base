@@ -32,7 +32,9 @@ class SeekbarMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btBoxedVerticalSeekbar -> intent = Intent(this, BoxedVerticalSeekBarActivity::class.java)
+            btBoxedVerticalSeekbar ->
+                intent =
+                    Intent(this, BoxedVerticalSeekBarActivity::class.java)
             btVerticalSeekBar -> intent = Intent(this, VerticalSeekbarActivity::class.java)
             btSeekBar -> intent = Intent(this, SeekbarActivity::class.java)
         }

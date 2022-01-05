@@ -38,7 +38,11 @@ class TBGCustomButtonActivity : BaseFontActivity() {
     }
 
     private inner class MultiSelectListener : OnCheckedStateChangeListener {
-        override fun onCheckedStateChanged(group: MultiSelectToggleGroup, checkedId: Int, isChecked: Boolean) {
+        override fun onCheckedStateChanged(
+            group: MultiSelectToggleGroup,
+            checkedId: Int,
+            isChecked: Boolean
+        ) {
             logD("onCheckedStateChanged(): $checkedId, isChecked = $isChecked")
         }
     }

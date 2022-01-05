@@ -13,12 +13,14 @@ import com.views.recyclerview.recyclertablayout.RecyclerTabLayout
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.DemoColorPagerAdapter
 
-class RvTabCustomView01Adapter internal constructor(viewPager: ViewPager) : RecyclerTabLayout.Adapter<RvTabCustomView01Adapter.ViewHolder>(viewPager) {
+class RvTabCustomView01Adapter internal constructor(viewPager: ViewPager) :
+    RecyclerTabLayout.Adapter<RvTabCustomView01Adapter.ViewHolder>(viewPager) {
 
     private val mAdapter: DemoColorPagerAdapter? = mViewPager.adapter as DemoColorPagerAdapter?
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_rv_tab_view01_tab, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.view_rv_tab_view01_tab, parent, false)
         return ViewHolder(view)
     }
 
@@ -43,7 +45,9 @@ class RvTabCustomView01Adapter internal constructor(viewPager: ViewPager) : Recy
         var tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
 
         init {
-            itemView.setOnClickListener { _ -> viewPager.currentItem = bindingAdapterPosition }
+            itemView.setOnClickListener {
+                viewPager.currentItem = bindingAdapterPosition
+            }
         }
     }
 }

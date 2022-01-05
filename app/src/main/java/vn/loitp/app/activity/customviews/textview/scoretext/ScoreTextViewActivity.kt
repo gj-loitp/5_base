@@ -16,7 +16,7 @@ class ScoreTextViewActivity : BaseFontActivity() {
 
     companion object {
         const val KEY_UPDATE_SCORE = 1
-        const val DELTA_T = 20 //msecond
+        const val DELTA_T = 20 // msecond
     }
 
     private val maxScore = 200
@@ -27,7 +27,7 @@ class ScoreTextViewActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        textView.text = "${currentScore}"
+        textView.text = "$currentScore"
         bt.setOnClickListener {
             currentScore = 0
             bt.isEnabled = false
@@ -53,8 +53,10 @@ class ScoreTextViewActivity : BaseFontActivity() {
 
     private fun updateScore(totalScore: Int) {
         for (i in currentScore..totalScore) {
-            handler.sendMessageDelayed(handler.obtainMessage(KEY_UPDATE_SCORE, "" + i), (i - currentScore) * DELTA_T.toLong())
+            handler.sendMessageDelayed(
+                handler.obtainMessage(KEY_UPDATE_SCORE, "" + i),
+                (i - currentScore) * DELTA_T.toLong()
+            )
         }
     }
-
 }

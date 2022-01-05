@@ -5,7 +5,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-//https://github.com/melihaksoy/StrokedTextView
+// https://github.com/melihaksoy/StrokedTextView
 
 @LogTag("StrokedTextViewActivity")
 @IsFullScreen(false)

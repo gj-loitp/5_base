@@ -18,15 +18,21 @@ class ScrollNumberActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        multiScrollNumber.setTextColors(intArrayOf(R.color.red50, R.color.orange, R.color.blue, R.color.green, R.color.purple))
-        //scrollNumber.setTextSize(64)
+        multiScrollNumber.setTextColors(
+            intArrayOf(
+                R.color.red50,
+                R.color.orange,
+                R.color.blue,
+                R.color.green,
+                R.color.purple
+            )
+        )
+        // scrollNumber.setTextSize(64)
 
-        //scrollNumber.setNumber(64, 2048)
-        //scrollNumber.setInterpolator(new DecelerateInterpolator())
-
+        // scrollNumber.setNumber(64, 2048)
+        // scrollNumber.setInterpolator(new DecelerateInterpolator())
 
         multiScrollNumber.setScrollVelocity(20)
         multiScrollNumber.setNumber(20.48)
     }
-
 }

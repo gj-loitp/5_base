@@ -60,7 +60,7 @@ class RvTabCustomView02Activity : BaseFontActivity() {
 
     companion object {
 
-        private val KEY_DEMO = "demo"
+        private const val KEY_DEMO = "demo"
 
         fun startActivity(context: Context, demo: Demo) {
             val intent = Intent(context, RvTabCustomView02Activity::class.java)

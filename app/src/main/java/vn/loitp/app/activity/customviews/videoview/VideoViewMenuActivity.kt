@@ -38,11 +38,17 @@ class VideoViewMenuActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btExoPlayer2 -> {
                 intent = Intent(this, ExoPlayerActivity::class.java)
-                intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd")
+                intent.putExtra(
+                    Constants.KEY_VIDEO_LINK_PLAY,
+                    "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
+                )
             }
             btExoPlayer2IMA -> {
                 intent = Intent(this, ExoPlayerActivity::class.java)
-                intent.putExtra(Constants.KEY_VIDEO_LINK_PLAY, "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd")
+                intent.putExtra(
+                    Constants.KEY_VIDEO_LINK_PLAY,
+                    "https://bitmovin-a.akamaihd.net/content/MI201109210084_1/mpds/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.mpd"
+                )
                 intent.putExtra(Constants.KEY_VIDEO_LINK_IMA_AD, getString(R.string.ad_tag_url))
             }
             bt2 -> intent = Intent(this, ExoPlayerActivity2::class.java)

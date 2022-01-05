@@ -11,7 +11,9 @@ import vn.loitp.app.R
 class ParallaxAdapter internal constructor(private val context: Context) : BaseAdapter() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.row_parallax, viewGroup, false))
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.row_parallax, viewGroup, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -26,8 +28,7 @@ class ParallaxAdapter internal constructor(private val context: Context) : BaseA
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         fun bind() {
-            //do sth
+            // do sth
         }
     }
-
 }

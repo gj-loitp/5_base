@@ -64,12 +64,22 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btParallaxRecyclerView -> intent = Intent(this, ParallaxRecyclerViewActivity::class.java)
+            btParallaxRecyclerView ->
+                intent =
+                    Intent(this, ParallaxRecyclerViewActivity::class.java)
             btNormalRecyclerView -> intent = Intent(this, RecyclerViewActivity::class.java)
-            btNormalRecyclerViewWithSpanSize -> intent = Intent(this, RecyclerViewWithSpanSizeActivity::class.java)
-            btNormalRecyclerViewWithSingletonData -> intent = Intent(this, RecyclerViewWithSingletonDataActivity::class.java)
-            btGalleryLayoutManager -> intent = Intent(this, GalleryLayoutManagerHorizontalActivity::class.java)
-            btGalleryLayoutManagerVertical -> intent = Intent(this, GalleryLayoutManagerVerticalActivity::class.java)
+            btNormalRecyclerViewWithSpanSize ->
+                intent =
+                    Intent(this, RecyclerViewWithSpanSizeActivity::class.java)
+            btNormalRecyclerViewWithSingletonData ->
+                intent =
+                    Intent(this, RecyclerViewWithSingletonDataActivity::class.java)
+            btGalleryLayoutManager ->
+                intent =
+                    Intent(this, GalleryLayoutManagerHorizontalActivity::class.java)
+            btGalleryLayoutManagerVertical ->
+                intent =
+                    Intent(this, GalleryLayoutManagerVerticalActivity::class.java)
             btBookView -> intent = Intent(this, BookViewActivity::class.java)
             btDiffUtil -> intent = Intent(this, DiffUtilActivity::class.java)
             btRecyclerTabLayout -> intent = Intent(this, RecyclerTabLayoutMenuActivity::class.java)
@@ -78,11 +88,19 @@ class RecyclerViewMenuActivity : BaseFontActivity(), View.OnClickListener {
             btFooter2 -> intent = Intent(this, RecyclerViewFooter2Activity::class.java)
             btNetView -> intent = Intent(this, NetViewActivity::class.java)
             btFitGridView -> intent = Intent(this, FitGridViewActivity::class.java)
-            btDragDropSwipeRecyclerviewListVertical -> intent = Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
-            btDragDropSwipeRecyclerviewListHorizontal -> intent = Intent(this, DragDropSwipeListHorizontalRecyclerviewActivity::class.java)
-            btDragDropSwipeRecyclerviewGrid -> intent = Intent(this, DragDropSwipeGridRecyclerviewActivity::class.java)
+            btDragDropSwipeRecyclerviewListVertical ->
+                intent =
+                    Intent(this, DragDropSwipeListVerticalRecyclerviewActivity::class.java)
+            btDragDropSwipeRecyclerviewListHorizontal ->
+                intent =
+                    Intent(this, DragDropSwipeListHorizontalRecyclerviewActivity::class.java)
+            btDragDropSwipeRecyclerviewGrid ->
+                intent =
+                    Intent(this, DragDropSwipeGridRecyclerviewActivity::class.java)
             btFastScroll -> intent = Intent(this, FastScrollMenuActivity::class.java)
-            btFastScrollSeekBar -> intent = Intent(this, RecyclerViewFastScrollSeekbarActivity::class.java)
+            btFastScrollSeekBar ->
+                intent =
+                    Intent(this, RecyclerViewFastScrollSeekbarActivity::class.java)
         }
         intent?.let {
             startActivity(it)

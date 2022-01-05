@@ -15,7 +15,8 @@ class DemoColorPagerAdapter : PagerAdapter() {
 
     @SuppressLint("SetTextI18n")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
+        val view = LayoutInflater.from(container.context)
+            .inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
         view.tvTitle.text = "Page: " + mItems[position].hex
         container.addView(view)
@@ -35,7 +36,7 @@ class DemoColorPagerAdapter : PagerAdapter() {
         return view === any
     }
 
-    override fun getPageTitle(position: Int): String? {
+    override fun getPageTitle(position: Int): String {
         return mItems[position].name
     }
 

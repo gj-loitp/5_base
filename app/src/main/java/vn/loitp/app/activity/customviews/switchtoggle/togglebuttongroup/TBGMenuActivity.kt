@@ -9,7 +9,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_switch_tbg_menu.*
 import vn.loitp.app.R
 
-//https://github.com/nex3z/ToggleButtonGroup
+// https://github.com/nex3z/ToggleButtonGroup
 @LogTag("TBGMenuActivity")
 @IsFullScreen(false)
 class TBGMenuActivity : BaseFontActivity() {
@@ -20,7 +20,7 @@ class TBGMenuActivity : BaseFontActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
+
         btnMultiSelectSample.setOnClickListener {
             val intent = Intent(this, TBGMultiSelectActivity::class.java)
             startActivity(intent)
