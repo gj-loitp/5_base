@@ -27,9 +27,9 @@ import kotlin.math.max
 import kotlin.math.min
 
 open class SwipeBackLayout @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : ViewGroup(context, attrs, defStyleAttr) {
 
     companion object {
@@ -65,9 +65,15 @@ open class SwipeBackLayout @JvmOverloads constructor(
     private fun init(context: Context, attrs: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SwipeBackLayout)
         directionMode = typedArray.getInt(R.styleable.SwipeBackLayout_directionMode, mDirectionMode)
-        setSwipeBackFactor(typedArray.getFloat(R.styleable.SwipeBackLayout_swipeBackFactor, swipeBackFactor))
+        setSwipeBackFactor(
+            typedArray.getFloat(
+                R.styleable.SwipeBackLayout_swipeBackFactor,
+                swipeBackFactor
+            )
+        )
         setMaskAlpha(typedArray.getInteger(R.styleable.SwipeBackLayout_maskAlpha, maskAlpha))
-        isSwipeFromEdge = typedArray.getBoolean(R.styleable.SwipeBackLayout_isSwipeFromEdge, isSwipeFromEdge)
+        isSwipeFromEdge =
+            typedArray.getBoolean(R.styleable.SwipeBackLayout_isSwipeFromEdge, isSwipeFromEdge)
         typedArray.recycle()
     }
 
@@ -96,8 +102,10 @@ open class SwipeBackLayout @JvmOverloads constructor(
                 defaultMeasuredHeight = it.measuredHeight
             }
         }
-        measuredWidth = resolveSize(defaultMeasuredWidth, widthMeasureSpec) + paddingLeft + paddingRight
-        measuredHeight = resolveSize(defaultMeasuredHeight, heightMeasureSpec) + paddingTop + paddingBottom
+        measuredWidth =
+            resolveSize(defaultMeasuredWidth, widthMeasureSpec) + paddingLeft + paddingRight
+        measuredHeight =
+            resolveSize(defaultMeasuredHeight, heightMeasureSpec) + paddingTop + paddingBottom
         setMeasuredDimension(measuredWidth, measuredHeight)
     }
 
@@ -187,18 +195,20 @@ open class SwipeBackLayout @JvmOverloads constructor(
             leftOffset = paddingLeft
             if (isSwipeEnabled) {
                 if (mDirectionMode == FROM_LEFT && !canViewScrollRight(
-                                mView = innerScrollView,
-                                x = downX,
-                                y = downY,
-                                defaultValueForNull = false
-                        )) {
+                        mView = innerScrollView,
+                        x = downX,
+                        y = downY,
+                        defaultValueForNull = false
+                    )
+                ) {
                     leftOffset = min(max(left, paddingLeft), mWidth)
                 } else if (mDirectionMode == FROM_RIGHT && !canViewScrollLeft(
-                                mView = innerScrollView,
-                                x = downX,
-                                y = downY,
-                                defaultValueForNull = false
-                        )) {
+                        mView = innerScrollView,
+                        x = downX,
+                        y = downY,
+                        defaultValueForNull = false
+                    )
+                ) {
                     leftOffset = min(max(left, -mWidth), paddingRight)
                 }
             }
@@ -209,18 +219,20 @@ open class SwipeBackLayout @JvmOverloads constructor(
             topOffset = paddingTop
             if (isSwipeEnabled) {
                 if (mDirectionMode == FROM_TOP && !canViewScrollUp(
-                                mView = innerScrollView,
-                                x = downX,
-                                y = downY,
-                                defaultValueForNull = false
-                        )) {
+                        mView = innerScrollView,
+                        x = downX,
+                        y = downY,
+                        defaultValueForNull = false
+                    )
+                ) {
                     topOffset = min(max(top, paddingTop), mHeight)
                 } else if (mDirectionMode == FROM_BOTTOM && !canViewScrollDown(
-                                mView = innerScrollView,
-                                x = downX,
-                                y = downY,
-                                defaultValueForNull = false
-                        )) {
+                        mView = innerScrollView,
+                        x = downX,
+                        y = downY,
+                        defaultValueForNull = false
+                    )
+                ) {
                     topOffset = min(max(top, -mHeight), paddingBottom)
                 }
             }
@@ -228,7 +240,13 @@ open class SwipeBackLayout @JvmOverloads constructor(
         }
 
         @Suppress("NAME_SHADOWING")
-        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
+        override fun onViewPositionChanged(
+            changedView: View,
+            left: Int,
+            top: Int,
+            dx: Int,
+            dy: Int
+        ) {
             var left = left
             var top = top
             super.onViewPositionChanged(changedView, left, top, dx, dy)
@@ -239,9 +257,9 @@ open class SwipeBackLayout @JvmOverloads constructor(
                 FROM_TOP, FROM_BOTTOM -> swipeBackFraction = 1.0f * top / mHeight
             }
             mSwipeBackListener?.onViewPositionChanged(
-                    mView = mDragContentView,
-                    swipeBackFraction = swipeBackFraction,
-                    swipeBackFactor = swipeBackFactor
+                mView = mDragContentView,
+                swipeBackFraction = swipeBackFraction,
+                swipeBackFactor = swipeBackFactor
             )
         }
 
@@ -254,7 +272,8 @@ open class SwipeBackLayout @JvmOverloads constructor(
                 return
             }
             touchedEdge = ViewDragHelper.INVALID_POINTER
-            val isBackToEnd = backJudgeBySpeed(xvel = xvel, yvel = yvel) || swipeBackFraction >= swipeBackFactor
+            val isBackToEnd =
+                backJudgeBySpeed(xvel = xvel, yvel = yvel) || swipeBackFraction >= swipeBackFactor
             if (isBackToEnd) {
                 when (mDirectionMode) {
                     FROM_LEFT -> smoothScrollToX(finalLeft = mWidth)
@@ -377,7 +396,11 @@ open class SwipeBackLayout @JvmOverloads constructor(
         mTouchSlop = mDragHelper.touchSlop
 
         val defaultSwipeBackListener: OnSwipeBackListener = object : OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
                 invalidate()
             }
 

@@ -26,13 +26,14 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
         parent.addView(child, ViewGroup.LayoutParams(mConfig.heartWidth, mConfig.heartHeight))
 
         val anim = FloatAnimation(
-                path = createPath(
-                        counter = atomicInteger,
-                        view = parent,
-                        factor = 2),
-                rotation = randomRotation(),
-                parent = parent,
-                child = child
+            path = createPath(
+                counter = atomicInteger,
+                view = parent,
+                factor = 2
+            ),
+            rotation = randomRotation(),
+            parent = parent,
+            child = child
         )
         anim.duration = mConfig.animDuration.toLong()
         anim.interpolator = LinearInterpolator()
@@ -54,11 +55,12 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
         child.startAnimation(anim)
     }
 
-    internal class FloatAnimation(path: Path?, rotation: Float, parent: View?, child: View?) : Animation() {
+    internal class FloatAnimation(path: Path?, rotation: Float, parent: View?, child: View?) :
+        Animation() {
         private val pathMeasure: PathMeasure = PathMeasure(path, false)
-        private val mView: View?
-        private val mDistance: Float
-        private val mRotation: Float
+        private val mView: View? = child
+        private val mDistance: Float = pathMeasure.length
+        private val mRotation: Float = rotation
 
         override fun applyTransformation(factor: Float, transformation: Transformation) {
             val matrix = transformation.matrix
@@ -66,9 +68,21 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
             mView?.rotation = mRotation * factor
             var scale = 1f
             if (3000.0f * factor < 200.0f) {
-                scale = scale(factor.toDouble(), 0.0, 0.06666667014360428, 0.20000000298023224, 1.100000023841858)
+                scale = scale(
+                    factor.toDouble(),
+                    0.0,
+                    0.06666667014360428,
+                    0.20000000298023224,
+                    1.100000023841858
+                )
             } else if (3000.0f * factor < 300.0f) {
-                scale = scale(factor.toDouble(), 0.06666667014360428, 0.10000000149011612, 1.100000023841858, 1.0)
+                scale = scale(
+                    factor.toDouble(),
+                    0.06666667014360428,
+                    0.10000000149011612,
+                    1.100000023841858,
+                    1.0
+                )
             }
             mView?.scaleX = scale
             mView?.scaleY = scale
@@ -76,11 +90,7 @@ class PathAnimator(config: Config) : AbstractPathAnimator(config) {
         }
 
         init {
-            mDistance = pathMeasure.length
-            mView = child
-            mRotation = rotation
             parent?.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         }
     }
-
 }

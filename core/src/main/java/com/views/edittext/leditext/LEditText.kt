@@ -6,7 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.View
-import android.widget.*
+import android.widget.* // ktlint-disable no-wildcard-imports
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.R
 import com.core.utilities.LUIUtil
@@ -43,7 +43,11 @@ class LEditText : RelativeLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -94,7 +98,7 @@ class LEditText : RelativeLayout {
     fun setCardElevation(elevation: Float) {
         mcv.cardElevation = elevation
         mcv.useCompatPadding = true
-        //LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt())
+        // LUIUtil.setMarginsDp(mcv, elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt(), elevation.roundToInt())
     }
 
     fun setPaddingDp(paddingDp: Float) {
@@ -122,7 +126,6 @@ class LEditText : RelativeLayout {
         tvMessage.text = text
         tvMessage.visibility = View.VISIBLE
         mcv.strokeColor = colorError
-
     }
 
     fun hideMessage() {
@@ -140,9 +143,9 @@ class LEditText : RelativeLayout {
     fun setMaxLines(maxLines: Int) {
         editText.maxLines = maxLines
         if (maxLines == 1) {
-            editText.setSingleLine(true)
+            editText.isSingleLine = true
         } else {
-            editText.setSingleLine(false)
+            editText.isSingleLine = false
         }
     }
 

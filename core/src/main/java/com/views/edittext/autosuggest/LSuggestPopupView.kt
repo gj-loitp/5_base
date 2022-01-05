@@ -1,5 +1,6 @@
 package com.views.edittext.autosuggest
 
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Context
 import android.graphics.Color
@@ -16,13 +17,16 @@ import com.utils.util.ConvertUtils
 import kotlin.math.hypot
 import kotlin.math.max
 
-class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) : RelativePopupWindow() {
+@SuppressLint("InflateParams")
+class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callback: Callback?) :
+    RelativePopupWindow() {
     private val logTag = javaClass.simpleName
     private var ll: LinearLayout
     private var sv: ScrollView
 
     init {
-        val layout = LayoutInflater.from(context).inflate(R.layout.view_auto_suggest_edittext_popup, null)
+        val layout =
+            LayoutInflater.from(context).inflate(R.layout.view_auto_suggest_edittext_popup, null)
         contentView = layout
         width = ViewGroup.LayoutParams.WRAP_CONTENT
         height = ViewGroup.LayoutParams.WRAP_CONTENT
@@ -31,9 +35,7 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
         setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         // Disable default animation for circular reveal
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            animationStyle = 0
-        }
+        animationStyle = 0
 
         ll = layout.findViewById(R.id.ll)
         sv = layout.findViewById(R.id.sv)
@@ -46,11 +48,16 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
         fun onClick(s: String)
     }
 
-    override fun showOnAnchor(anchor: View, vertPos: Int, horizPos: Int, x: Int, y: Int, fitInScreen: Boolean) {
+    override fun showOnAnchor(
+        anchor: View,
+        vertPos: Int,
+        horizPos: Int,
+        x: Int,
+        y: Int,
+        fitInScreen: Boolean
+    ) {
         super.showOnAnchor(anchor, vertPos, horizPos, x, y, fitInScreen)
-        if (withEffect && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            circularReveal(anchor)
-        }
+        circularReveal(anchor)
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -68,7 +75,8 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
             val dx = max(cx, contentView.measuredWidth - cx)
             val dy = max(cy, contentView.measuredHeight - cy)
             val finalRadius = hypot(dx.toDouble(), dy.toDouble()).toFloat()
-            val animator = ViewAnimationUtils.createCircularReveal(contentView, cx, cy, 0f, finalRadius)
+            val animator =
+                ViewAnimationUtils.createCircularReveal(contentView, cx, cy, 0f, finalRadius)
             animator.duration = 500
             animator.start()
         }
@@ -83,10 +91,13 @@ class LSuggestPopupView(val context: Context, val withEffect: Boolean, val callb
             button.isAllCaps = false
             button.gravity = Gravity.START
             button.isSingleLine = true
-            //button.setBackgroundColor(Color.TRANSPARENT)
+            // button.setBackgroundColor(Color.TRANSPARENT)
             button.text = s
             button.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(textView = button, size = context.resources.getDimension(R.dimen.text_medium))
+            LUIUtil.setTextSize(
+                textView = button,
+                size = context.resources.getDimension(R.dimen.text_medium)
+            )
             LUIUtil.setRipple(view = button)
             button.setOnClickListener {
                 callback?.onClick(s)

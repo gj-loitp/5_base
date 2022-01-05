@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import com.R
 import com.core.utilities.LActivityUtil
 import com.core.utilities.LScreenUtil
-import com.google.android.exoplayer2.*
+import com.google.android.exoplayer2.* // ktlint-disable no-wildcard-imports
 import com.google.android.exoplayer2.C.ContentType
 import com.google.android.exoplayer2.ext.ima.ImaAdsLoader
 import com.google.android.exoplayer2.source.MediaSource
@@ -82,7 +82,7 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
         playerView.player = player
 
         // This is the MediaSource representing the content media (i.e. not the ad).
-        //String contentUrl = context.getString(R.string.content_url);
+        // String contentUrl = context.getString(R.string.content_url);
         val contentMediaSource = buildMediaSource(Uri.parse(linkPlay))
 
         // Compose the content media source into a new AdsMediaSource with both ads and content.
@@ -201,17 +201,17 @@ class PlayerManager : AdsMediaSource.MediaSourceFactory {
 
     fun toggleFullscreen(activity: Activity) {
         if (LScreenUtil.isLandscape()) {
-            //land -> port
+            // land -> port
             LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = false)
             LActivityUtil.changeScreenPortrait(activity)
         } else {
-            //port -> land
+            // port -> land
             LScreenUtil.toggleFullscreen(activity = activity, isFullScreen = true)
             LActivityUtil.changeScreenLandscape(activity)
         }
     }
 
-    //for other sample not UZVideo
+    // for other sample not UZVideo
     fun updateSizePlayerView(playerView: PlayerView, exoFullscreen: ImageButton) {
         if (LScreenUtil.isLandscape()) {
             playerView.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT

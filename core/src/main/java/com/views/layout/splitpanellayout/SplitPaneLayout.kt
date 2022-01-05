@@ -104,7 +104,11 @@ class SplitPaneLayout : ViewGroup {
         isFocusableInTouchMode = false
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         extractAttributes(context, attrs)
         descendantFocusability = FOCUS_AFTER_DESCENDANTS
         isFocusable = true
@@ -115,14 +119,26 @@ class SplitPaneLayout : ViewGroup {
         if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SplitPaneLayout)
             mOrientation = typedArray.getInt(R.styleable.SplitPaneLayout_splitterOrientation, 0)
-            mSplitterSize = typedArray.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterSize, context.resources.getDimensionPixelSize(R.dimen.spl_default_splitter_size))
-            isSplitterMovable = typedArray.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true)
+            mSplitterSize = typedArray.getDimensionPixelSize(
+                R.styleable.SplitPaneLayout_splitterSize,
+                context.resources.getDimensionPixelSize(R.dimen.spl_default_splitter_size)
+            )
+            isSplitterMovable =
+                typedArray.getBoolean(R.styleable.SplitPaneLayout_splitterMovable, true)
             var value = typedArray.peekValue(R.styleable.SplitPaneLayout_splitterPosition)
             if (value != null) {
                 if (value.type == TypedValue.TYPE_DIMENSION) {
-                    mSplitterPosition = typedArray.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPosition, Int.MIN_VALUE)
+                    mSplitterPosition = typedArray.getDimensionPixelSize(
+                        R.styleable.SplitPaneLayout_splitterPosition,
+                        Int.MIN_VALUE
+                    )
                 } else if (value.type == TypedValue.TYPE_FRACTION) {
-                    mSplitterPositionPercent = typedArray.getFraction(R.styleable.SplitPaneLayout_splitterPosition, 100, 100, 50f) * 0.01f
+                    mSplitterPositionPercent = typedArray.getFraction(
+                        R.styleable.SplitPaneLayout_splitterPosition,
+                        100,
+                        100,
+                        50f
+                    ) * 0.01f
                 }
             } else {
                 mSplitterPosition = Int.MIN_VALUE
@@ -131,25 +147,45 @@ class SplitPaneLayout : ViewGroup {
             value = typedArray.peekValue(R.styleable.SplitPaneLayout_splitterBackground)
             if (value != null) {
                 if (value.type == TypedValue.TYPE_REFERENCE ||
-                        value.type == TypedValue.TYPE_STRING) {
-                    mSplitterDrawable = typedArray.getDrawable(R.styleable.SplitPaneLayout_splitterBackground)
+                    value.type == TypedValue.TYPE_STRING
+                ) {
+                    mSplitterDrawable =
+                        typedArray.getDrawable(R.styleable.SplitPaneLayout_splitterBackground)
                 } else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4) {
-                    mSplitterDrawable = PaintDrawable(typedArray.getColor(R.styleable.SplitPaneLayout_splitterBackground, -0x1000000))
+                    mSplitterDrawable = PaintDrawable(
+                        typedArray.getColor(
+                            R.styleable.SplitPaneLayout_splitterBackground,
+                            -0x1000000
+                        )
+                    )
                 }
             }
             value = typedArray.peekValue(R.styleable.SplitPaneLayout_splitterDraggingBackground)
             if (value != null) {
                 if (value.type == TypedValue.TYPE_REFERENCE ||
-                        value.type == TypedValue.TYPE_STRING) {
-                    mSplitterDraggingDrawable = typedArray.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground)
+                    value.type == TypedValue.TYPE_STRING
+                ) {
+                    mSplitterDraggingDrawable =
+                        typedArray.getDrawable(R.styleable.SplitPaneLayout_splitterDraggingBackground)
                 } else if (value.type == TypedValue.TYPE_INT_COLOR_ARGB8 || value.type == TypedValue.TYPE_INT_COLOR_ARGB4 || value.type == TypedValue.TYPE_INT_COLOR_RGB8 || value.type == TypedValue.TYPE_INT_COLOR_RGB4) {
-                    mSplitterDraggingDrawable = PaintDrawable(typedArray.getColor(R.styleable.SplitPaneLayout_splitterDraggingBackground, -0x77000001))
+                    mSplitterDraggingDrawable = PaintDrawable(
+                        typedArray.getColor(
+                            R.styleable.SplitPaneLayout_splitterDraggingBackground,
+                            -0x77000001
+                        )
+                    )
                 }
             } else {
                 mSplitterDraggingDrawable = PaintDrawable(-0x77000001)
             }
-            mSplitterTouchSlop = typedArray.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterTouchSlop, ViewConfiguration.get(context).scaledTouchSlop)
-            minSplitterPosition = typedArray.getDimensionPixelSize(R.styleable.SplitPaneLayout_splitterPanelSizeMin, 0)
+            mSplitterTouchSlop = typedArray.getDimensionPixelSize(
+                R.styleable.SplitPaneLayout_splitterTouchSlop,
+                ViewConfiguration.get(context).scaledTouchSlop
+            )
+            minSplitterPosition = typedArray.getDimensionPixelSize(
+                R.styleable.SplitPaneLayout_splitterPanelSizeMin,
+                0
+            )
             typedArray.recycle()
         }
     }
@@ -165,17 +201,23 @@ class SplitPaneLayout : ViewGroup {
                     } else if (mSplitterPosition == Int.MIN_VALUE && mSplitterPositionPercent >= 0) {
                         mSplitterPosition = (measuredWidth * mSplitterPositionPercent).toInt()
                         if (!between(mSplitterPosition, minSplitterPosition, maxSplitterPosition)) {
-                            mSplitterPosition = clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
-                            mSplitterPositionPercent = mSplitterPosition.toFloat() / measuredWidth.toFloat()
+                            mSplitterPosition =
+                                clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
+                            mSplitterPositionPercent =
+                                mSplitterPosition.toFloat() / measuredWidth.toFloat()
                         }
                     } else if (mSplitterPosition != Int.MIN_VALUE && mSplitterPositionPercent < 0) {
                         if (!between(mSplitterPosition, minSplitterPosition, maxSplitterPosition)) {
-                            mSplitterPosition = clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
+                            mSplitterPosition =
+                                clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
                         }
-                        mSplitterPositionPercent = mSplitterPosition.toFloat() / measuredWidth.toFloat()
+                        mSplitterPositionPercent =
+                            mSplitterPosition.toFloat() / measuredWidth.toFloat()
                     }
-                    mSplitterBounds[mSplitterPosition - mSplitterSize / 2, 0, mSplitterPosition + mSplitterSize / 2] = measuredHeight
-                    mSplitterTouchBounds[mSplitterBounds.left - mSplitterTouchSlop, mSplitterBounds.top, mSplitterBounds.right + mSplitterTouchSlop] = mSplitterBounds.bottom
+                    mSplitterBounds[mSplitterPosition - mSplitterSize / 2, 0, mSplitterPosition + mSplitterSize / 2] =
+                        measuredHeight
+                    mSplitterTouchBounds[mSplitterBounds.left - mSplitterTouchSlop, mSplitterBounds.top, mSplitterBounds.right + mSplitterTouchSlop] =
+                        mSplitterBounds.bottom
                 }
                 ORIENTATION_VERTICAL -> {
                     if (mSplitterPosition == Int.MIN_VALUE && mSplitterPositionPercent < 0) {
@@ -183,17 +225,23 @@ class SplitPaneLayout : ViewGroup {
                     } else if (mSplitterPosition == Int.MIN_VALUE && mSplitterPositionPercent >= 0) {
                         mSplitterPosition = (measuredHeight * mSplitterPositionPercent).toInt()
                         if (!between(mSplitterPosition, minSplitterPosition, maxSplitterPosition)) {
-                            mSplitterPosition = clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
-                            mSplitterPositionPercent = mSplitterPosition.toFloat() / measuredHeight.toFloat()
+                            mSplitterPosition =
+                                clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
+                            mSplitterPositionPercent =
+                                mSplitterPosition.toFloat() / measuredHeight.toFloat()
                         }
                     } else if (mSplitterPosition != Int.MIN_VALUE && mSplitterPositionPercent < 0) {
                         if (!between(mSplitterPosition, minSplitterPosition, maxSplitterPosition)) {
-                            mSplitterPosition = clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
+                            mSplitterPosition =
+                                clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
                         }
-                        mSplitterPositionPercent = mSplitterPosition.toFloat() / measuredHeight.toFloat()
+                        mSplitterPositionPercent =
+                            mSplitterPosition.toFloat() / measuredHeight.toFloat()
                     }
-                    mSplitterBounds[0, mSplitterPosition - mSplitterSize / 2, measuredWidth] = mSplitterPosition + mSplitterSize / 2
-                    mSplitterTouchBounds[mSplitterBounds.left, mSplitterBounds.top - mSplitterTouchSlop / 2, mSplitterBounds.right] = mSplitterBounds.bottom + mSplitterTouchSlop / 2
+                    mSplitterBounds[0, mSplitterPosition - mSplitterSize / 2, measuredWidth] =
+                        mSplitterPosition + mSplitterSize / 2
+                    mSplitterTouchBounds[mSplitterBounds.left, mSplitterBounds.top - mSplitterTouchSlop / 2, mSplitterBounds.right] =
+                        mSplitterBounds.bottom + mSplitterTouchSlop / 2
                 }
             }
         }
@@ -208,12 +256,42 @@ class SplitPaneLayout : ViewGroup {
             computeSplitterPosition()
             when (mOrientation) {
                 ORIENTATION_HORIZONTAL -> {
-                    getChildAt(0).measure(MeasureSpec.makeMeasureSpec(mSplitterPosition - mSplitterSize / 2, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY))
-                    getChildAt(1).measure(MeasureSpec.makeMeasureSpec(measuredWidth - mSplitterSize / 2 - mSplitterPosition, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY))
+                    getChildAt(0).measure(
+                        MeasureSpec.makeMeasureSpec(
+                            mSplitterPosition - mSplitterSize / 2,
+                            MeasureSpec.EXACTLY
+                        ),
+                        MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)
+                    )
+                    getChildAt(1).measure(
+                        MeasureSpec.makeMeasureSpec(
+                            measuredWidth - mSplitterSize / 2 - mSplitterPosition,
+                            MeasureSpec.EXACTLY
+                        ),
+                        MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)
+                    )
                 }
                 ORIENTATION_VERTICAL -> {
-                    getChildAt(0).measure(MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(mSplitterPosition - mSplitterSize / 2, MeasureSpec.EXACTLY))
-                    getChildAt(1).measure(MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(measuredHeight - mSplitterSize / 2 - mSplitterPosition, MeasureSpec.EXACTLY))
+                    getChildAt(0).measure(
+                        MeasureSpec.makeMeasureSpec(
+                            measuredWidth,
+                            MeasureSpec.EXACTLY
+                        ),
+                        MeasureSpec.makeMeasureSpec(
+                            mSplitterPosition - mSplitterSize / 2,
+                            MeasureSpec.EXACTLY
+                        )
+                    )
+                    getChildAt(1).measure(
+                        MeasureSpec.makeMeasureSpec(
+                            measuredWidth,
+                            MeasureSpec.EXACTLY
+                        ),
+                        MeasureSpec.makeMeasureSpec(
+                            measuredHeight - mSplitterSize / 2 - mSplitterPosition,
+                            MeasureSpec.EXACTLY
+                        )
+                    )
                 }
             }
             isMeasured = true
@@ -243,20 +321,24 @@ class SplitPaneLayout : ViewGroup {
         }
         when (mOrientation) {
             ORIENTATION_HORIZONTAL -> if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
-                mSplitterPosition = clamp(mSplitterPosition - offset, minSplitterPosition, maxSplitterPosition)
+                mSplitterPosition =
+                    clamp(mSplitterPosition - offset, minSplitterPosition, maxSplitterPosition)
                 mSplitterPositionPercent = -1f
                 remeasure = true
             } else if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
-                mSplitterPosition = clamp(mSplitterPosition + offset, minSplitterPosition, maxSplitterPosition)
+                mSplitterPosition =
+                    clamp(mSplitterPosition + offset, minSplitterPosition, maxSplitterPosition)
                 mSplitterPositionPercent = -1f
                 remeasure = true
             }
             ORIENTATION_VERTICAL -> if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
-                mSplitterPosition = clamp(mSplitterPosition - offset, minSplitterPosition, maxSplitterPosition)
+                mSplitterPosition =
+                    clamp(mSplitterPosition - offset, minSplitterPosition, maxSplitterPosition)
                 mSplitterPositionPercent = -1f
                 remeasure = true
             } else if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
-                mSplitterPosition = clamp(mSplitterPosition + offset, minSplitterPosition, maxSplitterPosition)
+                mSplitterPosition =
+                    clamp(mSplitterPosition + offset, minSplitterPosition, maxSplitterPosition)
                 mSplitterPositionPercent = -1f
                 remeasure = true
             }
@@ -311,22 +393,34 @@ class SplitPaneLayout : ViewGroup {
                     mSplitterDraggingBounds.offset(x - lastTouchX, 0)
                     if (mSplitterDraggingBounds.centerX() < minSplitterPosition) {
                         take = false
-                        mSplitterDraggingBounds.offset(minSplitterPosition - mSplitterDraggingBounds.centerX(), 0)
+                        mSplitterDraggingBounds.offset(
+                            minSplitterPosition - mSplitterDraggingBounds.centerX(),
+                            0
+                        )
                     }
                     if (mSplitterDraggingBounds.centerX() > maxSplitterPosition) {
                         take = false
-                        mSplitterDraggingBounds.offset(maxSplitterPosition - mSplitterDraggingBounds.centerX(), 0)
+                        mSplitterDraggingBounds.offset(
+                            maxSplitterPosition - mSplitterDraggingBounds.centerX(),
+                            0
+                        )
                     }
                 }
                 ORIENTATION_VERTICAL -> {
                     mSplitterDraggingBounds.offset(0, y - lastTouchY)
                     if (mSplitterDraggingBounds.centerY() < minSplitterPosition) {
                         take = false
-                        mSplitterDraggingBounds.offset(0, minSplitterPosition - mSplitterDraggingBounds.centerY())
+                        mSplitterDraggingBounds.offset(
+                            0,
+                            minSplitterPosition - mSplitterDraggingBounds.centerY()
+                        )
                     }
                     if (mSplitterDraggingBounds.centerY() > maxSplitterPosition) {
                         take = false
-                        mSplitterDraggingBounds.offset(0, maxSplitterPosition - mSplitterDraggingBounds.centerY())
+                        mSplitterDraggingBounds.offset(
+                            0,
+                            maxSplitterPosition - mSplitterDraggingBounds.centerY()
+                        )
                     }
                 }
             }
@@ -389,8 +483,9 @@ class SplitPaneLayout : ViewGroup {
     private fun remeasure() {
         // check: Performance: Guard against calling too often, can it be done without requestLayout?
         forceLayout()
-        measure(MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
-                MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)
+        measure(
+            MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY),
+            MeasureSpec.makeMeasureSpec(measuredHeight, MeasureSpec.EXACTLY)
         )
         requestLayout()
     }
@@ -563,7 +658,8 @@ class SplitPaneLayout : ViewGroup {
         set(paneSizeMin) {
             minSplitterPosition = paneSizeMin
             if (isMeasured) {
-                val newSplitterPosition = clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
+                val newSplitterPosition =
+                    clamp(mSplitterPosition, minSplitterPosition, maxSplitterPosition)
                 if (newSplitterPosition != mSplitterPosition) {
                     splitterPosition = newSplitterPosition
                 }
@@ -603,5 +699,4 @@ class SplitPaneLayout : ViewGroup {
 //            }
 //        }
     }
-
 }

@@ -34,5 +34,4 @@ class WxSwipeBackActivityManager private constructor() : ActivityLifecycleCallba
         } else {
             null
         }
-
 }

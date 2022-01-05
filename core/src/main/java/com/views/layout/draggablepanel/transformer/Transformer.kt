@@ -20,8 +20,8 @@ import com.nineoldandroids.view.ViewHelper
  * @author Pedro Vicente Gómez Sánchez
  */
 abstract class Transformer(
-        protected val mView: View,
-        protected val parentView: View
+    protected val mView: View,
+    protected val parentView: View
 ) {
 
     var mMarginRight = 0
@@ -95,5 +95,4 @@ abstract class Transformer(
      * @return min possible width, after apply the transformation.
      */
     abstract fun getMinWidthPlusMarginRight(): Int
-
 }

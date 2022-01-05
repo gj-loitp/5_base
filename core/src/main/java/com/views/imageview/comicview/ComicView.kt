@@ -14,10 +14,10 @@ import android.view.animation.DecelerateInterpolator
 import androidx.core.view.GestureDetectorCompat
 import com.R
 import com.views.listview.LListView
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? = null) :
-        LListView(context, attr) {
+    LListView(context, attr) {
 
     companion object {
         private const val INVALID_POINTER_ID = -1
@@ -40,7 +40,13 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
 
     interface OnListViewZoomListener {
 
-        fun onListViewZoomUpdate(animation: ValueAnimator, translateX: Float, translateY: Float, scaleX: Float, scaleY: Float)
+        fun onListViewZoomUpdate(
+            animation: ValueAnimator,
+            translateX: Float,
+            translateY: Float,
+            scaleX: Float,
+            scaleY: Float
+        )
 
         fun onListViewStart()
 
@@ -85,13 +91,14 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
 
     private var mZoomValueAnimator: ValueAnimator? = null
 
-    //synchronous ListView Zoom ScaleGestureDetector
-    private val mOnScaleGestureListeners = ArrayList<ScaleGestureDetector.SimpleOnScaleGestureListener>()
+    // synchronous ListView Zoom ScaleGestureDetector
+    private val mOnScaleGestureListeners =
+        ArrayList<ScaleGestureDetector.SimpleOnScaleGestureListener>()
 
-    //synchronous ListView Zoom GestureDetector
+    // synchronous ListView Zoom GestureDetector
     private val mSimpleOnGestureListeners = ArrayList<GestureDetector.SimpleOnGestureListener>()
 
-    //synchronous ListView Zoom Animation
+    // synchronous ListView Zoom Animation
     private val mOnListViewZoomListeners = ArrayList<OnListViewZoomListener>()
 
     private val mLinkPoints = LinkedList<PointF>()
@@ -106,14 +113,25 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
 
         val typedArray = context.obtainStyledAttributes(attr, R.styleable.ComicView, 0, 0)
 
-        minZoomScale = typedArray.getFloat(R.styleable.ComicView_min_zoom_scale, DEFAULT_MIN_ZOOM_SCALE)
-        maxZoomScale = typedArray.getFloat(R.styleable.ComicView_max_zoom_scale, DEFAULT_MAX_ZOOM_SCALE)
+        minZoomScale =
+            typedArray.getFloat(R.styleable.ComicView_min_zoom_scale, DEFAULT_MIN_ZOOM_SCALE)
+        maxZoomScale =
+            typedArray.getFloat(R.styleable.ComicView_max_zoom_scale, DEFAULT_MAX_ZOOM_SCALE)
         normalScale = typedArray.getFloat(R.styleable.ComicView_normal_scale, DEFAULT_NORMAL_SCALE)
         zoomScale = typedArray.getFloat(R.styleable.ComicView_zoom_scale, DEFAULT_ZOOM_SCALE)
 
-        zoomToSmallTimes = typedArray.getInteger(R.styleable.ComicView_zoom_to_small_times, DEFAULT_ZOOM_TO_SMALL_TIMES)
-        zoomScaleDuration = typedArray.getInteger(R.styleable.ComicView_zoom_scale_duration, DEFAULT_ZOOM_SCALE_DURATION)
-        mZoomToSmallScaleDuration = typedArray.getInteger(R.styleable.ComicView_zoom_to_small_scale_duration, DEFAULT_ZOOM_TO_SMALL_SCALE_DURATION)
+        zoomToSmallTimes = typedArray.getInteger(
+            R.styleable.ComicView_zoom_to_small_times,
+            DEFAULT_ZOOM_TO_SMALL_TIMES
+        )
+        zoomScaleDuration = typedArray.getInteger(
+            R.styleable.ComicView_zoom_scale_duration,
+            DEFAULT_ZOOM_SCALE_DURATION
+        )
+        mZoomToSmallScaleDuration = typedArray.getInteger(
+            R.styleable.ComicView_zoom_to_small_scale_duration,
+            DEFAULT_ZOOM_TO_SMALL_SCALE_DURATION
+        )
 
         typedArray.recycle()
     }
@@ -121,7 +139,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         mZoomValueAnimator?.cancel()
-        //remove all listener
+        // remove all listener
         removeOnScaleGestureListeners()
         removeOnSimpleOnGestureListeners()
         removeOnListViewZoomListeners()
@@ -163,22 +181,22 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
                 var dx = x - mLastTouchX
                 var dy = y - mLastTouchY
 
-                //ACTION_POINTER_DOWN ListView more distance * 6
+                // ACTION_POINTER_DOWN ListView more distance * 6
                 if (isPointerDown) {
                     dx *= zoomToSmallTimes
                     dy *= zoomToSmallTimes
                 }
-                if (isScaling) {  //ListView status is scaling
-                    //val offsetX = mCenterX * (mLastScale - mScaleFactor)
-                    //val offsetY = mCenterY * (mLastScale - mScaleFactor)
+                if (isScaling) { // ListView status is scaling
+                    // val offsetX = mCenterX * (mLastScale - mScaleFactor)
+                    // val offsetY = mCenterY * (mLastScale - mScaleFactor)
 
-                    //mTranslateX += offsetX;
-                    //mTranslateY += offsetY;
+                    // mTranslateX += offsetX;
+                    // mTranslateY += offsetY;
 
-                    //checkPointF(UN_LOADED_POINT, offsetX, offsetY);
+                    // checkPointF(UN_LOADED_POINT, offsetX, offsetY);
 
-                    //mLastScale = mScaleFactor;
-                } else if (mScaleFactor > normalScale) {   //ListView not scaling, move ...
+                    // mLastScale = mScaleFactor;
+                } else if (mScaleFactor > normalScale) { // ListView not scaling, move ...
                     mTranslateX += dx
                     mTranslateY += dy
                     checkPointF(UN_LOADED_POINT, dx, dy)
@@ -192,7 +210,8 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
                 mActivePointerId = INVALID_POINTER_ID
             }
             MotionEvent.ACTION_POINTER_UP -> {
-                val pointerIndex = action and MotionEvent.ACTION_POINTER_INDEX_MASK shr MotionEvent.ACTION_POINTER_INDEX_SHIFT
+                val pointerIndex =
+                    action and MotionEvent.ACTION_POINTER_INDEX_MASK shr MotionEvent.ACTION_POINTER_INDEX_SHIFT
                 val pointerId = ev.getPointerId(pointerIndex)
                 if (pointerId == mActivePointerId) {
                     val newPointerIndex = if (pointerIndex == 0) 1 else 0
@@ -275,10 +294,16 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
-    private inner class ScrollReaderViewGestureListener : GestureDetector.SimpleOnGestureListener() {
+    private inner class ScrollReaderViewGestureListener :
+        GestureDetector.SimpleOnGestureListener() {
 
-        override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
-            //list view scroll call back... to outside
+        override fun onScroll(
+            e1: MotionEvent,
+            e2: MotionEvent,
+            distanceX: Float,
+            distanceY: Float
+        ): Boolean {
+            // list view scroll call back... to outside
             for (listener in mSimpleOnGestureListeners) {
                 listener.onScroll(e1, e2, distanceX, distanceY)
             }
@@ -286,7 +311,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
             return super.onScroll(e1, e2, distanceX, distanceY)
         }
 
-        override fun onSingleTapConfirmed(e: MotionEvent): Boolean {  // single click event,double call no call single
+        override fun onSingleTapConfirmed(e: MotionEvent): Boolean { // single click event,double call no call single
 
             for (listener in mSimpleOnGestureListeners) {
                 listener.onSingleTapConfirmed(e)
@@ -294,10 +319,9 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
             return super.onSingleTapConfirmed(e)
         }
 
-        override fun onDoubleTap(e: MotionEvent): Boolean {  //double click event
+        override fun onDoubleTap(e: MotionEvent): Boolean { // double click event
             if (normalScale < mScaleFactor) {
                 zoomList(mScaleFactor, normalScale, zoomScaleDuration, LOADED_POINT)
-
             } else if (mScaleFactor == normalScale) {
                 mCenterX = e.x
                 mCenterY = e.y
@@ -310,7 +334,7 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         }
     }
 
-    //let ListView zoom func
+    // let ListView zoom func
     private fun zoomList(startValue: Float, endValue: Float, duration: Int, loadedPointFlag: Int) {
         if (mZoomValueAnimator == null) {
             mZoomValueAnimator = ValueAnimator()
@@ -331,7 +355,6 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
                 mTranslateX += dx
                 mTranslateY += dy
 
-
                 maxWidth = mListViewWidth - mListViewWidth * mScaleFactor
                 maxHeight = mListViewHeight - mListViewHeight * mScaleFactor
 
@@ -342,8 +365,10 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
                 mLastScale = mScaleFactor
 
                 for (listener in mOnListViewZoomListeners) {
-                    listener.onListViewZoomUpdate(animation, mTranslateX, mTranslateY,
-                            mScaleFactor, mScaleFactor)
+                    listener.onListViewZoomUpdate(
+                        animation, mTranslateX, mTranslateY,
+                        mScaleFactor, mScaleFactor
+                    )
                 }
             }
 
@@ -359,7 +384,8 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
                 override fun onAnimationEnd(animation: Animator) {
                     isScaling = false
 
-                    mLoadedPointFlag = if (loadedPointFlag == UN_LOADED_POINT) LOADED_POINT else UN_LOADED_POINT
+                    mLoadedPointFlag =
+                        if (loadedPointFlag == UN_LOADED_POINT) LOADED_POINT else UN_LOADED_POINT
 
                     for (listener in mOnListViewZoomListeners) {
                         listener.onListViewCancel()
@@ -375,7 +401,6 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
                 }
 
                 override fun onAnimationRepeat(animation: Animator) {
-
                 }
             })
         }
@@ -390,26 +415,26 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
     }
 
     private fun correctZoomTranslateValue() {
-        if (mTranslateX > 0.0f) { //zoom +
+        if (mTranslateX > 0.0f) { // zoom +
 
-            if (mScaleFactor >= normalScale) {  //params correct
+            if (mScaleFactor >= normalScale) { // params correct
                 mTranslateX = 0.0f
             }
-        } else if (mTranslateX < maxWidth) { //zoom -
+        } else if (mTranslateX < maxWidth) { // zoom -
 
-            if (mScaleFactor >= normalScale) { //params correct
+            if (mScaleFactor >= normalScale) { // params correct
                 mTranslateX = maxWidth
             }
         }
 
-        if (mTranslateY > 0.0f) { //zoom +
+        if (mTranslateY > 0.0f) { // zoom +
 
-            if (mScaleFactor >= normalScale) {  //params correct
+            if (mScaleFactor >= normalScale) { // params correct
                 mTranslateY = 0.0f
             }
-        } else if (mTranslateY < maxHeight) { //zoom -
+        } else if (mTranslateY < maxHeight) { // zoom -
 
-            if (mScaleFactor >= normalScale) { //params correct
+            if (mScaleFactor >= normalScale) { // params correct
                 mTranslateY = maxHeight
             }
         }
@@ -426,8 +451,8 @@ class ComicView @JvmOverloads constructor(context: Context, attr: AttributeSet? 
         val pointF: PointF? = null
         when (loadedPointFlag) {
             UN_LOADED_POINT -> putPointF(dx, dy)
-            //check loitp co tinh xoa code trong lib de ko crash khi zoom
-            //check logic cho nay
+            // check loitp co tinh xoa code trong lib de ko crash khi zoom
+            // check logic cho nay
 //            else -> throw RuntimeException("ZoomListView loaded points error ! ! !")
         }
         return pointF

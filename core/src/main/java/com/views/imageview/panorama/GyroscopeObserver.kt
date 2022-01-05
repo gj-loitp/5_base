@@ -5,13 +5,8 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
-import com.views.imageview.panorama.LPanoramaImageView
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.math.abs
-
-/**
- * Created by gjz on 21/12/2016.
- */
 
 class GyroscopeObserver : SensorEventListener {
 
@@ -115,5 +110,4 @@ class GyroscopeObserver : SensorEventListener {
         require(!(maxRotateRadian <= 0 || maxRotateRadian > Math.PI / 2)) { "The maxRotateRadian must be between (0, π/2]." }
         mMaxRotateRadian = maxRotateRadian
     }
-
 }

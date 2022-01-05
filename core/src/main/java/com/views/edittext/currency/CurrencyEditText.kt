@@ -15,12 +15,15 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-class CurrencyEditText @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = R.attr.editTextStyle)
-    : TextInputEditText(context, attrs, defStyleAttr) {
+class CurrencyEditText @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = R.attr.editTextStyle
+) : TextInputEditText(context, attrs, defStyleAttr) {
 
-    //private const val prefix = "VND "
+    // private const val prefix = "VND "
     private var prefix = ""
     private var numberLength = 19
     private var decimalDigit = 3
@@ -34,7 +37,7 @@ class CurrencyEditText @JvmOverloads constructor(context: Context, attrs: Attrib
         numberLength = typedArray.getInt(R.styleable.CurrencyEditText_numberLength, 19)
         typedArray.recycle()
 
-        //this.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
+        // this.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
         this.inputType = InputType.TYPE_CLASS_NUMBER
         this.hint = prefix
         this.filters = arrayOf<InputFilter>(LengthFilter(numberLength))
@@ -75,14 +78,28 @@ class CurrencyEditText @JvmOverloads constructor(context: Context, attrs: Attrib
         }
     }
 
-    inner class CurrencyTextWatcher internal constructor(private val editText: EditText, private val prefix: String) : TextWatcher {
+    inner class CurrencyTextWatcher internal constructor(
+        private val editText: EditText,
+        private val prefix: String
+    ) : TextWatcher {
         private var previousNumber: String? = null
-        private var integerFormatter: DecimalFormat = DecimalFormat("#,###.###", DecimalFormatSymbols(Locale.US))
+        private var integerFormatter: DecimalFormat =
+            DecimalFormat("#,###.###", DecimalFormatSymbols(Locale.US))
 
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) { // do nothing
+        override fun beforeTextChanged(
+            s: CharSequence,
+            start: Int,
+            count: Int,
+            after: Int
+        ) { // do nothing
         }
 
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) { // do nothing
+        override fun onTextChanged(
+            s: CharSequence,
+            start: Int,
+            before: Int,
+            count: Int
+        ) { // do nothing
         }
 
         override fun afterTextChanged(editable: Editable) {
@@ -131,8 +148,10 @@ class CurrencyEditText @JvmOverloads constructor(context: Context, attrs: Attrib
             }
             val parsed = BigDecimal(str)
             // example pattern VND #,###.00
-            val formatter = DecimalFormat("#,###." + getDecimalPattern(str),
-                    DecimalFormatSymbols(Locale.US))
+            val formatter = DecimalFormat(
+                "#,###." + getDecimalPattern(str),
+                DecimalFormatSymbols(Locale.US)
+            )
             formatter.roundingMode = RoundingMode.DOWN
             return formatter.format(parsed)
         }
@@ -159,7 +178,5 @@ class CurrencyEditText @JvmOverloads constructor(context: Context, attrs: Attrib
                 editText.setSelection(numberLength)
             }
         }
-
     }
-
 }

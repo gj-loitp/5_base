@@ -18,10 +18,9 @@ internal class DraggableViewCallback
  * Main constructor.
  *
  * @param draggableView instance used to apply some animations or visual effects.
- */
-(
-        private val draggableView: DraggableView,
-        private val draggedView: View
+ */(
+    private val draggableView: DraggableView,
+    private val draggedView: View
 ) : ViewDragHelper.Callback() {
 
     companion object {
@@ -41,11 +40,11 @@ internal class DraggableViewCallback
      * @param dy   change in Y position from the last call.
      */
     override fun onViewPositionChanged(
-            changedView: View,
-            left: Int,
-            top: Int,
-            dx: Int,
-            dy: Int
+        changedView: View,
+        left: Int,
+        top: Int,
+        dx: Int,
+        dy: Int
     ) {
         if (draggableView.isDragViewAtBottom) {
             draggableView.changeDragViewViewAlpha()
@@ -69,9 +68,9 @@ internal class DraggableViewCallback
      * @param yVel          Y velocity of the pointer as it left the screen in pixels per second.
      */
     override fun onViewReleased(
-            releasedChild: View,
-            xVel: Float,
-            yVel: Float
+        releasedChild: View,
+        xVel: Float,
+        yVel: Float
     ) {
         super.onViewReleased(releasedChild, xVel, yVel)
         if (draggableView.isDragViewAtBottom && !draggableView.isDragViewAtRight) {
@@ -89,8 +88,8 @@ internal class DraggableViewCallback
      * @return true if capture should be allowed, false otherwise.
      */
     override fun tryCaptureView(
-            view: View,
-            pointerId: Int
+        view: View,
+        pointerId: Int
     ): Boolean {
         return view == draggedView
     }
@@ -105,9 +104,9 @@ internal class DraggableViewCallback
      * @return the new clamped position for left.
      */
     override fun clampViewPositionHorizontal(
-            child: View,
-            left: Int,
-            dx: Int
+        child: View,
+        left: Int,
+        dx: Int
     ): Int {
         var newLeft = draggedView.left
         if (draggableView.isMinimized && abs(dx) > MINIMUM_DX_FOR_HORIZONTAL_DRAG || (draggableView.isDragViewAtBottom && !draggableView.isDragViewAtRight)) {
@@ -126,17 +125,20 @@ internal class DraggableViewCallback
      * @return the new clamped position for top.
      */
     override fun clampViewPositionVertical(
-            child: View,
-            top: Int,
-            dy: Int
+        child: View,
+        top: Int,
+        dy: Int
     ): Int {
         var newTop = draggableView.height - draggableView.draggedViewHeightPlusMarginTop
-        if (draggableView.isMinimized && abs(dy) >= MINIMUM_DY_FOR_VERTICAL_DRAG
-                || !draggableView.isMinimized && !draggableView.isDragViewAtBottom) {
+        if (draggableView.isMinimized && abs(dy) >= MINIMUM_DY_FOR_VERTICAL_DRAG ||
+            !draggableView.isMinimized && !draggableView.isDragViewAtBottom
+        ) {
             val topBound = draggableView.paddingTop
-            val bottomBound = (draggableView.height
-                    - draggableView.draggedViewHeightPlusMarginTop
-                    - draggedView.paddingBottom)
+            val bottomBound = (
+                draggableView.height -
+                    draggableView.draggedViewHeightPlusMarginTop -
+                    draggedView.paddingBottom
+                )
             newTop = min(max(top, topBound), bottomBound)
         }
         return newTop

@@ -10,10 +10,12 @@ import android.widget.RelativeLayout
  * @author Pedro Vicente Gómez Sánchez
  */
 internal class ResizeTransformer(
-        view: View, parent: View
+    view: View,
+    parent: View
 ) : Transformer(view, parent) {
 
-    private val layoutParams: RelativeLayout.LayoutParams = view.layoutParams as RelativeLayout.LayoutParams
+    private val layoutParams: RelativeLayout.LayoutParams =
+        view.layoutParams as RelativeLayout.LayoutParams
 
     /**
      * Changes view scale using view's LayoutParam.
@@ -93,5 +95,4 @@ internal class ResizeTransformer(
     private fun getViewRightPosition(verticalDragOffset: Float): Int {
         return (mOriginalWidth - mMarginRight * verticalDragOffset).toInt()
     }
-
 }

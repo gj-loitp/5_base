@@ -3,14 +3,13 @@ package com.views.layout.swipeback
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import com.views.layout.swipeback.WxSwipeBackLayout
 import com.views.layout.swipeback.tools.Util.onPanelReset
 import com.views.layout.swipeback.tools.Util.onPanelSlide
 
 class WxSwipeBackLayout @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : SwipeBackLayout(context, attrs, defStyleAttr) {
 
     companion object {
@@ -26,7 +25,11 @@ class WxSwipeBackLayout @JvmOverloads constructor(
 
     init {
         val defaultSwipeBackListener: OnSwipeBackListener = object : OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
                 invalidate()
                 onPanelSlide(swipeBackFraction)
             }

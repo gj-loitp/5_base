@@ -102,7 +102,8 @@ object DisplayUtil {
         get() {
             var sNavBarOverride: String? = null
             try {
-                @SuppressLint("PrivateApi") val aClass = Class.forName("android.os.SystemProperties")
+                @SuppressLint("PrivateApi") val aClass =
+                    Class.forName("android.os.SystemProperties")
                 val m = aClass.getDeclaredMethod("get", String::class.java)
                 m.isAccessible = true
                 sNavBarOverride = m.invoke(null, "qemu.hw.mainkeys") as String
