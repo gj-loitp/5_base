@@ -5,12 +5,10 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
-import androidx.fragment.app.DialogFragment
 import com.core.base.BaseActivity
 import com.core.base.BaseDialogFragment
 import vn.loitp.app.R
@@ -33,7 +31,7 @@ class PositionDialog : BaseDialogFragment() {
 
     private var position = Position.CENTER_CENTER
 
-    //TODO RIGHT_TO_LEFT do not work
+    // TODO RIGHT_TO_LEFT do not work
     private var style = Style.LEFT_TO_RIGHT
 
     @SuppressLint("InflateParams")
@@ -91,7 +89,7 @@ class PositionDialog : BaseDialogFragment() {
                                 posY = anchorV.bottom
                             }
                             Position.DEFAULT -> {
-                                //do nothing
+                                // do nothing
                             }
                         }
                         posX?.let { x ->
@@ -146,10 +144,9 @@ class PositionDialog : BaseDialogFragment() {
                                 posY = anchorV.bottom
                             }
                             Position.DEFAULT -> {
-                                //do nothing
+                                // do nothing
                             }
                         }
-                        Log.d(logTag, ">>>>>>>>>> $posX $posY")
                         posX?.let { x ->
                             posY?.let { y ->
                                 w.attributes?.let { a ->
@@ -174,7 +171,13 @@ class PositionDialog : BaseDialogFragment() {
         btCancel.setOnClickListener { dismiss() }
     }
 
-    fun showImmersivePos(activity: Activity, anchorView: View, sizeWidthPx: Int?, sizeHeightPx: Int?, position: Position) {
+    fun showImmersivePos(
+        activity: Activity,
+        anchorView: View,
+        sizeWidthPx: Int?,
+        sizeHeightPx: Int?,
+        position: Position
+    ) {
         this.position = position
         this.anchorView = anchorView
         if (activity is BaseActivity) {

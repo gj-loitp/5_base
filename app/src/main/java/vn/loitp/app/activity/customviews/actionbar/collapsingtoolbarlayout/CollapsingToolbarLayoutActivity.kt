@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.actionbar.collapsingtoolbarlayout
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
 import com.annotation.IsFullScreen
@@ -30,7 +29,10 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
     }
 
     private fun setupViews() {
-        setCustomStatusBar(colorStatusBar = Color.TRANSPARENT, colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
+        setCustomStatusBar(
+            colorStatusBar = Color.TRANSPARENT,
+            colorNavigationBar = LAppResource.getColor(R.color.colorPrimary)
+        )
 
         setSupportActionBar(toolbar)
 
@@ -42,11 +44,11 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
         appBarLayout.setOnStateChangeListener(object : LAppBarLayout.OnStateChangeListener {
             override fun onStateChange(toolbarChange: LAppBarLayout.State) {
                 when (toolbarChange) {
-                    LAppBarLayout.State.COLLAPSED -> //COLLAPSED appBarLayout min
+                    LAppBarLayout.State.COLLAPSED -> // COLLAPSED appBarLayout min
                         logD("COLLAPSED toolbarChange: $toolbarChange")
-                    LAppBarLayout.State.EXPANDED -> //EXPANDED appBarLayout max
+                    LAppBarLayout.State.EXPANDED -> // EXPANDED appBarLayout max
                         logD("EXPANDED toolbarChange: $toolbarChange")
-                    else -> //IDLE appBarLayout not min not max
+                    else -> // IDLE appBarLayout not min not max
                         logD("IDLE toolbarChange: $toolbarChange")
                 }
             }
@@ -54,7 +56,7 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
 
         btMenu.setOnClickListener(this)
@@ -63,12 +65,12 @@ class CollapsingToolbarLayoutActivity : BaseFontActivity(), OnClickListener {
     override fun onClick(v: View) {
         when (v) {
             btMenu -> LPopupMenu.show(
-                    activity = this,
-                    showOnView = v,
-                    menuRes = R.menu.menu_popup,
-                    callback = { menuItem ->
-                        showShortInformation(menuItem.title.toString())
-                    }
+                activity = this,
+                showOnView = v,
+                menuRes = R.menu.menu_popup,
+                callback = { menuItem ->
+                    showShortInformation(menuItem.title.toString())
+                }
             )
         }
     }

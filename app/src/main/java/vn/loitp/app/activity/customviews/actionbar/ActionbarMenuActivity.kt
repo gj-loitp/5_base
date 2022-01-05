@@ -29,7 +29,7 @@ class ActionbarMenuActivity : BaseFontActivity(), View.OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         bt_collapsingtoolbarlayout.setOnClickListener(this)
         bt_l_actionbar.setOnClickListener(this)
         bt_collapsingtoolbarwithtablayout.setOnClickListener(this)

@@ -9,7 +9,7 @@ import com.views.button.goodview.LGoodView
 import kotlinx.android.synthetic.main.activity_button_goodview.*
 import vn.loitp.app.R
 
-//https://github.com/venshine/GoodView
+// https://github.com/venshine/GoodView
 
 @LogTag("GoodViewActivity")
 @IsFullScreen(false)
@@ -39,10 +39,10 @@ class GoodViewActivity : BaseFontActivity() {
             imageView.setColorFilter(Color.TRANSPARENT)
             lGoodView?.apply {
                 this.setImage(R.drawable.ic_account_circle_black_48dp)
-                //this.setDistance(1000)
-                //this.setTranslateY(0, 10000)
-                //this.setAlpha(0, 0.5f)
-                //this.setDuration(3000)
+                // this.setDistance(1000)
+                // this.setTranslateY(0, 10000)
+                // this.setAlpha(0, 0.5f)
+                // this.setDuration(3000)
                 this.show(it)
             }
         }

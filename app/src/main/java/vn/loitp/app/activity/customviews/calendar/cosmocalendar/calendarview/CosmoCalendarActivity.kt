@@ -22,11 +22,11 @@ import com.views.calendar.cosmocalendar.selection.criteria.month.PreviousMonthCr
 import com.views.calendar.cosmocalendar.utils.SelectionType
 import kotlinx.android.synthetic.main.activity_calendar_cosmo.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.collections.ArrayList
 
-//https://github.com/ApplikeySolutions/CosmoCalendar
-//set color o colors.xml region cosmocalendar
+// https://github.com/ApplikeySolutions/CosmoCalendar
+// set color o colors.xml region cosmocalendar
 
 @LogTag("CosmoCalendarActivity")
 @IsFullScreen(false)
@@ -51,14 +51,14 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
         initViews()
         createCriterias()
 
-        //add min date and max date
+        // add min date and max date
         /*val c = Calendar.getInstance()
         calendarView.minDate = c
 
         c.add(Calendar.DATE, 30)
         calendarView.maxDate = c*/
 
-        //calendarView.currentDayIconRes = R.drawable.circle
+        // calendarView.currentDayIconRes = R.drawable.circle
     }
 
     private fun initViews() {
@@ -147,14 +147,18 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun selectThreeMonths() {
         if (calendarView.selectionManager is MultipleSelectionManager) {
-            (calendarView.selectionManager as MultipleSelectionManager).addCriteriaList(threeMonthsCriteriaList)
+            (calendarView.selectionManager as MultipleSelectionManager).addCriteriaList(
+                threeMonthsCriteriaList
+            )
         }
         calendarView.update()
     }
 
     private fun unselectThreeMonths() {
         if (calendarView.selectionManager is MultipleSelectionManager) {
-            (calendarView.selectionManager as MultipleSelectionManager).removeCriteriaList(threeMonthsCriteriaList)
+            (calendarView.selectionManager as MultipleSelectionManager).removeCriteriaList(
+                threeMonthsCriteriaList
+            )
         }
         calendarView.update()
     }
@@ -212,15 +216,16 @@ class CosmoCalendarActivity : BaseFontActivity(), RadioGroup.OnCheckedChangeList
 
     private fun addDefaultRange() {
         calendarView.selectionManager = RangeSelectionManager(
-                object : OnDaySelectedListener {
-                    override fun onDaySelected() {
-                        logD("logSelectedDaysMenuClick " + BaseApplication.gson.toJson(calendarView.selectedDays))
-                    }
+            object : OnDaySelectedListener {
+                override fun onDaySelected() {
+                    logD("logSelectedDaysMenuClick " + BaseApplication.gson.toJson(calendarView.selectedDays))
                 }
+            }
         )
         if (calendarView.selectionManager is RangeSelectionManager) {
             calendarView.clearSelections()
-            val rangeSelectionManager: RangeSelectionManager = calendarView.selectionManager as RangeSelectionManager
+            val rangeSelectionManager: RangeSelectionManager =
+                calendarView.selectionManager as RangeSelectionManager
             val calendar: Calendar = Calendar.getInstance()
             calendar.add(Calendar.DATE, 3)
             rangeSelectionManager.toggleDay(Day(Calendar.getInstance()))

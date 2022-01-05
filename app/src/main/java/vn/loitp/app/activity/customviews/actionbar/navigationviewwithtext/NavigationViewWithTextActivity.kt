@@ -10,7 +10,7 @@ import com.core.utilities.LAppResource
 import com.views.navigationview.LTextNavigationView
 import kotlinx.android.synthetic.main.activity_navigation_view_with_text.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("NavigationViewWithTextActivity")
 @IsFullScreen(false)
@@ -48,5 +48,4 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
         bt1.setOnClickListener { nv.setCurrenIndex(stringList.size - 1) }
         bt2.setOnClickListener { nv.setCurrenIndex(2) }
     }
-
 }
