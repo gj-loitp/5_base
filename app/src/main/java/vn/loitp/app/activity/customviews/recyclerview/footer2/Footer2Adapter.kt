@@ -14,7 +14,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 @LogTag("Footer2Adapter")
 class Footer2Adapter(private val moviesList: List<Movie>, private val callback: Callback?) :
-        BaseAdapter() {
+    BaseAdapter() {
 
     companion object {
         const val TYPE_ITEM = 1
@@ -60,10 +60,12 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (viewType == TYPE_BANNER) {
-            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_about_me, parent, false)
+            val itemView = LayoutInflater.from(parent.context)
+                .inflate(R.layout.view_row_item_about_me, parent, false)
             return BannerViewHolder(itemView)
         } else {
-            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
+            val itemView =
+                LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
             return MovieViewHolder(itemView)
         }
     }
@@ -89,5 +91,4 @@ class Footer2Adapter(private val moviesList: List<Movie>, private val callback: 
     override fun getItemCount(): Int {
         return moviesList.size
     }
-
 }

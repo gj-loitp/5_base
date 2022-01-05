@@ -12,11 +12,15 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.adapter.SampleAdapter
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.ListItem
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.SAMPLE_DATA_TEXT_AND_HEADERS
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class TextWithIconFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         return inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
     }
 
@@ -33,23 +37,23 @@ class TextWithIconFragment : Fragment() {
 
         fastScrollerView.apply {
             setupWithRecyclerView(
-                    recyclerView,
-                    { position ->
-                        data[position]
-                                .takeIf(ListItem::showInFastScroll)
-                                ?.let { item ->
-                                    when (item) {
-                                        is ListItem.HeaderItem -> FastScrollItemIndicator.Icon(item.iconRes)
-                                        is ListItem.DataItem ->
-                                            FastScrollItemIndicator.Text(
-                                                    item
-                                                            .title
-                                                            .substring(0, 1)
-                                                            .toUpperCase(Locale.getDefault())
-                                            )
-                                    }
-                                }
-                    }
+                recyclerView,
+                { position ->
+                    data[position]
+                        .takeIf(ListItem::showInFastScroll)
+                        ?.let { item ->
+                            when (item) {
+                                is ListItem.HeaderItem -> FastScrollItemIndicator.Icon(item.iconRes)
+                                is ListItem.DataItem ->
+                                    FastScrollItemIndicator.Text(
+                                        item
+                                            .title
+                                            .substring(0, 1)
+                                            .uppercase(Locale.getDefault())
+                                    )
+                            }
+                        }
+                }
             )
         }
 

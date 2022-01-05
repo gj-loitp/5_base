@@ -8,7 +8,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFragment
 import kotlinx.android.synthetic.main.reside_menu_calendar.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("CalendarFragment")
 class CalendarFragment : BaseFragment() {
@@ -26,14 +26,15 @@ class CalendarFragment : BaseFragment() {
     private fun initView() {
         activity?.let { a ->
             val arrayAdapter = ArrayAdapter(
-                    a,
-                    R.layout.view_row_test_retrofit,
-                    calendarData
+                a,
+                R.layout.view_row_test_retrofit,
+                calendarData
             )
             listView.adapter = arrayAdapter
-            listView.onItemClickListener = AdapterView.OnItemClickListener { _: AdapterView<*>?, _: View?, _: Int, _: Long ->
-                showShortInformation("Clicked item!")
-            }
+            listView.onItemClickListener =
+                AdapterView.OnItemClickListener { _: AdapterView<*>?, _: View?, _: Int, _: Long ->
+                    showShortInformation("Clicked item!")
+                }
         }
     }
 

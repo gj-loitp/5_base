@@ -11,9 +11,9 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 class GalleryAdapter internal constructor(
-        private val context: Context,
-        private val moviesList: List<Movie>,
-        private val callback: Callback?
+    private val context: Context,
+    private val moviesList: List<Movie>,
+    private val callback: Callback?
 ) : RecyclerView.Adapter<GalleryAdapter.MovieViewHolder>() {
 
     interface Callback {
@@ -39,7 +39,8 @@ class GalleryAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_item_gallery, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_item_gallery, parent, false)
         return MovieViewHolder(itemView)
     }
 
@@ -50,5 +51,4 @@ class GalleryAdapter internal constructor(
     override fun getItemCount(): Int {
         return moviesList.size
     }
-
 }

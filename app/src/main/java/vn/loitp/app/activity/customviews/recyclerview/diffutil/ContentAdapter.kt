@@ -17,7 +17,9 @@ class ContentAdapter : RecyclerView.Adapter<ContentAdapter.ViewHolder>(), AutoUp
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_item_diff_util, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.view_item_diff_util, parent, false)
+        )
     }
 
     override fun getItemCount() = items.size

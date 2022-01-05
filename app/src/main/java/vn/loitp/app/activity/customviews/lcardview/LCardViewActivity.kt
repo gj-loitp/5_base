@@ -31,11 +31,11 @@ class LCardViewActivity : BaseFontActivity() {
         lCardView0.apply {
             callback = object : LCardView.Callback {
                 override fun onClickRoot(v: View) {
-                    //LAnimationUtil.play(v, Techniques.Pulse)
+                    // LAnimationUtil.play(v, Techniques.Pulse)
                 }
 
                 override fun onLongClickRoot(v: View) {
-                    //LAnimationUtil.play(v, Techniques.Pulse)
+                    // LAnimationUtil.play(v, Techniques.Pulse)
                 }
 
                 override fun onClickText(v: View) {
@@ -62,5 +62,4 @@ class LCardViewActivity : BaseFontActivity() {
             setImg(Constants.URL_IMG_4)
         }
     }
-
 }

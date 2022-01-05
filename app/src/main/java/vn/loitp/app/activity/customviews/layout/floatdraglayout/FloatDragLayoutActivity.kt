@@ -55,9 +55,19 @@ class FloatDragLayoutActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(view: View) {
         when (view) {
-            btChangeToFullScreen -> startActivity(Intent(this, FloatDragFullScreenActivity::class.java))
+            btChangeToFullScreen -> startActivity(
+                Intent(
+                    this,
+                    FloatDragFullScreenActivity::class.java
+                )
+            )
             btChangeToNoTitle -> startActivity(Intent(this, FloatDragNoTitleActivity::class.java))
-            btChangeToWindows -> startActivity(Intent(this, FloatDragWindowModeActivity::class.java))
+            btChangeToWindows -> startActivity(
+                Intent(
+                    this,
+                    FloatDragWindowModeActivity::class.java
+                )
+            )
             btShowFloatDragPopupWindow -> showFloatDragPopupWindow()
         }
     }
@@ -65,13 +75,16 @@ class FloatDragLayoutActivity : BaseFontActivity(), View.OnClickListener {
     private fun showFloatDragPopupWindow() {
         if (floatDragPopupWindow == null) {
             val contentView = ImageView(this)
-            contentView.layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            contentView.layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
             contentView.setImageResource(R.drawable.ic_launcher)
             floatDragPopupWindow = FloatDragPopupWindow.Builder(this)
-                    .setContentView(contentView)
-                    .setPosition(0, 300)
-                    .setOnClickListener { showShortInformation("Click on FloatDragPopupWindow", true) }
-                    .build()
+                .setContentView(contentView)
+                .setPosition(0, 300)
+                .setOnClickListener { showShortInformation("Click on FloatDragPopupWindow", true) }
+                .build()
         }
         floatDragPopupWindow?.show()
     }

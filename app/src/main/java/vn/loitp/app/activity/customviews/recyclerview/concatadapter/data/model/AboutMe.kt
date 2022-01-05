@@ -5,7 +5,7 @@ import java.io.Serializable
 
 @Keep
 data class AboutMe(
-        val id: Int = 0,
-        var name: String = "",
-        var aboutMe: String = ""
+    val id: Int = 0,
+    var name: String = "",
+    var aboutMe: String = ""
 ) : Serializable

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.bookview
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -16,10 +17,10 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 @LogTag("BookAdapter")
 class BookAdapter(
-        private val context: Context,
-        private val column: Int,
-        private val moviesList: MutableList<Movie>,
-        private val callback: Callback?
+    private val context: Context,
+    private val column: Int,
+    private val moviesList: MutableList<Movie>,
+    private val callback: Callback?
 ) : BaseAdapter() {
 
     private val sizeW: Int = LScreenUtil.screenWidth / column
@@ -39,6 +40,7 @@ class BookAdapter(
         fun onLoadMore()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun checkData() {
         val indexEachColumn = itemCount % column
         val missItemCount = column - indexEachColumn
@@ -71,7 +73,13 @@ class BookAdapter(
                     itemView.bkg.setImageResource(R.drawable.l_grid_item_background_center)
                 }
             }
-            LUIUtil.setMargins(view = itemView.imageView, leftPx = sizeMarginTopLeftRight, topPx = sizeMarginTopBottom, rightPx = sizeMarginTopLeftRight, bottomPx = sizeMarginTopBottom)
+            LUIUtil.setMargins(
+                view = itemView.imageView,
+                leftPx = sizeMarginTopLeftRight,
+                topPx = sizeMarginTopBottom,
+                rightPx = sizeMarginTopLeftRight,
+                bottomPx = sizeMarginTopBottom
+            )
             val url = movie.cover
             if (url != null) {
                 LImageUtil.load(context = context, any = url, imageView = itemView.imageView)
@@ -89,12 +97,12 @@ class BookAdapter(
             if (bindingAdapterPosition == moviesList.size - 1) {
                 callback?.onLoadMore()
             }
-
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_book, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_book, parent, false)
         return MovieViewHolder(itemView)
     }
 

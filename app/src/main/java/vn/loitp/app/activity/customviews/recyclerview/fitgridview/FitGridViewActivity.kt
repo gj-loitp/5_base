@@ -26,9 +26,9 @@ class FitGridViewActivity : BaseFontActivity() {
 
     private fun setupViews() {
         gridView.setFitGridAdapter(
-                Adapter(this) { pos ->
-                    showShortInformation("Click $pos")
-                }
+            Adapter(this) { pos ->
+                showShortInformation("Click $pos")
+            }
         )
         btShowInDialog.setSafeOnClickListener {
             showAlert()
@@ -40,16 +40,15 @@ class FitGridViewActivity : BaseFontActivity() {
 
     private fun showAlert() {
         val builder = AlertDialog.Builder(this)
-        builder.setNegativeButton(android.R.string.no) { _, _ ->
-
+        builder.setNegativeButton(getString(R.string.cancel)) { _, _ ->
         }
         val gridView = FitGridView(this)
         gridView.numColumns = 3
         gridView.numRows = 4
         gridView.setFitGridAdapter(
-                Adapter(this) { pos ->
-                    showShortInformation("Click $pos")
-                }
+            Adapter(this) { pos ->
+                showShortInformation("Click $pos")
+            }
         )
         builder.setView(gridView)
         builder.show()

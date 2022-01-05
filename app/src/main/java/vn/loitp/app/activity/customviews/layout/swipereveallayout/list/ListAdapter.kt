@@ -13,12 +13,12 @@ import com.views.layout.swipereveallayout.ViewBinderHelper
 import vn.loitp.app.R
 
 class ListAdapter(
-        context: Context,
-        objects: List<String>
+    context: Context,
+    objects: List<String>
 ) : ArrayAdapter<String>(
-        context,
-        R.layout.item_swipe_reveal_layout_list,
-        objects
+    context,
+    R.layout.item_swipe_reveal_layout_list,
+    objects
 ) {
 
     private val mInflater: LayoutInflater = LayoutInflater.from(context)

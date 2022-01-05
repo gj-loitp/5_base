@@ -14,7 +14,7 @@ import com.views.layout.swipeback.SwipeBackLayout.OnSwipeBackListener
 import kotlinx.android.synthetic.main.activity_swipeback_layout.*
 import vn.loitp.app.R
 
-//https://github.com/gongwen/SwipeBackLayout
+// https://github.com/gongwen/SwipeBackLayout
 
 @LogTag("SwipeBackLayoutActivity")
 @IsFullScreen(false)
@@ -38,7 +38,11 @@ class SwipeBackLayoutActivity : BaseFontActivity() {
         swipeBackLayout.setSwipeBackFactor(0.5f)
 
         swipeBackLayout.setSwipeBackListener(object : OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
                 logD("onViewPositionChanged swipeBackFraction $swipeBackFraction")
                 val newY = screenH * swipeBackFraction
                 view.translationY = newY

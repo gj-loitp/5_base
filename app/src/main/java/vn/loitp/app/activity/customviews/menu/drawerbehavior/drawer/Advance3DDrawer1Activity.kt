@@ -17,7 +17,9 @@ import vn.loitp.app.R
 
 @LogTag("Advance3DDrawer1Activity")
 @IsFullScreen(false)
-class Advance3DDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
+class Advance3DDrawer1Activity :
+    BaseFontActivity(),
+    NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_drawer_behavior_advance_3d_1
@@ -34,10 +36,16 @@ class Advance3DDrawer1Activity : BaseFontActivity(), NavigationView.OnNavigation
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
 
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
 

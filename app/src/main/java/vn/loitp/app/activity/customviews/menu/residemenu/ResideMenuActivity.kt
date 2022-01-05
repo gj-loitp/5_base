@@ -55,7 +55,7 @@ class ResideMenuActivity : BaseFontActivity(), View.OnClickListener {
             this.setBackground(R.drawable.iv)
             this.attachToActivity(this@ResideMenuActivity)
             this.menuListener = menuListener
-            //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
+            // valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip.
             this.setScaleValue(0.6f)
         }
 
@@ -135,9 +135,9 @@ class ResideMenuActivity : BaseFontActivity(), View.OnClickListener {
     private fun changeFragment(targetFragment: Fragment) {
         resideMenu?.clearIgnoredViewList()
         supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.mainFragment, targetFragment, "fragment")
-                .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-                .commit()
+            .beginTransaction()
+            .replace(R.id.mainFragment, targetFragment, "fragment")
+            .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+            .commit()
     }
 }

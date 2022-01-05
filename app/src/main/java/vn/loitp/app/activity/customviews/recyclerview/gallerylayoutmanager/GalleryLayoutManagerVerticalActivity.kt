@@ -17,7 +17,7 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 import vn.loitp.app.common.Constants
 
-//https://github.com/BCsl/GalleryLayoutManager
+// https://github.com/BCsl/GalleryLayoutManager
 
 @LogTag("GalleryLayoutManagerVerticalActivity")
 @IsFullScreen(false)
@@ -33,7 +33,8 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         galleryAdapterVertical =
-            GalleryAdapterVertical(context = this, moviesList = instance.movieList,
+            GalleryAdapterVertical(
+                moviesList = instance.movieList,
                 callback = object : GalleryAdapterVertical.Callback {
                     override fun onClick(movie: Movie, position: Int) {
                         showShortInformation("onClick " + movie.title)
@@ -44,21 +45,22 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
                     }
 
                     override fun onLoadMore() {
-                        //do nothing
+                        // do nothing
                     }
-                })
+                }
+            )
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
-        //recyclerView.setAdapter(mAdapter);
+        // recyclerView.setAdapter(mAdapter);
         val layoutManager = GalleryLayoutManager(GalleryLayoutManager.VERTICAL)
-        //layoutManager.attach(recyclerView);  //default selected position is 0
+        // layoutManager.attach(recyclerView);  //default selected position is 0
         layoutManager.attach(rv, 5)
 
-        //...
-        //setup adapter for your RecycleView
+        // ...
+        // setup adapter for your RecycleView
         rv.adapter = galleryAdapterVertical
-        layoutManager.setCallbackInFling(true) //should receive callback when flinging, default is false
+        layoutManager.setCallbackInFling(true) // should receive callback when flinging, default is false
         layoutManager.setOnItemSelectedListener { _: RecyclerView?, _: View?, position: Int ->
             textView.text = position.toString() + "/" + galleryAdapterVertical?.itemCount
         }
@@ -68,6 +70,7 @@ class GalleryLayoutManagerVerticalActivity : BaseFontActivity() {
         prepareMovieData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..49) {

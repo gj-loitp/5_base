@@ -23,9 +23,9 @@ import kotlinx.android.parcel.Parcelize
 @Keep
 @Parcelize
 data class Poster(
-        val name: String,
-        val release: String,
-        val playtime: String,
-        val description: String,
-        val poster: String
+    val name: String,
+    val release: String,
+    val playtime: String,
+    val description: String,
+    val poster: String
 ) : Parcelable

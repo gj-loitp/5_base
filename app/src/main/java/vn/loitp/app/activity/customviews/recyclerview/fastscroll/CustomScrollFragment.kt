@@ -19,9 +19,9 @@ import java.util.*
 class CustomScrollFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.layout_fast_scroll_sample_basic, container, false)
     }
@@ -29,10 +29,12 @@ class CustomScrollFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data = listOf(ListItem.DataItem(
+        val data = listOf(
+            ListItem.DataItem(
                 "Items will be scrolled to the top!",
                 showInFastScroll = false
-        )) + SAMPLE_DATA_TEXT
+            )
+        ) + SAMPLE_DATA_TEXT
 
         val linearLayoutManager = LinearLayoutManager(context)
         recyclerView.apply {
@@ -42,29 +44,30 @@ class CustomScrollFragment : Fragment() {
 
         fastScrollerView.apply {
             setupWithRecyclerView(
-                    recyclerView,
-                    { position ->
-                        data[position]
-                                .takeIf(ListItem::showInFastScroll)
-                                ?.let { item ->
-                                    FastScrollItemIndicator.Text(
-                                            item
-                                                    .title
-                                                    .substring(0, 1)
-                                                    .toUpperCase(Locale.getDefault())
-                                    )
-                                }
-                    },
-                    useDefaultScroller = false
+                recyclerView,
+                { position ->
+                    data[position]
+                        .takeIf(ListItem::showInFastScroll)
+                        ?.let { item ->
+                            FastScrollItemIndicator.Text(
+                                item
+                                    .title
+                                    .substring(0, 1)
+                                    .toUpperCase(Locale.getDefault())
+                            )
+                        }
+                },
+                useDefaultScroller = false
             )
             val smoothScroller: LinearSmoothScroller = object : LinearSmoothScroller(context) {
                 override fun getVerticalSnapPreference(): Int = SNAP_TO_START
             }
-            itemIndicatorSelectedCallbacks += object : FastScrollerView.ItemIndicatorSelectedCallback {
+            itemIndicatorSelectedCallbacks += object :
+                FastScrollerView.ItemIndicatorSelectedCallback {
                 override fun onItemIndicatorSelected(
-                        indicator: FastScrollItemIndicator,
-                        indicatorCenterY: Int,
-                        itemPosition: Int
+                    indicator: FastScrollItemIndicator,
+                    indicatorCenterY: Int,
+                    itemPosition: Int
                 ) {
                     recyclerView.stopScroll()
                     smoothScroller.targetPosition = itemPosition
@@ -77,5 +80,4 @@ class CustomScrollFragment : Fragment() {
             setupWithFastScroller(fastScrollerView = fastScrollerView)
         }
     }
-
 }

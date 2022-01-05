@@ -19,11 +19,14 @@ class ScrollView2DActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        twoDScrollView.setScrollChangeListner { _, x, y, oldx, oldy ->
-            logD("setScrollChangeListner $x - $y - $oldx - $oldy")
+        twoDScrollView.setScrollChangeListener { _, x, y, oldx, oldy ->
+            logD("setScrollChangeListener $x - $y - $oldx - $oldy")
         }
-        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
-            twoDScrollView.smoothScrollTo(300, 300)
-        })
+        LUIUtil.setDelay(
+            mls = 2000,
+            runnable = Runnable {
+                twoDScrollView.smoothScrollTo(300, 300)
+            }
+        )
     }
 }

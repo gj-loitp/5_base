@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.menu.drawerbehavior.drawer
 
-import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -36,13 +35,19 @@ class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationIt
         setSupportActionBar(toolbar)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
         }
         drawerLayout?.let {
             ViewCompat.setLayoutDirection(it, View.LAYOUT_DIRECTION_RTL)
         }
 
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
         drawerLayout?.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
@@ -57,16 +62,8 @@ class AdvanceDrawer6Activity : BaseFontActivity(), NavigationView.OnNavigationIt
         val resources = resources
         val configuration = resources.configuration
         val displayMetrics = resources.displayMetrics
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-            configuration.setLocale(locale)
-        } else {
-            configuration.locale = locale
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            applicationContext.createConfigurationContext(configuration)
-        } else {
-            resources.updateConfiguration(configuration, displayMetrics)
-        }
+        configuration.setLocale(locale)
+        applicationContext.createConfigurationContext(configuration)
     }
 
     override fun onBackPressed() {

@@ -33,7 +33,9 @@ class MenuProgressLoadingViewsActivity : BaseFontActivity(), View.OnClickListene
         var intent: Intent? = null
         when (v) {
             btCircularProgressBar -> intent = Intent(this, CircularProgressBarActivity::class.java)
-            btCircularProgressIndicator -> intent = Intent(this, CircularProgressIndicatorActivity::class.java)
+            btCircularProgressIndicator ->
+                intent =
+                    Intent(this, CircularProgressIndicatorActivity::class.java)
             btWindow -> intent = Intent(this, WindowProgressActivity::class.java)
         }
         intent?.let {

@@ -8,13 +8,10 @@ import com.core.utilities.LUIUtil
 import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeAdapter
 import vn.loitp.app.R
 
-/**
- * Created by ©Loitp93 on 2/6/2021.
- * VinHMS
- * www.muathu@gmail.com
- */
-class DragDropAdapter(dataSet: List<String> = emptyList(), private val isHorizontal: Boolean = false)
-    : DragDropSwipeAdapter<String, DragDropAdapter.ViewHolder>(dataSet) {
+class DragDropAdapter(
+    dataSet: List<String> = emptyList(),
+    private val isHorizontal: Boolean = false
+) : DragDropSwipeAdapter<String, DragDropAdapter.ViewHolder>(dataSet) {
 
     private val sizeWidth = LScreenUtil.screenWidth / 2
 
@@ -33,7 +30,11 @@ class DragDropAdapter(dataSet: List<String> = emptyList(), private val isHorizon
         viewHolder.tv.text = item
     }
 
-    override fun getViewToTouchToStartDraggingItem(item: String, viewHolder: ViewHolder, position: Int): View? {
+    override fun getViewToTouchToStartDraggingItem(
+        item: String,
+        viewHolder: ViewHolder,
+        position: Int
+    ): View {
         // We return the view holder's view on which the user has to touch to drag the item
         return viewHolder.ivDrag
     }

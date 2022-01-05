@@ -115,7 +115,7 @@ public class TwoDScrollView extends FrameLayout {
         initTwoDScrollView(context, attrs);
     }
 
-    public void setScrollChangeListner(ScrollChangeListener listener) {
+    public void setScrollChangeListener(ScrollChangeListener listener) {
         scrollChangeListener = listener;
     }
 

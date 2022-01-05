@@ -25,5 +25,4 @@ class RotateLayoutActivity : BaseFontActivity() {
             rotateLayout.setAngle(angle)
         }
     }
-
 }

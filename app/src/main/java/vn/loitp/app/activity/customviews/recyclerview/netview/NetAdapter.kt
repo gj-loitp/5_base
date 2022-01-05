@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.netview
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -16,17 +17,12 @@ class NetAdapter : BaseAdapter() {
 
     private val listNet = ArrayList<Net>()
 
-//    fun setListNet(listNet: ArrayList<Net>) {
-//        this.listNet.clear()
-//        this.listNet.addAll(listNet)
-//        notifyDataSetChanged()
-//    }
-
     fun addNet(net: Net) {
         this.listNet.add(element = net)
         notifyItemChanged(itemCount - 1)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun clear() {
         this.listNet.clear()
         notifyDataSetChanged()
@@ -44,7 +40,7 @@ class NetAdapter : BaseAdapter() {
             itemView.textView.text = net.name
             LUIUtil.setTextShadow(textView = itemView.textView, color = Color.BLACK)
 
-            //setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
+            // setAnimation(viewToAnimate = itemView.rootView, position = bindingAdapterPosition)
 
             itemView.layoutRootView.setOnClickListener {
                 onClickRootView?.invoke(net)
@@ -53,7 +49,8 @@ class NetAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NetViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_net, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_net, parent, false)
         return NetViewHolder(itemView)
     }
 

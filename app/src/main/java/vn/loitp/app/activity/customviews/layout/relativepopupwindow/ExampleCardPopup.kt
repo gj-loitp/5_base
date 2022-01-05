@@ -1,9 +1,9 @@
 package vn.loitp.app.activity.customviews.layout.relativepopupwindow
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +12,7 @@ import com.views.LToast
 import kotlinx.android.synthetic.main.popup_card.view.*
 import vn.loitp.app.R
 
+@SuppressLint("InflateParams")
 class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWindow() {
 
     override fun showOnAnchor(
@@ -59,9 +60,7 @@ class ExampleCardPopup internal constructor(context: Context?) : RelativePopupWi
         setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         // Disable default animation for circular reveal
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            animationStyle = 0
-        }
+        animationStyle = 0
 
         layout.ll.setOnClickListener {
             LToast.showShortInformation(msg = "On Click", isTopAnchor = true)

@@ -14,7 +14,7 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.U
 
 @LogTag("UsersAdapter")
 class UsersAdapter(
-        private val listUser: ArrayList<User>
+    private val listUser: ArrayList<User>
 ) : BaseAdapter() {
 
     var onClickRootListener: ((User, Int) -> Unit)? = null
@@ -28,9 +28,11 @@ class UsersAdapter(
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User) {
             itemView.textViewUserName.text = user.name
-            LImageUtil.load(context = itemView.imageViewAvatar.context,
-                    any = user.avatar,
-                    imageView = itemView.imageViewAvatar)
+            LImageUtil.load(
+                context = itemView.imageViewAvatar.context,
+                any = user.avatar,
+                imageView = itemView.imageViewAvatar
+            )
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(user, bindingAdapterPosition)
             }
@@ -38,12 +40,12 @@ class UsersAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            DataViewHolder(
-                    LayoutInflater.from(parent.context).inflate(
-                            R.layout.view_row_item_user, parent,
-                            false
-                    )
+        DataViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_item_user, parent,
+                false
             )
+        )
 
     override fun getItemCount(): Int = listUser.size
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -51,5 +53,4 @@ class UsersAdapter(
             holder.bind(listUser[position])
         }
     }
-
 }

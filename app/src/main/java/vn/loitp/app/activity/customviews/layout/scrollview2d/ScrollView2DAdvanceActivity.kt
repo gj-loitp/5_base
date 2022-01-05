@@ -38,22 +38,35 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
         setupViews()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupViews() {
         vg2.setOnScrollListener(object : LScrollView.ScrollListener {
-            override fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
+            override fun onScrollChange(
+                view: View,
+                scrollX: Int,
+                scrollY: Int,
+                oldScrollX: Int,
+                oldScrollY: Int
+            ) {
                 logD("vg2 setOnScrollListener $scrollX")
                 vg4.scrollTo(scrollX, vg4.scrollY)
             }
         })
         vg3.setOnScrollListener(object : LScrollView.ScrollListener {
-            override fun onScrollChange(view: View, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
+            override fun onScrollChange(
+                view: View,
+                scrollX: Int,
+                scrollY: Int,
+                oldScrollX: Int,
+                oldScrollY: Int
+            ) {
                 logD("vg3 setOnScrollListener $scrollX")
                 vg4.scrollTo(vg4.scrollX, scrollY)
             }
         })
 
-        vg4.setScrollChangeListner { _: View?, x: Int, y: Int, oldX: Int, oldY: Int ->
-            tvInfo.text = "setScrollChangeListner $x - $y - $oldX - $oldY"
+        vg4.setScrollChangeListener { _: View?, x: Int, y: Int, oldX: Int, oldY: Int ->
+            tvInfo.text = "setScrollChangeListener $x - $y - $oldX - $oldY"
             logD("vg4 setOnScrollListener $x")
             vg2.scrollTo(x, vg2.scrollY)
             vg3.scrollTo(vg3.scrollX, y)
@@ -65,15 +78,20 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 LUIUtil.setSizeOfView(vg1, WIDTH_PX, HEIGHT_PX)
                 LUIUtil.setSizeOfView(vg2, ViewGroup.LayoutParams.MATCH_PARENT, HEIGHT_PX)
                 LUIUtil.setSizeOfView(vg3, WIDTH_PX, ViewGroup.LayoutParams.MATCH_PARENT)
-                LUIUtil.setSizeOfView(vg4, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                LUIUtil.setSizeOfView(
+                    vg4,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
                 Render(30, 24).execute()
-                //new Render(7, 12).execute();
+                // new Render(7, 12).execute();
             }
         }
     }
 
-    //check convert coroutine
-    private inner class Render(private val column: Int, private val row: Int) : AsyncTask<Void, View, Void>() {
+    // check convert coroutine
+    private inner class Render(private val column: Int, private val row: Int) :
+        AsyncTask<Void, View, Void>() {
         override fun onPreExecute() {
             super.onPreExecute()
             logD("onPreExecute")
@@ -104,7 +122,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
 
         @SuppressLint("SetTextI18n")
         private fun genLine(column: Int, row: Int) {
-            //gen view group 2
+            // gen view group 2
             for (i in 0 until column) {
                 val button = Button(this@ScrollView2DAdvanceActivity)
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
@@ -115,7 +133,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 publishProgress(button, ll2)
             }
 
-            //gen view group 3
+            // gen view group 3
             for (i in 0 until row) {
                 val button = Button(this@ScrollView2DAdvanceActivity)
                 button.layoutParams = LinearLayout.LayoutParams(WIDTH_PX, HEIGHT_PX)
@@ -126,10 +144,13 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 publishProgress(button, ll3)
             }
 
-            //gen view group 4
+            // gen view group 4
             for (i in 0 until row) {
                 val linearLayout = LinearLayout(this@ScrollView2DAdvanceActivity)
-                val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+                val layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
                 layoutParams.setMargins(0, HEIGHT_PX * i, 0, 0)
                 linearLayout.layoutParams = layoutParams
                 linearLayout.orientation = LinearLayout.HORIZONTAL
@@ -146,7 +167,7 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
                 publishProgress(linearLayout, rl4)
             }
 
-            //add sticker img
+            // add sticker img
             val sticker0 = ImageView(this@ScrollView2DAdvanceActivity)
             sticker0.setImageResource(R.drawable.loitp)
             sticker0.scaleType = ImageView.ScaleType.CENTER_CROP
@@ -157,7 +178,8 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
             val sticker1 = ImageView(this@ScrollView2DAdvanceActivity)
             sticker1.setImageResource(R.drawable.loitp)
             sticker1.scaleType = ImageView.ScaleType.CENTER_CROP
-            val rl1 = RelativeLayout.LayoutParams((WIDTH_PX * 2.5).toInt(), (HEIGHT_PX * 2.5).toInt())
+            val rl1 =
+                RelativeLayout.LayoutParams((WIDTH_PX * 2.5).toInt(), (HEIGHT_PX * 2.5).toInt())
             rl1.setMargins((WIDTH_PX * 1.5).toInt(), HEIGHT_PX * 2, 0, 0)
             sticker1.layoutParams = rl1
             publishProgress(sticker1, rl4)
@@ -168,6 +190,5 @@ class ScrollView2DAdvanceActivity : BaseFontActivity() {
             logD("onPostExecute")
             pb.visibility = View.GONE
         }
-
     }
 }

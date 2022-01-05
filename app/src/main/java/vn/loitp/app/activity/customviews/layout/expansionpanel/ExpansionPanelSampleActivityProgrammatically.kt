@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.expansionpanel
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
@@ -38,9 +39,8 @@ class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
         val ex1 = addDynamicLayout()
         val ex2 = addDynamicLayout()
 
-        //example of how to add a listener
+        // example of how to add a listener
         ex1.addListener { _, _ ->
-
         }
         val expansionLayoutCollection = ExpansionLayoutCollection()
         expansionLayoutCollection.add(ex1).add(ex2)
@@ -49,18 +49,31 @@ class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
 
     private fun addDynamicLayout(): ExpansionLayout {
         val expansionHeader = createExpansionHeader()
-        dynamicLayoutContainer.addView(expansionHeader, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dynamicLayoutContainer.addView(
+            expansionHeader,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         val expansionLayout = createExpansionLayout()
-        dynamicLayoutContainer.addView(expansionLayout, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        dynamicLayoutContainer.addView(
+            expansionLayout,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         expansionHeader.setExpansionLayout(expansionLayout)
         return expansionLayout
     }
 
+    @SuppressLint("SetTextI18n")
     private fun createExpansionLayout(): ExpansionLayout {
         val expansionLayout = ExpansionLayout(this)
         val layout = LinearLayout(this)
         layout.orientation = LinearLayout.VERTICAL
-        expansionLayout.addView(layout, ViewGroup.LayoutParams.MATCH_PARENT, dpToPx(this, 48f)) //equivalent to addView(linearLayout)
+        expansionLayout.addView(
+            layout,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            dpToPx(this, 48f)
+        ) // equivalent to addView(linearLayout)
         val text = TextView(this)
         text.text = "Click to add view"
         text.gravity = Gravity.CENTER
@@ -74,28 +87,47 @@ class ExpansionPanelSampleActivityProgrammatically : BaseFontActivity() {
             child.setTextColor(Color.WHITE)
             layout.addView(child, ViewGroup.LayoutParams.MATCH_PARENT, 100)
         }
-        layout.addView(LayoutInflater.from(this).inflate(R.layout.view_expansion_panel_sample_panel, layout, false))
+        layout.addView(
+            LayoutInflater.from(this)
+                .inflate(R.layout.view_expansion_panel_sample_panel, layout, false)
+        )
         return expansionLayout
     }
 
+    @SuppressLint("SetTextI18n")
     private fun createExpansionHeader(): ExpansionHeader {
         val expansionHeader = ExpansionHeader(this)
         expansionHeader.setBackgroundColor(Color.WHITE)
-        expansionHeader.setPadding(dpToPx(this, 16f), dpToPx(this, 8f), dpToPx(this, 16f), dpToPx(this, 8f))
+        expansionHeader.setPadding(
+            dpToPx(this, 16f),
+            dpToPx(this, 8f),
+            dpToPx(this, 16f),
+            dpToPx(this, 8f)
+        )
         val layout = RelativeLayout(this)
-        expansionHeader.addView(layout, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT) //equivalent to addView(linearLayout)
-        //image
+        expansionHeader.addView(
+            layout,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        ) // equivalent to addView(linearLayout)
+        // image
         val expansionIndicator: ImageView = AppCompatImageView(this)
         expansionIndicator.setImageResource(R.drawable.ic_expansion_header_indicator_grey_24dp)
-        val imageLayoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val imageLayoutParams = RelativeLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         imageLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
         imageLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL)
         layout.addView(expansionIndicator, imageLayoutParams)
-        //label
+        // label
         val text = TextView(this)
         text.text = "Trip name"
         text.setTextColor(Color.parseColor("#3E3E3E"))
-        val textLayoutParams = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val textLayoutParams = RelativeLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         textLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
         textLayoutParams.addRule(RelativeLayout.CENTER_VERTICAL)
         layout.addView(text, textLayoutParams)

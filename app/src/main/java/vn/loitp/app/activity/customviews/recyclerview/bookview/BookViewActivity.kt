@@ -1,15 +1,12 @@
 package vn.loitp.app.activity.customviews.recyclerview.bookview
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.animation.OvershootInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import jp.wasabeef.recyclerview.adapters.SlideInLeftAnimationAdapter
-import jp.wasabeef.recyclerview.adapters.SlideInRightAnimationAdapter
 import kotlinx.android.synthetic.main.activity_bookview.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
@@ -29,25 +26,27 @@ class BookViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        bookAdapter = BookAdapter(context = this, column = 3, moviesList = movieList,
-                callback = object : BookAdapter.Callback {
-                    override fun onClick(movie: Movie, position: Int) {
-                        showShortInformation("Click " + movie.title)
-                    }
+        bookAdapter = BookAdapter(
+            context = this, column = 3, moviesList = movieList,
+            callback = object : BookAdapter.Callback {
+                override fun onClick(movie: Movie, position: Int) {
+                    showShortInformation("Click " + movie.title)
+                }
 
-                    override fun onLongClick(movie: Movie, position: Int) {
-                        val isRemoved = movieList.remove(movie)
-                        if (isRemoved) {
-                            bookAdapter?.apply {
-                                notifyItemRemoved(position)
-                                notifyItemRangeChanged(position, movieList.size)
-                                checkData()
-                            }
+                override fun onLongClick(movie: Movie, position: Int) {
+                    val isRemoved = movieList.remove(movie)
+                    if (isRemoved) {
+                        bookAdapter?.apply {
+                            notifyItemRemoved(position)
+                            notifyItemRangeChanged(position, movieList.size)
+                            checkData()
                         }
                     }
+                }
 
-                    override fun onLoadMore() {}
-                })
+                override fun onLoadMore() {}
+            }
+        )
         rv.layoutManager = GridLayoutManager(this, 3)
         bookAdapter?.let {
 //            val scaleAdapter = AlphaInAnimationAdapter(it)
@@ -63,6 +62,7 @@ class BookViewActivity : BaseFontActivity() {
         prepareMovieData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         var cover: String
         for (i in 0..99) {

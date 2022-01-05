@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.popupmenu
 
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -36,12 +35,12 @@ class PopupMenuActivity : BaseFontActivity(), View.OnClickListener {
             btShow4,
             btShow5 -> {
                 LPopupMenu.show(
-                        activity = this,
-                        showOnView = v,
-                        menuRes = R.menu.menu_popup,
-                        callback = { menuItem ->
-                            showShortInformation(menuItem.title.toString())
-                        }
+                    activity = this,
+                    showOnView = v,
+                    menuRes = R.menu.menu_popup,
+                    callback = { menuItem ->
+                        showShortInformation(menuItem.title.toString())
+                    }
                 )
             }
         }

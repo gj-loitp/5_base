@@ -13,7 +13,7 @@ import com.ernestoyaquello.dragdropswiperecyclerview.listener.OnListScrollListen
 import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_horizontal.*
 import vn.loitp.app.R
 
-//https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
+// https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
 @LogTag("DragDropSwipeListHorizontalRecyclerviewActivity")
 @IsFullScreen(false)
 class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
@@ -41,7 +41,8 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
     private fun setupViews() {
         dragDropAdapter = DragDropAdapter(dataSet = setData(), isHorizontal = true)
 
-        dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
+        dragDropSwipeRecyclerView.layoutManager =
+            LinearLayoutManager(this, RecyclerView.HORIZONTAL, false)
         dragDropSwipeRecyclerView.adapter = dragDropAdapter
 
         dragDropSwipeRecyclerView.swipeListener = onItemSwipeListener
@@ -61,9 +62,11 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
 
     private fun setIsRestrictingDraggingDirections(isRestrictingDraggingDirections: Boolean) {
         if (isRestrictingDraggingDirections) {
-            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_HORIZONTAL_DRAGGING
+            dragDropSwipeRecyclerView.orientation =
+                DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_HORIZONTAL_DRAGGING
         } else {
-            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_UNCONSTRAINED_DRAGGING
+            dragDropSwipeRecyclerView.orientation =
+                DragDropSwipeRecyclerView.ListOrientation.HORIZONTAL_LIST_WITH_UNCONSTRAINED_DRAGGING
         }
     }
 
@@ -90,15 +93,21 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
         if (isDrawingBehindSwipedItems) {
             // We set our custom layouts to be displayed behind swiped items
             // In XML: app:behind_swiped_item_custom_layout="@layout/behind_swiped_vertical_list"
-            dragDropSwipeRecyclerView.behindSwipedItemLayoutId = R.layout.layout_behind_swiped_vertical_list
+            dragDropSwipeRecyclerView.behindSwipedItemLayoutId =
+                R.layout.layout_behind_swiped_vertical_list
 
             // In XML: app:behind_swiped_item_custom_layout_secondary="@layout/behind_swiped_vertical_list_secondary"
-            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId = R.layout.layout_behind_swiped_vertical_list_secondary
+            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId =
+                R.layout.layout_behind_swiped_vertical_list_secondary
         }
     }
 
     private val onItemSwipeListener = object : OnItemSwipeListener<String> {
-        override fun onItemSwiped(position: Int, direction: OnItemSwipeListener.SwipeDirection, item: String): Boolean {
+        override fun onItemSwiped(
+            position: Int,
+            direction: OnItemSwipeListener.SwipeDirection,
+            item: String
+        ): Boolean {
             when (direction) {
                 OnItemSwipeListener.SwipeDirection.RIGHT_TO_LEFT -> logD("onItemSwipeListener RIGHT_TO_LEFT")
                 OnItemSwipeListener.SwipeDirection.LEFT_TO_RIGHT -> logD("onItemSwipeListener LEFT_TO_RIGHT")
@@ -127,10 +136,12 @@ class DragDropSwipeListHorizontalRecyclerviewActivity : BaseFontActivity() {
             logD("onListScrollListener onListScrollStateChanged scrollState $scrollState")
         }
 
-        override fun onListScrolled(scrollDirection: OnListScrollListener.ScrollDirection, distance: Int) {
+        override fun onListScrolled(
+            scrollDirection: OnListScrollListener.ScrollDirection,
+            distance: Int
+        ) {
             // Handle scrolling
             logD("onListScrollListener onListScrolled scrollDirection $scrollDirection, distance $distance")
         }
     }
-
 }

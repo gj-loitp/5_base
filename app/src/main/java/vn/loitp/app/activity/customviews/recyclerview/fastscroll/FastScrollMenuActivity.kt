@@ -18,8 +18,8 @@ import vn.loitp.app.R
 class FastScrollMenuActivity : BaseFontActivity() {
 
     enum class Samples(
-            val title: String,
-            val fragmentClass: Class<out Fragment>
+        val title: String,
+        val fragmentClass: Class<out Fragment>
     ) {
         JustText("Just text", JustTextFragment::class.java),
         TextWithIcon("Text with icon", TextWithIconFragment::class.java),
@@ -40,20 +40,25 @@ class FastScrollMenuActivity : BaseFontActivity() {
         }
 
         Samples.values().forEach { sample ->
-            val button = layoutInflater.inflate(R.layout.layout_fast_scroll_menu_button, rootView, false).apply {
-                this as Button
-                text = sample.title
-                setSafeOnClickListener {
-                    supportFragmentManager
-                            .beginTransaction()
-                            .replace(
+            val button =
+                layoutInflater.inflate(R.layout.layout_fast_scroll_menu_button, rootView, false)
+                    .apply {
+                        this as Button
+                        text = sample.title
+                        setSafeOnClickListener {
+                            supportFragmentManager
+                                .beginTransaction()
+                                .replace(
                                     R.id.layoutContainer,
-                                    Fragment.instantiate(this@FastScrollMenuActivity, sample.fragmentClass.name)
-                            )
-                            .addToBackStack(null)
-                            .commit()
-                }
-            }
+                                    Fragment.instantiate(
+                                        this@FastScrollMenuActivity,
+                                        sample.fragmentClass.name
+                                    )
+                                )
+                                .addToBackStack(null)
+                                .commit()
+                        }
+                    }
             layoutButtons.addView(button)
         }
 
@@ -77,5 +82,4 @@ class FastScrollMenuActivity : BaseFontActivity() {
             LoremIpsum.getInstance()
         }
     }
-
 }

@@ -24,10 +24,9 @@ class CircularProgressBarActivity : BaseFontActivity() {
     private fun setupViews() {
         progressBar.progress = 30f
         progressBar.configure()
-                .animateProgress(true)
-                .maximum(40f)
-                .progress(30f)
-                .apply()
+            .animateProgress(true)
+            .maximum(40f)
+            .progress(30f)
+            .apply()
     }
-
 }
