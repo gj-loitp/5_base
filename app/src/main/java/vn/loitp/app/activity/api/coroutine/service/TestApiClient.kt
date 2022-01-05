@@ -7,15 +7,9 @@ import com.restapi.restclient.RestRequestInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import java.util.concurrent.TimeUnit
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 object TestApiClient {
 
     private fun getBaseUrl() = ApiConfiguration.BASE_AUTHEN_URL
@@ -34,24 +28,24 @@ object TestApiClient {
             connectTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
             readTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
             writeTimeout(ApiConfiguration.TIME_OUT, TimeUnit.SECONDS)
-            //addInterceptor(AuthenticationInterceptor())
+            // addInterceptor(AuthenticationInterceptor())
             restRequestInterceptor?.let { rri ->
                 addInterceptor(rri)
             }
-            //retryOnConnectionFailure(false)
+            // retryOnConnectionFailure(false)
         }
 
-        //val moshi = Moshi.Builder()
+        // val moshi = Moshi.Builder()
         //        .build()
 
         val gson = GsonBuilder()
-                .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
-                .create()
+            .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
+            .create()
 
         return Retrofit.Builder().apply {
             baseUrl(url)
             addCallAdapterFactory(CoroutineCallAdapterFactory())
-            //addConverterFactory(MoshiConverterFactory.create(moshi))
+            // addConverterFactory(MoshiConverterFactory.create(moshi))
             addConverterFactory(GsonConverterFactory.create(gson))
             client(builder.build())
         }.build()

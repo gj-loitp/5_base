@@ -9,10 +9,7 @@ import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.*
-import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.progressBar
 import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.textView
-import kotlinx.android.synthetic.main.activity_api_ttt_chap_list.tvTitle
-import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import vn.loitp.app.R
 
 @LogTag("TTTAPIChapListActivity")
@@ -56,5 +53,4 @@ class TTTAPIChapListActivity : BaseFontActivity() {
             })
         }
     }
-
 }

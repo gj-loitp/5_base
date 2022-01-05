@@ -44,10 +44,10 @@ class FrmUser : BaseFragment() {
             if (userTest is UserTest) {
                 LUIUtil.printBeautyJson(o = userTest, textView = textView)
                 LImageUtil.load(
-                        context = activity,
-                        any = userTest.avatar,
-                        imageView = imageView,
-                        transformation = CropCircleWithBorderTransformation()
+                    context = activity,
+                    any = userTest.avatar,
+                    imageView = imageView,
+                    transformation = CropCircleWithBorderTransformation()
                 )
             }
         }

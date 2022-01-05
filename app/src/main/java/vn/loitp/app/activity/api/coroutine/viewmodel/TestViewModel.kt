@@ -9,15 +9,7 @@ import kotlinx.coroutines.launch
 import vn.loitp.app.activity.api.coroutine.repository.TestRepository
 import vn.loitp.app.activity.api.coroutine.service.TestApiClient
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
-
 class TestViewModel : BaseViewModel() {
-    private val logTag = javaClass.simpleName
     private val repository: TestRepository = TestRepository(TestApiClient.apiService)
 
     // action
@@ -31,18 +23,17 @@ class TestViewModel : BaseViewModel() {
             val response = repository.getUserTest(page = page)
             if (response.data != null) {
                 userActionLiveData.post(
-                        ActionData(
-                                isDoing = false,
-                                isSuccess = true,
-                                isSwipeToRefresh = isRefresh,
-                                data = response.data
-                        )
+                    ActionData(
+                        isDoing = false,
+                        isSuccess = true,
+                        isSwipeToRefresh = isRefresh,
+                        data = response.data
+                    )
                 )
             } else {
                 userActionLiveData.postAction(getErrorRequest(response))
             }
         }
-
     }
 
     fun addUserList(userTestList: ArrayList<UserTest>, isRefresh: Boolean?) {

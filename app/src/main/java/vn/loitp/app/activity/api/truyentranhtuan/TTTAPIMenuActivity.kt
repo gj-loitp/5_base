@@ -46,5 +46,4 @@ class TTTAPIMenuActivity : BaseFontActivity() {
             LActivityUtil.tranIn(this)
         }
     }
-
 }

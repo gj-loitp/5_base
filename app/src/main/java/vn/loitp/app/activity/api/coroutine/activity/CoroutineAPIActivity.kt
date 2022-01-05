@@ -5,7 +5,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-@LogTag("ShadowViewHelperActivity")
+@LogTag("CoroutineAPIActivity")
 @IsFullScreen(false)
 class CoroutineAPIActivity : BaseFontActivity() {
 

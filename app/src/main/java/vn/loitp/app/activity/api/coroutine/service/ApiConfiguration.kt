@@ -1,11 +1,5 @@
 package vn.loitp.app.activity.api.coroutine.service
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 object ApiConfiguration {
     // authentication
     const val BASE_AUTHEN_URL = "https://reqres.in/api/"

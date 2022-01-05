@@ -7,12 +7,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 interface ApiService {
 
     /*@GET("rest/")
@@ -28,5 +22,5 @@ interface ApiService {
 
     @GET("users/")
     fun getUserTestAsync(@Query("page") page: Int):
-            Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
+        Deferred<Response<ApiResponse<ArrayList<UserTest>>>>
 }

@@ -18,9 +18,6 @@ import com.restapi.restclient.RestClient
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_api_gallery.*
-import kotlinx.android.synthetic.main.activity_api_gallery.progressBar
-import kotlinx.android.synthetic.main.activity_api_gallery.textView
-import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import vn.loitp.app.R
 
 @LogTag("GalleryAPIActivity")
@@ -60,7 +57,17 @@ class GalleryAPIActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallback = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, noJsonCallback)
+        compositeDisposable.add(
+            service.getListPhotoset(
+                method,
+                apiKey,
+                userID,
+                page,
+                perPage,
+                primaryPhotoExtras,
+                format,
+                noJsonCallback
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetlist? ->
@@ -74,7 +81,8 @@ class GalleryAPIActivity : BaseFontActivity() {
                     e.printStackTrace()
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
-                })
+                }
+        )
     }
 
     private fun showDialogSelectPhotoset() {
@@ -111,7 +119,18 @@ class GalleryAPIActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallback = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getPhotosetPhotos(method, apiKey, photosetID, userID, primaryPhotoExtras, perPage, page, format, noJsonCallback)
+        compositeDisposable.add(
+            service.getPhotosetPhotos(
+                method,
+                apiKey,
+                photosetID,
+                userID,
+                primaryPhotoExtras,
+                perPage,
+                page,
+                format,
+                noJsonCallback
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist: WrapperPhotosetGetPhotos? ->
@@ -123,6 +142,7 @@ class GalleryAPIActivity : BaseFontActivity() {
                 }) { e: Throwable ->
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
-                })
+                }
+        )
     }
 }

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.api.coroutine.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,16 +12,17 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.item_user_1.view.*
 import vn.loitp.app.R
 
-class UserListAdapter(private val context: Context,
-                      private val callback: (Int, UserTest) -> Unit) :
-        RecyclerView.Adapter<UserListAdapter.UserTestViewHolder>() {
-
-    private val logTag = javaClass.simpleName
+class UserListAdapter(
+    private val context: Context,
+    private val callback: (Int, UserTest) -> Unit,
+) :
+    RecyclerView.Adapter<UserListAdapter.UserTestViewHolder>() {
 
     private var userTestList = ArrayList<UserTest>()
 
     inner class UserTestViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+        @SuppressLint("SetTextI18n")
         fun bind(userTest: UserTest) {
             userTest.avatar?.let {
                 LImageUtil.load(context, it, itemView.ivAvt)
@@ -36,7 +38,8 @@ class UserListAdapter(private val context: Context,
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserTestViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_user_1, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_user_1, parent, false)
         return UserTestViewHolder(itemView)
     }
 
@@ -49,6 +52,7 @@ class UserListAdapter(private val context: Context,
         return userTestList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setList(userTestList: ArrayList<UserTest>?) {
         if (userTestList.isNullOrEmpty()) {
             this.userTestList.clear()

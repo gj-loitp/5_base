@@ -16,7 +16,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.api.retrofit2.AnswersAdapter.PostItemListener
 import vn.loitp.app.activity.api.retrofit2.ApiUtils.Companion.sOService
 import vn.loitp.app.activity.api.retrofit2.model.SOAnswersResponse
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("TestAPIRetrofit2Activity")
 @IsFullScreen(false)
@@ -32,19 +32,23 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
         mService = sOService
 
-        mAdapter = AnswersAdapter(mItems = ArrayList(0), mItemListener = object : PostItemListener {
-            override fun onPostClick(id: Long) {
-                showShortInformation("Post id is$id")
+        mAdapter = AnswersAdapter(
+            mItems = ArrayList(0),
+            mItemListener = object : PostItemListener {
+                override fun onPostClick(id: Long) {
+                    showShortInformation("Post id is$id")
+                }
             }
-        })
+        )
 
         rvAnswers.apply {
             this.layoutManager = LinearLayoutManager(this@TestAPIRetrofit2Activity)
             this.adapter = mAdapter
             this.setHasFixedSize(true)
-            val itemDecoration: ItemDecoration = DividerItemDecoration(this@TestAPIRetrofit2Activity, DividerItemDecoration.VERTICAL)
+            val itemDecoration: ItemDecoration =
+                DividerItemDecoration(this@TestAPIRetrofit2Activity, DividerItemDecoration.VERTICAL)
             this.addItemDecoration(itemDecoration)
-            //setPullLikeIOSVertical(this)
+            // setPullLikeIOSVertical(this)
         }
 
         loadAnswers()
@@ -52,13 +56,17 @@ class TestAPIRetrofit2Activity : BaseFontActivity() {
 
     private fun loadAnswers() {
         mService?.answers?.enqueue(object : Callback<SOAnswersResponse> {
-            override fun onResponse(call: Call<SOAnswersResponse>, response: Response<SOAnswersResponse>) {
+            override fun onResponse(
+                call: Call<SOAnswersResponse>,
+                response: Response<SOAnswersResponse>
+            ) {
                 if (response.isSuccessful) {
                     response.body()?.items?.let {
                         mAdapter?.updateAnswers(it)
                     }
                 } else {
                     val statusCode = response.code()
+                    print(statusCode)
                     // handle request errors depending on status code
                 }
                 textView.visibility = View.GONE
