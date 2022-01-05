@@ -39,7 +39,8 @@ abstract class FitGridAdapter : BaseAdapter {
     override fun getView(position: Int, itemView: View?, parent: ViewGroup): View? {
         var mItemView = itemView
         if (mItemView == null) {
-            val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val inflater =
+                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             mItemView = inflater.inflate(layoutRes, parent, false)
             val params = AbsListView.LayoutParams(columnWidth, columnHeight)
             mItemView.layoutParams = params

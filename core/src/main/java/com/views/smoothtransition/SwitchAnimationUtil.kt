@@ -9,7 +9,7 @@ import com.nineoldandroids.animation.ObjectAnimator
 import com.views.smoothtransition.ViewUtils.init
 import com.views.smoothtransition.ViewUtils.screenWidth
 
-//https://github.com/dkmeteor/SmoothTransition
+// https://github.com/dkmeteor/SmoothTransition
 /**
  * @author Dean.Ding
  */
@@ -24,17 +24,17 @@ class SwitchAnimationUtil {
     private val mDuration = 100
 
     fun startAnimation(
-            root: View,
-            type: AnimationType
+        root: View,
+        type: AnimationType
     ) {
         init(root.context)
         bindAnimation(root, 0, type)
     }
 
     private fun bindAnimation(
-            view: View,
-            depth: Int,
-            type: AnimationType
+        view: View,
+        depth: Int,
+        type: AnimationType
     ) {
         if (view is ViewGroup) {
             if (type == AnimationType.HORIZON_CROSS) {
@@ -43,38 +43,38 @@ class SwitchAnimationUtil {
                  */
                 for (i in 0 until view.childCount) {
                     bindAnimation(
-                            view = view.getChildAt(i),
-                            depth = depth + 1,
-                            type = if (i % 2 == 0) {
-                                AnimationType.HORIZION_LEFT
-                            } else {
-                                AnimationType.HORIZION_RIGHT
-                            }
+                        view = view.getChildAt(i),
+                        depth = depth + 1,
+                        type = if (i % 2 == 0) {
+                            AnimationType.HORIZION_LEFT
+                        } else {
+                            AnimationType.HORIZION_RIGHT
+                        }
                     )
                 }
             } else {
                 for (i in 0 until view.childCount) {
                     bindAnimation(
-                            view = view.getChildAt(i),
-                            depth = depth + 1,
-                            type = type
+                        view = view.getChildAt(i),
+                        depth = depth + 1,
+                        type = type
                     )
                 }
             }
         } else {
             runAnimation(
-                    view = view,
-                    delay = (mDelay * mOrderIndex).toLong(),
-                    type = type
+                view = view,
+                delay = (mDelay * mOrderIndex).toLong(),
+                type = type
             )
             mOrderIndex++
         }
     }
 
     private fun runAnimation(
-            view: View,
-            delay: Long,
-            type: AnimationType
+        view: View,
+        delay: Long,
+        type: AnimationType
     ) {
         when (type) {
             AnimationType.ROTATE -> runRotateAnimation(view = view, delay = delay)
@@ -90,21 +90,22 @@ class SwitchAnimationUtil {
     }
 
     private fun runHorizonLeftAnimation(
-            view: View,
-            delay: Long
+        view: View,
+        delay: Long
     ) {
         view.alpha = 0f
         val objectAnimator: ObjectAnimator = ObjectAnimator.ofFloat(
-                view,
-                "translationX",
-                -screenWidth.toFloat(),
-                0f)
+            view,
+            "translationX",
+            -screenWidth.toFloat(),
+            0f
+        )
         objectAnimator.interpolator = LinearInterpolator()
         val objectAnimatorAlpha = ObjectAnimator.ofFloat(
-                view,
-                "alpha",
-                0f,
-                1f
+            view,
+            "alpha",
+            0f,
+            1f
         )
         val animatorSet = AnimatorSet()
         animatorSet.duration = mDuration.toLong()
@@ -114,22 +115,22 @@ class SwitchAnimationUtil {
     }
 
     private fun runHorizonRightAnimation(
-            view: View,
-            delay: Long
+        view: View,
+        delay: Long
     ) {
         view.alpha = 0f
         val objectAnimator: ObjectAnimator = ObjectAnimator.ofFloat(
-                view,
-                "translationX",
-                screenWidth.toFloat(),
-                0f
+            view,
+            "translationX",
+            screenWidth.toFloat(),
+            0f
         )
         objectAnimator.interpolator = LinearInterpolator()
         val objectAnimatorAlpha = ObjectAnimator.ofFloat(
-                view,
-                "alpha",
-                0f,
-                1f
+            view,
+            "alpha",
+            0f,
+            1f
         )
         val animatorSet = AnimatorSet()
         animatorSet.startDelay = delay
@@ -139,8 +140,8 @@ class SwitchAnimationUtil {
     }
 
     private fun runAlphaAnimation(
-            view: View,
-            delay: Long
+        view: View,
+        delay: Long
     ) {
         view.alpha = 0f
         val objectAnimator = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
@@ -151,51 +152,51 @@ class SwitchAnimationUtil {
     }
 
     private fun runRotateAnimation(
-            view: View,
-            delay: Long
+        view: View,
+        delay: Long
     ) {
         view.alpha = 0f
         val set = AnimatorSet()
         val objectAnimator = ObjectAnimator.ofFloat(
-                view,
-                "rotation",
-                0f,
-                360f
+            view,
+            "rotation",
+            0f,
+            360f
         )
         val objectAnimator2 = ObjectAnimator.ofFloat(
-                view,
-                "scaleX",
-                0f,
-                1f
+            view,
+            "scaleX",
+            0f,
+            1f
         )
         val objectAnimator3 = ObjectAnimator.ofFloat(
-                view,
-                "scaleY",
-                0f,
-                1f
+            view,
+            "scaleY",
+            0f,
+            1f
         )
         val objectAnimator4 = ObjectAnimator.ofFloat(
-                view,
-                "alpha",
-                0f,
-                1f
+            view,
+            "alpha",
+            0f,
+            1f
         )
         objectAnimator2.interpolator = AccelerateInterpolator(1.0f)
         objectAnimator3.interpolator = AccelerateInterpolator(1.0f)
         set.duration = mDuration.toLong()
         set.playTogether(
-                objectAnimator,
-                objectAnimator2,
-                objectAnimator3,
-                objectAnimator4
+            objectAnimator,
+            objectAnimator2,
+            objectAnimator3,
+            objectAnimator4
         )
         set.startDelay = delay
         set.start()
     }
 
     private fun runScaleAnimation(
-            view: View,
-            delay: Long
+        view: View,
+        delay: Long
     ) {
         view.alpha = 0f
         val set = AnimatorSet()
@@ -204,17 +205,17 @@ class SwitchAnimationUtil {
         val objectAnimator4 = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
         set.duration = mDuration.toLong()
         set.playTogether(
-                objectAnimator2,
-                objectAnimator3,
-                objectAnimator4
+            objectAnimator2,
+            objectAnimator3,
+            objectAnimator4
         )
         set.startDelay = delay
         set.start()
     }
 
     private fun runFlipVertialAnimation(
-            view: View,
-            delay: Long
+        view: View,
+        delay: Long
     ) {
         view.alpha = 0f
         val set = AnimatorSet()
@@ -222,24 +223,25 @@ class SwitchAnimationUtil {
         val objectAnimator2 = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
         set.duration = mDuration.toLong()
         set.playTogether(
-                objectAnimator1,
-                objectAnimator2
+            objectAnimator1,
+            objectAnimator2
         )
         set.startDelay = delay
         set.start()
     }
 
     private fun runFlipHorizonAnimation(
-            view: View,
-            delay: Long) {
+        view: View,
+        delay: Long
+    ) {
         view.alpha = 0f
         val set = AnimatorSet()
         val objectAnimator1 = ObjectAnimator.ofFloat(view, "rotationY", -180f, 0f)
         val objectAnimator2 = ObjectAnimator.ofFloat(view, "alpha", 0f, 1f)
         set.duration = mDuration.toLong()
         set.playTogether(
-                objectAnimator1,
-                objectAnimator2
+            objectAnimator1,
+            objectAnimator2
         )
         set.startDelay = delay
         set.start()

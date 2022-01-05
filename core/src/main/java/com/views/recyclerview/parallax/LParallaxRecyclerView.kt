@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class LParallaxRecyclerView @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : RecyclerView(context, attrs) {
 
     private fun dp2px(context: Context, dipValue: Float): Int {
@@ -23,7 +23,12 @@ class LParallaxRecyclerView @JvmOverloads constructor(
             layoutManager = LinearLayoutManager(context)
 
             addItemDecoration(object : ItemDecoration() {
-                override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: State) {
+                override fun getItemOffsets(
+                    outRect: Rect,
+                    view: View,
+                    parent: RecyclerView,
+                    state: State
+                ) {
                     super.getItemOffsets(outRect, view, parent, state)
 
                     val currentPosition = parent.getChildLayoutPosition(view)
@@ -48,7 +53,8 @@ class LParallaxRecyclerView @JvmOverloads constructor(
                             val view = layoutManager.findViewByPosition(i)
                             if (view != null) {
                                 if (view is CardView) {
-                                    view.cardElevation = dp2px(context, elevation.toFloat()).toFloat()
+                                    view.cardElevation =
+                                        dp2px(context, elevation.toFloat()).toFloat()
                                     elevation += 5
                                 }
                                 val translationY = view.translationY

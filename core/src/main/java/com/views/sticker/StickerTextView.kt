@@ -11,8 +11,8 @@ class StickerTextView : StickerView {
 
     companion object {
         fun pixelsToSp(
-                context: Context,
-                px: Float
+            context: Context,
+            px: Float
         ): Float {
             val scaledDensity = context.resources.displayMetrics.scaledDensity
             return px / scaledDensity
@@ -25,7 +25,11 @@ class StickerTextView : StickerView {
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    )
 
     private fun getView(): View {
         if (tvMain != null) {
@@ -40,8 +44,8 @@ class StickerTextView : StickerView {
             this.setShadowLayer(4f, 0f, 0f, Color.BLACK)
             this.maxLines = 1
             val params = LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    ViewGroup.LayoutParams.MATCH_PARENT
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT
             )
             params.gravity = Gravity.CENTER
             this.layoutParams = params
@@ -62,5 +66,4 @@ class StickerTextView : StickerView {
         }
     override val mainView: View
         get() = getView()
-
 }

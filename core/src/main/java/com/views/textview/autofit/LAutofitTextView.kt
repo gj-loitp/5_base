@@ -25,13 +25,17 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init(context, attrs, defStyle)
     }
 
     private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
         autofitHelper = AutofitHelper.create(this, attrs, defStyle)
-                .addOnTextSizeChangeListener(this)
+            .addOnTextSizeChangeListener(this)
     }
 
     override fun setTextSize(unit: Int, size: Float) {
@@ -43,7 +47,6 @@ class LAutofitTextView : AppCompatTextView, AutofitHelper.OnTextSizeChangeListen
         super.setLines(lines)
         autofitHelper?.maxLines = lines
     }
-
 
     override fun setMaxLines(maxLines: Int) {
         super.setMaxLines(maxLines)

@@ -17,7 +17,7 @@ import android.widget.ImageView
 import com.R
 import com.core.utilities.LLog
 import com.core.utilities.LUIUtil.Companion.isDarkTheme
-import kotlin.math.*
+import kotlin.math.* // ktlint-disable no-wildcard-imports
 
 abstract class StickerView : FrameLayout {
 
@@ -66,7 +66,11 @@ abstract class StickerView : FrameLayout {
         init(context)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init(context)
     }
 
@@ -101,38 +105,38 @@ abstract class StickerView : FrameLayout {
         val size = convertDpToPixel(dp = SELF_SIZE_DP.toFloat(), context = getContext())
 
         val thisParams = LayoutParams(
-                size,
-                size
+            size,
+            size
         )
         thisParams.gravity = Gravity.CENTER
 
         val ivMainParams = LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
         )
         ivMainParams.setMargins(margin, margin, margin, margin)
 
         val ivBorderParams = LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
         )
         ivBorderParams.setMargins(margin, margin, margin, margin)
 
         val ivScaleParams = LayoutParams(
-                convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext()),
-                convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext())
+            convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext()),
+            convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext())
         )
         ivScaleParams.gravity = Gravity.BOTTOM or Gravity.END
 
         val ivDeleteParams = LayoutParams(
-                convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext()),
-                convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext())
+            convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext()),
+            convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext())
         )
         ivDeleteParams.gravity = Gravity.TOP or Gravity.END
 
         val ivFlipParams = LayoutParams(
-                convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext()),
-                convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext())
+            convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext()),
+            convertDpToPixel(BUTTON_SIZE_DP.toFloat(), getContext())
         )
         ivFlipParams.gravity = Gravity.TOP or Gravity.START
 
@@ -202,47 +206,53 @@ abstract class StickerView : FrameLayout {
                     scaleOrgHeight = this@StickerView.layoutParams.height.toDouble()
                     rotateOrgX = event.rawX
                     rotateOrgY = event.rawY
-                    centerX = (this@StickerView.x + (this@StickerView.parent as View).x + this@StickerView.width.toFloat() / 2).toDouble()
+                    centerX =
+                        (this@StickerView.x + (this@StickerView.parent as View).x + this@StickerView.width.toFloat() / 2).toDouble()
                     var result = 0
-                    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+                    val resourceId =
+                        resources.getIdentifier("status_bar_height", "dimen", "android")
                     if (resourceId > 0) {
                         result = resources.getDimensionPixelSize(resourceId)
                     }
                     val statusBarHeight = result.toDouble()
                     centerY = this@StickerView.y +
-                            (this@StickerView.parent as View).y +
-                            statusBarHeight + this@StickerView.height.toFloat() / 2
+                        (this@StickerView.parent as View).y +
+                        statusBarHeight + this@StickerView.height.toFloat() / 2
                 }
                 MotionEvent.ACTION_MOVE -> {
 //                    LLog.d(logTag, "iv_scale action move")
                     rotateNewX = event.rawX
                     rotateNewY = event.rawY
                     val angleDiff = abs(
+                        atan2(
+                            y = (event.rawY - scaleOrgy).toDouble(),
+                            x = (event.rawX - scaleOrgx).toDouble()
+                        ) -
                             atan2(
-                                    y = (event.rawY - scaleOrgy).toDouble(),
-                                    x = (event.rawX - scaleOrgx).toDouble()
+                                y = scaleOrgy - centerY,
+                                x = scaleOrgx - centerX
                             )
-                                    - atan2(
-                                    y = scaleOrgy - centerY,
-                                    x = scaleOrgx - centerX)
                     ) * 180 / Math.PI
 //                    LLog.d(logTag, "angle_diff: $angleDiff")
-                    val length1 = getLength(centerX, centerY, scaleOrgx.toDouble(), scaleOrgy.toDouble())
-                    val length2 = getLength(centerX, centerY, event.rawX.toDouble(), event.rawY.toDouble())
+                    val length1 =
+                        getLength(centerX, centerY, scaleOrgx.toDouble(), scaleOrgy.toDouble())
+                    val length2 =
+                        getLength(centerX, centerY, event.rawX.toDouble(), event.rawY.toDouble())
                     val size = convertDpToPixel(SELF_SIZE_DP.toFloat(), context)
                     if (length2 > length1 && (angleDiff < 25 || abs(angleDiff - 180) < 25)) {
-                        //scale up
+                        // scale up
                         val offsetX = abs(event.rawX - scaleOrgx).toDouble()
                         val offsetY = abs(event.rawY - scaleOrgy).toDouble()
-                        var offset = offsetX.coerceAtLeast(offsetY)
+                        val offset = offsetX.coerceAtLeast(offsetY)
                         this@StickerView.layoutParams.width += offset.toInt()
                         this@StickerView.layoutParams.height += offset.toInt()
                         onScaling(true)
-                    } else if (length2 < length1
-                            && (angleDiff < 25 || abs(angleDiff - 180) < 25)
-                            && this@StickerView.layoutParams.width > size / 2
-                            && this@StickerView.layoutParams.height > size / 2) {
-                        //scale down
+                    } else if (length2 < length1 &&
+                        (angleDiff < 25 || abs(angleDiff - 180) < 25) &&
+                        this@StickerView.layoutParams.width > size / 2 &&
+                        this@StickerView.layoutParams.height > size / 2
+                    ) {
+                        // scale down
                         val offsetX = abs(event.rawX - scaleOrgx).toDouble()
                         val offsetY = abs(event.rawY - scaleOrgy).toDouble()
                         var offset = max(offsetX, offsetY)
@@ -252,14 +262,14 @@ abstract class StickerView : FrameLayout {
                         onScaling(scaleUp = false)
                     }
 
-                    //rotate
+                    // rotate
                     val angle = atan2(
-                            y = event.rawY - centerY,
-                            x = event.rawX - centerX
+                        y = event.rawY - centerY,
+                        x = event.rawX - centerX
                     ) * 180 / Math.PI
 //                    LLog.d(logTag, "log angle: $angle")
 
-                    //setRotation((float) angle - 45);
+                    // setRotation((float) angle - 45);
                     rotation = angle.toFloat() - 45
 //                    LLog.d(logTag, "getRotation(): $rotation")
                     onRotating()
@@ -286,8 +296,8 @@ abstract class StickerView : FrameLayout {
 //        LLog.d("ken", "getRelativePos getX:" + (this.parent as View).x)
 //        LLog.d("ken", "getRelativePos getY:" + (this.parent as View).y)
         val pos = floatArrayOf(
-                absX - (this.parent as View).x,
-                absY - (this.parent as View).y
+            absX - (this.parent as View).x,
+            absY - (this.parent as View).y
         )
 //        LLog.d(logTag, "getRelativePos absY:$absY")
         LLog.d(logTag, "getRelativePos relativeY:" + pos[1])
@@ -317,7 +327,11 @@ abstract class StickerView : FrameLayout {
     private class BorderView : View {
         constructor(context: Context) : super(context)
         constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-        constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+        constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+            context,
+            attrs,
+            defStyle
+        )
 
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
@@ -354,5 +368,4 @@ abstract class StickerView : FrameLayout {
             ivScale?.visibility = VISIBLE
         }
     }
-
 }

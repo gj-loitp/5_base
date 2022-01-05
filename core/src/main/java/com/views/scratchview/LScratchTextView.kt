@@ -2,7 +2,7 @@ package com.views.scratchview
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.* // ktlint-disable no-wildcard-imports
 import android.graphics.drawable.BitmapDrawable
 import android.os.AsyncTask
 import android.util.AttributeSet
@@ -95,7 +95,11 @@ class LScratchTextView : AppCompatTextView {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
@@ -144,8 +148,10 @@ class LScratchTextView : AppCompatTextView {
             val startGradientColor = getColor(R.color.scratchStartGradient)
             val endGradientColor = getColor(R.color.scratchEndGradient)
 
-            mGradientBgPaint?.shader = LinearGradient(0f, 0f, 0f, height.toFloat(),
-                    startGradientColor, endGradientColor, Shader.TileMode.MIRROR)
+            mGradientBgPaint?.shader = LinearGradient(
+                0f, 0f, 0f, height.toFloat(),
+                startGradientColor, endGradientColor, Shader.TileMode.MIRROR
+            )
 
             mGradientBgPaint?.let { p ->
                 mCanvas?.drawRect(rect, p)
@@ -264,7 +270,6 @@ class LScratchTextView : AppCompatTextView {
             val width = bounds[2] - left
             val height = bounds[3] - top
 
-
             // Do not create multiple calls to compare.
             if (mThreadCount > 1) {
                 return
@@ -280,7 +285,8 @@ class LScratchTextView : AppCompatTextView {
                         val top = params[1] ?: 0
                         val width = params[2] ?: 0
                         val height = params[3] ?: 0
-                        val croppedBitmap = Bitmap.createBitmap(mScratchBitmap!!, left, top, width, height)
+                        val croppedBitmap =
+                            Bitmap.createBitmap(mScratchBitmap!!, left, top, width, height)
                         BitmapUtils.getTransparentPixelPercent(croppedBitmap)
                     } finally {
                         mThreadCount--
@@ -293,7 +299,10 @@ class LScratchTextView : AppCompatTextView {
                         val oldValue = mRevealPercent
                         mRevealPercent = percentRevealed
                         if (oldValue != percentRevealed) {
-                            mRevealListener?.onRevealPercentChangedListener(this@LScratchTextView, percentRevealed)
+                            mRevealListener?.onRevealPercentChangedListener(
+                                this@LScratchTextView,
+                                percentRevealed
+                            )
                         }
 
                         // if now revealed.
@@ -302,7 +311,6 @@ class LScratchTextView : AppCompatTextView {
                         }
                     }
                 }
-
             }.execute(left, top, width, height)
         }
     }
@@ -364,5 +372,4 @@ class LScratchTextView : AppCompatTextView {
         }
         return intArrayOf(left, top, left + width, top + height)
     }
-
 }

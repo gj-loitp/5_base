@@ -2,7 +2,7 @@ package com.views.navigation.arcnavigationview
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.*
+import android.graphics.* // ktlint-disable no-wildcard-imports
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.text.TextUtils
@@ -21,9 +21,6 @@ import com.google.android.material.navigation.NavigationView
 import com.views.navigation.arcnavigationview.LArcViewSettings.Companion.dpToPx
 import kotlin.math.roundToInt
 
-/**
- * Created by rom4ek on 10.01.2017.
- */
 class LArcNavigationView : NavigationView {
 
     companion object {

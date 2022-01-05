@@ -37,7 +37,11 @@ class WP10ProgressBar : RelativeLayout {
         initialize(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         initialize(attrs)
     }
 
@@ -52,10 +56,18 @@ class WP10ProgressBar : RelativeLayout {
     private fun setAttributes(attributeSet: AttributeSet?) {
         val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.WP10ProgressBar)
         interval = typedArray.getInt(R.styleable.WP7ProgressBar_wpInterval, INTERVAL_DEF)
-        animationDuration = typedArray.getInt(R.styleable.WP7ProgressBar_wpAnimationDuration, ANIMATION_DURATION_DEF)
-        indicatorHeight = typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorHeight, INDICATOR_HEIGHT_DEF)
-        indicatorRadius = typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorRadius, INDICATOR_RADIUS_DEF)
-        indicatorColor = typedArray.getColor(R.styleable.WP7ProgressBar_wpIndicatorColor, getColor(R.color.colorAccent))
+        animationDuration = typedArray.getInt(
+            R.styleable.WP7ProgressBar_wpAnimationDuration,
+            ANIMATION_DURATION_DEF
+        )
+        indicatorHeight =
+            typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorHeight, INDICATOR_HEIGHT_DEF)
+        indicatorRadius =
+            typedArray.getInt(R.styleable.WP7ProgressBar_wpIndicatorRadius, INDICATOR_RADIUS_DEF)
+        indicatorColor = typedArray.getColor(
+            R.styleable.WP7ProgressBar_wpIndicatorColor,
+            getColor(R.color.colorAccent)
+        )
         typedArray.recycle()
     }
 
@@ -63,8 +75,8 @@ class WP10ProgressBar : RelativeLayout {
         listWP10Indicators?.let {
             for (i in it.indices) {
                 it[i].startAnim(
-                        animationDuration = animationDuration.toLong(),
-                        delay = ((5 - i) * interval).toLong()
+                    animationDuration = animationDuration.toLong(),
+                    delay = ((5 - i) * interval).toLong()
                 )
             }
         }
@@ -75,11 +87,11 @@ class WP10ProgressBar : RelativeLayout {
         val wP10Indicators = ArrayList<WP10Indicator>()
         for (i in 0 until INDICATOR_COUNT_DEF) {
             val wp10Indicator = WP10Indicator(
-                    context = context,
-                    indicatorHeight = indicatorHeight,
-                    color = indicatorColor,
-                    radius = indicatorRadius,
-                    number = i
+                context = context,
+                indicatorHeight = indicatorHeight,
+                color = indicatorColor,
+                radius = indicatorRadius,
+                number = i
             )
             wP10Indicators.add(wp10Indicator)
             this.addView(wp10Indicator)
@@ -146,5 +158,4 @@ class WP10ProgressBar : RelativeLayout {
         this.indicatorRadius = indicatorRadius
         initializeIndicators()
     }
-
 }

@@ -44,8 +44,8 @@ class NavigationViewWithTextActivity : BaseFontActivity() {
                 tvMsg?.text = "$index -> $s"
             }
         })
-        bt0.setOnClickListener { nv.setCurrenIndex(0) }
-        bt1.setOnClickListener { nv.setCurrenIndex(stringList.size - 1) }
-        bt2.setOnClickListener { nv.setCurrenIndex(2) }
+        bt0.setOnClickListener { nv.setCurrentIndex(0) }
+        bt1.setOnClickListener { nv.setCurrentIndex(stringList.size - 1) }
+        bt2.setOnClickListener { nv.setCurrentIndex(2) }
     }
 }

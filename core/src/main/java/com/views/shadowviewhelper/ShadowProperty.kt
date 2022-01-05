@@ -2,25 +2,23 @@ package com.views.shadowviewhelper
 
 import java.io.Serializable
 
-/**
- * Author: wangjie
- * Email: tiantian.china.2@gmail.com
- * Date: 5/25/15.
- */
 class ShadowProperty : Serializable {
 
     /**
      * 阴影颜色
      */
     private var shadowColor: Int = 0
+
     /**
      * 阴影半径
      */
     private var shadowRadius: Int = 0
+
     /**
      * 阴影x偏移
      */
     private var shadowDx: Int = 0
+
     /**
      * 阴影y偏移
      */

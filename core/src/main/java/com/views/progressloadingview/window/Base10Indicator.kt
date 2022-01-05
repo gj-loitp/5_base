@@ -7,10 +7,10 @@ import android.widget.LinearLayout
 import com.views.progressloadingview.window.Utils.px2dp
 
 class Base10Indicator(
-        context: Context,
-        indicatorHeight: Int,
-        private val color: Int,
-        radius: Int
+    context: Context,
+    indicatorHeight: Int,
+    private val color: Int,
+    radius: Int
 ) : View(context) {
 
     init {
@@ -20,8 +20,8 @@ class Base10Indicator(
     private fun initialize(indicatorHeight: Int, radius: Int) {
         this.background = getCube(radius)
         val lp = LinearLayout.LayoutParams(
-                px2dp(context = context, px = indicatorHeight),
-                px2dp(context = context, px = indicatorHeight)
+            px2dp(context = context, px = indicatorHeight),
+            px2dp(context = context, px = indicatorHeight)
         )
         layoutParams = lp
     }
@@ -33,5 +33,4 @@ class Base10Indicator(
         drawable.cornerRadius = px2dp(context = context, px = radius).toFloat()
         return drawable
     }
-
 }
