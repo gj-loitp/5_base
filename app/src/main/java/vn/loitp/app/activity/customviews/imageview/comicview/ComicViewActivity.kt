@@ -10,12 +10,11 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.bumptech.glide.Glide
 import com.core.base.BaseFontActivity
-import com.core.utilities.LImageUtil
 import kotlinx.android.synthetic.main.activity_comic_view.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-//https://github.com/nahzur-h/ScollZoomListView
+// https://github.com/nahzur-h/ScollZoomListView
 @LogTag("ComicViewActivity")
 @IsFullScreen(false)
 class ComicViewActivity : BaseFontActivity() {
@@ -74,7 +73,8 @@ class ComicViewActivity : BaseFontActivity() {
             val holder: ComicHolder
 
             if (mConvertView == null) {
-                mConvertView = LayoutInflater.from(parent.context).inflate(R.layout.row_comic_view, parent, false)
+                mConvertView = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.row_comic_view, parent, false)
 
                 holder = ComicHolder()
                 holder.ivComic = mConvertView!!.findViewById(R.id.ivComic)
@@ -83,7 +83,7 @@ class ComicViewActivity : BaseFontActivity() {
                 holder = mConvertView.tag as ComicHolder
             }
 
-            //wont work
+            // wont work
 //            LImageUtil.load(
 //                    context = parent.context,
 //                    any = listData[position],
@@ -92,9 +92,9 @@ class ComicViewActivity : BaseFontActivity() {
 
             holder.ivComic?.let { iv ->
                 Glide.with(parent.context)
-                        .load(listData[position])
-                        .dontAnimate()
-                        .into(iv)
+                    .load(listData[position])
+                    .dontAnimate()
+                    .into(iv)
             }
 
             return mConvertView

@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.transition.TransitionManager
-import android.view.View
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -68,5 +66,4 @@ class ConstraintSetActivity : BaseFontActivity() {
             mConstraintSetNormal.applyTo(layoutConstrainRoot)
         }
     }
-
 }

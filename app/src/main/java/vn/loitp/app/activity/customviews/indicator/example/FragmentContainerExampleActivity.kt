@@ -3,7 +3,6 @@ package vn.loitp.app.activity.customviews.indicator.example
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -93,7 +92,7 @@ class FragmentContainerExampleActivity : BaseFontActivity() {
                 clipPagerTitleView.text = CHANNELS[index]
                 clipPagerTitleView.textColor = Color.parseColor("#e94220")
                 clipPagerTitleView.clipColor = Color.WHITE
-                clipPagerTitleView.setOnClickListener { v: View? ->
+                clipPagerTitleView.setOnClickListener {
                     mFragmentContainerHelper.handlePageSelected(index)
                     switchPages(index)
                 }
@@ -102,7 +101,8 @@ class FragmentContainerExampleActivity : BaseFontActivity() {
 
             override fun getIndicator(context: Context): IPagerIndicator {
                 val indicator = LinePagerIndicator(context)
-                val navigatorHeight = context.resources.getDimension(R.dimen.common_navigator_height)
+                val navigatorHeight =
+                    context.resources.getDimension(R.dimen.common_navigator_height)
                 val borderWidth = UIUtil.dip2px(context, 1.0).toFloat()
                 val lineHeight = navigatorHeight - 2 * borderWidth
                 indicator.lineHeight = lineHeight
@@ -115,5 +115,4 @@ class FragmentContainerExampleActivity : BaseFontActivity() {
         magicIndicator1.navigator = commonNavigator
         mFragmentContainerHelper.attachMagicIndicator(magicIndicator1)
     }
-
 }

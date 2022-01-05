@@ -48,11 +48,14 @@ class LEditTextActivity : BaseFontActivity() {
             setMaxLines(1)
             setWidthRootView(LScreenUtil.screenWidth * 3 / 4)
             setHeightRootView(350)
-            //disableEditing()
+            // disableEditing()
             setInputType(InputType.TYPE_CLASS_TEXT)
-            setImeiActionEditText(EditorInfo.IME_ACTION_NEXT, Runnable {
-                lEditTextPw.editText.requestFocus()
-            })
+            setImeiActionEditText(
+                imeOptions = EditorInfo.IME_ACTION_NEXT,
+                runnable = {
+                    lEditTextPw.editText.requestFocus()
+                }
+            )
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
                     setText("")
@@ -70,7 +73,6 @@ class LEditTextActivity : BaseFontActivity() {
                 override fun setOnFocusChangeListener(isFocus: Boolean) {
                     logD("setOnFocusChangeListener isFocus: $isFocus")
                 }
-
             }
         }
         var isShowPw = false
@@ -88,9 +90,12 @@ class LEditTextActivity : BaseFontActivity() {
             editText.hint = "Password"
             setMaxLines(1)
             setInputType(InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
-            setImeiActionEditText(EditorInfo.IME_ACTION_DONE, Runnable {
-                LKeyBoardUtil.hide(this@LEditTextActivity)
-            })
+            setImeiActionEditText(
+                imeOptions = EditorInfo.IME_ACTION_DONE,
+                runnable = {
+                    LKeyBoardUtil.hide(this@LEditTextActivity)
+                }
+            )
             callback = object : LEditText.Callback {
                 override fun onClickIvRight(imageView: ImageView) {
                     if (isShowPw) {
@@ -100,7 +105,8 @@ class LEditTextActivity : BaseFontActivity() {
                         isShowPw = false
                     } else {
                         ivRight.setImageResource(R.drawable.ic_visibility_off_black_48dp)
-                        editText.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                        editText.transformationMethod =
+                            HideReturnsTransformationMethod.getInstance()
                         setLastCursorEditText()
                         isShowPw = true
                     }
@@ -118,7 +124,6 @@ class LEditTextActivity : BaseFontActivity() {
                 override fun setOnFocusChangeListener(isFocus: Boolean) {
                     logD("setOnFocusChangeListener isFocus: $isFocus")
                 }
-
             }
         }
 
@@ -143,5 +148,4 @@ class LEditTextActivity : BaseFontActivity() {
             }
         }
     }
-
 }

@@ -20,13 +20,12 @@ class TouchImageViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //note when use with glide, must have placeholder
+        // note when use with glide, must have placeholder
         LImageUtil.load(
-                context = this,
-                any = Constants.URL_IMG,
-                imageView = lTouchImageView,
-                resPlaceHolder = R.color.colorPrimary
+            context = this,
+            any = Constants.URL_IMG,
+            imageView = lTouchImageView,
+            resPlaceHolder = R.color.colorPrimary
         )
     }
-
 }

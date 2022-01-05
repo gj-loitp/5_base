@@ -19,8 +19,8 @@ class CommonPagerIndicator(context: Context?) : View(context), IPagerIndicator {
         const val MODE_EXACTLY = 2
     }
 
-    private var mMode // 默认为MODE_MATCH_EDGE模式
-            = 0
+    private var mMode = // 默认为MODE_MATCH_EDGE模式
+        0
     private var indicatorDrawable: Drawable? = null
 
     // 控制动画
@@ -34,9 +34,9 @@ class CommonPagerIndicator(context: Context?) : View(context), IPagerIndicator {
     private val mDrawableRect = Rect()
 
     override fun onPageScrolled(
-            position: Int,
-            positionOffset: Float,
-            positionOffsetPixels: Int
+        position: Int,
+        positionOffset: Float,
+        positionOffsetPixels: Int
     ) {
         if (indicatorDrawable == null || mPositionDataList.isEmpty()) {
             return
@@ -65,7 +65,7 @@ class CommonPagerIndicator(context: Context?) : View(context), IPagerIndicator {
                 mDrawableRect.top = (current.mContentTop - yOffset).toInt()
                 mDrawableRect.bottom = (current.mContentBottom + yOffset).toInt()
             }
-            else -> {    // MODE_EXACTLY
+            else -> { // MODE_EXACTLY
                 leftX = current.mLeft + (current.width() - drawableWidth) / 2
                 nextLeftX = next.mLeft + (next.width() - drawableWidth) / 2
                 rightX = current.mLeft + (current.width() + drawableWidth) / 2
@@ -74,8 +74,10 @@ class CommonPagerIndicator(context: Context?) : View(context), IPagerIndicator {
                 mDrawableRect.bottom = (height - yOffset).toInt()
             }
         }
-        mDrawableRect.left = (leftX + (nextLeftX - leftX) * startInterpolator.getInterpolation(positionOffset)).toInt()
-        mDrawableRect.right = (rightX + (nextRightX - rightX) * endInterpolator.getInterpolation(positionOffset)).toInt()
+        mDrawableRect.left =
+            (leftX + (nextLeftX - leftX) * startInterpolator.getInterpolation(positionOffset)).toInt()
+        mDrawableRect.right =
+            (rightX + (nextRightX - rightX) * endInterpolator.getInterpolation(positionOffset)).toInt()
         indicatorDrawable?.bounds = mDrawableRect
         invalidate()
     }
@@ -97,10 +99,11 @@ class CommonPagerIndicator(context: Context?) : View(context), IPagerIndicator {
     var mode: Int
         get() = mMode
         set(mode) {
-            mMode = if (mode == MODE_EXACTLY || mode == MODE_MATCH_EDGE || mode == MODE_WRAP_CONTENT) {
-                mode
-            } else {
-                throw IllegalArgumentException("mode $mode not supported.")
-            }
+            mMode =
+                if (mode == MODE_EXACTLY || mode == MODE_MATCH_EDGE || mode == MODE_WRAP_CONTENT) {
+                    mode
+                } else {
+                    throw IllegalArgumentException("mode $mode not supported.")
+                }
         }
 }

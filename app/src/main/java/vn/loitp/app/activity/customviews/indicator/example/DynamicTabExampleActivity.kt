@@ -22,7 +22,19 @@ import java.util.*
 class DynamicTabExampleActivity : BaseFontActivity() {
 
     companion object {
-        private val CHANNELS = arrayOf("CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT")
+        private val CHANNELS = arrayOf(
+            "CUPCAKE",
+            "DONUT",
+            "ECLAIR",
+            "GINGERBREAD",
+            "HONEYCOMB",
+            "ICE_CREAM_SANDWICH",
+            "JELLY_BEAN",
+            "KITKAT",
+            "LOLLIPOP",
+            "M",
+            "NOUGAT"
+        )
     }
 
     private val mDataList = ArrayList(mutableListOf(*CHANNELS))
@@ -77,5 +89,4 @@ class DynamicTabExampleActivity : BaseFontActivity() {
 
         showShortInformation("${mDataList.size} page")
     }
-
 }

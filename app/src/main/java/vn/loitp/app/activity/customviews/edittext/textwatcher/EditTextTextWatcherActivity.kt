@@ -21,9 +21,12 @@ class EditTextTextWatcherActivity : BaseFontActivity() {
 
         var text = ""
 
-        LUIUtil.addTextChangedListener(editText, 1000, afterTextChanged = { s ->
-            text += s + "\n"
-            textView.text = text
-        })
+        LUIUtil.addTextChangedListener(
+            editText = editText,
+            delayInMls = 1000, afterTextChanged = { s ->
+                text += s + "\n"
+                textView.text = text
+            }
+        )
     }
 }

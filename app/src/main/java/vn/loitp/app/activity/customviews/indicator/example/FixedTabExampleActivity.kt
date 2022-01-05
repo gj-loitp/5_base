@@ -27,7 +27,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorT
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.indicator.ext.titles.ScaleTransitionPagerTitleView
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("FixedTabExampleActivity")
 @IsFullScreen(false)
@@ -62,7 +62,8 @@ class FixedTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.normalColor = Color.parseColor("#88ffffff")
                 simplePagerTitleView.selectedColor = Color.WHITE
@@ -96,7 +97,8 @@ class FixedTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                val simplePagerTitleView: SimplePagerTitleView = ScaleTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ScaleTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.textSize = 18f
                 simplePagerTitleView.normalColor = Color.parseColor("#616161")
@@ -156,7 +158,8 @@ class FixedTabExampleActivity : BaseFontActivity() {
 
             override fun getIndicator(context: Context): IPagerIndicator {
                 val linePagerIndicator = LinePagerIndicator(context)
-                val navigatorHeight = context.resources.getDimension(R.dimen.common_navigator_height)
+                val navigatorHeight =
+                    context.resources.getDimension(R.dimen.common_navigator_height)
                 val borderWidth = UIUtil.dip2px(context, 1.0).toFloat()
                 val lineHeight = navigatorHeight - 2 * borderWidth
                 linePagerIndicator.lineHeight = lineHeight
@@ -178,7 +181,8 @@ class FixedTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.normalColor = Color.GRAY
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.text = mDataList[index]
@@ -213,5 +217,4 @@ class FixedTabExampleActivity : BaseFontActivity() {
             }
         })
     }
-
 }

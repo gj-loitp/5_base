@@ -31,7 +31,19 @@ import vn.loitp.app.activity.customviews.indicator.ext.titles.ScaleTransitionPag
 class ScrollableTabExampleActivity : BaseFontActivity() {
 
     companion object {
-        private val CHANNELS = arrayOf("CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT")
+        private val CHANNELS = arrayOf(
+            "CUPCAKE",
+            "DONUT",
+            "ECLAIR",
+            "GINGERBREAD",
+            "HONEYCOMB",
+            "ICE_CREAM_SANDWICH",
+            "JELLY_BEAN",
+            "KITKAT",
+            "LOLLIPOP",
+            "M",
+            "NOUGAT"
+        )
     }
 
     private val mDataList = mutableListOf(*CHANNELS)
@@ -130,7 +142,8 @@ class ScrollableTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.normalColor = Color.GRAY
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.text = mDataList[index]
@@ -160,7 +173,8 @@ class ScrollableTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.normalColor = Color.parseColor("#88ffffff")
                 simplePagerTitleView.selectedColor = Color.WHITE
@@ -190,7 +204,8 @@ class ScrollableTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                val simplePagerTitleView: SimplePagerTitleView = ScaleTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ScaleTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.textSize = 18f
                 simplePagerTitleView.normalColor = Color.parseColor("#616161")
@@ -224,7 +239,8 @@ class ScrollableTabExampleActivity : BaseFontActivity() {
             }
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
-                val simplePagerTitleView: SimplePagerTitleView = ScaleTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ScaleTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.textSize = 18f
                 simplePagerTitleView.normalColor = Color.GRAY
@@ -238,11 +254,11 @@ class ScrollableTabExampleActivity : BaseFontActivity() {
             override fun getIndicator(context: Context): IPagerIndicator {
                 val bezierPagerIndicator = BezierPagerIndicator(context)
                 bezierPagerIndicator.setColors(
-                        Color.parseColor("#ff4a42"),
-                        Color.parseColor("#fcde64"),
-                        Color.parseColor("#73e8f4"),
-                        Color.parseColor("#76b0ff"),
-                        Color.parseColor("#c683fe")
+                    Color.parseColor("#ff4a42"),
+                    Color.parseColor("#fcde64"),
+                    Color.parseColor("#73e8f4"),
+                    Color.parseColor("#76b0ff"),
+                    Color.parseColor("#c683fe")
                 )
                 return bezierPagerIndicator
             }
@@ -346,5 +362,4 @@ class ScrollableTabExampleActivity : BaseFontActivity() {
         magicIndicator9.navigator = commonNavigator
         ViewPagerHelper.bind(magicIndicator9, viewPager)
     }
-
 }

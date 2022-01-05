@@ -23,7 +23,8 @@ import vn.loitp.app.R
 class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
 
     companion object {
-        private val CHANNELS = arrayOf("CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "NOUGAT", "DONUT")
+        private val CHANNELS =
+            arrayOf("CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "NOUGAT", "DONUT")
     }
 
     private val mDataList = mutableListOf(*CHANNELS)
@@ -80,7 +81,8 @@ class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
             override fun getIndicator(context: Context): IPagerIndicator {
                 val triangularPagerIndicator = TriangularPagerIndicator(context)
                 triangularPagerIndicator.isReverse = true
-                val smallNavigatorHeight = context.resources.getDimension(R.dimen.small_navigator_height)
+                val smallNavigatorHeight =
+                    context.resources.getDimension(R.dimen.small_navigator_height)
                 triangularPagerIndicator.lineHeight = UIUtil.dip2px(context, 2.0)
                 triangularPagerIndicator.triangleHeight = smallNavigatorHeight.toInt()
                 triangularPagerIndicator.lineColor = Color.parseColor("#e94220")
@@ -90,5 +92,4 @@ class NoTabOnlyIndicatorExampleActivity : BaseFontActivity() {
         magicIndicator2.navigator = commonNavigator
         ViewPagerHelper.bind(magicIndicator2, viewPager)
     }
-
 }

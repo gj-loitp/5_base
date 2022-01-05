@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.layout.circularview
 
 import com.views.layout.circularview.Marker
 import com.views.layout.circularview.SimpleCircularViewAdapter
-
 import vn.loitp.app.R
 
 class SimpleCircularViewAdapter : SimpleCircularViewAdapter() {

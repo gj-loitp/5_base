@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.indicator.example
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
@@ -50,35 +51,48 @@ class LoadCustomLayoutExampleActivity : BaseFontActivity() {
                 return mDataList.size
             }
 
+            @SuppressLint("InflateParams")
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val commonPagerTitleView = CommonPagerTitleView(context)
 
                 // load custom layout
-                val customLayout = LayoutInflater.from(context).inflate(R.layout.layout_simple_pager_title, null)
+                val customLayout =
+                    LayoutInflater.from(context).inflate(R.layout.layout_simple_pager_title, null)
                 val ivTitle = customLayout.findViewById<ImageView>(R.id.ivTitle)
                 val tvTitle = customLayout.findViewById<TextView>(R.id.tvTitle)
                 ivTitle.setImageResource(R.drawable.ic_launcher)
                 tvTitle.text = mDataList[index]
                 commonPagerTitleView.setContentView(customLayout)
-                commonPagerTitleView.onPagerTitleChangeListener = object : OnPagerTitleChangeListener {
-                    override fun onSelected(index: Int, totalCount: Int) {
-                        tvTitle.setTextColor(Color.WHITE)
-                    }
+                commonPagerTitleView.onPagerTitleChangeListener =
+                    object : OnPagerTitleChangeListener {
+                        override fun onSelected(index: Int, totalCount: Int) {
+                            tvTitle.setTextColor(Color.WHITE)
+                        }
 
-                    override fun onDeselected(index: Int, totalCount: Int) {
-                        tvTitle.setTextColor(Color.LTGRAY)
-                    }
+                        override fun onDeselected(index: Int, totalCount: Int) {
+                            tvTitle.setTextColor(Color.LTGRAY)
+                        }
 
-                    override fun onLeave(index: Int, totalCount: Int, leavePercent: Float, leftToRight: Boolean) {
-                        ivTitle.scaleX = 1.3f + (0.8f - 1.3f) * leavePercent
-                        ivTitle.scaleY = 1.3f + (0.8f - 1.3f) * leavePercent
-                    }
+                        override fun onLeave(
+                            index: Int,
+                            totalCount: Int,
+                            leavePercent: Float,
+                            leftToRight: Boolean
+                        ) {
+                            ivTitle.scaleX = 1.3f + (0.8f - 1.3f) * leavePercent
+                            ivTitle.scaleY = 1.3f + (0.8f - 1.3f) * leavePercent
+                        }
 
-                    override fun onEnter(index: Int, totalCount: Int, enterPercent: Float, leftToRight: Boolean) {
-                        ivTitle.scaleX = 0.8f + (1.3f - 0.8f) * enterPercent
-                        ivTitle.scaleY = 0.8f + (1.3f - 0.8f) * enterPercent
+                        override fun onEnter(
+                            index: Int,
+                            totalCount: Int,
+                            enterPercent: Float,
+                            leftToRight: Boolean
+                        ) {
+                            ivTitle.scaleX = 0.8f + (1.3f - 0.8f) * enterPercent
+                            ivTitle.scaleY = 0.8f + (1.3f - 0.8f) * enterPercent
+                        }
                     }
-                }
                 commonPagerTitleView.setOnClickListener {
                     viewPager.currentItem = index
                 }
@@ -92,5 +106,4 @@ class LoadCustomLayoutExampleActivity : BaseFontActivity() {
         magicIndicator1.navigator = commonNavigator
         ViewPagerHelper.bind(magicIndicator1, viewPager)
     }
-
 }

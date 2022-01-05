@@ -26,12 +26,13 @@ class CustomBehaviorActivity : BaseFontActivity() {
     private fun setupViews() {
 
         fab.setSafeOnClickListener {
-            Snackbar.make(coordinatorLayout,
-                    "This is a simple Snackbar", Snackbar.LENGTH_LONG)
-                    .setAction("CLOSE") { v ->
-                        //do sth
-                    }.show()
+            Snackbar.make(
+                coordinatorLayout,
+                "This is a simple Snackbar", Snackbar.LENGTH_LONG
+            )
+                .setAction("CLOSE") {
+                    // do sth
+                }.show()
         }
     }
-
 }

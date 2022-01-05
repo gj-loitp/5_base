@@ -2,10 +2,9 @@ package vn.loitp.app.activity.customviews.layout.coordinatorlayout
 
 import com.annotation.LogTag
 import com.core.base.BaseFragment
-
 import vn.loitp.app.R
 
-@LogTag("AnswerViewActivity")
+@LogTag("FrmCoordinator2")
 class FrmCoordinator2 : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {

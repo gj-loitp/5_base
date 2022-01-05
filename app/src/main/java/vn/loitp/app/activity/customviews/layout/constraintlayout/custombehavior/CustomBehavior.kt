@@ -8,17 +8,23 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import de.hdodenhof.circleimageview.CircleImageView
 
 class CustomBehavior(
-        context: Context?,
-        attrs: AttributeSet?
+    context: Context?,
+    attrs: AttributeSet?
 ) : CoordinatorLayout.Behavior<CircleImageView>(context, attrs) {
 
-    private val logTag = javaClass.simpleName
-
-    override fun layoutDependsOn(parent: CoordinatorLayout, child: CircleImageView, dependency: View): Boolean {
+    override fun layoutDependsOn(
+        parent: CoordinatorLayout,
+        child: CircleImageView,
+        dependency: View
+    ): Boolean {
         return dependency is Toolbar
     }
 
-    override fun onDependentViewChanged(parent: CoordinatorLayout, child: CircleImageView, dependency: View): Boolean {
+    override fun onDependentViewChanged(
+        parent: CoordinatorLayout,
+        child: CircleImageView,
+        dependency: View
+    ): Boolean {
         val dependencyLocation = IntArray(2)
         val childLocation = IntArray(2)
         dependency.getLocationInWindow(dependencyLocation)

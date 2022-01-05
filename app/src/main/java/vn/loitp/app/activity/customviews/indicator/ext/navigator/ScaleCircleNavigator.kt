@@ -17,11 +17,13 @@ import net.lucode.hackware.magicindicator.NavigatorHelper.OnNavigatorScrollListe
 import net.lucode.hackware.magicindicator.abs.IPagerNavigator
 import net.lucode.hackware.magicindicator.buildins.ArgbEvaluatorHolder
 import net.lucode.hackware.magicindicator.buildins.UIUtil
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.math.abs
-import kotlin.math.roundToInt
 
-class ScaleCircleNavigator(context: Context) : View(context), IPagerNavigator, OnNavigatorScrollListener {
+class ScaleCircleNavigator(context: Context) :
+    View(context),
+    IPagerNavigator,
+    OnNavigatorScrollListener {
 
     private var mMinRadius = 0
     private var mMaxRadius = 0
@@ -67,7 +69,7 @@ class ScaleCircleNavigator(context: Context) : View(context), IPagerNavigator, O
                 (mCircleCount - 1) * mMinRadius * 2 + mMaxRadius * 2 + (mCircleCount - 1) * mCircleSpacing + paddingLeft + paddingRight
             }
             else -> {
-                //do sth
+                // do sth
             }
         }
         return result
@@ -79,7 +81,9 @@ class ScaleCircleNavigator(context: Context) : View(context), IPagerNavigator, O
         var result = 0
         when (mode) {
             MeasureSpec.EXACTLY -> result = height
-            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED -> result = mMaxRadius * 2 + paddingTop + paddingBottom
+            MeasureSpec.AT_MOST, MeasureSpec.UNSPECIFIED ->
+                result =
+                    mMaxRadius * 2 + paddingTop + paddingBottom
             else -> {
             }
         }
@@ -92,7 +96,11 @@ class ScaleCircleNavigator(context: Context) : View(context), IPagerNavigator, O
         while (i < j) {
             val point = mCirclePoints[i]
             val radius = mCircleRadiusArray[i, mMinRadius.toFloat()]
-            mPaint.color = ArgbEvaluatorHolder.eval((radius - mMinRadius) / (mMaxRadius - mMinRadius), mNormalCircleColor, mSelectedCircleColor)
+            mPaint.color = ArgbEvaluatorHolder.eval(
+                (radius - mMinRadius) / (mMaxRadius - mMinRadius),
+                mNormalCircleColor,
+                mSelectedCircleColor
+            )
             canvas.drawCircle(point.x, height / 2.0f, radius, mPaint)
             i++
         }
@@ -230,7 +238,10 @@ class ScaleCircleNavigator(context: Context) : View(context), IPagerNavigator, O
 
     override fun onEnter(index: Int, totalCount: Int, enterPercent: Float, leftToRight: Boolean) {
         if (mFollowTouch) {
-            val radius = mMinRadius + (mMaxRadius - mMinRadius) * mStartInterpolator.getInterpolation(enterPercent)
+            val radius =
+                mMinRadius + (mMaxRadius - mMinRadius) * mStartInterpolator.getInterpolation(
+                    enterPercent
+                )
             mCircleRadiusArray.put(index, radius)
             invalidate()
         }
@@ -238,7 +249,10 @@ class ScaleCircleNavigator(context: Context) : View(context), IPagerNavigator, O
 
     override fun onLeave(index: Int, totalCount: Int, leavePercent: Float, leftToRight: Boolean) {
         if (mFollowTouch) {
-            val radius = mMaxRadius + (mMinRadius - mMaxRadius) * mStartInterpolator.getInterpolation(leavePercent)
+            val radius =
+                mMaxRadius + (mMinRadius - mMaxRadius) * mStartInterpolator.getInterpolation(
+                    leavePercent
+                )
             mCircleRadiusArray.put(index, radius)
             invalidate()
         }

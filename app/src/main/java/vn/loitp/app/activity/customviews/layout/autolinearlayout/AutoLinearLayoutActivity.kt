@@ -5,8 +5,8 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-//read more
-//https://github.com/AlbertGrobas/AutoLinearLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1852
+// read more
+// https://github.com/AlbertGrobas/AutoLinearLayout?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=1852
 
 @LogTag("AutoLinearLayoutActivity")
 @IsFullScreen(false)

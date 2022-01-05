@@ -64,12 +64,20 @@ class ImageViewMenuActivity : BaseFontActivity(), OnClickListener {
             btTouchImageView -> intent = Intent(this, TouchImageViewActivity::class.java)
             btZoomImageView -> intent = Intent(this, ZoomImageViewActivity::class.java)
             btFidgetSpinner -> intent = Intent(this, FidgetSpinnerImageViewActivity::class.java)
-            btContinuousScrollableImageView -> intent = Intent(this, ContinuousScrollableImageViewActivity::class.java)
-            btScrollParallaxImageView -> intent = Intent(this, ScrollParallaxImageViewActivity::class.java)
+            btContinuousScrollableImageView ->
+                intent =
+                    Intent(this, ContinuousScrollableImageViewActivity::class.java)
+            btScrollParallaxImageView ->
+                intent =
+                    Intent(this, ScrollParallaxImageViewActivity::class.java)
             btPanoramaImageView -> intent = Intent(this, PanoramaImageViewActivity::class.java)
             btBigImageView -> intent = Intent(this, BigImageViewActivity::class.java)
-            btBigImageViewWithScrollView -> intent = Intent(this, BigImageViewWithScrollViewActivity::class.java)
-            btTouchImageViewWithViewPager -> intent = Intent(this, PinchToZoomViewPagerActivity::class.java)
+            btBigImageViewWithScrollView ->
+                intent =
+                    Intent(this, BigImageViewWithScrollViewActivity::class.java)
+            btTouchImageViewWithViewPager ->
+                intent =
+                    Intent(this, PinchToZoomViewPagerActivity::class.java)
             btKenburnView -> intent = Intent(this, KenburnViewActivity::class.java)
             btComicView -> intent = Intent(this, ComicViewActivity::class.java)
             btStfalconImageViewer -> intent = Intent(this, ListActivity::class.java)

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.coordinatorlayout
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,14 +11,14 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private val logTag = javaClass.simpleName
     private val moviesList = ArrayList<Movie>()
 
-    companion object{
+    companion object {
         private const val TYPE_MOVIE = 1
         private const val TYPE_MOVIE_BOTTOM = 2
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setList(moviesList: ArrayList<Movie>) {
         this.moviesList.clear()
         this.moviesList.addAll(moviesList)
@@ -53,10 +54,12 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == TYPE_MOVIE) {
-            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
+            val itemView =
+                LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
             MovieViewHolder(itemView)
         } else {
-            val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_movie_bottom, parent, false)
+            val itemView = LayoutInflater.from(parent.context)
+                .inflate(R.layout.row_movie_bottom, parent, false)
             BottomView(itemView)
         }
     }
@@ -81,5 +84,4 @@ class MultiAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int {
         return moviesList.size
     }
-
 }

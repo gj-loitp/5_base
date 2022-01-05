@@ -22,11 +22,31 @@ class MagicIndicatorMenuActivity : BaseFontActivity() {
             btScrollableTab -> startActivity(Intent(this, ScrollableTabExampleActivity::class.java))
             btFixedTab -> startActivity(Intent(this, FixedTabExampleActivity::class.java))
             btDynamicTab -> startActivity(Intent(this, DynamicTabExampleActivity::class.java))
-            btNoTabOnlyIndicator -> startActivity(Intent(this, NoTabOnlyIndicatorExampleActivity::class.java))
+            btNoTabOnlyIndicator -> startActivity(
+                Intent(
+                    this,
+                    NoTabOnlyIndicatorExampleActivity::class.java
+                )
+            )
             btTabWithBadgeView -> startActivity(Intent(this, BadgeTabExampleActivity::class.java))
-            btWorkWithFragmentContainer -> startActivity(Intent(this, FragmentContainerExampleActivity::class.java))
-            btLoadCustomLayout -> startActivity(Intent(this, LoadCustomLayoutExampleActivity::class.java))
-            btCustomNavigator -> startActivity(Intent(this, CustomNavigatorExampleActivity::class.java))
+            btWorkWithFragmentContainer -> startActivity(
+                Intent(
+                    this,
+                    FragmentContainerExampleActivity::class.java
+                )
+            )
+            btLoadCustomLayout -> startActivity(
+                Intent(
+                    this,
+                    LoadCustomLayoutExampleActivity::class.java
+                )
+            )
+            btCustomNavigator -> startActivity(
+                Intent(
+                    this,
+                    CustomNavigatorExampleActivity::class.java
+                )
+            )
         }
         LActivityUtil.tranIn(this)
     }

@@ -9,7 +9,7 @@ import com.views.imageview.panorama.LPanoramaImageView
 import kotlinx.android.synthetic.main.activity_imageview_panorama.*
 import vn.loitp.app.R
 
-//https://github.com/gjiazhe/PanoramaImageView
+// https://github.com/gjiazhe/PanoramaImageView
 
 @LogTag("PanoramaImageViewActivity")
 @IsFullScreen(false)
@@ -34,18 +34,18 @@ class PanoramaImageViewActivity : BaseFontActivity() {
 
         gyroscopeObserver?.setMaxRotateRadian(Math.PI / 9)
 
-        //panoramaImageView.setEnablePanoramaMode(true);
-        //panoramaImageView.setEnableScrollbar(true);
-        //panoramaImageView.setInvertScrollDirection(false);
+        // panoramaImageView.setEnablePanoramaMode(true);
+        // panoramaImageView.setEnableScrollbar(true);
+        // panoramaImageView.setInvertScrollDirection(false);
         // Set GyroscopeObserver for PanoramaImageView.
         panoramaImageView.setGyroscopeObserver(gyroscopeObserver)
 
-        panoramaImageView.setOnPanoramaScrollListener(object : LPanoramaImageView.OnPanoramaScrollListener {
-            override fun onScrolled(view: LPanoramaImageView?, offsetProgress: Float) {
-                logD("onScrolled offsetProgress $offsetProgress")
-            }
-
-        })
+        panoramaImageView.setOnPanoramaScrollListener(object :
+                LPanoramaImageView.OnPanoramaScrollListener {
+                override fun onScrolled(view: LPanoramaImageView?, offsetProgress: Float) {
+                    logD("onScrolled offsetProgress $offsetProgress")
+                }
+            })
     }
 
     override fun onResume() {
