@@ -27,5 +27,4 @@ class OverScrollActivity : BaseFontActivity() {
         LUIUtil.setPullLikeIOSVertical(scrollView = nsv)
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.overscroll)
     }
-
 }

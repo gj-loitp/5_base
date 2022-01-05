@@ -5,8 +5,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
-import com.skydoves.elasticviews.ElasticFinishListener
-import com.skydoves.elasticviews.elasticAnimation
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_elastic_view.*
 import vn.loitp.app.R
@@ -26,7 +24,7 @@ class ElasticActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        //dont remove this code below
+        // dont remove this code below
         elasticButton.setSafeOnClickListener {
         }
         elasticCheckButton.setSafeOnClickListener {
@@ -38,16 +36,16 @@ class ElasticActivity : BaseFontActivity() {
         elasticCardView.setSafeOnClickListener {
         }
         LUIUtil.setOnClickListenerElastic(
-                view = anyView,
-                runnable = {
-                    showShortInformation("Finish setOnClickListenerElastic")
-                })
+            view = anyView,
+            runnable = {
+                showShortInformation("Finish setOnClickListenerElastic")
+            }
+        )
         LUIUtil.setSafeOnClickListenerElastic(
-                view = anyView2,
-                runnable = {
-                    showShortInformation("Finish setSafeOnClickListenerElastic")
-                })
-
+            view = anyView2,
+            runnable = {
+                showShortInformation("Finish setSafeOnClickListenerElastic")
+            }
+        )
     }
-
 }

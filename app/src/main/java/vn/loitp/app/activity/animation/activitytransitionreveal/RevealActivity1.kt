@@ -47,14 +47,14 @@ class RevealActivity1 : BaseFontActivity() {
 
     private fun show(view: View) {
         val builder = CircularReveal.Builder(
-                this,
-                view,
-                Intent(this, RevealActivity2::class.java),
-                1000
+            this,
+            view,
+            Intent(this, RevealActivity2::class.java),
+            1000
         ).apply {
             revealColor = ContextCompat.getColor(
-                    this@RevealActivity1,
-                    R.color.green
+                this@RevealActivity1,
+                R.color.green
             )
             requestCode = REQUEST_CODE
         }
@@ -70,5 +70,4 @@ class RevealActivity1 : BaseFontActivity() {
             showShortInformation("onActivityResult REQUEST_CODE $REQUEST_CODE -> msg $msg")
         }
     }
-
 }

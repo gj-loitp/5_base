@@ -32,7 +32,7 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         gridView.onItemClickListener = this
         val gridAdapter = GridAdapter()
         gridView.adapter = gridAdapter
@@ -43,14 +43,19 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
         val intent = Intent(this, SceneTransitionBasicDetailActivity::class.java)
         intent.putExtra(SceneTransitionBasicDetailActivity.EXTRA_PARAM_ID, item.id)
         val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this,
+            this,
 
-                // Now we provide a list of Pair items which contain the view we can transitioning
-                // from, and the name of the view it is transitioning to, in the launched activity
-                Pair(view.findViewById(R.id.imageViewItem),
-                        SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_IMAGE),
-                Pair(view.findViewById(R.id.textViewName),
-                        SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_TITLE))
+            // Now we provide a list of Pair items which contain the view we can transitioning
+            // from, and the name of the view it is transitioning to, in the launched activity
+            Pair(
+                view.findViewById(R.id.imageViewItem),
+                SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_IMAGE
+            ),
+            Pair(
+                view.findViewById(R.id.textViewName),
+                SceneTransitionBasicDetailActivity.VIEW_NAME_HEADER_TITLE
+            )
+        )
         ActivityCompat.startActivity(this, intent, activityOptions.toBundle())
     }
 
@@ -81,7 +86,11 @@ class SceneTransitionBasicActivity : BaseFontActivity(), AdapterView.OnItemClick
 
             // Load the thumbnail image
             val imageViewItem = view?.findViewById<ImageView>(R.id.imageViewItem)
-            LImageUtil.load(context = this@SceneTransitionBasicActivity, any = item.photoUrl, imageView = imageViewItem)
+            LImageUtil.load(
+                context = this@SceneTransitionBasicActivity,
+                any = item.photoUrl,
+                imageView = imageViewItem
+            )
 
             // Set the TextView's contents
             val textViewName = view?.findViewById<TextView>(R.id.textViewName)

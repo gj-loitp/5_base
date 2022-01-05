@@ -11,7 +11,7 @@ import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 import kotlinx.android.synthetic.main.activity_animation_view.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("AnimationViewActivity")
 @IsFullScreen(false)
@@ -53,9 +53,16 @@ class AnimationViewActivity : BaseFontActivity() {
             if (tvGuide.visibility != View.VISIBLE) {
                 tvGuide.visibility = View.VISIBLE
             }
-            LUIUtil.setDelay(mls = 500, runnable = Runnable {
-                LAnimationUtil.play(view = tvAnim, techniques = listAnim[position], duration = 1_000)
-            })
+            LUIUtil.setDelay(
+                mls = 500,
+                runnable = {
+                    LAnimationUtil.play(
+                        view = tvAnim,
+                        techniques = listAnim[position],
+                        duration = 1_000
+                    )
+                }
+            )
         }
         val dialog = builder.create()
         dialog.show()

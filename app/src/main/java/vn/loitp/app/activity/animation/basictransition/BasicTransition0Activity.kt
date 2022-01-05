@@ -42,5 +42,4 @@ class BasicTransition0Activity : BaseFontActivity() {
         val activityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, pair1, pair2)
         ActivityCompat.startActivity(this, intent, activityOptions.toBundle())
     }
-
 }

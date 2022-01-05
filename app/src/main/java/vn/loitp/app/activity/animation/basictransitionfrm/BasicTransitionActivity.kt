@@ -6,7 +6,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-//https://github.com/googlesamples/android-BasicTransition/#readme
+// https://github.com/googlesamples/android-BasicTransition/#readme
 
 @LogTag("BasicTransitionActivity")
 @IsFullScreen(false)
@@ -26,5 +26,4 @@ class BasicTransitionActivity : BaseFontActivity() {
             transaction.commit()
         }
     }
-
 }

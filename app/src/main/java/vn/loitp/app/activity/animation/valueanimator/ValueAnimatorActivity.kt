@@ -12,7 +12,7 @@ import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.activity_animation_value_animator.*
 import vn.loitp.app.R
 
-//https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
+// https://viblo.asia/p/custom-view-trong-android-gGJ59br9KX2
 
 @LogTag("ValueAnimatorActivity")
 @IsFullScreen(false)
@@ -43,11 +43,13 @@ class ValueAnimatorActivity : BaseFontActivity() {
             va.duration = duration.toLong()
             va.interpolator = DecelerateInterpolator()
             val spaceW = (LScreenUtil.screenWidth - view.width) / range
-            val spaceH = (LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight() - LScreenUtil.getBottomBarHeight() - view.height) / range
+            val spaceH =
+                (LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight() - LScreenUtil.getBottomBarHeight() - view.height) / range
 
             va.addUpdateListener { animation: ValueAnimator ->
                 val value = animation.animatedValue as Int
-                tvDebug.text = "onAnimationUpdate: " + value + " -> " + spaceW * value + " x " + spaceH * value
+                tvDebug.text =
+                    "onAnimationUpdate: " + value + " -> " + spaceW * value + " x " + spaceH * value
                 updateUI(view = view, posX = spaceW * value, posY = spaceH * value)
             }
             va.start()
