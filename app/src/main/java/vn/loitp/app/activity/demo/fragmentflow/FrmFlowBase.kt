@@ -13,7 +13,7 @@ abstract class FrmFlowBase : BaseFragment(), OnBackClickListener {
         activity?.supportFragmentManager?.popBackStack()
     }
 
-    //this function will be called when backstack
+    // this function will be called when backstack
     open fun onFragmentResume() {
         (activity as FragmentFlowActivity).onBackClickListener = this
     }

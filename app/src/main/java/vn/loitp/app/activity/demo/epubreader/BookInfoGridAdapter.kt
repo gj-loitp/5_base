@@ -12,8 +12,8 @@ import com.function.epub.model.BookInfo
 import vn.loitp.app.R
 
 class BookInfoGridAdapter(
-        private val bookInfoList: ArrayList<BookInfo>)
-    : BaseAdapter() {
+    private val bookInfoList: ArrayList<BookInfo>
+) : BaseAdapter() {
 
     private class ViewHolder {
         var tvBookTitle: TextView? = null
@@ -25,7 +25,7 @@ class BookInfoGridAdapter(
     }
 
     override fun getItem(i: Int): Any {
-        return bookInfoList.get(i)
+        return bookInfoList[i]
     }
 
     override fun getItemId(i: Int): Long {
@@ -36,7 +36,8 @@ class BookInfoGridAdapter(
         var view = convertView
         val viewHolder: ViewHolder
         if (view == null) {
-            val inflater = parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val inflater =
+                parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             view = inflater.inflate(R.layout.row_item_book_epub_reader, parent, false)
             viewHolder = ViewHolder()
             viewHolder.tvBookTitle = view.findViewById(R.id.tvBookTitle)
@@ -58,7 +59,11 @@ class BookInfoGridAdapter(
                     bookInfoList[position].isCoverImageNotExists = true
                     viewHolder.ivCover?.setImageResource(LReaderUtil.defaultCover)
                 } else {
-                    val bitmap = LReaderUtil.decodeBitmapFromByteArray(coverImage = coverImageAsBytes, reqWidth = 100, reqHeight = 200)
+                    val bitmap = LReaderUtil.decodeBitmapFromByteArray(
+                        coverImage = coverImageAsBytes,
+                        reqWidth = 100,
+                        reqHeight = 200
+                    )
                     bookInfoList[position].coverImageBitmap = bitmap
                     bookInfoList[position].coverImage = null
                     viewHolder.ivCover?.setImageBitmap(bitmap)
@@ -69,5 +74,4 @@ class BookInfoGridAdapter(
         }
         return view
     }
-
 }

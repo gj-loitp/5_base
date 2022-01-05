@@ -34,7 +34,7 @@ public class DataSource {
     }
 
     private static void load() {
-        mList = new ArrayList<Alarm>();
+        mList = new ArrayList<>();
         mNextId = 1;
 
         try {

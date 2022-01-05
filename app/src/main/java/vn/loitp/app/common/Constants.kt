@@ -1,8 +1,5 @@
 package vn.loitp.app.common
 
-/**
- * Created by loitp
- */
 class Constants {
     companion object {
         const val URL_IMG_GIFT =

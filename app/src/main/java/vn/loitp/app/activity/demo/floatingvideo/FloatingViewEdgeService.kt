@@ -8,7 +8,7 @@ import android.graphics.PixelFormat
 import android.os.Build
 import android.os.CountDownTimer
 import android.os.IBinder
-import android.view.*
+import android.view.* // ktlint-disable no-wildcard-imports
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.View.OnTouchListener
 import android.widget.RelativeLayout
@@ -17,9 +17,6 @@ import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 import kotlin.math.abs
 
-/**
- * Created by loitp on 3/27/2018.
- */
 class FloatingViewEdgeService : Service() {
     private val logTag = javaClass.simpleName
 
@@ -37,6 +34,7 @@ class FloatingViewEdgeService : Service() {
         return null
     }
 
+    @SuppressLint("InflateParams")
     override fun onCreate() {
         super.onCreate()
 
@@ -44,49 +42,54 @@ class FloatingViewEdgeService : Service() {
         screenHeight = LScreenUtil.screenHeight
         statusBarHeight = LScreenUtil.getStatusBarHeight()
 
-        //Inflate the floating view layout we created
-        mFloatingView = LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_view_edge, null)
+        // Inflate the floating view layout we created
+        mFloatingView =
+            LayoutInflater.from(this).inflate(R.layout.layout_demo_floating_view_edge, null)
         rlMove = mFloatingView.findViewById(R.id.rlMove)
         viewBkgDestroy = mFloatingView.findViewById(R.id.viewBkgDestroy)
 
-        //Add the view to the window.
+        // Add the view to the window.
         val layoutFlag: Int = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
         } else {
             WindowManager.LayoutParams.TYPE_PHONE
         }
         params = WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                layoutFlag,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                PixelFormat.TRANSLUCENT)
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            layoutFlag,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE or WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            PixelFormat.TRANSLUCENT
+        )
 
         setSizeMoveView(isFirstSizeInit = true, isLarger = false)
 
-        //Specify the view position
+        // Specify the view position
         params.apply {
-            this.gravity = Gravity.TOP or Gravity.START //Initially view will be added to top-left corner
+            this.gravity =
+                Gravity.TOP or Gravity.START // Initially view will be added to top-left corner
             this.x = screenWidth - moveViewWidth
-            this.y = screenHeight - moveViewHeight - statusBarHeight //dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
+            this.y =
+                screenHeight - moveViewHeight - statusBarHeight // dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
         }
 
-        //Add the view to the window
+        // Add the view to the window
         mWindowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         mWindowManager?.addView(mFloatingView, params)
 
-        //Drag and move floating view using user's touch action.
+        // Drag and move floating view using user's touch action.
         dragAndMove()
     }
 
-    //only update 1 one time
+    // only update 1 one time
     private var isUpdatedUIVideoSize = false
     private fun updateUIVideoSizeOneTime(videoW: Int, videoH: Int) {
         if (!isUpdatedUIVideoSize) {
             val vW = screenWidth / 2
             val vH = vW * videoH / videoW
             val newPosX = params.x
-            val newPosY = screenHeight - vH - statusBarHeight //dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
+            val newPosY =
+                screenHeight - vH - statusBarHeight // dell hieu sao phai tru getBottomBarHeight thi moi dung position :(
             updateUISlide(x = newPosX, y = newPosY)
             isUpdatedUIVideoSize = true
         }
@@ -163,11 +166,11 @@ class FloatingViewEdgeService : Service() {
                 mTapDetector?.onTouchEvent(event)
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        //remember the initial position.
+                        // remember the initial position.
                         initialX = params.x
                         initialY = params.y
 
-                        //get the touch location
+                        // get the touch location
                         initialTouchX = event.rawX
                         initialTouchY = event.rawY
                         return true
@@ -177,11 +180,11 @@ class FloatingViewEdgeService : Service() {
                         return true
                     }
                     MotionEvent.ACTION_MOVE -> {
-                        //Calculate the X and Y coordinates of the view.
+                        // Calculate the X and Y coordinates of the view.
                         params.x = initialX + (event.rawX - initialTouchX).toInt()
                         params.y = initialY + (event.rawY - initialTouchY).toInt()
 
-                        //Update the layout with new X & Y coordinate
+                        // Update the layout with new X & Y coordinate
                         mWindowManager?.updateViewLayout(mFloatingView, params)
                         getLocationOnScreen(mFloatingView)
                         return true
@@ -299,9 +302,15 @@ class FloatingViewEdgeService : Service() {
                 posX = params.x
                 centerPosX = posX + moveViewWidth / 2
                 if (centerPosX < screenWidth / 2) {
-                    slideToPosition(goToPosX = 0, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
+                    slideToPosition(
+                        goToPosX = 0,
+                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                    )
                 } else {
-                    slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
+                    slideToPosition(
+                        goToPosX = screenWidth - moveViewWidth,
+                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                    )
                 }
             }
             POS.LEFT, POS.CENTER_LEFT -> {
@@ -310,7 +319,10 @@ class FloatingViewEdgeService : Service() {
                 if (centerPosY < screenHeight / 2) {
                     slideToPosition(goToPosX = 0, goToPosY = 0)
                 } else {
-                    slideToPosition(goToPosX = 0, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
+                    slideToPosition(
+                        goToPosX = 0,
+                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                    )
                 }
             }
             POS.RIGHT, POS.CENTER_RIGHT -> {
@@ -319,7 +331,10 @@ class FloatingViewEdgeService : Service() {
                 if (centerPosY < screenHeight / 2) {
                     slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = 0)
                 } else {
-                    slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
+                    slideToPosition(
+                        goToPosX = screenWidth - moveViewWidth,
+                        goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                    )
                 }
             }
             POS.CENTER -> {
@@ -331,13 +346,19 @@ class FloatingViewEdgeService : Service() {
                     if (centerPosY < screenHeight / 2) {
                         slideToPosition(goToPosX = 0, goToPosY = 0)
                     } else {
-                        slideToPosition(goToPosX = 0, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
+                        slideToPosition(
+                            goToPosX = 0,
+                            goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                        )
                     }
                 } else {
                     if (centerPosY < screenHeight / 2) {
                         slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = 0)
                     } else {
-                        slideToPosition(goToPosX = screenWidth - moveViewWidth, goToPosY = screenHeight - moveViewHeight - statusBarHeight)
+                        slideToPosition(
+                            goToPosX = screenWidth - moveViewWidth,
+                            goToPosY = screenHeight - moveViewHeight - statusBarHeight
+                        )
                     }
                 }
             }
@@ -351,16 +372,16 @@ class FloatingViewEdgeService : Service() {
     }
 
     private fun openApp() {
-        //Open the application  click.
+        // Open the application  click.
         val intent = Intent(this@FloatingViewEdgeService, FloatingWidgetActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 
-        //close the service and remove view from the view hierarchy
+        // close the service and remove view from the view hierarchy
         stopSelf()
     }
 
-    //click vo se larger, click lan nua de smaller
+    // click vo se larger, click lan nua de smaller
     private fun setSizeMoveView(isFirstSizeInit: Boolean, isLarger: Boolean) {
         var w = 0
         var h = 0
@@ -368,9 +389,9 @@ class FloatingViewEdgeService : Service() {
             w = screenWidth / 2
             h = w * 9 / 16
         } else {
-            //works fine
-            //OPTION 1: isLarger->mini player se to hon 1 chut
-            //!isLarger->ve trang thai ban dau
+            // works fine
+            // OPTION 1: isLarger->mini player se to hon 1 chut
+            // !isLarger->ve trang thai ban dau
             /*if (isLarger) {
                 w = getMoveViewWidth() * 120 / 100;
                 h = getMoveViewHeight() * 120 / 100;

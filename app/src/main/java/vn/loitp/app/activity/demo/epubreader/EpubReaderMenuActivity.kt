@@ -41,10 +41,15 @@ class EpubReaderMenuActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        gridBookInfo.onItemClickListener = AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
-            val bookInfo = adapterView.adapter.getItem(i) as BookInfo
-            LReaderUtil.readEpub(activity = this, bookInfo = bookInfo, admobAdIdBanner = getString(R.string.str_b))
-        }
+        gridBookInfo.onItemClickListener =
+            AdapterView.OnItemClickListener { adapterView: AdapterView<*>, _: View?, i: Int, _: Long ->
+                val bookInfo = adapterView.adapter.getItem(i) as BookInfo
+                LReaderUtil.readEpub(
+                    activity = this,
+                    bookInfo = bookInfo,
+                    admobAdIdBanner = getString(R.string.str_b)
+                )
+            }
     }
 
     private fun setupViewModels() {
@@ -67,7 +72,11 @@ class EpubReaderMenuActivity : BaseFontActivity() {
                 }
             })
             vm.loadDeviceAndAssetActionLiveData.observe(this, { actionData ->
-                logD("<<<loadDeviceAndAssetActionLiveData action " + BaseApplication.gson.toJson(actionData))
+                logD(
+                    "<<<loadDeviceAndAssetActionLiveData action " + BaseApplication.gson.toJson(
+                        actionData
+                    )
+                )
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
                 if (isDoing == true) {
@@ -87,18 +96,20 @@ class EpubReaderMenuActivity : BaseFontActivity() {
 
     private fun ask() {
         LDialogUtil.showDialog2(
-                context = this,
-                title = "Chọn",
-                msg = "Có 2 option",
-                button1 = "Load tất cả epub có trong device và 1 file ở asset",
-                button2 = "Load tất cả epub trong asset",
-                onClickButton1 = {
-                    epubViewModel?.getListBookFromDeviceAndAsset()
-                },
-                onClickButton2 = {
-                    epubViewModel?.getListBookAllAsset(maxBookAsset = MAX_BOOK_ASSET, extensionEpub = EXTENSION_EPUB)
-                }
+            context = this,
+            title = "Chọn",
+            msg = "Có 2 option",
+            button1 = "Load tất cả epub có trong device và 1 file ở asset",
+            button2 = "Load tất cả epub trong asset",
+            onClickButton1 = {
+                epubViewModel?.getListBookFromDeviceAndAsset()
+            },
+            onClickButton2 = {
+                epubViewModel?.getListBookAllAsset(
+                    maxBookAsset = MAX_BOOK_ASSET,
+                    extensionEpub = EXTENSION_EPUB
+                )
+            }
         )
     }
-
 }

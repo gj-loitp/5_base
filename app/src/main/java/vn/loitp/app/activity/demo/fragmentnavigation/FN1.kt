@@ -25,7 +25,8 @@ class FN1 : BaseFragment(), OnBackPressedListener {
         button.setOnClickListener {
             fragmentNavigationActivity?.navController?.navigate(R.id.action_fn1_to_fn2)
         }
-        view.findViewById<View>(R.id.button4).setOnClickListener { fragmentNavigationActivity?.navController?.navigate(R.id.action_fn1_to_fn4) }
+        view.findViewById<View>(R.id.button4)
+            .setOnClickListener { fragmentNavigationActivity?.navController?.navigate(R.id.action_fn1_to_fn4) }
     }
 
     override fun onResume() {

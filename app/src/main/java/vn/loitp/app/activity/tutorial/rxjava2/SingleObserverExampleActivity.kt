@@ -11,7 +11,7 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
 import vn.loitp.app.R
 
-//https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+// https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
 @LogTag("SingleObserverExampleActivity")
 @IsFullScreen(false)
@@ -52,5 +52,4 @@ class SingleObserverExampleActivity : BaseFontActivity() {
                 logD("onError : " + e.message)
             }
         }
-
 }

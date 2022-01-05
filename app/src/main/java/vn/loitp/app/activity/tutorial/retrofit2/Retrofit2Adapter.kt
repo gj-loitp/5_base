@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_retrofit2.view.*
 import vn.loitp.app.R
 
-class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private val listener: Listener) : RecyclerView.Adapter<Retrofit2Adapter.ViewHolder>() {
+class Retrofit2Adapter(
+    private val cryptoList: ArrayList<RetroCrypto>,
+    private val listener: Listener
+) : RecyclerView.Adapter<Retrofit2Adapter.ViewHolder>() {
     interface Listener {
         fun onItemClick(retroCrypto: RetroCrypto)
     }
@@ -20,7 +23,8 @@ class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private v
     override fun getItemCount(): Int = cryptoList.count()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_retrofit2, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_retrofit2, parent, false)
         return ViewHolder(view)
     }
 
@@ -30,7 +34,6 @@ class Retrofit2Adapter(private val cryptoList: ArrayList<RetroCrypto>, private v
             itemView.setOnClickListener { listener.onItemClick(retroCrypto) }
             itemView.tvName.text = retroCrypto.currency + " " + System.currentTimeMillis()
             itemView.tvPrice.text = retroCrypto.price + " " + System.currentTimeMillis()
-
         }
     }
 }

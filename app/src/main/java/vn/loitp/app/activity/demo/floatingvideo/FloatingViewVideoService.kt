@@ -7,12 +7,12 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
-import android.view.*
+import android.view.* // ktlint-disable no-wildcard-imports
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.RelativeLayout
-import com.google.android.exoplayer2.*
-import com.google.android.exoplayer2.trackselection.*
+import com.google.android.exoplayer2.* // ktlint-disable no-wildcard-imports
+import com.google.android.exoplayer2.trackselection.* // ktlint-disable no-wildcard-imports
 import com.google.android.exoplayer2.ui.PlayerView
 import com.views.exo.PlayerManager
 import com.views.setSafeOnClickListener
@@ -33,7 +33,7 @@ class FloatingViewVideoService : Service() {
         return null
     }
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint("ClickableViewAccessibility", "InflateParams")
     override fun onCreate() {
         super.onCreate()
 
@@ -51,13 +51,13 @@ class FloatingViewVideoService : Service() {
             PixelFormat.TRANSLUCENT
         )
 
-        //Specify the view position
+        // Specify the view position
         params.gravity =
-            Gravity.TOP or Gravity.START //Initially view will be added to top-left corner
+            Gravity.TOP or Gravity.START // Initially view will be added to top-left corner
         params.x = 0
         params.y = 100
 
-        //Add the view to the window
+        // Add the view to the window
         mWindowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
         mWindowManager?.addView(mFloatingView, params)
 
@@ -66,7 +66,7 @@ class FloatingViewVideoService : Service() {
         playerView = mFloatingView.findViewById(R.id.playerView)
         val rlMove = mFloatingView.findViewById<RelativeLayout>(R.id.rlMove)
 
-        //Set the close button
+        // Set the close button
         ivClose.setSafeOnClickListener {
             stopSelf()
         }
@@ -76,7 +76,7 @@ class FloatingViewVideoService : Service() {
         ivFull.setSafeOnClickListener {
             openApp()
         }
-        //Drag and move floating view using user's touch action.
+        // Drag and move floating view using user's touch action.
         rlMove.setOnTouchListener(object : OnTouchListener {
             private var initialX = 0
             private var initialY = 0
@@ -87,11 +87,11 @@ class FloatingViewVideoService : Service() {
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
 
-                        //remember the initial position.
+                        // remember the initial position.
                         initialX = params.x
                         initialY = params.y
 
-                        //get the touch location
+                        // get the touch location
                         initialTouchX = event.rawX
                         initialTouchY = event.rawY
                         return true
@@ -102,11 +102,11 @@ class FloatingViewVideoService : Service() {
                         return true
                     }
                     MotionEvent.ACTION_MOVE -> {
-                        //Calculate the X and Y coordinates of the view.
+                        // Calculate the X and Y coordinates of the view.
                         params.x = initialX + (event.rawX - initialTouchX).toInt()
                         params.y = initialY + (event.rawY - initialTouchY).toInt()
 
-                        //Update the layout with new X & Y coordinate
+                        // Update the layout with new X & Y coordinate
                         mWindowManager?.updateViewLayout(mFloatingView, params)
                         return true
                     }
@@ -122,16 +122,16 @@ class FloatingViewVideoService : Service() {
         super.onDestroy()
     }
 
-    //Set the view while floating view is expanded.
-    //Set the play button.
-    //Open the application on thi button click
+    // Set the view while floating view is expanded.
+    // Set the play button.
+    // Open the application on thi button click
     private fun openApp() {
-        //Open the application  click.
+        // Open the application  click.
         val intent = Intent(this@FloatingViewVideoService, FloatingWidgetActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
 
-        //close the service and remove view from the view hierarchy
+        // close the service and remove view from the view hierarchy
         stopSelf()
     }
 
@@ -145,5 +145,4 @@ class FloatingViewVideoService : Service() {
             playerManager?.init(context = this, playerView = pv, linkPlay = linkPlay)
         }
     }
-
 }

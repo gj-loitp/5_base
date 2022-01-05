@@ -17,7 +17,7 @@ import vn.loitp.app.activity.tutorial.rxjava2.model.User
 import vn.loitp.app.activity.tutorial.rxjava2.util.RxJavaUtils.Companion.apiUserList
 import vn.loitp.app.activity.tutorial.rxjava2.util.RxJavaUtils.Companion.convertApiUserListToUserList
 
-//https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+// https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 @LogTag("MapExampleActivity")
 @IsFullScreen(false)
 class MapExampleActivity : BaseFontActivity() {
@@ -42,12 +42,12 @@ class MapExampleActivity : BaseFontActivity() {
      */
     private fun doSomeWork() {
         observable
-                .subscribeOn(Schedulers.io()) // Be notified on the main thread
-                .observeOn(AndroidSchedulers.mainThread())
-                .map { apiUsers ->
-                    convertApiUserListToUserList(apiUsers)
-                }
-                .subscribe(observer)
+            .subscribeOn(Schedulers.io()) // Be notified on the main thread
+            .observeOn(AndroidSchedulers.mainThread())
+            .map { apiUsers ->
+                convertApiUserListToUserList(apiUsers)
+            }
+            .subscribe(observer)
     }
 
     private val observable: Observable<List<ApiUser>>
@@ -79,5 +79,4 @@ class MapExampleActivity : BaseFontActivity() {
                 textView.append("\nonComplete")
             }
         }
-
 }

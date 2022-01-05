@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.demo.architecturecomponent.room
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.IsFullScreen
@@ -14,9 +13,9 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.WordViewModel
 
-//https://codinginfinite.com/android-room-tutorial-persistence/
-//https://codinginfinite.com/android-room-persistent-rxjava/
-//https://codinginfinite.com/android-room-persistence-livedata-example/
+// https://codinginfinite.com/android-room-tutorial-persistence/
+// https://codinginfinite.com/android-room-persistent-rxjava/
+// https://codinginfinite.com/android-room-persistence-livedata-example/
 
 @LogTag("WordActivity")
 @IsFullScreen(false)
@@ -59,18 +58,24 @@ class WordActivity : BaseFontActivity() {
     }
 
     private fun setupViewModels() {
-        wordViewModel = ViewModelProvider(this).get(WordViewModel::class.java)
+        wordViewModel = ViewModelProvider(this)[WordViewModel::class.java]
         wordViewModel?.let { vm ->
-            vm.listWord?.observe(this, Observer { allWords ->
-                logD("allWords observe " + BaseApplication.gson.toJson(allWords))
-                allWords?.let {
-                    wordListAdapter?.setWords(it)
+            vm.listWord?.observe(
+                this,
+                { allWords ->
+                    logD("allWords observe " + BaseApplication.gson.toJson(allWords))
+                    allWords?.let {
+                        wordListAdapter?.setWords(it)
+                    }
+                    genFirstData()
                 }
-                genFirstData()
-            })
-            vm.wordFind?.observe(this, Observer {
-                logD("wordFind observe " + BaseApplication.gson.toJson(it))
-            })
+            )
+            vm.wordFind?.observe(
+                this,
+                {
+                    logD("wordFind observe " + BaseApplication.gson.toJson(it))
+                }
+            )
         }
     }
 

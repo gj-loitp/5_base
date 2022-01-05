@@ -13,8 +13,11 @@ import androidx.customview.widget.ViewDragHelper
 import com.core.utilities.LScreenUtil
 import vn.loitp.app.R
 
-class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr: Int = 0)
-    : LinearLayout(context, attrs, defStyleAttr) {
+class VDHView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    @AttrRes defStyleAttr: Int = 0
+) : LinearLayout(context, attrs, defStyleAttr) {
 
     private val logTag = javaClass.simpleName
     private lateinit var headerView: View
@@ -23,13 +26,13 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
     private var mAutoBackViewX = 0
     private var mAutoBackViewY = 0
 
-    //private float mInitialMotionX;
-    //private float mInitialMotionY;
+    // private float mInitialMotionX;
+    // private float mInitialMotionY;
     private var mDragRange = 0
     private var mDragOffset = 0f
     var isEnableAlpha = true
     var isEnableRevertMaxSize = true
-    var isMinimized = false//header view is scaled at least 1 = false
+    var isMinimized = false // header view is scaled at least 1 = false
     private var sizeWHeaderViewOriginal = 0
     private var sizeHHeaderViewOriginal = 0
     private var sizeWHeaderViewMin = 0
@@ -77,7 +80,13 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
     }
 
     private val mCallback: ViewDragHelper.Callback = object : ViewDragHelper.Callback() {
-        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
+        override fun onViewPositionChanged(
+            changedView: View,
+            left: Int,
+            top: Int,
+            dx: Int,
+            dy: Int
+        ) {
             super.onViewPositionChanged(changedView, left, top, dx, dy)
 
             mDragOffset = if (mDragOffset == top.toFloat() / mDragRange) {
@@ -126,7 +135,7 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
 
             when (mDragOffset) {
                 0f -> {
-                    //top_left, top, top_right
+                    // top_left, top, top_right
                     when {
                         left <= -headerView.width / 2 -> {
                             changeState(State.TOP_LEFT)
@@ -140,7 +149,7 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
                     }
                 }
                 1f -> {
-                    //bottom_left, bottom, bottom_right
+                    // bottom_left, bottom, bottom_right
                     when {
                         left <= -headerView.width / 2 -> {
                             changeState(State.BOTTOM_LEFT)
@@ -155,7 +164,7 @@ class VDHView @JvmOverloads constructor(context: Context, attrs: AttributeSet? =
                     isMinimized = true
                 }
                 else -> {
-                    //mid_left, mid, mid_right
+                    // mid_left, mid, mid_right
                     when {
                         left <= -headerView.width / 2 -> {
                             changeState(State.MID_LEFT)

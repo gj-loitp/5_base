@@ -12,7 +12,9 @@ import vn.loitp.app.R
 
 @LogTag("FragmentNavigationActivity")
 @IsFullScreen(false)
-class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
+class FragmentNavigationActivity :
+    BaseFontActivity(),
+    NavigationView.OnNavigationItemSelectedListener {
 
     val T = "FragmentNavigationActivity"
 
@@ -29,7 +31,8 @@ class FragmentNavigationActivity : BaseFontActivity(), NavigationView.OnNavigati
     }
 
     override fun onBackPressed() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment?
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment?
         if (navHostFragment == null) {
             super.onBackPressed()
             return

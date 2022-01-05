@@ -17,7 +17,11 @@ class FrmUtils : Fragment() {
 
     private val line = "*****"
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.frm_utils, container, false)
     }
 
@@ -60,10 +64,14 @@ class FrmUtils : Fragment() {
     private fun handleEncryptUtils() {
         var text = ""
 
-        text += "\n$line String encryptMD2ToString(String data) " + EncryptUtils.encryptMD2ToString("TRAN PHU LOI")
+        text += "\n$line String encryptMD2ToString(String data) " + EncryptUtils.encryptMD2ToString(
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptMD2ToString(byte[] data)"
         text += "\n$line byte[] encryptMD2(byte[] data)"
-        text += "\n$line String encryptMD5ToString(String data) " + EncryptUtils.encryptMD5ToString("TRAN PHU LOI")
+        text += "\n$line String encryptMD5ToString(String data) " + EncryptUtils.encryptMD5ToString(
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptMD5ToString(String data, String salt)"
         text += "\n$line String encryptMD5ToString(byte[] data)"
         text += "\n$line String encryptMD5ToString(byte[] data, byte[] salt)"
@@ -72,38 +80,66 @@ class FrmUtils : Fragment() {
         text += "\n$line byte[] encryptMD5File(String filePath)"
         text += "\n$line String encryptMD5File2String(File file)"
         text += "\n$line byte[] encryptMD5File(File file)"
-        text += "\n$line String encryptSHA1ToString(String data) " + EncryptUtils.encryptSHA1ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA1ToString(String data) " + EncryptUtils.encryptSHA1ToString(
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptSHA1ToString(byte[] data)"
         text += "\n$line byte[] encryptSHA1(byte[] data)"
-        text += "\n$line String encryptSHA224ToString(String data) " + EncryptUtils.encryptSHA224ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA224ToString(String data) " + EncryptUtils.encryptSHA224ToString(
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptSHA224ToString(byte[] data)"
         text += "\n$line byte[] encryptSHA224(byte[] data)"
-        text += "\n$line String encryptSHA256ToString(String data) " + EncryptUtils.encryptSHA256ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA256ToString(String data) " + EncryptUtils.encryptSHA256ToString(
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptSHA256ToString(byte[] data)"
         text += "\n$line byte[] encryptSHA256(byte[] data)"
-        text += "\n$line String encryptSHA384ToString(String data) " + EncryptUtils.encryptSHA384ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA384ToString(String data) " + EncryptUtils.encryptSHA384ToString(
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptSHA384ToString(byte[] data)"
         text += "\n$line byte[] encryptSHA384(byte[] data)"
-        text += "\n$line String encryptSHA512ToString(String data) " + EncryptUtils.encryptSHA512ToString("TRAN PHU LOI")
+        text += "\n$line String encryptSHA512ToString(String data) " + EncryptUtils.encryptSHA512ToString(
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptSHA512ToString(byte[] data)"
         text += "\n$line byte[] encryptSHA512(byte[] data)"
         text += "\n$line byte[] hashTemplate(byte[] data, String algorithm)"
-        text += "\n$line String encryptHmacMD5ToString(String data, String key) " + EncryptUtils.encryptHmacMD5ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacMD5ToString(String data, String key) " + EncryptUtils.encryptHmacMD5ToString(
+            "TRAN PHU LOI",
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptHmacMD5ToString(byte[] data, byte[] key)"
         text += "\n$line byte[] encryptHmacMD5(byte[] data, byte[] key)"
-        text += "\n$line String encryptHmacSHA1ToString(String data, String key) " + EncryptUtils.encryptHmacSHA1ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA1ToString(String data, String key) " + EncryptUtils.encryptHmacSHA1ToString(
+            "TRAN PHU LOI",
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptHmacSHA1ToString(byte[] data, byte[] key)"
         text += "\n$line byte[] encryptHmacSHA1(byte[] data, byte[] key)"
-        text += "\n$line String encryptHmacSHA224ToString(String data, String key) " + EncryptUtils.encryptHmacSHA224ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA224ToString(String data, String key) " + EncryptUtils.encryptHmacSHA224ToString(
+            "TRAN PHU LOI",
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptHmacSHA224ToString(byte[] data, byte[] key)"
         text += "\n$line byte[] encryptHmacSHA224(byte[] data, byte[] key)"
-        text += "\n$line String encryptHmacSHA256ToString(String data, String key)" + EncryptUtils.encryptHmacSHA256ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA256ToString(String data, String key)" + EncryptUtils.encryptHmacSHA256ToString(
+            "TRAN PHU LOI",
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptHmacSHA256ToString(byte[] data, byte[] key)"
         text += "\n$line byte[] encryptHmacSHA256(byte[] data, byte[] key)"
-        text += "\n$line String encryptHmacSHA384ToString(String data, String key) " + EncryptUtils.encryptHmacSHA384ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA384ToString(String data, String key) " + EncryptUtils.encryptHmacSHA384ToString(
+            "TRAN PHU LOI",
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptHmacSHA384ToString(byte[] data, byte[] key)"
         text += "\n$line byte[] encryptHmacSHA384(byte[] data, byte[] key)"
-        text += "\n$line String encryptHmacSHA512ToString(String data, String key) " + EncryptUtils.encryptHmacSHA512ToString("TRAN PHU LOI", "TRAN PHU LOI")
+        text += "\n$line String encryptHmacSHA512ToString(String data, String key) " + EncryptUtils.encryptHmacSHA512ToString(
+            "TRAN PHU LOI",
+            "TRAN PHU LOI"
+        )
         text += "\n$line String encryptHmacSHA512ToString(byte[] data, byte[] key)"
         text += "\n$line byte[] encryptHmacSHA512(byte[] data, byte[] key)"
         text += "\n$line byte[] hmacTemplate(byte[] data, byte[] key, String algorithm)"
@@ -247,7 +283,10 @@ class FrmUtils : Fragment() {
     private fun handleActivityUtils() {
         var text = ""
 
-        text += "\n$line isActivityExists UtilsActivity: " + ActivityUtils.isActivityExists(packageName = activity?.packageName, className = "UtilsActivity")
+        text += "\n$line isActivityExists UtilsActivity: " + ActivityUtils.isActivityExists(
+            packageName = activity?.packageName,
+            className = "UtilsActivity"
+        )
         text += "\n$line getLauncherActivity: " + ActivityUtils.getLauncherActivity(activity?.packageName)
         text += "\n$line getTopActivity: " + ActivityUtils.topActivity
 
@@ -257,8 +296,10 @@ class FrmUtils : Fragment() {
     private fun handleAppUtils() {
         var text = ""
 
-        text += "\n$line isInstallApp ${activity?.packageName}: " + AppUtils.isInstallApp(activity?.packageName
-                ?: "")
+        text += "\n$line isInstallApp ${activity?.packageName}: " + AppUtils.isInstallApp(
+            activity?.packageName
+                ?: ""
+        )
         text += "\n$line installApp(String filePath, String authority)"
         text += "\n$line installApp(File file, String authority)"
         text += "\n$line installApp(Activity activity, String filePath, String authority, int requestCode)"
@@ -281,12 +322,20 @@ class FrmUtils : Fragment() {
         text += "\n$line getAppPath com.facebook.katana: " + AppUtils.getAppPath("com.facebook.katana")
         text += "\n$line getAppVersionName: " + AppUtils.appVersionName
         text += "\n$line getAppVersionName com.facebook.katana: " + AppUtils.getAppVersionName("com.facebook.katana")
-        text += "\n$line getAppVersionCode ${activity?.packageName} " + AppUtils.getAppVersionCode(packageName = activity?.packageName)
+        text += "\n$line getAppVersionCode ${activity?.packageName} " + AppUtils.getAppVersionCode(
+            packageName = activity?.packageName
+        )
         text += "\n$line isSystemApp ${activity?.packageName} " + AppUtils.isSystemApp(packageName = activity?.packageName)
         text += "\n$line isAppDebug ${activity?.packageName} " + AppUtils.isAppDebug(packageName = activity?.packageName)
-        text += "\n$line getAppSignature ${activity?.packageName} " + AppUtils.getAppSignature(packageName = activity?.packageName)
-        text += "\n$line getAppSignatureSHA1 ${activity?.packageName} " + AppUtils.getAppSignatureSHA1(packageName = activity?.packageName)
-        text += "\n$line isAppForeground ${activity?.packageName} " + AppUtils.isAppForeground(packageName = activity?.packageName)
+        text += "\n$line getAppSignature ${activity?.packageName} " + AppUtils.getAppSignature(
+            packageName = activity?.packageName
+        )
+        text += "\n$line getAppSignatureSHA1 ${activity?.packageName} " + AppUtils.getAppSignatureSHA1(
+            packageName = activity?.packageName
+        )
+        text += "\n$line isAppForeground ${activity?.packageName} " + AppUtils.isAppForeground(
+            packageName = activity?.packageName
+        )
         text += "\n$line getAppInfo ${activity?.packageName} " + AppUtils.getAppInfo(packageName = activity?.packageName)
         text += "\n$line getBean(PackageManager pm, PackageInfo pi)"
         text += "\n$line getAppsInfo ${activity?.packageName} " + AppUtils.appsInfo
@@ -299,7 +348,7 @@ class FrmUtils : Fragment() {
     private fun handleBarUtils() {
         var text = ""
 
-        //text += "\n$LINE setColor(Activity activity, @ColorInt int color): " + BarUtils.setColor(activity, Color.RED)
+        // text += "\n$LINE setColor(Activity activity, @ColorInt int color): " + BarUtils.setColor(activity, Color.RED)
         text += "\n$line void setColor(Activity activity, @ColorInt int color)"
         text += "\n$line void setColor(Activity activity, @ColorInt int color, @IntRange(from = 0, to = 255) int statusBarAlpha)"
         text += "\n$line void setColorForSwipeBack(Activity activity, int color)"
@@ -329,8 +378,12 @@ class FrmUtils : Fragment() {
         text += "\n$line void hideFakeStatusBarView(Activity activity)"
         text += "\n$line void setTransparentStatusBar(Activity activity)"
         text += "\n$line void hideStatusBar(Activity activity)"
-        text += "\n$line boolean isStatusBarExists(Activity activity) " + BarUtils.isStatusBarExists(activity)
-        text += "\n$line int getActionBarHeight(Activity activity) " + BarUtils.getActionBarHeight(activity)
+        text += "\n$line boolean isStatusBarExists(Activity activity) " + BarUtils.isStatusBarExists(
+            activity
+        )
+        text += "\n$line int getActionBarHeight(Activity activity) " + BarUtils.getActionBarHeight(
+            activity
+        )
         text += "\n$line void showNotificationBar(Context context, boolean isSettingPanel)"
         text += "\n$line void hideNotificationBar(Context context)"
 

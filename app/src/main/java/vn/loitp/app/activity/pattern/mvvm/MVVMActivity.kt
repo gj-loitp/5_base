@@ -21,7 +21,7 @@ class MVVMActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /// Create the model with initial data
+        // / Create the model with initial data
         val user = vn.loitp.app.activity.pattern.mvvm.model.User()
         user.age = 20
         user.female = false
@@ -30,11 +30,12 @@ class MVVMActivity : BaseFontActivity() {
         user.imageUrl = "https://media.giphy.com/media/zv8PVZLXBj81a/giphy.gif"
         user.tagline = "When Johnny Depp is young"
 
-        /// Create the view model
+        // / Create the view model
         val userViewModel = UserViewModel(user)
 
-        /// Data-Binding
-        val binding = DataBindingUtil.setContentView<ViewDataBinding>(this, R.layout.activity_pattern_mvvm)
+        // / Data-Binding
+        val binding =
+            DataBindingUtil.setContentView<ViewDataBinding>(this, R.layout.activity_pattern_mvvm)
         binding.setVariable(BR.user, userViewModel)
     }
 }

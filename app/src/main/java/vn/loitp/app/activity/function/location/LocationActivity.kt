@@ -18,7 +18,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LLocationUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.*
+import com.google.android.gms.location.* // ktlint-disable no-wildcard-imports
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -29,7 +29,7 @@ import kotlinx.android.synthetic.main.activity_func_location.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import java.text.DateFormat
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("LocationActivity")
 @IsFullScreen(false)
@@ -188,11 +188,11 @@ class LocationActivity : BaseFontActivity() {
                     if (ActivityCompat.checkSelfPermission(
                             this,
                             Manifest.permission.ACCESS_FINE_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED
-                        && ActivityCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.ACCESS_COARSE_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED
+                        ) == PackageManager.PERMISSION_GRANTED &&
+                        ActivityCompat.checkSelfPermission(
+                                this,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED
                     ) {
                         mFusedLocationClient?.requestLocationUpdates(
                             mLocationRequest,
@@ -326,5 +326,4 @@ class LocationActivity : BaseFontActivity() {
             stopLocationUpdates()
         }
     }
-
 }

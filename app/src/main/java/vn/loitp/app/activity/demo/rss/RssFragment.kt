@@ -21,8 +21,9 @@ import vn.loitp.app.R
  * Fragment for listing fetched [RssItem] list
  */
 @LogTag("RssFragment")
-class RssFragment : BaseFragment(),
-        SwipeRefreshLayout.OnRefreshListener {
+class RssFragment :
+    BaseFragment(),
+    SwipeRefreshLayout.OnRefreshListener {
 
     companion object {
         private const val KEY_FEED = "FEED"
@@ -64,27 +65,27 @@ class RssFragment : BaseFragment(),
 
     private fun fetchRss() {
         val retrofit = Retrofit.Builder()
-                .baseUrl("https://github.com")
-                .addConverterFactory(RssConverterFactory.create())
-                .build()
+            .baseUrl("https://github.com")
+            .addConverterFactory(RssConverterFactory.create())
+            .build()
 
         showLoading()
         val service = retrofit.create(RssService::class.java)
 
         feedUrl?.apply {
             service.getRss(this)
-                    .enqueue(object : Callback<RssFeed> {
-                        override fun onResponse(call: Call<RssFeed>, response: Response<RssFeed>) {
-                            response.body()?.items?.let {
-                                onRssItemsLoaded(rssItems = it)
-                            }
-                            hideLoading()
+                .enqueue(object : Callback<RssFeed> {
+                    override fun onResponse(call: Call<RssFeed>, response: Response<RssFeed>) {
+                        response.body()?.items?.let {
+                            onRssItemsLoaded(rssItems = it)
                         }
+                        hideLoading()
+                    }
 
-                        override fun onFailure(call: Call<RssFeed>, t: Throwable) {
-                            showSnackBarError(msg = "Failed to fetchRss RSS feed!", isFullWidth = true)
-                        }
-                    })
+                    override fun onFailure(call: Call<RssFeed>, t: Throwable) {
+                        showSnackBarError(msg = "Failed to fetchRss RSS feed!", isFullWidth = true)
+                    }
+                })
         }
     }
 
@@ -106,5 +107,4 @@ class RssFragment : BaseFragment(),
     override fun onRefresh() {
         fetchRss()
     }
-
 }

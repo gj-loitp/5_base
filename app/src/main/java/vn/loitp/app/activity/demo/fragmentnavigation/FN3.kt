@@ -25,7 +25,6 @@ class FN3 : BaseFragment(), OnBackPressedListener {
         button3.setOnClickListener {
             fragmentNavigationActivity?.navController?.navigate(R.id.action_fn3_to_fn1)
         }
-
     }
 
     override fun onResume() {

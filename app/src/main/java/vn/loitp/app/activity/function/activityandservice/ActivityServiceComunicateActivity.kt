@@ -2,7 +2,6 @@ package vn.loitp.app.activity.function.activityandservice
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.IsFullScreen
@@ -39,19 +38,14 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
     }
 
     private fun handleNotify() {
-        //Check if the application has draw over other apps permission or not?
-        //This permission is by default available for API<23. But for API > 23
-        //you have to ask for the permission in runtime.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-            //If the draw over permission is not available open the settings screen
-            //to grant the permission.
-            val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
-            startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
-        } else {
-            showShortInformation("onClick TestService")
-            textView.text = ""
-            startService(Intent(this, TestService::class.java))
-        }
+        // Check if the application has draw over other apps permission or not?
+        // This permission is by default available for API<23. But for API > 23
+        // you have to ask for the permission in runtime.
+        // If the draw over permission is not available open the settings screen
+        // to grant the permission.
+        val intent =
+            Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))
+        startActivityForResult(intent, CODE_DRAW_OVER_OTHER_APP_PERMISSION)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -62,7 +56,7 @@ class ActivityServiceComunicateActivity : BaseFontActivity() {
         }
     }
 
-    //listen msg from service
+    // listen msg from service
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(msg: CommunicateMng.MsgFromService) {
         textView.text = msg.msg

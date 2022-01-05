@@ -18,28 +18,27 @@ abstract class WordRoomDatabase : RoomDatabase() {
         private var INSTANCE: WordRoomDatabase? = null
 
         fun getDatabase(
-                context: Context,
-                scope: CoroutineScope
+            context: Context,
+            scope: CoroutineScope
         ): WordRoomDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database
             return INSTANCE
-                    ?: synchronized(lock = this) {
-                        val instance = Room.databaseBuilder(
-                                context.applicationContext,
-                                WordRoomDatabase::class.java,
-                                Word.DB_NAME_WORD
-                        )
-                                .addCallback(WordDatabaseCallback(scope))
-                                .build()
-                        INSTANCE = instance
-                        instance
-                    }
+                ?: synchronized(lock = this) {
+                    val instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        WordRoomDatabase::class.java,
+                        Word.DB_NAME_WORD
+                    )
+                        .addCallback(WordDatabaseCallback(scope))
+                        .build()
+                    INSTANCE = instance
+                    instance
+                }
         }
 
         private class WordDatabaseCallback(
-                private val scope: CoroutineScope
+            private val scope: CoroutineScope
         ) : RoomDatabase.Callback()
     }
-
 }

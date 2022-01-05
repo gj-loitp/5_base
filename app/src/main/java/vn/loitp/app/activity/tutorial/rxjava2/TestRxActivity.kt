@@ -22,7 +22,7 @@ import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-//https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
+// https://viblo.asia/p/cung-hoc-rxjava-phan-1-gioi-thieu-aRBeXWqgGWE
 @LogTag("TestRxActivity")
 @IsFullScreen(false)
 class TestRxActivity : BaseFontActivity(), View.OnClickListener {
@@ -70,20 +70,21 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
     @SuppressLint("SetTextI18n")
     private fun test0() {
         textView.text = "test0\n"
-        Observable.fromArray("Suzuki", "Ducati", "BMW", "Honda").subscribe(object : Observer<String> {
-            override fun onSubscribe(d: Disposable) {
-                print("onSubscribe")
-            }
+        Observable.fromArray("Suzuki", "Ducati", "BMW", "Honda")
+            .subscribe(object : Observer<String> {
+                override fun onSubscribe(d: Disposable) {
+                    print("onSubscribe")
+                }
 
-            override fun onNext(string: String) {
-                print("onNext $string")
-            }
+                override fun onNext(string: String) {
+                    print("onNext $string")
+                }
 
-            override fun onError(e: Throwable) {}
-            override fun onComplete() {
-                print("onComplete")
-            }
-        })
+                override fun onError(e: Throwable) {}
+                override fun onComplete() {
+                    print("onComplete")
+                }
+            })
     }
 
     @SuppressLint("SetTextI18n")
@@ -112,10 +113,10 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
         textView.text = "test2\n"
         bike = Bike("Suzuki", "GSX R1000")
 
-        //c1
-        //Observable<Bike> bikeObservable = Observable.just(bike);
+        // c1
+        // Observable<Bike> bikeObservable = Observable.just(bike);
 
-        //c2
+        // c2
         val bikeObservable = Observable.defer { Observable.just<Bike>(bike) }
         bike = Bike("Honda", "CBR1000RR")
         bikeObservable.subscribe(object : Observer<Bike> {
@@ -140,23 +141,23 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
     private fun test3() {
         textView.text = "test3\n"
         interValDisposable = Observable.interval(0, 1, TimeUnit.SECONDS)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(
-                        object : DisposableObserver<Long?>() {
-                            override fun onNext(aLong: Long) {
-                                print("onNext $aLong")
-                                if (aLong == 5L) {
-                                    interValDisposable?.dispose()
-                                }
-                            }
-
-                            override fun onError(e: Throwable) {}
-                            override fun onComplete() {
-                                print("onComplete")
-                            }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(
+                object : DisposableObserver<Long?>() {
+                    override fun onNext(aLong: Long) {
+                        print("onNext $aLong")
+                        if (aLong == 5L) {
+                            interValDisposable?.dispose()
                         }
-                )
+                    }
+
+                    override fun onError(e: Throwable) {}
+                    override fun onComplete() {
+                        print("onComplete")
+                    }
+                }
+            )
     }
 
     @SuppressLint("SetTextI18n")
@@ -169,24 +170,24 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
             }
             emitter.onComplete()
         }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(object : DisposableObserver<Bike?>() {
-                    /*@Override
-                    public void onSubscribe(Disposable d) {
-                        print("onSubscribe");
-                    }*/
-                    override fun onNext(bike: Bike) {
-                        print("onNext " + bike.name + " - " + bike.model)
-                    }
+            .subscribeWith(object : DisposableObserver<Bike?>() {
+                /*@Override
+                public void onSubscribe(Disposable d) {
+                    print("onSubscribe");
+                }*/
+                override fun onNext(bike: Bike) {
+                    print("onNext " + bike.name + " - " + bike.model)
+                }
 
-                    override fun onError(e: Throwable) {}
-                    override fun onComplete() {
-                        print("onComplete")
-                    }
-                })
-        //compositeDisposable.add(disposable);
+                override fun onError(e: Throwable) {}
+                override fun onComplete() {
+                    print("onComplete")
+                }
+            })
+        // compositeDisposable.add(disposable);
     }
 
-    //for test 5
+    // for test 5
     private fun searchBike(): Observable<String> {
         return Observable.just(BaseApplication.gson.toJson(bikeList))
     }
@@ -199,8 +200,8 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
     private fun test5() {
         textView.text = "test5\n"
 
-        //map
-        //ok
+        // map
+        // ok
         /*searchBike("Yamaha").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .map(new Function<String, List<Bike>>() {
                     @Override
@@ -229,29 +230,29 @@ class TestRxActivity : BaseFontActivity(), View.OnClickListener {
                     }
                 });*/
 
-        //flat map
+        // flat map
         searchBike()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .flatMap { s: String ->
-                    Observable.defer { Observable.just(parse(s)) }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .flatMap { s: String ->
+                Observable.defer { Observable.just(parse(s)) }
+            }
+            .flatMap { source: List<Bike>? ->
+                Observable.fromIterable(source)
+            }
+            .subscribe(object : Observer<Bike> {
+                override fun onSubscribe(d: Disposable) {
+                    print("onSubscribe")
                 }
-                .flatMap { source: List<Bike>? ->
-                    Observable.fromIterable(source)
+
+                override fun onNext(b: Bike) {
+                    print("onNext " + b.name)
                 }
-                .subscribe(object : Observer<Bike> {
-                    override fun onSubscribe(d: Disposable) {
-                        print("onSubscribe")
-                    }
 
-                    override fun onNext(b: Bike) {
-                        print("onNext " + b.name)
-                    }
-
-                    override fun onError(e: Throwable) {}
-                    override fun onComplete() {
-                        print("onComplete")
-                    }
-                })
-    } //for test 5
+                override fun onError(e: Throwable) {}
+                override fun onComplete() {
+                    print("onComplete")
+                }
+            })
+    } // for test 5
 }

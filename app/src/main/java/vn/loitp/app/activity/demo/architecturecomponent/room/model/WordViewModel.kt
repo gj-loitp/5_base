@@ -1,11 +1,9 @@
 package vn.loitp.app.activity.demo.architecturecomponent.room.model
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.core.base.BaseApplication
 import kotlinx.coroutines.launch
 import vn.loitp.app.activity.demo.architecturecomponent.room.db.WordRoomDatabase
 import vn.loitp.app.activity.demo.architecturecomponent.room.repository.WordRepository
@@ -28,7 +26,7 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun genFirstData() {
-        //Log.d(TAG, "genFirstData " + LApplication.gson.toJson(allWords.value))
+        // Log.d(TAG, "genFirstData " + LApplication.gson.toJson(allWords.value))
         if (listWord?.value.isNullOrEmpty()) {
             val word = Word()
             word.word = "Loitp (First data if list null)"
@@ -37,7 +35,6 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun insert(word: Word) = viewModelScope.launch {
-        Log.d(logTag, "insert " + BaseApplication.gson.toJson(word))
         repository.insert(word)
     }
 
@@ -54,7 +51,6 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun findWord(id: String) = viewModelScope.launch {
-        Log.d(logTag, "findWord id $id")
         wordFind = repository.findWord(id)
     }
 }

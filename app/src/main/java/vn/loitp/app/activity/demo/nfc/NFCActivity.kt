@@ -6,7 +6,7 @@ import android.content.Intent
 import android.nfc.NdefMessage
 import android.nfc.NfcAdapter
 import android.nfc.Tag
-import android.nfc.tech.*
+import android.nfc.tech.* // ktlint-disable no-wildcard-imports
 import android.os.Bundle
 import android.provider.Settings
 import com.annotation.IsFullScreen
@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.activity_demo_nfc.*
 import vn.loitp.app.R
 import java.io.UnsupportedEncodingException
 import java.nio.charset.Charset
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.experimental.and
 
 @LogTag("NFCActivity")
@@ -45,27 +45,29 @@ class NFCActivity : BaseFontActivity() {
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint("SetTextI18n", "UnspecifiedImmutableFlag")
     override fun onResume() {
         super.onResume()
 
         if (nfcAdapter?.isEnabled == false) {
             val dialog = LDialogUtil.showDialog1(
-                    context = this,
-                    title = "NFC is disabled",
-                    msg = "You must enable NFC to use this app.",
-                    button1 = "OK",
-                    onClickButton1 = {
-                        startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
-                        LActivityUtil.tranIn(this@NFCActivity)
-                    }
+                context = this,
+                title = "NFC is disabled",
+                msg = "You must enable NFC to use this app.",
+                button1 = "OK",
+                onClickButton1 = {
+                    startActivity(Intent(Settings.ACTION_NFC_SETTINGS))
+                    LActivityUtil.tranIn(this@NFCActivity)
+                }
             )
             dialog.setCancelable(false)
             return
         }
         if (pendingIntent == null) {
-            pendingIntent = PendingIntent.getActivity(this, 0,
-                    Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0)
+            pendingIntent = PendingIntent.getActivity(
+                this, 0,
+                Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0
+            )
             currentTagView.text = "Scan a tag"
         }
         nfcAdapter?.enableForegroundDispatch(this, pendingIntent, null, null)
@@ -94,7 +96,7 @@ class NFCActivity : BaseFontActivity() {
                 val msg = rawMsg[0] as NdefMessage
                 val cardRecord = msg.records[0]
                 tagData = try {
-                    readRecord(cardRecord.payload) ?: ""
+                    readRecord(cardRecord.payload)
                 } catch (e: UnsupportedEncodingException) {
                     e.printStackTrace()
                     return
@@ -121,11 +123,16 @@ class NFCActivity : BaseFontActivity() {
 
     @Throws(UnsupportedEncodingException::class)
     fun readRecord(payload: ByteArray): String {
-        //val textEncoding = if (payload[0] and 128 == 0) "UTF-8" else "UTF-16"
+        // val textEncoding = if (payload[0] and 128 == 0) "UTF-8" else "UTF-16"
         val textEncoding = if (payload[0] and 0x80.toByte() == 0.toByte()) "UTF-8" else "UTF-16"
 
         val languageCodeLength: Int = (payload[0] and 63).toInt()
-        return String(payload, languageCodeLength + 1, payload.size - languageCodeLength - 1, Charset.forName(textEncoding))
+        return String(
+            payload,
+            languageCodeLength + 1,
+            payload.size - languageCodeLength - 1,
+            Charset.forName(textEncoding)
+        )
     }
 
     private fun getTagInfo(tag: Tag, tech: String): List<String> {
@@ -163,7 +170,11 @@ class NFCActivity : BaseFontActivity() {
                         val id = if (record.id.isEmpty()) "null" else LNFCUtil.bytesToHex(record.id)
                         info.add("record[" + id + "].tnf: " + record.tnf)
                         info.add("record[" + id + "].type: " + LNFCUtil.bytesToHexAndString(record.type))
-                        info.add("record[" + id + "].payload: " + LNFCUtil.bytesToHexAndString(record.payload))
+                        info.add(
+                            "record[$id].payload: " + LNFCUtil.bytesToHexAndString(
+                                record.payload
+                            )
+                        )
                     }
                     info.add("messageSize: " + ndefMessage.byteArrayLength)
                 } catch (e: Exception) {

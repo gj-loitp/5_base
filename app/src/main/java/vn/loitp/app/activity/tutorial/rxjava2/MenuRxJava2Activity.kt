@@ -10,7 +10,7 @@ import com.core.utilities.LActivityUtil.Companion.tranIn
 import kotlinx.android.synthetic.main.activity_menu_rx_java2.*
 import vn.loitp.app.R
 
-//https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+// https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
 @LogTag("MenuRxJava2Activity")
 @IsFullScreen(false)
@@ -36,10 +36,14 @@ class MenuRxJava2Activity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btDisposableExampleActivity -> intent = Intent(this, DisposableExampleActivity::class.java)
+            btDisposableExampleActivity ->
+                intent =
+                    Intent(this, DisposableExampleActivity::class.java)
             btFlowableExampleActivity -> intent = Intent(this, FlowAbleExampleActivity::class.java)
             btIntervalExampleActivity -> intent = Intent(this, IntervalExampleActivity::class.java)
-            btSingleObserverExampleActivity -> intent = Intent(this, SingleObserverExampleActivity::class.java)
+            btSingleObserverExampleActivity ->
+                intent =
+                    Intent(this, SingleObserverExampleActivity::class.java)
             bt4 -> intent = Intent(this, CompletableObserverExampleActivity::class.java)
             btMapExampleActivity -> intent = Intent(this, MapExampleActivity::class.java)
             btAsyncTaskAndRx -> intent = Intent(this, AsyncTaskRxActivity::class.java)

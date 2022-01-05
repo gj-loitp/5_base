@@ -32,42 +32,73 @@ class SimpleFingerGesturesActivity : BaseFontActivity() {
         val simpleFingerGestures = SimpleFingerGestures()
         simpleFingerGestures.consumeTouchEvents = true
 
-        simpleFingerGestures.setOnFingerGestureListener(object : SimpleFingerGestures.OnFingerGestureListener {
-            override fun onSwipeUp(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean {
-                textView.text = "You swiped $fingers fingers  up $gestureDuration milliseconds $gestureDistance pixels far"
-                return false
-            }
+        simpleFingerGestures.setOnFingerGestureListener(object :
+                SimpleFingerGestures.OnFingerGestureListener {
+                override fun onSwipeUp(
+                    fingers: Int,
+                    gestureDuration: Long,
+                    gestureDistance: Double
+                ): Boolean {
+                    textView.text =
+                        "You swiped $fingers fingers  up $gestureDuration milliseconds $gestureDistance pixels far"
+                    return false
+                }
 
-            override fun onSwipeDown(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean {
-                textView.text = "You swiped $fingers fingers  down $gestureDuration milliseconds $gestureDistance pixels far"
-                return false
-            }
+                override fun onSwipeDown(
+                    fingers: Int,
+                    gestureDuration: Long,
+                    gestureDistance: Double
+                ): Boolean {
+                    textView.text =
+                        "You swiped $fingers fingers  down $gestureDuration milliseconds $gestureDistance pixels far"
+                    return false
+                }
 
-            override fun onSwipeLeft(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean {
-                textView.text = "You swiped $fingers fingers  left $gestureDuration milliseconds $gestureDistance pixels far"
-                return false
-            }
+                override fun onSwipeLeft(
+                    fingers: Int,
+                    gestureDuration: Long,
+                    gestureDistance: Double
+                ): Boolean {
+                    textView.text =
+                        "You swiped $fingers fingers  left $gestureDuration milliseconds $gestureDistance pixels far"
+                    return false
+                }
 
-            override fun onSwipeRight(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean {
-                textView.text = "You swiped $fingers fingers  right $gestureDuration milliseconds $gestureDistance pixels far"
-                return false
-            }
+                override fun onSwipeRight(
+                    fingers: Int,
+                    gestureDuration: Long,
+                    gestureDistance: Double
+                ): Boolean {
+                    textView.text =
+                        "You swiped $fingers fingers  right $gestureDuration milliseconds $gestureDistance pixels far"
+                    return false
+                }
 
-            override fun onPinch(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean {
-                textView.text = "You pinched $fingers fingers $gestureDuration milliseconds $gestureDistance pixels far"
-                return false
-            }
+                override fun onPinch(
+                    fingers: Int,
+                    gestureDuration: Long,
+                    gestureDistance: Double
+                ): Boolean {
+                    textView.text =
+                        "You pinched $fingers fingers $gestureDuration milliseconds $gestureDistance pixels far"
+                    return false
+                }
 
-            override fun onUnpinch(fingers: Int, gestureDuration: Long, gestureDistance: Double): Boolean {
-                textView.text = "You unpinched " + fingers + "fingers" + gestureDuration + " milliseconds " + gestureDistance + " pixels far"
-                return false
-            }
+                override fun onUnpinch(
+                    fingers: Int,
+                    gestureDuration: Long,
+                    gestureDistance: Double
+                ): Boolean {
+                    textView.text =
+                        "You unpinched " + fingers + "fingers" + gestureDuration + " milliseconds " + gestureDistance + " pixels far"
+                    return false
+                }
 
-            override fun onDoubleTap(fingers: Int): Boolean {
-                textView.text = "You double tapped"
-                return false
-            }
-        })
+                override fun onDoubleTap(fingers: Int): Boolean {
+                    textView.text = "You double tapped"
+                    return false
+                }
+            })
         iv.setOnTouchListener(simpleFingerGestures)
     }
 }

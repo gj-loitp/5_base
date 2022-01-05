@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.floatingwidget
 
+import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -22,6 +23,7 @@ class FloatingViewService : Service() {
         return null
     }
 
+    @SuppressLint("InflateParams")
     override fun onCreate() {
         super.onCreate()
 

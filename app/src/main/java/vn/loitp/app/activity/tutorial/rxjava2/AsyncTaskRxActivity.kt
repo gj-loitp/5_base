@@ -15,7 +15,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_asynctask_rx.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.tutorial.rxjava2.model.Bike
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("AsyncTaskRxActivity")
 @IsFullScreen(false)
@@ -132,23 +132,22 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
                 }
                 bikeList
             }
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(object : SingleObserver<List<Bike?>?> {
-                        override fun onSubscribe(d: Disposable) {
-                            textView.append("\nonSubscribe")
-                        }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : SingleObserver<List<Bike?>?> {
+                    override fun onSubscribe(d: Disposable) {
+                        textView.append("\nonSubscribe")
+                    }
 
-                        override fun onSuccess(bikes: List<Bike?>) {
-                            textView.append("\nonSuccess")
-                        }
+                    override fun onSuccess(bikes: List<Bike?>) {
+                        textView.append("\nonSuccess")
+                    }
 
-                        override fun onError(e: Throwable) {
-                            textView.append("\nonError: $e")
-                        }
-                    })
+                    override fun onError(e: Throwable) {
+                        textView.append("\nonError: $e")
+                    }
+                })
         }
-
     }
 
     @SuppressLint("SetTextI18n")
@@ -161,10 +160,11 @@ class AsyncTaskRxActivity : BaseFontActivity(), View.OnClickListener {
             logD("Home -> subscribeProgression $integer")
             textView.append("Home -> subscribeProgression $integer\n")
         }
-        val dis = testAsyncKotlin.apply({ aBoolean: Boolean ->
-            logD("Home -> 1 aBoolean: $aBoolean")
-            textView.append("Home -> 1 aBoolean: $aBoolean\n")
-        }, { throwable: Throwable ->
+        val dis = testAsyncKotlin.apply(
+            { aBoolean: Boolean ->
+                logD("Home -> 1 aBoolean: $aBoolean")
+                textView.append("Home -> 1 aBoolean: $aBoolean\n")
+            }, { throwable: Throwable ->
             logD("Home -> 2 throwable: $throwable")
             textView.append("Home -> 2 throwable: $throwable\n")
         }, {

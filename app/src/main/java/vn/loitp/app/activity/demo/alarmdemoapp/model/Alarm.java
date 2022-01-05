@@ -12,7 +12,6 @@ import java.util.Calendar;
 
 @Keep
 public class Alarm implements Comparable<Alarm> {
-    private final Context mContext;
     private long mId;
     private String mTitle;
     private long mDate;
@@ -28,7 +27,6 @@ public class Alarm implements Comparable<Alarm> {
     public static final int EVERY_DAY = 0x7f;
 
     public Alarm(Context context) {
-        mContext = context;
         mId = 0;
         mTitle = "";
         mDate = System.currentTimeMillis();

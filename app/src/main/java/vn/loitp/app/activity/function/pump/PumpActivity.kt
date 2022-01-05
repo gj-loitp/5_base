@@ -15,9 +15,6 @@ import vn.loitp.app.common.Constants
 @LogTag("PumpActivity")
 @IsFullScreen(false)
 class PumpActivity : BaseFontActivity() {
-    companion object {
-        private const val TAG = "groupA"
-    }
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_pump

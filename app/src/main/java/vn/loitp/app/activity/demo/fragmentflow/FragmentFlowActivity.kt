@@ -22,7 +22,7 @@ class FragmentFlowActivity : BaseFontActivity() {
 
     private fun getListener(): FragmentManager.OnBackStackChangedListener {
         return FragmentManager.OnBackStackChangedListener {
-            //print("OnBackStackChangedListener")
+            // print("OnBackStackChangedListener")
             supportFragmentManager.let {
                 val currFrag = it.findFragmentById(R.id.flContainer) as FrmFlowBase?
                 currFrag?.onFragmentResume()
@@ -62,19 +62,28 @@ class FragmentFlowActivity : BaseFontActivity() {
     }
 
     fun showFragment(baseFragment: BaseFragment) {
-        LScreenUtil.addFragment(this, R.id.flContainer, baseFragment, baseFragment.javaClass.simpleName, true)
+        LScreenUtil.addFragment(
+            this,
+            R.id.flContainer,
+            baseFragment,
+            baseFragment.javaClass.simpleName,
+            true
+        )
     }
 
     private fun clearAllFragments() {
-        val frmFlow0 = LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow0::class.java.simpleName)
+        val frmFlow0 =
+            LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow0::class.java.simpleName)
         frmFlow0?.let {
             (it as FrmFlowBase).popThisFragment()
         }
-        val frmFlow1 = LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow1::class.java.simpleName)
+        val frmFlow1 =
+            LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow1::class.java.simpleName)
         frmFlow1?.let {
             (it as FrmFlowBase).popThisFragment()
         }
-        val frmFlow2 = LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow2::class.java.simpleName)
+        val frmFlow2 =
+            LScreenUtil.findFragmentByTag(activity = this, tag = FrmFlow2::class.java.simpleName)
         frmFlow2?.let {
             (it as FrmFlowBase).popThisFragment()
         }

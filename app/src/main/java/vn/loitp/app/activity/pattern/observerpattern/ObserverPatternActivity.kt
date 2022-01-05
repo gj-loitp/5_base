@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_pattern_observer.*
 import vn.loitp.app.R
 
-//https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
+// https://viblo.asia/p/android-design-patterns-the-observer-pattern-WAyK8xqpKxX
 
 @LogTag("ObserverPatternActivity")
 @IsFullScreen(false)

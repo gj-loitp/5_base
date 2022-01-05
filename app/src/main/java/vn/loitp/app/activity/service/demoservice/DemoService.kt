@@ -34,10 +34,12 @@ class DemoService : Service() {
     }
 
     private fun run() {
-        disposables.add(getObservable()
+        disposables.add(
+            getObservable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(getObserver()))
+                .subscribeWith(getObserver())
+        )
     }
 
     private fun getObservable(): Observable<out Long> {

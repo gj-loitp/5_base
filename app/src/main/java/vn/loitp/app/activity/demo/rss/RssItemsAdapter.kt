@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.rss
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,11 +15,12 @@ import java.util.*
 
 @LogTag("RssItemsAdapter")
 class RssItemsAdapter(
-        private val onClick: ((RssItem) -> Unit)? = null
+    private val onClick: ((RssItem) -> Unit)? = null
 ) : BaseAdapter() {
 
     private val itemList = ArrayList<RssItem>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setItems(items: List<RssItem>) {
         itemList.clear()
         itemList.addAll(items)
@@ -26,7 +28,8 @@ class RssItemsAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RSSViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_rss_item, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_rss_item, parent, false)
         return RSSViewHolder(itemView)
     }
 
@@ -46,7 +49,11 @@ class RssItemsAdapter(
             itemView.tvTitle.text = rssItem.title
             itemView.tvPubDate.text = rssItem.publishDate
 
-            LImageUtil.load(context = itemView.ivThumb.context, any = rssItem.image, imageView = itemView.ivThumb)
+            LImageUtil.load(
+                context = itemView.ivThumb.context,
+                any = rssItem.image,
+                imageView = itemView.ivThumb
+            )
             itemView.cardView.setOnClickListener {
                 onClick?.invoke(rssItem)
             }

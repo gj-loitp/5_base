@@ -157,7 +157,7 @@ public class AlarmMeActivity extends BaseFontActivity {
         return true;
     }
 
-    private AdapterView.OnItemClickListener mListOnItemClickListener = new AdapterView.OnItemClickListener() {
+    private final AdapterView.OnItemClickListener mListOnItemClickListener = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Intent intent = new Intent(getBaseContext(), EditAlarmActivity.class);
             mCurrentAlarm = mAlarmListAdapter.getItem(position);

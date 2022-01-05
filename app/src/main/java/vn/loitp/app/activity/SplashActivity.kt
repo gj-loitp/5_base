@@ -130,15 +130,11 @@ class SplashActivity : BaseFontActivity() {
                 button2 = getString(R.string.cancel),
                 onClickButton1 = {
                     isShowDialogCheck = false
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                        val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
-                        intent.data = Uri.parse("package:$packageName")
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        startActivity(intent)
-                        LActivityUtil.tranIn(this@SplashActivity)
-                    } else {
-                        checkPermission()
-                    }
+                    val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
+                    intent.data = Uri.parse("package:$packageName")
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                    LActivityUtil.tranIn(this@SplashActivity)
                 },
                 onClickButton2 = {
                     onBackPressed()
@@ -259,11 +255,7 @@ class SplashActivity : BaseFontActivity() {
             onGGFailure = { _: Call, _: IOException ->
             },
             onGGResponse = { app: App?, isNeedToShowMsg: Boolean ->
-                logD(
-                    "getSettingFromGGDrive setting " + isNeedToShowMsg + " -> " + BaseApplication.gson.toJson(
-                        app
-                    )
-                )
+                logD("getSettingFromGGDrive setting $isNeedToShowMsg -> " + BaseApplication.gson.toJson(app))
             }
         )
     }

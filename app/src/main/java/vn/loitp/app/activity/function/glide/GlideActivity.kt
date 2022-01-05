@@ -31,9 +31,24 @@ class GlideActivity : BaseFontActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         when (v) {
-            bt0 -> LImageUtil.load(context = this, any = urlLow, imageView = imageView, drawableRequestListener = null)
-            bt1 -> LImageUtil.load(context = this, any = urlMedium, imageView = imageView, drawableRequestListener = null)
-            bt2 -> LImageUtil.load(context = this, any = urlHigh, imageView = imageView, drawableRequestListener = null)
+            bt0 -> LImageUtil.load(
+                context = this,
+                any = urlLow,
+                imageView = imageView,
+                drawableRequestListener = null
+            )
+            bt1 -> LImageUtil.load(
+                context = this,
+                any = urlMedium,
+                imageView = imageView,
+                drawableRequestListener = null
+            )
+            bt2 -> LImageUtil.load(
+                context = this,
+                any = urlHigh,
+                imageView = imageView,
+                drawableRequestListener = null
+            )
         }
     }
 }

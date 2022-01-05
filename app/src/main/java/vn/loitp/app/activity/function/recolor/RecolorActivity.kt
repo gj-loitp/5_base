@@ -8,7 +8,7 @@ import com.simmorsal.recolor_project.ReColor
 import kotlinx.android.synthetic.main.activity_fun_recolor.*
 import vn.loitp.app.R
 
-//https://github.com/SIMMORSAL/ReColor
+// https://github.com/SIMMORSAL/ReColor
 
 @LogTag("RecolorActivity")
 @IsFullScreen(false)
@@ -61,7 +61,7 @@ class RecolorActivity : BaseFontActivity() {
             }
         }
 
-        //changing the color on the text view
+        // changing the color on the text view
         textView.setOnClickListener {
             when (textViewColorSetNumber) {
                 0 -> {
