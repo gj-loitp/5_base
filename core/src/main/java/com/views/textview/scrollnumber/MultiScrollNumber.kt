@@ -14,13 +14,13 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IntRange
 import com.R
 import com.core.utilities.LAppResource.getColor
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-//guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973
+// guide https://github.com/a-voyager/ScrollNumber?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=3973
 class MultiScrollNumber @JvmOverloads constructor(
-        private val mContext: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    private val mContext: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : LinearLayout(mContext, attrs, defStyleAttr) {
 
     private val mTargetNumbers: MutableList<Int> = ArrayList()
@@ -58,7 +58,10 @@ class MultiScrollNumber @JvmOverloads constructor(
                 mScrollNumbers.add(scrollNumber)
                 addView(scrollNumber)
             } else {
-                val params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                val params = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
                 val point = TextView(mContext)
                 point.text = " . "
                 point.gravity = Gravity.BOTTOM
@@ -170,13 +173,17 @@ class MultiScrollNumber @JvmOverloads constructor(
     }
 
     private fun dp2px(dpVal: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, resources.displayMetrics).toInt()
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dpVal, resources.displayMetrics
+        ).toInt()
     }
 
     private fun sp2px(dpVal: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                dpVal, resources.displayMetrics).toInt()
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_SP,
+            dpVal, resources.displayMetrics
+        ).toInt()
     }
 
     init {

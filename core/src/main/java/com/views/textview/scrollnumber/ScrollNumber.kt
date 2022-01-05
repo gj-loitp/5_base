@@ -15,9 +15,9 @@ import androidx.annotation.IntRange
 import kotlin.math.min
 
 internal class ScrollNumber @JvmOverloads constructor(
-        private val mContext: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    private val mContext: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : View(mContext, attrs, defStyleAttr) {
 
     companion object {
@@ -189,7 +189,12 @@ internal class ScrollNumber @JvmOverloads constructor(
 
     private fun drawSelf(canvas: Canvas) {
         val y = measuredHeight / 2
-        canvas.drawText(mCurNum.toString() + "", mTextCenterX, (y + mTextHeight / 2).toFloat(), mPaint)
+        canvas.drawText(
+            mCurNum.toString() + "",
+            mTextCenterX,
+            (y + mTextHeight / 2).toFloat(),
+            mPaint
+        )
     }
 
     fun setTargetNumber(nextNum: Int) {
@@ -198,13 +203,17 @@ internal class ScrollNumber @JvmOverloads constructor(
     }
 
     private fun dp2px(dpVal: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                dpVal, resources.displayMetrics).toInt()
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dpVal, resources.displayMetrics
+        ).toInt()
     }
 
     private fun sp2px(dpVal: Float): Int {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                dpVal, resources.displayMetrics).toInt()
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_SP,
+            dpVal, resources.displayMetrics
+        ).toInt()
     }
 
     init {

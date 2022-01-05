@@ -1,6 +1,5 @@
 package com.views.textview.extra
 
-
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -12,6 +11,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.R
+import kotlin.math.roundToInt
 
 open class LExtraTextView : AppCompatTextView {
     private var drawableResourceId = 0
@@ -40,7 +40,11 @@ open class LExtraTextView : AppCompatTextView {
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(context, attrs, defStyleAttr)
     }
 
@@ -49,19 +53,37 @@ open class LExtraTextView : AppCompatTextView {
             return
         }
 
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LExtraTextView, defStyleAttr, 0)
+        val typedArray =
+            context.obtainStyledAttributes(attrs, R.styleable.LExtraTextView, defStyleAttr, 0)
 
-        drawableResourceId = typedArray.getResourceId(R.styleable.LExtraTextView_ext_txt_drawable, 0)
-        drawableWidth = typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_drawableWidth, 0)
-        drawableHeight = typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_drawableHeight, 0)
-        drawablePosition = DrawablePosition.values()[typedArray.getInt(R.styleable.LExtraTextView_ext_txt_drawablePosition, DrawablePosition.LEFT.ordinal)]
-        drawableTint = typedArray.getColor(R.styleable.LExtraTextView_ext_txt_drawableTint, Color.TRANSPARENT)
+        drawableResourceId =
+            typedArray.getResourceId(R.styleable.LExtraTextView_ext_txt_drawable, 0)
+        drawableWidth =
+            typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_drawableWidth, 0)
+        drawableHeight =
+            typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_drawableHeight, 0)
+        drawablePosition = DrawablePosition.values()[
+            typedArray.getInt(
+                R.styleable.LExtraTextView_ext_txt_drawablePosition,
+                DrawablePosition.LEFT.ordinal
+            )
+        ]
+        drawableTint =
+            typedArray.getColor(R.styleable.LExtraTextView_ext_txt_drawableTint, Color.TRANSPARENT)
         isDrawableFit = typedArray.getBoolean(R.styleable.LExtraTextView_ext_txt_drawableFit, false)
 
-        roundedCornerRadius = typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_cornerRadius, 0)
-        roundedCornerBorderSize = typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_cornerBorderSize, 0)
-        roundedCornerBorderColor = typedArray.getColor(R.styleable.LExtraTextView_ext_txt_cornerBorderColor, Color.TRANSPARENT)
-        roundedCornerBackgroundColor = typedArray.getColor(R.styleable.LExtraTextView_ext_txt_cornerBackgroundColor, Color.TRANSPARENT)
+        roundedCornerRadius =
+            typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_cornerRadius, 0)
+        roundedCornerBorderSize =
+            typedArray.getDimensionPixelSize(R.styleable.LExtraTextView_ext_txt_cornerBorderSize, 0)
+        roundedCornerBorderColor = typedArray.getColor(
+            R.styleable.LExtraTextView_ext_txt_cornerBorderColor,
+            Color.TRANSPARENT
+        )
+        roundedCornerBackgroundColor = typedArray.getColor(
+            R.styleable.LExtraTextView_ext_txt_cornerBackgroundColor,
+            Color.TRANSPARENT
+        )
 
         typedArray.recycle()
     }
@@ -107,7 +129,7 @@ open class LExtraTextView : AppCompatTextView {
         var fitPadding: Int? = null
         if (isDrawableFit) {
             val textWidth = paint.measureText(text.toString())
-            fitPadding = Math.round((width - textWidth) / 2)
+            fitPadding = ((width - textWidth) / 2).roundToInt()
             compoundDrawablePadding = -fitPadding + getDrawableWidth()
         }
 
@@ -119,7 +141,6 @@ open class LExtraTextView : AppCompatTextView {
             else -> {
             }
         }
-
     }
 
     private fun getDrawableWidth(): Int {
@@ -135,7 +156,7 @@ open class LExtraTextView : AppCompatTextView {
         super.onDraw(canvas)
     }
 
-    protected fun needDrawRoundCorner(): Boolean {
+    private fun needDrawRoundCorner(): Boolean {
         return roundedCornerRadius > 0 && (roundedCornerBackgroundColor != Color.TRANSPARENT || roundedCornerBorderColor != Color.TRANSPARENT)
     }
 
@@ -144,13 +165,23 @@ open class LExtraTextView : AppCompatTextView {
         roundedCornerBorderPaint.reset()
         roundedCornerRect.setEmpty()
 
-        roundedCornerRect.set(roundedCornerBorderSize.toFloat(), roundedCornerBorderSize.toFloat(), (measuredWidth - roundedCornerBorderSize).toFloat(), (measuredHeight - roundedCornerBorderSize).toFloat())
+        roundedCornerRect.set(
+            roundedCornerBorderSize.toFloat(),
+            roundedCornerBorderSize.toFloat(),
+            (measuredWidth - roundedCornerBorderSize).toFloat(),
+            (measuredHeight - roundedCornerBorderSize).toFloat()
+        )
 
         if (roundedCornerBackgroundColor != Color.TRANSPARENT) {
             roundedCornerBackgroundPaint.isAntiAlias = true
             roundedCornerBackgroundPaint.color = roundedCornerBackgroundColor
             roundedCornerBackgroundPaint.style = Paint.Style.FILL
-            canvas.drawRoundRect(roundedCornerRect, roundedCornerRadius.toFloat(), roundedCornerRadius.toFloat(), roundedCornerBackgroundPaint)
+            canvas.drawRoundRect(
+                roundedCornerRect,
+                roundedCornerRadius.toFloat(),
+                roundedCornerRadius.toFloat(),
+                roundedCornerBackgroundPaint
+            )
         }
 
         if (roundedCornerBorderColor != Color.TRANSPARENT) {
@@ -158,7 +189,12 @@ open class LExtraTextView : AppCompatTextView {
             roundedCornerBorderPaint.color = roundedCornerBorderColor
             roundedCornerBorderPaint.strokeWidth = roundedCornerBorderSize.toFloat()
             roundedCornerBorderPaint.style = Paint.Style.STROKE
-            canvas.drawRoundRect(roundedCornerRect, roundedCornerRadius.toFloat(), roundedCornerRadius.toFloat(), roundedCornerBorderPaint)
+            canvas.drawRoundRect(
+                roundedCornerRect,
+                roundedCornerRadius.toFloat(),
+                roundedCornerRadius.toFloat(),
+                roundedCornerBorderPaint
+            )
         }
     }
 

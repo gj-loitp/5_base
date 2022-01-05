@@ -42,5 +42,4 @@ class DepthPageTransformer : BaseTransformer() {
     companion object {
         private const val MIN_SCALE = 0.75f
     }
-
 }

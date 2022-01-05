@@ -16,7 +16,7 @@ class VerticalPageTransformer : ViewPager.PageTransformer {
             position <= 0 -> { // [-1,0]
                 // Use the default slide transition when moving to the left page
                 view.alpha = 1f
-                //view.setTranslationX(1);
+                // view.setTranslationX(1);
                 view.scaleX = 1f
                 view.scaleY = 1f
                 val yPosition = position * view.height

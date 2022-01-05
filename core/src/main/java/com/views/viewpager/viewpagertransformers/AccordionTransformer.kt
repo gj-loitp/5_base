@@ -24,5 +24,4 @@ class AccordionTransformer : BaseTransformer() {
         view.pivotX = (if (position < 0) 0 else view.width).toFloat()
         view.scaleX = if (position < 0) 1f + position else 1f - position
     }
-
 }

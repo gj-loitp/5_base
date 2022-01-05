@@ -10,7 +10,6 @@ import com.R
 class LAutoViewPager : ViewPager {
 
     companion object {
-        private val TAG = LAutoViewPager::class.java.simpleName
         private const val DEFAULT_DURATION = 1000
     }
 
@@ -116,5 +115,4 @@ class LAutoViewPager : ViewPager {
 
         return false
     }
-
 }

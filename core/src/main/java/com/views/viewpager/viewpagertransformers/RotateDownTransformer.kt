@@ -36,5 +36,4 @@ class RotateDownTransformer : BaseTransformer() {
     companion object {
         private const val ROT_MOD = -15f
     }
-
 }

@@ -2,10 +2,6 @@ package com.views.textview.selectable
 
 import android.content.Context
 
-/**
- * Created by www.muathu@gmail.com on 12/25/2017.
- */
-
 object CommonUtil {
     @JvmStatic
 

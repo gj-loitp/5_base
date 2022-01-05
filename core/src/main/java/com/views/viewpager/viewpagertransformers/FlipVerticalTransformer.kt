@@ -28,5 +28,4 @@ class FlipVerticalTransformer : BaseTransformer() {
         view.pivotY = view.height * 0.5f
         view.rotationX = rotation
     }
-
 }

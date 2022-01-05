@@ -16,7 +16,10 @@ object LWWLMusicUiUtil {
 
     @JvmStatic
     fun getGridColumnCount(res: Resources): Int {
-        return min(getGridColumnContentWidth(res) / res.getDimensionPixelSize(R.dimen.column_min_size), 5)
+        return min(
+            getGridColumnContentWidth(res) / res.getDimensionPixelSize(R.dimen.column_min_size),
+            5
+        )
     }
 
     private fun getGridColumnContentWidth(res: Resources): Int {
@@ -47,7 +50,8 @@ object LWWLMusicUiUtil {
         if (Build.VERSION.SDK_INT >= 21) {
             val color = ContextCompat.getColor(activity, R.color.colorPrimaryDark)
             val color2 = Color.BLACK
-            val color3 = LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
+            val color3 =
+                LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
             activity.window.statusBarColor = color3
         }
     }

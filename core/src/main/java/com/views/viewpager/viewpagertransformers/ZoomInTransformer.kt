@@ -29,5 +29,4 @@ class ZoomInTransformer : BaseTransformer() {
         view.pivotY = view.height * 0.5f
         view.alpha = if (position < -1f || position > 1f) 0f else 1f - (scale - 1f)
     }
-
 }

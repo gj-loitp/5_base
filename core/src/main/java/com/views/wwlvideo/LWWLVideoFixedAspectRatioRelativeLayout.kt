@@ -15,12 +15,13 @@ class LWWLVideoFixedAspectRatioRelativeLayout : RelativeLayout {
 
     @SuppressLint("CustomViewStyleable")
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioRelativeLayout)
+        val typedArray =
+            context.obtainStyledAttributes(attrs, R.styleable.FixedAspectRatioRelativeLayout)
         mAspectRatio = typedArray.getFraction(
-                R.styleable.FixedAspectRatioRelativeLayout_aspectRatioRelativeLayout,
-                1,
-                1,
-                1.0f
+            R.styleable.FixedAspectRatioRelativeLayout_aspectRatioRelativeLayout,
+            1,
+            1,
+            1.0f
         )
         typedArray.recycle()
     }
@@ -29,18 +30,20 @@ class LWWLVideoFixedAspectRatioRelativeLayout : RelativeLayout {
         when (MeasureSpec.EXACTLY) {
             MeasureSpec.getMode(widthMeasureSpec) -> {
                 super.onMeasure(
-                        widthMeasureSpec,
-                        MeasureSpec.makeMeasureSpec(
-                                (MeasureSpec.getSize(widthMeasureSpec).toFloat() / mAspectRatio).toInt(),
-                                MeasureSpec.EXACTLY)
+                    widthMeasureSpec,
+                    MeasureSpec.makeMeasureSpec(
+                        (MeasureSpec.getSize(widthMeasureSpec).toFloat() / mAspectRatio).toInt(),
+                        MeasureSpec.EXACTLY
+                    )
                 )
             }
             MeasureSpec.getMode(heightMeasureSpec) -> {
                 super.onMeasure(
-                        MeasureSpec.makeMeasureSpec(
-                                (MeasureSpec.getSize(heightMeasureSpec).toFloat() * mAspectRatio).toInt(),
-                                MeasureSpec.EXACTLY),
-                        heightMeasureSpec
+                    MeasureSpec.makeMeasureSpec(
+                        (MeasureSpec.getSize(heightMeasureSpec).toFloat() * mAspectRatio).toInt(),
+                        MeasureSpec.EXACTLY
+                    ),
+                    heightMeasureSpec
                 )
             }
             else -> {

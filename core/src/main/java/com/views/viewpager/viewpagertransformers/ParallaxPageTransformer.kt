@@ -11,11 +11,11 @@ class ParallaxPageTransformer(private val viewToParallax: Int) : BaseTransformer
                 // This page is way off-screen to the left.
                 view.alpha = 1f
             position <= 1 -> // [-1,1]
-                view.findViewById<View>(viewToParallax).translationX = -position * (pageWidth / 2) //Half the normal speed
+                view.findViewById<View>(viewToParallax).translationX =
+                    -position * (pageWidth / 2) // Half the normal speed
             else -> // (1,+Infinity]
                 // This page is way off-screen to the right.
                 view.alpha = 1f
         }
     }
-
 }

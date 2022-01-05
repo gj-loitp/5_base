@@ -28,5 +28,4 @@ class CubeOutTransformer : BaseTransformer() {
         view.pivotY = view.height * 0.5f
         view.rotationY = 90f * position
     }
-
 }

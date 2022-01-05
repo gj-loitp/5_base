@@ -4,8 +4,6 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.os.Build
-import android.text.Layout
 import android.text.StaticLayout
 import android.text.TextPaint
 import android.util.AttributeSet
@@ -21,7 +19,11 @@ class LStrokedTextView : AppCompatTextView {
         getStyledAttributes(attr)
     }
 
-    constructor(ctx: Context, attr: AttributeSet?, defStyleAttr: Int) : super(ctx, attr, defStyleAttr) {
+    constructor(ctx: Context, attr: AttributeSet?, defStyleAttr: Int) : super(
+        ctx,
+        attr,
+        defStyleAttr
+    ) {
         getStyledAttributes(attr)
     }
     //endregion
@@ -50,7 +52,8 @@ class LStrokedTextView : AppCompatTextView {
 
     private fun getStyledAttributes(attr: AttributeSet?) {
         context.obtainStyledAttributes(attr, R.styleable.LStrokedTextView).apply {
-            strokeWidth = getDimensionPixelSize(R.styleable.LStrokedTextView_strokeThickness, 4).toFloat()
+            strokeWidth =
+                getDimensionPixelSize(R.styleable.LStrokedTextView_strokeThickness, 4).toFloat()
             strokeColor = getColor(R.styleable.LStrokedTextView_strokeColor, Color.RED)
             recycle()
         }
@@ -58,7 +61,12 @@ class LStrokedTextView : AppCompatTextView {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         // Just grabbing the width for static layout
-        setPadding(paddingStart + strokeWidth.toInt() / 2, paddingTop, paddingRight + strokeWidth.toInt() / 2, paddingBottom)
+        setPadding(
+            paddingStart + strokeWidth.toInt() / 2,
+            paddingTop,
+            paddingRight + strokeWidth.toInt() / 2,
+            paddingBottom
+        )
         calcWidth = (MeasureSpec.getSize(widthMeasureSpec) - paddingStart)
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
@@ -84,22 +92,11 @@ class LStrokedTextView : AppCompatTextView {
     }
 
     private fun reinitialzieStaticLayout() {
-        staticLayout = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        staticLayout =
             StaticLayout.Builder
-                    .obtain(text, 0, text.length, staticLayoutPaint, calcWidth)
-                    .setLineSpacing(lineSpacingExtra, lineSpacingMultiplier)
-                    .build()
-        } else {
-            StaticLayout(
-                    text,
-                    staticLayoutPaint,
-                    calcWidth,
-                    Layout.Alignment.ALIGN_NORMAL,
-                    lineSpacingMultiplier,
-                    lineSpacingExtra,
-                    true
-            )
-        }
+                .obtain(text, 0, text.length, staticLayoutPaint, calcWidth)
+                .setLineSpacing(lineSpacingExtra, lineSpacingMultiplier)
+                .build()
     }
 
     private fun Paint.configureForFill() {

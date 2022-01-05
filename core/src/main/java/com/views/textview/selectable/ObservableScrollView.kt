@@ -17,7 +17,11 @@ class ObservableScrollView : ScrollView {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -28,7 +32,13 @@ class ObservableScrollView : ScrollView {
     fun init() {
         mOnScrollChangedListeners = ArrayList(2)
         customTextView = CustomTextView(context)
-        this.addView(customTextView, LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT))
+        this.addView(
+            customTextView,
+            LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
+        )
     }
 
     fun setText(text: String?) {

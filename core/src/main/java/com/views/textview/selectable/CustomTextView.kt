@@ -42,7 +42,11 @@ class CustomTextView : AppCompatTextView {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -62,11 +66,17 @@ class CustomTextView : AppCompatTextView {
         // will move the cursors along with the selection.
         if (parent is ObservableScrollView) {
             (parent as ObservableScrollView).addOnScrollChangedListener(
-                    object : OnScrollChangedListener {
-                        override fun onScrollChanged(scrollView: ObservableScrollView?, x: Int, y: Int, oldx: Int, oldy: Int) {
-                            mSelectionController?.snapToSelection()
-                        }
-                    })
+                object : OnScrollChangedListener {
+                    override fun onScrollChanged(
+                        scrollView: ObservableScrollView?,
+                        x: Int,
+                        y: Int,
+                        oldx: Int,
+                        oldy: Int
+                    ) {
+                        mSelectionController?.snapToSelection()
+                    }
+                })
         }
     }
 
@@ -84,10 +94,10 @@ class CustomTextView : AppCompatTextView {
             return
         }
         cursorSelection = CustomInfo(
-                text = text,
-                span = BackgroundColorSpan(color),
-                start = start,
-                end = end
+            text = text,
+            span = BackgroundColorSpan(color),
+            start = start,
+            end = end
         )
         cursorSelection?.select()
         removeSelection(duration)
@@ -95,18 +105,18 @@ class CustomTextView : AppCompatTextView {
 
     fun setSelection(start: Int, length: Int, duration: Int) {
         setSelection(
-                color = mDefaultSelectionColor,
-                start = start,
-                length = length,
-                duration = duration
+            color = mDefaultSelectionColor,
+            start = start,
+            length = length,
+            duration = duration
         )
     }
 
     fun setSelection(start: Int, length: Int) {
         setSelection(
-                start = start,
-                length = length,
-                duration = -1
+            start = start,
+            length = length,
+            duration = -1
         )
     }
 
@@ -119,8 +129,8 @@ class CustomTextView : AppCompatTextView {
 
     fun removeSelection(delay: Int) {
         removeSelection(
-                selection = cursorSelection,
-                delay = delay
+            selection = cursorSelection,
+            delay = delay
         )
     }
 
@@ -218,7 +228,7 @@ class CustomTextView : AppCompatTextView {
         x += scrollXInternal
         var line = getLayout().getLineForVertical(y)
 
-        ////////////////////HACK BLOCK////////////////////////////////////////////////////
+        // //////////////////HACK BLOCK////////////////////////////////////////////////////
         if (isEndOfLineOffset(previousOffset)) {
             // we have to minus one from the offset so that the code below to find
             // the previous line can work correctly.
@@ -229,17 +239,18 @@ class CustomTextView : AppCompatTextView {
                 previousOffset -= 1
             }
         }
-        ///////////////////////////////////////////////////////////////////////////////////
+        // /////////////////////////////////////////////////////////////////////////////////
         val previousLine = layout.getLineForOffset(previousOffset)
         val previousLineTop = layout.getLineTop(previousLine)
         val previousLineBottom = layout.getLineBottom(previousLine)
         val hysteresisThreshold = (previousLineBottom - previousLineTop) / 2
         if (line == previousLine + 1 && y - previousLineBottom < hysteresisThreshold ||
-                (line == previousLine - 1) && previousLineTop - y < hysteresisThreshold) {
+            (line == previousLine - 1) && previousLineTop - y < hysteresisThreshold
+        ) {
             line = previousLine
         }
         var offset = layout.getOffsetForHorizontal(line, x.toFloat())
-        /////////////////////HACK BLOCK///////////////////////////////////////////////////
+        // ///////////////////HACK BLOCK///////////////////////////////////////////////////
         if (offset < text.length - 1) {
             if (isEndOfLineOffset(offset + 1)) {
                 val left = layout.getPrimaryHorizontal(offset).toInt()
@@ -251,7 +262,7 @@ class CustomTextView : AppCompatTextView {
             }
         }
 
-        //////////////////////////////////////////////////////////////////////////////////
+        // ////////////////////////////////////////////////////////////////////////////////
         val str = text.toString()
         if (offset > 1 && offset < str.length) {
             for (i in offset downTo 0) {
@@ -268,7 +279,7 @@ class CustomTextView : AppCompatTextView {
         }
         val test = str.split(" ".toRegex()).toTypedArray()
         if (test.size == 1) {
-            //offset =
+            // offset =
             offset = if (offset == 0) {
                 0
             } else {
@@ -369,9 +380,19 @@ class CustomTextView : AppCompatTextView {
                         val coords = mTempCoords
                         val scrollY = scrollYInternal
                         val scrollX = scrollXInternal
-                        getAdjusteStartXY(offset = start, scrollX = scrollX, scrollY = scrollY, coords = coords)
+                        getAdjusteStartXY(
+                            offset = start,
+                            scrollX = scrollX,
+                            scrollY = scrollY,
+                            coords = coords
+                        )
                         startHandle.pointTo(x = coords[0], y = coords[1])
-                        getAdjustedEndXY(offset = end, scrollX = scrollX, scrollY = scrollY, coords = coords)
+                        getAdjustedEndXY(
+                            offset = end,
+                            scrollX = scrollX,
+                            scrollY = scrollY,
+                            coords = coords
+                        )
                         endHandle.pointTo(x = coords[0], y = coords[1])
                         mOnCursorStateChangedListener?.onDragEnds(coords[0], coords[1])
                     }
@@ -407,7 +428,8 @@ class CustomTextView : AppCompatTextView {
             if (!isShowing) {
                 return
             }
-            val previousOffset = if (cursorHandle === mStartHandle) cursorSelection?.start else cursorSelection?.end
+            val previousOffset =
+                if (cursorHandle === mStartHandle) cursorSelection?.start else cursorSelection?.end
             val offset = getHysteresisOffset(x, y, previousOffset ?: 0)
             if (offset != previousOffset) {
                 if (cursorHandle === mStartHandle) {
@@ -419,7 +441,13 @@ class CustomTextView : AppCompatTextView {
             }
 
             cursorHandle.pointTo(x = x, y = y)
-            mOnCursorStateChangedListener?.onPositionChanged(v = this@CustomTextView, x = x, y = y, oldx = oldx, oldy = oldy)
+            mOnCursorStateChangedListener?.onPositionChanged(
+                v = this@CustomTextView,
+                x = x,
+                y = y,
+                oldx = oldx,
+                oldy = oldy
+            )
         }
 
         private fun select(start: Int, end: Int) {
@@ -431,11 +459,10 @@ class CustomTextView : AppCompatTextView {
                 hide()
             }
         }
-
     }
 
     private inner class CursorHandle(
-            private val mController: SelectionCursorController
+        private val mController: SelectionCursorController
     ) : View(this@CustomTextView.context) {
         private val mContainer: PopupWindow = PopupWindow(this)
         private val mDrawable: Drawable? = LAppResource.getDrawable(R.drawable.l_cursor)
@@ -477,7 +504,13 @@ class CustomTextView : AppCompatTextView {
                 MotionEvent.ACTION_MOVE -> {
                     val x = mAdjustX + rawX
                     val y = mAdjustY + rawY
-                    mController.updatePosition(cursorHandle = this, x = x, y = y, oldx = mOldX, oldy = mOldY)
+                    mController.updatePosition(
+                        cursorHandle = this,
+                        x = x,
+                        y = y,
+                        oldx = mOldX,
+                        oldy = mOldY
+                    )
                     mOldX = x
                     mOldY = y
                 }
@@ -534,5 +567,4 @@ class CustomTextView : AppCompatTextView {
         fun onPositionChanged(v: View?, x: Int, y: Int, oldx: Int, oldy: Int)
         fun onDragEnds(endHandleX: Int, endHandleY: Int)
     }
-
 }
