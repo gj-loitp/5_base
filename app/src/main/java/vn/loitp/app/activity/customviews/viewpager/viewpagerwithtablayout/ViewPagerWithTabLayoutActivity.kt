@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_viewpager_with_tablayout.*
 import vn.loitp.app.R
 import java.util.*
 
-//https://github.com/geftimov/android-viewpager-transformers
+// https://github.com/geftimov/android-viewpager-transformers
 @LogTag("ViewPagerWithTabLayoutActivity")
 @IsFullScreen(false)
 class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
@@ -77,7 +77,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         stringList.add(FlipHorizontalTransformer)
         stringList.add(FlipVerticalTransformer)
         stringList.add(ForegroundToBackgroundTransformer)
-        //stringList.add(ParallaxPageTransformer);
+        // stringList.add(ParallaxPageTransformer);
         stringList.add(RotateDownTransformer)
         stringList.add(RotateUpTransformer)
         stringList.add(StackTransformer)
@@ -88,31 +88,58 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         val arr = stringList.toTypedArray()
 
         LDialogUtil.showDialogList(
-                context = this,
-                title = "Select",
-                arr = arr,
-                onClick = { position ->
-                    showShortInformation("Click position " + position + ", item: " + arr[position])
-                    when (stringList[position]) {
-                        AccordionTransformer -> viewPager.setPageTransformer(true, AccordionTransformer())
-                        BackgroundToForegroundTransformer -> viewPager.setPageTransformer(true, BackgroundToForegroundTransformer())
-                        CubeInTransformer -> viewPager.setPageTransformer(true, CubeInTransformer())
-                        CubeOutTransformer -> viewPager.setPageTransformer(true, CubeOutTransformer())
-                        DefaultTransformer -> viewPager.setPageTransformer(true, DefaultTransformer())
-                        DepthPageTransformer -> viewPager.setPageTransformer(true, DepthPageTransformer())
-                        DrawFromBackTransformer -> viewPager.setPageTransformer(true, DrawFromBackTransformer())
-                        FlipHorizontalTransformer -> viewPager.setPageTransformer(true, FlipHorizontalTransformer())
-                        FlipVerticalTransformer -> viewPager.setPageTransformer(true, FlipVerticalTransformer())
-                        ForegroundToBackgroundTransformer -> viewPager.setPageTransformer(true, ForegroundToBackgroundTransformer())
-                        RotateDownTransformer -> viewPager.setPageTransformer(true, RotateDownTransformer())
-                        RotateUpTransformer -> viewPager.setPageTransformer(true, RotateUpTransformer())
-                        StackTransformer -> viewPager.setPageTransformer(true, StackTransformer())
-                        TabletTransformer -> viewPager.setPageTransformer(true, TabletTransformer())
-                        ZoomInTransformer -> viewPager.setPageTransformer(true, ZoomInTransformer())
-                        ZoomOutSlideTransformer -> viewPager.setPageTransformer(true, ZoomOutSlideTransformer())
-                        ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTranformer())
-                    }
+            context = this,
+            title = "Select",
+            arr = arr,
+            onClick = { position ->
+                showShortInformation("Click position " + position + ", item: " + arr[position])
+                when (stringList[position]) {
+                    AccordionTransformer -> viewPager.setPageTransformer(
+                        true,
+                        AccordionTransformer()
+                    )
+                    BackgroundToForegroundTransformer -> viewPager.setPageTransformer(
+                        true,
+                        BackgroundToForegroundTransformer()
+                    )
+                    CubeInTransformer -> viewPager.setPageTransformer(true, CubeInTransformer())
+                    CubeOutTransformer -> viewPager.setPageTransformer(true, CubeOutTransformer())
+                    DefaultTransformer -> viewPager.setPageTransformer(true, DefaultTransformer())
+                    DepthPageTransformer -> viewPager.setPageTransformer(
+                        true,
+                        DepthPageTransformer()
+                    )
+                    DrawFromBackTransformer -> viewPager.setPageTransformer(
+                        true,
+                        DrawFromBackTransformer()
+                    )
+                    FlipHorizontalTransformer -> viewPager.setPageTransformer(
+                        true,
+                        FlipHorizontalTransformer()
+                    )
+                    FlipVerticalTransformer -> viewPager.setPageTransformer(
+                        true,
+                        FlipVerticalTransformer()
+                    )
+                    ForegroundToBackgroundTransformer -> viewPager.setPageTransformer(
+                        true,
+                        ForegroundToBackgroundTransformer()
+                    )
+                    RotateDownTransformer -> viewPager.setPageTransformer(
+                        true,
+                        RotateDownTransformer()
+                    )
+                    RotateUpTransformer -> viewPager.setPageTransformer(true, RotateUpTransformer())
+                    StackTransformer -> viewPager.setPageTransformer(true, StackTransformer())
+                    TabletTransformer -> viewPager.setPageTransformer(true, TabletTransformer())
+                    ZoomInTransformer -> viewPager.setPageTransformer(true, ZoomInTransformer())
+                    ZoomOutSlideTransformer -> viewPager.setPageTransformer(
+                        true,
+                        ZoomOutSlideTransformer()
+                    )
+                    ZoomOutTranformer -> viewPager.setPageTransformer(true, ZoomOutTranformer())
                 }
+            }
         )
     }
 
@@ -121,7 +148,8 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
         override fun instantiateItem(collection: ViewGroup, position: Int): Any {
 //            val res = resList[position]
             val inflater = LayoutInflater.from(this@ViewPagerWithTabLayoutActivity)
-            val layout = inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
+            val layout =
+                inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
             if (position % 2 == 0) {
                 imageView.setImageResource(R.drawable.iv)
@@ -148,7 +176,7 @@ class ViewPagerWithTabLayoutActivity : BaseFontActivity() {
             return view === `object`
         }
 
-        override fun getPageTitle(position: Int): CharSequence? {
+        override fun getPageTitle(position: Int): CharSequence {
             return "Page Title $position"
         }
     }

@@ -2,7 +2,6 @@ package vn.loitp.app.activity.database.room
 
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.IsFullScreen
@@ -75,116 +74,152 @@ class RoomActivity : BaseFontActivity() {
     private fun setupViewModels() {
         homeViewModel = getViewModel(HomeViewModel::class.java)
         homeViewModel?.let { hvm ->
-            hvm.saveFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                actionData.isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
+            hvm.saveFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    actionData.isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
                     }
-                }
-                actionData.data?.let {
-                    logD("floorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
-                    handleGetList()
-                }
-            })
-
-            hvm.getFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                actionData.isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
-                    }
-                }
-                actionData.data?.let {
-                    logD("getFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
-                    floorPlanAdapter?.setListFloorPlan(it)
-                }
-            })
-
-            hvm.getByIndexFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                actionData.isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
-                    }
-                }
-                actionData.data?.let {
-                    logD("getByIndexFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
-                    showShortInformation("getByIndexFloorPlanActionLiveData:\n" + BaseApplication.gson.toJson(it))
-                }
-            })
-
-            hvm.deleteFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                actionData.isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
-                    }
-                }
-                actionData.data?.let {
-                    handleGetList()
-                }
-            })
-
-            hvm.updateFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                actionData.isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
-                    }
-                }
-                actionData.data?.let {
-                    handleGetList()
-                }
-            })
-
-            hvm.deleteAllFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                actionData.isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
-                    }
-                }
-                actionData.data?.let {
-                    if (it) {
+                    actionData.data?.let {
+                        logD("floorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
                         handleGetList()
                     }
                 }
-            })
+            )
 
-            hvm.insertFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                actionData.isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
+            hvm.getFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    actionData.isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
+                    }
+                    actionData.data?.let {
+                        logD("getFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(it))
+                        floorPlanAdapter?.setListFloorPlan(it)
                     }
                 }
-                actionData.data?.let {
-                    handleGetList()
-                }
-            })
+            )
 
-            hvm.findFloorPlanActionLiveData.observe(this, Observer { actionData ->
-                val isDoing = actionData.isDoing
-                isDoing?.let {
-                    if (it) {
-                        progressBar.visibility = View.VISIBLE
-                    } else {
-                        progressBar.visibility = View.GONE
+            hvm.getByIndexFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    actionData.isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
+                    }
+                    actionData.data?.let {
+                        logD(
+                            "getByIndexFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(
+                                it
+                            )
+                        )
+                        showShortInformation(
+                            "getByIndexFloorPlanActionLiveData:\n" + BaseApplication.gson.toJson(
+                                it
+                            )
+                        )
                     }
                 }
-//                val data = actionData.data
-                if (isDoing == false) {
-                    showShortInformation("findFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
+            )
+
+            hvm.deleteFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    actionData.isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
+                    }
+                    actionData.data?.let {
+                        handleGetList()
+                    }
                 }
-            })
+            )
+
+            hvm.updateFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    actionData.isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
+                    }
+                    actionData.data?.let {
+                        handleGetList()
+                    }
+                }
+            )
+
+            hvm.deleteAllFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    actionData.isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
+                    }
+                    actionData.data?.let {
+                        if (it) {
+                            handleGetList()
+                        }
+                    }
+                }
+            )
+
+            hvm.insertFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    actionData.isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
+                    }
+                    actionData.data?.let {
+                        handleGetList()
+                    }
+                }
+            )
+
+            hvm.findFloorPlanActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    val isDoing = actionData.isDoing
+                    isDoing?.let {
+                        if (it) {
+                            progressBar.visibility = View.VISIBLE
+                        } else {
+                            progressBar.visibility = View.GONE
+                        }
+                    }
+                    // val data = actionData.data
+                    if (isDoing == false) {
+                        showShortInformation(
+                            "findFloorPlanActionLiveData observe " + BaseApplication.gson.toJson(
+                                actionData.data
+                            )
+                        )
+                    }
+                }
+            )
         }
     }
 
@@ -224,5 +259,4 @@ class RoomActivity : BaseFontActivity() {
     private fun handleFind1() {
         homeViewModel?.findId(id = "1")
     }
-
 }

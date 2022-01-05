@@ -119,7 +119,10 @@ class SqliteActivity : BaseFontActivity(), View.OnClickListener {
         if (contact == null) {
             showShortInformation("Contact with ID=$id not found", true)
         } else {
-            showShortInformation("Found: " + contact.id + " " + contact.name + " " + contact.phoneNumber, true)
+            showShortInformation(
+                msg = "Found: " + contact.id + " " + contact.name + " " + contact.phoneNumber,
+                isTopAnchor = true
+            )
         }
     }
 

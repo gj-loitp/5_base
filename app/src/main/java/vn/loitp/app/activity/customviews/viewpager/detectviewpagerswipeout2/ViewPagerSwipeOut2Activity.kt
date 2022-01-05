@@ -43,7 +43,8 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
         LUIUtil.changeTabsFont(tabLayout, com.core.common.Constants.FONT_PATH)
     }
 
-    private inner class SamplePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SamplePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             return newInstance()
         }
@@ -52,7 +53,7 @@ class ViewPagerSwipeOut2Activity : BaseFontActivity() {
             return 5
         }
 
-        override fun getPageTitle(position: Int): CharSequence? {
+        override fun getPageTitle(position: Int): CharSequence {
             return "Page Title $position"
         }
     }

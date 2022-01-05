@@ -10,10 +10,11 @@ import vn.loitp.app.activity.database.room.model.FloorPlan
 import vn.loitp.app.activity.database.room.model.Table
 
 class HomeViewModel : BaseViewModel() {
-    private val logTag = javaClass.simpleName
-    val saveFloorPlanActionLiveData: ActionLiveData<ActionData<ArrayList<FloorPlan>>> = ActionLiveData()
+    val saveFloorPlanActionLiveData: ActionLiveData<ActionData<ArrayList<FloorPlan>>> =
+        ActionLiveData()
     val getFloorPlanActionLiveData: ActionLiveData<ActionData<List<FloorPlan>>> = ActionLiveData()
-    val getByIndexFloorPlanActionLiveData: ActionLiveData<ActionData<List<FloorPlan>>> = ActionLiveData()
+    val getByIndexFloorPlanActionLiveData: ActionLiveData<ActionData<List<FloorPlan>>> =
+        ActionLiveData()
     val deleteFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
     val updateFloorPlanActionLiveData: ActionLiveData<ActionData<FloorPlan>> = ActionLiveData()
     val deleteAllFloorPlanActionLiveData: ActionLiveData<ActionData<Boolean>> = ActionLiveData()
@@ -72,15 +73,15 @@ class HomeViewModel : BaseViewModel() {
                 FNBDatabase.instance?.floorPlanDao()?.insertListFloorPlanConflict(listFloorPlan)
 
                 saveFloorPlanActionLiveData.post(
-                        ActionData(
-                                isDoing = false,
-                                isSuccess = true,
-                                data = listFloorPlan
-                        )
+                    ActionData(
+                        isDoing = false,
+                        isSuccess = true,
+                        data = listFloorPlan
+                    )
                 )
             } else {
-                //handle error
-                //floorPlanActionLiveData.postAction()
+                // handle error
+                // floorPlanActionLiveData.postAction()
             }
         }
     }
@@ -95,15 +96,15 @@ class HomeViewModel : BaseViewModel() {
                 FNBDatabase.instance?.floorPlanDao()?.insertListFloorPlanConflict(listFloorPlan)
 
                 saveFloorPlanActionLiveData.post(
-                        ActionData(
-                                isDoing = false,
-                                isSuccess = true,
-                                data = listFloorPlan
-                        )
+                    ActionData(
+                        isDoing = false,
+                        isSuccess = true,
+                        data = listFloorPlan
+                    )
                 )
             } else {
-                //handle error
-                //floorPlanActionLiveData.postAction()
+                // handle error
+                // floorPlanActionLiveData.postAction()
             }
         }
     }
@@ -113,11 +114,11 @@ class HomeViewModel : BaseViewModel() {
         ioScope.launch {
             val listFloorPlan = FNBDatabase.instance?.floorPlanDao()?.getAllFloorPlan()
             getFloorPlanActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listFloorPlan
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listFloorPlan
+                )
             )
         }
     }
@@ -126,13 +127,14 @@ class HomeViewModel : BaseViewModel() {
         getByIndexFloorPlanActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
             val offset = toIndex - fromIndex + 1
-            val listFloorPlan = FNBDatabase.instance?.floorPlanDao()?.getListFloorPlanByIndex(fromIndex = fromIndex, offset = offset)
+            val listFloorPlan = FNBDatabase.instance?.floorPlanDao()
+                ?.getListFloorPlanByIndex(fromIndex = fromIndex, offset = offset)
             getByIndexFloorPlanActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listFloorPlan
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listFloorPlan
+                )
             )
         }
     }

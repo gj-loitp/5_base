@@ -11,19 +11,19 @@ import java.io.Serializable
 @TypeConverters(AreaConverter::class)
 data class FloorPlan(
 
-        @Json(name = "id")
-        @PrimaryKey
-        @ColumnInfo(name = "id")
-        var id: String = "",
+    @Json(name = "id")
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    var id: String = "",
 
-        @Json(name = "name")
-        @ColumnInfo(name = "name")
-        var name: String? = null,
+    @Json(name = "name")
+    @ColumnInfo(name = "name")
+    var name: String? = null,
 
-        @Json(name = "areas")
-        var areas: List<Area>? = null,
+    @Json(name = "areas")
+    var areas: List<Area>? = null,
 
-        @Ignore //wont save to room
-        var isCheck: Boolean = false
+    @Ignore // wont save to room
+    var isCheck: Boolean = false
 
 ) : Serializable

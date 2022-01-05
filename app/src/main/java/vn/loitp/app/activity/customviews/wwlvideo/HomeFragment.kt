@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.wwlvideo
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.Configuration
 import android.os.Bundle
@@ -32,7 +33,8 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        gridLayoutManager = GridLayoutManager(activity, LWWLMusicUiUtil.getGridColumnCount(resources))
+        gridLayoutManager =
+            GridLayoutManager(activity, LWWLMusicUiUtil.getGridColumnCount(resources))
         recyclerView.layoutManager = gridLayoutManager
         customAdapter = CustomAdapter(WWLVideoDataset.datasetItems)
         recyclerView.adapter = customAdapter
@@ -49,6 +51,7 @@ class HomeFragment : BaseFragment() {
         updateLayoutIfNeed()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateLayoutIfNeed() {
         gridLayoutManager?.spanCount = LWWLMusicUiUtil.getGridColumnCount(resources)
         customAdapter?.notifyDataSetChanged()
@@ -58,9 +61,11 @@ class HomeFragment : BaseFragment() {
         fragmentHost?.goToDetail(item)
     }
 
-    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLVideoDataset.DatasetItem>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLVideoDataset.DatasetItem>) :
+        RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_video_card_row_item, parent, false)
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.wwl_video_card_row_item, parent, false)
             return ViewHolder(v)
         }
 

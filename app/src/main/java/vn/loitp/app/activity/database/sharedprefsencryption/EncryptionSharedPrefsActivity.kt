@@ -39,7 +39,10 @@ class EncryptionSharedPrefsActivity : BaseFontActivity() {
         }
 
         btPutString.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
+            LEncryptionSharedPrefsUtil.instance.put(
+                KEY_STRING,
+                "This is a string!!! " + System.currentTimeMillis()
+            )
         }
         btGetString.setSafeOnClickListener {
             val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING)
@@ -47,10 +50,16 @@ class EncryptionSharedPrefsActivity : BaseFontActivity() {
         }
 
         btPutStringWithDefaultValue.setSafeOnClickListener {
-            LEncryptionSharedPrefsUtil.instance.put(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
+            LEncryptionSharedPrefsUtil.instance.put(
+                KEY_STRING_WITH_DEFAULT_VALUE,
+                "This is a string!!! " + System.currentTimeMillis()
+            )
         }
         btGetStringWithDefaultValue.setSafeOnClickListener {
-            val value = LEncryptionSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
+            val value = LEncryptionSharedPrefsUtil.instance.getString(
+                KEY_STRING_WITH_DEFAULT_VALUE,
+                "Default value"
+            )
             showLongInformation(value)
         }
 
@@ -110,7 +119,10 @@ class EncryptionSharedPrefsActivity : BaseFontActivity() {
         btListGetObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value :ArrayList<User> = LEncryptionSharedPrefsUtil.instance.getObjectList(key = KEY_LIST_OBJECT, typeOfT = type)
+            val value: ArrayList<User> = LEncryptionSharedPrefsUtil.instance.getObjectList(
+                key = KEY_LIST_OBJECT,
+                typeOfT = type
+            )
             logD("list size: " + value.size)
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")
@@ -118,5 +130,4 @@ class EncryptionSharedPrefsActivity : BaseFontActivity() {
             showLongInformation("Value: " + BaseApplication.gson.toJson(value))
         }
     }
-
 }

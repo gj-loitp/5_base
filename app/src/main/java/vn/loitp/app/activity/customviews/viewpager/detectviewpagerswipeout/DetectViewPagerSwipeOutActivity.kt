@@ -37,28 +37,28 @@ class DetectViewPagerSwipeOutActivity : BaseFontActivity() {
             vpPhotoList.add(vpPhoto)
         }
         LUIUtil.setPullLikeIOSHorizontal(
-                viewPager = viewPager,
-                onUpOrLeft = { offset ->
-                    logD("onUpOrLeft $offset")
-                    showShortInformation("Detect Left")
-                },
-                onUpOrLeftRefresh = { offset ->
-                    logD("onUpOrLeftRefresh $offset")
-                },
-                onDownOrRight = { offset ->
-                    logD("onDownOrRight $offset")
-                    showShortInformation("Detect Right")
-                },
-                onDownOrRightRefresh = { offset ->
-                    logD("onDownOrRightRefresh $offset")
-                }
+            viewPager = viewPager,
+            onUpOrLeft = { offset ->
+                logD("onUpOrLeft $offset")
+                showShortInformation("Detect Left")
+            },
+            onUpOrLeftRefresh = { offset ->
+                logD("onUpOrLeftRefresh $offset")
+            },
+            onDownOrRight = { offset ->
+                logD("onDownOrRight $offset")
+                showShortInformation("Detect Right")
+            },
+            onDownOrRightRefresh = { offset ->
+                logD("onDownOrRightRefresh $offset")
+            }
         )
         val adapter = ViewPagerAdapter(supportFragmentManager)
         viewPager.adapter = adapter
     }
 
-    private inner class ViewPagerAdapter(fm: FragmentManager)
-        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class ViewPagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
             val bundle = Bundle()

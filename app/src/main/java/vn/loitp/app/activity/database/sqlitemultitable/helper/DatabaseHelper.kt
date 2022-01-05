@@ -8,9 +8,10 @@ import com.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class DatabaseHelper(context: Context) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private val logTag = DatabaseHelper::class.java.name
 
     companion object {
@@ -108,27 +109,33 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
     override fun onCreate(db: SQLiteDatabase) {
         // Table Create Statements
-        val createTableToDo = ("CREATE TABLE " + TABLE_NOTE + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_NOTE + " TEXT,"
-                + KEY_STATUS + " INTEGER,"
-                + KEY_CREATED_AT + " DATETIME"
-                + ")")
+        val createTableToDo = (
+            "CREATE TABLE " + TABLE_NOTE + "(" +
+                KEY_ID + " INTEGER PRIMARY KEY," +
+                KEY_NOTE + " TEXT," +
+                KEY_STATUS + " INTEGER," +
+                KEY_CREATED_AT + " DATETIME" +
+                ")"
+            )
         db.execSQL(createTableToDo)
         // Tag table create statement
-        val createTableTag = ("CREATE TABLE " + TABLE_TAG + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_TAG_NAME + " TEXT,"
-                + KEY_CREATED_AT + " DATETIME"
-                + ")")
+        val createTableTag = (
+            "CREATE TABLE " + TABLE_TAG + "(" +
+                KEY_ID + " INTEGER PRIMARY KEY," +
+                KEY_TAG_NAME + " TEXT," +
+                KEY_CREATED_AT + " DATETIME" +
+                ")"
+            )
         db.execSQL(createTableTag)
         // todo_tag table create statement
-        val createTableToDoTag = ("CREATE TABLE " + TABLE_NOTE_TAG + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_NOTE_ID + " INTEGER,"
-                + KEY_TAG_ID + " INTEGER,"
-                + KEY_CREATED_AT + " DATETIME"
-                + ")")
+        val createTableToDoTag = (
+            "CREATE TABLE " + TABLE_NOTE_TAG + "(" +
+                KEY_ID + " INTEGER PRIMARY KEY," +
+                KEY_NOTE_ID + " INTEGER," +
+                KEY_TAG_ID + " INTEGER," +
+                KEY_CREATED_AT + " DATETIME" +
+                ")"
+            )
         db.execSQL(createTableToDoTag)
     }
 
@@ -176,8 +183,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     fun getNote(noteId: Long): Note? {
         val db = this.readableDatabase
 
-        val selectQuery = ("SELECT  * FROM " + TABLE_NOTE + " WHERE "
-                + KEY_ID + " = " + noteId)
+        val selectQuery = (
+            "SELECT  * FROM " + TABLE_NOTE + " WHERE " +
+                KEY_ID + " = " + noteId
+            )
 
         val c = db.rawQuery(selectQuery, null)
         c?.moveToFirst() ?: return null
@@ -197,10 +206,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     fun getAllNoteByTag(tagName: String?): List<Note> {
         val noteList = ArrayList<Note>()
 
-        val selectQuery = "SELECT  * FROM " + TABLE_NOTE + " td, " + TABLE_TAG + " tg, " + TABLE_NOTE_TAG + " tt " +
+        val selectQuery =
+            "SELECT  * FROM " + TABLE_NOTE + " td, " + TABLE_TAG + " tg, " + TABLE_NOTE_TAG + " tt " +
                 "WHERE tg." + KEY_TAG_NAME + " = '" + tagName + "'"
         " AND tg." + KEY_ID + " = " + "tt." + KEY_TAG_ID +
-                " AND td." + KEY_ID + " = " + "tt." + KEY_NOTE_ID
+            " AND td." + KEY_ID + " = " + "tt." + KEY_NOTE_ID
 
         val db = this.readableDatabase
         val c = db.rawQuery(selectQuery, null)
@@ -231,14 +241,18 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         values.put(KEY_STATUS, note.status)
 
         // updating row
-        return db.update(TABLE_NOTE, values, "$KEY_ID = ?",
-                arrayOf(note.id.toString()))
+        return db.update(
+            TABLE_NOTE, values, "$KEY_ID = ?",
+            arrayOf(note.id.toString())
+        )
     }
 
     fun deleteNote(noteId: Long) {
         val db = this.writableDatabase
-        db.delete(TABLE_NOTE, "$KEY_ID = ?",
-                arrayOf(noteId.toString()))
+        db.delete(
+            TABLE_NOTE, "$KEY_ID = ?",
+            arrayOf(noteId.toString())
+        )
     }
 
     // ------------------------ "tags" table methods ----------------//
@@ -263,8 +277,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val values = ContentValues()
         values.put(KEY_TAG_NAME, tag.tagName)
         // updating row
-        return db.update(TABLE_TAG, values, "$KEY_ID = ?",
-                arrayOf(tag.id.toString()))
+        return db.update(
+            TABLE_TAG, values, "$KEY_ID = ?",
+            arrayOf(tag.id.toString())
+        )
     }
 
     /**
@@ -287,8 +303,10 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
 
         // now delete the tag
-        db.delete(TABLE_TAG, "$KEY_ID = ?",
-                arrayOf(tag.id.toString()))
+        db.delete(
+            TABLE_TAG, "$KEY_ID = ?",
+            arrayOf(tag.id.toString())
+        )
         db.close()
     }
 
@@ -312,14 +330,18 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val values = ContentValues()
         values.put(KEY_TAG_ID, tagId)
         // updating row
-        return db.update(TABLE_NOTE, values, "$KEY_ID = ?",
-                arrayOf(id.toString()))
+        return db.update(
+            TABLE_NOTE, values, "$KEY_ID = ?",
+            arrayOf(id.toString())
+        )
     }
 
     fun deleteNoteTag(id: Long) {
         val db = this.writableDatabase
-        db.delete(TABLE_NOTE, "$KEY_ID = ?",
-                arrayOf(id.toString()))
+        db.delete(
+            TABLE_NOTE, "$KEY_ID = ?",
+            arrayOf(id.toString())
+        )
     }
 
     // closing database

@@ -46,12 +46,15 @@ class ViewPagerMenuActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btAutoViewPager -> intent = Intent(this, ViewPagerAutoActivity::class.java)
             btParallaxViewPager -> intent = Intent(this, ParallaxViewPagerActivity::class.java)
-            btDetectViewPagerSwipeOut -> intent =
-                Intent(this, DetectViewPagerSwipeOutActivity::class.java)
-            btViewPagerTabLayout -> intent =
-                Intent(this, ViewPagerWithTabLayoutActivity::class.java)
-            btDetectViewPagerSwipeOut2 -> intent =
-                Intent(this, ViewPagerSwipeOut2Activity::class.java)
+            btDetectViewPagerSwipeOut ->
+                intent =
+                    Intent(this, DetectViewPagerSwipeOutActivity::class.java)
+            btViewPagerTabLayout ->
+                intent =
+                    Intent(this, ViewPagerWithTabLayoutActivity::class.java)
+            btDetectViewPagerSwipeOut2 ->
+                intent =
+                    Intent(this, ViewPagerSwipeOut2Activity::class.java)
             btLockableViewPager -> intent = Intent(this, LockableViewPagerActivity::class.java)
             btVerticalViewPager -> intent = Intent(this, ViewPagerVerticalActivity::class.java)
             btViewPager2 -> intent = Intent(this, ViewPager2Activity::class.java)

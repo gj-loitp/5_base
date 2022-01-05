@@ -15,7 +15,7 @@ import com.core.utilities.LStoreUtil
 import com.views.viewpager.parrallax.ParrallaxMode
 import kotlinx.android.synthetic.main.activity_viewpager_parallax.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("ParallaxViewPagerActivity")
 @IsFullScreen(false)
@@ -42,7 +42,8 @@ class ParallaxViewPagerActivity : BaseFontActivity() {
             val res = resList[position]
             logD("res $res")
             val inflater = LayoutInflater.from(this@ParallaxViewPagerActivity)
-            val layout = inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
+            val layout =
+                inflater.inflate(R.layout.item_photo_slide_iv, collection, false) as ViewGroup
             val imageView = layout.findViewById<ImageView>(R.id.imageView)
             if (position % 2 == 0) {
                 imageView.setImageResource(R.drawable.iv)

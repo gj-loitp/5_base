@@ -102,7 +102,11 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                     inspection.inspectionId = "update inspectionId " + System.currentTimeMillis()
                     inspection.content = "update content inspection " + System.currentTimeMillis()
                     val id = inspectionDatabaseHelper.updateInspection(inspection)
-                    showMsg("updateInspection success with id = $id -> " + BaseApplication.gson.toJson(inspection))
+                    showMsg(
+                        "updateInspection success with id = $id -> " + BaseApplication.gson.toJson(
+                            inspection
+                        )
+                    )
                 }
             }
             R.id.btDeleteInspection -> {
@@ -120,7 +124,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
                 val id = inspectionDatabaseHelper.createAction(action)
                 showMsg("createAction with id = $id -> " + BaseApplication.gson.toJson(action))
 
-                //add to inspection table
+                // add to inspection table
                 val inspectionId = inspectionDatabaseHelper.createInspection(inspection)
                 showMsg("then add to inspection table -> inspectionId: $inspectionId")
             }
@@ -151,15 +155,23 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
             R.id.btGetActionListByPage -> {
                 val pageSize = 5
                 val totalPage = inspectionDatabaseHelper.getTotalPageAction(pageSize)
-                //page must start with index = 0
+                // page must start with index = 0
                 showMsg("=========================================")
                 showMsg("=========================================")
                 showMsg("=========================================")
                 for (i in 0 until totalPage) {
                     showMsg("------------$i------------")
                     val list = inspectionDatabaseHelper.getActionListByPage(i, pageSize)
-                    logD("$i/$totalPage -> size: ${list.size} -> btGetActionListPage " + BaseApplication.gson.toJson(list))
-                    showMsg("$i/$totalPage -> size: ${list.size} -> list: " + BaseApplication.gson.toJson(list))
+                    logD(
+                        "$i/$totalPage -> size: ${list.size} -> btGetActionListPage " + BaseApplication.gson.toJson(
+                            list
+                        )
+                    )
+                    showMsg(
+                        "$i/$totalPage -> size: ${list.size} -> list: " + BaseApplication.gson.toJson(
+                            list
+                        )
+                    )
                 }
                 showMsg("=========================================")
                 showMsg("=========================================")
@@ -170,7 +182,7 @@ class SqliteMultiTableAdvanceActivity : BaseFontActivity(), View.OnClickListener
     }
 
     override fun onDestroy() {
-        //db.deleteAllDatabase()
+        // db.deleteAllDatabase()
         inspectionDatabaseHelper.closeDB()
         super.onDestroy()
     }

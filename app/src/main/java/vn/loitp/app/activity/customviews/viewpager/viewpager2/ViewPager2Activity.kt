@@ -58,5 +58,4 @@ class ViewPager2Activity : AppCompatActivity() {
             return tabName.size
         }
     }
-
 }

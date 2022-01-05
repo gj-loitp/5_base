@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper
 import java.util.*
 
 class DatabaseHandler(context: Context) : SQLiteOpenHelper(
-        context,
-        DATABASE_NAME,
-        null,
-        DATABASE_VERSION
+    context,
+    DATABASE_NAME,
+    null,
+    DATABASE_VERSION
 ) {
 
     companion object {
@@ -34,18 +34,18 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(
     // Creating Tables
     override fun onCreate(db: SQLiteDatabase) {
         val sql = (
-                "CREATE TABLE " + TABLE_CONTACTS + "("
-                        + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
-                        + KEY_PHONE_NUMBER + " TEXT" + ")"
-                )
+            "CREATE TABLE " + TABLE_CONTACTS + "(" +
+                KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT," +
+                KEY_PHONE_NUMBER + " TEXT" + ")"
+            )
         db.execSQL(sql)
     }
 
     // Upgrading database
     override fun onUpgrade(
-            db: SQLiteDatabase,
-            oldVersion: Int,
-            newVersion: Int
+        db: SQLiteDatabase,
+        oldVersion: Int,
+        newVersion: Int
     ) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
@@ -67,19 +67,23 @@ class DatabaseHandler(context: Context) : SQLiteOpenHelper(
     fun getContact(id: Int): Contact? {
         val db = this.readableDatabase
         val cursor = db.query(
-                TABLE_CONTACTS,
-                arrayOf(KEY_ID, KEY_NAME, KEY_PHONE_NUMBER),
-                "$KEY_ID=?",
-                arrayOf(id.toString()),
-                null,
-                null,
-                null,
-                null
+            TABLE_CONTACTS,
+            arrayOf(KEY_ID, KEY_NAME, KEY_PHONE_NUMBER),
+            "$KEY_ID=?",
+            arrayOf(id.toString()),
+            null,
+            null,
+            null,
+            null
         )
         if (cursor != null) {
             cursor.moveToFirst()
             if (cursor.count >= 1) {
-                return Contact(cursor.getString(0).toInt(), cursor.getString(1), cursor.getString(2))
+                return Contact(
+                    cursor.getString(0).toInt(),
+                    cursor.getString(1),
+                    cursor.getString(2)
+                )
             }
         }
         cursor?.close()

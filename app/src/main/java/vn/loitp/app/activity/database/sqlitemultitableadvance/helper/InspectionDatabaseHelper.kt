@@ -9,7 +9,8 @@ import com.utils.util.AppUtils
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Action
 import vn.loitp.app.activity.database.sqlitemultitableadvance.model.Inspection
 
-class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class InspectionDatabaseHelper(context: Context) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     private val logTag = InspectionDatabaseHelper::class.java.name
 
     companion object {
@@ -37,18 +38,22 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 
     override fun onCreate(db: SQLiteDatabase) {
         // Table Create Statements
-        val queryCreateTableInspection = ("CREATE TABLE " + TABLE_INSPECTION + "("
-                + KEY_ID + " INTEGER PRIMARY KEY, "
-                + KEY_INSPECTION_ID + " TEXT, "
-                + KEY_INSPECTION_CONTENT + " TEXT "
-                + ")")
+        val queryCreateTableInspection = (
+            "CREATE TABLE " + TABLE_INSPECTION + "(" +
+                KEY_ID + " INTEGER PRIMARY KEY, " +
+                KEY_INSPECTION_ID + " TEXT, " +
+                KEY_INSPECTION_CONTENT + " TEXT " +
+                ")"
+            )
         db.execSQL(queryCreateTableInspection)
         // Action table create statement
-        val queryCreateTableAction = ("CREATE TABLE " + TABLE_ACTION + "("
-                + KEY_ID + " INTEGER PRIMARY KEY, "
-                + KEY_ACTION_TYPE + " INTEGER, "
-                + KEY_ACTION_INSPECTION + " TEXT "
-                + ")")
+        val queryCreateTableAction = (
+            "CREATE TABLE " + TABLE_ACTION + "(" +
+                KEY_ID + " INTEGER PRIMARY KEY, " +
+                KEY_ACTION_TYPE + " INTEGER, " +
+                KEY_ACTION_INSPECTION + " TEXT " +
+                ")"
+            )
         db.execSQL(queryCreateTableAction)
     }
 
@@ -135,8 +140,8 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         }
     }
 
-    //page 1 -> getActionListByPage(0, 50)
-    //page 2 -> getActionListByPage(1, 50)
+    // page 1 -> getActionListByPage(0, 50)
+    // page 2 -> getActionListByPage(1, 50)
     fun getActionListByPage(page: Int, pageSize: Int): List<Action> {
 //        SELECT * FROM table limit 100` -- get 1st 100 records
 //        SELECT * FROM table limit 100, 200` -- get 200 records beginning with row 101
@@ -178,8 +183,10 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
     fun getInspection(inspectionId: Long): Inspection? {
         val db = this.readableDatabase
 
-        val selectQuery = ("SELECT  * FROM " + TABLE_INSPECTION + " WHERE "
-                + KEY_ID + " = " + inspectionId)
+        val selectQuery = (
+            "SELECT  * FROM " + TABLE_INSPECTION + " WHERE " +
+                KEY_ID + " = " + inspectionId
+            )
 
         val c = db.rawQuery(selectQuery, null)
         if (c != null && c.moveToFirst()) {
@@ -200,15 +207,19 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         values.put(KEY_INSPECTION_ID, inspection.inspectionId)
         values.put(KEY_INSPECTION_CONTENT, inspection.content)
 
-        return db.update(TABLE_INSPECTION, values, "$KEY_ID = ?",
-                arrayOf(inspection.id.toString()))
+        return db.update(
+            TABLE_INSPECTION, values, "$KEY_ID = ?",
+            arrayOf(inspection.id.toString())
+        )
     }
 
-    //This function returns the number of rows modified
+    // This function returns the number of rows modified
     fun deleteInspection(id: Long): Int {
         val db = this.writableDatabase
-        return db.delete(TABLE_INSPECTION, "$KEY_ID = ?",
-                arrayOf(id.toString()))
+        return db.delete(
+            TABLE_INSPECTION, "$KEY_ID = ?",
+            arrayOf(id.toString())
+        )
     }
 
     fun createAction(action: Action): Long {
@@ -221,8 +232,10 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
 
     fun getAction(actionId: Long): Action? {
         val db = this.readableDatabase
-        val selectQuery = ("SELECT  * FROM " + TABLE_ACTION + " WHERE "
-                + KEY_ID + " = " + actionId)
+        val selectQuery = (
+            "SELECT  * FROM " + TABLE_ACTION + " WHERE " +
+                KEY_ID + " = " + actionId
+            )
         val c = db.rawQuery(selectQuery, null)
         if (c != null && c.moveToFirst()) {
             val action = Action()
@@ -242,15 +255,19 @@ class InspectionDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DAT
         values.put(KEY_ACTION_TYPE, action.actionType)
         val sInspection = BaseApplication.gson.toJson(action.inspection)
         values.put(KEY_ACTION_INSPECTION, sInspection)
-        return db.update(TABLE_ACTION, values, "$KEY_ID = ?",
-                arrayOf(action.id.toString()))
+        return db.update(
+            TABLE_ACTION, values, "$KEY_ID = ?",
+            arrayOf(action.id.toString())
+        )
     }
 
-    //This function returns the number of rows modified
+    // This function returns the number of rows modified
     fun deleteAction(action: Action): Int {
         val db = this.writableDatabase
-        val number = db.delete(TABLE_ACTION, "$KEY_ID = ?",
-                arrayOf(action.id.toString()))
+        val number = db.delete(
+            TABLE_ACTION, "$KEY_ID = ?",
+            arrayOf(action.id.toString())
+        )
         db.close()
         return number
     }

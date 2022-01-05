@@ -11,11 +11,8 @@ import com.utils.util.AppUtils.Companion.appVersionCode
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-/**
- * Created by Loitp on 5/2/2017.
- */
 class VocabularyManager(
     private val context: Context
 ) : SQLiteOpenHelper(
@@ -27,7 +24,7 @@ class VocabularyManager(
 
     companion object {
         @SuppressLint("SdCardPath")
-        private val DB_PATH = "/data/data/${appPackageName}/databases/"
+        private val DB_PATH = "/data/data/$appPackageName/databases/"
         private const val DB_NAME = "vocabulary.sqlite"
         private val DATABASE_VERSION = appVersionCode
         private const val TABLE_NAME = "word"
@@ -86,11 +83,11 @@ class VocabularyManager(
     fun createDatabase() {
         val dbExist = checkDatabase()
         if (dbExist) {
-            //khong lam gi ca, database da co roi
+            // khong lam gi ca, database da co roi
         } else {
             this.readableDatabase
             try {
-                copyDatabase() //chep du lieu
+                copyDatabase() // chep du lieu
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -127,14 +124,14 @@ class VocabularyManager(
         val limit = "$first,$last"
         val sqLiteDatabase = this.readableDatabase
         val cursor = sqLiteDatabase.query(
-            TABLE_NAME,  //ten bang
-            null,  //danh sach cot can lay
-            null,  //dieu kien where
-            null,  //doi so dieu kien where
-            null,  //bieu thuc groupby
-            null,  //bieu thuc having
-            null,  //"random()", //bieu thuc orderby
-            limit //"0,3" //bieuthuc limit
+            TABLE_NAME, // ten bang
+            null, // danh sach cot can lay
+            null, // dieu kien where
+            null, // doi so dieu kien where
+            null, // bieu thuc groupby
+            null, // bieu thuc having
+            null, // "random()", //bieu thuc orderby
+            limit // "0,3" //bieuthuc limit
         )
         cursor.moveToFirst()
         do {

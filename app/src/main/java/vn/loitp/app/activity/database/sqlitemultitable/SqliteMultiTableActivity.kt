@@ -13,7 +13,7 @@ import vn.loitp.app.activity.database.sqlitemultitable.helper.DatabaseHelper
 import vn.loitp.app.activity.database.sqlitemultitable.model.Note
 import vn.loitp.app.activity.database.sqlitemultitable.model.Tag
 
-//https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
+// https://www.androidhive.info/2013/09/android-sqlite-database-with-multiple-tables/
 
 @LogTag("SqliteMultiTableActivity")
 @IsFullScreen(false)

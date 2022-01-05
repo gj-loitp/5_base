@@ -37,7 +37,10 @@ class SharedPrefsActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         btPutString.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(KEY_STRING, "This is a string!!! " + System.currentTimeMillis())
+            LSharedPrefsUtil.instance.putString(
+                KEY_STRING,
+                "This is a string!!! " + System.currentTimeMillis()
+            )
         }
         btGetString.setSafeOnClickListener {
             val value = LSharedPrefsUtil.instance.getString(KEY_STRING)
@@ -45,10 +48,14 @@ class SharedPrefsActivity : BaseFontActivity() {
         }
 
         btPutStringWithDefaultValue.setSafeOnClickListener {
-            LSharedPrefsUtil.instance.putString(KEY_STRING_WITH_DEFAULT_VALUE, "This is a string!!! " + System.currentTimeMillis())
+            LSharedPrefsUtil.instance.putString(
+                KEY_STRING_WITH_DEFAULT_VALUE,
+                "This is a string!!! " + System.currentTimeMillis()
+            )
         }
         btGetStringWithDefaultValue.setSafeOnClickListener {
-            val value = LSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
+            val value =
+                LSharedPrefsUtil.instance.getString(KEY_STRING_WITH_DEFAULT_VALUE, "Default value")
             showLongInformation(value)
         }
 
@@ -120,7 +127,8 @@ class SharedPrefsActivity : BaseFontActivity() {
         btGetListObject.setSafeOnClickListener {
             val type = object : TypeToken<List<User>>() {
             }.type
-            val value: ArrayList<User> = LSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, type)
+            val value: ArrayList<User> =
+                LSharedPrefsUtil.instance.getObjectList(KEY_LIST_OBJECT, type)
             logD("list size: " + value.size)
             for (i in value.indices) {
                 logD("$i -> ${value[i].fullName}")

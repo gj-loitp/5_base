@@ -61,27 +61,28 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         logD("getAllBike")
         showProgress()
         compositeDisposable.add(
-                Single.create<List<Bike>> {
-                    val bikeList = bikeDatabase.allBike
-                    if (bikeList.isNullOrEmpty()) {
-                        it.onError(Throwable("bikeList isNullOrEmpty"))
-                    } else {
-                        it.onSuccess(bikeList)
+            Single.create<List<Bike>> {
+                val bikeList = bikeDatabase.allBike
+                if (bikeList.isNullOrEmpty()) {
+                    it.onError(Throwable("bikeList isNullOrEmpty"))
+                } else {
+                    it.onSuccess(bikeList)
+                }
+            }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {
+                        logD("getAllBike success " + it.size)
+                        for (bike in it) {
+                            addButtonByBike(bike)
+                        }
+                        hideProgress()
+                    },
+                    {
+                        logE("getAllBike failed: $it")
+                        hideProgress()
                     }
-                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                {
-                                    logD("getAllBike success " + it.size)
-                                    for (bike in it) {
-                                        addButtonByBike(bike)
-                                    }
-                                    hideProgress()
-                                },
-                                {
-                                    logE("getAllBike failed: $it")
-                                    hideProgress()
-                                }
-                        ))
+                )
+        )
     }
 
     private fun addButtonByBike(bike: Bike) {
@@ -96,10 +97,10 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
             LUIUtil.printBeautyJson(bike, button)
             button.isAllCaps = false
             button.gravity = Gravity.START
-            button.setOnClickListener { _ ->
+            button.setOnClickListener {
                 updateBike(bike, button)
             }
-            button.setOnLongClickListener { _ ->
+            button.setOnLongClickListener {
                 deleteBike(bike, button)
                 true
             }
@@ -120,27 +121,27 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         bike.imgPath1 = "path1 " + System.currentTimeMillis()
         bike.imgPath2 = "path2 " + System.currentTimeMillis()
         compositeDisposable.add(
-                Single.create<Long> {
-                    val id = bikeDatabase.addBike(bike)
-                    if (id == BikeDatabase.RESULT_FAILED) {
-                        it.onError(Throwable("id == BikeDatabase.RESULT_FAILED"))
-                    } else {
-                        it.onSuccess(id)
+            Single.create<Long> {
+                val id = bikeDatabase.addBike(bike)
+                if (id == BikeDatabase.RESULT_FAILED) {
+                    it.onError(Throwable("id == BikeDatabase.RESULT_FAILED"))
+                } else {
+                    it.onSuccess(id)
+                }
+            }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { idBike ->
+                        if (idBike != BikeDatabase.RESULT_FAILED) {
+                            addButtonById(idBike)
+                        }
+                        hideProgress()
+                    },
+                    { t ->
+                        logE("addBike failed: $t")
+                        hideProgress()
                     }
-                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                { idBike ->
-                                    if (idBike != BikeDatabase.RESULT_FAILED) {
-                                        addButtonById(idBike)
-                                    }
-                                    hideProgress()
-                                },
-                                { t ->
-                                    logE("addBike failed: $t")
-                                    hideProgress()
-                                }
-                        ))
-
+                )
+        )
     }
 
     private fun clearAllBike() {
@@ -153,25 +154,26 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
     private fun getBikeWithId(id: Long) {
         showProgress()
         compositeDisposable.add(
-                Single.create<Bike> {
-                    val bike = bikeDatabase.getBike(id)
-                    if (bike == null) {
-                        it.onError(Throwable("Bike with ID=$id not found"))
-                    } else {
-                        it.onSuccess(bike)
+            Single.create<Bike> {
+                val bike = bikeDatabase.getBike(id)
+                if (bike == null) {
+                    it.onError(Throwable("Bike with ID=$id not found"))
+                } else {
+                    it.onSuccess(bike)
+                }
+            }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { bike ->
+                        showShortInformation("Found: " + BaseApplication.gson.toJson(bike))
+                        hideProgress()
+                    },
+                    { t ->
+                        logE("addBike failed: $t")
+                        showShortInformation("addBike failed: $t")
+                        hideProgress()
                     }
-                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                { bike ->
-                                    showShortInformation("Found: " + BaseApplication.gson.toJson(bike))
-                                    hideProgress()
-                                },
-                                { t ->
-                                    logE("addBike failed: $t")
-                                    showShortInformation("addBike failed: $t")
-                                    hideProgress()
-                                }
-                        ))
+                )
+        )
     }
 
     private fun updateBike(bike: Bike, button: Button) {
@@ -181,25 +183,26 @@ class SqliteEncryptionActivity : BaseFontActivity(), View.OnClickListener {
         bike.price = bike.price?.plus(2)
         showProgress()
         compositeDisposable.add(
-                Single.create<Long> {
-                    val id = bikeDatabase.updateBike(bike)
-                    if (id == BikeDatabase.RESULT_FAILED) {
-                        it.onError(Throwable("updateBike id == BikeDatabase.RESULT_FAILED"))
-                    } else {
-                        it.onSuccess(id)
+            Single.create<Long> {
+                val id = bikeDatabase.updateBike(bike)
+                if (id == BikeDatabase.RESULT_FAILED) {
+                    it.onError(Throwable("updateBike id == BikeDatabase.RESULT_FAILED"))
+                } else {
+                    it.onSuccess(id)
+                }
+            }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    {
+                        LUIUtil.printBeautyJson(bike, button)
+                        hideProgress()
+                    },
+                    { t ->
+                        logE("updateBike failed: $t")
+                        showShortError("updateBike failed: $t")
+                        hideProgress()
                     }
-                }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(
-                                { _ ->
-                                    LUIUtil.printBeautyJson(bike, button)
-                                    hideProgress()
-                                },
-                                { t ->
-                                    logE("updateBike failed: $t")
-                                    showShortError("updateBike failed: $t")
-                                    hideProgress()
-                                }
-                        ))
+                )
+        )
     }
 
     private fun deleteBike(bike: Bike, button: Button) {

@@ -6,14 +6,14 @@ import java.io.Serializable
 
 @Keep
 data class Table(
-        @Json(name = "id")
-        var id: String? = null,
+    @Json(name = "id")
+    var id: String? = null,
 
-        @Json(name = "name")
-        var name: String? = null,
+    @Json(name = "name")
+    var name: String? = null,
 
-        // more property
-        var isCheck: Boolean = false,
-        var isExpand: Boolean = false
+    // more property
+    var isCheck: Boolean = false,
+    var isExpand: Boolean = false
 
 ) : Serializable
