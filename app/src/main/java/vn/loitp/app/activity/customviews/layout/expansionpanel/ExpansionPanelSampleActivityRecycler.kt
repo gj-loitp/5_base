@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.expansionpanel
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +34,7 @@ class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = RecyclerAdapter()
         recyclerView.adapter = adapter
-        //fill with empty objects
+        // fill with empty objects
         val list = ArrayList<String>()
         for (i in 0..29) {
             list.add(System.currentTimeMillis().toString())
@@ -57,6 +58,7 @@ class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
             return list.size
         }
 
+        @SuppressLint("NotifyDataSetChanged")
         fun setItems(items: ArrayList<String>) {
             list.addAll(items)
             notifyDataSetChanged()
@@ -72,10 +74,11 @@ class ExpansionPanelSampleActivityRecycler : BaseFontActivity() {
                 private const val LAYOUT = R.layout.item_expansion_panel_recycler_cell
 
                 fun buildFor(viewGroup: ViewGroup): RecyclerHolder {
-                    return RecyclerHolder(LayoutInflater.from(viewGroup.context).inflate(LAYOUT, viewGroup, false))
+                    return RecyclerHolder(
+                        LayoutInflater.from(viewGroup.context).inflate(LAYOUT, viewGroup, false)
+                    )
                 }
             }
-
         }
 
         init {

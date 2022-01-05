@@ -15,7 +15,7 @@ import vn.loitp.app.activity.customviews.wwlmusic.fragments.WWLWatchFragment
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset
 
-//https://github.com/vn-ttinc/Youtube-Watch-While-Layout
+// https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 @LogTag("WWLActivityMusic")
 @IsFullScreen(false)
 class WWLActivityMusic : BaseFontActivity(), LWWLMusic.Listener, FragmentHost {
@@ -33,7 +33,8 @@ class WWLActivityMusic : BaseFontActivity(), LWWLMusic.Listener, FragmentHost {
 
         watchWhileLayout.setListener(this)
         frmWatch = supportFragmentManager.findFragmentById(R.id.frmWatch) as WWLWatchFragment?
-        frmPlaylist = supportFragmentManager.findFragmentById(R.id.frmPlaylist) as WWLPlaylistFragment?
+        frmPlaylist =
+            supportFragmentManager.findFragmentById(R.id.frmPlaylist) as WWLPlaylistFragment?
     }
 
     override fun WWL_onSliding(offset: Float) {

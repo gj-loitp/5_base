@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_ted_image_picker_demo.*
 import vn.loitp.app.R
 import java.io.File
 
-//https://github.com/ParkSangGwon/TedImagePicker
+// https://github.com/ParkSangGwon/TedImagePicker
 
 @LogTag("DemoTedImagePickerActivity")
 @IsFullScreen(false)
@@ -33,7 +33,10 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         tvMenu.setSafeOnClickListener {
-            LSocialUtil.openUrlInBrowser(context = this, url = "https://github.com/ParkSangGwon/TedImagePicker")
+            LSocialUtil.openUrlInBrowser(
+                context = this,
+                url = "https://github.com/ParkSangGwon/TedImagePicker"
+            )
         }
 
         setNormalSingleButton()
@@ -47,51 +50,51 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         btnNormalSingle.setOnClickListener {
             logD("setNormalSingleButton")
             TedImagePicker.with(context = this)
-                    .start { uri ->
-                        logD("setNormalSingleButton $uri")
-                        showSingleImage(uri)
-                    }
+                .start { uri ->
+                    logD("setNormalSingleButton $uri")
+                    showSingleImage(uri)
+                }
         }
     }
 
     private fun setNormalMultiButton() {
         btnNormalMulti.setOnClickListener {
             TedImagePicker.with(context = this)
-                    //.mediaType(MediaType.IMAGE)
-                    //.scrollIndicatorDateFormat("YYYYMMDD")
-                    //.buttonGravity(ButtonGravity.BOTTOM)
-                    .errorListener { message ->
-                        logD("message: $message")
-                    }
-                    .selectedUri(selectedUriList)
-                    .startMultiImage { list: List<Uri> -> showMultiImage(list) }
+                // .mediaType(MediaType.IMAGE)
+                // .scrollIndicatorDateFormat("YYYYMMDD")
+                // .buttonGravity(ButtonGravity.BOTTOM)
+                .errorListener { message ->
+                    logD("message: $message")
+                }
+                .selectedUri(selectedUriList)
+                .startMultiImage { list: List<Uri> -> showMultiImage(list) }
         }
     }
 
     private fun setRxSingleButton() {
         btnRxSingle.setOnClickListener {
             TedRxImagePicker.with(context = this)
-                    .start()
-                    .subscribe(this::showSingleImage, Throwable::printStackTrace)
+                .start()
+                .subscribe(this::showSingleImage, Throwable::printStackTrace)
         }
     }
 
     private fun setRxSingleButtonThenResize() {
         btnRxSingleThenResize.setOnClickListener {
             TedRxImagePicker.with(context = this)
-                    .start()
-                    .subscribe({ uri ->
-                        resize(uri)
-                    }, Throwable::printStackTrace)
+                .start()
+                .subscribe({ uri ->
+                    resize(uri)
+                }, Throwable::printStackTrace)
         }
     }
 
     private fun setRxMultiButton() {
         btnRxMulti.setOnClickListener {
             TedRxImagePicker.with(this)
-                    .selectedUri(selectedUriList)
-                    .startMultiImage()
-                    .subscribe(this::showMultiImage, Throwable::printStackTrace)
+                .selectedUri(selectedUriList)
+                .startMultiImage()
+                .subscribe(this::showMultiImage, Throwable::printStackTrace)
         }
     }
 
@@ -122,7 +125,12 @@ class DemoTedImagePickerActivity : BaseFontActivity() {
         containerSelectedPhotos.visibility = View.GONE
         u.path?.let { p ->
             val folderPath = ".resizeImage"
-            val fileResize = LImageUtil.resizeImage(context = this, file = File(p), scaleTo = 1024, folderPath = folderPath)
+            val fileResize = LImageUtil.resizeImage(
+                context = this,
+                file = File(p),
+                scaleTo = 1024,
+                folderPath = folderPath
+            )
             var hasInvalidImg = false
             if (fileResize?.exists() == true) {
                 val uResize = Uri.fromFile(fileResize)

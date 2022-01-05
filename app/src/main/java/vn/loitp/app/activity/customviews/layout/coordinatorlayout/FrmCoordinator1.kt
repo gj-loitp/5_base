@@ -9,7 +9,7 @@ import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import kotlinx.android.synthetic.main.frm_coordinator_1.*
 import vn.loitp.app.R
 
-@LogTag("RelativePopupWindowActivity")
+@LogTag("FrmCoordinator1")
 class FrmCoordinator1 : BaseFragment() {
 
     override fun setLayoutResourceId(): Int {

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.annotation.LogTag
@@ -26,7 +25,11 @@ class FrmGetListUser : BaseFragment() {
         return R.layout.frm_coroutine_get_list
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return if (frmRootView == null) {
             logD("onViewCreated frmRootView == null")
             super.onCreateView(inflater, container, savedInstanceState)
@@ -61,18 +64,18 @@ class FrmGetListUser : BaseFragment() {
         rvUserTest.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rvUserTest.adapter = userListAdapter
         LUIUtil.setScrollChange(
-                recyclerView = rvUserTest,
-                onBottom = {
-                    logD("onBottom")
-                    page += 1
-                    testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
-                }
+            recyclerView = rvUserTest,
+            onBottom = {
+                logD("onBottom")
+                page += 1
+                testViewModel?.getUserTestListByPage(page = page, isRefresh = false)
+            }
         )
 
         btBack.setSafeOnClickListener {
             logD("popBackStack")
             activity?.onBackPressed()
-            //findNavController().popBackStack()
+            // findNavController().popBackStack()
         }
 
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
@@ -86,30 +89,39 @@ class FrmGetListUser : BaseFragment() {
     private fun setupViewModels() {
         testViewModel = getViewModel(TestViewModel::class.java)
         testViewModel?.let { tvm ->
-            tvm.userActionLiveData.observe(viewLifecycleOwner, Observer { action ->
-                logD("userAction.observe action.isDoing ${action.isDoing}")
-                action.isDoing?.let { isDoing ->
-                    swipeRefreshLayout.isRefreshing = isDoing
-                }
+            tvm.userActionLiveData.observe(
+                owner = viewLifecycleOwner,
+                observer = { action ->
+                    logD("userAction.observe action.isDoing ${action.isDoing}")
+                    action.isDoing?.let { isDoing ->
+                        swipeRefreshLayout.isRefreshing = isDoing
+                    }
 
-                action.data?.let { userTestList ->
-                    val isRefresh = action.isSwipeToRefresh
-                    tvm.addUserList(userTestList = userTestList, isRefresh = isRefresh)
-                }
+                    action.data?.let { userTestList ->
+                        val isRefresh = action.isSwipeToRefresh
+                        tvm.addUserList(userTestList = userTestList, isRefresh = isRefresh)
+                    }
 
-                action.errorResponse?.let { error ->
-                    logE("observe error " + BaseApplication.gson.toJson(error))
-                    error.message?.let {
-                        showDialogError(it, Runnable {
-                            //do nothing
-                        })
+                    action.errorResponse?.let { error ->
+                        logE("observe error " + BaseApplication.gson.toJson(error))
+                        error.message?.let {
+                            showDialogError(
+                                errMsg = it,
+                                runnable = {
+                                    // do nothing
+                                }
+                            )
+                        }
                     }
                 }
-            })
-            tvm.userTestListLiveData.observe(viewLifecycleOwner, Observer {
-                logD("userTestList.observe size: ${it?.size}")
-                userListAdapter?.setList(it)
-            })
+            )
+            tvm.userTestListLiveData.observe(
+                viewLifecycleOwner,
+                {
+                    logD("userTestList.observe size: ${it?.size}")
+                    userListAdapter?.setList(it)
+                }
+            )
         }
     }
 }

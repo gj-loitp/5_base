@@ -10,7 +10,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.views.LToast.show
-import com.views.bottomsheet.BottomSheetOptionFragment
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_bottomsheet_menu.*
 import kotlinx.android.synthetic.main.bottom_sheet_0.*
@@ -59,7 +58,6 @@ class BottomSheetMenuActivity : BaseFontActivity() {
                         logD("STATE_SETTLING")
                     }
                     else -> {
-
                     }
                 }
             }
@@ -80,7 +78,8 @@ class BottomSheetMenuActivity : BaseFontActivity() {
             }
         }
         bt1.setSafeOnClickListener {
-            @SuppressLint("InflateParams") val view = layoutInflater.inflate(R.layout.fragment_bottom_sheet_dialog, null)
+            @SuppressLint("InflateParams") val view =
+                layoutInflater.inflate(R.layout.fragment_bottom_sheet_dialog, null)
             val dialog = BottomSheetDialog(this)
             dialog.setContentView(view)
             dialog.show()
@@ -91,70 +90,69 @@ class BottomSheetMenuActivity : BaseFontActivity() {
         }
         bt1Option.setSafeOnClickListener {
             showBottomSheetOptionFragment(
-                    isCancelableFragment = true,
-                    isShowIvClose = true,
-                    title = "Title",
-                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
-                    textButton1 = "OK",
-                    onClickButton1 = {
-                        showShortInformation("onClickButton1")
-                        logD("onClickButton1")
-                    },
-                    onDismiss = {
-                        showShortInformation("onDismiss")
-                        logD("onDismiss")
-                    }
+                isCancelableFragment = true,
+                isShowIvClose = true,
+                title = "Title",
+                message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                textButton1 = "OK",
+                onClickButton1 = {
+                    showShortInformation("onClickButton1")
+                    logD("onClickButton1")
+                },
+                onDismiss = {
+                    showShortInformation("onDismiss")
+                    logD("onDismiss")
+                }
             )
         }
         bt2Option.setSafeOnClickListener {
             showBottomSheetOptionFragment(
-                    isCancelableFragment = true,
-                    isShowIvClose = true,
-                    title = "Title",
-                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
-                    textButton1 = "OK",
-                    textButton2 = "Cancel",
-                    onClickButton1 = {
-                        showShortInformation("onClickButton1")
-                        logD("onClickButton1")
-                    },
-                    onClickButton2 = {
-                        showShortInformation("onClickButton2")
-                        logD("onClickButton2")
-                    },
-                    onDismiss = {
-                        showShortInformation("onDismiss")
-                        logD("onDismiss")
-                    }
+                isCancelableFragment = true,
+                isShowIvClose = true,
+                title = "Title",
+                message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                textButton1 = "OK",
+                textButton2 = "Cancel",
+                onClickButton1 = {
+                    showShortInformation("onClickButton1")
+                    logD("onClickButton1")
+                },
+                onClickButton2 = {
+                    showShortInformation("onClickButton2")
+                    logD("onClickButton2")
+                },
+                onDismiss = {
+                    showShortInformation("onDismiss")
+                    logD("onDismiss")
+                }
             )
         }
         bt3Option.setSafeOnClickListener {
             showBottomSheetOptionFragment(
-                    isCancelableFragment = true,
-                    isShowIvClose = true,
-                    title = "Title",
-                    message = "Hellllllllllllllllllllllllllllloooooooooooo",
-                    textButton1 = "OK",
-                    textButton2 = "Cancel",
-                    textButton3 = "No",
-                    onClickButton1 = {
-                        showShortInformation("onClickButton1")
-                        logD("onClickButton1")
-                    },
-                    onClickButton2 = {
-                        showShortInformation("onClickButton2")
-                        logD("onClickButton2")
-                    },
-                    onClickButton3 = {
-                        showShortInformation("onClickButton3")
-                        logD("onClickButton3")
-                    },
-                    onDismiss = {
-                        showShortInformation("onDismiss")
-                        logD("onDismiss")
-                    }
+                isCancelableFragment = true,
+                isShowIvClose = true,
+                title = "Title",
+                message = "Hellllllllllllllllllllllllllllloooooooooooo",
+                textButton1 = "OK",
+                textButton2 = "Cancel",
+                textButton3 = "No",
+                onClickButton1 = {
+                    showShortInformation("onClickButton1")
+                    logD("onClickButton1")
+                },
+                onClickButton2 = {
+                    showShortInformation("onClickButton2")
+                    logD("onClickButton2")
+                },
+                onClickButton3 = {
+                    showShortInformation("onClickButton3")
+                    logD("onClickButton3")
+                },
+                onDismiss = {
+                    showShortInformation("onDismiss")
+                    logD("onDismiss")
+                }
             )
         }
     }
-
 }

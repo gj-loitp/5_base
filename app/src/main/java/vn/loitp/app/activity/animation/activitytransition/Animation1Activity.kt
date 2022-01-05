@@ -49,7 +49,9 @@ class Animation1Activity : BaseFontActivity(), OnClickListener {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
                 LActivityUtil.transActivityNoAnimation(this)
             }
-            btSystemDefault -> ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
+            btSystemDefault ->
+                ActivityData.instance.type =
+                    Constants.TYPE_ACTIVITY_TRANSITION_SYSTEM_DEFAULT
             btSlideLeft -> {
                 ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
                 LActivityUtil.slideLeft(this)

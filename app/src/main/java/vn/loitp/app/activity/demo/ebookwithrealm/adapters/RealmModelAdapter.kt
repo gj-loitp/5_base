@@ -8,13 +8,13 @@ import io.realm.RealmObject
 import io.realm.RealmResults
 
 open class RealmModelAdapter<T : RealmObject> internal constructor(
-        context: Context,
-        realmResults: RealmResults<T>,
-        automaticUpdate: Boolean
+    context: Context,
+    realmResults: RealmResults<T>,
+    automaticUpdate: Boolean
 ) : RealmBaseAdapter<T>(
-        context,
-        realmResults,
-        automaticUpdate
+    context,
+    realmResults,
+    automaticUpdate
 ) {
 
     override fun getView(position: Int, convertView: View, parent: ViewGroup): View? {

@@ -3,7 +3,7 @@ package com.utils.constant
 import androidx.annotation.IntDef
 
 class TimeConstants {
-    companion object{
+    companion object {
         /**
          * 毫秒与毫秒的倍数
          */

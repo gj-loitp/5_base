@@ -78,5 +78,4 @@ class ExoPlayerTopFragment : Fragment(), Player.EventListener {
             it.release()
         }
     }
-
 }

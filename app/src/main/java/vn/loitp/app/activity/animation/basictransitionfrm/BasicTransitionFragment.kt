@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.animation.basictransitionfrm
 
-import android.os.Build
 import android.os.Bundle
 import android.transition.Scene
 import android.transition.TransitionInflater
@@ -36,7 +35,11 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
      */
     private var mSceneRoot: ViewGroup? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         val view = inflater.inflate(R.layout.fragment_basic_transition, container, false)!!
 
         val radioGroup = view.findViewById<RadioGroup>(R.id.select_scene)
@@ -49,32 +52,31 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
 
         // BEGIN_INCLUDE(instantiation_from_resource)
         // You can also inflate a generate a Scene from a layout resource file.
-        mScene2 = Scene.getSceneForLayout(mSceneRoot, R.layout.frm_basic_transition_scene2, activity)
+        mScene2 =
+            Scene.getSceneForLayout(mSceneRoot, R.layout.frm_basic_transition_scene2, activity)
         // END_INCLUDE(instantiation_from_resource)
 
         // Another scene from a layout resource file.
-        mScene3 = Scene.getSceneForLayout(mSceneRoot, R.layout.frm_basic_transition_scene3, activity)
+        mScene3 =
+            Scene.getSceneForLayout(mSceneRoot, R.layout.frm_basic_transition_scene3, activity)
 
         // BEGIN_INCLUDE(custom_transition_manager)
         // We create a custom TransitionManager for Scene 3, in which ChangeBounds and Fade
         // take place at the same time.
         mTransitionManagerForScene3 = TransitionInflater.from(activity)
-                .inflateTransitionManager(R.transition.scene3_transition_manager, mSceneRoot)
+            .inflateTransitionManager(R.transition.scene3_transition_manager, mSceneRoot)
         // END_INCLUDE(custom_transition_manager)
 
         return view
     }
 
     override fun onCheckedChanged(group: RadioGroup, checkedId: Int) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-            return
-        }
         when (checkedId) {
             R.id.select_scene_1 -> {
                 // BEGIN_INCLUDE(transition_simple)
                 // You can start an automatic transition with TransitionManager.go().
                 TransitionManager.go(mScene1)
-            }// END_INCLUDE(transition_simple)
+            } // END_INCLUDE(transition_simple)
             R.id.select_scene_2 -> {
                 TransitionManager.go(mScene2)
             }
@@ -82,7 +84,7 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
                 // BEGIN_INCLUDE(transition_custom)
                 // You can also start a transition with a custom TransitionManager.
                 mTransitionManagerForScene3?.transitionTo(mScene3)
-            }// END_INCLUDE(transition_custom)
+            } // END_INCLUDE(transition_custom)
             R.id.select_scene_4 -> {
                 // BEGIN_INCLUDE(transition_dynamic)
                 // Alternatively, transition can be invoked dynamically without a Scene.
@@ -97,8 +99,7 @@ class BasicTransitionFragment : Fragment(), RadioGroup.OnCheckedChangeListener {
                     params?.height = newSize
                     it.layoutParams = params
                 }
-            }// END_INCLUDE(transition_dynamic)
+            } // END_INCLUDE(transition_dynamic)
         }
     }
-
 }

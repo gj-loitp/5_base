@@ -94,17 +94,24 @@ class GalleryMemberActivity : BaseFontActivity() {
 
         recyclerView.layoutManager = GridLayoutManager(this, 2)
         memberAdapter = MemberAdapter(
-                callback = object : MemberAdapter.Callback {
-                    override fun onClick(photo: Photo, pos: Int, imageView: ImageView, textView: TextView) {
-                        val intent = Intent(this@GalleryMemberActivity, GalleryMemberDetailActivity::class.java)
-                        intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
-                        startActivity(intent)
-                        LActivityUtil.tranIn(this@GalleryMemberActivity)
-                    }
+            callback = object : MemberAdapter.Callback {
+                override fun onClick(
+                    photo: Photo,
+                    pos: Int,
+                    imageView: ImageView,
+                    textView: TextView
+                ) {
+                    val intent =
+                        Intent(this@GalleryMemberActivity, GalleryMemberDetailActivity::class.java)
+                    intent.putExtra(GalleryMemberDetailActivity.PHOTO, photo)
+                    startActivity(intent)
+                    LActivityUtil.tranIn(this@GalleryMemberActivity)
+                }
 
-                    override fun onLongClick(photo: Photo, pos: Int) {
-                    }
-                })
+                override fun onLongClick(photo: Photo, pos: Int) {
+                }
+            }
+        )
         memberAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -130,7 +137,11 @@ class GalleryMemberActivity : BaseFontActivity() {
         })
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
@@ -174,7 +185,17 @@ class GalleryMemberActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method, apiKey, userID, page, perPage, primaryPhotoExtras, format, noJsonCallBack)
+        compositeDisposable.add(
+            service.getListPhotoset(
+                method,
+                apiKey,
+                userID,
+                page,
+                perPage,
+                primaryPhotoExtras,
+                format,
+                noJsonCallBack
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetlist ->
@@ -191,7 +212,8 @@ class GalleryMemberActivity : BaseFontActivity() {
                     e.printStackTrace()
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
-                }))
+                })
+        )
     }
 
     private fun photosetsGetPhotos(photosetID: String?) {
@@ -220,7 +242,9 @@ class GalleryMemberActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getPhotosetPhotos(method = method,
+        compositeDisposable.add(
+            service.getPhotosetPhotos(
+                method = method,
                 apiKey = apiKey,
                 photosetId = photosetID,
                 userId = userID,
@@ -228,13 +252,15 @@ class GalleryMemberActivity : BaseFontActivity() {
                 perPage = Constants.PER_PAGE_SIZE,
                 page = currentPage,
                 format = format,
-                noJsonCallback = noJsonCallBack)
+                noJsonCallback = noJsonCallBack
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
 //                    logD("photosetsGetPhotos $currentPage/$totalPage")
 
-                    val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                    val s =
+                        wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
                     wrapperPhotosetGetPhotos?.photoset?.photo?.let {
                         it.shuffle()
@@ -250,7 +276,8 @@ class GalleryMemberActivity : BaseFontActivity() {
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
                     isLoading = true
-                }))
+                })
+        )
     }
 
     private fun updateAllViews() {
@@ -278,72 +305,76 @@ class GalleryMemberActivity : BaseFontActivity() {
     private fun checkPermission() {
         isShowDialogCheck = true
         Dexter.withContext(this)
-                .withPermissions(
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(object : MultiplePermissionsListener {
-                    override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                        // check if all permissions are granted
-                        if (report.areAllPermissionsGranted()) {
+            .withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            .withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+                    // check if all permissions are granted
+                    if (report.areAllPermissionsGranted()) {
 //                            logD("onPermissionsChecked do you work now")
-                            goToHome()
-                        } else {
+                        goToHome()
+                    } else {
 //                            logD("!areAllPermissionsGranted")
-                            showShouldAcceptPermission()
-                        }
+                        showShouldAcceptPermission()
+                    }
 
-                        // check for permanent denial of any permission
-                        if (report.isAnyPermissionPermanentlyDenied) {
+                    // check for permanent denial of any permission
+                    if (report.isAnyPermissionPermanentlyDenied) {
 //                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
-                            showSettingsDialog()
-                        }
-                        isShowDialogCheck = true
+                        showSettingsDialog()
                     }
+                    isShowDialogCheck = true
+                }
 
-                    override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
+                override fun onPermissionRationaleShouldBeShown(
+                    permissions: List<PermissionRequest>,
+                    token: PermissionToken
+                ) {
 //                        logD("onPermissionRationaleShouldBeShown")
-                        token.continuePermissionRequest()
-                    }
-                })
-                .onSameThread()
-                .check()
+                    token.continuePermissionRequest()
+                }
+            })
+            .onSameThread()
+            .check()
     }
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature.",
-                button1 = "Okay",
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    checkPermission()
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = "Need Permissions",
+            msg = "This app needs permission to use this feature.",
+            button1 = "Okay",
+            button2 = getString(R.string.cancel),
+            onClickButton1 = {
+                checkPermission()
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }
 
     private fun showSettingsDialog() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature. You can grant them in app settings.",
-                button1 = "GOTO SETTINGS",
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    isShowDialogCheck = false
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", packageName, null)
-                    intent.data = uri
-                    startActivityForResult(intent, 101)
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = "Need Permissions",
+            msg = "This app needs permission to use this feature. You can grant them in app settings.",
+            button1 = "GOTO SETTINGS",
+            button2 = getString(R.string.cancel),
+            onClickButton1 = {
+                isShowDialogCheck = false
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                val uri = Uri.fromParts("package", packageName, null)
+                intent.data = uri
+                startActivityForResult(intent, 101)
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }

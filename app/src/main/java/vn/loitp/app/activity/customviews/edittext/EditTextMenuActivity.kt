@@ -40,7 +40,9 @@ class EditTextMenuActivity : BaseFontActivity(), View.OnClickListener {
     override fun onClick(v: View) {
         var intent: Intent? = null
         when (v) {
-            btAnimatedExpandableEditText -> intent = Intent(this, AnimatedExpandableEditTextActivity::class.java)
+            btAnimatedExpandableEditText ->
+                intent =
+                    Intent(this, AnimatedExpandableEditTextActivity::class.java)
             btAutoResizeEditText -> intent = Intent(this, AutoResizeEditTextActivity::class.java)
             btMaterialTextField -> intent = Intent(this, MaterialTextFieldActivity::class.java)
             btAutoSuggestEditText -> intent = Intent(this, EditTextAutoSuggestActivity::class.java)

@@ -5,7 +5,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-//https://github.com/Cutta/ContinuousScrollableImageView
+// https://github.com/Cutta/ContinuousScrollableImageView
 
 @LogTag("ContinuousScrollableImageViewActivity")
 @IsFullScreen(false)

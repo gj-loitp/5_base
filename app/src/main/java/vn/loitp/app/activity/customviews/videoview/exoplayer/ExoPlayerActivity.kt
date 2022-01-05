@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_video_exo_player.*
 import kotlinx.android.synthetic.main.exo_playback_control_view.*
 import vn.loitp.app.R
 
-//custom UI exo_playback_control_view.xml
+// custom UI exo_playback_control_view.xml
 
 @LogTag("ExoPlayerActivity")
 @IsFullScreen(false)
@@ -34,7 +34,7 @@ class ExoPlayerActivity : BaseFontActivity() {
             PlayerManager(context = this, urlIMAAd = it)
         } ?: PlayerManager(this)
 
-        //warning: do not change id exo_fullscreen, exo_fullscreen
+        // warning: do not change id exo_fullscreen, exo_fullscreen
         playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
         exo_fullscreen.setOnClickListener {
             playerManager?.toggleFullscreen(this)
@@ -68,9 +68,15 @@ class ExoPlayerActivity : BaseFontActivity() {
         super.onConfigurationChanged(newConfig)
 
         if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(
+                playerView = playerView,
+                exoFullscreen = exo_fullscreen
+            )
         } else {
-            playerManager?.updateSizePlayerView(playerView = playerView, exoFullscreen = exo_fullscreen)
+            playerManager?.updateSizePlayerView(
+                playerView = playerView,
+                exoFullscreen = exo_fullscreen
+            )
         }
     }
 }

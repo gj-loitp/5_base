@@ -9,7 +9,6 @@ import com.core.utilities.LStoreUtil.Companion.randomColor
 
 /**
  * Utility class with simple utility functions
- * Created by avin on 09/01/17.
  */
 object Utils {
     /**

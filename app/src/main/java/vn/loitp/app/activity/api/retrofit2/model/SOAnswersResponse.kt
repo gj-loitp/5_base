@@ -26,5 +26,4 @@ class SOAnswersResponse : BaseModel() {
     @SerializedName("quota_remaining")
     @Expose
     var quotaRemaining: Int? = null
-
 }

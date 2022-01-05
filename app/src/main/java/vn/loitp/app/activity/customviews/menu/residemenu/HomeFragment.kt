@@ -2,7 +2,6 @@ package vn.loitp.app.activity.customviews.menu.residemenu
 
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
 import com.annotation.LogTag
 import com.core.base.BaseFragment
 import com.views.menu.residemenu.ResideMenu

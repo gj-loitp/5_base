@@ -2,24 +2,33 @@ package vn.loitp.app.activity.customviews.indicator.example
 
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_custom_navigator_example_layout.*
-import net.lucode.hackware.magicindicator.MagicIndicator
 import net.lucode.hackware.magicindicator.ViewPagerHelper
 import net.lucode.hackware.magicindicator.buildins.circlenavigator.CircleNavigator
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.indicator.ext.navigator.ScaleCircleNavigator
-import java.util.*
 
 @LogTag("CustomNavigatorExampleActivity")
 @IsFullScreen(false)
 class CustomNavigatorExampleActivity : BaseFontActivity() {
 
     companion object {
-        private val CHANNELS = arrayOf("CUPCAKE", "DONUT", "ECLAIR", "GINGERBREAD", "HONEYCOMB", "ICE_CREAM_SANDWICH", "JELLY_BEAN", "KITKAT", "LOLLIPOP", "M", "NOUGAT")
+        private val CHANNELS = arrayOf(
+            "CUPCAKE",
+            "DONUT",
+            "ECLAIR",
+            "GINGERBREAD",
+            "HONEYCOMB",
+            "ICE_CREAM_SANDWICH",
+            "JELLY_BEAN",
+            "KITKAT",
+            "LOLLIPOP",
+            "M",
+            "NOUGAT"
+        )
     }
 
     private val mDataList = mutableListOf(*CHANNELS)
@@ -66,11 +75,12 @@ class CustomNavigatorExampleActivity : BaseFontActivity() {
         scaleCircleNavigator.setCircleCount(CHANNELS.size)
         scaleCircleNavigator.setNormalCircleColor(Color.LTGRAY)
         scaleCircleNavigator.setSelectedCircleColor(Color.DKGRAY)
-        scaleCircleNavigator.setCircleClickListener(object : ScaleCircleNavigator.OnCircleClickListener {
-            override fun onClick(index: Int) {
-                viewPager.currentItem = index
-            }
-        })
+        scaleCircleNavigator.setCircleClickListener(object :
+                ScaleCircleNavigator.OnCircleClickListener {
+                override fun onClick(index: Int) {
+                    viewPager.currentItem = index
+                }
+            })
         magicIndicator3.navigator = scaleCircleNavigator
         ViewPagerHelper.bind(magicIndicator3, viewPager)
     }

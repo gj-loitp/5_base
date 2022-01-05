@@ -17,9 +17,9 @@ import java.util.*
 class StyledFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.layout_fast_scroll_sample_styled, container, false)
     }
@@ -36,19 +36,19 @@ class StyledFragment : Fragment() {
 
         fastScrollerView.apply {
             setupWithRecyclerView(
-                    recyclerView,
-                    { position ->
-                        data[position]
-                                .takeIf(ListItem::showInFastScroll)
-                                ?.let { item ->
-                                    FastScrollItemIndicator.Text(
-                                            item
-                                                    .title
-                                                    .substring(0, 1)
-                                                    .toUpperCase(Locale.getDefault())
-                                    )
-                                }
-                    }
+                recyclerView,
+                { position ->
+                    data[position]
+                        .takeIf(ListItem::showInFastScroll)
+                        ?.let { item ->
+                            FastScrollItemIndicator.Text(
+                                item
+                                    .title
+                                    .substring(0, 1)
+                                    .toUpperCase(Locale.getDefault())
+                            )
+                        }
+                }
             )
         }
 
@@ -56,5 +56,4 @@ class StyledFragment : Fragment() {
             setupWithFastScroller(fastScrollerView = fastScrollerView)
         }
     }
-
 }

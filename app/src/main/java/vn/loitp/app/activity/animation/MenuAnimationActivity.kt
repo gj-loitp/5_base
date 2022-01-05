@@ -62,7 +62,9 @@ class MenuAnimationActivity : BaseFontActivity(), View.OnClickListener {
             btActivityTransition -> intent = Intent(this, Animation1Activity::class.java)
             btShadowViewHelper -> intent = Intent(this, ShadowViewHelperActivity::class.java)
             btBasicTransitionFrm -> intent = Intent(this, BasicTransitionActivity::class.java)
-            btBasicTransitionActivity -> intent = Intent(this, SceneTransitionBasicActivity::class.java)
+            btBasicTransitionActivity ->
+                intent =
+                    Intent(this, SceneTransitionBasicActivity::class.java)
             btBasicTransition -> intent = Intent(this, BasicTransition0Activity::class.java)
             btLottie -> intent = Intent(this, MenuLottieActivity::class.java)
             btValueAnimator -> intent = Intent(this, ValueAnimatorActivity::class.java)

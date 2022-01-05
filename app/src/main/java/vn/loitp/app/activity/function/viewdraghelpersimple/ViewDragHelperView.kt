@@ -10,8 +10,11 @@ import androidx.annotation.AttrRes
 import androidx.core.view.ViewCompat
 import androidx.customview.widget.ViewDragHelper
 
-class ViewDragHelperView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, @AttrRes defStyleAttr: Int = 0)
-    : LinearLayout(context, attrs, defStyleAttr) {
+class ViewDragHelperView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    @AttrRes defStyleAttr: Int = 0
+) : LinearLayout(context, attrs, defStyleAttr) {
     private var mDragView: View? = null
     private var mAutoBackView: View? = null
     private var mEdgeTrackerView: View? = null

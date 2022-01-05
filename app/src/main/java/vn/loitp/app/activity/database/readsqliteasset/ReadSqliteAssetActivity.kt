@@ -41,9 +41,8 @@ class ReadSqliteAssetActivity : BaseFontActivity() {
         try {
             LUIUtil.printBeautyJson(o = vocabularyList[0], textView = textView)
         } catch (e: Exception) {
-            //TODO ???
+            // TODO ???
             textView.text = "$e"
         }
     }
-
 }

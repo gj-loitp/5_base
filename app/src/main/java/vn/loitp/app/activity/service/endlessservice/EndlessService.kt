@@ -40,7 +40,7 @@ class EndlessService : Service() {
             }
         } else {
             log(
-                    "with a null intent. It has been probably restarted by the system."
+                "with a null intent. It has been probably restarted by the system."
             )
         }
         // by returning this we make sure the service is restarted if the system kills the service
@@ -71,33 +71,33 @@ class EndlessService : Service() {
 
         // we need this lock so our service gets not affected by Doze Mode
         wakeLock =
-                (getSystemService(Context.POWER_SERVICE) as PowerManager).run {
-                    newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "EndlessService::lock").apply {
-                        acquire()
-                    }
+            (getSystemService(Context.POWER_SERVICE) as PowerManager).run {
+                newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "EndlessService::lock").apply {
+                    acquire()
                 }
+            }
         val timeInSec = 5L
         disposable = Observable.interval(timeInSec, timeInSec, TimeUnit.SECONDS)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnNext {
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnNext {
+            }
+            .subscribeWith(object : DisposableObserver<Long>() {
+
+                override fun onNext(value: Long) {
+                    log("onNext value $value")
+                    LToast.showShortInformation("onNext value $value")
+                    /*if (value == 5L) {
+                        stopService()
+                    }*/
                 }
-                .subscribeWith(object : DisposableObserver<Long>() {
 
-                    override fun onNext(value: Long) {
-                        log("onNext value $value")
-                        LToast.showShortInformation("onNext value $value")
-                        /*if (value == 5L) {
-                            stopService()
-                        }*/
-                    }
+                override fun onError(e: Throwable) {
+                }
 
-                    override fun onError(e: Throwable) {
-                    }
-
-                    override fun onComplete() {
-                    }
-                })
+                override fun onComplete() {
+                }
+            })
     }
 
     private fun stopService() {
@@ -124,11 +124,12 @@ class EndlessService : Service() {
         // depending on the Android API that we're dealing with we will have
         // to use a specific method to create the notification
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             val channel = NotificationChannel(
-                    notificationChannelId,
-                    "Endless Service notifications channel",
-                    NotificationManager.IMPORTANCE_HIGH
+                notificationChannelId,
+                "Endless Service notifications channel",
+                NotificationManager.IMPORTANCE_HIGH
             ).let {
                 it.description = "Endless Service channel"
                 it.enableLights(true)
@@ -140,22 +141,24 @@ class EndlessService : Service() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        val pendingIntent: PendingIntent = Intent(this, EndlessServiceActivity::class.java).let { notificationIntent ->
-            PendingIntent.getActivity(this, 0, notificationIntent, 0)
-        }
+        val pendingIntent: PendingIntent =
+            Intent(this, EndlessServiceActivity::class.java).let { notificationIntent ->
+                PendingIntent.getActivity(this, 0, notificationIntent, 0)
+            }
 
-        val builder: Notification.Builder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) Notification.Builder(
+        val builder: Notification.Builder =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) Notification.Builder(
                 this,
                 notificationChannelId
-        ) else Notification.Builder(this)
+            ) else Notification.Builder(this)
 
         return builder
-                .setContentTitle("Endless Service")
-                .setContentText("This is your favorite endless service working")
-                .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_launcher)
-                .setTicker("Ticker text")
-                .setPriority(Notification.PRIORITY_HIGH) // for under android 26 compatibility
-                .build()
+            .setContentTitle("Endless Service")
+            .setContentText("This is your favorite endless service working")
+            .setContentIntent(pendingIntent)
+            .setSmallIcon(R.drawable.ic_launcher)
+            .setTicker("Ticker text")
+            .setPriority(Notification.PRIORITY_HIGH) // for under android 26 compatibility
+            .build()
     }
 }

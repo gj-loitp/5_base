@@ -15,9 +15,9 @@ import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 @LogTag("BookAdapter")
 class StfAdapter(
-        private val context: Context,
-        private val moviesList: MutableList<Movie>,
-        private val callback: Callback?
+    private val context: Context,
+    private val moviesList: MutableList<Movie>,
+    private val callback: Callback?
 ) : BaseAdapter() {
 
     interface Callback {
@@ -44,12 +44,12 @@ class StfAdapter(
             if (bindingAdapterPosition == moviesList.size - 1) {
                 callback?.onLoadMore()
             }
-
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_stf, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_stf, parent, false)
         return MovieViewHolder(itemView)
     }
 

@@ -7,8 +7,8 @@ import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_layout_zoom.*
 import vn.loitp.app.R
 
-//read more
-//https://github.com/natario1/ZoomLayout
+// read more
+// https://github.com/natario1/ZoomLayout
 
 @LogTag("ZoomLayoutActivity")
 @IsFullScreen(false)
@@ -35,5 +35,4 @@ class ZoomLayoutActivity : BaseFontActivity() {
         zoomLayout.getEngine().realZoomTo(realZoom, true);
         zoomLayout.getEngine().moveTo(zoom, x, y, true);*/
     }
-
 }

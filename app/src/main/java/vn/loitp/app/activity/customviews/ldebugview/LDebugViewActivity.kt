@@ -72,10 +72,16 @@ class LDebugViewActivity : BaseFontActivity(), View.OnClickListener {
                 LDebug.log("Sample d: " + System.currentTimeMillis())
             }
             btSendI -> {
-                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_I, "Sample i: " + System.currentTimeMillis())
+                LDebug.log(
+                    LComunicateDebug.MsgFromActivity.TYPE_I,
+                    "Sample i: " + System.currentTimeMillis()
+                )
             }
             btSendE -> {
-                LDebug.log(LComunicateDebug.MsgFromActivity.TYPE_E, "Sample error: " + System.currentTimeMillis())
+                LDebug.log(
+                    LComunicateDebug.MsgFromActivity.TYPE_E,
+                    "Sample error: " + System.currentTimeMillis()
+                )
             }
             btSendObjectD -> {
                 val user = User()

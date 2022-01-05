@@ -1,9 +1,6 @@
 package vn.loitp.app.activity.customviews.layout.swipereveallayout.list
 
 import android.os.Bundle
-import android.view.View
-import android.widget.ListView
-import androidx.appcompat.widget.Toolbar
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -66,6 +63,5 @@ class SwipeRevealLayoutListActivity : BaseFontActivity() {
                 onBackPressed()
             }
         }
-
     }
 }

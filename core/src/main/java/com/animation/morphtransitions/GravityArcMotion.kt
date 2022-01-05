@@ -11,7 +11,8 @@ internal class GravityArcMotion : ArcMotion() {
     companion object {
         private const val DEFAULT_MIN_ANGLE_DEGREES = 0f
         private const val DEFAULT_MAX_ANGLE_DEGREES = 70f
-        private val DEFAULT_MAX_TANGENT = tan(Math.toRadians((DEFAULT_MAX_ANGLE_DEGREES / 2).toDouble())).toFloat()
+        private val DEFAULT_MAX_TANGENT =
+            tan(Math.toRadians((DEFAULT_MAX_ANGLE_DEGREES / 2).toDouble())).toFloat()
 
         private fun toTangent(arcInDegrees: Float): Float {
             require(!(arcInDegrees < 0 || arcInDegrees > 90)) { "Arc must be between 0 and 90 degrees" }
@@ -124,15 +125,19 @@ internal class GravityArcMotion : ArcMotion() {
                 val eDistY = h2 / (2 * deltaY)
                 ey = endY + eDistY
                 ex = endX
-                minimumArcDist2 = (midDist2 * mMinimumVerticalTangent
-                        * mMinimumVerticalTangent)
+                minimumArcDist2 = (
+                    midDist2 * mMinimumVerticalTangent
+                        * mMinimumVerticalTangent
+                    )
             } else {
                 // Same as above, but flip X & Y
                 val eDistX = h2 / (2 * deltaX)
                 ex = endX + eDistX
                 ey = endY
-                minimumArcDist2 = (midDist2 * mMinimumHorizontalTangent
-                        * mMinimumHorizontalTangent)
+                minimumArcDist2 = (
+                    midDist2 * mMinimumHorizontalTangent
+                        * mMinimumHorizontalTangent
+                    )
             }
             val arcDistX = dx - ex
             val arcDistY = dy - ey
@@ -158,5 +163,4 @@ internal class GravityArcMotion : ArcMotion() {
         path.cubicTo(controlX1, controlY1, controlX2, controlY2, endX, endY)
         return path
     }
-
 }

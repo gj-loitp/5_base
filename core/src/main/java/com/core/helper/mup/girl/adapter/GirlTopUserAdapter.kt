@@ -1,5 +1,6 @@
 package com.core.helper.mup.girl.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class GirlTopUserAdapter : BaseAdapter() {
     private val listGirlTopUser = ArrayList<GirlTopUser>()
     var onClickRootView: ((GirlTopUser) -> Unit?)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListGirlTopUser(listGirlTopUser: ArrayList<GirlTopUser>) {
         this.listGirlTopUser.clear()
         this.listGirlTopUser.addAll(listGirlTopUser)
@@ -41,12 +43,14 @@ class GirlTopUserAdapter : BaseAdapter() {
                 } else {
                     girlTopUser.avatar
                 }
-                LImageUtil.load(context = viewGirlTopUser.imageView.context,
-                        any = src,
-                        imageView = viewGirlTopUser.imageView,
-                        resError = R.color.black,
-                        resPlaceHolder = R.color.black,
-                        drawableRequestListener = null)
+                LImageUtil.load(
+                    context = viewGirlTopUser.imageView.context,
+                    any = src,
+                    imageView = viewGirlTopUser.imageView,
+                    resError = R.color.black,
+                    resPlaceHolder = R.color.black,
+                    drawableRequestListener = null
+                )
                 viewGirlTopUser.tv.text = girlTopUser.name
                 viewGirlTopUser.layoutRootView.setSafeOnClickListener {
                     LAnimationUtil.play(view = it, techniques = Techniques.Pulse)
@@ -58,10 +62,12 @@ class GirlTopUserAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_girl_top_user, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_girl_top_user, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = if (listGirlTopUser.isEmpty()) 0 else 1
 
@@ -70,5 +76,4 @@ class GirlTopUserAdapter : BaseAdapter() {
             holder.bind()
         }
     }
-
 }

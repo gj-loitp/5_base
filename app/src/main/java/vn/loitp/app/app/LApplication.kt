@@ -12,13 +12,15 @@ import io.realm.RealmConfiguration
 import vn.loitp.app.R
 import vn.loitp.app.activity.database.room.db.FNBDatabase
 
-//build release de check
-//TODO service -> ko stop service dc
+// build release de check
+// TODO service -> ko stop service dc
 
-//GIT
-//combine 2 commit gan nhat lam 1, co thay doi tren github
+// GIT
+// combine 2 commit gan nhat lam 1, co thay doi tren github
 /*git reset --soft HEAD~2
 git push -f*/
+
+// activity transaction reveal khi finish screen co cai effect sai
 
 @LogTag("LApplication")
 class LApplication : BaseApplication() {
@@ -26,27 +28,27 @@ class LApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        //config admob id
+        // config admob id
         AdmobData.instance.idAdmobFull = getString(R.string.str_f)
 
-        //config activity transition default
+        // config activity transition default
         ActivityData.instance.type = Constants.TYPE_ACTIVITY_TRANSITION_SLIDELEFT
 
-        //config realm
+        // config realm
         val realmConfiguration = RealmConfiguration.Builder(this)
-                .name(Realm.DEFAULT_REALM_NAME)
-                .schemaVersion(0)
-                .deleteRealmIfMigrationNeeded()
-                .build()
+            .name(Realm.DEFAULT_REALM_NAME)
+            .schemaVersion(0)
+            .deleteRealmIfMigrationNeeded()
+            .build()
         Realm.setDefaultConfiguration(realmConfiguration)
 
-        //config font
+        // config font
         LUIUtil.fontForAll = Constants.FONT_PATH
 
-        //room database
+        // room database
         FNBDatabase.getInstance(this)
 
-        //ttt database
+        // ttt database
         TTTDatabase.getInstance(this)
     }
 }

@@ -10,7 +10,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_expansion_panel_menu.*
 import vn.loitp.app.R
 
-//https://github.com/florent37/ExpansionPanel
+// https://github.com/florent37/ExpansionPanel
 
 @LogTag("ExpansionLayoutMenuActivity")
 @IsFullScreen(false)

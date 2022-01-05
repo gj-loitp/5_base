@@ -8,7 +8,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_wheel_spinner.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("WheelSpinnerActivity")
 @IsFullScreen(false)
@@ -45,5 +45,4 @@ class WheelSpinnerActivity : BaseFontActivity() {
             wheelSpinner.rotateWheel()
         }
     }
-
 }

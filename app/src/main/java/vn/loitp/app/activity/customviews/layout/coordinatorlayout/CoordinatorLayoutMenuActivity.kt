@@ -5,14 +5,12 @@ import android.os.Bundle
 import android.view.View
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
-
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_menu_coordinator_layout.*
-
 import vn.loitp.app.R
 
-//http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
+// http://karthikraj.net/2016/12/24/scrolling-behavior-for-appbars-in-android/
 
 @LogTag("CoordinatorLayoutMenuActivity")
 @IsFullScreen(false)
@@ -39,23 +37,38 @@ class CoordinatorLayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             bt0 -> intent = Intent(this, CoordinatorLayoutWithImageViewActivity::class.java)
             bt1 -> {
                 intent = Intent(this, CoordinatorLayoutSampleActivity::class.java)
-                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_0)
+                intent.putExtra(
+                    CoordinatorLayoutSampleActivity.KEY,
+                    CoordinatorLayoutSampleActivity.VALUE_0
+                )
             }
             bt2 -> {
                 intent = Intent(this, CoordinatorLayoutSampleActivity::class.java)
-                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_1)
+                intent.putExtra(
+                    CoordinatorLayoutSampleActivity.KEY,
+                    CoordinatorLayoutSampleActivity.VALUE_1
+                )
             }
             bt3 -> {
                 intent = Intent(this, CoordinatorLayoutSampleActivity::class.java)
-                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_2)
+                intent.putExtra(
+                    CoordinatorLayoutSampleActivity.KEY,
+                    CoordinatorLayoutSampleActivity.VALUE_2
+                )
             }
             bt4 -> {
                 intent = Intent(this, CoordinatorLayoutSampleActivity::class.java)
-                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_3)
+                intent.putExtra(
+                    CoordinatorLayoutSampleActivity.KEY,
+                    CoordinatorLayoutSampleActivity.VALUE_3
+                )
             }
             bt5 -> {
                 intent = Intent(this, CoordinatorLayoutSampleActivity::class.java)
-                intent.putExtra(CoordinatorLayoutSampleActivity.KEY, CoordinatorLayoutSampleActivity.VALUE_4)
+                intent.putExtra(
+                    CoordinatorLayoutSampleActivity.KEY,
+                    CoordinatorLayoutSampleActivity.VALUE_4
+                )
             }
         }
         intent?.let {

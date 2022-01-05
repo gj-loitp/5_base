@@ -24,47 +24,48 @@ class LValidateUtil {
             if (pw.length < 8) {
                 return MSG_0
             }
-            //check contain number
+            // check contain number
             val regexNumber = "(.)*(\\d)(.)*"
             val patternNumber = Pattern.compile(regexNumber)
             val containsNumber = patternNumber.matcher(pw).matches()
             if (!containsNumber) {
                 return MSG_1
             }
-            //check lower case
+            // check lower case
             val containsLower = pw != pw.toUpperCase(Locale.getDefault())
             if (!containsLower) {
                 return MSG_2
             }
-            //check upper case
+            // check upper case
             val containsUpper = pw != pw.toLowerCase(Locale.getDefault())
             if (!containsUpper) {
                 return MSG_3
             }
-            //check special character
+            // check special character
             val regexSpecial = ("[^!@#$%&*()_+=|<>?{}\\[\\]~-]")
             val patternSpecial = Pattern.compile(regexSpecial)
             val containsSpecial = patternSpecial.matcher(pw).find()
             if (!containsSpecial) {
                 return MSG_4
             }
-            //null is valid password
+            // null is valid password
             return null
         }
 
         private val listPkg = listOf(
-            "loitp.basemaster",//admob ban
-            "loitp93.basemaster.demo",//admob ban
-            "loitp93.anhseyeuemtucainhindautien",//admob ban
-            "com.mup.comic",//admob ban
-            "loitp93.game.findnumber",//admob ban
-            "com.loitp.igallery",//admob ban
-            "com.loitp.haivl",//admob ban
-            "com.loitp.biker",//admob ban
-            "com.loitp.icomic",//admob ban
-            "loitp93.truyenvn.cute.girl",//admob ban
-            "loitp93.rss.vnexpress",//admob ban
+            "loitp.basemaster", // admob ban
+            "loitp93.basemaster.demo", // admob ban
+            "loitp93.anhseyeuemtucainhindautien", // admob ban
+            "com.mup.comic", // admob ban
+            "loitp93.game.findnumber", // admob ban
+            "com.loitp.igallery", // admob ban
+            "com.loitp.haivl", // admob ban
+            "com.loitp.biker", // admob ban
+            "com.loitp.icomic", // admob ban
+            "loitp93.truyenvn.cute.girl", // admob ban
+            "loitp93.rss.vnexpress", // admob ban
             "loitp93.basemaster",
+            "loitp.khotruyenvuive",
             "loitp.khotruyenvuive",
         )
 

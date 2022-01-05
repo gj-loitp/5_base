@@ -17,7 +17,7 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.DataSou
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.AboutMe
 import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.News
 
-//https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial
+// https://blog.mindorks.com/implementing-merge-adapter-in-android-tutorial
 
 @LogTag("MergeAdapterActivity")
 @IsFullScreen(false)
@@ -71,7 +71,13 @@ class ConcatAdapterActivity : BaseFontActivity() {
             usersAdapter?.let { ua ->
                 bannerAdapter?.let { ba ->
                     newsAdapter?.let { na ->
-                        val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(ama, ua, ba, na)
+                        val listOfAdapters =
+                            listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(
+                                ama,
+                                ua,
+                                ba,
+                                na
+                            )
                         concatAdapter = ConcatAdapter(listOfAdapters)
                     }
                 }
@@ -81,15 +87,15 @@ class ConcatAdapterActivity : BaseFontActivity() {
         recyclerView.adapter = concatAdapter
 
         LUIUtil.setScrollChange(
-                recyclerView = recyclerView,
-                onTop = {
-                    logD("onTop")
-                },
-                onBottom = {
-                    logD("onBottom")
-                    showShortInformation("onBottom")
-                    genNewsData()
-                }
+            recyclerView = recyclerView,
+            onTop = {
+                logD("onTop")
+            },
+            onBottom = {
+                logD("onBottom")
+                showShortInformation("onBottom")
+                genNewsData()
+            }
         )
 
         btClearAll.setSafeOnClickListener {
@@ -157,9 +163,9 @@ class ConcatAdapterActivity : BaseFontActivity() {
                 val listNews = ArrayList<News>()
                 for (i in 0..10) {
                     val news = News(
-                            id = System.currentTimeMillis(),
-                            title = "Title " + System.currentTimeMillis(),
-                            image = Constants.URL_IMG_10
+                        id = System.currentTimeMillis(),
+                        title = "Title " + System.currentTimeMillis(),
+                        image = Constants.URL_IMG_10
                     )
                     listNews.add(news)
                 }

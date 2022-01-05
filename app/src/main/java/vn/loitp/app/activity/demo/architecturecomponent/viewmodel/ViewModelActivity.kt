@@ -15,7 +15,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.pattern.mvp.User
 import java.util.*
 
-//https://codinginfinite.com/architecture-component-viewmodel-example/
+// https://codinginfinite.com/architecture-component-viewmodel-example/
 
 @LogTag("ViewModelActivity")
 @IsFullScreen(false)
@@ -34,9 +34,12 @@ class ViewModelActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         colorChangerViewModel = ViewModelProvider(this).get(ColorChangerViewModel::class.java)
-        colorChangerViewModel.colorResource.observe(this, Observer {
-            ll.setBackgroundColor(it)
-        })
+        colorChangerViewModel.colorResource.observe(
+            this,
+            {
+                ll.setBackgroundColor(it)
+            }
+        )
         btChangeColor.setOnClickListener {
             colorChangerViewModel.colorResource.value = generateRandomColor()
         }
@@ -57,22 +60,28 @@ class ViewModelActivity : BaseFontActivity() {
 
         timeChangerViewModel = ViewModelProvider(this).get(TimeChangerViewModel::class.java)
         var countToStop = 0
-        timeChangerViewModel.timerValue.observe(this, Observer {
-            countToStop++
-            logD("countToStop $countToStop")
-            if (countToStop >= 15) {
-                logD("countToStop $countToStop -> STOP")
-                tvTime.text = "countToStop: $countToStop -> STOP"
-                timeChangerViewModel.timerValue.removeObservers(this)
-                return@Observer
+        timeChangerViewModel.timerValue.observe(
+            this,
+            Observer {
+                countToStop++
+                logD("countToStop $countToStop")
+                if (countToStop >= 15) {
+                    logD("countToStop $countToStop -> STOP")
+                    tvTime.text = "countToStop: $countToStop -> STOP"
+                    timeChangerViewModel.timerValue.removeObservers(this)
+                    return@Observer
+                }
+                tvTime.text =
+                    "countToStop: $countToStop -> $it -> " + LDateUtil.getDateCurrentTimeZoneMls(
+                    it,
+                    "yyyy-MM-dd HH:mm:ss"
+                )
             }
-            tvTime.text = "countToStop: $countToStop -> $it -> " + LDateUtil.getDateCurrentTimeZoneMls(it, "yyyy-MM-dd HH:mm:ss")
-        })
+        )
     }
 
     private fun generateRandomColor(): Int {
         val rnd = Random()
         return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
     }
-
 }

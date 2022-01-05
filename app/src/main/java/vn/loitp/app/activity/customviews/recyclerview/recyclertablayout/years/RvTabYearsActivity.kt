@@ -11,7 +11,7 @@ import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("RvTabYearsActivity")
 @IsFullScreen(false)

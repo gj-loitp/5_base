@@ -1,7 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata
 
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class DummyData private constructor() {
 

@@ -63,11 +63,10 @@ open class RvTabImitationLoopActivity : BaseFontActivity(), ViewPager.OnPageChan
     }
 
     override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-
     }
 
     override fun onPageSelected(position: Int) {
-        //got to center
+        // got to center
         val nearLeftEdge = position <= mItems.size
         val nearRightEdge = position >= mAdapterTab.count - mItems.size
         if (nearLeftEdge || nearRightEdge) {

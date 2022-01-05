@@ -14,7 +14,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_retrofit_2.*
 import vn.loitp.app.R
 
-//https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
+// https://code.tutsplus.com/tutorials/connect-to-an-api-with-retrofit-rxjava-2-and-kotlin--cms-32133
 
 @LogTag("Retrofit2Activity")
 @IsFullScreen(false)
@@ -45,25 +45,27 @@ class Retrofit2Activity : BaseFontActivity(), Retrofit2Adapter.Listener {
     private fun loadData() {
         logD("loadData")
         pb.visibility = View.VISIBLE
-        compositeDisposable.add(sampleService.getData()
+        compositeDisposable.add(
+            sampleService.getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     logD("loadData success " + BaseApplication.gson.toJson(it))
                     retroCryptoArrayList.clear()
                     retroCryptoArrayList.addAll(it)
-                    retrofit2Adapter = Retrofit2Adapter(cryptoList = retroCryptoArrayList, listener = this)
+                    retrofit2Adapter =
+                        Retrofit2Adapter(cryptoList = retroCryptoArrayList, listener = this)
                     rv.adapter = retrofit2Adapter
                     pb.visibility = View.GONE
                 }, {
                     logE("loadData error $it")
                     showShortError(it.toString())
                     pb.visibility = View.GONE
-                }))
+                })
+        )
     }
 
     override fun onItemClick(retroCrypto: RetroCrypto) {
         showShortInformation("You clicked: ${retroCrypto.currency}")
     }
-
 }

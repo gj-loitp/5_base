@@ -23,14 +23,12 @@ class FrmFavourite : BaseFragment() {
     }
 
     private fun setupViews() {
-        //TODO iplm fav view
+        // TODO iplm fav view
         tvNoData.visibility = View.VISIBLE
         tvNoData.text = getString(R.string.coming_soon)
         LDialogUtil.hideProgress(progressBar)
     }
 
     private fun setupViewModels() {
-
     }
-
 }

@@ -7,11 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 
-/**
- * Created by hackware on 2016/9/10.
- */
 class ExamplePagerAdapter(
-        private val mDataList: List<String>
+    private val mDataList: List<String>
 ) : PagerAdapter() {
     override fun getCount(): Int {
         return mDataList.size

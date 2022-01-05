@@ -9,9 +9,7 @@ import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.core.utilities.LDialogUtil
 import com.core.utilities.LUIUtil
 import com.views.setSafeOnClickListener
-import kotlinx.android.synthetic.main.activity_api_ttt_comic_list.*
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.*
-import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.progressBar
 import kotlinx.android.synthetic.main.activity_api_ttt_fav_list.textView
 import vn.loitp.app.R
 

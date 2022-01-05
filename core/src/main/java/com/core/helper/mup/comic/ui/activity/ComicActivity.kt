@@ -51,26 +51,26 @@ class ComicActivity : BaseFontActivity() {
             Color.WHITE
         }
         val menuComicHome = MenuComic(
-                itemId = R.id.menuHome,
-                iconId = R.drawable.baseline_home_black_24dp,
-                textId = R.string.home,
-                activeColor = activeColor
+            itemId = R.id.menuHome,
+            iconId = R.drawable.baseline_home_black_24dp,
+            textId = R.string.home,
+            activeColor = activeColor
         )
         listMenuComic.add(menuComicHome)
 
         val menuComicFavourite = MenuComic(
-                itemId = R.id.menuFavourite,
-                iconId = R.drawable.baseline_favorite_black_24dp,
-                textId = R.string.favourite,
-                activeColor = activeColor
+            itemId = R.id.menuFavourite,
+            iconId = R.drawable.baseline_favorite_black_24dp,
+            textId = R.string.favourite,
+            activeColor = activeColor
         )
         listMenuComic.add(menuComicFavourite)
 
         val menuComicInformation = MenuComic(
-                itemId = R.id.menuProfile,
-                iconId = R.drawable.baseline_person_black_24dp,
-                textId = R.string.profile,
-                activeColor = activeColor
+            itemId = R.id.menuProfile,
+            iconId = R.drawable.baseline_person_black_24dp,
+            textId = R.string.profile,
+            activeColor = activeColor
         )
         listMenuComic.add(menuComicInformation)
     }
@@ -83,7 +83,11 @@ class ComicActivity : BaseFontActivity() {
             override fun onPageScrollStateChanged(state: Int) {
             }
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
             }
 
             override fun onPageSelected(position: Int) {
@@ -92,11 +96,26 @@ class ComicActivity : BaseFontActivity() {
             }
         })
         expandableBottomBar.addItems(
-                ExpandableBottomBarMenuItem.Builder(context = this)
-                        .addItem(itemId = listMenuComic[0].itemId, iconId = listMenuComic[0].iconId, textId = listMenuComic[0].textId, activeColor = listMenuComic[0].activeColor)
-                        .addItem(itemId = listMenuComic[1].itemId, iconId = listMenuComic[1].iconId, textId = listMenuComic[1].textId, activeColor = listMenuComic[1].activeColor)
-                        .addItem(itemId = listMenuComic[2].itemId, iconId = listMenuComic[2].iconId, textId = listMenuComic[2].textId, activeColor = listMenuComic[2].activeColor)
-                        .build()
+            ExpandableBottomBarMenuItem.Builder(context = this)
+                .addItem(
+                    itemId = listMenuComic[0].itemId,
+                    iconId = listMenuComic[0].iconId,
+                    textId = listMenuComic[0].textId,
+                    activeColor = listMenuComic[0].activeColor
+                )
+                .addItem(
+                    itemId = listMenuComic[1].itemId,
+                    iconId = listMenuComic[1].iconId,
+                    textId = listMenuComic[1].textId,
+                    activeColor = listMenuComic[1].activeColor
+                )
+                .addItem(
+                    itemId = listMenuComic[2].itemId,
+                    iconId = listMenuComic[2].iconId,
+                    textId = listMenuComic[2].textId,
+                    activeColor = listMenuComic[2].activeColor
+                )
+                .build()
         )
         expandableBottomBar.onItemSelectedListener = { _, menuItem ->
             logD("onItemSelectedListener " + menuItem.itemId)
@@ -120,7 +139,8 @@ class ComicActivity : BaseFontActivity() {
         return null
     }
 
-    private inner class SlidePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SlidePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             return when (position) {
                 0 -> {

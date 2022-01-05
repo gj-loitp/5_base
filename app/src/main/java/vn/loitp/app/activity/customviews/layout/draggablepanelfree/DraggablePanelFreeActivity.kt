@@ -36,5 +36,4 @@ class DraggablePanelFreeActivity : BaseFontActivity() {
             tvState.text = "onStateChange " + state.name
         }
     }
-
 }

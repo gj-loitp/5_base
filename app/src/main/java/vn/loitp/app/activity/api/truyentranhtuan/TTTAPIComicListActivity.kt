@@ -17,7 +17,6 @@ import vn.loitp.app.R
 @LogTag("TTTAPIComicListActivity")
 @IsFullScreen(false)
 class TTTAPIComicListActivity : BaseFontActivity() {
-    //TODO ko show list comic
     private var tttViewModel: TTTViewModel? = null
     private var comicTypeList = ArrayList<ComicType>()
 
@@ -44,7 +43,9 @@ class TTTAPIComicListActivity : BaseFontActivity() {
     private fun setupViewModels() {
         tttViewModel = getViewModel(TTTViewModel::class.java)
         tttViewModel?.let { vm ->
-
+            vm.comicTypeLiveEvent.observe(this, { comicType ->
+                vm.getListComic(link = comicType.url)
+            })
             vm.listComicActionLiveData.observe(this, { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
@@ -72,7 +73,7 @@ class TTTAPIComicListActivity : BaseFontActivity() {
             items[i] = comicTypeList[i].type
         }
         builder.setItems(items) { _: DialogInterface?, position: Int ->
-            tttViewModel?.getListComic(comicTypeList[position].url)
+            tttViewModel?.setComicType(comicTypeList[position])
         }
         val dialog = builder.create()
         dialog.show()

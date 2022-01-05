@@ -18,10 +18,12 @@ class GirlProgressAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_girl_progress, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_girl_progress, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = 1
 
@@ -30,5 +32,4 @@ class GirlProgressAdapter : BaseAdapter() {
             holder.bind()
         }
     }
-
 }

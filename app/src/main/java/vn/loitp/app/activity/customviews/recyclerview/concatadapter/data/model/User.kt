@@ -6,12 +6,12 @@ import java.io.Serializable
 
 @Keep
 data class User(
-        @SerializedName("id")
-        val id: Int = 0,
+    @SerializedName("id")
+    val id: Int = 0,
 
-        @SerializedName("name")
-        var name: String = "",
+    @SerializedName("name")
+    var name: String = "",
 
-        @SerializedName("avatar")
-        var avatar: String = ""
+    @SerializedName("avatar")
+    var avatar: String = ""
 ) : Serializable

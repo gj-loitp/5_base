@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.wwlvideo.detail
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.Configuration
 import android.os.Bundle
@@ -81,6 +82,7 @@ class WWLVideoUpNextFragment : BaseFragment() {
         updateLayoutIfNeed()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateItem(item: WWLVideoDataset.DatasetItem?) {
         mAdapter?.apply {
             updateHeader(item)
@@ -88,6 +90,7 @@ class WWLVideoUpNextFragment : BaseFragment() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateLayoutIfNeed() {
         var enable = true
         val orientation = resources.configuration.orientation
@@ -111,7 +114,7 @@ class WWLVideoUpNextFragment : BaseFragment() {
     }
 
     inner class CustomAdapter(
-            private val mDataSet: ArrayList<WWLVideoDataset.DatasetItem>
+        private val mDataSet: ArrayList<WWLVideoDataset.DatasetItem>
     ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         private var mHasHeader = true
@@ -120,14 +123,17 @@ class WWLVideoUpNextFragment : BaseFragment() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
             if (viewType == HEADER) {
-                val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_video_card_header_item, parent, false)
+                val v = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.wwl_video_card_header_item, parent, false)
                 return HeaderViewHolder(v)
             }
             if (viewType == TITLE) {
-                val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_video_card_title_item, parent, false)
+                val v = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.wwl_video_card_title_item, parent, false)
                 return TitleViewHolder(v)
             }
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.wwl_video_card_row_item, parent, false)
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.wwl_video_card_row_item, parent, false)
             return ViewHolder(view)
         }
 
@@ -182,7 +188,6 @@ class WWLVideoUpNextFragment : BaseFragment() {
 
         internal inner class TitleViewHolder(v: View) : RecyclerView.ViewHolder(v) {
             val liTitle: TextView = v.findViewById(R.id.liTitle)
-
         }
 
         internal inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
@@ -192,13 +197,12 @@ class WWLVideoUpNextFragment : BaseFragment() {
             init {
                 v.setOnClickListener {
                     onItemClicked(
-                            getItem(bindingAdapterPosition)
+                        getItem(bindingAdapterPosition)
                     )
                 }
                 liTitle = v.findViewById(R.id.liTitle)
                 liSubtitle = v.findViewById(R.id.liSubtitle)
             }
         }
-
     }
 }

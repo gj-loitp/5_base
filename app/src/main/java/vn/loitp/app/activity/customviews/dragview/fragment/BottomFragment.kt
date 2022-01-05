@@ -41,7 +41,6 @@ class BottomFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             LImageUtil.load(holder.itemView.context, R.drawable.loitp, holder.itemView.ivPhoto)
         }
-
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

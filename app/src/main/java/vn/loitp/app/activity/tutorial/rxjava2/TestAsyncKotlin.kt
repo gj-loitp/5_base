@@ -12,35 +12,35 @@ import io.reactivex.subjects.PublishSubject
 class TestAsyncKotlin(private val count: Int) {
     private val sourceProgression = PublishSubject.create<Int>()
     fun apply(
-            onSuccess: ((isResult: Boolean) -> Unit),
-            onError: ((throwbale: Throwable) -> Unit),
-            onDispose: (() -> Unit),
-            onFinished: (() -> Unit)
+        onSuccess: ((isResult: Boolean) -> Unit),
+        onError: ((throwbale: Throwable) -> Unit),
+        onDispose: (() -> Unit),
+        onFinished: (() -> Unit)
     ): Disposable {
         log("prev")
         return Single.create<Boolean> {
             doInBkg(it)
         }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnDispose {
-                    onDispose.invoke()
-                }
-                .subscribe({
-                    log("post 1 $it")
-                    onSuccess.invoke(it)
-                    onFinished.invoke()
-                }, {
-                    log("post 2 $it")
-                    onError.invoke(it)
-                    onFinished.invoke()
-                })
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnDispose {
+                onDispose.invoke()
+            }
+            .subscribe({
+                log("post 1 $it")
+                onSuccess.invoke(it)
+                onFinished.invoke()
+            }, {
+                log("post 2 $it")
+                onError.invoke(it)
+                onFinished.invoke()
+            })
     }
 
     fun subscribeProgression(callback: ((int: Int) -> Unit)): Disposable =
-            sourceProgression.observeOn(AndroidSchedulers.mainThread())
-                    .subscribe {
-                        callback.invoke(it)
-                    }
+        sourceProgression.observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                callback.invoke(it)
+            }
 
     private fun doInBkg(emmiter: SingleEmitter<Boolean>) {
         if (count > 15) {

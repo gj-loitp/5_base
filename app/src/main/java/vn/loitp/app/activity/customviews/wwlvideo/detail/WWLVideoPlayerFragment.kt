@@ -5,9 +5,6 @@ import com.core.base.BaseFragment
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset
 
-/**
- * Created by loitp on 2/26/17.
- */
 @LogTag("DatabaseFirebaseSignInActivity")
 class WWLVideoPlayerFragment : BaseFragment() {
     private var mUrl: String? = null
@@ -23,12 +20,12 @@ class WWLVideoPlayerFragment : BaseFragment() {
     fun stopPlay() {}
 
     fun switchFullscreen(selected: Boolean) {
-        showShortInformation("Loitp switchFullscreen $selected", true)
+        showShortInformation("switchFullscreen $selected", true)
     }
 
     fun hideControls() {}
 
     fun toggleControls() {
-        showShortInformation("Loitp toggleControls", true)
+        showShortInformation("toggleControls", true)
     }
 }

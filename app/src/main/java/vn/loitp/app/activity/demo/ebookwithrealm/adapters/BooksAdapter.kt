@@ -14,8 +14,8 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.demo.ebookwithrealm.model.Book
 
 class BooksAdapter(
-        val context: Context,
-        private val onClick: OnClick?
+    val context: Context,
+    private val onClick: OnClick?
 ) : RealmRecyclerViewAdapter<Book?>() {
 
     interface OnClick {
@@ -24,7 +24,8 @@ class BooksAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_books_realm, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.view_row_item_books_realm, parent, false)
         return CardViewHolder(view)
     }
 
@@ -39,17 +40,17 @@ class BooksAdapter(
                 viewHolder.ivBackground.setBackgroundColor(Color.RED)
 
                 Glide.with(context)
-                        .asBitmap()
-                        .load(b.imageUrl?.replace("https", "http")) //.fitCenter()
-                        .into(viewHolder.ivBackground)
+                    .asBitmap()
+                    .load(b.imageUrl?.replace("https", "http")) // .fitCenter()
+                    .into(viewHolder.ivBackground)
 
-                //remove single match from realm
+                // remove single match from realm
                 viewHolder.cardBooks.setOnLongClickListener {
                     onClick?.onLongClick(position)
                     false
                 }
 
-                //update single match from realm
+                // update single match from realm
                 viewHolder.cardBooks.setOnClickListener {
                     onClick?.onClick(b, position)
                 }
@@ -72,6 +73,5 @@ class BooksAdapter(
         var textBooksAuthor: TextView = itemView.findViewById(R.id.textBooksAuthor)
         var textBooksDescription: TextView = itemView.findViewById(R.id.textBooksDescription)
         var ivBackground: ImageView = itemView.findViewById(R.id.ivBackground)
-
     }
 }

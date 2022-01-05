@@ -75,5 +75,4 @@ class BottomBarActivity : BaseFontActivity() {
             bottomBar?.setPerformItemClick(4)
         }
     }
-
 }

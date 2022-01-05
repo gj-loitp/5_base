@@ -51,7 +51,14 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             tvMenu.text = d
         }
 
-        notti = Notti(this, NottiConfig(R.drawable.ic_launcher, VibrationSettings(*VibrationSettings.STD_VIBRATION), LightSettings(Color.BLUE)))
+        notti = Notti(
+            this,
+            NottiConfig(
+                R.drawable.ic_launcher,
+                VibrationSettings(*VibrationSettings.STD_VIBRATION),
+                LightSettings(Color.BLUE)
+            )
+        )
 
         btSimpleNotification.setOnClickListener(this)
         btSimpleNotificationActions.setOnClickListener(this)
@@ -70,9 +77,9 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             var intent = Intent()
             when {
                 Build.VERSION.SDK_INT > Build.VERSION_CODES.O -> {
-                    //intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
-                    //intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName);
-                    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    // intent.setAction(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+                    // intent.putExtra(Settings.EXTRA_APP_PACKAGE, packageName);
+                    // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     intent = Intent("android.settings.CHANNEL_NOTIFICATION_SETTINGS")
                     intent.putExtra("android.provider.extra.CHANNEL_ID", channelId)
@@ -96,7 +103,6 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             }
 
             startActivity(intent)
-
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -107,44 +113,53 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btSimpleNotification -> {
                 notti?.show(
-                        NottiFactory[NottiFactory.TYPE.STANDARD, "some text", "some content"]
-                                .setContentAction(ContentAction(Intent(this, MenuNotificationActivity::class.java), this))
+                    NottiFactory[NottiFactory.TYPE.STANDARD, "some text", "some content"]
+                        .setContentAction(
+                            ContentAction(
+                                Intent(
+                                    this,
+                                    MenuNotificationActivity::class.java
+                                ),
+                                this
+                            )
+                        )
                 )
             }
             btSimpleNotificationActions -> {
                 intent = Intent(this, MenuNotificationActivity::class.java)
 
                 val actionsList = mutableListOf(
-                        NotificationAction("action", intent, this),
-                        NotificationAction("action 2", intent, this)
+                    NotificationAction("action", intent, this),
+                    NotificationAction("action 2", intent, this)
                 )
 
                 notti?.show(
-                        NottiFactory[NottiFactory.TYPE.STANDARD, "some text", "some content"]
-                                .setActions(actionsList)
+                    NottiFactory[NottiFactory.TYPE.STANDARD, "some text", "some content"]
+                        .setActions(actionsList)
                 )
             }
             btBigTextNotification -> {
                 notti?.show(
-                        NottiFactory[NottiFactory.TYPE.BIG_TEXT, "some text", "some content"]
-                                .setBigText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere arcu enim, ut imperdiet sem pellentesque quis.Morbi in tempus lorem. Integer venenatis risus sit amet dolor lobortis, et consequat neque luctus. Etiam ut est nulla. Quisque turpis sapien, aliquet a consequat in, lacinia ut neque. Praesent scelerisque maximus nisi, sed pharetra nulla varius id. Proin at augue purus. Aliquam ut ullamcorper lorem, at vehicula nisl. Pellentesque imperdiet nunc vitae quam consectetur tempus. Nullam vel auctor orci. Ut a turpis ac quam placerat vestibulum. Sed ac hendrerit lorem, non imperdiet neque. Sed nisl urna, eleifend ac sem et, accumsan consectetur felis. Quisque cursus interdum erat, sit amet maximus felis consectetur ac. Aenean luctus, mi nec elementum bibendum, felis felis lacinia justo, vitae lacinia ligula nibh ut nulla. Nunc viverra commodo augue, in cursus nulla."))
+                    NottiFactory[NottiFactory.TYPE.BIG_TEXT, "some text", "some content"]
+                        .setBigText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere arcu enim, ut imperdiet sem pellentesque quis.Morbi in tempus lorem. Integer venenatis risus sit amet dolor lobortis, et consequat neque luctus. Etiam ut est nulla. Quisque turpis sapien, aliquet a consequat in, lacinia ut neque. Praesent scelerisque maximus nisi, sed pharetra nulla varius id. Proin at augue purus. Aliquam ut ullamcorper lorem, at vehicula nisl. Pellentesque imperdiet nunc vitae quam consectetur tempus. Nullam vel auctor orci. Ut a turpis ac quam placerat vestibulum. Sed ac hendrerit lorem, non imperdiet neque. Sed nisl urna, eleifend ac sem et, accumsan consectetur felis. Quisque cursus interdum erat, sit amet maximus felis consectetur ac. Aenean luctus, mi nec elementum bibendum, felis felis lacinia justo, vitae lacinia ligula nibh ut nulla. Nunc viverra commodo augue, in cursus nulla.")
+                )
             }
             btInboxNotification -> {
                 notti?.show(
-                        NottiFactory[NottiFactory.TYPE.INBOX, "some text", "some content"]
-                                .addInboxItem("some item")
-                                .addInboxItem("another item")
-                                .addInboxItem("and final item")
-                                .setInboxSummary("random summary")
+                    NottiFactory[NottiFactory.TYPE.INBOX, "some text", "some content"]
+                        .addInboxItem("some item")
+                        .addInboxItem("another item")
+                        .addInboxItem("and final item")
+                        .setInboxSummary("random summary")
                 )
             }
             btBigPictureNotification -> {
                 val icon = BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher)
                 val iconBig = BitmapFactory.decodeResource(this.resources, R.drawable.iv)
                 notti?.show(
-                        NottiFactory[NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content"]
-                                .setBigPicture(iconBig)
-                                .setLargeIcon(icon)
+                    NottiFactory[NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content"]
+                        .setBigPicture(iconBig)
+                        .setLargeIcon(icon)
                 )
             }
             btNotificationHeadsup -> {
@@ -152,18 +167,20 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 val body = "This is body " + System.currentTimeMillis()
                 val iconRes = R.drawable.ic_launcher
                 val notificationIntent = Intent(this, MenuNotificationActivity::class.java)
-                notificationIntent.putExtra(KEY_NOTI_DATA_INTENT, "KEY_NOTI_DATA_INTENT " + System.currentTimeMillis())
-                //pendingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                notificationIntent.putExtra(
+                    KEY_NOTI_DATA_INTENT,
+                    "KEY_NOTI_DATA_INTENT " + System.currentTimeMillis()
+                )
+                // pendingIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                 notificationIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
 
                 LNotification.showNotification(
-                        title = title,
-                        body = body,
-                        iconRes = iconRes,
-                        notificationIntent = notificationIntent
+                    title = title,
+                    body = body,
+                    iconRes = iconRes,
+                    notificationIntent = notificationIntent
                 )
             }
         }
     }
-
 }

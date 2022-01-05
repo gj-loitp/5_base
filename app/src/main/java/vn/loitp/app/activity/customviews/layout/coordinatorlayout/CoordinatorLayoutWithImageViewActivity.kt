@@ -23,37 +23,43 @@ class CoordinatorLayoutWithImageViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        appBarLayout.addOnOffsetChangedListener(OnOffsetChangedListener { _: AppBarLayout?, verticalOffset: Int ->
-            val matrix = Matrix(imgCover.imageMatrix)
+        appBarLayout.addOnOffsetChangedListener(
+            OnOffsetChangedListener { _: AppBarLayout?, verticalOffset: Int ->
+                val matrix = Matrix(imgCover.imageMatrix)
 
-            //get image's width and height
-            val dWidth = imgCover.drawable.intrinsicWidth
-            val dHeight = imgCover.drawable.intrinsicHeight
+                // get image's width and height
+                val dWidth = imgCover.drawable.intrinsicWidth
+                val dHeight = imgCover.drawable.intrinsicHeight
 
-            //get view's width and height
-            val vWidth = imgCover.width - imgCover.paddingLeft - imgCover.paddingRight
-            var vHeight = imgCover.height - imgCover.paddingTop - imgCover.paddingBottom
-            val scale: Float
-            var dx = 0f
-            val dy: Float
-            val parallaxMultiplier = (imgCover.layoutParams as CollapsingToolbarLayout.LayoutParams).parallaxMultiplier
+                // get view's width and height
+                val vWidth = imgCover.width - imgCover.paddingLeft - imgCover.paddingRight
+                var vHeight = imgCover.height - imgCover.paddingTop - imgCover.paddingBottom
+                val scale: Float
+                var dx = 0f
+                val dy: Float
+                val parallaxMultiplier =
+                    (imgCover.layoutParams as CollapsingToolbarLayout.LayoutParams).parallaxMultiplier
 
-            //maintain the image's aspect ratio depending on offset
-            if (dWidth * vHeight > vWidth * dHeight) {
-                vHeight += verticalOffset //calculate view height depending on offset
-                scale = vHeight.toFloat() / dHeight.toFloat() //calculate scale
-                dx = (vWidth - dWidth * scale) * 0.5f //calculate x value of the center point of scaled drawable
-                dy = -verticalOffset * (1 - parallaxMultiplier) //calculate y value by compensating parallaxMultiplier
-            } else {
-                scale = vWidth.toFloat() / dWidth.toFloat()
-                dy = (vHeight - dHeight * scale) * 0.5f
+                // maintain the image's aspect ratio depending on offset
+                if (dWidth * vHeight > vWidth * dHeight) {
+                    vHeight += verticalOffset // calculate view height depending on offset
+                    scale = vHeight.toFloat() / dHeight.toFloat() // calculate scale
+                    dx =
+                        (vWidth - dWidth * scale) * 0.5f // calculate x value of the center point of scaled drawable
+                    dy =
+                        -verticalOffset * (1 - parallaxMultiplier) // calculate y value by compensating parallaxMultiplier
+                } else {
+                    scale = vWidth.toFloat() / dWidth.toFloat()
+                    dy = (vHeight - dHeight * scale) * 0.5f
+                }
+                val currentWidth =
+                    (scale * dWidth).roundToInt() // calculate current intrinsic width of the drawable
+                if (vWidth <= currentWidth) { // compare view width and drawable width to decide, should we scale more or not
+                    matrix.setScale(scale, scale)
+                    matrix.postTranslate(dx.roundToInt().toFloat(), dy.roundToInt().toFloat())
+                    imgCover.imageMatrix = matrix
+                }
             }
-            val currentWidth = (scale * dWidth).roundToInt() //calculate current intrinsic width of the drawable
-            if (vWidth <= currentWidth) { //compare view width and drawable width to decide, should we scale more or not
-                matrix.setScale(scale, scale)
-                matrix.postTranslate(dx.roundToInt().toFloat(), dy.roundToInt().toFloat())
-                imgCover.imageMatrix = matrix
-            }
-        })
+        )
     }
 }

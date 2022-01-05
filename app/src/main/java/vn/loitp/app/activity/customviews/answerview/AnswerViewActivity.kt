@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
-import com.views.LToast
 import com.views.answerview.LAnswerView
 import kotlinx.android.synthetic.main.activity_answer_view.*
 import vn.loitp.app.R
@@ -20,10 +19,10 @@ class AnswerViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //use xml
+        // use xml
         useXML()
 
-        //use JAVA codes
+        // use JAVA codes
         useJava()
     }
 
@@ -35,7 +34,7 @@ class AnswerViewActivity : BaseFontActivity() {
             }
         })
         lAnswerView1.activeChar = 'A'
-        //answerView1.resize(2)
+        // answerView1.resize(2)
 
         lAnswerView2.setNumber(2)
         lAnswerView2.setOnAnswerChange(object : LAnswerView.OnAnswerChange {
@@ -49,12 +48,12 @@ class AnswerViewActivity : BaseFontActivity() {
         for (i in 0..9) {
             val lAnswerView = LAnswerView(this)
             lAnswerView.init(
-                    number = i + 3,
-                    numberOfAnswer = 6,
-                    isShowNumber = true,
-                    isCanCancelAnswer = true,
-                    isChangeOnClick = true,
-                    isShowTextWhenActive = true
+                number = i + 3,
+                numberOfAnswer = 6,
+                isShowNumber = true,
+                isCanCancelAnswer = true,
+                isChangeOnClick = true,
+                isShowTextWhenActive = true
             )
             lAnswerView.setOnAnswerChange(object : LAnswerView.OnAnswerChange {
                 override fun onAnswerChange(view: LAnswerView?, index: Int) {

@@ -1,6 +1,7 @@
 package com.core.helper.gallery.albumonly
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -123,7 +124,8 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                         adUnitId = adUnitId
                     )
                 }
-            })
+            }
+        )
         photosOnlyAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
 //            val animAdapter = ScaleInAnimationAdapter(it)
@@ -137,7 +139,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             recyclerView.adapter = animAdapter
         }
 
-        //LUIUtil.setPullLikeIOSVertical(recyclerView)
+        // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -225,7 +227,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         val userID = FlickrConst.USER_KEY
         val page = 1
         val perPage = 500
-        //String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
+        // String primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_0;
         val primaryPhotoExtras = ""
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
@@ -319,6 +321,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
         )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateAllViews() {
         photosOnlyAdapter?.notifyDataSetChanged()
     }
@@ -434,9 +437,9 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
                     showShortError("Download failed")
                 }
             })
-            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            // Optionally,Set whether to repeatedly download the downloaded file,default false.
             .forceReDownload(true)
-            //Optionally,Set how many threads are used when downloading,default 3.
+            // Optionally,Set how many threads are used when downloading,default 3.
             .threadNum(3)
             .setRetry(3, 200)
             .submit()

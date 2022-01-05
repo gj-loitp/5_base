@@ -32,5 +32,4 @@ class WindowProgressActivity : BaseFontActivity() {
             wp10progressBar.hideProgressBar()
         }
     }
-
 }

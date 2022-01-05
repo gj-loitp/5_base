@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_rx_java2_disposable.*
 import vn.loitp.app.R
 
-//https://www.vogella.com/tutorials/RxJava/article.html
+// https://www.vogella.com/tutorials/RxJava/article.html
 
 @LogTag("DisposableExampleActivity")
 @IsFullScreen(false)
@@ -41,7 +41,8 @@ class DisposableExampleActivity : BaseFontActivity() {
      */
     private fun doSomeWork() {
         textView.append("\nLoading...")
-        compositeDisposable.add(sampleObservable()
+        compositeDisposable.add(
+            sampleObservable()
                 .subscribeOn(Schedulers.io()) // Be notified on the main thread
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableObserver<String?>() {
@@ -59,7 +60,8 @@ class DisposableExampleActivity : BaseFontActivity() {
                         textView.append("\nonNext : value : $value")
                         logD("onNext value : $value")
                     }
-                }))
+                })
+        )
     }
 
     private fun sampleObservable(): Observable<String> {

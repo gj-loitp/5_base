@@ -33,10 +33,10 @@ class ComicLoginActivity : BaseFontActivity() {
         setupViews()
         setupViewModels()
 
-        //hard code login
+        // hard code login
         comicLoginViewModel?.login(
-                email = "appmb@truyentranhvn.org",
-                password = "appmb@truyentranhvn.org"
+            email = "appmb@truyentranhvn.org",
+            password = "appmb@truyentranhvn.org"
         )
 
         LValidateUtil.isValidPackageName()
@@ -80,7 +80,7 @@ class ComicLoginActivity : BaseFontActivity() {
                             })
                         } else {
 
-                            //save comic token
+                            // save comic token
                             LSharedPrefsUtil.instance.putString(Constants.COMIC_TOKEN, token)
                             ComicApiClient.addAuthorization(token)
 

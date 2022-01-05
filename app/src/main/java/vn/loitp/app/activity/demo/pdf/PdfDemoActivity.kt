@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.activity_demo_pdf.*
 import vn.loitp.app.R
 import java.io.File
 
-//https://github.com/barteksc/AndroidPdfViewer
+// https://github.com/barteksc/AndroidPdfViewer
 @LogTag("PdfDemoActivity")
 @IsFullScreen(false)
 class PdfDemoActivity : BaseFontActivity() {
@@ -106,9 +106,9 @@ class PdfDemoActivity : BaseFontActivity() {
                     updateUIProgress(isLoadding = false)
                 }
             })
-            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            // Optionally,Set whether to repeatedly download the downloaded file,default false.
             .forceReDownload(true)
-            //Optionally,Set how many threads are used when downloading,default 3.
+            // Optionally,Set how many threads are used when downloading,default 3.
             .threadNum(3)
             .setRetry(3, 200)
             .submit()
@@ -116,9 +116,9 @@ class PdfDemoActivity : BaseFontActivity() {
 
     private fun callAysnctaskStream() {
         asyncTaskDownloadPdfStream?.cancel(true)
-        //val url = "http://www.pdf995.com/samples/pdf.pdf";
-        //val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
-        //val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
+        // val url = "http://www.pdf995.com/samples/pdf.pdf";
+        // val url = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+        // val url = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
         updateUIProgress(isLoadding = true)
         btStreamCoroutine.visibility = View.GONE
         asyncTaskDownloadPdfStream = AsyncTaskDownloadPdfStream(result = { inputStream ->
@@ -129,19 +129,20 @@ class PdfDemoActivity : BaseFontActivity() {
             updateUIProgress(isLoadding = false)
         })
         asyncTaskDownloadPdfStream?.execute("http://www.pdf995.com/samples/pdf.pdf")
-        //asyncTaskDownloadPdfStream?.execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf")
+        // asyncTaskDownloadPdfStream?.execute("http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf")
     }
 
     private fun callCoroutineFile() {
         updateUIProgress(isLoadding = true)
         val urlPdf = "http://www.peoplelikeus.org/piccies/codpaste/codpaste-teachingpack.pdf"
-        //val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
-        //val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
-        //val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
+        // val urlPdf = "http://www.pdf995.com/samples/pdf.pdf";
+        // val urlPdf = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+        // val urlPdf = "http://ftp.geogratis.gc.ca/pub/nrcan_rncan/publications/ess_sst/222/222861/mr_93_e.pdf"
         val folderPath = LStoreUtil.getFolderPath(folderName = "ZZZDemoPDF")
         val folderName = "PDFDemo"
         getPdfCoroutine = GetPdfCoroutine()
-        getPdfCoroutine?.startTask(urlPdf = urlPdf,
+        getPdfCoroutine?.startTask(
+            urlPdf = urlPdf,
             folderPath = folderPath,
             folderName = folderName,
             resultPercent = { percent ->
@@ -156,28 +157,31 @@ class PdfDemoActivity : BaseFontActivity() {
                     showPDF(f)
                 }
                 updateUIProgress(isLoadding = false)
-            })
+            }
+        )
     }
 
     private fun callCoroutineStream() {
         updateUIProgress(isLoadding = true)
         pdfStreamCoroutine = PdfStreamCoroutine()
-        pdfStreamCoroutine?.startTask(urlPdf = "http://www.pdf995.com/samples/pdf.pdf",
+        pdfStreamCoroutine?.startTask(
+            urlPdf = "http://www.pdf995.com/samples/pdf.pdf",
             result = { inputStream ->
                 pdfView.visibility = View.VISIBLE
                 pdfView.fromStream(inputStream).load()
                 updateUIProgress(isLoadding = false)
-            })
+            }
+        )
     }
 
     private fun showPDF(file: File) {
-        //Option 1: OK
+        // Option 1: OK
         //        pdfView.fromFile(file)
         //                .defaultPage(0)
         //                .enableAnnotationRendering(true)
         //                .load();
 
-        //Option 2 vertical scroll
+        // Option 2 vertical scroll
         //        pdfView.fromFile(file)
         //                //.pages(0) // all pages are displayed by default
         //                .enableSwipe(true) // allows to block changing pages using swipe
@@ -211,10 +215,9 @@ class PdfDemoActivity : BaseFontActivity() {
         //                .nightMode(false) // toggle night parrallaxMode
         //                .load();
 
-
-        //Option 3 horizontal scroll
+        // Option 3 horizontal scroll
         pdfView.fromFile(file)
-            //.pages(0) // all pages are displayed by default
+            // .pages(0) // all pages are displayed by default
             .enableSwipe(true) // allows to block changing pages using swipe
             .swipeHorizontal(true)
             .enableDoubletap(true)

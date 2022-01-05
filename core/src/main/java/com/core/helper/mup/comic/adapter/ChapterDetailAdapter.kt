@@ -112,5 +112,4 @@ class ChapterDetailAdapter : BaseAdapter() {
             holder.bind(chapterComicsDetail = listData[position])
         }
     }
-
 }

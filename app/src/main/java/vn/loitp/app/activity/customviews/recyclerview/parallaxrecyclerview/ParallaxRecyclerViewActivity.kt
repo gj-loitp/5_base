@@ -20,5 +20,4 @@ class ParallaxRecyclerViewActivity : BaseFontActivity() {
 
         rv.adapter = ParallaxAdapter(this)
     }
-
 }

@@ -10,9 +10,9 @@ import android.graphics.Path
  * Created by avin on 20/01/17.
  */
 class BeizerPath(
-        private val mFPoint1: FPoint,
-        private val mFPoint2: FPoint,
-        private val mFPoint3: FPoint
+    private val mFPoint1: FPoint,
+    private val mFPoint2: FPoint,
+    private val mFPoint3: FPoint
 ) : FlyPath() {
 
     private var mPath: Path? = null
@@ -30,9 +30,9 @@ class BeizerPath(
     }
 
     override fun getPath(
-            mOrigin: FPoint,
-            width: Float,
-            height: Float
+        mOrigin: FPoint,
+        width: Float,
+        height: Float
     ): Path {
 
         if (mPath == null) {

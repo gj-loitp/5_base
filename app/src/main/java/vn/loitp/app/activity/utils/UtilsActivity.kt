@@ -9,7 +9,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.utilities.LUIUtil
-import com.utils.util.*
+import com.utils.util.* // ktlint-disable no-wildcard-imports
 import kotlinx.android.synthetic.main.activity_utils.*
 import vn.loitp.app.R
 
@@ -48,8 +48,8 @@ class UtilsActivity : BaseFontActivity() {
         viewPager.adapter?.notifyDataSetChanged()
     }
 
-    private inner class SlidePagerAdapter internal constructor(fm: FragmentManager)
-        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SlidePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
             val frm = FrmUtils()

@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.imageview.stfaiconimageviewer
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.ImageView
@@ -15,7 +16,7 @@ import kotlinx.android.synthetic.main.view_stf_overlay.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.common.Constants
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("ListActivity")
 @IsFullScreen(false)
@@ -42,7 +43,7 @@ class ListActivity : BaseFontActivity() {
                 override fun onClick(
                     iv: ImageView,
                     movie: Movie,
-                    mvList: MutableList<Movie>,
+                    moviesList: MutableList<Movie>,
                     position: Int
                 ) {
 
@@ -54,7 +55,7 @@ class ListActivity : BaseFontActivity() {
 
                     stf = StfalconImageViewer.Builder(
                         this@ListActivity,
-                        mvList
+                        moviesList
                     ) { imageView, mv ->
                         LImageUtil.load(
                             this@ListActivity,
@@ -95,15 +96,17 @@ class ListActivity : BaseFontActivity() {
                 }
 
                 override fun onLoadMore() {
-                    //do nothing
+                    // do nothing
                 }
-            })
+            }
+        )
         rv.layoutManager = GridLayoutManager(this, 5)
         rv.adapter = stfAdapter
 
         prepareMovieData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         var cover: String
         for (i in 0..99) {

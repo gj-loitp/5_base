@@ -38,7 +38,6 @@ class CustomActivity : BaseFontActivity() {
                 alpha.alpha = 1 - percent
                 shadow.alpha = percent
             }
-
         })
 
         supportFragmentManager.beginTransaction().add(R.id.frameTop, NormalTopFragment()).commit()

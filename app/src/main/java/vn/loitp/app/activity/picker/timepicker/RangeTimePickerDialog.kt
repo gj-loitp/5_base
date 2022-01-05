@@ -5,11 +5,11 @@ import android.content.Context
 import android.widget.TimePicker
 
 class RangeTimePickerDialog(
-        context: Context,
-        callBack: OnTimeSetListener? = null,
-        private var mCurrentHour: Int,
-        private var mCurrentMinute: Int,
-        is24HourView: Boolean = true
+    context: Context,
+    callBack: OnTimeSetListener? = null,
+    private var mCurrentHour: Int,
+    private var mCurrentMinute: Int,
+    is24HourView: Boolean = true
 ) : TimePickerDialog(context, callBack, mCurrentHour, mCurrentMinute, is24HourView) {
 
     private var mMinHour = -1
@@ -31,11 +31,11 @@ class RangeTimePickerDialog(
         super.onTimeChanged(view, hourOfDay, minute)
 
         val validTime = (
-                hourOfDay >= mMinHour
-                        && (hourOfDay != mMinHour || minute >= mMinMinute)
-                        && hourOfDay <= mMaxHour
-                        && (hourOfDay != mMaxHour || minute <= mMaxMinute)
-                )
+            hourOfDay >= mMinHour &&
+                (hourOfDay != mMinHour || minute >= mMinMinute) &&
+                hourOfDay <= mMaxHour &&
+                (hourOfDay != mMaxHour || minute <= mMaxMinute)
+            )
         if (validTime) {
             mCurrentHour = hourOfDay
             mCurrentMinute = minute

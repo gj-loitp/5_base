@@ -9,9 +9,6 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import vn.loitp.app.R
 
-/**
- * Created by thangn on 2/26/17.
- */
 class WWLMusicControlsOverlay(context: Context) : FrameLayout(context), View.OnClickListener {
 
     private val layoutControls: RelativeLayout

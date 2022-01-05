@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.imitationloop
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,15 +9,20 @@ import androidx.viewpager.widget.PagerAdapter
 import vn.loitp.app.R
 import java.util.*
 
-/**
- * Created by Shinichi Nishimura on 2015/07/24.
- */
+// ktlint-disable no-wildcard-imports
+
 class RvTabImitationLoopPagerAdapter : PagerAdapter() {
+
+    companion object {
+        private const val NUMBER_OF_LOOPS = 10000
+    }
 
     private var mItems: List<String> = ArrayList()
 
+    @SuppressLint("SetTextI18n")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
+        val view = LayoutInflater.from(container.context)
+            .inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
         val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
         tvTitle.text = "Page: " + getValueAt(position)
@@ -53,10 +59,5 @@ class RvTabImitationLoopPagerAdapter : PagerAdapter() {
         return if (mItems.isEmpty()) {
             null
         } else mItems[position % mItems.size]
-    }
-
-    companion object {
-
-        private val NUMBER_OF_LOOPS = 10000
     }
 }

@@ -30,7 +30,8 @@ class RefreshViewPagerActivity : BaseFontActivity() {
     }
 
     @Suppress("DEPRECATION")
-    private inner class SamplePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_SET_USER_VISIBLE_HINT) {
+    private inner class SamplePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_SET_USER_VISIBLE_HINT) {
         override fun getItem(position: Int): Fragment {
             val frmRefresh = FrmRefresh()
             val bundle = Bundle()
@@ -43,7 +44,7 @@ class RefreshViewPagerActivity : BaseFontActivity() {
             return 5
         }
 
-        override fun getPageTitle(position: Int): CharSequence? {
+        override fun getPageTitle(position: Int): CharSequence {
             return "Page Title $position"
         }
     }

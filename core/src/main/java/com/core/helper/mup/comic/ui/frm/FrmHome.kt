@@ -57,22 +57,27 @@ class FrmHome : BaseFragment() {
         if (categorySelected == null || Category.isCategoryAll(categorySelected)) {
             logD(">>>getListComic !by category")
             comicViewModel?.getListComic(
-                    pageIndex = currentPageIndex,
-                    keyword = currentKeyword,
-                    isSwipeToRefresh = isSwipeToRefresh)
+                pageIndex = currentPageIndex,
+                keyword = currentKeyword,
+                isSwipeToRefresh = isSwipeToRefresh
+            )
         } else {
             logD(">>>getListComic by category")
             comicViewModel?.getListComicByCategory(
-                    categoryId = categorySelected.id,
-                    pageIndex = currentPageIndex,
-                    keyword = currentKeyword,
-                    isSwipeToRefresh = isSwipeToRefresh)
+                categoryId = categorySelected.id,
+                pageIndex = currentPageIndex,
+                keyword = currentKeyword,
+                isSwipeToRefresh = isSwipeToRefresh
+            )
         }
     }
 
     private fun setupViews() {
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
-        LUIUtil.setProgressViewOffset(swipeRefreshLayout = swipeRefreshLayout, topMargin = LScreenUtil.screenHeight / 6)
+        LUIUtil.setProgressViewOffset(
+            swipeRefreshLayout = swipeRefreshLayout,
+            topMargin = LScreenUtil.screenHeight / 6
+        )
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
             currentPageIndex = 0
@@ -93,7 +98,11 @@ class FrmHome : BaseFragment() {
                 }
 
                 comicProgressAdapter?.let { comicProgressA ->
-                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(comicHeaderA, comicA, comicProgressA)
+                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(
+                        comicHeaderA,
+                        comicA,
+                        comicProgressA
+                    )
                     concatAdapter = ConcatAdapter(listOfAdapters)
                 }
             }
@@ -123,33 +132,33 @@ class FrmHome : BaseFragment() {
         recyclerView.adapter = concatAdapter
 
         LUIUtil.setScrollChange(
-                recyclerView = recyclerView,
-                onBottom = {
-                    val isExistComicProgressAdapter = concatAdapter?.adapters?.firstOrNull { adapter ->
-                        adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
-                    }
+            recyclerView = recyclerView,
+            onBottom = {
+                val isExistComicProgressAdapter = concatAdapter?.adapters?.firstOrNull { adapter ->
+                    adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
+                }
 //                        logD("onBottom isExistComicProgressAdapter $isExistComicProgressAdapter")
-                    if (isExistComicProgressAdapter == null) {
-                        logD("onBottom $currentPageIndex/$totalPage")
-                        if (currentPageIndex < totalPage) {
-                            currentPageIndex++
-                            comicProgressAdapter?.let { gpa ->
-                                concatAdapter?.let { ma ->
-                                    ma.addAdapter(gpa)
-                                    recyclerView.smoothScrollToPosition(ma.itemCount - 1)
-                                }
+                if (isExistComicProgressAdapter == null) {
+                    logD("onBottom $currentPageIndex/$totalPage")
+                    if (currentPageIndex < totalPage) {
+                        currentPageIndex++
+                        comicProgressAdapter?.let { gpa ->
+                            concatAdapter?.let { ma ->
+                                ma.addAdapter(gpa)
+                                recyclerView.smoothScrollToPosition(ma.itemCount - 1)
                             }
-                            getListComic(isSwipeToRefresh = false)
                         }
-                    }
-                },
-                onScrolled = { isScrollDown ->
-                    if (isScrollDown) {
-                        fabCategory.shrink()
-                    } else {
-                        fabCategory.extend()
+                        getListComic(isSwipeToRefresh = false)
                     }
                 }
+            },
+            onScrolled = { isScrollDown ->
+                if (isScrollDown) {
+                    fabCategory.shrink()
+                } else {
+                    fabCategory.extend()
+                }
+            }
         )
 
         ivSearch.setSafeOnClickListener {
@@ -195,7 +204,10 @@ class FrmHome : BaseFragment() {
                             concatAdapter?.removeAdapter(it)
                         }
                         comicHeaderAdapter?.setData(comic = listComic.random())
-                        comicAdapter?.setData(listComic = listComic, isSwipeToRefresh = isSwipeToRefresh)
+                        comicAdapter?.setData(
+                            listComic = listComic,
+                            isSwipeToRefresh = isSwipeToRefresh
+                        )
                     }
                 }
             })
@@ -210,7 +222,7 @@ class FrmHome : BaseFragment() {
 
     private fun handleSearch(isAutoSearch: Boolean) {
         if (isAutoSearch) {
-            //do nothing
+            // do nothing
         } else {
             KeyboardUtils.hideSoftInput(context, etSearch)
         }

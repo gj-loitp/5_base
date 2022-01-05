@@ -9,7 +9,7 @@ import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_animation_fly_school.*
 import vn.loitp.app.R
 
-//https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
+// https://github.com/cipherthinkers/shapeflyer?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=5370
 
 @LogTag("FlySchoolActivity")
 @IsFullScreen(false)
@@ -27,7 +27,7 @@ class FlySchoolActivity : BaseFontActivity() {
 
     private fun setupViews() {
         floatingContainer.addPath(PATHS.S_INVERTED_BOTTOM_RIGHT)
-        //mShapeFlyer.addPath(PATHS.S_BOTTOM_LEFT)
+        // mShapeFlyer.addPath(PATHS.S_BOTTOM_LEFT)
         btPlay1.setOnClickListener {
             val imgObject = ImgObject()
             imgObject.avatar = "https://kenh14cdn.com/2016/photo-1-1472659093342.jpg"
@@ -51,9 +51,9 @@ class FlySchoolActivity : BaseFontActivity() {
     }
 
     private fun play1(imgObject: ImgObject?) {
-        //FlyBluePrint linearBluePrint = new FlyBluePrint(new FPoint(0, 0), FlyPath.getSimpleLinePath(new FPoint(1, 1)));
-        //mShapeFlyer.startAnimation(R.drawable.logo, linearBluePrint);
-        //mShapeFlyer.startAnimation(R.drawable.l_heart_icon);
+        // FlyBluePrint linearBluePrint = new FlyBluePrint(new FPoint(0, 0), FlyPath.getSimpleLinePath(new FPoint(1, 1)));
+        // mShapeFlyer.startAnimation(R.drawable.logo, linearBluePrint);
+        // mShapeFlyer.startAnimation(R.drawable.l_heart_icon);
 
         imgObject?.let {
             floatingContainer?.startAnimation(it, 0)

@@ -42,7 +42,8 @@ class FloorPlanAdapter : RecyclerView.Adapter<FloorPlanAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_floor_plan, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.view_row_item_floor_plan, parent, false)
         return ViewHolder(itemView)
     }
 

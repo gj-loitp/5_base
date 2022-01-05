@@ -36,15 +36,15 @@ class RealmController(application: Application) {
 
     fun getMyBook(myBook: MyBook): RealmResults<MyBook> {
         return realm.where(MyBook::class.java)
-                .equalTo(FIELD_TITLE, myBook.title)
-                .equalTo(FIELD_ID, myBook.id)
-                .findAll()
+            .equalTo(FIELD_TITLE, myBook.title)
+            .equalTo(FIELD_ID, myBook.id)
+            .findAll()
     }
 
     private fun sort(myBookList: List<MyBook>) {
         Collections.sort(myBookList) { obj1, obj2 ->
             // ## Ascending order
-            //return obj1.firstName.compareToIgnoreCase(obj2.firstName);
+            // return obj1.firstName.compareToIgnoreCase(obj2.firstName);
             java.lang.Long.valueOf(obj1.id).compareTo(obj2.id)
 
             // ## Descending order
@@ -59,10 +59,10 @@ class RealmController(application: Application) {
 
     fun hasMyBooks(): RealmResults<MyBook> {
         return realm.where(MyBook::class.java)
-                .contains(FIELD_AUTHOR, "Author 0")
-                .or()
-                .contains(FIELD_TITLE, "Realm")
-                .findAll()
+            .contains(FIELD_AUTHOR, "Author 0")
+            .or()
+            .contains(FIELD_TITLE, "Realm")
+            .findAll()
     }
 
     companion object {
@@ -80,7 +80,7 @@ class RealmController(application: Application) {
 
         fun with(fragment: Fragment): RealmController {
             if (ins == null) {
-                ins = RealmController(fragment.activity!!.application)
+                ins = RealmController(fragment.requireActivity().application)
             }
             return ins!!
         }

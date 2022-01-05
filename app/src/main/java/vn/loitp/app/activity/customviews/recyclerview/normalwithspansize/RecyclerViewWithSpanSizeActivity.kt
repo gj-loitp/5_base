@@ -1,8 +1,8 @@
 package vn.loitp.app.activity.customviews.recyclerview.normalwithspansize
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.annotation.IsFullScreen
@@ -10,14 +10,12 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LUIUtil
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter
-import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
 import kotlinx.android.synthetic.main.activity_recycler_view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("RecyclerViewWithSpanSizeActivity")
 @IsFullScreen(false)
@@ -32,16 +30,20 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        moviesAdapter = MoviesAdapter(moviesList = movieList, callback = object : MoviesAdapter.Callback {
-            override fun onClick(movie: Movie, position: Int) {
-                showShortInformation("Click " + movie.title)
-            }
+        moviesAdapter =
+            MoviesAdapter(
+                moviesList = movieList,
+                callback = object : MoviesAdapter.Callback {
+                    override fun onClick(movie: Movie, position: Int) {
+                        showShortInformation("Click " + movie.title)
+                    }
 
-            override fun onLongClick(movie: Movie, position: Int) {}
-            override fun onLoadMore() {
-                loadMore()
-            }
-        })
+                    override fun onLongClick(movie: Movie, position: Int) {}
+                    override fun onLoadMore() {
+                        loadMore()
+                    }
+                }
+            )
         val gridLayoutManager = GridLayoutManager(this, 2)
         rv.layoutManager = gridLayoutManager
 //        rv.itemAnimator = DefaultItemAnimator()
@@ -65,25 +67,40 @@ class RecyclerViewWithSpanSizeActivity : BaseFontActivity() {
                 } else 2
             }
         }
-        //LUIUtil.setPullLikeIOSVertical(rv)
+        // LUIUtil.setPullLikeIOSVertical(rv)
         prepareMovieData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
-        LUIUtil.setDelay(mls = 2000, runnable = Runnable {
-            val newSize = 5
-            for (i in 0 until newSize) {
-                val movie = Movie(title = "Add new $i", genre = "Add new $i", year = "Add new: $i", cover = Constants.URL_IMG)
-                movieList.add(movie)
+        LUIUtil.setDelay(
+            mls = 2000,
+            runnable = {
+                val newSize = 5
+                for (i in 0 until newSize) {
+                    val movie = Movie(
+                        title = "Add new $i",
+                        genre = "Add new $i",
+                        year = "Add new: $i",
+                        cover = Constants.URL_IMG
+                    )
+                    movieList.add(movie)
+                }
+                moviesAdapter?.notifyDataSetChanged()
+                showShortInformation("Finish loadMore")
             }
-            moviesAdapter?.notifyDataSetChanged()
-            showShortInformation("Finish loadMore")
-        })
+        )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         for (i in 0..99) {
-            val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
+            val movie = Movie(
+                title = "Loitp $i",
+                genre = "Action & Adventure $i",
+                year = "Year: $i",
+                cover = Constants.URL_IMG
+            )
             movieList.add(movie)
         }
         moviesAdapter?.notifyDataSetChanged()

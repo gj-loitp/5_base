@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.core.utilities.LAppResource;
+
 import vn.loitp.app.R;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.Alarm;
 import vn.loitp.app.activity.demo.alarmdemoapp.model.DataSource;
@@ -35,8 +37,8 @@ public class AlarmListAdapter extends BaseAdapter {
         mInflater = LayoutInflater.from(context);
         mDateTime = new DateTime(context);
 
-        mColorOutdated = mContext.getResources().getColor(R.color.gray);
-        mColorActive = mContext.getResources().getColor(R.color.red);
+        mColorOutdated = LAppResource.INSTANCE.getColor(R.color.gray);
+        mColorActive = LAppResource.INSTANCE.getColor(R.color.red);
 
         mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
@@ -86,7 +88,7 @@ public class AlarmListAdapter extends BaseAdapter {
         return position;
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "InflateParams"})
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         Alarm alarm = DataSource.get(position);

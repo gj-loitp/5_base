@@ -9,7 +9,6 @@ import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
@@ -25,12 +24,12 @@ import com.core.utilities.LUIUtil
 import com.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.location.*
+import com.google.android.gms.location.* // ktlint-disable no-wildcard-imports
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.*
+import com.google.android.gms.maps.model.* // ktlint-disable no-wildcard-imports
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -40,15 +39,16 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
 import java.io.IOException
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.collections.ArrayList
 
 @LogTag("MapTrackerActivity")
 @IsFullScreen(false)
-class MapTrackerActivity : BaseFontActivity(),
-        OnMapReadyCallback,
-        GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener {
+class MapTrackerActivity :
+    BaseFontActivity(),
+    OnMapReadyCallback,
+    GoogleApiClient.ConnectionCallbacks,
+    GoogleApiClient.OnConnectionFailedListener {
 
     companion object {
         private const val UPDATE_INTERVAL_IN_MILLISECONDS: Long = 8000
@@ -113,63 +113,66 @@ class MapTrackerActivity : BaseFontActivity(),
         showShortInformation("checkPermission")
         isShowDialogCheck = true
         Dexter.withContext(this)
-                .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(object : MultiplePermissionsListener {
-                    override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                        if (report.areAllPermissionsGranted()) {
-                            buildClient()
-                        } else {
-                            showShouldAcceptPermission()
-                        }
-
-                        if (report.isAnyPermissionPermanentlyDenied) {
-                            showSettingsDialog()
-                        }
-                        isShowDialogCheck = true
+            .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
+            .withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+                    if (report.areAllPermissionsGranted()) {
+                        buildClient()
+                    } else {
+                        showShouldAcceptPermission()
                     }
 
-                    override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
-                        token.continuePermissionRequest()
+                    if (report.isAnyPermissionPermanentlyDenied) {
+                        showSettingsDialog()
                     }
-                })
-                .onSameThread()
-                .check()
+                    isShowDialogCheck = true
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    permissions: List<PermissionRequest>,
+                    token: PermissionToken
+                ) {
+                    token.continuePermissionRequest()
+                }
+            })
+            .onSameThread()
+            .check()
     }
 
     private fun showSettingsDialog() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature. You can grant them in app settings.",
-                button1 = "GOTO SETTINGS",
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    isShowDialogCheck = false
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", packageName, null)
-                    intent.data = uri
-                    startActivityForResult(intent, 101)
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = "Need Permissions",
+            msg = "This app needs permission to use this feature. You can grant them in app settings.",
+            button1 = "GOTO SETTINGS",
+            button2 = getString(R.string.cancel),
+            onClickButton1 = {
+                isShowDialogCheck = false
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                val uri = Uri.fromParts("package", packageName, null)
+                intent.data = uri
+                startActivityForResult(intent, 101)
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = "Need Permissions",
-                msg = "This app needs permission to use this feature.",
-                button1 = getString(R.string.ok),
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    checkPermission()
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = "Need Permissions",
+            msg = "This app needs permission to use this feature.",
+            button1 = getString(R.string.ok),
+            button2 = getString(R.string.cancel),
+            onClickButton1 = {
+                checkPermission()
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }
@@ -191,10 +194,10 @@ class MapTrackerActivity : BaseFontActivity(),
             val beforeLatLng = beforeLoc?.afterLatLng
             val afterLatLng = latLng
             val loc = Loc(
-                    beforeTimestamp = beforeTimestamp,
-                    afterTimestamp = System.currentTimeMillis(),
-                    beforeLatLng = beforeLatLng,
-                    afterLatLng = afterLatLng
+                beforeTimestamp = beforeTimestamp,
+                afterTimestamp = System.currentTimeMillis(),
+                beforeLatLng = beforeLatLng,
+                afterLatLng = afterLatLng
             )
             listLoc.add(element = loc)
             var log = ""
@@ -219,7 +222,7 @@ class MapTrackerActivity : BaseFontActivity(),
                     val listAddresses = geoCoder.getFromLocation(latitude, longitude, 1)
 //                    logD("listAddresses " + LApplication.gson.toJson(listAddresses))
                     if (listAddresses.isNullOrEmpty()) {
-                        //do nothing
+                        // do nothing
                     } else {
                         markerOptions.title(listAddresses[0].getAddressLine(0))
                     }
@@ -300,7 +303,7 @@ class MapTrackerActivity : BaseFontActivity(),
             builder.include(latLng)
         }
         val bounds = builder.build()
-        //BOUND_PADDING is an int to specify padding of bound.. try 100.
+        // BOUND_PADDING is an int to specify padding of bound.. try 100.
         val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bounds, 100)
         mGoogleMap?.animateCamera(cameraUpdate)
     }
@@ -309,20 +312,29 @@ class MapTrackerActivity : BaseFontActivity(),
         val list = ArrayList<LatLng>()
         list.add(LatLng(20.8785614, 80.8107979))
         drawPolyLineOnMap(list)
-        LUIUtil.setDelay(1000, Runnable {
-            list.add(LatLng(25.8785614, 85.8107979))
-            drawPolyLineOnMap(list)
-
-            LUIUtil.setDelay(1000, Runnable {
-                list.add(LatLng(30.8785614, 90.8107979))
+        LUIUtil.setDelay(
+            mls = 1000,
+            runnable = {
+                list.add(LatLng(25.8785614, 85.8107979))
                 drawPolyLineOnMap(list)
 
-                LUIUtil.setDelay(1000, Runnable {
-                    list.add(LatLng(35.8785614, 95.8107979))
-                    drawPolyLineOnMap(list)
-                })
-            })
-        })
+                LUIUtil.setDelay(
+                    mls = 1000,
+                    runnable = {
+                        list.add(LatLng(30.8785614, 90.8107979))
+                        drawPolyLineOnMap(list)
+
+                        LUIUtil.setDelay(
+                            mls = 1000,
+                            runnable = {
+                                list.add(LatLng(35.8785614, 95.8107979))
+                                drawPolyLineOnMap(list)
+                            }
+                        )
+                    }
+                )
+            }
+        )
     }
 
     private fun addMakerSydney() {
@@ -334,14 +346,11 @@ class MapTrackerActivity : BaseFontActivity(),
     }
 
     private fun buildClient() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                if (googleApiClient == null) {
-                    buildGoogleApiClient()
-                }
-                mGoogleMap?.isMyLocationEnabled = true
-            }
-        } else {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
             if (googleApiClient == null) {
                 buildGoogleApiClient()
             }
@@ -352,10 +361,10 @@ class MapTrackerActivity : BaseFontActivity(),
     @Synchronized
     private fun buildGoogleApiClient() {
         googleApiClient = GoogleApiClient.Builder(this)
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build()
+            .addConnectionCallbacks(this)
+            .addOnConnectionFailedListener(this)
+            .addApi(LocationServices.API)
+            .build()
         googleApiClient?.connect()
     }
 
@@ -375,32 +384,44 @@ class MapTrackerActivity : BaseFontActivity(),
     private fun startLocationUpdates() {
         mSettingsClient?.let { settingsClient ->
             settingsClient.checkLocationSettings(mLocationSettingsRequest)
-                    .addOnSuccessListener(this) {
-                        showShortInformation("All location settings are satisfied.")
-                        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                            mFusedLocationClient?.requestLocationUpdates(mLocationRequest, mLocationCallback, Looper.myLooper())
-                            onChangeLocation()
-                        } else {
-                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
-                        }
-                    }
-                    .addOnFailureListener(this) { e ->
-                        showShortError(e.toString())
+                .addOnSuccessListener(this) {
+                    showShortInformation("All location settings are satisfied.")
+                    if (ActivityCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.ACCESS_FINE_LOCATION
+                        ) == PackageManager.PERMISSION_GRANTED &&
+                        ActivityCompat.checkSelfPermission(
+                                this,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        mFusedLocationClient?.requestLocationUpdates(
+                            mLocationRequest,
+                            mLocationCallback,
+                            Looper.myLooper()
+                        )
                         onChangeLocation()
+                    } else {
+                        showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
                     }
+                }
+                .addOnFailureListener(this) { e ->
+                    showShortError(e.toString())
+                    onChangeLocation()
+                }
         }
     }
 
-    //return in meter
+    // return in meter
     private fun getDistance(startLatLng: LatLng, endLatLng: LatLng): Float {
         val results = floatArrayOf(0f)
         Location.distanceBetween(
-                startLatLng.latitude,
-                startLatLng.longitude,
-                endLatLng.latitude,
-                endLatLng.longitude,
-                results)
+            startLatLng.latitude,
+            startLatLng.longitude,
+            endLatLng.latitude,
+            endLatLng.longitude,
+            results
+        )
         logD("getDistance results: " + BaseApplication.gson.toJson(results))
         return results[0]
     }

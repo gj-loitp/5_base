@@ -9,7 +9,7 @@ import com.views.switchtoggle.toggle.OnToggledListener
 import kotlinx.android.synthetic.main.activity_switch_toggle.*
 import vn.loitp.app.R
 
-//https://github.com/Angads25/android-toggle?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6778
+// https://github.com/Angads25/android-toggle?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=6778
 
 @LogTag("ToggleActivity")
 @IsFullScreen(false)

@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.wwlvideo
 
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.widget.FrameLayout
 import com.annotation.IsFullScreen
@@ -21,7 +20,7 @@ import vn.loitp.app.activity.customviews.wwlvideo.utils.WWLVideoDataset
 import kotlin.math.max
 import kotlin.math.min
 
-//https://github.com/vn-ttinc/Youtube-Watch-While-Layout
+// https://github.com/vn-ttinc/Youtube-Watch-While-Layout
 @LogTag("WWLVideoActivity")
 @IsFullScreen(false)
 class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
@@ -39,9 +38,12 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
         super.onCreate(savedInstanceState)
 
         watchWhileLayout.setListener(this)
-        frmPlayer = supportFragmentManager.findFragmentById(R.id.frmPlayer) as WWLVideoPlayerFragment?
-        frmUpNext = supportFragmentManager.findFragmentById(R.id.frmUpNext) as WWLVideoUpNextFragment?
-        frmMetaInfo = supportFragmentManager.findFragmentById(R.id.frmMetaInfo) as WWLVideoMetaInfoFragment?
+        frmPlayer =
+            supportFragmentManager.findFragmentById(R.id.frmPlayer) as WWLVideoPlayerFragment?
+        frmUpNext =
+            supportFragmentManager.findFragmentById(R.id.frmUpNext) as WWLVideoUpNextFragment?
+        frmMetaInfo =
+            supportFragmentManager.findFragmentById(R.id.frmMetaInfo) as WWLVideoMetaInfoFragment?
     }
 
     override fun WWL_onSliding(offset: Float) {
@@ -123,12 +125,11 @@ class WWLVideoActivity : BaseActivity(), LWWLVideo.Listener, FragmentHost {
     }
 
     private fun updateStatusBarAlpha(alpha: Float) {
-        if (Build.VERSION.SDK_INT >= 21) {
-            val color = LAppResource.getColor(R.color.colorPrimaryDark)
-            val color2 = Color.BLACK
-            val color3 = LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
-            window.statusBarColor = color3
-        }
+        val color = LAppResource.getColor(R.color.colorPrimaryDark)
+        val color2 = Color.BLACK
+        val color3 =
+            LWWLMusicViewHelper.evaluateColorAlpha(max(0.0f, min(1.0f, alpha)), color, color2)
+        window.statusBarColor = color3
     }
 
     private fun updatePlayerAlpha(alpha: Float) {

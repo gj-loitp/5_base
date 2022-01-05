@@ -13,13 +13,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
-
 open class BaseViewModel : ViewModel() {
     private var logTag: String? = null
 
@@ -62,35 +55,33 @@ open class BaseViewModel : ViewModel() {
         return when (response.errorCode) {
             RequestStatus.NO_INTERNET_CONNECTION.value -> {
                 ActionData(
-                        isNetworkOffline = true,
-                        isDoing = false,
-                        isSuccess = false,
-                        message = "error_internet_connection")
+                    isNetworkOffline = true,
+                    isDoing = false,
+                    isSuccess = false,
+                    message = "error_internet_connection"
+                )
             }
             RequestStatus.ERROR_CLIENT.value -> {
                 ActionData(
-                        message = "error_occur",
-                        isDoing = false,
-                        isSuccess = false
+                    message = "error_occur",
+                    isDoing = false,
+                    isSuccess = false
                 )
             }
             RequestStatus.NO_AUTHENTICATION.value -> {
                 ActionData(
-                        isDoing = false,
-                        isSuccess = false,
-                        message = "error_login"
+                    isDoing = false,
+                    isSuccess = false,
+                    message = "error_login"
                 )
-
             }
             else -> {
-                val error = response.errors?.let {
-                    it
-                } ?: ErrorResponse(message = "error_occur")
+                val error = response.errors ?: ErrorResponse(message = "error_occur")
 
                 ActionData(
-                        isDoing = false,
-                        isSuccess = false,
-                        errorResponse = error
+                    isDoing = false,
+                    isSuccess = false,
+                    errorResponse = error
                 )
             }
         }

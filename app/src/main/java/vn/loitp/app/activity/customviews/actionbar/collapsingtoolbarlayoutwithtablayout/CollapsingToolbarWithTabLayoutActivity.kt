@@ -36,7 +36,10 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
     }
 
     private fun setupViews() {
-        setCustomStatusBar(colorStatusBar = Color.TRANSPARENT, colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
+        setCustomStatusBar(
+            colorStatusBar = Color.TRANSPARENT,
+            colorNavigationBar = LAppResource.getColor(R.color.colorPrimary)
+        )
 
         setSupportActionBar(toolbar)
 
@@ -57,16 +60,16 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         when (v) {
             fab -> {
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show()
+                    .setAction("Action", null).show()
             }
             btMenu -> {
                 LPopupMenu.show(
-                        activity = this,
-                        showOnView = v,
-                        menuRes = R.menu.menu_popup,
-                        callback = { menuItem ->
-                            showShortInformation(menuItem.title.toString())
-                        }
+                    activity = this,
+                    showOnView = v,
+                    menuRes = R.menu.menu_popup,
+                    callback = { menuItem ->
+                        showShortInformation(menuItem.title.toString())
+                    }
                 )
             }
         }
@@ -74,7 +77,11 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
 
     class PlaceholderFragment : Fragment() {
 
-        override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
+        ): View? {
             val rootView = inflater.inflate(R.layout.frm_text, container, false)
             val textView = rootView.findViewById<TextView>(R.id.textView)
             textView.setText(R.string.large_text)
@@ -95,7 +102,8 @@ class CollapsingToolbarWithTabLayoutActivity : BaseFontActivity(), OnClickListen
         }
     }
 
-    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) :
+        FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
             return PlaceholderFragment.newInstance(position + 1)

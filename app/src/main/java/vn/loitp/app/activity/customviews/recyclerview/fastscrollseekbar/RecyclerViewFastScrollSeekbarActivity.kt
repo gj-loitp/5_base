@@ -1,6 +1,7 @@
 package vn.loitp.app.activity.customviews.recyclerview.fastscrollseekbar
 
 import abak.tr.com.boxedverticalseekbar.BoxedVertical
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,10 +14,9 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-
-@LogTag("loitppRecyclerViewFastScrollSeekbarActivity")
+@LogTag("RecyclerViewFastScrollSeekbarActivity")
 @IsFullScreen(false)
 class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
 
@@ -37,7 +37,8 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        moviesAdapter = MoviesAdapter(moviesList = movieList,
+        moviesAdapter = MoviesAdapter(
+            moviesList = movieList,
             callback = object : MoviesAdapter.Callback {
                 override fun onClick(movie: Movie, position: Int) {
                     showShortInformation("Click " + movie.title)
@@ -49,7 +50,8 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
                 override fun onLoadMore() {
                     loadMore()
                 }
-            })
+            }
+        )
         val layoutManager = LinearLayoutManager(this)
         rv.layoutManager = layoutManager
         rv.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -96,6 +98,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
         prepareMovieData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         LUIUtil.setDelay(mls = 2000, runnable = {
             val newSize = 5
@@ -114,6 +117,7 @@ class RecyclerViewFastScrollSeekbarActivity : BaseFontActivity() {
         })
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         for (i in 0..49) {
             val movie = Movie(

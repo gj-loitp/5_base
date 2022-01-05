@@ -6,12 +6,12 @@ import java.io.Serializable
 
 @Keep
 data class Area(
-        @Json(name = "id")
-        var id: String? = null,
+    @Json(name = "id")
+    var id: String? = null,
 
-        @Json(name = "name")
-        var name: String? = null,
+    @Json(name = "name")
+    var name: String? = null,
 
-        @Json(name = "tables")
-        var tables: List<Table>? = null
+    @Json(name = "tables")
+    var tables: List<Table>? = null
 ) : Serializable

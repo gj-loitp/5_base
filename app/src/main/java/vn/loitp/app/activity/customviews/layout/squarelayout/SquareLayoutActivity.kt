@@ -7,7 +7,7 @@ import vn.loitp.app.R
 
 @LogTag("SquareLayoutActivity")
 @IsFullScreen(false)
-class SquareLayoutActivity : BaseFontActivity(){
+class SquareLayoutActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_layout_square

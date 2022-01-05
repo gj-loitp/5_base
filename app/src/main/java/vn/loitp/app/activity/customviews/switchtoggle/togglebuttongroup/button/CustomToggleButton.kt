@@ -8,8 +8,8 @@ import com.nex3z.togglebuttongroup.button.OnCheckedChangeListener
 import com.nex3z.togglebuttongroup.button.ToggleButton
 
 class CustomToggleButton @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : AppCompatButton(context, attrs), ToggleButton {
 
     companion object {
@@ -57,5 +57,4 @@ class CustomToggleButton @JvmOverloads constructor(
     override fun setOnCheckedChangeListener(listener: OnCheckedChangeListener) {
         mOnCheckedChangeListener = listener
     }
-
 }

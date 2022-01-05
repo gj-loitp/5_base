@@ -1,6 +1,7 @@
 package com.core.helper.mup.comic.adapter
 
 import android.animation.ValueAnimator
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ class ComicHeaderAdapter : BaseAdapter() {
 
     var onClickRoot: ((Comic) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(comic: Comic) {
         logD("setData " + comic.title)
         this.comic = comic
@@ -92,5 +94,4 @@ class ComicHeaderAdapter : BaseAdapter() {
             }
         }
     }
-
 }

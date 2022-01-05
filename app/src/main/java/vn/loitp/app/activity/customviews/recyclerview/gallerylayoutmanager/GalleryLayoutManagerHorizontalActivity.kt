@@ -17,7 +17,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerviewwithsingletondata.DummyData.Companion.instance
 
-//https://github.com/BCsl/GalleryLayoutManager
+// https://github.com/BCsl/GalleryLayoutManager
 
 @LogTag("GalleryLayoutManagerHorizontalActivity")
 @IsFullScreen(false)
@@ -32,43 +32,53 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mAdapter = GalleryAdapter(context = this, moviesList = instance.movieList,
-                callback = object : GalleryAdapter.Callback {
-                    override fun onClick(movie: Movie, position: Int) {
-                        showShortInformation("Click " + movie.title)
-                    }
+        mAdapter = GalleryAdapter(
+            context = this, moviesList = instance.movieList,
+            callback = object : GalleryAdapter.Callback {
+                override fun onClick(movie: Movie, position: Int) {
+                    showShortInformation("Click " + movie.title)
+                }
 
-                    override fun onLongClick(movie: Movie, position: Int) {
-                        //do nothing
-                    }
+                override fun onLongClick(movie: Movie, position: Int) {
+                    // do nothing
+                }
 
-                    override fun onLoadMore() {
-                        //do nothing
-                    }
-                })
+                override fun onLoadMore() {
+                    // do nothing
+                }
+            }
+        )
         val mLayoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         rv.layoutManager = mLayoutManager
         rv.itemAnimator = DefaultItemAnimator()
-        //rv.setAdapter(mAdapter);
+        // rv.setAdapter(mAdapter);
         val layoutManager = GalleryLayoutManager(GalleryLayoutManager.HORIZONTAL)
-        layoutManager.attach(rv) //default selected position is 0
-        //layoutManager.attach(recyclerView, 30);
+        layoutManager.attach(rv) // default selected position is 0
+        // layoutManager.attach(recyclerView, 30);
 
-        //...
-        //setup adapter for your RecycleView
+        // ...
+        // setup adapter for your RecycleView
         rv.adapter = mAdapter
-        layoutManager.setCallbackInFling(true) //should receive callback when flinging, default is false
-        layoutManager.setOnItemSelectedListener { _, _, position -> textView.text = position.toString() + "/" + mAdapter?.itemCount }
+        layoutManager.setCallbackInFling(true) // should receive callback when flinging, default is false
+        layoutManager.setOnItemSelectedListener { _, _, position ->
+            textView.text = position.toString() + "/" + mAdapter?.itemCount
+        }
 
         // Apply ItemTransformer just like ViewPager
         layoutManager.setItemTransformer(ScaleTransformer())
         prepareMovieData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         if (instance.movieList.isEmpty()) {
             for (i in 0..49) {
-                val movie = Movie(title = "Loitp $i", genre = "Action & Adventure $i", year = "Year: $i", cover = Constants.URL_IMG)
+                val movie = Movie(
+                    title = "Loitp $i",
+                    genre = "Action & Adventure $i",
+                    year = "Year: $i",
+                    cover = Constants.URL_IMG
+                )
                 instance.movieList.add(movie)
             }
         }
@@ -76,7 +86,11 @@ class GalleryLayoutManagerHorizontalActivity : BaseFontActivity() {
     }
 
     inner class ScaleTransformer : ItemTransformer {
-        override fun transformItem(layoutManager: GalleryLayoutManager, item: View, fraction: Float) {
+        override fun transformItem(
+            layoutManager: GalleryLayoutManager,
+            item: View,
+            fraction: Float
+        ) {
             item.pivotX = item.width / 2f
             item.pivotY = item.height / 2.0f
             val scale = 1 - 0.4f * Math.abs(fraction)

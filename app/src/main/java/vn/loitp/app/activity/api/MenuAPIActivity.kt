@@ -28,13 +28,13 @@ class MenuAPIActivity : BaseFontActivity(), View.OnClickListener {
         setupViews()
     }
 
-    private fun setupViews(){
+    private fun setupViews() {
         btCoroutineAPI.setOnClickListener(this)
         btGalleryAPI.setOnClickListener(this)
         btComicAPI.setOnClickListener(this)
         btTestRetrofit2.setOnClickListener(this)
     }
-    
+
     override fun onClick(v: View?) {
         var intent: Intent? = null
         when (v) {

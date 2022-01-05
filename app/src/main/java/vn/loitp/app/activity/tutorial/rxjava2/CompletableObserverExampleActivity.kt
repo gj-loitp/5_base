@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
 import vn.loitp.app.R
 import java.util.concurrent.TimeUnit
 
-//https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+// https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
 @LogTag("CompletableObserverExampleActivity")
 @IsFullScreen(false)
@@ -37,9 +37,9 @@ class CompletableObserverExampleActivity : BaseFontActivity() {
     private fun doSomeWork() {
         val completable = Completable.timer(2000, TimeUnit.MILLISECONDS)
         completable
-                .subscribeOn(Schedulers.io()) // Be notified on the main thread
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(completableObserver)
+            .subscribeOn(Schedulers.io()) // Be notified on the main thread
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(completableObserver)
     }
 
     private val completableObserver: CompletableObserver

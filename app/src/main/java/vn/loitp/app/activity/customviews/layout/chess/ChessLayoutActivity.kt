@@ -16,7 +16,6 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_chess_layout.*
 import vn.loitp.app.R
 
-
 @LogTag("ChessLayoutActivity")
 @IsFullScreen(false)
 class ChessLayoutActivity : BaseFontActivity() {
@@ -52,7 +51,10 @@ class ChessLayoutActivity : BaseFontActivity() {
             for (iCol in 0 until mCols) {
 
                 val textView = TextView(this)
-                layoutParams = ConstraintLayout.LayoutParams(ConstraintSet.MATCH_CONSTRAINT, ConstraintSet.MATCH_CONSTRAINT)
+                layoutParams = ConstraintLayout.LayoutParams(
+                    ConstraintSet.MATCH_CONSTRAINT,
+                    ConstraintSet.MATCH_CONSTRAINT
+                )
                 id = View.generateViewId()
                 idArray[iRow][iCol] = id
                 textView.id = id
@@ -63,12 +65,12 @@ class ChessLayoutActivity : BaseFontActivity() {
                 textView.setBackgroundColor(if ((iRow + iCol) % 2 == 0) color1 else color2)
 
                 LUIUtil.setSafeOnClickListenerElastic(
-                        view = textView,
-                        runnable = {
-                            showShortInformation("${textView.text}")
-                        })
+                    view = textView,
+                    runnable = {
+                        showShortInformation("${textView.text}")
+                    }
+                )
                 layoutRootView.addView(textView, layoutParams)
-
             }
         }
 
@@ -82,13 +84,18 @@ class ChessLayoutActivity : BaseFontActivity() {
                 if (iRow == 0) {
                     constraintSet.connect(id, ConstraintSet.TOP, gridFrameId, ConstraintSet.TOP)
                 } else {
-                    constraintSet.connect(id, ConstraintSet.TOP, idArray[iRow - 1][0], ConstraintSet.BOTTOM)
+                    constraintSet.connect(
+                        id,
+                        ConstraintSet.TOP,
+                        idArray[iRow - 1][0],
+                        ConstraintSet.BOTTOM
+                    )
                 }
             }
             constraintSet.createHorizontalChain(
-                    gridFrameId, ConstraintSet.LEFT,
-                    gridFrameId, ConstraintSet.RIGHT,
-                    idArray[iRow], null, ConstraintSet.CHAIN_PACKED
+                gridFrameId, ConstraintSet.LEFT,
+                gridFrameId, ConstraintSet.RIGHT,
+                idArray[iRow], null, ConstraintSet.CHAIN_PACKED
             )
         }
         constraintSet.applyTo(layoutRootView)

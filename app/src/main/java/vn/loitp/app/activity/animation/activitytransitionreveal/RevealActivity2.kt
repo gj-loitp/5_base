@@ -39,5 +39,4 @@ class RevealActivity2 : BaseFontActivity() {
         setResult(Activity.RESULT_OK, intent)
         activityCircularReveal?.unRevealActivity(this)
     }
-
 }

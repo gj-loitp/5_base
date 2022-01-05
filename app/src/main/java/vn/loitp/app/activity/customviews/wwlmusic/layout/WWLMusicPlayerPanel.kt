@@ -10,9 +10,6 @@ import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import vn.loitp.app.R
 
-/**
- * Created by thangn on 3/1/17.
- */
 class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
     var mBgColorDrawable: ColorDrawable = ColorDrawable()
@@ -48,9 +45,18 @@ class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(
         val width = MeasureSpec.getSize(widthMeasureSpec)
         val height = MeasureSpec.getSize(heightMeasureSpec)
         val w169 = ((height + 2).toFloat() * 1.777f).toInt()
-        layoutMusicPlayerView?.measure(MeasureSpec.makeMeasureSpec(w169, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST))
+        layoutMusicPlayerView?.measure(
+            MeasureSpec.makeMeasureSpec(w169, MeasureSpec.EXACTLY),
+            MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST)
+        )
         if (layoutMiniControlsContainer?.visibility == VISIBLE) {
-            layoutMiniControlsContainer?.measure(MeasureSpec.makeMeasureSpec(width - w169, MeasureSpec.EXACTLY), heightMeasureSpec)
+            layoutMiniControlsContainer?.measure(
+                MeasureSpec.makeMeasureSpec(
+                    width - w169,
+                    MeasureSpec.EXACTLY
+                ),
+                heightMeasureSpec
+            )
         }
     }
 
@@ -59,8 +65,8 @@ class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(
 
         layoutMusicPlayerView?.let { fl ->
             val innerH = bottom - top
-            val playerW = fl.measuredWidth ?: 0
-            val playerH = fl.measuredHeight ?: 0
+            val playerW = fl.measuredWidth
+            val playerH = fl.measuredHeight
             fl.layout(0, 0, playerW, playerH)
 
             layoutMiniControlsContainer?.let {
@@ -70,5 +76,4 @@ class WWLMusicPlayerPanel(context: Context, attrs: AttributeSet?) : FrameLayout(
             }
         }
     }
-
 }

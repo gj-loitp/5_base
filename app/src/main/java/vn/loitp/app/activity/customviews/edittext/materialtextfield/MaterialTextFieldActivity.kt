@@ -5,7 +5,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import vn.loitp.app.R
 
-//guide https://github.com/florent37/MaterialTextField
+// guide https://github.com/florent37/MaterialTextField
 
 @LogTag("MaterialTextFieldActivity")
 @IsFullScreen(false)

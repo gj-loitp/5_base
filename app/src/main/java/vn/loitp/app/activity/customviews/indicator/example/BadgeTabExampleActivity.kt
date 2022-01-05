@@ -66,7 +66,8 @@ class BadgeTabExampleActivity : BaseFontActivity() {
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val badgePagerTitleView = BadgePagerTitleView(context)
-                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.normalColor = Color.parseColor("#88ffffff")
                 simplePagerTitleView.selectedColor = Color.WHITE
@@ -78,27 +79,33 @@ class BadgeTabExampleActivity : BaseFontActivity() {
 
                 // setup badge
                 if (index != 2) {
-                    val badgeTextView = LayoutInflater.from(context).inflate(R.layout.simple_count_badge_layout, null) as TextView
+                    val badgeTextView = LayoutInflater.from(context)
+                        .inflate(R.layout.simple_count_badge_layout, null) as TextView
                     badgeTextView.text = "${index + 1}"
                     badgePagerTitleView.badgeView = badgeTextView
                 } else {
-                    val badgeImageView = LayoutInflater.from(context).inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
+                    val badgeImageView = LayoutInflater.from(context)
+                        .inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
                     badgePagerTitleView.badgeView = badgeImageView
                 }
 
                 // set badge position
                 when (index) {
                     0 -> {
-                        badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CONTENT_LEFT, -UIUtil.dip2px(context, 6.0))
+                        badgePagerTitleView.xBadgeRule =
+                            BadgeRule(BadgeAnchor.CONTENT_LEFT, -UIUtil.dip2px(context, 6.0))
                         badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_TOP, 0)
                     }
                     1 -> {
-                        badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CONTENT_RIGHT, -UIUtil.dip2px(context, 6.0))
+                        badgePagerTitleView.xBadgeRule =
+                            BadgeRule(BadgeAnchor.CONTENT_RIGHT, -UIUtil.dip2px(context, 6.0))
                         badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_TOP, 0)
                     }
                     2 -> {
-                        badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
-                        badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
+                        badgePagerTitleView.xBadgeRule =
+                            BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
+                        badgePagerTitleView.yBadgeRule =
+                            BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
                     }
                 }
 
@@ -132,7 +139,8 @@ class BadgeTabExampleActivity : BaseFontActivity() {
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val badgePagerTitleView = BadgePagerTitleView(context)
-                val simplePagerTitleView: SimplePagerTitleView = ScaleTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ScaleTransitionPagerTitleView(context)
                 simplePagerTitleView.text = mDataList[index]
                 simplePagerTitleView.textSize = 18f
                 simplePagerTitleView.normalColor = Color.parseColor("#616161")
@@ -144,10 +152,13 @@ class BadgeTabExampleActivity : BaseFontActivity() {
 
                 // setup badge
                 if (index == 1) {
-                    val badgeImageView = LayoutInflater.from(context).inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
+                    val badgeImageView = LayoutInflater.from(context)
+                        .inflate(R.layout.simple_red_dot_badge_layout, null) as ImageView
                     badgePagerTitleView.badgeView = badgeImageView
-                    badgePagerTitleView.xBadgeRule = BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
-                    badgePagerTitleView.yBadgeRule = BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
+                    badgePagerTitleView.xBadgeRule =
+                        BadgeRule(BadgeAnchor.CENTER_X, -UIUtil.dip2px(context, 3.0))
+                    badgePagerTitleView.yBadgeRule =
+                        BadgeRule(BadgeAnchor.CONTENT_BOTTOM, UIUtil.dip2px(context, 2.0))
                 }
 
                 // cancel badge when click tab, default true
@@ -206,7 +217,8 @@ class BadgeTabExampleActivity : BaseFontActivity() {
 
             override fun getIndicator(context: Context): IPagerIndicator {
                 val indicator = LinePagerIndicator(context)
-                val navigatorHeight = context.resources.getDimension(R.dimen.common_navigator_height)
+                val navigatorHeight =
+                    context.resources.getDimension(R.dimen.common_navigator_height)
                 val borderWidth = UIUtil.dip2px(context, 1.0).toFloat()
                 val lineHeight = navigatorHeight - 2 * borderWidth
                 indicator.lineHeight = lineHeight
@@ -229,7 +241,8 @@ class BadgeTabExampleActivity : BaseFontActivity() {
 
             override fun getTitleView(context: Context, index: Int): IPagerTitleView {
                 val badgePagerTitleView = BadgePagerTitleView(context)
-                val simplePagerTitleView: SimplePagerTitleView = ColorTransitionPagerTitleView(context)
+                val simplePagerTitleView: SimplePagerTitleView =
+                    ColorTransitionPagerTitleView(context)
                 simplePagerTitleView.normalColor = Color.GRAY
                 simplePagerTitleView.selectedColor = Color.WHITE
                 simplePagerTitleView.text = mDataList[index]

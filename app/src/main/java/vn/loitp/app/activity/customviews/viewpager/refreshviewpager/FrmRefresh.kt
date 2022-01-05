@@ -18,9 +18,12 @@ class FrmRefresh : Fragment() {
     }
 
     private var mPosition = 0
-    private val logTag = javaClass.simpleName
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         arguments?.let { bundle ->
             mPosition = bundle.getInt(KEY_POSITION)
         }
@@ -57,10 +60,12 @@ class FrmRefresh : Fragment() {
             LToast.show(msg = "loadData")
         }
 
-        LUIUtil.setDelay(1000, Runnable {
-            textView?.visibility = View.VISIBLE
-            LDialogUtil.hideProgress(progressBar)
-        })
+        LUIUtil.setDelay(
+            mls = 1000,
+            runnable = {
+                textView?.visibility = View.VISIBLE
+                LDialogUtil.hideProgress(progressBar)
+            }
+        )
     }
-
 }

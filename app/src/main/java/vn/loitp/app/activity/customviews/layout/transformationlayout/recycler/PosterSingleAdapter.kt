@@ -1,21 +1,6 @@
-/*
- * Designed and developed by 2020 skydoves (Jaewoong Eum)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package vn.loitp.app.activity.customviews.layout.transformationlayout.recycler
 
+import android.annotation.SuppressLint
 import android.os.SystemClock
 import android.view.LayoutInflater
 import android.view.View
@@ -28,7 +13,7 @@ import kotlinx.android.synthetic.main.item_transformation_poster.view.*
 import vn.loitp.app.R
 
 class PosterSingleAdapter constructor(
-        private val delegate: PosterDelegate
+    private val delegate: PosterDelegate
 ) : BaseAdapter() {
 
     interface PosterDelegate {
@@ -40,7 +25,13 @@ class PosterSingleAdapter constructor(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PosterViewHolder(inflater.inflate(R.layout.item_transformation_poster, parent, false))
+        return PosterViewHolder(
+            inflater.inflate(
+                R.layout.item_transformation_poster,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -49,7 +40,7 @@ class PosterSingleAdapter constructor(
         }
     }
 
-
+    @SuppressLint("NotifyDataSetChanged")
     fun addPosterList(listPoster: List<Poster>) {
         this.listPoster.clear()
         this.listPoster.addAll(listPoster)
@@ -62,7 +53,11 @@ class PosterSingleAdapter constructor(
 
         fun bind(poster: Poster) {
             itemView.run {
-                LImageUtil.load(context = context, any = poster.poster, imageView = ivItemPosterPost)
+                LImageUtil.load(
+                    context = context,
+                    any = poster.poster,
+                    imageView = ivItemPosterPost
+                )
 
                 tvItemPosterTitle.text = poster.name
                 tvItemPosterRunningTime.text = poster.playtime
@@ -79,9 +74,6 @@ class PosterSingleAdapter constructor(
                     }
                 }
             }
-
         }
-
     }
-
 }

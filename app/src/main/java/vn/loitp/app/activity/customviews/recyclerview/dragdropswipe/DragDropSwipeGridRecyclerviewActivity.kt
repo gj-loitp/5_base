@@ -9,7 +9,7 @@ import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_grid.*
 import vn.loitp.app.R
 
-//https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
+// https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
 @LogTag("DragDropSwipeGridRecyclerviewActivity")
 @IsFullScreen(false)
 class DragDropSwipeGridRecyclerviewActivity : BaseFontActivity() {
@@ -48,11 +48,12 @@ class DragDropSwipeGridRecyclerviewActivity : BaseFontActivity() {
             setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = isChecked)
         }
 
-        //listener -> check DragDropSwipeListHorizontalRecyclerviewActivity
+        // listener -> check DragDropSwipeListHorizontalRecyclerviewActivity
     }
 
     private fun setIsRestrictingDraggingDirections() {
-        dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.GRID_LIST_WITH_HORIZONTAL_SWIPING
+        dragDropSwipeRecyclerView.orientation =
+            DragDropSwipeRecyclerView.ListOrientation.GRID_LIST_WITH_HORIZONTAL_SWIPING
         dragDropSwipeRecyclerView.numOfColumnsPerRowInGridList = numberOfColumns
     }
 
@@ -79,11 +80,12 @@ class DragDropSwipeGridRecyclerviewActivity : BaseFontActivity() {
         if (isDrawingBehindSwipedItems) {
             // We set our custom layouts to be displayed behind swiped items
             // In XML: app:behind_swiped_item_custom_layout="@layout/behind_swiped_vertical_list"
-            dragDropSwipeRecyclerView.behindSwipedItemLayoutId = R.layout.layout_behind_swiped_vertical_list
+            dragDropSwipeRecyclerView.behindSwipedItemLayoutId =
+                R.layout.layout_behind_swiped_vertical_list
 
             // In XML: app:behind_swiped_item_custom_layout_secondary="@layout/behind_swiped_vertical_list_secondary"
-            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId = R.layout.layout_behind_swiped_vertical_list_secondary
+            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId =
+                R.layout.layout_behind_swiped_vertical_list_secondary
         }
     }
-
 }

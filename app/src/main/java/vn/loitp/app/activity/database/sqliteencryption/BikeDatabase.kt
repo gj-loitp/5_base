@@ -6,9 +6,10 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.core.utilities.LEncryptionUtil
 import com.utils.util.DeviceUtils
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class BikeDatabase(context: Context) :
+    SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
         private const val DATABASE_VERSION = 1
@@ -29,7 +30,8 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     }
 
     private val logTag = javaClass.simpleName
-    private val pw = LEncryptionUtil.encodeBase64(logTag + DeviceUtils.androidID + DeviceUtils.macAddress) + "1993"
+    private val pw =
+        LEncryptionUtil.encodeBase64(logTag + DeviceUtils.androidID + DeviceUtils.macAddress) + "1993"
 
     // Getting All Bike
     val allBike: List<Bike>
@@ -82,16 +84,18 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
 
     // Creating Tables
     override fun onCreate(db: SQLiteDatabase) {
-        val query = ("CREATE TABLE " + TABLE_BIKE + "("
-                + KEY_ID + " INTEGER PRIMARY KEY,"
-                + KEY_NAME + " TEXT NOT NULL, "
-                + KEY_BRANCH + " TEXT NOT NULL, "
-                + KEY_HP + " TEXT NOT NULL, "
-                + KEY_PRICE + " TEXT NOT NULL, "
-                + KEY_IMG_PATH_0 + " TEXT NOT NULL, "
-                + KEY_IMG_PATH_1 + " TEXT NOT NULL, "
-                + KEY_IMG_PATH_2 + " TEXT NOT NULL "
-                + ")")
+        val query = (
+            "CREATE TABLE " + TABLE_BIKE + "(" +
+                KEY_ID + " INTEGER PRIMARY KEY," +
+                KEY_NAME + " TEXT NOT NULL, " +
+                KEY_BRANCH + " TEXT NOT NULL, " +
+                KEY_HP + " TEXT NOT NULL, " +
+                KEY_PRICE + " TEXT NOT NULL, " +
+                KEY_IMG_PATH_0 + " TEXT NOT NULL, " +
+                KEY_IMG_PATH_1 + " TEXT NOT NULL, " +
+                KEY_IMG_PATH_2 + " TEXT NOT NULL " +
+                ")"
+            )
         db.execSQL(query)
     }
 
@@ -104,7 +108,7 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     }
 
     // Adding new bike
-    //return id
+    // return id
     fun addBike(bike: Bike?): Long {
         if (bike == null) {
             return RESULT_FAILED
@@ -137,10 +141,21 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
             return null
         }
         val db = this.readableDatabase
-        val cursor = db.query(TABLE_BIKE,
-                arrayOf(KEY_ID, KEY_NAME, KEY_BRANCH, KEY_HP, KEY_PRICE, KEY_IMG_PATH_0, KEY_IMG_PATH_1, KEY_IMG_PATH_2),
-                "$KEY_ID=?",
-                arrayOf(idBike.toString()), null, null, null, null)
+        val cursor = db.query(
+            TABLE_BIKE,
+            arrayOf(
+                KEY_ID,
+                KEY_NAME,
+                KEY_BRANCH,
+                KEY_HP,
+                KEY_PRICE,
+                KEY_IMG_PATH_0,
+                KEY_IMG_PATH_1,
+                KEY_IMG_PATH_2
+            ),
+            "$KEY_ID=?",
+            arrayOf(idBike.toString()), null, null, null, null
+        )
         if (cursor != null) {
             cursor.moveToFirst()
             if (cursor.count >= 1) {
@@ -171,8 +186,8 @@ class BikeDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     }
 
     // Updating single bike
-    //return 1 if success
-    //return -1 if input is null
+    // return 1 if success
+    // return -1 if input is null
     fun updateBike(bike: Bike?): Long {
         if (bike == null) {
             return RESULT_FAILED

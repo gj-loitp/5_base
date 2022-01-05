@@ -13,7 +13,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_imageview_kenburn_view.*
 import vn.loitp.app.R
 
-//https://github.com/flavioarfaria/KenBurnsView
+// https://github.com/flavioarfaria/KenBurnsView
 
 @LogTag("KenburnViewActivity")
 @IsFullScreen(false)
@@ -48,8 +48,10 @@ class KenburnViewActivity : BaseFontActivity() {
         }
 
         tvMenu.setSafeOnClickListener {
-            LSocialUtil.openUrlInBrowser(context = this, url = "https://github.com/flavioarfaria/KenBurnsView")
+            LSocialUtil.openUrlInBrowser(
+                context = this,
+                url = "https://github.com/flavioarfaria/KenBurnsView"
+            )
         }
     }
-
 }

@@ -58,7 +58,9 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
             btScrollNumber -> intent = Intent(this, ScrollNumberActivity::class.java)
             btSelectableTextView -> intent = Intent(this, SelectableTextViewActivity::class.java)
             btZoomTextView -> intent = Intent(this, ZoomTextViewActivity::class.java)
-            btVerticalMarqueeTextView -> intent = Intent(this, VerticalMarqueeTextViewActivity::class.java)
+            btVerticalMarqueeTextView ->
+                intent =
+                    Intent(this, VerticalMarqueeTextViewActivity::class.java)
             btTypeWriterTextView -> intent = Intent(this, TypeWriterTextViewActivity::class.java)
             btTextDecorator -> intent = Intent(this, TextDecoratorActivity::class.java)
             btExtraTextview -> intent = Intent(this, ExtraTextViewActivity::class.java)

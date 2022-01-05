@@ -28,7 +28,12 @@ class DragDropSampleActivity : BaseFontActivity() {
         ivPaper.tag = "paper"
         ivTrash.tag = "trash"
 
-        ivTrash.setOnDragListener(TrashDragListener(enterShape = R.drawable.ic_launcher, normalShape = R.drawable.ic_search_black_48dp))
+        ivTrash.setOnDragListener(
+            TrashDragListener(
+                enterShape = R.drawable.ic_launcher,
+                normalShape = R.drawable.ic_search_black_48dp
+            )
+        )
         ivTrash.setSafeOnClickListener {
             ivPaper.visibility = View.VISIBLE
         }
@@ -41,7 +46,8 @@ class DragDropSampleActivity : BaseFontActivity() {
         }
     }
 
-    private class TrashDragListener(private val enterShape: Int, private val normalShape: Int) : OnDragListener {
+    private class TrashDragListener(private val enterShape: Int, private val normalShape: Int) :
+        OnDragListener {
         private var hit = false
         override fun onDrag(v: View, event: DragEvent): Boolean {
             val containerView = v as ImageView
@@ -79,6 +85,5 @@ class DragDropSampleActivity : BaseFontActivity() {
                 else -> true
             }
         }
-
     }
 }

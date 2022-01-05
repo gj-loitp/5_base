@@ -34,5 +34,4 @@ class Owner : BaseModel() {
     @SerializedName("accept_rate")
     @Expose
     var acceptRate: Int? = null
-
 }

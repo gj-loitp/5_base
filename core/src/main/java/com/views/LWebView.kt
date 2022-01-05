@@ -40,15 +40,17 @@ class LWebView : AdblockWebView {
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    )
 
     init {
         settings.javaScriptEnabled = true
 
-        //load the page with cache
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
-        }
+        // load the page with cache
+        settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
 
         shouldOverrideUrlLoading(shouldOverrideUrlLoading = false)
 
@@ -59,19 +61,18 @@ class LWebView : AdblockWebView {
             }
         }
 
-        //default disable copy content
+        // default disable copy content
         setEnableCopyContent(false)
     }
 
     fun shouldOverrideUrlLoading(shouldOverrideUrlLoading: Boolean) {
         webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-                //return true load with system-default-browser or other browsers, false with your webView
+                // return true load with system-default-browser or other browsers, false with your webView
                 logD("shouldOverrideUrlLoading url $url")
                 callback?.shouldOverrideUrlLoading(url = url)
                 return shouldOverrideUrlLoading
             }
-
         }
     }
 
@@ -110,12 +111,12 @@ class LWebView : AdblockWebView {
     }
 
     fun loadDataString(
-            bodyContent: String = "",
-            backgroundColor: String = "coral",
-            textColor: String = "black",
-            textAlign: String = "justify",
-            fontSizePx: Int = 15,
-            paddingPx: Int = 15
+        bodyContent: String = "",
+        backgroundColor: String = "coral",
+        textColor: String = "black",
+        textAlign: String = "justify",
+        fontSizePx: Int = 15,
+        paddingPx: Int = 15
     ) {
         val style = """<style type="text/css">
 @font-face{
@@ -137,7 +138,6 @@ body {
         val bodyContentString = "<html>$style<body>$bodyContent</body></html>"
 //        logD("bodyContentString $bodyContentString")
         this.loadDataWithBaseURL(null, bodyContentString, "text/html", "UTF-8", "about:blank")
-
     }
 
     @Suppress("DEPRECATION")
@@ -152,7 +152,8 @@ body {
     }
 
     fun setDarkMode(isDarkMode: Boolean) {
-        val isFeatureSupported = WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)
+        val isFeatureSupported =
+            WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK_STRATEGY)
         logD("isFeatureSupported $isFeatureSupported")
         if (isFeatureSupported) {
             if (isDarkMode) {

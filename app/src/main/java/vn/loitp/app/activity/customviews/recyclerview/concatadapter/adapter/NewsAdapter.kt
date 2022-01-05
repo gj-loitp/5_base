@@ -15,7 +15,7 @@ import vn.loitp.app.activity.customviews.recyclerview.concatadapter.data.model.N
 
 @LogTag("NewsAdapter")
 class NewsAdapter(
-        private val listNews: ArrayList<News>
+    private val listNews: ArrayList<News>
 ) : BaseAdapter() {
 
     var onClickRootListener: ((News, Int) -> Unit)? = null
@@ -28,9 +28,11 @@ class NewsAdapter(
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(news: News) {
             itemView.textViewNews.text = news.title
-            LImageUtil.load(context = itemView.imageView.context,
-                    any = news.image,
-                    imageView = itemView.imageView)
+            LImageUtil.load(
+                context = itemView.imageView.context,
+                any = news.image,
+                imageView = itemView.imageView
+            )
             itemView.layoutRoot.setSafeOnClickListener {
                 onClickRootListener?.invoke(news, bindingAdapterPosition)
             }
@@ -38,12 +40,12 @@ class NewsAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            DataViewHolder(
-                    LayoutInflater.from(parent.context).inflate(
-                            R.layout.view_row_item_news, parent,
-                            false
-                    )
+        DataViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_item_news, parent,
+                false
             )
+        )
 
     override fun getItemCount(): Int = listNews.size
 
@@ -52,5 +54,4 @@ class NewsAdapter(
             holder.bind(listNews[position])
         }
     }
-
 }

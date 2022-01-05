@@ -1,6 +1,6 @@
 package vn.loitp.app.activity.demo.pdf
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.* // ktlint-disable no-wildcard-imports
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.io.InputStream
@@ -9,12 +9,6 @@ import java.net.MalformedURLException
 import java.net.URL
 import kotlin.coroutines.CoroutineContext
 
-/**
- * Created by Loitp on 10,January,2020
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 class PdfStreamCoroutine : CoroutineScope {
     private val logTag = javaClass.simpleName
     private var job: Job = Job()
@@ -57,5 +51,4 @@ class PdfStreamCoroutine : CoroutineScope {
 
         return@withContext inputStream
     }
-
 }

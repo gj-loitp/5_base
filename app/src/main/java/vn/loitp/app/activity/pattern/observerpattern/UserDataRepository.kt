@@ -1,19 +1,15 @@
 package vn.loitp.app.activity.pattern.observerpattern
 
-/**
- * Created by www.muathu@gmail.com on 1/31/2018.
- */
-
 import android.os.Handler
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class UserDataRepository private constructor() : Subject {
     private var mFullName: String = ""
-    private var mAge: Int = 0
+    private var mAge: Int = 0 // ktlint-disable no-wildcard-imports
     private val mObservers: ArrayList<RepositoryObserver> = ArrayList()
 
     init {
-        //getNewDataFromRemote();
+        // getNewDataFromRemote();
     }
 
     // Simulate network

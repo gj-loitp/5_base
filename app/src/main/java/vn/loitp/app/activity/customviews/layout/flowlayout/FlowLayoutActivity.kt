@@ -31,5 +31,4 @@ class FlowLayoutActivity : BaseFontActivity() {
             flowLayout.addView(tv)
         }
     }
-
 }

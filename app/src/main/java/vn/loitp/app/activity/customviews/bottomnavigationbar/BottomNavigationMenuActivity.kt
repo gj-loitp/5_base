@@ -32,5 +32,4 @@ class BottomNavigationMenuActivity : BaseFontActivity() {
             LActivityUtil.tranIn(this)
         }
     }
-
 }

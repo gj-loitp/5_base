@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.wwl_music_playlist_fragment.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.wwlmusic.interfaces.FragmentHost
 import vn.loitp.app.activity.customviews.wwlmusic.utils.WWLMusicDataset
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("WWLPlaylistFragment")
 class WWLPlaylistFragment : BaseFragment() {
@@ -50,11 +50,12 @@ class WWLPlaylistFragment : BaseFragment() {
         liSubtitle.text = item.subtitle
     }
 
-    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLMusicDataset.DatasetItem>)
-        : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLMusicDataset.DatasetItem>) :
+        RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_music_playlist_item, parent, false)
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.wwl_music_playlist_item, parent, false)
             return ViewHolder(v)
         }
 

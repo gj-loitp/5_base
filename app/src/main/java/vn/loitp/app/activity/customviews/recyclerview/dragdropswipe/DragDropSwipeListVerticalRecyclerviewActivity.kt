@@ -9,7 +9,7 @@ import com.ernestoyaquello.dragdropswiperecyclerview.DragDropSwipeRecyclerView
 import kotlinx.android.synthetic.main.activity_recycler_drag_drop_swipe_list_vertical.*
 import vn.loitp.app.R
 
-//https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
+// https://github.com/ernestoyaquello/DragDropSwipeRecyclerview
 @LogTag("DragDropSwipeListVerticalRecyclerviewActivity")
 @IsFullScreen(false)
 class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
@@ -37,7 +37,7 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
     private fun setupViews() {
         dragDropAdapter = DragDropAdapter(setData())
 
-        dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this)//list
+        dragDropSwipeRecyclerView.layoutManager = LinearLayoutManager(this) // list
         dragDropSwipeRecyclerView.adapter = dragDropAdapter
 
         setIsRestrictingDraggingDirections(isRestrictingDraggingDirections = false)
@@ -50,14 +50,16 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
             setupLayoutBehindItemLayoutOnSwiping(isDrawingBehindSwipedItems = isChecked)
         }
 
-        //listener -> check DragDropSwipeListHorizontalRecyclerviewActivity
+        // listener -> check DragDropSwipeListHorizontalRecyclerviewActivity
     }
 
     private fun setIsRestrictingDraggingDirections(isRestrictingDraggingDirections: Boolean) {
         if (isRestrictingDraggingDirections) {
-            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
+            dragDropSwipeRecyclerView.orientation =
+                DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_VERTICAL_DRAGGING
         } else {
-            dragDropSwipeRecyclerView.orientation = DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_UNCONSTRAINED_DRAGGING
+            dragDropSwipeRecyclerView.orientation =
+                DragDropSwipeRecyclerView.ListOrientation.VERTICAL_LIST_WITH_UNCONSTRAINED_DRAGGING
         }
     }
 
@@ -84,11 +86,12 @@ class DragDropSwipeListVerticalRecyclerviewActivity : BaseFontActivity() {
         if (isDrawingBehindSwipedItems) {
             // We set our custom layouts to be displayed behind swiped items
             // In XML: app:behind_swiped_item_custom_layout="@layout/behind_swiped_vertical_list"
-            dragDropSwipeRecyclerView.behindSwipedItemLayoutId = R.layout.layout_behind_swiped_vertical_list
+            dragDropSwipeRecyclerView.behindSwipedItemLayoutId =
+                R.layout.layout_behind_swiped_vertical_list
 
             // In XML: app:behind_swiped_item_custom_layout_secondary="@layout/behind_swiped_vertical_list_secondary"
-            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId = R.layout.layout_behind_swiped_vertical_list_secondary
+            dragDropSwipeRecyclerView.behindSwipedItemSecondaryLayoutId =
+                R.layout.layout_behind_swiped_vertical_list_secondary
         }
     }
-
 }

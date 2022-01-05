@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.demo.architecturecomponent.room
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,8 @@ import kotlinx.android.synthetic.main.item_room_note.view.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.room.model.Word
 
-class WordListAdapter(val callback: Callback?) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
+class WordListAdapter(val callback: Callback?) :
+    RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
 
     interface Callback {
         fun onDelete(word: Word)
@@ -32,7 +34,8 @@ class WordListAdapter(val callback: Callback?) : RecyclerView.Adapter<WordListAd
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_room_note, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_room_note, parent, false)
         return WordViewHolder(itemView)
     }
 
@@ -40,6 +43,7 @@ class WordListAdapter(val callback: Callback?) : RecyclerView.Adapter<WordListAd
         holder.bind(words[position])
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setWords(words: List<Word>) {
         this.words = words
         notifyDataSetChanged()

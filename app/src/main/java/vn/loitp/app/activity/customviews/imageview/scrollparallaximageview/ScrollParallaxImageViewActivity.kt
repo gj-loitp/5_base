@@ -10,7 +10,7 @@ import com.views.imageview.scrollparallax.parallaxstyle.VerticalMovingStyle
 import kotlinx.android.synthetic.main.activity_imageview_scrollparallax.*
 import vn.loitp.app.R
 
-//https://github.com/gjiazhe/ScrollParallaxImageView
+// https://github.com/gjiazhe/ScrollParallaxImageView
 
 @LogTag("ScrollParallaxImageViewActivity")
 @IsFullScreen(false)

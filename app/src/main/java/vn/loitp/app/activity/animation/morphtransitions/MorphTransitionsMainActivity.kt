@@ -2,7 +2,6 @@ package vn.loitp.app.activity.animation.morphtransitions
 
 import android.app.ActivityOptions
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
@@ -34,22 +33,27 @@ class MorphTransitionsMainActivity : BaseFontActivity() {
 
         fab.setSafeOnClickListener {
             val intent: Intent = if (switchFullScreen.isChecked) {
-                Intent(this@MorphTransitionsMainActivity, MorphTransitionsFullScreenActivity::class.java)
-            } else {
-                MorphTransitionsDialogActivity.newIntent(this@MorphTransitionsMainActivity, MorphTransitionsDialogActivity.TYPE_FAB)
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                FabTransform.addExtras(
-                        intent,
-                        ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
-                        R.drawable.ic_account_circle_black_48dp,
+                Intent(
+                    this@MorphTransitionsMainActivity,
+                    MorphTransitionsFullScreenActivity::class.java
                 )
-                val options = ActivityOptions.makeSceneTransitionAnimation(this@MorphTransitionsMainActivity, fab, getString(R.string.transition_morph))
-                startActivity(intent, options.toBundle())
             } else {
-                startActivity(intent)
-                overridePendingTransition(R.anim.anim_morph_transitions_fade_in, R.anim.anim_morph_transitions_do_nothing)
+                MorphTransitionsDialogActivity.newIntent(
+                    this@MorphTransitionsMainActivity,
+                    MorphTransitionsDialogActivity.TYPE_FAB
+                )
             }
+            FabTransform.addExtras(
+                intent,
+                ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
+                R.drawable.ic_account_circle_black_48dp,
+            )
+            val options = ActivityOptions.makeSceneTransitionAnimation(
+                this@MorphTransitionsMainActivity,
+                fab,
+                getString(R.string.transition_morph)
+            )
+            startActivity(intent, options.toBundle())
         }
         button.setSafeOnClickListener {
             show(it)
@@ -66,22 +70,20 @@ class MorphTransitionsMainActivity : BaseFontActivity() {
     }
 
     private fun show(view: View) {
-        val intent = MorphTransitionsDialogActivity.newIntent(this@MorphTransitionsMainActivity, MorphTransitionsDialogActivity.TYPE_BUTTON)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            MorphTransform.addExtras(
-                    intent,
-                    ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
-                    resources.getDimensionPixelSize(R.dimen.round_medium)
-            )
-            val options = ActivityOptions.makeSceneTransitionAnimation(
-                    this@MorphTransitionsMainActivity,
-                    view,
-                    getString(R.string.transition_morph)
-            )
-            startActivity(intent, options.toBundle())
-        } else {
-            startActivity(intent)
-            overridePendingTransition(R.anim.anim_morph_transitions_fade_in, R.anim.anim_morph_transitions_do_nothing)
-        }
+        val intent = MorphTransitionsDialogActivity.newIntent(
+            this@MorphTransitionsMainActivity,
+            MorphTransitionsDialogActivity.TYPE_BUTTON
+        )
+        MorphTransform.addExtras(
+            intent,
+            ContextCompat.getColor(this@MorphTransitionsMainActivity, R.color.colorAccent),
+            resources.getDimensionPixelSize(R.dimen.round_medium)
+        )
+        val options = ActivityOptions.makeSceneTransitionAnimation(
+            this@MorphTransitionsMainActivity,
+            view,
+            getString(R.string.transition_morph)
+        )
+        startActivity(intent, options.toBundle())
     }
 }

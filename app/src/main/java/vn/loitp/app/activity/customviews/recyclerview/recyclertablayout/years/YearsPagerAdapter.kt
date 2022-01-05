@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class YearsPagerAdapter : PagerAdapter() {
 
@@ -15,7 +15,8 @@ class YearsPagerAdapter : PagerAdapter() {
 
     @SuppressLint("SetTextI18n")
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val view = LayoutInflater.from(container.context).inflate(R.layout.view_item_recycler_tablayout_page, container, false)
+        val view = LayoutInflater.from(container.context)
+            .inflate(R.layout.view_item_recycler_tablayout_page, container, false)
 
         val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
         tvTitle.text = "Page: " + mItems[position]
@@ -36,7 +37,7 @@ class YearsPagerAdapter : PagerAdapter() {
         return view === ob
     }
 
-    override fun getPageTitle(position: Int): String? {
+    override fun getPageTitle(position: Int): String {
         return mItems[position]
     }
 

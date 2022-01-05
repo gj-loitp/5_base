@@ -13,8 +13,8 @@ import com.github.piasy.biv.loader.glide.GlideImageLoader
 import com.google.gson.Gson
 import com.utils.util.Utils
 
-//GIT
-//combine 2 commit gan nhat lam 1, co thay doi tren github
+// GIT
+// combine 2 commit gan nhat lam 1, co thay doi tren github
 /*git reset --soft HEAD~2
 git push -f*/
 
@@ -33,17 +33,17 @@ open class BaseApplication : MultiDexApplication() {
         LAppResource.init(this)
         Utils.init(this)
 
-        //big image view
+        // big image view
         BigImageViewer.initialize(GlideImageLoader.with(applicationContext))
 
-        //network
+        // network
         LConnectivityUtil.initOnNetworkChange()
 
-        //dark mode
+        // dark mode
         val isDarkTheme = LUIUtil.isDarkTheme()
         LUIUtil.setDarkTheme(isDarkTheme = isDarkTheme)
 
-        //room database
+        // room database
         GirlDatabase.getInstance(this)
         FindNumberDatabase.getInstance(this)
     }

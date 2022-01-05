@@ -12,7 +12,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_layout_shape_of_view.*
 import vn.loitp.app.R
 
-//https://github.com/florent37/ShapeOfView
+// https://github.com/florent37/ShapeOfView
 @LogTag("ShapeOfViewActivity")
 @IsFullScreen(false)
 class ShapeOfViewActivity : BaseFontActivity() {
@@ -25,11 +25,16 @@ class ShapeOfViewActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         tvMenu.setSafeOnClickListener {
-            LSocialUtil.openUrlInBrowser(context = this, url = "https://github.com/florent37/ShapeOfView")
+            LSocialUtil.openUrlInBrowser(
+                context = this,
+                url = "https://github.com/florent37/ShapeOfView"
+            )
         }
 
         ValueAnimator.ofFloat(0f, 200f, 0f).apply {
-            addUpdateListener { animation -> roundRect.bottomLeftRadius = (animation.animatedValue as Float) }
+            addUpdateListener { animation ->
+                roundRect.bottomLeftRadius = (animation.animatedValue as Float)
+            }
             duration = 800
             repeatCount = ValueAnimator.INFINITE
             repeatMode = ValueAnimator.REVERSE
@@ -37,5 +42,4 @@ class ShapeOfViewActivity : BaseFontActivity() {
 
         LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = kbv)
     }
-
 }

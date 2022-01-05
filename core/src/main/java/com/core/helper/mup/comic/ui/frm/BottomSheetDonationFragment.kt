@@ -13,10 +13,10 @@ import kotlinx.android.synthetic.main.l_bottom_sheet_mup_donation_fragment.*
 
 @LogTag("BottomSheetDonationFragment")
 class BottomSheetDonationFragment : BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_mup_donation_fragment,
-        height = LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight(),
-        isDraggable = true,
-        firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
+    layoutId = R.layout.l_bottom_sheet_mup_donation_fragment,
+    height = LScreenUtil.screenHeight - LScreenUtil.getStatusBarHeight(),
+    isDraggable = true,
+    firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
 ) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,25 +29,27 @@ class BottomSheetDonationFragment : BaseBottomSheetFragment(
         val text = Constants.DONATION_INFOR_LOITP
 
         LTextDecorator
-                .decorate(textView, text)
-                .setTextColor(R.color.red,
-                        "❤ Vietcombank", "0371000106443",
-                        "❤ Techcombank", "19034585806016",
-                        "❤ Viet Capital Bank - Ngân hàng TMCP Bản Việt", "8007041105519",
-                        "❤ VPBank", "166210585",
-                        "❤ Momo", "0764088864")
-                //.setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
-                //.strikethrough("Duis", "Praesent")
-                .underline("Chân thành cảm ơn!")
-                //.setSubscript("vitae")
-                //.makeTextClickable(new OnTextClickListener() {
-                //    @Override
-                //    public void onClick(View view, String text) {
-                //
-                //    }
-                //}, false, "porta", "commodo", "tempor venenatis nulla")
-                //.setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
-                .build()
+            .decorate(textView, text)
+            .setTextColor(
+                R.color.red,
+                "❤ Vietcombank", "0371000106443",
+                "❤ Techcombank", "19034585806016",
+                "❤ Viet Capital Bank - Ngân hàng TMCP Bản Việt", "8007041105519",
+                "❤ VPBank", "166210585",
+                "❤ Momo", "0764088864"
+            )
+            // .setBackgroundColor(R.color.colorPrimary, "dolor", "elit")
+            // .strikethrough("Duis", "Praesent")
+            .underline("Chân thành cảm ơn!")
+            // .setSubscript("vitae")
+            // .makeTextClickable(new OnTextClickListener() {
+            //    @Override
+            //    public void onClick(View view, String text) {
+            //
+            //    }
+            // }, false, "porta", "commodo", "tempor venenatis nulla")
+            // .setTextColor(android.R.color.holo_green_light, "porta", "commodo", "tempor venenatis nulla")
+            .build()
 
 //        onStateChanged = { _, newState ->
 //            logD("onStateChanged newState $newState")

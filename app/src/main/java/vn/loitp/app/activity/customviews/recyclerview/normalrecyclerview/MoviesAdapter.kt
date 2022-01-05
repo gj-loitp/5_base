@@ -10,7 +10,7 @@ import vn.loitp.app.R
 
 @LogTag("MoviesAdapter")
 class MoviesAdapter(private val moviesList: List<Movie>, private val callback: Callback?) :
-        com.core.adapter.BaseAdapter() {
+    com.core.adapter.BaseAdapter() {
 
     interface Callback {
         fun onClick(movie: Movie, position: Int)
@@ -33,12 +33,12 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
             if (bindingAdapterPosition == moviesList.size - 1) {
                 callback?.onLoadMore()
             }
-
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_movie_list, parent, false)
         return MovieViewHolder(itemView)
     }
 
@@ -52,5 +52,4 @@ class MoviesAdapter(private val moviesList: List<Movie>, private val callback: C
             holder.bind(movie)
         }
     }
-
 }

@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class ChapAdapter : BaseAdapter() {
 
     private val listChap = ArrayList<Chap>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListData(listChap: List<Chap>) {
         this.listChap.addAll(listChap)
         notifyDataSetChanged()
@@ -34,10 +36,12 @@ class ChapAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_comic_chap, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_comic_chap, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = listChap.size
 
@@ -46,5 +50,4 @@ class ChapAdapter : BaseAdapter() {
             holder.bind(chap = listChap[position])
         }
     }
-
 }

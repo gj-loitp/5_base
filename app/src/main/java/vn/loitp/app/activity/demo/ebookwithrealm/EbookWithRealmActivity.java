@@ -74,6 +74,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         floatingActionButton.setOnClickListener(v -> addItem());
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void setRealmAdapter(RealmResults<Book> books) {
         final RealmBooksAdapter realmBooksAdapter = new RealmBooksAdapter(this.getApplicationContext(), books, true);
         // Set the data and tell the RecyclerView to draw
@@ -149,7 +150,7 @@ public class EbookWithRealmActivity extends BaseFontActivity {
         LPrefUtil.Companion.setPreLoad(true);
     }
 
-    @SuppressLint("SetTextI18n")
+    @SuppressLint({"SetTextI18n", "NotifyDataSetChanged"})
     private void addItem() {
         layoutInflater = getLayoutInflater();
         @SuppressLint("InflateParams") final View view = layoutInflater.inflate(R.layout.real_edit_item, null);

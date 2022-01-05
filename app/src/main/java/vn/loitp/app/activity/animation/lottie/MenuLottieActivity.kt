@@ -20,7 +20,7 @@ import vn.loitp.app.R
 import java.io.IOException
 import java.util.*
 
-//https://www.lottiefiles.com/?page=1
+// https://www.lottiefiles.com/?page=1
 @LogTag("MenuLottieActivity")
 @IsFullScreen(false)
 class MenuLottieActivity : BaseFontActivity() {
@@ -64,7 +64,12 @@ class MenuLottieActivity : BaseFontActivity() {
     private fun prepareData() {
         getListAssetFiles("lottie")
         for (i in stringList.indices) {
-            lottieItemList.add(LottieItem(i.toString() + " - " + stringList[i], "lottie/" + stringList[i]))
+            lottieItemList.add(
+                LottieItem(
+                    i.toString() + " - " + stringList[i],
+                    "lottie/" + stringList[i]
+                )
+            )
         }
         sb.max = lottieItemList.size
         viewPager.adapter?.notifyDataSetChanged()
@@ -99,10 +104,10 @@ class MenuLottieActivity : BaseFontActivity() {
             val rl = layout.findViewById<RelativeLayout>(R.id.rl)
             val animationView: LottieAnimationView = layout.findViewById(R.id.animationView)
             animationView.setAnimation(lottieItem.pathAsset)
-            //lottieAnimationView.useHardwareAcceleration();
-            //lottieAnimationView.setScale(0.3f);
+            // lottieAnimationView.useHardwareAcceleration();
+            // lottieAnimationView.setScale(0.3f);
 
-            //lottieAnimationView.playAnimation();
+            // lottieAnimationView.playAnimation();
             animationView.loop(true)
             rl.setOnClickListener {
                 animationView.playAnimation()

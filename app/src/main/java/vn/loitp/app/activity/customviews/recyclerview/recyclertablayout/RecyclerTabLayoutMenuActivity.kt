@@ -54,5 +54,4 @@ class RecyclerTabLayoutMenuActivity : BaseFontActivity(), AdapterView.OnItemClic
             Demo.TAB_ON_SCREEN_LIMIT -> RvTabOnScreenLimitActivity.startActivity(this, demo)
         }
     }
-
 }

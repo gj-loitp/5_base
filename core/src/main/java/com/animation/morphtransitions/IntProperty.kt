@@ -2,8 +2,7 @@ package com.animation.morphtransitions
 
 import android.util.Property
 
-internal abstract class IntProperty<T>(name: String)
-    : Property<T, Int>(Int::class.java, name) {
+internal abstract class IntProperty<T>(name: String) : Property<T, Int>(Int::class.java, name) {
 
     /**
      * A type-specific override of the [.set] that is faster when dealing

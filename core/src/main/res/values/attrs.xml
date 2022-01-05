@@ -273,11 +273,11 @@
     </declare-styleable>
 
     <declare-styleable name="LAutoLinearLayout">
-        <attr name="auto_orientation">
+        <attr name="ll_auto_orientation">
             <enum name="horizontal" value="0" />
             <enum name="vertical" value="1" />
         </attr>
-        <attr name="auto_gravity">
+        <attr name="ll_auto_gravity">
             <flag name="top" value="0x30" />
             <flag name="bottom" value="0x50" />
             <flag name="left" value="0x03" />

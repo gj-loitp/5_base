@@ -32,7 +32,9 @@ class FrmVertical : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_view_pager_vertical, container, false)
     }
@@ -41,5 +43,4 @@ class FrmVertical : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         tv.text = text
     }
-
 }

@@ -116,9 +116,9 @@ class GalleryCoreSlideActivity : BaseFontActivity() {
                     showShortError("Download failed")
                 }
             })
-            //Optionally,Set whether to repeatedly download the downloaded file,default false.
+            // Optionally,Set whether to repeatedly download the downloaded file,default false.
             .forceReDownload(true)
-            //Optionally,Set how many threads are used when downloading,default 3.
+            // Optionally,Set how many threads are used when downloading,default 3.
             .threadNum(3)
             .setRetry(3, 200)
             .submit()

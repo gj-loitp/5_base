@@ -4,13 +4,12 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.net.Uri
 import android.net.http.SslError
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Message
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.*
+import android.webkit.* // ktlint-disable no-wildcard-imports
 import android.widget.FrameLayout
 import com.BuildConfig
 import com.R
@@ -45,7 +44,10 @@ class FrmFBComment : BaseFragment() {
         commentsWebView.setLayerType(WebView.LAYER_TYPE_SOFTWARE, null)
 
         context?.let {
-            LUIUtil.setColorProgressBar(progressBar = progressBar, color = LAppResource.getColor(R.color.colorPrimary))
+            LUIUtil.setColorProgressBar(
+                progressBar = progressBar,
+                color = LAppResource.getColor(R.color.colorPrimary)
+            )
         }
         val bundle = arguments ?: return
         postUrl = bundle.getString(Constants.FACEBOOK_COMMENT_URL)
@@ -73,17 +75,15 @@ class FrmFBComment : BaseFragment() {
             settings.setSupportZoom(false)
             settings.builtInZoomControls = false
             CookieManager.getInstance().setAcceptCookie(true)
-            if (Build.VERSION.SDK_INT >= 21) {
-                settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
-                CookieManager.getInstance().setAcceptThirdPartyCookies(this, true)
-            }
+            settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+            CookieManager.getInstance().setAcceptThirdPartyCookies(this, true)
 
             // facebook comment widget including the article url
             val html = "<!doctype html> <html lang=\"en\"> <head></head> <body> " +
-                    "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " +
-                    "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " +
-                    "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
-                    "</div> </body> </html>"
+                "<div id=\"fb-root\"></div> <script>(function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6\"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script> " +
+                "<div class=\"fb-comments\" data-href=\"" + postUrl + "\" " +
+                "data-numposts=\"" + NUMBER_OF_COMMENTS + "\" data-order-by=\"reverse_time\">" +
+                "</div> </body> </html>"
 
             loadDataWithBaseURL("http://www.nothing.com", html, "text/html", "UTF-8", null)
             minimumHeight = 200
@@ -95,9 +95,15 @@ class FrmFBComment : BaseFragment() {
         if (isLoading) {
             LUIUtil.setProgressBarVisibility(progressBar, View.VISIBLE)
         } else {
-            LUIUtil.setDelay(mls = 1000, runnable = Runnable {
-                LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
-            })
+            LUIUtil.setDelay(
+                mls = 1000,
+                runnable = {
+                    LUIUtil.setProgressBarVisibility(
+                        progressBar = progressBar,
+                        visibility = View.GONE
+                    )
+                }
+            )
         }
     }
 
@@ -109,12 +115,12 @@ class FrmFBComment : BaseFragment() {
 
         override fun onPageFinished(view: WebView, url: String) {
             super.onPageFinished(view, url)
-            //val host = Uri.parse(url).host
+            // val host = Uri.parse(url).host
             setLoading(false)
             if (url.contains("/plugins/close_popup.php?reload")) {
                 val handler = Handler()
                 handler.postDelayed({
-                    //Do something after 100ms
+                    // Do something after 100ms
                     rlWebview.removeView(mWebViewPop)
                     loadComments()
                 }, 600)
@@ -129,7 +135,12 @@ class FrmFBComment : BaseFragment() {
     private inner class UriChromeClient : WebChromeClient() {
 
         @SuppressLint("SetJavaScriptEnabled")
-        override fun onCreateWindow(view: WebView, isDialog: Boolean, isUserGesture: Boolean, resultMsg: Message): Boolean {
+        override fun onCreateWindow(
+            view: WebView,
+            isDialog: Boolean,
+            isUserGesture: Boolean,
+            resultMsg: Message
+        ): Boolean {
             mWebViewPop = context?.let { WebView(it) }
             mWebViewPop?.let {
                 it.isVerticalScrollBarEnabled = false
@@ -141,7 +152,10 @@ class FrmFBComment : BaseFragment() {
                 it.settings.setSupportZoom(false)
                 it.settings.builtInZoomControls = false
                 it.settings.setSupportMultipleWindows(true)
-                it.layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+                it.layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT
+                )
                 rlWebview.addView(mWebViewPop)
             }
             val transport = resultMsg.obj as WebView.WebViewTransport

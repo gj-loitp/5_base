@@ -7,7 +7,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_recycler.*
 import vn.loitp.app.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("SwipeRevealLayoutRecyclerActivity")
 @IsFullScreen(false)

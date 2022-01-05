@@ -8,7 +8,7 @@ import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_seekbar_vertical.*
 import vn.loitp.app.R
 
-//https://github.com/h6ah4i/android-verticalseekbar
+// https://github.com/h6ah4i/android-verticalseekbar
 
 @LogTag("VerticalSeekbarActivity")
 @IsFullScreen(false)
@@ -43,5 +43,4 @@ class VerticalSeekbarActivity : BaseFontActivity() {
             seekBar1.progress = 30
         }
     }
-
 }

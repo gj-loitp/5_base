@@ -19,12 +19,9 @@ import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_core.view.*
 
-/**
- * Created by loitp on 14/04/15.
- */
 @LogTag("PhotosAdapter")
 class PhotosAdapter internal constructor(
-        private val callback: Callback?
+    private val callback: Callback?
 ) : BaseAdapter() {
 
     interface Callback {
@@ -33,7 +30,10 @@ class PhotosAdapter internal constructor(
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_photos_core, viewGroup, false))
+        return ViewHolder(
+            LayoutInflater.from(viewGroup.context)
+                .inflate(R.layout.l_item_flickr_photos_core, viewGroup, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -52,20 +52,33 @@ class PhotosAdapter internal constructor(
         fun bind(photo: Photo) {
 
             val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(context = itemView.imageView.context,
-                    any = photo.flickrLink1024,
-                    imageView = itemView.imageView,
-                    resPlaceHolder = color,
-                    resError = color,
-                    drawableRequestListener = object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
+            LImageUtil.load(
+                context = itemView.imageView.context,
+                any = photo.flickrLink1024,
+                imageView = itemView.imageView,
+                resPlaceHolder = color,
+                resError = color,
+                drawableRequestListener = object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
 
-                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
-                    })
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        dataSource: DataSource,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
+                }
+            )
 
             itemView.tvSize.text = "${photo.widthO} x ${photo.heightO}"
             LUIUtil.setTextShadow(textView = itemView.tvSize, color = null)
@@ -79,5 +92,4 @@ class PhotosAdapter internal constructor(
             }
         }
     }
-
 }

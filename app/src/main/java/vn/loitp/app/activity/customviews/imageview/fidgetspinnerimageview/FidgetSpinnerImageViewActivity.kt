@@ -20,5 +20,4 @@ class FidgetSpinnerImageViewActivity : BaseFontActivity() {
 
         fidgetSpinner.setImageDrawable(R.drawable.spinner)
     }
-
 }

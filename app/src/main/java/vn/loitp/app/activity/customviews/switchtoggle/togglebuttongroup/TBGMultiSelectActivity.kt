@@ -23,5 +23,4 @@ class TBGMultiSelectActivity : BaseFontActivity() {
             logD("onCheckedStateChanged(): group.getCheckedIds() = " + group.checkedIds)
         }
     }
-
 }

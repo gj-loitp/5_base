@@ -21,8 +21,11 @@ class FacebookCommentActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         bt.setSafeOnClickListener { _ ->
-            LSocialUtil.openFacebookComment(context = this, url = "http://truyentranhtuan.com/one-piece-chuong-907/", adUnitId = getString(R.string.str_b))
+            LSocialUtil.openFacebookComment(
+                context = this,
+                url = "http://truyentranhtuan.com/one-piece-chuong-907/",
+                adUnitId = getString(R.string.str_b)
+            )
         }
     }
-
 }

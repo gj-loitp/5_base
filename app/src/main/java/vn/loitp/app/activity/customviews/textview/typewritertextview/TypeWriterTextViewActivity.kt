@@ -25,5 +25,4 @@ class TypeWriterTextViewActivity : BaseFontActivity() {
             textView.animateText("Type Writer Effect")
         }
     }
-
 }

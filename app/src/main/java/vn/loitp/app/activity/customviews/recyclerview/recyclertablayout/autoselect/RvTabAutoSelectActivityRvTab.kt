@@ -3,11 +3,9 @@ package vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.autosel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_recycler_tablayout.*
 import vn.loitp.app.R
-
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.Demo
 import vn.loitp.app.activity.customviews.recyclerview.recyclertablayout.basic.RvTabDemoBasicActivity
 
@@ -32,5 +30,4 @@ class RvTabAutoSelectActivityRvTab : RvTabDemoBasicActivity() {
 
         recyclerTabLayout.setAutoSelectionMode(true)
     }
-
 }

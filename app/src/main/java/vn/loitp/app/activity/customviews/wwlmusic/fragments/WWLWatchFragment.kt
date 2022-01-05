@@ -138,4 +138,3 @@ class WWLWatchFragment : BaseFragment(), SurfaceTextureListener, WWLMusicControl
         am?.abandonAudioFocus(null)
     }
 }
-

@@ -19,7 +19,6 @@ import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
-import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
@@ -81,7 +80,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFragmentNavigation.setOnClickListener(this)
         btPdf.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
-        btDeepLinks.setOnClickListener(this)
         btArchitectureComponent.setOnClickListener(this)
         btNFC.setOnClickListener(this)
         btGirl.setOnClickListener(this)
@@ -106,12 +104,12 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent = Intent(this, GalleryCoreSplashActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
                 intent.putExtra(Constants.BKG_SPLASH_SCREEN, Constants.URL_IMG_11)
-                //neu muon remove albumn nao thi cu pass id cua albumn do
+                // neu muon remove albumn nao thi cu pass id cua albumn do
                 val removeAlbumFlickrList = ArrayList<String>()
                 removeAlbumFlickrList.add(Constants.FLICKR_ID_STICKER)
-                //removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL);
-                //removeAlbumFlickrList.add(Constants.FLICKR_ID_VN_BANCOBIET);
-                //removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
+                // removeAlbumFlickrList.add(Constants.FLICKR_ID_GIRL);
+                // removeAlbumFlickrList.add(Constants.FLICKR_ID_VN_BANCOBIET);
+                // removeAlbumFlickrList.add(Constants.FLICKR_ID_DONGVATKHAC);
                 intent.putStringArrayListExtra(
                     Constants.KEY_REMOVE_ALBUM_FLICKR_LIST,
                     removeAlbumFlickrList
@@ -120,11 +118,11 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryCoreAlbum -> {
                 intent = Intent(this, GalleryCorePhotosOnlyActivity::class.java)
                 intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-                //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
-                //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
-                //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
-                //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
-                //intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
+                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_FAMOUSMANGA);
+                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_TRUYENBUA);
+                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_VN_BANCOBIET);
+                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_XE);
+                // intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_PHONGCANH);
 //                intent.putExtra(Constants.SK_PHOTOSET_ID, Constants.FLICKR_ID_MANGA)
                 intent.putExtra(
                     Constants.SK_PHOTOSET_ID,
@@ -141,10 +139,10 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btFragmentNavigation -> intent = Intent(this, FragmentNavigationActivity::class.java)
             btPdf -> intent = Intent(this, PdfDemoActivity::class.java)
             btFragmentFlow -> intent = Intent(this, FragmentFlowActivity::class.java)
-            btDeepLinks -> intent = Intent(this, DeepLinksActivity::class.java)
             btGalleryCoreAlbumFrm -> intent = Intent(this, GalleryCoreAlbumFrmActivity::class.java)
-            btArchitectureComponent -> intent =
-                Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
+            btArchitectureComponent ->
+                intent =
+                    Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
             btNFC -> intent = Intent(this, NFCActivity::class.java)
             btGirl -> {
                 intent = Intent(this, GirlSplashActivity::class.java)

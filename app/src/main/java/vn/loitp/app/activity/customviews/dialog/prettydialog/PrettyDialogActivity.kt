@@ -11,7 +11,7 @@ import com.views.dialog.prettydialog.PrettyDialog
 import kotlinx.android.synthetic.main.activity_dialog_pretty.*
 import vn.loitp.app.R
 
-//https://github.com/mjn1369/PrettyDialog
+// https://github.com/mjn1369/PrettyDialog
 @LogTag("PrettyDialogActivity")
 @IsFullScreen(false)
 class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
@@ -48,14 +48,14 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
         prettyDialog = PrettyDialog(this)
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
-                    .setMessage("PrettyDialog Message")
-                    .setIcon(R.drawable.ic_info_black_48dp)
-                    .setIconTint(R.color.green)
-                    .setIconCallback(Runnable {
-                        showShortInformation("onClick setIconCallback")
-                        prettyDialog?.cancel()
-                    })
-                    .show()
+                .setMessage("PrettyDialog Message")
+                .setIcon(R.drawable.ic_info_black_48dp)
+                .setIconTint(R.color.green)
+                .setIconCallback {
+                    showShortInformation("onClick setIconCallback")
+                    prettyDialog?.cancel()
+                }
+                .show()
         }
     }
 
@@ -64,43 +64,40 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
         // button OnClick listener
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
-                    .setMessage("PrettyDialog Message")
-                    .setIcon(R.drawable.ic_info_black_48dp)
-                    .setIconTint(R.color.green)
-                    .setIconCallback(Runnable {
-                        showShortInformation("onClick setIconCallback")
-                    })
-                    // OK button
-                    .addButton(
-                            "OK", // button text
-                            R.color.white,
-                            R.color.green,
-                            Runnable {
-                                showShortInformation("onClick OK")
-                                prettyDialog?.cancel()
-                            }
-                    )
-                    //Cancel button
-                    .addButton(
-                            "Cancel",
-                            R.color.white,
-                            R.color.red,
-                            Runnable {
-                                showShortInformation("onClick Cancel")
-                                prettyDialog?.cancel()
-                            }
-                    )
-                    // 3rd button
-                    .addButton(
-                            "Option 3",
-                            R.color.black,
-                            R.color.gray,
-                            Runnable {
-                                showShortInformation("onClick Option 3")
-                                prettyDialog?.cancel()
-                            }
-                    )
-                    .show()
+                .setMessage("PrettyDialog Message")
+                .setIcon(R.drawable.ic_info_black_48dp)
+                .setIconTint(R.color.green)
+                .setIconCallback {
+                    showShortInformation("onClick setIconCallback")
+                }
+                // OK button
+                .addButton(
+                    "OK", // button text
+                    R.color.white,
+                    R.color.green
+                ) {
+                    showShortInformation("onClick OK")
+                    prettyDialog?.cancel()
+                }
+                // Cancel button
+                .addButton(
+                    "Cancel",
+                    R.color.white,
+                    R.color.red
+                ) {
+                    showShortInformation("onClick Cancel")
+                    prettyDialog?.cancel()
+                }
+                // 3rd button
+                .addButton(
+                    "Option 3",
+                    R.color.black,
+                    R.color.gray
+                ) {
+                    showShortInformation("onClick Option 3")
+                    prettyDialog?.cancel()
+                }
+                .show()
         }
     }
 
@@ -108,50 +105,47 @@ class PrettyDialogActivity : BaseFontActivity(), OnClickListener {
         prettyDialog = PrettyDialog(this)
         prettyDialog?.apply {
             setTitle("PrettyDialog Title")
-                    .setTitleColor(R.color.blue)
-                    .setMessage("By agreeing to our terms and conditions, you agree to our terms and conditions.")
-                    .setMessageColor(R.color.gray)
-                    .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/android_font.TTF"))
-                    .setAnimationEnabled(true)
-                    .setIcon(R.drawable.ic_info_black_48dp)
-                    .setIconTint(R.color.green)
-                    .setTextSizeTitle(resources.getDimension(R.dimen.txt_medium))
-                    .setTextSizeMsg(resources.getDimension(R.dimen.txt_medium))
-                    .setIconCallback(Runnable {
-                        showShortInformation("onClick setIconCallback")
-                    })
-                    // OK button
-                    .addButton(
-                            "OK", // button text
-                            R.color.white,
-                            R.color.green,
-                            Runnable {
-                                showShortInformation("onClick OK")
-                                prettyDialog?.cancel()
-                            }
-                    )
-                    //Cancel button
-                    .addButton(
-                            "Cancel",
-                            R.color.white,
-                            R.color.red,
-                            Runnable {
-                                showShortInformation("onClick Cancel")
-                                prettyDialog?.cancel()
-                            }
-                    )
-                    // 3rd button
-                    .addButton(
-                            "Option 3",
-                            R.color.black,
-                            R.color.gray,
-                            Runnable {
-                                showShortInformation("onClick Option 3")
-                                prettyDialog?.cancel()
-                            }
-                    )
-                    .setTextSizeButton(resources.getDimension(R.dimen.txt_medium))
-                    .show()
+                .setTitleColor(R.color.blue)
+                .setMessage("By agreeing to our terms and conditions, you agree to our terms and conditions.")
+                .setMessageColor(R.color.gray)
+                .setTypeface(Typeface.createFromAsset(resources.assets, "fonts/android_font.TTF"))
+                .setAnimationEnabled(true)
+                .setIcon(R.drawable.ic_info_black_48dp)
+                .setIconTint(R.color.green)
+                .setTextSizeTitle(resources.getDimension(R.dimen.txt_medium))
+                .setTextSizeMsg(resources.getDimension(R.dimen.txt_medium))
+                .setIconCallback {
+                    showShortInformation("onClick setIconCallback")
+                }
+                // OK button
+                .addButton(
+                    "OK", // button text
+                    R.color.white,
+                    R.color.green
+                ) {
+                    showShortInformation("onClick OK")
+                    prettyDialog?.cancel()
+                }
+                // Cancel button
+                .addButton(
+                    "Cancel",
+                    R.color.white,
+                    R.color.red
+                ) {
+                    showShortInformation("onClick Cancel")
+                    prettyDialog?.cancel()
+                }
+                // 3rd button
+                .addButton(
+                    "Option 3",
+                    R.color.black,
+                    R.color.gray
+                ) {
+                    showShortInformation("onClick Option 3")
+                    prettyDialog?.cancel()
+                }
+                .setTextSizeButton(resources.getDimension(R.dimen.txt_medium))
+                .show()
         }
     }
 

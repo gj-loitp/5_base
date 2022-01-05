@@ -27,5 +27,4 @@ class CustomProgressDialogActivity : BaseFontActivity() {
             })
         }
     }
-
 }

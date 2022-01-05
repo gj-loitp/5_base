@@ -14,46 +14,51 @@ import androidx.annotation.ColorInt
 import com.animation.morphtransitions.AnimUtils.getFastOutSlowInInterpolator
 
 class MorphTransform(
-        @param:ColorInt private val startColor: Int,
-        @param:ColorInt private val endColor: Int,
-        private val startCornerRadius: Int,
-        private val endCornerRadius: Int
+    @param:ColorInt private val startColor: Int,
+    @param:ColorInt private val endColor: Int,
+    private val startCornerRadius: Int,
+    private val endCornerRadius: Int
 ) : ChangeBounds() {
 
     companion object {
         private const val EXTRA_SHARED_ELEMENT_START_COLOR = "EXTRA_SHARED_ELEMENT_START_COLOR"
-        private const val EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS = "EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS"
+        private const val EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS =
+            "EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS"
         private const val DEFAULT_DURATION = 300L
 
         /**
          * Configure `intent` with the extras needed to initialize this transition.
          */
         fun addExtras(
-                intent: Intent,
-                @ColorInt startColor: Int,
-                startCornerRadius: Int
+            intent: Intent,
+            @ColorInt startColor: Int,
+            startCornerRadius: Int
         ) {
             intent.putExtra(EXTRA_SHARED_ELEMENT_START_COLOR, startColor)
             intent.putExtra(EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS, startCornerRadius)
         }
 
         fun setup(
-                activity: Activity,
-                target: View,
-                @ColorInt endColor: Int,
-                endCornerRadius: Int
+            activity: Activity,
+            target: View,
+            @ColorInt endColor: Int,
+            endCornerRadius: Int
         ) {
             val intent = activity.intent
-            if (intent == null
-                    || !intent.hasExtra(EXTRA_SHARED_ELEMENT_START_COLOR)
-                    || !intent.hasExtra(EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS)) {
+            if (intent == null ||
+                !intent.hasExtra(EXTRA_SHARED_ELEMENT_START_COLOR) ||
+                !intent.hasExtra(EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS)
+            ) {
                 return
             }
-            val startColor = activity.intent.getIntExtra(EXTRA_SHARED_ELEMENT_START_COLOR, Color.TRANSPARENT)
+            val startColor =
+                activity.intent.getIntExtra(EXTRA_SHARED_ELEMENT_START_COLOR, Color.TRANSPARENT)
             val startCornerRadius = intent.getIntExtra(EXTRA_SHARED_ELEMENT_START_CORNER_RADIUS, 0)
-            val sharedEnter = MorphTransform(startColor, endColor, startCornerRadius, endCornerRadius)
+            val sharedEnter =
+                MorphTransform(startColor, endColor, startCornerRadius, endCornerRadius)
             // Reverse the start/end params for the return transition
-            val sharedReturn = MorphTransform(endColor, startColor, endCornerRadius, startCornerRadius)
+            val sharedReturn =
+                MorphTransform(endColor, startColor, endCornerRadius, startCornerRadius)
             sharedEnter.addTarget(target)
             sharedReturn.addTarget(target)
             activity.window.sharedElementEnterTransition = sharedEnter
@@ -67,9 +72,9 @@ class MorphTransform(
     }
 
     override fun createAnimator(
-            sceneRoot: ViewGroup,
-            startValues: TransitionValues,
-            endValues: TransitionValues
+        sceneRoot: ViewGroup,
+        startValues: TransitionValues,
+        endValues: TransitionValues
     ): Animator? {
         val changeBounds = super.createAnimator(sceneRoot, startValues, endValues) ?: return null
         var interpolator = interpolator
@@ -79,7 +84,11 @@ class MorphTransform(
         val background = MorphDrawable(startColor, startCornerRadius.toFloat())
         endValues.view.background = background
         val color = ObjectAnimator.ofArgb(background, MorphDrawable.COLOR, endColor)
-        val corners = ObjectAnimator.ofFloat(background, MorphDrawable.CORNER_RADIUS, endCornerRadius.toFloat())
+        val corners = ObjectAnimator.ofFloat(
+            background,
+            MorphDrawable.CORNER_RADIUS,
+            endCornerRadius.toFloat()
+        )
 
         // ease in the dialog's child views (fade in & staggered slide up)
         if (endValues.view is ViewGroup) {
@@ -91,10 +100,10 @@ class MorphTransform(
                 v.translationY = offset
                 v.alpha = 0f
                 v.animate()
-                        .alpha(1f)
-                        .translationY(0f)
-                        .setDuration(duration)
-                        .setStartDelay(duration).interpolator = interpolator
+                    .alpha(1f)
+                    .translationY(0f)
+                    .setDuration(duration)
+                    .setStartDelay(duration).interpolator = interpolator
                 offset *= 1.8f
             }
         }
@@ -104,5 +113,4 @@ class MorphTransform(
         transition.interpolator = interpolator
         return transition
     }
-
 }

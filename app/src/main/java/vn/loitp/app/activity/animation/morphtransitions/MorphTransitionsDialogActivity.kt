@@ -13,7 +13,6 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import kotlinx.android.synthetic.main.activity_morph_transtions_dialog.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.animation.morphtransitions.MorphTransitionsDialogActivity
 
 @LogTag("DialogActivity")
 @IsFullScreen(false)
@@ -44,8 +43,12 @@ class MorphTransitionsDialogActivity : BaseFontActivity() {
         }
         when (intent.getIntExtra(EXTRA_TYPE, -1)) {
             TYPE_FAB -> FabTransform.setup(this, container)
-            TYPE_BUTTON -> MorphTransform.setup(this, container, Color.WHITE, resources.getDimensionPixelSize(R.dimen.round_medium))
+            TYPE_BUTTON -> MorphTransform.setup(
+                this,
+                container,
+                Color.WHITE,
+                resources.getDimensionPixelSize(R.dimen.round_medium)
+            )
         }
     }
-
 }

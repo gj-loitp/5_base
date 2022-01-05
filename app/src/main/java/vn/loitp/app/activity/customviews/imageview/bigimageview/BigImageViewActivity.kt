@@ -14,7 +14,7 @@ import vn.loitp.app.R
 import vn.loitp.app.common.Constants
 import java.io.File
 
-//https://github.com/Piasy/BigImageViewer
+// https://github.com/Piasy/BigImageViewer
 
 @LogTag("BigImageViewActivity")
 @IsFullScreen(false)
@@ -59,10 +59,16 @@ class BigImageViewActivity : BaseFontActivity() {
         })
 
         bt0.setSafeOnClickListener {
-            bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_LAND_S), Uri.parse(Constants.URL_IMG_LARGE_LAND_O))
+            bigImageView.showImage(
+                Uri.parse(Constants.URL_IMG_LARGE_LAND_S),
+                Uri.parse(Constants.URL_IMG_LARGE_LAND_O)
+            )
         }
         bt1.setSafeOnClickListener {
-            bigImageView.showImage(Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S), Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O))
+            bigImageView.showImage(
+                Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_S),
+                Uri.parse(Constants.URL_IMG_LARGE_PORTRAIT_O)
+            )
         }
         bt2.setSafeOnClickListener {
             bigImageView.showImage(Uri.parse(Constants.URL_IMG_LONG))

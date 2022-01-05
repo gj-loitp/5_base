@@ -9,19 +9,21 @@ import android.util.Property
 import androidx.annotation.ColorInt
 
 internal class MorphDrawable(
-        @ColorInt color: Int, private var cornerRadius: Float
+    @ColorInt color: Int,
+    private var cornerRadius: Float
 ) : Drawable() {
 
     companion object {
-        val CORNER_RADIUS: Property<MorphDrawable, Float> = object : FloatProperty<MorphDrawable>("cornerRadius") {
-            override fun setValue(obj: MorphDrawable, value: Float) {
-                obj.setCornerRadius(value)
-            }
+        val CORNER_RADIUS: Property<MorphDrawable, Float> =
+            object : FloatProperty<MorphDrawable>("cornerRadius") {
+                override fun setValue(obj: MorphDrawable, value: Float) {
+                    obj.setCornerRadius(value)
+                }
 
-            override operator fun get(morphDrawable: MorphDrawable): Float {
-                return morphDrawable.getCornerRadius()
+                override operator fun get(morphDrawable: MorphDrawable): Float {
+                    return morphDrawable.getCornerRadius()
+                }
             }
-        }
         val COLOR: Property<MorphDrawable, Int> = object : IntProperty<MorphDrawable>("color") {
             override fun setValue(obj: MorphDrawable, value: Int) {
                 obj.color = value
@@ -56,7 +58,15 @@ internal class MorphDrawable(
         }
 
     override fun draw(canvas: Canvas) {
-        canvas.drawRoundRect(bounds.left.toFloat(), bounds.top.toFloat(), bounds.right.toFloat(), bounds.bottom.toFloat(), cornerRadius, cornerRadius, paint)
+        canvas.drawRoundRect(
+            bounds.left.toFloat(),
+            bounds.top.toFloat(),
+            bounds.right.toFloat(),
+            bounds.bottom.toFloat(),
+            cornerRadius,
+            cornerRadius,
+            paint
+        )
     }
 
     override fun getOutline(outline: Outline) {
@@ -76,5 +86,4 @@ internal class MorphDrawable(
     override fun getOpacity(): Int {
         return paint.alpha
     }
-
 }

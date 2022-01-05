@@ -16,15 +16,14 @@ import com.bumptech.glide.request.target.Target
 import com.core.adapter.BaseAdapter
 import com.core.helper.gallery.photos.PhotosDataCore
 import com.core.utilities.LImageUtil
-import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.restapi.flickr.model.photosetgetphotos.Photo
 import kotlinx.android.synthetic.main.l_item_flickr_photos_member.view.*
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("MemberAdapter")
 class MemberAdapter(
-        private val callback: Callback?
+    private val callback: Callback?
 ) : BaseAdapter() {
 
     interface Callback {
@@ -33,7 +32,10 @@ class MemberAdapter(
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_photos_member, viewGroup, false))
+        return ViewHolder(
+            LayoutInflater.from(viewGroup.context)
+                .inflate(R.layout.l_item_flickr_photos_member, viewGroup, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -52,29 +54,47 @@ class MemberAdapter(
         fun bind(photo: Photo) {
 
             val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(context = itemView.circleImageView.context,
-                    any = photo.urlO,
-                    imageView = itemView.circleImageView,
-                    resPlaceHolder = color,
-                    resError = color,
-                    drawableRequestListener = object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
+            LImageUtil.load(
+                context = itemView.circleImageView.context,
+                any = photo.urlO,
+                imageView = itemView.circleImageView,
+                resPlaceHolder = color,
+                resError = color,
+                drawableRequestListener = object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
 
-                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
-                    })
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        dataSource: DataSource,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
+                }
+            )
 
-            if (photo.title.toLowerCase(Locale.getDefault()).startsWith("null")) {
+            if (photo.title.lowercase(Locale.getDefault()).startsWith("null")) {
                 itemView.tvTitle.visibility = View.INVISIBLE
             } else {
                 itemView.tvTitle.visibility = View.VISIBLE
                 itemView.tvTitle.text = photo.title
             }
             itemView.fl.setOnClickListener {
-                callback?.onClick(photo = photo, pos = bindingAdapterPosition, imageView = itemView.circleImageView, textView = itemView.tvTitle)
+                callback?.onClick(
+                    photo = photo,
+                    pos = bindingAdapterPosition,
+                    imageView = itemView.circleImageView,
+                    textView = itemView.tvTitle
+                )
             }
             itemView.fl.setOnLongClickListener {
                 callback?.onLongClick(photo = photo, pos = bindingAdapterPosition)

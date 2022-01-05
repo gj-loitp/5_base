@@ -24,12 +24,11 @@ class CircularImageClickActivity : BaseFontActivity() {
     }
 
     private fun setupViews() {
-        circleButton.setOnCircleClickListener(object : LCircularClickImageButton.OnCircleClickListener {
-            override fun onClick(v: View?) {
-                showShortInformation("onClick")
-            }
-
-        })
+        circleButton.setOnCircleClickListener(object :
+                LCircularClickImageButton.OnCircleClickListener {
+                override fun onClick(v: View?) {
+                    showShortInformation("onClick")
+                }
+            })
     }
-
 }

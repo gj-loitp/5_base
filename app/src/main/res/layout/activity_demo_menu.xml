@@ -23,11 +23,6 @@
                 android:text="Architecture Component" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btDeepLinks"
-                style="@style/ButtonMenu"
-                android:text="Deep links" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btEpubReader"
                 style="@style/ButtonMenu"
                 android:text="@string/epub_reader" />

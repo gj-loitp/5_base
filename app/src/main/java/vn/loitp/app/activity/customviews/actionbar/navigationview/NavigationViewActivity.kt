@@ -28,7 +28,10 @@ class NavigationViewActivity : BaseFontActivity() {
             colorOn = LAppResource.getColor(R.color.red)
             colorOff = LAppResource.getColor(R.color.gray)
             tv?.setTextColor(Color.BLACK)
-            LUIUtil.setTextSize(textView = this.tv, size = resources.getDimension(R.dimen.txt_medium))
+            LUIUtil.setTextSize(
+                textView = this.tv,
+                size = resources.getDimension(R.dimen.txt_medium)
+            )
         }
 
         val stringList = ArrayList<String>()
@@ -37,13 +40,15 @@ class NavigationViewActivity : BaseFontActivity() {
         }
 
         nv.setStringList(stringList)
-        nv.setNVCallback(nvCallback = object : LNavigationView.NVCallback {
-            @SuppressLint("SetTextI18n")
-            override fun onIndexChange(index: Int, s: String?) {
-                logD("onIndexChange $index -> $s")
-                tvMsg?.text = "$index -> $s"
+        nv.setNVCallback(
+            nvCallback = object : LNavigationView.NVCallback {
+                @SuppressLint("SetTextI18n")
+                override fun onIndexChange(index: Int, s: String?) {
+                    logD("onIndexChange $index -> $s")
+                    tvMsg?.text = "$index -> $s"
+                }
             }
-        })
+        )
         bt0.setOnClickListener { nv.setCurrenIndex(0) }
         bt1.setOnClickListener { nv.setCurrenIndex(stringList.size - 1) }
         bt2.setOnClickListener { nv.setCurrenIndex(2) }

@@ -41,9 +41,12 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             this.editText.setTextColor(Color.YELLOW)
             this.setColorProgressBar(Color.RED)
             this.setBackgroundResource(R.drawable.bkg_et)
-            this.setImeiAction(EditorInfo.IME_ACTION_SEARCH, Runnable {
-                showShortInformation("Text ${aet0.editText.text}")
-            })
+            this.setImeiAction(
+                imeOptions = EditorInfo.IME_ACTION_SEARCH,
+                runnable = {
+                    showShortInformation("Text ${aet0.editText.text}")
+                }
+            )
             this.callback = object : LAutoSuggestEditText.Callback {
                 override fun onTextChanged(text: String) {
                     fakeCallAPI0(text)
@@ -88,18 +91,18 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             }
             it.onSuccess(stringList)
         }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnDispose {
-                    logD("doOnDispose")
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnDispose {
+                logD("doOnDispose")
+            }
+            .subscribe(
+                {
+                    aet0.setResultList(it)
+                },
+                {
+                    aet0.clearResultList()
                 }
-                .subscribe(
-                        {
-                            aet0.setResultList(it)
-                        },
-                        {
-                            aet0.clearResultList()
-                        }
-                )
+            )
     }
 
     private fun fakeCallAPI1(text: String) {
@@ -118,17 +121,17 @@ class EditTextAutoSuggestActivity : BaseFontActivity() {
             }
             it.onSuccess(stringList)
         }.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .doOnDispose {
-                    logD("doOnDispose")
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnDispose {
+                logD("doOnDispose")
+            }
+            .subscribe(
+                {
+                    aet1.setResultList(it)
+                },
+                {
+                    aet1.clearResultList()
                 }
-                .subscribe(
-                        {
-                            aet1.setResultList(it)
-                        },
-                        {
-                            aet1.clearResultList()
-                        }
-                )
+            )
     }
 }

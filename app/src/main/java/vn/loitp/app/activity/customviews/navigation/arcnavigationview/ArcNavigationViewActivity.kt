@@ -16,7 +16,9 @@ import vn.loitp.app.R
 
 @LogTag("ArcNavigationViewActivity")
 @IsFullScreen(false)
-class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigationItemSelectedListener {
+class ArcNavigationViewActivity :
+    BaseFontActivity(),
+    NavigationView.OnNavigationItemSelectedListener {
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_menu_arc_navigation_view
@@ -26,9 +28,21 @@ class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigatio
         super.onCreate(savedInstanceState)
 
         setSupportActionBar(toolbar)
-        fab.setOnClickListener { view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() }
+        fab.setOnClickListener { view ->
+            Snackbar.make(
+                view,
+                "Replace with your own action",
+                Snackbar.LENGTH_LONG
+            ).setAction("Action", null).show()
+        }
 
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
         toggle.syncState()
 
         navViewRight.setNavigationItemSelectedListener(this)
@@ -74,19 +88,14 @@ class ArcNavigationViewActivity : BaseFontActivity(), NavigationView.OnNavigatio
                 // Handle the camera action
             }
             R.id.navGallery -> {
-
             }
             R.id.navSlideshow -> {
-
             }
             R.id.navManage -> {
-
             }
             R.id.navShare -> {
-
             }
             R.id.navSend -> {
-
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)

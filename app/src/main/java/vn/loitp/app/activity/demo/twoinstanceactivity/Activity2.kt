@@ -3,7 +3,6 @@ package vn.loitp.app.activity.demo.twoinstanceactivity
 import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -50,18 +49,15 @@ class Activity2 : BaseFontActivity() {
     private var mIsRestoredToTop = false
     override fun finish() {
         super.finish()
-        if (Build.VERSION.SDK_INT >= 19 && !isTaskRoot && mIsRestoredToTop) {
-            // 4.4.2 platform issues for FLAG_ACTIVITY_REORDER_TO_FRONT,
-            // reordered activity back press will go to home unexpectly,
-            // Workaround: move reordered activity current task to front when it's finished.
-            val tasksManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-            tasksManager.moveTaskToFront(taskId, ActivityManager.MOVE_TASK_NO_USER_ACTION)
-        }
+        // 4.4.2 platform issues for FLAG_ACTIVITY_REORDER_TO_FRONT,
+        // reordered activity back press will go to home unexpectly,
+        // Workaround: move reordered activity current task to front when it's finished.
+        val tasksManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        tasksManager.moveTaskToFront(taskId, ActivityManager.MOVE_TASK_NO_USER_ACTION)
     }
 
     override fun onDestroy() {
         logD("onDestroy")
         super.onDestroy()
     }
-
 }

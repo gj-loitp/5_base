@@ -35,8 +35,13 @@ class SimpleFingerGestures : OnTouchListener {
         gestureAnalyser = GestureAnalyser()
     }
 
-    constructor(swipeSlopeIntolerance: Int, doubleTapMaxDelayMillis: Int, doubleTapMaxDownMillis: Int) {
-        gestureAnalyser = GestureAnalyser(swipeSlopeIntolerance, doubleTapMaxDelayMillis, doubleTapMaxDownMillis)
+    constructor(
+        swipeSlopeIntolerance: Int,
+        doubleTapMaxDelayMillis: Int,
+        doubleTapMaxDownMillis: Int
+    ) {
+        gestureAnalyser =
+            GestureAnalyser(swipeSlopeIntolerance, doubleTapMaxDelayMillis, doubleTapMaxDownMillis)
     }
 
     fun setOnFingerGestureListener(listener: OnFingerGestureListener?) {
@@ -84,30 +89,118 @@ class SimpleFingerGestures : OnTouchListener {
 
     private fun doCallBack(gestureType: GestureType) {
         when (gestureType.gestureFlag) {
-            GestureAnalyser.SWIPE_1_UP -> onFingerGestureListener?.onSwipeUp(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_1_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_1_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_1_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 1, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_2_UP -> onFingerGestureListener?.onSwipeUp(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_2_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_2_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_2_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.PINCH_2 -> onFingerGestureListener?.onPinch(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.UNPINCH_2 -> onFingerGestureListener?.onUnpinch(fingers = 2, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_3_UP -> onFingerGestureListener?.onSwipeUp(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_3_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_3_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_3_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.PINCH_3 -> onFingerGestureListener?.onPinch(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.UNPINCH_3 -> onFingerGestureListener?.onUnpinch(fingers = 3, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_4_UP -> onFingerGestureListener?.onSwipeUp(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_4_DOWN -> onFingerGestureListener?.onSwipeDown(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_4_LEFT -> onFingerGestureListener?.onSwipeLeft(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.SWIPE_4_RIGHT -> onFingerGestureListener?.onSwipeRight(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
-            GestureAnalyser.PINCH_4 -> onFingerGestureListener?.onPinch(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+            GestureAnalyser.SWIPE_1_UP -> onFingerGestureListener?.onSwipeUp(
+                fingers = 1,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_1_DOWN -> onFingerGestureListener?.onSwipeDown(
+                fingers = 1,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_1_LEFT -> onFingerGestureListener?.onSwipeLeft(
+                fingers = 1,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_1_RIGHT -> onFingerGestureListener?.onSwipeRight(
+                fingers = 1,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_2_UP -> onFingerGestureListener?.onSwipeUp(
+                fingers = 2,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_2_DOWN -> onFingerGestureListener?.onSwipeDown(
+                fingers = 2,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_2_LEFT -> onFingerGestureListener?.onSwipeLeft(
+                fingers = 2,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_2_RIGHT -> onFingerGestureListener?.onSwipeRight(
+                fingers = 2,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.PINCH_2 -> onFingerGestureListener?.onPinch(
+                fingers = 2,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.UNPINCH_2 -> onFingerGestureListener?.onUnpinch(
+                fingers = 2,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_3_UP -> onFingerGestureListener?.onSwipeUp(
+                fingers = 3,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_3_DOWN -> onFingerGestureListener?.onSwipeDown(
+                fingers = 3,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_3_LEFT -> onFingerGestureListener?.onSwipeLeft(
+                fingers = 3,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_3_RIGHT -> onFingerGestureListener?.onSwipeRight(
+                fingers = 3,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.PINCH_3 -> onFingerGestureListener?.onPinch(
+                fingers = 3,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.UNPINCH_3 -> onFingerGestureListener?.onUnpinch(
+                fingers = 3,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_4_UP -> onFingerGestureListener?.onSwipeUp(
+                fingers = 4,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_4_DOWN -> onFingerGestureListener?.onSwipeDown(
+                fingers = 4,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_4_LEFT -> onFingerGestureListener?.onSwipeLeft(
+                fingers = 4,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.SWIPE_4_RIGHT -> onFingerGestureListener?.onSwipeRight(
+                fingers = 4,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
+            GestureAnalyser.PINCH_4 -> onFingerGestureListener?.onPinch(
+                fingers = 4,
+                gestureDuration = gestureType.gestureDuration,
+                gestureDistance = gestureType.gestureDistance
+            )
             GestureAnalyser.UNPINCH_4 -> {
                 onFingerGestureListener?.let {
-                    it.onUnpinch(fingers = 4, gestureDuration = gestureType.gestureDuration, gestureDistance = gestureType.gestureDistance)
+                    it.onUnpinch(
+                        fingers = 4,
+                        gestureDuration = gestureType.gestureDuration,
+                        gestureDistance = gestureType.gestureDistance
+                    )
                     it.onDoubleTap(fingers = 1)
                 }
             }

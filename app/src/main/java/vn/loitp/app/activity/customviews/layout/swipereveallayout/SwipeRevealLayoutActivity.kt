@@ -15,7 +15,7 @@ import vn.loitp.app.activity.customviews.layout.swipereveallayout.grid.SwipeReve
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.list.SwipeRevealLayoutListActivity
 import vn.loitp.app.activity.customviews.layout.swipereveallayout.recycler.SwipeRevealLayoutRecyclerActivity
 
-//https://github.com/chthai64/SwipeRevealLayout
+// https://github.com/chthai64/SwipeRevealLayout
 @LogTag("SwipeRevealLayoutActivity")
 @IsFullScreen(false)
 class SwipeRevealLayoutActivity : BaseFontActivity() {

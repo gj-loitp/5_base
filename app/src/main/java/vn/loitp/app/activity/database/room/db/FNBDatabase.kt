@@ -11,7 +11,7 @@ import vn.loitp.app.activity.database.room.model.FloorPlan
 @Database(entities = [FloorPlan::class], version = 1)
 abstract class FNBDatabase : RoomDatabase() {
 
-    //@TypeConverters(DateTypeConverter::class, AreaConverter::class)
+    // @TypeConverters(DateTypeConverter::class, AreaConverter::class)
     @TypeConverters(AreaConverter::class)
 
     abstract fun floorPlanDao(): FloorPlanDao
@@ -23,14 +23,17 @@ abstract class FNBDatabase : RoomDatabase() {
         fun getInstance(context: Context): FNBDatabase? {
             if (instance == null) {
                 synchronized(FNBDatabase::class) {
-                    instance = Room.databaseBuilder(context.applicationContext, FNBDatabase::class.java, "FNBDatabase")
-                            .fallbackToDestructiveMigration()
-                            .build()
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        FNBDatabase::class.java,
+                        "FNBDatabase"
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
                 }
             }
 
             return instance
         }
-
     }
 }

@@ -83,33 +83,45 @@ class ComicChapActivity : BaseFontActivity() {
             onBackPressed()
         }
         val transform = MultiTransformation(
-                BlurTransformation(25),
-                ColorFilterTransformation(LAppResource.getColor(R.color.black50))
+            BlurTransformation(25),
+            ColorFilterTransformation(LAppResource.getColor(R.color.black50))
         )
         LImageUtil.load(
-                context = this,
-                any = comic?.imageSrc,
-                imageView = imgCover,
-                resPlaceHolder = color,
-                resError = color,
-                transformation = transform,
-                drawableRequestListener = object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
+            context = this,
+            any = comic?.imageSrc,
+            imageView = imgCover,
+            resPlaceHolder = color,
+            resError = color,
+            transformation = transform,
+            drawableRequestListener = object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any,
+                    target: Target<Drawable?>,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
-                })
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any,
+                    target: Target<Drawable?>,
+                    dataSource: DataSource,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
+            }
+        )
         LImageUtil.load(
-                context = this,
-                any = comic?.imageSrc,
-                imageView = ivAvatar,
-                resPlaceHolder = color,
-                resError = color,
-                transformation = CropCircleWithBorderTransformation(0, Color.TRANSPARENT),
-                drawableRequestListener = null
+            context = this,
+            any = comic?.imageSrc,
+            imageView = ivAvatar,
+            resPlaceHolder = color,
+            resError = color,
+            transformation = CropCircleWithBorderTransformation(0, Color.TRANSPARENT),
+            drawableRequestListener = null
         )
         chapAdapter = ChapAdapter()
         chapAdapter?.let {
@@ -126,30 +138,37 @@ class ComicChapActivity : BaseFontActivity() {
         rvComicChap.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         rvComicChap.adapter = concatAdapter
         LUIUtil.setScrollChange(
-                recyclerView = rvComicChap,
-                onBottom = {
-                    val isExistComicProgressAdapter = concatAdapter.adapters.firstOrNull { adapter ->
-                        adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
-                    }
-                    if (isExistComicProgressAdapter == null) {
-                        logD("onBottom $currentPageIndex/$totalPage")
-                        if (currentPageIndex < totalPage) {
-                            currentPageIndex++
-                            concatAdapter.addAdapter(comicProgressAdapter)
-                            rvComicChap.smoothScrollToPosition(concatAdapter.itemCount - 1)
+            recyclerView = rvComicChap,
+            onBottom = {
+                val isExistComicProgressAdapter = concatAdapter.adapters.firstOrNull { adapter ->
+                    adapter.javaClass.simpleName == ComicProgressAdapter::class.java.simpleName
+                }
+                if (isExistComicProgressAdapter == null) {
+                    logD("onBottom $currentPageIndex/$totalPage")
+                    if (currentPageIndex < totalPage) {
+                        currentPageIndex++
+                        concatAdapter.addAdapter(comicProgressAdapter)
+                        rvComicChap.smoothScrollToPosition(concatAdapter.itemCount - 1)
 
-                            comicViewModel?.getChapterByComicId(comicId = comic?.id, pageIndex = currentPageIndex)
-                        }
+                        comicViewModel?.getChapterByComicId(
+                            comicId = comic?.id,
+                            pageIndex = currentPageIndex
+                        )
                     }
                 }
+            }
         )
 
         fabLike.setSafeOnClickListener {
-            //TODO iplm fav comic
+            // TODO iplm fav comic
             showLongInformation(getString(R.string.coming_soon))
         }
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {

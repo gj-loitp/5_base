@@ -3,12 +3,10 @@ package vn.loitp.app.activity.customviews.sticker
 import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
-
 import com.core.base.BaseFontActivity
 import com.views.sticker.StickerImageView
 import com.views.sticker.StickerTextView
 import kotlinx.android.synthetic.main.activity_sticker.*
-
 import vn.loitp.app.R
 
 @LogTag("StickerActivity")
@@ -31,7 +29,5 @@ class StickerActivity : BaseFontActivity() {
         val tvSticker = StickerTextView(this)
         tvSticker.text = "Demo StickerText"
         flCanvas.addView(tvSticker)
-
     }
-
 }

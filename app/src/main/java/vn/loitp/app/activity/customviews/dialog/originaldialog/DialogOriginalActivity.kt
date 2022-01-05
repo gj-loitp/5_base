@@ -55,49 +55,49 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
 
     private fun show1() {
         LDialogUtil.showDialog1(
-                context = this,
-                title = "Title",
-                msg = "Msg",
-                button1 = "Button 1",
-                onClickButton1 = {
-                    showShortInformation("Click 1")
-                }
+            context = this,
+            title = "Title",
+            msg = "Msg",
+            button1 = "Button 1",
+            onClickButton1 = {
+                showShortInformation("Click 1")
+            }
         )
     }
 
     private fun show2() {
         LDialogUtil.showDialog2(
-                context = this,
-                title = "Title",
-                msg = "Msg",
-                button1 = "Button 1",
-                button2 = "Button 2",
-                onClickButton1 = {
-                    showShortInformation("Click 1")
-                },
-                onClickButton2 = {
-                    showShortInformation("Click 2")
-                }
+            context = this,
+            title = "Title",
+            msg = "Msg",
+            button1 = "Button 1",
+            button2 = "Button 2",
+            onClickButton1 = {
+                showShortInformation("Click 1")
+            },
+            onClickButton2 = {
+                showShortInformation("Click 2")
+            }
         )
     }
 
     private fun show3() {
         LDialogUtil.showDialog3(
-                context = this,
-                title = "Title",
-                msg = "Msg",
-                button1 = "Button 1",
-                button2 = "Button 2",
-                button3 = "Button 3",
-                onClickButton1 = {
-                    showShortInformation("Click 1")
-                },
-                onClickButton2 = {
-                    showShortInformation("Click 2")
-                },
-                onClickButton3 = {
-                    showShortInformation("Click 3")
-                }
+            context = this,
+            title = "Title",
+            msg = "Msg",
+            button1 = "Button 1",
+            button2 = "Button 2",
+            button3 = "Button 3",
+            onClickButton1 = {
+                showShortInformation("Click 1")
+            },
+            onClickButton2 = {
+                showShortInformation("Click 2")
+            },
+            onClickButton3 = {
+                showShortInformation("Click 3")
+            }
         )
     }
 
@@ -108,12 +108,12 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
             arr[i] = "Item $i"
         }
         LDialogUtil.showDialogList(
-                context = this,
-                title = "Title",
-                arr = arr,
-                onClick = { position ->
-                    showShortInformation("Click position " + position + ", item: " + arr[position])
-                }
+            context = this,
+            title = "Title",
+            arr = arr,
+            onClick = { position ->
+                showShortInformation("Click position " + position + ", item: " + arr[position])
+            }
         )
     }
 
@@ -129,13 +129,13 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         override fun onPreExecute() {
             super.onPreExecute()
             progressDialog = LDialogUtil.showProgressDialog(
-                    context = context,
-                    max = 100,
-                    title = "Title",
-                    msg = "Message",
-                    isCancelAble = false,
-                    style = ProgressDialog.STYLE_HORIZONTAL,
-                    buttonTitle = null
+                context = context,
+                max = 100,
+                title = "Title",
+                msg = "Message",
+                isCancelAble = false,
+                style = ProgressDialog.STYLE_HORIZONTAL,
+                buttonTitle = null
             )
         }
 
@@ -148,7 +148,6 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
                     } catch (e: InterruptedException) {
                         e.printStackTrace()
                     }
-
                 }
             }
             return null
@@ -172,7 +171,7 @@ class DialogOriginalActivity : BaseFontActivity(), OnClickListener {
         builder.setTitle("Title")
 
         val editText = EditText(this)
-        //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        // input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(editText)
 
         builder.setPositiveButton("OK") { _, _ ->

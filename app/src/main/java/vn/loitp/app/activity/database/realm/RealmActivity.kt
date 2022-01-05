@@ -135,7 +135,7 @@ class RealmActivity : BaseFontActivity() {
         builder.setTitle("Title")
 
         val input = EditText(this)
-        //input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        // input.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
         builder.setView(input)
 
         builder.setPositiveButton("OK") { dialog, _ ->

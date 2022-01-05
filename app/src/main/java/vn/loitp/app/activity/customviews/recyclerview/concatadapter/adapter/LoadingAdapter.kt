@@ -13,12 +13,15 @@ class LoadingAdapter : BaseAdapter() {
 
     inner class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind() {
-            //do sth
+            // do sth
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            DataViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_loading, parent, false))
+        DataViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.view_row_item_loading, parent, false)
+        )
 
     override fun getItemCount(): Int = 1
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -26,5 +29,4 @@ class LoadingAdapter : BaseAdapter() {
             holder.bind()
         }
     }
-
 }

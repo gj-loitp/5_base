@@ -42,7 +42,9 @@ class DialogMenuActivity : BaseFontActivity(), View.OnClickListener {
         when (v) {
             btOriginalDialog -> intent = Intent(this, DialogOriginalActivity::class.java)
             btPrettyDialog -> intent = Intent(this, PrettyDialogActivity::class.java)
-            btCustomProgressDialog -> intent = Intent(this, CustomProgressDialogActivity::class.java)
+            btCustomProgressDialog ->
+                intent =
+                    Intent(this, CustomProgressDialogActivity::class.java)
             btSlideImages -> intent = Intent(this, DialogSlideImagesActivity::class.java)
             btCustomDialog -> intent = Intent(this, CustomDialogActivity::class.java)
         }

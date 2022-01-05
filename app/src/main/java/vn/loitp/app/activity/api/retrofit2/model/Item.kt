@@ -38,5 +38,4 @@ class Item : BaseModel() {
     @SerializedName("last_edit_date")
     @Expose
     var lastEditDate: Int? = null
-
 }

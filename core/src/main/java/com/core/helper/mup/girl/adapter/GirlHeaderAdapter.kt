@@ -1,5 +1,6 @@
 package com.core.helper.mup.girl.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,7 @@ class GirlHeaderAdapter : BaseAdapter() {
     private var girlPage: GirlPage? = null
 //    var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(girlPage: GirlPage) {
         this.girlPage = girlPage
         notifyDataSetChanged()
@@ -32,21 +34,25 @@ class GirlHeaderAdapter : BaseAdapter() {
             } else {
                 girlPage.src
             }
-            LImageUtil.load(context = itemView.imageView.context,
-                    any = src,
-                    imageView = itemView.imageView,
-                    resError = R.color.black,
-                    resPlaceHolder = R.color.black,
-                    drawableRequestListener = null)
+            LImageUtil.load(
+                context = itemView.imageView.context,
+                any = src,
+                imageView = itemView.imageView,
+                resError = R.color.black,
+                resPlaceHolder = R.color.black,
+                drawableRequestListener = null
+            )
 //            setAnimation(viewToAnimate = itemView, position = bindingAdapterPosition)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_girl_header, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_girl_header, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = 1
 
@@ -57,5 +63,4 @@ class GirlHeaderAdapter : BaseAdapter() {
             }
         }
     }
-
 }

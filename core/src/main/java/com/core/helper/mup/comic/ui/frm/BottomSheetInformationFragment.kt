@@ -15,12 +15,14 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.l_bottom_sheet_mup_information_fragment.*
 
 @LogTag("BottomSheetDonationFragment")
-class BottomSheetInformationFragment : BaseBottomSheetFragment(
+class BottomSheetInformationFragment :
+    BaseBottomSheetFragment(
         layoutId = R.layout.l_bottom_sheet_mup_information_fragment,
         height = WindowManager.LayoutParams.WRAP_CONTENT,
         isDraggable = true,
         firstBehaviourState = BottomSheetBehavior.STATE_EXPANDED
-), View.OnClickListener {
+    ),
+    View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

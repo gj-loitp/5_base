@@ -6,7 +6,6 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.views.layout.draggablepanel.DraggableListener
-import com.views.layout.draggablepanel.DraggablePanel
 import kotlinx.android.synthetic.main.activity_draggable_panel.*
 import vn.loitp.app.R
 
@@ -44,11 +43,11 @@ class DraggablePanelActivity : BaseFontActivity() {
             this.setTopFragment(frmTop)
             this.setBottomFragment(frmBottom)
 
-            //this.setXScaleFactor(xScaleFactor)
-            //this.setYScaleFactor(yScaleFactor)
+            // this.setXScaleFactor(xScaleFactor)
+            // this.setYScaleFactor(yScaleFactor)
             this.setTopViewHeight(600)
-            //this.setTopFragmentMarginRight(topViewMarginRight)
-            //this.setTopFragmentMarginBottom(topViewMargnBottom)
+            // this.setTopFragmentMarginRight(topViewMarginRight)
+            // this.setTopFragmentMarginBottom(topViewMargnBottom)
             this.isClickToMaximizeEnabled = false
             this.isClickToMinimizeEnabled = false
             this.initializeView()

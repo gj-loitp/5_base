@@ -1,5 +1,6 @@
 package com.core.helper.gallery.photos
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -69,18 +70,20 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         recyclerView.layoutManager = GridLayoutManager(this, column)
 //        recyclerView.setHasFixedSize(true)
         photosAdapter = PhotosAdapter(
-                callback = object : PhotosAdapter.Callback {
-                    override fun onClick(photo: Photo, pos: Int) {
-                        val intent = Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
-                        intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
-                        startActivity(intent)
-                        LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
-                    }
+            callback = object : PhotosAdapter.Callback {
+                override fun onClick(photo: Photo, pos: Int) {
+                    val intent =
+                        Intent(this@GalleryCorePhotosActivity, GalleryCoreSlideActivity::class.java)
+                    intent.putExtra(Constants.SK_PHOTO_ID, photo.id)
+                    startActivity(intent)
+                    LActivityUtil.tranIn(this@GalleryCorePhotosActivity)
+                }
 
-                    override fun onLongClick(photo: Photo, pos: Int) {
-                        LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
-                    }
-                })
+                override fun onLongClick(photo: Photo, pos: Int) {
+                    LSocialUtil.share(activity = this@GalleryCorePhotosActivity, msg = photo.urlO)
+                }
+            }
+        )
 
         photosAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
@@ -94,7 +97,7 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             animAdapter.setFirstOnly(true)
             recyclerView.adapter = animAdapter
         }
-        //LUIUtil.setPullLikeIOSVertical(recyclerView)
+        // LUIUtil.setPullLikeIOSVertical(recyclerView)
 
         photosetsGetPhotos(photosetID = photosetID)
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -113,7 +116,11 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         }
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
@@ -134,15 +141,15 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
             arr[i] = "Page " + (totalPage - i)
         }
         LDialogUtil.showDialogList(
-                context = this,
-                title = "Select page",
-                arr = arr,
-                onClick = { position ->
-                    currentPage = totalPage - position
-                    PhotosDataCore.instance.clearData()
-                    updateAllViews()
-                    photosetsGetPhotos(photosetID)
-                }
+            context = this,
+            title = "Select page",
+            arr = arr,
+            onClick = { position ->
+                currentPage = totalPage - position
+                PhotosDataCore.instance.clearData()
+                updateAllViews()
+                photosetsGetPhotos(photosetID)
+            }
         )
     }
 
@@ -165,7 +172,8 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
         val primaryPhotoExtras = FlickrConst.PRIMARY_PHOTO_EXTRAS_1
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
-        compositeDisposable.add(service.getPhotosetPhotos(
+        compositeDisposable.add(
+            service.getPhotosetPhotos(
                 method = method,
                 apiKey = apiKey,
                 photosetId = photosetID,
@@ -174,11 +182,13 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                 perPage = Constants.PER_PAGE_SIZE,
                 page = currentPage,
                 format = format,
-                noJsonCallback = noJsonCallBack)
+                noJsonCallback = noJsonCallBack
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotosetGetPhotos ->
-                    val s = wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
+                    val s =
+                        wrapperPhotosetGetPhotos?.photoset?.title + " (" + currentPage + "/" + totalPage + ")"
                     tvTitle.text = s
                     wrapperPhotosetGetPhotos?.photoset?.photo?.let {
                         it.shuffle()
@@ -192,9 +202,11 @@ class GalleryCorePhotosActivity : BaseFontActivity() {
                     handleException(e)
                     LDialogUtil.hideProgress(progressBar)
                     isLoading = true
-                })
+                }
+        )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateAllViews() {
         photosAdapter?.notifyDataSetChanged()
     }

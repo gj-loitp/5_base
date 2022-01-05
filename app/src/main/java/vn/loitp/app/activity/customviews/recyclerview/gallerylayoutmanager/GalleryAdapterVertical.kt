@@ -1,6 +1,5 @@
 package vn.loitp.app.activity.customviews.recyclerview.gallerylayoutmanager
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,8 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 
 class GalleryAdapterVertical internal constructor(
-        private val context: Context,
-        private val moviesList: List<Movie>,
-        private val callback: Callback?
+    private val moviesList: List<Movie>,
+    private val callback: Callback?
 ) : RecyclerView.Adapter<GalleryAdapterVertical.MovieViewHolder>() {
 
     interface Callback {
@@ -36,11 +34,11 @@ class GalleryAdapterVertical internal constructor(
                 callback?.onLoadMore()
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_text_view, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_text_view, parent, false)
         return MovieViewHolder(itemView)
     }
 
@@ -51,5 +49,4 @@ class GalleryAdapterVertical internal constructor(
     override fun getItemCount(): Int {
         return moviesList.size
     }
-
 }

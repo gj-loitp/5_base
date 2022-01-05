@@ -1,71 +1,63 @@
 package com.core.helper.mup.comic.service
 
-import com.core.helper.mup.comic.model.*
+import com.core.helper.mup.comic.model.* // ktlint-disable no-wildcard-imports
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 class ComicRepository(private val comicApiService: ComicApiService) : ComicBaseRepository() {
 
     suspend fun login(email: String, password: String): ComicApiResponse<Login> = makeApiCall {
         val requestLogin = RequestLogin(
-                email = email,
-                password = password
+            email = email,
+            password = password
         )
         comicApiService.loginAsync(
-                requestLogin = requestLogin
+            requestLogin = requestLogin
         ).await()
     }
 
     suspend fun getListComic(
-            pageIndex: Int,
-            keyword: String?
+        pageIndex: Int,
+        keyword: String?
     ): ComicApiResponse<List<Comic>> = makeApiCall {
         comicApiService.getListComicAsync(
-                pageIndex = pageIndex,
-                pageSize = ComicApiConfiguration.PAGE_SIZE,
-                keyword = keyword
+            pageIndex = pageIndex,
+            pageSize = ComicApiConfiguration.PAGE_SIZE,
+            keyword = keyword
         ).await()
     }
 
     suspend fun getListComicByCategory(
-            categoryId: String?,
-            pageIndex: Int,
-            keyword: String?
+        categoryId: String?,
+        pageIndex: Int,
+        keyword: String?
     ): ComicApiResponse<List<Comic>> = makeApiCall {
         comicApiService.getListComicByCategoryAsync(
-                categoryId = categoryId,
-                pageIndex = pageIndex,
-                pageSize = ComicApiConfiguration.PAGE_SIZE,
-                keyword = keyword
+            categoryId = categoryId,
+            pageIndex = pageIndex,
+            pageSize = ComicApiConfiguration.PAGE_SIZE,
+            keyword = keyword
         ).await()
     }
 
-    suspend fun getListCategory(
-    ): ComicApiResponse<List<Category>> = makeApiCall {
-        comicApiService.getListCategoryAsync(
-        ).await()
+    suspend fun getListCategory(): ComicApiResponse<List<Category>> = makeApiCall {
+        comicApiService.getListCategoryAsync().await()
     }
 
     suspend fun getListChapByComicId(
-            comicId: String?,
-            pageIndex: Int
+        comicId: String?,
+        pageIndex: Int
     ): ComicApiResponse<List<Chap>> = makeApiCall {
         comicApiService.getListChapByComicIdAsync(
-                comicId = comicId,
-                pageIndex = pageIndex,
-                pageSize = ComicApiConfiguration.PAGE_SIZE
+            comicId = comicId,
+            pageIndex = pageIndex,
+            pageSize = ComicApiConfiguration.PAGE_SIZE
         ).await()
     }
 
     suspend fun getChapterDetail(
-            chapId: String?
+        chapId: String?
     ): ComicApiResponse<ChapterDetail> = makeApiCall {
         comicApiService.getChapterDetailAsync(
-                chapId = chapId
+            chapId = chapId
         ).await()
     }
 }

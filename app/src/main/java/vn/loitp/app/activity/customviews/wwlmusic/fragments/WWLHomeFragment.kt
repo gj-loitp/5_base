@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.wwlmusic.fragments
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.res.Configuration
 import android.os.Bundle
@@ -48,6 +49,7 @@ class WWLHomeFragment : BaseFragment() {
         updateLayoutIfNeed()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateLayoutIfNeed() {
         mLayoutManager?.spanCount = getGridColumnCount(resources)
         customAdapter?.notifyDataSetChanged()
@@ -57,9 +59,11 @@ class WWLHomeFragment : BaseFragment() {
         mFragmentHost?.goToDetail(item)
     }
 
-    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLMusicDataset.DatasetItem>) : RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+    private inner class CustomAdapter(private val mDataSet: ArrayList<WWLMusicDataset.DatasetItem>) :
+        RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val v = LayoutInflater.from(parent.context).inflate(R.layout.wwl_music_card_row_item, parent, false)
+            val v = LayoutInflater.from(parent.context)
+                .inflate(R.layout.wwl_music_card_row_item, parent, false)
             return ViewHolder(v)
         }
 

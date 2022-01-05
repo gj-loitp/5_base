@@ -40,7 +40,8 @@ class LockableViewPagerActivity : BaseFontActivity() {
         }
     }
 
-    private inner class SamplePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SamplePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             return FrmIv.newInstance()
         }
@@ -49,7 +50,7 @@ class LockableViewPagerActivity : BaseFontActivity() {
             return 5
         }
 
-        override fun getPageTitle(position: Int): CharSequence? {
+        override fun getPageTitle(position: Int): CharSequence {
             return "Page Title $position"
         }
     }

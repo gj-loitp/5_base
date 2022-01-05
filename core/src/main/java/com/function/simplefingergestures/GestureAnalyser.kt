@@ -14,9 +14,9 @@ import kotlin.math.sqrt
  * @since 0.1 12/04/14
  */
 class GestureAnalyser @JvmOverloads constructor(
-        swipeSlopeIntolerance: Int = 3,
-        doubleTapMaxDelayMillis: Int = 500,
-        doubleTapMaxDownMillis: Int = 100
+    swipeSlopeIntolerance: Int = 3,
+    doubleTapMaxDelayMillis: Int = 500,
+    doubleTapMaxDownMillis: Int = 100
 ) {
 
     inner class GestureType {
@@ -110,7 +110,11 @@ class GestureAnalyser @JvmOverloads constructor(
             finalY[i] = motionEvent.getY(i).toDouble()
             delX[i] = finalX[i] - initialX[i]
             delY[i] = finalY[i] - initialY[i]
-            averageDistance += sqrt(x = (finalX[i] - initialX[i]).pow(2.0) + (finalY[i] - initialY[i]).pow(2.0))
+            averageDistance += sqrt(
+                x = (finalX[i] - initialX[i]).pow(2.0) + (finalY[i] - initialY[i]).pow(
+                    2.0
+                )
+            )
         }
         averageDistance /= numFingers.toDouble()
         finalT = SystemClock.uptimeMillis()
@@ -152,92 +156,166 @@ class GestureAnalyser @JvmOverloads constructor(
             }
         }
         if (numFingers == 2) {
-            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0]) && -delY[1] > swipeSlopeIntolerance * abs(delX[1])) {
+            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0]) && -delY[1] > swipeSlopeIntolerance * abs(
+                    delX[1]
+                )
+            ) {
                 return SWIPE_2_UP
             }
-            if (delY[0] > swipeSlopeIntolerance * abs(delX[0]) && delY[1] > swipeSlopeIntolerance * abs(delX[1])) {
+            if (delY[0] > swipeSlopeIntolerance * abs(delX[0]) && delY[1] > swipeSlopeIntolerance * abs(
+                    delX[1]
+                )
+            ) {
                 return SWIPE_2_DOWN
             }
-            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0]) && -delX[1] > swipeSlopeIntolerance * abs(delY[1])) {
+            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0]) && -delX[1] > swipeSlopeIntolerance * abs(
+                    delY[1]
+                )
+            ) {
                 return SWIPE_2_LEFT
             }
-            if (delX[0] > swipeSlopeIntolerance * abs(delY[0]) && delX[1] > swipeSlopeIntolerance * abs(delY[1])) {
+            if (delX[0] > swipeSlopeIntolerance * abs(delY[0]) && delX[1] > swipeSlopeIntolerance * abs(
+                    delY[1]
+                )
+            ) {
                 return SWIPE_2_RIGHT
             }
-            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 2 * initialFingDist(fingNum1 = 0, fingNum2 = 1)) {
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 2 * initialFingDist(
+                    fingNum1 = 0,
+                    fingNum2 = 1
+                )
+            ) {
                 return UNPINCH_2
             }
-            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.5 * initialFingDist(fingNum1 = 0, fingNum2 = 1)) {
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.5 * initialFingDist(
+                    fingNum1 = 0,
+                    fingNum2 = 1
+                )
+            ) {
                 return PINCH_2
             }
         }
         if (numFingers == 3) {
-            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0])
-                    && -delY[1] > swipeSlopeIntolerance * abs(delX[1])
-                    && -delY[2] > swipeSlopeIntolerance * abs(delX[2])) {
+            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0]) &&
+                -delY[1] > swipeSlopeIntolerance * abs(delX[1]) &&
+                -delY[2] > swipeSlopeIntolerance * abs(delX[2])
+            ) {
                 return SWIPE_3_UP
             }
-            if (delY[0] > swipeSlopeIntolerance * abs(delX[0])
-                    && delY[1] > swipeSlopeIntolerance * abs(delX[1])
-                    && delY[2] > swipeSlopeIntolerance * abs(delX[2])) {
+            if (delY[0] > swipeSlopeIntolerance * abs(delX[0]) &&
+                delY[1] > swipeSlopeIntolerance * abs(delX[1]) &&
+                delY[2] > swipeSlopeIntolerance * abs(delX[2])
+            ) {
                 return SWIPE_3_DOWN
             }
-            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0])
-                    && -delX[1] > swipeSlopeIntolerance * abs(delY[1])
-                    && -delX[2] > swipeSlopeIntolerance * abs(delY[2])) {
+            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0]) &&
+                -delX[1] > swipeSlopeIntolerance * abs(delY[1]) &&
+                -delX[2] > swipeSlopeIntolerance * abs(delY[2])
+            ) {
                 return SWIPE_3_LEFT
             }
-            if (delX[0] > swipeSlopeIntolerance * abs(delY[0])
-                    && delX[1] > swipeSlopeIntolerance * abs(delY[1])
-                    && delX[2] > swipeSlopeIntolerance * abs(delY[2])) {
+            if (delX[0] > swipeSlopeIntolerance * abs(delY[0]) &&
+                delX[1] > swipeSlopeIntolerance * abs(delY[1]) &&
+                delX[2] > swipeSlopeIntolerance * abs(delY[2])
+            ) {
                 return SWIPE_3_RIGHT
             }
-            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 1.75 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
-                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.75 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
-                    && finalFingDist(fingNum1 = 2, fingNum2 = 0) > 1.75 * initialFingDist(fingNum1 = 2, fingNum2 = 0)) {
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 1.75 * initialFingDist(
+                    fingNum1 = 0,
+                    fingNum2 = 1
+                ) &&
+                finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.75 * initialFingDist(
+                        fingNum1 = 1,
+                        fingNum2 = 2
+                    ) &&
+                finalFingDist(fingNum1 = 2, fingNum2 = 0) > 1.75 * initialFingDist(
+                        fingNum1 = 2,
+                        fingNum2 = 0
+                    )
+            ) {
                 return UNPINCH_3
             }
-            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.66 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
-                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.66 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
-                    && finalFingDist(fingNum1 = 2, fingNum2 = 0) < 0.66 * initialFingDist(fingNum1 = 2, fingNum2 = 0)) {
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.66 * initialFingDist(
+                    fingNum1 = 0,
+                    fingNum2 = 1
+                ) &&
+                finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.66 * initialFingDist(
+                        fingNum1 = 1,
+                        fingNum2 = 2
+                    ) &&
+                finalFingDist(fingNum1 = 2, fingNum2 = 0) < 0.66 * initialFingDist(
+                        fingNum1 = 2,
+                        fingNum2 = 0
+                    )
+            ) {
                 return PINCH_3
             }
         }
         if (numFingers == 4) {
-            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0])
-                    && -delY[1] > swipeSlopeIntolerance * abs(delX[1])
-                    && -delY[2] > swipeSlopeIntolerance * abs(delX[2])
-                    && -delY[3] > swipeSlopeIntolerance * abs(delX[3])) {
+            if (-delY[0] > swipeSlopeIntolerance * abs(delX[0]) &&
+                -delY[1] > swipeSlopeIntolerance * abs(delX[1]) &&
+                -delY[2] > swipeSlopeIntolerance * abs(delX[2]) &&
+                -delY[3] > swipeSlopeIntolerance * abs(delX[3])
+            ) {
                 return SWIPE_4_UP
             }
-            if (delY[0] > swipeSlopeIntolerance * abs(delX[0])
-                    && delY[1] > swipeSlopeIntolerance * abs(delX[1])
-                    && delY[2] > swipeSlopeIntolerance * abs(delX[2])
-                    && delY[3] > swipeSlopeIntolerance * abs(delX[3])) {
+            if (delY[0] > swipeSlopeIntolerance * abs(delX[0]) &&
+                delY[1] > swipeSlopeIntolerance * abs(delX[1]) &&
+                delY[2] > swipeSlopeIntolerance * abs(delX[2]) &&
+                delY[3] > swipeSlopeIntolerance * abs(delX[3])
+            ) {
                 return SWIPE_4_DOWN
             }
-            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0])
-                    && -delX[1] > swipeSlopeIntolerance * abs(delY[1])
-                    && -delX[2] > swipeSlopeIntolerance * abs(delY[2])
-                    && -delX[3] > swipeSlopeIntolerance * abs(delY[3])) {
+            if (-delX[0] > swipeSlopeIntolerance * abs(delY[0]) &&
+                -delX[1] > swipeSlopeIntolerance * abs(delY[1]) &&
+                -delX[2] > swipeSlopeIntolerance * abs(delY[2]) &&
+                -delX[3] > swipeSlopeIntolerance * abs(delY[3])
+            ) {
                 return SWIPE_4_LEFT
             }
-            if (delX[0] > swipeSlopeIntolerance * abs(delY[0])
-                    && delX[1] > swipeSlopeIntolerance * abs(delY[1])
-                    && delX[2] > swipeSlopeIntolerance * abs(delY[2])
-                    && delX[3] > swipeSlopeIntolerance * abs(delY[3])) {
+            if (delX[0] > swipeSlopeIntolerance * abs(delY[0]) &&
+                delX[1] > swipeSlopeIntolerance * abs(delY[1]) &&
+                delX[2] > swipeSlopeIntolerance * abs(delY[2]) &&
+                delX[3] > swipeSlopeIntolerance * abs(delY[3])
+            ) {
                 return SWIPE_4_RIGHT
             }
-            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 1.5 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
-                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.5 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
-                    && finalFingDist(fingNum1 = 2, fingNum2 = 3) > 1.5 * initialFingDist(fingNum1 = 2, fingNum2 = 3)
-                    && finalFingDist(fingNum1 = 3, fingNum2 = 0) > 1.5 * initialFingDist(fingNum1 = 3, fingNum2 = 0)) {
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) > 1.5 * initialFingDist(
+                    fingNum1 = 0,
+                    fingNum2 = 1
+                ) &&
+                finalFingDist(fingNum1 = 1, fingNum2 = 2) > 1.5 * initialFingDist(
+                        fingNum1 = 1,
+                        fingNum2 = 2
+                    ) &&
+                finalFingDist(fingNum1 = 2, fingNum2 = 3) > 1.5 * initialFingDist(
+                        fingNum1 = 2,
+                        fingNum2 = 3
+                    ) &&
+                finalFingDist(fingNum1 = 3, fingNum2 = 0) > 1.5 * initialFingDist(
+                        fingNum1 = 3,
+                        fingNum2 = 0
+                    )
+            ) {
                 return UNPINCH_4
             }
-            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.8 * initialFingDist(fingNum1 = 0, fingNum2 = 1)
-                    && finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.8 * initialFingDist(fingNum1 = 1, fingNum2 = 2)
-                    && finalFingDist(fingNum1 = 2, fingNum2 = 3) < 0.8 * initialFingDist(fingNum1 = 2, fingNum2 = 3)
-                    && finalFingDist(fingNum1 = 3, fingNum2 = 0) < 0.8 * initialFingDist(fingNum1 = 3, fingNum2 = 0)) {
+            if (finalFingDist(fingNum1 = 0, fingNum2 = 1) < 0.8 * initialFingDist(
+                    fingNum1 = 0,
+                    fingNum2 = 1
+                ) &&
+                finalFingDist(fingNum1 = 1, fingNum2 = 2) < 0.8 * initialFingDist(
+                        fingNum1 = 1,
+                        fingNum2 = 2
+                    ) &&
+                finalFingDist(fingNum1 = 2, fingNum2 = 3) < 0.8 * initialFingDist(
+                        fingNum1 = 2,
+                        fingNum2 = 3
+                    ) &&
+                finalFingDist(fingNum1 = 3, fingNum2 = 0) < 0.8 * initialFingDist(
+                        fingNum1 = 3,
+                        fingNum2 = 0
+                    )
+            ) {
                 return PINCH_4
             }
         }
@@ -245,13 +323,17 @@ class GestureAnalyser @JvmOverloads constructor(
     }
 
     private fun initialFingDist(fingNum1: Int, fingNum2: Int): Double {
-        return sqrt((initialX[fingNum1] - initialX[fingNum2]).pow(2.0)
-                + (initialY[fingNum1] - initialY[fingNum2]).pow(2.0))
+        return sqrt(
+            (initialX[fingNum1] - initialX[fingNum2]).pow(2.0) +
+                (initialY[fingNum1] - initialY[fingNum2]).pow(2.0)
+        )
     }
 
     private fun finalFingDist(fingNum1: Int, fingNum2: Int): Double {
-        return sqrt((finalX[fingNum1] - finalX[fingNum2]).pow(2.0)
-                + (finalY[fingNum1] - finalY[fingNum2]).pow(2.0))
+        return sqrt(
+            (finalX[fingNum1] - finalX[fingNum2]).pow(2.0) +
+                (finalY[fingNum1] - finalY[fingNum2]).pow(2.0)
+        )
     }
 
     val isDoubleTap: Boolean

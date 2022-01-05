@@ -1,10 +1,10 @@
 package vn.loitp.app.activity.customviews.layout.swiperefreshlayout.withrecyclerview
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
@@ -14,7 +14,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.MoviesAdapter
 import vn.loitp.app.common.Constants.Companion.URL_IMG
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("SwipeRefreshLayoutRecyclerViewActivity")
 @IsFullScreen(false)
@@ -29,19 +29,22 @@ class SwipeRefreshLayoutRecyclerViewActivity : BaseFontActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        swipeRefreshLayout.setOnRefreshListener(OnRefreshListener { refresh() })
+        swipeRefreshLayout.setOnRefreshListener { refresh() }
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout)
 
-        mAdapter = MoviesAdapter(movieList, object : MoviesAdapter.Callback {
-            override fun onClick(movie: Movie, position: Int) {
-                showShortInformation("Click " + movie.title, true)
-            }
+        mAdapter = MoviesAdapter(
+            movieList,
+            object : MoviesAdapter.Callback {
+                override fun onClick(movie: Movie, position: Int) {
+                    showShortInformation("Click " + movie.title, true)
+                }
 
-            override fun onLongClick(movie: Movie, position: Int) {}
-            override fun onLoadMore() {
-                loadMore()
+                override fun onLongClick(movie: Movie, position: Int) {}
+                override fun onLoadMore() {
+                    loadMore()
+                }
             }
-        })
+        )
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(applicationContext)
         rv.layoutManager = layoutManager
         rv.itemAnimator = DefaultItemAnimator()
@@ -50,6 +53,7 @@ class SwipeRefreshLayoutRecyclerViewActivity : BaseFontActivity() {
         prepareMovieData()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun refresh() {
         movieList.clear()
         mAdapter?.notifyDataSetChanged()
@@ -60,6 +64,7 @@ class SwipeRefreshLayoutRecyclerViewActivity : BaseFontActivity() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun loadMore() {
         swipeRefreshLayout.isRefreshing = true
         LUIUtil.setDelay(2000) {
@@ -74,6 +79,7 @@ class SwipeRefreshLayoutRecyclerViewActivity : BaseFontActivity() {
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun prepareMovieData() {
         for (i in 0..49) {
             val movie = Movie("Loitp $i", "Action & Adventure $i", "Year: $i", URL_IMG)

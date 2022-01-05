@@ -15,5 +15,4 @@ class App : BaseModel() {
     @SerializedName("config")
     @Expose
     var config: Config? = null
-
 }

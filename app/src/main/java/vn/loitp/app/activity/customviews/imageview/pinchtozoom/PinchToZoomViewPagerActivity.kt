@@ -11,7 +11,7 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_imageview_pinch_to_zoom_vp.*
 import vn.loitp.app.R
 import vn.loitp.app.common.Constants
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("PinchToZoomViewPagerActivity")
 @IsFullScreen(false)
@@ -38,8 +38,8 @@ class PinchToZoomViewPagerActivity : BaseFontActivity() {
         LUIUtil.setPullLikeIOSHorizontal(vp)
     }
 
-    private inner class SamplePagerAdapter(fm: FragmentManager)
-        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SamplePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
             val frmIvPinchToZoom = FrmIvPinchToZoom()

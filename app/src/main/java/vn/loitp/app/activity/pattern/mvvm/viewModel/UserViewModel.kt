@@ -9,12 +9,12 @@ import java.util.*
 
 class UserViewModel(private val user: User) : Observer, BaseObservable() {
 
-    /// Register itself as the observer of Model
+    // / Register itself as the observer of Model
     init {
         user.addObserver(this)
     }
 
-    /// Notify the UI when change event emitting from Model is received.
+    // / Notify the UI when change event emitting from Model is received.
     override fun update(p0: Observable?, p1: Any?) {
         if (p1 is String) {
             if (p1 == "age") {
@@ -62,5 +62,4 @@ class UserViewModel(private val user: User) : Observer, BaseObservable() {
         this.user.imageUrl = "https://media.giphy.com/media/w7M8g9cTom0Du/giphy.gif"
         this.user.tagline = "Now he has grown up..."
     }
-
 }

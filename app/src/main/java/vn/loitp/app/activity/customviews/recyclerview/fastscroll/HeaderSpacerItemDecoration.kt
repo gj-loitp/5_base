@@ -7,14 +7,14 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.ListItem
 
 class HeaderSpacerItemDecoration(
-        val getListItem: (Int) -> ListItem
+    val getListItem: (Int) -> ListItem
 ) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
     ) {
         val position = parent.getChildAdapterPosition(view)
         val listItem = getListItem(position)
@@ -28,7 +28,7 @@ class HeaderSpacerItemDecoration(
                     }
                 }
                 else -> {
-                    //do nothing
+                    // do nothing
                 }
             }
             left = 0
@@ -36,5 +36,4 @@ class HeaderSpacerItemDecoration(
             bottom = 0
         }
     }
-
 }

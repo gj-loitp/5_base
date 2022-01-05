@@ -21,26 +21,26 @@ class MyRxTask2(val tv: TextView?) {
         }
         tv?.text = "\nonPreExecute"
         return Observable.just(arrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
-                .doOnNext {
-                    it.forEach {
-                        LLog.d(logTag, "doInBackground " + it)
-                        publishSubject.onNext(it)
-                        SystemClock.sleep(1000)
-                    }
+            .doOnNext {
+                it.forEach {
+                    LLog.d(logTag, "doInBackground " + it)
+                    publishSubject.onNext(it)
+                    SystemClock.sleep(1000)
                 }
-                .applySchedulers()
-                /*.subscribe {
-                    // onNext
-                    tv?.append("onPostExecute\n")
-                }*/
-                .subscribe({
-                    LLog.d(logTag, "onPostExecute onNext")
-                    tv?.append("\nonPostExecute")
-                }, {
-                    LLog.d(logTag, "onPostExecute onError " + it.printStackTrace())
-                }, {
-                    LLog.d(logTag, "onPostExecute onComplete")
-                })
+            }
+            .applySchedulers()
+            /*.subscribe {
+                // onNext
+                tv?.append("onPostExecute\n")
+            }*/
+            .subscribe({
+                LLog.d(logTag, "onPostExecute onNext")
+                tv?.append("\nonPostExecute")
+            }, {
+                LLog.d(logTag, "onPostExecute onError " + it.printStackTrace())
+            }, {
+                LLog.d(logTag, "onPostExecute onComplete")
+            })
     }
 
     private fun <T> Observable<T>.applySchedulers(): Observable<T> {

@@ -11,8 +11,8 @@ import com.nex3z.togglebuttongroup.button.CompoundToggleButton
 import vn.loitp.app.R
 
 class CustomCompoundToggleButton @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : CompoundToggleButton(context, attrs) {
     private val mIvFront: ImageView
     private val mIvBack: ImageView
@@ -65,7 +65,12 @@ class CustomCompoundToggleButton @JvmOverloads constructor(
         inflater.inflate(R.layout.view_custom_compound_toggle_button, this, true)
         mIvFront = findViewById(R.id.ivFront)
         mIvBack = findViewById(R.id.ivBack)
-        val a = context.theme.obtainStyledAttributes(attrs, R.styleable.CustomCompoundToggleButton, 0, 0)
+        val a = context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.CustomCompoundToggleButton,
+            0,
+            0
+        )
         try {
             val front = a.getDrawable(R.styleable.CustomCompoundToggleButton_tbgFrontImage)
             mIvFront.setImageDrawable(front)

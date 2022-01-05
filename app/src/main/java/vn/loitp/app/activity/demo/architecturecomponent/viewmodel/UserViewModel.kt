@@ -16,5 +16,4 @@ class UserViewModel(private val user: User) : ViewModel() {
             return UserViewModel(user) as T
         }
     }
-
 }

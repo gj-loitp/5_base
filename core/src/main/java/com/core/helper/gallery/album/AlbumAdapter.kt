@@ -21,8 +21,8 @@ import kotlinx.android.synthetic.main.l_item_flickr_album_core.view.*
 
 @LogTag("AlbumAdapter")
 class AlbumAdapter(
-        private val photosetList: List<Photoset>,
-        private val callback: Callback?
+    private val photosetList: List<Photoset>,
+    private val callback: Callback?
 ) : BaseAdapter() {
 
     interface Callback {
@@ -32,7 +32,10 @@ class AlbumAdapter(
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.l_item_flickr_album_core, viewGroup, false))
+        return ViewHolder(
+            LayoutInflater.from(viewGroup.context)
+                .inflate(R.layout.l_item_flickr_album_core, viewGroup, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -50,24 +53,40 @@ class AlbumAdapter(
         fun bind(photoset: Photoset) {
 
             val color = LUIUtil.getRandomColorLight()
-            LImageUtil.load(context = itemView.imageView.context,
-                    any = photoset.flickrLinkO(),
-                    imageView = itemView.imageView,
-                    resPlaceHolder = color,
-                    resError = color,
-                    drawableRequestListener = object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
+            LImageUtil.load(
+                context = itemView.imageView.context,
+                any = photoset.flickrLinkO(),
+                imageView = itemView.imageView,
+                resPlaceHolder = color,
+                resError = color,
+                drawableRequestListener = object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
 
-                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
-                    })
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        dataSource: DataSource,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
+                }
+            )
 
             itemView.tvLabel.text = photoset.title?.content
 
-            val update = LDateUtil.getDateCurrentTimeZone(timestamp = photoset.dateUpdate, format = "dd-MM-yyyy HH:mm:ss")
+            val update = LDateUtil.getDateCurrentTimeZone(
+                timestamp = photoset.dateUpdate,
+                format = "dd-MM-yyyy HH:mm:ss"
+            )
             itemView.tvUpdate.text = update
             itemView.tvNumber.text = photoset.photos
 
@@ -84,5 +103,4 @@ class AlbumAdapter(
             }
         }
     }
-
 }

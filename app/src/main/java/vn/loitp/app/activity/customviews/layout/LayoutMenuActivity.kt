@@ -94,7 +94,9 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btDraggableView -> intent = Intent(this, DraggableViewActivity::class.java)
             btZoomLayout -> intent = Intent(this, ZoomLayoutActivity::class.java)
             btRippleLayout -> intent = Intent(this, RippleLayoutActivity::class.java)
-            btSwipeRefreshLayout -> intent = Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
+            btSwipeRefreshLayout ->
+                intent =
+                    Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
             btCircularView -> intent = Intent(this, CircularViewActivity::class.java)
             btAutoLinearLayout -> intent = Intent(this, AutoLinearLayoutActivity::class.java)
             btConstraintLayout -> intent = Intent(this, ConstraintlayoutMenuActivity::class.java)
@@ -115,7 +117,9 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
             btFlowLayout -> intent = Intent(this, FlowLayoutActivity::class.java)
             btSplitPanelLayout -> intent = Intent(this, SplitPanelLayoutActivity::class.java)
             btTramsformationLayout -> intent = Intent(this, TransformationActivity::class.java)
-            btTramsformationLayoutSingle -> intent = Intent(this, TransformationSingleActivity::class.java)
+            btTramsformationLayoutSingle ->
+                intent =
+                    Intent(this, TransformationSingleActivity::class.java)
             btChessLayout -> intent = Intent(this, ChessLayoutActivity::class.java)
         }
         intent?.let {

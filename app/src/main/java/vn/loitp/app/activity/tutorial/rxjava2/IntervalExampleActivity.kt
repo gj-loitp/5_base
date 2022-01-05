@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_rxjava2_flowable.*
 import vn.loitp.app.R
 import java.util.concurrent.TimeUnit
 
-//https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+// https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
 @LogTag("IntervalExampleActivity")
 @IsFullScreen(false)
@@ -40,10 +40,12 @@ class IntervalExampleActivity : BaseFontActivity() {
      * which start immediately
      */
     private fun doSomeWork() {
-        compositeDisposable.add(observable
+        compositeDisposable.add(
+            observable
                 .subscribeOn(Schedulers.io()) // Be notified on the main thread
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(observer))
+                .subscribeWith(observer)
+        )
     }
 
     private val observable: Observable<out Long>

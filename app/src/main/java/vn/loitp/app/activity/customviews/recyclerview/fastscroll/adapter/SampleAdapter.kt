@@ -1,7 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.fastscroll.adapter
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.recyclerview.fastscroll.db.ListItem
 
 class SampleAdapter(
-        private val listItem: List<ListItem>
+    private val listItem: List<ListItem>
 ) : RecyclerView.Adapter<SampleAdapter.ViewHolder>() {
 
     companion object {
@@ -24,7 +23,8 @@ class SampleAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
                 when (viewType) {
                     VIEWTYPE_HEADER -> R.layout.layout_fast_scroll_header_item
                     VIEWTYPE_DATA -> R.layout.layout_fast_scroll_data_item
@@ -32,7 +32,8 @@ class SampleAdapter(
                 },
                 parent,
                 false
-        ))
+            )
+        )
     }
 
     override fun getItemCount() = listItem.count()
@@ -57,30 +58,27 @@ class SampleAdapter(
             when (listItem) {
                 is ListItem.HeaderItem -> {
                     titleView.text = listItem.title
-                    titleView.setCompoundDrawablesRelativeWithIntrinsicBounds(listItem.iconRes, 0, 0, 0)
+                    titleView.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        listItem.iconRes,
+                        0,
+                        0,
+                        0
+                    )
                     val iconColor = titleView.textColors
 
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        titleView.compoundDrawableTintList = iconColor
-                    } else {
-                        titleView.compoundDrawablesRelative
-                                .filterNotNull()
-                                .forEach {
-                                    it.setTintList(iconColor)
-                                }
-                    }
+                    titleView.compoundDrawableTintList = iconColor
                 }
                 is ListItem.DataItem -> {
                     titleView.text = listItem.title
                     if (containsHeaders) {
-                        titleView.updatePaddingRelative(start = titleView.context.resources.getDimensionPixelSize(
+                        titleView.updatePaddingRelative(
+                            start = titleView.context.resources.getDimensionPixelSize(
                                 R.dimen.list_with_headers_start_padding
-                        ))
+                            )
+                        )
                     }
                 }
             }
         }
-
     }
-
 }

@@ -1,12 +1,7 @@
 package vn.loitp.app.data
 
 import org.greenrobot.eventbus.EventBus
-
 import vn.loitp.app.activity.customviews.recyclerview.normalrecyclerview.Movie
-
-/**
- * Created by www.muathu@gmail.com on 10/21/2017.
- */
 
 class EventBusData private constructor() {
 

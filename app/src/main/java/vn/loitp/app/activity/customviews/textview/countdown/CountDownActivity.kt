@@ -26,7 +26,7 @@ class CountDownActivity : BaseFontActivity() {
         countDownView.setShowOrHide(false)
         countDownView.setCallback(object : LCountDownView.Callback {
             override fun onTick() {
-                //do sth here
+                // do sth here
             }
 
             override fun onEnd() {
@@ -41,5 +41,4 @@ class CountDownActivity : BaseFontActivity() {
             countDownView.start(5)
         }
     }
-
 }

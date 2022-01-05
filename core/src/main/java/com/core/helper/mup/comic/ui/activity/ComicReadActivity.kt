@@ -17,13 +17,13 @@ import com.core.helper.mup.comic.model.Chap
 import com.core.helper.mup.comic.model.ChapterDetail
 import com.core.helper.mup.comic.ui.popup.PopupComicChapterDetail
 import com.core.helper.mup.comic.viewmodel.ComicViewModel
-import com.core.utilities.*
+import com.core.utilities.* // ktlint-disable no-wildcard-imports
 import com.labo.kaji.relativepopupwindow.RelativePopupWindow
 import com.views.layout.swipeback.SwipeBackLayout
 import com.views.listview.OnDetectScrollListener
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_mup_comic_read.*
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("ComicActivity")
 @IsFullScreen(false)
@@ -82,12 +82,15 @@ class ComicReadActivity : BaseFontActivity() {
                     layoutControl.visibility = View.GONE
                 }
             }
-
         })
         comicView.adapter = comicAdapter
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
@@ -176,7 +179,7 @@ class ComicReadActivity : BaseFontActivity() {
             LSocialUtil.shareApp(activity = this)
         }
         popup.onClickDownload = {
-            //TODO iplm download
+            // TODO iplm download
             showLongInformation(getString(R.string.coming_soon))
         }
         popup.showOnAnchor(anchorView, verticalPos, horizontalPos, false)
@@ -220,7 +223,8 @@ class ComicReadActivity : BaseFontActivity() {
             val holder: ComicHolder
 
             if (mConvertView == null) {
-                mConvertView = LayoutInflater.from(parent.context).inflate(R.layout.row_comic_view, parent, false)
+                mConvertView = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.row_comic_view, parent, false)
 
                 holder = ComicHolder()
                 holder.ivComic = mConvertView!!.findViewById(R.id.ivComic)
@@ -238,8 +242,8 @@ class ComicReadActivity : BaseFontActivity() {
 //                        .dontAnimate()
 //                        .into(iv)
                 LImageUtil.loadHighQuality(
-                        any = url,
-                        imageView = iv
+                    any = url,
+                    imageView = iv
                 )
             }
 

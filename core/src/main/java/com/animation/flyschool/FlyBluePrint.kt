@@ -15,8 +15,8 @@ import android.graphics.Path
  * Created by avin on 12/01/17.
  */
 class FlyBluePrint(
-        private val mOrigin: FPoint,
-        private val mFlyPath: FlyPath
+    private val mOrigin: FPoint,
+    private val mFlyPath: FlyPath
 ) {
 
     fun getmFlyPath(): FlyPath {

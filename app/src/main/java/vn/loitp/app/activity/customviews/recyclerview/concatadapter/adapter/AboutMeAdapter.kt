@@ -1,5 +1,6 @@
 package vn.loitp.app.activity.customviews.recyclerview.concatadapter.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +17,7 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter(
 
     var onClickRootListener: ((AboutMe, Int) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(aboutMe: ArrayList<AboutMe>) {
         this.listAboutMe.clear()
         this.listAboutMe.addAll(aboutMe)
@@ -35,10 +37,12 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            DataViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_item_about_me, parent,
-                    false
-            ))
+        DataViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_item_about_me, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = listAboutMe.size
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -46,5 +50,4 @@ class AboutMeAdapter(private val listAboutMe: ArrayList<AboutMe>) : BaseAdapter(
             holder.bind(aboutMe = listAboutMe[position])
         }
     }
-
 }

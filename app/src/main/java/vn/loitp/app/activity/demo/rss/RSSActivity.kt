@@ -18,11 +18,10 @@ class RSSActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         LScreenUtil.addFragment(
-                activity = this,
-                containerFrameLayoutIdRes = R.id.rlContainer,
-                fragment = RssFragment.newInstance("https://vnexpress.net/rss/tin-moi-nhat.rss/"),
-                isAddToBackStack = false
+            activity = this,
+            containerFrameLayoutIdRes = R.id.rlContainer,
+            fragment = RssFragment.newInstance("https://vnexpress.net/rss/tin-moi-nhat.rss/"),
+            isAddToBackStack = false
         )
-
     }
 }

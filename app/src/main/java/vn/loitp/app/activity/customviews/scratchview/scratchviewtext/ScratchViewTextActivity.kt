@@ -32,5 +32,4 @@ class ScratchViewTextActivity : BaseFontActivity() {
             }
         })
     }
-
 }

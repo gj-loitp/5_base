@@ -33,5 +33,4 @@ class SwipeRefreshLayoutMenuActivity : BaseFontActivity() {
             LActivityUtil.tranIn(this)
         }
     }
-
 }

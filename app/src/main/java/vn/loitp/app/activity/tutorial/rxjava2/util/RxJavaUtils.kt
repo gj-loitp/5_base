@@ -2,7 +2,7 @@ package vn.loitp.app.activity.tutorial.rxjava2.util
 
 import vn.loitp.app.activity.tutorial.rxjava2.model.ApiUser
 import vn.loitp.app.activity.tutorial.rxjava2.model.User
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class RxJavaUtils {
     companion object {

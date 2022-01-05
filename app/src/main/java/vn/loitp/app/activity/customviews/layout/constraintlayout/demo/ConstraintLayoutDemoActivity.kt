@@ -9,7 +9,7 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_constraintlayout_demo.*
 import vn.loitp.app.R
 
-@LogTag("ConstraintlayoutDemoActivity")
+@LogTag("ConstraintLayoutDemoActivity")
 @IsFullScreen(false)
 class ConstraintLayoutDemoActivity : BaseFontActivity() {
 
@@ -34,5 +34,4 @@ class ConstraintLayoutDemoActivity : BaseFontActivity() {
             bt2.visibility = View.VISIBLE
         }
     }
-
 }

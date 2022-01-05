@@ -9,7 +9,7 @@ import com.views.layout.circularview.Marker
 import kotlinx.android.synthetic.main.activity_layout_circular_view.*
 import vn.loitp.app.R
 
-//https://github.com/sababado/CircularView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=238
+// https://github.com/sababado/CircularView?utm_source=android-arsenal.com&utm_medium=referral&utm_campaign=238
 
 @LogTag("CircularViewActivity")
 @IsFullScreen(false)
@@ -33,10 +33,14 @@ class CircularViewActivity : BaseFontActivity() {
                 showShortInformation("onClick")
             }
 
-            override fun onMarkerClick(view: CircularView, marker: Marker, position: Int, isLongClick: Boolean) {
+            override fun onMarkerClick(
+                view: CircularView,
+                marker: Marker,
+                position: Int,
+                isLongClick: Boolean
+            ) {
                 showShortInformation("onClick $position")
             }
         })
     }
-
 }

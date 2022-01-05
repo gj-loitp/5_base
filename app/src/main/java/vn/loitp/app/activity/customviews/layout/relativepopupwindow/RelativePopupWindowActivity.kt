@@ -52,17 +52,41 @@ class RelativePopupWindowActivity : BaseFontActivity() {
             when (spinnerWidth.selectedItemPosition) {
                 0 -> popup.width = ViewGroup.LayoutParams.WRAP_CONTENT
                 1 -> popup.width = ViewGroup.LayoutParams.MATCH_PARENT
-                2 -> popup.width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80f, resources.displayMetrics).toInt()
-                3 -> popup.width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 240f, resources.displayMetrics).toInt()
-                4 -> popup.width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 480f, resources.displayMetrics).toInt()
+                2 -> popup.width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    80f,
+                    resources.displayMetrics
+                ).toInt()
+                3 -> popup.width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    240f,
+                    resources.displayMetrics
+                ).toInt()
+                4 -> popup.width = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    480f,
+                    resources.displayMetrics
+                ).toInt()
                 else -> throw IllegalStateException()
             }
             when (spinnerWidth.selectedItemPosition) {
                 0 -> popup.height = ViewGroup.LayoutParams.WRAP_CONTENT
                 1 -> popup.height = ViewGroup.LayoutParams.MATCH_PARENT
-                2 -> popup.height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80f, resources.displayMetrics).toInt()
-                3 -> popup.height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 240f, resources.displayMetrics).toInt()
-                4 -> popup.height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 480f, resources.displayMetrics).toInt()
+                2 -> popup.height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    80f,
+                    resources.displayMetrics
+                ).toInt()
+                3 -> popup.height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    240f,
+                    resources.displayMetrics
+                ).toInt()
+                4 -> popup.height = TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    480f,
+                    resources.displayMetrics
+                ).toInt()
                 else -> throw IllegalStateException()
             }
             val verticalPos: Int = when (spinnerVertical.selectedItemPosition) {

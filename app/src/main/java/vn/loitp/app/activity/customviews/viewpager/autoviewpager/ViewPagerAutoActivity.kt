@@ -25,13 +25,14 @@ class ViewPagerAutoActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         viewPager.adapter = SamplePagerAdapter(supportFragmentManager)
-        //viewPager.setIndeterminate(true)
+        // viewPager.setIndeterminate(true)
         viewPager.setAutoScrollEnabled(true)
         tabLayout.setupWithViewPager(viewPager)
         LUIUtil.changeTabsFont(tabLayout, Constants.FONT_PATH)
     }
 
-    private inner class SamplePagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SamplePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
             return newInstance()
         }
@@ -40,7 +41,7 @@ class ViewPagerAutoActivity : BaseFontActivity() {
             return 5
         }
 
-        override fun getPageTitle(position: Int): CharSequence? {
+        override fun getPageTitle(position: Int): CharSequence {
             return "Page Title $position"
         }
     }

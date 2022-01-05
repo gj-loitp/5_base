@@ -10,5 +10,4 @@ class ProfileFragment : BaseFragment() {
     override fun setLayoutResourceId(): Int {
         return R.layout.reside_menu_profile
     }
-
 }

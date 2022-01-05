@@ -1,13 +1,7 @@
 package com.core.base
 
-import androidx.room.*
+import androidx.room.* // ktlint-disable no-wildcard-imports
 
-/**
- * Created by Loitp on 05,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 @Dao
 interface BaseDao<in T> {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
