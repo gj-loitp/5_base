@@ -20,6 +20,8 @@ import vn.loitp.app.activity.database.room.db.FNBDatabase
 /*git reset --soft HEAD~2
 git push -f*/
 
+// activity transaction reveal khi finish screen co cai effect sai
+
 @LogTag("LApplication")
 class LApplication : BaseApplication() {
 

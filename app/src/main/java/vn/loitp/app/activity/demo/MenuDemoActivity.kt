@@ -19,7 +19,6 @@ import com.game.findnumber.ui.SplashActivity
 import kotlinx.android.synthetic.main.activity_demo_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.demo.architecturecomponent.MenuAndroidArchitectureComponentActivity
-import vn.loitp.app.activity.demo.deeplinks.DeepLinksActivity
 import vn.loitp.app.activity.demo.epubreader.EpubReaderMenuActivity
 import vn.loitp.app.activity.demo.floatingvideo.FloatingWidgetActivity
 import vn.loitp.app.activity.demo.fragmentflow.FragmentFlowActivity
@@ -81,7 +80,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFragmentNavigation.setOnClickListener(this)
         btPdf.setOnClickListener(this)
         btFragmentFlow.setOnClickListener(this)
-        btDeepLinks.setOnClickListener(this)
         btArchitectureComponent.setOnClickListener(this)
         btNFC.setOnClickListener(this)
         btGirl.setOnClickListener(this)
@@ -141,7 +139,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btFragmentNavigation -> intent = Intent(this, FragmentNavigationActivity::class.java)
             btPdf -> intent = Intent(this, PdfDemoActivity::class.java)
             btFragmentFlow -> intent = Intent(this, FragmentFlowActivity::class.java)
-            btDeepLinks -> intent = Intent(this, DeepLinksActivity::class.java)
             btGalleryCoreAlbumFrm -> intent = Intent(this, GalleryCoreAlbumFrmActivity::class.java)
             btArchitectureComponent ->
                 intent =

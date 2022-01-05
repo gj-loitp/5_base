@@ -4,13 +4,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion '30.0.3'
+    compileSdk 32
+//    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "loitp93.basemaster"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion 24
+        targetSdk 32
         versionCode 1
         versionName "1.0.1"
         multiDexEnabled true
