@@ -20,9 +20,9 @@ abstract class FlyPath {
         }
 
         fun getBeizerPath(
-                mFPoint1: FPoint,
-                mFPoint2: FPoint,
-                mFPoint3: FPoint
+            mFPoint1: FPoint,
+            mFPoint2: FPoint,
+            mFPoint3: FPoint
         ): BeizerPath {
             return BeizerPath(mFPoint1, mFPoint2, mFPoint3)
         }

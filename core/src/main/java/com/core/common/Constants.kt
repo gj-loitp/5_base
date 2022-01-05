@@ -2,9 +2,6 @@ package com.core.common
 
 import com.R
 
-/**
- * Created by loitp
- */
 class Constants {
     companion object {
 
@@ -149,7 +146,7 @@ class Constants {
         const val FLICKR_ID_VN_ANHTHEOTEN = "72157670868460705"
 
         const val KEY_REMOVE_ALBUM_FLICKR_LIST = "KEY_REMOVE_ALBUM_FLICKR_LIST"
-        //end region
+        // end region
 
         const val AD_HELPER_IS_ENGLISH_LANGUAGE = "AD_HELPER_IS_ENGLISH_LANGUAGE"
         const val AD_UNIT_ID_BANNER = "AD_UNIT_ID_BANNER"
@@ -214,11 +211,11 @@ Số điện thoại: 0764088864
 
 Những đóng góp của mọi người là động lực và trách nhiệm để mình có thể cho ra nhiều ứng dụng hay hơn nữa. Chân thành cảm ơn!"""
 
-        //start comic
+        // start comic
         const val COMIC_ADMOB_ID_BANNER = "COMIC_ADMOB_ID_BANNER"
         const val COMIC_SHOW_DONATION = "COMIC_SHOW_DONATION"
         const val COMIC_TOKEN = "COMIC_TOKEN"
-        //end comic
+        // end comic
 
         const val activityTransitionName: String = "com.skydoves.transformationlayout"
 

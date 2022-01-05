@@ -1,11 +1,8 @@
 package com.animation.flyschool
 
 import android.graphics.Path
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-/**
- * Created by avin on 23/02/17.
- */
 class MultipleLinePath : FlyPath {
     private var mFPoints = ArrayList<FPoint>()
     private var mPath: Path? = null
@@ -28,9 +25,9 @@ class MultipleLinePath : FlyPath {
     }
 
     override fun getPath(
-            mOrigin: FPoint,
-            width: Float,
-            height: Float
+        mOrigin: FPoint,
+        width: Float,
+        height: Float
     ): Path {
         if (mPath == null) {
             mPath = Path()

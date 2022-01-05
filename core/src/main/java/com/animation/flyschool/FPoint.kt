@@ -10,8 +10,8 @@ package com.animation.flyschool
  * Created by avin on 31/01/17.
  */
 class FPoint(
-        private val mX: Float,
-        private val mY: Float
+    private val mX: Float,
+    private val mY: Float
 ) {
     fun getmX(): Float {
         return mX

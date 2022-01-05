@@ -1,11 +1,5 @@
 package com.core.helper.mup.comic.service
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 class ComicApiConfiguration {
     companion object {
         // authentication

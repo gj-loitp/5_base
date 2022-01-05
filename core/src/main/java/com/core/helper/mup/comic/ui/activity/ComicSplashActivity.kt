@@ -95,74 +95,77 @@ class ComicSplashActivity : BaseFontActivity() {
         isShowDialogCheck = true
 
         Dexter.withContext(this)
-                .withPermissions(
-                        Manifest.permission.READ_EXTERNAL_STORAGE,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.ACCESS_FINE_LOCATION)
-                .withListener(object : MultiplePermissionsListener {
-                    override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                        // check if all permissions are granted
-                        if (report.areAllPermissionsGranted()) {
-                            logD("onPermissionsChecked do you work now")
-                            goToHome()
-                        } else {
-                            logD("!areAllPermissionsGranted")
-                            showShouldAcceptPermission()
-                        }
-
-                        // check for permanent denial of any permission
-                        if (report.isAnyPermissionPermanentlyDenied) {
-                            logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
-                            showSettingsDialog()
-                        }
-                        isShowDialogCheck = true
+            .withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            .withListener(object : MultiplePermissionsListener {
+                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
+                    // check if all permissions are granted
+                    if (report.areAllPermissionsGranted()) {
+                        logD("onPermissionsChecked do you work now")
+                        goToHome()
+                    } else {
+                        logD("!areAllPermissionsGranted")
+                        showShouldAcceptPermission()
                     }
 
-                    override fun onPermissionRationaleShouldBeShown(permissions: List<PermissionRequest>, token: PermissionToken) {
-                        logD("onPermissionRationaleShouldBeShown")
-                        token.continuePermissionRequest()
+                    // check for permanent denial of any permission
+                    if (report.isAnyPermissionPermanentlyDenied) {
+                        logD("onPermissionsChecked permission is denied permenantly, navigate user to app settings")
+                        showSettingsDialog()
                     }
-                })
-                .onSameThread()
-                .check()
+                    isShowDialogCheck = true
+                }
+
+                override fun onPermissionRationaleShouldBeShown(
+                    permissions: List<PermissionRequest>,
+                    token: PermissionToken
+                ) {
+                    logD("onPermissionRationaleShouldBeShown")
+                    token.continuePermissionRequest()
+                }
+            })
+            .onSameThread()
+            .check()
     }
 
     private fun showShouldAcceptPermission() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = getString(R.string.need_permissions),
-                msg = getString(R.string.need_permission_msg),
-                button1 = getString(R.string.ok),
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    checkPermission()
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = getString(R.string.need_permissions),
+            msg = getString(R.string.need_permission_msg),
+            button1 = getString(R.string.ok),
+            button2 = getString(R.string.cancel),
+            onClickButton1 = {
+                checkPermission()
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }
 
     private fun showSettingsDialog() {
         val alertDialog = LDialogUtil.showDialog2(
-                context = this,
-                title = getString(R.string.need_permissions),
-                msg = getString(R.string.need_permission_msg_setting),
-                button1 = getString(R.string.go_to_settings),
-                button2 = getString(R.string.cancel),
-                onClickButton1 = {
-                    isShowDialogCheck = false
-                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                    val uri = Uri.fromParts("package", packageName, null)
-                    intent.data = uri
-                    startActivityForResult(intent, 101)
-                },
-                onClickButton2 = {
-                    onBackPressed()
-                }
+            context = this,
+            title = getString(R.string.need_permissions),
+            msg = getString(R.string.need_permission_msg_setting),
+            button1 = getString(R.string.go_to_settings),
+            button2 = getString(R.string.cancel),
+            onClickButton1 = {
+                isShowDialogCheck = false
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                val uri = Uri.fromParts("package", packageName, null)
+                intent.data = uri
+                startActivityForResult(intent, 101)
+            },
+            onClickButton2 = {
+                onBackPressed()
+            }
         )
         alertDialog.setCancelable(false)
     }
-
 }

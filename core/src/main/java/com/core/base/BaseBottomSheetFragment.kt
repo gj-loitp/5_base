@@ -19,10 +19,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.snackbar.Snackbar
 
 open class BaseBottomSheetFragment(
-        private val layoutId: Int,
-        private val height: Int = WindowManager.LayoutParams.MATCH_PARENT,
-        private val isDraggable: Boolean = true,
-        private val firstBehaviourState: Int = BottomSheetBehavior.STATE_EXPANDED
+    private val layoutId: Int,
+    private val height: Int = WindowManager.LayoutParams.MATCH_PARENT,
+    private val isDraggable: Boolean = true,
+    private val firstBehaviourState: Int = BottomSheetBehavior.STATE_EXPANDED
 ) : BottomSheetDialogFragment() {
 
     protected var logTag: String? = null
@@ -52,15 +52,15 @@ open class BaseBottomSheetFragment(
     }
 
     fun showSnackBarInfor(
-            msg: String,
-            view: View? = dialog?.window?.findViewById(android.R.id.content),
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = dialog?.window?.findViewById(android.R.id.content),
+        isFullWidth: Boolean = false
     ) {
         view?.let { v ->
             val snackBar = Snackbar
-                    .make(v, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_infor)
-                    .allowInfiniteLines()
+                .make(v, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_infor)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -69,15 +69,15 @@ open class BaseBottomSheetFragment(
     }
 
     fun showSnackBarWarning(
-            msg: String,
-            view: View? = dialog?.window?.findViewById(android.R.id.content),
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = dialog?.window?.findViewById(android.R.id.content),
+        isFullWidth: Boolean = false
     ) {
         view?.let { v ->
             val snackBar = Snackbar
-                    .make(v, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_warning)
-                    .allowInfiniteLines()
+                .make(v, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_warning)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -86,15 +86,15 @@ open class BaseBottomSheetFragment(
     }
 
     fun showSnackBarError(
-            msg: String,
-            view: View? = dialog?.window?.findViewById(android.R.id.content),
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = dialog?.window?.findViewById(android.R.id.content),
+        isFullWidth: Boolean = false
     ) {
         view?.let { v ->
             val snackBar = Snackbar
-                    .make(v, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_err)
-                    .allowInfiniteLines()
+                .make(v, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_err)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -121,22 +121,24 @@ open class BaseBottomSheetFragment(
         val sheetDialog = BottomSheetDialog(requireContext(), theme)
         sheetDialog.setOnShowListener {
             val bottomSheetDialog = it as BottomSheetDialog
-            val parentLayout = bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
+            val parentLayout =
+                bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
             parentLayout?.let { layout ->
                 val behaviour = BottomSheetBehavior.from(layout)
                 setupFullHeight(layout)
                 behaviour.state = firstBehaviourState
                 behaviour.isDraggable = isDraggable
 
-                behaviour.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-                    override fun onStateChanged(bottomSheet: View, newState: Int) {
-                        onStateChanged?.invoke(bottomSheet, newState)
-                    }
+                behaviour.addBottomSheetCallback(object :
+                        BottomSheetBehavior.BottomSheetCallback() {
+                        override fun onStateChanged(bottomSheet: View, newState: Int) {
+                            onStateChanged?.invoke(bottomSheet, newState)
+                        }
 
-                    override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                        onSlide?.invoke(bottomSheet, slideOffset)
-                    }
-                })
+                        override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                            onSlide?.invoke(bottomSheet, slideOffset)
+                        }
+                    })
             }
         }
         return sheetDialog
@@ -149,7 +151,11 @@ open class BaseBottomSheetFragment(
         bottomSheet.layoutParams = layoutParams
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(layoutId, container, false)
     }
 }

@@ -12,9 +12,6 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.core.utilities.LImageUtil
 
-/**
- * Created by www.muathu@gmail.com on 5/13/2017.
- */
 class LFlySchoolView : RelativeLayout, ShapeSetter {
     private var ivGift: ImageView? = null
     private var ivAvatar: ImageView? = null
@@ -27,7 +24,11 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -40,19 +41,20 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
 
     override fun setShape(drawable: Int) {
         LImageUtil.load(
-                context = context,
-                any = drawable,
-                imageView = ivGift,
-                resPlaceHolder = R.color.colorPrimary,
-                resError = R.color.red,
-                transformation = null,
-                drawableRequestListener = null
+            context = context,
+            any = drawable,
+            imageView = ivGift,
+            resPlaceHolder = R.color.colorPrimary,
+            resError = R.color.red,
+            transformation = null,
+            drawableRequestListener = null
         )
     }
 
     override fun setShape(
-            imgObject: ImgObject,
-            drawableRes: Int) {
+        imgObject: ImgObject,
+        drawableRes: Int
+    ) {
         if (ivGift == null || ivAvatar == null) {
             return
         }
@@ -60,51 +62,75 @@ class LFlySchoolView : RelativeLayout, ShapeSetter {
             try {
                 val urlGift = imgObject.url
                 LImageUtil.load(
-                        context = context,
-                        any = urlGift,
-                        imageView = ivGift,
-                        resPlaceHolder = R.color.colorPrimary,
-                        resError = R.color.red,
-                        transformation = null,
-                        drawableRequestListener = object : RequestListener<Drawable> {
-                            override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                                return false
-                            }
+                    context = context,
+                    any = urlGift,
+                    imageView = ivGift,
+                    resPlaceHolder = R.color.colorPrimary,
+                    resError = R.color.red,
+                    transformation = null,
+                    drawableRequestListener = object : RequestListener<Drawable> {
+                        override fun onLoadFailed(
+                            e: GlideException?,
+                            model: Any,
+                            target: Target<Drawable?>,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            return false
+                        }
 
-                            override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                                return false
-                            }
-                        })
+                        override fun onResourceReady(
+                            resource: Drawable?,
+                            model: Any,
+                            target: Target<Drawable?>,
+                            dataSource: DataSource,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            return false
+                        }
+                    }
+                )
             } catch (e: NullPointerException) {
                 e.printStackTrace()
             }
         } else {
             LImageUtil.load(
-                    context = context,
-                    any = drawableRes,
-                    imageView = ivGift,
-                    resPlaceHolder = R.color.colorPrimary,
-                    resError = R.color.red,
-                    transformation = null,
-                    drawableRequestListener = null
+                context = context,
+                any = drawableRes,
+                imageView = ivGift,
+                resPlaceHolder = R.color.colorPrimary,
+                resError = R.color.red,
+                transformation = null,
+                drawableRequestListener = null
             )
         }
         val urlAvatar = imgObject.avatar
         LImageUtil.load(
-                context = context,
-                any = urlAvatar,
-                imageView = ivAvatar,
-                resPlaceHolder = R.color.colorPrimary,
-                resError = R.color.red,
-                transformation = null,
-                drawableRequestListener = object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
+            context = context,
+            any = urlAvatar,
+            imageView = ivAvatar,
+            resPlaceHolder = R.color.colorPrimary,
+            resError = R.color.red,
+            transformation = null,
+            drawableRequestListener = object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any,
+                    target: Target<Drawable?>,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
-                })
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any,
+                    target: Target<Drawable?>,
+                    dataSource: DataSource,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
+            }
+        )
     }
 }

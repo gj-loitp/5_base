@@ -1,5 +1,6 @@
 package com.core.helper.gallery.album
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -25,10 +26,10 @@ import com.restapi.restclient.RestClient
 import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import jp.wasabeef.recyclerview.adapters.*
+import jp.wasabeef.recyclerview.adapters.* // ktlint-disable no-wildcard-imports
 import jp.wasabeef.recyclerview.animators.SlideInRightAnimator
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("GalleryCoreAlbumActivity")
 @IsFullScreen(false)
@@ -78,21 +79,23 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         }
 
         albumAdapter = AlbumAdapter(
-                photosetList = listPhotoSet,
-                callback = object : AlbumAdapter.Callback {
-                    override fun onClick(pos: Int) {
-                        val intent = Intent(this@GalleryCoreAlbumActivity, GalleryCorePhotosActivity::class.java)
-                        intent.apply {
-                            putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
-                            putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
-                            startActivity(this)
-                            LActivityUtil.tranIn(this@GalleryCoreAlbumActivity)
-                        }
+            photosetList = listPhotoSet,
+            callback = object : AlbumAdapter.Callback {
+                override fun onClick(pos: Int) {
+                    val intent =
+                        Intent(this@GalleryCoreAlbumActivity, GalleryCorePhotosActivity::class.java)
+                    intent.apply {
+                        putExtra(Constants.SK_PHOTOSET_ID, listPhotoSet[pos].id)
+                        putExtra(Constants.SK_PHOTOSET_SIZE, listPhotoSet[pos].photos)
+                        startActivity(this)
+                        LActivityUtil.tranIn(this@GalleryCoreAlbumActivity)
                     }
+                }
 
-                    override fun onLongClick(pos: Int) {
-                    }
-                })
+                override fun onLongClick(pos: Int) {
+                }
+            }
+        )
 
         albumAdapter?.let {
 //            val animAdapter = AlphaInAnimationAdapter(it)
@@ -110,7 +113,11 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
 //        LUIUtil.setPullLikeIOSVertical(this)
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
@@ -136,14 +143,17 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
         val format = FlickrConst.FORMAT
         val noJsonCallBack = FlickrConst.NO_JSON_CALLBACK
 
-        compositeDisposable.add(service.getListPhotoset(method = method,
+        compositeDisposable.add(
+            service.getListPhotoset(
+                method = method,
                 apiKey = apiKey,
                 userId = userID,
                 page = page,
                 perPage = perPage,
                 primaryPhotoExtras = primaryPhotoExtras,
                 format = format,
-                noJsonCallback = noJsonCallBack)
+                noJsonCallback = noJsonCallBack
+            )
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ wrapperPhotoSetGetlist ->
@@ -160,11 +170,11 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                         }
                     }
 
-                    //sort date
+                    // sort date
 //                    listPhotoSet.sortWith { o1, o2 ->
 //                        java.lang.Long.valueOf(o2.dateUpdate).compareTo(java.lang.Long.valueOf(o1.dateUpdate))
 //                    }
-                    //random
+                    // random
                     listPhotoSet.shuffle()
 
                     updateAllViews()
@@ -172,9 +182,11 @@ class GalleryCoreAlbumActivity : BaseFontActivity() {
                 }, { throwable ->
                     handleException(throwable)
                     LDialogUtil.hideProgress(progressBar)
-                }))
+                })
+        )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateAllViews() {
         albumAdapter?.notifyDataSetChanged()
     }

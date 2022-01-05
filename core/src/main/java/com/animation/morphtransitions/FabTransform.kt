@@ -42,24 +42,24 @@ class FabTransform : Transition {
         private const val DEFAULT_DURATION = 300L
         private const val PROP_BOUNDS = "plaid:fabTransform:bounds"
         private val TRANSITION_PROPERTIES = arrayOf(
-                PROP_BOUNDS
+            PROP_BOUNDS
         )
 
         /**
          * Configure `intent` with the extras needed to initialize this transition.
          */
         fun addExtras(
-                intent: Intent,
-                @ColorInt fabColor: Int,
-                @DrawableRes fabIconResId: Int
+            intent: Intent,
+            @ColorInt fabColor: Int,
+            @DrawableRes fabIconResId: Int
         ) {
             intent.putExtra(EXTRA_FAB_COLOR, fabColor)
             intent.putExtra(EXTRA_FAB_ICON_RES_ID, fabIconResId)
         }
 
         fun setup(
-                activity: Activity,
-                target: View
+            activity: Activity,
+            target: View
         ): Boolean {
             val intent = activity.intent
             if (!intent.hasExtra(EXTRA_FAB_COLOR) || !intent.hasExtra(EXTRA_FAB_ICON_RES_ID)) {
@@ -75,8 +75,8 @@ class FabTransform : Transition {
     }
 
     constructor(
-            @ColorInt fabColor: Int,
-            @DrawableRes fabIconResId: Int
+        @ColorInt fabColor: Int,
+        @DrawableRes fabIconResId: Int
     ) {
         color = fabColor
         icon = fabIconResId
@@ -88,7 +88,13 @@ class FabTransform : Transition {
         var typedArray: TypedArray? = null
         try {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.FabTransform)
-            require(!(!typedArray.hasValue(R.styleable.FabTransform_fabColor) || !typedArray.hasValue(R.styleable.FabTransform_fabIcon))) { "Must provide both color & icon." }
+            require(
+                !(
+                    !typedArray.hasValue(R.styleable.FabTransform_fabColor) || !typedArray.hasValue(
+                        R.styleable.FabTransform_fabIcon
+                    )
+                    )
+            ) { "Must provide both color & icon." }
 
             color = typedArray.getColor(R.styleable.FabTransform_fabColor, Color.TRANSPARENT)
             icon = typedArray.getResourceId(R.styleable.FabTransform_fabIcon, 0)
@@ -115,9 +121,9 @@ class FabTransform : Transition {
     }
 
     override fun createAnimator(
-            sceneRoot: ViewGroup,
-            startValues: TransitionValues,
-            endValues: TransitionValues
+        sceneRoot: ViewGroup,
+        startValues: TransitionValues,
+        endValues: TransitionValues
     ): Animator {
 
         val transition = AnimatorSet()
@@ -136,10 +142,15 @@ class FabTransform : Transition {
                 if (!fromFab) {
                     // Force measure / layout the dialog back to it's original bounds
                     view.measure(
-                            MeasureSpec.makeMeasureSpec(startBounds.width(), MeasureSpec.EXACTLY),
-                            MeasureSpec.makeMeasureSpec(startBounds.height(), MeasureSpec.EXACTLY)
+                        MeasureSpec.makeMeasureSpec(startBounds.width(), MeasureSpec.EXACTLY),
+                        MeasureSpec.makeMeasureSpec(startBounds.height(), MeasureSpec.EXACTLY)
                     )
-                    view.layout(startBounds.left, startBounds.top, startBounds.right, startBounds.bottom)
+                    view.layout(
+                        startBounds.left,
+                        startBounds.top,
+                        startBounds.right,
+                        startBounds.bottom
+                    )
                 }
                 val translationX = startBounds.centerX() - endBounds.centerX()
                 val translationY = startBounds.centerY() - endBounds.centerY()
@@ -161,9 +172,11 @@ class FabTransform : Transition {
                 fabIcon?.let { d ->
                     val iconLeft = (dialogBounds.width() - d.intrinsicWidth) / 2
                     val iconTop = (dialogBounds.height() - d.intrinsicHeight) / 2
-                    d.setBounds(iconLeft, iconTop,
-                            iconLeft + d.intrinsicWidth,
-                            iconTop + d.intrinsicHeight)
+                    d.setBounds(
+                        iconLeft, iconTop,
+                        iconLeft + d.intrinsicWidth,
+                        iconTop + d.intrinsicHeight
+                    )
                     if (!fromFab) d.alpha = 0
                     view.overlay.add(d)
                 }
@@ -172,20 +185,30 @@ class FabTransform : Transition {
                 val circularReveal: Animator
                 if (fromFab) {
                     circularReveal = ViewAnimationUtils.createCircularReveal(
-                            view,
-                            view.width / 2,
-                            view.height / 2, (
-                            startBounds.width() / 2).toFloat(),
-                            hypot((endBounds.width() / 2).toDouble(), (endBounds.height() / 2).toDouble()).toFloat()
+                        view,
+                        view.width / 2,
+                        view.height / 2,
+                        (
+                            startBounds.width() / 2
+                            ).toFloat(),
+                        hypot(
+                            (endBounds.width() / 2).toDouble(),
+                            (endBounds.height() / 2).toDouble()
+                        ).toFloat()
                     )
                     circularReveal.interpolator = getFastOutLinearInInterpolator(sceneRoot.context)
                 } else {
                     circularReveal = ViewAnimationUtils.createCircularReveal(
-                            view,
-                            view.width / 2,
-                            view.height / 2,
-                            hypot((startBounds.width() / 2).toDouble(), (startBounds.height() / 2).toDouble()).toFloat(), (
-                            endBounds.width() / 2).toFloat()
+                        view,
+                        view.width / 2,
+                        view.height / 2,
+                        hypot(
+                            (startBounds.width() / 2).toDouble(),
+                            (startBounds.height() / 2).toDouble()
+                        ).toFloat(),
+                        (
+                            endBounds.width() / 2
+                            ).toFloat()
                     )
                     circularReveal.interpolator = getLinearOutSlowInInterpolator(sceneRoot.context)
 
@@ -198,10 +221,10 @@ class FabTransform : Transition {
                                     val left = (view.width - fabBounds.width()) / 2
                                     val top = (view.height - fabBounds.height()) / 2
                                     outline.setOval(
-                                            left,
-                                            top,
-                                            left + fabBounds.width(),
-                                            top + fabBounds.height()
+                                        left,
+                                        top,
+                                        left + fabBounds.width(),
+                                        top + fabBounds.height()
                                     )
                                     view.clipToOutline = true
                                 }
@@ -213,14 +236,14 @@ class FabTransform : Transition {
 
                 // Translate to end position along an arc
                 val translate: Animator = ObjectAnimator.ofFloat(
-                        view,
-                        View.TRANSLATION_X,
-                        View.TRANSLATION_Y,
-                        if (fromFab) {
-                            pathMotion.getPath(translationX.toFloat(), translationY.toFloat(), 0f, 0f)
-                        } else {
-                            pathMotion.getPath(0f, 0f, -translationX.toFloat(), -translationY.toFloat())
-                        }
+                    view,
+                    View.TRANSLATION_X,
+                    View.TRANSLATION_Y,
+                    if (fromFab) {
+                        pathMotion.getPath(translationX.toFloat(), translationY.toFloat(), 0f, 0f)
+                    } else {
+                        pathMotion.getPath(0f, 0f, -translationX.toFloat(), -translationY.toFloat())
+                    }
                 )
                 translate.duration = duration
                 translate.interpolator = fastOutSlowInInterpolator
@@ -232,7 +255,8 @@ class FabTransform : Transition {
 
                     for (i in view.childCount - 1 downTo 0) {
                         val child = view.getChildAt(i)
-                        val fade: Animator = ObjectAnimator.ofFloat(child, View.ALPHA, if (fromFab) 1f else 0f)
+                        val fade: Animator =
+                            ObjectAnimator.ofFloat(child, View.ALPHA, if (fromFab) 1f else 0f)
                         if (fromFab) {
                             child.alpha = 0f
                         }
@@ -243,8 +267,10 @@ class FabTransform : Transition {
                 }
 
                 // Fade in/out the fab color & icon overlays
-                val colorFade: Animator = ObjectAnimator.ofInt(fabColor, "alpha", if (fromFab) 0 else 255)
-                val iconFade: Animator = ObjectAnimator.ofInt(fabIcon, "alpha", if (fromFab) 0 else 255)
+                val colorFade: Animator =
+                    ObjectAnimator.ofInt(fabColor, "alpha", if (fromFab) 0 else 255)
+                val iconFade: Animator =
+                    ObjectAnimator.ofInt(fabIcon, "alpha", if (fromFab) 0 else 255)
                 if (!fromFab) {
                     colorFade.startDelay = halfDuration
                     iconFade.startDelay = halfDuration
@@ -278,7 +304,6 @@ class FabTransform : Transition {
                         }
                     })
                 }
-
             }
         }
 

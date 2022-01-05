@@ -1,5 +1,6 @@
 package com.core.helper.mup.girl.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ class GirlTopVideoAdapter : BaseAdapter() {
     private val listGirlTopVideo = ArrayList<GirlTopVideo>()
     var onClickRootView: ((GirlTopVideo) -> Unit?)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListGirlTopUser(listGirlTopVideo: ArrayList<GirlTopVideo>) {
         this.listGirlTopVideo.clear()
         this.listGirlTopVideo.addAll(listGirlTopVideo)
@@ -39,12 +41,14 @@ class GirlTopVideoAdapter : BaseAdapter() {
                 } else {
                     girlTopVideo.cover
                 }
-                LImageUtil.load(context = viewGirlTopVideo.ivCover.context,
-                        any = src,
-                        imageView = viewGirlTopVideo.ivCover,
-                        resError = R.color.black,
-                        resPlaceHolder = R.color.black,
-                        drawableRequestListener = null)
+                LImageUtil.load(
+                    context = viewGirlTopVideo.ivCover.context,
+                    any = src,
+                    imageView = viewGirlTopVideo.ivCover,
+                    resError = R.color.black,
+                    resPlaceHolder = R.color.black,
+                    drawableRequestListener = null
+                )
 //                LUIUtil.setTextShadow(textView = viewGirlTopVideo.tvTitle, color = Color.BLACK)
                 viewGirlTopVideo.tvTitle.text = girlTopVideo.title
                 viewGirlTopVideo.roundRect.setSafeOnClickListener {
@@ -56,10 +60,12 @@ class GirlTopVideoAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_girl_top_video, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_girl_top_video, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = if (listGirlTopVideo.isEmpty()) 0 else 1
 
@@ -68,5 +74,4 @@ class GirlTopVideoAdapter : BaseAdapter() {
             holder.bind()
         }
     }
-
 }

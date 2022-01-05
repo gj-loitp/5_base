@@ -21,28 +21,27 @@ open class ComicBaseRepository {
 
             if (response.isSuccessful) {
                 response.body() ?: run {
-                    ComicApiResponse<T>(status = true, items = null)
+                    ComicApiResponse(status = true, items = null)
                 }
             } else {
                 if (response.code() == RequestStatus.NO_AUTHENTICATION.value) {
-                    ComicApiResponse<T>(
-                            status = false,
-                            errorCode = RequestStatus.NO_AUTHENTICATION.value,
-                            errors = ErrorResponse(message = "error_login"),
-                            items = null
+                    ComicApiResponse(
+                        status = false,
+                        errorCode = RequestStatus.NO_AUTHENTICATION.value,
+                        errors = ErrorResponse(message = "error_login"),
+                        items = null
                     )
                 } else {
                     handleError(response = response)
                 }
             }
-
         } catch (ex: Exception) {
             val error = ex.message
             ComicApiResponse(
-                    status = false,
-                    errorCode = null,
-                    errors = ErrorResponse(error),
-                    items = null
+                status = false,
+                errorCode = null,
+                errors = ErrorResponse(error),
+                items = null
             )
         }
     }
@@ -53,9 +52,9 @@ open class ComicBaseRepository {
             try {
                 // parser error body
                 val jsonError = it.string()
-                val errorJson = BaseApplication.gson.fromJson(jsonError, ErrorJson::class.java) as ErrorJson
+                val errorJson =
+                    BaseApplication.gson.fromJson(jsonError, ErrorJson::class.java) as ErrorJson
                 errorResponse = errorJson.errors?.firstOrNull()
-
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -64,30 +63,30 @@ open class ComicBaseRepository {
         if (errorResponse == null) {
             when {
                 response?.code() == RequestStatus.BAD_GATEWAY.value -> return ComicApiResponse(
-                        status = false,
-                        errors = ErrorResponse(message = "error_bad_gateway"),
-                        items = null,
-                        errorCode = response.code()
+                    status = false,
+                    errors = ErrorResponse(message = "error_bad_gateway"),
+                    items = null,
+                    errorCode = response.code()
                 )
                 response?.code() == RequestStatus.INTERNAL_SERVER.value -> return ComicApiResponse(
-                        status = false,
-                        errors = ErrorResponse(message = "error_internal_server"),
-                        items = null,
-                        errorCode = response.code()
+                    status = false,
+                    errors = ErrorResponse(message = "error_internal_server"),
+                    items = null,
+                    errorCode = response.code()
                 )
                 else -> return ComicApiResponse(
-                        status = false,
-                        errors = ErrorResponse(message = "error_internal_server"),
-                        items = null
+                    status = false,
+                    errors = ErrorResponse(message = "error_internal_server"),
+                    items = null
                 )
             }
         }
 
         return ComicApiResponse(
-                status = false,
-                errors = ErrorResponse(message = errorResponse?.message),
-                items = null,
-                errorCode = errorResponse?.code
+            status = false,
+            errors = ErrorResponse(message = errorResponse?.message),
+            items = null,
+            errorCode = errorResponse?.code
         )
     }
 }

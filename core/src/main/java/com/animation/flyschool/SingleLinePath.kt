@@ -10,7 +10,7 @@ import android.graphics.Path
  * Created by avin on 20/01/17.
  */
 class SingleLinePath(
-        private val mFPoint: FPoint
+    private val mFPoint: FPoint
 ) : FlyPath() {
 
     private var mPath: Path? = null

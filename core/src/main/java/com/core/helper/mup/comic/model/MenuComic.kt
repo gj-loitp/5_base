@@ -7,19 +7,19 @@ import java.io.Serializable
 
 @Keep
 data class MenuComic(
-        @SerializedName("itemId")
-        @Expose
-        val itemId: Int,
+    @SerializedName("itemId")
+    @Expose
+    val itemId: Int,
 
-        @SerializedName("iconId")
-        @Expose
-        val iconId: Int,
+    @SerializedName("iconId")
+    @Expose
+    val iconId: Int,
 
-        @SerializedName("textId")
-        @Expose
-        val textId: Int,
+    @SerializedName("textId")
+    @Expose
+    val textId: Int,
 
-        @SerializedName("activeColor")
-        @Expose
-        val activeColor: Int
+    @SerializedName("activeColor")
+    @Expose
+    val activeColor: Int
 ) : Serializable

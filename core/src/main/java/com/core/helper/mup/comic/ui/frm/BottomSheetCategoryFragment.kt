@@ -3,7 +3,6 @@ package com.core.helper.mup.comic.ui.frm
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,10 +19,10 @@ import kotlinx.android.synthetic.main.l_bottom_sheet_mup_category_fragment.*
 
 @LogTag("BottomSheetCategoryFragment")
 class BottomSheetCategoryFragment : BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_mup_category_fragment,
-        height = WindowManager.LayoutParams.WRAP_CONTENT,
-        isDraggable = true,
-        firstBehaviourState = BottomSheetBehavior.STATE_COLLAPSED
+    layoutId = R.layout.l_bottom_sheet_mup_category_fragment,
+    height = WindowManager.LayoutParams.WRAP_CONTENT,
+    isDraggable = true,
+    firstBehaviourState = BottomSheetBehavior.STATE_COLLAPSED
 ) {
 
     private var comicViewModel: ComicViewModel? = null
@@ -47,7 +46,8 @@ class BottomSheetCategoryFragment : BaseBottomSheetFragment(
                 handleClickCategory(category = category)
             }
 
-            val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(categoryA)
+            val listOfAdapters =
+                listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(categoryA)
             concatAdapter = ConcatAdapter(listOfAdapters)
         }
         recyclerView.layoutManager = GridLayoutManager(context, 2)
@@ -57,39 +57,40 @@ class BottomSheetCategoryFragment : BaseBottomSheetFragment(
     private fun setupViewModels() {
         comicViewModel = getViewModel(ComicViewModel::class.java)
         comicViewModel?.let { vm ->
-            vm.listCategoryActionLiveData.observe(this, Observer { actionData ->
-//                logD("<<<listCategoryActionLiveData observe " + BaseApplication.gson.toJson(actionData))
+            vm.listCategoryActionLiveData.observe(
+                owner = this,
+                observer = { actionData ->
+                    val isDoing = actionData.isDoing
+                    val isSuccess = actionData.isSuccess
 
-                val isDoing = actionData.isDoing
-                val isSuccess = actionData.isSuccess
-
-                if (isDoing == true) {
-                    LDialogUtil.showProgress(progressBar)
-                } else {
-                    LDialogUtil.hideProgress(progressBar)
-                }
-
-                if (isDoing == false && isSuccess == true) {
-                    val listCategory = actionData.data
-                    logD("<<<listCategory " + BaseApplication.gson.toJson(listCategory))
-
-                    val categoryAll = Category.getCategoryAll()
-                    val listData = ArrayList<Category>()
-                    listData.add(categoryAll)
-
-                    listCategory?.let {
-                        listData.addAll(elements = it)
+                    if (isDoing == true) {
+                        LDialogUtil.showProgress(progressBar)
+                    } else {
+                        LDialogUtil.hideProgress(progressBar)
                     }
 
-                    val categorySelected = vm.categorySelected.value
-                    listData.forEach { category ->
-                        category.isSelected = category.id == categorySelected?.id
-                    }
+                    if (isDoing == false && isSuccess == true) {
+                        val listCategory = actionData.data
+                        logD("<<<listCategory " + BaseApplication.gson.toJson(listCategory))
 
-                    recyclerView.visibility = View.VISIBLE
-                    categoryAdapter?.setListData(listCategory = listData)
+                        val categoryAll = Category.getCategoryAll()
+                        val listData = ArrayList<Category>()
+                        listData.add(categoryAll)
+
+                        listCategory?.let {
+                            listData.addAll(elements = it)
+                        }
+
+                        val categorySelected = vm.categorySelected.value
+                        listData.forEach { category ->
+                            category.isSelected = category.id == categorySelected?.id
+                        }
+
+                        recyclerView.visibility = View.VISIBLE
+                        categoryAdapter?.setListData(listCategory = listData)
+                    }
                 }
-            })
+            )
         }
     }
 

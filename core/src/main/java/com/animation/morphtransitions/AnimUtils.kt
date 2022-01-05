@@ -7,7 +7,7 @@ import android.util.ArrayMap
 import android.view.animation.AnimationUtils
 import android.view.animation.Interpolator
 import com.R
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 internal object AnimUtils {
     private var fastOutSlowIn: Interpolator? = null
@@ -17,7 +17,8 @@ internal object AnimUtils {
     @JvmStatic
     fun getFastOutSlowInInterpolator(context: Context?): Interpolator? {
         if (fastOutSlowIn == null) {
-            fastOutSlowIn = AnimationUtils.loadInterpolator(context, R.interpolator.fast_out_slow_in)
+            fastOutSlowIn =
+                AnimationUtils.loadInterpolator(context, R.interpolator.fast_out_slow_in)
         }
         return fastOutSlowIn
     }
@@ -25,7 +26,8 @@ internal object AnimUtils {
     @JvmStatic
     fun getFastOutLinearInInterpolator(context: Context?): Interpolator? {
         if (fastOutLinearIn == null) {
-            fastOutLinearIn = AnimationUtils.loadInterpolator(context, android.R.interpolator.fast_out_linear_in)
+            fastOutLinearIn =
+                AnimationUtils.loadInterpolator(context, android.R.interpolator.fast_out_linear_in)
         }
         return fastOutLinearIn
     }
@@ -33,7 +35,8 @@ internal object AnimUtils {
     @JvmStatic
     fun getLinearOutSlowInInterpolator(context: Context?): Interpolator? {
         if (linearOutSlowIn == null) {
-            linearOutSlowIn = AnimationUtils.loadInterpolator(context, android.R.interpolator.linear_out_slow_in)
+            linearOutSlowIn =
+                AnimationUtils.loadInterpolator(context, android.R.interpolator.linear_out_slow_in)
         }
         return linearOutSlowIn
     }
@@ -148,8 +151,8 @@ internal object AnimUtils {
     }
 
     internal class AnimatorListenerWrapper(
-            private val mAnimator: Animator,
-            private val mListener: Animator.AnimatorListener
+        private val mAnimator: Animator,
+        private val mListener: Animator.AnimatorListener
     ) : Animator.AnimatorListener {
 
         override fun onAnimationStart(animator: Animator) {

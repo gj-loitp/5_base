@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,7 @@ class CategoryAdapter : BaseAdapter() {
         LAppResource.getColor(R.color.black)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListData(listCategory: List<Category>) {
         this.listCategory.clear()
         this.listCategory.addAll(listCategory)
@@ -71,10 +73,12 @@ class CategoryAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_comic_category, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_comic_category, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = listCategory.size
 
@@ -83,5 +87,4 @@ class CategoryAdapter : BaseAdapter() {
             holder.bind(category = listCategory[position])
         }
     }
-
 }

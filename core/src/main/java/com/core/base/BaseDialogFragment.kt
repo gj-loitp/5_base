@@ -28,8 +28,8 @@ open class BaseDialogFragment : DialogFragment() {
     fun lockScreen(isLock: Boolean) {
         if (isLock) {
             activity?.window?.setFlags(
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
             )
 
             activity?.window?.decorView?.alpha = 0.5f
@@ -56,22 +56,21 @@ open class BaseDialogFragment : DialogFragment() {
             val ft = manager.beginTransaction()
             ft.add(this, tag)
             ft.commitAllowingStateLoss()
-
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
     fun showSnackBarInfor(
-            msg: String,
-            view: View? = dialog?.window?.findViewById(android.R.id.content),
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = dialog?.window?.findViewById(android.R.id.content),
+        isFullWidth: Boolean = false
     ) {
         view?.let { v ->
             val snackBar = Snackbar
-                    .make(v, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_infor)
-                    .allowInfiniteLines()
+                .make(v, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_infor)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -80,15 +79,15 @@ open class BaseDialogFragment : DialogFragment() {
     }
 
     fun showSnackBarWarning(
-            msg: String,
-            view: View? = dialog?.window?.findViewById(android.R.id.content),
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = dialog?.window?.findViewById(android.R.id.content),
+        isFullWidth: Boolean = false
     ) {
         view?.let { v ->
             val snackBar = Snackbar
-                    .make(v, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_warning)
-                    .allowInfiniteLines()
+                .make(v, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_warning)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -97,15 +96,15 @@ open class BaseDialogFragment : DialogFragment() {
     }
 
     fun showSnackBarError(
-            msg: String,
-            view: View? = dialog?.window?.findViewById(android.R.id.content),
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = dialog?.window?.findViewById(android.R.id.content),
+        isFullWidth: Boolean = false
     ) {
         view?.let { v ->
             val snackBar = Snackbar
-                    .make(v, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_err)
-                    .allowInfiniteLines()
+                .make(v, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_err)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }

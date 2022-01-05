@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.view_row_comic_progress.view.*
 
 @LogTag("GirlProgressAdapter")
 class ComicProgressAdapter(
-        val heightRootView: Int? = null
+    val heightRootView: Int? = null
 ) : BaseAdapter() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,10 +25,12 @@ class ComicProgressAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_comic_progress, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_comic_progress, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = 1
 
@@ -37,5 +39,4 @@ class ComicProgressAdapter(
             holder.bind()
         }
     }
-
 }

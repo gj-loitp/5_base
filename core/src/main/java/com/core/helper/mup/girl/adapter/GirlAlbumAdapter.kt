@@ -1,5 +1,6 @@
 package com.core.helper.mup.girl.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ class GirlAlbumAdapter : BaseAdapter() {
     var onClickRootListener: ((GirlPage, Int) -> Unit)? = null
     var onClickLikeListener: ((GirlPage, Int) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(listGirlPage: List<GirlPage>, isSwipeToRefresh: Boolean) {
         if (isSwipeToRefresh) {
             this.listGirlPage.clear()
@@ -39,6 +41,7 @@ class GirlAlbumAdapter : BaseAdapter() {
         return listGirlPage
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun updateData(listGirlPage: List<GirlPage>) {
         this.listGirlPage.forEach {
             it.isFavorites = false
@@ -62,7 +65,11 @@ class GirlAlbumAdapter : BaseAdapter() {
 
         fun bind(girlPage: GirlPage) {
             itemView.tvTitle.text = girlPage.title
-            itemView.tvCreatedDate.text = LDateUtil.convertFormatDate(strDate = girlPage.createdDate, fromFormat = "yyyy-MM-dd'T'HH:mm:ss", toFormat = "HH:mm:ss dd/MM/yyyy")
+            itemView.tvCreatedDate.text = LDateUtil.convertFormatDate(
+                strDate = girlPage.createdDate,
+                fromFormat = "yyyy-MM-dd'T'HH:mm:ss",
+                toFormat = "HH:mm:ss dd/MM/yyyy"
+            )
 //            LUIUtil.setTextShadow(textView = itemView.tvCreatedDate, color = Color.BLACK)
 //            LUIUtil.setTextShadow(textView = itemView.tvTitle, color = Color.BLACK)
             val src = if (BuildConfig.DEBUG) {
@@ -70,20 +77,33 @@ class GirlAlbumAdapter : BaseAdapter() {
             } else {
                 girlPage.src
             }
-            LImageUtil.load(context = itemView.imageView.context,
-                    any = src,
-                    imageView = itemView.imageView,
-                    resPlaceHolder = R.color.black,
-                    resError = R.color.black,
-                    drawableRequestListener = object : RequestListener<Drawable> {
-                        override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
+            LImageUtil.load(
+                context = itemView.imageView.context,
+                any = src,
+                imageView = itemView.imageView,
+                resPlaceHolder = R.color.black,
+                resError = R.color.black,
+                drawableRequestListener = object : RequestListener<Drawable> {
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
 
-                        override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                            return false
-                        }
-                    })
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any,
+                        target: Target<Drawable?>,
+                        dataSource: DataSource,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        return false
+                    }
+                }
+            )
             itemView.imageView.setAspectRatio(16f / 9f)
             itemView.roundRect.setSafeOnClickListener {
                 onClickRootListener?.invoke(girlPage, bindingAdapterPosition)
@@ -96,10 +116,12 @@ class GirlAlbumAdapter : BaseAdapter() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_girl_album, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_girl_album, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = listGirlPage.size
 
@@ -108,5 +130,4 @@ class GirlAlbumAdapter : BaseAdapter() {
             holder.bind(girlPage = listGirlPage[position])
         }
     }
-
 }

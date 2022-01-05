@@ -42,7 +42,11 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
         loadItem(photo = photo)
 
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
@@ -59,26 +63,37 @@ class GalleryMemberDetailActivity : BaseFontActivity() {
     private fun loadItem(photo: Photo) {
         tvTitle.text = photo.title
         LImageUtil.load(
-                context = this,
-                any = photo.urlS,
-                imageView = imageViewBlur,
-                drawableRequestListener = null,
-                transformation = BlurTransformation(25)
+            context = this,
+            any = photo.urlS,
+            imageView = imageViewBlur,
+            drawableRequestListener = null,
+            transformation = BlurTransformation(25)
         )
         LImageUtil.load(
-                context = this,
-                any = photo.urlO,
-                imageView = imageView,
-                drawableRequestListener = object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any, target: Target<Drawable?>, isFirstResource: Boolean): Boolean {
-                        return false
-                    }
-
-                    override fun onResourceReady(resource: Drawable?, model: Any, target: Target<Drawable?>, dataSource: DataSource, isFirstResource: Boolean): Boolean {
-                        LImageUtil.setZoomFitWidthScreen(touchImageView = imageView)
-                        return false
-                    }
+            context = this,
+            any = photo.urlO,
+            imageView = imageView,
+            drawableRequestListener = object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any,
+                    target: Target<Drawable?>,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
                 }
+
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any,
+                    target: Target<Drawable?>,
+                    dataSource: DataSource,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    LImageUtil.setZoomFitWidthScreen(touchImageView = imageView)
+                    return false
+                }
+            }
         )
     }
 }

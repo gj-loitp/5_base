@@ -1,5 +1,6 @@
 package com.core.helper.mup.girl.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,11 +17,13 @@ class GirlTitleAdapter : BaseAdapter() {
     private var marginStartEndPx: Int? = null
     private var marginTopPx: Int? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setTitle(title: String) {
         this.title = title
         notifyDataSetChanged()
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setMargin(marginStartEnd: Int?, marginTop: Int?) {
         this.marginStartEndPx = marginStartEnd
         this.marginTopPx = marginTop
@@ -33,17 +36,25 @@ class GirlTitleAdapter : BaseAdapter() {
             itemView.tvTitle.text = title
             marginStartEndPx?.let { leftRight ->
                 marginTopPx?.let { top ->
-                    LUIUtil.setMargins(view = itemView.roundRect, leftPx = leftRight, topPx = top, rightPx = leftRight, bottomPx = 0)
+                    LUIUtil.setMargins(
+                        view = itemView.roundRect,
+                        leftPx = leftRight,
+                        topPx = top,
+                        rightPx = leftRight,
+                        bottomPx = 0
+                    )
                 }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_girl_title, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_girl_title, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = 1
 
@@ -52,5 +63,4 @@ class GirlTitleAdapter : BaseAdapter() {
             holder.bind()
         }
     }
-
 }

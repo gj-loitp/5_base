@@ -2,7 +2,6 @@ package com.core.base
 
 import android.app.Dialog
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -34,12 +33,12 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
-//animation https://github.com/dkmeteor/SmoothTransition
+// animation https://github.com/dkmeteor/SmoothTransition
 abstract class BaseActivity : AppCompatActivity() {
     protected var compositeDisposable = CompositeDisposable()
     protected var logTag: String? = null
 
-    var delayMlsIdleTime: Long = 60 * 1000//60s
+    var delayMlsIdleTime: Long = 60 * 1000 // 60s
     private var handlerIdleTime: Handler? = null
     private var runnableIdleTime: Runnable? = null
     var isIdleTime = false
@@ -53,10 +52,10 @@ abstract class BaseActivity : AppCompatActivity() {
     protected abstract fun setLayoutResourceId(): Int
 
     protected fun setTransparentStatusNavigationBar() {
-        //https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
+        // https://stackoverflow.com/questions/29311078/android-completely-transparent-status-bar
         window.setFlags(
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
     }
 
@@ -67,7 +66,7 @@ abstract class BaseActivity : AppCompatActivity() {
         val isDarkTheme = LUIUtil.isDarkTheme()
 //        logD("onCreate isDarkTheme $isDarkTheme")
         val isSwipeActivity = javaClass.getAnnotation(IsSwipeActivity::class.java)?.value
-                ?: false
+            ?: false
 //        logD("onCreate isSwipeActivity $isSwipeActivity")
         if (isSwipeActivity) {
             if (isDarkTheme) {
@@ -87,14 +86,17 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
 
-        setCustomStatusBar(colorStatusBar = LAppResource.getColor(R.color.colorPrimary), colorNavigationBar = LAppResource.getColor(R.color.colorPrimary))
+        setCustomStatusBar(
+            colorStatusBar = LAppResource.getColor(R.color.colorPrimary),
+            colorNavigationBar = LAppResource.getColor(R.color.colorPrimary)
+        )
 
         super.onCreate(savedInstanceState)
         EventBus.getDefault().register(this)
 
         val isFullScreen = javaClass.getAnnotation(IsFullScreen::class.java)?.value ?: false
         if (isFullScreen) {
-            requestWindowFeature(Window.FEATURE_NO_TITLE)//requestFeature() must be called before adding content
+            requestWindowFeature(Window.FEATURE_NO_TITLE) // requestFeature() must be called before adding content
         }
 
         val layoutId = setLayoutResourceId()
@@ -117,47 +119,50 @@ abstract class BaseActivity : AppCompatActivity() {
 //                )
 //            }
 
-            //TODO fix full screen in android 11
+            // TODO fix full screen in android 11
             window.setFlags(
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                    WindowManager.LayoutParams.FLAG_FULLSCREEN
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
             )
         }
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         CheckNetworkConnectionHelper
-                .getInstance()
-                .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
-                    override fun onConnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
-                    }
+            .getInstance()
+            .registerNetworkChangeListener(object : OnNetworkConnectionChangeListener {
+                override fun onConnected() {
+                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = true)
+                }
 
-                    override fun onDisconnected() {
-                        LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
-                    }
+                override fun onDisconnected() {
+                    LConnectivityUtil.onNetworkConnectionChanged(isConnected = false)
+                }
 
-                    override fun getContext(): Context {
-                        return this@BaseActivity
-                    }
-                })
+                override fun getContext(): Context {
+                    return this@BaseActivity
+                }
+            })
 
-        //auto animation
+        // auto animation
         val isAutoAnimation = javaClass.getAnnotation(IsAutoAnimation::class.java)?.value
-                ?: false
+            ?: false
         if (isAutoAnimation) {
-            SwitchAnimationUtil().startAnimation(root = window.decorView, type = SwitchAnimationUtil.AnimationType.SCALE)
+            SwitchAnimationUtil().startAnimation(
+                root = window.decorView,
+                type = SwitchAnimationUtil.AnimationType.SCALE
+            )
         }
 
         isShowAdWhenExit = javaClass.getAnnotation(IsShowAdWhenExit::class.java)?.value ?: false
         if (isShowAdWhenExit) {
             LUIUtil.createAdFull(
-                    context = this,
-                    onAdLoaded = {
-                        interstitialAd = it
-                    },
-                    onAdFailedToLoad = {
-                        logE("createAdFull onAdFailedToLoad ${it.message}")
-                    }
+                context = this,
+                onAdLoaded = {
+                    interstitialAd = it
+                },
+                onAdFailedToLoad = {
+                    logE("createAdFull onAdFailedToLoad ${it.message}")
+                }
             )
         }
         isShowAnimWhenExit = javaClass.getAnnotation(IsShowAnimWhenExit::class.java)?.value ?: true
@@ -165,7 +170,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onUserInteraction() {
         super.onUserInteraction()
-        stopIdleTimeHandler()//stop first and then start
+        stopIdleTimeHandler() // stop first and then start
         startIdleTimeHandler(delayMlsIdleTime)
     }
 
@@ -197,21 +202,19 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun setCustomStatusBar(colorStatusBar: Int, colorNavigationBar: Int) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = colorStatusBar
-            window.navigationBarColor = colorNavigationBar
-        }
+        window.statusBarColor = colorStatusBar
+        window.navigationBarColor = colorNavigationBar
 
-        //set color for status bar
+        // set color for status bar
 //        StatusBarCompat.setStatusBarColor(activity = this, statusColor = LAppResource.getColor(R.color.red))
 
-        //add alpha to color
+        // add alpha to color
 //        StatusBarCompat.setStatusBarColor(activity = this, statusColor = LAppResource.getColor(R.color.red), alpha = 50)
 
-        //translucent status bar
+        // translucent status bar
 //        StatusBarCompat.translucentStatusBar(activity = this)
 
-        //should hide status bar background (default black background) when SDK >= 21
+        // should hide status bar background (default black background) when SDK >= 21
 //        StatusBarCompat.translucentStatusBar(activity = this, hideStatusBarBackground = true)
     }
 
@@ -221,7 +224,7 @@ abstract class BaseActivity : AppCompatActivity() {
         LDialogUtil.clearAll()
         LDialogUtil.hide(dialog = alertDialogProgress)
         stopIdleTimeHandler()
-        //AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
+        // AutoRefreshNetworkUtil.removeAllRegisterNetworkListener()
         super.onDestroy()
     }
 
@@ -235,26 +238,26 @@ abstract class BaseActivity : AppCompatActivity() {
             return
         }
         val alertDialog = LDialogUtil.showDialog1(
-                context = this,
-                title = getString(R.string.warning),
-                msg = errMsg,
-                button1 = getString(R.string.confirm),
-                onClickButton1 = {
-                    runnable?.run()
-                }
+            context = this,
+            title = getString(R.string.warning),
+            msg = errMsg,
+            button1 = getString(R.string.confirm),
+            onClickButton1 = {
+                runnable?.run()
+            }
         )
         alertDialog.setCancelable(false)
     }
 
     protected fun showDialogMsg(errMsg: String, runnable: Runnable? = null) {
         LDialogUtil.showDialog1(
-                context = this,
-                title = getString(R.string.app_name),
-                msg = errMsg,
-                button1 = getString(R.string.confirm),
-                onClickButton1 = {
-                    runnable?.run()
-                }
+            context = this,
+            title = getString(R.string.app_name),
+            msg = errMsg,
+            button1 = getString(R.string.confirm),
+            onClickButton1 = {
+                runnable?.run()
+            }
         )
     }
 
@@ -269,8 +272,11 @@ abstract class BaseActivity : AppCompatActivity() {
                 LUIUtil.displayInterstitial(activity = this, interstitial = it, maxNumber = 50)
             }
         } else {
-            //don't use LLog here
-            Log.e(logTag, "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit")
+            // don't use LLog here
+            Log.e(
+                logTag,
+                "onBackPressed dont displayInterstitial because isShowAdWhenExit=$isShowAdWhenExit"
+            )
         }
     }
 
@@ -318,7 +324,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T {
-        return ViewModelProvider(this).get(className)
+        return ViewModelProvider(this)[className]
     }
 
     protected fun logD(msg: String) {
@@ -334,45 +340,45 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showBottomSheetOptionFragment(
-            isCancelableFragment: Boolean = true,
-            isShowIvClose: Boolean = true,
-            title: String,
-            message: String,
-            textButton1: String? = null,
-            textButton2: String? = null,
-            textButton3: String? = null,
-            onClickButton1: ((Unit) -> Unit)? = null,
-            onClickButton2: ((Unit) -> Unit)? = null,
-            onClickButton3: ((Unit) -> Unit)? = null,
-            onDismiss: ((Unit) -> Unit)? = null
+        isCancelableFragment: Boolean = true,
+        isShowIvClose: Boolean = true,
+        title: String,
+        message: String,
+        textButton1: String? = null,
+        textButton2: String? = null,
+        textButton3: String? = null,
+        onClickButton1: ((Unit) -> Unit)? = null,
+        onClickButton2: ((Unit) -> Unit)? = null,
+        onClickButton3: ((Unit) -> Unit)? = null,
+        onDismiss: ((Unit) -> Unit)? = null
     ) {
         val bottomSheetOptionFragment = BottomSheetOptionFragment(
-                isCancelableFragment = isCancelableFragment,
-                isShowIvClose = isShowIvClose,
-                title = title,
-                message = message,
-                textButton1 = textButton1,
-                textButton2 = textButton2,
-                textButton3 = textButton3,
-                onClickButton1 = onClickButton1,
-                onClickButton2 = onClickButton2,
-                onClickButton3 = onClickButton3,
-                onDismiss = onDismiss
+            isCancelableFragment = isCancelableFragment,
+            isShowIvClose = isShowIvClose,
+            title = title,
+            message = message,
+            textButton1 = textButton1,
+            textButton2 = textButton2,
+            textButton3 = textButton3,
+            onClickButton1 = onClickButton1,
+            onClickButton2 = onClickButton2,
+            onClickButton3 = onClickButton3,
+            onDismiss = onDismiss
         )
         bottomSheetOptionFragment.show(supportFragmentManager, bottomSheetOptionFragment.tag)
     }
 
     fun showSnackBarInfor(
-            msg: String,
-            view: View? = null,
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = null,
+        isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_infor)
-                    .allowInfiniteLines()
+                .make(anchorView, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_infor)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -381,16 +387,16 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarWarning(
-            msg: String,
-            view: View? = null,
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = null,
+        isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_warning)
-                    .allowInfiniteLines()
+                .make(anchorView, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_warning)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }
@@ -399,16 +405,16 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun showSnackBarError(
-            msg: String,
-            view: View? = null,
-            isFullWidth: Boolean = false
+        msg: String,
+        view: View? = null,
+        isFullWidth: Boolean = false
     ) {
         if (!this.isFinishing) {
             val anchorView = view ?: findViewById(android.R.id.content)
             val snackBar = Snackbar
-                    .make(anchorView, msg, Snackbar.LENGTH_LONG)
-                    .withBackground(R.drawable.bg_toast_err)
-                    .allowInfiniteLines()
+                .make(anchorView, msg, Snackbar.LENGTH_LONG)
+                .withBackground(R.drawable.bg_toast_err)
+                .allowInfiniteLines()
             if (isFullWidth) {
                 snackBar.view.layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT
             }

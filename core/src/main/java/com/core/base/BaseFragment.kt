@@ -33,7 +33,11 @@ abstract class BaseFragment : Fragment() {
 
     protected abstract fun setLayoutResourceId(): Int
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         frmRootView = inflater.inflate(setLayoutResourceId(), container, false)
         val tmpLogTag = javaClass.getAnnotation(LogTag::class.java)
         logTag = "logTag" + tmpLogTag?.value
@@ -69,13 +73,13 @@ abstract class BaseFragment : Fragment() {
     open fun showDialogError(errMsg: String, runnable: Runnable? = null) {
         context?.let {
             LDialogUtil.showDialog1(
-                    context = it,
-                    title = getString(R.string.warning),
-                    msg = errMsg,
-                    button1 = getString(R.string.confirm),
-                    onClickButton1 = {
-                        runnable?.run()
-                    }
+                context = it,
+                title = getString(R.string.warning),
+                msg = errMsg,
+                button1 = getString(R.string.confirm),
+                onClickButton1 = {
+                    runnable?.run()
+                }
             )
         }
     }
@@ -83,18 +87,18 @@ abstract class BaseFragment : Fragment() {
     open fun showDialogMsg(msg: String, runnable: Runnable? = null) {
         context?.let {
             LDialogUtil.showDialog1(
-                    context = it,
-                    title = getString(R.string.app_name),
-                    msg = msg,
-                    button1 = getString(R.string.confirm),
-                    onClickButton1 = {
-                        runnable?.run()
-                    }
+                context = it,
+                title = getString(R.string.app_name),
+                msg = msg,
+                button1 = getString(R.string.confirm),
+                onClickButton1 = {
+                    runnable?.run()
+                }
             )
         }
     }
 
-    //https://stackoverflow.com/questions/14900738/nested-fragments-disappear-during-transition-animation
+    // https://stackoverflow.com/questions/14900738/nested-fragments-disappear-during-transition-animation
     override fun onCreateAnimation(transit: Int, enter: Boolean, nextAnim: Int): Animation? {
         val parent = parentFragment
 
@@ -105,7 +109,8 @@ abstract class BaseFragment : Fragment() {
             // the parent is removed (as all children are first removed from the parent)
             // See https://code.google.com/p/android/issues/detail?id=55228
             val doNothingAnim = AlphaAnimation(1f, 1f)
-            doNothingAnim.duration = getNextAnimationDuration(parent, DEFAULT_CHILD_ANIMATION_DURATION.toLong())
+            doNothingAnim.duration =
+                getNextAnimationDuration(parent, DEFAULT_CHILD_ANIMATION_DURATION.toLong())
             doNothingAnim
         } else {
             super.onCreateAnimation(transit, enter, nextAnim)
@@ -124,7 +129,7 @@ abstract class BaseFragment : Fragment() {
             // ...and if it can be loaded, return that animation's duration
             return nextAnim?.duration ?: defValue
         } catch (ex: NoSuchFieldException) {
-            //logD("Unable to load next animation from parent.", ex)
+            // logD("Unable to load next animation from parent.", ex)
             ex.printStackTrace()
             return defValue
         } catch (ex: IllegalAccessException) {
@@ -198,47 +203,47 @@ abstract class BaseFragment : Fragment() {
 
     protected fun <T : ViewModel> getViewModel(className: Class<T>): T? {
         return activity?.let {
-            ViewModelProvider(it).get(className)
+            ViewModelProvider(it)[className]
         }
     }
 
     protected fun <T : ViewModel> getSelfViewModel(className: Class<T>): T {
-        return ViewModelProvider(this).get(className)
+        return ViewModelProvider(this)[className]
     }
 
     fun showBottomSheetOptionFragment(
-            isCancelableFragment: Boolean = true,
-            isShowIvClose: Boolean = true,
-            title: String,
-            message: String,
-            textButton1: String? = null,
-            textButton2: String? = null,
-            textButton3: String? = null,
-            onClickButton1: ((Unit) -> Unit)? = null,
-            onClickButton2: ((Unit) -> Unit)? = null,
-            onClickButton3: ((Unit) -> Unit)? = null,
-            onDismiss: ((Unit) -> Unit)? = null
+        isCancelableFragment: Boolean = true,
+        isShowIvClose: Boolean = true,
+        title: String,
+        message: String,
+        textButton1: String? = null,
+        textButton2: String? = null,
+        textButton3: String? = null,
+        onClickButton1: ((Unit) -> Unit)? = null,
+        onClickButton2: ((Unit) -> Unit)? = null,
+        onClickButton3: ((Unit) -> Unit)? = null,
+        onDismiss: ((Unit) -> Unit)? = null
     ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showBottomSheetOptionFragment(
-                    isCancelableFragment = isCancelableFragment,
-                    isShowIvClose = isShowIvClose,
-                    title = title,
-                    message = message,
-                    textButton1 = textButton1,
-                    textButton2 = textButton2,
-                    textButton3 = textButton3,
-                    onClickButton1 = onClickButton1,
-                    onClickButton2 = onClickButton2,
-                    onClickButton3 = onClickButton3,
-                    onDismiss = onDismiss
+                isCancelableFragment = isCancelableFragment,
+                isShowIvClose = isShowIvClose,
+                title = title,
+                message = message,
+                textButton1 = textButton1,
+                textButton2 = textButton2,
+                textButton3 = textButton3,
+                onClickButton1 = onClickButton1,
+                onClickButton2 = onClickButton2,
+                onClickButton3 = onClickButton3,
+                onDismiss = onDismiss
             )
         }
     }
 
     fun showSnackBarInfor(
-            msg: String,
-            isFullWidth: Boolean = false
+        msg: String,
+        isFullWidth: Boolean = false
     ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showSnackBarInfor(msg = msg, isFullWidth = isFullWidth)
@@ -246,16 +251,18 @@ abstract class BaseFragment : Fragment() {
     }
 
     fun showSnackBarWarning(
-            msg: String,
-            isFullWidth: Boolean = false) {
+        msg: String,
+        isFullWidth: Boolean = false
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showSnackBarWarning(msg = msg, isFullWidth = isFullWidth)
         }
     }
 
     fun showSnackBarError(
-            msg: String,
-            isFullWidth: Boolean = false) {
+        msg: String,
+        isFullWidth: Boolean = false
+    ) {
         if (activity is BaseActivity) {
             (activity as BaseActivity).showSnackBarError(msg = msg, isFullWidth = isFullWidth)
         }

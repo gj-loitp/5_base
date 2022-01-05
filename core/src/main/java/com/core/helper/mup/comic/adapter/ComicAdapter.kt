@@ -1,5 +1,6 @@
 package com.core.helper.mup.comic.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class ComicAdapter : BaseAdapter() {
         R.drawable.place_holder_black
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(listComic: List<Comic>, isSwipeToRefresh: Boolean?) {
         if (isSwipeToRefresh == true) {
             this.listComic.clear()
@@ -35,12 +37,14 @@ class ComicAdapter : BaseAdapter() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(comic: Comic) {
-            LImageUtil.load(context = itemView.ivBackground.context,
-                    any = comic.imageSrc,
-                    imageView = itemView.ivBackground,
-                    resError = R.color.gray,
-                    resPlaceHolder = placeHolder,
-                    drawableRequestListener = null)
+            LImageUtil.load(
+                context = itemView.ivBackground.context,
+                any = comic.imageSrc,
+                imageView = itemView.ivBackground,
+                resError = R.color.gray,
+                resPlaceHolder = placeHolder,
+                drawableRequestListener = null
+            )
 
             itemView.tvTitle.apply {
                 this.text = comic.title
@@ -57,15 +61,16 @@ class ComicAdapter : BaseAdapter() {
             itemView.cardView.setSafeOnClickListener {
                 onClickRoot?.invoke(comic)
             }
-
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            ViewHolder(LayoutInflater.from(parent.context).inflate(
-                    R.layout.view_row_comic, parent,
-                    false
-            ))
+        ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_comic, parent,
+                false
+            )
+        )
 
     override fun getItemCount(): Int = listComic.size
 
@@ -74,5 +79,4 @@ class ComicAdapter : BaseAdapter() {
             holder.bind(comic = listComic[position])
         }
     }
-
 }

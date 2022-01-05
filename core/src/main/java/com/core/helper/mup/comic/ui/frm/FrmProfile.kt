@@ -30,15 +30,15 @@ class FrmProfile : BaseFragment() {
 
     fun setupViews() {
         LImageUtil.load(
-                context = activity,
-                any = "https://live.staticflickr.com/336/31740727004_7a66635d62_b.jpg",
-                imageView = ivBackground
+            context = activity,
+            any = "https://live.staticflickr.com/336/31740727004_7a66635d62_b.jpg",
+            imageView = ivBackground
         )
         LImageUtil.load(
-                context = activity,
-                any = "https://live.staticflickr.com/8051/28816266454_a7d83db3b2_n.jpg",
-                imageView = ivAvatar,
-                transformation = CropCircleWithBorderTransformation()
+            context = activity,
+            any = "https://live.staticflickr.com/8051/28816266454_a7d83db3b2_n.jpg",
+            imageView = ivAvatar,
+            transformation = CropCircleWithBorderTransformation()
         )
 
         tvUserName.text = getString(R.string.app_name_comic)
@@ -57,7 +57,10 @@ class FrmProfile : BaseFragment() {
         }
         btInformation.setSafeOnClickListener {
             val bottomSheetInformationFragment = BottomSheetInformationFragment()
-            bottomSheetInformationFragment.show(childFragmentManager, bottomSheetInformationFragment.tag)
+            bottomSheetInformationFragment.show(
+                childFragmentManager,
+                bottomSheetInformationFragment.tag
+            )
         }
 
         val isShowDonation = LSharedPrefsUtil.instance.getBoolean(Constants.COMIC_SHOW_DONATION)
@@ -65,12 +68,13 @@ class FrmProfile : BaseFragment() {
             btDonation.visibility = View.VISIBLE
             btDonation.setSafeOnClickListener {
                 val bottomSheetDonationFragment = BottomSheetDonationFragment()
-                bottomSheetDonationFragment.show(childFragmentManager, bottomSheetDonationFragment.tag)
+                bottomSheetDonationFragment.show(
+                    childFragmentManager,
+                    bottomSheetDonationFragment.tag
+                )
             }
         } else {
             btDonation.visibility = View.GONE
         }
     }
-
-
 }
