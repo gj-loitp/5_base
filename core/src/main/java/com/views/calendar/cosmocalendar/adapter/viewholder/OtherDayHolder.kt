@@ -6,8 +6,8 @@ import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.view.CalendarView
 
 class OtherDayHolder(
-        itemView: View,
-        calendarView: CalendarView
+    itemView: View,
+    calendarView: CalendarView
 ) : BaseDayHolder(itemView, calendarView) {
 
     init {
@@ -18,5 +18,4 @@ class OtherDayHolder(
         tvDay.text = day.dayNumber.toString()
         tvDay.setTextColor(calendarView.otherDayTextColor)
     }
-
 }

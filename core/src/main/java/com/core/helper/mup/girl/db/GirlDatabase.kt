@@ -9,7 +9,7 @@ import com.core.helper.mup.girl.model.GirlPage
 @Database(entities = [GirlPage::class], version = 1)
 abstract class GirlDatabase : RoomDatabase() {
 
-    //@TypeConverters(DateTypeConverter::class, AreaConverter::class)
+    // @TypeConverters(DateTypeConverter::class, AreaConverter::class)
 
     abstract fun girlPageDao(): GirlPageDao
 
@@ -20,14 +20,17 @@ abstract class GirlDatabase : RoomDatabase() {
         fun getInstance(context: Context): GirlDatabase? {
             if (instance == null) {
                 synchronized(GirlDatabase::class) {
-                    instance = Room.databaseBuilder(context.applicationContext, GirlDatabase::class.java, GirlDatabase::class.java.simpleName)
-                            .fallbackToDestructiveMigration()
-                            .build()
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        GirlDatabase::class.java,
+                        GirlDatabase::class.java.simpleName
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
                 }
             }
 
             return instance
         }
-
     }
 }

@@ -76,20 +76,20 @@ class Photoset : BaseModel() {
     @Expose
     var primaryPhotoExtras: PrimaryPhotoExtras? = null
 
-    //gif extension have no link large
+    // gif extension have no link large
     fun flickrLinkM(): String {
         return if (primaryPhotoExtras?.urlO?.contains(".gif") == true) {
-            //gif extension have no link large
+            // gif extension have no link large
             primaryPhotoExtras?.urlO ?: ""
         } else {
             LImageUtil.getFlickrLink640(primaryPhotoExtras?.urlM ?: "")
         }
     }
 
-    //gif extension have no link large
+    // gif extension have no link large
     fun flickrLinkO(): String {
         return if (primaryPhotoExtras?.urlO?.contains(".gif") == true) {
-            //gif extension have no link large
+            // gif extension have no link large
             primaryPhotoExtras?.urlO ?: ""
         } else {
             LImageUtil.getFlickrLink1024(primaryPhotoExtras?.urlM ?: "")

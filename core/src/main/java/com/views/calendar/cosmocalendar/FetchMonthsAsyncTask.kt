@@ -6,19 +6,16 @@ import com.views.calendar.cosmocalendar.adapter.MonthAdapter
 import com.views.calendar.cosmocalendar.model.Month
 import com.views.calendar.cosmocalendar.settings.SettingsManager
 import com.views.calendar.cosmocalendar.utils.CalendarUtils
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-/**
- * Created by leonardo on 08/10/17.
- */
 class FetchMonthsAsyncTask : AsyncTask<FetchParams, Void, List<Month>>() {
 
     class FetchParams(
-            val future: Boolean,
-            val month: Month,
-            val settingsManager: SettingsManager,
-            val monthAdapter: MonthAdapter,
-            val defaultMonthCount: Int
+        val future: Boolean,
+        val month: Month,
+        val settingsManager: SettingsManager,
+        val monthAdapter: MonthAdapter,
+        val defaultMonthCount: Int
     )
 
     private var future = false

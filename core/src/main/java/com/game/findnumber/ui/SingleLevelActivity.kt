@@ -95,12 +95,14 @@ class SingleLevelActivity : BaseFontActivity() {
             view = ivBack,
             runnable = {
                 onBackPressed()
-            })
+            }
+        )
         LUIUtil.setSafeOnClickListenerElastic(
             view = ivPlay,
             runnable = {
                 findNumberViewModel?.getFirstLevelOpen()
-            })
+            }
+        )
     }
 
     private fun setupViewModels() {

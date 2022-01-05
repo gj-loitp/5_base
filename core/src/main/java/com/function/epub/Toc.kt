@@ -10,7 +10,7 @@ import org.w3c.dom.NodeList
 import java.io.Serializable
 import java.util.*
 
-//toc.ncx
+// toc.ncx
 @Keep
 class Toc : BaseFindings(), Serializable {
 
@@ -59,7 +59,10 @@ class Toc : BaseFindings(), Serializable {
                         if (attribute.nodeName == "name") {
                             var attributeNodeValue = attribute.nodeValue
                             if (attributeNodeValue.contains(Constants.COLON.toString())) {
-                                attributeNodeValue = getTextAfterCharacter(text = attributeNodeValue, character = Constants.COLON)
+                                attributeNodeValue = getTextAfterCharacter(
+                                    text = attributeNodeValue,
+                                    character = Constants.COLON
+                                )
                             }
                             for (j in fields.indices) {
                                 if (attributeNodeValue == fields[j].name) {
@@ -120,7 +123,8 @@ class Toc : BaseFindings(), Serializable {
             for (i in 0 until possiblyNavPoints.length) {
                 var navPointNodeName = possiblyNavPoints.item(i).nodeName
                 if (navPointNodeName.contains(Constants.COLON.toString())) {
-                    navPointNodeName = getTextAfterCharacter(text = navPointNodeName, character = Constants.COLON)
+                    navPointNodeName =
+                        getTextAfterCharacter(text = navPointNodeName, character = Constants.COLON)
                 }
                 if (navPointNodeName == "navPoint" || navPointNodeName == "pageTarget") {
                     val navPoint = NavPoint()
@@ -141,14 +145,20 @@ class Toc : BaseFindings(), Serializable {
                         val navPointChild = navPointChildNodes.item(k)
                         var navPointChildNodeName = navPointChild.nodeName
                         if (navPointChildNodeName.contains(Constants.COLON.toString())) {
-                            navPointChildNodeName = getTextAfterCharacter(text = navPointChildNodeName, character = Constants.COLON)
+                            navPointChildNodeName = getTextAfterCharacter(
+                                text = navPointChildNodeName,
+                                character = Constants.COLON
+                            )
                         }
                         if (navPointChildNodeName == "navLabel") {
                             val navLabelChildNodes = navPointChild.childNodes
                             for (l in 0 until navLabelChildNodes.length) {
                                 var navLabelChildNodeName = navLabelChildNodes.item(l).nodeName
                                 if (navLabelChildNodeName.contains(Constants.COLON.toString())) {
-                                    navLabelChildNodeName = getTextAfterCharacter(text = navLabelChildNodeName, character = Constants.COLON)
+                                    navLabelChildNodeName = getTextAfterCharacter(
+                                        text = navLabelChildNodeName,
+                                        character = Constants.COLON
+                                    )
                                 }
                                 if (navLabelChildNodeName == "text") {
                                     navPoint.navLabel = navLabelChildNodes.item(l).textContent
@@ -161,7 +171,12 @@ class Toc : BaseFindings(), Serializable {
                                 if (contentAttribute.nodeName == "src") {
                                     val contentSrc = contentAttribute.nodeValue
                                     if (contentSrc != null && contentSrc != "") {
-                                        val encodedContentSrc = encodeToUtf8(getTextAfterCharacter(text = contentSrc, character = Constants.SLASH))
+                                        val encodedContentSrc = encodeToUtf8(
+                                            getTextAfterCharacter(
+                                                text = contentSrc,
+                                                character = Constants.SLASH
+                                            )
+                                        )
                                         navPoint.contentSrc = encodedContentSrc
                                     }
                                 }
@@ -194,9 +209,9 @@ class Toc : BaseFindings(), Serializable {
         fun sortNavMaps() {
 
             // If playOrders are not given, then use the order in file.
-            navPoints?.sortWith(Comparator { o1, o2 ->
+            navPoints?.sortWith { o1, o2 ->
                 if (o1.playOrder < o2.playOrder) -1 else 1 // if equals, first occurence should be sorted as first.
-            })
+            }
         }
 
         fun print() {

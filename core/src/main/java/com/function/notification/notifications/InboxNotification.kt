@@ -3,8 +3,8 @@ package com.function.notification.notifications
 import androidx.core.app.NotificationCompat
 
 class InboxNotification(
-        title: String?,
-        content: String?
+    title: String?,
+    content: String?
 ) : BaseNotification() {
 
     init {
@@ -35,5 +35,4 @@ class InboxNotification(
         }
         builder.setStyle(style)
     }
-
 }

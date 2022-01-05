@@ -6,8 +6,8 @@ import android.net.Uri
 import com.yalantis.ucrop.UCrop
 
 class PickerBuilder(
-        private val activity: Activity,
-        type: Int
+    private val activity: Activity,
+    type: Int
 ) {
 
     companion object {

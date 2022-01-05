@@ -1,7 +1,7 @@
 package com.views.draggableflipview
 
 import android.view.MotionEvent
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 /**
  * a class detecting drag of user
@@ -9,7 +9,7 @@ import java.util.*
  * Created by sasakicks on 2015/09/09.
  */
 class DragGestureDetector(
-        private val dragGestureListener: DragGestureListener
+    private val dragGestureListener: DragGestureListener
 ) {
     @JvmField
     var deltaX = 0f
@@ -50,7 +50,10 @@ class DragGestureDetector(
                 if (originalPoint != null) {
                     deltaX = eventX - originalPoint.x
                     deltaY = eventY - originalPoint.y
-                    dragGestureListener.onDragGestureListener(dragGestureDetector = this, action = action)
+                    dragGestureListener.onDragGestureListener(
+                        dragGestureDetector = this,
+                        action = action
+                    )
                     velocityX = deltaX - prevDeltaX
                     velocityY = deltaY - prevDeltaY
                     prevDeltaX = deltaX
@@ -60,7 +63,10 @@ class DragGestureDetector(
             MotionEvent.ACTION_UP -> {
                 val originalPoint = pointMap[originalIndex]
                 if (originalPoint != null) {
-                    dragGestureListener.onDragGestureListener(dragGestureDetector = this, action = action)
+                    dragGestureListener.onDragGestureListener(
+                        dragGestureDetector = this,
+                        action = action
+                    )
                 }
                 velocityY = 0f
                 velocityX = velocityY
@@ -70,7 +76,6 @@ class DragGestureDetector(
                 deltaX = deltaY
             }
             else -> {
-
             }
         }
         return false
@@ -85,8 +90,8 @@ class DragGestureDetector(
     }
 
     inner class TouchPoint(
-            var x: Float,
-            var y: Float
+        var x: Float,
+        var y: Float
     ) {
         fun setXY(x: Float, y: Float): TouchPoint {
             this.x = x

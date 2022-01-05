@@ -55,7 +55,7 @@ class FrmFavourite : BaseFragment() {
             it.onClickRootListener = { girlPage, _ ->
                 val intent = Intent(activity, GirlDetailActivity::class.java)
                 intent.putExtra(GirlDetailActivity.KEY_GIRL_PAGE, girlPage)
-                //ko can dung startActivityForResult vi onResume luon load lai data
+                // ko can dung startActivityForResult vi onResume luon load lai data
                 startActivity(intent)
                 LActivityUtil.tranIn(activity)
             }
@@ -66,7 +66,8 @@ class FrmFavourite : BaseFragment() {
 
         girlTitleAdapterTopUser.let { gtatu ->
             girlAlbumAdapter?.let { gaa ->
-                val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gtatu, gaa)
+                val listOfAdapters =
+                    listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gtatu, gaa)
                 mergeAdapter = ConcatAdapter(listOfAdapters)
             }
         }
@@ -109,11 +110,17 @@ class FrmFavourite : BaseFragment() {
                     val listGirlPage = actionData.data
                     if (listGirlPage.isNullOrEmpty()) {
                         tvNoData.visibility = View.VISIBLE
-                        girlAlbumAdapter?.setData(listGirlPage = emptyList(), isSwipeToRefresh = true)
+                        girlAlbumAdapter?.setData(
+                            listGirlPage = emptyList(),
+                            isSwipeToRefresh = true
+                        )
                     } else {
                         tvNoData.visibility = View.GONE
                         recyclerView.visibility = View.VISIBLE
-                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = true)
+                        girlAlbumAdapter?.setData(
+                            listGirlPage = listGirlPage,
+                            isSwipeToRefresh = true
+                        )
                     }
                 }
             })
@@ -137,7 +144,7 @@ class FrmFavourite : BaseFragment() {
 
     private fun handleSearch(isAutoSearch: Boolean) {
         if (isAutoSearch) {
-            //do nothing
+            // do nothing
         } else {
             KeyboardUtils.hideSoftInput(context, etSearch)
         }
@@ -151,5 +158,4 @@ class FrmFavourite : BaseFragment() {
     private fun getListLikeGirlPage(isDelay: Boolean) {
         girlViewModel?.getListLikeGirlPage(currentKeyword = currentKeyword, isDelay = isDelay)
     }
-
 }

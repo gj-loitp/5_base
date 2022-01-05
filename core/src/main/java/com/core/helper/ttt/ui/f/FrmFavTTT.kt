@@ -20,8 +20,5 @@ class FrmFavTTT : BaseFragment() {
     }
 
     fun setupViews() {
-
     }
-
-
 }

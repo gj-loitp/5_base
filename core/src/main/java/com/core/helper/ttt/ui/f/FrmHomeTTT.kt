@@ -35,13 +35,18 @@ class FrmHomeTTT : BaseFragment() {
 
     private fun setupViews() {
         LUIUtil.setSafeOnClickListenerElastic(
-                view = btSelectType,
-                runnable = {
-                    val bottomSheetSelectTypeTTTFragment = BottomSheetSelectTypeTTTFragment()
-                    bottomSheetSelectTypeTTTFragment.show(childFragmentManager, bottomSheetSelectTypeTTTFragment.tag)
-                })
+            view = btSelectType,
+            runnable = {
+                val bottomSheetSelectTypeTTTFragment = BottomSheetSelectTypeTTTFragment()
+                bottomSheetSelectTypeTTTFragment.show(
+                    childFragmentManager,
+                    bottomSheetSelectTypeTTTFragment.tag
+                )
+            }
+        )
         tTTListComicAdapter.onClickRootListener = { comic, pos ->
-            comic.urlImg = "https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/1/28/photo-1-16118275741881533707171.jpg"
+            comic.urlImg =
+                "https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/1/28/photo-1-16118275741881533707171.jpg"
             tTTViewModel?.updateComic(comic)
         }
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -55,7 +60,7 @@ class FrmHomeTTT : BaseFragment() {
                 logD("comicTypeLiveEvent observe comicType " + BaseApplication.gson.toJson(comicType))
                 setUIComicType()
 
-                //call api
+                // call api
                 vm.getListComic(link = comicType.url)
             })
             vm.listComicActionLiveData.observe(viewLifecycleOwner, { actionData ->
@@ -82,5 +87,4 @@ class FrmHomeTTT : BaseFragment() {
             btSelectType.text = "Thể loại: " + comicType.type
         }
     }
-
 }

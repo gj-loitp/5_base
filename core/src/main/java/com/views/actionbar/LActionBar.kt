@@ -15,7 +15,6 @@ import com.github.mmin18.widget.RealtimeBlurView
  */
 
 class LActionBar : RelativeLayout {
-    private val TAG = javaClass.simpleName
     var ivIconBack: ImageView? = null
     var ivIconMenu: ImageView? = null
     var tvTitle: TextView? = null
@@ -27,7 +26,11 @@ class LActionBar : RelativeLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 

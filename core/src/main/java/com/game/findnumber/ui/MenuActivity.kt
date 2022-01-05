@@ -45,37 +45,41 @@ class MenuActivity : BaseFontActivity() {
 
     private fun setupViews() {
         LUIUtil.setSafeOnClickListenerElastic(
-                view = ivBack,
-                runnable = {
-                    onBackPressed()
-                })
+            view = ivBack,
+            runnable = {
+                onBackPressed()
+            }
+        )
         LUIUtil.setSafeOnClickListenerElastic(
-                view = ivMore,
-                runnable = {
-                    LSocialUtil.moreApp(activity = this)
-                })
+            view = ivMore,
+            runnable = {
+                LSocialUtil.moreApp(activity = this)
+            }
+        )
         LUIUtil.setSafeOnClickListenerElastic(
-                view = btSinglePlayer,
-                runnable = {
-                    val intent = Intent(this, SingleLevelActivity::class.java)
-                    val builder = CircularReveal.Builder(
-                            this,
-                            btSinglePlayer,
-                            intent,
-                            1000
-                    ).apply {
-                        revealColor = ContextCompat.getColor(
-                                this@MenuActivity,
-                                R.color.orange
-                        )
-                        requestCode = SplashActivity.REQUEST_CODE
-                    }
-                    CircularReveal.presentActivity(builder)
-                })
+            view = btSinglePlayer,
+            runnable = {
+                val intent = Intent(this, SingleLevelActivity::class.java)
+                val builder = CircularReveal.Builder(
+                    this,
+                    btSinglePlayer,
+                    intent,
+                    1000
+                ).apply {
+                    revealColor = ContextCompat.getColor(
+                        this@MenuActivity,
+                        R.color.orange
+                    )
+                    requestCode = SplashActivity.REQUEST_CODE
+                }
+                CircularReveal.presentActivity(builder)
+            }
+        )
         LUIUtil.setSafeOnClickListenerElastic(
-                view = btTwoPlayers,
-                runnable = {
-                    //TODO 2 players
-                })
+            view = btTwoPlayers,
+            runnable = {
+                // TODO 2 players
+            }
+        )
     }
 }

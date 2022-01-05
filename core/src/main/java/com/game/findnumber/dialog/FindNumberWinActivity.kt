@@ -30,7 +30,7 @@ class FindNumberWinActivity : BaseFontActivity() {
     private fun setupViews() {
         rootView.setOnClickListener {
 //            exit()
-            //do nothing
+            // do nothing
         }
         FabTransform.setup(this, container)
     }
@@ -42,5 +42,4 @@ class FindNumberWinActivity : BaseFontActivity() {
     private fun exit() {
         ActivityCompat.finishAfterTransition(this@FindNumberWinActivity)
     }
-
 }

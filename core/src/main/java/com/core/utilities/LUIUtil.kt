@@ -5,24 +5,24 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.*
-import android.graphics.drawable.*
+import android.graphics.* // ktlint-disable no-wildcard-imports
+import android.graphics.drawable.* // ktlint-disable no-wildcard-imports
 import android.graphics.drawable.shapes.RectShape
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.Html
 import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import android.util.TypedValue
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.view.inputmethod.EditorInfo
-import android.widget.*
+import android.widget.* // ktlint-disable no-wildcard-imports
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.core.widget.NestedScrollView
@@ -32,7 +32,7 @@ import androidx.viewpager.widget.ViewPager
 import com.R
 import com.core.common.Constants
 import com.data.AdmobData
-import com.google.android.gms.ads.*
+import com.google.android.gms.ads.* // ktlint-disable no-wildcard-imports
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
 import com.google.android.material.navigation.NavigationView
@@ -48,15 +48,9 @@ import io.github.inflationx.calligraphy3.CalligraphyUtils
 import io.github.inflationx.viewpump.ViewPump
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper
 import java.io.InputStream
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.collections.ArrayList
 
-
-/**
- * File created on 17/7/2019.
- *
- * @author loitp
- */
 class LUIUtil {
     companion object {
         private val logTag = LUIUtil::class.java.simpleName
@@ -65,67 +59,72 @@ class LUIUtil {
         private var isUp = false
 
         private val listColorLight = intArrayOf(
-                R.color.lightBlue,
-                R.color.lightCoral,
-                R.color.lightCyan,
-                R.color.lightGoldenrodYellow,
-                R.color.lightGreen,
-                R.color.lightGrey,
-                R.color.lightPink,
-                R.color.lightSalmon,
-                R.color.lightSeaGreen,
-                R.color.lightSlateGray,
-                R.color.lightSteelBlue,
-                R.color.lightYellow,
-                R.color.lightSkyBlue,
-                R.color.ripple_material_dark,
-                R.color.grey,
-                R.color.scratchEndGradient,
-                R.color.lemonChiffon,
-                R.color.bisque,
-                R.color.hotPink,
-                R.color.salmon,
-                R.color.wheat,
-                R.color.honeydew,
-                R.color.paleGoldenrod,
-                R.color.violet,
-                R.color.lavender,
-                R.color.gainsboro,
-                R.color.orchid,
-                R.color.tan,
-                R.color.indianRed,
-                R.color.darkKhaki,
-                R.color.mediumOrchid,
-                R.color.powderBlue,
-                R.color.greenYellow,
-                R.color.paleGreen,
-                R.color.mediumPurple,
-                R.color.darkSeaGreen,
-                R.color.skyBlue,
-                R.color.slateGray,
-                R.color.oliveDrab,
-                R.color.cornflowerBlue,
-                R.color.mediumTurquoise,
-                R.color.mediumSeaGreen,
-                R.color.dodgerBlue,
-                R.color.aqua,
-                R.color.springGreen,
-                R.color.periwinkle,
-                R.color.pink,
-                R.color.default_selected_day_background_start_color,
-                R.color.default_selection_bar_month_title_text_color
+            R.color.lightBlue,
+            R.color.lightCoral,
+            R.color.lightCyan,
+            R.color.lightGoldenrodYellow,
+            R.color.lightGreen,
+            R.color.lightGrey,
+            R.color.lightPink,
+            R.color.lightSalmon,
+            R.color.lightSeaGreen,
+            R.color.lightSlateGray,
+            R.color.lightSteelBlue,
+            R.color.lightYellow,
+            R.color.lightSkyBlue,
+            R.color.ripple_material_dark,
+            R.color.grey,
+            R.color.scratchEndGradient,
+            R.color.lemonChiffon,
+            R.color.bisque,
+            R.color.hotPink,
+            R.color.salmon,
+            R.color.wheat,
+            R.color.honeydew,
+            R.color.paleGoldenrod,
+            R.color.violet,
+            R.color.lavender,
+            R.color.gainsboro,
+            R.color.orchid,
+            R.color.tan,
+            R.color.indianRed,
+            R.color.darkKhaki,
+            R.color.mediumOrchid,
+            R.color.powderBlue,
+            R.color.greenYellow,
+            R.color.paleGreen,
+            R.color.mediumPurple,
+            R.color.darkSeaGreen,
+            R.color.skyBlue,
+            R.color.slateGray,
+            R.color.oliveDrab,
+            R.color.cornflowerBlue,
+            R.color.mediumTurquoise,
+            R.color.mediumSeaGreen,
+            R.color.dodgerBlue,
+            R.color.aqua,
+            R.color.springGreen,
+            R.color.periwinkle,
+            R.color.pink,
+            R.color.default_selected_day_background_start_color,
+            R.color.default_selection_bar_month_title_text_color
         )
 
         var fontForAll: String? = null
             set(fontForAll) {
                 field = fontForAll
-                ViewPump.init(ViewPump.builder()
-                        .addInterceptor(CalligraphyInterceptor(
+                ViewPump.init(
+                    ViewPump.builder()
+                        .addInterceptor(
+                            CalligraphyInterceptor(
                                 CalligraphyConfig.Builder()
-                                        .setDefaultFontPath(fontForAll)
-                                        .setFontAttrId(R.attr.fontPath)
-                                        .build()))
-                        .build())
+                                    .setDefaultFontPath(fontForAll)
+                                    .setFontAttrId(R.attr.fontPath)
+                                    .build()
+                            )
+                        )
+                        .build()
+                )
             }
 
         private fun getListTestDevice(): ArrayList<String> {
@@ -137,8 +136,8 @@ class LUIUtil {
 
         fun createAdBanner(adView: AdView): AdView {
             val requestConfiguration = RequestConfiguration.Builder()
-                    .setTestDeviceIds(getListTestDevice())
-                    .build()
+                .setTestDeviceIds(getListTestDevice())
+                .build()
             MobileAds.setRequestConfiguration(requestConfiguration)
 
             adView.loadAd(AdRequest.Builder().build())
@@ -146,43 +145,45 @@ class LUIUtil {
         }
 
         fun createAdFull(
-                context: Context,
-                onAdLoaded: ((InterstitialAd) -> Unit),
-                onAdFailedToLoad: ((LoadAdError) -> Unit)? = null,
+            context: Context,
+            onAdLoaded: ((InterstitialAd) -> Unit),
+            onAdFailedToLoad: ((LoadAdError) -> Unit)? = null,
         ) {
             val requestConfiguration = RequestConfiguration.Builder()
-                    .setTestDeviceIds(getListTestDevice())
-                    .build()
+                .setTestDeviceIds(getListTestDevice())
+                .build()
             MobileAds.setRequestConfiguration(requestConfiguration)
 
             InterstitialAd.load(
-                    context,
-                    AdmobData.instance.idAdmobFull ?: "",
-                    AdRequest.Builder().build(),
-                    object : InterstitialAdLoadCallback() {
-                        override fun onAdLoaded(interstitialAd: InterstitialAd) {
-                            interstitialAd.fullScreenContentCallback = object : FullScreenContentCallback() {
+                context,
+                AdmobData.instance.idAdmobFull ?: "",
+                AdRequest.Builder().build(),
+                object : InterstitialAdLoadCallback() {
+                    override fun onAdLoaded(interstitialAd: InterstitialAd) {
+                        interstitialAd.fullScreenContentCallback =
+                            object : FullScreenContentCallback() {
                                 override fun onAdDismissedFullScreenContent() {
-                                    //do sth
+                                    // do sth
                                 }
                             }
-                            interstitialAd.setOnPaidEventListener {
-                                //do sth
-                            }
-                            onAdLoaded.invoke(interstitialAd)
+                        interstitialAd.setOnPaidEventListener {
+                            // do sth
                         }
+                        onAdLoaded.invoke(interstitialAd)
+                    }
 
-                        override fun onAdFailedToLoad(loadAdError: LoadAdError) {
-                            onAdFailedToLoad?.invoke(loadAdError)
-                        }
-                    })
+                    override fun onAdFailedToLoad(loadAdError: LoadAdError) {
+                        onAdFailedToLoad?.invoke(loadAdError)
+                    }
+                }
+            )
         }
 
         @JvmOverloads
         fun displayInterstitial(
-                activity: Activity,
-                interstitial: InterstitialAd?,
-                maxNumber: Int = 100
+            activity: Activity,
+            interstitial: InterstitialAd?,
+            maxNumber: Int = 100
         ) {
             interstitial?.let { i ->
                 val r = Random()
@@ -190,7 +191,7 @@ class LUIUtil {
                 if (x < maxNumber) {
                     i.show(activity)
                 } else {
-                    //don't use LLog here
+                    // don't use LLog here
                     Log.d("interstitial", "displayInterstitial but $x > $maxNumber")
                 }
             }
@@ -211,7 +212,7 @@ class LUIUtil {
                 it.isSelected = true
                 it.ellipsize = TextUtils.TruncateAt.MARQUEE
                 it.isSingleLine = true
-                it.marqueeRepeatLimit = -1//no limit loop
+                it.marqueeRepeatLimit = -1 // no limit loop
             }
         }
 
@@ -244,9 +245,14 @@ class LUIUtil {
             val layers = arrayOfNulls<Drawable>(1)
             val sf = object : ShapeDrawable.ShaderFactory() {
                 override fun resize(width: Int, height: Int): Shader {
-                    return LinearGradient(0f, 0f, 0f, v.height.toFloat(), intArrayOf(LStoreUtil.randomColor,
-                            LStoreUtil.randomColor, LStoreUtil.randomColor, LStoreUtil.randomColor),
-                            floatArrayOf(0f, 0.49f, 0.50f, 1f), Shader.TileMode.CLAMP)
+                    return LinearGradient(
+                        0f, 0f, 0f, v.height.toFloat(),
+                        intArrayOf(
+                            LStoreUtil.randomColor,
+                            LStoreUtil.randomColor, LStoreUtil.randomColor, LStoreUtil.randomColor
+                        ),
+                        floatArrayOf(0f, 0.49f, 0.50f, 1f), Shader.TileMode.CLAMP
+                    )
                 }
             }
             val p = PaintDrawable()
@@ -261,11 +267,7 @@ class LUIUtil {
         @Suppress("DEPRECATION")
         fun setTextFromHTML(textView: TextView?, bodyData: String) {
             textView?.let {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    it.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
-                } else {
-                    it.text = Html.fromHtml(bodyData)
-                }
+                it.text = Html.fromHtml(bodyData, Html.FROM_HTML_MODE_LEGACY)
             }
         }
 
@@ -281,7 +283,6 @@ class LUIUtil {
                             iv.setImageDrawable(it)
                         }
                     } catch (e: Exception) {
-                        Log.e(logTag, "setImageFromAsset: $e")
                         e.printStackTrace()
                     } finally {
                         try {
@@ -289,7 +290,6 @@ class LUIUtil {
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }
-
                     }
                 }
             }
@@ -300,9 +300,12 @@ class LUIUtil {
                 tabLayout.tabMode = TabLayout.MODE_SCROLLABLE
             } else {
                 tabLayout.tabMode = TabLayout.MODE_FIXED
-                tabLayout.layoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT)
+                tabLayout.layoutParams = FrameLayout.LayoutParams(
+                    FrameLayout.LayoutParams.MATCH_PARENT,
+                    FrameLayout.LayoutParams.MATCH_PARENT
+                )
             }
-            //settext allcap = false
+            // settext allcap = false
             /*for (int tabIndex = 0; tabIndex < tabLayout.getTabCount(); tabIndex++) {
                 TextView tabTextView = (TextView) (((LinearLayout) ((LinearLayout) tabLayout.getChildAt(0)).getChildAt(tabIndex)).getChildAt(1));
                 tabTextView.setAllCaps(false);
@@ -312,21 +315,17 @@ class LUIUtil {
 
         @Suppress("DEPRECATION")
         fun setTextAppearance(context: Context, textView: TextView, resId: Int) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                textView.setTextAppearance(context, resId)
-            } else {
-                textView.setTextAppearance(resId)
-            }
+            textView.setTextAppearance(resId)
         }
 
         fun setDelay(mls: Int, runnable: Runnable) {
-            val handler = Handler()
+            val handler = Handler(Looper.getMainLooper())
             handler.postDelayed({ runnable.run() }, mls.toLong())
         }
 
         fun setSoftInputMode(activity: Activity, mode: Int) {
-            //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-            //activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
+            // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+            // activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
             activity.window.setSoftInputMode(mode)
         }
 
@@ -340,12 +339,12 @@ class LUIUtil {
 
         fun setColorForSwipeRefreshLayout(swipeRefreshLayout: SwipeRefreshLayout?) {
             swipeRefreshLayout?.setColorSchemeResources(
-                    R.color.colorPrimary,
-                    R.color.vip1,
-                    R.color.vip2,
-                    R.color.vip3,
-                    R.color.vip4,
-                    R.color.vip5
+                R.color.colorPrimary,
+                R.color.vip1,
+                R.color.vip2,
+                R.color.vip3,
+                R.color.vip4,
+                R.color.vip5
             )
         }
 
@@ -355,15 +354,16 @@ class LUIUtil {
 
         fun setTextShadow(textView: TextView?, color: Int?) {
             val mColor: Int = color
-                    ?: if (isDarkTheme()) {
-                        Color.BLACK
-                    } else {
-                        Color.WHITE
-                    }
-            textView?.setShadowLayer(1f, // radius
-                    1f, // dx
-                    1f, // dy
-                    mColor // shadow color
+                ?: if (isDarkTheme()) {
+                    Color.BLACK
+                } else {
+                    Color.WHITE
+                }
+            textView?.setShadowLayer(
+                1f, // radius
+                1f, // dx
+                1f, // dy
+                mColor // shadow color
             )
         }
 
@@ -391,27 +391,33 @@ class LUIUtil {
         }
 
         fun setPullLikeIOSVertical(
-                recyclerView: RecyclerView
+            recyclerView: RecyclerView
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
-            OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
+            // guide: https://github.com/EverythingMe/overscroll-decor
+            OverScrollDecoratorHelper.setUpOverScroll(
+                recyclerView,
+                OverScrollDecoratorHelper.ORIENTATION_VERTICAL
+            )
         }
 
         fun setPullLikeIOSHorizontal(
-                recyclerView: RecyclerView
+            recyclerView: RecyclerView
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
-            OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL)
+            // guide: https://github.com/EverythingMe/overscroll-decor
+            OverScrollDecoratorHelper.setUpOverScroll(
+                recyclerView,
+                OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL
+            )
         }
 
         fun setPullLikeIOSHorizontal(
-                viewPager: ViewPager,
-                onUpOrLeft: ((Float) -> Unit)? = null,
-                onUpOrLeftRefresh: ((Float) -> Unit)? = null,
-                onDownOrRight: ((Float) -> Unit)? = null,
-                onDownOrRightRefresh: ((Float) -> Unit)? = null
+            viewPager: ViewPager,
+            onUpOrLeft: ((Float) -> Unit)? = null,
+            onUpOrLeftRefresh: ((Float) -> Unit)? = null,
+            onDownOrRight: ((Float) -> Unit)? = null,
+            onDownOrRightRefresh: ((Float) -> Unit)? = null
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
+            // guide: https://github.com/EverythingMe/overscroll-decor
             val mDecor = OverScrollDecoratorHelper.setUpOverScroll(viewPager)
             mDecor.setOverScrollUpdateListener { _, _, offset ->
                 when {
@@ -450,15 +456,18 @@ class LUIUtil {
         }
 
         fun setPullLikeIOSVertical(
-                recyclerView: RecyclerView,
-                onUpOrLeft: ((Float) -> Unit)? = null,
-                onUpOrLeftRefresh: ((Float) -> Unit)? = null,
-                onDownOrRight: ((Float) -> Unit)? = null,
-                onDownOrRightRefresh: ((Float) -> Unit)? = null
+            recyclerView: RecyclerView,
+            onUpOrLeft: ((Float) -> Unit)? = null,
+            onUpOrLeftRefresh: ((Float) -> Unit)? = null,
+            onDownOrRight: ((Float) -> Unit)? = null,
+            onDownOrRightRefresh: ((Float) -> Unit)? = null
         ) {
-            val mDecor = OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
+            val mDecor = OverScrollDecoratorHelper.setUpOverScroll(
+                recyclerView,
+                OverScrollDecoratorHelper.ORIENTATION_VERTICAL
+            )
             mDecor.setOverScrollUpdateListener { _, _, offset ->
-                //val view = decor.view
+                // val view = decor.view
                 when {
                     offset > 0 -> {
                         // 'view' is currently being over-scrolled from the top.
@@ -495,50 +504,53 @@ class LUIUtil {
         }
 
         fun setPullLikeIOSHorizontal(
-                viewPager: ViewPager
+            viewPager: ViewPager
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
+            // guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(viewPager)
         }
 
         fun setPullLikeIOSVertical(
-                scrollView: ScrollView
+            scrollView: ScrollView
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
+            // guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(scrollView)
         }
 
         fun setPullLikeIOSVertical(
-                listView: ListView
+            listView: ListView
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
+            // guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(listView)
         }
 
         fun setPullLikeIOSVertical(
-                gridView: GridView
+            gridView: GridView
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
+            // guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(gridView)
         }
 
         fun setPullLikeIOSVertical(
-                scrollView: HorizontalScrollView
+            scrollView: HorizontalScrollView
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
+            // guide: https://github.com/EverythingMe/overscroll-decor
             OverScrollDecoratorHelper.setUpOverScroll(scrollView)
         }
 
         fun setPullLikeIOSVertical(
-                view: View
+            view: View
         ) {
-            //guide: https://github.com/EverythingMe/overscroll-decor
+            // guide: https://github.com/EverythingMe/overscroll-decor
 
             // Horizontal
-            //OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
+            // OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_HORIZONTAL);
 
             // Vertical
-            OverScrollDecoratorHelper.setUpStaticOverScroll(view, OverScrollDecoratorHelper.ORIENTATION_VERTICAL)
+            OverScrollDecoratorHelper.setUpStaticOverScroll(
+                view,
+                OverScrollDecoratorHelper.ORIENTATION_VERTICAL
+            )
         }
 
         fun getRandomColorLight(): Int {
@@ -547,50 +559,54 @@ class LUIUtil {
             return listColorLight[index]
         }
 
-        //it.imeOptions = EditorInfo.IME_ACTION_SEARCH
+        // it.imeOptions = EditorInfo.IME_ACTION_SEARCH
         fun setImeiActionEditText(
-                editText: EditText? = null,
-                imeOptions: Int,
-                runnable: Runnable? = null
+            editText: EditText? = null,
+            imeOptions: Int,
+            runnable: Runnable? = null
         ) {
             editText?.let {
                 it.imeOptions = imeOptions
-                it.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
-                    if (actionId == imeOptions) {
-                        runnable?.run()
-                        return@OnEditorActionListener true
+                it.setOnEditorActionListener(
+                    TextView.OnEditorActionListener { _, actionId, _ ->
+                        if (actionId == imeOptions) {
+                            runnable?.run()
+                            return@OnEditorActionListener true
+                        }
+                        false
                     }
-                    false
-                })
+                )
             }
         }
 
         fun setImeiActionSearch(
-                editText: EditText? = null,
-                actionSearch: Runnable? = null
+            editText: EditText? = null,
+            actionSearch: Runnable? = null
         ) {
             editText?.let {
                 it.imeOptions = EditorInfo.IME_ACTION_SEARCH
-                it.setOnEditorActionListener(TextView.OnEditorActionListener { _, actionId, _ ->
-                    if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                        actionSearch?.run()
-                        return@OnEditorActionListener true
+                it.setOnEditorActionListener(
+                    TextView.OnEditorActionListener { _, actionId, _ ->
+                        if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                            actionSearch?.run()
+                            return@OnEditorActionListener true
+                        }
+                        false
                     }
-                    false
-                })
+                )
             }
         }
 
         fun setColorProgressBar(
-                progressBar: ProgressBar? = null,
-                color: Int
+            progressBar: ProgressBar? = null,
+            color: Int
         ) {
             progressBar?.indeterminateDrawable?.setColorFilter(color, PorterDuff.Mode.MULTIPLY)
         }
 
         fun setProgressBarVisibility(
-                progressBar: ProgressBar? = null,
-                visibility: Int
+            progressBar: ProgressBar? = null,
+            visibility: Int
         ) {
             progressBar?.visibility = visibility
         }
@@ -602,10 +618,10 @@ class LUIUtil {
             }
         }
 
-        //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 25);//25dp
-        //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_SP, 25);//25sp
-        //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PX, 25);//25px
-        //Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PT, 25);//25points
+        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_DIP, 25);//25dp
+        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_SP, 25);//25sp
+        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PX, 25);//25px
+        // Ex: setTextSize(tv, TypedValue.COMPLEX_UNIT_PT, 25);//25points
 //        fun setTextSize(textView: TextView?, typedValue: Int, size: Int) {
 //            if (size < 0) {
 //                return
@@ -634,7 +650,12 @@ class LUIUtil {
             view?.let {
                 if (it.layoutParams is ViewGroup.MarginLayoutParams) {
                     val p = it.layoutParams as ViewGroup.MarginLayoutParams
-                    p.setMargins(ConvertUtils.dp2px(leftDp.toFloat()), ConvertUtils.dp2px(topDp.toFloat()), ConvertUtils.dp2px(rightDp.toFloat()), ConvertUtils.dp2px(bottomDp.toFloat()))
+                    p.setMargins(
+                        ConvertUtils.dp2px(leftDp.toFloat()),
+                        ConvertUtils.dp2px(topDp.toFloat()),
+                        ConvertUtils.dp2px(rightDp.toFloat()),
+                        ConvertUtils.dp2px(bottomDp.toFloat())
+                    )
                     it.requestLayout()
                 }
             }
@@ -665,14 +686,36 @@ class LUIUtil {
             }
         }
 
-        fun setNavMenuItemThemeColors(navigationView: NavigationView, colorDefault: Int, color: Int) {
-            //Setting default colors for menu item Text and Icon
+        fun setNavMenuItemThemeColors(
+            navigationView: NavigationView,
+            colorDefault: Int,
+            color: Int
+        ) {
+            // Setting default colors for menu item Text and Icon
 
-            //Defining ColorStateList for menu item Text
-            val navMenuTextList = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf(android.R.attr.state_enabled), intArrayOf(android.R.attr.state_pressed), intArrayOf(android.R.attr.state_focused), intArrayOf(android.R.attr.state_pressed)), intArrayOf(color, colorDefault, colorDefault, colorDefault, colorDefault))
+            // Defining ColorStateList for menu item Text
+            val navMenuTextList = ColorStateList(
+                arrayOf(
+                    intArrayOf(android.R.attr.state_checked),
+                    intArrayOf(android.R.attr.state_enabled),
+                    intArrayOf(android.R.attr.state_pressed),
+                    intArrayOf(android.R.attr.state_focused),
+                    intArrayOf(android.R.attr.state_pressed)
+                ),
+                intArrayOf(color, colorDefault, colorDefault, colorDefault, colorDefault)
+            )
 
-            //Defining ColorStateList for menu item Icon
-            val navMenuIconList = ColorStateList(arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf(android.R.attr.state_enabled), intArrayOf(android.R.attr.state_pressed), intArrayOf(android.R.attr.state_focused), intArrayOf(android.R.attr.state_pressed)), intArrayOf(color, colorDefault, colorDefault, colorDefault, colorDefault))
+            // Defining ColorStateList for menu item Icon
+            val navMenuIconList = ColorStateList(
+                arrayOf(
+                    intArrayOf(android.R.attr.state_checked),
+                    intArrayOf(android.R.attr.state_enabled),
+                    intArrayOf(android.R.attr.state_pressed),
+                    intArrayOf(android.R.attr.state_focused),
+                    intArrayOf(android.R.attr.state_pressed)
+                ),
+                intArrayOf(color, colorDefault, colorDefault, colorDefault, colorDefault)
+            )
             navigationView.itemTextColor = navMenuTextList
             navigationView.itemIconTintList = navMenuIconList
         }
@@ -704,7 +747,7 @@ class LUIUtil {
             return view.measuredHeight
         }
 
-        //playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
+        // playYoutube(activity, "http://www.youtube.com/watch?v=Hxy8BZGQ5Jo");
         fun playYoutube(activity: Activity?, url: String?) {
             activity?.let { a ->
                 if (url.isNullOrEmpty()) {
@@ -725,7 +768,11 @@ class LUIUtil {
         fun setRipple(view: View) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 val outValue = TypedValue()
-                view.context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+                view.context.theme.resolveAttribute(
+                    android.R.attr.selectableItemBackground,
+                    outValue,
+                    true
+                )
                 view.setBackgroundResource(outValue.resourceId)
             }
         }
@@ -733,32 +780,31 @@ class LUIUtil {
         @SuppressLint("RestrictedApi")
         fun setCheckBoxColor(checkBox: AppCompatCheckBox, uncheckedColor: Int, checkedColor: Int) {
             val colorStateList = ColorStateList(
-                    arrayOf(intArrayOf(-android.R.attr.state_checked), //unchecked
-                            intArrayOf(android.R.attr.state_checked)  //checked
-                    ),
-                    intArrayOf(uncheckedColor, checkedColor)
+                arrayOf(
+                    intArrayOf(-android.R.attr.state_checked), // unchecked
+                    intArrayOf(android.R.attr.state_checked) // checked
+                ),
+                intArrayOf(uncheckedColor, checkedColor)
             )
             checkBox.supportButtonTintList = colorStateList
         }
 
         fun setChangeStatusBarTintToDark(window: Window, shouldChangeStatusBarTintToDark: Boolean) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                val decor = window.decorView
-                if (shouldChangeStatusBarTintToDark) {
-                    decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                } else {
-                    // We want to change tint color to white again.
-                    // You can also record the flags in advance so that you can turn UI back completely if
-                    // you have set other flags before, such as translucent or full screen.
-                    decor.systemUiVisibility = 0
-                }
+            val decor = window.decorView
+            if (shouldChangeStatusBarTintToDark) {
+                decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            } else {
+                // We want to change tint color to white again.
+                // You can also record the flags in advance so that you can turn UI back completely if
+                // you have set other flags before, such as translucent or full screen.
+                decor.systemUiVisibility = 0
             }
         }
 
         fun setSizeOfView(
-                view: View? = null,
-                width: Int? = null,
-                height: Int? = null
+            view: View? = null,
+            width: Int? = null,
+            height: Int? = null
         ) {
             view?.let { v ->
                 width?.let {
@@ -771,7 +817,7 @@ class LUIUtil {
             }
         }
 
-        //ViewGroup.LayoutParams.MATCH_PARENT
+        // ViewGroup.LayoutParams.MATCH_PARENT
 //        fun setSize(view: View, w: Int, h: Int) {
 //            view.layoutParams.width = w
 //            view.layoutParams.height = h
@@ -779,10 +825,10 @@ class LUIUtil {
 //        }
 
         fun setScrollChange(
-                recyclerView: RecyclerView,
-                onTop: ((Unit) -> Unit)? = null,
-                onBottom: ((Unit) -> Unit)? = null,
-                onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
+            recyclerView: RecyclerView,
+            onTop: ((Unit) -> Unit)? = null,
+            onBottom: ((Unit) -> Unit)? = null,
+            onScrolled: ((isScrollDown: Boolean) -> Unit)? = null
         ) {
             var isScrollDown = false
             recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -817,7 +863,11 @@ class LUIUtil {
             })
         }
 
-        fun addTextChangedListener(editText: EditText?, delayInMls: Long, afterTextChanged: (String) -> Unit) {
+        fun addTextChangedListener(
+            editText: EditText?,
+            delayInMls: Long,
+            afterTextChanged: (String) -> Unit
+        ) {
             if (delayInMls > 0) {
                 editText?.let { et ->
                     et.addTextChangedListener(object : TextWatcher {
@@ -825,21 +875,34 @@ class LUIUtil {
                         override fun afterTextChanged(editable: Editable?) {
                             timer.cancel()
                             timer = Timer()
-                            timer.schedule(object : TimerTask() {
-                                override fun run() {
-                                    editable?.let { e ->
-                                        et.post {
-                                            afterTextChanged.invoke(e.toString())
+                            timer.schedule(
+                                object : TimerTask() {
+                                    override fun run() {
+                                        editable?.let { e ->
+                                            et.post {
+                                                afterTextChanged.invoke(e.toString())
+                                            }
                                         }
                                     }
-                                }
-                            }, delayInMls)
+                                },
+                                delayInMls
+                            )
                         }
 
-                        override fun beforeTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                        override fun beforeTextChanged(
+                            charSequence: CharSequence?,
+                            p1: Int,
+                            p2: Int,
+                            p3: Int
+                        ) {
                         }
 
-                        override fun onTextChanged(charSequence: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                        override fun onTextChanged(
+                            charSequence: CharSequence?,
+                            p1: Int,
+                            p2: Int,
+                            p3: Int
+                        ) {
                         }
                     }
                     )
@@ -877,18 +940,18 @@ class LUIUtil {
         }
 
         fun setOnClickListenerElastic(
-                view: View? = null,
-                scaleX: Float = 0.8f,
-                scaleY: Float = 0.8f,
-                duration: Int = 300,
-                runnable: Runnable? = null
+            view: View? = null,
+            scaleX: Float = 0.8f,
+            scaleY: Float = 0.8f,
+            duration: Int = 300,
+            runnable: Runnable? = null
         ) {
             view?.let { v ->
                 v.setOnClickListener {
                     val anim = v.elasticAnimation(
-                            scaleX = scaleX,
-                            scaleY = scaleY,
-                            duration = duration
+                        scaleX = scaleX,
+                        scaleY = scaleY,
+                        duration = duration
                     ) {
                         runnable?.run()
                     }
@@ -898,18 +961,18 @@ class LUIUtil {
         }
 
         fun setSafeOnClickListenerElastic(
-                view: View? = null,
-                scaleX: Float = 0.8f,
-                scaleY: Float = 0.8f,
-                duration: Int = 300,
-                runnable: Runnable? = null
+            view: View? = null,
+            scaleX: Float = 0.8f,
+            scaleY: Float = 0.8f,
+            duration: Int = 300,
+            runnable: Runnable? = null
         ) {
             view?.let { v ->
                 v.setSafeOnClickListener {
                     val anim = v.elasticAnimation(
-                            scaleX = scaleX,
-                            scaleY = scaleY,
-                            duration = duration
+                        scaleX = scaleX,
+                        scaleY = scaleY,
+                        duration = duration
                     ) {
                         runnable?.run()
                     }
@@ -929,12 +992,11 @@ class LUIUtil {
                 (view.findViewById<View?>(R.id.snackbar_text) as? TextView?)?.let {
                     it.isSingleLine = false
                     it.setTextColor(Color.WHITE)
-                    setTextSize(textView = it, size = LAppResource.getDimenValue(R.dimen.txt_medium).toFloat())
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        it.textAlignment = View.TEXT_ALIGNMENT_CENTER
-                    } else {
-                        it.gravity = Gravity.CENTER_HORIZONTAL
-                    }
+                    setTextSize(
+                        textView = it,
+                        size = LAppResource.getDimenValue(R.dimen.txt_medium).toFloat()
+                    )
+                    it.textAlignment = View.TEXT_ALIGNMENT_CENTER
                 }
             }
         }

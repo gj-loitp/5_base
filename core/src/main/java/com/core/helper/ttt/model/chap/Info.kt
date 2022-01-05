@@ -6,7 +6,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 @Keep
-class Info : BaseModel(){
+class Info : BaseModel() {
 
     @SerializedName("cover")
     @Expose
@@ -31,5 +31,4 @@ class Info : BaseModel(){
     @SerializedName("summary")
     @Expose
     var summary: String = ""
-
 }

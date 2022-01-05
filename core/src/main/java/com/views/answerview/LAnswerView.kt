@@ -29,7 +29,11 @@ class LAnswerView : LinearLayout, View.OnClickListener {
         init(attrs)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(attrs)
     }
 
@@ -41,27 +45,29 @@ class LAnswerView : LinearLayout, View.OnClickListener {
         change = event
     }
 
-    //numberOfAnswer max is 6
+    // numberOfAnswer max is 6
     fun init(
-            number: Int,
-            numberOfAnswer: Int,
-            isShowNumber: Boolean,
-            isCanCancelAnswer: Boolean,
-            isChangeOnClick: Boolean,
-            isShowTextWhenActive: Boolean
+        number: Int,
+        numberOfAnswer: Int,
+        isShowNumber: Boolean,
+        isCanCancelAnswer: Boolean,
+        isChangeOnClick: Boolean,
+        isShowTextWhenActive: Boolean
     ) {
         orientation = HORIZONTAL
         awShowTextWhenActive = isShowTextWhenActive
         awChangeOnClick = isChangeOnClick
         awCanCancelAnswer = isCanCancelAnswer
         if (isShowNumber) {
-            numberTextView = LayoutInflater.from(context).inflate(R.layout.l_view_answer_number, this, false) as TextView
+            numberTextView = LayoutInflater.from(context)
+                .inflate(R.layout.l_view_answer_number, this, false) as TextView
             setNumber(number)
             addView(numberTextView)
         }
         viewler = arrayOfNulls(numberOfAnswer)
         for (i in 0 until numberOfAnswer) {
-            viewler[i] = LayoutInflater.from(context).inflate(R.layout.l_view_answer_one_view, this, false) as OneAnswerView
+            viewler[i] = LayoutInflater.from(context)
+                .inflate(R.layout.l_view_answer_one_view, this, false) as OneAnswerView
             viewler[i]?.let {
                 it.setIndex(i)
                 it.setOnClickListener(this)
@@ -74,19 +80,22 @@ class LAnswerView : LinearLayout, View.OnClickListener {
         orientation = HORIZONTAL
         if (attrs != null) {
             val a = context.obtainStyledAttributes(attrs, R.styleable.LAnswerView, 0, 0)
-            awShowTextWhenActive = a.getBoolean(R.styleable.LAnswerView_aw_ShowTextWhenActive, false)
+            awShowTextWhenActive =
+                a.getBoolean(R.styleable.LAnswerView_aw_ShowTextWhenActive, false)
             awChangeOnClick = a.getBoolean(R.styleable.LAnswerView_aw_changeOnClick, true)
             awCanCancelAnswer = a.getBoolean(R.styleable.LAnswerView_aw_canCancelAnswer, true)
             val count = a.getInt(R.styleable.LAnswerView_aw_NumberOfAnswers, 5)
             if (a.getBoolean(R.styleable.LAnswerView_aw_ShowNumber, false)) {
-                numberTextView = LayoutInflater.from(context).inflate(R.layout.l_view_answer_number, this, false) as TextView
+                numberTextView = LayoutInflater.from(context)
+                    .inflate(R.layout.l_view_answer_number, this, false) as TextView
                 setNumber(a.getInt(R.styleable.LAnswerView_aw_Number, 1))
                 addView(numberTextView)
             }
             a.recycle()
             viewler = arrayOfNulls(count)
             for (i in 0 until count) {
-                viewler[i] = LayoutInflater.from(context).inflate(R.layout.l_view_answer_one_view, this, false) as OneAnswerView
+                viewler[i] = LayoutInflater.from(context)
+                    .inflate(R.layout.l_view_answer_one_view, this, false) as OneAnswerView
                 viewler[i]?.let {
                     it.setIndex(i)
                     it.setOnClickListener(this)
@@ -107,7 +116,8 @@ class LAnswerView : LinearLayout, View.OnClickListener {
         }
         viewler = arrayOfNulls(count)
         for (i in 0 until count) {
-            viewler[i] = LayoutInflater.from(context).inflate(R.layout.l_view_answer_one_view, this, false) as OneAnswerView
+            viewler[i] = LayoutInflater.from(context)
+                .inflate(R.layout.l_view_answer_one_view, this, false) as OneAnswerView
 
             viewler[i]?.let {
                 it.setIndex(i)

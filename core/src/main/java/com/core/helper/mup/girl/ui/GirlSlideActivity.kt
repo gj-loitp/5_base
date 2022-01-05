@@ -69,8 +69,8 @@ class GirlSlideActivity : BaseFontActivity() {
         }
     }
 
-    private inner class SlidePagerAdapter(fm: FragmentManager)
-        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    private inner class SlidePagerAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getItem(position: Int): Fragment {
             val frmIvSlideGirl = FrmIvSlideGirl()
@@ -86,6 +86,6 @@ class GirlSlideActivity : BaseFontActivity() {
     }
 
     private fun save(url: String) {
-        //iplm save func
+        // iplm save func
     }
 }

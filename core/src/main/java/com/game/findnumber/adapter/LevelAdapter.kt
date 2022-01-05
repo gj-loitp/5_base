@@ -1,5 +1,6 @@
 package com.game.findnumber.adapter
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ class LevelAdapter() : BaseAdapter() {
 
     private val listLevel = ArrayList<Level>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setListLevel(listLevel: ArrayList<Level>) {
         this.listLevel.clear()
         this.listLevel.addAll(listLevel)
@@ -39,16 +41,17 @@ class LevelAdapter() : BaseAdapter() {
             }
 
             LUIUtil.setOnClickListenerElastic(
-                    view = itemView.layoutRootView,
-                    runnable = {
-                        onClickRootView?.invoke(level, itemView.layoutRootView)
-                    })
-
+                view = itemView.layoutRootView,
+                runnable = {
+                    onClickRootView?.invoke(level, itemView.layoutRootView)
+                }
+            )
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LevelViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.view_row_item_find_number_level, parent, false)
+        val itemView = LayoutInflater.from(parent.context)
+            .inflate(R.layout.view_row_item_find_number_level, parent, false)
         return LevelViewHolder(itemView)
     }
 

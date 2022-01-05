@@ -7,15 +7,15 @@ import java.io.Serializable
 
 @Keep
 data class GirlTopVideo(
-        @SerializedName("cover")
-        @Expose
-        val cover: String?,
+    @SerializedName("cover")
+    @Expose
+    val cover: String?,
 
-        @SerializedName("link")
-        @Expose
-        val link: String?,
+    @SerializedName("link")
+    @Expose
+    val link: String?,
 
-        @SerializedName("title")
-        @Expose
-        val title: String?
-):Serializable
+    @SerializedName("title")
+    @Expose
+    val title: String?
+) : Serializable

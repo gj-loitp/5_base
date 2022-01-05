@@ -30,14 +30,15 @@ class KeyboardUtils {
             edit.isFocusable = true
             edit.isFocusableInTouchMode = true
             edit.requestFocus()
-            val imm = getContext()?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            val imm =
+                getContext()?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.showSoftInput(edit, 0)
         }
 
         fun toggleSoftInput() {
-            val imm = getContext()?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
+            val imm =
+                getContext()?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager?
             imm?.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
         }
     }
-
 }

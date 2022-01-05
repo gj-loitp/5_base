@@ -8,9 +8,16 @@ import android.net.Uri
 class LPickerUtil {
 
     companion object {
-        fun cropImage(activity: Activity?, picUri: Uri?, CROP_PIC_REQUEST_CODE: Int,
-                      aspectX: Int, aspectY: Int, outputX: Int, outputY: Int,
-                      error: ((String) -> Unit)? = null) {
+        fun cropImage(
+            activity: Activity?,
+            picUri: Uri?,
+            CROP_PIC_REQUEST_CODE: Int,
+            aspectX: Int,
+            aspectY: Int,
+            outputX: Int,
+            outputY: Int,
+            error: ((String) -> Unit)? = null
+        ) {
 
             if (activity == null || picUri == null) {
                 return

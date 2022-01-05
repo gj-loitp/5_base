@@ -15,5 +15,4 @@ class TTTComic : BaseModel() {
     @SerializedName("time_upload")
     @Expose
     var timeUpload: String = ""
-
 }

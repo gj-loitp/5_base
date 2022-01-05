@@ -15,14 +15,14 @@ class IntentUtils {
 
         fun getInstallAppIntent(filePath: String, authority: String): Intent {
             return getInstallAppIntent(
-                    file = FileUtils.getFileByPath(filePath),
-                    authority = authority
+                file = FileUtils.getFileByPath(filePath),
+                authority = authority
             )
         }
 
         fun getInstallAppIntent(
-                file: File,
-                authority: String
+            file: File,
+            authority: String
         ): Intent {
             val intent = Intent(Intent.ACTION_VIEW)
             var data: Uri? = null
@@ -66,13 +66,16 @@ class IntentUtils {
 
         fun getShareImageIntent(content: String?, imagePath: String?): Intent? {
             return getShareImageIntent(
-                    content = content,
-                    image = FileUtils.getFileByPath(imagePath)
+                content = content,
+                image = FileUtils.getFileByPath(imagePath)
             )
         }
 
         fun getShareImageIntent(content: String?, image: File?): Intent? {
-            return if (!FileUtils.isFileExists(image)) null else getShareImageIntent(content, Uri.fromFile(image))
+            return if (!FileUtils.isFileExists(image)) null else getShareImageIntent(
+                content,
+                Uri.fromFile(image)
+            )
         }
 
         fun getShareImageIntent(content: String?, uri: Uri?): Intent {
@@ -126,5 +129,4 @@ class IntentUtils {
             return intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK)
         }
     }
-
 }

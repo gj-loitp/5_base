@@ -6,11 +6,6 @@ import com.core.common.Constants
 import com.model.App
 import com.utils.util.AppUtils
 
-/**
- * File created on 17/7/2019.
- *
- * @author loitp
- */
 class LPrefUtil {
     companion object {
         private val logTag = LPrefUtil::class.java.simpleName
@@ -30,16 +25,21 @@ class LPrefUtil {
         private const val PASS_CODE = "PASS_CODE"
         private const val GG_APP_SETTING = "GG_APP_SETTING"
         private const val GG_APP_MSG = "GG_APP_MSG"
-        private const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER = "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
+        private const val IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER =
+            "IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER"
 
         //region object
         fun getGGAppSetting(): App {
             val pref = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return BaseApplication.gson.fromJson(pref.getString(GG_APP_SETTING, ""), App::class.java)
+            return BaseApplication.gson.fromJson(
+                pref.getString(GG_APP_SETTING, ""),
+                App::class.java
+            )
         }
 
         fun setGGAppSetting(user: App) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putString(GG_APP_SETTING, BaseApplication.gson.toJson(user))
             editor.apply()
         }
@@ -52,7 +52,8 @@ class LPrefUtil {
         }
 
         fun setGGAppMsg(value: String?) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putString(GG_APP_MSG, value)
             editor.apply()
         }
@@ -65,7 +66,8 @@ class LPrefUtil {
         }
 
         fun setCheckAppReady(value: Boolean) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putBoolean(CHECK_APP_READY, value)
             editor.apply()
         }
@@ -76,7 +78,8 @@ class LPrefUtil {
         }
 
         fun setPreLoad(value: Boolean) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putBoolean(PRE_LOAD, value)
             editor.apply()
         }
@@ -87,7 +90,8 @@ class LPrefUtil {
         }
 
         fun setIsShowedDlgWarningYoutubeParser(value: Boolean) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putBoolean(IS_SHOWED_DLG_WARNING_YOUTUBE_PARSER, value)
             editor.apply()
         }
@@ -100,18 +104,20 @@ class LPrefUtil {
         }
 
         fun setIndex(value: Int) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putInt(INDEX, value)
             editor.apply()
         }
 
         fun getTextSizePercentEpub(): Int {
             val prefs = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0)
-            return prefs.getInt(TEXT_SIZE_EPUB_PERCENT, 100)//100%
+            return prefs.getInt(TEXT_SIZE_EPUB_PERCENT, 100) // 100%
         }
 
         fun setTextSizePercentEpub(value: Int) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putInt(TEXT_SIZE_EPUB_PERCENT, value)
             editor.apply()
         }
@@ -124,20 +130,27 @@ class LPrefUtil {
         }
 
         fun setJsonBookAsset(value: String) {
-            val editor = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
+            val editor =
+                LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, 0).edit()
             editor.putString(JSON_BOOK_ASSET, value)
             editor.apply()
         }
 
         fun savePassCode(str: String) {
-            val sharedPref = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
+            val sharedPref = LAppResource.application.getSharedPreferences(
+                PREFERENCES_FILE_NAME,
+                Context.MODE_PRIVATE
+            )
             val editor = sharedPref.edit()
             editor.putString(PASS_CODE, str)
             editor.apply()
         }
 
         fun getPassCode(): String? {
-            val sharedPref = LAppResource.application.getSharedPreferences(PREFERENCES_FILE_NAME, Context.MODE_PRIVATE)
+            val sharedPref = LAppResource.application.getSharedPreferences(
+                PREFERENCES_FILE_NAME,
+                Context.MODE_PRIVATE
+            )
             val defaultValue = ""
             return sharedPref.getString(PASS_CODE, defaultValue)
         }

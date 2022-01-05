@@ -17,7 +17,8 @@ class ProcessUtils {
     companion object {
         val foregroundProcessName: String?
             get() {
-                val manager = getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
+                val manager =
+                    getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
                 val pInfo = manager?.runningAppProcesses
                 if (pInfo != null && pInfo.size != 0) {
                     for (aInfo in pInfo) {
@@ -29,24 +30,46 @@ class ProcessUtils {
                 if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
                     val packageManager = getContext()?.packageManager
                     val intent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
-                    val list = packageManager?.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
+                    val list = packageManager?.queryIntentActivities(
+                        intent,
+                        PackageManager.MATCH_DEFAULT_ONLY
+                    )
                     println(list)
                     if (list?.isNotEmpty() == true) {
                         try {
-                            val info = packageManager?.getApplicationInfo(getContext()?.packageName
-                                    ?: "", 0)
-                            val aom = getContext()?.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager?
-                            if (aom?.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, info.uid, info.packageName) != AppOpsManager.MODE_ALLOWED) {
+                            val info = packageManager?.getApplicationInfo(
+                                getContext()?.packageName
+                                    ?: "",
+                                0
+                            )
+                            val aom =
+                                getContext()?.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager?
+                            if (aom?.checkOpNoThrow(
+                                    AppOpsManager.OPSTR_GET_USAGE_STATS,
+                                    info.uid,
+                                    info.packageName
+                                ) != AppOpsManager.MODE_ALLOWED
+                            ) {
                                 getContext()?.startActivity(intent)
                             }
-                            if (aom?.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, info.uid, info.packageName) != AppOpsManager.MODE_ALLOWED) {
+                            if (aom?.checkOpNoThrow(
+                                    AppOpsManager.OPSTR_GET_USAGE_STATS,
+                                    info.uid,
+                                    info.packageName
+                                ) != AppOpsManager.MODE_ALLOWED
+                            ) {
                                 LLog.d("getForegroundApp", "没有打开\"有权查看使用权限的应用\"选项")
                                 return null
                             }
-                            val usageStatsManager = getContext()?.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager?
+                            val usageStatsManager =
+                                getContext()?.getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager?
                             val endTime = System.currentTimeMillis()
                             val beginTime = endTime - 86400000 * 7
-                            val usageStatses = usageStatsManager?.queryUsageStats(UsageStatsManager.INTERVAL_BEST, beginTime, endTime)
+                            val usageStatses = usageStatsManager?.queryUsageStats(
+                                UsageStatsManager.INTERVAL_BEST,
+                                beginTime,
+                                endTime
+                            )
                             if (usageStatses == null || usageStatses.isEmpty()) return null
                             var recentStats: UsageStats? = null
                             for (usageStats in usageStatses) {
@@ -62,7 +85,5 @@ class ProcessUtils {
                 }
                 return null
             }
-
     }
-
 }

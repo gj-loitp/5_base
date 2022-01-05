@@ -6,13 +6,6 @@ import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-/**
- * Internal API class to analyse the recorded gestures.
- *
- * @author championswimmer
- * @version 0.2
- * @since 0.1 12/04/14
- */
 class GestureAnalyser @JvmOverloads constructor(
     swipeSlopeIntolerance: Int = 3,
     doubleTapMaxDelayMillis: Int = 500,

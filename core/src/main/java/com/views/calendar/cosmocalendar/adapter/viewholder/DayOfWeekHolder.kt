@@ -6,11 +6,11 @@ import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.utils.Constants
 import com.views.calendar.cosmocalendar.view.CalendarView
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 class DayOfWeekHolder(
-        itemView: View,
-        calendarView: CalendarView?
+    itemView: View,
+    calendarView: CalendarView?
 ) : BaseDayHolder(itemView, calendarView) {
 
     private val mDayOfWeekFormatter: SimpleDateFormat
@@ -24,5 +24,4 @@ class DayOfWeekHolder(
         tvDay.text = mDayOfWeekFormatter.format(day.calendar.time)
         tvDay.setTextColor(calendarView.weekDayTitleTextColor)
     }
-
 }

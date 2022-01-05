@@ -10,24 +10,24 @@ import java.io.Serializable
 @Keep
 @Entity(tableName = "GirlPage")
 data class GirlPage(
-        @SerializedName("src")
-        @Expose
-        val src: String?,
+    @SerializedName("src")
+    @Expose
+    val src: String?,
 
-        @SerializedName("title")
-        @Expose
-        val title: String?,
+    @SerializedName("title")
+    @Expose
+    val title: String?,
 
-        @SerializedName("id")
-        @Expose
-        @PrimaryKey
-        val id: String = "",
+    @SerializedName("id")
+    @Expose
+    @PrimaryKey
+    val id: String = "",
 
-        @SerializedName("createdDate")
-        @Expose
-        val createdDate: String?,
+    @SerializedName("createdDate")
+    @Expose
+    val createdDate: String?,
 
-        @SerializedName("isFavorites")
-        @Expose
-        var isFavorites: Boolean = false
+    @SerializedName("isFavorites")
+    @Expose
+    var isFavorites: Boolean = false
 ) : Serializable

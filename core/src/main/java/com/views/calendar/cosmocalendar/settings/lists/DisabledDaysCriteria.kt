@@ -33,9 +33,9 @@ class DisabledDaysCriteria {
      * Sets range of disabled days
      */
     fun setDays(
-            startRange: Int,
-            endRange: Int,
-            criteriaType: DisabledDaysCriteriaType
+        startRange: Int,
+        endRange: Int,
+        criteriaType: DisabledDaysCriteriaType
     ) {
         require(!(criteriaType === DisabledDaysCriteriaType.DAYS_OF_MONTH && startRange >= endRange)) { "startRange must be less than endRange" }
         require(startRange >= 1) { "startRange must be more than 0" }
@@ -68,5 +68,4 @@ class DisabledDaysCriteria {
             require(day <= maxPossibleValue) { "Invalid day:$day" }
         }
     }
-
 }

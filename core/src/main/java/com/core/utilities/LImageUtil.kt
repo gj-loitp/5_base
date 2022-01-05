@@ -18,11 +18,10 @@ import com.core.common.Constants
 import com.ortiz.touchview.TouchImageView
 import com.utils.util.FileUtils
 import java.io.File
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.math.min
 
-
-//https://github.com/wasabeef/glide-transformations
+// https://github.com/wasabeef/glide-transformations
 class LImageUtil {
     companion object {
         private const val logTag = "LImageUtil"
@@ -33,7 +32,7 @@ class LImageUtil {
                 return Constants.ARR_URL_BKG_FLICKR[r]
             }
 
-        //for flick api url_m -> url_b
+        // for flick api url_m -> url_b
         fun getFlickrLink100(urlM: String): String {
             var linkUrlM = urlM
             /*
@@ -51,7 +50,6 @@ class LImageUtil {
             o	original image, either a jpg, gif or png, depending on source format
             */
 
-
             if (linkUrlM.isEmpty()) {
                 return ""
             }
@@ -64,7 +62,7 @@ class LImageUtil {
             return linkUrlM
         }
 
-        //for flick api url_m -> url_b
+        // for flick api url_m -> url_b
         fun getFlickrLink640(urlM: String): String {
             var linkUrlM = urlM
             /*
@@ -82,7 +80,6 @@ class LImageUtil {
             o	original image, either a jpg, gif or png, depending on source format
             */
 
-
             if (linkUrlM.isEmpty()) {
                 return ""
             }
@@ -95,7 +92,7 @@ class LImageUtil {
             return linkUrlM
         }
 
-        //for flick api url_m -> url_n
+        // for flick api url_m -> url_n
         fun getFlickrLink320(urlM: String): String {
             var linkUrlM = urlM
             /*
@@ -113,7 +110,6 @@ class LImageUtil {
             o	original image, either a jpg, gif or png, depending on source format
             */
 
-
             if (linkUrlM.isEmpty()) {
                 return ""
             }
@@ -126,7 +122,7 @@ class LImageUtil {
             return linkUrlM
         }
 
-        //for flick api url_m -> url_b
+        // for flick api url_m -> url_b
         fun getFlickrLink1024(urlM: String): String {
             var linkUrlM = urlM
             /*
@@ -144,7 +140,6 @@ class LImageUtil {
             o	original image, either a jpg, gif or png, depending on source format
             */
 
-
             if (linkUrlM.isEmpty()) {
                 return ""
             }
@@ -157,7 +152,12 @@ class LImageUtil {
             return linkUrlM
         }
 
-        fun resizeImage(context: Context?, file: File?, scaleTo: Int = 1024, folderPath: String?): File? {
+        fun resizeImage(
+            context: Context?,
+            file: File?,
+            scaleTo: Int = 1024,
+            folderPath: String?
+        ): File? {
             if (context == null || file == null || folderPath.isNullOrEmpty()) {
                 return null
             }
@@ -166,7 +166,8 @@ class LImageUtil {
             }
             try {
                 val srcFilePath = file.path
-                val destFilePath = LStoreUtil.getFolderPath(folderName = folderPath) + "/" + file.name
+                val destFilePath =
+                    LStoreUtil.getFolderPath(folderName = folderPath) + "/" + file.name
                 val resultCopy = FileUtils.copyFile(srcFilePath, destFilePath)
                 LLog.d(logTag, "resultCopy $resultCopy")
 
@@ -176,7 +177,10 @@ class LImageUtil {
                 }
 
                 val ei = ExifInterface(copiedFile.path)
-                val o = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
+                val o = ei.getAttributeInt(
+                    ExifInterface.TAG_ORIENTATION,
+                    ExifInterface.ORIENTATION_NORMAL
+                )
 
                 val bmOptions = BitmapFactory.Options()
                 bmOptions.inJustDecodeBounds = true
@@ -192,7 +196,7 @@ class LImageUtil {
                 bmOptions.inSampleSize = scaleFactor
 
                 val resized = BitmapFactory.decodeFile(copiedFile.absolutePath, bmOptions)
-                        ?: return null
+                    ?: return null
                 copiedFile.outputStream().use {
                     resized.compress(Bitmap.CompressFormat.JPEG, 75, it)
 
@@ -209,7 +213,7 @@ class LImageUtil {
             }
         }
 
-        //for glide
+        // for glide
         fun clear(context: Context?, target: View?) {
             if (context == null || target == null) {
                 return
@@ -217,14 +221,15 @@ class LImageUtil {
             Glide.with(context).clear(target)
         }
 
-        //any maybe url: String, drawableRes: Int, imageFile: File?, uri: Uri?,
-        fun load(context: Context?,
-                 any: Any?,
-                 imageView: ImageView?,
-                 resPlaceHolder: Int = R.color.transparent,
-                 resError: Int = R.color.red,
-                 transformation: Transformation<Bitmap>? = null,
-                 drawableRequestListener: RequestListener<Drawable>? = null
+        // any maybe url: String, drawableRes: Int, imageFile: File?, uri: Uri?,
+        fun load(
+            context: Context?,
+            any: Any?,
+            imageView: ImageView?,
+            resPlaceHolder: Int = R.color.transparent,
+            resError: Int = R.color.red,
+            transformation: Transformation<Bitmap>? = null,
+            drawableRequestListener: RequestListener<Drawable>? = null
         ) {
 
             if (context == null || any == null || imageView == null) {
@@ -232,46 +237,50 @@ class LImageUtil {
             }
             val requestOptions = if (transformation == null) {
                 RequestOptions()
-                        .placeholder(resPlaceHolder)
-                        .error(resError)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(resPlaceHolder)
+                    .error(resError)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
             } else {
                 RequestOptions()
-                        .placeholder(resPlaceHolder)
-                        .error(resError)
-                        .transform(transformation)
-                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .placeholder(resPlaceHolder)
+                    .error(resError)
+                    .transform(transformation)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
             }
             Glide.with(context)
-                    .load(any)
-                    //.transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
-                    .apply(requestOptions)
-                    .listener(drawableRequestListener)
-                    .into(imageView)
+                .load(any)
+                // .transition(DrawableTransitionOptions.withCrossFade())//wont work with de.hdodenhof.circleimageview.CircleImageView
+                .apply(requestOptions)
+                .listener(drawableRequestListener)
+                .into(imageView)
         }
 
         fun loadHighQuality(
-                any: Any?,
-                imageView: ImageView,
-                resPlaceHolder: Int = R.color.transparent,
-                resError: Int = R.color.red,
-                drawableRequestListener: RequestListener<Drawable>? = null
+            any: Any?,
+            imageView: ImageView,
+            resPlaceHolder: Int = R.color.transparent,
+            resError: Int = R.color.red,
+            drawableRequestListener: RequestListener<Drawable>? = null
         ) {
             Glide.with(imageView)
-                    .load(any)
-                    .apply(RequestOptions()
-                            .placeholder(resPlaceHolder)
-                            .error(resError)
-                            .fitCenter()
-                            .format(DecodeFormat.PREFER_ARGB_8888)
-                            .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL))
-                    .listener(drawableRequestListener)
-                    .into(imageView)
+                .load(any)
+                .apply(
+                    RequestOptions()
+                        .placeholder(resPlaceHolder)
+                        .error(resError)
+                        .fitCenter()
+                        .format(DecodeFormat.PREFER_ARGB_8888)
+                        .override(com.bumptech.glide.request.target.Target.SIZE_ORIGINAL)
+                )
+                .listener(drawableRequestListener)
+                .into(imageView)
         }
 
         fun setZoomFitWidthScreen(touchImageView: TouchImageView?) {
             touchImageView?.post {
-                val maxZoomRatio = LScreenUtil.screenWidth.toFloat() / LUIUtil.getWidthOfView(touchImageView).toFloat()
+                val maxZoomRatio =
+                    LScreenUtil.screenWidth.toFloat() / LUIUtil.getWidthOfView(touchImageView)
+                        .toFloat()
                 touchImageView.setMaxZoomRatio(maxZoomRatio)
             }
         }

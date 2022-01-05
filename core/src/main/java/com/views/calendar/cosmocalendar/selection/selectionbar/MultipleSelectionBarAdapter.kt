@@ -12,8 +12,8 @@ import com.views.calendar.cosmocalendar.view.customviews.CircleAnimationTextView
 import java.util.*
 
 class MultipleSelectionBarAdapter(
-        calendarView: CalendarView,
-        listItemClickListener: ListItemClickListener?
+    calendarView: CalendarView,
+    listItemClickListener: ListItemClickListener?
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     interface ListItemClickListener {
@@ -46,11 +46,23 @@ class MultipleSelectionBarAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if (viewType == VIEW_TYPE_TITLE) {
-            TitleViewHolder(LayoutInflater.from(parent.context)
-                    .inflate(R.layout.view_cosmo_calendar_item_multiple_selection_bar_title, parent, false))
+            TitleViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(
+                        R.layout.view_cosmo_calendar_item_multiple_selection_bar_title,
+                        parent,
+                        false
+                    )
+            )
         } else {
-            ContentViewHolder(LayoutInflater.from(parent.context)
-                    .inflate(R.layout.view_cosmo_calendar_item_multiple_selection_bar_content, parent, false))
+            ContentViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(
+                        R.layout.view_cosmo_calendar_item_multiple_selection_bar_content,
+                        parent,
+                        false
+                    )
+            )
         }
     }
 
@@ -82,7 +94,6 @@ class MultipleSelectionBarAdapter(
             tvTitle.text = selectionBarTitleItem.title
             tvTitle.setTextColor(calendarView.selectionBarMonthTextColor)
         }
-
     }
 
     inner class ContentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -98,6 +109,5 @@ class MultipleSelectionBarAdapter(
                 listItemClickListener?.onMultipleSelectionListItemClick(selectionBarContentItem.day)
             }
         }
-
     }
 }

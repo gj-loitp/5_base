@@ -12,10 +12,10 @@ import androidx.core.app.NotificationCompat
 object LNotification {
 
     fun showNotification(
-            title: String,
-            body: String,
-            iconRes: Int,
-            notificationIntent: Intent
+        title: String,
+        body: String,
+        iconRes: Int,
+        notificationIntent: Intent
     ) {
         if (title.isEmpty() || body.isEmpty()) {
             return
@@ -26,35 +26,36 @@ object LNotification {
 
         val requestID = System.currentTimeMillis().toInt()
         val pendingIntent = PendingIntent.getActivity(
-                LAppResource.application,
-                requestID,
-                notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT
+            LAppResource.application,
+            requestID,
+            notificationIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT
         )
 
-        val notificationManager = LAppResource.application.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationManager =
+            LAppResource.application.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
-                    channelId,
-                    channelName,
-                    NotificationManager.IMPORTANCE_HIGH
+                channelId,
+                channelName,
+                NotificationManager.IMPORTANCE_HIGH
             )
             notificationManager.createNotificationChannel(channel)
         }
 
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(
-                LAppResource.application,
-                channelId
+            LAppResource.application,
+            channelId
         )
-                .setSmallIcon(iconRes)
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setDefaults(NotificationCompat.DEFAULT_LIGHTS)
-                .setContentIntent(pendingIntent)
-                .setContentTitle(title)
-                .setContentText(body)
+            .setSmallIcon(iconRes)
+            .setAutoCancel(true)
+            .setSound(defaultSoundUri)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
+            .setDefaults(NotificationCompat.DEFAULT_LIGHTS)
+            .setContentIntent(pendingIntent)
+            .setContentTitle(title)
+            .setContentText(body)
 
         notificationManager.notify(System.currentTimeMillis().toInt(), notificationBuilder.build())
     }

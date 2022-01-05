@@ -4,9 +4,6 @@ import com.core.common.Constants
 import com.core.helper.ttt.model.comic.Comic
 import com.core.helper.ttt.model.comictype.ComicType
 
-/**
- * Created by www.muathu@gmail.com on 11/2/2017.
- */
 class ComicUtils {
     companion object {
         @JvmStatic
@@ -14,42 +11,222 @@ class ComicUtils {
             get() {
                 val comicTypeList = ArrayList<ComicType>()
                 comicTypeList.add(ComicType(ComicType.TAT_CA, Constants.MAIN_LINK_TRUYENTRANHTUAN))
-                comicTypeList.add(ComicType(ComicType.TOP_50, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/top/top-50"))
-                comicTypeList.add(ComicType(ComicType.DANG_TIEN_HANH, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/trang-thai/dang-tien-hanh"))
-                comicTypeList.add(ComicType(ComicType.TAM_NGUNG, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/trang-thai/tam-dung"))
-                comicTypeList.add(ComicType(ComicType.HOAN_THANH, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/trang-thai/hoan-thanh/"))
-                comicTypeList.add(ComicType(ComicType.ACTION, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/action"))
-                comicTypeList.add(ComicType(ComicType.ADVENTURE, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/adventure"))
-                comicTypeList.add(ComicType(ComicType.ANIME, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/anime"))
-                comicTypeList.add(ComicType(ComicType.COMEDY, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/comedy"))
-                comicTypeList.add(ComicType(ComicType.COMIC, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/comic"))
-                comicTypeList.add(ComicType(ComicType.DRAMA, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/drama"))
-                comicTypeList.add(ComicType(ComicType.FANTASY, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/fantasy"))
-                comicTypeList.add(ComicType(ComicType.GENDER_BENDER, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/gender-bender"))
-                comicTypeList.add(ComicType(ComicType.HISTORICAL, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/historical"))
-                comicTypeList.add(ComicType(ComicType.HORROR, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/horror"))
-                comicTypeList.add(ComicType(ComicType.JOSEI, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/josei"))
-                comicTypeList.add(ComicType(ComicType.LIVE_ACTION, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/live-action"))
-                comicTypeList.add(ComicType(ComicType.MANHUA, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/manhua"))
-                comicTypeList.add(ComicType(ComicType.MANHWA, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/manhwa"))
-                comicTypeList.add(ComicType(ComicType.MARTIAL_ARTS, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/martial-arts"))
-                comicTypeList.add(ComicType(ComicType.MECHA, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/mecha"))
-                comicTypeList.add(ComicType(ComicType.MYSTERY, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/mystery"))
-                comicTypeList.add(ComicType(ComicType.ONESHOT, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/one-shot"))
-                comicTypeList.add(ComicType(ComicType.PSYCHOLOGICAL, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/psychological"))
-                comicTypeList.add(ComicType(ComicType.ROMANCE, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/romance"))
-                comicTypeList.add(ComicType(ComicType.SHCOOL_LIFE, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/school-life"))
-                comicTypeList.add(ComicType(ComicType.SCIFI, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/sci-fi"))
-                comicTypeList.add(ComicType(ComicType.SHOUJO, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/shoujo"))
-                comicTypeList.add(ComicType(ComicType.SHOUNEN, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/shounen"))
-                comicTypeList.add(ComicType(ComicType.SLICE_OF_LIFE, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/slice-of-life"))
-                comicTypeList.add(ComicType(ComicType.SMUT, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/smut"))
-                comicTypeList.add(ComicType(ComicType.SPORTS, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/sports"))
-                comicTypeList.add(ComicType(ComicType.SUPERNATURAL, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/supernatural"))
-                comicTypeList.add(ComicType(ComicType.TRAGEDY, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/tragedy"))
-                comicTypeList.add(ComicType(ComicType.TRUYEN_SCAN, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/truyen-scan"))
-                comicTypeList.add(ComicType(ComicType.TRUYEN_TRANH_VIET_NAM, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/truyen-tranh-viet-nam"))
-                comicTypeList.add(ComicType(ComicType.WEBTOON, "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/webtoon"))
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.TOP_50,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/top/top-50"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.DANG_TIEN_HANH,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/trang-thai/dang-tien-hanh"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.TAM_NGUNG,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/trang-thai/tam-dung"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.HOAN_THANH,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/trang-thai/hoan-thanh/"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.ACTION,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/action"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.ADVENTURE,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/adventure"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.ANIME,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/anime"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.COMEDY,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/comedy"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.COMIC,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/comic"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.DRAMA,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/drama"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.FANTASY,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/fantasy"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.GENDER_BENDER,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/gender-bender"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.HISTORICAL,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/historical"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.HORROR,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/horror"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.JOSEI,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/josei"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.LIVE_ACTION,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/live-action"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.MANHUA,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/manhua"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.MANHWA,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/manhwa"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.MARTIAL_ARTS,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/martial-arts"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.MECHA,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/mecha"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.MYSTERY,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/mystery"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.ONESHOT,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/one-shot"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.PSYCHOLOGICAL,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/psychological"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.ROMANCE,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/romance"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SHCOOL_LIFE,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/school-life"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SCIFI,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/sci-fi"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SHOUJO,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/shoujo"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SHOUNEN,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/shounen"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SLICE_OF_LIFE,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/slice-of-life"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SMUT,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/smut"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SPORTS,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/sports"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.SUPERNATURAL,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/supernatural"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.TRAGEDY,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/tragedy"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.TRUYEN_SCAN,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/truyen-scan"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.TRUYEN_TRANH_VIET_NAM,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/truyen-tranh-viet-nam"
+                    )
+                )
+                comicTypeList.add(
+                    ComicType(
+                        ComicType.WEBTOON,
+                        "${Constants.MAIN_LINK_TRUYENTRANHTUAN}/the-loai/webtoon"
+                    )
+                )
                 return comicTypeList
             }
 

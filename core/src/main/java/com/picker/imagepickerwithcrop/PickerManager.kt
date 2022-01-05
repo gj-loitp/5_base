@@ -15,10 +15,10 @@ import com.picker.imagepickerwithcrop.PickerBuilder.OnPermissionRefusedListener
 import com.yalantis.ucrop.UCrop
 import java.io.File
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 abstract class PickerManager(
-        protected var activity: Activity
+    protected var activity: Activity
 ) {
 
     companion object {
@@ -46,8 +46,16 @@ abstract class PickerManager(
     }
 
     fun pickPhotoWithPermission() {
-        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(activity, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_CODE_IMAGE_PERMISSION)
+        if (ContextCompat.checkSelfPermission(
+                activity,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                activity,
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
+                REQUEST_CODE_IMAGE_PERMISSION
+            )
         } else {
             sendToExternalApp()
         }
@@ -71,14 +79,23 @@ abstract class PickerManager(
     val imageFile: Uri
         get() {
             val imagePathStr = Environment.getExternalStorageDirectory().toString() + "/" +
-                    if (folder == null) Environment.DIRECTORY_DCIM + "/" + activity.getString(R.string.app_name) else folder
+                if (folder == null) Environment.DIRECTORY_DCIM + "/" + activity.getString(R.string.app_name) else folder
             val path = File(imagePathStr)
             if (!path.exists()) {
                 path.mkdir()
             }
-            val finalPhotoName = (imageName +
-                    (if (withTimeStamp) "_" + SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date(System.currentTimeMillis())) else "")
-                    + ".jpg")
+            val finalPhotoName = (
+                imageName +
+                    (
+                        if (withTimeStamp) "_" + SimpleDateFormat(
+                            "yyyyMMdd_HHmmss",
+                            Locale.US
+                        ).format(
+                            Date(System.currentTimeMillis())
+                        ) else ""
+                        ) +
+                    ".jpg"
+                )
 
             // long currentTimeMillis = System.currentTimeMillis();
             // String photoName = imageName + "_" + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date(currentTimeMillis)) + ".jpg";

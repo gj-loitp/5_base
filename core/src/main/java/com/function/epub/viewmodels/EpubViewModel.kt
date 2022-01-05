@@ -19,22 +19,14 @@ import com.service.model.ErrorResponse
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
-import java.util.*
-import kotlin.collections.ArrayList
-
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 
 @LogTag("GirlViewModel")
 class EpubViewModel : BaseViewModel() {
 
     val loadDataActionLiveData: ActionLiveData<ActionData<Int>> = ActionLiveData()
     val loadAssetActionLiveData: ActionLiveData<ActionData<ArrayList<BookInfo>>> = ActionLiveData()
-    val loadDeviceAndAssetActionLiveData: ActionLiveData<ActionData<ArrayList<BookInfo>>> = ActionLiveData()
+    val loadDeviceAndAssetActionLiveData: ActionLiveData<ActionData<ArrayList<BookInfo>>> =
+        ActionLiveData()
 
     fun loadData(reader: Reader, bookInfo: BookInfo) {
         loadDataActionLiveData.set(ActionData(isDoing = true))
@@ -44,7 +36,7 @@ class EpubViewModel : BaseViewModel() {
             try {
                 // Setting optionals once per file is enough.
                 reader.setMaxContentPerSection(1250)
-                //reader.setMaxContentPerSection(1250 * 10);
+                // reader.setMaxContentPerSection(1250 * 10);
                 reader.setCssStatus(CssStatus.INCLUDE)
                 reader.setIsIncludingTextContent(true)
                 reader.setIsOmittingTitleTag(true)
@@ -55,26 +47,25 @@ class EpubViewModel : BaseViewModel() {
                     lastSavedPage = reader.loadProgress()
                 }
                 loadDataActionLiveData.post(
-                        ActionData(
-                                isDoing = false,
-                                isSuccess = true,
-                                data = lastSavedPage
-                        )
+                    ActionData(
+                        isDoing = false,
+                        isSuccess = true,
+                        data = lastSavedPage
+                    )
                 )
             } catch (e: ReadingException) {
                 e.printStackTrace()
                 loadDataActionLiveData.post(
-                        ActionData(
-                                isDoing = false,
-                                isSuccess = false,
-                                errorResponse = ErrorResponse(
-                                        message = e.message
-                                )
+                    ActionData(
+                        isDoing = false,
+                        isSuccess = false,
+                        errorResponse = ErrorResponse(
+                            message = e.message
                         )
+                    )
                 )
             }
         }
-
     }
 
     private fun searchForFilesAsset(maxBookAsset: Int, extensionEpub: String): ArrayList<BookInfo> {
@@ -124,8 +115,13 @@ class EpubViewModel : BaseViewModel() {
                 return
             }
             listBookInfo.sortWith { bookInfo1, bookInfo2 ->
-                (bookInfo1.title ?: "").compareTo((bookInfo2.title
-                        ?: ""), ignoreCase = true)
+                (bookInfo1.title ?: "").compareTo(
+                    (
+                        bookInfo2.title
+                            ?: ""
+                        ),
+                    ignoreCase = true
+                )
             }
         }
 
@@ -134,12 +130,24 @@ class EpubViewModel : BaseViewModel() {
 
             val jsonBookAsset = LPrefUtil.getJsonBookAsset()
             if (jsonBookAsset.isNullOrEmpty()) {
-                listBookInfo.addAll(elements = searchForFilesAsset(maxBookAsset = maxBookAsset, extensionEpub = extensionEpub))
+                listBookInfo.addAll(
+                    elements = searchForFilesAsset(
+                        maxBookAsset = maxBookAsset,
+                        extensionEpub = extensionEpub
+                    )
+                )
             } else {
-                val tmpList = BaseApplication.gson.fromJson<List<BookInfo>>(jsonBookAsset,
-                        object : TypeToken<List<BookInfo?>?>() {}.type)
+                val tmpList = BaseApplication.gson.fromJson<List<BookInfo>>(
+                    jsonBookAsset,
+                    object : TypeToken<List<BookInfo?>?>() {}.type
+                )
                 if (tmpList == null) {
-                    listBookInfo.addAll(elements = searchForFilesAsset(maxBookAsset = maxBookAsset, extensionEpub = extensionEpub))
+                    listBookInfo.addAll(
+                        elements = searchForFilesAsset(
+                            maxBookAsset = maxBookAsset,
+                            extensionEpub = extensionEpub
+                        )
+                    )
                 } else {
                     listBookInfo.addAll(elements = tmpList)
                 }
@@ -158,7 +166,8 @@ class EpubViewModel : BaseViewModel() {
                         // If txtTitle doesn't exist, use fileName instead.
                         val dotIndex = bookInfo.title?.lastIndexOf(char = '.')
                         dotIndex?.let {
-                            bookInfo.title = bookInfo.title?.substring(startIndex = 0, endIndex = it)
+                            bookInfo.title =
+                                bookInfo.title?.substring(startIndex = 0, endIndex = it)
                         }
                     } else {
                         bookInfo.title = title
@@ -171,11 +180,11 @@ class EpubViewModel : BaseViewModel() {
             sortABC(listBookInfo = listBookInfo)
 
             loadAssetActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listBookInfo
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listBookInfo
+                )
             )
         }
     }
@@ -184,9 +193,10 @@ class EpubViewModel : BaseViewModel() {
         val isSDPresent = Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED
         val listBookInfo = ArrayList<BookInfo>()
         if (isSDPresent) {
-            val listFile = getListEpubFiles(File(Environment.getExternalStorageDirectory().absolutePath))
+            val listFile =
+                getListEpubFiles(File(Environment.getExternalStorageDirectory().absolutePath))
 
-            //only get 1 file from asset
+            // only get 1 file from asset
             val sampleFile = LStoreUtil.getFileFromAssets(fileName = "a (1).sqlite")
             sampleFile?.let {
                 listFile.add(index = 0, element = it)
@@ -215,7 +225,8 @@ class EpubViewModel : BaseViewModel() {
                         // If title doesn't exist, use fileName instead.
                         val dotIndex = bookInfo.title?.lastIndexOf(char = '.')
                         dotIndex?.let {
-                            bookInfo.title = bookInfo.title?.substring(startIndex = 0, endIndex = it)
+                            bookInfo.title =
+                                bookInfo.title?.substring(startIndex = 0, endIndex = it)
                         }
                     } else {
                         bookInfo.title = reader.infoPackage.metadata.title
@@ -226,13 +237,12 @@ class EpubViewModel : BaseViewModel() {
                 }
             }
             loadDeviceAndAssetActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listBookInfo
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listBookInfo
+                )
             )
         }
     }
-
 }

@@ -10,13 +10,15 @@ class ClipboardUtils private constructor() {
     companion object {
 
         fun copyText(text: CharSequence?) {
-            val clipboard = Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+            val clipboard =
+                Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
             clipboard?.setPrimaryClip(ClipData.newPlainText("text", text))
         }
 
         val text: CharSequence?
             get() {
-                val clipboard = Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+                val clipboard = Utils.getContext()
+                    ?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
                 val clip = clipboard?.primaryClip
                 return if (clip != null && clip.itemCount > 0) {
                     clip.getItemAt(0).coerceToText(Utils.getContext())
@@ -26,15 +28,23 @@ class ClipboardUtils private constructor() {
             }
 
         fun copyUri(
-                uri: Uri?
+            uri: Uri?
         ) {
-            val clipboard = Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
-            clipboard?.setPrimaryClip(ClipData.newUri(Utils.getContext()?.contentResolver, "uri", uri))
+            val clipboard =
+                Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+            clipboard?.setPrimaryClip(
+                ClipData.newUri(
+                    Utils.getContext()?.contentResolver,
+                    "uri",
+                    uri
+                )
+            )
         }
 
         val uri: Uri?
             get() {
-                val clipboard = Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+                val clipboard = Utils.getContext()
+                    ?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
                 val clip = clipboard?.primaryClip
                 return if (clip != null && clip.itemCount > 0) {
                     clip.getItemAt(0).uri
@@ -44,13 +54,15 @@ class ClipboardUtils private constructor() {
             }
 
         fun copyIntent(intent: Intent?) {
-            val clipboard = Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+            val clipboard =
+                Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
             clipboard?.setPrimaryClip(ClipData.newIntent("intent", intent))
         }
 
         val intent: Intent?
             get() {
-                val clipboard = Utils.getContext()?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+                val clipboard = Utils.getContext()
+                    ?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
                 val clip = clipboard?.primaryClip
                 return if (clip != null && clip.itemCount > 0) {
                     clip.getItemAt(0).intent
@@ -59,5 +71,4 @@ class ClipboardUtils private constructor() {
                 }
             }
     }
-
 }

@@ -5,7 +5,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.widget.AppCompatImageButton
-import com.google.android.gms.maps.GoogleMap
 import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.sqrt
@@ -24,23 +23,27 @@ class LCircularClickImageButton : AppCompatImageButton {
         fun onClick(v: View?)
     }
 
-    //center x of Image
+    // center x of Image
     private var centerX = 0f
 
-    //center y of Image
+    // center y of Image
     private var centerY = 0f
 
-    //the radius of circle
+    // the radius of circle
     private var radius = 0f
 
-    //the circle view on click listener
+    // the circle view on click listener
     private var onCircleClickListener: OnCircleClickListener? = null
 
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     /**
      * Register a callback to be invoked when this view is clicked. If this view is not
@@ -64,8 +67,8 @@ class LCircularClickImageButton : AppCompatImageButton {
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
 
-        //here we get the toucj event and then we make sure that the touch event
-        //was inside the circle not outside it if so invoke the call back
+        // here we get the toucj event and then we make sure that the touch event
+        // was inside the circle not outside it if so invoke the call back
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 val eventX = event.x

@@ -19,13 +19,15 @@ import kotlin.math.abs
  * Created by sasakicks on 2015/09/09.
  */
 class DraggableFlipView @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
-) : FrameLayout(context,
-        attrs,
-        defStyleAttr
-), DragGestureDetector.DragGestureListener {
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : FrameLayout(
+    context,
+    attrs,
+    defStyleAttr
+),
+    DragGestureDetector.DragGestureListener {
 
     companion object {
         private const val DRAG_THRESHOLD_PARAM = 50.0f
@@ -51,38 +53,44 @@ class DraggableFlipView @JvmOverloads constructor(
 
     private fun init(context: Context, attrs: AttributeSet?) {
         mFrontLayout = RelativeLayout(context)
-        mFrontLayout?.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
+        mFrontLayout?.layoutParams = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.MATCH_PARENT,
+            RelativeLayout.LayoutParams.MATCH_PARENT
+        )
 
         mBackLayout = RelativeLayout(context)
-        mBackLayout?.layoutParams = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT)
+        mBackLayout?.layoutParams = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.MATCH_PARENT,
+            RelativeLayout.LayoutParams.MATCH_PARENT
+        )
 
         this.addView(mFrontLayout)
         this.addView(mBackLayout)
 
         mBackLayout?.visibility = INVISIBLE
         mFlipListener = FlipListener(
-                mFrontView = mFrontLayout,
-                mBackView = mBackLayout,
-                mParentView = this
+            mFrontView = mFrontLayout,
+            mBackView = mBackLayout,
+            mParentView = this
         )
 
         mDragGestureDetector = DragGestureDetector(this)
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.DraggableFlipView)
         LayoutInflater.from(context).inflate(
-                typedArray.getResourceId(R.styleable.DraggableFlipView_frontView, DEFAULT_VALUE),
-                mFrontLayout
+            typedArray.getResourceId(R.styleable.DraggableFlipView_frontView, DEFAULT_VALUE),
+            mFrontLayout
         )
         LayoutInflater.from(context).inflate(
-                typedArray.getResourceId(R.styleable.DraggableFlipView_backView, DEFAULT_VALUE),
-                mBackLayout
+            typedArray.getResourceId(R.styleable.DraggableFlipView_backView, DEFAULT_VALUE),
+            mBackLayout
         )
         mDraggableAngle = typedArray.getInteger(
-                R.styleable.DraggableFlipView_draggableAngle,
-                DEFAULT_DRAGGABLE_VALUE
+            R.styleable.DraggableFlipView_draggableAngle,
+            DEFAULT_DRAGGABLE_VALUE
         )
         mDragDetectAngle = typedArray.getInteger(
-                R.styleable.DraggableFlipView_dragDetectAngle,
-                DEFAULT_DRAG_DETECT_VALUE
+            R.styleable.DraggableFlipView_dragDetectAngle,
+            DEFAULT_DRAG_DETECT_VALUE
         )
 
         typedArray.recycle()
@@ -101,12 +109,12 @@ class DraggableFlipView @JvmOverloads constructor(
                     dgd.touchPoint?.x?.let { x ->
                         dgd.touchPoint?.y?.let { y ->
 
-                            if (abs(motionEvent.x - x) > DRAG_THRESHOLD_PARAM
-                                    || abs(motionEvent.y - y) > DRAG_THRESHOLD_PARAM) {
+                            if (abs(motionEvent.x - x) > DRAG_THRESHOLD_PARAM ||
+                                abs(motionEvent.y - y) > DRAG_THRESHOLD_PARAM
+                            ) {
                                 mDragGestureDetector?.setPointMap(motionEvent)
                                 return true
                             }
-
                         }
                     }
                 }

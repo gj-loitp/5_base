@@ -19,14 +19,14 @@ class DeviceUtils private constructor() {
             get() {
                 val su = "su"
                 val locations = arrayOf(
-                        "/system/bin/",
-                        "/system/xbin/",
-                        "/sbin/",
-                        "/system/sd/xbin/",
-                        "/system/bin/failsafe/",
-                        "/data/local/xbin/",
-                        "/data/local/bin/",
-                        "/data/local/"
+                    "/system/bin/",
+                    "/system/xbin/",
+                    "/sbin/",
+                    "/system/sd/xbin/",
+                    "/system/bin/failsafe/",
+                    "/data/local/xbin/",
+                    "/data/local/bin/",
+                    "/data/local/"
                 )
                 for (location in locations) {
                     if (File(location + su).exists()) {
@@ -41,7 +41,10 @@ class DeviceUtils private constructor() {
 
         @get:SuppressLint("HardwareIds")
         val androidID: String
-            get() = Settings.Secure.getString(Utils.getContext()?.contentResolver, Settings.Secure.ANDROID_ID)
+            get() = Settings.Secure.getString(
+                Utils.getContext()?.contentResolver,
+                Settings.Secure.ANDROID_ID
+            )
 
         val macAddress: String
             get() {
@@ -64,7 +67,8 @@ class DeviceUtils private constructor() {
             get() {
                 try {
                     @SuppressLint("WifiManagerLeak")
-                    val wifi = Utils.getContext()?.getSystemService(Context.WIFI_SERVICE) as WifiManager?
+                    val wifi =
+                        Utils.getContext()?.getSystemService(Context.WIFI_SERVICE) as WifiManager?
                     val info = wifi?.connectionInfo
                     if (info != null) return info.macAddress
                 } catch (e: Exception) {
@@ -76,7 +80,8 @@ class DeviceUtils private constructor() {
         private val macAddressByNetworkInterface: String
             get() {
                 try {
-                    val nis: List<NetworkInterface> = Collections.list(NetworkInterface.getNetworkInterfaces())
+                    val nis: List<NetworkInterface> =
+                        Collections.list(NetworkInterface.getNetworkInterfaces())
                     for (ni in nis) {
                         if (!ni.name.equals("wlan0", ignoreCase = true)) continue
                         val macBytes = ni.hardwareAddress
@@ -139,7 +144,8 @@ class DeviceUtils private constructor() {
         }
 
         fun reboot(reason: String?) {
-            val mPowerManager = Utils.getContext()?.getSystemService(Context.POWER_SERVICE) as PowerManager?
+            val mPowerManager =
+                Utils.getContext()?.getSystemService(Context.POWER_SERVICE) as PowerManager?
             try {
                 mPowerManager?.reboot(reason)
             } catch (e: Exception) {
@@ -155,5 +161,4 @@ class DeviceUtils private constructor() {
             ShellUtils.execCmd("reboot bootloader", true)
         }
     }
-
 }

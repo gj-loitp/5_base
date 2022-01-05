@@ -1,10 +1,7 @@
 package com.restapi.flickr
 
-/**
- * Created by www.muathu@gmail.com on 10/7/2017.
- */
 class FlickrConst {
-    companion object{
+    companion object {
         @JvmField
         var API_KEY = "5a0d3d183e5c31fbb27e82a81050db5f"
 

@@ -50,5 +50,4 @@ class Photoset : BaseModel() {
     @SerializedName("title")
     @Expose
     var title: String = ""
-
 }

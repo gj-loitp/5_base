@@ -15,11 +15,11 @@ import java.io.Serializable
 @Keep
 data class ErrorResponse(
 
-        @SerializedName("message")
-        @Expose
-        val message: String? = null,
+    @SerializedName("message")
+    @Expose
+    val message: String? = null,
 
-        @SerializedName("code")
-        @Expose
-        val code: Int? = null
+    @SerializedName("code")
+    @Expose
+    val code: Int? = null
 ) : Serializable

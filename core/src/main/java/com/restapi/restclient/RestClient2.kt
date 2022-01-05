@@ -29,23 +29,23 @@ object RestClient2 {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val okHttpClient = OkHttpClient.Builder()
-                .readTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
-                .connectTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
-                .addInterceptor(restRequestInterceptor)
-                .retryOnConnectionFailure(true)
-                .addInterceptor(logging) // <-- this is the important line!
-                .build()
+            .readTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
+            .connectTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
+            .addInterceptor(restRequestInterceptor)
+            .retryOnConnectionFailure(true)
+            .addInterceptor(logging) // <-- this is the important line!
+            .build()
 
         val gson = GsonBuilder()
-                .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
-                .create()
+            .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
+            .create()
 
         retrofit = Retrofit.Builder()
-                .baseUrl(baseApiUrl)
-                .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .build()
+            .baseUrl(baseApiUrl)
+            .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .build()
 
         if (!TextUtils.isEmpty(token)) {
             addAuthorization(token)

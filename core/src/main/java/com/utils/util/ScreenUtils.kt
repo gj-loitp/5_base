@@ -24,7 +24,8 @@ class ScreenUtils {
 
         val screenWidth: Int
             get() {
-                val windowManager = getContext()?.getSystemService(Context.WINDOW_SERVICE) as WindowManager?
+                val windowManager =
+                    getContext()?.getSystemService(Context.WINDOW_SERVICE) as WindowManager?
                 val dm = DisplayMetrics()
                 windowManager?.defaultDisplay?.getMetrics(dm)
                 return dm.widthPixels
@@ -32,7 +33,8 @@ class ScreenUtils {
 
         val screenHeight: Int
             get() {
-                val windowManager = getContext()?.getSystemService(Context.WINDOW_SERVICE) as WindowManager?
+                val windowManager =
+                    getContext()?.getSystemService(Context.WINDOW_SERVICE) as WindowManager?
                 val dm = DisplayMetrics()
                 windowManager?.defaultDisplay?.getMetrics(dm)
                 return dm.heightPixels
@@ -82,7 +84,13 @@ class ScreenUtils {
             val statusBarHeight = getStatusBarHeight(activity)
             val dm = DisplayMetrics()
             activity.windowManager.defaultDisplay.getMetrics(dm)
-            val ret = Bitmap.createBitmap(bmp, 0, statusBarHeight, dm.widthPixels, dm.heightPixels - statusBarHeight)
+            val ret = Bitmap.createBitmap(
+                bmp,
+                0,
+                statusBarHeight,
+                dm.widthPixels,
+                dm.heightPixels - statusBarHeight
+            )
             view.destroyDrawingCache()
             return ret
         }

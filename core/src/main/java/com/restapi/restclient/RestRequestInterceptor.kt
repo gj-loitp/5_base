@@ -2,7 +2,6 @@ package com.restapi.restclient
 
 import okhttp3.Interceptor
 import okhttp3.Response
-import java.io.IOException
 import java.util.*
 
 class RestRequestInterceptor : Interceptor {

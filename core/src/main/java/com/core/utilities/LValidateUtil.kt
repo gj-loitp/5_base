@@ -3,7 +3,7 @@ package com.core.utilities
 import android.text.TextUtils
 import android.util.Patterns
 import com.utils.util.AppUtils
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import java.util.regex.Pattern
 
 class LValidateUtil {
@@ -32,12 +32,12 @@ class LValidateUtil {
                 return MSG_1
             }
             // check lower case
-            val containsLower = pw != pw.toUpperCase(Locale.getDefault())
+            val containsLower = pw != pw.uppercase(Locale.getDefault())
             if (!containsLower) {
                 return MSG_2
             }
             // check upper case
-            val containsUpper = pw != pw.toLowerCase(Locale.getDefault())
+            val containsUpper = pw != pw.lowercase(Locale.getDefault())
             if (!containsUpper) {
                 return MSG_3
             }

@@ -27,13 +27,19 @@ class LAnimatedExpandableEditText : AppCompatEditText {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
     private fun init() {
-        expandAnimationDurationMilliseconds = resources.getInteger(R.integer.animated_expanded_edit_text_animation_duration_milliseconds)
-        expandHeightPixels = resources.getDimensionPixelSize(R.dimen.animated_expandable_edit_text_expanded_height)
+        expandAnimationDurationMilliseconds =
+            resources.getInteger(R.integer.animated_expanded_edit_text_animation_duration_milliseconds)
+        expandHeightPixels =
+            resources.getDimensionPixelSize(R.dimen.animated_expandable_edit_text_expanded_height)
         onFocusChangeListener = getOnFocusChangeListener(this)
         setOnEditorActionListener(getOnEditorActionListener(this))
     }
@@ -52,7 +58,8 @@ class LAnimatedExpandableEditText : AppCompatEditText {
     }
 
     private fun closeKeyboard(v: TextView, editText: EditText) {
-        val imm = editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm =
+            editText.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(v.windowToken, 0)
     }
 

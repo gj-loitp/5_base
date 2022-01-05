@@ -4,7 +4,7 @@ import com.views.calendar.cosmocalendar.model.Day
 import java.util.*
 
 class WeekDayCriteria(
-        weekDay: Int
+    weekDay: Int
 ) : BaseCriteria() {
     private var weekDay = -1
 
@@ -30,5 +30,4 @@ class WeekDayCriteria(
     override fun hashCode(): Int {
         return weekDay
     }
-
 }

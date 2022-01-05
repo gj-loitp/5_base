@@ -1,5 +1,6 @@
 package com.core.helper.ttt.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +13,13 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.view_row_ttt_select_type.view.*
 
 @LogTag("TTTTypeAdapter")
-class TTTTypeAdapter() : BaseAdapter() {
+class TTTTypeAdapter : BaseAdapter() {
 
     private val listComicType = ArrayList<ComicType>()
     private var currentComicType: ComicType? = null
     var onClickRootListener: ((ComicType, Int) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(listComicType: ArrayList<ComicType>, currentComicType: ComicType?) {
         this.listComicType.clear()
         this.listComicType.addAll(listComicType)
@@ -34,21 +36,22 @@ class TTTTypeAdapter() : BaseAdapter() {
             }
             itemView.tvType.text = comicType.type
             LUIUtil.setSafeOnClickListenerElastic(
-                    view = itemView.cardView,
-                    runnable = {
-                        onClickRootListener?.invoke(comicType, bindingAdapterPosition)
-                    })
+                view = itemView.cardView,
+                runnable = {
+                    onClickRootListener?.invoke(comicType, bindingAdapterPosition)
+                }
+            )
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            DataViewHolder(
-                    LayoutInflater.from(parent.context).inflate(
-                            R.layout.view_row_ttt_select_type,
-                            parent,
-                            false
-                    )
+        DataViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_ttt_select_type,
+                parent,
+                false
             )
+        )
 
     override fun getItemCount(): Int = listComicType.size
 
@@ -57,5 +60,4 @@ class TTTTypeAdapter() : BaseAdapter() {
             holder.bind(listComicType[position])
         }
     }
-
 }

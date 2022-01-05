@@ -14,5 +14,4 @@ class Chap : BaseModel() {
     @SerializedName("size")
     @Expose
     var size = 0
-
 }

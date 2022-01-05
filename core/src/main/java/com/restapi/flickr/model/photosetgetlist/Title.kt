@@ -10,5 +10,4 @@ class Title : BaseModel() {
     @SerializedName("_content")
     @Expose
     var content: String = ""
-
 }

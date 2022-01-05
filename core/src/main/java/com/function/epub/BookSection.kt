@@ -11,5 +11,4 @@ class BookSection : BaseModel() {
     var sectionContent: String? = null
     var mediaType: String? = null
     var sectionTextContent: String? = null
-
 }

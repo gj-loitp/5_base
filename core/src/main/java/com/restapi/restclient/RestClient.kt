@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.security.InvalidParameterException
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import java.util.concurrent.TimeUnit
 
 object RestClient {
@@ -29,23 +29,23 @@ object RestClient {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val okHttpClient = OkHttpClient.Builder()
-                .readTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
-                .connectTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
-                .addInterceptor(restRequestInterceptor)
-                .retryOnConnectionFailure(true)
-                .addInterceptor(logging) // <-- this is the important line!
-                .build()
+            .readTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
+            .connectTimeout(CONNECT_TIMEOUT_TIME, TimeUnit.SECONDS)
+            .addInterceptor(restRequestInterceptor)
+            .retryOnConnectionFailure(true)
+            .addInterceptor(logging) // <-- this is the important line!
+            .build()
 
         val gson = GsonBuilder()
-                .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
-                .create()
+            .registerTypeAdapter(Date::class.java, DateTypeDeserializer())
+            .create()
 
         retrofit = Retrofit.Builder()
-                .baseUrl(baseApiUrl)
-                .client(okHttpClient)
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .build()
+            .baseUrl(baseApiUrl)
+            .client(okHttpClient)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .build()
 
         if (!TextUtils.isEmpty(token)) {
             addAuthorization(token)

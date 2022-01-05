@@ -39,14 +39,19 @@ class PageFragment : Fragment() {
         onFragmentReadyListener = null
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val rootView = inflater.inflate(R.layout.l_frm_epub_reader, container, false)
 
         arguments?.let {
             val position = it.getInt(ARG_TAB_POSITION)
             val view = onFragmentReadyListener?.onFragmentReady(position)
             view?.let {
-                val fragmentMainLayout = rootView.findViewById<RelativeLayout>(R.id.fragmentMainLayout)
+                val fragmentMainLayout =
+                    rootView.findViewById<RelativeLayout>(R.id.fragmentMainLayout)
                 fragmentMainLayout.addView(view)
             }
         }

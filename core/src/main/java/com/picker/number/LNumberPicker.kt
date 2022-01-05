@@ -8,7 +8,6 @@ import com.R
 import kotlinx.android.synthetic.main.view_l_number_picker.view.*
 
 class LNumberPicker : RelativeLayout {
-    private val TAG = javaClass.simpleName
     private var minValueH = 0
     private var maxValueH = 23
     private var minValueM = 0
@@ -30,7 +29,11 @@ class LNumberPicker : RelativeLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 

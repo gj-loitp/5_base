@@ -57,27 +57,31 @@ class FrmHome : BaseFragment() {
     }
 
     private fun getPage(isSwipeToRefresh: Boolean) {
-        girlViewModel?.getPage(pageIndex = currentPageIndex, keyWord = currentKeyword, isSwipeToRefresh = isSwipeToRefresh)
+        girlViewModel?.getPage(
+            pageIndex = currentPageIndex,
+            keyWord = currentKeyword,
+            isSwipeToRefresh = isSwipeToRefresh
+        )
     }
 
     private fun getListGirlTopUser() {
         val listGirlTopUser = ArrayList<GirlTopUser>()
 
         val girlTopUserLoi = GirlTopUser(
-                avatar = "https://live.staticflickr.com/8612/28213046065_796c678f46_q.jpg",
-                name = "Lợi Dubai"
+            avatar = "https://live.staticflickr.com/8612/28213046065_796c678f46_q.jpg",
+            name = "Lợi Dubai"
         )
         listGirlTopUser.add(element = girlTopUserLoi)
 
         val girlTopUserToai = GirlTopUser(
-                avatar = "https://live.staticflickr.com/5712/30595575736_2f7825cdec_q.jpg",
-                name = "Toại Titu"
+            avatar = "https://live.staticflickr.com/5712/30595575736_2f7825cdec_q.jpg",
+            name = "Toại Titu"
         )
         listGirlTopUser.add(element = girlTopUserToai)
 
         val girlTopUserHung = GirlTopUser(
-                avatar = "https://live.staticflickr.com/65535/49424976107_5e9e680df8_q.jpg",
-                name = "Hưng Cu Đen"
+            avatar = "https://live.staticflickr.com/65535/49424976107_5e9e680df8_q.jpg",
+            name = "Hưng Cu Đen"
         )
         listGirlTopUser.add(element = girlTopUserHung)
 
@@ -99,10 +103,10 @@ class FrmHome : BaseFragment() {
     private fun getListGirlTopVideo() {
         val listGirlTopVideo = ArrayList<GirlTopVideo>()
 
-        var girlTopVideo = GirlTopVideo(
-                cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
-                title = "'24/365 with BLACKPINK' EP.12",
-                link = "https://www.youtube.com/watch?v=Is0iob8lz4w"
+        val girlTopVideo = GirlTopVideo(
+            cover = "https://live.staticflickr.com/65535/49458467042_782fe58a37.jpg",
+            title = "'24/365 with BLACKPINK' EP.12",
+            link = "https://www.youtube.com/watch?v=Is0iob8lz4w"
         )
         listGirlTopVideo.add(element = girlTopVideo)
 
@@ -132,7 +136,10 @@ class FrmHome : BaseFragment() {
 
     private fun setupViews() {
         LUIUtil.setColorForSwipeRefreshLayout(swipeRefreshLayout = swipeRefreshLayout)
-        LUIUtil.setProgressViewOffset(swipeRefreshLayout = swipeRefreshLayout, topMargin = LScreenUtil.screenHeight / 6)
+        LUIUtil.setProgressViewOffset(
+            swipeRefreshLayout = swipeRefreshLayout,
+            topMargin = LScreenUtil.screenHeight / 6
+        )
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
             currentPageIndex = 0
@@ -163,7 +170,7 @@ class FrmHome : BaseFragment() {
         }
 
         girlTopUserAdapter?.onClickRootView = { _ ->
-            //do sth
+            // do sth
         }
         girlTopVideoAdapter?.onClickRootView = { girlTopVideo ->
             LUIUtil.playYoutube(activity = activity, url = girlTopVideo.link)
@@ -176,7 +183,16 @@ class FrmHome : BaseFragment() {
                         girlTopVideoAdapter?.let { gtva ->
                             girlTitleAdapterAlbum.let { gtaa ->
                                 girlAlbumAdapter?.let { gaa ->
-                                    val listOfAdapters = listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(gha, gtatu, gtua, gtav, gtva, gtaa, gaa)
+                                    val listOfAdapters =
+                                        listOf<RecyclerView.Adapter<out RecyclerView.ViewHolder>>(
+                                            gha,
+                                            gtatu,
+                                            gtua,
+                                            gtav,
+                                            gtva,
+                                            gtaa,
+                                            gaa
+                                        )
                                     concatAdapter = ConcatAdapter(listOfAdapters)
                                 }
                             }
@@ -189,23 +205,23 @@ class FrmHome : BaseFragment() {
         recyclerView.adapter = concatAdapter
 
         LUIUtil.setScrollChange(
-                recyclerView = recyclerView,
-                onTop = {
-                    logD("onTop")
-                },
-                onBottom = {
-                    logD("onBottom $currentPageIndex/$totalPage")
-                    if (currentPageIndex < totalPage) {
-                        currentPageIndex++
-                        girlProgressAdapter?.let { gpa ->
-                            concatAdapter?.let { ma ->
-                                ma.addAdapter(gpa)
-                                recyclerView.smoothScrollToPosition(ma.itemCount - 1)
-                            }
+            recyclerView = recyclerView,
+            onTop = {
+                logD("onTop")
+            },
+            onBottom = {
+                logD("onBottom $currentPageIndex/$totalPage")
+                if (currentPageIndex < totalPage) {
+                    currentPageIndex++
+                    girlProgressAdapter?.let { gpa ->
+                        concatAdapter?.let { ma ->
+                            ma.addAdapter(gpa)
+                            recyclerView.smoothScrollToPosition(ma.itemCount - 1)
                         }
-                        getPage(isSwipeToRefresh = false)
                     }
+                    getPage(isSwipeToRefresh = false)
                 }
+            }
         )
 
         ivSearch.setOnClickListener {
@@ -248,9 +264,11 @@ class FrmHome : BaseFragment() {
                             concatAdapter?.removeAdapter(it)
                         }
                         girlHeaderAdapter?.setData(girlPage = listGirlPage.random())
-                        girlAlbumAdapter?.setData(listGirlPage = listGirlPage, isSwipeToRefresh = actionData.isSwipeToRefresh
-                                ?: false)
-
+                        girlAlbumAdapter?.setData(
+                            listGirlPage = listGirlPage,
+                            isSwipeToRefresh = actionData.isSwipeToRefresh
+                                ?: false
+                        )
                     }
                 }
             })
@@ -263,7 +281,11 @@ class FrmHome : BaseFragment() {
                     LDialogUtil.hideProgress(progressBar)
                 }
                 if (isDoing == false && actionData.isSuccess == true) {
-                    logD("<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(actionData.data))
+                    logD(
+                        "<<<likeGirlPageActionLiveData observe " + BaseApplication.gson.toJson(
+                            actionData.data
+                        )
+                    )
 //                    girlPage = actionData.data
 //                    if (girlPage?.isFavorites == true) {
 //                        showLong(getString(R.string.added_to_favorites))
@@ -275,7 +297,11 @@ class FrmHome : BaseFragment() {
             vm.pageLikedActionLiveData.observe(viewLifecycleOwner, { actionData ->
                 if (actionData.isDoing == false && actionData.isSuccess == true) {
                     val listGirlPageLiked = actionData.data
-                    logD("<<<pageLikedActionLiveData observe " + BaseApplication.gson.toJson(listGirlPageLiked))
+                    logD(
+                        "<<<pageLikedActionLiveData observe " + BaseApplication.gson.toJson(
+                            listGirlPageLiked
+                        )
+                    )
                     listGirlPageLiked?.let {
                         girlAlbumAdapter?.updateData(listGirlPage = it)
                     }
@@ -286,7 +312,7 @@ class FrmHome : BaseFragment() {
 
     private fun handleSearch(isAutoSearch: Boolean) {
         if (isAutoSearch) {
-            //do nothing
+            // do nothing
         } else {
             KeyboardUtils.hideSoftInput(context, etSearch)
         }

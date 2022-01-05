@@ -17,13 +17,13 @@ import java.util.*
 class AppUtils private constructor() {
 
     class AppInfo(
-            packageName: String?,
-            name: String?,
-            icon: Drawable?,
-            packagePath: String?,
-            versionName: String?,
-            versionCode: Int,
-            isSystem: Boolean
+        packageName: String?,
+        name: String?,
+        icon: Drawable?,
+        packagePath: String?,
+        versionName: String?,
+        versionCode: Int,
+        isSystem: Boolean
     ) {
         var name: String? = null
         var icon: Drawable? = null
@@ -41,7 +41,7 @@ class AppUtils private constructor() {
                  app v name: $versionName
                  app v code: $versionCode
                  is system: $isSystem
-                 """.trimIndent()
+            """.trimIndent()
         }
 
         init {
@@ -58,79 +58,97 @@ class AppUtils private constructor() {
     companion object {
 
         fun isInstallApp(
-                packageName: String
+            packageName: String
         ): Boolean {
             return !isSpace(packageName) && IntentUtils.getLaunchAppIntent(packageName) != null
         }
 
         fun installApp(
-                filePath: String,
-                authority: String
+            filePath: String,
+            authority: String
         ) {
             installApp(file = FileUtils.getFileByPath(filePath), authority = authority)
         }
 
         fun installApp(
-                file: File,
-                authority: String
+            file: File,
+            authority: String
         ) {
             if (!FileUtils.isFileExists(file)) return
-            Utils.getContext()?.startActivity(IntentUtils.getInstallAppIntent(file = file, authority = authority))
+            Utils.getContext()
+                ?.startActivity(IntentUtils.getInstallAppIntent(file = file, authority = authority))
         }
 
         fun installApp(
-                activity: Activity,
-                filePath: String,
-                authority: String,
-                requestCode: Int
+            activity: Activity,
+            filePath: String,
+            authority: String,
+            requestCode: Int
         ) {
-            installApp(activity = activity, file = FileUtils.getFileByPath(filePath), authority = authority, requestCode = requestCode)
+            installApp(
+                activity = activity,
+                file = FileUtils.getFileByPath(filePath),
+                authority = authority,
+                requestCode = requestCode
+            )
         }
 
         fun installApp(
-                activity: Activity,
-                file: File,
-                authority: String,
-                requestCode: Int
+            activity: Activity,
+            file: File,
+            authority: String,
+            requestCode: Int
         ) {
             if (!FileUtils.isFileExists(file)) return
-            activity.startActivityForResult(IntentUtils.getInstallAppIntent(file = file, authority = authority), requestCode)
+            activity.startActivityForResult(
+                IntentUtils.getInstallAppIntent(
+                    file = file,
+                    authority = authority
+                ),
+                requestCode
+            )
         }
 
         fun installAppSilent(
-                filePath: String
+            filePath: String
         ): Boolean {
             val file = FileUtils.getFileByPath(filePath)
             if (!FileUtils.isFileExists(file)) return false
             val command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm install $filePath"
             val commandResult = ShellUtils.execCmd(command, !isSystemApp, true)
-            return commandResult.successMsg != null && commandResult.successMsg.toLowerCase(Locale.getDefault()).contains("success")
+            return commandResult.successMsg != null && commandResult.successMsg.toLowerCase(Locale.getDefault())
+                .contains("success")
         }
 
         fun uninstallApp(
-                packageName: String
+            packageName: String
         ) {
             if (isSpace(packageName)) return
             Utils.getContext()?.startActivity(IntentUtils.getUninstallAppIntent(packageName))
         }
 
         fun uninstallApp(
-                activity: Activity,
-                packageName: String,
-                requestCode: Int
+            activity: Activity,
+            packageName: String,
+            requestCode: Int
         ) {
             if (isSpace(packageName)) return
-            activity.startActivityForResult(IntentUtils.getUninstallAppIntent(packageName), requestCode)
+            activity.startActivityForResult(
+                IntentUtils.getUninstallAppIntent(packageName),
+                requestCode
+            )
         }
 
         fun uninstallAppSilent(
-                packageName: String,
-                isKeepData: Boolean
+            packageName: String,
+            isKeepData: Boolean
         ): Boolean {
             if (isSpace(packageName)) return false
-            val command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (if (isKeepData) "-k " else "") + packageName
+            val command =
+                "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (if (isKeepData) "-k " else "") + packageName
             val commandResult = ShellUtils.execCmd(command, !isSystemApp, true)
-            return commandResult.successMsg != null && commandResult.successMsg.toLowerCase(Locale.getDefault()).contains("success")
+            return commandResult.successMsg != null && commandResult.successMsg.toLowerCase(Locale.getDefault())
+                .contains("success")
         }
 
         val isAppRoot: Boolean
@@ -146,19 +164,22 @@ class AppUtils private constructor() {
             }
 
         fun launchApp(
-                packageName: String
+            packageName: String
         ) {
             if (isSpace(packageName)) return
             Utils.getContext()?.startActivity(IntentUtils.getLaunchAppIntent(packageName))
         }
 
         fun launchApp(
-                activity: Activity,
-                packageName: String,
-                requestCode: Int
+            activity: Activity,
+            packageName: String,
+            requestCode: Int
         ) {
             if (isSpace(packageName)) return
-            activity.startActivityForResult(IntentUtils.getLaunchAppIntent(packageName), requestCode)
+            activity.startActivityForResult(
+                IntentUtils.getLaunchAppIntent(packageName),
+                requestCode
+            )
         }
 
         @JvmStatic
@@ -173,7 +194,7 @@ class AppUtils private constructor() {
             }
 
         fun getAppDetailsSettings(
-                packageName: String
+            packageName: String
         ) {
             if (isSpace(packageName)) return
             Utils.getContext()?.startActivity(IntentUtils.getAppDetailsSettingsIntent(packageName))
@@ -183,7 +204,7 @@ class AppUtils private constructor() {
             get() = getAppName(Utils.getContext()?.packageName)
 
         fun getAppName(
-                packageName: String?
+            packageName: String?
         ): String? {
             return if (isSpace(packageName)) null else try {
                 val pm = Utils.getContext()?.packageManager
@@ -201,11 +222,11 @@ class AppUtils private constructor() {
             get() = getAppIcon(Utils.getContext()?.packageName)
 
         fun getAppIcon(
-                packageName: String?
+            packageName: String?
         ): Drawable? {
             return if (isSpace(packageName)) null else try {
                 val pm = Utils.getContext()?.packageManager
-                packageName?.let{
+                packageName?.let {
                     val pi = pm?.getPackageInfo(it, 0)
                     pi?.applicationInfo?.loadIcon(pm)
                 }
@@ -219,7 +240,7 @@ class AppUtils private constructor() {
             get() = getAppPath(Utils.getContext()?.packageName)
 
         fun getAppPath(
-                packageName: String?
+            packageName: String?
         ): String? {
             return if (isSpace(packageName)) null else try {
                 val pm = Utils.getContext()?.packageManager
@@ -333,12 +354,14 @@ class AppUtils private constructor() {
 
         fun getAppSignatureSHA1(packageName: String?): String? {
             val signature = getAppSignature(packageName) ?: return null
-            return EncryptUtils.encryptSHA1ToString(signature[0].toByteArray()).replace("(?<=[0-9A-F]{2})[0-9A-F]{2}".toRegex(), ":$0")
+            return EncryptUtils.encryptSHA1ToString(signature[0].toByteArray())
+                .replace("(?<=[0-9A-F]{2})[0-9A-F]{2}".toRegex(), ":$0")
         }
 
         val isAppForeground: Boolean
             get() {
-                val manager = Utils.getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
+                val manager = Utils.getContext()
+                    ?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
                 val info = manager?.runningAppProcesses
                 if (info == null || info.size == 0) return false
                 for (aInfo in info) {
@@ -383,13 +406,13 @@ class AppUtils private constructor() {
             val versionCode = pi.versionCode
             val isSystem = ApplicationInfo.FLAG_SYSTEM and ai.flags != 0
             return AppInfo(
-                    packageName = packageName,
-                    name = name,
-                    icon = icon,
-                    packagePath = packagePath,
-                    versionName = versionName,
-                    versionCode = versionCode,
-                    isSystem = isSystem
+                packageName = packageName,
+                name = name,
+                icon = icon,
+                packagePath = packagePath,
+                versionName = versionName,
+                versionCode = versionCode,
+                isSystem = isSystem
             )
         }
 

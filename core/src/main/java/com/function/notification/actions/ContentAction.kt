@@ -8,5 +8,4 @@ class ContentAction : NotificationAction {
 
     constructor(intent: Intent?, context: Context?) : super(intent, context)
     constructor(pendingIntent: PendingIntent?) : super(pendingIntent)
-
 }

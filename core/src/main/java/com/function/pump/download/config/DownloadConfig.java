@@ -22,7 +22,7 @@ public class DownloadConfig {
     private long minUsableStorageSpace = 4 * 1024L;
 
     private DownloadConnection.Factory connectionFactory;
-    private List<DownloadInterceptor> interceptors = new ArrayList<>();
+    private final List<DownloadInterceptor> interceptors = new ArrayList<>();
 
     private DownloadConfig() {
     }

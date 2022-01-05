@@ -12,7 +12,8 @@ class ServiceUtils {
 
         val allRunningService: Set<*>?
             get() {
-                val activityManager = getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
+                val activityManager =
+                    getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
                 val info = activityManager?.getRunningServices(0x7FFFFFFF)
                 val names: MutableSet<String> = HashSet()
                 if (info == null || info.size == 0) return null
@@ -59,7 +60,8 @@ class ServiceUtils {
         }
 
         fun isServiceRunning(className: String): Boolean {
-            val activityManager = getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
+            val activityManager =
+                getContext()?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
             val info = activityManager?.getRunningServices(0x7FFFFFFF)
             if (info == null || info.size == 0) return false
             for (aInfo in info) {
@@ -68,5 +70,4 @@ class ServiceUtils {
             return false
         }
     }
-
 }

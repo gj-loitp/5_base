@@ -11,11 +11,12 @@ import com.utils.util.AppUtils
 import java.util.*
 
 class Notti(
-        private val context: Context,
-        private val nottiConfig: NottiConfig
+    private val context: Context,
+    private val nottiConfig: NottiConfig
 ) {
 
-    private val notificationManager: NotificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    private val notificationManager: NotificationManager =
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
     private val ids: MutableMap<String, Int> = HashMap()
     private var currentID = 0
 
@@ -40,7 +41,10 @@ class Notti(
         notificationManager.notify(notificationID, builder.build())
     }
 
-    private fun setVibrations(customNotification: CustomNotification, builder: NotificationCompat.Builder) {
+    private fun setVibrations(
+        customNotification: CustomNotification,
+        builder: NotificationCompat.Builder
+    ) {
         val vibrationSettings = nottiConfig.vibrationSettings
         val customVibrationSettings = customNotification.vibrationSettings
         if (vibrationSettings != null && vibrationSettings.isVibrate) {
@@ -50,17 +54,27 @@ class Notti(
         }
     }
 
-    private fun setDiode(customNotification: CustomNotification, builder: NotificationCompat.Builder) {
+    private fun setDiode(
+        customNotification: CustomNotification,
+        builder: NotificationCompat.Builder
+    ) {
         val lightSettings = nottiConfig.lightSettings
         val customLightSettings = customNotification.lightSettings
         if (lightSettings != null) {
             builder.setLights(lightSettings.argb, lightSettings.onMs, lightSettings.offMs)
         } else if (customLightSettings != null) {
-            builder.setLights(customLightSettings.argb, customLightSettings.onMs, customLightSettings.offMs)
+            builder.setLights(
+                customLightSettings.argb,
+                customLightSettings.onMs,
+                customLightSettings.offMs
+            )
         }
     }
 
-    private fun setContentIntent(customNotification: CustomNotification, builder: NotificationCompat.Builder) {
+    private fun setContentIntent(
+        customNotification: CustomNotification,
+        builder: NotificationCompat.Builder
+    ) {
         if (customNotification.contentAction != null) {
             builder.setContentIntent(customNotification.contentAction.getPendingIntent())
         }
@@ -70,13 +84,16 @@ class Notti(
         return icon
     }
 
-    private fun setActionsForNotification(builder: NotificationCompat.Builder, customNotification: CustomNotification) {
+    private fun setActionsForNotification(
+        builder: NotificationCompat.Builder,
+        customNotification: CustomNotification
+    ) {
         if (customNotification.actions != null) {
             for (notificationAction in customNotification.actions) {
                 builder.addAction(
-                        provideIcon(icon = notificationAction.image),
-                        notificationAction.text,
-                        notificationAction.getPendingIntent()
+                    provideIcon(icon = notificationAction.image),
+                    notificationAction.text,
+                    notificationAction.getPendingIntent()
                 )
             }
         }
@@ -92,5 +109,4 @@ class Notti(
     private fun setBuilderWithConfig(builder: NotificationCompat.Builder) {
         builder.setSmallIcon(nottiConfig.defaultActionImage)
     }
-
 }

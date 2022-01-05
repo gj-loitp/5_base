@@ -59,12 +59,13 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
     private val storeImage: Unit
         get() {
             val proj = arrayOf(
-                    MediaStore.Images.Media._ID,
-                    MediaStore.Images.Media.DATA,
-                    MediaStore.Images.Media.DISPLAY_NAME,
-                    MediaStore.Images.Media.SIZE
+                MediaStore.Images.Media._ID,
+                MediaStore.Images.Media.DATA,
+                MediaStore.Images.Media.DISPLAY_NAME,
+                MediaStore.Images.Media.SIZE
             )
-            imageCursor = managedQuery(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, proj, null, null, null)
+            imageCursor =
+                managedQuery(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, proj, null, null, null)
             if (imageCursor != null && imageCursor?.moveToLast() == true) {
                 var title: String
                 var thumbsID: String? = null
@@ -73,7 +74,8 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
                 var imgSize: String? = null
                 val thumbsIDCol = imageCursor?.getColumnIndex(MediaStore.Images.Media._ID)
                 val thumbsDataCol = imageCursor?.getColumnIndex(MediaStore.Images.Media.DATA)
-                val thumbsImageIDCol = imageCursor?.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME)
+                val thumbsImageIDCol =
+                    imageCursor?.getColumnIndex(MediaStore.Images.Media.DISPLAY_NAME)
                 val thumbsSizeCol = imageCursor?.getColumnIndex(MediaStore.Images.Media.SIZE)
                 var num = 0
                 do {
@@ -124,7 +126,8 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-            val itemView = LayoutInflater.from(this@LGalleryActivity).inflate(R.layout.l_item_l_gallery, parent, false)
+            val itemView = LayoutInflater.from(this@LGalleryActivity)
+                .inflate(R.layout.l_item_l_gallery, parent, false)
             return PhotoItemHolder(itemView)
         }
 
@@ -133,17 +136,18 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
             val metrics = resources.displayMetrics
             val padding = 5
             val imgW = (metrics.widthPixels - ConvertUtils.dp2px(padding.toFloat())) / 3.toFloat()
-            val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, imgW.toInt())
+            val params =
+                RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, imgW.toInt())
             listHolder.layoutPhoto.layoutParams = params
             val file = File(listThumbsData[position])
             LImageUtil.load(
-                    context = this@LGalleryActivity,
-                    any = file,
-                    imageView = listHolder.ivPhoto,
-                    resPlaceHolder = R.color.colorPrimary,
-                    resError = R.color.red,
-                    transformation = null,
-                    drawableRequestListener = null
+                context = this@LGalleryActivity,
+                any = file,
+                imageView = listHolder.ivPhoto,
+                resPlaceHolder = R.color.colorPrimary,
+                resError = R.color.red,
+                transformation = null,
+                drawableRequestListener = null
             )
             listHolder.ivPhoto.setOnClickListener {
                 val intent = Intent()
@@ -158,6 +162,5 @@ class LGalleryActivity : BaseFontActivity(), View.OnClickListener {
     class PhotoItemHolder internal constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var layoutPhoto: RelativeLayout = itemView.findViewById(R.id.layoutPhoto)
         var ivPhoto: ImageView = itemView.findViewById(R.id.ivPhoto)
-
     }
 }

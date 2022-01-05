@@ -26,5 +26,4 @@ class Photosets : BaseModel() {
     @SerializedName("photoset")
     @Expose
     var photoset = ArrayList<Photoset>()
-
 }

@@ -3,10 +3,6 @@ package com.core.utilities
 import android.media.MediaPlayer
 import java.io.IOException
 
-/**
- * Created by www.muathu@gmail.com on 6/1/2017.
- */
-
 class LSoundUtil {
     companion object {
         fun startMusicFromAsset(fileName: String) {
@@ -14,9 +10,9 @@ class LSoundUtil {
             try {
                 val assetFileDescriptor = LAppResource.application.assets.openFd(fileName)
                 mediaPlayer.setDataSource(
-                        assetFileDescriptor.fileDescriptor,
-                        assetFileDescriptor.startOffset,
-                        assetFileDescriptor.length
+                    assetFileDescriptor.fileDescriptor,
+                    assetFileDescriptor.startOffset,
+                    assetFileDescriptor.length
                 )
                 assetFileDescriptor.close()
                 mediaPlayer.prepare()

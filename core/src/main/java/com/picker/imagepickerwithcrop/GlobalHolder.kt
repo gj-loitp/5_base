@@ -7,5 +7,4 @@ class GlobalHolder private constructor() {
     }
 
     var pickerManager: PickerManager? = null
-
 }

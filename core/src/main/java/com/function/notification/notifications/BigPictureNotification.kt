@@ -3,8 +3,8 @@ package com.function.notification.notifications
 import androidx.core.app.NotificationCompat
 
 class BigPictureNotification(
-        title: String?,
-        content: String?
+    title: String?,
+    content: String?
 ) : BaseNotification() {
 
     init {

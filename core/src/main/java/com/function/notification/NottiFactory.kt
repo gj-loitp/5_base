@@ -12,9 +12,9 @@ object NottiFactory {
     }
 
     operator fun get(
-            type: TYPE?,
-            title: String?,
-            content: String?
+        type: TYPE?,
+        title: String?,
+        content: String?
     ): CustomNotification {
 
         return when (type) {
@@ -35,5 +35,4 @@ object NottiFactory {
             }
         }
     }
-
 }

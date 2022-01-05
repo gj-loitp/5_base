@@ -11,15 +11,15 @@ interface GirlApiService {
 
     @GET("news/")
     fun getPageAsync(
-            @Query("PageIndex") pageIndex: Int,
-            @Query("PageSize") pageSize: Int,
-            @Query("Keyword") keyword: String?
+        @Query("PageIndex") pageIndex: Int,
+        @Query("PageSize") pageSize: Int,
+        @Query("Keyword") keyword: String?
     ): Deferred<Response<GirlApiResponse<ArrayList<GirlPage>>>>
 
     @GET("news/detail/")
     fun getPageDetailAsync(
-            @Query("PageIndex") pageIndex: Int,
-            @Query("PageSize") pageSize: Int,
-            @Query("Id") id: String?
+        @Query("PageIndex") pageIndex: Int,
+        @Query("PageSize") pageSize: Int,
+        @Query("Id") id: String?
     ): Deferred<Response<GirlApiResponse<ArrayList<GirlPageDetail>>>>
 }

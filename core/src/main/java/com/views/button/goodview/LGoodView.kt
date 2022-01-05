@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-import android.os.Build
 import android.os.Handler
 import android.text.TextUtils
 import android.util.TypedValue
@@ -18,13 +17,14 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 
 class LGoodView(
-        context: Context?
+    context: Context?
 ) : PopupWindow(context), IGoodView {
 
     companion object {
         private fun getTextViewHeight(textView: TextView?, width: Int): Int {
             val widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.AT_MOST)
-            val heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            val heightMeasureSpec =
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
             textView?.measure(widthMeasureSpec, heightMeasureSpec)
             return textView?.measuredHeight ?: 0
         }
@@ -51,8 +51,10 @@ class LGoodView(
 
     private fun initView() {
         val layout = RelativeLayout(mContext)
-        val params = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,
-                RelativeLayout.LayoutParams.WRAP_CONTENT)
+        val params = RelativeLayout.LayoutParams(
+            RelativeLayout.LayoutParams.WRAP_CONTENT,
+            RelativeLayout.LayoutParams.WRAP_CONTENT
+        )
         params.addRule(RelativeLayout.CENTER_HORIZONTAL)
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
         mGood = TextView(mContext)
@@ -118,11 +120,7 @@ class LGoodView(
         requireNotNull(drawable) {
             "drawable cannot be null."
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            mGood?.background = drawable
-        } else {
-            mGood?.setBackgroundDrawable(drawable)
-        }
+        mGood?.background = drawable
         mGood?.text = ""
         width = drawable.intrinsicWidth
         height = mDistance + drawable.intrinsicHeight

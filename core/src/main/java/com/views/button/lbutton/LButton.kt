@@ -4,13 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-
 import androidx.appcompat.widget.AppCompatImageButton
 import com.R
-
-/**
- * Created by Loitp on 7/5/2018.
- */
 
 class LButton : AppCompatImageButton {
 
@@ -20,7 +15,12 @@ class LButton : AppCompatImageButton {
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {

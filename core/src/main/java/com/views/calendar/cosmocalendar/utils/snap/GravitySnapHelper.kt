@@ -5,16 +5,17 @@ import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 
 class GravitySnapHelper @JvmOverloads constructor(
-        gravity: Int,
-        enableSnapLastItem: Boolean = false,
-        snapListener: SnapListener? = null
+    gravity: Int,
+    enableSnapLastItem: Boolean = false,
+    snapListener: SnapListener? = null
 ) : LinearSnapHelper() {
 
     interface SnapListener {
         fun onSnap(position: Int)
     }
 
-    private val delegate: GravityDelegate = GravityDelegate(gravity, enableSnapLastItem, snapListener)
+    private val delegate: GravityDelegate =
+        GravityDelegate(gravity, enableSnapLastItem, snapListener)
 
     @Throws(IllegalStateException::class)
     override fun attachToRecyclerView(recyclerView: RecyclerView?) {
@@ -23,14 +24,14 @@ class GravitySnapHelper @JvmOverloads constructor(
     }
 
     override fun calculateDistanceToFinalSnap(
-            layoutManager: RecyclerView.LayoutManager,
-            targetView: View
+        layoutManager: RecyclerView.LayoutManager,
+        targetView: View
     ): IntArray? {
         return delegate.calculateDistanceToFinalSnap(layoutManager, targetView)
     }
 
     override fun findSnapView(
-            layoutManager: RecyclerView.LayoutManager
+        layoutManager: RecyclerView.LayoutManager
     ): View? {
         return delegate.findSnapView(layoutManager)
     }
@@ -49,5 +50,4 @@ class GravitySnapHelper @JvmOverloads constructor(
     fun setGravity(gravity: Int) {
         delegate.setGravity(gravity)
     }
-
 }

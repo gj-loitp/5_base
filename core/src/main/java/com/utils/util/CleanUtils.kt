@@ -17,7 +17,7 @@ class CleanUtils private constructor() {
         }
 
         fun cleanInternalDbByName(
-                dbName: String?
+            dbName: String?
         ): Boolean? {
             return Utils.getContext()?.deleteDatabase(dbName)
         }
@@ -38,5 +38,4 @@ class CleanUtils private constructor() {
             return FileUtils.deleteFilesInDir(dir)
         }
     }
-
 }

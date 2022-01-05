@@ -2,12 +2,12 @@ package com.views.calendar.cosmocalendar.utils
 
 import android.text.format.DateUtils
 import com.views.calendar.cosmocalendar.model.Day
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 object DateUtils {
 
     fun getCalendar(
-            date: Date
+        date: Date
     ): Calendar {
         val calendar = Calendar.getInstance()
         calendar.time = date
@@ -16,7 +16,7 @@ object DateUtils {
 
     @JvmStatic
     fun getCalendar(
-            timeInMillis: Long
+        timeInMillis: Long
     ): Calendar {
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = timeInMillis
@@ -25,7 +25,7 @@ object DateUtils {
 
     @JvmStatic
     fun getFirstDayOfMonth(
-            date: Date
+        date: Date
     ): Date {
         val calendar = getCalendar(date)
         calendar[Calendar.DAY_OF_MONTH] = calendar.getActualMinimum(Calendar.DAY_OF_MONTH)
@@ -34,7 +34,7 @@ object DateUtils {
 
     @JvmStatic
     fun getLastDayOfMonth(
-            date: Date
+        date: Date
     ): Date {
         val calendar = getCalendar(date)
         calendar[Calendar.DAY_OF_MONTH] = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
@@ -43,8 +43,8 @@ object DateUtils {
 
     @JvmStatic
     fun getFirstDayOfWeek(
-            date: Date?,
-            firstDayOfWeek: Int
+        date: Date?,
+        firstDayOfWeek: Int
     ): Date {
         val calendar = Calendar.getInstance()
         if (date != null) {
@@ -60,7 +60,7 @@ object DateUtils {
 
     @JvmStatic
     fun getLastDayOfWeek(
-            date: Date?
+        date: Date?
     ): Date {
         val calendar = Calendar.getInstance()
         if (date != null) {
@@ -68,8 +68,9 @@ object DateUtils {
         }
         calendar.clear(Calendar.HOUR_OF_DAY)
         calendar.clear(Calendar.HOUR)
-        if (calendar[Calendar.DAY_OF_MONTH] == calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-                && calendar[Calendar.DAY_OF_WEEK] == Calendar.SUNDAY) {
+        if (calendar[Calendar.DAY_OF_MONTH] == calendar.getActualMaximum(Calendar.DAY_OF_MONTH) &&
+            calendar[Calendar.DAY_OF_WEEK] == Calendar.SUNDAY
+        ) {
             return calendar.time
         }
         calendar[Calendar.DAY_OF_WEEK] = calendar.getActualMaximum(Calendar.DAY_OF_WEEK)
@@ -81,23 +82,23 @@ object DateUtils {
 
     @JvmStatic
     fun isSameMonth(
-            calendar1: Calendar,
-            calendar2: Calendar
+        calendar1: Calendar,
+        calendar2: Calendar
     ): Boolean {
         return calendar1[Calendar.MONTH] == calendar2[Calendar.MONTH]
     }
 
     @JvmStatic
     fun isSameDayOfMonth(
-            calendar1: Calendar,
-            calendar2: Calendar
+        calendar1: Calendar,
+        calendar2: Calendar
     ): Boolean {
         return calendar1[Calendar.DAY_OF_MONTH] == calendar2[Calendar.DAY_OF_MONTH]
     }
 
     @JvmStatic
     fun addMonth(
-            calendar: Calendar
+        calendar: Calendar
     ): Calendar {
         calendar.add(Calendar.MONTH, 1)
         return calendar
@@ -105,7 +106,7 @@ object DateUtils {
 
     @JvmStatic
     fun addDay(
-            calendar: Calendar
+        calendar: Calendar
     ): Calendar {
         calendar.add(Calendar.DATE, 1)
         return calendar
@@ -113,16 +114,16 @@ object DateUtils {
 
     @JvmStatic
     fun isCurrentDate(
-            date: Date?
+        date: Date?
     ): Boolean {
         return date != null && DateUtils.isToday(date.time)
     }
 
     @JvmStatic
     fun isDayInRange(
-            day: Day,
-            dayStart: Day,
-            dayEnd: Day
+        day: Day,
+        dayStart: Day,
+        dayEnd: Day
     ): Boolean {
         val calendarStart = Calendar.getInstance()
         calendarStart.time = dayStart.calendar.time
@@ -130,8 +131,10 @@ object DateUtils {
         val calendarEnd = Calendar.getInstance()
         calendarEnd.time = dayEnd.calendar.time
         setCalendarToEndOfDay(calendarEnd)
-        return (day.calendar.timeInMillis >= calendarStart.timeInMillis
-                && day.calendar.timeInMillis <= calendarEnd.timeInMillis)
+        return (
+            day.calendar.timeInMillis >= calendarStart.timeInMillis &&
+                day.calendar.timeInMillis <= calendarEnd.timeInMillis
+            )
     }
 
     private fun setCalendarToStartOfDay(calendar: Calendar) {

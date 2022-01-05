@@ -25,5 +25,4 @@ internal class RssResponseBodyConverter : Converter<ResponseBody, RssFeed> {
 
         return rssFeed
     }
-
 }

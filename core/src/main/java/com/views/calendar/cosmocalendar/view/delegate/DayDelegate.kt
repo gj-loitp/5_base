@@ -1,7 +1,7 @@
 package com.views.calendar.cosmocalendar.view.delegate
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.R
@@ -12,8 +12,8 @@ import com.views.calendar.cosmocalendar.selection.MultipleSelectionManager
 import com.views.calendar.cosmocalendar.view.CalendarView
 
 class DayDelegate(
-        calendarView: CalendarView?,
-        monthAdapter: MonthAdapter
+    calendarView: CalendarView?,
+    monthAdapter: MonthAdapter
 ) : BaseDelegate() {
 
     private val monthAdapter: MonthAdapter
@@ -24,13 +24,17 @@ class DayDelegate(
     }
 
     fun onCreateDayHolder(parent: ViewGroup, viewType: Int): DayHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_cosmo_calendar_day, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.view_cosmo_calendar_day, parent, false)
         return DayHolder(view, calendarView)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun onBindDayHolder(
-            daysAdapter: RecyclerView.Adapter<*>, day: Day,
-            holder: DayHolder, position: Int
+        daysAdapter: RecyclerView.Adapter<*>,
+        day: Day,
+        holder: DayHolder,
+        position: Int
     ) {
         val selectionManager = monthAdapter.selectionManager
         holder.bind(day, selectionManager)

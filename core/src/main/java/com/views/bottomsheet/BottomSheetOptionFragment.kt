@@ -12,22 +12,26 @@ import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_bottom_sheet_dialog_option.*
 
 class BottomSheetOptionFragment(
-        private val isCancelableFragment: Boolean = true,
-        private val isShowIvClose: Boolean = true,
-        private val title: String,
-        private val message: String,
-        private val textButton1: String? = null,
-        private val textButton2: String? = null,
-        private val textButton3: String? = null,
-        private val onClickButton1: ((Unit) -> Unit)? = null,
-        private val onClickButton2: ((Unit) -> Unit)? = null,
-        private val onClickButton3: ((Unit) -> Unit)? = null,
-        private val onDismiss: ((Unit) -> Unit)? = null
+    private val isCancelableFragment: Boolean = true,
+    private val isShowIvClose: Boolean = true,
+    private val title: String,
+    private val message: String,
+    private val textButton1: String? = null,
+    private val textButton2: String? = null,
+    private val textButton3: String? = null,
+    private val onClickButton1: ((Unit) -> Unit)? = null,
+    private val onClickButton2: ((Unit) -> Unit)? = null,
+    private val onClickButton3: ((Unit) -> Unit)? = null,
+    private val onDismiss: ((Unit) -> Unit)? = null
 ) : BottomSheetDialogFragment() {
 
     private var onDismissNotify = true
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         isCancelable = isCancelableFragment
         return inflater.inflate(R.layout.l_frm_bottom_sheet_dialog_option, container, false)
     }
@@ -35,7 +39,7 @@ class BottomSheetOptionFragment(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //https://stackoverflow.com/questions/37104960/bottomsheetdialog-with-transparent-background
+        // https://stackoverflow.com/questions/37104960/bottomsheetdialog-with-transparent-background
         dialog?.apply {
             setOnShowListener {
                 val bottomSheet = findViewById<View?>(R.id.design_bottom_sheet)
@@ -112,10 +116,11 @@ class BottomSheetOptionFragment(
             }
         }
         LUIUtil.setSafeOnClickListenerElastic(
-                view = ivClose,
-                runnable = {
-                    dismiss()
-                })
+            view = ivClose,
+            runnable = {
+                dismiss()
+            }
+        )
         bt1.setSafeOnClickListener {
             onDismissNotify = false
             onClickButton1?.invoke(Unit)

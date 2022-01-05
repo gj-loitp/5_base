@@ -40,23 +40,21 @@ object LAppResource {
     }
 
     fun getArrayString(@ArrayRes arrayRes: Int): Array<String> =
-            application.let {
-                application.resources.getStringArray(arrayRes)
-            }
+        application.let {
+            application.resources.getStringArray(arrayRes)
+        }
 
     fun getViewInflater(@LayoutRes layoutRes: Int, container: ViewGroup?): View =
-            application.let {
+        application.let {
 
-                val inflater =
-                        application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-                inflater.inflate(layoutRes, container, false)
-
-            }
+            val inflater =
+                application.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            inflater.inflate(layoutRes, container, false)
+        }
 
     fun getViewInflater(@LayoutRes layoutRes: Int, parent: View?, container: ViewGroup?): View =
-            application.let {
-                val inflater = LayoutInflater.from(parent?.context)
-                inflater.inflate(layoutRes, container, false)
-            }
-
+        application.let {
+            val inflater = LayoutInflater.from(parent?.context)
+            inflater.inflate(layoutRes, container, false)
+        }
 }

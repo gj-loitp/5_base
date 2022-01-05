@@ -1,6 +1,6 @@
 package com.task
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.* // ktlint-disable no-wildcard-imports
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
@@ -26,14 +26,30 @@ class GetPdfCoroutine : CoroutineScope {
         job.cancel()
     }
 
-    fun startTask(urlPdf: String, folderPath: String, folderName: String, resultPercent: (Float?) -> Unit, resultFile: (File?) -> Unit) = launch {
-        val file = doInBackground(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName, resultPercent = { percent ->
-            resultPercent.invoke(percent)
-        })
+    fun startTask(
+        urlPdf: String,
+        folderPath: String,
+        folderName: String,
+        resultPercent: (Float?) -> Unit,
+        resultFile: (File?) -> Unit
+    ) = launch {
+        val file = doInBackground(
+            urlPdf = urlPdf,
+            folderPath = folderPath,
+            folderName = folderName,
+            resultPercent = { percent ->
+                resultPercent.invoke(percent)
+            }
+        )
         resultFile.invoke(file)
     }
 
-    private suspend fun doInBackground(urlPdf: String, folderPath: String, folderName: String, resultPercent: (Float?) -> Unit): File? = withContext(Dispatchers.IO) {
+    private suspend fun doInBackground(
+        urlPdf: String,
+        folderPath: String,
+        folderName: String,
+        resultPercent: (Float?) -> Unit
+    ): File? = withContext(Dispatchers.IO) {
         val startTime = System.currentTimeMillis()
         val fileName = try {
             val arr: Array<String> = urlPdf.split("/").toTypedArray()
@@ -41,13 +57,25 @@ class GetPdfCoroutine : CoroutineScope {
         } catch (e: java.lang.Exception) {
             urlPdf
         }
-        val file = downloadFileToSdCard(urlPdf = urlPdf, folderPath = folderPath, folderName = folderName, fileName = fileName, percentResult = { percent ->
-            resultPercent.invoke(percent)
-        })
+        val file = downloadFileToSdCard(
+            urlPdf = urlPdf,
+            folderPath = folderPath,
+            folderName = folderName,
+            fileName = fileName,
+            percentResult = { percent ->
+                resultPercent.invoke(percent)
+            }
+        )
         return@withContext file
     }
 
-    private fun downloadFileToSdCard(urlPdf: String, folderPath: String, folderName: String, fileName: String, percentResult: (Float?) -> Unit): File? {
+    private fun downloadFileToSdCard(
+        urlPdf: String,
+        folderPath: String,
+        folderName: String,
+        fileName: String,
+        percentResult: (Float?) -> Unit
+    ): File? {
         return try {
             val url = URL(urlPdf)
             val dir = File("$folderPath/$folderName")

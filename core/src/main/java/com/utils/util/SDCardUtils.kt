@@ -30,7 +30,7 @@ class SDCardUtils {
                 totalBytes=$totalBytes
                 freeBytes=$freeBytes
                 availableBytes=$availableBytes
-                """.trimIndent()
+            """.trimIndent()
         }
     }
 
@@ -48,7 +48,8 @@ class SDCardUtils {
             var bufferedReader: BufferedReader? = null
             try {
                 val p = run.exec(cmd)
-                bufferedReader = BufferedReader(InputStreamReader(BufferedInputStream(p.inputStream)))
+                bufferedReader =
+                    BufferedReader(InputStreamReader(BufferedInputStream(p.inputStream)))
                 var lineStr: String
                 while (bufferedReader.readLine().also { lineStr = it } != null) {
                     if (lineStr.contains("sdcard") && lineStr.contains(".android_secure")) {
@@ -82,10 +83,8 @@ class SDCardUtils {
                 return null
             }
             val stat = StatFs(sDCardPath())
-            val blockSize: Long
-            val availableBlocks: Long
-            availableBlocks = stat.availableBlocksLong
-            blockSize = stat.blockSizeLong
+            val availableBlocks: Long = stat.availableBlocksLong
+            val blockSize: Long = stat.blockSizeLong
             return ConvertUtils.byte2FitMemorySize(availableBlocks * blockSize)
         }
 
@@ -106,5 +105,4 @@ class SDCardUtils {
             return sd.toString()
         }
     }
-
 }

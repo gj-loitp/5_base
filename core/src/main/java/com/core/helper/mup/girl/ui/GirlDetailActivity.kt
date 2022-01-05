@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.graphics.BlendModeColorFilterCompat
 import androidx.core.graphics.BlendModeCompat
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -70,9 +69,23 @@ class GirlDetailActivity : BaseFontActivity() {
 
     private fun setupViews() {
         if (BuildConfig.DEBUG) {
-            LImageUtil.load(context = this, any = Constants.URL_IMG, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
+            LImageUtil.load(
+                context = this,
+                any = Constants.URL_IMG,
+                imageView = ivCover,
+                resError = R.color.black,
+                resPlaceHolder = R.color.black,
+                drawableRequestListener = null
+            )
         } else {
-            LImageUtil.load(context = this, any = girlPage?.src, imageView = ivCover, resError = R.color.black, resPlaceHolder = R.color.black, drawableRequestListener = null)
+            LImageUtil.load(
+                context = this,
+                any = girlPage?.src,
+                imageView = ivCover,
+                resError = R.color.black,
+                resPlaceHolder = R.color.black,
+                drawableRequestListener = null
+            )
         }
         ivCover.setAspectRatio(16f / 9f)
         collapsingToolbarLayout.title = girlPage?.title
@@ -83,12 +96,20 @@ class GirlDetailActivity : BaseFontActivity() {
             this.setDisplayHomeAsUpEnabled(true)
             this.setDisplayShowTitleEnabled(true)
         }
-        toolbar.navigationIcon?.colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(Color.BLACK, BlendModeCompat.SRC_ATOP)
+        toolbar.navigationIcon?.colorFilter =
+            BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
+                Color.BLACK,
+                BlendModeCompat.SRC_ATOP
+            )
         toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {
-            override fun onViewPositionChanged(mView: View?, swipeBackFraction: Float, swipeBackFactor: Float) {
+            override fun onViewPositionChanged(
+                mView: View?,
+                swipeBackFraction: Float,
+                swipeBackFactor: Float
+            ) {
             }
 
             override fun onViewSwipeFinished(mView: View?, isEnd: Boolean) {
@@ -122,15 +143,23 @@ class GirlDetailActivity : BaseFontActivity() {
             override fun onStateChange(toolbarChange: LAppBarLayout.State) {
                 when (toolbarChange) {
                     LAppBarLayout.State.COLLAPSED -> {
-                        //COLLAPSED appBarLayout min
-                        LAnimationUtil.play(view = btLike, techniques = Techniques.ZoomOut, duration = 500)
+                        // COLLAPSED appBarLayout min
+                        LAnimationUtil.play(
+                            view = btLike,
+                            techniques = Techniques.ZoomOut,
+                            duration = 500
+                        )
                     }
                     LAppBarLayout.State.EXPANDED -> {
-                        //EXPANDED appBarLayout max
-                        LAnimationUtil.play(view = btLike, techniques = Techniques.ZoomIn, duration = 500)
+                        // EXPANDED appBarLayout max
+                        LAnimationUtil.play(
+                            view = btLike,
+                            techniques = Techniques.ZoomIn,
+                            duration = 500
+                        )
                     }
                     else -> {
-                        //IDLE appBarLayout not min not max
+                        // IDLE appBarLayout not min not max
                     }
                 }
             }
@@ -156,7 +185,11 @@ class GirlDetailActivity : BaseFontActivity() {
 
                 if (isDoing == false && actionData.isSuccess == true) {
                     val listGirlPageDetail = actionData.data
-                    logD("<<<pageDetailActionLiveData observe " + BaseApplication.gson.toJson(listGirlPageDetail))
+                    logD(
+                        "<<<pageDetailActionLiveData observe " + BaseApplication.gson.toJson(
+                            listGirlPageDetail
+                        )
+                    )
                     if (listGirlPageDetail.isNullOrEmpty()) {
                         tvNoData.visibility = View.VISIBLE
                         recyclerView.visibility = View.GONE

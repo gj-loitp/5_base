@@ -7,8 +7,8 @@ import androidx.room.RoomDatabase
 import com.core.helper.ttt.model.comic.Comic
 
 @Database(
-        entities = [Comic::class],
-        version = 2
+    entities = [Comic::class],
+    version = 2
 )
 abstract class TTTDatabase : RoomDatabase() {
 
@@ -21,14 +21,17 @@ abstract class TTTDatabase : RoomDatabase() {
         fun getInstance(context: Context): TTTDatabase? {
             if (instance == null) {
                 synchronized(TTTDatabase::class) {
-                    instance = Room.databaseBuilder(context.applicationContext, TTTDatabase::class.java, "TTTDatabase")
-                            .fallbackToDestructiveMigration()
-                            .build()
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        TTTDatabase::class.java,
+                        "TTTDatabase"
+                    )
+                        .fallbackToDestructiveMigration()
+                        .build()
                 }
             }
 
             return instance
         }
-
     }
 }

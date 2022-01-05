@@ -6,7 +6,7 @@ import org.w3c.dom.Node
 import org.w3c.dom.NodeList
 import java.lang.reflect.Field
 
-//package.opf
+// package.opf
 class Package : BaseFindings() {
     val metadata: Metadata
     val manifest: Manifest
