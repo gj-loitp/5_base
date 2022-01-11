@@ -17,12 +17,17 @@ class LHeartLayout : RelativeLayout {
         init(attrs, 0)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(attrs, defStyleAttr)
     }
 
     private fun init(attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LHeartLayout, defStyleAttr, 0)
+        val typedArray =
+            context.obtainStyledAttributes(attrs, R.styleable.LHeartLayout, defStyleAttr, 0)
         abstractPathAnimator = PathAnimator(fromTypeArray(typedArray))
         typedArray.recycle()
     }
@@ -49,7 +54,11 @@ class LHeartLayout : RelativeLayout {
 
     fun addHeart(color: Int, heartResId: Int, heartBorderResId: Int) {
         val heartView = HeartView(context)
-        heartView.setColorAndDrawables(color = color, heartResId = heartResId, heartBorderResId = heartBorderResId)
+        heartView.setColorAndDrawables(
+            color = color,
+            heartResId = heartResId,
+            heartBorderResId = heartBorderResId
+        )
         abstractPathAnimator?.start(heartView, this)
     }
 }

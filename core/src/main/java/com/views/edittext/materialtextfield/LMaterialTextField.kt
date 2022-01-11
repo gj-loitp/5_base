@@ -1,9 +1,5 @@
 package com.views.edittext.materialtextfield
 
-/**
- * Created by www.muathu@gmail.com on 11/1/2017.
- */
-
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
@@ -47,13 +43,18 @@ open class LMaterialTextField : FrameLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         handleAttributes(context, attrs)
         init()
     }
 
     protected fun init() {
-        inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager =
+            context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     }
 
     fun toggle() {
@@ -66,48 +67,50 @@ open class LMaterialTextField : FrameLayout {
 
     fun reduce() {
         if (isExpanded) {
-            val heightInitial = context.resources.getDimensionPixelOffset(R.dimen.mtf_cardHeight_final)
+            val heightInitial =
+                context.resources.getDimensionPixelOffset(R.dimen.mtf_cardHeight_final)
             label?.let {
                 ViewCompat.animate(it)
-                        .alpha(1f)
-                        .scaleX(1f)
-                        .scaleY(1f)
-                        .translationY(0f).duration = ANIMATION_DURATION.toLong()
+                    .alpha(1f)
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .translationY(0f).duration = ANIMATION_DURATION.toLong()
             }
             image?.let {
                 ViewCompat.animate(it)
-                        .alpha(0f)
-                        .scaleX(0.4f)
-                        .scaleY(0.4f).duration = ANIMATION_DURATION.toLong()
+                    .alpha(0f)
+                    .scaleX(0.4f)
+                    .scaleY(0.4f).duration = ANIMATION_DURATION.toLong()
             }
             editText?.let {
                 ViewCompat.animate(it)
-                        .alpha(1f)
-                        .setUpdateListener { view ->
-                            val value = ViewCompat.getAlpha(view) //percentage
-                            card?.layoutParams?.height = (value * (heightInitial - cardCollapsedHeight) + cardCollapsedHeight).toInt()
-                            card?.requestLayout()
+                    .alpha(1f)
+                    .setUpdateListener { view ->
+                        val value = ViewCompat.getAlpha(view) // percentage
+                        card?.layoutParams?.height =
+                            (value * (heightInitial - cardCollapsedHeight) + cardCollapsedHeight).toInt()
+                        card?.requestLayout()
+                    }
+                    .setDuration(ANIMATION_DURATION.toLong())
+                    .setListener(object : ViewPropertyAnimatorListener {
+                        override fun onAnimationStart(view: View) {
+                            if (isExpanded) {
+                                it.visibility = View.VISIBLE
+                            }
                         }
-                        .setDuration(ANIMATION_DURATION.toLong())
-                        .setListener(object : ViewPropertyAnimatorListener {
-                            override fun onAnimationStart(view: View) {
-                                if (isExpanded) {
-                                    it.visibility = View.VISIBLE
-                                }
-                            }
 
-                            override fun onAnimationEnd(view: View) {
-                                if (!isExpanded) {
-                                    it.visibility = View.INVISIBLE
-                                }
+                        override fun onAnimationEnd(view: View) {
+                            if (!isExpanded) {
+                                it.visibility = View.INVISIBLE
                             }
+                        }
 
-                            override fun onAnimationCancel(view: View) {}
-                        })
+                        override fun onAnimationCancel(view: View) {}
+                    })
             }
             card?.let {
                 ViewCompat.animate(it)
-                        .scaleY(reducedScale).duration = ANIMATION_DURATION.toLong()
+                    .scaleY(reducedScale).duration = ANIMATION_DURATION.toLong()
             }
             editText?.let {
                 if (it.hasFocus()) {
@@ -123,24 +126,25 @@ open class LMaterialTextField : FrameLayout {
         if (!isExpanded) {
             editText?.let {
                 ViewCompat.animate(it)
-                        .alpha(1f).duration = ANIMATION_DURATION.toLong()
+                    .alpha(1f).duration = ANIMATION_DURATION.toLong()
             }
             card?.let {
                 ViewCompat.animate(it)
-                        .scaleY(1f).duration = ANIMATION_DURATION.toLong()
+                    .scaleY(1f).duration = ANIMATION_DURATION.toLong()
             }
             label?.let {
                 ViewCompat.animate(it)
-                        .alpha(0.4f)
-                        .scaleX(0.7f)
-                        .scaleY(0.7f)
-                        .translationY((-labelTopMargin).toFloat()).duration = ANIMATION_DURATION.toLong()
+                    .alpha(0.4f)
+                    .scaleX(0.7f)
+                    .scaleY(0.7f)
+                    .translationY((-labelTopMargin).toFloat()).duration =
+                    ANIMATION_DURATION.toLong()
             }
             image?.let {
                 ViewCompat.animate(it)
-                        .alpha(1f)
-                        .scaleX(1f)
-                        .scaleY(1f).duration = ANIMATION_DURATION.toLong()
+                    .alpha(1f)
+                    .scaleX(1f)
+                    .scaleY(1f).duration = ANIMATION_DURATION.toLong()
             }
             editText?.requestFocus()
             if (OPEN_KEYBOARD_ON_FOCUS) {
@@ -176,13 +180,39 @@ open class LMaterialTextField : FrameLayout {
         try {
             val styledAttrs = context.obtainStyledAttributes(attrs, R.styleable.LMaterialTextField)
 
-            run { ANIMATION_DURATION = styledAttrs.getInteger(R.styleable.LMaterialTextField_mtf_animationDuration, 400) }
-            run { OPEN_KEYBOARD_ON_FOCUS = styledAttrs.getBoolean(R.styleable.LMaterialTextField_mtf_openKeyboardOnFocus, false) }
-            run { labelColor = styledAttrs.getColor(R.styleable.LMaterialTextField_mtf_labelColor, -1) }
-            run { imageDrawableId = styledAttrs.getResourceId(R.styleable.LMaterialTextField_mtf_image, -1) }
-            run { cardCollapsedHeight = styledAttrs.getDimensionPixelOffset(R.styleable.LMaterialTextField_mtf_cardCollapsedHeight, context.resources.getDimensionPixelOffset(R.dimen.mtf_cardHeight_initial)) }
-            run { hasFocus = styledAttrs.getBoolean(R.styleable.LMaterialTextField_mtf_hasFocus, false) }
-            run { backgroundColor = styledAttrs.getColor(R.styleable.LMaterialTextField_mtf_backgroundColor, -1) }
+            run {
+                ANIMATION_DURATION = styledAttrs.getInteger(
+                    R.styleable.LMaterialTextField_mtf_animationDuration,
+                    400
+                )
+            }
+            run {
+                OPEN_KEYBOARD_ON_FOCUS = styledAttrs.getBoolean(
+                    R.styleable.LMaterialTextField_mtf_openKeyboardOnFocus,
+                    false
+                )
+            }
+            run {
+                labelColor = styledAttrs.getColor(R.styleable.LMaterialTextField_mtf_labelColor, -1)
+            }
+            run {
+                imageDrawableId =
+                    styledAttrs.getResourceId(R.styleable.LMaterialTextField_mtf_image, -1)
+            }
+            run {
+                cardCollapsedHeight = styledAttrs.getDimensionPixelOffset(
+                    R.styleable.LMaterialTextField_mtf_cardCollapsedHeight,
+                    context.resources.getDimensionPixelOffset(R.dimen.mtf_cardHeight_initial)
+                )
+            }
+            run {
+                hasFocus =
+                    styledAttrs.getBoolean(R.styleable.LMaterialTextField_mtf_hasFocus, false)
+            }
+            run {
+                backgroundColor =
+                    styledAttrs.getColor(R.styleable.LMaterialTextField_mtf_backgroundColor, -1)
+            }
 
             styledAttrs.recycle()
         } catch (e: Exception) {
@@ -204,7 +234,9 @@ open class LMaterialTextField : FrameLayout {
             return
         }
 
-        addView(LayoutInflater.from(context).inflate(R.layout.layout_material_text_field, this, false))
+        addView(
+            LayoutInflater.from(context).inflate(R.layout.layout_material_text_field, this, false)
+        )
 
         editTextLayout = findViewById<View>(R.id.mtf_editTextLayout) as ViewGroup
         removeView(editText)

@@ -8,14 +8,8 @@ import android.os.Vibrator
 import android.provider.Settings
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
-
-/**
- * File created on 11/14/2016.
- *
- * @author loitp
- */
 class LDeviceUtil {
 
     companion object {
@@ -36,10 +30,12 @@ class LDeviceUtil {
         @SuppressLint("ObsoleteSdkInt")
         fun setClipboard(text: String) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-                val clipboard = LAppResource.application.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
+                val clipboard =
+                    LAppResource.application.getSystemService(Context.CLIPBOARD_SERVICE) as android.text.ClipboardManager
                 clipboard.text = text
             } else {
-                val clipboard = LAppResource.application.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
+                val clipboard =
+                    LAppResource.application.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager
                 val clip = android.content.ClipData.newPlainText("Copy", text)
                 clipboard.setPrimaryClip(clip)
             }
@@ -74,20 +70,24 @@ class LDeviceUtil {
         }
 
         fun isCanOverlay(): Boolean {
-            return !(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(LAppResource.application))
+            return !(
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(
+                    LAppResource.application
+                )
+                )
         }
 
         fun isEmulator(): Boolean {
             return (
-                    Build.FINGERPRINT.startsWith("generic")
-                            || Build.FINGERPRINT.startsWith("unknown")
-                            || Build.MODEL.contains("google_sdk")
-                            || Build.MODEL.contains("Emulator")
-                            || Build.MODEL.contains("Android SDK built for x86")
-                            || Build.MANUFACTURER.contains("Genymotion")
-                            || Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic")
-                            || "google_sdk" == Build.PRODUCT
-                    )
+                Build.FINGERPRINT.startsWith("generic") ||
+                    Build.FINGERPRINT.startsWith("unknown") ||
+                    Build.MODEL.contains("google_sdk") ||
+                    Build.MODEL.contains("Emulator") ||
+                    Build.MODEL.contains("Android SDK built for x86") ||
+                    Build.MANUFACTURER.contains("Genymotion") ||
+                    Build.BRAND.startsWith("generic") && Build.DEVICE.startsWith("generic") ||
+                    "google_sdk" == Build.PRODUCT
+                )
         }
     }
 }

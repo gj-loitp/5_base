@@ -17,7 +17,11 @@ class StickerImageView : StickerView {
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    )
 
     private fun getView(): View {
         if (ivMain == null) {
@@ -42,5 +46,4 @@ class StickerImageView : StickerView {
         }
     override val mainView: View
         get() = getView()
-
 }

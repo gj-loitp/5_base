@@ -1,16 +1,10 @@
 package com.function.epub
 
 import com.function.epub.exception.ReadingException
-import java.io.*
+import java.io.* // ktlint-disable no-wildcard-imports
 import java.net.URLDecoder
 import java.net.URLEncoder
 
-/**
- * @author Mert
- *
- *
- * Includes commonly needed general methods.
- */
 internal object ContextHelper {
 
     @JvmStatic
@@ -18,8 +12,10 @@ internal object ContextHelper {
     fun encodeToUtf8(stringToEncode: String): String {
         var encodedString: String?
         try {
-            encodedString = URLDecoder.decode(stringToEncode, "UTF-8") // Charset.forName("UTF-8").name()
-            encodedString = URLEncoder.encode(encodedString, "UTF-8").replace("+", "%20") // Charset.forName("UTF-8").name()
+            encodedString =
+                URLDecoder.decode(stringToEncode, "UTF-8") // Charset.forName("UTF-8").name()
+            encodedString = URLEncoder.encode(encodedString, "UTF-8")
+                .replace("+", "%20") // Charset.forName("UTF-8").name()
         } catch (e: UnsupportedEncodingException) {
             e.printStackTrace()
             throw ReadingException("UnsupportedEncoding while encoding, " + stringToEncode + ", : " + e.message)
@@ -46,7 +42,10 @@ internal object ContextHelper {
     }
 
     @JvmStatic
-    fun getTagsRegex(tagName: String?, isIncludingEmptyTags: Boolean): String { // <style.*?</style> or <img.*?/>|<img.*?</img>
+    fun getTagsRegex(
+        tagName: String?,
+        isIncludingEmptyTags: Boolean
+    ): String { // <style.*?</style> or <img.*?/>|<img.*?</img>
         return if (isIncludingEmptyTags) String.format("<%1\$s.*?/>|<%1\$s.*?</%1\$s>", tagName)
         else String.format("<%1\$s.*?</%1\$s>", tagName)
     }

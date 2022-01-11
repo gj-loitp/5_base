@@ -1,7 +1,6 @@
 package com.views.layout.swipereveallayout
 
 import android.os.Bundle
-import com.views.layout.swipereveallayout.LSwipeRevealLayout
 import java.util.*
 
 class ViewBinderHelper {
@@ -201,5 +200,4 @@ class ViewBinderHelper {
             }
             return total
         }
-
 }

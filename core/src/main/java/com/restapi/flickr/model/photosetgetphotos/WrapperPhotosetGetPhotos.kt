@@ -14,5 +14,4 @@ class WrapperPhotosetGetPhotos : BaseModel() {
     @SerializedName("stat")
     @Expose
     var stat: String? = null
-
 }

@@ -9,26 +9,31 @@ import android.widget.RelativeLayout
 import com.views.progressloadingview.window.Utils.px2dp
 
 class WP10Indicator(
-        context: Context,
-        indicatorHeight: Int,
-        color: Int,
-        radius: Int,
-        number: Int
+    context: Context,
+    indicatorHeight: Int,
+    color: Int,
+    radius: Int,
+    number: Int
 ) : RelativeLayout(context) {
 
     private var objectAnimator: ObjectAnimator? = null
     private var number = 0
 
     init {
-        initialize(indicatorHeight = indicatorHeight, color = color, radius = radius, number = number)
+        initialize(
+            indicatorHeight = indicatorHeight,
+            color = color,
+            radius = radius,
+            number = number
+        )
     }
 
     private fun initialize(indicatorHeight: Int, color: Int, radius: Int, number: Int) {
         this.number = number
         val base10Indicator = Base10Indicator(context, indicatorHeight, color, radius)
         val lp = LayoutParams(
-                px2dp(context = context, px = indicatorHeight * 8),
-                px2dp(context = context, px = indicatorHeight * 8)
+            px2dp(context = context, px = indicatorHeight * 8),
+            px2dp(context = context, px = indicatorHeight * 8)
         )
         layoutParams = lp
         this.gravity = Gravity.CENTER_VERTICAL or Gravity.END
@@ -39,7 +44,12 @@ class WP10Indicator(
     }
 
     fun startAnim(animationDuration: Long, delay: Long) {
-        objectAnimator = ObjectAnimator.ofFloat(this, "rotation", (number * 15).toFloat(), (-360 + number * 15).toFloat())
+        objectAnimator = ObjectAnimator.ofFloat(
+            this,
+            "rotation",
+            (number * 15).toFloat(),
+            (-360 + number * 15).toFloat()
+        )
         objectAnimator?.apply {
             interpolator = WPInterpolator()
             duration = animationDuration
@@ -76,5 +86,4 @@ class WP10Indicator(
             end()
         }
     }
-
 }

@@ -8,7 +8,7 @@ import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.view.CalendarView
 
 class DayOfWeekDelegate(
-        calendarView: CalendarView
+    calendarView: CalendarView
 ) : BaseDelegate() {
 
     init {
@@ -16,12 +16,12 @@ class DayOfWeekDelegate(
     }
 
     fun onCreateDayHolder(parent: ViewGroup, viewType: Int): DayOfWeekHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.view_cosmo_calendar_day_of_week, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.view_cosmo_calendar_day_of_week, parent, false)
         return DayOfWeekHolder(view, calendarView)
     }
 
     fun onBindDayHolder(day: Day, holder: DayOfWeekHolder, position: Int) {
         holder.bind(day)
     }
-
 }

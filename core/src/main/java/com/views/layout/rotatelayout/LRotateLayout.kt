@@ -29,9 +29,9 @@ import kotlin.math.sin
  */
 
 class LRotateLayout @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : ViewGroup(context, attrs) {
 
     private var angle: Int
@@ -79,26 +79,40 @@ class LRotateLayout @JvmOverloads constructor(
                 abs(angle % 180) == 90 -> {
                     measureChild(child, heightMeasureSpec, widthMeasureSpec)
                     setMeasuredDimension(
-                            resolveSize(child.measuredHeight, widthMeasureSpec),
-                            resolveSize(child.measuredWidth, heightMeasureSpec)
+                        resolveSize(child.measuredHeight, widthMeasureSpec),
+                        resolveSize(child.measuredWidth, heightMeasureSpec)
                     )
                 }
                 abs(angle % 180) == 0 -> {
                     measureChild(child, widthMeasureSpec, heightMeasureSpec)
                     setMeasuredDimension(
-                            resolveSize(child.measuredWidth, widthMeasureSpec),
-                            resolveSize(child.measuredHeight, heightMeasureSpec)
+                        resolveSize(child.measuredWidth, widthMeasureSpec),
+                        resolveSize(child.measuredHeight, heightMeasureSpec)
                     )
                 }
                 else -> {
-                    val childWithMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
-                    val childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+                    val childWithMeasureSpec =
+                        MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
+                    val childHeightMeasureSpec =
+                        MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED)
                     measureChild(child, childWithMeasureSpec, childHeightMeasureSpec)
-                    val measuredWidth = ceil(child.measuredWidth * abs(cos(angleC())) + child.measuredHeight * abs(sin(angleC()))).toInt()
-                    val measuredHeight = ceil(child.measuredWidth * abs(sin(angleC())) + child.measuredHeight * abs(cos(angleC()))).toInt()
+                    val measuredWidth = ceil(
+                        child.measuredWidth * abs(cos(angleC())) + child.measuredHeight * abs(
+                            sin(
+                                angleC()
+                            )
+                        )
+                    ).toInt()
+                    val measuredHeight = ceil(
+                        child.measuredWidth * abs(sin(angleC())) + child.measuredHeight * abs(
+                            cos(
+                                angleC()
+                            )
+                        )
+                    ).toInt()
                     setMeasuredDimension(
-                            resolveSize(measuredWidth, widthMeasureSpec),
-                            resolveSize(measuredHeight, heightMeasureSpec)
+                        resolveSize(measuredWidth, widthMeasureSpec),
+                        resolveSize(measuredHeight, heightMeasureSpec)
                     )
                 }
             }

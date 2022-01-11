@@ -42,11 +42,14 @@ class LDisplayUtil {
         }
 
         fun toggleKeyboard() {
-            val imm = LAppResource.application.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            val imm =
+                LAppResource.application.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             if (imm.isActive) {
-                imm.toggleSoftInput(InputMethodManager.SHOW_IMPLICIT, InputMethodManager.HIDE_NOT_ALWAYS)
+                imm.toggleSoftInput(
+                    InputMethodManager.SHOW_IMPLICIT,
+                    InputMethodManager.HIDE_NOT_ALWAYS
+                )
             }
         }
     }
-
 }

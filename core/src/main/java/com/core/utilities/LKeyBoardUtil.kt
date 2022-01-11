@@ -3,10 +3,6 @@ package com.core.utilities
 import android.app.Activity
 import android.view.inputmethod.InputMethodManager
 
-/**
- * Created by Loitp on 17/7/2019.
- */
-
 class LKeyBoardUtil {
     companion object {
         fun show(activity: Activity) {

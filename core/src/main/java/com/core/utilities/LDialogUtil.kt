@@ -18,10 +18,6 @@ import com.views.dialog.slideimages.LSlideAdapter
 import com.views.progressloadingview.window.WP10ProgressBar
 import java.util.*
 
-/**
- * Created by www.muathu@gmail.com on 12/29/2017.
- */
-
 class LDialogUtil {
     companion object {
         private const val logTag = "LDialogUtil"
@@ -44,11 +40,11 @@ class LDialogUtil {
         }
 
         fun showDialog1(
-                context: Context,
-                title: String? = null,
-                msg: String? = null,
-                button1: String = LAppResource.getString(R.string.confirm),
-                onClickButton1: ((Unit) -> Unit)? = null
+            context: Context,
+            title: String? = null,
+            msg: String? = null,
+            button1: String = LAppResource.getString(R.string.confirm),
+            onClickButton1: ((Unit) -> Unit)? = null
         ): AlertDialog {
 //            logD("showDialog1")
             clearAll()
@@ -60,12 +56,12 @@ class LDialogUtil {
             }
 
             if (title.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setTitle(title)
             }
             if (msg.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setMessage(msg)
             }
@@ -89,13 +85,13 @@ class LDialogUtil {
         }
 
         fun showDialog2(
-                context: Context,
-                title: String? = null,
-                msg: String? = null,
-                button1: String = context.getString(R.string.confirm),
-                button2: String = context.getString(R.string.cancel),
-                onClickButton1: ((Unit) -> Unit)? = null,
-                onClickButton2: ((Unit) -> Unit)? = null
+            context: Context,
+            title: String? = null,
+            msg: String? = null,
+            button1: String = context.getString(R.string.confirm),
+            button2: String = context.getString(R.string.cancel),
+            onClickButton1: ((Unit) -> Unit)? = null,
+            onClickButton2: ((Unit) -> Unit)? = null
         ): AlertDialog {
             clearAll()
             val builder = if (LUIUtil.isDarkTheme()) {
@@ -104,12 +100,12 @@ class LDialogUtil {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
             }
             if (title.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setTitle(title)
             }
             if (msg.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setMessage(msg)
             }
@@ -136,15 +132,15 @@ class LDialogUtil {
         }
 
         fun showDialog3(
-                context: Context,
-                title: String? = null,
-                msg: String? = null,
-                button1: String? = null,
-                button2: String? = null,
-                button3: String? = null,
-                onClickButton1: ((Unit) -> Unit)? = null,
-                onClickButton2: ((Unit) -> Unit)? = null,
-                onClickButton3: ((Unit) -> Unit)? = null
+            context: Context,
+            title: String? = null,
+            msg: String? = null,
+            button1: String? = null,
+            button2: String? = null,
+            button3: String? = null,
+            onClickButton1: ((Unit) -> Unit)? = null,
+            onClickButton2: ((Unit) -> Unit)? = null,
+            onClickButton3: ((Unit) -> Unit)? = null
         ): AlertDialog {
             clearAll()
             val builder = if (LUIUtil.isDarkTheme()) {
@@ -153,31 +149,31 @@ class LDialogUtil {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
             }
             if (title.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setTitle(title)
             }
             if (msg.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setMessage(msg)
             }
             if (button1.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setNegativeButton(button1) { _, _ ->
                     onClickButton1?.invoke(Unit)
                 }
             }
             if (button2.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setPositiveButton(button2) { _, _ ->
                     onClickButton2?.invoke(Unit)
                 }
             }
             if (button3.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setNeutralButton(button3) { _, _ ->
                     onClickButton3?.invoke(Unit)
@@ -203,10 +199,10 @@ class LDialogUtil {
         }
 
         fun showDialogList(
-                context: Context,
-                title: String? = null,
-                arr: Array<String?>,
-                onClick: ((Int) -> Unit)? = null
+            context: Context,
+            title: String? = null,
+            arr: Array<String?>,
+            onClick: ((Int) -> Unit)? = null
         ): AlertDialog {
             clearAll()
             val builder = if (LUIUtil.isDarkTheme()) {
@@ -215,7 +211,7 @@ class LDialogUtil {
                 AlertDialog.Builder(ContextThemeWrapper(context, R.style.LightAlertDialogCustom))
             }
             if (title.isNullOrEmpty()) {
-                //do nothing
+                // do nothing
             } else {
                 builder.setTitle(title)
             }
@@ -228,16 +224,16 @@ class LDialogUtil {
             return dialog
         }
 
-        //style ex ProgressDialog.STYLE_HORIZONTAL
+        // style ex ProgressDialog.STYLE_HORIZONTAL
         fun showProgressDialog(
-                context: Context,
-                max: Int,
-                title: String,
-                msg: String,
-                isCancelAble: Boolean,
-                style: Int,
-                buttonTitle: String?,
-                onClickButton1: ((Unit) -> Unit)? = null
+            context: Context,
+            max: Int,
+            title: String,
+            msg: String,
+            isCancelAble: Boolean,
+            style: Int,
+            buttonTitle: String?,
+            onClickButton1: ((Unit) -> Unit)? = null
         ): ProgressDialog {
             clearAll()
             val progressDialog = ProgressDialog(context)
@@ -270,7 +266,7 @@ class LDialogUtil {
 
         @SuppressLint("InflateParams")
         fun genCustomProgressDialog(
-                context: Context?
+            context: Context?
         ): Dialog? {
             if (context == null || context !is Activity) {
                 return null
@@ -290,11 +286,14 @@ class LDialogUtil {
                 val wlp = it.attributes
                 wlp.gravity = Gravity.CENTER
 
-                //wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
+                // wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
                 wlp.flags = wlp.flags and WindowManager.LayoutParams.FLAG_DIM_BEHIND.inv()
 
                 it.attributes = wlp
-                it.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+                it.setLayout(
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.MATCH_PARENT
+                )
             }
             return dialog
         }
@@ -308,23 +307,27 @@ class LDialogUtil {
         }
 
         fun showDialogSlide(
-                context: Context,
-                index: Int,
-                imgList: List<String>,
-                amount: Float,
-                isShowController: Boolean,
-                isShowIconClose: Boolean
+            context: Context,
+            index: Int,
+            imgList: List<String>,
+            amount: Float,
+            isShowController: Boolean,
+            isShowIconClose: Boolean
         ): Dialog {
             val dialog = Dialog(context, android.R.style.Theme_Translucent_NoTitleBar)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.l_dlg_slide_images)
             dialog.setCanceledOnTouchOutside(true)
-            val slideAdapter = LSlideAdapter(mContext = context, stringList = imgList, isShowIconClose = isShowIconClose,
-                    callback = object : LSlideAdapter.Callback {
-                        override fun onClickClose() {
-                            dialog.cancel()
-                        }
-                    })
+            val slideAdapter = LSlideAdapter(
+                mContext = context,
+                stringList = imgList,
+                isShowIconClose = isShowIconClose,
+                callback = object : LSlideAdapter.Callback {
+                    override fun onClickClose() {
+                        dialog.cancel()
+                    }
+                }
+            )
             val viewPager = dialog.findViewById<ViewPager>(R.id.vp)
             viewPager.adapter = slideAdapter
             if (index != 0) {
@@ -355,16 +358,19 @@ class LDialogUtil {
                 }
             }
             dialog.window?.let {
-                //it.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                // it.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 it.setBackgroundDrawable(ColorDrawable(LAppResource.getColor(R.color.black65)))
                 it.setDimAmount(amount)
 
                 val wlp = it.attributes
                 wlp.gravity = Gravity.CENTER
-                //wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
+                // wlp.flags &= ~WindowManager.LayoutParams.FLAG_BLUR_BEHIND;
                 wlp.flags = wlp.flags and WindowManager.LayoutParams.FLAG_DIM_BEHIND.inv()
                 it.attributes = wlp
-                it.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT)
+                it.setLayout(
+                    WindowManager.LayoutParams.MATCH_PARENT,
+                    WindowManager.LayoutParams.MATCH_PARENT
+                )
             }
             dialog.show()
             return dialog

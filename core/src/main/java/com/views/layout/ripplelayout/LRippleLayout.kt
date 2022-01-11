@@ -12,37 +12,41 @@ import android.widget.FrameLayout
 import kotlin.math.*
 
 class LRippleLayout : FrameLayout {
-    //图片横向、纵向的格数
+    // 图片横向、纵向的格数
     private val MESH_WIDTH = 20
     private val MESH_HEIGHT = 20
 
-    //图片的顶点数
+    // 图片的顶点数
     private val VERTS_COUNT = (MESH_WIDTH + 1) * (MESH_HEIGHT + 1)
 
-    //原坐标数组
+    // 原坐标数组
     private val staticVerts = FloatArray(VERTS_COUNT * 2)
 
-    //转换后的坐标数组
+    // 转换后的坐标数组
     private val targetVerts = FloatArray(VERTS_COUNT * 2)
 
-    //当前控件的图片
+    // 当前控件的图片
     private var bitmap: Bitmap? = null
 
-    //水波宽度的一半
+    // 水波宽度的一半
     private val rippleWidth = 100f
 
-    //水波扩散速度
+    // 水波扩散速度
     private val rippleSpeed = 15f
 
-    //水波半径
+    // 水波半径
     private var rippleRadius = 0f
 
-    //水波动画是否执行中
+    // 水波动画是否执行中
     private var isRippling = false
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     override fun dispatchDraw(canvas: Canvas) {
         if (isRippling) {
@@ -75,19 +79,20 @@ class LRippleLayout : FrameLayout {
 
         bitmap?.let { bm ->
             isRippling = true
-            //循环次数，通过控件对角线距离计算，确保水波纹完全消失
+            // 循环次数，通过控件对角线距离计算，确保水波纹完全消失
             val viewLength = getLength(bm.width.toFloat(), bm.height.toFloat()).toInt()
             val count = ((viewLength + rippleWidth) / rippleSpeed).toInt()
-            val countDownTimer: CountDownTimer = object : CountDownTimer((count * 10).toLong(), 10) {
-                override fun onTick(millisUntilFinished: Long) {
-                    rippleRadius = (count - millisUntilFinished / 10) * rippleSpeed
-                    warp(originX, originY)
-                }
+            val countDownTimer: CountDownTimer =
+                object : CountDownTimer((count * 10).toLong(), 10) {
+                    override fun onTick(millisUntilFinished: Long) {
+                        rippleRadius = (count - millisUntilFinished / 10) * rippleSpeed
+                        warp(originX, originY)
+                    }
 
-                override fun onFinish() {
-                    isRippling = false
+                    override fun onFinish() {
+                        isRippling = false
+                    }
                 }
-            }
             countDownTimer.start()
         }
     }
@@ -132,7 +137,7 @@ class LRippleLayout : FrameLayout {
                 targetVerts[i] = point.x
                 targetVerts[i + 1] = point.y
             } else {
-                //复原
+                // 复原
                 targetVerts[i] = staticVerts[i]
                 targetVerts[i + 1] = staticVerts[i + 1]
             }
@@ -150,20 +155,25 @@ class LRippleLayout : FrameLayout {
      * @param staticY 待偏移顶点的原 y 坐标
      * @return 偏移后坐标
      */
-    private fun getRipplePoint(originX: Float, originY: Float, staticX: Float, staticY: Float): PointF {
+    private fun getRipplePoint(
+        originX: Float,
+        originY: Float,
+        staticX: Float,
+        staticY: Float
+    ): PointF {
         val length = getLength(staticX - originX, staticY - originY)
-        //偏移点与原点间的角度
+        // 偏移点与原点间的角度
         val angle = atan(abs((staticY - originY) / (staticX - originX)).toDouble()).toFloat()
-        //计算偏移距离
+        // 计算偏移距离
         val rate = (length - rippleRadius) / rippleWidth
         val offset = cos(rate.toDouble()).toFloat() * 10f
         val offsetX = offset * cos(angle.toDouble()).toFloat()
         val offsetY = offset * sin(angle.toDouble()).toFloat()
-        //计算偏移后的坐标
+        // 计算偏移后的坐标
         val targetX: Float
         val targetY: Float
         if (length < rippleRadius + rippleWidth && length > rippleRadius) {
-            //波峰外的偏移坐标
+            // 波峰外的偏移坐标
             targetX = if (staticX > originX) {
                 staticX + offsetX
             } else {
@@ -175,7 +185,7 @@ class LRippleLayout : FrameLayout {
                 staticY - offsetY
             }
         } else {
-            //波峰内的偏移坐标
+            // 波峰内的偏移坐标
             targetX = if (staticX > originY) {
                 staticX - offsetX
             } else {

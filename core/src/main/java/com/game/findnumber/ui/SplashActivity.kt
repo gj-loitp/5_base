@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.l_activity_find_number_splash.*
 
 @LogTag("SplashActivity")
 @IsFullScreen(true)
-//TODO loitpp add sound exf later
+// TODO loitpp add sound exf later
 class SplashActivity : BaseFontActivity() {
 
     companion object {
@@ -43,27 +43,27 @@ class SplashActivity : BaseFontActivity() {
         LUIUtil.setDelay(100) {
             ivFindTheNumber?.visibility = View.VISIBLE
             LAnimationUtil.play(
-                    view = ivFindTheNumber,
-                    duration = 500,
-                    techniques = Techniques.ZoomIn,
-                    onEnd = {
-                        if (!this.isFinishing) {
-                            val intent = Intent(this, MenuActivity::class.java)
-                            val builder = CircularReveal.Builder(
-                                    this,
-                                    progressBar,
-                                    intent,
-                                    1000
-                            ).apply {
-                                revealColor = ContextCompat.getColor(
-                                        this@SplashActivity,
-                                        R.color.orange
-                                )
-                                requestCode = REQUEST_CODE
-                            }
-                            CircularReveal.presentActivity(builder)
+                view = ivFindTheNumber,
+                duration = 500,
+                techniques = Techniques.ZoomIn,
+                onEnd = {
+                    if (!this.isFinishing) {
+                        val intent = Intent(this, MenuActivity::class.java)
+                        val builder = CircularReveal.Builder(
+                            this,
+                            progressBar,
+                            intent,
+                            1000
+                        ).apply {
+                            revealColor = ContextCompat.getColor(
+                                this@SplashActivity,
+                                R.color.orange
+                            )
+                            requestCode = REQUEST_CODE
                         }
+                        CircularReveal.presentActivity(builder)
                     }
+                }
             )
         }
     }
@@ -75,5 +75,4 @@ class SplashActivity : BaseFontActivity() {
             onBackPressed()
         }
     }
-
 }

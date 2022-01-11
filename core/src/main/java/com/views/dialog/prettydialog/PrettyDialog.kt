@@ -1,9 +1,5 @@
 package com.views.dialog.prettydialog
 
-/**
- * Created by www.muathu@gmail.com on 1/4/2018.
- */
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
@@ -63,17 +59,24 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         llButtons = findViewById(R.id.llButtons)
         ivIcon = findViewById(R.id.ivIcon)
 
-        val lp = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val lp = FrameLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         lp.setMargins(0, resources.getDimensionPixelSize(R.dimen.pdlg_icon_size) / 2, 0, 0)
 
         llContent?.let {
             it.layoutParams = lp
-            it.setPadding(0, (1.25 * resources.getDimensionPixelSize(R.dimen.pdlg_icon_size) / 2).toInt(),
-                    0, resources.getDimensionPixelSize(R.dimen.pdlg_space))
+            it.setPadding(
+                0, (1.25 * resources.getDimensionPixelSize(R.dimen.pdlg_icon_size) / 2).toInt(),
+                0, resources.getDimensionPixelSize(R.dimen.pdlg_space)
+            )
         }
 
-        closeRotationAnimation = RotateAnimation(0f, 180f,
-                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        closeRotationAnimation = RotateAnimation(
+            0f, 180f,
+            Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f
+        )
         closeRotationAnimation?.let {
             it.duration = 300
             it.repeatCount = Animation.ABSOLUTE
@@ -113,12 +116,27 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         tvMessage?.visibility = View.GONE
     }
 
-    fun addButton(text: String, textColor: Int?, backgroundColor: Int?,
-            /*BUTTON_TYPE type,*/ callback: Runnable): PrettyDialog {
-        val button = PrettyDialogButton(context, text, textColor, backgroundColor, typeface, /*type,*/ callback)
+    fun addButton(
+        text: String,
+        textColor: Int?,
+        backgroundColor: Int?,
+        /*BUTTON_TYPE type,*/
+        callback: Runnable
+    ): PrettyDialog {
+        val button = PrettyDialogButton(
+            context,
+            text,
+            textColor,
+            backgroundColor,
+            typeface, /*type,*/
+            callback
+        )
         prettyDialogButtonList.add(button)
         val margin = resources.getDimensionPixelSize(R.dimen.pdlg_space)
-        val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val lp = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         lp.setMargins(margin, margin, margin, 0)
         button.layoutParams = lp
         llButtons?.addView(button)
@@ -164,7 +182,10 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
     }
 
     fun setIconTint(color: Int?): PrettyDialog {
-        ivIcon?.setColorFilter(LAppResource.getColor(color ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
+        ivIcon?.setColorFilter(
+            LAppResource.getColor(color ?: defaultIconTint),
+            PorterDuff.Mode.MULTIPLY
+        )
         return this
     }
 
@@ -195,7 +216,10 @@ class PrettyDialog(internal var context: Context) : AppCompatDialog(context) {
         iconAnimation = false
         ivIcon?.let {
             it.setImageResource(icon ?: R.drawable.ic_close_black_48dp)
-            it.setColorFilter(LAppResource.getColor(iconTint ?: defaultIconTint), PorterDuff.Mode.MULTIPLY)
+            it.setColorFilter(
+                LAppResource.getColor(iconTint ?: defaultIconTint),
+                PorterDuff.Mode.MULTIPLY
+            )
             it.setOnTouchListener(null)
         }
         callback?.let {

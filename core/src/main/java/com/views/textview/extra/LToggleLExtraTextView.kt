@@ -25,7 +25,11 @@ class LToggleLExtraTextView : LExtraTextView {
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(context, attrs, defStyleAttr)
     }
 
@@ -34,13 +38,30 @@ class LToggleLExtraTextView : LExtraTextView {
             return
         }
 
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LToggleLExtraTextView, defStyleAttr, 0)
+        val typedArray = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.LToggleLExtraTextView,
+            defStyleAttr,
+            0
+        )
 
-        state = State.values()[typedArray.getInt(R.styleable.LToggleLExtraTextView_ext_txt_state, State.IDLE.ordinal)]
-        activeDrawableResourceId = typedArray.getResourceId(R.styleable.LToggleLExtraTextView_ext_txt_activeDrawable, getDrawableResourceId())
+        state = State.values()[
+            typedArray.getInt(
+                R.styleable.LToggleLExtraTextView_ext_txt_state,
+                State.IDLE.ordinal
+            )
+        ]
+        activeDrawableResourceId = typedArray.getResourceId(
+            R.styleable.LToggleLExtraTextView_ext_txt_activeDrawable,
+            getDrawableResourceId()
+        )
         activeTint = typedArray.getColor(R.styleable.LToggleLExtraTextView_ext_txt_activeTint, 0)
-        waitingTint = typedArray.getColor(R.styleable.LToggleLExtraTextView_ext_txt_waitingTint, Color.DKGRAY)
-        idleDrawableResourceId = typedArray.getResourceId(R.styleable.LToggleLExtraTextView_ext_txt_idleDrawable, getDrawableResourceId())
+        waitingTint =
+            typedArray.getColor(R.styleable.LToggleLExtraTextView_ext_txt_waitingTint, Color.DKGRAY)
+        idleDrawableResourceId = typedArray.getResourceId(
+            R.styleable.LToggleLExtraTextView_ext_txt_idleDrawable,
+            getDrawableResourceId()
+        )
         idleTint = typedArray.getColor(R.styleable.LToggleLExtraTextView_ext_txt_idleTint, 0)
 
         typedArray.recycle()

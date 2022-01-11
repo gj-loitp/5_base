@@ -44,13 +44,20 @@ class LSelectableView : FrameLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
     private fun init() {
         scrollView = ObservableScrollView(context)
-        this.addView(scrollView, LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT))
+        this.addView(
+            scrollView,
+            LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+        )
         initSaveButton()
         addOnCursorStateChangedListener()
     }
@@ -76,7 +83,10 @@ class LSelectableView : FrameLayout {
     private fun setHighlightBtnCoods(x: Int, y: Int) {
         var x = x
         var y = y
-        scrollView?.customTextView?.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        scrollView?.customTextView?.measure(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         y = if (hasActionBar) {
             y - dpTpPx(37f, context)
         } else {
@@ -94,22 +104,21 @@ class LSelectableView : FrameLayout {
 
     private fun addOnCursorStateChangedListener() {
         scrollView?.customTextView?.setOnCursorStateChangedListener(
-                object : OnCursorStateChangedListener {
-                    override fun onDragStarts(v: View?) {
-                        saveBtn?.visibility = GONE
-                    }
-
-                    override fun onPositionChanged(v: View?, x: Int, y: Int, oldx: Int, oldy: Int) {
-                    }
-
-                    override fun onDragEnds(endHandleX: Int, endHandleY: Int) {
-                        if (isHighlightButtonVisible) {
-                            saveBtn?.visibility = VISIBLE
-                        }
-                        setHighlightBtnCoods(x = endHandleX, y = endHandleY)
-                    }
-
+            object : OnCursorStateChangedListener {
+                override fun onDragStarts(v: View?) {
+                    saveBtn?.visibility = GONE
                 }
+
+                override fun onPositionChanged(v: View?, x: Int, y: Int, oldx: Int, oldy: Int) {
+                }
+
+                override fun onDragEnds(endHandleX: Int, endHandleY: Int) {
+                    if (isHighlightButtonVisible) {
+                        saveBtn?.visibility = VISIBLE
+                    }
+                    setHighlightBtnCoods(x = endHandleX, y = endHandleY)
+                }
+            }
         )
     }
 

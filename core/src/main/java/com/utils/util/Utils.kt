@@ -38,5 +38,4 @@ class Utils {
             throw NullPointerException("u should init first")
         }
     }
-
 }

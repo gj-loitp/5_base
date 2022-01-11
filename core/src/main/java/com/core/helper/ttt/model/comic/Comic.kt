@@ -41,5 +41,4 @@ class Comic : BaseModel() {
     @SerializedName("isFav")
     @Expose
     var isFav: Boolean = false
-
 }

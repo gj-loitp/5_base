@@ -27,7 +27,11 @@ class FrmIvSlideGirl : Fragment() {
 
     private var girlPageDetail: GirlPageDetail? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.l_item_girl, container, false)
     }
 

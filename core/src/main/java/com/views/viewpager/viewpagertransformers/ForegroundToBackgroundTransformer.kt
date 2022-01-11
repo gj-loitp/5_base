@@ -35,5 +35,4 @@ class ForegroundToBackgroundTransformer : BaseTransformer() {
     private fun min(`val`: Float, min: Float): Float {
         return if (`val` < min) min else `val`
     }
-
 }

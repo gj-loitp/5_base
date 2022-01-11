@@ -29,13 +29,17 @@ class AutofitEdittext : AppCompatEditText, AutofitHelper.OnTextSizeChangeListene
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init(context, attrs, defStyle)
     }
 
     private fun init(context: Context, attrs: AttributeSet?, defStyle: Int) {
         autofitHelper = create(this, attrs, defStyle)
-                .addOnTextSizeChangeListener(this)
+            .addOnTextSizeChangeListener(this)
     }
     // Getters and Setters
     /**

@@ -10,9 +10,9 @@ object LComunicateDebug {
     }
 
     class MsgFromActivity(
-            var type: Int = TYPE_D,
-            var msg: String? = null,
-            var any: Any? = null
+        var type: Int = TYPE_D,
+        var msg: String? = null,
+        var any: Any? = null
     ) {
         companion object {
             @JvmField
@@ -25,5 +25,4 @@ object LComunicateDebug {
             var TYPE_I = 1
         }
     }
-
 }

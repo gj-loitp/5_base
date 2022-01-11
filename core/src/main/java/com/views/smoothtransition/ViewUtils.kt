@@ -21,7 +21,7 @@ object ViewUtils {
 
     @JvmStatic
     fun init(
-            context: Context
+        context: Context
     ) {
         val res = context.resources
         val metrics = res.displayMetrics
@@ -37,12 +37,16 @@ object ViewUtils {
      * @return
      */
     fun getPixels(
-            dipValue: Int,
-            context: Context
+        dipValue: Int,
+        context: Context
     ): Int {
         var result = 0
         val res = context.resources
-        result = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue.toFloat(), res.displayMetrics).toInt()
+        result = TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dipValue.toFloat(),
+            res.displayMetrics
+        ).toInt()
         return result
     }
 
@@ -53,7 +57,7 @@ object ViewUtils {
      * @return
      */
     fun loadBitmapFromView(
-            v: View?
+        v: View?
     ): Bitmap? {
         if (v == null) {
             return null
@@ -74,9 +78,9 @@ object ViewUtils {
      * @return
      */
     fun computeSampleSize(
-            options: BitmapFactory.Options,
-            minSideLength: Int,
-            maxNumOfPixels: Int
+        options: BitmapFactory.Options,
+        minSideLength: Int,
+        maxNumOfPixels: Int
     ): Int {
         val initialSize = computeInitialSampleSize(options, minSideLength, maxNumOfPixels)
         var roundedSize: Int
@@ -100,14 +104,17 @@ object ViewUtils {
      * @return
      */
     private fun computeInitialSampleSize(
-            options: BitmapFactory.Options,
-            minSideLength: Int,
-            maxNumOfPixels: Int
+        options: BitmapFactory.Options,
+        minSideLength: Int,
+        maxNumOfPixels: Int
     ): Int {
         val w = options.outWidth.toDouble()
         val h = options.outHeight.toDouble()
         val lowerBound = if (maxNumOfPixels == -1) 1 else ceil(sqrt(w * h / maxNumOfPixels)).toInt()
-        val upperBound = if (minSideLength == -1) 128 else min(floor(w / minSideLength), floor(h / minSideLength)).toInt()
+        val upperBound = if (minSideLength == -1) 128 else min(
+            floor(w / minSideLength),
+            floor(h / minSideLength)
+        ).toInt()
         if (upperBound < lowerBound) {
             // return the larger one when there is no overlapping zone.
             return lowerBound

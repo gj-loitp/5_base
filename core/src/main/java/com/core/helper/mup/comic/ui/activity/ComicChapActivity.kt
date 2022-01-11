@@ -160,7 +160,7 @@ class ComicChapActivity : BaseFontActivity() {
         )
 
         fabLike.setSafeOnClickListener {
-            // TODO iplm fav comic
+            // handle iplm fav comic
             showLongInformation(getString(R.string.coming_soon))
         }
         swipeBackLayout.setSwipeBackListener(object : SwipeBackLayout.OnSwipeBackListener {

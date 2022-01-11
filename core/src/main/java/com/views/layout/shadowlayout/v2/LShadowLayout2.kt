@@ -11,9 +11,9 @@ import com.R
 import com.core.utilities.LAppResource
 
 class LShadowLayout2 @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr) {
 
     companion object {
@@ -40,17 +40,20 @@ class LShadowLayout2 @JvmOverloads constructor(
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LShadowLayout)
         mShadowShape = typedArray.getInt(R.styleable.LShadowLayout_shadowShape, SHAPE_RECTANGLE)
         mShadowRadius = typedArray.getDimension(R.styleable.LShadowLayout_shadowRadius, 0f)
-        mShadowColor = typedArray.getColor(R.styleable.LShadowLayout_shadowColor, LAppResource.getColor(R.color.black))
+        mShadowColor = typedArray.getColor(
+            R.styleable.LShadowLayout_shadowColor,
+            LAppResource.getColor(R.color.black)
+        )
         mShadowDx = typedArray.getDimension(R.styleable.LShadowLayout_shadowDx, 0f)
         mShadowDy = typedArray.getDimension(R.styleable.LShadowLayout_shadowDy, 0f)
         mShadowSide = typedArray.getInt(R.styleable.LShadowLayout_shadowSide, ALL)
         typedArray.recycle()
         mShadowDrawable = ShadowDrawable(
-                mShape = mShadowShape,
-                shadowColor = mShadowColor,
-                mShadowRadius = mShadowRadius,
-                mOffsetX = mShadowDx,
-                mOffsetY = mShadowDy
+            mShape = mShadowShape,
+            shadowColor = mShadowColor,
+            mShadowRadius = mShadowRadius,
+            mOffsetX = mShadowDx,
+            mOffsetY = mShadowDy
         )
         setLayerType(LAYER_TYPE_SOFTWARE, null)
     }
@@ -66,8 +69,8 @@ class LShadowLayout2 @JvmOverloads constructor(
         var rectTop = 0f
         var rectRight = this.measuredWidth.toFloat()
         var rectBottom = this.measuredHeight.toFloat()
-        //Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredWidth " + this.getMeasuredWidth());
-        //Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredHeight " + this.getMeasuredHeight());
+        // Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredWidth " + this.getMeasuredWidth());
+        // Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredHeight " + this.getMeasuredHeight());
         this.width
         if (mShadowSide and LEFT == LEFT) {
             rectLeft = -effect
@@ -87,15 +90,21 @@ class LShadowLayout2 @JvmOverloads constructor(
         if (mShadowDx != 0.0f) {
             rectRight += mShadowDx
         }
-        widthMeasureSpec = MeasureSpec.makeMeasureSpec(MeasureSpec.getSize((rectRight - rectLeft).toInt()), MeasureSpec.EXACTLY)
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(MeasureSpec.getSize((rectBottom - rectTop).toInt()), MeasureSpec.EXACTLY)
+        widthMeasureSpec = MeasureSpec.makeMeasureSpec(
+            MeasureSpec.getSize((rectRight - rectLeft).toInt()),
+            MeasureSpec.EXACTLY
+        )
+        heightMeasureSpec = MeasureSpec.makeMeasureSpec(
+            MeasureSpec.getSize((rectBottom - rectTop).toInt()),
+            MeasureSpec.EXACTLY
+        )
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        //Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredWidth " + px2dip(this.getMeasuredWidth()));
-        //Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredHeight " + px2dip(this.getMeasuredHeight()));
+        // Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredWidth " + px2dip(this.getMeasuredWidth()));
+        // Log.i("ShadowLayout", "ShadowLayout onMeasure getMeasuredHeight " + px2dip(this.getMeasuredHeight()));
     }
 
     override fun dispatchDraw(canvas: Canvas) {
-        //Log.i("ShadowLayout", "ShadowLayout dispatchDraw");
+        // Log.i("ShadowLayout", "ShadowLayout dispatchDraw");
         super.dispatchDraw(canvas)
         ViewCompat.setBackground(this@LShadowLayout2, mShadowDrawable)
     }

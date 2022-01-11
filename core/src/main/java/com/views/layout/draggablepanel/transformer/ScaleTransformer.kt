@@ -11,11 +11,11 @@ import com.nineoldandroids.view.ViewHelper
  * @author Pedro Vicente Gómez Sánchez
  */
 internal class ScaleTransformer(
-        view: View,
-        parent: View
+    view: View,
+    parent: View
 ) : Transformer(
-        view,
-        parent
+    view,
+    parent
 ) {
     /**
      * Uses Nineoldandroids to change the scale.

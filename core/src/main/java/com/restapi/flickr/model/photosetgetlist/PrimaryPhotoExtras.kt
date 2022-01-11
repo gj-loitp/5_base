@@ -30,5 +30,4 @@ class PrimaryPhotoExtras : BaseModel() {
     @SerializedName("width_m")
     @Expose
     var widthM = 0
-
 }

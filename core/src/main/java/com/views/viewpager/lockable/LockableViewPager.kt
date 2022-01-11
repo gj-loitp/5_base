@@ -4,16 +4,15 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-
 import androidx.viewpager.widget.ViewPager
 
 class LockableViewPager : ViewPager {
 
     var swipeLocked: Boolean = false
 
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
@@ -27,5 +26,4 @@ class LockableViewPager : ViewPager {
     override fun canScrollHorizontally(direction: Int): Boolean {
         return !swipeLocked && super.canScrollHorizontally(direction)
     }
-
 }

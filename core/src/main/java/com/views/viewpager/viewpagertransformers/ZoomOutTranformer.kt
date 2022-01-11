@@ -32,5 +32,4 @@ class ZoomOutTranformer : BaseTransformer() {
             view.translationX = (view.width * -1).toFloat()
         }
     }
-
 }

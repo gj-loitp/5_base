@@ -80,37 +80,37 @@ class Photo : BaseModel() {
     @Expose
     var widthM = 0
 
-    //gif extension have no link large
+    // gif extension have no link large
     val flickrLink100: String
         get() = if (urlO.contains(".gif")) {
-            //gif extension have no link large
+            // gif extension have no link large
             urlO
         } else {
             LImageUtil.getFlickrLink100(urlM)
         }
 
-    //gif extension have no link large
+    // gif extension have no link large
     val flickrLink640: String
         get() = if (urlO.contains(".gif")) {
-            //gif extension have no link large
+            // gif extension have no link large
             urlO
         } else {
             LImageUtil.getFlickrLink640(urlM)
         }
 
-    //gif extension have no link large
+    // gif extension have no link large
     val flickrLink1024: String
         get() = if (urlO.contains(".gif")) {
-            //gif extension have no link large
+            // gif extension have no link large
             urlO
         } else {
             LImageUtil.getFlickrLink1024(urlM)
         }
 
-    //gif extension have no link large
+    // gif extension have no link large
     val flickrLink320: String
         get() = if (urlO.contains(".gif")) {
-            //gif extension have no link large
+            // gif extension have no link large
             urlO
         } else {
             LImageUtil.getFlickrLink320(urlM)

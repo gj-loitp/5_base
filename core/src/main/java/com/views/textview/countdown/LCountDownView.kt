@@ -1,5 +1,6 @@
 package com.views.textview.countdown
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
@@ -23,7 +24,11 @@ class LCountDownView : RelativeLayout {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -48,28 +53,29 @@ class LCountDownView : RelativeLayout {
         this.callback = callback
     }
 
+    @SuppressLint("SetTextI18n")
     private fun doPerSec() {
         tvCountDown.text = number.toString()
         LAnimationUtil.play(
-                view = tvCountDown,
-                techniques = Techniques.FlipInX,
-                duration = 1000,
-                onEnd = {
-                    number--
-                    if (number <= 0) {
-                        tvCountDown.text = "GO"
-                        LAnimationUtil.play(
-                                view = tvCountDown,
-                                techniques = Techniques.Flash,
-                                onEnd = {
-                                    tvCountDown?.visibility = GONE
-                                    callback?.onEnd()
-                                }
-                        )
-                    } else {
-                        doPerSec()
-                    }
+            view = tvCountDown,
+            techniques = Techniques.FlipInX,
+            duration = 1000,
+            onEnd = {
+                number--
+                if (number <= 0) {
+                    tvCountDown.text = "GO"
+                    LAnimationUtil.play(
+                        view = tvCountDown,
+                        techniques = Techniques.Flash,
+                        onEnd = {
+                            tvCountDown?.visibility = GONE
+                            callback?.onEnd()
+                        }
+                    )
+                } else {
+                    doPerSec()
                 }
+            }
         )
     }
 }

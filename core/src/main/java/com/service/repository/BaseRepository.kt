@@ -22,28 +22,27 @@ open class BaseRepository {
 
             if (response.isSuccessful) {
                 response.body() ?: run {
-                    ApiResponse<T>(status = true, data = null)
+                    ApiResponse(status = true, data = null)
                 }
             } else {
                 if (response.code() == RequestStatus.NO_AUTHENTICATION.value) {
-                    ApiResponse<T>(
-                            status = false,
-                            errorCode = RequestStatus.NO_AUTHENTICATION.value,
-                            errors = ErrorResponse(message = "error_login"),
-                            data = null
+                    ApiResponse(
+                        status = false,
+                        errorCode = RequestStatus.NO_AUTHENTICATION.value,
+                        errors = ErrorResponse(message = "error_login"),
+                        data = null
                     )
                 } else {
                     handleError(response)
                 }
             }
-
         } catch (ex: Exception) {
             val error = ex.message
             ApiResponse(
-                    status = false,
-                    errorCode = null,
-                    errors = ErrorResponse(error),
-                    data = null
+                status = false,
+                errorCode = null,
+                errors = ErrorResponse(error),
+                data = null
             )
         }
     }
@@ -54,9 +53,9 @@ open class BaseRepository {
             try {
                 // parser error body
                 val jsonError = it.string()
-                val errorJson = BaseApplication.gson.fromJson(jsonError, ErrorJson::class.java) as ErrorJson
+                val errorJson =
+                    BaseApplication.gson.fromJson(jsonError, ErrorJson::class.java) as ErrorJson
                 errorResponse = errorJson.errors?.firstOrNull()
-
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -65,30 +64,30 @@ open class BaseRepository {
         if (errorResponse == null) {
             when {
                 response?.code() == RequestStatus.BAD_GATEWAY.value -> return ApiResponse(
-                        status = false,
-                        errors = ErrorResponse(message = "error_bad_gateway"),
-                        data = null,
-                        errorCode = response.code()
+                    status = false,
+                    errors = ErrorResponse(message = "error_bad_gateway"),
+                    data = null,
+                    errorCode = response.code()
                 )
                 response?.code() == RequestStatus.INTERNAL_SERVER.value -> return ApiResponse(
-                        status = false,
-                        errors = ErrorResponse(message = "error_internal_server"),
-                        data = null,
-                        errorCode = response.code()
+                    status = false,
+                    errors = ErrorResponse(message = "error_internal_server"),
+                    data = null,
+                    errorCode = response.code()
                 )
                 else -> return ApiResponse(
-                        status = false,
-                        errors = ErrorResponse(message = "error_internal_server"),
-                        data = null
+                    status = false,
+                    errors = ErrorResponse(message = "error_internal_server"),
+                    data = null
                 )
             }
         }
 
         return ApiResponse(
-                status = false,
-                errors = ErrorResponse(message = errorResponse?.message),
-                data = null,
-                errorCode = errorResponse?.code
+            status = false,
+            errors = ErrorResponse(message = errorResponse?.message),
+            data = null,
+            errorCode = errorResponse?.code
         )
     }
 }

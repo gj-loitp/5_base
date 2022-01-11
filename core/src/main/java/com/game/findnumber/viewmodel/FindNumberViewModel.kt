@@ -9,13 +9,6 @@ import com.service.livedata.ActionData
 import com.service.livedata.ActionLiveData
 import kotlinx.coroutines.launch
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
-
 @LogTag("FindNumberViewModel")
 class FindNumberViewModel : BaseGirlViewModel() {
     val listLevelActionLiveData: ActionLiveData<ActionData<ArrayList<Level>>> = ActionLiveData()
@@ -31,7 +24,7 @@ class FindNumberViewModel : BaseGirlViewModel() {
             val listLevelDb = FindNumberDatabase.instance?.levelDao()?.getListLevel()
             if (listLevelDb.isNullOrEmpty()) {
                 logD("listLevelDb.isNullOrEmpty()")
-                //create first db
+                // create first db
 
 //                for (i in 0 until 99) {
 //                    val level = Level()
@@ -46,7 +39,7 @@ class FindNumberViewModel : BaseGirlViewModel() {
 //                }
                 listLevel.addAll(Db.genListLevel())
 
-                //save first data
+                // save first data
                 listLevel.forEach { lv ->
                     val id = FindNumberDatabase.instance?.levelDao()?.insert(lv)
                     logD("save first data id $id")
@@ -57,28 +50,27 @@ class FindNumberViewModel : BaseGirlViewModel() {
             }
 
             listLevelActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listLevel
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listLevel
+                )
             )
         }
-
     }
 
     fun getFirstLevelOpen() {
         firstLevelOpenActionLiveData.set(ActionData(isDoing = true))
         ioScope.launch {
-            val lastedLevel = FindNumberDatabase.instance?.levelDao()?.getFirstLevelOpen(Level.STATUS_LEVEL_OPEN)
+            val lastedLevel =
+                FindNumberDatabase.instance?.levelDao()?.getFirstLevelOpen(Level.STATUS_LEVEL_OPEN)
             firstLevelOpenActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = lastedLevel
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = lastedLevel
+                )
             )
         }
     }
-
 }

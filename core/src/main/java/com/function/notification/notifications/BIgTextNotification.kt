@@ -3,8 +3,8 @@ package com.function.notification.notifications
 import androidx.core.app.NotificationCompat
 
 class BIgTextNotification(
-        title: String?,
-        content: String?
+    title: String?,
+    content: String?
 ) : BaseNotification() {
 
     init {
@@ -30,5 +30,4 @@ class BIgTextNotification(
             builder.setStyle(NotificationCompat.BigTextStyle().bigText(it))
         }
     }
-
 }

@@ -17,7 +17,12 @@ class LHorizontalScrollView : HorizontalScrollView {
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {}
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
+    }
 
     fun setOnScrollListener(scrollListener: LScrollView.ScrollListener) {
         this.mScrollListener = scrollListener

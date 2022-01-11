@@ -12,20 +12,18 @@ import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 
-/**
- * Created by Loitp on 4/18/2017.
- */
-
 class LFCMUtil {
     companion object {
         private val logTag = LFCMUtil::class.java.simpleName
         private val JSON = "application/json; charset=utf-8".toMediaTypeOrNull()
 
         @SuppressLint("CheckResult")
-        fun sendNotification(key: String,
-                             body: String,
-                             onComplete: ((Unit) -> Unit)?,
-                             onError: ((Unit) -> Unit)?) {
+        fun sendNotification(
+            key: String,
+            body: String,
+            onComplete: ((Unit) -> Unit)?,
+            onError: ((Unit) -> Unit)?
+        ) {
             Completable.fromAction {
                 val client = OkHttpClient()
                 val json = JSONObject()
@@ -36,19 +34,19 @@ class LFCMUtil {
                 json.put("to", Constants.FCM_TOPIC)
                 val jsonBody = json.toString().toRequestBody(JSON)
                 val request = Request.Builder()
-                        .header("Authorization", "key=$key")
-                        .url("https://fcm.googleapis.com/fcm/send")
-                        .post(jsonBody)
-                        .build()
+                    .header("Authorization", "key=$key")
+                    .url("https://fcm.googleapis.com/fcm/send")
+                    .post(jsonBody)
+                    .build()
                 val response = client.newCall(request).execute()
                 val finalResponse = response.body
             }.subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
-                        onComplete?.invoke(Unit)
-                    }, {
-                        onError?.invoke(Unit)
-                    })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({
+                    onComplete?.invoke(Unit)
+                }, {
+                    onError?.invoke(Unit)
+                })
         }
 
 //        fun getFCMToken(context: Context) {

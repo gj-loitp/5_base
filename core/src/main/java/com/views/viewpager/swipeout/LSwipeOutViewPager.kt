@@ -4,13 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
-
 import androidx.core.view.MotionEventCompat
 import androidx.viewpager.widget.ViewPager
-
-/**
- * Created by loitp on 7/20/2018.
- */
 
 class LSwipeOutViewPager : ViewPager {
     private var mStartDragX: Float = 0.toFloat()
@@ -62,7 +57,6 @@ class LSwipeOutViewPager : ViewPager {
             }
         }
         return super.onTouchEvent(ev)
-
     }
 
     interface OnSwipeOutListener {

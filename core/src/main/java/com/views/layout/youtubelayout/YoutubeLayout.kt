@@ -15,9 +15,9 @@ import kotlin.math.max
 import kotlin.math.min
 
 class YoutubeLayout @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyle: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyle: Int = 0
 ) : ViewGroup(context, attrs, defStyle) {
 
     private val logTag = javaClass.simpleName
@@ -58,7 +58,13 @@ class YoutubeLayout @JvmOverloads constructor(
             return child === mHeaderView
         }
 
-        override fun onViewPositionChanged(changedView: View, left: Int, top: Int, dx: Int, dy: Int) {
+        override fun onViewPositionChanged(
+            changedView: View,
+            left: Int,
+            top: Int,
+            dx: Int,
+            dy: Int
+        ) {
             mTop = top
             mDragOffset = top.toFloat() / mDragRange
             when (mDragOffset) {
@@ -102,8 +108,8 @@ class YoutubeLayout @JvmOverloads constructor(
                 bottomBound = height - it.height - it.paddingBottom
             }
             return min(
-                    a = max(a = top, b = topBound),
-                    b = bottomBound
+                a = max(a = top, b = topBound),
+                b = bottomBound
             )
         }
 
@@ -114,8 +120,8 @@ class YoutubeLayout @JvmOverloads constructor(
                 rightBound = width - it.width
             }
             return min(
-                    a = max(a = left, b = leftBound),
-                    b = rightBound
+                a = max(a = left, b = leftBound),
+                b = rightBound
             )
         }
     }
@@ -178,7 +184,11 @@ class YoutubeLayout @JvmOverloads constructor(
                 }
             }
         }
-        return isHeaderViewUnder && isViewHit(mHeaderView, x.toInt(), y.toInt()) || isViewHit(mDescView, x.toInt(), y.toInt())
+        return isHeaderViewUnder && isViewHit(mHeaderView, x.toInt(), y.toInt()) || isViewHit(
+            mDescView,
+            x.toInt(),
+            y.toInt()
+        )
     }
 
     private fun isViewHit(view: View?, x: Int, y: Int): Boolean {
@@ -200,8 +210,8 @@ class YoutubeLayout @JvmOverloads constructor(
         val maxWidth = MeasureSpec.getSize(widthMeasureSpec)
         val maxHeight = MeasureSpec.getSize(heightMeasureSpec)
         setMeasuredDimension(
-                resolveSizeAndState(maxWidth, widthMeasureSpec, 0),
-                resolveSizeAndState(maxHeight, heightMeasureSpec, 0)
+            resolveSizeAndState(maxWidth, widthMeasureSpec, 0),
+            resolveSizeAndState(maxHeight, heightMeasureSpec, 0)
         )
     }
 
@@ -210,15 +220,17 @@ class YoutubeLayout @JvmOverloads constructor(
             mDragRange = height - it.height
 
             it.layout(
-                    0,
-                    mTop,
-                    r,
-                    mTop + it.measuredHeight)
+                0,
+                mTop,
+                r,
+                mTop + it.measuredHeight
+            )
             mDescView?.layout(
-                    0,
-                    mTop + it.measuredHeight,
-                    r,
-                    mTop + b)
+                0,
+                mTop + it.measuredHeight,
+                r,
+                mTop + b
+            )
         }
     }
 

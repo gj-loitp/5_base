@@ -11,8 +11,8 @@ import kotlin.math.max
 import kotlin.math.min
 
 class FlowLayout @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null
+    context: Context,
+    attrs: AttributeSet? = null
 ) : ViewGroup(context, attrs) {
 
     companion object {
@@ -80,8 +80,10 @@ class FlowLayout @JvmOverloads constructor(
         val rowSize = widthSize - paddingLeft - paddingRight
         var rowTotalChildWidth = 0
         val allowFlow = widthMode != MeasureSpec.UNSPECIFIED && mFlow
-        val childSpacing = if (mChildSpacing == SPACING_AUTO && widthMode == MeasureSpec.UNSPECIFIED) 0 else mChildSpacing
-        val tmpSpacing = if (childSpacing == SPACING_AUTO) mMinChildSpacing.toFloat() else childSpacing.toFloat()
+        val childSpacing =
+            if (mChildSpacing == SPACING_AUTO && widthMode == MeasureSpec.UNSPECIFIED) 0 else mChildSpacing
+        val tmpSpacing =
+            if (childSpacing == SPACING_AUTO) mMinChildSpacing.toFloat() else childSpacing.toFloat()
 
         for (i in 0 until childCount) {
             val child = getChildAt(i)
@@ -92,7 +94,13 @@ class FlowLayout @JvmOverloads constructor(
             var horizontalMargin = 0
             var verticalMargin = 0
             if (childParams is MarginLayoutParams) {
-                measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, measuredHeight)
+                measureChildWithMargins(
+                    child,
+                    widthMeasureSpec,
+                    0,
+                    heightMeasureSpec,
+                    measuredHeight
+                )
                 horizontalMargin = childParams.leftMargin + childParams.rightMargin
                 verticalMargin = childParams.topMargin + childParams.bottomMargin
             } else {
@@ -104,12 +112,12 @@ class FlowLayout @JvmOverloads constructor(
                 // Need flow to next row
                 // Save parameters for current row
                 mHorizontalSpacingForRow.add(
-                        getSpacingForRow(
-                                spacingAttribute = childSpacing,
-                                rowSize = rowSize,
-                                usedSize = rowTotalChildWidth,
-                                childNum = childNumInRow
-                        )
+                    getSpacingForRow(
+                        spacingAttribute = childSpacing,
+                        rowSize = rowSize,
+                        usedSize = rowTotalChildWidth,
+                        childNum = childNumInRow
+                    )
                 )
                 mChildNumForRow.add(childNumInRow)
                 mHeightForRow.add(maxChildHeightInRow)
@@ -139,14 +147,35 @@ class FlowLayout @JvmOverloads constructor(
             if (mHorizontalSpacingForRow.size >= 1) {
                 mHorizontalSpacingForRow.add(mHorizontalSpacingForRow[mHorizontalSpacingForRow.size - 1])
             } else {
-                mHorizontalSpacingForRow.add(getSpacingForRow(childSpacing, rowSize, rowTotalChildWidth, childNumInRow))
+                mHorizontalSpacingForRow.add(
+                    getSpacingForRow(
+                        childSpacing,
+                        rowSize,
+                        rowTotalChildWidth,
+                        childNumInRow
+                    )
+                )
             }
         } else if (mChildSpacingForLastRow != SPACING_UNDEFINED) {
             // For SPACING_AUTO and specific DP values, apply them to the spacing strategy.
-            mHorizontalSpacingForRow.add(getSpacingForRow(mChildSpacingForLastRow, rowSize, rowTotalChildWidth, childNumInRow))
+            mHorizontalSpacingForRow.add(
+                getSpacingForRow(
+                    mChildSpacingForLastRow,
+                    rowSize,
+                    rowTotalChildWidth,
+                    childNumInRow
+                )
+            )
         } else {
             // For SPACING_UNDEFINED, apply childSpacing to the spacing strategy for the last row.
-            mHorizontalSpacingForRow.add(getSpacingForRow(childSpacing, rowSize, rowTotalChildWidth, childNumInRow))
+            mHorizontalSpacingForRow.add(
+                getSpacingForRow(
+                    childSpacing,
+                    rowSize,
+                    rowTotalChildWidth,
+                    childNumInRow
+                )
+            )
         }
         mChildNumForRow.add(childNumInRow)
         mHeightForRow.add(maxChildHeightInRow)
@@ -168,11 +197,12 @@ class FlowLayout @JvmOverloads constructor(
         }
         measuredHeight += paddingTop + paddingBottom
         val rowNum = min(mHorizontalSpacingForRow.size, mMaxRows)
-        val rowSpacing: Float = if (mRowSpacing == SPACING_AUTO.toFloat() && heightMode == MeasureSpec.UNSPECIFIED) {
-            0f
-        } else {
-            mRowSpacing
-        }
+        val rowSpacing: Float =
+            if (mRowSpacing == SPACING_AUTO.toFloat() && heightMode == MeasureSpec.UNSPECIFIED) {
+                0f
+            } else {
+                mRowSpacing
+            }
         if (rowSpacing == SPACING_AUTO.toFloat()) {
             mAdjustedRowSpacing = if (rowNum > 1) {
                 ((heightSize - measuredHeight) / (rowNum - 1)).toFloat()
@@ -183,9 +213,12 @@ class FlowLayout @JvmOverloads constructor(
         } else {
             mAdjustedRowSpacing = rowSpacing
             if (rowNum > 1) {
-                measuredHeight = if (heightMode == MeasureSpec.UNSPECIFIED) (measuredHeight + mAdjustedRowSpacing * (rowNum - 1)).toInt()
-                else min((measuredHeight + mAdjustedRowSpacing * (rowNum - 1)).toInt(),
-                        heightSize)
+                measuredHeight =
+                    if (heightMode == MeasureSpec.UNSPECIFIED) (measuredHeight + mAdjustedRowSpacing * (rowNum - 1)).toInt()
+                    else min(
+                        (measuredHeight + mAdjustedRowSpacing * (rowNum - 1)).toInt(),
+                        heightSize
+                    )
             }
         }
         mExactMeasuredHeight = measuredHeight
@@ -221,7 +254,12 @@ class FlowLayout @JvmOverloads constructor(
         }
         val horizontalPadding = paddingLeft + paddingRight
         val layoutWidth = r - l
-        x += getHorizontalGravityOffsetForRow(horizontalGravity = horizontalGravity, parentWidth = layoutWidth, horizontalPadding = horizontalPadding, row = 0)
+        x += getHorizontalGravityOffsetForRow(
+            horizontalGravity = horizontalGravity,
+            parentWidth = layoutWidth,
+            horizontalPadding = horizontalPadding,
+            row = 0
+        )
         val verticalRowGravity = mRowVerticalGravity and Gravity.VERTICAL_GRAVITY_MASK
         val rowCount = mChildNumForRow.size
         var childIdx = 0
@@ -271,22 +309,29 @@ class FlowLayout @JvmOverloads constructor(
             }
             x = if (mRtl) width - paddingRight else paddingLeft
             x += getHorizontalGravityOffsetForRow(
-                    horizontalGravity = horizontalGravity,
-                    parentWidth = layoutWidth,
-                    horizontalPadding = horizontalPadding,
-                    row = row + 1
+                horizontalGravity = horizontalGravity,
+                parentWidth = layoutWidth,
+                horizontalPadding = horizontalPadding,
+                row = row + 1
             )
             y += (rowHeight + mAdjustedRowSpacing).toInt()
         }
     }
 
-    private fun getHorizontalGravityOffsetForRow(horizontalGravity: Int, parentWidth: Int, horizontalPadding: Int, row: Int): Int {
+    private fun getHorizontalGravityOffsetForRow(
+        horizontalGravity: Int,
+        parentWidth: Int,
+        horizontalPadding: Int,
+        row: Int
+    ): Int {
         if (mChildSpacing == SPACING_AUTO || row >= mWidthForRow.size || row >= mChildNumForRow.size || mChildNumForRow[row] <= 0) {
             return 0
         }
         var offset = 0
         when (horizontalGravity) {
-            Gravity.CENTER_HORIZONTAL -> offset = (parentWidth - horizontalPadding - mWidthForRow[row]) / 2
+            Gravity.CENTER_HORIZONTAL ->
+                offset =
+                    (parentWidth - horizontalPadding - mWidthForRow[row]) / 2
             Gravity.END -> offset = parentWidth - horizontalPadding - mWidthForRow[row]
             else -> {
             }
@@ -416,7 +461,12 @@ class FlowLayout @JvmOverloads constructor(
     val rowsCount: Int
         get() = mChildNumForRow.size
 
-    private fun getSpacingForRow(spacingAttribute: Int, rowSize: Int, usedSize: Int, childNum: Int): Float {
+    private fun getSpacingForRow(
+        spacingAttribute: Int,
+        rowSize: Int,
+        usedSize: Int,
+        childNum: Int
+    ): Float {
         return if (spacingAttribute == SPACING_AUTO) {
             if (childNum > 1) {
                 ((rowSize - usedSize) / (childNum - 1)).toFloat()
@@ -430,9 +480,9 @@ class FlowLayout @JvmOverloads constructor(
 
     private fun dpToPx(dp: Float): Float {
         return TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dp,
-                resources.displayMetrics
+            TypedValue.COMPLEX_UNIT_DIP,
+            dp,
+            resources.displayMetrics
         )
     }
 
@@ -443,27 +493,46 @@ class FlowLayout @JvmOverloads constructor(
             mChildSpacing = try {
                 typedArray.getInt(R.styleable.FlowLayout_flChildSpacing, DEFAULT_CHILD_SPACING)
             } catch (e: NumberFormatException) {
-                typedArray.getDimensionPixelSize(R.styleable.FlowLayout_flChildSpacing, dpToPx(DEFAULT_CHILD_SPACING.toFloat()).toInt())
+                typedArray.getDimensionPixelSize(
+                    R.styleable.FlowLayout_flChildSpacing,
+                    dpToPx(DEFAULT_CHILD_SPACING.toFloat()).toInt()
+                )
             }
             mMinChildSpacing = try {
                 typedArray.getInt(R.styleable.FlowLayout_flMinChildSpacing, DEFAULT_CHILD_SPACING)
             } catch (e: NumberFormatException) {
-                typedArray.getDimensionPixelSize(R.styleable.FlowLayout_flMinChildSpacing, dpToPx(DEFAULT_CHILD_SPACING.toFloat()).toInt())
+                typedArray.getDimensionPixelSize(
+                    R.styleable.FlowLayout_flMinChildSpacing,
+                    dpToPx(DEFAULT_CHILD_SPACING.toFloat()).toInt()
+                )
             }
             mChildSpacingForLastRow = try {
-                typedArray.getInt(R.styleable.FlowLayout_flChildSpacingForLastRow, SPACING_UNDEFINED)
+                typedArray.getInt(
+                    R.styleable.FlowLayout_flChildSpacingForLastRow,
+                    SPACING_UNDEFINED
+                )
             } catch (e: NumberFormatException) {
-                typedArray.getDimensionPixelSize(R.styleable.FlowLayout_flChildSpacingForLastRow, dpToPx(DEFAULT_CHILD_SPACING.toFloat()).toInt())
+                typedArray.getDimensionPixelSize(
+                    R.styleable.FlowLayout_flChildSpacingForLastRow,
+                    dpToPx(DEFAULT_CHILD_SPACING.toFloat()).toInt()
+                )
             }
             mRowSpacing = try {
                 typedArray.getInt(R.styleable.FlowLayout_flRowSpacing, 0).toFloat()
             } catch (e: NumberFormatException) {
-                typedArray.getDimension(R.styleable.FlowLayout_flRowSpacing, dpToPx(DEFAULT_ROW_SPACING))
+                typedArray.getDimension(
+                    R.styleable.FlowLayout_flRowSpacing,
+                    dpToPx(DEFAULT_ROW_SPACING)
+                )
             }
             mMaxRows = typedArray.getInt(R.styleable.FlowLayout_flMaxRows, DEFAULT_MAX_ROWS)
             mRtl = typedArray.getBoolean(R.styleable.FlowLayout_flRtl, DEFAULT_RTL)
-            mGravity = typedArray.getInt(R.styleable.FlowLayout_android_gravity, UNSPECIFIED_GRAVITY)
-            mRowVerticalGravity = typedArray.getInt(R.styleable.FlowLayout_flRowVerticalGravity, ROW_VERTICAL_GRAVITY_AUTO)
+            mGravity =
+                typedArray.getInt(R.styleable.FlowLayout_android_gravity, UNSPECIFIED_GRAVITY)
+            mRowVerticalGravity = typedArray.getInt(
+                R.styleable.FlowLayout_flRowVerticalGravity,
+                ROW_VERTICAL_GRAVITY_AUTO
+            )
         } finally {
             typedArray.recycle()
         }

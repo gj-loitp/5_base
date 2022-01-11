@@ -3,7 +3,6 @@ package com.views.layout.aspectratiolayout
 import android.content.Context
 import android.os.Build
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.FrameLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.RequiresApi
@@ -20,29 +19,44 @@ class LAspectRatioLayout : FrameLayout {
     private var widthRatio = 0f
     private var heightRatio = 0f
 
-    constructor(context: Context)
-            : super(context) {
-        init(context, null, 0, 0)
-    }
+    constructor(context: Context) :
+        super(context) {
+            init(context, null, 0, 0)
+        }
 
-    constructor(context: Context, attrs: AttributeSet?)
-            : super(context, attrs) {
-        init(context, attrs, 0, 0)
-    }
+    constructor(context: Context, attrs: AttributeSet?) :
+        super(context, attrs) {
+            init(context, attrs, 0, 0)
+        }
 
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int)
-            : super(context, attrs, defStyleAttr) {
-        init(context, attrs, defStyleAttr, 0)
-    }
+    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) :
+        super(context, attrs, defStyleAttr) {
+            init(context, attrs, defStyleAttr, 0)
+        }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int, @StyleRes defStyleRes: Int)
-            : super(context, attrs, defStyleAttr, defStyleRes) {
-        init(context, attrs, defStyleAttr, defStyleRes)
-    }
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        @AttrRes defStyleAttr: Int,
+        @StyleRes defStyleRes: Int
+    ) :
+        super(context, attrs, defStyleAttr, defStyleRes) {
+            init(context, attrs, defStyleAttr, defStyleRes)
+        }
 
-    private fun init(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int, @StyleRes defStyleRes: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LAspectRatioLayout, defStyleAttr, defStyleRes)
+    private fun init(
+        context: Context,
+        attrs: AttributeSet?,
+        @AttrRes defStyleAttr: Int,
+        @StyleRes defStyleRes: Int
+    ) {
+        val typedArray = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.LAspectRatioLayout,
+            defStyleAttr,
+            defStyleRes
+        )
         widthRatio = typedArray.getFloat(R.styleable.LAspectRatioLayout_arl_widthRatio, 1f)
         heightRatio = typedArray.getFloat(R.styleable.LAspectRatioLayout_arl_heightRatio, 1f)
         typedArray.recycle()
@@ -63,9 +77,6 @@ class LAspectRatioLayout : FrameLayout {
             heightMode == MeasureSpec.EXACTLY -> {
                 width = (widthRatio / heightRatio * height).roundToInt()
                 widthMode = MeasureSpec.EXACTLY
-            }
-            else -> {
-                Log.w(TAG, "Width or height are not exact, so do nothing.")
             }
         }
         widthMeasureSpecFinal = MeasureSpec.makeMeasureSpec(width, widthMode)

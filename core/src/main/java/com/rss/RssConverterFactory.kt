@@ -16,10 +16,11 @@ class RssConverterFactory
 private constructor() : Converter.Factory() {
 
     override fun responseBodyConverter(
-            type: Type?,
-            annotations: Array<Annotation>?,
-            retrofit: Retrofit?):
-            Converter<ResponseBody, *> = RssResponseBodyConverter()
+        type: Type?,
+        annotations: Array<Annotation>?,
+        retrofit: Retrofit?
+    ):
+        Converter<ResponseBody, *> = RssResponseBodyConverter()
 
     companion object {
 

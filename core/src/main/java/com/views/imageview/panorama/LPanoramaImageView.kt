@@ -12,9 +12,9 @@ import com.R
 import kotlin.math.abs
 
 class LPanoramaImageView @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : AppCompatImageView(context, attrs, defStyleAttr) {
 
     companion object {
@@ -160,7 +160,11 @@ class LPanoramaImageView @JvmOverloads constructor(
     }
 
     private fun dp2px(dp: Float): Float {
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, Resources.getSystem().displayMetrics)
+        return TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP,
+            dp,
+            Resources.getSystem().displayMetrics
+        )
     }
 
     fun setEnablePanoramaMode(enable: Boolean) {
@@ -215,9 +219,12 @@ class LPanoramaImageView @JvmOverloads constructor(
     init {
         super.setScaleType(ScaleType.CENTER_CROP)
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LPanoramaImageView)
-        isPanoramaModeEnabled = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_enablePanoramaMode, true)
-        mInvertScrollDirection = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_invertScrollDirection, false)
-        isScrollbarEnabled = typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_show_scrollbar, true)
+        isPanoramaModeEnabled =
+            typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_enablePanoramaMode, true)
+        mInvertScrollDirection =
+            typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_invertScrollDirection, false)
+        isScrollbarEnabled =
+            typedArray.getBoolean(R.styleable.LPanoramaImageView_piv_show_scrollbar, true)
         typedArray.recycle()
         if (isScrollbarEnabled) {
             initScrollbarPaint()

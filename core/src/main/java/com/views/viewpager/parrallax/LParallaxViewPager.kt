@@ -15,13 +15,16 @@ import android.view.animation.LinearInterpolator
 import androidx.viewpager.widget.ViewPager
 import com.R
 
-class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) : ViewPager(context, attrs) {
+class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
+    ViewPager(context, attrs) {
     private var mParrallaxMode: ParrallaxMode? = null
     private val mShadowStart = Color.parseColor("#33000000")
     private val mShadowMid = Color.parseColor("#11000000")
     private val mShadowEnd = Color.parseColor("#00000000")
-    private var mRightShadow: Drawable? = GradientDrawable(LEFT_RIGHT, intArrayOf(mShadowStart, mShadowMid, mShadowEnd))
-    private var mLeftShadow: Drawable? = GradientDrawable(RIGHT_LEFT, intArrayOf(mShadowStart, mShadowMid, mShadowEnd))
+    private var mRightShadow: Drawable? =
+        GradientDrawable(LEFT_RIGHT, intArrayOf(mShadowStart, mShadowMid, mShadowEnd))
+    private var mLeftShadow: Drawable? =
+        GradientDrawable(RIGHT_LEFT, intArrayOf(mShadowStart, mShadowMid, mShadowEnd))
     private val mShadowWidth: Int
     private val mParallaxTransformer: ParallaxTransformer?
     private var mInterpolator: Interpolator? = null
@@ -65,9 +68,16 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
 
     init {
         mParallaxTransformer = ParallaxTransformer()
-        val a = context.obtainStyledAttributes(attrs, R.styleable.LParallaxViewPager, 0,
-                0)
-        mParrallaxMode = ParrallaxMode.values()[a.getInt(R.styleable.LParallaxViewPager_modeParallaxViewPager, 0)]
+        val a = context.obtainStyledAttributes(
+            attrs, R.styleable.LParallaxViewPager, 0,
+            0
+        )
+        mParrallaxMode = ParrallaxMode.values()[
+            a.getInt(
+                R.styleable.LParallaxViewPager_modeParallaxViewPager,
+                0
+            )
+        ]
         parrallaxMode = mParrallaxMode
 
         if (a.hasValue(R.styleable.LParallaxViewPager_right_shadow)) {
@@ -76,9 +86,13 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
         if (a.hasValue(R.styleable.LParallaxViewPager_left_shadow)) {
             mLeftShadow = a.getDrawable(R.styleable.LParallaxViewPager_left_shadow)
         }
-        mShadowWidth = a.getDimensionPixelSize(R.styleable.LParallaxViewPager_shadow_width, dp2px(20, getContext()).toInt())
+        mShadowWidth = a.getDimensionPixelSize(
+            R.styleable.LParallaxViewPager_shadow_width,
+            dp2px(20, getContext()).toInt()
+        )
         val tv = a.peekValue(
-                R.styleable.LParallaxViewPager_outset)
+            R.styleable.LParallaxViewPager_outset
+        )
         if (tv != null) {
             if (tv.type == TypedValue.TYPE_FRACTION) {
                 mOutsetFraction = a.getFraction(R.styleable.LParallaxViewPager_outset, 1, 1, 0f)
@@ -170,5 +184,4 @@ class LParallaxViewPager @JvmOverloads constructor(context: Context, attrs: Attr
             }
         }
     }
-
 }

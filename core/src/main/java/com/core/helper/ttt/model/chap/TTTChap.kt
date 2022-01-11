@@ -14,5 +14,4 @@ class TTTChap : BaseModel() {
     @SerializedName("info")
     @Expose
     var info: Info? = null
-
 }

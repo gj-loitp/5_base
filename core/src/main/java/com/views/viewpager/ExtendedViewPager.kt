@@ -19,5 +19,4 @@ class ExtendedViewPager : ViewPager {
             super.canScroll(view, checkV, dx, x, y)
         }
     }
-
 }

@@ -7,7 +7,7 @@ import android.graphics.Color
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.IBinder
-import android.view.*
+import android.view.* // ktlint-disable no-wildcard-imports
 import android.view.View.OnTouchListener
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -24,7 +24,6 @@ import org.greenrobot.eventbus.ThreadMode
 
 class LDebugViewService : Service(), OnTouchListener {
 
-    private val logTag = javaClass.simpleName
     private var mWindowManager: WindowManager? = null
     private var mFloatingView: View? = null
     private var params: WindowManager.LayoutParams? = null
@@ -51,21 +50,22 @@ class LDebugViewService : Service(), OnTouchListener {
             WindowManager.LayoutParams.TYPE_PHONE
         }
         params = WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                WindowManager.LayoutParams.WRAP_CONTENT,
-                layoutFlag,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
-                PixelFormat.TRANSLUCENT
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            layoutFlag,
+            WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+            PixelFormat.TRANSLUCENT
         )
 
-        //Specify the view position
+        // Specify the view position
         params?.let {
-            it.gravity = Gravity.TOP or Gravity.START //Initially view will be added to top-left corner
+            it.gravity =
+                Gravity.TOP or Gravity.START // Initially view will be added to top-left corner
             it.x = 0
             it.y = 100
         }
 
-        //Add the view to the window
+        // Add the view to the window
         mWindowManager = getSystemService(WINDOW_SERVICE) as WindowManager
         mWindowManager?.addView(mFloatingView, params)
 
@@ -81,21 +81,21 @@ class LDebugViewService : Service(), OnTouchListener {
         llRootTv = mFloatingView?.findViewById(R.id.ll_root_tv)
         scrollView = mFloatingView?.findViewById(R.id.scrollView)
 
-        //Set the close button
+        // Set the close button
         val closeButtonCollapsed = mFloatingView?.findViewById<ImageView>(R.id.ivClose)
         closeButtonCollapsed?.setOnClickListener {
-            //close the service and remove the from from the window
+            // close the service and remove the from from the window
             stopSelf()
         }
 
-        //Set the close button
+        // Set the close button
         val closeButton = mFloatingView?.findViewById<ImageView>(R.id.ivCloseButton)
         closeButton?.setOnClickListener {
             collapsedView?.visibility = View.VISIBLE
             expandedView?.visibility = View.GONE
         }
 
-        //Drag and move floating view using user's touch action.
+        // Drag and move floating view using user's touch action.
         mFloatingView?.findViewById<View>(R.id.rlRootContainer)?.setOnTouchListener(this)
     }
 
@@ -117,13 +117,13 @@ class LDebugViewService : Service(), OnTouchListener {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
 
-                    //remember the initial position.
+                    // remember the initial position.
 
                     params?.let {
                         initialX = it.x
                         initialY = it.y
 
-                        //get the touch location
+                        // get the touch location
                         initialTouchX = event.rawX
                         initialTouchY = event.rawY
                     }
@@ -134,13 +134,13 @@ class LDebugViewService : Service(), OnTouchListener {
                     val xDiff = (event.rawX - initialTouchX).toInt()
                     val yDiff = (event.rawY - initialTouchY).toInt()
 
-                    //The check for Xdiff <10 && YDiff< 10 because sometime elements moves a little while clicking.
-                    //So that is click event.
+                    // The check for Xdiff <10 && YDiff< 10 because sometime elements moves a little while clicking.
+                    // So that is click event.
                     if (xDiff < 10 && yDiff < 10) {
                         if (isViewCollapsed) {
-                            //When user clicks on the image view of the collapsed layout,
-                            //visibility of the collapsed layout will be changed to "View.GONE"
-                            //and expanded view will become visible.
+                            // When user clicks on the image view of the collapsed layout,
+                            // visibility of the collapsed layout will be changed to "View.GONE"
+                            // and expanded view will become visible.
                             collapsedView?.visibility = View.GONE
                             expandedView?.visibility = View.VISIBLE
                         }
@@ -148,11 +148,11 @@ class LDebugViewService : Service(), OnTouchListener {
                     return true
                 }
                 MotionEvent.ACTION_MOVE -> {
-                    //Calculate the X and Y coordinates of the view.
+                    // Calculate the X and Y coordinates of the view.
                     params?.x = initialX + (event.rawX - initialTouchX).toInt()
                     params?.y = initialY + (event.rawY - initialTouchY).toInt()
 
-                    //Update the layout with new X & Y coordinate
+                    // Update the layout with new X & Y coordinate
                     mWindowManager?.updateViewLayout(mFloatingView, params)
                     return true
                 }
@@ -167,7 +167,8 @@ class LDebugViewService : Service(), OnTouchListener {
         if (msgFromActivity == null) {
             return
         }
-        val currentTime = LDateUtil.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss")
+        val currentTime =
+            LDateUtil.getDateCurrentTimeZoneMls(System.currentTimeMillis(), "HH:mm:ss")
         val textView = TextView(this)
         LUIUtil.setTextSize(textView, LAppResource.getDimenValue(R.dimen.txt_medium).toFloat())
         if (msgFromActivity.any == null) {
@@ -175,7 +176,10 @@ class LDebugViewService : Service(), OnTouchListener {
         } else {
             LUIUtil.printBeautyJson(o = msgFromActivity.any, textView = textView, tag = currentTime)
         }
-        LUIUtil.setTextSize(textView = textView, size = baseContext.resources.getDimension(R.dimen.text_tiny))
+        LUIUtil.setTextSize(
+            textView = textView,
+            size = baseContext.resources.getDimension(R.dimen.text_tiny)
+        )
         when (msgFromActivity.type) {
             LComunicateDebug.MsgFromActivity.TYPE_D -> {
                 textView.setTextColor(Color.WHITE)
@@ -201,7 +205,7 @@ class LDebugViewService : Service(), OnTouchListener {
         super.onDestroy()
     }
 
-    //listen msg from activity
+    // listen msg from activity
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onEvent(msg: LComunicateDebug.MsgFromActivity?) {
         print(msgFromActivity = msg)

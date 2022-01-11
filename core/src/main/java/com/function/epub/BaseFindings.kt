@@ -3,7 +3,7 @@ package com.function.epub
 import com.function.epub.exception.ReadingException
 import org.w3c.dom.Node
 import org.w3c.dom.NodeList
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 // Helper classes and methods used in Findings
 abstract class BaseFindings {
@@ -14,7 +14,6 @@ abstract class BaseFindings {
     inner class XmlItem {
         var value: String? = null
         var attributes: Map<String, String>? = null
-
     }
 
     protected fun nodeListToXmlItemList(nodeList: NodeList): List<XmlItem> {

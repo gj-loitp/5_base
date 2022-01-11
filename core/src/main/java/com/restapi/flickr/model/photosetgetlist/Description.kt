@@ -10,5 +10,4 @@ class Description : BaseModel() {
     @SerializedName("_content")
     @Expose
     var content: String? = null
-
 }

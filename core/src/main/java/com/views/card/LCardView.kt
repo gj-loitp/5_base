@@ -6,16 +6,10 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-
 import androidx.cardview.widget.CardView
 import com.R
-
 import com.core.utilities.LImageUtil
 import com.core.utilities.LUIUtil
-
-/**
- * Created by www.muathu@gmail.com on 5/13/2017.
- */
 
 class LCardView : RelativeLayout {
 
@@ -44,7 +38,11 @@ class LCardView : RelativeLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -97,7 +95,13 @@ class LCardView : RelativeLayout {
 
     fun setCardElevation(elevation: Float) {
         cardView.cardElevation = elevation
-        LUIUtil.setMargins(cardView, elevation.toInt(), elevation.toInt(), elevation.toInt(), elevation.toInt() * 2)
+        LUIUtil.setMargins(
+            cardView,
+            elevation.toInt(),
+            elevation.toInt(),
+            elevation.toInt(),
+            elevation.toInt() * 2
+        )
     }
 
     fun setImg(url: String) {

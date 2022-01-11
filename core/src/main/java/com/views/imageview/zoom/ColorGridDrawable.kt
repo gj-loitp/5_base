@@ -60,9 +60,11 @@ class ColorGridDrawable : Drawable() {
                 canvas.restoreToCount(restore)
             }
         }
-        canvas.drawText("This is a drawable.",
-                intrinsicWidth / 2f,
-                intrinsicHeight / 2f,
-                mTextPaint)
+        canvas.drawText(
+            "This is a drawable.",
+            intrinsicWidth / 2f,
+            intrinsicHeight / 2f,
+            mTextPaint
+        )
     }
 }

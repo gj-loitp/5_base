@@ -9,19 +9,15 @@ import com.core.base.BaseActivity
 import com.core.base.BaseDialogFragment
 import com.views.LToast
 
-/**
- * Created by Loitp on 3/30/2018.
- */
-
 class ImmersiveDialogFragment : BaseDialogFragment() {
     private val logTag = javaClass.simpleName
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val alertDialog = AlertDialog.Builder(activity)
-                .setTitle("Example Dialog")
-                .setMessage("Some text.")
-                .create()
+            .setTitle("Example Dialog")
+            .setMessage("Some text.")
+            .create()
 
         // Temporarily set the dialogs window to not focusable to prevent the short
         // popup of the navigation bar.
@@ -47,7 +43,8 @@ class ImmersiveDialogFragment : BaseDialogFragment() {
                 // If we would do this in onCreateDialog(), we would get a requestFeature()
                 // error.
                 dialog?.let { d ->
-                    d.window?.decorView?.systemUiVisibility = activity.window.decorView.systemUiVisibility
+                    d.window?.decorView?.systemUiVisibility =
+                        activity.window.decorView.systemUiVisibility
 
                     // Make the dialogs window focusable again.
                     d.window?.clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE)

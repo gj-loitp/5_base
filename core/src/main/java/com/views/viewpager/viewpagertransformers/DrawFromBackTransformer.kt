@@ -1,7 +1,6 @@
 package com.views.viewpager.viewpagertransformers
 
 import android.view.View
-
 import androidx.viewpager.widget.ViewPager
 import kotlin.math.abs
 
@@ -28,7 +27,6 @@ class DrawFromBackTransformer : ViewPager.PageTransformer {
             view.scaleX = scaleFactor
             view.scaleY = scaleFactor
             return
-
         }
 
         if (position > 0.5 && position <= 1) { // (0,1]

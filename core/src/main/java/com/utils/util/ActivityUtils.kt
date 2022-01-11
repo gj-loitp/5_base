@@ -24,8 +24,8 @@ class ActivityUtils private constructor() {
          * @return `true`: 是<br></br>`false`: 否
          */
         fun isActivityExists(
-                packageName: String?,
-                className: String?
+            packageName: String?,
+            className: String?
         ): Boolean {
             val context = Utils.getContext()
             if (context == null || packageName.isNullOrEmpty() || className.isNullOrEmpty()) {
@@ -34,10 +34,10 @@ class ActivityUtils private constructor() {
             val intent = Intent()
             intent.setClassName(packageName, className)
             return !(
-                    context.packageManager.resolveActivity(intent, 0) == null
-                            || intent.resolveActivity(context.packageManager) == null
-                            || context.packageManager.queryIntentActivities(intent, 0).size == 0
-                    )
+                context.packageManager.resolveActivity(intent, 0) == null ||
+                    intent.resolveActivity(context.packageManager) == null ||
+                    context.packageManager.queryIntentActivities(intent, 0).size == 0
+                )
         }
 
         /**
@@ -47,7 +47,7 @@ class ActivityUtils private constructor() {
          * @return launcher activity
          */
         fun getLauncherActivity(
-                packageName: String?
+            packageName: String?
         ): String {
             val intent = Intent(Intent.ACTION_MAIN, null)
             intent.addCategory(Intent.CATEGORY_LAUNCHER)
@@ -72,7 +72,8 @@ class ActivityUtils private constructor() {
             get() {
                 try {
                     val activityThreadClass = Class.forName("android.app.ActivityThread")
-                    val activityThread = activityThreadClass.getMethod("currentActivityThread").invoke(null)
+                    val activityThread =
+                        activityThreadClass.getMethod("currentActivityThread").invoke(null)
                     val activitiesField = activityThreadClass.getDeclaredField("mActivities")
                     activitiesField.isAccessible = true
                     val activities: Map<*, *> = activitiesField[activityThread] as ArrayMap<*, *>

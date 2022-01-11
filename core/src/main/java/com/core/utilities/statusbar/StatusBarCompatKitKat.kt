@@ -40,12 +40,17 @@ internal class StatusBarCompatKitKat {
          * 1. Add fake statusBarView.
          * 2. set tag to statusBarView.
          */
-        private fun addFakeStatusBarView(activity: Activity, statusBarColor: Int, statusBarHeight: Int): View {
+        private fun addFakeStatusBarView(
+            activity: Activity,
+            statusBarColor: Int,
+            statusBarHeight: Int
+        ): View {
             val window = activity.window
             val mDecorView = window.decorView as ViewGroup
 
             val mStatusBarView = View(activity)
-            val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, statusBarHeight)
+            val layoutParams =
+                FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, statusBarHeight)
             layoutParams.gravity = Gravity.TOP
             mStatusBarView.layoutParams = layoutParams
             mStatusBarView.setBackgroundColor(statusBarColor)
@@ -159,8 +164,13 @@ internal class StatusBarCompatKitKat {
          * 5. removeMarginTopOfContentChild
          * 6. add OnOffsetChangedListener to change statusBarView's alpha
          */
-        fun setStatusBarColorForCollapsingToolbar(activity: Activity, appBarLayout: AppBarLayout, collapsingToolbarLayout: CollapsingToolbarLayout,
-                                                  toolbar: Toolbar, statusColor: Int) {
+        fun setStatusBarColorForCollapsingToolbar(
+            activity: Activity,
+            appBarLayout: AppBarLayout,
+            collapsingToolbarLayout: CollapsingToolbarLayout,
+            toolbar: Toolbar,
+            statusColor: Int
+        ) {
             val window = activity.window
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             val mContentView = window.findViewById<View>(Window.ID_ANDROID_CONTENT) as ViewGroup
@@ -178,7 +188,12 @@ internal class StatusBarCompatKitKat {
                 val statusBarHeight = getStatusBarHeight(activity)
                 lp.height += statusBarHeight
                 toolbar.layoutParams = lp
-                toolbar.setPadding(toolbar.paddingLeft, toolbar.paddingTop + statusBarHeight, toolbar.paddingRight, toolbar.paddingBottom)
+                toolbar.setPadding(
+                    toolbar.paddingLeft,
+                    toolbar.paddingTop + statusBarHeight,
+                    toolbar.paddingRight,
+                    toolbar.paddingBottom
+                )
                 toolbar.tag = true
             }
 
@@ -199,20 +214,23 @@ internal class StatusBarCompatKitKat {
                 statusView.alpha = 0f
             }
 
-            appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
-                if (abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
-                    if (statusView.alpha == 0f) {
-                        statusView.animate().cancel()
-                        statusView.animate().alpha(1f).setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
-                    }
-                } else {
-                    if (statusView.alpha == 1f) {
-                        statusView.animate().cancel()
-                        statusView.animate().alpha(0f).setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
+            appBarLayout.addOnOffsetChangedListener(
+                AppBarLayout.OnOffsetChangedListener { _, verticalOffset ->
+                    if (abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
+                        if (statusView.alpha == 0f) {
+                            statusView.animate().cancel()
+                            statusView.animate().alpha(1f)
+                                .setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
+                        }
+                    } else {
+                        if (statusView.alpha == 1f) {
+                            statusView.animate().cancel()
+                            statusView.animate().alpha(0f)
+                                .setDuration(collapsingToolbarLayout.scrimAnimationDuration).start()
+                        }
                     }
                 }
-            })
+            )
         }
     }
-
 }

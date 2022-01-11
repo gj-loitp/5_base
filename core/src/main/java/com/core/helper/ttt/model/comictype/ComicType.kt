@@ -42,5 +42,4 @@ class ComicType(var type: String, var url: String) {
         const val TRUYEN_TRANH_VIET_NAM = "Truyện tranh Việt Nam"
         const val WEBTOON = "Webtoon"
     }
-
 }

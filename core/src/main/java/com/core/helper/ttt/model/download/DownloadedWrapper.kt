@@ -6,9 +6,8 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 @Keep
-class DownloadedWrapper : BaseModel(){
+class DownloadedWrapper : BaseModel() {
     @SerializedName("downloadedComic")
     @Expose
     var downloadedComic = ArrayList<DownloadedComic>()
-
 }

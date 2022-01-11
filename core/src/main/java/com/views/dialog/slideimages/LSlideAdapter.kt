@@ -4,16 +4,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import com.R
 import com.core.utilities.LImageUtil
-import com.core.utilities.LScreenUtil
 import kotlinx.android.synthetic.main.l_frm_image_slide.view.*
 
-class LSlideAdapter(private val mContext: Context, private val stringList: List<String>?,
-                    private val isShowIconClose: Boolean,
-                    private val callback: Callback?) : PagerAdapter() {
+class LSlideAdapter(
+    private val mContext: Context,
+    private val stringList: List<String>?,
+    private val isShowIconClose: Boolean,
+    private val callback: Callback?
+) : PagerAdapter() {
 //    private val screenW: Int = LScreenUtil.screenWidth
 
     interface Callback {
@@ -51,6 +52,6 @@ class LSlideAdapter(private val mContext: Context, private val stringList: List<
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        //super.destroyItem(container, position, object);
+        // super.destroyItem(container, position, object);
     }
 }

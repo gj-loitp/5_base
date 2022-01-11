@@ -14,19 +14,19 @@ import com.R
 class LContinuousScrollableImageView : LinearLayout {
 
     companion object {
-        //<editor-fold desc="DEFAULT_DIRECTION = LEFT">
+        // <editor-fold desc="DEFAULT_DIRECTION = LEFT">
         const val UP = 0
         const val RIGHT = 1
         const val DOWN = 2
         const val LEFT = 3
 
-        //</editor-fold>
-        //<editor-fold desc="DEFAULT_ASYMPTOTE = HORIZONTAL">
+        // </editor-fold>
+        // <editor-fold desc="DEFAULT_ASYMPTOTE = HORIZONTAL">
         const val HORIZONTAL = 0
         const val VERTICAL = 1
 
-        //</editor-fold>
-        //<editor-fold desc="DEFAULT_SCALE_TYPE = CENTER">
+        // </editor-fold>
+        // <editor-fold desc="DEFAULT_SCALE_TYPE = CENTER">
         const val MATRIX = 0
         const val FIT_XY = 1
         const val FIT_START = 2
@@ -59,7 +59,7 @@ class LContinuousScrollableImageView : LinearLayout {
     @ScaleType
     var DEFAULT_SCALE_TYPE = FIT_CENTER
 
-    //</editor-fold>
+    // </editor-fold>
     private val DEFAULT_RESOURCE_ID = -1
     private val DEFAULT_DURATION = 3000
     private var DIRECTION_MULTIPLIER = -1
@@ -77,17 +77,36 @@ class LContinuousScrollableImageView : LinearLayout {
     }
 
     @JvmOverloads
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         setViewAttributes(context, attrs, defStyleAttr)
         init(context)
     }
 
     private fun setViewAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LContinuousScrollableImageView, defStyleAttr, 0)
-        resourceId = typedArray.getResourceId(R.styleable.LContinuousScrollableImageView_imageSrc, DEFAULT_RESOURCE_ID)
-        direction = typedArray.getInt(R.styleable.LContinuousScrollableImageView_direction, DEFAULT_DIRECTION)
-        duration = typedArray.getInt(R.styleable.LContinuousScrollableImageView_duration, DEFAULT_DURATION)
-        scaleType = typedArray.getInt(R.styleable.LContinuousScrollableImageView_scaleType, DEFAULT_SCALE_TYPE)
+        val typedArray = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.LContinuousScrollableImageView,
+            defStyleAttr,
+            0
+        )
+        resourceId = typedArray.getResourceId(
+            R.styleable.LContinuousScrollableImageView_imageSrc,
+            DEFAULT_RESOURCE_ID
+        )
+        direction = typedArray.getInt(
+            R.styleable.LContinuousScrollableImageView_direction,
+            DEFAULT_DIRECTION
+        )
+        duration =
+            typedArray.getInt(R.styleable.LContinuousScrollableImageView_duration, DEFAULT_DURATION)
+        scaleType = typedArray.getInt(
+            R.styleable.LContinuousScrollableImageView_scaleType,
+            DEFAULT_SCALE_TYPE
+        )
         setDirectionFlags(direction)
         typedArray.recycle()
     }
@@ -190,17 +209,18 @@ class LContinuousScrollableImageView : LinearLayout {
             it.setDuration(duration.toLong())
         }
         when (DEFAULT_ASYMPTOTE) {
-            HORIZONTAL -> animator?.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
-                override fun onAnimationUpdate(animation: ValueAnimator) {
-                    run {
-                        val progress = DIRECTION_MULTIPLIER * -(animation.animatedValue as Float)
-                        val width = DIRECTION_MULTIPLIER * (-(firstImage?.width ?: 0)).toFloat()
-                        val translationX = width * progress
-                        firstImage?.translationX = translationX
-                        secondImage?.translationX = translationX - width
+            HORIZONTAL -> animator?.addUpdateListener(object :
+                    ValueAnimator.AnimatorUpdateListener {
+                    override fun onAnimationUpdate(animation: ValueAnimator) {
+                        run {
+                            val progress = DIRECTION_MULTIPLIER * -(animation.animatedValue as Float)
+                            val width = DIRECTION_MULTIPLIER * (-(firstImage?.width ?: 0)).toFloat()
+                            val translationX = width * progress
+                            firstImage?.translationX = translationX
+                            secondImage?.translationX = translationX - width
+                        }
                     }
-                }
-            })
+                })
             VERTICAL -> animator?.addUpdateListener(object : ValueAnimator.AnimatorUpdateListener {
                 override fun onAnimationUpdate(animation: ValueAnimator) {
                     run {
@@ -218,7 +238,10 @@ class LContinuousScrollableImageView : LinearLayout {
 
     private fun setImages() {
         if (resourceId == -1) {
-            Log.e(TAG, "image must be initialized before it can be used. You can use in XML like this: (app:imageSrc=\"@drawable/yourImage\") ")
+            Log.e(
+                TAG,
+                "image must be initialized before it can be used. You can use in XML like this: (app:imageSrc=\"@drawable/yourImage\") "
+            )
             return
         }
         firstImage = findViewById(R.id.first_image)
@@ -234,7 +257,8 @@ class LContinuousScrollableImageView : LinearLayout {
     }
 
     class Builder(activity: Activity) {
-        private val scrollableImageView: LContinuousScrollableImageView = LContinuousScrollableImageView(activity)
+        private val scrollableImageView: LContinuousScrollableImageView =
+            LContinuousScrollableImageView(activity)
 
         fun setDuration(duration: Int): Builder {
             scrollableImageView.setDuration(duration)
@@ -259,6 +283,5 @@ class LContinuousScrollableImageView : LinearLayout {
         fun build(): LContinuousScrollableImageView {
             return scrollableImageView
         }
-
     }
 }

@@ -19,14 +19,15 @@ import com.core.utilities.LUIUtil
 import kotlin.math.min
 
 internal class PrettyDialogButton(
-        var mContext: Context,
-        var text: String,
-        var textColor: Int?,
-        var backgroundColor:/*PrettyDialog.BUTTON_TYPE background_type = PrettyDialog.BUTTON_TYPE.BORDER;*/
+    var mContext: Context,
+    var text: String,
+    var textColor: Int?,
+    var backgroundColor: /*PrettyDialog.BUTTON_TYPE background_type = PrettyDialog.BUTTON_TYPE.BORDER;*/
         Int?,
-        var tf: Typeface?,
-        /*PrettyDialog.BUTTON_TYPE type,*/
-        var callback: Runnable?) : LinearLayout(mContext) {
+    var tf: Typeface?,
+    /*PrettyDialog.BUTTON_TYPE type,*/
+    var callback: Runnable?
+) : LinearLayout(mContext) {
     var defaultBackgroundColor: Int = R.color.black
     private var defaultTextColor: Int = R.color.white
     var tv: TextView? = null
@@ -34,7 +35,7 @@ internal class PrettyDialogButton(
 
     init {
         init()
-    }/*this.background_type = type;*/
+    } /*this.background_type = type;*/
 
     private fun init() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -118,12 +119,18 @@ internal class PrettyDialogButton(
     private fun makeSelector(color: Int): StateListDrawable {
         val res = StateListDrawable()
         res.setExitFadeDuration(150)
-        val pressedDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
-                intArrayOf(getLightenColor(color), getLightenColor(color)))
-        pressedDrawable.cornerRadius = resources.getDimensionPixelSize(R.dimen.pdlg_corner_radius).toFloat()
-        val defaultDrawable = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT,
-                intArrayOf(color, color))
-        defaultDrawable.cornerRadius = resources.getDimensionPixelSize(R.dimen.pdlg_corner_radius).toFloat()
+        val pressedDrawable = GradientDrawable(
+            GradientDrawable.Orientation.LEFT_RIGHT,
+            intArrayOf(getLightenColor(color), getLightenColor(color))
+        )
+        pressedDrawable.cornerRadius =
+            resources.getDimensionPixelSize(R.dimen.pdlg_corner_radius).toFloat()
+        val defaultDrawable = GradientDrawable(
+            GradientDrawable.Orientation.LEFT_RIGHT,
+            intArrayOf(color, color)
+        )
+        defaultDrawable.cornerRadius =
+            resources.getDimensionPixelSize(R.dimen.pdlg_corner_radius).toFloat()
         res.addState(intArrayOf(android.R.attr.state_pressed), pressedDrawable)
         res.addState(intArrayOf(), defaultDrawable)
         return res

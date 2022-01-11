@@ -16,5 +16,4 @@ interface LevelDao : BaseDao<Level> {
 
     @Query("SELECT * FROM Level WHERE status=:status ORDER BY id")
     fun getFirstLevelOpen(status: Int): Level?
-
 }

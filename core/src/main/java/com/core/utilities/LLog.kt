@@ -1,7 +1,6 @@
 package com.core.utilities
 
 import android.util.Log
-import com.BuildConfig
 import kotlin.math.min
 
 object LLog {

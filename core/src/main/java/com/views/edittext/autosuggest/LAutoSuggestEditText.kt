@@ -36,7 +36,11 @@ class LAutoSuggestEditText : RelativeLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -51,7 +55,7 @@ class LAutoSuggestEditText : RelativeLayout {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (p0.toString().isEmpty()) {
-                    //hideSuggestPopup()
+                    // hideSuggestPopup()
                     hideProgress()
                 } else {
                     showProgress()
@@ -105,13 +109,17 @@ class LAutoSuggestEditText : RelativeLayout {
     fun showSuggestPopup() {
         hideProgress()
         if (popupSuggestPopupView == null) {
-            popupSuggestPopupView = LSuggestPopupView(context, false, object : LSuggestPopupView.Callback {
-                override fun onClick(s: String) {
-                    hideSuggestPopup()
-                    editText.setText(s)
-                    LUIUtil.setLastCursorEditText(editText)
-                }
-            })
+            popupSuggestPopupView =
+                LSuggestPopupView(
+                    context, false,
+                    object : LSuggestPopupView.Callback {
+                        override fun onClick(s: String) {
+                            hideSuggestPopup()
+                            editText.setText(s)
+                            LUIUtil.setLastCursorEditText(editText)
+                        }
+                    }
+                )
             popupSuggestPopupView?.let {
                 /*it.width = ViewGroup.LayoutParams.MATCH_PARENT
                 it.height = ViewGroup.LayoutParams.WRAP_CONTENT*/
@@ -122,7 +130,7 @@ class LAutoSuggestEditText : RelativeLayout {
         popupSuggestPopupView?.let {
             it.setStringList(this.resultList)
             if (!it.isShowing) {
-                //it.showOnAnchor(this, vertPos, horizPos, true)
+                // it.showOnAnchor(this, vertPos, horizPos, true)
             }
         }
     }

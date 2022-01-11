@@ -30,7 +30,11 @@ class HeartView : AppCompatImageView {
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
 
     constructor(context: Context) : super(context)
 
@@ -61,7 +65,7 @@ class HeartView : AppCompatImageView {
         val heart = sHeart
         val heartBorder = sHeartBorder ?: return null
         val bitmap = createBitmapSafely(heartBorder.width, heartBorder.height)
-                ?: return null
+            ?: return null
         val canvas = sCanvas
         canvas.setBitmap(bitmap)
         val paint = sPaint
@@ -78,5 +82,4 @@ class HeartView : AppCompatImageView {
         canvas.setBitmap(null)
         return bitmap
     }
-
 }

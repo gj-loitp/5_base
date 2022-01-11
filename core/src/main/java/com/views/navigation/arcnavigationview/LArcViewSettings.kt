@@ -17,7 +17,11 @@ class LArcViewSettings(context: Context, attrs: AttributeSet?) {
         @JvmStatic
         fun dpToPx(context: Context, dp: Int): Float {
             val resources = context.resources
-            return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), resources.displayMetrics)
+            return TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP,
+                dp.toFloat(),
+                resources.displayMetrics
+            )
         }
     }
 
@@ -32,8 +36,8 @@ class LArcViewSettings(context: Context, attrs: AttributeSet?) {
         val cropDirection = typedArray.getInt(R.styleable.ArcDrawer_arc_cropDirection, CROP_INSIDE)
         isCropInside = cropDirection == CROP_INSIDE
         val attrsArray = intArrayOf(
-                android.R.attr.background,
-                android.R.attr.layout_gravity
+            android.R.attr.background,
+            android.R.attr.layout_gravity
         )
         val androidAttrs = context.obtainStyledAttributes(attrs, attrsArray)
         backgroundDrawable = androidAttrs.getDrawable(0)

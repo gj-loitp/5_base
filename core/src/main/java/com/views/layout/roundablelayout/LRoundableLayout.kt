@@ -35,9 +35,9 @@ class LRoundableLayout : ConstraintLayout {
     private var dashWidth: Float = 0F
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
-            context,
-            attrs,
-            defStyleAttr
+        context,
+        attrs,
+        defStyleAttr
     ) {
         render(attrs)
     }
@@ -55,17 +55,37 @@ class LRoundableLayout : ConstraintLayout {
 
             /** set corner radii */
             context.obtainStyledAttributes(it, R.styleable.LRoundableLayout).apply {
-                cornerLeftTop = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerLeftTop, 0).toFloat()
-                cornerRightTop = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerRightTop, 0).toFloat()
-                cornerLeftBottom = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerLeftBottom, 0).toFloat()
-                cornerRightBottom = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerRightBottom, 0).toFloat()
-                backgroundColor = this.getColor(R.styleable.LRoundableLayout_lrl_backgroundColor, Color.WHITE)
-                strokeWidth = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_strokeLineWidth, 0)
-                strokeColor = this.getColor(R.styleable.LRoundableLayout_lrl_strokeLineColor, Color.BLACK)
-                dashWidth = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_dashLineWidth, 0).toFloat()
-                dashGap = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_dashLineGap, 0).toFloat()
-                cornerLeftSide = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerLeftSide, 0).toFloat()
-                cornerRightSide = this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerRightSide, 0).toFloat()
+                cornerLeftTop =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerLeftTop, 0)
+                        .toFloat()
+                cornerRightTop =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerRightTop, 0)
+                        .toFloat()
+                cornerLeftBottom =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerLeftBottom, 0)
+                        .toFloat()
+                cornerRightBottom = this.getDimensionPixelSize(
+                    R.styleable.LRoundableLayout_lrl_cornerRightBottom,
+                    0
+                ).toFloat()
+                backgroundColor =
+                    this.getColor(R.styleable.LRoundableLayout_lrl_backgroundColor, Color.WHITE)
+                strokeWidth =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_strokeLineWidth, 0)
+                strokeColor =
+                    this.getColor(R.styleable.LRoundableLayout_lrl_strokeLineColor, Color.BLACK)
+                dashWidth =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_dashLineWidth, 0)
+                        .toFloat()
+                dashGap =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_dashLineGap, 0)
+                        .toFloat()
+                cornerLeftSide =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerLeftSide, 0)
+                        .toFloat()
+                cornerRightSide =
+                    this.getDimensionPixelSize(R.styleable.LRoundableLayout_lrl_cornerRightSide, 0)
+                        .toFloat()
             }.run {
                 this.recycle()
             }
@@ -125,7 +145,6 @@ class LRoundableLayout : ConstraintLayout {
         postInvalidate()
     }
 
-
     fun setStrokeLineColor(value: Int) {
         strokeColor = value
         postInvalidate()
@@ -157,8 +176,8 @@ class LRoundableLayout : ConstraintLayout {
         checkSideValue()
 
         floatArrayOf(
-                cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom,
-                cornerRightBottom, cornerLeftBottom, cornerLeftBottom
+            cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop, cornerRightBottom,
+            cornerRightBottom, cornerLeftBottom, cornerLeftBottom
         ).apply {
             clipPathCanvas(canvas, this)
         }
@@ -166,8 +185,8 @@ class LRoundableLayout : ConstraintLayout {
         /** set drawable resource corner & background & stroke */
         GradientDrawable().apply {
             this.cornerRadii = floatArrayOf(
-                    cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop,
-                    cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
+                cornerLeftTop, cornerLeftTop, cornerRightTop, cornerRightTop,
+                cornerRightBottom, cornerRightBottom, cornerLeftBottom, cornerLeftBottom
             )
 
             if (strokeWidth != 0 && strokeColor != null)
@@ -182,7 +201,6 @@ class LRoundableLayout : ConstraintLayout {
             background = this
         }
 
-
         outlineProvider = getOutlineProvider()
 
         clipChildren = false
@@ -193,9 +211,9 @@ class LRoundableLayout : ConstraintLayout {
     private fun clipPathCanvas(canvas: Canvas, floatArray: FloatArray) {
         path?.let {
             it.addRoundRect(
-                    RectF(0F, 0F, canvas.width.toFloat(), canvas.height.toFloat()),
-                    floatArray,
-                    Path.Direction.CW
+                RectF(0F, 0F, canvas.width.toFloat(), canvas.height.toFloat()),
+                floatArray,
+                Path.Direction.CW
             )
             canvas.clipPath(it)
         }

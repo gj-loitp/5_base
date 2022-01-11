@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
-
 import androidx.viewpager.widget.ViewPager
 import kotlin.math.abs
 
@@ -47,10 +46,6 @@ class ParallaxTransformer : ViewPager.PageTransformer {
         val index = group.indexOfChild(view)
         if (index != group.childCount - 1) {
             view.bringToFront()
-            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
-                view.requestLayout()
-                group.invalidate()
-            }
         }
     }
 
@@ -72,5 +67,4 @@ class ParallaxTransformer : ViewPager.PageTransformer {
         translationX += -page.width * position
         page.translationX = translationX
     }
-
 }

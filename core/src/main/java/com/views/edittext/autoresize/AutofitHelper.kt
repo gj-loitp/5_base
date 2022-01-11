@@ -22,7 +22,7 @@ class AutofitHelper private constructor(view: TextView) {
         private const val SPEW = false
 
         // Minimum size of the text in pixels
-        private const val DEFAULT_MIN_TEXT_SIZE = 8 //sp
+        private const val DEFAULT_MIN_TEXT_SIZE = 8 // sp
 
         // How precise we want to be when reaching the target textWidth size
         private const val DEFAULT_PRECISION = 0.5f
@@ -48,15 +48,20 @@ class AutofitHelper private constructor(view: TextView) {
                 var minTextSize = helper.minTextSize.toInt()
                 var precision = helper.precision
                 val typedArray = context.obtainStyledAttributes(
-                        attrs,
-                        R.styleable.AutofitEditText,
-                        defStyle,
-                        0)
+                    attrs,
+                    R.styleable.AutofitEditText,
+                    defStyle,
+                    0
+                )
                 sizeToFit = typedArray.getBoolean(R.styleable.AutofitEditText_sizeToFit, sizeToFit)
-                minTextSize = typedArray.getDimensionPixelSize(R.styleable.AutofitEditText_minTextSize, minTextSize)
+                minTextSize = typedArray.getDimensionPixelSize(
+                    R.styleable.AutofitEditText_minTextSize,
+                    minTextSize
+                )
                 precision = typedArray.getFloat(R.styleable.AutofitEditText_precision, precision)
                 typedArray.recycle()
-                helper.setMinTextSize(TypedValue.COMPLEX_UNIT_PX, minTextSize.toFloat()).setPrecision(precision)
+                helper.setMinTextSize(TypedValue.COMPLEX_UNIT_PX, minTextSize.toFloat())
+                    .setPrecision(precision)
             }
             helper.setEnabled(sizeToFit)
             return helper
@@ -65,8 +70,14 @@ class AutofitHelper private constructor(view: TextView) {
         /**
          * Re-sizes the textSize of the TextView so that the text fits within the bounds of the View.
          */
-        private fun autofit(view: TextView, paint: TextPaint, minTextSize: Float, maxTextSize: Float,
-                            maxLines: Int, precision: Float) {
+        private fun autofit(
+            view: TextView,
+            paint: TextPaint,
+            minTextSize: Float,
+            maxTextSize: Float,
+            maxLines: Int,
+            precision: Float
+        ) {
             if (maxLines <= 0 || maxLines == Int.MAX_VALUE) {
                 // Don't auto-size since there's no limit on lines.
                 return
@@ -92,10 +103,13 @@ class AutofitHelper private constructor(view: TextView) {
             displayMetrics = r.displayMetrics
             paint.set(view.paint)
             paint.textSize = size
-            if (maxLines == 1 && paint.measureText(text, 0, text.length) > targetWidth
-                    || getLineCount(text, paint, size, targetWidth.toFloat(), displayMetrics) > maxLines) {
-                size = getAutofitTextSize(text, paint, targetWidth.toFloat(), maxLines, low, high, precision,
-                        displayMetrics)
+            if (maxLines == 1 && paint.measureText(text, 0, text.length) > targetWidth ||
+                getLineCount(text, paint, size, targetWidth.toFloat(), displayMetrics) > maxLines
+            ) {
+                size = getAutofitTextSize(
+                    text, paint, targetWidth.toFloat(), maxLines, low, high, precision,
+                    displayMetrics
+                )
             }
             if (size < minTextSize) {
                 size = minTextSize
@@ -106,19 +120,38 @@ class AutofitHelper private constructor(view: TextView) {
         /**
          * Recursive binary search to find the best size for the text.
          */
-        private fun getAutofitTextSize(text: CharSequence, paint: TextPaint,
-                                       targetWidth: Float, maxLines: Int, low: Float, high: Float, precision: Float,
-                                       displayMetrics: DisplayMetrics): Float {
+        private fun getAutofitTextSize(
+            text: CharSequence,
+            paint: TextPaint,
+            targetWidth: Float,
+            maxLines: Int,
+            low: Float,
+            high: Float,
+            precision: Float,
+            displayMetrics: DisplayMetrics
+        ): Float {
             val mid = (low + high) / 2.0f
             var lineCount = 1
             var layout: StaticLayout? = null
-            paint.textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, mid, displayMetrics)
+            paint.textSize =
+                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, mid, displayMetrics)
             if (maxLines != 1) {
-                layout = StaticLayout(text, paint, targetWidth.toInt(), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true)
+                layout = StaticLayout(
+                    text,
+                    paint,
+                    targetWidth.toInt(),
+                    Layout.Alignment.ALIGN_NORMAL,
+                    1.0f,
+                    0.0f,
+                    true
+                )
                 lineCount = layout.lineCount
             }
             if (SPEW) {
-                LLog.d(TAG, "low=$low high=$high mid=$mid target=$targetWidth maxLines=$maxLines lineCount=$lineCount")
+                LLog.d(
+                    TAG,
+                    "low=$low high=$high mid=$mid target=$targetWidth maxLines=$maxLines lineCount=$lineCount"
+                )
             }
             return if (lineCount > maxLines) {
                 // For the case that `text` has more newline characters than `maxLines`.
@@ -126,26 +159,26 @@ class AutofitHelper private constructor(view: TextView) {
                     low
                 } else {
                     getAutofitTextSize(
-                            text = text,
-                            paint = paint,
-                            targetWidth = targetWidth,
-                            maxLines = maxLines,
-                            low = low,
-                            high = mid,
-                            precision = precision,
-                            displayMetrics = displayMetrics
-                    )
-                }
-            } else if (lineCount < maxLines) {
-                getAutofitTextSize(
                         text = text,
                         paint = paint,
                         targetWidth = targetWidth,
                         maxLines = maxLines,
-                        low = mid,
-                        high = high,
+                        low = low,
+                        high = mid,
                         precision = precision,
                         displayMetrics = displayMetrics
+                    )
+                }
+            } else if (lineCount < maxLines) {
+                getAutofitTextSize(
+                    text = text,
+                    paint = paint,
+                    targetWidth = targetWidth,
+                    maxLines = maxLines,
+                    low = mid,
+                    high = high,
+                    precision = precision,
+                    displayMetrics = displayMetrics
                 )
             } else {
                 var maxLineWidth = 0f
@@ -165,12 +198,16 @@ class AutofitHelper private constructor(view: TextView) {
                         low
                     }
                     maxLineWidth > targetWidth -> {
-                        getAutofitTextSize(text, paint, targetWidth, maxLines, low, mid, precision,
-                                displayMetrics)
+                        getAutofitTextSize(
+                            text, paint, targetWidth, maxLines, low, mid, precision,
+                            displayMetrics
+                        )
                     }
                     maxLineWidth < targetWidth -> {
-                        getAutofitTextSize(text, paint, targetWidth, maxLines, mid, high, precision,
-                                displayMetrics)
+                        getAutofitTextSize(
+                            text, paint, targetWidth, maxLines, mid, high, precision,
+                            displayMetrics
+                        )
                     }
                     else -> {
                         mid
@@ -180,14 +217,23 @@ class AutofitHelper private constructor(view: TextView) {
         }
 
         private fun getLineCount(
-                text: CharSequence,
-                paint: TextPaint,
-                size: Float,
-                width: Float,
-                displayMetrics: DisplayMetrics
+            text: CharSequence,
+            paint: TextPaint,
+            size: Float,
+            width: Float,
+            displayMetrics: DisplayMetrics
         ): Int {
-            paint.textSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, size, displayMetrics)
-            val layout = StaticLayout(text, paint, width.toInt(), Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true)
+            paint.textSize =
+                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, size, displayMetrics)
+            val layout = StaticLayout(
+                text,
+                paint,
+                width.toInt(),
+                Layout.Alignment.ALIGN_NORMAL,
+                1.0f,
+                0.0f,
+                true
+            )
             return layout.lineCount
         }
 
@@ -243,7 +289,8 @@ class AutofitHelper private constructor(view: TextView) {
     private var mIsAutofitting = false
     private var mListeners: ArrayList<OnTextSizeChangeListener>? = null
     private val mTextWatcher: TextWatcher = AutofitTextWatcher()
-    private val mOnLayoutChangeListener: View.OnLayoutChangeListener = AutofitOnLayoutChangeListener()
+    private val mOnLayoutChangeListener: View.OnLayoutChangeListener =
+        AutofitOnLayoutChangeListener()
 
     init {
         val context = view.context
@@ -457,11 +504,21 @@ class AutofitHelper private constructor(view: TextView) {
     }
 
     private inner class AutofitTextWatcher : TextWatcher {
-        override fun beforeTextChanged(charSequence: CharSequence, start: Int, count: Int, after: Int) {
+        override fun beforeTextChanged(
+            charSequence: CharSequence,
+            start: Int,
+            count: Int,
+            after: Int
+        ) {
             // do nothing
         }
 
-        override fun onTextChanged(charSequence: CharSequence, start: Int, before: Int, count: Int) {
+        override fun onTextChanged(
+            charSequence: CharSequence,
+            start: Int,
+            before: Int,
+            count: Int
+        ) {
             autofit()
         }
 
@@ -472,8 +529,17 @@ class AutofitHelper private constructor(view: TextView) {
 
     private inner class AutofitOnLayoutChangeListener : View.OnLayoutChangeListener {
 
-        override fun onLayoutChange(view: View, left: Int, top: Int, right: Int, bottom: Int,
-                                    oldLeft: Int, oldTop: Int, oldRight: Int, oldBottom: Int) {
+        override fun onLayoutChange(
+            view: View,
+            left: Int,
+            top: Int,
+            right: Int,
+            bottom: Int,
+            oldLeft: Int,
+            oldTop: Int,
+            oldRight: Int,
+            oldBottom: Int
+        ) {
             autofit()
         }
     }
@@ -489,5 +555,4 @@ class AutofitHelper private constructor(view: TextView) {
          */
         fun onTextSizeChange(textSize: Float, oldTextSize: Float)
     }
-
 }

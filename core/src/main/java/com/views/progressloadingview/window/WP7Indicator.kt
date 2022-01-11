@@ -9,10 +9,10 @@ import android.widget.LinearLayout
 import com.views.progressloadingview.window.Utils.px2dp
 
 internal class WP7Indicator(
-        context: Context,
-        indicatorHeight: Int,
-        private val color: Int,
-        radius: Int
+    context: Context,
+    indicatorHeight: Int,
+    private val color: Int,
+    radius: Int
 ) : View(context) {
 
     private var objectAnimator: ObjectAnimator? = null
@@ -24,8 +24,8 @@ internal class WP7Indicator(
     private fun initialize(indicatorHeight: Int, radius: Int) {
         this.background = getCube(radius)
         val lp = LinearLayout.LayoutParams(
-                px2dp(context = context, px = indicatorHeight),
-                px2dp(context = context, px = indicatorHeight)
+            px2dp(context = context, px = indicatorHeight),
+            px2dp(context = context, px = indicatorHeight)
         )
         lp.rightMargin = px2dp(context = context, px = (1.5f * indicatorHeight).toInt())
         layoutParams = lp
@@ -60,5 +60,4 @@ internal class WP7Indicator(
             end()
         }
     }
-
 }

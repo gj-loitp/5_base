@@ -14,7 +14,7 @@ import java.io.Serializable
 
 @Keep
 data class ErrorJson(
-        @SerializedName("errors")
-        @Expose
-        val errors: List<ErrorResponse>? = null
+    @SerializedName("errors")
+    @Expose
+    val errors: List<ErrorResponse>? = null
 ) : Serializable

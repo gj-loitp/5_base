@@ -12,13 +12,12 @@ import com.core.utilities.LUIUtil
 import com.daimajia.androidanimations.library.Techniques
 
 class LTextNavigationView : RelativeLayout, View.OnClickListener {
-    private val TAG = javaClass.simpleName
     var tvPrev: TextView? = null
     var tvNext: TextView? = null
     var tv: TextView? = null
 
     private var stringList = ArrayList<String>()
-    private var currenIndex = 0
+    private var currentIndex = 0
     var isEnableAnimation = true
     var colorOn = Color.BLACK
     var colorOff = Color.GRAY
@@ -36,7 +35,11 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         init()
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context?, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 
@@ -72,24 +75,24 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
         if (stringList.isNullOrEmpty()) {
             return
         }
-        currenIndex = 0
+        currentIndex = 0
         this.stringList = stringList
         updateUI()
     }
 
-    fun setCurrenIndex(index: Int) {
+    fun setCurrentIndex(index: Int) {
         if (stringList.isEmpty()) {
             return
         }
         if (index < 0 || index > stringList.size - 1) {
             return
         }
-        currenIndex = index
+        currentIndex = index
         updateUI()
     }
 
     private fun updateUI() {
-        val s = stringList[currenIndex]
+        val s = stringList[currentIndex]
         tv?.text = s
         if (isEnableAnimation) {
             LAnimationUtil.play(view = tv, techniques = Techniques.FlipInX)
@@ -99,18 +102,22 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
             setEnableController(textView = tvPrev, isEnable = false)
             setEnableController(textView = tvNext, isEnable = false)
         } else {
-            if (currenIndex <= 0) {
-                setEnableController(textView = tvPrev, isEnable = false)
-                setEnableController(textView = tvNext, isEnable = true)
-            } else if (currenIndex >= size - 1) {
-                setEnableController(textView = tvPrev, isEnable = true)
-                setEnableController(textView = tvNext, isEnable = false)
-            } else {
-                setEnableController(textView = tvPrev, isEnable = true)
-                setEnableController(textView = tvNext, isEnable = true)
+            when {
+                currentIndex <= 0 -> {
+                    setEnableController(textView = tvPrev, isEnable = false)
+                    setEnableController(textView = tvNext, isEnable = true)
+                }
+                currentIndex >= size - 1 -> {
+                    setEnableController(textView = tvPrev, isEnable = true)
+                    setEnableController(textView = tvNext, isEnable = false)
+                }
+                else -> {
+                    setEnableController(textView = tvPrev, isEnable = true)
+                    setEnableController(textView = tvNext, isEnable = true)
+                }
             }
         }
-        nvCallback?.onIndexChange(index = currenIndex, s = s)
+        nvCallback?.onIndexChange(index = currentIndex, s = s)
     }
 
     override fun onClick(view: View) {
@@ -118,23 +125,23 @@ class LTextNavigationView : RelativeLayout, View.OnClickListener {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
-            currenIndex--
+            currentIndex--
             updateUI()
         } else if (view === tvNext) {
             if (isEnableAnimation) {
                 LAnimationUtil.play(view = view, techniques = Techniques.Pulse)
             }
-            currenIndex++
+            currentIndex++
             updateUI()
         }
     }
 
-    fun getStringList(): ArrayList<String>? {
+    fun getStringList(): ArrayList<String> {
         return stringList
     }
 
-    fun getCurrenIndex(): Int {
-        return currenIndex
+    fun getCurrentIndex(): Int {
+        return currentIndex
     }
 
     fun setTextPrev(prev: String?) {

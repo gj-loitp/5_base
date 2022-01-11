@@ -7,7 +7,6 @@ import android.webkit.WebView
 import android.widget.AbsListView
 import android.widget.HorizontalScrollView
 import android.widget.ScrollView
-import androidx.core.view.ViewCompat
 import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
@@ -19,10 +18,10 @@ internal object Util {
 
     @JvmStatic
     fun canViewScrollUp(
-            mView: View?,
-            x: Float,
-            y: Float,
-            defaultValueForNull: Boolean
+        mView: View?,
+        x: Float,
+        y: Float,
+        defaultValueForNull: Boolean
     ): Boolean {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
@@ -34,10 +33,10 @@ internal object Util {
 
     @JvmStatic
     fun canViewScrollDown(
-            mView: View?,
-            x: Float,
-            y: Float,
-            defaultValueForNull: Boolean
+        mView: View?,
+        x: Float,
+        y: Float,
+        defaultValueForNull: Boolean
     ): Boolean {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
@@ -49,9 +48,10 @@ internal object Util {
 
     @JvmStatic
     fun canViewScrollRight(
-            mView: View?,
-            x: Float, y: Float,
-            defaultValueForNull: Boolean
+        mView: View?,
+        x: Float,
+        y: Float,
+        defaultValueForNull: Boolean
     ): Boolean {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
@@ -63,10 +63,10 @@ internal object Util {
 
     @JvmStatic
     fun canViewScrollLeft(
-            mView: View?,
-            x: Float,
-            y: Float,
-            defaultValueForNull: Boolean
+        mView: View?,
+        x: Float,
+        y: Float,
+        defaultValueForNull: Boolean
     ): Boolean {
         return if (mView == null || !contains(mView, x, y)) {
             defaultValueForNull
@@ -78,7 +78,7 @@ internal object Util {
 
     @JvmStatic
     fun findAllScrollViews(
-            mViewGroup: ViewGroup
+        mViewGroup: ViewGroup
     ): View? {
         for (i in 0 until mViewGroup.childCount) {
             var mView = mViewGroup.getChildAt(i)
@@ -99,22 +99,24 @@ internal object Util {
     }
 
     fun isScrollableView(
-            mView: View?
+        mView: View?
     ): Boolean {
-        return (mView is ScrollView
-                || mView is HorizontalScrollView
-                || mView is NestedScrollView
-                || mView is AbsListView
-                || mView is RecyclerView
-                || mView is ViewPager
-                || mView is WebView)
+        return (
+            mView is ScrollView ||
+                mView is HorizontalScrollView ||
+                mView is NestedScrollView ||
+                mView is AbsListView ||
+                mView is RecyclerView ||
+                mView is ViewPager ||
+                mView is WebView
+            )
     }
 
     @JvmStatic
     fun contains(
-            mView: View,
-            x: Float,
-            y: Float
+        mView: View,
+        x: Float,
+        y: Float
     ): Boolean {
         val localRect = Rect()
         mView.getGlobalVisibleRect(localRect)
@@ -123,7 +125,7 @@ internal object Util {
 
     @JvmStatic
     fun onPanelSlide(
-            fraction: Float
+        fraction: Float
     ) {
         val activity = WxSwipeBackActivityManager.instance.penultimateActivity
         if (activity != null && !activity.isFinishing) {

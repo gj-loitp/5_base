@@ -15,10 +15,10 @@ import kotlinx.android.synthetic.main.l_bottom_sheet_ttt_select_type_fragment.*
 
 @LogTag("BottomSheetSelectTypeTTTFragment")
 class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
-        layoutId = R.layout.l_bottom_sheet_ttt_select_type_fragment,
-        height = WindowManager.LayoutParams.WRAP_CONTENT,
-        isDraggable = true,
-        firstBehaviourState = BottomSheetBehavior.STATE_HALF_EXPANDED
+    layoutId = R.layout.l_bottom_sheet_ttt_select_type_fragment,
+    height = WindowManager.LayoutParams.WRAP_CONTENT,
+    isDraggable = true,
+    firstBehaviourState = BottomSheetBehavior.STATE_HALF_EXPANDED
 ) {
 
     private var tTTViewModel: TTTViewModel? = null
@@ -31,7 +31,10 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
         setupViewModels()
 
         val currentComicType = tTTViewModel?.comicTypeLiveEvent?.value
-        tTTypeAdapter.setData(listComicType = ComicUtils.comicTypeList, currentComicType = currentComicType)
+        tTTypeAdapter.setData(
+            listComicType = ComicUtils.comicTypeList,
+            currentComicType = currentComicType
+        )
     }
 
     private fun setupViews() {
@@ -46,8 +49,7 @@ class BottomSheetSelectTypeTTTFragment : BaseBottomSheetFragment(
     private fun setupViewModels() {
         tTTViewModel = getViewModel(TTTViewModel::class.java)
         tTTViewModel?.let { vm ->
-            //do sth
+            // do sth
         }
     }
-
 }

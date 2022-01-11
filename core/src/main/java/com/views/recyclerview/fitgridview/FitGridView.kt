@@ -15,7 +15,11 @@ class FitGridView : GridView {
         init(attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(attrs)
     }
 
@@ -84,8 +88,8 @@ class FitGridView : GridView {
      * @param displayHeight sets max available height for grid view
      */
     fun setDimension(
-            displayWidth: Float,
-            displayHeight: Float
+        displayWidth: Float,
+        displayHeight: Float
     ) {
         itemWidth = displayWidth.toInt() / column
         itemHeight = displayHeight.toInt() / numRows
@@ -110,7 +114,7 @@ class FitGridView : GridView {
      * @param column sets the desired number of columns in the grid
      */
     override fun setNumColumns(
-            column: Int
+        column: Int
     ) {
         this.column = column
         super.setNumColumns(column)
@@ -122,7 +126,7 @@ class FitGridView : GridView {
      * @param fitGridAdapter sets your adapter later in updateAdapter method.
      */
     fun setFitGridAdapter(
-            fitGridAdapter: FitGridAdapter?
+        fitGridAdapter: FitGridAdapter?
     ) {
         this.fitGridAdapter = fitGridAdapter
     }

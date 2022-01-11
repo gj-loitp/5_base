@@ -3,7 +3,7 @@ package com.views.calendar.cosmocalendar.selection
 import com.views.calendar.cosmocalendar.model.Day
 
 class SingleSelectionManager(
-        onDaySelectedListener: OnDaySelectedListener?
+    onDaySelectedListener: OnDaySelectedListener?
 ) : BaseSelectionManager() {
 
     init {
@@ -24,5 +24,4 @@ class SingleSelectionManager(
     override fun clearSelections() {
         day = null
     }
-
 }

@@ -8,7 +8,8 @@ import java.net.HttpURLConnection
 import java.net.MalformedURLException
 import java.net.URL
 
-class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) : AsyncTask<String, Void, InputStream>() {
+class AsyncTaskDownloadPdfStream(val result: (InputStream?) -> Unit) :
+    AsyncTask<String, Void, InputStream>() {
     private val logTag = javaClass.simpleName
 
     override fun doInBackground(vararg strings: String): InputStream? {

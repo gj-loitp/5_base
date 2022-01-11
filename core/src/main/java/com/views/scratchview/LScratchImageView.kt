@@ -88,7 +88,11 @@ class LScratchImageView : AppCompatImageView {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
@@ -138,13 +142,13 @@ class LScratchImageView : AppCompatImageView {
             val startGradientColor = getColor(R.color.scratchStartGradient)
             val endGradientColor = getColor(R.color.scratchEndGradient)
             mGradientBgPaint?.shader = LinearGradient(
-                    0f,
-                    0f,
-                    0f,
-                    height.toFloat(),
-                    startGradientColor,
-                    endGradientColor,
-                    Shader.TileMode.MIRROR
+                0f,
+                0f,
+                0f,
+                height.toFloat(),
+                startGradientColor,
+                endGradientColor,
+                Shader.TileMode.MIRROR
             )
 
             mGradientBgPaint?.let { p ->
@@ -299,7 +303,8 @@ class LScratchImageView : AppCompatImageView {
                         val top = params[1] ?: 0
                         val width = params[2] ?: 0
                         val height = params[3] ?: 0
-                        val croppedBitmap = Bitmap.createBitmap(mScratchBitmap!!, left, top, width, height)
+                        val croppedBitmap =
+                            Bitmap.createBitmap(mScratchBitmap!!, left, top, width, height)
                         BitmapUtils.getTransparentPixelPercent(croppedBitmap)
                     } finally {
                         mThreadCount--
@@ -313,7 +318,10 @@ class LScratchImageView : AppCompatImageView {
                         val oldValue = mRevealPercent
                         mRevealPercent = percentRevealed
                         if (oldValue != percentRevealed) {
-                            mRevealListener?.onRevealPercentChangedListener(this@LScratchImageView, percentRevealed)
+                            mRevealListener?.onRevealPercentChangedListener(
+                                this@LScratchImageView,
+                                percentRevealed
+                            )
                         }
 
                         // if now revealed.
@@ -322,7 +330,6 @@ class LScratchImageView : AppCompatImageView {
                         }
                     }
                 }
-
             }.execute(left, top, width, height)
         }
     }
@@ -377,5 +384,4 @@ class LScratchImageView : AppCompatImageView {
             }
             return intArrayOf(left, top, left + width, top + height)
         }
-
 }

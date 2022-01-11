@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.os.Build
 import android.speech.tts.TextToSpeech
 import java.util.*
 
@@ -22,7 +21,7 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
             if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
 //                Log.d(logTag, "This Language is not supported")
             } else {
-                //speakOut("Example");
+                // speakOut("Example");
             }
         } else {
 //            Log.d("TTS", "Initilization Failed!")
@@ -34,11 +33,7 @@ class LTextToSpeechUtil private constructor() : TextToSpeech.OnInitListener {
         if (tts == null) {
             return
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
-        } else {
-            tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null)
-        }
+        tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
     fun destroy() {

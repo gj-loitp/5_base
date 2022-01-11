@@ -20,7 +20,24 @@ class LNFCUtil {
         fun buildMACAddressString(macAddress: ByteArray?): String? {
             if (macAddress == null) return null
             val buffer = CharArray(macAddress.size * 3)
-            val intToHex = charArrayOf('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f')
+            val intToHex = charArrayOf(
+                '0',
+                '1',
+                '2',
+                '3',
+                '4',
+                '5',
+                '6',
+                '7',
+                '8',
+                '9',
+                'a',
+                'b',
+                'c',
+                'd',
+                'e',
+                'f'
+            )
             var destIndex = 0
             var byteValue: Byte
             for (i in macAddress.indices) {

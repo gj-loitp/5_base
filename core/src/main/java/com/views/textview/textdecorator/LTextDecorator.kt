@@ -1,9 +1,5 @@
 package com.views.textview.textdecorator
 
-/**
- * Created by www.muathu@gmail.com on 12/20/2017.
- */
-
 import android.content.res.ColorStateList
 import android.graphics.BlurMaskFilter
 import android.graphics.EmbossMaskFilter
@@ -12,14 +8,17 @@ import android.text.SpannableString
 import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
-import android.text.style.*
+import android.text.style.* // ktlint-disable no-wildcard-imports
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import com.core.utilities.LAppResource
 
-class LTextDecorator private constructor(private val textView: TextView, private val content: String) {
+class LTextDecorator private constructor(
+    private val textView: TextView,
+    private val content: String
+) {
     private val decoratedContent: SpannableString = SpannableString(content)
     private var flags: Int = 0
 
@@ -55,7 +54,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun setTextColor(@ColorRes resColorId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(ForegroundColorSpan(LAppResource.getColor(resColorId)), start, end, flags)
+        decoratedContent.setSpan(
+            ForegroundColorSpan(LAppResource.getColor(resColorId)),
+            start,
+            end,
+            flags
+        )
 
         return this
     }
@@ -66,7 +70,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(ForegroundColorSpan(LAppResource.getColor(resColorId)), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    ForegroundColorSpan(LAppResource.getColor(resColorId)),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -75,7 +84,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun setBackgroundColor(@ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(BackgroundColorSpan(LAppResource.getColor(colorResId)), start, end, 0)
+        decoratedContent.setSpan(
+            BackgroundColorSpan(LAppResource.getColor(colorResId)),
+            start,
+            end,
+            0
+        )
 
         return this
     }
@@ -86,7 +100,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(BackgroundColorSpan(LAppResource.getColor(colorResId)), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    BackgroundColorSpan(LAppResource.getColor(colorResId)),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -107,48 +126,70 @@ class LTextDecorator private constructor(private val textView: TextView, private
         return this
     }
 
-    fun insertBullet(gapWidth: Int, @ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
+    fun insertBullet(
+        gapWidth: Int,
+        @ColorRes colorResId: Int,
+        start: Int,
+        end: Int
+    ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(BulletSpan(gapWidth, LAppResource.getColor(colorResId)), start, end,
-                flags)
+        decoratedContent.setSpan(
+            BulletSpan(gapWidth, LAppResource.getColor(colorResId)), start, end,
+            flags
+        )
 
         return this
     }
 
-    fun makeTextClickable(listener: OnTextClickListener, start: Int, end: Int, underlineText: Boolean): LTextDecorator {
+    fun makeTextClickable(
+        listener: OnTextClickListener,
+        start: Int,
+        end: Int,
+        underlineText: Boolean
+    ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(object : ClickableSpan() {
-            override fun onClick(view: View) {
-                listener.onClick(view, content.substring(start, end))
-            }
+        decoratedContent.setSpan(
+            object : ClickableSpan() {
+                override fun onClick(view: View) {
+                    listener.onClick(view, content.substring(start, end))
+                }
 
-            override fun updateDrawState(ds: TextPaint) {
-                super.updateDrawState(ds)
-                ds.isUnderlineText = underlineText
-            }
-        }, start, end, flags)
+                override fun updateDrawState(ds: TextPaint) {
+                    super.updateDrawState(ds)
+                    ds.isUnderlineText = underlineText
+                }
+            },
+            start, end, flags
+        )
         textView.movementMethod = LinkMovementMethod.getInstance()
 
         return this
     }
 
-    fun makeTextClickable(listener: OnTextClickListener, underlineText: Boolean, vararg texts: String): LTextDecorator {
+    fun makeTextClickable(
+        listener: OnTextClickListener,
+        underlineText: Boolean,
+        vararg texts: String
+    ): LTextDecorator {
         var index: Int
 
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
 
-                decoratedContent.setSpan(object : ClickableSpan() {
-                    override fun onClick(view: View) {
-                        listener.onClick(view, text)
-                    }
+                decoratedContent.setSpan(
+                    object : ClickableSpan() {
+                        override fun onClick(view: View) {
+                            listener.onClick(view, text)
+                        }
 
-                    override fun updateDrawState(ds: TextPaint) {
-                        super.updateDrawState(ds)
-                        ds.isUnderlineText = underlineText
-                    }
-                }, index, index + text.length, flags)
+                        override fun updateDrawState(ds: TextPaint) {
+                            super.updateDrawState(ds)
+                            ds.isUnderlineText = underlineText
+                        }
+                    },
+                    index, index + text.length, flags
+                )
             }
         }
 
@@ -209,8 +250,10 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun quote(@ColorRes colorResId: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(QuoteSpan(LAppResource.getColor(colorResId)), start, end,
-                flags)
+        decoratedContent.setSpan(
+            QuoteSpan(LAppResource.getColor(colorResId)), start, end,
+            flags
+        )
 
         return this
     }
@@ -221,7 +264,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(QuoteSpan(LAppResource.getColor(colorResId)), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    QuoteSpan(LAppResource.getColor(colorResId)),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -281,7 +329,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(AlignmentSpan.Standard(alignment), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    AlignmentSpan.Standard(alignment),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -350,8 +403,10 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun setTextAppearance(appearance: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(TextAppearanceSpan(textView.context, appearance), start, end,
-                flags)
+        decoratedContent.setSpan(
+            TextAppearanceSpan(textView.context, appearance), start, end,
+            flags
+        )
 
         return this
     }
@@ -362,7 +417,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(TextAppearanceSpan(textView.context, appearance), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    TextAppearanceSpan(textView.context, appearance),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -371,8 +431,10 @@ class LTextDecorator private constructor(private val textView: TextView, private
 
     fun setTextAppearance(appearance: Int, colorList: Int, start: Int, end: Int): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(TextAppearanceSpan(textView.context, appearance, colorList), start, end,
-                flags)
+        decoratedContent.setSpan(
+            TextAppearanceSpan(textView.context, appearance, colorList), start, end,
+            flags
+        )
 
         return this
     }
@@ -383,28 +445,57 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(TextAppearanceSpan(textView.context, appearance, colorList), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    TextAppearanceSpan(
+                        textView.context,
+                        appearance,
+                        colorList
+                    ),
+                    index, index + text.length, flags
+                )
             }
         }
 
         return this
     }
 
-    fun setTextAppearance(family: String, style: Int, size: Int, color: ColorStateList, linkColor: ColorStateList, start: Int, end: Int): LTextDecorator {
+    fun setTextAppearance(
+        family: String,
+        style: Int,
+        size: Int,
+        color: ColorStateList,
+        linkColor: ColorStateList,
+        start: Int,
+        end: Int
+    ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(TextAppearanceSpan(family, style, size, color, linkColor), start, end,
-                flags)
+        decoratedContent.setSpan(
+            TextAppearanceSpan(family, style, size, color, linkColor), start, end,
+            flags
+        )
 
         return this
     }
 
-    fun setTextAppearance(family: String, style: Int, size: Int, color: ColorStateList, linkColor: ColorStateList, vararg texts: String): LTextDecorator {
+    fun setTextAppearance(
+        family: String,
+        style: Int,
+        size: Int,
+        color: ColorStateList,
+        linkColor: ColorStateList,
+        vararg texts: String
+    ): LTextDecorator {
         var index: Int
 
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(TextAppearanceSpan(family, style, size, color, linkColor), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    TextAppearanceSpan(family, style, size, color, linkColor),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -444,7 +535,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(AbsoluteSizeSpan(size, dip), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    AbsoluteSizeSpan(size, dip),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -464,7 +560,12 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(RelativeSizeSpan(proportion), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    RelativeSizeSpan(proportion),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
@@ -504,28 +605,58 @@ class LTextDecorator private constructor(private val textView: TextView, private
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(MaskFilterSpan(BlurMaskFilter(radius, style)), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    MaskFilterSpan(BlurMaskFilter(radius, style)),
+                    index,
+                    index + text.length,
+                    flags
+                )
             }
         }
 
         return this
     }
 
-    fun emboss(direction: FloatArray, ambient: Float, specular: Float, blurRadius: Float, start: Int, end: Int): LTextDecorator {
+    fun emboss(
+        direction: FloatArray,
+        ambient: Float,
+        specular: Float,
+        blurRadius: Float,
+        start: Int,
+        end: Int
+    ): LTextDecorator {
         checkIndexOutOfBoundsException(start, end)
-        decoratedContent.setSpan(MaskFilterSpan(EmbossMaskFilter(direction, ambient, specular, blurRadius)), start, end,
-                flags)
+        decoratedContent.setSpan(
+            MaskFilterSpan(EmbossMaskFilter(direction, ambient, specular, blurRadius)), start, end,
+            flags
+        )
 
         return this
     }
 
-    fun emboss(direction: FloatArray, ambient: Float, specular: Float, blurRadius: Float, vararg texts: String): LTextDecorator {
+    fun emboss(
+        direction: FloatArray,
+        ambient: Float,
+        specular: Float,
+        blurRadius: Float,
+        vararg texts: String
+    ): LTextDecorator {
         var index: Int
 
         for (text in texts) {
             if (content.contains(text)) {
                 index = content.indexOf(text)
-                decoratedContent.setSpan(MaskFilterSpan(EmbossMaskFilter(direction, ambient, specular, blurRadius)), index, index + text.length, flags)
+                decoratedContent.setSpan(
+                    MaskFilterSpan(
+                        EmbossMaskFilter(
+                            direction,
+                            ambient,
+                            specular,
+                            blurRadius
+                        )
+                    ),
+                    index, index + text.length, flags
+                )
             }
         }
 

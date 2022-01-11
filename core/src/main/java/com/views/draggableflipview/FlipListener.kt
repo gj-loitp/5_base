@@ -9,9 +9,9 @@ import android.view.View
  * Created by sasakicks on 2015/09/09.
  */
 class FlipListener(
-        private var mFrontView: View?,
-        private var mBackView: View?,
-        private val mParentView: View
+    private var mFrontView: View?,
+    private var mBackView: View?,
+    private val mParentView: View
 ) : ValueAnimator.AnimatorUpdateListener {
 
     private var mFlipped = false

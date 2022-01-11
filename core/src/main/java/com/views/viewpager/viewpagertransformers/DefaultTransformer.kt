@@ -24,5 +24,4 @@ class DefaultTransformer : BaseTransformer() {
         get() = true
 
     override fun onTransform(view: View, position: Float) {}
-
 }

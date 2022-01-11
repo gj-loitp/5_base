@@ -11,5 +11,4 @@ class BookInfoData private constructor() : BaseModel() {
     }
 
     var bookInfo: BookInfo? = null
-
 }

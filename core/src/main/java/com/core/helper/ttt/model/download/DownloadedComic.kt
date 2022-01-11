@@ -18,5 +18,4 @@ class DownloadedComic : BaseModel() {
     @SerializedName("chaps")
     @Expose
     var chaps = ArrayList<Chap>()
-
 }

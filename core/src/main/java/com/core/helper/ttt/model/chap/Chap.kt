@@ -14,5 +14,4 @@ class Chap : BaseModel() {
     @SerializedName("url")
     @Expose
     var url: String = ""
-
 }

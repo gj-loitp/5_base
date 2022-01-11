@@ -53,5 +53,4 @@ class TabletTransformer : BaseTransformer() {
             return (width - OFFSET_TEMP_FLOAT[0]) * if (degrees > 0.0f) 1.0f else -1.0f
         }
     }
-
 }

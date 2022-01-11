@@ -19,17 +19,16 @@ abstract class FindNumberDatabase : RoomDatabase() {
             if (instance == null) {
                 synchronized(FindNumberDatabase::class) {
                     instance = Room.databaseBuilder(
-                            context.applicationContext,
-                            FindNumberDatabase::class.java,
-                            FindNumberDatabase::class.java.simpleName
+                        context.applicationContext,
+                        FindNumberDatabase::class.java,
+                        FindNumberDatabase::class.java.simpleName
                     )
-                            .fallbackToDestructiveMigration()
-                            .build()
+                        .fallbackToDestructiveMigration()
+                        .build()
                 }
             }
 
             return instance
         }
-
     }
 }

@@ -79,7 +79,8 @@ internal class StatusBarCompatLollipop {
             if (hideStatusBarBackground) {
                 window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
                 window.statusBarColor = Color.TRANSPARENT
-                window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                window.decorView.systemUiVisibility =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             } else {
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
                 window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
@@ -104,8 +105,13 @@ internal class StatusBarCompatLollipop {
          * 5. change statusBarColor by AppBarLayout's offset.
          * 6. add Listener to change statusBarColor
          */
-        fun setStatusBarColorForCollapsingToolbar(activity: Activity, appBarLayout: AppBarLayout, collapsingToolbarLayout: CollapsingToolbarLayout,
-                                                  toolbar: Toolbar, statusColor: Int) {
+        fun setStatusBarColorForCollapsingToolbar(
+            activity: Activity,
+            appBarLayout: AppBarLayout,
+            collapsingToolbarLayout: CollapsingToolbarLayout,
+            toolbar: Toolbar,
+            statusColor: Int
+        ) {
             val window = activity.window
 
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -131,7 +137,12 @@ internal class StatusBarCompatLollipop {
                 val statusBarHeight = getStatusBarHeight(activity)
                 lp.height += statusBarHeight
                 toolbar.layoutParams = lp
-                toolbar.setPadding(toolbar.paddingLeft, toolbar.paddingTop + statusBarHeight, toolbar.paddingRight, toolbar.paddingBottom)
+                toolbar.setPadding(
+                    toolbar.paddingLeft,
+                    toolbar.paddingTop + statusBarHeight,
+                    toolbar.paddingRight,
+                    toolbar.paddingBottom
+                )
                 toolbar.tag = true
             }
 
@@ -148,17 +159,29 @@ internal class StatusBarCompatLollipop {
             }
 
             collapsingToolbarLayout.fitsSystemWindows = false
-            appBarLayout.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
-                if (Math.abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
-                    if (window.statusBarColor != statusColor) {
-                        startColorAnimation(window.statusBarColor, statusColor, collapsingToolbarLayout.scrimAnimationDuration, window)
-                    }
-                } else {
-                    if (window.statusBarColor != Color.TRANSPARENT) {
-                        startColorAnimation(window.statusBarColor, Color.TRANSPARENT, collapsingToolbarLayout.scrimAnimationDuration, window)
+            appBarLayout.addOnOffsetChangedListener(
+                AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+                    if (Math.abs(verticalOffset) > appBarLayout.height - collapsingToolbarLayout.scrimVisibleHeightTrigger) {
+                        if (window.statusBarColor != statusColor) {
+                            startColorAnimation(
+                                window.statusBarColor,
+                                statusColor,
+                                collapsingToolbarLayout.scrimAnimationDuration,
+                                window
+                            )
+                        }
+                    } else {
+                        if (window.statusBarColor != Color.TRANSPARENT) {
+                            startColorAnimation(
+                                window.statusBarColor,
+                                Color.TRANSPARENT,
+                                collapsingToolbarLayout.scrimAnimationDuration,
+                                window
+                            )
+                        }
                     }
                 }
-            })
+            )
             collapsingToolbarLayout.getChildAt(0).fitsSystemWindows = false
             collapsingToolbarLayout.setStatusBarScrimColor(statusColor)
         }
@@ -169,7 +192,7 @@ internal class StatusBarCompatLollipop {
         fun startColorAnimation(startColor: Int, endColor: Int, duration: Long, window: Window?) {
             sAnimator?.cancel()
             sAnimator = ValueAnimator.ofArgb(startColor, endColor)
-                    .setDuration(duration)
+                .setDuration(duration)
             sAnimator?.addUpdateListener { valueAnimator ->
                 window?.statusBarColor = valueAnimator.animatedValue as Int
             }

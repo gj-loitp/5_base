@@ -1,22 +1,14 @@
 package com.views.shadowviewhelper
 
-import android.graphics.*
+import android.graphics.* // ktlint-disable no-wildcard-imports
 import android.graphics.drawable.Drawable
 
-/**
- * `
- * if (Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
- * view.setLayerType(View.LAYER_TYPE_SOFTWARE, drawable.getPaint());
- * }
-` *
- *
- *
- * Author: wangjie
- * Email: tiantian.china.2@gmail.com
- * Date: 5/2/15.
- */
-class ShadowViewDrawable(private val shadowProperty: ShadowProperty, color: Int, private val rx: Float,
-                         private val ry: Float) : Drawable() {
+class ShadowViewDrawable(
+    private val shadowProperty: ShadowProperty,
+    color: Int,
+    private val rx: Float,
+    private val ry: Float
+) : Drawable() {
     private val paint: Paint = Paint()
     private val bounds = RectF()
     private var width: Int = 0
@@ -32,9 +24,11 @@ class ShadowViewDrawable(private val shadowProperty: ShadowProperty, color: Int,
         paint.isDither = true
         paint.style = Paint.Style.FILL
         paint.color = color
-        paint.setShadowLayer(shadowProperty.getShadowRadius().toFloat(),
-                shadowProperty.getShadowDx().toFloat(), shadowProperty.getShadowDy().toFloat(),
-                shadowProperty.getShadowColor())
+        paint.setShadowLayer(
+            shadowProperty.getShadowRadius().toFloat(),
+            shadowProperty.getShadowDx().toFloat(), shadowProperty.getShadowDy().toFloat(),
+            shadowProperty.getShadowColor()
+        )
     }
 
     override fun onBoundsChange(bounds: Rect) {
@@ -51,10 +45,14 @@ class ShadowViewDrawable(private val shadowProperty: ShadowProperty, color: Int,
             //            drawRect = new RectF(0, 0, width, height - shadowOffset);
 
             val shadowSide = shadowProperty.getShadowSide()
-            val left = if (shadowSide and ShadowProperty.LEFT == ShadowProperty.LEFT) shadowOffset else 0
-            val top = if (shadowSide and ShadowProperty.TOP == ShadowProperty.TOP) shadowOffset else 0
-            val right = width - if (shadowSide and ShadowProperty.RIGHT == ShadowProperty.RIGHT) shadowOffset else 0
-            val bottom = height - if (shadowSide and ShadowProperty.BOTTOM == ShadowProperty.BOTTOM) shadowOffset else 0
+            val left =
+                if (shadowSide and ShadowProperty.LEFT == ShadowProperty.LEFT) shadowOffset else 0
+            val top =
+                if (shadowSide and ShadowProperty.TOP == ShadowProperty.TOP) shadowOffset else 0
+            val right =
+                width - if (shadowSide and ShadowProperty.RIGHT == ShadowProperty.RIGHT) shadowOffset else 0
+            val bottom =
+                height - if (shadowSide and ShadowProperty.BOTTOM == ShadowProperty.BOTTOM) shadowOffset else 0
 
             drawRect = RectF(left.toFloat(), top.toFloat(), right.toFloat(), bottom.toFloat())
 
@@ -66,9 +64,9 @@ class ShadowViewDrawable(private val shadowProperty: ShadowProperty, color: Int,
         paint.xfermode = null
 
         canvas.drawRoundRect(
-                drawRect,
-                rx, ry,
-                paint
+            drawRect,
+            rx, ry,
+            paint
         )
 
         paint.xfermode = srcOut
@@ -82,11 +80,9 @@ class ShadowViewDrawable(private val shadowProperty: ShadowProperty, color: Int,
     }
 
     override fun setAlpha(alpha: Int) {
-
     }
 
     override fun setColorFilter(cf: ColorFilter?) {
-
     }
 
     override fun getOpacity(): Int {

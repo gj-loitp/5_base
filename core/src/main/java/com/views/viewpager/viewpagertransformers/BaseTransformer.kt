@@ -17,7 +17,6 @@
 package com.views.viewpager.viewpagertransformers
 
 import android.view.View
-
 import androidx.viewpager.widget.ViewPager.PageTransformer
 
 abstract class BaseTransformer : PageTransformer {
@@ -87,5 +86,4 @@ abstract class BaseTransformer : PageTransformer {
      * @param position
      */
     protected fun onPostTransform(view: View, position: Float) {}
-
 }

@@ -25,7 +25,7 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.utilities.*
+import com.core.utilities.* // ktlint-disable no-wildcard-imports
 import com.core.utilities.LReaderUtil.Companion.defaultCover
 import com.daimajia.androidanimations.library.Techniques
 import com.function.epub.BookSection
@@ -93,7 +93,13 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             this.offscreenPageLimit = 2
 //            this.setPageTransformer(true, ZoomOutSlideTransformer())
             this.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+                override fun onPageScrolled(
+                    position: Int,
+                    positionOffset: Float,
+                    positionOffsetPixels: Int
+                ) {
+                }
+
                 override fun onPageSelected(position: Int) {
                     tvPage.text = "$position"
                 }
@@ -223,7 +229,11 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                         bi.isCoverImageNotExists = true
                         ivCover.setImageResource(defaultCover)
                     } else {
-                        val bitmap = LReaderUtil.decodeBitmapFromByteArray(coverImage = coverImageAsBytes, reqWidth = 100, reqHeight = 200)
+                        val bitmap = LReaderUtil.decodeBitmapFromByteArray(
+                            coverImage = coverImageAsBytes,
+                            reqWidth = 100,
+                            reqHeight = 200
+                        )
                         bi.coverImageBitmap = bitmap
                         bi.coverImage = null
                         ivCover.setImageBitmap(bitmap)
@@ -256,10 +266,12 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         return if (bookSection == null) {
             null
         } else {
-            setFragmentView(isContentStyled = true,
-                    data = bookSection.sectionContent ?: "",
-                    mimeType = "text/html",
-                    encoding = "UTF-8")
+            setFragmentView(
+                isContentStyled = true,
+                data = bookSection.sectionContent ?: "",
+                mimeType = "text/html",
+                encoding = "UTF-8"
+            )
         }
     }
 
@@ -293,8 +305,8 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
         }
     }
 
-    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager)
-        : FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+    inner class SectionsPagerAdapter internal constructor(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
         override fun getCount(): Int {
             return pageCount
@@ -306,8 +318,16 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
     }
 
     @Suppress("DEPRECATION")
-    private fun setFragmentView(isContentStyled: Boolean, data: String, mimeType: String, encoding: String): View {
-        val layoutParams = FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+    private fun setFragmentView(
+        isContentStyled: Boolean,
+        data: String,
+        mimeType: String,
+        encoding: String
+    ): View {
+        val layoutParams = FrameLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.MATCH_PARENT
+        )
         logD("setFragmentView data $data")
         return if (isContentStyled) {
             val lWebView = LWebView(this)
@@ -321,20 +341,22 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 val paddingPx = LAppResource.getDimenValue(R.dimen.padding_small)
 //                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
                 if (LUIUtil.isDarkTheme()) {
-                    loadDataString(bodyContent = data,
-                            backgroundColor = "black",
-                            textColor = "white",
-                            textAlign = "justify",
-                            fontSizePx = fontSizePx,
-                            paddingPx = paddingPx
+                    loadDataString(
+                        bodyContent = data,
+                        backgroundColor = "black",
+                        textColor = "white",
+                        textAlign = "justify",
+                        fontSizePx = fontSizePx,
+                        paddingPx = paddingPx
                     )
                 } else {
-                    loadDataString(bodyContent = data,
-                            backgroundColor = "white",
-                            textColor = "black",
-                            textAlign = "justify",
-                            fontSizePx = fontSizePx,
-                            paddingPx = paddingPx
+                    loadDataString(
+                        bodyContent = data,
+                        backgroundColor = "white",
+                        textColor = "black",
+                        textAlign = "justify",
+                        fontSizePx = fontSizePx,
+                        paddingPx = paddingPx
                     )
                 }
 
@@ -360,12 +382,11 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                     override fun shouldOverrideUrlLoading(url: String) {
 //                    logD("shouldOverrideUrlLoading $url")
                     }
-
                 }
             }
             lWebView
         } else {
-            //this case wont occur
+            // this case wont occur
             val scrollView = ScrollView(this)
             scrollView.layoutParams = layoutParams
             val textView = TextView(this)
@@ -373,11 +394,17 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
             textView.text = Html.fromHtml(data, { source ->
                 val imageAsStr = source.substring(source.indexOf(";base64,") + 8)
                 val imageAsBytes = Base64.decode(imageAsStr, Base64.DEFAULT)
-                val imageAsBitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.size)
+                val imageAsBitmap =
+                    BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.size)
                 val imageWidthStartPx = (pxScreenWidth - imageAsBitmap.width) / 2
                 val imageWidthEndPx = pxScreenWidth - imageWidthStartPx
                 val imageAsDrawable: Drawable = BitmapDrawable(resources, imageAsBitmap)
-                imageAsDrawable.setBounds(imageWidthStartPx, 0, imageWidthEndPx, imageAsBitmap.height)
+                imageAsDrawable.setBounds(
+                    imageWidthStartPx,
+                    0,
+                    imageWidthEndPx,
+                    imageAsBitmap.height
+                )
                 imageAsDrawable
             }, null)
             val pxPadding = ConvertUtils.dp2px(12f)

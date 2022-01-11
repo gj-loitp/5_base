@@ -11,11 +11,11 @@ class CustomInfo {
 
     override fun toString(): String {
         return "CustomInfo{" +
-                "mSpan=" + span +
-                ", mStart=" + mStart +
-                ", mEnd=" + mEnd +
-                ", mSpannable=" + spannable +
-                '}'
+            "mSpan=" + span +
+            ", mStart=" + mStart +
+            ", mEnd=" + mEnd +
+            ", mSpannable=" + spannable +
+            '}'
     }
 
     private var span: Any? = null
@@ -36,10 +36,10 @@ class CustomInfo {
         text?.let {
             it.removeSpan(span)
             it.setSpan(
-                    span,
-                    min(mStart, mEnd),
-                    max(mStart, mEnd),
-                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                span,
+                min(mStart, mEnd),
+                max(mStart, mEnd),
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
             )
         }
     }

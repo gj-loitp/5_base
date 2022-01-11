@@ -7,11 +7,11 @@ import java.io.Serializable
 
 @Keep
 data class GirlTopUser(
-        @SerializedName("avatar")
-        @Expose
-        val avatar: String?,
+    @SerializedName("avatar")
+    @Expose
+    val avatar: String?,
 
-        @SerializedName("name")
-        @Expose
-        val name: String?
+    @SerializedName("name")
+    @Expose
+    val name: String?
 ) : Serializable

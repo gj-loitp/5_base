@@ -35,22 +35,21 @@ class LEncryptionUtil {
                 val cipherText = cipher.doFinal(plaintext.toByteArray(StandardCharsets.UTF_8))
 
                 return if (salt != null) {
-                    String.format("%s%s%s%s%s",
-                            toBase64(salt),
-                            DELIMITER,
-                            toBase64(iv),
-                            DELIMITER,
-                            toBase64(cipherText))
-                } else String.format("%s%s%s",
+                    String.format(
+                        "%s%s%s%s%s",
+                        toBase64(salt),
+                        DELIMITER,
                         toBase64(iv),
                         DELIMITER,
-                        toBase64(cipherText))
-
-            }
-            /*catch (e: GeneralSecurityException) {
-                throw RuntimeException(e)
-            }*/
-            catch (e: Exception) {
+                        toBase64(cipherText)
+                    )
+                } else String.format(
+                    "%s%s%s",
+                    toBase64(iv),
+                    DELIMITER,
+                    toBase64(cipherText)
+                )
+            } catch (e: Exception) {
                 e.printStackTrace()
                 return null
             }
@@ -61,7 +60,8 @@ class LEncryptionUtil {
                 return null
             }
             try {
-                val fields = cipherText.split(DELIMITER.toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+                val fields = cipherText.split(DELIMITER.toRegex()).dropLastWhile { it.isEmpty() }
+                    .toTypedArray()
                 if (fields.size != 3) {
                     throw IllegalArgumentException("Invalid encypted text format")
                 }
@@ -74,11 +74,7 @@ class LEncryptionUtil {
                 cipher.init(Cipher.DECRYPT_MODE, key, ivParams)
                 val plaintext = cipher.doFinal(cipherBytes)
                 return String(plaintext, StandardCharsets.UTF_8)
-            }
-            /*catch (e: GeneralSecurityException) {
-                throw RuntimeException(e)
-            }*/
-            catch (e: Exception) {
+            } catch (e: Exception) {
                 e.printStackTrace()
                 return null
             }

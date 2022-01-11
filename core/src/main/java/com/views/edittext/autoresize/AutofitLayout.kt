@@ -33,7 +33,11 @@ class AutofitLayout : FrameLayout {
         init(context, attrs, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init(context, attrs, defStyle)
     }
 
@@ -43,13 +47,16 @@ class AutofitLayout : FrameLayout {
         var precision = -1f
         if (attrs != null) {
             val typedArray = context.obtainStyledAttributes(
-                    attrs,
-                    R.styleable.AutofitEditText,
-                    defStyle,
-                    0
+                attrs,
+                R.styleable.AutofitEditText,
+                defStyle,
+                0
             )
             sizeToFit = typedArray.getBoolean(R.styleable.AutofitEditText_sizeToFit, sizeToFit)
-            minTextSize = typedArray.getDimensionPixelSize(R.styleable.AutofitEditText_minTextSize, minTextSize)
+            minTextSize = typedArray.getDimensionPixelSize(
+                R.styleable.AutofitEditText_minTextSize,
+                minTextSize
+            )
             precision = typedArray.getFloat(R.styleable.AutofitEditText_precision, precision)
             typedArray.recycle()
         }

@@ -50,19 +50,19 @@ class SinglePlayActivity : BaseFontActivity() {
         LImageUtil.load(context = this, any = currentLevel?.bkg, imageView = ivBackground)
         frmFindNumberPlay?.let {
             LScreenUtil.replaceFragment(
-                    activity = this,
-                    containerFrameLayoutIdRes = R.id.layoutContainer,
-                    fragment = it,
-                    isAddToBackStack = false
+                activity = this,
+                containerFrameLayoutIdRes = R.id.layoutContainer,
+                fragment = it,
+                isAddToBackStack = false
             )
         }
         ivBack.setSafeOnClickListener {
-            //TODO popup exit
+            // TODO popup exit
         }
     }
 
     private fun setupViewModels() {
-        //do sth
+        // do sth
     }
 
     private fun setupData() {

@@ -12,9 +12,9 @@ import com.core.utilities.LAppResource
 import kotlin.math.min
 
 class LShadowLayout @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : RelativeLayout(context, attrs, defStyleAttr) {
 
     companion object {
@@ -89,10 +89,10 @@ class LShadowLayout @JvmOverloads constructor(
             canvas.drawRect(mRectF, mPaint)
         } else if (mShadowShape == SHAPE_OVAL) {
             canvas.drawCircle(
-                    mRectF.centerX(),
-                    mRectF.centerY(),
-                    min(a = mRectF.width(), b = mRectF.height()) / 2,
-                    mPaint
+                mRectF.centerX(),
+                mRectF.centerY(),
+                min(a = mRectF.width(), b = mRectF.height()) / 2,
+                mPaint
             )
         }
     }
@@ -113,7 +113,10 @@ class LShadowLayout @JvmOverloads constructor(
         setLayerType(LAYER_TYPE_SOFTWARE, null) // 关闭硬件加速
         setWillNotDraw(false) // 调用此方法后，才会执行 onDraw(Canvas) 方法
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.LShadowLayout)
-        mShadowColor = typedArray.getColor(R.styleable.LShadowLayout_shadowColor, LAppResource.getColor(R.color.black))
+        mShadowColor = typedArray.getColor(
+            R.styleable.LShadowLayout_shadowColor,
+            LAppResource.getColor(R.color.black)
+        )
         mShadowRadius = typedArray.getDimension(R.styleable.LShadowLayout_shadowRadius, dip2px(0f))
         mShadowDx = typedArray.getDimension(R.styleable.LShadowLayout_shadowDx, dip2px(0f))
         mShadowDy = typedArray.getDimension(R.styleable.LShadowLayout_shadowDy, dip2px(0f))

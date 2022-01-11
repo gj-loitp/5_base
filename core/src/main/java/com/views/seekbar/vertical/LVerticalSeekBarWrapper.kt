@@ -10,13 +10,13 @@ import kotlin.math.max
 
 class LVerticalSeekBarWrapper
 @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : FrameLayout(
-        context,
-        attrs,
-        defStyleAttr
+    context,
+    attrs,
+    defStyleAttr
 ) {
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
@@ -39,8 +39,9 @@ class LVerticalSeekBarWrapper
             seekBar.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
             val seekBarMeasuredWidth = seekBar.measuredWidth
             seekBar.measure(
-                    MeasureSpec.makeMeasureSpec(max(a = 0, b = w - hPadding), MeasureSpec.AT_MOST),
-                    MeasureSpec.makeMeasureSpec(max(a = 0, b = h - vPadding), MeasureSpec.EXACTLY))
+                MeasureSpec.makeMeasureSpec(max(a = 0, b = w - hPadding), MeasureSpec.AT_MOST),
+                MeasureSpec.makeMeasureSpec(max(a = 0, b = h - vPadding), MeasureSpec.EXACTLY)
+            )
             lp.gravity = Gravity.TOP or Gravity.START
             lp.leftMargin = (max(a = 0, b = w - hPadding) - seekBarMeasuredWidth) / 2
             seekBar.layoutParams = lp
@@ -54,8 +55,9 @@ class LVerticalSeekBarWrapper
             val hPadding = paddingLeft + paddingRight
             val vPadding = paddingTop + paddingBottom
             seekBar.measure(
-                    MeasureSpec.makeMeasureSpec(max(a = 0, b = h - vPadding), MeasureSpec.EXACTLY),
-                    MeasureSpec.makeMeasureSpec(max(a = 0, b = w - hPadding), MeasureSpec.AT_MOST))
+                MeasureSpec.makeMeasureSpec(max(a = 0, b = h - vPadding), MeasureSpec.EXACTLY),
+                MeasureSpec.makeMeasureSpec(max(a = 0, b = w - hPadding), MeasureSpec.AT_MOST)
+            )
         }
         applyViewRotation(w, h)
         super.onSizeChanged(w, h, oldw, oldh)
@@ -72,8 +74,10 @@ class LVerticalSeekBarWrapper
             val seekBarHeight: Int
             val hPadding = paddingLeft + paddingRight
             val vPadding = paddingTop + paddingBottom
-            val innerContentWidthMeasureSpec = MeasureSpec.makeMeasureSpec(max(a = 0, b = widthSize - hPadding), widthMode)
-            val innerContentHeightMeasureSpec = MeasureSpec.makeMeasureSpec(max(a = 0, b = heightSize - vPadding), heightMode)
+            val innerContentWidthMeasureSpec =
+                MeasureSpec.makeMeasureSpec(max(a = 0, b = widthSize - hPadding), widthMode)
+            val innerContentHeightMeasureSpec =
+                MeasureSpec.makeMeasureSpec(max(a = 0, b = heightSize - vPadding), heightMode)
             if (useViewRotation()) {
                 seekBar.measure(innerContentHeightMeasureSpec, innerContentWidthMeasureSpec)
                 seekBarWidth = seekBar.measuredHeight
@@ -83,8 +87,10 @@ class LVerticalSeekBarWrapper
                 seekBarWidth = seekBar.measuredWidth
                 seekBarHeight = seekBar.measuredHeight
             }
-            val measuredWidth = ViewCompat.resolveSizeAndState(seekBarWidth + hPadding, widthMeasureSpec, 0)
-            val measuredHeight = ViewCompat.resolveSizeAndState(seekBarHeight + vPadding, heightMeasureSpec, 0)
+            val measuredWidth =
+                ViewCompat.resolveSizeAndState(seekBarWidth + hPadding, widthMeasureSpec, 0)
+            val measuredHeight =
+                ViewCompat.resolveSizeAndState(seekBarHeight + vPadding, heightMeasureSpec, 0)
             setMeasuredDimension(measuredWidth, measuredHeight)
         } else {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec)

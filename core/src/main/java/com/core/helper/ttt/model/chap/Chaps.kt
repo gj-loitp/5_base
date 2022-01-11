@@ -7,9 +7,8 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 @Keep
-class Chaps : BaseModel(){
+class Chaps : BaseModel() {
     @SerializedName("chap")
     @Expose
     var chap: List<Chap> = ArrayList()
-
 }

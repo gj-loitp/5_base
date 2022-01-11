@@ -29,5 +29,4 @@ class CubeInTransformer : BaseTransformer() {
         view.pivotY = 0f
         view.rotationY = -90f * position
     }
-
 }

@@ -46,7 +46,7 @@ class LDateUtil {
             val date = stringToDate(text = strDate, format = fromFormat)
             date?.let {
                 val simpleDateFormat = SimpleDateFormat(toFormat, Locale.ENGLISH)
-                //simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+                // simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
                 return simpleDateFormat.format(it)
             }
             return null
@@ -60,7 +60,6 @@ class LDateUtil {
                 e.printStackTrace()
                 null
             }
-
         }
 
         fun dateToString(date: Date, format: String): String? {
@@ -71,7 +70,6 @@ class LDateUtil {
                 e.printStackTrace()
                 null
             }
-
         }
 
         /*public static String dateToString(Date date, Context context) {
@@ -89,7 +87,7 @@ class LDateUtil {
             cal.timeInMillis = 0
             cal.set(year, month, day)
             val date = cal.time
-            //SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+            // SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             val sdf = SimpleDateFormat(format, Locale.getDefault())
             return sdf.format(date)
         }
@@ -124,7 +122,7 @@ class LDateUtil {
             }
         }
 
-        //date ex: 14-09-2017
+        // date ex: 14-09-2017
         fun convertDateToTimestamp(d: String): Long {
             val formatter = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
             val date: Date?
@@ -135,7 +133,6 @@ class LDateUtil {
                 e.printStackTrace()
                 Constants.NOT_FOUND.toLong()
             }
-
         }
 
         fun zeroTime(date: Date): Date {
@@ -164,7 +161,6 @@ class LDateUtil {
                 e.printStackTrace()
                 0
             }
-
         }
 
         fun getDateFromDateTime(datetime: String): String {
@@ -206,7 +202,7 @@ class LDateUtil {
         fun getDateCurrentTimeZone(timestamp: Long, format: String): String {
             return try {
                 val calendar = Calendar.getInstance()
-                //TimeZone tz = TimeZone.getDefault();
+                // TimeZone tz = TimeZone.getDefault();
                 val tz = TimeZone.getTimeZone("UTC")
                 calendar.timeInMillis = timestamp * 1000
                 calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.timeInMillis))
@@ -226,7 +222,7 @@ class LDateUtil {
         fun getDateCurrentTimeZoneMls(timestampMls: Long, format: String): String {
             return try {
                 val calendar = Calendar.getInstance()
-                //TimeZone tz = TimeZone.getDefault();
+                // TimeZone tz = TimeZone.getDefault();
                 val tz = TimeZone.getTimeZone("UTC")
                 calendar.timeInMillis = timestampMls
                 calendar.add(Calendar.MILLISECOND, tz.getOffset(calendar.timeInMillis))
@@ -253,7 +249,6 @@ class LDateUtil {
                 e.printStackTrace()
                 null
             }
-
         }
 
         fun convertSToFormat(second: Long, format: String): String? {

@@ -73,7 +73,5 @@ class StringUtils {
             }
             return String(chars)
         }
-
     }
-
 }

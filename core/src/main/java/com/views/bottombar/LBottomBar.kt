@@ -14,10 +14,6 @@ import com.daimajia.androidanimations.library.Techniques
 import com.github.mmin18.widget.RealtimeBlurView
 import kotlinx.android.synthetic.main.view_l_bottom_bar.view.*
 
-/**
- * Created by www.muathu@gmail.com on 7/25/2019.
- */
-
 class LBottomBar : RelativeLayout, View.OnClickListener {
 
     companion object {
@@ -63,7 +59,11 @@ class LBottomBar : RelativeLayout, View.OnClickListener {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         init()
     }
 

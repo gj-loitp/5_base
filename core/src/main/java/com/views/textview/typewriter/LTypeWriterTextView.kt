@@ -3,12 +3,7 @@ package com.views.textview.typewriter
 import android.content.Context
 import android.os.Handler
 import android.util.AttributeSet
-
 import androidx.appcompat.widget.AppCompatTextView
-
-/**
- * Created by www.muathu@gmail.com on 11/2/2017.
- */
 
 class LTypeWriterTextView : AppCompatTextView {
     private var mText: CharSequence? = null

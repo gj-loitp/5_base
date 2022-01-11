@@ -18,32 +18,32 @@ class MonthView : FrameLayout {
     private var rvDays: RecyclerView? = null
 
     constructor(
-            context: Context
+        context: Context
     ) : super(context) {
         init()
     }
 
     constructor(
-            context: Context,
-            attrs: AttributeSet?
+        context: Context,
+        attrs: AttributeSet?
     ) : super(context, attrs) {
         init()
     }
 
     constructor(
-            context: Context,
-            attrs: AttributeSet?,
-            @AttrRes defStyleAttr: Int
+        context: Context,
+        attrs: AttributeSet?,
+        @AttrRes defStyleAttr: Int
     ) : super(context, attrs, defStyleAttr) {
         init()
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     constructor(
-            context: Context,
-            attrs: AttributeSet?,
-            @AttrRes defStyleAttr: Int,
-            @StyleRes defStyleRes: Int
+        context: Context,
+        attrs: AttributeSet?,
+        @AttrRes defStyleAttr: Int,
+        @StyleRes defStyleRes: Int
     ) : super(context, attrs, defStyleAttr, defStyleRes) {
         init()
     }
@@ -71,6 +71,9 @@ class MonthView : FrameLayout {
     }
 
     private fun generateLayoutParams(): LayoutParams {
-        return LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        return LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
 }

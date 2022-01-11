@@ -28,15 +28,15 @@ class FrmProfileTTT : BaseFragment() {
 
     fun setupViews() {
         LImageUtil.load(
-                context = activity,
-                any = "https://live.staticflickr.com/336/31740727004_7a66635d62_b.jpg",
-                imageView = ivBackground
+            context = activity,
+            any = "https://live.staticflickr.com/336/31740727004_7a66635d62_b.jpg",
+            imageView = ivBackground
         )
         LImageUtil.load(
-                context = activity,
-                any = "https://live.staticflickr.com/8051/28816266454_a7d83db3b2_n.jpg",
-                imageView = ivAvatar,
-                transformation = CropCircleWithBorderTransformation()
+            context = activity,
+            any = "https://live.staticflickr.com/8051/28816266454_a7d83db3b2_n.jpg",
+            imageView = ivAvatar,
+            transformation = CropCircleWithBorderTransformation()
         )
 
         tvUserName.text = getString(R.string.app_name_comic)
@@ -51,18 +51,25 @@ class FrmProfileTTT : BaseFragment() {
                     it.finish()
                 }
             }
-            bottomSheetSettingTTTFragment.show(childFragmentManager, bottomSheetSettingTTTFragment.tag)
+            bottomSheetSettingTTTFragment.show(
+                childFragmentManager,
+                bottomSheetSettingTTTFragment.tag
+            )
         }
         btInformation.setSafeOnClickListener {
             val bottomSheetInformationTTTFragment = BottomSheetInformationTTTFragment()
-            bottomSheetInformationTTTFragment.show(childFragmentManager, bottomSheetInformationTTTFragment.tag)
+            bottomSheetInformationTTTFragment.show(
+                childFragmentManager,
+                bottomSheetInformationTTTFragment.tag
+            )
         }
 
         btDonation.setSafeOnClickListener {
             val bottomSheetDonationTTTFragment = BottomSheetDonationTTTFragment()
-            bottomSheetDonationTTTFragment.show(childFragmentManager, bottomSheetDonationTTTFragment.tag)
+            bottomSheetDonationTTTFragment.show(
+                childFragmentManager,
+                bottomSheetDonationTTTFragment.tag
+            )
         }
     }
-
-
 }

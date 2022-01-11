@@ -10,9 +10,9 @@ import android.view.View
  */
 class TransformerFactory {
     fun getTransformer(
-            resize: Boolean,
-            view: View,
-            parent: View
+        resize: Boolean,
+        view: View,
+        parent: View
     ): Transformer {
         return if (resize) {
             ResizeTransformer(view = view, parent = parent)

@@ -30,17 +30,31 @@ class LAutoLinearLayout : FrameLayout {
         init(context, attrs, 0, 0)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init(context, attrs, defStyleAttr, 0)
     }
 
     @TargetApi(21)
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes) {
+    constructor(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int
+    ) : super(context, attrs, defStyleAttr, defStyleRes) {
         init(context, attrs, defStyleAttr, defStyleRes)
     }
 
     private fun init(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
-        val a = context.obtainStyledAttributes(attrs, R.styleable.LAutoLinearLayout, defStyleAttr, defStyleRes)
+        val a = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.LAutoLinearLayout,
+            defStyleAttr,
+            defStyleRes
+        )
         try {
             mOrientation = a.getInt(R.styleable.LAutoLinearLayout_ll_auto_orientation, HORIZONTAL)
             val gravity = a.getInt(R.styleable.LAutoLinearLayout_ll_auto_gravity, -1)
@@ -63,7 +77,7 @@ class LAutoLinearLayout : FrameLayout {
     private fun measureHorizontal(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         var wSize = MeasureSpec.getSize(widthMeasureSpec) - (paddingLeft + paddingRight)
 
-        //Scrollview case
+        // Scrollview case
         if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.UNSPECIFIED) wSize = Int.MAX_VALUE
         val count = childCount
         var rowWidth = 0
@@ -79,10 +93,10 @@ class LAutoLinearLayout : FrameLayout {
                 val lp = child.layoutParams as LayoutParams
                 childWidth = child.measuredWidth + lp.leftMargin + lp.rightMargin
                 childHeight = child.measuredHeight + lp.topMargin + lp.bottomMargin
-                //keep max height value stored
+                // keep max height value stored
                 rowMaxHeight = max(a = rowMaxHeight, b = childHeight)
 
-                //exceed max width start new row and update total height
+                // exceed max width start new row and update total height
                 if (childWidth + rowWidth > wSize) {
                     totalHeight += rowMaxHeight
                     maxRowWidth = max(a = maxRowWidth, b = rowWidth)
@@ -93,18 +107,20 @@ class LAutoLinearLayout : FrameLayout {
                 }
             }
         }
-        //plus last child height and width
+        // plus last child height and width
         if (rowWidth != 0) {
             maxRowWidth = max(a = maxRowWidth, b = rowWidth)
             totalHeight += rowMaxHeight
         }
 
-        //set width to max value
+        // set width to max value
         if (MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.UNSPECIFIED) {
             wSize = maxRowWidth + (paddingLeft + paddingRight)
         }
-        setMeasuredDimension(resolveSize(wSize, widthMeasureSpec),
-                resolveSize(totalHeight + paddingTop + paddingBottom, heightMeasureSpec))
+        setMeasuredDimension(
+            resolveSize(wSize, widthMeasureSpec),
+            resolveSize(totalHeight + paddingTop + paddingBottom, heightMeasureSpec)
+        )
     }
 
     private fun measureVertical(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -117,7 +133,7 @@ class LAutoLinearLayout : FrameLayout {
         var childWidth: Int
         var childHeight: Int
 
-        //Scrollview case
+        // Scrollview case
         if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.UNSPECIFIED) {
             hSize = Int.MAX_VALUE
         }
@@ -128,10 +144,10 @@ class LAutoLinearLayout : FrameLayout {
                 val lp = child.layoutParams as LayoutParams
                 childWidth = child.measuredWidth + lp.leftMargin + lp.rightMargin
                 childHeight = child.measuredHeight + lp.topMargin + lp.bottomMargin
-                //keep max width value stored
+                // keep max width value stored
                 columnMaxWidth = max(a = columnMaxWidth, b = childWidth)
 
-                //exceed max height start new column and update total width
+                // exceed max height start new column and update total width
                 if (childHeight + columnHeight > hSize) {
                     totalWidth += columnMaxWidth
                     maxColumnHeight = max(a = maxColumnHeight, b = columnHeight)
@@ -142,18 +158,23 @@ class LAutoLinearLayout : FrameLayout {
                 }
             }
         }
-        //plus last child width
+        // plus last child width
         if (columnHeight != 0) {
             maxColumnHeight = max(a = maxColumnHeight, b = columnHeight)
             totalWidth += columnMaxWidth
         }
 
-        //set height to max value
+        // set height to max value
         if (MeasureSpec.getMode(heightMeasureSpec) == MeasureSpec.UNSPECIFIED) {
             hSize = maxColumnHeight + (paddingTop + paddingBottom)
         }
-        setMeasuredDimension(resolveSize(totalWidth + paddingRight + paddingLeft,
-                widthMeasureSpec), resolveSize(hSize, heightMeasureSpec))
+        setMeasuredDimension(
+            resolveSize(
+                totalWidth + paddingRight + paddingLeft,
+                widthMeasureSpec
+            ),
+            resolveSize(hSize, heightMeasureSpec)
+        )
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -188,16 +209,18 @@ class LAutoLinearLayout : FrameLayout {
         for (i in 0 until count) {
             val child = getChildAt(i)
             if (child != null && child.visibility != GONE) {
-                //if child is not updated yet call measure
+                // if child is not updated yet call measure
                 if (child.measuredHeight == 0 || child.measuredWidth == 0)
-                    child.measure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST),
-                            MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST))
+                    child.measure(
+                        MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST),
+                        MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST)
+                    )
                 val lp = child.layoutParams as LayoutParams
                 val childWidth = child.measuredWidth
                 val childHeight = child.measuredHeight
-                //if there is not enough space jump to another column
+                // if there is not enough space jump to another column
                 if (childTop + childHeight + lp.topMargin + lp.bottomMargin > height + paddingTop) {
-                    //before change column update positions if the gravity is present
+                    // before change column update positions if the gravity is present
                     updateChildPositionVertical(height, totalVertical, column, maxChildWidth)
                     childTop = paddingTop
                     childLeft += maxChildWidth
@@ -207,30 +230,31 @@ class LAutoLinearLayout : FrameLayout {
                 }
                 childTop += lp.topMargin
                 mListPositions.add(ViewPosition(childLeft, childTop, column))
-                //check max child width
+                // check max child width
                 val currentWidth = childWidth + lp.leftMargin + lp.rightMargin
                 if (maxChildWidth < currentWidth) maxChildWidth = currentWidth
-                //get ready for next child
+                // get ready for next child
                 childTop += childHeight + lp.bottomMargin
                 totalVertical += childHeight + lp.topMargin + lp.bottomMargin
             }
         }
 
-        //update positions for last column
+        // update positions for last column
         updateChildPositionVertical(
-                parentHeight = height,
-                totalSize = totalVertical,
-                column = column,
-                maxChildWidth = maxChildWidth
+            parentHeight = height,
+            totalSize = totalVertical,
+            column = column,
+            maxChildWidth = maxChildWidth
         )
         totalHorizontal += childLeft + maxChildWidth
-        //final update for horizontal gravities and layout views
+        // final update for horizontal gravities and layout views
         updateChildPositionHorizontal(
-                parentWidth = width,
-                totalSize = totalHorizontal,
-                row = column,
-                maxChildHeight = 0)
-        //mListPositions.clear()
+            parentWidth = width,
+            totalSize = totalHorizontal,
+            row = column,
+            maxChildHeight = 0
+        )
+        // mListPositions.clear()
     }
 
     /**
@@ -257,8 +281,10 @@ class LAutoLinearLayout : FrameLayout {
             val child = getChildAt(i)
             if (child != null && child.visibility != GONE) {
                 if (child.measuredHeight == 0 || child.measuredWidth == 0)
-                    child.measure(MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST),
-                            MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST))
+                    child.measure(
+                        MeasureSpec.makeMeasureSpec(width, MeasureSpec.AT_MOST),
+                        MeasureSpec.makeMeasureSpec(height, MeasureSpec.AT_MOST)
+                    )
                 val lp = child.layoutParams as LayoutParams
                 val childWidth = child.measuredWidth
                 val childHeight = child.measuredHeight
@@ -281,17 +307,18 @@ class LAutoLinearLayout : FrameLayout {
             }
         }
         updateChildPositionHorizontal(
-                parentWidth = width,
-                totalSize = totalHorizontal,
-                row = row,
-                maxChildHeight = maxChildHeight)
+            parentWidth = width,
+            totalSize = totalHorizontal,
+            row = row,
+            maxChildHeight = maxChildHeight
+        )
         totalVertical += childTop + maxChildHeight
         updateChildPositionVertical(
-                parentHeight = height,
-                totalSize = totalVertical,
-                column = row, maxChildWidth = 0
+            parentHeight = height,
+            totalSize = totalVertical,
+            column = row, maxChildWidth = 0
         )
-        //mListPositions.clear();
+        // mListPositions.clear();
     }
 
     /**
@@ -303,23 +330,28 @@ class LAutoLinearLayout : FrameLayout {
      * @param column        column number
      * @param maxChildWidth the biggest child width
      */
-    private fun updateChildPositionVertical(parentHeight: Int, totalSize: Int, column: Int, maxChildWidth: Int) {
+    private fun updateChildPositionVertical(
+        parentHeight: Int,
+        totalSize: Int,
+        column: Int,
+        maxChildWidth: Int
+    ) {
         for (i in mListPositions.indices) {
             val pos = mListPositions[i]
             val child = getChildAt(i)
-            //(android:gravity)
-            //update children position inside parent layout
+            // (android:gravity)
+            // update children position inside parent layout
             if (mOrientation == HORIZONTAL || pos.position == column) {
                 updateTopPositionByGravity(pos, parentHeight - totalSize, mGravity)
             }
-            //(android:layout_gravity)
-            //update children position inside their space
+            // (android:layout_gravity)
+            // update children position inside their space
             if (mOrientation == VERTICAL && pos.position == column) {
                 val lp = child.layoutParams as LayoutParams
                 val size = maxChildWidth - child.measuredWidth - lp.leftMargin - lp.rightMargin
                 updateLeftPositionByGravity(pos, size, lp.gravity)
             }
-            //update children into layout parent
+            // update children into layout parent
             if (mOrientation == HORIZONTAL) layout(child, pos)
         }
     }
@@ -333,7 +365,12 @@ class LAutoLinearLayout : FrameLayout {
      * @param row            row number
      * @param maxChildHeight the biggest child height
      */
-    private fun updateChildPositionHorizontal(parentWidth: Int, totalSize: Int, row: Int, maxChildHeight: Int) {
+    private fun updateChildPositionHorizontal(
+        parentWidth: Int,
+        totalSize: Int,
+        row: Int,
+        maxChildHeight: Int
+    ) {
         for (i in mListPositions.indices) {
             val pos = mListPositions[i]
             val child = getChildAt(i)
@@ -365,9 +402,16 @@ class LAutoLinearLayout : FrameLayout {
 
     private fun layout(child: View, pos: ViewPosition) {
         val lp = child.layoutParams as LayoutParams
-        if (mOrientation == HORIZONTAL) child.layout(pos.left, pos.top + lp.topMargin, pos.left + child.measuredWidth, pos.top +
-                child.measuredHeight + lp.topMargin) else child.layout(pos.left + lp.leftMargin, pos.top, pos.left + child.measuredWidth +
-                lp.leftMargin, pos.top + child.measuredHeight)
+        if (mOrientation == HORIZONTAL) child.layout(
+            pos.left, pos.top + lp.topMargin, pos.left + child.measuredWidth,
+            pos.top +
+                child.measuredHeight + lp.topMargin
+        ) else child.layout(
+            pos.left + lp.leftMargin, pos.top,
+            pos.left + child.measuredWidth +
+                lp.leftMargin,
+            pos.top + child.measuredHeight
+        )
     }
 
     /**
@@ -430,9 +474,11 @@ class LAutoLinearLayout : FrameLayout {
     /**
      * Helper inner class that stores child position
      */
-    internal class ViewPosition(var left: Int,
-                                var top: Int, //row or column
-                                var position: Int) {
+    internal class ViewPosition(
+        var left: Int,
+        var top: Int, // row or column
+        var position: Int
+    ) {
 
         override fun toString(): String {
             return "left-$left top$top pos$position"

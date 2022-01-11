@@ -5,7 +5,7 @@ import com.views.calendar.cosmocalendar.model.Day
 import com.views.calendar.cosmocalendar.utils.DateUtils.isDayInRange
 
 class RangeSelectionManager(
-        onDaySelectedListener: OnDaySelectedListener?
+    onDaySelectedListener: OnDaySelectedListener?
 ) : BaseSelectionManager() {
 
     var days: Pair<Day, Day>? = null

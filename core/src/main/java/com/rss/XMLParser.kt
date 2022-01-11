@@ -39,13 +39,12 @@ internal class XMLParser : DefaultHandler() {
     private var rssItem: RssItem? = null
     val items = arrayListOf<RssItem>()
 
-
     @Throws(SAXException::class)
     override fun startElement(
-            uri: String,
-            localName: String,
-            qName: String,
-            attributes: Attributes?
+        uri: String,
+        localName: String,
+        qName: String,
+        attributes: Attributes?
     ) {
         elementOn = true
         when (localName.toLowerCase(Locale.getDefault())) {
@@ -74,9 +73,9 @@ internal class XMLParser : DefaultHandler() {
 
     @Throws(SAXException::class)
     override fun endElement(
-            uri: String,
-            localName: String,
-            qName: String
+        uri: String,
+        localName: String,
+        qName: String
     ) {
         elementOn = false
         if (rssItem != null) {
@@ -89,7 +88,10 @@ internal class XMLParser : DefaultHandler() {
                         it.image = image
                         it.publishDate = date
                         it.description = description
-                        if (image == null && description != null && getImageSourceFromDescription(description) != null) {
+                        if (image == null && description != null && getImageSourceFromDescription(
+                                description
+                            ) != null
+                        ) {
                             description?.let { d ->
                                 it.image = getImageSourceFromDescription(description = d)
                             }
@@ -142,7 +144,6 @@ internal class XMLParser : DefaultHandler() {
         }
     }
 
-
     /**
      * Image is parsed from description if image is null
      *
@@ -152,13 +153,13 @@ internal class XMLParser : DefaultHandler() {
     private fun getImageSourceFromDescription(description: String?): String? {
         if (description?.contains("<img") == true && description.contains("src")) {
             val parts = description.split("src=\"".toRegex())
-                    .dropLastWhile { it.isEmpty() }
-                    .toTypedArray()
+                .dropLastWhile { it.isEmpty() }
+                .toTypedArray()
             if (parts.size == 2 && parts[1].isNotEmpty()) {
                 var src = parts[1].substring(0, parts[1].indexOf("\""))
                 val srcParts = src.split("http".toRegex())
-                        .dropLastWhile { it.isEmpty() }
-                        .toTypedArray() // can be removed
+                    .dropLastWhile { it.isEmpty() }
+                    .toTypedArray() // can be removed
                 if (srcParts.size > 2) {
                     src = "http" + srcParts[2]
                 }
@@ -167,7 +168,6 @@ internal class XMLParser : DefaultHandler() {
         }
         return null
     }
-
 
     private fun removeNewLine(s: String?): String {
         return s?.replace("\n", "") ?: EMPTY_STRING

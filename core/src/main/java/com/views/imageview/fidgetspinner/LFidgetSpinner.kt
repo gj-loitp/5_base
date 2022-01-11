@@ -1,7 +1,6 @@
 package com.views.imageview.fidgetspinner
 
 import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
@@ -58,7 +57,11 @@ class LFidgetSpinner : FrameLayout {
         init()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         init()
     }
 
@@ -111,13 +114,16 @@ class LFidgetSpinner : FrameLayout {
         currentSpeed = actionUpSpeed.toFloat()
         val start = actionUpSpeed.toFloat()
         val end = 0f
-        val duration = max(MIN_DURATION.toLong(), min(MAX_DURATION.toLong(), abs((actionUpSpeed * 1000).toLong())))
+        val duration = max(
+            MIN_DURATION.toLong(),
+            min(MAX_DURATION.toLong(), abs((actionUpSpeed * 1000).toLong()))
+        )
         spinAnimation = ObjectAnimator.ofFloat(this, "currentSpeed", start, end)
         spinAnimation?.let {
             it.interpolator = AccelerateDecelerateInterpolator()
             it.duration = duration
             it.startDelay = 0
-            it.addUpdateListener(ValueAnimator.AnimatorUpdateListener { rotate(currentAngle.toFloat()) })
+            it.addUpdateListener { rotate(currentAngle.toFloat()) }
             it.start()
         }
     }
@@ -143,8 +149,8 @@ class LFidgetSpinner : FrameLayout {
     private fun init() {
         fidgetSpinnerImageView = ImageView(context)
         fidgetSpinnerImageView?.layoutParams = LinearLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.MATCH_PARENT
         )
         addView(fidgetSpinnerImageView)
         val onTouchListener = OnTouchListener { _, event -> // Only the first pointer is used
@@ -167,5 +173,4 @@ class LFidgetSpinner : FrameLayout {
         val angleDiff = currentAngle - lastAngle
         return angleDiff / angleTimeDiff
     }
-
 }

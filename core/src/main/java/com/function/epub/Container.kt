@@ -9,10 +9,11 @@ internal class Container : BaseFindings() {
     @get:Throws(ReadingException::class)
     val fullPathValue: String?
         get() = if (rootFile != null &&
-                rootFile?.attributes != null &&
-                rootFile?.attributes!!.containsKey("full-path") &&
-                rootFile?.attributes!!["full-path"] != null &&
-                rootFile!!.attributes!!["full-path"] != "") {
+            rootFile?.attributes != null &&
+            rootFile?.attributes!!.containsKey("full-path") &&
+            rootFile?.attributes!!["full-path"] != null &&
+            rootFile!!.attributes!!["full-path"] != ""
+        ) {
 
             rootFile!!.attributes!!["full-path"]
         } else {

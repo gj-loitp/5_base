@@ -11,13 +11,13 @@ import androidx.appcompat.widget.AppCompatImageView
  */
 class LScrollParallaxImageView
 @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : AppCompatImageView(
-        context, attrs, defStyleAttr
+    context, attrs, defStyleAttr
 ),
-        ViewTreeObserver.OnScrollChangedListener {
+    ViewTreeObserver.OnScrollChangedListener {
 
     interface ParallaxStyle {
         fun onAttachedToImageView(view: LScrollParallaxImageView)
@@ -36,10 +36,10 @@ class LScrollParallaxImageView
         }
         getLocationInWindow(viewLocation)
         parallaxStyles?.transform(
-                view = this,
-                canvas = canvas,
-                x = viewLocation[0],
-                y = viewLocation[1]
+            view = this,
+            canvas = canvas,
+            x = viewLocation[0],
+            y = viewLocation[1]
         )
         super.onDraw(canvas)
     }
@@ -69,5 +69,4 @@ class LScrollParallaxImageView
     fun setEnableScrollParallax(enableScrollParallax: Boolean) {
         this.enableScrollParallax = enableScrollParallax
     }
-
 }

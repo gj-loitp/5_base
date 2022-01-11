@@ -7,11 +7,9 @@ package com.views.textview.zoom
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.ScaleGestureDetector
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import kotlin.math.max
 import kotlin.math.min
@@ -35,7 +33,11 @@ class LZoomTextView : AppCompatTextView {
         initialize()
     }
 
-    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    ) {
         initialize()
     }
 
@@ -71,7 +73,6 @@ class LZoomTextView : AppCompatTextView {
             mScaleFactor *= detector.scaleFactor
             mScaleFactor = max(1.0f, min(mScaleFactor, zoomLimit))
             setTextSize(TypedValue.COMPLEX_UNIT_PX, defaultSize * mScaleFactor)
-            Log.e(TAG, mScaleFactor.toString())
             return true
         }
     }

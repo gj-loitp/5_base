@@ -11,11 +11,14 @@ class MultipleSelectionManager : BaseCriteriaSelectionManager {
         this.onDaySelectedListener = onDaySelectedListener
     }
 
-    constructor(criteria: BaseCriteria?, onDaySelectedListener: OnDaySelectedListener?) : this(ArrayList<BaseCriteria>(setOf(criteria)), onDaySelectedListener)
+    constructor(criteria: BaseCriteria?, onDaySelectedListener: OnDaySelectedListener?) : this(
+        ArrayList<BaseCriteria>(setOf(criteria)),
+        onDaySelectedListener
+    )
 
     constructor(
-            criteriaList: ArrayList<BaseCriteria>,
-            onDaySelectedListener: OnDaySelectedListener?
+        criteriaList: ArrayList<BaseCriteria>,
+        onDaySelectedListener: OnDaySelectedListener?
     ) {
         this.criteriaList = criteriaList
         this.onDaySelectedListener = onDaySelectedListener

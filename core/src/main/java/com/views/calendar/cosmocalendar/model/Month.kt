@@ -6,8 +6,8 @@ import java.util.*
 
 @Keep
 class Month(
-        var firstDay: Day,
-        val days: List<Day>
+    var firstDay: Day,
+    val days: List<Day>
 ) {
 
     /**

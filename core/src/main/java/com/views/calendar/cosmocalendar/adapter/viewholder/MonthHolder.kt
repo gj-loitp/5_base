@@ -12,8 +12,8 @@ import com.views.calendar.cosmocalendar.settings.SettingsManager
 import com.views.calendar.cosmocalendar.view.MonthView
 
 class MonthHolder(
-        itemView: View,
-        private val appearanceModel: SettingsManager
+    itemView: View,
+    private val appearanceModel: SettingsManager
 ) : RecyclerView.ViewHolder(itemView) {
 
     private val llMonthHeader: LinearLayout = itemView.findViewById(R.id.ll_month_header)
@@ -29,10 +29,11 @@ class MonthHolder(
     fun bind(month: Month) {
         tvMonthName.text = month.monthName
         tvMonthName.setTextColor(appearanceModel.monthTextColor)
-        viewLeftLine.visibility = if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) View.INVISIBLE else View.VISIBLE
-        viewRightLine.visibility = if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) View.INVISIBLE else View.VISIBLE
+        viewLeftLine.visibility =
+            if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) View.INVISIBLE else View.VISIBLE
+        viewRightLine.visibility =
+            if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) View.INVISIBLE else View.VISIBLE
         llMonthHeader.setBackgroundResource(if (appearanceModel.calendarOrientation == OrientationHelper.HORIZONTAL) R.drawable.border_top_bottom else 0)
         monthView.initAdapter(month)
     }
-
 }

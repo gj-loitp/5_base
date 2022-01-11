@@ -5,12 +5,6 @@ import android.util.AttributeSet
 import android.widget.AbsListView
 import android.widget.ListView
 
-/*
- * Created by ©Loitp93 on 11/11/2020.
- * VinHMS
- * www.muathu@gmail.com
- */
-
 open class LListView : ListView {
 
     private var onScrollListener: OnScrollListener? = null
@@ -24,7 +18,11 @@ open class LListView : ListView {
         onCreate(context, attrs, null)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         onCreate(context, attrs, defStyle)
     }
 
@@ -41,7 +39,12 @@ open class LListView : ListView {
                 onScrollListener?.onScrollStateChanged(view, scrollState)
             }
 
-            override fun onScroll(view: AbsListView, firstVisibleItem: Int, visibleItemCount: Int, totalItemCount: Int) {
+            override fun onScroll(
+                view: AbsListView,
+                firstVisibleItem: Int,
+                visibleItemCount: Int,
+                totalItemCount: Int
+            ) {
                 onScrollListener?.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount)
                 if (onDetectScrollListener != null) {
                     onDetectedListScroll(view, firstVisibleItem)

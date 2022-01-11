@@ -16,17 +16,10 @@ import com.service.livedata.SingleLiveEvent
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 import kotlin.collections.ArrayList
 
-/**
- * Created by Loitp on 24,December,2019
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
-
-@LogTag("loitppTTTViewModel")
+@LogTag("TTTViewModel")
 class TTTViewModel : BaseViewModel() {
     val comicTypeLiveEvent: SingleLiveEvent<ComicType> = SingleLiveEvent()
 
@@ -45,7 +38,7 @@ class TTTViewModel : BaseViewModel() {
 
     fun getListComic(link: String) {
         listComicActionLiveData.set(
-                ActionData(isDoing = true)
+            ActionData(isDoing = true)
         )
 
         fun parseData(link: String): ArrayList<Comic> {
@@ -89,10 +82,10 @@ class TTTViewModel : BaseViewModel() {
             logD("currentComicType $currentComicType")
 
             val listComicOffline = TTTDatabase.instance?.tttDao()?.getListComic(currentComicType)
-                    ?: emptyList()
+                ?: emptyList()
             logD("listComicOffline " + listComicOffline.size)
 
-            //modify data
+            // modify data
             fun modifyData(comicOnline: Comic): Comic {
                 val existComic = listComicOffline.firstOrNull { comicOffline ->
                     comicOffline.url == comicOnline.url
@@ -112,27 +105,26 @@ class TTTViewModel : BaseViewModel() {
                 listUpdateComic.add(element = updatedComic)
             }
 
-            //save db
+            // save db
             TTTDatabase.instance?.tttDao()?.insertListComic(list = listUpdateComic)
 
-            //get data from db
+            // get data from db
             val listComicLasted = TTTDatabase.instance?.tttDao()?.getListComic(currentComicType)
             logD("listComicLasted " + listComicLasted?.size)
 
             listComicActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listComicLasted
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listComicLasted
+                )
             )
         }
-
     }
 
     fun getListChap(link: String) {
         tttChapActionLiveData.set(
-                ActionData(isDoing = true)
+            ActionData(isDoing = true)
         )
         logD(">>>getListChap link $link")
 
@@ -145,12 +137,12 @@ class TTTViewModel : BaseViewModel() {
                 document = Jsoup.connect(link).get()
                 val eInforBox = document.select("div#infor-box")
 
-                //img cover
+                // img cover
                 val coverImage = eInforBox.select("img[src]")
                 // .com/wp-content/uploads/2014/08/anima-anh-bia.jpg
                 info.cover = coverImage.attr("src")
 
-                //infor comic
+                // infor comic
                 val infoComics = eInforBox.select("p")
                 val infoComicList = java.util.ArrayList<String>()
                 for (x in infoComics) {
@@ -190,18 +182,18 @@ class TTTViewModel : BaseViewModel() {
             logD("tttChap " + BaseApplication.gson.toJson(tttChap))
 
             tttChapActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = tttChap
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = tttChap
+                )
             )
         }
     }
 
     fun getListPage(link: String) {
         listPageActionLiveData.set(
-                ActionData(isDoing = true)
+            ActionData(isDoing = true)
         )
         logD(">>>getListPage link $link")
 
@@ -224,12 +216,15 @@ class TTTViewModel : BaseViewModel() {
                 for (element in scriptElements) {
                     for (node in element.dataNodes()) {
                         originalString = node.wholeData
-                        //fileHelper.writeToFile(null, "test.txt", string);
+                        // fileHelper.writeToFile(null, "test.txt", string);
                         if (originalString.contains("slides_page_url_path")) {
                             var firstIndex = originalString.indexOf(subFirstString0)
                             var lastIndex = originalString.indexOf(subLastString0)
 
-                            stringAfterSplit = originalString.substring(firstIndex + subFirstString0.length, lastIndex)
+                            stringAfterSplit = originalString.substring(
+                                firstIndex + subFirstString0.length,
+                                lastIndex
+                            )
                             stringAfterSplit = stringAfterSplit.replace("];", "")
                             stringAfterSplit = stringAfterSplit.replace("\"", "")
                             stringAfterSplit = stringAfterSplit.trim { it <= ' ' }
@@ -237,7 +232,10 @@ class TTTViewModel : BaseViewModel() {
                             if (stringAfterSplit.isEmpty()) {
                                 firstIndex = originalString.indexOf(subFirstString1)
                                 lastIndex = originalString.indexOf(subLastString1)
-                                stringAfterSplit = originalString.substring(firstIndex + subFirstString1.length, lastIndex)
+                                stringAfterSplit = originalString.substring(
+                                    firstIndex + subFirstString1.length,
+                                    lastIndex
+                                )
                                 stringAfterSplit = stringAfterSplit.replace("];", "")
                                 stringAfterSplit = stringAfterSplit.replace("[", "")
                                 stringAfterSplit = stringAfterSplit.replace("\"", "")
@@ -275,27 +273,27 @@ class TTTViewModel : BaseViewModel() {
                 }
             }
             listPageActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listPage
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listPage
+                )
             )
         }
     }
 
     fun getListComicFav() {
         listComicFavActionLiveData.set(
-                ActionData(isDoing = true)
+            ActionData(isDoing = true)
         )
         ioScope.launch {
             val listComicFav = TTTDatabase.instance?.tttDao()?.getListComicFav()
             listComicFavActionLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = listComicFav
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = listComicFav
+                )
             )
         }
     }
@@ -309,32 +307,32 @@ class TTTViewModel : BaseViewModel() {
 
     fun favComic(comic: Comic) {
         favComicLiveData.set(
-                ActionData(isDoing = true)
+            ActionData(isDoing = true)
         )
         ioScope.launch {
             val id = TTTDatabase.instance?.tttDao()?.insert(comic)
             favComicLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = id
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = id
+                )
             )
         }
     }
 
     fun unfavComic(comic: Comic) {
         unfavComicLiveData.set(
-                ActionData(isDoing = true)
+            ActionData(isDoing = true)
         )
         ioScope.launch {
             TTTDatabase.instance?.tttDao()?.delete(type = comic)
             unfavComicLiveData.post(
-                    ActionData(
-                            isDoing = false,
-                            isSuccess = true,
-                            data = comic
-                    )
+                ActionData(
+                    isDoing = false,
+                    isSuccess = true,
+                    data = comic
+                )
             )
         }
     }

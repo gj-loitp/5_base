@@ -1,7 +1,6 @@
 package com.picker.imagepickerwithcrop
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -56,7 +55,11 @@ class TempActivity : BaseFontActivity() {
         }
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         if (requestCode == PickerManager.REQUEST_CODE_IMAGE_PERMISSION) {
             pickerManager?.handlePermissionResult(grantResults)
         } else {

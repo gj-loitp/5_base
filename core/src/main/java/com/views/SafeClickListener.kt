@@ -1,11 +1,5 @@
 package com.views
 
-/**
- * Created by Loitp on 08,January,2020
- * HMS Ltd
- * Ho Chi Minh City, VN
- * www.muathu@gmail.com
- */
 import android.os.SystemClock
 import android.view.View
 

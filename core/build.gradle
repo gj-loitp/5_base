@@ -157,7 +157,7 @@ dependencies {
     //endregion
 
     //https://github.com/JakeWharton/NineOldAndroids
-    //TODO delete
+    //TODO delete lib
     api 'com.nineoldandroids:library:2.4.0'//for draggable view
 
     //region exoplayer
@@ -177,7 +177,7 @@ dependencies {
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
     //endregion
 
-    //TODO delete
+    //TODO replace lib
     //https://github.com/Karumi/Dexter
     api 'com.karumi:dexter:6.2.3'
 

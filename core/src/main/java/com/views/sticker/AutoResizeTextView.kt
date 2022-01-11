@@ -19,10 +19,10 @@ class AutoResizeTextView : AppCompatTextView {
         private const val NO_LINE_LIMIT = -1
 
         private fun binarySearch(
-                start: Int,
-                end: Int,
-                sizeTester: SizeTester,
-                availableSpace: RectF?
+            start: Int,
+            end: Int,
+            sizeTester: SizeTester,
+            availableSpace: RectF?
         ): Int {
             var lastBest = start
             var lo = start
@@ -83,7 +83,11 @@ class AutoResizeTextView : AppCompatTextView {
         initialize()
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(context, attrs, defStyle) {
+    constructor(context: Context, attrs: AttributeSet?, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    ) {
         initialize()
     }
 
@@ -100,15 +104,15 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     override fun setText(
-            text: CharSequence,
-            type: BufferType
+        text: CharSequence,
+        type: BufferType
     ) {
         super.setText(text, type)
         adjustTextSize(text.toString())
     }
 
     override fun setTextSize(
-            size: Float
+        size: Float
     ) {
         mMaxTextSize = size
         mTextCachedSizes?.clear()
@@ -116,7 +120,7 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     override fun setMaxLines(
-            maxlines: Int
+        maxlines: Int
     ) {
         super.setMaxLines(maxlines)
         mMaxLines = maxlines
@@ -134,7 +138,7 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     override fun setSingleLine(
-            singleLine: Boolean
+        singleLine: Boolean
     ) {
         super.setSingleLine(singleLine)
         mMaxLines = if (singleLine) {
@@ -146,7 +150,7 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     override fun setLines(
-            lines: Int
+        lines: Int
     ) {
         super.setLines(lines)
         mMaxLines = lines
@@ -154,12 +158,11 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     override fun setTextSize(
-            unit: Int,
-            size: Float
+        unit: Int,
+        size: Float
     ) {
         val c = context
-        val r: Resources
-        r = if (c == null) {
+        val r: Resources = if (c == null) {
             Resources.getSystem()
         } else {
             c.resources
@@ -171,8 +174,8 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     override fun setLineSpacing(
-            add: Float,
-            mult: Float
+        add: Float,
+        mult: Float
     ) {
         super.setLineSpacing(add, mult)
         mSpacingMult = mult
@@ -185,7 +188,7 @@ class AutoResizeTextView : AppCompatTextView {
      * @param minTextSize
      */
     fun setMinTextSize(
-            minTextSize: Float
+        minTextSize: Float
     ) {
         mMinTextSize = minTextSize
         reAdjust()
@@ -205,13 +208,14 @@ class AutoResizeTextView : AppCompatTextView {
         mAvailableSpaceRect?.right = mWidthLimit.toFloat()
         mAvailableSpaceRect?.bottom = heightLimit.toFloat()
         super.setTextSize(
-                TypedValue.COMPLEX_UNIT_PX,
-                efficientTextSizeSearch(
-                        startSize,
-                        mMaxTextSize.toInt(),
-                        mSizeTester,
-                        mAvailableSpaceRect
-                ).toFloat())
+            TypedValue.COMPLEX_UNIT_PX,
+            efficientTextSizeSearch(
+                startSize,
+                mMaxTextSize.toInt(),
+                mSizeTester,
+                mAvailableSpaceRect
+            ).toFloat()
+        )
     }
 
     private val mSizeTester: SizeTester = object : SizeTester {
@@ -227,16 +231,17 @@ class AutoResizeTextView : AppCompatTextView {
                 }
             } else {
                 val layout = StaticLayout(
-                        text, mPaint,
-                        mWidthLimit,
-                        Layout.Alignment.ALIGN_NORMAL,
-                        mSpacingMult,
-                        mSpacingAdd,
-                        true
+                    text, mPaint,
+                    mWidthLimit,
+                    Layout.Alignment.ALIGN_NORMAL,
+                    mSpacingMult,
+                    mSpacingAdd,
+                    true
                 )
                 // return early if we have more lines
-                if (maxLines != NO_LINE_LIMIT
-                        && layout.lineCount > maxLines) {
+                if (maxLines != NO_LINE_LIMIT &&
+                    layout.lineCount > maxLines
+                ) {
                     return 1
                 }
                 mTextRect.bottom = layout.height.toFloat()
@@ -274,17 +279,17 @@ class AutoResizeTextView : AppCompatTextView {
     }
 
     private fun efficientTextSizeSearch(
-            start: Int,
-            end: Int,
-            sizeTester: SizeTester,
-            availableSpace: RectF?
+        start: Int,
+        end: Int,
+        sizeTester: SizeTester,
+        availableSpace: RectF?
     ): Int {
         if (!mEnableSizeCache) {
             return binarySearch(
-                    start = start,
-                    end = end,
-                    sizeTester = sizeTester,
-                    availableSpace = availableSpace
+                start = start,
+                end = end,
+                sizeTester = sizeTester,
+                availableSpace = availableSpace
             )
         }
         val text = text.toString()
@@ -294,30 +299,30 @@ class AutoResizeTextView : AppCompatTextView {
             return size
         }
         size = binarySearch(
-                start = start,
-                end = end,
-                sizeTester = sizeTester,
-                availableSpace = availableSpace
+            start = start,
+            end = end,
+            sizeTester = sizeTester,
+            availableSpace = availableSpace
         )
         mTextCachedSizes?.put(key, size)
         return size
     }
 
     override fun onTextChanged(
-            text: CharSequence,
-            start: Int,
-            before: Int,
-            after: Int
+        text: CharSequence,
+        start: Int,
+        before: Int,
+        after: Int
     ) {
         super.onTextChanged(text, start, before, after)
         reAdjust()
     }
 
     override fun onSizeChanged(
-            width: Int,
-            height: Int,
-            oldwidth: Int,
-            oldheight: Int
+        width: Int,
+        height: Int,
+        oldwidth: Int,
+        oldheight: Int
     ) {
         mTextCachedSizes?.clear()
         super.onSizeChanged(width, height, oldwidth, oldheight)

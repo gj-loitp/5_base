@@ -36,27 +36,27 @@ object CalendarUtils {
         val firstDisplayedDayCalendar = Calendar.getInstance()
         val firstDayOfMonthCalendar = Calendar.getInstance()
 
-        //First day that belongs to month
+        // First day that belongs to month
         val firstDayOfMonth = getFirstDayOfMonth(date)
         firstDayOfMonthCalendar.time = firstDayOfMonth
         firstDayOfMonthCalendar[Calendar.MONTH]
         val targetMonth = firstDayOfMonthCalendar[Calendar.MONTH]
 
-        //First displayed day, can belong to previous month
+        // First displayed day, can belong to previous month
         val firstDisplayedDay = getFirstDayOfWeek(firstDayOfMonth, settingsManager.firstDayOfWeek)
         firstDisplayedDayCalendar.time = firstDisplayedDay
         val end = Calendar.getInstance()
         end.time = getLastDayOfWeek(getLastDayOfMonth(date))
 
-        //Create week day titles
+        // Create week day titles
         if (settingsManager.isShowDaysOfWeek) {
             days.addAll(createDaysOfWeek(firstDisplayedDay))
         }
 
-        //Create first day of month
+        // Create first day of month
         days.add(createDay(firstDisplayedDayCalendar, settingsManager, targetMonth))
 
-        //Create other days in month
+        // Create other days in month
         do {
             addDay(firstDisplayedDayCalendar)
             days.add(createDay(firstDisplayedDayCalendar, settingsManager, targetMonth))
@@ -190,7 +190,7 @@ object CalendarUtils {
             }
         }
         if (settingsManager.disabledDays != null) {
-            //day.setDisabled(isDayInSet(day, settingsManager.getDisabledDays()));
+            // day.setDisabled(isDayInSet(day, settingsManager.getDisabledDays()));
             if (!day.isDisabled) {
                 day.isDisabled = isDayInSet(day, settingsManager.disabledDays)
             }
@@ -209,8 +209,8 @@ object CalendarUtils {
     fun isDayInSet(day: Day, daysInSet: Set<Long>): Boolean {
         for (disabledTime in daysInSet) {
             val disabledDayCalendar = getCalendar(disabledTime)
-            if (day.calendar[Calendar.YEAR] == disabledDayCalendar[Calendar.YEAR]
-                && day.calendar[Calendar.DAY_OF_YEAR] == disabledDayCalendar[Calendar.DAY_OF_YEAR]
+            if (day.calendar[Calendar.YEAR] == disabledDayCalendar[Calendar.YEAR] &&
+                day.calendar[Calendar.DAY_OF_YEAR] == disabledDayCalendar[Calendar.DAY_OF_YEAR]
             ) {
                 return true
             }
@@ -220,16 +220,20 @@ object CalendarUtils {
 
     @JvmStatic
     fun isDayDisabledByMinDate(day: Day, minDate: Calendar): Boolean {
-        return (day.calendar[Calendar.YEAR] < minDate[Calendar.YEAR]
-                || day.calendar[Calendar.YEAR] == minDate[Calendar.YEAR]
-                && day.calendar[Calendar.DAY_OF_YEAR] < minDate[Calendar.DAY_OF_YEAR])
+        return (
+            day.calendar[Calendar.YEAR] < minDate[Calendar.YEAR] ||
+                day.calendar[Calendar.YEAR] == minDate[Calendar.YEAR] &&
+                day.calendar[Calendar.DAY_OF_YEAR] < minDate[Calendar.DAY_OF_YEAR]
+            )
     }
 
     @JvmStatic
     fun isDayDisabledByMaxDate(day: Day, maxDate: Calendar): Boolean {
-        return (day.calendar[Calendar.YEAR] > maxDate[Calendar.YEAR]
-                || day.calendar[Calendar.YEAR] == maxDate[Calendar.YEAR]
-                && day.calendar[Calendar.DAY_OF_YEAR] > maxDate[Calendar.DAY_OF_YEAR])
+        return (
+            day.calendar[Calendar.YEAR] > maxDate[Calendar.YEAR] ||
+                day.calendar[Calendar.YEAR] == maxDate[Calendar.YEAR] &&
+                day.calendar[Calendar.DAY_OF_YEAR] > maxDate[Calendar.DAY_OF_YEAR]
+            )
     }
 
     @JvmStatic

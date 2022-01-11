@@ -1,5 +1,6 @@
 package com.core.helper.ttt.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ class TTTListComicAdapter : BaseAdapter() {
     private val listComic = ArrayList<Comic>()
     var onClickRootListener: ((Comic, Int) -> Unit)? = null
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(listComic: ArrayList<Comic>) {
         this.listComic.clear()
         this.listComic.addAll(listComic)
@@ -31,28 +33,29 @@ class TTTListComicAdapter : BaseAdapter() {
             } else {
                 itemView.ivCover.visibility = View.VISIBLE
                 LImageUtil.load(
-                        context = itemView.context,
-                        any = comic.urlImg,
-                        imageView = itemView.ivCover
+                    context = itemView.context,
+                    any = comic.urlImg,
+                    imageView = itemView.ivCover
                 )
             }
             itemView.tvTitle.text = comic.title
             LUIUtil.setSafeOnClickListenerElastic(
-                    view = itemView.cardView,
-                    runnable = {
-                        onClickRootListener?.invoke(comic, bindingAdapterPosition)
-                    })
+                view = itemView.cardView,
+                runnable = {
+                    onClickRootListener?.invoke(comic, bindingAdapterPosition)
+                }
+            )
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-            DataViewHolder(
-                    LayoutInflater.from(parent.context).inflate(
-                            R.layout.view_row_ttt_comic,
-                            parent,
-                            false
-                    )
+        DataViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.view_row_ttt_comic,
+                parent,
+                false
             )
+        )
 
     override fun getItemCount(): Int = listComic.size
 
@@ -61,5 +64,4 @@ class TTTListComicAdapter : BaseAdapter() {
             holder.bind(listComic[position])
         }
     }
-
 }

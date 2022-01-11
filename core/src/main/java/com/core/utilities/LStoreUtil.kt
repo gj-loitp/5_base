@@ -16,8 +16,8 @@ import java.util.zip.ZipEntry
 import java.util.zip.ZipInputStream
 import kotlin.collections.ArrayList
 
-//https://gist.github.com/lopspower/76421751b21594c69eb2
-//https://github.com/lopspower/BestAndroidGists
+// https://gist.github.com/lopspower/76421751b21594c69eb2
+// https://github.com/lopspower/BestAndroidGists
 
 class LStoreUtil {
     companion object {
@@ -45,7 +45,7 @@ class LStoreUtil {
                 return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
             }
 
-        //https://stackoverflow.com/questions/30703652/how-to-generate-light-and-pastel-colors-randomly-in-android
+        // https://stackoverflow.com/questions/30703652/how-to-generate-light-and-pastel-colors-randomly-in-android
         // This is the base color which will be mixed with the generated one
         val randomColorLight: Int
             get() {
@@ -104,7 +104,7 @@ class LStoreUtil {
 //            return "p$i$EXTENSION"
 //        }
 
-        //dung de bao hieu cho gallery load lai photo vi co anh moi
+        // dung de bao hieu cho gallery load lai photo vi co anh moi
         fun sendBroadcastMediaScan(
             file: File? = null
         ) {
@@ -132,7 +132,7 @@ class LStoreUtil {
                 try {
 //                    C1
 //                    val file = File(Environment.getExternalStorageDirectory().absolutePath + "/" + folderName)
-////                        ex: /storage/emulated/0/ZZZTestDownloader
+// //                        ex: /storage/emulated/0/ZZZTestDownloader
 
 //                    C2
 //                    val file =
@@ -155,7 +155,6 @@ class LStoreUtil {
                         file.mkdirs()
                         file.absolutePath
                     }
-
                 } catch (e: Exception) {
                     e.printStackTrace()
                     log("err isSdPresent $e")
@@ -174,7 +173,6 @@ class LStoreUtil {
                     e.printStackTrace()
                     log("err !isSdPresent $e")
                 }
-
             }
             log("return getFolderPath folderPath $folderPath")
             return folderPath
@@ -277,7 +275,6 @@ class LStoreUtil {
                 ins.read(buffer)
                 ins.close()
                 str = String(buffer)
-
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -376,7 +373,6 @@ class LStoreUtil {
                             }
                             onGGResponse?.invoke(app, isNeedToShowMsg)
                         }
-
                     } else {
                         onGGResponse?.invoke(null, false)
                     }
@@ -470,7 +466,7 @@ class LStoreUtil {
             return availableMegs
         }
 
-        //return destination file path
+        // return destination file path
         fun unzip(
             file: File
         ): String? {
@@ -483,8 +479,9 @@ class LStoreUtil {
                 val zipStream = ZipInputStream(inputStream)
                 var zipEntry: ZipEntry?
                 while (zipStream.nextEntry.also {
-                        zipEntry = it
-                    } != null) {
+                    zipEntry = it
+                } != null
+                ) {
                     log("Unzipping " + zipEntry?.name + " at " + destination)
                     zipEntry?.let { ze ->
                         if (ze.isDirectory) {
