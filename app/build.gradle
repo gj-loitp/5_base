@@ -167,6 +167,10 @@ dependencies {
     //https://github.com/tuanhav95/DragView
     api 'com.github.tuanhav95:DragView:1.1.0'
 
-    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'//https://github.com/alpbak/BoxedVerticalSeekBar
+    //https://github.com/alpbak/BoxedVerticalSeekBar
+    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
+
+    //https://github.com/Crysis21/PulsingView
+    api 'ro.holdone:pulseview:1.0.1'
 }
 //apply plugin: 'com.google.gms.google-services'
