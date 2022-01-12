@@ -14,6 +14,7 @@ import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
 import vn.loitp.app.activity.picker.numberpicker.NumberPickerActivity
 import vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity
 import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
+import vn.loitp.app.activity.picker.unicornfilepicker.UnicornFilePickerActivity
 
 @LogTag("MenuPickerActivity")
 @IsFullScreen(false)
@@ -31,6 +32,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
         btTimePicker.setOnClickListener(this)
         btNumbePicker.setOnClickListener(this)
         btTedImagePicker.setOnClickListener(this)
+        btUnicornFilePickerActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -41,6 +43,7 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
             btTedImagePicker -> intent = Intent(this, DemoTedImagePickerActivity::class.java)
             btTimePicker -> intent = Intent(this, TimePickerActivity::class.java)
             btNumbePicker -> intent = Intent(this, NumberPickerActivity::class.java)
+            btUnicornFilePickerActivity -> intent = Intent(this, UnicornFilePickerActivity::class.java)
         }
         intent?.let {
             startActivity(it)

@@ -42,6 +42,11 @@
                 android:id="@+id/btTimePicker"
                 style="@style/ButtonMenu"
                 android:text="TimePicker" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btUnicornFilePickerActivity"
+                style="@style/ButtonMenu"
+                android:text="UnicornFilePickerActivity" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

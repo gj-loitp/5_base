@@ -172,5 +172,8 @@ dependencies {
 
     //https://github.com/Crysis21/PulsingView
     api 'ro.holdone:pulseview:1.0.1'
+
+    //https://github.com/abhishekti7/UnicornFilePicker
+    api 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
 }
 //apply plugin: 'com.google.gms.google-services'
