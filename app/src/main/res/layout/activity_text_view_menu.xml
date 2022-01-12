@@ -40,6 +40,11 @@
                 android:text="@string/extra_textview" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btJustifiedTextViewActivity"
+                style="@style/ButtonMenu"
+                android:text="JustifiedTextViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btScoreText"
                 style="@style/ButtonMenu"
                 android:text="@string/score_text" />

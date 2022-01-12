@@ -10,6 +10,6 @@ import vn.loitp.app.R
 class EmptyActivity : BaseFontActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_splash_v3
+        return R.layout.activity_0
     }
 }

@@ -19,7 +19,7 @@ class FloatDragFullScreenActivity : BaseActivity() {
     private var mDecorView: View? = null
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_splash_v3
+        return R.layout.activity_0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

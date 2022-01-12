@@ -179,5 +179,9 @@ dependencies {
     //https://github.com/yusufonderd/BasketLayout
     api 'com.github.yusufonderd:BasketLayout:1.0'
 
+    //https://github.com/amilcar-sr/JustifiedTextView
+    api 'com.codesgood:justifiedtextview:1.1.0'
+
+
 }
 //apply plugin: 'com.google.gms.google-services'

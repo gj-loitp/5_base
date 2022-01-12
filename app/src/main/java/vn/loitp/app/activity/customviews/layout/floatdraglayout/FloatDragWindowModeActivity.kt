@@ -8,7 +8,7 @@ import com.annotation.LogTag
 import com.core.base.BaseActivity
 import com.views.layout.floatdraglayout.DisplayUtil
 import com.views.layout.floatdraglayout.FloatDragLayout
-import kotlinx.android.synthetic.main.activity_splash_v3.*
+import kotlinx.android.synthetic.main.activity_0.*
 import vn.loitp.app.R
 
 @LogTag("FloatDragWindowModeActivity")
@@ -16,7 +16,7 @@ import vn.loitp.app.R
 class FloatDragWindowModeActivity : BaseActivity() {
 
     override fun setLayoutResourceId(): Int {
-        return R.layout.activity_splash_v3
+        return R.layout.activity_0
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
