@@ -10,6 +10,11 @@
         style="@style/ButtonMenu"
         android:text="Photo" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btVideo"
+        style="@style/ButtonMenu"
+        android:text="Video" />
+
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
