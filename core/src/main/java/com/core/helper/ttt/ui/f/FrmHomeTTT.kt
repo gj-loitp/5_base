@@ -11,7 +11,7 @@ import com.core.base.BaseFragment
 import com.core.helper.ttt.adapter.TTTListComicAdapter
 import com.core.helper.ttt.helper.ComicUtils
 import com.core.helper.ttt.viewmodel.TTTViewModel
-import com.core.utilities.LUIUtil
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
 
 @LogTag("loitppFrmHomeTTT")
@@ -34,16 +34,13 @@ class FrmHomeTTT : BaseFragment() {
     }
 
     private fun setupViews() {
-        LUIUtil.setSafeOnClickListenerElastic(
-            view = btSelectType,
-            runnable = {
-                val bottomSheetSelectTypeTTTFragment = BottomSheetSelectTypeTTTFragment()
-                bottomSheetSelectTypeTTTFragment.show(
-                    childFragmentManager,
-                    bottomSheetSelectTypeTTTFragment.tag
-                )
-            }
-        )
+        btSelectType.setSafeOnClickListener {
+            val bottomSheetSelectTypeTTTFragment = BottomSheetSelectTypeTTTFragment()
+            bottomSheetSelectTypeTTTFragment.show(
+                childFragmentManager,
+                bottomSheetSelectTypeTTTFragment.tag
+            )
+        }
         tTTListComicAdapter.onClickRootListener = { comic, pos ->
             comic.urlImg =
                 "https://kenh14cdn.com/thumb_w/660/203336854389633024/2021/1/28/photo-1-16118275741881533707171.jpg"
