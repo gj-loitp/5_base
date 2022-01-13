@@ -182,6 +182,8 @@ dependencies {
     //https://github.com/amilcar-sr/JustifiedTextView
     api 'com.codesgood:justifiedtextview:1.1.0'
 
+    //https://github.com/transferwise/sequence-layout
+    api 'com.github.transferwise:sequence-layout:1.1.1'
 
 }
 //apply plugin: 'com.google.gms.google-services'

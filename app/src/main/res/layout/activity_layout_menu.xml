@@ -119,6 +119,11 @@
                 android:text="@string/scroll_view_2d_advance" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btSequenceLayoutActivity"
+                style="@style/ButtonMenu"
+                android:text="SequenceLayoutActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShadowLayout"
                 style="@style/ButtonMenu"
                 android:text="@string/shadow_layout" />
