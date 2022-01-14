@@ -14,6 +14,7 @@ import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextVie
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity
 import vn.loitp.app.activity.customviews.textview.extratextview.ExtraTextViewActivity
+import vn.loitp.app.activity.customviews.textview.justifiedtextview.JustifiedTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scoretext.ScoreTextViewActivity
 import vn.loitp.app.activity.customviews.textview.scrollnumber.ScrollNumberActivity
 import vn.loitp.app.activity.customviews.textview.selectabletextView.SelectableTextViewActivity
@@ -46,27 +47,29 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
         btTextDecorator.setOnClickListener(this)
         btExtraTextview.setOnClickListener(this)
         btStrokedTextView.setOnClickListener(this)
+        btJustifiedTextViewActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btAutofitTextView -> intent = Intent(this, AutoFitTextViewActivity::class.java)
-            btScoreText -> intent = Intent(this, ScoreTextViewActivity::class.java)
-            btCountDown -> intent = Intent(this, CountDownActivity::class.java)
-            btColorTextView -> intent = Intent(this, ColorTextViewActivity::class.java)
-            btScrollNumber -> intent = Intent(this, ScrollNumberActivity::class.java)
-            btSelectableTextView -> intent = Intent(this, SelectableTextViewActivity::class.java)
-            btZoomTextView -> intent = Intent(this, ZoomTextViewActivity::class.java)
-            btVerticalMarqueeTextView ->
-                intent =
-                    Intent(this, VerticalMarqueeTextViewActivity::class.java)
-            btTypeWriterTextView -> intent = Intent(this, TypeWriterTextViewActivity::class.java)
-            btTextDecorator -> intent = Intent(this, TextDecoratorActivity::class.java)
-            btExtraTextview -> intent = Intent(this, ExtraTextViewActivity::class.java)
-            btStrokedTextView -> intent = Intent(this, StrokedTextViewActivity::class.java)
+        val intent: Intent? = when (v) {
+            btAutofitTextView -> Intent(this, AutoFitTextViewActivity::class.java)
+            btScoreText -> Intent(this, ScoreTextViewActivity::class.java)
+            btCountDown -> Intent(this, CountDownActivity::class.java)
+            btColorTextView -> Intent(this, ColorTextViewActivity::class.java)
+            btScrollNumber -> Intent(this, ScrollNumberActivity::class.java)
+            btSelectableTextView -> Intent(this, SelectableTextViewActivity::class.java)
+            btZoomTextView -> Intent(this, ZoomTextViewActivity::class.java)
+            btVerticalMarqueeTextView -> Intent(this, VerticalMarqueeTextViewActivity::class.java)
+            btTypeWriterTextView -> Intent(this, TypeWriterTextViewActivity::class.java)
+            btTextDecorator -> Intent(this, TextDecoratorActivity::class.java)
+            btExtraTextview -> Intent(this, ExtraTextViewActivity::class.java)
+            btStrokedTextView -> Intent(this, StrokedTextViewActivity::class.java)
+            btJustifiedTextViewActivity -> Intent(this, JustifiedTextViewActivity::class.java)
+            else -> {
+                null
+            }
         }
-        intent?.let {
+        intent.let {
             startActivity(it)
             LActivityUtil.tranIn(this)
         }

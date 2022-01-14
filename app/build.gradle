@@ -109,7 +109,7 @@ repositories {
 
 dependencies {
     api project(':core')
-//    api 'com.github.tplloi:basemaster:4.4.61'
+//    api 'com.github.tplloi:basemaster:4.4.64'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
@@ -167,6 +167,23 @@ dependencies {
     //https://github.com/tuanhav95/DragView
     api 'com.github.tuanhav95:DragView:1.1.0'
 
-    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'//https://github.com/alpbak/BoxedVerticalSeekBar
+    //https://github.com/alpbak/BoxedVerticalSeekBar
+    api 'com.github.alpbak:BoxedVerticalSeekBar:1.1.1'
+
+    //https://github.com/Crysis21/PulsingView
+    api 'ro.holdone:pulseview:1.0.1'
+
+    //https://github.com/abhishekti7/UnicornFilePicker
+    api 'com.github.abhishekti7:UnicornFilePicker:1.0.2'
+
+    //https://github.com/yusufonderd/BasketLayout
+    api 'com.github.yusufonderd:BasketLayout:1.0'
+
+    //https://github.com/amilcar-sr/JustifiedTextView
+    api 'com.codesgood:justifiedtextview:1.1.0'
+
+    //https://github.com/transferwise/sequence-layout
+    api 'com.github.transferwise:sequence-layout:1.1.1'
+
 }
 //apply plugin: 'com.google.gms.google-services'

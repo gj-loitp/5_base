@@ -73,6 +73,11 @@
                 android:text="@string/over_scroll_like_ios" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btPulsingView"
+                style="@style/ButtonMenu"
+                android:text="PulsingView" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btShadowViewHelper"
                 style="@style/ButtonMenu"
                 android:text="@string/shadow_view_helper" />

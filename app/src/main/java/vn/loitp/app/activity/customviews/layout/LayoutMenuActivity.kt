@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_layout_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.customviews.layout.aspectratiolayout.AspectRatioLayoutActivity
 import vn.loitp.app.activity.customviews.layout.autolinearlayout.AutoLinearLayoutActivity
+import vn.loitp.app.activity.customviews.layout.basketlayout.BasketLayoutActivity
 import vn.loitp.app.activity.customviews.layout.chess.ChessLayoutActivity
 import vn.loitp.app.activity.customviews.layout.circularview.CircularViewActivity
 import vn.loitp.app.activity.customviews.layout.constraintlayout.ConstraintlayoutMenuActivity
@@ -28,6 +29,7 @@ import vn.loitp.app.activity.customviews.layout.rotatelayout.RotateLayoutActivit
 import vn.loitp.app.activity.customviews.layout.roundablelayout.RoundableLayoutActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DActivity
 import vn.loitp.app.activity.customviews.layout.scrollview2d.ScrollView2DAdvanceActivity
+import vn.loitp.app.activity.customviews.layout.sequencelayout.SequenceLayoutActivity
 import vn.loitp.app.activity.customviews.layout.shadowlayout.ShadowLayoutActivity
 import vn.loitp.app.activity.customviews.layout.shapeofview.ShapeOfViewActivity
 import vn.loitp.app.activity.customviews.layout.splitpanellayout.SplitPanelLayoutActivity
@@ -83,44 +85,44 @@ class LayoutMenuActivity : BaseFontActivity(), View.OnClickListener {
         btTramsformationLayout.setOnClickListener(this)
         btTramsformationLayoutSingle.setOnClickListener(this)
         btChessLayout.setOnClickListener(this)
+        btBasketLayoutActivity.setOnClickListener(this)
+        btSequenceLayoutActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btAspectRatioLayout -> intent = Intent(this, AspectRatioLayoutActivity::class.java)
-            btDraggablePanel -> intent = Intent(this, DraggablePanelActivity::class.java)
-            btDraggablePanelFree -> intent = Intent(this, DraggablePanelFreeActivity::class.java)
-            btDraggableView -> intent = Intent(this, DraggableViewActivity::class.java)
-            btZoomLayout -> intent = Intent(this, ZoomLayoutActivity::class.java)
-            btRippleLayout -> intent = Intent(this, RippleLayoutActivity::class.java)
-            btSwipeRefreshLayout ->
-                intent =
-                    Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
-            btCircularView -> intent = Intent(this, CircularViewActivity::class.java)
-            btAutoLinearLayout -> intent = Intent(this, AutoLinearLayoutActivity::class.java)
-            btConstraintLayout -> intent = Intent(this, ConstraintlayoutMenuActivity::class.java)
-            btSwipebackLayout -> intent = Intent(this, SwipeBackLayoutActivity::class.java)
-            btHeartLayout -> intent = Intent(this, HeartLayoutActivity::class.java)
-            btFloatDragLayout -> intent = Intent(this, FloatDragLayoutActivity::class.java)
-            btRotateLayout -> intent = Intent(this, RotateLayoutActivity::class.java)
-            btCoordinatorLayout -> intent = Intent(this, CoordinatorLayoutMenuActivity::class.java)
-            btSquareLayout -> intent = Intent(this, SquareLayoutActivity::class.java)
-            btRelativePopupWindow -> intent = Intent(this, RelativePopupWindowActivity::class.java)
-            btExpansionPanel -> intent = Intent(this, ExpansionLayoutMenuActivity::class.java)
-            btScrollView2d -> intent = Intent(this, ScrollView2DActivity::class.java)
-            btScrollView2dAdvance -> intent = Intent(this, ScrollView2DAdvanceActivity::class.java)
-            btSwipeRevealLayout -> intent = Intent(this, SwipeRevealLayoutActivity::class.java)
-            btShadowLayout -> intent = Intent(this, ShadowLayoutActivity::class.java)
-            btShapeOfView -> intent = Intent(this, ShapeOfViewActivity::class.java)
-            btRoundableLayout -> intent = Intent(this, RoundableLayoutActivity::class.java)
-            btFlowLayout -> intent = Intent(this, FlowLayoutActivity::class.java)
-            btSplitPanelLayout -> intent = Intent(this, SplitPanelLayoutActivity::class.java)
-            btTramsformationLayout -> intent = Intent(this, TransformationActivity::class.java)
-            btTramsformationLayoutSingle ->
-                intent =
-                    Intent(this, TransformationSingleActivity::class.java)
-            btChessLayout -> intent = Intent(this, ChessLayoutActivity::class.java)
+        val intent = when (v) {
+            btAspectRatioLayout -> Intent(this, AspectRatioLayoutActivity::class.java)
+            btDraggablePanel -> Intent(this, DraggablePanelActivity::class.java)
+            btDraggablePanelFree -> Intent(this, DraggablePanelFreeActivity::class.java)
+            btDraggableView -> Intent(this, DraggableViewActivity::class.java)
+            btZoomLayout -> Intent(this, ZoomLayoutActivity::class.java)
+            btRippleLayout -> Intent(this, RippleLayoutActivity::class.java)
+            btSwipeRefreshLayout -> Intent(this, SwipeRefreshLayoutMenuActivity::class.java)
+            btCircularView -> Intent(this, CircularViewActivity::class.java)
+            btAutoLinearLayout -> Intent(this, AutoLinearLayoutActivity::class.java)
+            btConstraintLayout -> Intent(this, ConstraintlayoutMenuActivity::class.java)
+            btSwipebackLayout -> Intent(this, SwipeBackLayoutActivity::class.java)
+            btHeartLayout -> Intent(this, HeartLayoutActivity::class.java)
+            btFloatDragLayout -> Intent(this, FloatDragLayoutActivity::class.java)
+            btRotateLayout -> Intent(this, RotateLayoutActivity::class.java)
+            btCoordinatorLayout -> Intent(this, CoordinatorLayoutMenuActivity::class.java)
+            btSquareLayout -> Intent(this, SquareLayoutActivity::class.java)
+            btRelativePopupWindow -> Intent(this, RelativePopupWindowActivity::class.java)
+            btExpansionPanel -> Intent(this, ExpansionLayoutMenuActivity::class.java)
+            btScrollView2d -> Intent(this, ScrollView2DActivity::class.java)
+            btScrollView2dAdvance -> Intent(this, ScrollView2DAdvanceActivity::class.java)
+            btSwipeRevealLayout -> Intent(this, SwipeRevealLayoutActivity::class.java)
+            btShadowLayout -> Intent(this, ShadowLayoutActivity::class.java)
+            btShapeOfView -> Intent(this, ShapeOfViewActivity::class.java)
+            btRoundableLayout -> Intent(this, RoundableLayoutActivity::class.java)
+            btFlowLayout -> Intent(this, FlowLayoutActivity::class.java)
+            btSplitPanelLayout -> Intent(this, SplitPanelLayoutActivity::class.java)
+            btTramsformationLayout -> Intent(this, TransformationActivity::class.java)
+            btTramsformationLayoutSingle -> Intent(this, TransformationSingleActivity::class.java)
+            btChessLayout -> Intent(this, ChessLayoutActivity::class.java)
+            btBasketLayoutActivity -> Intent(this, BasketLayoutActivity::class.java)
+            btSequenceLayoutActivity -> Intent(this, SequenceLayoutActivity::class.java)
+            else -> null
         }
         intent?.let {
             startActivity(intent)
