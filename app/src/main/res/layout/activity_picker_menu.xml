@@ -19,16 +19,6 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btImagePickerWithCrop"
-                style="@style/ButtonMenu"
-                android:text="@string/image_picker_with_crop" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btCrop"
-                style="@style/ButtonMenu"
-                android:text="Crop" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNumbePicker"
                 style="@style/ButtonMenu"
                 android:text="Number Picker" />
@@ -46,7 +36,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btUnicornFilePickerActivity"
                 style="@style/ButtonMenu"
-                android:text="UnicornFilePickerActivity" />
+                android:text="UnicornFilePickerActivity (Bad)" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

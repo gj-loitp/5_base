@@ -187,7 +187,7 @@ dependencies {
     //endregion
 
     //https://github.com/Yalantis/uCrop
-    api 'com.yalantis:ucrop:2.2.0'
+//    api 'com.yalantis:ucrop:2.2.0'
 //    api 'com.github.yalantis:ucrop:2.2.6'
 
     //https://github.com/nuonveyo/AutoRefreshNetworkConnection

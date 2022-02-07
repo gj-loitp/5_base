@@ -9,8 +9,6 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_picker_menu.*
 import vn.loitp.app.R
-import vn.loitp.app.activity.picker.crop.CropActivity
-import vn.loitp.app.activity.picker.imagepickerwthcop.ImageWithCropActivity
 import vn.loitp.app.activity.picker.numberpicker.NumberPickerActivity
 import vn.loitp.app.activity.picker.tedimagepicker.DemoTedImagePickerActivity
 import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
@@ -27,8 +25,6 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        btImagePickerWithCrop.setOnClickListener(this)
-        btCrop.setOnClickListener(this)
         btTimePicker.setOnClickListener(this)
         btNumbePicker.setOnClickListener(this)
         btTedImagePicker.setOnClickListener(this)
@@ -36,14 +32,12 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btImagePickerWithCrop -> intent = Intent(this, ImageWithCropActivity::class.java)
-            btCrop -> intent = Intent(this, CropActivity::class.java)
-            btTedImagePicker -> intent = Intent(this, DemoTedImagePickerActivity::class.java)
-            btTimePicker -> intent = Intent(this, TimePickerActivity::class.java)
-            btNumbePicker -> intent = Intent(this, NumberPickerActivity::class.java)
-            btUnicornFilePickerActivity -> intent = Intent(this, UnicornFilePickerActivity::class.java)
+        val intent: Intent? = when (v) {
+            btTedImagePicker -> Intent(this, DemoTedImagePickerActivity::class.java)
+            btTimePicker -> Intent(this, TimePickerActivity::class.java)
+            btNumbePicker -> Intent(this, NumberPickerActivity::class.java)
+            btUnicornFilePickerActivity -> Intent(this, UnicornFilePickerActivity::class.java)
+            else -> null
         }
         intent?.let {
             startActivity(it)
