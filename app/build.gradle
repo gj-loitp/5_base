@@ -109,7 +109,7 @@ repositories {
 
 dependencies {
     api project(':core')
-//    api 'com.github.tplloi:basemaster:4.4.64'
+//    api 'com.github.tplloi:basemaster:4.4.65'
 
     //https://github.com/square/retrofit/tree/master/retrofit-converters/moshi
     api 'com.squareup.retrofit2:converter-moshi:2.9.0'
@@ -184,6 +184,9 @@ dependencies {
 
     //https://github.com/transferwise/sequence-layout
     api 'com.github.transferwise:sequence-layout:1.1.1'
+
+    //https://github.com/bhoomit11/ScopedMediaPicker
+//    api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
 
 }
 //apply plugin: 'com.google.gms.google-services'
