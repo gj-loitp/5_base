@@ -62,25 +62,25 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
         btnCapture.setOnClickListener {
 
             // CHON HINH VA VIDEO CUNG LUC
-//            scopedMediaPicker.startMediaPicker(
-//                mediaType = ScopedMediaPicker.MEDIA_TYPE_IMAGE
-//                    or ScopedMediaPicker.MEDIA_TYPE_VIDEO,
-//                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
-//            ) { pathList, type ->
-//                when (type) {
-//                    ScopedMediaPicker.MEDIA_TYPE_IMAGE -> {
-//                        logD(">>>MEDIA_TYPE_IMAGE")
-//                    }
-//                    ScopedMediaPicker.MEDIA_TYPE_VIDEO -> {
-//                        logD(">>>MEDIA_TYPE_VIDEO")
-//                    }
-//                }
-//                var s = ""
-//                pathList.forEach {
-//                    s += it + "\n"
-//                }
-//                tvPath.text = s
-//            }
+            scopedMediaPicker.startMediaPicker(
+                mediaType = ScopedMediaPicker.MEDIA_TYPE_IMAGE
+                    or ScopedMediaPicker.MEDIA_TYPE_VIDEO,
+                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
+            ) { pathList, type ->
+                when (type) {
+                    ScopedMediaPicker.MEDIA_TYPE_IMAGE -> {
+                        logD(">>>MEDIA_TYPE_IMAGE")
+                    }
+                    ScopedMediaPicker.MEDIA_TYPE_VIDEO -> {
+                        logD(">>>MEDIA_TYPE_VIDEO")
+                    }
+                }
+                var s = ""
+                pathList.forEach {
+                    s += it + "\n"
+                }
+                tvPath.text = s
+            }
 
             // CHON HINH TU GALLERY
 //            scopedMediaPicker.startMediaPicker(
@@ -107,16 +107,16 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
 //            }
 
             // CHON VIDEO TU GALLERY
-            scopedMediaPicker.startMediaPicker(
-                mediaType = ScopedMediaPicker.MEDIA_TYPE_VIDEO,
-                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
-            ) { pathList, _ ->
-                var s = ""
-                pathList.forEach {
-                    s += it + "\n"
-                }
-                tvPath.text = s
-            }
+//            scopedMediaPicker.startMediaPicker(
+//                mediaType = ScopedMediaPicker.MEDIA_TYPE_VIDEO,
+//                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
+//            ) { pathList, _ ->
+//                var s = ""
+//                pathList.forEach {
+//                    s += it + "\n"
+//                }
+//                tvPath.text = s
+//            }
         }
         btnFile.setOnClickListener {
             scopedMediaPicker.startFilePicker() { pathList ->
