@@ -32,6 +32,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="Pick File" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium"
+                tools:text="tvPath" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
