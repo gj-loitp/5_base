@@ -1,5 +1,6 @@
 package com.core.utilities
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentUris
 import android.content.Context
@@ -186,6 +187,7 @@ class LSocialUtil {
             openUrlInBrowser(context = context, url = Constants.URL_GIRL)
         }
 
+        @SuppressLint("QueryPermissionsNeeded")
         fun openUrlInBrowser(
             context: Context?,
             url: String?
