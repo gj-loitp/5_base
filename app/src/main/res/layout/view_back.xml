@@ -17,6 +17,6 @@
             android:layout_height="match_parent"
             android:background="@color/transparent"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher_loitp" />
     </LinearLayout>
 </LinearLayout>

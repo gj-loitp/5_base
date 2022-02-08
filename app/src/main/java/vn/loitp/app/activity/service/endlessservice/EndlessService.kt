@@ -156,7 +156,7 @@ class EndlessService : Service() {
             .setContentTitle("Endless Service")
             .setContentText("This is your favorite endless service working")
             .setContentIntent(pendingIntent)
-            .setSmallIcon(R.drawable.ic_launcher)
+            .setSmallIcon(R.drawable.ic_launcher_loitp)
             .setTicker("Ticker text")
             .setPriority(Notification.PRIORITY_HIGH) // for under android 26 compatibility
             .build()

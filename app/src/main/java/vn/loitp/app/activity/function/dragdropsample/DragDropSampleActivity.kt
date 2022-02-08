@@ -30,7 +30,7 @@ class DragDropSampleActivity : BaseFontActivity() {
 
         ivTrash.setOnDragListener(
             TrashDragListener(
-                enterShape = R.drawable.ic_launcher,
+                enterShape = R.drawable.ic_launcher_loitp,
                 normalShape = R.drawable.ic_search_black_48dp
             )
         )

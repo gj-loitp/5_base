@@ -9,8 +9,6 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
 import com.media.scopemediapicker.ScopedMediaPicker
-import kotlinx.android.synthetic.main.activity_0.*
-import kotlinx.android.synthetic.main.activity_0.lActionBar
 import kotlinx.android.synthetic.main.activity_scoped_media_picker.*
 import vn.loitp.app.R
 

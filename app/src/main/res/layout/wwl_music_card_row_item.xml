@@ -57,7 +57,7 @@
             android:layout_height="40.0dip"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher_loitp" />
     </FrameLayout>
 
     <RelativeLayout

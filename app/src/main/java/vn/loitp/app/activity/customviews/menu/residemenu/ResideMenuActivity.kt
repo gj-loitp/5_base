@@ -60,10 +60,10 @@ class ResideMenuActivity : BaseFontActivity(), View.OnClickListener {
         }
 
         // create menu items;
-        itemHome = ResideMenuItem(this, R.drawable.ic_launcher, "Home")
-        itemProfile = ResideMenuItem(this, R.drawable.ic_launcher, "Profile")
-        itemCalendar = ResideMenuItem(this, R.drawable.ic_launcher, "Calendar")
-        itemSettings = ResideMenuItem(this, R.drawable.ic_launcher, "Settings")
+        itemHome = ResideMenuItem(this, R.drawable.ic_launcher_loitp, "Home")
+        itemProfile = ResideMenuItem(this, R.drawable.ic_launcher_loitp, "Profile")
+        itemCalendar = ResideMenuItem(this, R.drawable.ic_launcher_loitp, "Calendar")
+        itemSettings = ResideMenuItem(this, R.drawable.ic_launcher_loitp, "Settings")
 
         itemHome?.let {
             setupUIResideMenuItem(it)

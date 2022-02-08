@@ -3,7 +3,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 	<item
 		android:id="@+id/itemActionRightMenu"
-		android:icon="@drawable/ic_launcher"
+		android:icon="@drawable/ic_launcher_loitp"
 		android:orderInCategory="100"
 		android:title="right menu"
 		app:showAsAction="always" />

@@ -60,7 +60,7 @@ class LoadCustomLayoutExampleActivity : BaseFontActivity() {
                     LayoutInflater.from(context).inflate(R.layout.layout_simple_pager_title, null)
                 val ivTitle = customLayout.findViewById<ImageView>(R.id.ivTitle)
                 val tvTitle = customLayout.findViewById<TextView>(R.id.tvTitle)
-                ivTitle.setImageResource(R.drawable.ic_launcher)
+                ivTitle.setImageResource(R.drawable.ic_launcher_loitp)
                 tvTitle.text = mDataList[index]
                 commonPagerTitleView.setContentView(customLayout)
                 commonPagerTitleView.onPagerTitleChangeListener =

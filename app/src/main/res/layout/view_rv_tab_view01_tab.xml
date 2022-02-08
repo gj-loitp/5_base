@@ -11,7 +11,7 @@
         android:id="@+id/color"
         android:layout_width="@dimen/w_10"
         android:layout_height="@dimen/w_10"
-        android:background="@drawable/ic_launcher" />
+        android:background="@drawable/ic_launcher_loitp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"

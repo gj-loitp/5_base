@@ -54,7 +54,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
         notti = Notti(
             this,
             NottiConfig(
-                R.drawable.ic_launcher,
+                R.drawable.ic_launcher_loitp,
                 VibrationSettings(*VibrationSettings.STD_VIBRATION),
                 LightSettings(Color.BLUE)
             )
@@ -154,7 +154,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
                 )
             }
             btBigPictureNotification -> {
-                val icon = BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher)
+                val icon = BitmapFactory.decodeResource(this.resources, R.drawable.ic_launcher_loitp)
                 val iconBig = BitmapFactory.decodeResource(this.resources, R.drawable.iv)
                 notti?.show(
                     NottiFactory[NottiFactory.TYPE.BIG_PICTURE, "some text", "some " + "content"]
@@ -165,7 +165,7 @@ class MenuNotificationActivity : BaseFontActivity(), View.OnClickListener {
             btNotificationHeadsup -> {
                 val title = "This is title " + System.currentTimeMillis()
                 val body = "This is body " + System.currentTimeMillis()
-                val iconRes = R.drawable.ic_launcher
+                val iconRes = R.drawable.ic_launcher_loitp
                 val notificationIntent = Intent(this, MenuNotificationActivity::class.java)
                 notificationIntent.putExtra(
                     KEY_NOTI_DATA_INTENT,
