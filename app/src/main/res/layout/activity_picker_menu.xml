@@ -29,6 +29,11 @@
                 android:text="ScopedMediaPicker" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btTedImagePicker"
+                style="@style/ButtonMenu"
+                android:text="TedImagePicker" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTimePicker"
                 style="@style/ButtonMenu"
                 android:text="TimePicker" />

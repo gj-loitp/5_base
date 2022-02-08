@@ -1,6 +1,5 @@
 package com.core.utilities
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentUris
 import android.content.Context
@@ -187,7 +186,6 @@ class LSocialUtil {
             openUrlInBrowser(context = context, url = Constants.URL_GIRL)
         }
 
-        @SuppressLint("QueryPermissionsNeeded")
         fun openUrlInBrowser(
             context: Context?,
             url: String?
@@ -195,12 +193,11 @@ class LSocialUtil {
             if (context == null || url.isNullOrEmpty()) {
                 return
             }
-            val webPage = Uri.parse(url)
-            val intent = Intent(Intent.ACTION_VIEW, webPage)
-            if (intent.resolveActivity(context.packageManager) != null) {
-                context.startActivity(intent)
-                LActivityUtil.tranIn(context)
-            }
+            val defaultBrowser =
+                Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_BROWSER)
+            defaultBrowser.data = Uri.parse(url)
+            context.startActivity(defaultBrowser)
+            LActivityUtil.tranIn(context)
         }
 
 //        fun openFacebookComment(

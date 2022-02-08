@@ -5,15 +5,12 @@
     android:background="?attr/themeBackgroundColor">
 
     <androidx.core.widget.NestedScrollView
-        style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tvMenu">
+        android:fillViewport="true">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:paddingBottom="@dimen/padding_medium"
-            android:paddingTop="@dimen/padding_medium"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -41,32 +38,12 @@
                 android:id="@+id/btnRxMulti"
                 style="@style/ButtonMenu"
                 android:text="Rx - Multi" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <ImageView
-                android:id="@+id/ivImage"
-                android:layout_width="@dimen/w_200"
-                android:layout_height="@dimen/w_200"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:contentDescription="@string/app_name"
-                android:scaleType="centerInside" />
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:id="@+id/containerSelectedPhotos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:animateLayoutChanges="true"
-                    android:orientation="horizontal"
-                    android:paddingBottom="@dimen/padding_5" />
-            </HorizontalScrollView>
-        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvMenu"
-        style="@style/TextMenu"
-        android:text="TedImagePicker" />
+    <com.views.actionbar.LActionBar
+        android:id="@+id/lActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </RelativeLayout>

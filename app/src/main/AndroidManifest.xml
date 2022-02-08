@@ -1114,5 +1114,8 @@
         <activity
             android:name=".activity.picker.scopedmediapicker.ScopedMediaPickerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.picker.tedimagepicker.TedImagePickerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>
