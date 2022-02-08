@@ -30,26 +30,26 @@ class ActionbarMenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
-        bt_collapsingtoolbarlayout.setOnClickListener(this)
-        bt_l_actionbar.setOnClickListener(this)
-        bt_collapsingtoolbarwithtablayout.setOnClickListener(this)
-        bt_navigation_view.setOnClickListener(this)
-        bt_navigation_view_with_text.setOnClickListener(this)
+        btCollapsingToolBarLayout.setOnClickListener(this)
+        btLActionBar.setOnClickListener(this)
+        btCollapsingToolbarWithTabLayout.setOnClickListener(this)
+        btNavigationView.setOnClickListener(this)
+        btNavigationViewWithText.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            bt_collapsingtoolbarlayout ->
-                intent = Intent(this, CollapsingToolbarLayoutActivity::class.java)
-            bt_collapsingtoolbarwithtablayout ->
-                intent = Intent(this, CollapsingToolbarWithTabLayoutActivity::class.java)
-            bt_l_actionbar ->
-                intent = Intent(this, LActionbarActivity::class.java)
-            bt_navigation_view ->
-                intent = Intent(this, NavigationViewActivity::class.java)
-            bt_navigation_view_with_text ->
-                intent = Intent(this, NavigationViewWithTextActivity::class.java)
+        val intent: Intent? = when (v) {
+            btCollapsingToolBarLayout ->
+                Intent(this, CollapsingToolbarLayoutActivity::class.java)
+            btCollapsingToolbarWithTabLayout ->
+                Intent(this, CollapsingToolbarWithTabLayoutActivity::class.java)
+            btLActionBar ->
+                Intent(this, LActionbarActivity::class.java)
+            btNavigationView ->
+                Intent(this, NavigationViewActivity::class.java)
+            btNavigationViewWithText ->
+                Intent(this, NavigationViewWithTextActivity::class.java)
+            else -> null
         }
         intent?.let {
             startActivity(it)

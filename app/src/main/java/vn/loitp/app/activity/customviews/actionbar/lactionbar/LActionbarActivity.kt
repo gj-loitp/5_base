@@ -33,7 +33,7 @@ class LActionbarActivity : BaseFontActivity() {
             }
 
             override fun onClickMenu(view: View) {
-                showShortInformation("onClickMenu")
+                showShortInformation(msg = "onClickMenu", isTopAnchor = false)
             }
         })
         lActionBar.showMenuIcon()

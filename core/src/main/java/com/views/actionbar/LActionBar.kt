@@ -10,10 +10,6 @@ import android.widget.TextView
 import com.R
 import com.github.mmin18.widget.RealtimeBlurView
 
-/**
- * Created by www.muathu@gmail.com on 5/13/2017.
- */
-
 class LActionBar : RelativeLayout {
     var ivIconBack: ImageView? = null
     var ivIconMenu: ImageView? = null
