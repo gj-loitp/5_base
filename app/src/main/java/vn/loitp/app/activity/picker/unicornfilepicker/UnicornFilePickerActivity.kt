@@ -56,7 +56,7 @@ class UnicornFilePickerActivity : BaseFontActivity() {
             if (hasPermissions(*PERMISSIONS)) {
                 UnicornFilePicker.from(this)
                     .addConfigBuilder()
-                    .selectMultipleFiles(false)
+                    .selectMultipleFiles(true)
                     .showOnlyDirectory(false)
                     .setRootDirectory(Environment.getExternalStorageDirectory().absolutePath)
                     .showHiddenFiles(false)
