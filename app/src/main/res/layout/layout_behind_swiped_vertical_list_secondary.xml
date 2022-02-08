@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/padding_medium"
             android:paddingBottom="@dimen/padding_medium"
-            android:src="@drawable/ic_camera_48dp"
+            android:src="@drawable/ic_close_black_48dp"
             app:tint="@color/white" />
 
         <androidx.appcompat.widget.AppCompatTextView

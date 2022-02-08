@@ -124,7 +124,7 @@ dependencies {
     //region picker
 
     //https://github.com/ParkSangGwon/TedImagePicker
-    api 'io.github.ParkSangGwon:tedimagepicker:1.2.4'
+//    api 'io.github.ParkSangGwon:tedimagepicker:1.2.8'
 
     //endregion
 
