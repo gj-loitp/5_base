@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:realtimeBlurRadius="@dimen/round_80"
-            app:realtimeOverlayColor="@color/whiteTrans" />
+            app:realtimeOverlayColor="@color/white85" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +38,6 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:singleLine="true"
-                android:textColor="@color/black"
                 android:textSize="@dimen/txt_18"
                 tools:text="@string/app_name" />
 
