@@ -95,9 +95,21 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
 //            }
 
             // CHON HINH TU GALLERY VA CAMERA
+//            scopedMediaPicker.startMediaPicker(
+//                mediaType = ScopedMediaPicker.MEDIA_TYPE_IMAGE,
+//                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY or ScopedMediaPicker.ACTION_TYPE_CAMERA
+//            ) { pathList, _ ->
+//                var s = ""
+//                pathList.forEach {
+//                    s += it + "\n"
+//                }
+//                tvPath.text = s
+//            }
+
+            // CHON VIDEO TU GALLERY
             scopedMediaPicker.startMediaPicker(
-                mediaType = ScopedMediaPicker.MEDIA_TYPE_IMAGE,
-                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY or ScopedMediaPicker.ACTION_TYPE_CAMERA
+                mediaType = ScopedMediaPicker.MEDIA_TYPE_VIDEO,
+                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
             ) { pathList, _ ->
                 var s = ""
                 pathList.forEach {
@@ -105,13 +117,6 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
                 }
                 tvPath.text = s
             }
-
-//            scopedMediaPicker.startMediaPicker(
-//                mediaType = ScopedMediaPicker.MEDIA_TYPE_VIDEO,
-//                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
-//            ) { pathList, type ->
-//                Log.e("FilePath", pathList.toString())
-//            }
         }
         btnFile.setOnClickListener {
             scopedMediaPicker.startFilePicker() { pathList ->
