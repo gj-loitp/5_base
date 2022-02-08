@@ -16,9 +16,9 @@
             android:paddingTop="@dimen/w_65">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnRxSingle"
+                android:id="@+id/btSingleImage"
                 style="@style/ButtonMenu"
-                android:text="Rx - Single" />
+                android:text="Single Image" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxMulti"

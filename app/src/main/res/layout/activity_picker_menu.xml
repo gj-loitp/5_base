@@ -19,6 +19,11 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btBasicPicker"
+                style="@style/ButtonMenu"
+                android:text="BasicPicker" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNumbePicker"
                 style="@style/ButtonMenu"
                 android:text="Number Picker" />
@@ -27,11 +32,6 @@
                 android:id="@+id/btScopedMediaPicker"
                 style="@style/ButtonMenu"
                 android:text="ScopedMediaPicker" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btTedImagePicker"
-                style="@style/ButtonMenu"
-                android:text="TedImagePicker" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTimePicker"
