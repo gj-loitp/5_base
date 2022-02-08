@@ -11,6 +11,7 @@ import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_scoped_media_picker.*
 import vn.loitp.app.R
 
+// TODO check this libary https://github.com/bhoomit11/ScopedMediaPicker/issues/2
 @LogTag("ScopedMediaPickerActivity")
 @IsFullScreen(false)
 class ScopedMediaPickerActivity : BaseFontActivity() {
