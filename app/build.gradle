@@ -186,7 +186,7 @@ dependencies {
     api 'com.github.transferwise:sequence-layout:1.1.1'
 
     //https://github.com/bhoomit11/ScopedMediaPicker
-//    api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
+    api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
 
 }
 //apply plugin: 'com.google.gms.google-services'

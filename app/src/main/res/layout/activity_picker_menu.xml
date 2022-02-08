@@ -24,6 +24,11 @@
                 android:text="Number Picker" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btScopedMediaPicker"
+                style="@style/ButtonMenu"
+                android:text="ScopedMediaPicker" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTimePicker"
                 style="@style/ButtonMenu"
                 android:text="TimePicker" />

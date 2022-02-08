@@ -1111,5 +1111,8 @@
         <activity
             android:name=".activity.customviews.layout.sequencelayout.SequenceLayoutActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
+        <activity
+            android:name=".activity.picker.scopedmediapicker.ScopedMediaPickerActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
 </manifest>
