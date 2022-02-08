@@ -59,7 +59,41 @@ class ScopedMediaPickerActivity : BaseFontActivity() {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = javaClass.simpleName
         }
+        btnCapture.setOnClickListener {
+            scopedMediaPicker.startMediaPicker(
+                mediaType = ScopedMediaPicker.MEDIA_TYPE_IMAGE
+                    or ScopedMediaPicker.MEDIA_TYPE_VIDEO,
+                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
+            ) { pathList, type ->
+                when (type) {
+                    ScopedMediaPicker.MEDIA_TYPE_IMAGE -> {
+                        logD(">>>MEDIA_TYPE_IMAGE")
+                    }
+                    ScopedMediaPicker.MEDIA_TYPE_VIDEO -> {
+                        logD(">>>MEDIA_TYPE_VIDEO")
+                    }
+                }
+                var s = ""
+                pathList.forEach {
+                    s += it + "\n"
+                }
+                tvPath.text = s
+            }
 
+//            scopedMediaPicker.startMediaPicker(
+//                mediaType = ScopedMediaPicker.MEDIA_TYPE_IMAGE,
+//                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
+//            ) { pathList, type ->
+//                Log.e("FilePath", pathList.toString())
+//            }
+
+//            scopedMediaPicker.startMediaPicker(
+//                mediaType = ScopedMediaPicker.MEDIA_TYPE_VIDEO,
+//                actionType = ScopedMediaPicker.ACTION_TYPE_GALLERY
+//            ) { pathList, type ->
+//                Log.e("FilePath", pathList.toString())
+//            }
+        }
         btnFile.setOnClickListener {
             scopedMediaPicker.startFilePicker() { pathList ->
                 var s = ""
