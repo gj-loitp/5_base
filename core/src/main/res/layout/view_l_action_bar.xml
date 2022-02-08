@@ -14,7 +14,7 @@
             android:id="@+id/realtimeBlurView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:realtimeBlurRadius="@dimen/round_15"
+            app:realtimeBlurRadius="@dimen/round_80"
             app:realtimeOverlayColor="@color/whiteTrans" />
 
         <LinearLayout
@@ -27,7 +27,6 @@
                 android:id="@+id/ivIconLeft"
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
-                android:background="?selectableItemBackgroundBorderless"
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_small"
                 android:src="@drawable/ic_chevron_left_black_48dp" />
@@ -47,7 +46,6 @@
                 android:id="@+id/ivIconRight"
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
-                android:background="?selectableItemBackgroundBorderless"
                 android:contentDescription="@string/app_name"
                 android:padding="@dimen/padding_small"
                 android:src="@drawable/ic_baseline_code_48"

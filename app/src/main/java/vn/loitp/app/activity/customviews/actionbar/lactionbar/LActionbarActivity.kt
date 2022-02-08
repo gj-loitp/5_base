@@ -1,12 +1,13 @@
 package vn.loitp.app.activity.customviews.actionbar.lactionbar
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LStoreUtil
-import com.views.setSafeOnClickListener
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_l_action_bar.*
 import vn.loitp.app.R
 
@@ -24,17 +25,24 @@ class LActionbarActivity : BaseFontActivity() {
         setupActionBar()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupActionBar() {
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.lactionbar)
 
         lActionBar.apply {
-            this.ivIconLeft?.setSafeOnClickListener {
-                onBackPressed()
-            }
-            this.ivIconRight?.let {
-                it.setSafeOnClickListener {
-                    showShortInformation(msg = "onClickMenu", isTopAnchor = false)
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
                 }
+            )
+            this.ivIconRight?.let {
+                LUIUtil.setSafeOnClickListenerElastic(
+                    view = it,
+                    runnable = {
+                        showShortInformation(msg = "onClickMenu", isTopAnchor = false)
+                    }
+                )
                 it.isVisible = true
                 it.setImageResource(R.drawable.ic_baseline_code_48)
             }
