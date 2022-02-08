@@ -8,7 +8,9 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
 import com.core.utilities.LUIUtil
-import kotlinx.android.synthetic.main.activity_0.*
+import com.views.setSafeOnClickListener
+import gun0912.tedimagepicker.builder.TedRxImagePicker
+import kotlinx.android.synthetic.main.activity_ted_image_picker.*
 import vn.loitp.app.R
 
 @LogTag("TedImagePickerActivity")
@@ -50,5 +52,18 @@ class TedImagePickerActivity : BaseFontActivity() {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = TedImagePickerActivity::class.java.simpleName
         }
+
+        btnRxSingle.setSafeOnClickListener {
+            onSingle()
+        }
+        btnRxMulti.setSafeOnClickListener {
+        }
+    }
+
+    private fun onSingle() {
+        TedRxImagePicker.with(this)
+            .start()
+            .subscribe({ uri ->
+            }, Throwable::printStackTrace)
     }
 }

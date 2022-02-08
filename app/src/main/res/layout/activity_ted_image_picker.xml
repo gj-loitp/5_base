@@ -12,17 +12,8 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnNormalSingle"
-                style="@style/ButtonMenu"
-                android:text="Normal - Single" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnNormalMulti"
-                style="@style/ButtonMenu"
-                android:text="Normal - Multi" />
+            android:orientation="vertical"
+            android:paddingTop="@dimen/w_65">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxSingle"
@@ -30,14 +21,17 @@
                 android:text="Rx - Single" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnRxSingleThenResize"
-                style="@style/ButtonMenu"
-                android:text="Rx - Single then Resize" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnRxMulti"
                 style="@style/ButtonMenu"
                 android:text="Rx - Multi" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPath"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.core.widget.NestedScrollView>
