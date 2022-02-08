@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.*
 import android.widget.FrameLayout
+import androidx.core.view.isVisible
 import com.BuildConfig
 import com.R
 import com.annotation.IsSwipeActivity
@@ -22,8 +23,9 @@ import com.core.utilities.LAppResource
 import com.core.utilities.LUIUtil
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
-import com.views.actionbar.LActionBar
+import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_activity_fb_cmt_core.*
+import kotlinx.android.synthetic.main.view_l_edittext.view.*
 
 @LogTag("FbCommentActivity")
 @IsSwipeActivity(true)
@@ -89,26 +91,21 @@ class FbCommentActivity : BaseFontActivity() {
     private fun setupActionBar() {
         lActionBar.apply {
             if (LUIUtil.isDarkTheme()) {
-                ivIconBack?.setColorFilter(Color.WHITE)
+                ivIconLeft?.setColorFilter(Color.WHITE)
                 tvTitle?.setTextColor(Color.WHITE)
                 realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.black65))
             } else {
-                ivIconBack?.setColorFilter(Color.BLACK)
+                ivIconLeft?.setColorFilter(Color.BLACK)
                 tvTitle?.setTextColor(Color.BLACK)
                 realtimeBlurView?.setOverlayColor(LAppResource.getColor(R.color.white85))
             }
 
-            setOnClickBack(object : LActionBar.Callback {
-                override fun onClickBack(view: View) {
-                    onBackPressed()
-                }
-
-                override fun onClickMenu(view: View) {
-                }
-            })
-            inviMenuIcon()
-            hideBlurView()
-            setTvTitle("Facebook Comment")
+            this.ivIconLeft?.setSafeOnClickListener {
+                onBackPressed()
+            }
+            this.ivRight.isVisible = false
+            this.realtimeBlurView?.isVisible = false
+            this.tvTitle?.text = "Facebook Comment"
         }
     }
 
@@ -148,7 +145,10 @@ class FbCommentActivity : BaseFontActivity() {
             LUIUtil.setDelay(
                 mls = 1000,
                 runnable = {
-                    LUIUtil.setProgressBarVisibility(progressBar = progressBar, visibility = View.GONE)
+                    LUIUtil.setProgressBarVisibility(
+                        progressBar = progressBar,
+                        visibility = View.GONE
+                    )
                 }
             )
         }

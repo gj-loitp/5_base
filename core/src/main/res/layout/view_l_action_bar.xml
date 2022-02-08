@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/rl_menu"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
 
         <com.github.mmin18.widget.RealtimeBlurView
-            android:id="@+id/blur_view"
+            android:id="@+id/realtimeBlurView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:realtimeBlurRadius="@dimen/round_15"
@@ -24,43 +24,44 @@
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_back"
+                android:id="@+id/ivIconLeft"
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
+                android:background="?selectableItemBackgroundBorderless"
                 android:contentDescription="@string/app_name"
-                android:foreground="?selectableItemBackgroundBorderless"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_chevron_left_black_48dp"
-                tools:ignore="UnusedAttribute" />
+                android:padding="@dimen/padding_small"
+                android:src="@drawable/ic_chevron_left_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_5"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:singleLine="true"
                 android:textColor="@color/black"
-                android:textSize="@dimen/txt_18" />
+                android:textSize="@dimen/txt_18"
+                tools:text="@string/app_name" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_icon_menu"
+                android:id="@+id/ivIconRight"
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
+                android:background="?selectableItemBackgroundBorderless"
                 android:contentDescription="@string/app_name"
-                android:foreground="?selectableItemBackgroundBorderless"
-                android:scaleType="centerInside"
-                android:src="@color/transparent"
-                tools:ignore="UnusedAttribute" />
+                android:padding="@dimen/padding_small"
+                android:src="@drawable/ic_baseline_code_48"
+                android:visibility="gone"
+                tools:ignore="UnusedAttribute"
+                tools:visibility="visible" />
         </LinearLayout>
-    </RelativeLayout>
+    </FrameLayout>
 
     <View
-        android:id="@+id/shadow_view"
+        android:id="@+id/viewShadow"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/w_10"
-        android:layout_below="@+id/rl_menu"
+        android:layout_height="@dimen/w_5"
         android:background="@drawable/l_bkg_shadow_black_white"
-        android:visibility="gone" />
-</RelativeLayout>
+        android:visibility="gone"
+        tools:visibility="visible" />
+</androidx.appcompat.widget.LinearLayoutCompat>
