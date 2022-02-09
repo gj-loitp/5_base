@@ -26,7 +26,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btScopedMediaPicker"
                 style="@style/ButtonMenu"
-                android:text="ScopedMediaPicker" />
+                android:text="ScopedMediaPicker (Beta)" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btTimePicker"
