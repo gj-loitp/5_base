@@ -188,5 +188,8 @@ dependencies {
     //https://github.com/bhoomit11/ScopedMediaPicker
 //    api 'com.github.bhoomit11:ScopedMediaPicker:1.0.3'
 
+    //https://github.com/Zaid-Mirza/AttachmentManager
+    implementation 'com.github.Zaid-Mirza:AttachmentManager:2.0.1'
+
 }
 //apply plugin: 'com.google.gms.google-services'
