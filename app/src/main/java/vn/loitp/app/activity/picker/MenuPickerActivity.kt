@@ -9,6 +9,7 @@ import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
 import kotlinx.android.synthetic.main.activity_picker_menu.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.picker.attachmentmanager.AttachmentManagerActivity
 import vn.loitp.app.activity.picker.numberpicker.NumberPickerActivity
 import vn.loitp.app.activity.picker.scopedmediapicker.ScopedMediaPickerActivity
 import vn.loitp.app.activity.picker.timepicker.TimePickerActivity
@@ -25,17 +26,19 @@ class MenuPickerActivity : BaseFontActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        btAttachmentManager.setOnClickListener(this)
         btTimePicker.setOnClickListener(this)
         btScopedMediaPicker.setOnClickListener(this)
-        btNumbePicker.setOnClickListener(this)
+        btNumberPicker.setOnClickListener(this)
         btUnicornFilePickerActivity.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         val intent: Intent? = when (v) {
+            btAttachmentManager -> Intent(this, AttachmentManagerActivity::class.java)
             btTimePicker -> Intent(this, TimePickerActivity::class.java)
             btScopedMediaPicker -> Intent(this, ScopedMediaPickerActivity::class.java)
-            btNumbePicker -> Intent(this, NumberPickerActivity::class.java)
+            btNumberPicker -> Intent(this, NumberPickerActivity::class.java)
             btUnicornFilePickerActivity -> Intent(this, UnicornFilePickerActivity::class.java)
             else -> null
         }

@@ -19,7 +19,12 @@
             android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btNumbePicker"
+                android:id="@+id/btAttachmentManager"
+                style="@style/ButtonMenu"
+                android:text="Attachment Manager" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btNumberPicker"
                 style="@style/ButtonMenu"
                 android:text="Number Picker" />
 
