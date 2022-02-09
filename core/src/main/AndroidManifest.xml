@@ -39,7 +39,7 @@
 
         <provider
             android:name=".function.pump.download.DownloadProvider"
-            android:authorities=".function.pump.download.DownloadProvider"
+            android:authorities="${applicationId}.function.pump.download.DownloadProvider"
             android:exported="false"
             android:multiprocess="true" />
 
