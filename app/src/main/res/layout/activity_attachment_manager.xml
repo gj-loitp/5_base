@@ -15,32 +15,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:paddingStart="@dimen/padding_medium"
+            android:paddingTop="@dimen/w_65"
+            android:paddingEnd="@dimen/padding_medium"
+            android:paddingBottom="@dimen/padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btGallery"
+                android:id="@+id/btPick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
-                android:text="Gallery"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_medium" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btCamera"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="Camera"
-                android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_medium" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btFile"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                android:text="File"
+                android:text="Pick"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 

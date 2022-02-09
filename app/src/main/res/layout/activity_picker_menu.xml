@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/themeBackgroundColor">
+    android:background="?attr/themeBackgroundColor"
+    tools:ignore="HardcodedText">
 
     <androidx.core.widget.NestedScrollView
         style="@style/ScrollVertical"
@@ -21,7 +23,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAttachmentManager"
                 style="@style/ButtonMenu"
-                android:text="Attachment Manager" />
+                android:text="Attachment Manager (+)" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btNumberPicker"
