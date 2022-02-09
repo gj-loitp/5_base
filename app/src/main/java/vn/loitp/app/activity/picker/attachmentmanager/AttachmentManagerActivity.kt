@@ -9,6 +9,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LSocialUtil
+import com.core.utilities.LStoreUtil
 import com.core.utilities.LUIUtil
 import com.mirza.attachmentmanager.managers.AttachmentManager
 import com.mirza.attachmentmanager.models.AttachmentDetail
@@ -44,8 +45,9 @@ class AttachmentManagerActivity : BaseFontActivity() {
             }
             var s = ""
             allAttachments?.forEach {
-                logD(">>> ${it.path}")
-                s += it.path + "\n"
+//                logD(">>> ${it.path}")
+                val realPath = LStoreUtil.getRealPathFromURI(this, it.uri)
+                s += it.path + " ---> " + realPath + "\n\n\n"
             }
             tvPath.text = s
         }
