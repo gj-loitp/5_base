@@ -115,6 +115,9 @@ class AttachmentManagerActivity : BaseFontActivity() {
         btPick.setSafeOnClickListener {
             attachmentManager?.openSelection(mLauncher)
         }
+        btCamera.setSafeOnClickListener {
+            attachmentManager?.startCamera(mLauncher)
+        }
     }
 
     override fun onRequestPermissionsResult(

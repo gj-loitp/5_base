@@ -29,6 +29,15 @@
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btCamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="Camera"
+                android:textColor="?attr/themeTextColor"
+                android:textSize="@dimen/txt_medium" />
+
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvPath"
                 android:layout_width="match_parent"
