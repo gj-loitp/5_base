@@ -75,9 +75,9 @@ class AttachmentManagerActivity : BaseFontActivity() {
             .fragment(null) // pass fragment reference if you are in fragment
             .setUiTitle(getString(R.string.m_choose)) // title of dialog or bottom sheet
             .allowMultiple(true) // set true if you want make multiple selection, default is false
-            .asBottomSheet(false) // set true if you need to show selection as bottom sheet, default is as Dialog
-            .setOptionsTextColor(android.R.color.holo_green_light)
-            .setImagesColor(R.color.colorAccent)
+            .asBottomSheet(true) // set true if you need to show selection as bottom sheet, default is as Dialog
+            .setOptionsTextColor(R.color.red)
+            .setImagesColor(R.color.deepPink)
 //            .hide(HideOption.DOCUMENT)// You can hide any option do you want
             .setMaxPhotoSize(200000) // Set max camera photo size in bytes
             .galleryMimeTypes(gallery) // mime types for gallery
