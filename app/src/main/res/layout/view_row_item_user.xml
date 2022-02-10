@@ -8,10 +8,10 @@
     android:foreground="?selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingStart="@dimen/padding_medium"
-    android:paddingTop="@dimen/padding_small"
-    android:paddingEnd="@dimen/padding_medium"
-    android:paddingBottom="@dimen/padding_small">
+    android:paddingStart="@dimen/margin_padding_medium"
+    android:paddingTop="@dimen/margin_padding_small"
+    android:paddingEnd="@dimen/margin_padding_medium"
+    android:paddingBottom="@dimen/margin_padding_small">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageViewAvatar"

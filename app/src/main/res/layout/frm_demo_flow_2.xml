@@ -28,7 +28,7 @@
         style="@style/ButtonMenu"
         android:layout_alignParentBottom="true"
         android:background="@color/red"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="Pop this fragment" />
 
 </RelativeLayout>

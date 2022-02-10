@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
                 android:id="@+id/swEnableCopyContent"

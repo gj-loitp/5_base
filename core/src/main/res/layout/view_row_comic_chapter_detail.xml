@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:gravity="end"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:textColor="@color/white"
         android:textSize="@dimen/txt_medium"
         tools:text="69" />

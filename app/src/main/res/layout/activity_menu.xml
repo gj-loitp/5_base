@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingTop="@dimen/w_65"
-            android:paddingBottom="@dimen/padding_medium">
+            android:paddingBottom="@dimen/margin_padding_medium">
 
             <com.views.switchtoggle.appcompatswitch.LColorSwitchCompat
                 android:id="@+id/swDarkTheme"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:foreground="?selectableItemBackground"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="@string/policy"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_10"

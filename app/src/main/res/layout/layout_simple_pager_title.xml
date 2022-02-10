@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/padding_medium"
-    android:paddingRight="@dimen/padding_medium">
+    android:paddingLeft="@dimen/margin_padding_medium"
+    android:paddingRight="@dimen/margin_padding_medium">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivTitle"

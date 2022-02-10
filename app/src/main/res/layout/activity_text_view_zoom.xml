@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
-    android:padding="@dimen/padding_medium">
+    android:padding="@dimen/margin_padding_medium">
 
     <com.views.textview.zoom.LZoomTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="@string/i_love_you"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />

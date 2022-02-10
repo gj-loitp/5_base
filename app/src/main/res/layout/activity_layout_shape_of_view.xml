@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <io.github.florent37.shapeofview.shapes.CircleView
                 android:layout_width="@dimen/w_150"

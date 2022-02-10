@@ -26,7 +26,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivWhySeeAd"
@@ -59,7 +59,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivRate"
@@ -92,7 +92,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivMore"
@@ -125,7 +125,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivShare"
@@ -158,7 +158,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivLikeFbFanpage"
@@ -191,7 +191,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivSupport"

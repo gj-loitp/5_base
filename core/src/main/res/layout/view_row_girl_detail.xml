@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:text="@string/app_name"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/text_tiny" />

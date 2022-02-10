@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/themeBackgroundColor50"
             android:gravity="center"
-            android:padding="@dimen/padding_small"
+            android:padding="@dimen/margin_padding_small"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/txt_large"
             android:textStyle="bold"

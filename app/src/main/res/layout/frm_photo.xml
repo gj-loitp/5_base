@@ -13,7 +13,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/red"
         android:gravity="center"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_32" />
 </RelativeLayout>

@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:singleLine="true"
         android:textSize="@dimen/txt_medium"
         tools:ignore="UnusedAttribute"

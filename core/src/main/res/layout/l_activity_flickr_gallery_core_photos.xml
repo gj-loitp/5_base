@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_padding_medium"
             android:background="@drawable/bt_round_transparent"
-            android:padding="@dimen/padding_small"
+            android:padding="@dimen/margin_padding_small"
             android:textColor="?attr/themeTextColor"
             android:textSize="@dimen/text_medium"
             android:textStyle="bold"

@@ -14,7 +14,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:singleLine="true"
         android:text="@string/information_vn"
         android:textColor="?attr/themeTextColor"
@@ -40,7 +40,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -71,7 +71,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -102,7 +102,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -133,7 +133,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -164,7 +164,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"
@@ -195,7 +195,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium">
+                android:padding="@dimen/margin_padding_medium">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="@dimen/w_40"

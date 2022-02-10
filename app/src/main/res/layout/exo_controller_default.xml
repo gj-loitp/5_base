@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="@dimen/padding_medium">
+        android:paddingTop="@dimen/margin_padding_medium">
 
         <ImageButton
             android:id="@id/exo_prev"

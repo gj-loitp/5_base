@@ -17,7 +17,7 @@
             android:layout_margin="@dimen/margin_padding_medium"
             android:background="#88ff0000"
             android:gravity="center"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:text="I can be dragged !"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
@@ -29,7 +29,7 @@
             android:layout_margin="@dimen/margin_padding_medium"
             android:background="#8800ff00"
             android:gravity="center"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:text="I will back to original loc!"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />
@@ -41,7 +41,7 @@
             android:layout_margin="@dimen/margin_padding_medium"
             android:background="#880000ff"
             android:gravity="center"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:text="Edage to ctrl me"
             android:textColor="@color/white"
             android:textSize="@dimen/txt_medium" />

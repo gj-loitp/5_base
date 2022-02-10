@@ -9,7 +9,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="You can use this layout by using Java/Kotlin or XML"
         android:textColor="@color/red"
         android:textSize="@dimen/txt_medium" />
@@ -22,7 +22,7 @@
         <com.transferwise.sequencelayout.SequenceLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <com.transferwise.sequencelayout.SequenceStep
                 android:layout_width="match_parent"

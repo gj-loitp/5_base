@@ -22,7 +22,7 @@
         app:exb_elevation="@dimen/w_3"
         app:exb_itemInactiveColor="@color/gray"
         app:exb_item_horizontal_margin="@dimen/margin_padding_small"
-        app:exb_item_horizontal_padding="@dimen/padding_small"
+        app:exb_item_horizontal_padding="@dimen/margin_padding_small"
         app:exb_item_vertical_margin="@dimen/margin_padding_small"
-        app:exb_item_vertical_padding="@dimen/padding_small" />
+        app:exb_item_vertical_padding="@dimen/margin_padding_small" />
 </RelativeLayout>

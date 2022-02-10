@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:padding="@dimen/padding_medium">
+    android:padding="@dimen/margin_padding_medium">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circleImageView"
@@ -27,7 +27,7 @@
         android:layout_gravity="bottom|center"
         android:background="@drawable/bt_round_transparent"
         android:gravity="center"
-        android:padding="@dimen/padding_small"
+        android:padding="@dimen/margin_padding_small"
         android:singleLine="true"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/text_medium"

@@ -33,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:text="16 : 9"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:padding="@dimen/padding_medium"
+                    android:padding="@dimen/margin_padding_medium"
                     android:text="4 : 3"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_medium" />

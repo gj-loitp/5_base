@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColorMedium"
     android:orientation="vertical"
-    android:padding="@dimen/padding_medium">
+    android:padding="@dimen/margin_padding_medium">
 
     <!-- NOTE: This list should be displayed in a list
     instead of nested layouts -->
@@ -18,10 +18,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/margin_padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingRight="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         tools:ignore="UnusedAttribute,UseCompoundDrawables">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -49,10 +49,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/margin_padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingRight="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         tools:ignore="UnusedAttribute">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -80,10 +80,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/margin_padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingRight="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         tools:ignore="UnusedAttribute">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -111,10 +111,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/margin_padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingRight="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         tools:ignore="UnusedAttribute">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -142,10 +142,10 @@
         android:focusable="true"
         android:foreground="?attr/selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/padding_medium"
-        android:paddingTop="@dimen/padding_medium"
-        android:paddingRight="@dimen/padding_medium"
-        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/margin_padding_medium"
+        android:paddingTop="@dimen/margin_padding_medium"
+        android:paddingRight="@dimen/margin_padding_medium"
+        android:paddingBottom="@dimen/margin_padding_medium"
         tools:ignore="UnusedAttribute">
 
         <androidx.appcompat.widget.AppCompatImageView

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical"
-            android:padding="@dimen/padding_small"
+            android:padding="@dimen/margin_padding_small"
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView

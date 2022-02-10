@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/padding_medium">
+        android:padding="@dimen/margin_padding_medium">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:background="?attr/themeBackgroundColorMedium"
             android:orientation="vertical"
-            android:padding="@dimen/padding_medium">
+            android:padding="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:padding="@dimen/padding_medium" />
+                android:padding="@dimen/margin_padding_medium" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:padding="@dimen/padding_medium" />
+                android:padding="@dimen/margin_padding_medium" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -71,7 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:padding="@dimen/padding_medium" />
+                android:padding="@dimen/margin_padding_medium" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
-                android:padding="@dimen/padding_medium" />
+                android:padding="@dimen/margin_padding_medium" />
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/checkboxFitInScreen"

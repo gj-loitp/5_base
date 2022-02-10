@@ -28,7 +28,7 @@
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_small"
+                android:padding="@dimen/margin_padding_small"
                 android:src="@drawable/ic_chevron_left_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -46,7 +46,7 @@
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_small"
+                android:padding="@dimen/margin_padding_small"
                 android:src="@drawable/ic_baseline_code_48"
                 android:visibility="gone"
                 tools:ignore="UnusedAttribute"

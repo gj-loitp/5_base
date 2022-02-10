@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="@string/copyright"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvCopyright"
         android:gravity="center"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="@string/app_name_comic_ttt"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_40" />

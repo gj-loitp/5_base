@@ -15,7 +15,7 @@
         android:id="@+id/groupWeekdays"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         app:tbgChildSpacing="auto"
         app:tbgChildSpacingForLastRow="align"
         app:tbgRowSpacing="8dp">
@@ -69,7 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_padding_medium"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         app:tbgChildSpacing="auto"
         app:tbgChildSpacingForLastRow="align"
         app:tbgRowSpacing="8dp">

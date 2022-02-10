@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
-    android:padding="@dimen/padding_medium">
+    android:padding="@dimen/margin_padding_medium">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avt"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?attr/themeBackgroundColor"
     android:clipToPadding="false"
-    android:padding="@dimen/padding_medium"
+    android:padding="@dimen/margin_padding_medium"
     android:scrollbarStyle="outsideOverlay">
 
     <LinearLayout

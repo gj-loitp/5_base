@@ -18,8 +18,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium">
+            android:paddingTop="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btStartLocationUpdates"
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="Location updates will be received only when app is foreground"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
@@ -50,7 +50,7 @@
                 android:id="@+id/tvLocationResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 
@@ -58,7 +58,7 @@
                 android:id="@+id/tvUpdatedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium" />
 

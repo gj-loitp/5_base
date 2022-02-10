@@ -16,7 +16,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_14" />
 </RelativeLayout>

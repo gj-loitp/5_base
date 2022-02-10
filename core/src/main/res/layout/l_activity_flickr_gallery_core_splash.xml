@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="@string/lgallery"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_50" />

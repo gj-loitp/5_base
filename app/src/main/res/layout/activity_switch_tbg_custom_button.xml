@@ -14,7 +14,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="SingleSelectToggleGroup with RadioButton"
         android:textColor="?attr/themeTextColor" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/groupSingleRadioButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         app:tbgChildSpacing="8dp">
 
         <androidx.appcompat.widget.AppCompatRadioButton
@@ -59,7 +59,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="MultiSelectToggleGroup with CustomCompoundButton extending CompoundButton"
         android:textColor="?attr/themeTextColor" />
 
@@ -67,7 +67,7 @@
         android:id="@+id/groupMultiCustomCompoundButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         app:tbgChildSpacing="8dp">
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
@@ -98,7 +98,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="MultiSelectToggleGroup with CustomToggleButton implementing ToggleButton"
         android:textColor="?attr/themeTextColor" />
 
@@ -140,7 +140,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="SingleSelectToggleGroup with CustomCompoundToggleButton extending CompoundToggleButton"
         android:textColor="?attr/themeTextColor" />
 
@@ -148,8 +148,8 @@
         android:id="@+id/groupSingleCustomCompoundToggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="@dimen/padding_medium"
-        android:paddingEnd="@dimen/padding_medium"
+        android:paddingStart="@dimen/margin_padding_medium"
+        android:paddingEnd="@dimen/margin_padding_medium"
         app:tbgChildSpacing="auto">
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundToggleButton

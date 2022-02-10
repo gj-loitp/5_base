@@ -19,7 +19,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 android:textStyle="bold" />
@@ -27,7 +27,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="@string/i_love_you"
                 android:textColor="?attr/themeTextColor" />
 
@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_padding_medium"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:text="@string/large_text"
                 android:textColor="?attr/themeTextColor" />
         </LinearLayout>

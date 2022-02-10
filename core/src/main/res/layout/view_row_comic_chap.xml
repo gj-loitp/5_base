@@ -18,7 +18,7 @@
         android:drawableEnd="@drawable/ic_expansion_header_indicator_grey_24dp"
         android:foreground="?selectableItemBackground"
         android:gravity="center_vertical"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:textAllCaps="false"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium"

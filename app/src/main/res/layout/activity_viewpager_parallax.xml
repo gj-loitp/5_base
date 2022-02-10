@@ -15,7 +15,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/red"
         android:gravity="center"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="Choose one: Mode.RIGHT_OVERLAY|LEFT_OVERLAY"
         android:textColor="?attr/themeTextColor" />
 </RelativeLayout>

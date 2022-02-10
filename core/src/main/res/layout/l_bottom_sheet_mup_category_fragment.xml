@@ -14,7 +14,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:singleLine="true"
         android:text="@string/category_vn"
         android:textColor="?attr/themeTextColor"
@@ -35,8 +35,8 @@
         style="@style/ScrollVertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="@dimen/padding_small"
-        android:paddingEnd="@dimen/padding_small"
+        android:paddingStart="@dimen/margin_padding_small"
+        android:paddingEnd="@dimen/margin_padding_small"
         android:visibility="gone"
         tools:itemCount="10"
         tools:listitem="@layout/view_row_comic_category" />

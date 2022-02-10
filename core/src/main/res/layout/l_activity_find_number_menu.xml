@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:padding="@dimen/padding_medium"
+            android:padding="@dimen/margin_padding_medium"
             android:scaleType="centerInside"
             android:src="@drawable/find_the_number"/>
 
@@ -50,7 +50,7 @@
             android:drawableStart="@drawable/ic_play_blue"
             android:gravity="center"
             android:paddingStart="0dp"
-            android:paddingEnd="@dimen/padding_large"
+            android:paddingEnd="@dimen/margin_padding_large"
             android:src="@drawable/bkg_blue"
             android:text="@string/single_player"
             android:textColor="@color/white"
@@ -67,7 +67,7 @@
             android:drawableStart="@drawable/ic_play_blue"
             android:gravity="center"
             android:paddingStart="0dp"
-            android:paddingEnd="@dimen/padding_large"
+            android:paddingEnd="@dimen/margin_padding_large"
             android:src="@drawable/bkg_blue"
             android:text="@string/two_players"
             android:textColor="@color/white"

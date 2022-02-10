@@ -1,10 +1,4 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
-
-    <dimen name="padding_small">8dp</dimen>
-    <dimen name="padding_medium">16dp</dimen>
-    <dimen name="padding_large">25dp</dimen>
-
     <dimen name="padding_3">3dp</dimen>
     <dimen name="padding_5">5dp</dimen>
     <dimen name="padding_8">8dp</dimen>
@@ -156,7 +150,7 @@
     <dimen name="pdlg_tv_message">11.2sp</dimen>
     <dimen name="pdlg_space">8.4dp</dimen>
 
-    <!--region cosmocalendar-->
+    <!--region cosmo calendar-->
     <dimen name="space_1x">8dp</dimen>
     <dimen name="space_2x">16dp</dimen>
     <dimen name="space_3x">24dp</dimen>
@@ -175,7 +169,7 @@
     <dimen name="text_large">18sp</dimen>
     <dimen name="day_text_size">14sp</dimen>
     <dimen name="day_text_padding">8dp</dimen>
-    <!--endregion cosmocalendar-->
+    <!--endregion cosmo calendar-->
 
     <dimen name="spl_default_splitter_size">8dp</dimen>
 </resources>

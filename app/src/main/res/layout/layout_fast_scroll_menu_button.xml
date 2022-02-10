@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:background="?selectableItemBackground"
     android:gravity="start|center_vertical"
-    android:paddingStart="@dimen/padding_medium"
-    android:paddingEnd="@dimen/padding_medium"
+    android:paddingStart="@dimen/margin_padding_medium"
+    android:paddingEnd="@dimen/margin_padding_medium"
     android:textAppearance="?android:textAppearanceButton"
     android:textColor="?attr/themeTextColor"
     tools:text="Sample">

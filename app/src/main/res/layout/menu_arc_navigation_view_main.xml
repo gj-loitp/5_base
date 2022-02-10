@@ -24,7 +24,7 @@
         android:id="@+id/rootView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/padding_medium"
+        android:padding="@dimen/margin_padding_medium"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/menu_arc_navigation_view_main">
 

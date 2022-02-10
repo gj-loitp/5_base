@@ -15,10 +15,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingStart="@dimen/padding_medium"
+            android:paddingStart="@dimen/margin_padding_medium"
             android:paddingTop="@dimen/w_65"
-            android:paddingEnd="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium">
+            android:paddingEnd="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPick"

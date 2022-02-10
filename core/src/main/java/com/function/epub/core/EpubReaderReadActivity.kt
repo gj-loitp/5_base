@@ -338,7 +338,7 @@ class EpubReaderReadActivity : BaseFontActivity(), OnFragmentReadyListener {
                 id = idWebView
 //                logD(">>>setFragmentView data $data")
                 val fontSizePx = LAppResource.getDimenValue(R.dimen.txt_small)
-                val paddingPx = LAppResource.getDimenValue(R.dimen.padding_small)
+                val paddingPx = LAppResource.getDimenValue(R.dimen.margin_padding_small)
 //                logD(">>>setFragmentView fontSizePx $fontSizePx, paddingPx $paddingPx")
                 if (LUIUtil.isDarkTheme()) {
                     loadDataString(

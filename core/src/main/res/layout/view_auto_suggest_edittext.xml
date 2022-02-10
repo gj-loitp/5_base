@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    android:paddingStart="@dimen/padding_medium"
-    android:paddingTop="@dimen/padding_small"
-    android:paddingEnd="@dimen/padding_medium"
-    android:paddingBottom="@dimen/padding_small">
+    android:paddingStart="@dimen/margin_padding_medium"
+    android:paddingTop="@dimen/margin_padding_small"
+    android:paddingEnd="@dimen/margin_padding_medium"
+    android:paddingBottom="@dimen/margin_padding_small">
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editText"

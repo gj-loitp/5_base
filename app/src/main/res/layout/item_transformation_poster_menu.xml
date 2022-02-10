@@ -22,10 +22,10 @@
             android:layout_height="match_parent"
             android:foreground="?attr/selectableItemBackground"
             android:orientation="vertical"
-            android:paddingStart="@dimen/padding_medium"
-            android:paddingTop="@dimen/padding_small"
-            android:paddingEnd="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_small"
+            android:paddingStart="@dimen/margin_padding_medium"
+            android:paddingTop="@dimen/margin_padding_small"
+            android:paddingEnd="@dimen/margin_padding_medium"
+            android:paddingBottom="@dimen/margin_padding_small"
             tools:ignore="UnusedAttribute">
 
             <com.google.android.material.imageview.ShapeableImageView

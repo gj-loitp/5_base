@@ -46,7 +46,7 @@
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
                 android:background="?selectableItemBackgroundBorderless"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:src="@drawable/abc_ic_ab_back_material"
                 app:tint="?attr/themeTextColor" />
 
@@ -65,7 +65,7 @@
                 android:layout_width="?android:attr/actionBarSize"
                 android:layout_height="match_parent"
                 android:background="?selectableItemBackgroundBorderless"
-                android:padding="@dimen/padding_medium"
+                android:padding="@dimen/margin_padding_medium"
                 android:src="@drawable/ic_more_vert_black_48dp"
                 app:tint="?attr/themeTextColor" />
         </LinearLayout>
@@ -108,7 +108,7 @@
                 android:background="@drawable/bt_comic"
                 android:drawableStart="@drawable/ic_keyboard_arrow_left_black_24dp"
                 android:gravity="center"
-                android:paddingStart="@dimen/padding_medium"
+                android:paddingStart="@dimen/margin_padding_medium"
                 android:text="@string/prev_chap"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeBackgroundColor"
@@ -130,7 +130,7 @@
                 android:background="@drawable/bt_comic"
                 android:drawableEnd="@drawable/ic_keyboard_arrow_right_black_24dp"
                 android:gravity="center"
-                android:paddingEnd="@dimen/padding_medium"
+                android:paddingEnd="@dimen/margin_padding_medium"
                 android:text="@string/next_chap"
                 android:textAllCaps="false"
                 android:textColor="?attr/themeBackgroundColor"
