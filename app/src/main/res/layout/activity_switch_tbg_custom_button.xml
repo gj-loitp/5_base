@@ -106,7 +106,7 @@
         android:id="@+id/groupMultiCustomToggleButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/padding_15"
+        android:padding="@dimen/margin_padding_medium"
         app:tbgChildSpacing="8dp">
 
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomToggleButton

@@ -31,8 +31,8 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/padding_20"
-                    android:paddingRight="@dimen/padding_20"
+                    android:paddingLeft="@dimen/w_20"
+                    android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_14" />
 
@@ -49,8 +49,8 @@
                     android:imeOptions="actionNext"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/padding_20"
-                    android:paddingRight="@dimen/padding_20"
+                    android:paddingLeft="@dimen/w_20"
+                    android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_14" />
 
@@ -67,8 +67,8 @@
                     android:imeOptions="actionNext"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/padding_20"
-                    android:paddingRight="@dimen/padding_20"
+                    android:paddingLeft="@dimen/w_20"
+                    android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_14" />
 
@@ -90,8 +90,8 @@
                     android:imeOptions="actionDone"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/padding_20"
-                    android:paddingRight="@dimen/padding_20"
+                    android:paddingLeft="@dimen/w_20"
+                    android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
                     android:textSize="@dimen/txt_14" />
 

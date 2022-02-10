@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:padding="@dimen/padding_5"
+        android:padding="@dimen/w_5"
         tools:ignore="UselessParent">
 
         <androidx.appcompat.widget.AppCompatImageView

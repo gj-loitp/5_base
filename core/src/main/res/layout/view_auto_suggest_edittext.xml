@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:background="@color/transparent"
         android:inputType="text"
-        android:paddingEnd="@dimen/padding_30"
+        android:paddingEnd="@dimen/w_3"
         android:textCursorDrawable="@null" />
 
     <ProgressBar

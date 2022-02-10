@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:paddingTop="@dimen/padding_10"
-    android:paddingBottom="@dimen/padding_10">
+    android:paddingTop="@dimen/w_10"
+    android:paddingBottom="@dimen/w_10">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivIcon"

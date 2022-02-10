@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:padding="@dimen/padding_3"
+            android:padding="@dimen/w_3"
             android:singleLine="true"
             android:text="@string/app_name"
             android:textColor="@color/white"

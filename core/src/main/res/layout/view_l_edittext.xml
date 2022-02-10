@@ -27,7 +27,7 @@
                 android:layout_width="@dimen/w_30"
                 android:layout_height="@dimen/w_30"
                 android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/w_5"
                 android:src="@drawable/ic_settings_black_48dp" />
 
             <androidx.appcompat.widget.AppCompatEditText
@@ -45,7 +45,7 @@
                 android:layout_width="@dimen/w_30"
                 android:layout_height="@dimen/w_30"
                 android:contentDescription="@string/app_name"
-                android:padding="@dimen/padding_5"
+                android:padding="@dimen/w_5"
                 android:src="@drawable/ic_close_black_48dp"
                 android:visibility="gone"
                 tools:visibility="visible" />

@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/llButtons"
         android:fillViewport="true"
-        android:padding="@dimen/padding_5">
+        android:padding="@dimen/w_5">
 
         <LinearLayout
             android:id="@+id/ll"

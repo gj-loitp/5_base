@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="end"
             android:orientation="vertical"
-            android:paddingEnd="@dimen/padding_30" />
+            android:paddingEnd="@dimen/w_3" />
     </ScrollView>
 
 </RelativeLayout>

@@ -1,10 +1,4 @@
 <resources>
-    <dimen name="padding_3">3dp</dimen>
-    <dimen name="padding_5">5dp</dimen>
-    <dimen name="padding_8">8dp</dimen>
-    <dimen name="padding_10">10dp</dimen>
-    <dimen name="padding_15">15dp</dimen>
-    <dimen name="padding_20">20dp</dimen>
     <dimen name="padding_25">25dp</dimen>
     <dimen name="padding_30">30dp</dimen>
     <dimen name="padding_35">35dp</dimen>

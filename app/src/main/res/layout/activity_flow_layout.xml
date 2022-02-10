@@ -24,7 +24,7 @@
             app:flFlow="true"
             app:flMaxRows="3"
             app:flMinChildSpacing="30dp"
-            app:flRowSpacing="@dimen/padding_15"
+            app:flRowSpacing="@dimen/margin_padding_medium"
             app:flRowVerticalGravity="top"
             app:flRtl="false">
 

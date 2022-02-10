@@ -29,8 +29,8 @@ class BottomBarActivity : BaseFontActivity() {
     private fun setupViews() {
         textView.text = LStoreUtil.readTxtFromRawFolder(nameOfRawFile = R.raw.loitp)
         with(bottomBar) {
-            paddingOnInDp = context.resources.getDimension(R.dimen.padding_10).toInt()
-            paddingOffInDp = context.resources.getDimension(R.dimen.padding_15).toInt()
+            paddingOnInDp = context.resources.getDimension(R.dimen.w_10).toInt()
+            paddingOffInDp = context.resources.getDimension(R.dimen.margin_padding_medium).toInt()
             colorIvOn = R.color.red
             colorIvOff = R.color.pink
             setTextMarginBottom(context.resources.getDimension(R.dimen.margin_5).toInt())
