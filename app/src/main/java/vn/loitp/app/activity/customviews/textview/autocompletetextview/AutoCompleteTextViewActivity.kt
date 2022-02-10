@@ -1,7 +1,9 @@
 package vn.loitp.app.activity.customviews.textview.autocompletetextview
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -37,5 +39,14 @@ class AutoCompleteTextViewActivity : BaseFontActivity() {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = AutoCompleteTextViewActivity::class.java.simpleName
         }
+
+        val fruits = arrayOf("Apple", "Banana", "Cherry", "Date", "Grape", "Kiwi", "Mango", "Pear")
+        // Creating the instance of ArrayAdapter containing list of fruit names
+        val adapter = ArrayAdapter(this, android.R.layout.select_dialog_item, fruits)
+        // Getting the instance of AutoCompleteTextView
+        // Getting the instance of AutoCompleteTextView
+        autoCompleteTextView.threshold = 1 // will start working from first character
+        autoCompleteTextView.setAdapter(adapter) // setting the adapter data into the AutoCompleteTextView
+        autoCompleteTextView.setTextColor(Color.RED)
     }
 }
