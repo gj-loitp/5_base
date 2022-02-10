@@ -55,9 +55,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_15"
-                    android:layout_marginRight="@dimen/margin_15"
-                    android:layout_marginBottom="@dimen/margin_15">
+                    android:layout_marginLeft="@dimen/margin_padding_medium"
+                    android:layout_marginRight="@dimen/margin_padding_medium"
+                    android:layout_marginBottom="@dimen/margin_padding_medium">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -86,9 +86,9 @@
                     android:id="@+id/cardView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_15"
-                    android:layout_marginRight="@dimen/margin_15"
-                    android:layout_marginBottom="@dimen/margin_15">
+                    android:layout_marginLeft="@dimen/margin_padding_medium"
+                    android:layout_marginRight="@dimen/margin_padding_medium"
+                    android:layout_marginBottom="@dimen/margin_padding_medium">
 
                     <LinearLayout
                         android:layout_width="match_parent"

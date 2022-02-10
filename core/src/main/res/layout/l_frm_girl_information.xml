@@ -203,7 +203,7 @@
                 android:layout_width="@dimen/w_100"
                 android:layout_height="@dimen/w_100"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginTop="@dimen/w_55"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerInside"
                 android:src="@drawable/l_donation" />

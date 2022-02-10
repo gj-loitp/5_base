@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvUserName"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:background="?selectableItemBackground"
                 android:padding="@dimen/margin_padding_medium"
                 android:text="@string/setting_vn"

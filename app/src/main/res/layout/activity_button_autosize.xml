@@ -35,7 +35,7 @@
                 android:id="@+id/bt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:background="@color/transparent"
                 android:scaleType="centerInside"
                 android:src="@drawable/l_gift" />
@@ -44,7 +44,7 @@
                 android:id="@+id/bt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_50"
+                android:layout_marginTop="@dimen/w_50"
                 android:background="@color/transparent"
                 android:scaleType="centerInside"
                 android:src="@color/red" />

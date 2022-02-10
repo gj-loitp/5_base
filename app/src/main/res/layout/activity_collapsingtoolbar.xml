@@ -61,7 +61,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/margin_55"
+                        android:layout_marginEnd="@dimen/w_55"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatEditText

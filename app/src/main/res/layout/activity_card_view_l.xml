@@ -21,13 +21,13 @@
                 android:id="@+id/lCardView0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_55" />
+                android:layout_marginTop="@dimen/w_55" />
 
             <com.views.card.LCardView
                 android:id="@+id/lCardView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_25" />
+                android:layout_marginTop="@dimen/w_25" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

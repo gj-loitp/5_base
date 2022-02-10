@@ -34,7 +34,7 @@
             <com.views.layout.rotatelayout.LRotateLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_30"
+                android:layout_marginTop="@dimen/w_30"
                 app:angle="270">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -48,7 +48,7 @@
             <com.views.layout.rotatelayout.LRotateLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_30"
+                android:layout_marginTop="@dimen/w_30"
                 app:angle="180">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -62,7 +62,7 @@
             <com.views.layout.rotatelayout.LRotateLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_30"
+                android:layout_marginTop="@dimen/w_30"
                 app:angle="180">
 
                 <androidx.appcompat.widget.AppCompatTextView

@@ -37,7 +37,7 @@
                 android:id="@+id/ll1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginTop="@dimen/w_55"
                 android:orientation="vertical"
                 android:padding="@dimen/margin_padding_medium">
 
@@ -56,7 +56,7 @@
                 android:layout_width="@dimen/w_80"
                 android:layout_height="@dimen/w_80"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/margin_55"
+                android:layout_marginTop="@dimen/w_55"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/loitp" />
 

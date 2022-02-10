@@ -10,7 +10,7 @@
         android:layout_width="@dimen/w_120"
         android:layout_height="@dimen/w_120"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin_55"
+        android:layout_marginTop="@dimen/w_55"
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo" />
 
@@ -19,8 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
-        android:layout_marginStart="@dimen/margin_20"
-        android:layout_marginEnd="@dimen/margin_20"
+        android:layout_marginStart="@dimen/w_20"
+        android:layout_marginEnd="@dimen/w_20"
         android:text="@string/login"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_30"
@@ -31,8 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
-        android:layout_marginStart="@dimen/margin_20"
-        android:layout_marginEnd="@dimen/margin_20"
+        android:layout_marginStart="@dimen/w_20"
+        android:layout_marginEnd="@dimen/w_20"
         android:text="Id: loitp\nPw: 123456789"
         android:textColor="@color/red"
         android:textSize="@dimen/txt_22"
@@ -50,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/lEditTextId"
-        android:layout_marginTop="@dimen/margin_55" />
+        android:layout_marginTop="@dimen/w_55" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btLogin"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/w_20"
         android:background="?attr/themeBackgroundColor"
         android:text="@string/login"
         android:textColor="?attr/themeTextColor" />

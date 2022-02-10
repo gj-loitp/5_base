@@ -33,7 +33,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutStringWithDefaultValue"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put String WithDefaultValue" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -44,7 +44,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutBoolean"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put Boolean" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -55,7 +55,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutFloat"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put Float" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -66,7 +66,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutInt"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put Int" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -77,7 +77,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutLong"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put Long" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -88,7 +88,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutNumber"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put Number" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -99,7 +99,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutObject"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put Object" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -110,7 +110,7 @@
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btPutListObject"
                 style="@style/ButtonMenu"
-                android:layout_marginTop="@dimen/margin_35"
+                android:layout_marginTop="@dimen/w_35"
                 android:text="Put List Object" />
 
             <androidx.appcompat.widget.AppCompatButton
