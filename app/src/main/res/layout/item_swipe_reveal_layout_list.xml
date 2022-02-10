@@ -37,6 +37,6 @@
             android:gravity="center"
             android:padding="@dimen/w_5"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/txt_18" />
+            android:textSize="@dimen/txt_medium" />
     </FrameLayout>
 </com.views.layout.swipereveallayout.LSwipeRevealLayout>

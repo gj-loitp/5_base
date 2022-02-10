@@ -19,7 +19,7 @@
             android:background="@drawable/selector_emptybox"
             android:gravity="center"
             android:textColor="@color/red"
-            android:textSize="@dimen/txt_14"
+            android:textSize="@dimen/txt_small"
             android:visibility="visible"
             tools:text="@string/large_dummy_text" />
 

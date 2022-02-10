@@ -24,21 +24,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_8" />
+                    android:textSize="@dimen/text_tiny" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_8" />
+                    android:textSize="@dimen/text_tiny" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_8" />
+                    android:textSize="@dimen/text_tiny" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btToast"

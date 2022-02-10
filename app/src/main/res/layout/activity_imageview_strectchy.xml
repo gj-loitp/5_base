@@ -24,7 +24,7 @@
                 android:padding="@dimen/margin_padding_medium"
                 android:text="Try to scroll this image (540 x 1952)"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_20" />
+                android:textSize="@dimen/txt_medium" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/lStretchyImageView"

@@ -33,7 +33,7 @@
             android:maxLines="2"
             android:padding="@dimen/w_5"
             android:textColor="@color/black"
-            android:textSize="@dimen/txt_16" />
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_date"
@@ -43,7 +43,7 @@
             android:gravity="center|end|bottom"
             android:padding="@dimen/w_5"
             android:textColor="@color/gray"
-            android:textSize="@dimen/txt_10" />
+            android:textSize="@dimen/txt_medium" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

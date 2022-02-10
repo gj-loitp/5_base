@@ -34,7 +34,7 @@
                     android:paddingLeft="@dimen/w_20"
                     android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/txt_14" />
+                    android:textSize="@dimen/txt_small" />
 
                 <View
                     android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                     android:paddingLeft="@dimen/w_20"
                     android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/txt_14" />
+                    android:textSize="@dimen/txt_small" />
 
                 <View
                     android:layout_width="match_parent"
@@ -70,7 +70,7 @@
                     android:paddingLeft="@dimen/w_20"
                     android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/txt_14" />
+                    android:textSize="@dimen/txt_small" />
 
             </LinearLayout>
 
@@ -93,7 +93,7 @@
                     android:paddingLeft="@dimen/w_20"
                     android:paddingRight="@dimen/w_20"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/txt_14" />
+                    android:textSize="@dimen/txt_small" />
 
             </LinearLayout>
         </LinearLayout>

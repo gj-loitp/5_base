@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/margin_65"
-        android:layout_marginBottom="@dimen/margin_65"
+        android:layout_marginTop="@dimen/w_65"
+        android:layout_marginBottom="@dimen/w_65"
         android:indeterminateTint="?attr/themeTextColor" />
 
     <androidx.recyclerview.widget.RecyclerView

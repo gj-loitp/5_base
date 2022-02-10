@@ -41,7 +41,7 @@
                 android:padding="@dimen/margin_padding_medium"
                 android:text="@string/policy"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_10"
+                android:textSize="@dimen/txt_medium"
                 tools:ignore="UnusedAttribute" />
 
             <androidx.appcompat.widget.AppCompatButton

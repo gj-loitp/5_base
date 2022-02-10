@@ -17,7 +17,7 @@
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/red"
-            android:textSize="@dimen/txt_18"
+            android:textSize="@dimen/txt_medium"
             android:textStyle="bold" />
     </LinearLayout>
 </LinearLayout>

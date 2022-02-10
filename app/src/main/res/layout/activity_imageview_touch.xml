@@ -21,6 +21,6 @@
         android:padding="@dimen/margin_padding_medium"
         android:text="@string/try_to_zoom"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_20"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold" />
 </RelativeLayout>

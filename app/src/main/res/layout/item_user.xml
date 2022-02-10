@@ -35,13 +35,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/txt_14" />
+            android:textSize="@dimen/txt_small" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/red"
-            android:textSize="@dimen/txt_10" />
+            android:textSize="@dimen/txt_medium" />
     </LinearLayout>
 </LinearLayout>

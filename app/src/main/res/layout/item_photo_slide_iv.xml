@@ -20,5 +20,5 @@
         android:background="?attr/themeBackgroundColor50"
         android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_8" />
+        android:textSize="@dimen/text_tiny" />
 </RelativeLayout>

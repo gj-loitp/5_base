@@ -54,7 +54,7 @@
                 android:gravity="center"
                 android:text="@string/demo_realm_click_to_edit_long_click_to_delete"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_20" />
+                android:textSize="@dimen/txt_medium" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

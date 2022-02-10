@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivClose"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_18" />
+            android:textSize="@dimen/txt_medium" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bt0"

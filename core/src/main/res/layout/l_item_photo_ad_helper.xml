@@ -38,7 +38,7 @@
         android:gravity="center"
         android:padding="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_14"
+        android:textSize="@dimen/txt_small"
         android:textStyle="bold"
         tools:text="@string/app_name" />
 
