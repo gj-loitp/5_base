@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import androidx.core.view.isVisible
 import com.annotation.IsAutoAnimation
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
@@ -49,6 +50,17 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = false
+            this.tvTitle?.text = EmptyActivity::class.java.simpleName
+        }
         tvPolicy.setSafeOnClickListener {
             LSocialUtil.openUrlInBrowser(context = this, url = Constants.URL_POLICY)
         }
@@ -102,33 +114,53 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btApi -> intent = Intent(this, MenuAPIActivity::class.java)
-            btAnimation -> intent = Intent(this, MenuAnimationActivity::class.java)
-            btCustomView -> intent = Intent(this, MenuCustomViewsActivity::class.java)
-            btDemo -> intent = Intent(this, MenuDemoActivity::class.java)
-            btAds -> intent = Intent(this, MenuAdsActivity::class.java)
-            btRateApp -> LSocialUtil.rateApp(this, packageName)
-            btMoreApp -> LSocialUtil.moreApp(this)
-            btFunction -> intent = Intent(this, MenuFunctionActivity::class.java)
-            btDatabase -> intent = Intent(this, MenuDatabaseActivity::class.java)
-            btPattern -> intent = Intent(this, MenuPatternActivity::class.java)
-            btChat -> LSocialUtil.chatMessenger(this)
-            btGithub -> LSocialUtil.openUrlInBrowser(this, "https://github.com/tplloi/basemaster")
-            btAdHelper -> {
-                intent = Intent(this, AdHelperActivity::class.java)
-                intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+        val intent: Intent? =
+            when (v) {
+                btApi ->
+                    Intent(this, MenuAPIActivity::class.java)
+                btAnimation -> Intent(this, MenuAnimationActivity::class.java)
+                btCustomView -> Intent(this, MenuCustomViewsActivity::class.java)
+                btDemo -> Intent(this, MenuDemoActivity::class.java)
+                btAds -> Intent(this, MenuAdsActivity::class.java)
+                btRateApp -> {
+                    LSocialUtil.rateApp(this, packageName)
+                    null
+                }
+                btMoreApp -> {
+                    LSocialUtil.moreApp(this)
+                    null
+                }
+                btFunction -> Intent(this, MenuFunctionActivity::class.java)
+                btDatabase -> Intent(this, MenuDatabaseActivity::class.java)
+                btPattern -> Intent(this, MenuPatternActivity::class.java)
+                btChat -> {
+                    LSocialUtil.chatMessenger(this)
+                    null
+                }
+                btGithub -> {
+                    LSocialUtil.openUrlInBrowser(
+                        context = this,
+                        url = "https://github.com/tplloi/basemaster"
+                    )
+                    null
+                }
+                btAdHelper -> {
+                    Intent(this, AdHelperActivity::class.java)
+                    intent.putExtra(Constants.AD_HELPER_IS_ENGLISH_LANGUAGE, true)
+                }
+                btFbFanpage -> {
+                    LSocialUtil.likeFacebookFanpage(this)
+                    null
+                }
+                btFrmMore -> Intent(this, MoreActivity::class.java)
+                btTutorial -> Intent(this, MenuTutorialActivity::class.java)
+                btPicker -> Intent(this, MenuPickerActivity::class.java)
+                btNetwork -> Intent(this, NetworkActivity::class.java)
+                btSecurity -> Intent(this, SecurityMenuActivity::class.java)
+                btService -> Intent(this, MenuServiceActivity::class.java)
+                btUtils -> Intent(this, UtilsActivity::class.java)
+                else -> null
             }
-            btFbFanpage -> LSocialUtil.likeFacebookFanpage(this)
-            btFrmMore -> intent = Intent(this, MoreActivity::class.java)
-            btTutorial -> intent = Intent(this, MenuTutorialActivity::class.java)
-            btPicker -> intent = Intent(this, MenuPickerActivity::class.java)
-            btNetwork -> intent = Intent(this, NetworkActivity::class.java)
-            btSecurity -> intent = Intent(this, SecurityMenuActivity::class.java)
-            btService -> intent = Intent(this, MenuServiceActivity::class.java)
-            btUtils -> intent = Intent(this, UtilsActivity::class.java)
-        }
         intent?.let {
             startActivity(it)
             LActivityUtil.tranIn(this)
