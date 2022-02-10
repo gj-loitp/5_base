@@ -43,10 +43,10 @@ class TTTAPIComicListActivity : BaseFontActivity() {
     private fun setupViewModels() {
         tttViewModel = getViewModel(TTTViewModel::class.java)
         tttViewModel?.let { vm ->
-            vm.comicTypeLiveEvent.observe(this, { comicType ->
+            vm.comicTypeLiveEvent.observe(this) { comicType ->
                 vm.getListComic(link = comicType.url)
-            })
-            vm.listComicActionLiveData.observe(this, { actionData ->
+            }
+            vm.listComicActionLiveData.observe(this) { actionData ->
                 val isDoing = actionData.isDoing
                 val isSuccess = actionData.isSuccess
 
@@ -61,7 +61,7 @@ class TTTAPIComicListActivity : BaseFontActivity() {
                         }
                     }
                 }
-            })
+            }
         }
     }
 
