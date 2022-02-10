@@ -16,8 +16,7 @@ import com.service.livedata.SingleLiveEvent
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
-import java.util.* // ktlint-disable no-wildcard-imports
-import kotlin.collections.ArrayList
+import java.util.*
 
 @LogTag("TTTViewModel")
 class TTTViewModel : BaseViewModel() {
@@ -33,7 +32,11 @@ class TTTViewModel : BaseViewModel() {
     val unfavComicLiveData: ActionLiveData<ActionData<Comic>> = ActionLiveData()
 
     fun setComicType(comicType: ComicType) {
-        comicTypeLiveEvent.postValue(comicType)
+        logD("loitpp setComicType ${comicType.url}")
+//        comicTypeLiveEvent.set(comicType)
+        ioScope.launch {
+            comicTypeLiveEvent.postValue(comicType)
+        }
     }
 
     fun getListComic(link: String) {
