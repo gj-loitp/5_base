@@ -14,7 +14,7 @@ import com.core.helper.ttt.viewmodel.TTTViewModel
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.l_frm_ttt_comic_home.*
 
-@LogTag("loitppFrmHomeTTT")
+@LogTag("FrmHomeTTT")
 class FrmHomeTTT : BaseFragment() {
 
     private var tTTViewModel: TTTViewModel? = null

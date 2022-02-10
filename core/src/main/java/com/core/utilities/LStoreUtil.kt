@@ -25,7 +25,7 @@ import java.util.zip.ZipInputStream
 
 class LStoreUtil {
     companion object {
-        internal var logTag = "loitpp" + LStoreUtil::class.java.simpleName
+        internal var logTag = LStoreUtil::class.java.simpleName
 
         private fun log(msg: String) {
             LLog.d(logTag, msg)
