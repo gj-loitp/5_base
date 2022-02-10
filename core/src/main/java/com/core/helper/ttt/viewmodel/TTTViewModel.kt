@@ -16,7 +16,7 @@ import com.service.livedata.SingleLiveEvent
 import kotlinx.coroutines.launch
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
-import java.util.*
+import java.util.* // ktlint-disable no-wildcard-imports
 
 @LogTag("TTTViewModel")
 class TTTViewModel : BaseViewModel() {

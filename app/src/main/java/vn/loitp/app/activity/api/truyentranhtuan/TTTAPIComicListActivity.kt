@@ -75,8 +75,6 @@ class TTTAPIComicListActivity : BaseFontActivity() {
         }
         builder.setItems(items) { _: DialogInterface?, position: Int ->
             tttViewModel?.setComicType(comicTypeList[position])
-            tttViewModel?.setComicType(comicTypeList[position + 1])
-            tttViewModel?.setComicType(comicTypeList[position + 2])
         }
         val dialog = builder.create()
         dialog.show()
