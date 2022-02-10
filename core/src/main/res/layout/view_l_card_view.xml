@@ -32,6 +32,6 @@
             android:singleLine="true"
             android:text="@string/app_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_22" />
+            android:textSize="@dimen/txt_large" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

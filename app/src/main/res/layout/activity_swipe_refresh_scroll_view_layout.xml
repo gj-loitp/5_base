@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/swiperefreshlayout_scrollview"
                     android:textColor="?attr/themeTextColor"
-                    android:textSize="@dimen/txt_30" />
+                    android:textSize="@dimen/txt_larger" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="wrap_content"

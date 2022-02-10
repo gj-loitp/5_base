@@ -17,7 +17,7 @@
         android:padding="@dimen/margin_padding_medium"
         android:text="Touch anything"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_32" />
+        android:textSize="@dimen/txt_largest" />
 
     <com.views.layout.heartlayout.LHeartLayout
         android:id="@+id/heartLayout"

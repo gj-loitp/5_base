@@ -23,7 +23,7 @@
         android:layout_marginEnd="@dimen/w_20"
         android:text="@string/login"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/txt_30"
+        android:textSize="@dimen/txt_larger"
         android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -35,7 +35,7 @@
         android:layout_marginEnd="@dimen/w_20"
         android:text="Id: loitp\nPw: 123456789"
         android:textColor="@color/red"
-        android:textSize="@dimen/txt_22"
+        android:textSize="@dimen/txt_large"
         android:textStyle="italic" />
 
     <com.views.edittext.leditext.LEditText

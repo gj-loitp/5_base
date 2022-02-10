@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/txt_32"
+                android:textSize="@dimen/txt_largest"
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton

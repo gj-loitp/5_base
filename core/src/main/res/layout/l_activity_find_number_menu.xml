@@ -54,7 +54,7 @@
             android:src="@drawable/bkg_blue"
             android:text="@string/single_player"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_find_number"/>
+            android:textSize="@dimen/txt_larger"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/btTwoPlayers"
@@ -71,7 +71,7 @@
             android:src="@drawable/bkg_blue"
             android:text="@string/two_players"
             android:textColor="@color/white"
-            android:textSize="@dimen/txt_find_number"/>
+            android:textSize="@dimen/txt_larger"/>
 
     </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

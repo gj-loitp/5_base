@@ -13,7 +13,7 @@
         android:padding="@dimen/w_5"
         android:text="Home"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/txt_22"
+        android:textSize="@dimen/txt_large"
         android:textStyle="bold" />
 
     <fragment

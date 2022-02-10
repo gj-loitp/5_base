@@ -30,7 +30,7 @@
         android:padding="@dimen/margin_padding_medium"
         android:text="@string/copyright"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_find_number" />
+        android:textSize="@dimen/txt_larger" />
 
     <ProgressBar
         android:id="@+id/progressBar"

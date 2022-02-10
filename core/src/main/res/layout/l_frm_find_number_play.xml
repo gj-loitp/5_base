@@ -25,7 +25,7 @@
         android:background="@drawable/ic_star"
         android:gravity="center"
         android:textColor="@color/white"
-        android:textSize="@dimen/txt_find_number"
+        android:textSize="@dimen/txt_larger"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

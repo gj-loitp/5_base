@@ -39,7 +39,7 @@
             android:text="5:27"
             android:textAllCaps="true"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/txt_22"
+            android:textSize="@dimen/txt_large"
             tools:ignore="HardcodedText" />
 
     </com.views.wwlmusic.layout.LWWLMusicFixedAspectRatioRelativeLayout>

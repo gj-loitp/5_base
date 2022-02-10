@@ -20,7 +20,7 @@
             android:padding="8dip"
             android:text="..."
             android:textColor="@color/blue"
-            android:textSize="@dimen/txt_30"
+            android:textSize="@dimen/txt_larger"
             android:textStyle="bold" />
 
         <LinearLayout

@@ -71,7 +71,7 @@
                 android:background="@drawable/bt_tag"
                 android:text="4444444444444444444444444444444444444444444444444"
                 android:textColor="@color/gray"
-                android:textSize="@dimen/txt_40" />
+                android:textSize="@dimen/txt_largest" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"

@@ -47,7 +47,7 @@
             android:layout_gravity="bottom"
             android:singleLine="true"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/txt_32"
+            android:textSize="@dimen/txt_largest"
             android:textStyle="bold"
             android:visibility="visible"
             tools:text="@string/app_name" />
@@ -62,7 +62,7 @@
         android:layout_marginEnd="@dimen/margin_padding_medium"
         android:singleLine="true"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/txt_30"
+        android:textSize="@dimen/txt_larger"
         android:visibility="visible"
         tools:text="6969"
         tools:visibility="visible" />
