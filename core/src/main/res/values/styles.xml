@@ -22,7 +22,7 @@
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">@dimen/label_title_size</item>
+        <item name="android:textSize">@dimen/txt_medium</item>
     </style>
 
     <style name="CrossImageView">
@@ -33,7 +33,7 @@
     </style>
 
     <style name="Label">
-        <item name="android:padding">@dimen/padding_label_view</item>
+        <item name="android:padding">@dimen/margin_padding_medium</item>
         <item name="android:layout_margin">@dimen/margin_between_labels</item>
         <item name="android:background">@color/whiteSmoke</item>
     </style>

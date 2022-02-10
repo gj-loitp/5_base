@@ -18,7 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/margin_padding_medium"
         app:exb_backgroundColor="?attr/themeTextColor"
-        app:exb_backgroundCornerRadius="@dimen/round_45"
+        app:exb_backgroundCornerRadius="@dimen/round_larger"
         app:exb_elevation="@dimen/w_3"
         app:exb_itemInactiveColor="?attr/themeBackgroundColorMedium"
         app:exb_item_horizontal_margin="@dimen/margin_padding_small"

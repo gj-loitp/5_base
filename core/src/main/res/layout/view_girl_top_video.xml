@@ -13,8 +13,8 @@
     app:shape_roundRect_borderColor="?attr/themeTextColor"
     app:shape_roundRect_borderWidth="@dimen/w_3"
     app:shape_roundRect_bottomLeftRadius="0dp"
-    app:shape_roundRect_bottomRightRadius="@dimen/round_45"
-    app:shape_roundRect_topLeftRadius="@dimen/round_45"
+    app:shape_roundRect_bottomRightRadius="@dimen/round_larger"
+    app:shape_roundRect_topLeftRadius="@dimen/round_larger"
     app:shape_roundRect_topRightRadius="0dp"
     tools:ignore="UnusedAttribute">
 

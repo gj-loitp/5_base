@@ -12,16 +12,12 @@
     <dimen name="txt_largest">32sp</dimen>
     <dimen name="txt_50">50sp</dimen>
 
+    <dimen name="round_tiny">4dp</dimen>
+    <dimen name="round_small">8dp</dimen>
     <dimen name="round_medium">16dp</dimen>
-    <dimen name="round_5">5dp</dimen>
-    <dimen name="round_10">10dp</dimen>
-    <dimen name="round_15">15dp</dimen>
-    <dimen name="round_25">25dp</dimen>
-    <dimen name="round_35">35dp</dimen>
-    <dimen name="round_45">45dp</dimen>
-    <dimen name="round_50">50dp</dimen>
-    <dimen name="round_80">80dp</dimen>
-    <dimen name="round_90">90dp</dimen>
+    <dimen name="round_large">32dp</dimen>
+    <dimen name="round_larger">45dp</dimen>
+    <dimen name="round_largest">90dp</dimen>
 
     <dimen name="w_tiny">0.5dp</dimen>
     <dimen name="w_1">1dp</dimen>
@@ -52,8 +48,6 @@
     <dimen name="w_300">300dp</dimen>
     <dimen name="w_350">350dp</dimen>
 
-    <dimen name="label_title_size">14sp</dimen>
-    <dimen name="padding_label_view">10dp</dimen>
     <dimen name="margin_between_labels">3dp</dimen>
     <dimen name="padding_icon_cross">5dp</dimen>
     <dimen name="fbutton_default_conner_radius">8dp</dimen>

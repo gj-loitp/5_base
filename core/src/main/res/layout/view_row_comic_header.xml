@@ -29,9 +29,9 @@
         app:shape_roundRect_borderColor="?attr/themeTextColor"
         app:shape_roundRect_borderWidth="@dimen/w_1"
         app:shape_roundRect_bottomLeftRadius="0dp"
-        app:shape_roundRect_bottomRightRadius="@dimen/round_90"
-        app:shape_roundRect_topLeftRadius="@dimen/round_90"
-        app:shape_roundRect_topRightRadius="@dimen/round_90">
+        app:shape_roundRect_bottomRightRadius="@dimen/round_largest"
+        app:shape_roundRect_topLeftRadius="@dimen/round_largest"
+        app:shape_roundRect_topRightRadius="@dimen/round_largest">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivAvatar"
