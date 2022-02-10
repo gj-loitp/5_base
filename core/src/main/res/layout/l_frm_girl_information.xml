@@ -38,7 +38,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/why_u_see_ad_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -69,7 +69,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/rate_app_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -100,7 +100,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/more_app_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -131,7 +131,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/share_app_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -162,7 +162,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/like_facebook_fanpage"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />
@@ -193,7 +193,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:text="@string/support_24_7_en"
                     android:textColor="?attr/themeTextColor"
                     android:textSize="@dimen/txt_medium" />

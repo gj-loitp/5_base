@@ -46,7 +46,7 @@ class FrmFavourite : BaseFragment() {
     private fun setupViews() {
         val girlTitleAdapterTopUser = GirlTitleAdapter()
         val marginTop = LAppResource.getDimenValue(R.dimen.w_86)
-        val marginStartEnd = LAppResource.getDimenValue(R.dimen.margin_medium)
+        val marginStartEnd = LAppResource.getDimenValue(R.dimen.margin_padding_medium)
         girlTitleAdapterTopUser.setMargin(marginStartEnd = marginStartEnd, marginTop = marginTop)
         girlTitleAdapterTopUser.setTitle(getString(R.string.menu_favourite))
         girlAlbumAdapter = GirlAlbumAdapter()

@@ -43,7 +43,7 @@
         android:layout_above="@+id/lnAdView"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
         android:indeterminateTint="?attr/themeTextColor" />
 
     <LinearLayout

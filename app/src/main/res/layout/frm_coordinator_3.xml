@@ -46,7 +46,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 app:cardElevation="@dimen/w_3"
                 app:cardUseCompatPadding="true">
 

@@ -13,7 +13,7 @@
         android:layout_height="@dimen/w_150"
         android:layout_above="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_padding_medium"
         android:contentDescription="@string/app_name"
         android:scaleType="fitXY"
         tools:src="@drawable/ic_launcher" />
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:enabled="true"
         android:gravity="center"
         android:padding="@dimen/padding_medium"

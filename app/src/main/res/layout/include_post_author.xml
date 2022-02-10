@@ -17,7 +17,7 @@
         style="@style/Base.TextAppearance.AppCompat.Small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_padding_medium"
         android:gravity="center_vertical"
         android:textColor="@color/red"
         tools:text="someauthor@email.com" />

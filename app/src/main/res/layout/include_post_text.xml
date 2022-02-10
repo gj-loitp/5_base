@@ -20,7 +20,7 @@
         android:id="@+id/post_body"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_padding_small"
         android:textColor="@color/deepPink"
         tools:text="@string/lorem" />
 

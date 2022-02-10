@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button3"
         style="@style/ButtonMenu"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
         android:text="@string/back_to_fn1" />
 
     <androidx.appcompat.widget.AppCompatImageView

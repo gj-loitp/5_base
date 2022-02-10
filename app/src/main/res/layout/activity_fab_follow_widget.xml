@@ -26,7 +26,7 @@
                     android:id="@+id/cardView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_medium">
+                    android:layout_margin="@dimen/margin_padding_medium">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -119,7 +119,7 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_margin="@dimen/margin_padding_medium"
             android:src="@drawable/ic_play_arrow_black_48dp"
             android:tint="?attr/themeTextColor"
             app:layout_anchor="@id/cardView1"
@@ -129,7 +129,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_gravity="bottom|start"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_margin="@dimen/margin_padding_medium"
             android:src="@drawable/iv" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>

@@ -50,7 +50,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/margin_medium"
+        android:padding="@dimen/margin_padding_medium"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -72,7 +72,7 @@
                 android:id="@+id/tvDetailDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/txt_medium"
                 android:textStyle="italic"

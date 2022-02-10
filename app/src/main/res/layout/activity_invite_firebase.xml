@@ -23,7 +23,7 @@
                 android:id="@+id/icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
 
@@ -31,7 +31,7 @@
                 android:id="@+id/inviteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:paddingStart="@dimen/padding_medium"
                 android:paddingEnd="@dimen/padding_medium"
@@ -43,7 +43,7 @@
                 android:id="@+id/layoutSnackBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium" />
+                android:layout_margin="@dimen/margin_padding_medium" />
         </LinearLayout>
     </ScrollView>
 

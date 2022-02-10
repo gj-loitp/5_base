@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/lnAdView"
             android:layout_alignParentEnd="true"
-            android:layout_margin="@dimen/margin_medium"
+            android:layout_margin="@dimen/margin_padding_medium"
             android:contentDescription="@string/app_name"
             android:src="@drawable/l_page"
             android:tint="@color/black"

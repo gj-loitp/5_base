@@ -4,7 +4,7 @@
     android:id="@+id/cardBooks"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/margin_medium"
+    android:layout_margin="@dimen/margin_padding_medium"
     card_view:cardBackgroundColor="?attr/themeBackgroundColor"
     card_view:cardCornerRadius="@dimen/round_medium"
     card_view:cardElevation="@dimen/w_3"

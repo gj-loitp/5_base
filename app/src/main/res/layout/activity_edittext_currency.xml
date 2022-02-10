@@ -30,7 +30,7 @@
                 android:id="@+id/tvCurrency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/text_medium" />
         </LinearLayout>

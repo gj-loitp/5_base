@@ -48,7 +48,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor" />
         </ScrollView>
     </LinearLayout>

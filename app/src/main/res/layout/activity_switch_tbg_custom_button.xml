@@ -37,7 +37,7 @@
         <androidx.appcompat.widget.AppCompatRadioButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
@@ -47,7 +47,7 @@
         <androidx.appcompat.widget.AppCompatRadioButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="@drawable/selector_bg_radio_button"
             android:button="@null"
             android:gravity="center"
@@ -80,7 +80,7 @@
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:gravity="center"
             android:text="ipsum"
             android:textColor="?attr/themeTextColor" />
@@ -88,7 +88,7 @@
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomCompoundButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:gravity="center"
             android:text="dolor"
             android:textColor="?attr/themeTextColor" />
@@ -120,7 +120,7 @@
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomToggleButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="@drawable/selector_bg_radio_button"
             android:gravity="center"
             android:text="ipsum"
@@ -129,7 +129,7 @@
         <vn.loitp.app.activity.customviews.switchtoggle.togglebuttongroup.button.CustomToggleButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginStart="@dimen/margin_padding_medium"
             android:background="@drawable/selector_bg_radio_button"
             android:gravity="center"
             android:text="dolor"

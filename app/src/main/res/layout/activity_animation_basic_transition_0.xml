@@ -9,7 +9,7 @@
         android:id="@+id/tvDummy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/margin_medium"
+        android:padding="@dimen/margin_padding_medium"
         android:text="@string/activity_0"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />

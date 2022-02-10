@@ -32,7 +32,7 @@
                 android:id="@+id/btDeleteAll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Delete All"
                 android:textColor="?attr/themeTextColor" />
@@ -41,7 +41,7 @@
                 android:id="@+id/btFindWord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Find work with id = 1"
                 android:textColor="?attr/themeTextColor" />

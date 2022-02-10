@@ -33,7 +33,7 @@
         android:id="@+id/fastScrollerThumbView"
         android:layout_width="40dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
         android:textColor="?attr/themeTextColor"
         app:iconColor="@color/green"
         app:layout_constraintBottom_toBottomOf="@+id/fastScrollerView"

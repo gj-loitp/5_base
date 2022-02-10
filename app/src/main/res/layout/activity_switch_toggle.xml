@@ -22,7 +22,7 @@
                 android:id="@+id/labeledSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:textSize="@dimen/txt_medium"
                 app:colorBorder="@color/deepPink"
                 app:on="false" />
@@ -30,7 +30,7 @@
             <com.views.switchtoggle.toggle.LabeledSwitch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:textSize="@dimen/txt_medium"
                 app:colorBorder="@color/darkCyan"
                 app:colorDisabled="@color/gray"
@@ -41,7 +41,7 @@
             <com.views.switchtoggle.toggle.LabeledSwitch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_margin="@dimen/margin_padding_medium"
                 android:textSize="@dimen/txt_medium"
                 app:colorBorder="@color/blue"
                 app:on="false" />

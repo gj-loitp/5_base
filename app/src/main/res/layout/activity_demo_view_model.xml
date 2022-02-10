@@ -14,7 +14,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btChangeColor"
         style="@style/ButtonMenu"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
         android:text="Change color" />
 
     <androidx.appcompat.widget.AppCompatTextView

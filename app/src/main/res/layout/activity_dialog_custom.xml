@@ -33,7 +33,7 @@
                 android:id="@+id/btDefault"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Default"
                 android:textColor="?attr/themeTextColor" />
@@ -42,7 +42,7 @@
                 android:id="@+id/btTopLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Top left"
                 android:textColor="?attr/themeTextColor" />
@@ -51,7 +51,7 @@
                 android:id="@+id/btTopCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Top Center"
                 android:textColor="?attr/themeTextColor" />
@@ -60,7 +60,7 @@
                 android:id="@+id/btTopRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Top Right"
                 android:textColor="?attr/themeTextColor" />
@@ -69,7 +69,7 @@
                 android:id="@+id/btCenterLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Center left"
                 android:textColor="?attr/themeTextColor" />
@@ -78,7 +78,7 @@
                 android:id="@+id/btCenterCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Center center"
                 android:textColor="?attr/themeTextColor" />
@@ -87,7 +87,7 @@
                 android:id="@+id/btCenterRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Center right"
                 android:textColor="?attr/themeTextColor" />
@@ -96,7 +96,7 @@
                 android:id="@+id/btBottomLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Bottom left"
                 android:textColor="?attr/themeTextColor" />
@@ -105,7 +105,7 @@
                 android:id="@+id/btBottomCenter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Bottom center"
                 android:textColor="?attr/themeTextColor" />
@@ -114,7 +114,7 @@
                 android:id="@+id/btBottomRight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:background="?attr/themeBackgroundColorMedium"
                 android:text="Bottom right"
                 android:textColor="?attr/themeTextColor" />

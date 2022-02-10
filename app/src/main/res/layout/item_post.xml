@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/post_author_layout"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="@dimen/margin_small"
-            android:layout_marginTop="@dimen/margin_medium" />
+            android:layout_marginStart="@dimen/margin_padding_small"
+            android:layout_marginTop="@dimen/margin_padding_medium" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

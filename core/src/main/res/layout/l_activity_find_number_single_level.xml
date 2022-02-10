@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_margin="@dimen/margin_large"
+            android:layout_margin="@dimen/margin_padding_large"
             android:background="@drawable/bkg_round_rect"
             android:visibility="invisible"
             tools:visibility="visible">
@@ -63,7 +63,7 @@
             android:layout_height="@dimen/w_70"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/margin_large"
+            android:layout_margin="@dimen/margin_padding_large"
             android:src="@drawable/back_button"
             android:visibility="invisible"
             tools:visibility="visible" />
@@ -74,7 +74,7 @@
             android:layout_height="@dimen/w_100"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/margin_large"
+            android:layout_margin="@dimen/margin_padding_large"
             android:src="@drawable/ic_play_blue"
             android:visibility="invisible"
             tools:visibility="visible" />

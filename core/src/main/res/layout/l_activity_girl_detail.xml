@@ -56,7 +56,7 @@
             android:id="@+id/btLike"
             android:layout_width="@dimen/w_50"
             android:layout_height="@dimen/w_50"
-            android:layout_marginEnd="@dimen/margin_large"
+            android:layout_marginEnd="@dimen/margin_padding_large"
             android:visibility="invisible"
             app:allow_random_color="true"
             app:btn_color="@color/gray"

@@ -12,7 +12,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btGoTo2"
         style="@style/ButtonMenu"
-        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
         android:text="Go to Activity2" />
 
     <androidx.appcompat.widget.AppCompatButton

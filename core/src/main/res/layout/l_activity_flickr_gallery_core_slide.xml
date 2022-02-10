@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_padding_small"
         android:baselineAligned="false">
 
         <FrameLayout

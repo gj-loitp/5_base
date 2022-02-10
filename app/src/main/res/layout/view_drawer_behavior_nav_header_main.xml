@@ -17,9 +17,9 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_padding_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
         android:text="Android Studio"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />
@@ -28,9 +28,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium"
-        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_padding_medium"
+        android:layout_marginTop="@dimen/margin_padding_medium"
+        android:layout_marginEnd="@dimen/margin_padding_medium"
         android:text="www.muathu@gmail.com"
         android:textColor="?attr/themeTextColor"
         android:textSize="@dimen/txt_medium" />

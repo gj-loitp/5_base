@@ -77,8 +77,8 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:orientation="horizontal"
-                android:paddingLeft="@dimen/margin_medium"
-                android:paddingRight="@dimen/margin_medium"
+                android:paddingLeft="@dimen/margin_padding_medium"
+                android:paddingRight="@dimen/margin_padding_medium"
                 android:visibility="gone"
                 tools:visibility="visible">
 
@@ -97,7 +97,7 @@
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginStart="@dimen/margin_padding_medium"
                     android:layout_weight="1"
                     android:background="?attr/themeBackgroundColorMedium"
                     android:text="@string/disconnect"

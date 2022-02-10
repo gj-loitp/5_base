@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginStart="@dimen/margin_padding_medium"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/ic_expansion_header_indicator_grey_24dp" />
 

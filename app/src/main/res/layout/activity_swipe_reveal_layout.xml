@@ -19,7 +19,7 @@
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         app:dragEdge="right"
         app:srl_mode="normal">
 
@@ -66,7 +66,7 @@
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:background="@android:color/darker_gray"
         app:dragEdge="left"
         app:srl_mode="same_level">
@@ -114,7 +114,7 @@
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:background="@android:color/darker_gray"
         app:dragEdge="top"
         app:srl_mode="same_level">
@@ -153,7 +153,7 @@
     <com.views.layout.swipereveallayout.LSwipeRevealLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_margin="@dimen/margin_padding_medium"
         android:background="@android:color/darker_gray"
         app:dragEdge="bottom"
         app:srl_mode="same_level">

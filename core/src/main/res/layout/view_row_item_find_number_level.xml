@@ -5,7 +5,7 @@
     android:id="@+id/layoutRootView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/margin_small"
+    android:layout_margin="@dimen/margin_padding_small"
     tools:background="@drawable/bkg_blue_2">
 
     <com.views.textview.autofit.LAutofitTextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/margin_small"
+        android:layout_margin="@dimen/margin_padding_small"
         android:gravity="center"
         android:singleLine="true"
         android:textColor="@color/white"
