@@ -21,6 +21,11 @@
             android:paddingBottom="@dimen/margin_padding_medium">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btAutoCompleteTextView"
+                style="@style/ButtonMenu"
+                android:text="AutoCompleteTextViewActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAutofitTextView"
                 style="@style/ButtonMenu"
                 android:text="@string/autofit_textview" />

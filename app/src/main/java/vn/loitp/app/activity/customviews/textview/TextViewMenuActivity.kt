@@ -12,6 +12,7 @@ import com.core.utilities.LActivityUtil
 import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_text_view_menu.*
 import vn.loitp.app.R
+import vn.loitp.app.activity.customviews.textview.autocompletetextview.AutoCompleteTextViewActivity
 import vn.loitp.app.activity.customviews.textview.autofittextview.AutoFitTextViewActivity
 import vn.loitp.app.activity.customviews.textview.colortextview.ColorTextViewActivity
 import vn.loitp.app.activity.customviews.textview.countdown.CountDownActivity
@@ -52,6 +53,7 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
             this.viewShadow?.isVisible = true
             this.tvTitle?.text = TextViewMenuActivity::class.java.simpleName
         }
+        btAutoCompleteTextView.setOnClickListener(this)
         btAutofitTextView.setOnClickListener(this)
         btScoreText.setOnClickListener(this)
         btCountDown.setOnClickListener(this)
@@ -69,6 +71,7 @@ class TextViewMenuActivity : BaseFontActivity(), OnClickListener {
 
     override fun onClick(v: View) {
         val intent: Intent? = when (v) {
+            btAutoCompleteTextView -> Intent(this, AutoCompleteTextViewActivity::class.java)
             btAutofitTextView -> Intent(this, AutoFitTextViewActivity::class.java)
             btScoreText -> Intent(this, ScoreTextViewActivity::class.java)
             btCountDown -> Intent(this, CountDownActivity::class.java)

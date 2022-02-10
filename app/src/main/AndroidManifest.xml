@@ -1129,6 +1129,9 @@
                 android:resource="@xml/file_provider_attachment_manager"
                 tools:replace="android:resource" />
         </provider>
+        <activity
+            android:name=".activity.customviews.textview.autocompletetextview.AutoCompleteTextViewActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode" />
     </application>
     <queries>
         <intent>
