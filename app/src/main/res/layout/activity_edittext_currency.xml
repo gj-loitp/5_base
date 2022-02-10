@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_medium" />
+                android:textSize="@dimen/txt_medium" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

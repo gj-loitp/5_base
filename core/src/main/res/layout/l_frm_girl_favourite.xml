@@ -44,7 +44,7 @@
         android:textColor="?attr/themeTextColor"
         android:textColorHint="?attr/themeTextColor"
         android:textCursorDrawable="?attr/themeTextColor"
-        android:textSize="@dimen/text_large"
+        android:textSize="@dimen/txt_medium"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/realtimeBlurView"
         app:layout_constraintEnd_toStartOf="@+id/ivSearch"

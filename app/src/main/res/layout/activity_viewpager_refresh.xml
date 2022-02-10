@@ -35,6 +35,6 @@ Is there any way to load only one page in viewpager?
 \n
 This sample help you how to iplm the above request."
         android:textColor="@color/black"
-        android:textSize="@dimen/text_medium" />
+        android:textSize="@dimen/txt_medium" />
 
 </RelativeLayout>

@@ -56,7 +56,7 @@
                 android:paddingStart="@dimen/margin_padding_medium"
                 android:paddingEnd="@dimen/margin_padding_medium"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_small"
+                android:textSize="@dimen/txt_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvItemPosterTitle"

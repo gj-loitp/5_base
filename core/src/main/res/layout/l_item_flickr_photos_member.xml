@@ -30,7 +30,7 @@
         android:padding="@dimen/margin_padding_small"
         android:singleLine="true"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/text_medium"
+        android:textSize="@dimen/txt_medium"
         android:visibility="invisible"
         tools:visibility="visible" />
 

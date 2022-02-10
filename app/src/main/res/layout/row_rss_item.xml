@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_small"
+                android:textSize="@dimen/txt_small"
                 tools:text="@string/app_name" />
 
         </LinearLayout>

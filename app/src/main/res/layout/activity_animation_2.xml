@@ -17,14 +17,14 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvExit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="@string/screen2"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold" />
 
         </LinearLayout>

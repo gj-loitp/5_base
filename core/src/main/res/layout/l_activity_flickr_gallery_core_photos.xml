@@ -30,7 +30,7 @@
             android:background="@drawable/bt_round_transparent"
             android:padding="@dimen/margin_padding_small"
             android:textColor="?attr/themeTextColor"
-            android:textSize="@dimen/text_medium"
+            android:textSize="@dimen/txt_medium"
             android:textStyle="bold"
             tools:text="@string/app_name" />
 

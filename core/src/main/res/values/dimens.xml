@@ -105,11 +105,6 @@
     <dimen name="day_of_week_padding_vertical">@dimen/space_1x</dimen>
     <dimen name="day_padding_vertical">@dimen/space_1x</dimen>
     <dimen name="month_name_padding">@dimen/space_1x</dimen>
-    <dimen name="text_tiny">8sp</dimen>
-    <dimen name="text_small">12sp</dimen>
-    <dimen name="text_medium">14sp</dimen>
-    <dimen name="text_big">16sp</dimen>
-    <dimen name="text_large">18sp</dimen>
     <dimen name="day_text_size">14sp</dimen>
     <dimen name="day_text_padding">8dp</dimen>
     <!--endregion cosmo calendar-->

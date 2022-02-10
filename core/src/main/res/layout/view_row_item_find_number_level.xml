@@ -20,6 +20,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/txt_50"
         android:textStyle="bold"
-        autofit:minTextSizeTv="@dimen/text_tiny"
+        autofit:minTextSizeTv="@dimen/txt_tiny"
         tools:text="69" />
 </com.views.layout.squarelayout.LSquareFrameLayout>

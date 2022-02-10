@@ -12,6 +12,6 @@
         android:padding="@dimen/margin_padding_medium"
         android:text="@string/app_name"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/text_small" />
+        android:textSize="@dimen/txt_small" />
 
 </androidx.core.widget.NestedScrollView>

@@ -28,7 +28,7 @@
                 android:padding="@dimen/margin_padding_medium"
                 android:text="@string/large_text"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_medium"
+                android:textSize="@dimen/txt_medium"
                 tools:ignore="SpUsage" />
         </LinearLayout>
     </com.views.scrollview.TwoDScrollView>

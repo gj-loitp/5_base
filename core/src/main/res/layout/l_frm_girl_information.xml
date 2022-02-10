@@ -218,7 +218,7 @@
                 android:paddingEnd="@dimen/margin_padding_medium"
                 android:paddingBottom="@dimen/w_200"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/txt_medium"
                 tools:text="Hello World!" />
 
         </LinearLayout>

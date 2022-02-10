@@ -26,7 +26,7 @@
         android:gravity="center"
         android:singleLine="true"
         android:textColor="?attr/themeTextColor"
-        android:textSize="@dimen/text_small"
+        android:textSize="@dimen/txt_small"
         android:textStyle="bold"
         tools:text="@string/app_name" />
 </LinearLayout>

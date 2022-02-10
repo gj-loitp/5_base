@@ -82,7 +82,7 @@
                 android:gravity="center"
                 android:text="FOOTER"
                 android:textColor="?attr/themeTextColor"
-                android:textSize="@dimen/text_large"
+                android:textSize="@dimen/txt_medium"
                 android:textStyle="bold" />
         </RelativeLayout>
 
