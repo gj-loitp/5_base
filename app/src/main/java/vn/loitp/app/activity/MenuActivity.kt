@@ -59,7 +59,7 @@ class MenuActivity : BaseFontActivity(), View.OnClickListener {
             )
             this.ivIconRight?.setImageResource(R.color.transparent)
             this.viewShadow?.isVisible = false
-            this.tvTitle?.text = EmptyActivity::class.java.simpleName
+            this.tvTitle?.text = MenuActivity::class.java.simpleName
         }
         tvPolicy.setSafeOnClickListener {
             LSocialUtil.openUrlInBrowser(context = this, url = Constants.URL_POLICY)
