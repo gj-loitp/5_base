@@ -1,23 +1,9 @@
 <resources>
-    <dimen name="padding_25">25dp</dimen>
-    <dimen name="padding_30">30dp</dimen>
-    <dimen name="padding_35">35dp</dimen>
-    <dimen name="padding_40">40dp</dimen>
-    <dimen name="padding_45">45dp</dimen>
-    <dimen name="padding_50">50dp</dimen>
-    <dimen name="padding_55">55dp</dimen>
-    <dimen name="padding_100">100dp</dimen>
-    <dimen name="padding_200">200dp</dimen>
-
     <dimen name="margin_padding_tiny">4dp</dimen>
     <dimen name="margin_padding_small">8dp</dimen>
     <dimen name="margin_padding_medium">16dp</dimen>
     <dimen name="margin_padding_large">25dp</dimen>
 
-    <dimen name="margin_3">3dp</dimen>
-    <dimen name="margin_5">5dp</dimen>
-    <dimen name="margin_8">8dp</dimen>
-    <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_15">15dp</dimen>
     <dimen name="margin_20">20dp</dimen>
     <dimen name="margin_25">25dp</dimen>

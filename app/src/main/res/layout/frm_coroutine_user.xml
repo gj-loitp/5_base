@@ -39,7 +39,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginTop="@dimen/w_10"
                 android:padding="@dimen/w_10"
                 android:textColor="?attr/themeTextColor"
                 tools:text="@string/app_name" />

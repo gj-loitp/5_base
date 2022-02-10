@@ -23,7 +23,7 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="@dimen/w_50"
                 android:layout_height="@dimen/w_50"
-                android:layout_marginTop="@dimen/margin_5"
+                android:layout_marginTop="@dimen/w_5"
                 android:src="@drawable/ic_bug_report_black_48dp"
                 app:tint="@color/red"
                 tools:ignore="ContentDescription" />
@@ -71,7 +71,7 @@
                     android:id="@+id/ivCloseButton"
                     android:layout_width="@dimen/w_20"
                     android:layout_height="@dimen/w_20"
-                    android:layout_marginStart="@dimen/margin_5"
+                    android:layout_marginStart="@dimen/w_5"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_close_black_48dp"
                     app:tint="@color/white" />

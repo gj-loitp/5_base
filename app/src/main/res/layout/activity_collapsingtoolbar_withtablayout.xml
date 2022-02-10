@@ -76,7 +76,7 @@
                         android:layout_height="@dimen/w_30"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginEnd="@dimen/margin_5"
+                        android:layout_marginEnd="@dimen/w_5"
                         android:background="?selectableItemBackgroundBorderless"
                         android:contentDescription="@string/app_name"
                         android:scaleType="centerInside"

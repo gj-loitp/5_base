@@ -17,7 +17,7 @@
         android:id="@+id/iv1"
         android:layout_width="@dimen/w_70"
         android:layout_height="@dimen/w_70"
-        android:layout_marginStart="@dimen/margin_5"
+        android:layout_marginStart="@dimen/w_5"
         android:contentDescription="@string/app_name"
         android:src="?attr/themeTextColor" />
 
@@ -25,7 +25,7 @@
         android:id="@+id/iv2"
         android:layout_width="@dimen/w_70"
         android:layout_height="@dimen/w_70"
-        android:layout_marginStart="@dimen/margin_5"
+        android:layout_marginStart="@dimen/w_5"
         android:contentDescription="@string/app_name"
         android:src="?attr/themeTextColor" />
 </LinearLayout>

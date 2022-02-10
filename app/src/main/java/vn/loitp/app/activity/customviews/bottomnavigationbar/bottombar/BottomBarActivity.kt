@@ -33,7 +33,7 @@ class BottomBarActivity : BaseFontActivity() {
             paddingOffInDp = context.resources.getDimension(R.dimen.margin_padding_medium).toInt()
             colorIvOn = R.color.red
             colorIvOff = R.color.pink
-            setTextMarginBottom(context.resources.getDimension(R.dimen.margin_5).toInt())
+            setTextMarginBottom(context.resources.getDimension(R.dimen.w_5).toInt())
             setItem0(R.drawable.ic_bug_report_black_48dp, "Bug report")
             setItem1(R.drawable.ic_add_black_48dp, "Add")
             setItem2(R.drawable.ic_chat_black_48dp, "Chat")

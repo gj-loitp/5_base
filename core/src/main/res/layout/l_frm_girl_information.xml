@@ -216,7 +216,7 @@
                 android:paddingStart="@dimen/margin_padding_medium"
                 android:paddingTop="@dimen/margin_padding_medium"
                 android:paddingEnd="@dimen/margin_padding_medium"
-                android:paddingBottom="@dimen/padding_200"
+                android:paddingBottom="@dimen/w_200"
                 android:textColor="?attr/themeTextColor"
                 android:textSize="@dimen/text_large"
                 tools:text="Hello World!" />
