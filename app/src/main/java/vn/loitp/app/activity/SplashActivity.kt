@@ -75,6 +75,7 @@ class SplashActivity : BaseFontActivity() {
     private fun checkPermission() {
 
         fun checkPer() {
+            isShowDialogCheck = true
             val color = if (LUIUtil.isDarkTheme()) {
                 Color.WHITE
             } else {
@@ -113,16 +114,14 @@ class SplashActivity : BaseFontActivity() {
                             isCheckReadyDone = true
                             goToHome()
                         }
-                        isShowDialogCheck = true
                     } else {
-                        isShowDialogCheck = false
                         finish()
                         LActivityUtil.tranOut(this)
                     }
+                    isShowDialogCheck = false
                 }
         }
 
-        isShowDialogCheck = true
         val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
         if (isCanWriteSystem) {
             checkPer()
@@ -134,7 +133,6 @@ class SplashActivity : BaseFontActivity() {
                 button1 = getString(R.string.ok),
                 button2 = getString(R.string.cancel),
                 onClickButton1 = {
-                    isShowDialogCheck = false
                     val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS)
                     intent.data = Uri.parse("package:$packageName")
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
