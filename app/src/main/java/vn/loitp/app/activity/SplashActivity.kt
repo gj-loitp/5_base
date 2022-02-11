@@ -75,13 +75,18 @@ class SplashActivity : BaseFontActivity() {
     private fun checkPermission() {
 
         fun checkPer() {
+            val color = if (LUIUtil.isDarkTheme()) {
+                Color.WHITE
+            } else {
+                Color.BLACK
+            }
             PermissionX.init(this)
                 .permissions(
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 )
-                .setDialogTintColor(Color.RED, Color.BLUE)
+                .setDialogTintColor(color, color)
                 .onExplainRequestReason { scope, deniedList, _ ->
                     val message = getString(R.string.app_name) + getString(R.string.needs_per)
                     scope.showRequestReasonDialog(
