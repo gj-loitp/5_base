@@ -90,17 +90,11 @@ class MapTrackerActivity :
             val distance = getDistance(startLatLng = startLatLng, endLatLng = endLatLng)
             showShortInformation("distance: $distance (m)")
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
         checkPermission()
     }
 
     //region permisson
     private fun checkPermission() {
-        showShortInformation("checkPermission")
-
         val color = if (LUIUtil.isDarkTheme()) {
             Color.WHITE
         } else {
