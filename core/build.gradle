@@ -162,10 +162,6 @@ dependencies {
     //api 'com.github.rubensousa:previewseekbar:2.0.0'
     //api 'com.github.rubensousa:previewseekbar-exoplayer:2.8.1.0'
 
-    //TODO replace lib
-    //https://github.com/Karumi/Dexter
-    api 'com.karumi:dexter:6.2.3'
-
     //https://github.com/guolindev/PermissionX
     api 'com.guolindev.permissionx:permissionx:1.6.1'
 
