@@ -13,7 +13,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.album.GalleryCoreAlbumActivity
-import com.core.utilities.* // ktlint-disable no-wildcard-imports
+import com.core.utilities.*
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.karumi.dexter.Dexter
@@ -24,7 +24,6 @@ import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.restapi.restclient.RestClient
 import com.utils.util.AppUtils
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
-import java.util.* // ktlint-disable no-wildcard-imports
 
 @SuppressLint("CustomSplashScreen")
 @LogTag("GalleryCoreSplashActivity")
@@ -51,8 +50,8 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.SMART_BANNER
-                it.adUnitId = adMobBannerUnitId
+                it.adSize = AdSize.BANNER
+                it.adUnitId = adMobBannerUnitId!!
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
 //                val navigationHeight = DisplayUtil.getNavigationBarHeight(activity)
