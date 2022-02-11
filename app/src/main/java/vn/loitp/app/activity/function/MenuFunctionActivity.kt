@@ -3,10 +3,12 @@ package vn.loitp.app.activity.function
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.utilities.LActivityUtil
+import com.core.utilities.LUIUtil
 import kotlinx.android.synthetic.main.activity_function_menu.*
 import vn.loitp.app.R
 import vn.loitp.app.activity.function.activityandservice.ActivityServiceComunicateActivity
@@ -41,6 +43,17 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     private fun setupViews() {
+        lActionBar.apply {
+            LUIUtil.setSafeOnClickListenerElastic(
+                view = this.ivIconLeft,
+                runnable = {
+                    onBackPressed()
+                }
+            )
+            this.ivIconRight?.setImageResource(R.color.transparent)
+            this.viewShadow?.isVisible = false
+            this.tvTitle?.text = MenuFunctionActivity::class.java.simpleName
+        }
         btSimpleFingerGesture.setOnClickListener(this)
         btHashMap.setOnClickListener(this)
         btDragDropSample.setOnClickListener(this)
@@ -60,30 +73,27 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        var intent: Intent? = null
-        when (v) {
-            btSimpleFingerGesture -> intent = Intent(this, SimpleFingerGesturesActivity::class.java)
-            btHashMap -> intent = Intent(this, HashMapActivity::class.java)
-            btDragDropSample -> intent = Intent(this, DragDropSampleActivity::class.java)
-            btToggleFullScreen -> intent = Intent(this, FullScreenActivity::class.java)
-            btViewDragHelper -> intent = Intent(this, ViewDragHelperActivity::class.java)
-            btRecolor -> intent = Intent(this, RecolorActivity::class.java)
-            btActivityServiceComunicate ->
-                intent =
-                    Intent(this, ActivityServiceComunicateActivity::class.java)
-            btLocation -> intent = Intent(this, LocationActivity::class.java)
-            btNotification -> intent = Intent(this, MenuNotificationActivity::class.java)
-            btPump -> intent = Intent(this, PumpActivity::class.java)
-            btViewDragHelperSimple ->
-                intent =
-                    Intent(this, ViewDragHelperSimpleActivity::class.java)
-            btViewDragHelperSimple1 ->
-                intent =
-                    Intent(this, ViewDragHelperSimpleActivity1::class.java)
-            btSensor -> intent = Intent(this, SensorActivity::class.java)
-            btGlide -> intent = Intent(this, GlideActivity::class.java)
-            btKeyboard -> intent = Intent(this, KeyboardActivity::class.java)
-            btTheme -> intent = Intent(this, ThemeActivity::class.java)
+        val intent = when (v) {
+            btSimpleFingerGesture -> Intent(this, SimpleFingerGesturesActivity::class.java)
+            btHashMap -> Intent(this, HashMapActivity::class.java)
+            btDragDropSample -> Intent(this, DragDropSampleActivity::class.java)
+            btToggleFullScreen -> Intent(this, FullScreenActivity::class.java)
+            btViewDragHelper -> Intent(this, ViewDragHelperActivity::class.java)
+            btRecolor -> Intent(this, RecolorActivity::class.java)
+            btActivityServiceComunicate -> Intent(
+                this,
+                ActivityServiceComunicateActivity::class.java
+            )
+            btLocation -> Intent(this, LocationActivity::class.java)
+            btNotification -> Intent(this, MenuNotificationActivity::class.java)
+            btPump -> Intent(this, PumpActivity::class.java)
+            btViewDragHelperSimple -> Intent(this, ViewDragHelperSimpleActivity::class.java)
+            btViewDragHelperSimple1 -> Intent(this, ViewDragHelperSimpleActivity1::class.java)
+            btSensor -> Intent(this, SensorActivity::class.java)
+            btGlide -> Intent(this, GlideActivity::class.java)
+            btKeyboard -> Intent(this, KeyboardActivity::class.java)
+            btTheme -> Intent(this, ThemeActivity::class.java)
+            else -> null
         }
         intent?.let {
             startActivity(intent)
