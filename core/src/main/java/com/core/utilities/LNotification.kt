@@ -25,12 +25,27 @@ object LNotification {
         val channelName = "CHANNEL_NAME"
 
         val requestID = System.currentTimeMillis().toInt()
-        val pendingIntent = PendingIntent.getActivity(
-            LAppResource.application,
-            requestID,
-            notificationIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT
-        )
+//        val pendingIntent = PendingIntent.getActivity(
+//            LAppResource.application,
+//            requestID,
+//            notificationIntent,
+//            PendingIntent.FLAG_UPDATE_CURRENT
+//        )
+        val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            PendingIntent.getActivity(
+                LAppResource.application,
+                requestID,
+                notificationIntent,
+                PendingIntent.FLAG_MUTABLE
+            )
+        } else {
+            PendingIntent.getActivity(
+                LAppResource.application,
+                requestID,
+                notificationIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+            )
+        }
 
         val notificationManager =
             LAppResource.application.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
