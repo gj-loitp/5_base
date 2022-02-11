@@ -34,6 +34,7 @@ class TTTSplashActivity : BaseFontActivity() {
         super.onCreate(savedInstanceState)
 
         setupViews()
+        checkPermission()
     }
 
     private fun setupViews() {
@@ -70,7 +71,6 @@ class TTTSplashActivity : BaseFontActivity() {
     override fun onResume() {
         adView?.resume()
         super.onResume()
-        checkPermission()
     }
 
     public override fun onPause() {
