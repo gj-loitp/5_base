@@ -51,6 +51,11 @@
                 android:text="@string/keyboard" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btKeyboardHeightProvider"
+                style="@style/ButtonMenu"
+                android:text="KeyboardHeightProviderActivity" />
+
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btLocation"
                 style="@style/ButtonMenu"
                 android:text="@string/location" />

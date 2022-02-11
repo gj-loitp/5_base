@@ -17,6 +17,7 @@ import vn.loitp.app.activity.function.fullscreen.FullScreenActivity
 import vn.loitp.app.activity.function.glide.GlideActivity
 import vn.loitp.app.activity.function.hashmap.HashMapActivity
 import vn.loitp.app.activity.function.keyboard.KeyboardActivity
+import vn.loitp.app.activity.function.keyboardheightprovider.KeyboardHeightProviderActivity
 import vn.loitp.app.activity.function.location.LocationActivity
 import vn.loitp.app.activity.function.notification.MenuNotificationActivity
 import vn.loitp.app.activity.function.pump.PumpActivity
@@ -69,6 +70,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
         btSensor.setOnClickListener(this)
         btGlide.setOnClickListener(this)
         btKeyboard.setOnClickListener(this)
+        btKeyboardHeightProvider.setOnClickListener(this)
         btTheme.setOnClickListener(this)
     }
 
@@ -92,6 +94,7 @@ class MenuFunctionActivity : BaseFontActivity(), View.OnClickListener {
             btSensor -> Intent(this, SensorActivity::class.java)
             btGlide -> Intent(this, GlideActivity::class.java)
             btKeyboard -> Intent(this, KeyboardActivity::class.java)
+            btKeyboardHeightProvider -> Intent(this, KeyboardHeightProviderActivity::class.java)
             btTheme -> Intent(this, ThemeActivity::class.java)
             else -> null
         }
