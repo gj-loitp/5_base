@@ -34,13 +34,7 @@ import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.lnAdView
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.progressBar
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.recyclerView
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.rootView
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.swipeBackLayout
 
 @LogTag("GalleryMemberActivity")
 @IsSwipeActivity(true)

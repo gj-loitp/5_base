@@ -60,6 +60,7 @@ class TTTSplashActivity : BaseFontActivity() {
     private fun goToHome() {
         LUIUtil.setDelay(mls = 1500, runnable = {
             val intent = Intent(this, TTTComicLoginActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             LActivityUtil.tranIn(this)
             finish()
