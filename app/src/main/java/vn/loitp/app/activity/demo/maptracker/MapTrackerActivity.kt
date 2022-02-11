@@ -2,44 +2,37 @@ package vn.loitp.app.activity.demo.maptracker
 
 import android.Manifest
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationManager
-import android.net.Uri
 import android.os.Bundle
 import android.os.Looper
-import android.provider.Settings
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
-import com.core.utilities.LDialogUtil
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LMathUtil
 import com.core.utilities.LUIUtil
 import com.core.utilities.LUIUtil.Companion.scrollToBottom
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.location.* // ktlint-disable no-wildcard-imports
+import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.* // ktlint-disable no-wildcard-imports
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import com.google.android.gms.maps.model.*
+import com.permissionx.guolindev.PermissionX
 import com.views.setSafeOnClickListener
 import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
 import java.io.IOException
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 @LogTag("MapTrackerActivity")
 @IsFullScreen(false)
@@ -64,7 +57,6 @@ class MapTrackerActivity :
     private var mLocationCallback: LocationCallback? = null
     private var mCurrentLocation: Location? = null
     private val listLoc = ArrayList<Loc>()
-    private var isShowDialogCheck = false
 
     override fun setLayoutResourceId(): Int {
         return R.layout.activity_map_tracker
@@ -102,79 +94,50 @@ class MapTrackerActivity :
 
     override fun onResume() {
         super.onResume()
-        if (!isShowDialogCheck) {
-            checkPermission()
-        }
+        checkPermission()
     }
 
     //region permisson
     private fun checkPermission() {
         showShortInformation("checkPermission")
-        isShowDialogCheck = true
-        Dexter.withContext(this)
-            .withPermissions(Manifest.permission.ACCESS_FINE_LOCATION)
-            .withListener(object : MultiplePermissionsListener {
-                override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                    if (report.areAllPermissionsGranted()) {
-                        buildClient()
-                    } else {
-                        showShouldAcceptPermission()
-                    }
 
-                    if (report.isAnyPermissionPermanentlyDenied) {
-                        showSettingsDialog()
-                    }
-                    isShowDialogCheck = true
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permissions: List<PermissionRequest>,
-                    token: PermissionToken
-                ) {
-                    token.continuePermissionRequest()
-                }
-            })
-            .onSameThread()
-            .check()
-    }
-
-    private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature. You can grant them in app settings.",
-            button1 = "GOTO SETTINGS",
-            button2 = getString(R.string.cancel),
-            onClickButton1 = {
-                isShowDialogCheck = false
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                val uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                startActivityForResult(intent, 101)
-            },
-            onClickButton2 = {
-                onBackPressed()
+        val color = if (LUIUtil.isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+            .setDialogTintColor(color, color)
+            .onExplainRequestReason { scope, deniedList, _ ->
+                val message = getString(com.R.string.app_name) + getString(com.R.string.needs_per)
+                scope.showRequestReasonDialog(
+                    permissions = deniedList,
+                    message = message,
+                    positiveText = getString(com.R.string.allow),
+                    negativeText = getString(com.R.string.deny)
+                )
             }
-        )
-        alertDialog.setCancelable(false)
+            .onForwardToSettings { scope, deniedList ->
+                scope.showForwardToSettingsDialog(
+                    permissions = deniedList,
+                    message = getString(com.R.string.per_manually_msg),
+                    positiveText = getString(com.R.string.ok),
+                    negativeText = getString(com.R.string.cancel)
+                )
+            }
+            .request { allGranted, _, _ ->
+                if (allGranted) {
+                    buildClient()
+                } else {
+                    finish()
+                    LActivityUtil.tranOut(this)
+                }
+            }
     }
 
-    private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature.",
-            button1 = getString(R.string.ok),
-            button2 = getString(R.string.cancel),
-            onClickButton1 = {
-                checkPermission()
-            },
-            onClickButton2 = {
-                onBackPressed()
-            }
-        )
-        alertDialog.setCancelable(false)
-    }
     //endregion
 
     private fun onChangeLocation() {
@@ -191,12 +154,11 @@ class MapTrackerActivity :
             val beforeLoc = listLoc.lastOrNull()
             val beforeTimestamp = beforeLoc?.afterTimestamp ?: 0
             val beforeLatLng = beforeLoc?.afterLatLng
-            val afterLatLng = latLng
             val loc = Loc(
                 beforeTimestamp = beforeTimestamp,
                 afterTimestamp = System.currentTimeMillis(),
                 beforeLatLng = beforeLatLng,
-                afterLatLng = afterLatLng
+                afterLatLng = latLng
             )
             listLoc.add(element = loc)
             var log = ""
