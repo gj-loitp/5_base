@@ -3,6 +3,7 @@ package vn.loitp.app.activity
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
@@ -11,13 +12,9 @@ import com.annotation.LogTag
 import com.core.base.BaseApplication
 import com.core.base.BaseFontActivity
 import com.core.utilities.* // ktlint-disable no-wildcard-imports
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.model.App
 import com.model.GG
+import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_splash.*
 import okhttp3.* // ktlint-disable no-wildcard-imports
 import vn.loitp.app.BuildConfig
@@ -77,50 +74,53 @@ class SplashActivity : BaseFontActivity() {
 
     private fun checkPermission() {
 
-        fun checkPermission() {
-            Dexter.withContext(this)
-                .withPermissions(
+        fun checkPer() {
+            PermissionX.init(this)
+                .permissions(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.ACCESS_FINE_LOCATION
                 )
-                .withListener(object : MultiplePermissionsListener {
-                    override fun onPermissionsChecked(report: MultiplePermissionsReport) {
-                        // check if all permissions are granted
-                        if (report.areAllPermissionsGranted()) {
-                            val isNeedCheckReady = false
-                            if (isNeedCheckReady) {
-                                checkReady()
-                            } else {
-                                isCheckReadyDone = true
-                                goToHome()
-                            }
+                .setDialogTintColor(Color.RED, Color.BLUE)
+                .onExplainRequestReason { scope, deniedList, _ ->
+                    val message = getString(R.string.app_name) + getString(R.string.needs_per)
+                    scope.showRequestReasonDialog(
+                        permissions = deniedList,
+                        message = message,
+                        positiveText = getString(R.string.allow),
+                        negativeText = getString(R.string.deny)
+                    )
+                }
+                .onForwardToSettings { scope, deniedList ->
+                    scope.showForwardToSettingsDialog(
+                        permissions = deniedList,
+                        message = getString(R.string.per_manually_msg),
+                        positiveText = getString(R.string.ok),
+                        negativeText = getString(R.string.cancel)
+                    )
+                }
+                .request { allGranted, _, _ ->
+                    if (allGranted) {
+                        val isNeedCheckReady = false
+                        if (isNeedCheckReady) {
+                            checkReady()
                         } else {
-                            showShouldAcceptPermission()
-                        }
-
-                        // check for permanent denial of any permission
-                        if (report.isAnyPermissionPermanentlyDenied) {
-                            showSettingsDialog()
+                            isCheckReadyDone = true
+                            goToHome()
                         }
                         isShowDialogCheck = true
+                    } else {
+                        isShowDialogCheck = false
+                        finish()
+                        LActivityUtil.tranOut(this)
                     }
-
-                    override fun onPermissionRationaleShouldBeShown(
-                        permissions: List<PermissionRequest>,
-                        token: PermissionToken
-                    ) {
-                        token.continuePermissionRequest()
-                    }
-                })
-                .onSameThread()
-                .check()
+                }
         }
 
         isShowDialogCheck = true
         val isCanWriteSystem = LScreenUtil.checkSystemWritePermission()
         if (isCanWriteSystem) {
-            checkPermission()
+            checkPer()
         } else {
             val alertDialog = LDialogUtil.showDialog2(
                 context = this,
@@ -209,44 +209,6 @@ class SplashActivity : BaseFontActivity() {
         })
     }
 
-    private fun showSettingsDialog() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature. You can grant them in app settings.",
-            button1 = "GOTO SETTINGS",
-            button2 = getString(R.string.cancel),
-            onClickButton1 = {
-                isShowDialogCheck = false
-                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                val uri = Uri.fromParts("package", packageName, null)
-                intent.data = uri
-                startActivityForResult(intent, 101)
-            },
-            onClickButton2 = {
-                onBackPressed()
-            }
-        )
-        alertDialog.setCancelable(false)
-    }
-
-    private fun showShouldAcceptPermission() {
-        val alertDialog = LDialogUtil.showDialog2(
-            context = this,
-            title = "Need Permissions",
-            msg = "This app needs permission to use this feature.",
-            button1 = getString(R.string.ok),
-            button2 = getString(R.string.cancel),
-            onClickButton1 = {
-                checkPermission()
-            },
-            onClickButton2 = {
-                onBackPressed()
-            }
-        )
-        alertDialog.setCancelable(false)
-    }
-
     private fun getSettingFromGGDrive() {
         val linkGGDriveConfigSetting =
             "https://drive.google.com/uc?export=download&id=1xqNJBQMzCPzAiAcm673B6ErRRRANCmQT"
@@ -255,7 +217,11 @@ class SplashActivity : BaseFontActivity() {
             onGGFailure = { _: Call, _: IOException ->
             },
             onGGResponse = { app: App?, isNeedToShowMsg: Boolean ->
-                logD("getSettingFromGGDrive setting $isNeedToShowMsg -> " + BaseApplication.gson.toJson(app))
+                logD(
+                    "getSettingFromGGDrive setting $isNeedToShowMsg -> " + BaseApplication.gson.toJson(
+                        app
+                    )
+                )
             }
         )
     }

@@ -166,6 +166,9 @@ dependencies {
     //https://github.com/Karumi/Dexter
     api 'com.karumi:dexter:6.2.3'
 
+    //https://github.com/guolindev/PermissionX
+    api 'com.guolindev.permissionx:permissionx:1.6.1'
+
     //https://github.com/InflationX/Calligraphy
     api 'io.github.inflationx:calligraphy3:3.1.1'
     api 'io.github.inflationx:viewpump:2.0.3'
