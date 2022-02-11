@@ -29,7 +29,6 @@ import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_splash.*
 class GalleryCoreSplashActivity : BaseFontActivity() {
     private var adView: AdView? = null
     private var adMobBannerUnitId: String? = null
-    private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_splash
@@ -67,6 +66,8 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
         LUIUtil.setTextShadow(textView = tvName, color = null)
 
         LValidateUtil.isValidPackageName()
+
+        checkPermission()
     }
 
     private fun goToHome() {
@@ -88,9 +89,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     override fun onResume() {
         adView?.resume()
         super.onResume()
-        if (!isShowDialogCheck) {
-            checkPermission()
-        }
     }
 
     public override fun onPause() {
@@ -104,7 +102,6 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        isShowDialogCheck = true
         val color = if (LUIUtil.isDarkTheme()) {
             Color.WHITE
         } else {
@@ -137,9 +134,7 @@ class GalleryCoreSplashActivity : BaseFontActivity() {
             .request { allGranted, _, _ ->
                 if (allGranted) {
                     goToHome()
-                    isShowDialogCheck = true
                 } else {
-                    isShowDialogCheck = false
                     finish()
                     LActivityUtil.tranOut(this)
                 }
