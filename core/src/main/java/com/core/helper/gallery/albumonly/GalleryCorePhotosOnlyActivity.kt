@@ -16,7 +16,7 @@ import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
 import com.core.helper.gallery.photos.PhotosDataCore
-import com.core.utilities.*
+import com.core.utilities.* // ktlint-disable no-wildcard-imports
 import com.function.pump.download.Pump
 import com.function.pump.download.core.DownloadListener
 import com.google.android.gms.ads.AdSize
@@ -34,12 +34,7 @@ import com.views.layout.swipeback.SwipeBackLayout
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_album.*
 import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.*
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.lnAdView
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.progressBar
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.recyclerView
-import kotlinx.android.synthetic.main.l_activity_flickr_gallery_core_photos_only.swipeBackLayout
 
 @LogTag("GalleryCorePhotosOnlyActivity")
 @IsFullScreen(false)
