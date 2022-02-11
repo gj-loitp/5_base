@@ -11,8 +11,6 @@ import com.core.common.Constants
 import com.core.helper.gallery.GalleryCoreSplashActivity
 import com.core.helper.gallery.albumonly.GalleryCorePhotosOnlyActivity
 import com.core.helper.gallery.member.GalleryMemberActivity
-import com.core.helper.mup.comic.ui.activity.ComicSplashActivity
-import com.core.helper.mup.girl.ui.GirlSplashActivity
 import com.core.helper.ttt.ui.a.TTTSplashActivity
 import com.core.utilities.LActivityUtil
 import com.game.findnumber.ui.SplashActivity
@@ -53,8 +51,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryMember.visibility = View.VISIBLE
             btGalleryCoreAlbumFrm.visibility = View.VISIBLE
             btEpubReader.visibility = View.VISIBLE
-            btGirl.visibility = View.VISIBLE
-            btComic.visibility = View.VISIBLE
             btTTT.visibility = View.VISIBLE
         } else {
             btGalleryCore.visibility = View.GONE
@@ -62,8 +58,6 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
             btGalleryMember.visibility = View.GONE
             btGalleryCoreAlbumFrm.visibility = View.GONE
             btEpubReader.visibility = View.GONE
-            btGirl.visibility = View.GONE
-            btComic.visibility = View.GONE
             btTTT.visibility = View.GONE
         }
 
@@ -82,9 +76,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
         btFragmentFlow.setOnClickListener(this)
         btArchitectureComponent.setOnClickListener(this)
         btNFC.setOnClickListener(this)
-        btGirl.setOnClickListener(this)
         btMapTracker.setOnClickListener(this)
-        btComic.setOnClickListener(this)
         btFindNumber.setOnClickListener(this)
         btTTT.setOnClickListener(this)
         btRSS.setOnClickListener(this)
@@ -144,24 +136,7 @@ class MenuDemoActivity : BaseFontActivity(), View.OnClickListener {
                 intent =
                     Intent(this, MenuAndroidArchitectureComponentActivity::class.java)
             btNFC -> intent = Intent(this, NFCActivity::class.java)
-            btGirl -> {
-                intent = Intent(this, GirlSplashActivity::class.java)
-                intent.putExtra(Constants.AD_UNIT_ID_BANNER, getString(R.string.str_b))
-
-                val listBkg = ArrayList<String>()
-                listBkg.add("https://live.staticflickr.com/4657/26146170428_894243ab3c_b.jpg")
-                listBkg.add("https://live.staticflickr.com/4782/26128440717_a00e7cbec1_h.jpg")
-                listBkg.add("https://live.staticflickr.com/817/26128440867_1a90f7f8ec_h.jpg")
-                listBkg.add("https://live.staticflickr.com/789/26128436937_84ecab7cdf_h.jpg")
-                listBkg.add("https://live.staticflickr.com/4794/26128436737_69e5dfca7b_h.jpg")
-                intent.putExtra(Constants.BKG_SPLASH_SCREEN, listBkg.random())
-            }
             btMapTracker -> intent = Intent(this, MapTrackerActivity::class.java)
-            btComic -> {
-                intent = Intent(this, ComicSplashActivity::class.java)
-                intent.putExtra(Constants.COMIC_ADMOB_ID_BANNER, getString(R.string.str_b))
-                intent.putExtra(Constants.COMIC_SHOW_DONATION, true)
-            }
             btFindNumber -> intent = Intent(this, SplashActivity::class.java)
             btTTT -> {
                 intent = Intent(this, TTTSplashActivity::class.java)
