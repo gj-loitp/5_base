@@ -49,7 +49,6 @@ class GalleryCorePhotosOnlyFrm(
     private var photosOnlyAdapter: PhotosOnlyAdapter? = null
     private var photosetID: String? = null
     private var photosSize: Int = 0
-    private var isShowDialogCheck: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -155,6 +154,7 @@ class GalleryCorePhotosOnlyFrm(
         btPage.setSafeOnClickListener {
             showListPage()
         }
+        checkPermission()
     }
 
     private fun showListPage() {
@@ -319,16 +319,7 @@ class GalleryCorePhotosOnlyFrm(
         photosOnlyAdapter?.notifyDataSetChanged()
     }
 
-    override fun onResume() {
-        super.onResume()
-//        logD("onResume")
-        if (!isShowDialogCheck) {
-            checkPermission()
-        }
-    }
-
     private fun checkPermission() {
-        isShowDialogCheck = true
         val color = if (LUIUtil.isDarkTheme()) {
             Color.WHITE
         } else {
@@ -361,9 +352,7 @@ class GalleryCorePhotosOnlyFrm(
             .request { allGranted, _, _ ->
                 if (allGranted) {
                     goToHome()
-                    isShowDialogCheck = true
                 } else {
-                    isShowDialogCheck = false
                     activity?.let {
                         it.finish()
                         LActivityUtil.tranOut(it)
