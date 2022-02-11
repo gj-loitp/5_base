@@ -45,7 +45,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     private var adView: AdView? = null
     private var photosetID: String? = null
     private var photosSize: Int = 0
-    private var isShowDialogCheck: Boolean = false
 
     override fun setLayoutResourceId(): Int {
         return R.layout.l_activity_flickr_gallery_core_photos_only
@@ -163,6 +162,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             }
         })
         LValidateUtil.isValidPackageName()
+        checkPermission()
     }
 
     private fun showListPage() {
@@ -323,9 +323,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     public override fun onResume() {
         adView?.resume()
         super.onResume()
-        if (!isShowDialogCheck) {
-            checkPermission()
-        }
     }
 
     public override fun onDestroy() {
@@ -334,7 +331,6 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
     }
 
     private fun checkPermission() {
-        isShowDialogCheck = true
         val color = if (LUIUtil.isDarkTheme()) {
             Color.WHITE
         } else {
@@ -367,9 +363,7 @@ class GalleryCorePhotosOnlyActivity : BaseFontActivity() {
             .request { allGranted, _, _ ->
                 if (allGranted) {
                     goToHome()
-                    isShowDialogCheck = true
                 } else {
-                    isShowDialogCheck = false
                     finish()
                     LActivityUtil.tranOut(this)
                 }
