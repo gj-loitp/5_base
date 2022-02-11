@@ -206,10 +206,10 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
 
     //Room components
-    api "androidx.room:room-runtime:2.3.0"
-    api "androidx.room:room-ktx:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
-    androidTestImplementation "androidx.room:room-testing:2.3.0"
+    api "androidx.room:room-runtime:2.4.1"
+    api "androidx.room:room-ktx:2.4.1"
+    kapt "androidx.room:room-compiler:2.4.1"
+    androidTestImplementation "androidx.room:room-testing:2.4.1"
 
     //ViewModel Kotlin support
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0"
