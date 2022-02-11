@@ -11,7 +11,7 @@ import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
 import com.core.common.Constants
-import com.core.utilities.*
+import com.core.utilities.* // ktlint-disable no-wildcard-imports
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.karumi.dexter.Dexter
@@ -51,8 +51,8 @@ class TTTSplashActivity : BaseFontActivity() {
         } else {
             adView = AdView(this)
             adView?.let {
-                it.adSize = AdSize.SMART_BANNER
-                it.adUnitId = admobBannerUnitId
+                it.adSize = AdSize.BANNER
+                it.adUnitId = admobBannerUnitId!!
                 LUIUtil.createAdBanner(it)
                 lnAdView.addView(it)
             }
