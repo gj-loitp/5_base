@@ -163,8 +163,7 @@ dependencies {
     //endregion
 
     //https://github.com/JakeWharton/NineOldAndroids
-    //TODO delete lib
-    api 'com.nineoldandroids:library:2.4.0'//for draggable view
+    api 'com.nineoldandroids:library:2.4.0' //for draggable view
 
     //region exoplayer
     //https://github.com/google/ExoPlayer
