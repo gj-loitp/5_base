@@ -6,6 +6,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.IntentSender.SendIntentException
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
@@ -15,21 +16,18 @@ import androidx.core.app.ActivityCompat
 import com.annotation.IsFullScreen
 import com.annotation.LogTag
 import com.core.base.BaseFontActivity
+import com.core.utilities.LActivityUtil
 import com.core.utilities.LLocationUtil
+import com.core.utilities.LUIUtil
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.location.* // ktlint-disable no-wildcard-imports
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionDeniedResponse
-import com.karumi.dexter.listener.PermissionGrantedResponse
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.single.PermissionListener
+import com.google.android.gms.location.*
+import com.permissionx.guolindev.PermissionX
 import kotlinx.android.synthetic.main.activity_func_location.*
 import vn.loitp.app.BuildConfig
 import vn.loitp.app.R
 import java.text.DateFormat
-import java.util.* // ktlint-disable no-wildcard-imports
+import java.util.*
 
 @LogTag("LocationActivity")
 @IsFullScreen(false)
@@ -238,30 +236,42 @@ class LocationActivity : BaseFontActivity() {
     }
 
     private fun startLocationButtonClick() {
-        // Requesting ACCESS_FINE_LOCATION using Dexter library
-        Dexter.withContext(this)
-            .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-            .withListener(object : PermissionListener {
-                override fun onPermissionGranted(response: PermissionGrantedResponse) {
+        val color = if (LUIUtil.isDarkTheme()) {
+            Color.WHITE
+        } else {
+            Color.BLACK
+        }
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.ACCESS_FINE_LOCATION,
+            )
+            .setDialogTintColor(color, color)
+            .onExplainRequestReason { scope, deniedList, _ ->
+                val message = getString(com.R.string.app_name) + getString(com.R.string.needs_per)
+                scope.showRequestReasonDialog(
+                    permissions = deniedList,
+                    message = message,
+                    positiveText = getString(com.R.string.allow),
+                    negativeText = getString(com.R.string.deny)
+                )
+            }
+            .onForwardToSettings { scope, deniedList ->
+                scope.showForwardToSettingsDialog(
+                    permissions = deniedList,
+                    message = getString(com.R.string.per_manually_msg),
+                    positiveText = getString(com.R.string.ok),
+                    negativeText = getString(com.R.string.cancel)
+                )
+            }
+            .request { allGranted, _, _ ->
+                if (allGranted) {
                     mRequestingLocationUpdates = true
                     startLocationUpdates()
+                } else {
+                    finish()
+                    LActivityUtil.tranOut(this)
                 }
-
-                override fun onPermissionDenied(response: PermissionDeniedResponse) {
-                    if (response.isPermanentlyDenied) {
-                        // open device settings when the permission is
-                        // denied permanently
-                        openSettings()
-                    }
-                }
-
-                override fun onPermissionRationaleShouldBeShown(
-                    permission: PermissionRequest,
-                    token: PermissionToken
-                ) {
-                    token.continuePermissionRequest()
-                }
-            }).check()
+            }
     }
 
     private fun stopLocationButtonClick() {
