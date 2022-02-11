@@ -40,7 +40,6 @@ import kotlinx.android.synthetic.main.activity_map_tracker.*
 import vn.loitp.app.R
 import java.io.IOException
 import java.util.* // ktlint-disable no-wildcard-imports
-import kotlin.collections.ArrayList
 
 @LogTag("MapTrackerActivity")
 @IsFullScreen(false)
@@ -383,32 +382,40 @@ class MapTrackerActivity :
 
     private fun startLocationUpdates() {
         mSettingsClient?.let { settingsClient ->
-            settingsClient.checkLocationSettings(mLocationSettingsRequest)
-                .addOnSuccessListener(this) {
-                    showShortInformation("All location settings are satisfied.")
-                    if (ActivityCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.ACCESS_FINE_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED &&
-                        ActivityCompat.checkSelfPermission(
+            mLocationSettingsRequest?.let { locationSettingsRequest ->
+                settingsClient.checkLocationSettings(locationSettingsRequest)
+                    .addOnSuccessListener(this) {
+                        showShortInformation("All location settings are satisfied.")
+                        if (ActivityCompat.checkSelfPermission(
                                 this,
-                                Manifest.permission.ACCESS_COARSE_LOCATION
-                            ) == PackageManager.PERMISSION_GRANTED
-                    ) {
-                        mFusedLocationClient?.requestLocationUpdates(
-                            mLocationRequest,
-                            mLocationCallback,
-                            Looper.myLooper()
-                        )
-                        onChangeLocation()
-                    } else {
-                        showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                                Manifest.permission.ACCESS_FINE_LOCATION
+                            ) == PackageManager.PERMISSION_GRANTED &&
+                            ActivityCompat.checkSelfPermission(
+                                    this,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION
+                                ) == PackageManager.PERMISSION_GRANTED
+                        ) {
+                            mLocationRequest?.let { lr ->
+                                mLocationCallback?.let { lc ->
+                                    Looper.myLooper()?.let { l ->
+                                        mFusedLocationClient?.requestLocationUpdates(
+                                            lr,
+                                            lc,
+                                            l
+                                        )
+                                    }
+                                }
+                            }
+                            onChangeLocation()
+                        } else {
+                            showShortInformation("Dont have permission ACCESS_FINE_LOCATION && ACCESS_COARSE_LOCATION")
+                        }
                     }
-                }
-                .addOnFailureListener(this) { e ->
-                    showShortError(e.toString())
-                    onChangeLocation()
-                }
+                    .addOnFailureListener(this) { e ->
+                        showShortError(e.toString())
+                        onChangeLocation()
+                    }
+            }
         }
     }
 
